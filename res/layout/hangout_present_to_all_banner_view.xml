@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:paddingLeft="@dimen/present_banner_padding_horizontal" android:paddingTop="@dimen/present_banner_padding_vertical" android:paddingRight="@dimen/present_banner_padding_horizontal" android:paddingBottom="@dimen/present_banner_padding_vertical" android:layout_width="fill_parent" android:layout_height="@dimen/present_banner_height" android:layout_alignParentTop="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/present_banner_text_size" android:textColor="@color/quantum_white_100" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/presenting_banner_text" android:layout_weight="1.0" />
+    <Button android:textSize="@dimen/present_banner_text_size" android:textStyle="bold" android:textColor="@color/hangout_present_banner_stop_button" android:id="@id/present_to_all_banner_stop_button" android:background="@color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/present_banner_padding_horizontal" android:text="@string/presenting_banner_stop_button_text" />
+</LinearLayout>

@@ -1,0 +1,836 @@
+// Decompiled by Jad v1.5.8e. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.geocities.com/kpdus/jad.html
+// Decompiler options: braces fieldsfirst space lnc 
+
+
+public final class jrh extends koj
+{
+
+    public Integer a;
+    public Integer b;
+    public int c[];
+    public Integer d;
+    public jrj e;
+    public jrj f;
+    public jrj g;
+    public String h[];
+    public Boolean i;
+    public Long j;
+    public Integer k;
+    public Integer l;
+    public Integer m;
+    public long n[];
+    public String o;
+    public jrk p[];
+    public Boolean q;
+    public int r[];
+    public Integer s;
+    public jri t;
+    public String u;
+    public Integer v;
+    public Integer w;
+    public Integer x;
+    public Integer y;
+    public jrl z[];
+
+    public jrh()
+    {
+        a = null;
+        b = null;
+        c = kou.a;
+        d = null;
+        e = null;
+        f = null;
+        g = null;
+        h = kou.f;
+        i = null;
+        j = null;
+        k = null;
+        l = null;
+        m = null;
+        n = kou.b;
+        o = null;
+        p = jrk.a();
+        q = null;
+        r = kou.a;
+        s = null;
+        t = null;
+        u = null;
+        v = null;
+        w = null;
+        x = null;
+        y = null;
+        z = jrl.a();
+        unknownFieldData = null;
+        cachedSize = -1;
+    }
+
+    protected int computeSerializedSize()
+    {
+        boolean flag = false;
+        int i1 = super.computeSerializedSize();
+        int j1 = i1;
+        if (a != null)
+        {
+            a.intValue();
+            j1 = i1 + (koh.f(1) + 4);
+        }
+        i1 = j1;
+        if (b != null)
+        {
+            i1 = j1 + koh.e(2, b.intValue());
+        }
+        j1 = i1;
+        if (c != null)
+        {
+            j1 = i1;
+            if (c.length > 0)
+            {
+                j1 = 0;
+                int l1 = 0;
+                for (; j1 < c.length; j1++)
+                {
+                    l1 += koh.e(c[j1]);
+                }
+
+                j1 = i1 + l1 + c.length * 1;
+            }
+        }
+        i1 = j1;
+        if (d != null)
+        {
+            i1 = j1 + koh.e(4, d.intValue());
+        }
+        j1 = i1;
+        if (e != null)
+        {
+            j1 = i1 + koh.d(5, e);
+        }
+        int i2 = j1;
+        if (f != null)
+        {
+            i2 = j1 + koh.d(6, f);
+        }
+        i1 = i2;
+        if (g != null)
+        {
+            i1 = i2 + koh.d(7, g);
+        }
+        j1 = i1;
+        if (h != null)
+        {
+            j1 = i1;
+            if (h.length > 0)
+            {
+                j1 = 0;
+                i2 = 0;
+                int j2;
+                int k2;
+                for (j2 = 0; j1 < h.length; j2 = k2)
+                {
+                    String s1 = h[j1];
+                    int l2 = i2;
+                    k2 = j2;
+                    if (s1 != null)
+                    {
+                        k2 = j2 + 1;
+                        l2 = i2 + koh.a(s1);
+                    }
+                    j1++;
+                    i2 = l2;
+                }
+
+                j1 = i1 + i2 + j2 * 1;
+            }
+        }
+        i1 = j1;
+        if (i != null)
+        {
+            i.booleanValue();
+            i1 = j1 + (koh.f(9) + 1);
+        }
+        j1 = i1;
+        if (j != null)
+        {
+            j1 = i1 + koh.e(10, j.longValue());
+        }
+        i1 = j1;
+        if (k != null)
+        {
+            i1 = j1 + koh.e(11, k.intValue());
+        }
+        j1 = i1;
+        if (l != null)
+        {
+            j1 = i1 + koh.e(12, l.intValue());
+        }
+        i1 = j1;
+        if (m != null)
+        {
+            i1 = j1 + koh.e(13, m.intValue());
+        }
+        j1 = i1;
+        if (n != null)
+        {
+            j1 = i1;
+            if (n.length > 0)
+            {
+                j1 = 0;
+                i2 = 0;
+                for (; j1 < n.length; j1++)
+                {
+                    i2 += koh.b(n[j1]);
+                }
+
+                j1 = i1 + i2 + n.length * 1;
+            }
+        }
+        i1 = j1;
+        if (o != null)
+        {
+            i1 = j1 + koh.b(15, o);
+        }
+        j1 = i1;
+        if (p != null)
+        {
+            j1 = i1;
+            if (p.length > 0)
+            {
+                for (j1 = 0; j1 < p.length;)
+                {
+                    jrk jrk1 = p[j1];
+                    i2 = i1;
+                    if (jrk1 != null)
+                    {
+                        i2 = i1 + koh.d(16, jrk1);
+                    }
+                    j1++;
+                    i1 = i2;
+                }
+
+                j1 = i1;
+            }
+        }
+        i1 = j1;
+        if (q != null)
+        {
+            q.booleanValue();
+            i1 = j1 + (koh.f(17) + 1);
+        }
+        j1 = i1;
+        if (r != null)
+        {
+            j1 = i1;
+            if (r.length > 0)
+            {
+                j1 = 0;
+                i2 = 0;
+                for (; j1 < r.length; j1++)
+                {
+                    i2 += koh.e(r[j1]);
+                }
+
+                j1 = i1 + i2 + r.length * 2;
+            }
+        }
+        i1 = j1;
+        if (s != null)
+        {
+            i1 = j1 + koh.e(19, s.intValue());
+        }
+        j1 = i1;
+        if (t != null)
+        {
+            j1 = i1 + koh.d(20, t);
+        }
+        i1 = j1;
+        if (u != null)
+        {
+            i1 = j1 + koh.b(21, u);
+        }
+        j1 = i1;
+        if (v != null)
+        {
+            j1 = i1 + koh.e(22, v.intValue());
+        }
+        i1 = j1;
+        if (w != null)
+        {
+            i1 = j1 + koh.e(23, w.intValue());
+        }
+        j1 = i1;
+        if (x != null)
+        {
+            j1 = i1 + koh.e(24, x.intValue());
+        }
+        i1 = j1;
+        if (y != null)
+        {
+            i1 = j1 + koh.e(25, y.intValue());
+        }
+        i2 = i1;
+        if (z != null)
+        {
+            i2 = i1;
+            if (z.length > 0)
+            {
+                int k1 = ((flag) ? 1 : 0);
+                do
+                {
+                    i2 = i1;
+                    if (k1 >= z.length)
+                    {
+                        break;
+                    }
+                    jrl jrl1 = z[k1];
+                    i2 = i1;
+                    if (jrl1 != null)
+                    {
+                        i2 = i1 + koh.d(26, jrl1);
+                    }
+                    k1++;
+                    i1 = i2;
+                } while (true);
+            }
+        }
+        return i2;
+    }
+
+    public kop mergeFrom(kog kog1)
+    {
+_L32:
+        int i1 = kog1.a();
+        i1;
+        JVM INSTR lookupswitch 30: default 256
+    //                   0: 265
+    //                   13: 267
+    //                   16: 281
+    //                   24: 295
+    //                   26: 396
+    //                   32: 524
+    //                   42: 538
+    //                   50: 567
+    //                   58: 596
+    //                   66: 625
+    //                   72: 727
+    //                   80: 741
+    //                   88: 755
+    //                   96: 769
+    //                   104: 783
+    //                   112: 826
+    //                   114: 927
+    //                   122: 1055
+    //                   130: 1066
+    //                   136: 1191
+    //                   144: 1205
+    //                   146: 1307
+    //                   152: 1435
+    //                   162: 1449
+    //                   170: 1478
+    //                   176: 1489
+    //                   184: 1503
+    //                   192: 1517
+    //                   200: 1531
+    //                   210: 1545;
+           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L13 _L14 _L15 _L16 _L17 _L18 _L19 _L20 _L21 _L22 _L23 _L24 _L25 _L26 _L27 _L28 _L29 _L30 _L31
+_L1:
+        if (super.storeUnknownField(kog1, i1)) goto _L32; else goto _L2
+_L2:
+        return this;
+_L3:
+        a = Integer.valueOf(kog1.h());
+          goto _L32
+_L4:
+        b = Integer.valueOf(kog1.f());
+          goto _L32
+_L5:
+        int l3 = kou.b(kog1, 24);
+        int ai[];
+        int j1;
+        if (c == null)
+        {
+            j1 = 0;
+        } else
+        {
+            j1 = c.length;
+        }
+        ai = new int[l3 + j1];
+        l3 = j1;
+        if (j1 != 0)
+        {
+            System.arraycopy(c, 0, ai, 0, j1);
+            l3 = j1;
+        }
+        for (; l3 < ai.length - 1; l3++)
+        {
+            ai[l3] = kog1.f();
+            kog1.a();
+        }
+
+        ai[l3] = kog1.f();
+        c = ai;
+          goto _L32
+_L6:
+        int i6 = kog1.c(kog1.p());
+        int k1 = kog1.r();
+        int i4;
+        for (i4 = 0; kog1.q() > 0; i4++)
+        {
+            kog1.f();
+        }
+
+        kog1.e(k1);
+        int ai1[];
+        if (c == null)
+        {
+            k1 = 0;
+        } else
+        {
+            k1 = c.length;
+        }
+        ai1 = new int[i4 + k1];
+        i4 = k1;
+        if (k1 != 0)
+        {
+            System.arraycopy(c, 0, ai1, 0, k1);
+            i4 = k1;
+        }
+        for (; i4 < ai1.length; i4++)
+        {
+            ai1[i4] = kog1.f();
+        }
+
+        c = ai1;
+        kog1.d(i6);
+          goto _L32
+_L7:
+        d = Integer.valueOf(kog1.f());
+          goto _L32
+_L8:
+        if (e == null)
+        {
+            e = new jrj();
+        }
+        kog1.a(e);
+          goto _L32
+_L9:
+        if (f == null)
+        {
+            f = new jrj();
+        }
+        kog1.a(f);
+          goto _L32
+_L10:
+        if (g == null)
+        {
+            g = new jrj();
+        }
+        kog1.a(g);
+          goto _L32
+_L11:
+        int j4 = kou.b(kog1, 66);
+        String as[];
+        int l1;
+        if (h == null)
+        {
+            l1 = 0;
+        } else
+        {
+            l1 = h.length;
+        }
+        as = new String[j4 + l1];
+        j4 = l1;
+        if (l1 != 0)
+        {
+            System.arraycopy(h, 0, as, 0, l1);
+            j4 = l1;
+        }
+        for (; j4 < as.length - 1; j4++)
+        {
+            as[j4] = kog1.j();
+            kog1.a();
+        }
+
+        as[j4] = kog1.j();
+        h = as;
+          goto _L32
+_L12:
+        i = Boolean.valueOf(kog1.i());
+          goto _L32
+_L13:
+        j = Long.valueOf(kog1.e());
+          goto _L32
+_L14:
+        k = Integer.valueOf(kog1.f());
+          goto _L32
+_L15:
+        l = Integer.valueOf(kog1.f());
+          goto _L32
+_L16:
+        int i2 = kog1.f();
+        switch (i2)
+        {
+        case 1: // '\001'
+        case 2: // '\002'
+            m = Integer.valueOf(i2);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L17:
+        int k4 = kou.b(kog1, 112);
+        long al[];
+        int j2;
+        if (n == null)
+        {
+            j2 = 0;
+        } else
+        {
+            j2 = n.length;
+        }
+        al = new long[k4 + j2];
+        k4 = j2;
+        if (j2 != 0)
+        {
+            System.arraycopy(n, 0, al, 0, j2);
+            k4 = j2;
+        }
+        for (; k4 < al.length - 1; k4++)
+        {
+            al[k4] = kog1.e();
+            kog1.a();
+        }
+
+        al[k4] = kog1.e();
+        n = al;
+        continue; /* Loop/switch isn't completed */
+_L18:
+        int j6 = kog1.c(kog1.p());
+        int k2 = kog1.r();
+        int l4;
+        for (l4 = 0; kog1.q() > 0; l4++)
+        {
+            kog1.e();
+        }
+
+        kog1.e(k2);
+        long al1[];
+        if (n == null)
+        {
+            k2 = 0;
+        } else
+        {
+            k2 = n.length;
+        }
+        al1 = new long[l4 + k2];
+        l4 = k2;
+        if (k2 != 0)
+        {
+            System.arraycopy(n, 0, al1, 0, k2);
+            l4 = k2;
+        }
+        for (; l4 < al1.length; l4++)
+        {
+            al1[l4] = kog1.e();
+        }
+
+        n = al1;
+        kog1.d(j6);
+        continue; /* Loop/switch isn't completed */
+_L19:
+        o = kog1.j();
+        continue; /* Loop/switch isn't completed */
+_L20:
+        int i5 = kou.b(kog1, 130);
+        jrk ajrk[];
+        int l2;
+        if (p == null)
+        {
+            l2 = 0;
+        } else
+        {
+            l2 = p.length;
+        }
+        ajrk = new jrk[i5 + l2];
+        i5 = l2;
+        if (l2 != 0)
+        {
+            System.arraycopy(p, 0, ajrk, 0, l2);
+            i5 = l2;
+        }
+        for (; i5 < ajrk.length - 1; i5++)
+        {
+            ajrk[i5] = new jrk();
+            kog1.a(ajrk[i5]);
+            kog1.a();
+        }
+
+        ajrk[i5] = new jrk();
+        kog1.a(ajrk[i5]);
+        p = ajrk;
+        continue; /* Loop/switch isn't completed */
+_L21:
+        q = Boolean.valueOf(kog1.i());
+        continue; /* Loop/switch isn't completed */
+_L22:
+        int j5 = kou.b(kog1, 144);
+        int ai2[];
+        int i3;
+        if (r == null)
+        {
+            i3 = 0;
+        } else
+        {
+            i3 = r.length;
+        }
+        ai2 = new int[j5 + i3];
+        j5 = i3;
+        if (i3 != 0)
+        {
+            System.arraycopy(r, 0, ai2, 0, i3);
+            j5 = i3;
+        }
+        for (; j5 < ai2.length - 1; j5++)
+        {
+            ai2[j5] = kog1.f();
+            kog1.a();
+        }
+
+        ai2[j5] = kog1.f();
+        r = ai2;
+        continue; /* Loop/switch isn't completed */
+_L23:
+        int k6 = kog1.c(kog1.p());
+        int j3 = kog1.r();
+        int k5;
+        for (k5 = 0; kog1.q() > 0; k5++)
+        {
+            kog1.f();
+        }
+
+        kog1.e(j3);
+        int ai3[];
+        if (r == null)
+        {
+            j3 = 0;
+        } else
+        {
+            j3 = r.length;
+        }
+        ai3 = new int[k5 + j3];
+        k5 = j3;
+        if (j3 != 0)
+        {
+            System.arraycopy(r, 0, ai3, 0, j3);
+            k5 = j3;
+        }
+        for (; k5 < ai3.length; k5++)
+        {
+            ai3[k5] = kog1.f();
+        }
+
+        r = ai3;
+        kog1.d(k6);
+        continue; /* Loop/switch isn't completed */
+_L24:
+        s = Integer.valueOf(kog1.f());
+        continue; /* Loop/switch isn't completed */
+_L25:
+        if (t == null)
+        {
+            t = new jri();
+        }
+        kog1.a(t);
+        continue; /* Loop/switch isn't completed */
+_L26:
+        u = kog1.j();
+        continue; /* Loop/switch isn't completed */
+_L27:
+        v = Integer.valueOf(kog1.f());
+        continue; /* Loop/switch isn't completed */
+_L28:
+        w = Integer.valueOf(kog1.f());
+        continue; /* Loop/switch isn't completed */
+_L29:
+        x = Integer.valueOf(kog1.f());
+        continue; /* Loop/switch isn't completed */
+_L30:
+        y = Integer.valueOf(kog1.f());
+        continue; /* Loop/switch isn't completed */
+_L31:
+        int l5 = kou.b(kog1, 210);
+        jrl ajrl[];
+        int k3;
+        if (z == null)
+        {
+            k3 = 0;
+        } else
+        {
+            k3 = z.length;
+        }
+        ajrl = new jrl[l5 + k3];
+        l5 = k3;
+        if (k3 != 0)
+        {
+            System.arraycopy(z, 0, ajrl, 0, k3);
+            l5 = k3;
+        }
+        for (; l5 < ajrl.length - 1; l5++)
+        {
+            ajrl[l5] = new jrl();
+            kog1.a(ajrl[l5]);
+            kog1.a();
+        }
+
+        ajrl[l5] = new jrl();
+        kog1.a(ajrl[l5]);
+        z = ajrl;
+        if (true) goto _L32; else goto _L33
+_L33:
+    }
+
+    public void writeTo(koh koh1)
+    {
+        boolean flag = false;
+        if (a != null)
+        {
+            koh1.b(1, a.intValue());
+        }
+        if (b != null)
+        {
+            koh1.a(2, b.intValue());
+        }
+        if (c != null && c.length > 0)
+        {
+            for (int i1 = 0; i1 < c.length; i1++)
+            {
+                koh1.a(3, c[i1]);
+            }
+
+        }
+        if (d != null)
+        {
+            koh1.a(4, d.intValue());
+        }
+        if (e != null)
+        {
+            koh1.b(5, e);
+        }
+        if (f != null)
+        {
+            koh1.b(6, f);
+        }
+        if (g != null)
+        {
+            koh1.b(7, g);
+        }
+        if (h != null && h.length > 0)
+        {
+            for (int j1 = 0; j1 < h.length; j1++)
+            {
+                String s1 = h[j1];
+                if (s1 != null)
+                {
+                    koh1.a(8, s1);
+                }
+            }
+
+        }
+        if (i != null)
+        {
+            koh1.a(9, i.booleanValue());
+        }
+        if (j != null)
+        {
+            koh1.b(10, j.longValue());
+        }
+        if (k != null)
+        {
+            koh1.a(11, k.intValue());
+        }
+        if (l != null)
+        {
+            koh1.a(12, l.intValue());
+        }
+        if (m != null)
+        {
+            koh1.a(13, m.intValue());
+        }
+        if (n != null && n.length > 0)
+        {
+            for (int k1 = 0; k1 < n.length; k1++)
+            {
+                koh1.b(14, n[k1]);
+            }
+
+        }
+        if (o != null)
+        {
+            koh1.a(15, o);
+        }
+        if (p != null && p.length > 0)
+        {
+            for (int l1 = 0; l1 < p.length; l1++)
+            {
+                jrk jrk1 = p[l1];
+                if (jrk1 != null)
+                {
+                    koh1.b(16, jrk1);
+                }
+            }
+
+        }
+        if (q != null)
+        {
+            koh1.a(17, q.booleanValue());
+        }
+        if (r != null && r.length > 0)
+        {
+            for (int i2 = 0; i2 < r.length; i2++)
+            {
+                koh1.a(18, r[i2]);
+            }
+
+        }
+        if (s != null)
+        {
+            koh1.a(19, s.intValue());
+        }
+        if (t != null)
+        {
+            koh1.b(20, t);
+        }
+        if (u != null)
+        {
+            koh1.a(21, u);
+        }
+        if (v != null)
+        {
+            koh1.a(22, v.intValue());
+        }
+        if (w != null)
+        {
+            koh1.a(23, w.intValue());
+        }
+        if (x != null)
+        {
+            koh1.a(24, x.intValue());
+        }
+        if (y != null)
+        {
+            koh1.a(25, y.intValue());
+        }
+        if (z != null && z.length > 0)
+        {
+            for (int j2 = ((flag) ? 1 : 0); j2 < z.length; j2++)
+            {
+                jrl jrl1 = z[j2];
+                if (jrl1 != null)
+                {
+                    koh1.b(26, jrl1);
+                }
+            }
+
+        }
+        super.writeTo(koh1);
+    }
+}

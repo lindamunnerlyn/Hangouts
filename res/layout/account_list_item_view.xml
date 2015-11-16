@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.apps.hangouts.views.AccountListItemView android:orientation="horizontal" android:background="@drawable/bg_item_selectable" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="@dimen/account_item_min_width"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:hangouts="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/contentFrame" android:paddingLeft="8.0dip" android:layout_width="@dimen/account_item_text_width" android:layout_height="wrap_content" android:layout_marginRight="8.0dip" android:minHeight="@dimen/account_item_text_min_height" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+        <TextView android:id="@id/accountName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" style="@style/RealTimeChat.AccountSelector.AccountName" />
+        <TextView android:id="@id/accountState" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-3.0dip" android:layout_alignParentLeft="true" style="@style/RealTimeChat.AccountSelector.AccountState" />
+    </LinearLayout>
+    <FrameLayout android:id="@id/avatarFrame" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+        <com.google.android.apps.hangouts.views.AvatarView android:id="@id/avatarImage" android:layout_width="@dimen/avatar_dimension" android:layout_height="@dimen/avatar_dimension" hangouts:avatarViewSize="small" />
+        <ImageView android:layout_gravity="bottom|right|center" android:id="@id/smsBadge" android:paddingRight="@dimen/xs_space" android:paddingBottom="@dimen/xs_space" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_carrier_sms_status_badge" />
+    </FrameLayout>
+</com.google.android.apps.hangouts.views.AccountListItemView>

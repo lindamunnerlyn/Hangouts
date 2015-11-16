@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/avatarFrame" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:hangouts="http://schemas.android.com/apk/res-auto">
+    <com.google.android.apps.hangouts.views.AvatarView android:id="@id/avatar_image" android:layout_width="@dimen/conversation_avatar_dimension" android:layout_height="@dimen/conversation_avatar_dimension" android:layout_marginLeft="@dimen/l_space" android:importantForAccessibility="2" android:layout_marginStart="@dimen/l_space" hangouts:avatarViewSize="small" />
+</FrameLayout>

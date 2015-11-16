@@ -2,29 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
 
-final class bjh
-    implements android.view.ViewTreeObserver.OnGlobalLayoutListener
+public interface bjh
 {
 
-    final bje a;
+    public abstract void a(aia aia);
 
-    bjh(bje bje1)
-    {
-        a = bje1;
-        super();
-    }
+    public abstract void a(Intent intent);
 
-    public void onGlobalLayout()
-    {
-        gke.a(bje.b(a), this);
-        if (a.getActivity() == null)
-        {
-            return;
-        } else
-        {
-            bje.f(a);
-            return;
-        }
-    }
+    public abstract void a(cgd cgd, String s, int i, long l);
+
+    public abstract void a(dvg dvg);
+
+    public abstract void a(dvg dvg, dvg dvg1);
+
+    public abstract void a(String s, boolean flag, int i, int k);
+
+    public abstract boolean a(String s);
+
+    public abstract void j();
+
+    public abstract void m_();
 }

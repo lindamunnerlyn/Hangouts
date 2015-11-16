@@ -2,22 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
-public final class gop
+public abstract class gop
+    implements gon
 {
 
-    public static final String a = hhl.getName();
-    private static goo b;
+    private static final Charset a = Charset.forName("UTF-8");
 
-    public static void a(hgx hgx1)
+    public gop()
     {
-        if (b == null)
+    }
+
+    private static long a(String s)
+    {
+        g.e(s);
+        g.a(s, "name can not be empty.");
+        long l;
+        try
         {
-            b = new goo();
+            MessageDigest messagedigest = MessageDigest.getInstance("MD5");
+            messagedigest.update(s.getBytes(a));
+            l = ByteBuffer.wrap(messagedigest.digest()).getLong();
         }
-        hgx1.a(hhl, new hhl[] {
-            new gos()
-        });
+        // Misplaced declaration of an exception variable
+        catch (String s)
+        {
+            throw new RuntimeException(s);
+        }
+        return l;
+    }
+
+    protected abstract void a(lgm lgm1);
+
+    public void a(lgm lgm1, String s)
+    {
+        if (s != null && !s.trim().isEmpty())
+        {
+            lgm1.b = Long.valueOf(a(s));
+        }
+        a(lgm1);
     }
 
 }

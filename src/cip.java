@@ -2,25 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import com.google.android.apps.hangouts.permissions.impl.RationaleActivity;
-import java.util.List;
+import android.content.Context;
+import android.view.inputmethod.InputMethodManager;
 
-public final class cip
-    implements cib
+final class cip extends zj
 {
 
-    final RationaleActivity a;
+    final cic a;
 
-    public cip(RationaleActivity rationaleactivity)
+    cip(cic cic)
     {
-        a = rationaleactivity;
+        a = cic;
         super();
     }
 
-    public void a(List list, Bundle bundle)
+    public void a(yt yt1)
     {
-        a.setResult(-1, RationaleActivity.a(a));
-        a.finish();
+        ((InputMethodManager)yt1.getContext().getSystemService("input_method")).hideSoftInputFromWindow(yt1.getWindowToken(), 0);
     }
 }

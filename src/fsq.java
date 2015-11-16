@@ -4,19 +4,34 @@
 
 import com.google.android.gms.common.api.Status;
 
-public final class fsq
-    implements ekg
+final class fsq
+    implements foz
 {
 
-    public final Status a;
+    private final Status a;
+    private final ftp b;
 
-    public fsq(Status status)
+    public fsq(Status status, ftp ftp)
     {
         a = status;
+        b = ftp;
     }
 
-    public Status B_()
+    public Status D_()
     {
         return a;
+    }
+
+    public void b()
+    {
+        if (b != null)
+        {
+            b.b();
+        }
+    }
+
+    public ftp c()
+    {
+        return b;
     }
 }

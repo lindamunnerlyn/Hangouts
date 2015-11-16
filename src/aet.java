@@ -2,53 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.InputStream;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.io.BufferedReader;
+import java.io.Reader;
 
-public final class aet extends aep
+public final class aet extends BufferedReader
 {
 
-    static final Set a = Collections.unmodifiableSet(new HashSet(Arrays.asList(new String[] {
-        "BEGIN", "END", "LOGO", "PHOTO", "LABEL", "FN", "TITLE", "SOUND", "VERSION", "TEL", 
-        "EMAIL", "TZ", "GEO", "NOTE", "URL", "BDAY", "ROLE", "REV", "UID", "KEY", 
-        "MAILER"
-    })));
-    static final Set b = Collections.unmodifiableSet(new HashSet(Arrays.asList(new String[] {
-        "DOM", "INTL", "POSTAL", "PARCEL", "HOME", "WORK", "PREF", "VOICE", "FAX", "MSG", 
-        "CELL", "PAGER", "BBS", "MODEM", "CAR", "ISDN", "VIDEO", "AOL", "APPLELINK", "ATTMAIL", 
-        "CIS", "EWORLD", "INTERNET", "IBMMAIL", "MCIMAIL", "POWERSHARE", "PRODIGY", "TLX", "X400", "GIF", 
-        "CGM", "WMF", "BMP", "MET", "PMB", "DIB", "PICT", "TIFF", "PDF", "PS", 
-        "JPEG", "QTIME", "MPEG", "MPEG2", "AVI", "WAVE", "AIFF", "PCM", "X509", "PGP"
-    })));
-    static final Set c = Collections.unmodifiableSet(new HashSet(Arrays.asList(new String[] {
-        "INLINE", "URL", "CONTENT-ID", "CID"
-    })));
-    static final Set d = Collections.unmodifiableSet(new HashSet(Arrays.asList(new String[] {
-        "7BIT", "8BIT", "QUOTED-PRINTABLE", "BASE64", "B"
-    })));
-    private final aeq e;
+    private long a;
+    private boolean b;
+    private String c;
 
-    public aet()
+    public aet(Reader reader)
     {
-        e = new aeq();
+        super(reader);
     }
 
-    public aet(byte byte0)
+    public String a()
     {
-        e = new aeq((byte)0);
+        if (!b)
+        {
+            long l = System.currentTimeMillis();
+            String s = super.readLine();
+            a = (System.currentTimeMillis() - l) + a;
+            c = s;
+            b = true;
+        }
+        return c;
     }
 
-    public void a(aeo aeo)
+    public String readLine()
     {
-        e.a(aeo);
+        if (b)
+        {
+            String s = c;
+            c = null;
+            b = false;
+            return s;
+        } else
+        {
+            long l = System.currentTimeMillis();
+            String s1 = super.readLine();
+            a = (System.currentTimeMillis() - l) + a;
+            return s1;
+        }
     }
-
-    public void a(InputStream inputstream)
-    {
-        e.a(inputstream);
-    }
-
 }

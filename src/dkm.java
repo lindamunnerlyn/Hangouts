@@ -3,10 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class dkm
+public final class dkm extends dgj
 {
 
-    dkm()
+    final String a;
+    final long e;
+
+    public dkm(aoa aoa, String s, long l)
     {
+        super(aoa);
+        a = s;
+        e = l;
+    }
+
+    public void a()
+    {
+        aoq.a(new aow(g.nU, super.b.a), a, super.c, e, true);
+        cfo.a(g.nU, super.b.a, super.c.g());
     }
 }

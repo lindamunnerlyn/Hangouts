@@ -18,10 +18,10 @@ public class LocaleUtils
 
     private static String getDefaultCountryCode()
     {
-        CommandLine commandline = CommandLine.a();
-        if (commandline.a("default-country-code"))
+        CommandLine commandline = CommandLine.c();
+        if (commandline.a())
         {
-            return commandline.b("default-country-code");
+            return commandline.b();
         } else
         {
             return Locale.getDefault().getCountry();

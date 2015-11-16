@@ -2,21 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.content.Intent;
+import com.google.android.gms.identity.accounts.api.AccountData;
 
-public final class fzo extends fzn
-    implements fzg, fzh
+class fzo
+    implements fzm
 {
 
-    fai b;
-
-    public fzo()
+    fzo()
     {
-        b = new fai();
-        a = b;
     }
 
-    public fzf a()
+    public fzn a(Context context, Intent intent)
     {
-        return new fzf(b.a());
+        if (ffn.a(context, intent))
+        {
+            context = ffn.b(context, intent);
+            return new fzn(context.a(), context.b());
+        } else
+        {
+            return null;
+        }
     }
 }

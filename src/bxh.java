@@ -2,58 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.widget.TextView;
 
-final class bxh extends ebd
-    implements ebq
+public final class bxh
 {
 
-    final bxg a;
+    public static final int a[];
 
-    public bxh(bxg bxg1, hjm hjm, int i)
+    static 
     {
-        a = bxg1;
-        super(hjm, i, bxg.a());
-    }
-
-    public void a(csw csw1)
-    {
-        bxg.a(a, csw1.d());
-    }
-
-    protected void a(boolean flag)
-    {
-        if (flag)
+        a = new int[atu.values().length];
+        try
         {
-            bxg.b().a(this);
-            return;
-        } else
+            a[atu.c.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
         {
-            bxg.b().b(this);
+            a[atu.a.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[atu.d.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[atu.b.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
             return;
         }
-    }
-
-    protected void c()
-    {
-        bxg.a(a, 0L);
-        if (bxg.a(a) != null)
-        {
-            TextView textview = bxg.a(a);
-            byte byte0;
-            if (bxg.b(a).e() == null)
-            {
-                byte0 = 8;
-            } else
-            {
-                byte0 = 0;
-            }
-            textview.setVisibility(byte0);
-        }
-    }
-
-    public void d()
-    {
-        bxg.c(a);
     }
 }

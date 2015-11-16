@@ -2,43 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Locale;
+import android.graphics.Canvas;
+import android.graphics.Picture;
+import android.graphics.drawable.PictureDrawable;
 
-public final class dws
+public final class dws extends PictureDrawable
 {
 
-    public final boolean a;
-    public final int b;
-    public final int c;
+    private final float a;
 
-    dws(boolean flag, int i, int j)
+    public dws(Picture picture, float f)
     {
-        a = flag;
-        b = i;
-        c = j;
+        super(picture);
+        a = f;
     }
 
-    public boolean a(int i, int j)
+    public void draw(Canvas canvas)
     {
-        return a && b > i && c > j;
+        canvas.save();
+        canvas.scale(a, a);
+        canvas.drawPicture(getPicture());
+        canvas.restore();
     }
 
-    public boolean equals(Object obj)
+    public int getIntrinsicHeight()
     {
-        if (obj != null && getClass() == obj.getClass())
-        {
-            if (a == ((dws) (obj = (dws)obj)).a && b == ((dws) (obj)).b && c == ((dws) (obj)).c)
-            {
-                return true;
-            }
-        }
-        return false;
+        return (int)((float)super.getIntrinsicHeight() * a);
     }
 
-    public String toString()
+    public int getIntrinsicWidth()
     {
-        return String.format(Locale.US, "is connected: %b, signal level: %d%%, link speed: %dMbps", new Object[] {
-            Boolean.valueOf(a), Integer.valueOf(b), Integer.valueOf(c)
-        });
+        return (int)((float)super.getIntrinsicWidth() * a);
     }
 }

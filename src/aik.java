@@ -2,71 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
-import java.util.List;
 
-public final class aik
-    implements Serializable
+public interface aik
 {
 
-    private List a;
-    private List b;
+    public abstract void a();
 
-    aik(ail ail1)
-    {
-        a = ail1.a;
-        b = ail1.b;
-    }
-
-    public static ail newBuilder()
-    {
-        return new ail();
-    }
-
-    public static ail newBuilder(aik aik1)
-    {
-        return newBuilder().a(aik1);
-    }
-
-    public ais a(int i)
-    {
-        if (i < 0 || i >= a.size())
-        {
-            return null;
-        } else
-        {
-            return (ais)a.get(i);
-        }
-    }
-
-    public List a()
-    {
-        return a;
-    }
-
-    public int b()
-    {
-        return a.size();
-    }
-
-    public aim b(int i)
-    {
-        if (i < 0 || i >= b.size())
-        {
-            return null;
-        } else
-        {
-            return (aim)b.get(i);
-        }
-    }
-
-    public List c()
-    {
-        return b;
-    }
-
-    public int d()
-    {
-        return b.size();
-    }
+    public abstract void a(String s);
 }

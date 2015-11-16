@@ -6,10 +6,10 @@ package org.chromium.net;
 
 import java.util.ArrayList;
 
-final class  extends ArrayList
+public final class  extends ArrayList
 {
 
-    ()
+    public ()
     {
     }
 }

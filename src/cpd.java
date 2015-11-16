@@ -2,23 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
 
 final class cpd
-    implements android.os.Parcelable.Creator
 {
 
-    cpd()
+    final boolean a;
+    final cpk b;
+
+    private cpd(cpk cpk)
     {
+        this(cpk, false);
     }
 
-    public Object createFromParcel(Parcel parcel)
+    private cpd(cpk cpk, boolean flag)
     {
-        return new cpc();
+        b = cpk;
+        a = flag;
     }
 
-    public Object[] newArray(int i)
+    public static cpd a(String s)
     {
-        return new cpc[i];
+        if (s.length() == 0)
+        {
+            throw new IllegalArgumentException("separator may not be empty or null");
+        } else
+        {
+            return new cpd(new cpe(s));
+        }
+    }
+
+    public cpd a()
+    {
+        return new cpd(b, true);
+    }
+
+    public Iterable a(CharSequence charsequence)
+    {
+        return new cpg(this, charsequence);
     }
 }

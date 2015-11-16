@@ -2,95 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.support.rastermill.FrameSequence;
-import android.support.rastermill.FrameSequenceDrawable;
+import android.animation.Animator;
 import android.widget.ImageView;
+import com.google.android.apps.hangouts.conversation.v2.FloatingButtonWithCounter;
 
-final class azq
-    implements aqb
+public final class azq
+    implements android.animation.Animator.AnimatorListener
 {
 
-    private final android.support.rastermill.FrameSequenceDrawable.OnFinishedListener a;
-    private final ani b;
-    private final ImageView c;
-    private apw d;
+    final ImageView a;
+    final FloatingButtonWithCounter b;
 
-    public azq(android.support.rastermill.FrameSequenceDrawable.OnFinishedListener onfinishedlistener, ani ani, ImageView imageview)
+    public azq(FloatingButtonWithCounter floatingbuttonwithcounter, ImageView imageview)
     {
-        a = onfinishedlistener;
-        b = ani;
-        c = imageview;
+        b = floatingbuttonwithcounter;
+        a = imageview;
+        super();
     }
 
-    public void a()
+    public void onAnimationCancel(Animator animator)
     {
-        if (d != null)
+    }
+
+    public void onAnimationEnd(Animator animator)
+    {
+        if (a != null)
         {
-            d.b();
+            a.setVisibility(0);
         }
     }
 
-    public void a(apw apw1)
+    public void onAnimationRepeat(Animator animator)
     {
-        d = apw1;
     }
 
-    public void a(ebh ebh1, eab eab1, boolean flag, apw apw1, boolean flag1)
+    public void onAnimationStart(Animator animator)
     {
-        if (ebh1 != null)
-        {
-            ebw.g("Babel", "Unexpected refCountedBitmap returned on a STICKER_REQUEST");
-            ebh1.b();
-        }
-        if (apw1 == d) goto _L2; else goto _L1
-_L1:
-        return;
-_L2:
-        d = null;
-        if (!flag || eab1 == null) goto _L1; else goto _L3
-_L3:
-        int i;
-        if (apw1.l() instanceof Integer)
-        {
-            i = g.a((Integer)apw1.l(), 0);
-        } else
-        {
-            i = 1;
-        }
-        ebh1 = (android.widget.RelativeLayout.LayoutParams)c.getLayoutParams();
-        if (android.os.Build.VERSION.SDK_INT >= 17)
-        {
-            ebh1.removeRule(9);
-            ebh1.removeRule(11);
-            ebh1.removeRule(14);
-        } else
-        {
-            ebh1.addRule(9, 0);
-            ebh1.addRule(11, 0);
-            ebh1.addRule(14, 0);
-        }
-        i;
-        JVM INSTR tableswitch 2 3: default 124
-    //                   2 217
-    //                   3 227;
-           goto _L4 _L5 _L6
-_L4:
-        ebh1.addRule(11, -1);
-_L8:
-        c.setLayoutParams(ebh1);
-        c.setVisibility(0);
-        ebh1 = new FrameSequenceDrawable(FrameSequence.decodeByteArray(eab1.c()));
-        ebh1.setOnFinishedListener(a);
-        c.setImageDrawable(ebh1);
-        ebh1.start();
-        g.a(b, 2019);
-        return;
-_L5:
-        ebh1.addRule(9, -1);
-        continue; /* Loop/switch isn't completed */
-_L6:
-        ebh1.addRule(14, -1);
-        if (true) goto _L8; else goto _L7
-_L7:
     }
 }

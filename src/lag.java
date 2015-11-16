@@ -3,24 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lag extends koj
+public final class lag extends kwm
 {
 
-    public Boolean a;
-    public Boolean b;
-    public kyo c;
-    public Boolean d;
-    public kyo e;
-    public Boolean f;
+    public String a;
+    public lab b;
 
     public lag()
     {
         a = null;
         b = null;
-        c = null;
-        d = null;
-        e = null;
-        f = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -31,49 +23,25 @@ public final class lag extends koj
         int i = j;
         if (a != null)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            i = j + kwk.b(1, a);
         }
         j = i;
         if (b != null)
         {
-            b.booleanValue();
-            j = i + (koh.f(2) + 1);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.d(3, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            d.booleanValue();
-            j = i + (koh.f(4) + 1);
-        }
-        i = j;
-        if (e != null)
-        {
-            i = j + koh.d(5, e);
-        }
-        j = i;
-        if (f != null)
-        {
-            f.booleanValue();
-            j = i + (koh.f(6) + 1);
+            j = i + kwk.d(2, b);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -82,67 +50,31 @@ public final class lag extends koj
             case 0: // '\0'
                 return this;
 
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
+            case 10: // '\n'
+                a = kwj1.j();
                 break;
 
-            case 16: // '\020'
-                b = Boolean.valueOf(kog1.i());
-                break;
-
-            case 26: // '\032'
-                if (c == null)
+            case 18: // '\022'
+                if (b == null)
                 {
-                    c = new kyo();
+                    b = new lab();
                 }
-                kog1.a(c);
-                break;
-
-            case 32: // ' '
-                d = Boolean.valueOf(kog1.i());
-                break;
-
-            case 42: // '*'
-                if (e == null)
-                {
-                    e = new kyo();
-                }
-                kog1.a(e);
-                break;
-
-            case 48: // '0'
-                f = Boolean.valueOf(kog1.i());
+                kwj1.a(b);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.booleanValue());
+            kwk1.a(1, a);
         }
         if (b != null)
         {
-            koh1.a(2, b.booleanValue());
+            kwk1.b(2, b);
         }
-        if (c != null)
-        {
-            koh1.b(3, c);
-        }
-        if (d != null)
-        {
-            koh1.a(4, d.booleanValue());
-        }
-        if (e != null)
-        {
-            koh1.b(5, e);
-        }
-        if (f != null)
-        {
-            koh1.a(6, f.booleanValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

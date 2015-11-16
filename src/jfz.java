@@ -3,16 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jfz extends koj
+public final class jfz extends kwm
 {
 
-    public static final kok a = kok.a(jfz, 0x2ebd032aL);
-    private static final jfz c[] = new jfz[0];
-    public koz b;
+    public jfw a[];
+    public jdl responseHeader;
 
     public jfz()
     {
-        b = null;
+        responseHeader = null;
+        a = jfw.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,22 +21,43 @@ public final class jfz extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (b != null)
+        if (responseHeader != null)
         {
-            i = j + koh.d(1, b);
+            i = j + kwk.d(1, responseHeader);
         }
-        return i;
+        j = i;
+        if (a != null)
+        {
+            j = i;
+            if (a.length > 0)
+            {
+                for (j = 0; j < a.length;)
+                {
+                    jfw jfw1 = a[j];
+                    int k = i;
+                    if (jfw1 != null)
+                    {
+                        k = i + kwk.d(2, jfw1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -46,23 +67,64 @@ public final class jfz extends koj
                 return this;
 
             case 10: // '\n'
-                if (b == null)
+                if (responseHeader == null)
                 {
-                    b = new koz();
+                    responseHeader = new jdl();
                 }
-                kog1.a(b);
+                kwj1.a(responseHeader);
+                break;
+
+            case 18: // '\022'
+                int k = kwx.a(kwj1, 18);
+                jfw ajfw[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                ajfw = new jfw[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, ajfw, 0, j);
+                    k = j;
+                }
+                for (; k < ajfw.length - 1; k++)
+                {
+                    ajfw[k] = new jfw();
+                    kwj1.a(ajfw[k]);
+                    kwj1.a();
+                }
+
+                ajfw[k] = new jfw();
+                kwj1.a(ajfw[k]);
+                a = ajfw;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (b != null)
+        if (responseHeader != null)
         {
-            koh1.b(1, b);
+            kwk1.b(1, responseHeader);
         }
-        super.writeTo(koh1);
-    }
+        if (a != null && a.length > 0)
+        {
+            for (int i = 0; i < a.length; i++)
+            {
+                jfw jfw1 = a[i];
+                if (jfw1 != null)
+                {
+                    kwk1.b(2, jfw1);
+                }
+            }
 
+        }
+        super.writeTo(kwk1);
+    }
 }

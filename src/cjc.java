@@ -2,10 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.view.View;
+import com.google.android.apps.hangouts.peoplelistv2.impl.ScrollViewCustom;
 
-public interface cjc
+public final class cjc
+    implements Runnable
 {
 
-    public abstract void a(Context context);
+    final ScrollViewCustom a;
+
+    public cjc(ScrollViewCustom scrollviewcustom)
+    {
+        a = scrollviewcustom;
+        super();
+    }
+
+    public void run()
+    {
+        int i = a.getChildAt(0).getMeasuredHeight();
+        int j = a.a;
+        a.smoothScrollTo(0, Math.max(0, i - j));
+        a.getChildAt(a.getChildCount() - 1).requestFocus();
+    }
 }

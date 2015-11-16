@@ -2,23 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
 
-final class goz
-    implements hhl
+interface goz
 {
 
-    goz()
-    {
-    }
-
-    public Class a()
-    {
-        return gow;
-    }
-
-    public void a(Activity activity, hjm hjm, hgx hgx1)
-    {
-        hgx1.a(gow, new gow(hjm, (byte)0));
-    }
+    public abstract boolean a(gpb gpb, gpw gpw, StringBuilder stringbuilder, String as[]);
 }

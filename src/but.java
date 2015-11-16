@@ -2,61 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 
-final class but extends gbb
+final class but
+    implements bsq
 {
 
-    final buq a;
+    final bus a;
 
-    but(buq buq1)
+    but(bus bus)
     {
-        a = buq1;
+        a = bus;
         super();
     }
 
-    private void a(boolean flag)
+    public void a(pu pu, hof hof)
     {
-        gbh.b(buq.b(a));
-        btv btv1 = buq.c(a);
-        if (!g.a(buq.b(a).k, false))
-        {
-            buq.a(a, btv.e);
-        } else
-        if (g.a(buq.b(a).u, 0) == 2)
-        {
-            buq.a(a, btv.d);
-        } else
-        if (g.a(buq.b(a).w, 0) == 2)
-        {
-            buq.a(a, btv.c);
-        } else
-        if (g.a(buq.b(a).b, 0) == 2)
-        {
-            buq.a(a, btv.b);
-        } else
-        {
-            buq.a(a, btv.a);
-        }
-        if (btv1 != buq.c(a))
-        {
-            for (Iterator iterator = buq.d(a).iterator(); iterator.hasNext(); ((btt)iterator.next()).a(buq.c(a), flag)) { }
-        }
-    }
-
-    public void a()
-    {
-        buq.a(a, (jav)buq.a(a).b().values().iterator().next());
-        a(true);
-    }
-
-    public void a(kop kop, kop kop1)
-    {
-        kop = (jav)kop1;
-        buq.a(a, kop);
-        a(false);
+        new bvh(pu, hof);
     }
 }

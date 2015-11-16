@@ -2,41 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
-import java.util.Map;
 
-final class aqi extends efq
+final class aqi extends aqf
 {
 
-    private final Map a = new gz();
-    private final Map b = new gz();
+    private ahd a;
 
-    aqi()
+    public aqi(ahd ahd1)
     {
+        super(aqc.g);
+        a = ahd1;
     }
 
-    public int a(String s)
+    public boolean a(int i)
     {
-        return g.a((Integer)a.get(s), 0);
-    }
-
-    public void a(String s, int i)
-    {
-        a.put(s, Integer.valueOf(i));
-    }
-
-    public void a(String s, List list)
-    {
-        b.put(s, list);
-    }
-
-    public boolean b(String s)
-    {
-        return a.containsKey(s);
-    }
-
-    public List c(String s)
-    {
-        return (List)b.get(s);
+        return a.e(i);
     }
 }

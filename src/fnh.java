@@ -2,16 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.os.IInterface;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 
-public class fnh
+public interface fnh
+    extends IInterface
 {
 
-    public TextView d;
-    public ImageView e;
+    public abstract void a();
 
-    public fnh()
-    {
-    }
+    public abstract void a(float f1);
+
+    public abstract void a(float f1, float f2);
+
+    public abstract void a(LatLng latlng);
+
+    public abstract void a(LatLngBounds latlngbounds);
+
+    public abstract void a(fcw fcw);
+
+    public abstract void a(boolean flag);
+
+    public abstract boolean a(fnh fnh1);
+
+    public abstract String b();
+
+    public abstract void b(float f1);
+
+    public abstract LatLng c();
+
+    public abstract void c(float f1);
+
+    public abstract float d();
+
+    public abstract void d(float f1);
+
+    public abstract float e();
+
+    public abstract LatLngBounds f();
+
+    public abstract float g();
+
+    public abstract float h();
+
+    public abstract boolean i();
+
+    public abstract float j();
+
+    public abstract int k();
 }

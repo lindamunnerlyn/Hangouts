@@ -2,52 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicLong;
 
-final class jst
-    implements ThreadFactory
+final class jst extends jsu
 {
 
-    final ThreadFactory a;
-    final String b;
-    final AtomicLong c;
-    final Boolean d;
-    final Integer e;
-    final Thread.UncaughtExceptionHandler f;
+    private final transient jss c;
 
-    jst(ThreadFactory threadfactory, String s, AtomicLong atomiclong, Boolean boolean1, Integer integer, Thread.UncaughtExceptionHandler uncaughtexceptionhandler)
+    jst(Object obj, Object obj1, jss jss, jss jss1)
     {
-        a = threadfactory;
-        b = s;
-        c = atomiclong;
-        d = boolean1;
-        e = integer;
-        f = uncaughtexceptionhandler;
-        super();
+        super(obj, obj1, jss);
+        c = jss1;
     }
 
-    public Thread newThread(Runnable runnable)
+    jss b()
     {
-        runnable = a.newThread(runnable);
-        if (b != null)
-        {
-            runnable.setName(String.format(b, new Object[] {
-                Long.valueOf(c.getAndIncrement())
-            }));
-        }
-        if (d != null)
-        {
-            runnable.setDaemon(d.booleanValue());
-        }
-        if (e != null)
-        {
-            runnable.setPriority(e.intValue());
-        }
-        if (f != null)
-        {
-            runnable.setUncaughtExceptionHandler(f);
-        }
-        return runnable;
+        return c;
     }
 }

@@ -3,34 +3,46 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ive extends koj
+public final class ive extends kwm
 {
 
-    private static volatile ive c[];
-    public irg a;
-    public String b[];
+    private static volatile ive i[];
+    public Integer a;
+    public String b;
+    public Integer c;
+    public String d;
+    public Integer e;
+    public Boolean f;
+    public Boolean g;
+    public Boolean h;
 
     public ive()
     {
         a = null;
-        b = kou.f;
+        b = null;
+        c = null;
+        d = null;
+        e = null;
+        f = null;
+        g = null;
+        h = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     public static ive[] a()
     {
-        if (c == null)
+        if (i == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
-                if (c == null)
+                if (i == null)
                 {
-                    c = new ive[0];
+                    i = new ive[0];
                 }
             }
         }
-        return c;
+        return i;
         exception;
         obj;
         JVM INSTR monitorexit ;
@@ -39,51 +51,62 @@ public final class ive extends koj
 
     protected int computeSerializedSize()
     {
-        boolean flag = false;
-        int j = super.computeSerializedSize();
-        int i = j;
+        int k = super.computeSerializedSize();
+        int j = k;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            j = k + kwk.e(1, a.intValue());
         }
-        j = i;
+        k = j;
         if (b != null)
         {
-            j = i;
-            if (b.length > 0)
-            {
-                int k = 0;
-                int l = 0;
-                for (j = ((flag) ? 1 : 0); j < b.length;)
-                {
-                    String s = b[j];
-                    int j1 = k;
-                    int i1 = l;
-                    if (s != null)
-                    {
-                        i1 = l + 1;
-                        j1 = k + koh.a(s);
-                    }
-                    j++;
-                    k = j1;
-                    l = i1;
-                }
-
-                j = i + k + l * 1;
-            }
+            k = j + kwk.b(2, b);
         }
-        return j;
+        j = k;
+        if (c != null)
+        {
+            j = k + kwk.e(3, c.intValue());
+        }
+        k = j;
+        if (d != null)
+        {
+            k = j + kwk.b(4, d);
+        }
+        j = k;
+        if (e != null)
+        {
+            j = k + kwk.e(5, e.intValue());
+        }
+        k = j;
+        if (f != null)
+        {
+            f.booleanValue();
+            k = j + (kwk.f(6) + 1);
+        }
+        j = k;
+        if (g != null)
+        {
+            g.booleanValue();
+            j = k + (kwk.f(7) + 1);
+        }
+        k = j;
+        if (h != null)
+        {
+            h.booleanValue();
+            k = j + (kwk.f(8) + 1);
+        }
+        return k;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
-            switch (i)
+            int j = kwj1.a();
+            switch (j)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, j))
                 {
                     continue;
                 }
@@ -92,63 +115,75 @@ public final class ive extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new irg();
-                }
-                kog1.a(a);
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
                 break;
 
             case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                String as[];
-                int j;
-                if (b == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
-                }
-                as = new String[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, as, 0, j);
-                    k = j;
-                }
-                for (; k < as.length - 1; k++)
-                {
-                    as[k] = kog1.j();
-                    kog1.a();
-                }
+                b = kwj1.j();
+                break;
 
-                as[k] = kog1.j();
-                b = as;
+            case 24: // '\030'
+                c = Integer.valueOf(kwj1.f());
+                break;
+
+            case 34: // '"'
+                d = kwj1.j();
+                break;
+
+            case 40: // '('
+                e = Integer.valueOf(kwj1.f());
+                break;
+
+            case 48: // '0'
+                f = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 56: // '8'
+                g = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 64: // '@'
+                h = Boolean.valueOf(kwj1.i());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.a(1, a.intValue());
         }
-        if (b != null && b.length > 0)
+        if (b != null)
         {
-            for (int i = 0; i < b.length; i++)
-            {
-                String s = b[i];
-                if (s != null)
-                {
-                    koh1.a(2, s);
-                }
-            }
-
+            kwk1.a(2, b);
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.a(3, c.intValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d);
+        }
+        if (e != null)
+        {
+            kwk1.a(5, e.intValue());
+        }
+        if (f != null)
+        {
+            kwk1.a(6, f.booleanValue());
+        }
+        if (g != null)
+        {
+            kwk1.a(7, g.booleanValue());
+        }
+        if (h != null)
+        {
+            kwk1.a(8, h.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

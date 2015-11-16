@@ -3,138 +3,150 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-abstract class lfv
-    implements lge, lgi
+public final class lfv extends kwm
 {
 
-    public final lcz a;
-    public final int b;
-    public final boolean c;
+    public static final kwn a = kwn.a(lfv, 0x15ec49c2L);
+    private static final lfv e[] = new lfv[0];
+    public String b;
+    public lfu c[];
+    public Integer d;
 
-    lfv(lcz lcz, int i, boolean flag)
+    public lfv()
     {
-        a = lcz;
-        b = i;
-        c = flag;
+        b = null;
+        c = lfu.a();
+        d = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public int a(lgf lgf1, String s, int i)
+    protected int computeSerializedSize()
     {
-        int j;
-        int k;
-        int l;
-        int i1 = Math.min(b, s.length() - i);
-        k = 0;
-        j = i;
-        l = 0;
-        i = k;
-        k = l;
-        do
+        int i = super.computeSerializedSize();
+        int j = i;
+        if (d != null)
         {
-            l = i;
-            if (k >= i1)
-            {
-                break;
-            }
-            char c1 = s.charAt(j + k);
-            if (k == 0 && (c1 == '-' || c1 == '+') && c)
-            {
-                if (c1 == '-')
-                {
-                    i = 1;
-                } else
-                {
-                    i = 0;
-                }
-                l = i;
-                if (k + 1 >= i1)
-                {
-                    break;
-                }
-                c1 = s.charAt(j + k + 1);
-                l = i;
-                if (c1 < '0')
-                {
-                    break;
-                }
-                l = i;
-                if (c1 > '9')
-                {
-                    break;
-                }
-                if (i != 0)
-                {
-                    k++;
-                } else
-                {
-                    j++;
-                }
-                i1 = Math.min(i1 + 1, s.length() - j);
-                continue;
-            }
-            l = i;
-            if (c1 < '0')
-            {
-                break;
-            }
-            l = i;
-            if (c1 > '9')
-            {
-                break;
-            }
-            k++;
-        } while (true);
-        if (k == 0)
-        {
-            return ~j;
+            j = i + kwk.e(1, d.intValue());
         }
-        if (k < 9) goto _L2; else goto _L1
-_L1:
-        k = j + k;
-        j = Integer.parseInt(s.substring(j, k));
-_L4:
-        lgf1.a(a, j);
-        return k;
-_L2:
-        int j1;
-        int k1;
-        if (l != 0)
+        i = j;
+        if (b != null)
         {
-            i = j + 1;
+            i = j + kwk.b(2, b);
+        }
+        j = i;
+        if (c != null)
+        {
+            j = i;
+            if (c.length > 0)
+            {
+                for (j = 0; j < c.length;)
+                {
+                    lfu lfu1 = c[j];
+                    int k = i;
+                    if (lfu1 != null)
+                    {
+                        k = i + kwk.d(3, lfu1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
+        }
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+_L6:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 4: default 48
+    //                   0: 57
+    //                   8: 59
+    //                   18: 154
+    //                   26: 165;
+           goto _L1 _L2 _L3 _L4 _L5
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L6; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 400: 
+        case 403: 
+        case 404: 
+        case 409: 
+        case 410: 
+        case 412: 
+        case 500: 
+        case 503: 
+            d = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        b = kwj1.j();
+        continue; /* Loop/switch isn't completed */
+_L5:
+        int l = kwx.a(kwj1, 26);
+        lfu alfu[];
+        int k;
+        if (c == null)
+        {
+            k = 0;
         } else
         {
-            i = j;
+            k = c.length;
         }
-        k1 = i + 1;
-        try
+        alfu = new lfu[l + k];
+        l = k;
+        if (k != 0)
         {
-            i = s.charAt(i);
+            System.arraycopy(c, 0, alfu, 0, k);
+            l = k;
         }
-        // Misplaced declaration of an exception variable
-        catch (lgf lgf1)
+        for (; l < alfu.length - 1; l++)
         {
-            return ~j;
-        }
-        j1 = j + k;
-        i -= 48;
-        for (j = k1; j < j1; j++)
-        {
-            i = (s.charAt(j) + ((i << 3) + (i << 1))) - 48;
+            alfu[l] = new lfu();
+            kwj1.a(alfu[l]);
+            kwj1.a();
         }
 
-        j = i;
-        k = j1;
-        if (l != 0)
-        {
-            j = -i;
-            k = j1;
-        }
-        if (true) goto _L4; else goto _L3
-_L3:
+        alfu[l] = new lfu();
+        kwj1.a(alfu[l]);
+        c = alfu;
+        if (true) goto _L6; else goto _L7
+_L7:
     }
 
-    public int b()
+    public void writeTo(kwk kwk1)
     {
-        return b;
+        if (d != null)
+        {
+            kwk1.a(1, d.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        if (c != null && c.length > 0)
+        {
+            for (int i = 0; i < c.length; i++)
+            {
+                lfu lfu1 = c[i];
+                if (lfu1 != null)
+                {
+                    kwk1.b(3, lfu1);
+                }
+            }
+
+        }
+        super.writeTo(kwk1);
     }
+
 }

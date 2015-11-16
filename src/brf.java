@@ -2,26 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.hangout.ParticipantTrayView;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.widget.Button;
 
-public final class brf extends bnk
+final class brf
+    implements android.content.DialogInterface.OnShowListener
 {
 
-    final ParticipantTrayView a;
+    final bre a;
 
-    public brf(ParticipantTrayView participanttrayview)
+    brf(bre bre)
     {
-        a = participanttrayview;
+        a = bre;
         super();
     }
 
-    public void a(gjr gjr)
+    public void onShow(DialogInterface dialoginterface)
     {
-        ParticipantTrayView.a(a, gjr);
-    }
-
-    public void d(gjr gjr)
-    {
-        ParticipantTrayView.a(a);
+        dialoginterface = (AlertDialog)dialoginterface;
+        if (dialoginterface != null)
+        {
+            Button button = dialoginterface.getButton(-1);
+            if (button != null)
+            {
+                button.setAllCaps(true);
+            }
+            dialoginterface = dialoginterface.getButton(-2);
+            if (dialoginterface != null)
+            {
+                dialoginterface.setAllCaps(true);
+                return;
+            }
+        }
     }
 }

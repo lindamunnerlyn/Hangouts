@@ -2,36 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.widget.Toast;
 
-final class akl
-    implements hff
+final class akl extends BroadcastReceiver
 {
 
-    final aki a;
+    final akf a;
 
-    akl(aki aki1)
+    akl(akf akf1)
     {
-        a = aki1;
+        a = akf1;
         super();
     }
 
-    public boolean a()
+    public void onReceive(Context context, Intent intent)
     {
-        jmi jmi1 = aki.c(a);
-        if (jmi1.isEmpty())
+        a.g.dismiss();
+        if (intent.getIntExtra("set_callerid_result", -1) != 0)
         {
-            Toast.makeText(aki.a(a), g.iU, 0).show();
-            return true;
-        }
-        if (jmi1.size() == 1)
-        {
-            aki.a(a, (String)g.a(jmi1));
-            return true;
+            Toast.makeText(context, context.getString(g.iO), 0).show();
         } else
         {
-            aki.a(a, jmi1);
-            return true;
+            a.e.a_(false);
         }
+        eq.a(context).a(a.f);
     }
 }

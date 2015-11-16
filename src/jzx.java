@@ -2,64 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.locks.LockSupport;
 
-public final class jzx extends koj
+final class jzx
 {
 
-    public kar a;
+    static final jzx a = new jzx();
+    volatile jzx next;
+    volatile Thread thread;
 
-    public jzx()
+    jzx()
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    jzx(byte byte0)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        jzm.d().a(this, Thread.currentThread());
+    }
+
+    void a()
+    {
+        Thread thread1 = thread;
+        if (thread1 != null)
         {
-            i = j + koh.d(1, a);
+            thread = null;
+            LockSupport.unpark(thread1);
         }
-        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    void a(jzx jzx1)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new kar();
-                }
-                kog1.a(a);
-                break;
-            }
-        } while (true);
+        jzm.d().a(this, jzx1);
     }
 
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        super.writeTo(koh1);
-    }
 }

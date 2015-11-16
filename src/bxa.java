@@ -3,43 +3,40 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class bxa extends ebd
-    implements ebq
+public final class bxa extends Enum
 {
 
-    final bwz a;
+    public static final bxa a;
+    public static final bxa b;
+    public static final bxa c;
+    private static final bxa f[];
+    public final int d;
+    public final int e;
 
-    public bxa(bwz bwz1, hjm hjm, int i)
+    private bxa(String s, int i, int j, int k)
     {
-        a = bwz1;
-        super(hjm, i, csz.f.j);
+        super(s, i);
+        d = j;
+        e = k;
     }
 
-    public void a(csw csw1)
+    public static bxa valueOf(String s)
     {
-        bwz.a(a, csw1.d());
+        return (bxa)Enum.valueOf(bxa, s);
     }
 
-    protected void a(boolean flag)
+    public static bxa[] values()
     {
-        if (flag)
-        {
-            bwz.a().a(this);
-            return;
-        } else
-        {
-            bwz.a().b(this);
-            return;
-        }
+        return (bxa[])f.clone();
     }
 
-    protected void c()
+    static 
     {
-        bwz.a(a, 0L);
-    }
-
-    public void d()
-    {
-        bwz.a(a);
+        a = new bxa("CALL_JOINED", 0, 2594, 2598);
+        b = new bxa("MESSAGE_RECEIVED", 1, 2593, 2597);
+        c = new bxa("MESSAGE_SENT", 2, 2592, 2596);
+        f = (new bxa[] {
+            a, b, c
+        });
     }
 }

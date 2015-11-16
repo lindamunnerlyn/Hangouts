@@ -2,85 +2,157 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.View;
+import android.view.MenuInflater;
+import android.view.Window;
 
-class qu extends sp
+abstract class qu extends qt
 {
 
-    final qs a;
+    final Context a;
+    final Window b;
+    final android.view.Window.Callback c;
+    final android.view.Window.Callback d;
+    final qs e;
+    pq f;
+    MenuInflater g;
+    boolean h;
+    boolean i;
+    boolean j;
+    boolean k;
+    boolean l;
+    CharSequence m;
+    boolean n;
 
-    qu(qs qs1, android.view.Window.Callback callback)
+    qu(Context context, Window window, qs qs)
     {
-        a = qs1;
-        super(callback);
-    }
-
-    public boolean dispatchKeyEvent(KeyEvent keyevent)
-    {
-        return a.a(keyevent) || super.dispatchKeyEvent(keyevent);
-    }
-
-    public boolean dispatchKeyShortcutEvent(KeyEvent keyevent)
-    {
-        return super.dispatchKeyShortcutEvent(keyevent) || a.a(keyevent.getKeyCode(), keyevent);
-    }
-
-    public void onContentChanged()
-    {
-    }
-
-    public boolean onCreatePanelMenu(int i, Menu menu)
-    {
-        if (i == 0 && !(menu instanceof sy))
+        a = context;
+        b = window;
+        e = qs;
+        c = b.getCallback();
+        if (c instanceof qw)
         {
-            return false;
+            throw new IllegalStateException("AppCompat has already installed itself into the Window");
         } else
         {
-            return super.onCreatePanelMenu(i, menu);
+            d = a(c);
+            b.setCallback(d);
+            return;
         }
     }
 
-    public boolean onMenuOpened(int i, Menu menu)
+    android.view.Window.Callback a(android.view.Window.Callback callback)
     {
-        return super.onMenuOpened(i, menu) || a.d(i);
+        return new qw(this, callback);
     }
 
-    public void onPanelClosed(int i, Menu menu)
+    public pq a()
     {
-        super.onPanelClosed(i, menu);
-        a.c(i);
+        j();
+        return f;
     }
 
-    public boolean onPreparePanel(int i, View view, Menu menu)
+    abstract vt a(vu vu);
+
+    public void a(Bundle bundle)
     {
-        sy sy1;
-        boolean flag;
-        if (menu instanceof sy)
+        bundle = a.obtainStyledAttributes(rq.bK);
+        if (!bundle.hasValue(rq.bO))
         {
-            sy1 = (sy)menu;
-        } else
-        {
-            sy1 = null;
+            bundle.recycle();
+            throw new IllegalStateException("You need to use a Theme.AppCompat theme (or descendant) with this activity.");
         }
-        if (i == 0 && sy1 == null)
+        if (!bundle.getBoolean(rq.bX, false)) goto _L2; else goto _L1
+_L1:
+        b(1);
+_L4:
+        if (bundle.getBoolean(rq.bP, false))
         {
-            flag = false;
-        } else
+            b(109);
+        }
+        if (bundle.getBoolean(rq.bQ, false))
         {
-            if (sy1 != null)
+            b(10);
+        }
+        k = bundle.getBoolean(rq.bM, false);
+        bundle.recycle();
+        return;
+_L2:
+        if (bundle.getBoolean(rq.bO, false))
+        {
+            b(108);
+        }
+        if (true) goto _L4; else goto _L3
+_L3:
+    }
+
+    public final void a(CharSequence charsequence)
+    {
+        m = charsequence;
+        b(charsequence);
+    }
+
+    abstract boolean a(int i1, KeyEvent keyevent);
+
+    abstract boolean a(KeyEvent keyevent);
+
+    public MenuInflater b()
+    {
+        if (g == null)
+        {
+            j();
+            Context context;
+            if (f != null)
             {
-                sy1.c(true);
-            }
-            boolean flag1 = super.onPreparePanel(i, view, menu);
-            flag = flag1;
-            if (sy1 != null)
+                context = f.g();
+            } else
             {
-                sy1.c(false);
-                return flag1;
+                context = a;
             }
+            g = new sm(context);
         }
-        return flag;
+        return g;
+    }
+
+    abstract void b(CharSequence charsequence);
+
+    abstract void c(int i1);
+
+    abstract boolean d(int i1);
+
+    public final void g()
+    {
+        n = true;
+    }
+
+    public final pw h()
+    {
+        return new qv(this);
+    }
+
+    abstract void j();
+
+    final Context k()
+    {
+        Context context = null;
+        Object obj = a();
+        if (obj != null)
+        {
+            context = ((pq) (obj)).g();
+        }
+        obj = context;
+        if (context == null)
+        {
+            obj = a;
+        }
+        return ((Context) (obj));
+    }
+
+    public boolean l()
+    {
+        return false;
     }
 }

@@ -4,29 +4,28 @@
 
 package gen_binder;
 
-import alh;
+import ale;
 import android.content.Context;
-import hgx;
-import hhe;
+import hlp;
+import hlw;
 import java.util.HashMap;
 
 public final class 
-    implements hhe
+    implements hlw
 {
 
     private HashMap a;
 
-    public void a(Context context, Class class1, hgx hgx)
+    public void a(Context context, Class class1, hlp hlp)
     {
         if (a == null)
         {
-            a = new HashMap(6);
-            a.put(alh.a, Integer.valueOf(0));
-            a.put(alh.b, Integer.valueOf(1));
-            a.put(alh.c, Integer.valueOf(2));
-            a.put(alh.d, Integer.valueOf(3));
-            a.put(alh.e, Integer.valueOf(4));
-            a.put(alh.f, Integer.valueOf(5));
+            a = new HashMap(5);
+            a.put(ale.a, Integer.valueOf(0));
+            a.put(ale.b, Integer.valueOf(1));
+            a.put(ale.c, Integer.valueOf(2));
+            a.put(ale.d, Integer.valueOf(3));
+            a.put(ale.e, Integer.valueOf(4));
         }
         class1 = (Integer)a.get(class1.getName());
         if (class1 == null)
@@ -39,27 +38,23 @@ public final class
             return;
 
         case 0: // '\0'
-            alh.a(context, hgx);
+            ale.a(context, hlp);
             return;
 
         case 1: // '\001'
-            alh.b(context, hgx);
+            ale.a(hlp);
             return;
 
         case 2: // '\002'
-            alh.c(context, hgx);
+            ale.b(context, hlp);
             return;
 
         case 3: // '\003'
-            alh.d(context, hgx);
+            ale.c(context, hlp);
             return;
 
         case 4: // '\004'
-            alh.a(hgx);
-            return;
-
-        case 5: // '\005'
-            alh.e(context, hgx);
+            ale.d(context, hlp);
             break;
         }
     }

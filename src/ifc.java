@@ -3,34 +3,49 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ifc extends koj
+public final class ifc extends kwm
 {
 
-    public String a;
-    public String b;
+    public Long a;
+    public Long b;
+    public Boolean c;
+    public Boolean d;
 
     public ifc()
     {
         a = null;
         b = null;
+        c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        return super.computeSerializedSize() + koh.b(1, a) + koh.b(2, b);
+        int i = super.computeSerializedSize();
+        int j = kwk.e(1, a.longValue());
+        int k = kwk.e(2, b.longValue());
+        c.booleanValue();
+        j = i + j + k + (kwk.f(3) + 1);
+        i = j;
+        if (d != null)
+        {
+            d.booleanValue();
+            i = j + (kwk.f(4) + 1);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -39,21 +54,34 @@ public final class ifc extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                a = kog1.j();
+            case 8: // '\b'
+                a = Long.valueOf(kwj1.e());
                 break;
 
-            case 18: // '\022'
-                b = kog1.j();
+            case 16: // '\020'
+                b = Long.valueOf(kwj1.e());
+                break;
+
+            case 24: // '\030'
+                c = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 32: // ' '
+                d = Boolean.valueOf(kwj1.i());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.a(1, a);
-        koh1.a(2, b);
-        super.writeTo(koh1);
+        kwk1.b(1, a.longValue());
+        kwk1.b(2, b.longValue());
+        kwk1.a(3, c.booleanValue());
+        if (d != null)
+        {
+            kwk1.a(4, d.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

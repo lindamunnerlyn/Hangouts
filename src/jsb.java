@@ -2,21 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Arrays;
 
-final class jsb
-    implements jru
+public final class jsb extends jsq
 {
 
-    final jgt a;
-
-    jsb(jgt jgt1)
+    public jsb()
     {
-        a = jgt1;
-        super();
     }
 
-    public jsj a(Object obj)
+    public jso a()
     {
-        return jsa.a(a.a(obj));
+        switch (c)
+        {
+        default:
+            if (a != null)
+            {
+                if (d)
+                {
+                    b = (jss[])jxa.a(b, c);
+                }
+                Arrays.sort(b, 0, c, jxb.a(a).a(jwd.b()));
+            }
+            boolean flag;
+            if (c == b.length)
+            {
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+            d = flag;
+            return jxe.a(c, b);
+
+        case 0: // '\0'
+            return jxe.b;
+
+        case 1: // '\001'
+            return jsa.a(b[0].getKey(), b[0].getValue());
+        }
+    }
+
+    public jsq a(Object obj, Object obj1)
+    {
+        super.a(obj, obj1);
+        return this;
     }
 }

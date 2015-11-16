@@ -3,124 +3,55 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ihl extends koj
+public final class ihl extends kwm
 {
 
     public Integer a;
-    public igw b[];
 
     public ihl()
     {
         a = null;
-        b = igw.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.e(1, a.intValue());
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i;
-            if (b.length > 0)
-            {
-                for (j = 0; j < b.length;)
-                {
-                    igw igw1 = b[j];
-                    int k = i;
-                    if (igw1 != null)
-                    {
-                        k = i + koh.d(2, igw1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
-        }
-        return j;
+        return super.computeSerializedSize() + kwk.e(1, a.intValue());
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L4:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 2: default 32
+    //                   0: 41
+    //                   8: 43;
+           goto _L1 _L2 _L3
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L4; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
-                break;
-
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                igw aigw[];
-                int j;
-                if (b == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
-                }
-                aigw = new igw[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, aigw, 0, j);
-                    k = j;
-                }
-                for (; k < aigw.length - 1; k++)
-                {
-                    aigw[k] = new igw();
-                    kog1.a(aigw[k]);
-                    kog1.a();
-                }
-
-                aigw[k] = new igw();
-                kog1.a(aigw[k]);
-                b = aigw;
-                break;
-            }
-        } while (true);
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+            a = Integer.valueOf(j);
+            break;
+        }
+        if (true) goto _L4; else goto _L5
+_L5:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
-        {
-            koh1.a(1, a.intValue());
-        }
-        if (b != null && b.length > 0)
-        {
-            for (int i = 0; i < b.length; i++)
-            {
-                igw igw1 = b[i];
-                if (igw1 != null)
-                {
-                    koh1.b(2, igw1);
-                }
-            }
-
-        }
-        super.writeTo(koh1);
+        kwk1.a(1, a.intValue());
+        super.writeTo(kwk1);
     }
 }

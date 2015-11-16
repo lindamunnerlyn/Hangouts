@@ -2,80 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.Serializable;
+import java.util.Comparator;
 
-public final class jrl extends koj
+final class jrl extends jxb
+    implements Serializable
 {
 
-    private static volatile jrl b[];
-    public Integer a;
+    private static final long serialVersionUID = 0L;
+    final Comparator a;
 
-    public jrl()
+    jrl(Comparator comparator)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = (Comparator)n.b(comparator);
     }
 
-    public static jrl[] a()
+    public int compare(Object obj, Object obj1)
     {
-        if (b == null)
+        return a.compare(obj, obj1);
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (obj == this)
         {
-            synchronized (kon.a)
-            {
-                if (b == null)
-                {
-                    b = new jrl[0];
-                }
-            }
+            return true;
         }
-        return b;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        if (obj instanceof jrl)
         {
-            i = j + koh.e(1, a.intValue());
+            obj = (jrl)obj;
+            return a.equals(((jrl) (obj)).a);
+        } else
+        {
+            return false;
         }
-        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public int hashCode()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
-                break;
-            }
-        } while (true);
+        return a.hashCode();
     }
 
-    public void writeTo(koh koh1)
+    public String toString()
     {
-        if (a != null)
-        {
-            koh1.a(1, a.intValue());
-        }
-        super.writeTo(koh1);
+        return a.toString();
     }
 }

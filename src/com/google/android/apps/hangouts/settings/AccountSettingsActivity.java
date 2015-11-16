@@ -9,55 +9,55 @@ import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
-import dnk;
+import dqd;
 import g;
-import gmo;
-import gmu;
-import gng;
-import hgt;
-import hhj;
-import po;
+import gqu;
+import grb;
+import grn;
+import hll;
+import hmb;
+import pq;
 
-public class AccountSettingsActivity extends hhj
+public class AccountSettingsActivity extends hmb
 {
 
-    public gmo j;
+    public gqu j;
 
     public AccountSettingsActivity()
     {
-        j = (new gng(this, q)).a(p).d();
-        new hgt(this, q);
-        new dnk(this, this, q);
+        j = (new grn(this, r)).a(q).d();
+        new hll(this, r);
+        new dqd(this, this, r);
     }
 
     protected void onCreate(Bundle bundle)
     {
         Object obj;
-        po po1;
+        pq pq1;
         boolean flag;
         super.onCreate(bundle);
-        setContentView(g.fL);
-        gmu gmu1 = j.c();
-        po1 = g();
-        obj = gmu1.b("display_name");
-        bundle = gmu1.b("account_name");
-        flag = gmu1.d("is_plus_page");
-        if (po1 == null)
+        setContentView(g.fJ);
+        grb grb1 = j.c();
+        pq1 = g();
+        obj = grb1.b("display_name");
+        bundle = grb1.b("account_name");
+        flag = grb1.d("is_plus_page");
+        if (pq1 == null)
         {
             break MISSING_BLOCK_LABEL_125;
         }
         if (!TextUtils.isEmpty(((CharSequence) (obj)))) goto _L2; else goto _L1
 _L1:
-        po1.a(bundle);
+        pq1.a(bundle);
 _L4:
         return;
 _L2:
-        po1.a(((CharSequence) (obj)));
+        pq1.a(((CharSequence) (obj)));
         if (flag) goto _L4; else goto _L3
 _L3:
         obj = SpannableStringBuilder.valueOf(bundle);
-        ((SpannableStringBuilder) (obj)).setSpan(new ForegroundColorSpan(getResources().getColor(g.dB)), 0, bundle.length(), 33);
-        po1.b(((CharSequence) (obj)));
+        ((SpannableStringBuilder) (obj)).setSpan(new ForegroundColorSpan(getResources().getColor(g.dA)), 0, bundle.length(), 33);
+        pq1.b(((CharSequence) (obj)));
         return;
         if (flag && !TextUtils.isEmpty(((CharSequence) (obj))))
         {

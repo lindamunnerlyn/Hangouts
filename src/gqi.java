@@ -2,35 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.util.Property;
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
-final class gqi extends Property
+public abstract class gqi extends ArrayAdapter
 {
 
-    gqi(Class class1, String s)
+    public gqi(Context context, int i)
     {
-        super(class1, s);
+        super(context, i);
     }
 
-    public Object get(Object obj)
-    {
-        return Float.valueOf(((View)obj).getWidth());
-    }
+    public abstract Object a(int i, View view);
 
-    public void set(Object obj, Object obj1)
+    public abstract void a(int i, Object obj);
+
+    public View getView(int i, View view, ViewGroup viewgroup)
     {
-        View view = (View)obj;
-        obj1 = (Float)obj1;
-        obj = view.getLayoutParams();
-        if (obj == null)
+        gqk gqk1 = (gqk)getItem(i);
+        View view1 = view;
+        if (view == null)
         {
-            obj = new android.view.ViewGroup.LayoutParams(((Float) (obj1)).intValue(), -2);
-        } else
-        {
-            obj.width = ((Float) (obj1)).intValue();
+            view1 = LayoutInflater.from(getContext()).inflate(gqk1.b(), viewgroup, false);
+            view1.setTag(a(i, view1));
         }
-        view.setLayoutParams(((android.view.ViewGroup.LayoutParams) (obj)));
-        view.requestLayout();
+        a(i, view1.getTag());
+        return view1;
+    }
+
+    public boolean isEnabled(int i)
+    {
+        return ((gqk)getItem(i)).a();
     }
 }

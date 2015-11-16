@@ -2,88 +2,114 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.res.Resources;
-import com.google.android.apps.hangouts.floatingactionbutton.impl.FloatingActionButton;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collection;
 
-final class bet extends lk
+public final class bet
+    implements ber
 {
 
-    final ben a;
+    String a;
+    String b;
+    boolean c;
 
-    bet(ben ben1)
+    bet(String s, String s1, boolean flag)
     {
-        a = ben1;
-        super();
+        a = s;
+        b = s1;
+        c = flag;
     }
 
-    public void a(int i)
+    private String a()
     {
-        if (ben.k(a) == null)
+        String s = String.valueOf("FEATURE_ENABLED.");
+        String s1 = String.valueOf(a);
+        if (s1.length() != 0)
         {
-            return;
-        }
-        i;
-        JVM INSTR tableswitch 0 1: default 36
-    //                   0 66
-    //                   1 135;
-           goto _L1 _L2 _L3
-_L1:
-        gbh.a((new StringBuilder(25)).append("Unknown page: ").append(i).toString());
-_L5:
-        super.a(i);
-        return;
-_L2:
-        if (ebr.a(ben.r(a)))
-        {
-            ben.k(a).setVisibility(4);
+            return s.concat(s1);
         } else
         {
-            ben.k(a).setContentDescription(ben.k(a).getResources().getString(g.lY));
-            ben.k(a).a(ben.i());
+            return new String(s);
         }
-        continue; /* Loop/switch isn't completed */
-_L3:
-        ben.k(a).a(a.g());
-        ben.k(a).setContentDescription(ben.k(a).getResources().getString(g.lX));
-        if (ebr.a(ben.r(a)))
-        {
-            ben.k(a).setVisibility(0);
-        }
-        if (true) goto _L5; else goto _L4
-_L4:
     }
 
-    public void a(int i, float f, int j)
+    public Object a(Context context, Class class1, Class class2)
     {
-        if (ben.k(a) == null)
+        if (a(context))
         {
-            return;
-        }
-        int k = ben.p(a);
-        if (j == 0)
-        {
-            a.a(i);
-        }
-        if (i == 0)
-        {
-            j = (int)((float)ben.p(a) + (float)(ben.q(a) - ben.p(a)) * f);
-            ben.k(a).a(ben.i(), ben.l(), f);
+            class2 = ((Class) (hlp.b(context, class2)));
         } else
         {
-            j = k;
-            if (i == 1)
-            {
-                j = ben.q(a);
-            }
+            class2 = null;
         }
-        if (android.os.Build.VERSION.SDK_INT >= 17)
+        if (class2 != null)
         {
-            ben.a(a, j);
-            return;
+            return class2;
         } else
         {
-            ben.b(a, j);
-            return;
+            return hlp.a(context, class1);
+        }
+    }
+
+    public Object a(Context context, Object obj)
+    {
+        if (a(context))
+        {
+            return obj;
+        } else
+        {
+            return null;
+        }
+    }
+
+    public boolean a(Context context)
+    {
+        context = PreferenceManager.getDefaultSharedPreferences(context);
+        if (!context.contains(a()))
+        {
+            return c;
+        } else
+        {
+            return context.getBoolean(a(), false);
+        }
+    }
+
+    public Object[] a(Context context, Class class1, Object obj)
+    {
+        if (a(context))
+        {
+            context = ((Context) ((Object[])Array.newInstance(class1, 1)));
+            context[0] = obj;
+            return context;
+        } else
+        {
+            return (Object[])Array.newInstance(class1, 0);
+        }
+    }
+
+    public Object[] a(Context context, Class class1, Collection collection)
+    {
+        if (a(context))
+        {
+            return collection.toArray((Object[])Array.newInstance(class1, 0));
+        } else
+        {
+            return (Object[])Array.newInstance(class1, 0);
+        }
+    }
+
+    public transient Object[] a(Context context, Class class1, Object aobj[])
+    {
+        if (a(context))
+        {
+            return Arrays.copyOf(aobj, 2);
+        } else
+        {
+            return (Object[])Array.newInstance(class1, 0);
         }
     }
 }

@@ -2,47 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import android.content.Intent;
-import com.google.android.apps.hangouts.peoplelistv2.impl.PeopleSearchActivity;
 
-final class cfp extends cbh
+final class cfp
 {
 
-    public cfp()
-    {
-    }
+    static final int a[];
+    static final int b[];
 
-    public int a()
+    static 
     {
-        return h.iJ;
-    }
-
-    public void a(Activity activity)
-    {
-        g.a(a, 2546);
-        Intent intent = new Intent(activity, com/google/android/apps/hangouts/peoplelistv2/impl/PeopleSearchActivity);
-        intent.putExtra("account_id", a.h());
-        activity.startActivity(intent);
-    }
-
-    public int b()
-    {
-        return n.j;
-    }
-
-    public int c()
-    {
-        return 3;
-    }
-
-    public int d()
-    {
-        return 1;
-    }
-
-    public int e()
-    {
-        return 3;
+        b = new int[cfq.values().length];
+        try
+        {
+            b[cfq.a.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror6) { }
+        try
+        {
+            b[cfq.c.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror5) { }
+        try
+        {
+            b[cfq.d.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror4) { }
+        try
+        {
+            b[cfq.b.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        a = new int[dgm.values().length];
+        try
+        {
+            a[dgm.d.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[dgm.c.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[dgm.e.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

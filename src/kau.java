@@ -2,61 +2,52 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicLong;
 
-public final class kau extends koj
+final class kau
+    implements ThreadFactory
 {
 
-    public Boolean a;
+    final ThreadFactory a;
+    final String b;
+    final AtomicLong c;
+    final Boolean d;
+    final Integer e;
+    final Thread.UncaughtExceptionHandler f;
 
-    public kau()
+    kau(ThreadFactory threadfactory, String s, AtomicLong atomiclong, Boolean boolean1, Integer integer, Thread.UncaughtExceptionHandler uncaughtexceptionhandler)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = threadfactory;
+        b = s;
+        c = atomiclong;
+        d = boolean1;
+        e = integer;
+        f = uncaughtexceptionhandler;
+        super();
     }
 
-    protected int computeSerializedSize()
+    public Thread newThread(Runnable runnable)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        runnable = a.newThread(runnable);
+        if (b != null)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            runnable.setName(kat.a(b, new Object[] {
+                Long.valueOf(c.getAndIncrement())
+            }));
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        if (d != null)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
+            runnable.setDaemon(d.booleanValue());
         }
-        super.writeTo(koh1);
+        if (e != null)
+        {
+            runnable.setPriority(e.intValue());
+        }
+        if (f != null)
+        {
+            runnable.setUncaughtExceptionHandler(f);
+        }
+        return runnable;
     }
 }

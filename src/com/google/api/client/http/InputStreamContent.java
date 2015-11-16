@@ -21,7 +21,7 @@ public final class InputStreamContent extends AbstractInputStreamContent
     {
         super(s);
         length = -1L;
-        inputStream = (InputStream)h.b(inputstream);
+        inputStream = (InputStream)h.a(inputstream);
     }
 
     public InputStream getInputStream()

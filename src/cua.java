@@ -2,73 +2,166 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.content.Context;
+import com.google.api.client.http.GenericUrl;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+import org.apache.http.HttpResponse;
+import org.apache.http.StatusLine;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
 
-public abstract class cua extends ctu
+public final class cua extends cvv
 {
 
-    private static final long serialVersionUID = 1L;
-    public final String j;
+    private static final boolean a = false;
+    private static final long serialVersionUID = 2L;
+    private final String b;
 
-    public cua(String s, String s1)
+    public cua(String s)
     {
-        super(s);
-        j = s1;
+        b = s;
+    }
+
+    public cxr a(Context context, cdn cdn1)
+    {
+        Object obj;
+        if (a)
+        {
+            obj = String.valueOf(cdn1.toString());
+            Object obj1;
+            llg llg1;
+            if (((String) (obj)).length() != 0)
+            {
+                obj = "[SEND] ".concat(((String) (obj)));
+            } else
+            {
+                obj = new String("[SEND] ");
+            }
+            eev.b("Babel", ((String) (obj)));
+        }
+        obj1 = b(context);
+        l();
+        obj = new File(b);
+        if (((File) (obj)).exists())
+        {
+            context = dcn.e(cdn1.c).a();
+            cdn1 = new DefaultHttpClient();
+            obj1 = new HttpPost(((GenericUrl) (obj1)).toURI());
+            try
+            {
+                llg1 = new llg();
+                llg1.a("prod", new llj("Google_Hangouts_Android"));
+                llg1.a("ver", new llj(String.valueOf(h.c()).concat("-calls")));
+                llg1.a("email", new llj(context));
+                llg1.a("type", new llj("log"));
+                llg1.a("log", new lli(((File) (obj))));
+                ((HttpPost) (obj1)).setEntity(llg1);
+                context = cdn1.execute(((org.apache.http.client.methods.HttpUriRequest) (obj1)));
+            }
+            // Misplaced declaration of an exception variable
+            catch (Context context)
+            {
+                context = null;
+            }
+            // Misplaced declaration of an exception variable
+            catch (cdn cdn1)
+            {
+                context = String.valueOf(cdn1.toString());
+                if (context.length() != 0)
+                {
+                    context = "Crash log upload failed due to ClientProtocolException ".concat(context);
+                } else
+                {
+                    context = new String("Crash log upload failed due to ClientProtocolException ");
+                }
+                eev.f("Babel", context);
+                throw new dcx(114, cdn1);
+            }
+            // Misplaced declaration of an exception variable
+            catch (cdn cdn1)
+            {
+                context = String.valueOf(cdn1.toString());
+                if (context.length() != 0)
+                {
+                    context = "Crash log upload failed due to IOException ".concat(context);
+                } else
+                {
+                    context = new String("Crash log upload failed due to IOException ");
+                }
+                eev.f("Babel", context);
+                throw new dcx(102, cdn1);
+            }
+            if (context == null || context.getStatusLine().getStatusCode() != 200)
+            {
+                eev.f("Babel", "Crash log upload unsuccessful.");
+                throw new dcx(108);
+            } else
+            {
+                eev.e("Babel", "Crash log successfully uploaded.");
+                ((File) (obj)).delete();
+                return null;
+            }
+        }
+        context = String.valueOf(((File) (obj)).getAbsolutePath());
+        if (context.length() != 0)
+        {
+            context = "Crash no such log file ".concat(context);
+        } else
+        {
+            context = new String("Crash no such log file ");
+        }
+        eev.e("Babel", context);
+        return null;
     }
 
     public String a()
     {
-        return "event_queue";
+        return "background_queue";
     }
 
-    public void a(ani ani1, dbo dbo1)
+    protected String a(Context context)
     {
-        if (ctr.e)
+        context = String.valueOf("https://clients2.google.com");
+        String s = String.valueOf(f());
+        if (s.length() != 0)
         {
-            String s = String.valueOf(this);
-            String s3 = c;
-            String s6 = j;
-            ebw.b("Babel", (new StringBuilder(String.valueOf(s).length() + 11 + String.valueOf(s3).length() + String.valueOf(s6).length())).append("onFailed ").append(s).append(" ").append(s3).append(" ").append(s6).toString());
-        }
-        super.a(ani1, dbo1);
-        if (!d)
+            return context.concat(s);
+        } else
         {
-            if (ctr.e && (this instanceof cut))
-            {
-                String s1 = ((cut)this).e();
-                if (s1 != null)
-                {
-                    String s4 = String.valueOf("Sending stress message permanently failed with error=");
-                    int i = dbo1.c();
-                    ebw.b("Babel_Stress", (new StringBuilder(String.valueOf(s4).length() + 12 + String.valueOf(s1).length())).append(s4).append(i).append(":").append(s1).toString());
-                }
-            }
-            String s2 = c;
-            String s5 = j;
-            int k;
-            if (dbo1 != null)
-            {
-                k = dbo1.c();
-            } else
-            {
-                k = 0;
-            }
-            RealTimeChatService.a(ani1, s2, s5, k);
-            cej.c(g.nS, ani1.h());
+            return new String(context);
         }
     }
 
-    public boolean a(cci cci, dbo dbo1)
+    public kws a(String s, int i, int j)
     {
-        boolean flag = super.a(cci, dbo1);
-        if (dbo1.c() == 101)
+        return null;
+    }
+
+    public void a(aoa aoa1, dcx dcx1)
+    {
+        aoa1 = new File(b);
+        if (aoa1.exists())
         {
-            if (ebw.a("Babel_RequestWriter", 3))
-            {
-                ebw.c("Babel_RequestWriter", "Do not retry for EventRequest if network is not available.");
-            }
-            flag = false;
+            aoa1.delete();
         }
-        return flag;
+    }
+
+    public long b()
+    {
+        return TimeUnit.HOURS.toMillis(24L);
+    }
+
+    public String f()
+    {
+        return "/cr/report";
+    }
+
+    static 
+    {
+        hnc hnc = eev.k;
     }
 }

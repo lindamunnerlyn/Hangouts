@@ -2,44 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.database.Cursor;
 
-public class cso extends csm
+final class cso extends arm
 {
 
-    private static final long serialVersionUID = 1L;
+    final csl c;
 
-    public cso()
+    cso(csl csl1, Context context, gqz gqz, int i, String s)
     {
+        c = csl1;
+        super(context, gqz, i, s);
     }
 
-    public String a()
+    protected void a(Cursor cursor)
     {
-        return "ui_queue";
-    }
-
-    public kop a(String s, int i, int j)
-    {
-        s = new hts();
-        hsy hsy1 = new hsy();
-        hsy1.a = s;
-        return hsy1;
-    }
-
-    public void a(ani ani1, dbo dbo)
-    {
-        ani1 = String.valueOf(ebw.b(ani1.c()));
-        if (ani1.length() != 0)
+        synchronized (c.b)
         {
-            ani1 = "GetChatAclSettingsOperation failed for ".concat(ani1);
-        } else
-        {
-            ani1 = new String("GetChatAclSettingsOperation failed for ");
+            c.a(b, true).a(cursor);
         }
-        ebw.e("Babel", ani1, dbo);
-    }
-
-    public String g()
-    {
-        return "getchatacls";
+        return;
+        cursor;
+        css;
+        JVM INSTR monitorexit ;
+        throw cursor;
     }
 }

@@ -2,56 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.PendingIntent;
-import android.os.Handler;
-import java.util.List;
 
-final class dxi extends dxh
-    implements dxj
+final class dxi
+    implements Runnable
 {
 
-    final dxf a;
-    private final PendingIntent b;
-    private final dxg c;
+    final dxh a;
 
-    dxi(dxf dxf1, PendingIntent pendingintent, dxg dxg1)
+    dxi(dxh dxh1)
     {
-        a = dxf1;
+        a = dxh1;
         super();
-        b = pendingintent;
-        c = dxg1;
     }
 
-    private void e()
+    public void run()
     {
-        dxf.a(a).removeCallbacks(this);
-        dxf.b(a).remove(this);
-    }
-
-    public void a()
-    {
-        ebw.e("Babel_telephony", "TeleInCallUiController.ShowDialogAction.onConnected");
-        dxf.a(a, b, c);
-        e();
-    }
-
-    public void b()
-    {
-        ebw.e("Babel_telephony", "TeleInCallUiController.ShowDialogAction.onError");
-        c.a();
-        e();
-    }
-
-    public void c()
-    {
-        ebw.e("Babel_telephony", "TeleInCallUiController.ShowDialogAction.onTimeout");
-        c.b();
-        e();
-    }
-
-    public void d()
-    {
-        b.cancel();
-        e();
+        dxh.a(a).a();
     }
 }

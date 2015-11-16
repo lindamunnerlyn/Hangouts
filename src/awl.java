@@ -2,35 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
 final class awl
-    implements android.content.DialogInterface.OnCancelListener
+    implements bse
 {
 
-    final ave a;
+    final avv a;
 
-    awl(ave ave1)
+    awl(avv avv1)
     {
-        a = ave1;
+        a = avv1;
         super();
     }
 
-    public void onCancel(DialogInterface dialoginterface)
+    public void a(boolean flag, boolean flag1)
     {
-        dialoginterface = ave.o(a).a();
-        if (dialoginterface != null)
+        if (!flag1)
         {
-            dialoginterface = ((ark) (dialoginterface)).a;
-        } else
-        {
-            dialoginterface = null;
+            Object obj = a;
+            if (!flag)
+            {
+                flag1 = true;
+            } else
+            {
+                flag1 = false;
+            }
+            avv.a(((avv) (obj)), flag1);
+            if (flag)
+            {
+                eco.a(a.getView());
+            } else
+            {
+                eco.a(a.getView(), false);
+            }
         }
-        ave.C(a).a();
-        if (dialoginterface != null && a.isEmpty())
+        obj = egb.a;
+        if (obj != null)
         {
-            RealTimeChatService.a(ave.h(a), dialoginterface, ave.aM(a));
+            ((egb) (obj)).a(flag);
         }
     }
 }

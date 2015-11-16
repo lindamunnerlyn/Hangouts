@@ -2,26 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.ResultReceiver;
+import android.view.View;
+import android.view.ViewGroup;
+import com.google.android.apps.hangouts.peoplelistv2.impl.EditParticipantsView;
 
-final class chg extends ResultReceiver
+public final class chg
+    implements cgx
 {
 
-    final amf a;
-    final chf b;
+    final EditParticipantsView a;
 
-    chg(chf chf1, Handler handler, amf amf)
+    public chg(EditParticipantsView editparticipantsview)
     {
-        b = chf1;
-        a = amf;
-        super(handler);
+        a = editparticipantsview;
+        super();
     }
 
-    protected void onReceiveResult(int i, Bundle bundle)
+    public void a()
     {
-        super.onReceiveResult(i, bundle);
-        cgw.a(b.a, a);
+        if (EditParticipantsView.a(a).getChildCount() > 0)
+        {
+            View view = EditParticipantsView.a(a).getChildAt(EditParticipantsView.a(a).getChildCount() - 1);
+            ail ail1 = (ail)view.getTag();
+            if (ail1 != null)
+            {
+                view.setTag(null);
+                EditParticipantsView.b(a).b(ail1);
+                EditParticipantsView.c(a);
+            }
+        }
     }
 }

@@ -2,82 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
+import android.content.Context;
 
-public class csu extends csm
+public final class csu
+    implements joj
 {
 
-    private static final long serialVersionUID = 1L;
-    private final String a;
-    private final String b;
-    private final int c;
-    private final csv d;
+    private final cst a;
+    private final joj b;
 
-    public csu(csv csv1, String s, String s1, int i)
+    public csu(cst cst, joj joj1)
     {
-        d = csv1;
-        a = s;
-        b = s1;
-        c = i;
+        a = cst;
+        b = joj1;
     }
 
-    public String a()
+    public Object a()
     {
-        return "ui_queue";
-    }
-
-    public kop a(String s, int i, int j)
-    {
-        s = new htt();
-        Object obj = new htq();
-        if (d == csv.c)
+        csy csy1 = (csy)hlp.a((Context)b.a(), csy);
+        if (csy1 == null)
         {
-            obj.a = Integer.valueOf(c);
-        } else
-        if (d == csv.b)
-        {
-            obj.e = Integer.valueOf(c);
-        } else
-        if (d == csv.a)
-        {
-            obj.f = Integer.valueOf(c);
+            throw new NullPointerException("Cannot return null from a non-@Nullable @Provides method");
         } else
         {
-            gbh.b(TextUtils.isEmpty(a));
-            htr htr1 = new htr();
-            htr1.a = a;
-            htr1.b = b;
-            htr1.c = Integer.valueOf(c);
-            obj.c = (new htr[] {
-                htr1
-            });
+            return csy1;
         }
-        s.a = ((htq) (obj));
-        obj = new htk();
-        obj.a = s;
-        return ((kop) (obj));
-    }
-
-    public void a(ani ani1, dbo dbo)
-    {
-        ani1 = String.valueOf(ebw.b(ani1.c()));
-        if (ani1.length() != 0)
-        {
-            ani1 = "SetChatAclSettingRequest failed for ".concat(ani1);
-        } else
-        {
-            ani1 = new String("SetChatAclSettingRequest failed for ");
-        }
-        ebw.e("Babel", ani1, dbo);
-    }
-
-    public boolean a(cci cci, dbo dbo)
-    {
-        return false;
-    }
-
-    public String g()
-    {
-        return "setchatacls";
     }
 }

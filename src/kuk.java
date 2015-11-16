@@ -3,108 +3,64 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kuk extends koj
+public final class kuk
+    implements kuc
 {
 
-    public Boolean a;
-    public Boolean b;
-    public Boolean c;
-    public Boolean d;
+    final kus a = null;
+    final int b = 0x5cb87e;
+    final kvz c;
+    final boolean d = false;
+    final boolean e = false;
 
-    public kuk()
+    public kuk(kus kus, int i, kvz kvz1)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        c = kvz1;
     }
 
-    protected int computeSerializedSize()
+    public int a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        j = i;
-        if (b != null)
-        {
-            b.booleanValue();
-            j = i + (koh.f(2) + 1);
-        }
-        i = j;
-        if (c != null)
-        {
-            c.booleanValue();
-            i = j + (koh.f(3) + 1);
-        }
-        j = i;
-        if (d != null)
-        {
-            d.booleanValue();
-            j = i + (koh.f(4) + 1);
-        }
-        return j;
+        return b;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kvc a(kvc kvc, kvb kvb)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-
-            case 16: // '\020'
-                b = Boolean.valueOf(kog1.i());
-                break;
-
-            case 24: // '\030'
-                c = Boolean.valueOf(kog1.i());
-                break;
-
-            case 32: // ' '
-                d = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
+        return ((kuf)kvc).a((kud)kvb);
     }
 
-    public void writeTo(koh koh1)
+    public kve a(kve kve)
     {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
-        }
-        if (b != null)
-        {
-            koh1.a(2, b.booleanValue());
-        }
-        if (c != null)
-        {
-            koh1.a(3, c.booleanValue());
-        }
-        if (d != null)
-        {
-            koh1.a(4, d.booleanValue());
-        }
-        super.writeTo(koh1);
+        return ((kuo)kve).d();
+    }
+
+    public kvz b()
+    {
+        return c;
+    }
+
+    public kwe c()
+    {
+        return c.a();
+    }
+
+    public int compareTo(Object obj)
+    {
+        obj = (kuk)obj;
+        return b - ((kuk) (obj)).b;
+    }
+
+    public boolean d()
+    {
+        return d;
+    }
+
+    public boolean e()
+    {
+        return e;
+    }
+
+    public kus f()
+    {
+        return a;
     }
 }

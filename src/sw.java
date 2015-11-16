@@ -3,148 +3,77 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.support.v7.internal.view.menu.ExpandedMenuView;
-import android.view.ContextThemeWrapper;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
+import android.view.MenuItem;
+import android.view.SubMenu;
+import java.util.Map;
 
-public final class sw
-    implements android.widget.AdapterView.OnItemClickListener, tn
+class sw extends sx
 {
 
-    Context a;
-    LayoutInflater b;
-    sy c;
-    ExpandedMenuView d;
-    int e;
-    int f;
-    sx g;
-    private int h;
-    private to i;
+    final Context a;
+    Map b;
+    Map c;
 
-    private sw(int j)
+    sw(Context context, Object obj)
     {
-        f = j;
-        e = 0;
-    }
-
-    public sw(Context context, int j)
-    {
-        this(j);
+        super(obj);
         a = context;
-        b = LayoutInflater.from(a);
     }
 
-    static int a(sw sw1)
+    final MenuItem a(MenuItem menuitem)
     {
-        return sw1.h;
-    }
-
-    public ListAdapter a()
-    {
-        if (g == null)
+        if (menuitem instanceof fs)
         {
-            g = new sx(this);
-        }
-        return g;
-    }
-
-    public tp a(ViewGroup viewgroup)
-    {
-        if (d == null)
-        {
-            d = (ExpandedMenuView)b.inflate(g.bv, viewgroup, false);
-            if (g == null)
-            {
-                g = new sx(this);
-            }
-            d.setAdapter(g);
-            d.setOnItemClickListener(this);
-        }
-        return d;
-    }
-
-    public void a(Context context, sy sy1)
-    {
-        if (e == 0) goto _L2; else goto _L1
-_L1:
-        a = new ContextThemeWrapper(context, e);
-        b = LayoutInflater.from(a);
-_L4:
-        c = sy1;
-        if (g != null)
-        {
-            g.notifyDataSetChanged();
-        }
-        return;
-_L2:
-        if (a != null)
-        {
-            a = context;
+            fs fs1 = (fs)menuitem;
             if (b == null)
             {
-                b = LayoutInflater.from(a);
+                b = new gz();
             }
-        }
-        if (true) goto _L4; else goto _L3
-_L3:
-    }
-
-    public void a(sy sy1, boolean flag)
-    {
-        if (i != null)
+            MenuItem menuitem1 = (MenuItem)b.get(menuitem);
+            menuitem = menuitem1;
+            if (menuitem1 == null)
+            {
+                menuitem = g.a(a, fs1);
+                b.put(fs1, menuitem);
+            }
+            return menuitem;
+        } else
         {
-            i.a(sy1, flag);
+            return menuitem;
         }
     }
 
-    public void a(to to1)
+    final SubMenu a(SubMenu submenu)
     {
-        i = to1;
-    }
-
-    public boolean a(ts ts1)
-    {
-        if (!ts1.hasVisibleItems())
+label0:
         {
-            return false;
+label1:
+            {
+                if (!(submenu instanceof ft))
+                {
+                    break label0;
+                }
+                ft ft1 = (ft)submenu;
+                if (c == null)
+                {
+                    c = new gz();
+                }
+                SubMenu submenu1 = (SubMenu)c.get(ft1);
+                submenu = submenu1;
+                if (submenu1 == null)
+                {
+                    submenu = a;
+                    if (android.os.Build.VERSION.SDK_INT < 14)
+                    {
+                        break label1;
+                    }
+                    submenu = new tv(submenu, ft1);
+                    c.put(ft1, submenu);
+                }
+                return submenu;
+            }
+            throw new UnsupportedOperationException();
         }
-        (new tb(ts1)).a();
-        if (i != null)
-        {
-            i.a(ts1);
-        }
-        return true;
-    }
-
-    public void b(boolean flag)
-    {
-        if (g != null)
-        {
-            g.notifyDataSetChanged();
-        }
-    }
-
-    public boolean b()
-    {
-        return false;
-    }
-
-    public boolean b(tc tc)
-    {
-        return false;
-    }
-
-    public boolean c(tc tc)
-    {
-        return false;
-    }
-
-    public void onItemClick(AdapterView adapterview, View view, int j, long l)
-    {
-        c.a(g.a(j), this, 0);
+        return submenu;
     }
 }

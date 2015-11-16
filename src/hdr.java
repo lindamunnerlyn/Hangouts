@@ -3,36 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class hdr
+public interface hdr
 {
 
-    String a;
-    long b;
-    long c;
-    long d;
-    long e;
-    long f;
-    long g;
-    final gz h = new gz();
-    String i;
-    public String j[];
+    public abstract void j();
 
-    hdr()
-    {
-    }
-
-    public String toString()
-    {
-        String s = a;
-        long l = b;
-        long l1 = b;
-        long l2 = c;
-        long l3 = g;
-        long l4 = c;
-        long l5 = d;
-        long l6 = f;
-        long l7 = e;
-        String s1 = i;
-        return (new StringBuilder(String.valueOf(s).length() + 240 + String.valueOf(s1).length())).append("[").append(s).append("], duration: ").append(l).append("ms, network: ").append(l1 - l2).append("ms, server: ").append(l3).append("ms, processing: ").append(l4).append("ms, requests: ").append(l5).append(", sent: ").append(l6).append(", received: ").append(l7).append(", protocol:").append(s1).toString();
-    }
+    public abstract void k();
 }

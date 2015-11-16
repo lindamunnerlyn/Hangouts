@@ -2,102 +2,76 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import java.util.Iterator;
-import java.util.Set;
 
-public final class gke
+final class gke
+    implements gjr
 {
 
-    private static final boolean a;
-
-    public static String a(Set set, String s)
+    gke()
     {
-        if (set != null)
+    }
+
+    private static jko a(jif jif, jhh ajhh[])
+    {
+        jkd jkd1 = new jkd();
+        jkd1.a = jif;
+        jkd1.b = ajhh;
+        return a(jkd1);
+    }
+
+    private static jko a(jkd jkd1)
+    {
+        jko jko1 = new jko();
+        jko1.a = jkd1;
+        return jko1;
+    }
+
+    public jko a(kws kws)
+    {
+        jhl jhl1 = (jhl)kws;
+        jif jif = jhl1.b;
+        if (jhl1.a == null)
         {
-            StringBuilder stringbuilder = new StringBuilder();
-            set = set.iterator();
-            boolean flag = true;
-            while (set.hasNext()) 
-            {
-                String s1 = (String)set.next();
-                if (flag)
-                {
-                    flag = false;
-                } else
-                {
-                    stringbuilder.append(s);
-                }
-                stringbuilder.append(s1);
-            }
-            return stringbuilder.toString();
+            kws = jhl1.d;
         } else
         {
-            return null;
+            kws = new jhh[1];
+            kws[0] = jhl1.a;
         }
+        return a(jif, ((jhh []) (kws)));
     }
 
-    public static void a(View view, android.view.ViewTreeObserver.OnGlobalLayoutListener ongloballayoutlistener)
+    public jko a(kws kws, kws kws1)
     {
-label0:
+        kws = (jho)kws;
+        jhp jhp1 = (jhp)kws1;
+        kws1 = new jkd();
+        kws1.a = jhp1.a;
+        kws1.f = Integer.valueOf(g.a(jhp1.b, 1));
+        jid ajid[] = new jid[((jho) (kws)).e.length];
+        for (int i = 0; i < ((jho) (kws)).e.length; i++)
         {
-            if (view != null)
-            {
-                if (android.os.Build.VERSION.SDK_INT < 16)
-                {
-                    break label0;
-                }
-                view.getViewTreeObserver().removeOnGlobalLayoutListener(ongloballayoutlistener);
-            }
-            return;
+            ajid[i] = new jid();
+            ajid[i].a = ((jho) (kws)).a;
+            ajid[i].b = ((jho) (kws)).e[i];
         }
-        view.getViewTreeObserver().removeGlobalOnLayoutListener(ongloballayoutlistener);
+
+        kws1.c = ajid;
+        return a(((jkd) (kws1)));
     }
 
-    public static boolean a()
+    public jko b(kws kws)
     {
-        return a;
-    }
-
-    static 
-    {
-        Class aclass[];
-        Class aclass1[];
-        int i;
-        boolean flag;
-        flag = true;
-        if (android.os.Build.VERSION.SDK_INT < 19)
+        jhn jhn1 = (jhn)kws;
+        jif jif = jhn1.b;
+        if (jhn1.a == null)
         {
-            break MISSING_BLOCK_LABEL_96;
-        }
-        aclass = new Class[0];
-        aclass1 = new Class[0];
-        i = 0;
-_L3:
-        if (i >= 2) goto _L2; else goto _L1
-_L1:
-        java.lang.reflect.Method method = (new Class[] {
-            android/app/Activity, android/view/View
-        })[i].getDeclaredMethod((new String[] {
-            "isVoiceInteraction", "getZ"
-        })[i], (new Class[][] {
-            aclass, aclass1
-        })[i]);
-        if (method == null)
+            kws = jhn1.c;
+        } else
         {
-            continue; /* Loop/switch isn't completed */
+            kws = new jhh[1];
+            kws[0] = jhn1.a;
         }
-_L4:
-        a = flag;
-        return;
-        NoSuchMethodException nosuchmethodexception;
-        nosuchmethodexception;
-        i++;
-          goto _L3
-_L2:
-        flag = false;
-          goto _L4
+        return a(jif, kws);
     }
 }

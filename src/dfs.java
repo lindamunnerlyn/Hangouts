@@ -2,34 +2,67 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
 
-public final class dfs
-    implements Runnable
+public final class dfs extends djp
 {
 
-    final ani a;
-    final String b;
-    final cey c;
-    final String d;
-    final long e;
-    final boolean f;
+    private final cwo b;
 
-    public dfs(ani ani, String s, cey cey, String s1, long l, boolean flag)
+    public dfs(cwo cwo1)
     {
-        a = ani;
-        b = s;
-        c = cey;
-        d = s1;
-        e = l;
-        f = flag;
-        super();
+        super(cwo1);
+        b = cwo1;
     }
 
-    public void run()
+    protected cvt a(aoa aoa, int i, String s)
     {
-        for (Iterator iterator = RealTimeChatService.o().iterator(); iterator.hasNext(); ((dgp)iterator.next()).a(a, b, c, d, e, f)) { }
+        b.l();
+        return new cul(aoa, i, b, s);
+    }
+
+    public String a()
+    {
+        return b.a();
+    }
+
+    public boolean a(cdl cdl)
+    {
+        return false;
+    }
+
+    public boolean a(cdn cdn, dcx dcx)
+    {
+        return b.a(cdn, dcx);
+    }
+
+    public boolean a(String s)
+    {
+        return b.a(s);
+    }
+
+    public long b()
+    {
+        return b.b();
+    }
+
+    protected void b(int i, dcx dcx)
+    {
+        aoa aoa = dcn.e(i);
+        b.a(aoa, dcx);
+    }
+
+    public boolean c()
+    {
+        return b.c();
+    }
+
+    public boolean d()
+    {
+        return b.d();
+    }
+
+    public String e()
+    {
+        return b.e();
     }
 }

@@ -2,64 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
+import android.app.Activity;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import java.util.Map;
+import java.util.Set;
 
-final class asg
-    implements eci
+public final class asg
+    implements hnu, hoy
 {
 
-    final asf a;
+    final ase a;
+    private final Activity b;
+    private final int c;
+    private final String d;
 
-    asg(asf asf1)
+    public asg(ase ase1, Activity activity, int i, String s)
     {
-        a = asf1;
+        a = ase1;
         super();
+        b = activity;
+        c = i;
+        d = s;
     }
 
     public void a()
     {
-        if (a.h != null)
+        Set set;
+        if (b.isFinishing())
         {
-            a.h.a();
+            if ((set = (Set)a.a.get(Integer.valueOf(c))) != null && set.contains(d))
+            {
+                RealTimeChatService.a(dcn.e(c), d, -1L);
+                set.remove(d);
+                return;
+            }
         }
-        a.g.a(a.f, 2726).d();
-        if (a.a)
-        {
-            a.g.a(a.f, 2556).d();
-        }
-        if (a.b)
-        {
-            a.g.a(a.f, 2562).d();
-        }
-        if (a.c)
-        {
-            a.g.a(a.f, 2559).d();
-        }
-        ((arw)hgx.a(a.e, arw)).a();
-    }
-
-    public void a(int i)
-    {
-        arv arv1;
-        a.i = 0;
-        a.j = null;
-        arv1 = (arv)a.d.get(i);
-        if (arv1.a == null) goto _L2; else goto _L1
-_L1:
-        a.g.a(a.f, 2555).d();
-_L4:
-        ((arw)hgx.a(a.e, arw)).a(arv1);
-        return;
-_L2:
-        if (arv1.c != null)
-        {
-            a.g.a(a.f, 2561).d();
-        } else
-        if (arv1.b != null)
-        {
-            a.g.a(a.f, 2558).d();
-        }
-        if (true) goto _L4; else goto _L3
-_L3:
     }
 }

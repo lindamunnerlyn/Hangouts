@@ -2,47 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-final class anq
-    implements gmz
+public class anq extends dor
 {
 
-    final ank a;
+    public final dbi a;
+    public final dob b;
 
-    anq(ank ank)
+    public anq(dbi dbi1, dob dob)
     {
-        a = ank;
-        super();
-    }
-
-    public String a()
-    {
-        return "fix_sms_logged_off2";
-    }
-
-    public void a(Context context, gmw gmw1)
-    {
-        boolean flag1 = true;
-        if ("SMS".equals(gmw1.b("account_name")))
+        if (dbi1 == null)
         {
-            boolean flag;
-            if (gmw1.d("is_sms_account") && dbf.j())
-            {
-                flag = true;
-            } else
-            {
-                flag = false;
-            }
-            gmw1.b("logged_in", flag);
-            if (!flag)
-            {
-                flag = flag1;
-            } else
-            {
-                flag = false;
-            }
-            gmw1.b("logged_out", flag);
+            eev.g("Babel", "lookupSpec should not be empty");
         }
+        if (dob == null)
+        {
+            eev.g("Babel", "consumer should not be null");
+        }
+        a = dbi1;
+        b = dob;
+    }
+
+    public anq(String s, dob dob)
+    {
+        this(dbi.a(s), dob);
+    }
+
+    public dob a()
+    {
+        return b;
+    }
+
+    public String c()
+    {
+        return a.c();
+    }
+
+    public dbi d()
+    {
+        return a;
     }
 }

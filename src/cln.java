@@ -2,23 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
-import android.os.Handler;
+import com.google.android.apps.hangouts.phone.ConversationActivity;
 
 public final class cln
-    implements dgo
+    implements bjy
 {
 
-    final com.google.android.apps.hangouts.phone.DebugActivity.RecordingService a;
+    final ConversationActivity a;
 
-    public cln(com.google.android.apps.hangouts.phone.DebugActivity.RecordingService recordingservice)
+    public cln(ConversationActivity conversationactivity)
     {
-        a = recordingservice;
+        a = conversationactivity;
         super();
     }
 
-    public void a(Intent intent)
+    public void a()
     {
-        com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.d(a).post(new clo(this, intent));
+        a.n.D();
+    }
+
+    public void a(CharSequence charsequence)
+    {
+        a.n.a(charsequence);
+    }
+
+    public void b()
+    {
+        a.n.E();
+    }
+
+    public void c()
+    {
+        a.n.I();
     }
 }

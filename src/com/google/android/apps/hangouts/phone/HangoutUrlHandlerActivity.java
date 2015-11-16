@@ -7,48 +7,48 @@ package com.google.android.apps.hangouts.phone;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
-import boy;
-import coa;
-import cob;
+import bph;
+import cpr;
+import cps;
 import g;
-import gmp;
-import gmq;
-import gmu;
-import gwn;
-import gwt;
-import gxe;
-import gxj;
-import gxk;
-import hhw;
+import gqv;
+import gqw;
+import grb;
+import hax;
+import hbd;
+import hbo;
+import hbu;
+import hbv;
+import hmo;
 import l;
 
-public class HangoutUrlHandlerActivity extends hhw
-    implements gmq
+public class HangoutUrlHandlerActivity extends hmo
+    implements gqw
 {
 
-    private gwt j;
+    private hbd j;
 
     public HangoutUrlHandlerActivity()
     {
-        j = (new gwt(this, l)).a("active-hangouts-account").a(k).b(this);
+        j = (new hbd(this, l)).a("active-hangouts-account").a(k).b(this);
     }
 
-    public void a(boolean flag, gmp gmp1, gmp gmp2, int i, int k)
+    public void a(boolean flag, gqv gqv1, gqv gqv2, int i, int k)
     {
-        if (gmp2 == gmp.c)
+        if (gqv2 == gqv.c)
         {
-            gmp1 = boy.a(getIntent().getData(), j.c().b("account_name"), null);
-            if (gmp1 == null)
+            gqv1 = bph.a(getIntent().getData(), j.c().b("account_name"), null);
+            if (gqv1 == null)
             {
-                gmp1 = new android.app.AlertDialog.Builder(this);
-                gmp1.setMessage(l.dS);
-                gmp1.setPositiveButton(l.hJ, new coa(this));
-                gmp1.setOnCancelListener(new cob(this));
-                gmp1.show();
+                gqv1 = new android.app.AlertDialog.Builder(this);
+                gqv1.setMessage(l.dB);
+                gqv1.setPositiveButton(l.hd, new cpr(this));
+                gqv1.setOnCancelListener(new cps(this));
+                gqv1.show();
                 return;
             } else
             {
-                startActivity(g.a(gmp1, null, null, false, 51, SystemClock.elapsedRealtime()));
+                startActivity(g.a(gqv1, null, null, false, 51, SystemClock.elapsedRealtime()));
                 finish();
                 return;
             }
@@ -62,7 +62,7 @@ public class HangoutUrlHandlerActivity extends hhw
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        bundle = (new gxe()).b().a(gxj, (new gxk()).a().a((new gwn()).a("logged_in").b("sms_only")).c());
+        bundle = (new hbo()).b().a(hbu, (new hbv()).a().a((new hax()).a("logged_in").b("sms_only")).c());
         j.a(bundle);
     }
 }

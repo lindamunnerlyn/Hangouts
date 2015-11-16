@@ -12,16 +12,15 @@ import org.json.JSONObject;
 public class UrlRequestContextConfig
 {
 
-    private JSONObject a;
+    private final JSONObject a = new JSONObject();
 
     public UrlRequestContextConfig()
     {
-        a = new JSONObject();
         c();
         a(false);
         f();
         g();
-        a(HttpCache.a, 0L);
+        a(0, 0L);
     }
 
     private UrlRequestContextConfig a(String s, long l)
@@ -71,20 +70,9 @@ public class UrlRequestContextConfig
         return a.optString("USER_AGENT");
     }
 
-    public UrlRequestContextConfig a(String s)
+    public UrlRequestContextConfig a(int i, long l)
     {
-        if (!(new File(s)).isDirectory())
-        {
-            throw new IllegalArgumentException("Storage path must be set to existing directory");
-        } else
-        {
-            return a("STORAGE_PATH", s);
-        }
-    }
-
-    public UrlRequestContextConfig a(HttpCache httpcache, long l)
-    {
-        if (httpcache == HttpCache.d || httpcache == HttpCache.c)
+        if (i == 3 || i == 2)
         {
             if (b().isEmpty())
             {
@@ -96,7 +84,7 @@ public class UrlRequestContextConfig
             throw new IllegalArgumentException("Storage path must be empty");
         }
         boolean flag;
-        if (httpcache == HttpCache.a || httpcache == HttpCache.c)
+        if (i == 0 || i == 2)
         {
             flag = true;
         } else
@@ -105,20 +93,31 @@ public class UrlRequestContextConfig
         }
         a("LOAD_DISABLE_CACHE", flag);
         a("HTTP_CACHE_MAX_SIZE", l);
-        switch (_cls1.a[httpcache.ordinal()])
+        switch (i)
         {
         default:
             return this;
 
-        case 1: // '\001'
+        case 0: // '\0'
             return a("HTTP_CACHE", "HTTP_CACHE_DISABLED");
 
         case 2: // '\002'
         case 3: // '\003'
             return a("HTTP_CACHE", "HTTP_CACHE_DISK");
 
-        case 4: // '\004'
+        case 1: // '\001'
             return a("HTTP_CACHE", "HTTP_CACHE_MEMORY");
+        }
+    }
+
+    public UrlRequestContextConfig a(String s)
+    {
+        if (!(new File(s)).isDirectory())
+        {
+            throw new IllegalArgumentException("Storage path must be set to existing directory");
+        } else
+        {
+            return a("STORAGE_PATH", s);
         }
     }
 
@@ -169,7 +168,7 @@ public class UrlRequestContextConfig
         return a("ENABLE_LEGACY_MODE", false);
     }
 
-    boolean d()
+    public boolean d()
     {
         return a.optBoolean("ENABLE_LEGACY_MODE");
     }
@@ -193,76 +192,4 @@ public class UrlRequestContextConfig
     {
         return a.toString();
     }
-
-    private class HttpCache extends Enum
-    {
-
-        public static final HttpCache a;
-        public static final HttpCache b;
-        public static final HttpCache c;
-        public static final HttpCache d;
-        private static final HttpCache e[];
-
-        public static HttpCache valueOf(String s)
-        {
-            return (HttpCache)Enum.valueOf(org/chromium/net/UrlRequestContextConfig$HttpCache, s);
-        }
-
-        public static HttpCache[] values()
-        {
-            return (HttpCache[])e.clone();
-        }
-
-        static 
-        {
-            a = new HttpCache("DISABLED", 0);
-            b = new HttpCache("IN_MEMORY", 1);
-            c = new HttpCache("DISK_NO_HTTP", 2);
-            d = new HttpCache("DISK", 3);
-            e = (new HttpCache[] {
-                a, b, c, d
-            });
-        }
-
-        private HttpCache(String s, int i)
-        {
-            super(s, i);
-        }
-    }
-
-
-    private class _cls1
-    {
-
-        static final int a[];
-
-        static 
-        {
-            a = new int[HttpCache.values().length];
-            try
-            {
-                a[HttpCache.a.ordinal()] = 1;
-            }
-            catch (NoSuchFieldError nosuchfielderror3) { }
-            try
-            {
-                a[HttpCache.c.ordinal()] = 2;
-            }
-            catch (NoSuchFieldError nosuchfielderror2) { }
-            try
-            {
-                a[HttpCache.d.ordinal()] = 3;
-            }
-            catch (NoSuchFieldError nosuchfielderror1) { }
-            try
-            {
-                a[HttpCache.b.ordinal()] = 4;
-            }
-            catch (NoSuchFieldError nosuchfielderror)
-            {
-                return;
-            }
-        }
-    }
-
 }

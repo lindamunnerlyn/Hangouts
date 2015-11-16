@@ -2,41 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.widget.ListView;
-import com.google.android.apps.hangouts.views.MessageListAnimationManager;
 
-final class axz extends egg
+final class axz
+    implements Runnable
 {
 
-    final ave a;
+    final avv a;
 
-    axz(ave ave1)
+    axz(avv avv1)
     {
-        a = ave1;
+        a = avv1;
         super();
     }
 
-    public void a()
+    public void run()
     {
-        if (ave.k(a) != null)
-        {
-            ((ListView)ave.l(a)).invalidateViews();
-        }
-    }
-
-    public void a(boolean flag)
-    {
-        if (!ave.i(a))
-        {
-            MessageListAnimationManager messagelistanimationmanager = ave.j(a);
-            if (!flag)
-            {
-                flag = true;
-            } else
-            {
-                flag = false;
-            }
-            messagelistanimationmanager.a(flag);
-        }
+        avv.r(a);
     }
 }

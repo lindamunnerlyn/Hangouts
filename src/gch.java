@@ -2,31 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import android.content.Intent;
 
-final class gch
-    implements gcm
+public final class gch
 {
 
-    final gcg a;
+    public final fdp a;
 
-    gch(gcg gcg1)
+    public gch(Activity activity)
     {
-        a = gcg1;
-        super();
+        a = new fdp(activity);
     }
 
-    public String a()
+    public void a(Intent intent)
     {
-        return a.c.b();
-    }
-
-    public String b()
-    {
-        return a.b;
-    }
-
-    public String c()
-    {
-        return a.d;
+        a.a(intent);
     }
 }

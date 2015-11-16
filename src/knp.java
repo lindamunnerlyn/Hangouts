@@ -2,66 +2,64 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.AbstractSet;
-import java.util.Iterator;
 
-final class knp extends AbstractSet
+public final class knp extends kwm
 {
 
-    final kni a;
+    public kqh a;
 
-    knp(kni kni1)
+    public knp()
     {
-        a = kni1;
-        super();
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public boolean add(Object obj)
+    protected int computeSerializedSize()
     {
-        obj = (java.util.Map.Entry)obj;
-        if (!contains(obj))
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            a.a((Comparable)((java.util.Map.Entry) (obj)).getKey(), ((java.util.Map.Entry) (obj)).getValue());
-            return true;
-        } else
-        {
-            return false;
+            i = j + kwk.d(1, a);
         }
+        return i;
     }
 
-    public void clear()
+    public kws mergeFrom(kwj kwj1)
     {
-        a.clear();
-    }
-
-    public boolean contains(Object obj)
-    {
-        Object obj1 = (java.util.Map.Entry)obj;
-        obj = a.get(((java.util.Map.Entry) (obj1)).getKey());
-        obj1 = ((java.util.Map.Entry) (obj1)).getValue();
-        return obj == obj1 || obj != null && obj.equals(obj1);
-    }
-
-    public Iterator iterator()
-    {
-        return new kno(a);
-    }
-
-    public boolean remove(Object obj)
-    {
-        obj = (java.util.Map.Entry)obj;
-        if (contains(obj))
+        do
         {
-            a.remove(((java.util.Map.Entry) (obj)).getKey());
-            return true;
-        } else
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new kqh();
+                }
+                kwj1.a(a);
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
         {
-            return false;
+            kwk1.b(1, a);
         }
-    }
-
-    public int size()
-    {
-        return a.size();
+        super.writeTo(kwk1);
     }
 }

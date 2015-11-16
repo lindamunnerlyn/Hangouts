@@ -3,10 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hbr
+public interface hbr
 {
 
-    public hbr()
-    {
-    }
+    public abstract void a(int i);
 }

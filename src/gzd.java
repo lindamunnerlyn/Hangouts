@@ -2,17 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import java.nio.ByteBuffer;
 
-public class gzd
+public interface gzd
 {
 
-    private final gvb a;
-    private gzk b;
-
-    public gzd(Context context)
-    {
-        b = null;
-        a = (gvb)hgx.a(context, gvb);
-    }
+    public abstract Object a(gzf gzf, ByteBuffer bytebuffer);
 }

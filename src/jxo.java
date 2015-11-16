@@ -2,61 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.Serializable;
 
-public final class jxo extends koj
+final class jxo extends jxb
+    implements Serializable
 {
 
-    public Boolean a;
+    private static final long serialVersionUID = 0L;
+    final jxb a;
 
-    public jxo()
+    jxo(jxb jxb1)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = (jxb)n.b(jxb1);
     }
 
-    protected int computeSerializedSize()
+    public jxb c()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        return a;
+    }
+
+    public int compare(Object obj, Object obj1)
+    {
+        return a.compare(obj1, obj);
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (obj == this)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            return true;
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        if (obj instanceof jxo)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
+            obj = (jxo)obj;
+            return a.equals(((jxo) (obj)).a);
+        } else
         {
-            koh1.a(1, a.booleanValue());
+            return false;
         }
-        super.writeTo(koh1);
+    }
+
+    public int hashCode()
+    {
+        return -a.hashCode();
+    }
+
+    public String toString()
+    {
+        String s = String.valueOf(a);
+        return (new StringBuilder(String.valueOf(s).length() + 10)).append(s).append(".reverse()").toString();
     }
 }

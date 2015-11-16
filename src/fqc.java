@@ -3,15 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class fqc extends ThreadLocal
+public interface fqc
 {
 
-    fqc()
-    {
-    }
-
-    protected Object initialValue()
-    {
-        return new StringBuilder();
-    }
+    public abstract void a(fqd fqd, ftl ftl);
 }

@@ -2,22 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.net.Uri;
+import com.google.android.gms.common.api.Status;
 
-public final class fyw
-    implements ekh
+public final class fyw extends fym
 {
 
-    private final fyi a;
-    private final fzb b;
+    final Uri a;
+    final int b = 0;
+    final fuz i;
 
-    public fyw(fyi fyi1, fzb fzb1)
+    public fyw(fuz fuz, emy emy, Uri uri, int j)
     {
-        a = fyi1;
-        b = fzb1;
+        i = fuz;
+        a = uri;
+        super(emy);
     }
 
-    public void a(ekg ekg)
+    protected enh a(Status status)
     {
-        a.a(b.a(ekg));
+        return new fvc(status, 0);
+    }
+
+    protected void a(emw emw)
+    {
+        ((fyg)emw).b(this, a, b);
     }
 }

@@ -2,99 +2,95 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.lang.reflect.Method;
 
-public final class hrj extends koj
+public final class hrj
 {
 
-    private static volatile hrj c[];
-    public hru a;
-    public String b;
+    private static final Object a;
+    private static final Method b;
+    private static final Method c;
 
-    public hrj()
+    private static Object a()
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        Object obj;
+        try
+        {
+            obj = Class.forName("sun.misc.SharedSecrets", false, null).getMethod("getJavaLangAccess", new Class[0]).invoke(null, new Object[0]);
+        }
+        catch (ThreadDeath threaddeath)
+        {
+            throw threaddeath;
+        }
+        catch (Throwable throwable)
+        {
+            return null;
+        }
+        return obj;
     }
 
-    public static hrj[] a()
+    public static RuntimeException a(Throwable throwable)
     {
-        if (c == null)
-        {
-            synchronized (kon.a)
-            {
-                if (c == null)
-                {
-                    c = new hrj[0];
-                }
-            }
-        }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        Throwable throwable1 = (Throwable)h.a(throwable);
+        a(throwable1, java/lang/Error);
+        a(throwable1, java/lang/RuntimeException);
+        throw new RuntimeException(throwable);
     }
 
-    protected int computeSerializedSize()
+    private static transient Method a(String s, Class aclass[])
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        try
         {
-            i = j + koh.d(1, a);
+            s = Class.forName("sun.misc.JavaLangAccess", false, null).getMethod(s, aclass);
         }
-        j = i;
-        if (b != null)
+        // Misplaced declaration of an exception variable
+        catch (String s)
         {
-            j = i + koh.b(2, b);
+            throw s;
         }
-        return j;
+        // Misplaced declaration of an exception variable
+        catch (String s)
+        {
+            return null;
+        }
+        return s;
     }
 
-    public kop mergeFrom(kog kog1)
+    private static void a(Throwable throwable, Class class1)
     {
-        do
+        if (throwable != null && class1.isInstance(throwable))
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new hru();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-            }
-        } while (true);
+            throw (Throwable)class1.cast(throwable);
+        } else
+        {
+            return;
+        }
     }
 
-    public void writeTo(koh koh1)
+    static 
     {
-        if (a != null)
+        Object obj1 = null;
+        Object obj = a();
+        a = obj;
+        if (obj == null)
         {
-            koh1.b(1, a);
-        }
-        if (b != null)
+            obj = null;
+        } else
         {
-            koh1.a(2, b);
+            obj = a("getStackTraceElement", new Class[] {
+                java/lang/Throwable, Integer.TYPE
+            });
         }
-        super.writeTo(koh1);
+        b = ((Method) (obj));
+        if (a == null)
+        {
+            obj = obj1;
+        } else
+        {
+            obj = a("getStackTraceDepth", new Class[] {
+                java/lang/Throwable
+            });
+        }
+        c = ((Method) (obj));
     }
 }

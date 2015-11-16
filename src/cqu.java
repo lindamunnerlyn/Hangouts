@@ -2,12 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.DialogInterface;
+import com.google.android.apps.hangouts.phone.ShortlinkUrlHandlerActivity;
 
 public final class cqu
-    implements hcu
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    public cqu()
+    final ShortlinkUrlHandlerActivity a;
+
+    public cqu(ShortlinkUrlHandlerActivity shortlinkurlhandleractivity)
     {
+        a = shortlinkurlhandleractivity;
+        super();
+    }
+
+    public void onClick(DialogInterface dialoginterface, int i)
+    {
+        a.finish();
     }
 }

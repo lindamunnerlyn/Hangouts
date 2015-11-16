@@ -2,17 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Stack;
 
-final class ape extends ThreadLocal
+public final class ape
 {
 
-    ape()
-    {
-    }
+    final String a;
+    final byte b[];
+    final int c;
+    final boolean d;
 
-    public Object initialValue()
+    ape(String s, byte abyte0[], int i, boolean flag)
     {
-        return new Stack();
+        a = s;
+        b = abyte0;
+        c = i;
+        d = flag;
     }
 }

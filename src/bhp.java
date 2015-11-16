@@ -2,67 +2,55 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import java.util.Random;
+import android.content.Context;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
 
-public abstract class bhp extends bjx
-    implements aqj, efa
+public final class bhp
 {
 
-    public static final Random f = new Random();
+    boolean a;
+    private final Context b;
+    private boolean c;
+    private PhoneStateListener d;
+    private TelephonyManager e;
 
-    public bhp()
+    public bhp(Context context)
     {
+        b = context;
     }
 
-    public static boolean a(dqb dqb1)
+    public void a(bhr bhr1)
     {
-        switch (bhq.a[dqb1.ordinal()])
+        gdv.b("Expected condition to be false", c);
+        c = true;
+        e = (TelephonyManager)b.getSystemService("phone");
+        if (e == null)
         {
-        default:
-            return false;
-
-        case 1: // '\001'
-            return true;
+            eev.e("Babel", "couldn't retrieve TelephonyManager!");
+            bhr1.a();
+            return;
+        } else
+        {
+            d = new bhq(this, bhr1);
+            e.listen(d, 1);
+            return;
         }
     }
 
-    public abstract void C();
+    public boolean a()
+    {
+        gdv.a("Expected condition to be true", c);
+        return a;
+    }
 
-    public abstract void D();
-
-    public abstract void G();
-
-    public abstract boolean H();
-
-    public abstract ceu M();
-
-    public abstract String O();
-
-    public abstract int R();
-
-    public abstract Handler T();
-
-    public abstract ani a();
-
-    public abstract void a(bhr bhr);
-
-    public abstract void a(CharSequence charsequence);
-
-    public abstract boolean a(long l);
-
-    public abstract void c(int i);
-
-    public abstract String d(cey cey);
-
-    public abstract void d(String s);
-
-    public abstract String e(cey cey);
-
-    public abstract String f(cey cey);
-
-    public abstract String g(cey cey);
-
-    public abstract boolean u();
-
+    public void b()
+    {
+        c = false;
+        if (d != null)
+        {
+            e.listen(d, 0);
+            d = null;
+        }
+    }
 }

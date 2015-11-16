@@ -3,6 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface cne
+final class cne extends coj
 {
+
+    final cna a;
+
+    cne(cna cna1, String s)
+    {
+        a = cna1;
+        super(s);
+    }
+
+    public void a()
+    {
+        eev.e("Babel", "Register account for current active account.");
+        dcn.c(a.b);
+    }
 }

@@ -14,38 +14,38 @@ import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
-import sy;
-import sz;
 import ta;
+import tb;
 import tc;
-import to;
-import tp;
-import vp;
-import vu;
-import wc;
-import wd;
+import te;
+import tq;
+import tr;
+import vr;
+import vw;
 import we;
 import wf;
 import wg;
-import xs;
-import xt;
+import wh;
+import wi;
+import xu;
+import xv;
 
-public class ActionMenuView extends xs
-    implements ta, tp
+public class ActionMenuView extends xu
+    implements tc, tr
 {
 
-    private sy a;
-    private Context b;
-    private int c;
-    private boolean d;
-    private vu e;
-    private to f;
-    private sz g;
-    private boolean h;
-    private int i;
+    public tb a;
+    public wi b;
+    private ta c;
+    private Context d;
+    private int e;
+    private boolean f;
+    private vw g;
+    private tq h;
+    private boolean i;
     private int j;
     private int k;
-    private wg l;
+    private int l;
 
     public ActionMenuView(Context context)
     {
@@ -57,16 +57,16 @@ public class ActionMenuView extends xs
         super(context, attributeset);
         b(false);
         float f1 = context.getResources().getDisplayMetrics().density;
-        j = (int)(56F * f1);
-        k = (int)(f1 * 4F);
-        b = context;
-        c = 0;
+        k = (int)(56F * f1);
+        l = (int)(f1 * 4F);
+        d = context;
+        e = 0;
     }
 
     public static int a(View view, int i1, int j1, int k1, int l1)
     {
         boolean flag1 = false;
-        we we1 = (we)view.getLayoutParams();
+        wg wg1 = (wg)view.getLayoutParams();
         int i2 = android.view.View.MeasureSpec.makeMeasureSpec(android.view.View.MeasureSpec.getSize(k1) - l1, android.view.View.MeasureSpec.getMode(k1));
         ActionMenuItemView actionmenuitemview;
         boolean flag;
@@ -108,7 +108,7 @@ public class ActionMenuView extends xs
             k1 = 0;
         }
         flag = flag1;
-        if (!we1.a)
+        if (!wg1.a)
         {
             flag = flag1;
             if (l1 != 0)
@@ -116,39 +116,29 @@ public class ActionMenuView extends xs
                 flag = true;
             }
         }
-        we1.d = flag;
-        we1.b = k1;
+        wg1.d = flag;
+        wg1.b = k1;
         view.measure(android.view.View.MeasureSpec.makeMeasureSpec(k1 * i1, 0x40000000), i2);
         return k1;
     }
 
-    public static wg a(ActionMenuView actionmenuview)
+    public wg a(AttributeSet attributeset)
     {
-        return actionmenuview.l;
+        return new wg(getContext(), attributeset);
     }
 
-    public static sz b(ActionMenuView actionmenuview)
-    {
-        return actionmenuview.g;
-    }
-
-    public we a(AttributeSet attributeset)
-    {
-        return new we(getContext(), attributeset);
-    }
-
-    public we a(android.view.ViewGroup.LayoutParams layoutparams)
+    public wg a(android.view.ViewGroup.LayoutParams layoutparams)
     {
         if (layoutparams != null)
         {
-            if (layoutparams instanceof we)
+            if (layoutparams instanceof wg)
             {
-                layoutparams = new we((we)layoutparams);
+                layoutparams = new wg((wg)layoutparams);
             } else
             {
-                layoutparams = new we(layoutparams);
+                layoutparams = new wg(layoutparams);
             }
-            if (((we) (layoutparams)).h <= 0)
+            if (((wg) (layoutparams)).h <= 0)
             {
                 layoutparams.h = 16;
             }
@@ -163,70 +153,70 @@ public class ActionMenuView extends xs
     {
 label0:
         {
-            if (c != i1)
+            if (e != i1)
             {
-                c = i1;
+                e = i1;
                 if (i1 != 0)
                 {
                     break label0;
                 }
-                b = getContext();
+                d = getContext();
             }
             return;
         }
-        b = new ContextThemeWrapper(getContext(), i1);
+        d = new ContextThemeWrapper(getContext(), i1);
     }
 
-    public void a(sy sy1)
+    public void a(ta ta1)
     {
-        a = sy1;
+        c = ta1;
     }
 
-    public void a(to to, sz sz)
+    public void a(tq tq, tb tb)
     {
-        f = to;
-        g = sz;
+        h = tq;
+        a = tb;
     }
 
-    public void a(vu vu1)
+    public void a(vw vw1)
     {
-        e = vu1;
-        e.a(this);
+        g = vw1;
+        g.a(this);
     }
 
-    public void a(wg wg)
+    public void a(wi wi)
     {
-        l = wg;
+        b = wi;
     }
 
     public void a(boolean flag)
     {
-        d = flag;
+        f = flag;
     }
 
     public boolean a()
     {
-        return d;
+        return f;
     }
 
-    public boolean a(tc tc)
+    public boolean a(te te)
     {
-        return a.a(tc, 0);
+        return c.a(te, 0);
     }
 
-    protected we b()
+    protected wg b()
     {
-        we we1 = new we();
-        we1.h = 16;
-        return we1;
+        wg wg1 = new wg();
+        wg1.h = 16;
+        return wg1;
     }
 
-    public xt b(AttributeSet attributeset)
+    public xv b(AttributeSet attributeset)
     {
         return a(attributeset);
     }
 
-    protected xt b(android.view.ViewGroup.LayoutParams layoutparams)
+    protected xv b(android.view.ViewGroup.LayoutParams layoutparams)
     {
         return a(layoutparams);
     }
@@ -244,54 +234,54 @@ label0:
         if (i1 < getChildCount())
         {
             flag = flag1;
-            if (view instanceof wc)
+            if (view instanceof we)
             {
-                flag = ((wc)view).e() | false;
+                flag = ((we)view).e() | false;
             }
         }
-        if (i1 > 0 && (view1 instanceof wc))
+        if (i1 > 0 && (view1 instanceof we))
         {
-            return ((wc)view1).d() | flag;
+            return ((we)view1).d() | flag;
         } else
         {
             return flag;
         }
     }
 
-    public we c()
+    public wg c()
     {
-        we we1 = b();
-        we1.a = true;
-        return we1;
+        wg wg1 = b();
+        wg1.a = true;
+        return wg1;
     }
 
     public boolean checkLayoutParams(android.view.ViewGroup.LayoutParams layoutparams)
     {
-        return layoutparams != null && (layoutparams instanceof we);
+        return layoutparams != null && (layoutparams instanceof wg);
     }
 
     public Menu d()
     {
-        if (a == null)
+        if (c == null)
         {
             Object obj = getContext();
-            a = new sy(((Context) (obj)));
-            a.a(new wf(this));
-            e = new vu(((Context) (obj)));
-            e.d();
-            vu vu1 = e;
-            if (f != null)
+            c = new ta(((Context) (obj)));
+            c.a(new wh(this));
+            g = new vw(((Context) (obj)));
+            g.d();
+            vw vw1 = g;
+            if (h != null)
             {
-                obj = f;
+                obj = h;
             } else
             {
-                obj = new wd(this);
+                obj = new wf(this);
             }
-            vu1.a(((to) (obj)));
-            a.a(e, b);
-            e.a(this);
+            vw1.a(((tq) (obj)));
+            c.a(g, d);
+            g.a(this);
         }
-        return a;
+        return c;
     }
 
     public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityevent)
@@ -299,19 +289,19 @@ label0:
         return false;
     }
 
-    public sy e()
+    public ta e()
     {
-        return a;
+        return c;
     }
 
     public boolean f()
     {
-        return e != null && e.e();
+        return g != null && g.e();
     }
 
     public boolean g()
     {
-        return e != null && e.f();
+        return g != null && g.f();
     }
 
     protected android.view.ViewGroup.LayoutParams generateDefaultLayoutParams()
@@ -331,28 +321,28 @@ label0:
 
     public boolean h()
     {
-        return e != null && e.i();
+        return g != null && g.i();
     }
 
     public boolean i()
     {
-        return e != null && e.j();
+        return g != null && g.j();
     }
 
     public void j()
     {
-        if (e != null)
+        if (g != null)
         {
-            e.g();
+            g.g();
         }
     }
 
     public void k()
     {
-        e.c(true);
+        g.c(true);
     }
 
-    protected xt l()
+    protected xv l()
     {
         return b();
     }
@@ -363,13 +353,13 @@ label0:
         {
             super.onConfigurationChanged(configuration);
         }
-        if (e != null)
+        if (g != null)
         {
-            e.b(false);
-            if (e.i())
+            g.b(false);
+            if (g.i())
             {
-                e.f();
-                e.e();
+                g.f();
+                g.e();
             }
         }
     }
@@ -382,7 +372,7 @@ label0:
 
     protected void onLayout(boolean flag, int i1, int j1, int k1, int l1)
     {
-        if (h) goto _L2; else goto _L1
+        if (i) goto _L2; else goto _L1
 _L1:
         super.onLayout(flag, i1, j1, k1, l1);
 _L4:
@@ -394,16 +384,16 @@ _L2:
         j1 = 0;
         int i2 = k1 - i1 - getPaddingRight() - getPaddingLeft();
         l1 = 0;
-        flag = vp.a(this);
+        flag = vr.a(this);
         int j2 = 0;
         while (j2 < i4) 
         {
             View view = getChildAt(j2);
-            we we2;
+            wg wg2;
             if (view.getVisibility() != 8)
             {
-                we we1 = (we)view.getLayoutParams();
-                if (we1.a)
+                wg wg1 = (wg)view.getLayoutParams();
+                if (wg1.a)
                 {
                     int k2 = view.getMeasuredWidth();
                     l1 = k2;
@@ -417,11 +407,11 @@ _L2:
                     if (flag)
                     {
                         k2 = getPaddingLeft();
-                        k2 = we1.leftMargin + k2;
+                        k2 = wg1.leftMargin + k2;
                         j3 = k2 + l1;
                     } else
                     {
-                        j3 = getWidth() - getPaddingRight() - we1.rightMargin;
+                        j3 = getWidth() - getPaddingRight() - wg1.rightMargin;
                         k2 = j3 - l1;
                     }
                     i5 = l3 - k4 / 2;
@@ -433,8 +423,8 @@ _L2:
                 } else
                 {
                     int k3 = view.getMeasuredWidth();
-                    int l4 = we1.leftMargin;
-                    int j5 = we1.rightMargin;
+                    int l4 = wg1.leftMargin;
+                    int j5 = wg1.rightMargin;
                     b(j2);
                     int l2 = j1 + 1;
                     i2 -= j5 + (k3 + l4);
@@ -491,15 +481,15 @@ _L2:
         while (j1 < i4) 
         {
             view = getChildAt(j1);
-            we2 = (we)view.getLayoutParams();
-            if (view.getVisibility() != 8 && !we2.a)
+            wg2 = (wg)view.getLayoutParams();
+            if (view.getVisibility() != 8 && !wg2.a)
             {
-                i1 -= we2.rightMargin;
+                i1 -= wg2.rightMargin;
                 l1 = view.getMeasuredWidth();
                 i2 = view.getMeasuredHeight();
                 j2 = l3 - i2 / 2;
                 view.layout(i1 - l1, j2, i1, i2 + j2);
-                i1 -= we2.leftMargin + l1 + k1;
+                i1 -= wg2.leftMargin + l1 + k1;
             }
             j1++;
         }
@@ -510,15 +500,15 @@ _L3:
         while (j1 < i4) 
         {
             view = getChildAt(j1);
-            we2 = (we)view.getLayoutParams();
-            if (view.getVisibility() != 8 && !we2.a)
+            wg2 = (wg)view.getLayoutParams();
+            if (view.getVisibility() != 8 && !wg2.a)
             {
-                i1 += we2.leftMargin;
+                i1 += wg2.leftMargin;
                 l1 = view.getMeasuredWidth();
                 i2 = view.getMeasuredHeight();
                 j2 = l3 - i2 / 2;
                 view.layout(i1, j2, i1 + l1, i2 + j2);
-                i1 = we2.rightMargin + l1 + k1 + i1;
+                i1 = wg2.rightMargin + l1 + k1 + i1;
             }
             j1++;
         }
@@ -529,7 +519,7 @@ _L5:
     protected void onMeasure(int i1, int j1)
     {
         int i2;
-        boolean flag2 = h;
+        boolean flag2 = i;
         int k1;
         boolean flag;
         if (android.view.View.MeasureSpec.getMode(i1) == 0x40000000)
@@ -539,19 +529,19 @@ _L5:
         {
             flag = false;
         }
-        h = flag;
-        if (flag2 != h)
+        i = flag;
+        if (flag2 != i)
         {
-            i = 0;
+            j = 0;
         }
         k1 = android.view.View.MeasureSpec.getSize(i1);
-        if (h && a != null && k1 != i)
+        if (i && c != null && k1 != j)
         {
-            i = k1;
-            a.b(true);
+            j = k1;
+            c.b(true);
         }
         i2 = getChildCount();
-        if (!h || i2 <= 0) goto _L2; else goto _L1
+        if (!i || i2 <= 0) goto _L2; else goto _L1
 _L1:
         int k4 = android.view.View.MeasureSpec.getMode(j1);
         i1 = android.view.View.MeasureSpec.getSize(i1);
@@ -561,14 +551,14 @@ _L1:
         int l3 = getPaddingTop() + getPaddingBottom();
         int l4 = getChildMeasureSpec(j1, l3, -2);
         int i5 = i1 - (k1 + i2);
-        i1 = i5 / j;
-        j1 = j;
+        i1 = i5 / k;
+        j1 = k;
         if (i1 == 0)
         {
             setMeasuredDimension(i5, 0);
             return;
         }
-        int j5 = j + (i5 % j1) / i1;
+        int j5 = k + (i5 % j1) / i1;
         j1 = 0;
         int l2 = 0;
         int k2 = 0;
@@ -587,15 +577,15 @@ _L1:
                 i3++;
                 if (flag1)
                 {
-                    ((View) (obj)).setPadding(k, 0, k, 0);
+                    ((View) (obj)).setPadding(l, 0, l, 0);
                 }
-                we we1 = (we)((View) (obj)).getLayoutParams();
-                we1.f = false;
-                we1.c = 0;
-                we1.b = 0;
-                we1.d = false;
-                we1.leftMargin = 0;
-                we1.rightMargin = 0;
+                wg wg1 = (wg)((View) (obj)).getLayoutParams();
+                wg1.f = false;
+                wg1.c = 0;
+                wg1.b = 0;
+                wg1.d = false;
+                wg1.leftMargin = 0;
+                wg1.rightMargin = 0;
                 int k3;
                 if (flag1 && ((ActionMenuItemView)obj).c())
                 {
@@ -604,8 +594,8 @@ _L1:
                 {
                     flag1 = false;
                 }
-                we1.e = flag1;
-                if (we1.a)
+                wg1.e = flag1;
+                if (wg1.a)
                 {
                     l1 = 1;
                 } else
@@ -620,14 +610,14 @@ _L1:
                 int i4;
                 long l7;
                 long l8;
-                if (we1.d)
+                if (wg1.d)
                 {
                     l1 = k2 + 1;
                 } else
                 {
                     l1 = k2;
                 }
-                if (we1.a)
+                if (wg1.a)
                 {
                     i2 = 1;
                 } else
@@ -698,12 +688,12 @@ _L5:
 _L12:
         if (l3 >= k5) goto _L7; else goto _L6
 _L6:
-        obj = (we)getChildAt(l3).getLayoutParams();
-        if (!((we) (obj)).d) goto _L9; else goto _L8
+        obj = (wg)getChildAt(l3).getLayoutParams();
+        if (!((wg) (obj)).d) goto _L9; else goto _L8
 _L8:
-        if (((we) (obj)).b >= l1) goto _L11; else goto _L10
+        if (((wg) (obj)).b >= l1) goto _L11; else goto _L10
 _L10:
-        i2 = ((we) (obj)).b;
+        i2 = ((wg) (obj)).b;
         l7 = 1 << l3;
         l1 = 1;
 _L14:
@@ -714,7 +704,7 @@ _L14:
         l3 = i4;
           goto _L12
 _L11:
-        if (((we) (obj)).b != l1) goto _L9; else goto _L13
+        if (((wg) (obj)).b != l1) goto _L9; else goto _L13
 _L13:
         l7 |= 1 << l3;
         i4 = i2 + 1;
@@ -731,21 +721,21 @@ _L7:
             while (i2 < k5) 
             {
                 obj = getChildAt(i2);
-                we1 = (we)((View) (obj)).getLayoutParams();
+                wg1 = (wg)((View) (obj)).getLayoutParams();
                 if (((long)(1 << i2) & l7) == 0L)
                 {
-                    if (we1.b == l1 + 1)
+                    if (wg1.b == l1 + 1)
                     {
                         l5 |= 1 << i2;
                     }
                 } else
                 {
-                    if (k3 && we1.e && i1 == 1)
+                    if (k3 && wg1.e && i1 == 1)
                     {
-                        ((View) (obj)).setPadding(k + j5, 0, k, 0);
+                        ((View) (obj)).setPadding(l + j5, 0, l, 0);
                     }
-                    we1.b = we1.b + 1;
-                    we1.f = true;
+                    wg1.b = wg1.b + 1;
+                    wg1.f = true;
                     i1--;
                 }
                 i2++;
@@ -773,7 +763,7 @@ _L17:
         if ((1L & l8) != 0L)
         {
             f1 = f3;
-            if (!((we)getChildAt(0).getLayoutParams()).e)
+            if (!((wg)getChildAt(0).getLayoutParams()).e)
             {
                 f1 = f3 - 0.5F;
             }
@@ -782,7 +772,7 @@ _L17:
         if (((long)(1 << k5 - 1) & l8) == 0L) goto _L18; else goto _L19
 _L19:
         f2 = f1;
-        if (((we)getChildAt(k5 - 1).getLayoutParams()).e) goto _L18; else goto _L20
+        if (((wg)getChildAt(k5 - 1).getLayoutParams()).e) goto _L18; else goto _L20
 _L20:
         f1 -= 0.5F;
 _L22:
@@ -804,32 +794,32 @@ _L22:
             if (((long)(1 << i2) & l8) != 0L)
             {
                 obj = getChildAt(i2);
-                we1 = (we)((View) (obj)).getLayoutParams();
+                wg1 = (wg)((View) (obj)).getLayoutParams();
                 if (obj instanceof ActionMenuItemView)
                 {
-                    we1.c = l1;
-                    we1.f = true;
-                    if (i2 == 0 && !we1.e)
+                    wg1.c = l1;
+                    wg1.f = true;
+                    if (i2 == 0 && !wg1.e)
                     {
-                        we1.leftMargin = -l1 / 2;
+                        wg1.leftMargin = -l1 / 2;
                     }
                     i1 = 1;
                 } else
-                if (we1.a)
+                if (wg1.a)
                 {
-                    we1.c = l1;
-                    we1.f = true;
-                    we1.rightMargin = -l1 / 2;
+                    wg1.c = l1;
+                    wg1.f = true;
+                    wg1.rightMargin = -l1 / 2;
                     i1 = 1;
                 } else
                 {
                     if (i2 != 0)
                     {
-                        we1.leftMargin = l1 / 2;
+                        wg1.leftMargin = l1 / 2;
                     }
                     if (i2 != k5 - 1)
                     {
-                        we1.rightMargin = l1 / 2;
+                        wg1.rightMargin = l1 / 2;
                     }
                 }
             }
@@ -844,11 +834,11 @@ _L21:
             for (i1 = 0; i1 < k5; i1++)
             {
                 obj = getChildAt(i1);
-                we1 = (we)((View) (obj)).getLayoutParams();
-                if (we1.f)
+                wg1 = (wg)((View) (obj)).getLayoutParams();
+                if (wg1.f)
                 {
-                    l1 = we1.b;
-                    ((View) (obj)).measure(android.view.View.MeasureSpec.makeMeasureSpec(we1.c + l1 * j5, 0x40000000), l4);
+                    l1 = wg1.b;
+                    ((View) (obj)).measure(android.view.View.MeasureSpec.makeMeasureSpec(wg1.c + l1 * j5, 0x40000000), l4);
                 }
             }
 
@@ -862,7 +852,7 @@ _L21:
 _L2:
         for (l1 = 0; l1 < i2; l1++)
         {
-            obj = (we)getChildAt(l1).getLayoutParams();
+            obj = (wg)getChildAt(l1).getLayoutParams();
             obj.rightMargin = 0;
             obj.leftMargin = 0;
         }

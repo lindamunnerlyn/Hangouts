@@ -2,32 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.Window;
+import android.support.v7.internal.widget.ActionBarContextView;
+import android.view.View;
 
-final class rh
-    implements to
+final class rh extends mf
 {
 
-    final ra a;
+    final rg a;
 
-    rh(ra ra1)
+    rh(rg rg1)
     {
-        a = ra1;
+        a = rg1;
         super();
     }
 
-    public void a(sy sy, boolean flag)
+    public void a(View view)
     {
-        a.b(sy);
+        a.a.p.setVisibility(0);
     }
 
-    public boolean a(sy sy)
+    public void b(View view)
     {
-        android.view.Window.Callback callback = ((qs) (a)).b.getCallback();
-        if (callback != null)
-        {
-            callback.onMenuOpened(108, sy);
-        }
-        return true;
+        kb.c(a.a.p, 1.0F);
+        a.a.s.a(null);
+        a.a.s = null;
     }
 }

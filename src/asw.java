@@ -4,45 +4,35 @@
 
 
 final class asw
-    implements eci
 {
 
-    final asv a;
+    static final int a[];
 
-    asw(asv asv1)
+    static 
     {
-        a = asv1;
-        super();
-    }
-
-    public void a()
-    {
-        if (a.b != null)
+        a = new int[atu.values().length];
+        try
         {
-            a.b.a();
+            a[atu.a.ordinal()] = 1;
         }
-        g.a(dbf.e(((gmo)hgx.a(a.a, gmo)).a()), 2563);
-        ((ase)hgx.a(a.a, ase)).a();
-    }
-
-    public void a(int i)
-    {
-        ase ase1 = (ase)hgx.a(a.a, ase);
-        ani ani = dbf.e(((gmo)hgx.a(a.a, gmo)).a());
-        switch (i)
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
         {
-        default:
-            return;
-
-        case 0: // '\0'
-            g.a(ani, 2565);
-            ase1.a(3);
-            return;
-
-        case 1: // '\001'
-            g.a(ani, 2564);
-            break;
+            a[atu.b.ordinal()] = 2;
         }
-        ase1.a(2);
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[atu.c.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[atu.d.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

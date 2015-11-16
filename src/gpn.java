@@ -2,23 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
 
-final class gpn
-    implements android.os.Parcelable.Creator
+public final class gpn extends Enum
 {
 
-    gpn()
-    {
-    }
+    public static final int a;
+    public static final int b;
+    public static final int c;
+    public static final int d;
+    private static final int e[];
 
-    public Object createFromParcel(Parcel parcel)
+    static 
     {
-        return new gpm(parcel);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new gpm[i];
+        a = 1;
+        b = 2;
+        c = 3;
+        d = 4;
+        e = (new int[] {
+            a, b, c, d
+        });
     }
 }

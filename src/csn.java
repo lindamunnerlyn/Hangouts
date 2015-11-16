@@ -2,48 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.database.Cursor;
 
-public class csn extends csm
+final class csn extends arm
 {
 
-    private static final long serialVersionUID = 1L;
-    private final String a;
+    final cvc c;
+    final Object d;
+    final csl e;
 
-    public csn(String s)
+    csn(csl csl1, Context context, gqz gqz, int i, String s, cvc cvc, Object obj)
     {
-        gbh.b(TextUtils.isEmpty(s));
-        a = s;
+        e = csl1;
+        c = cvc;
+        d = obj;
+        super(context, gqz, i, s);
     }
 
-    public kop a(String s, int i, int j)
+    protected void a(Cursor cursor)
     {
-        s = new ken();
-        Object obj = new kcr();
-        obj.a = a;
-        Object obj1 = new kem();
-        obj1.a = (new kcr[] {
-            obj
-        });
-        s.a = ((kem) (obj1));
-        obj1 = new jxx();
-        obj1.a = Boolean.valueOf(true);
-        obj = new jxw();
-        obj.b = ((jxx) (obj1));
-        obj1 = new jxv();
-        obj1.b = ((jxw) (obj));
-        obj = new kdf();
-        obj.d = ((jxv) (obj1));
-        obj1 = new kdh();
-        obj1.c = ((kdf) (obj));
-        s.b = ((kdh) (obj1));
-        obj = new hti();
-        obj.a = s;
-        return ((kop) (obj));
-    }
-
-    public String g()
-    {
-        return "readitemsbyid";
+        synchronized (e.b)
+        {
+            ctu ctu1 = e.a(b, true);
+            ctu1.a(cursor);
+            e.a(ctu1, b, c, d);
+        }
+        return;
+        cursor;
+        css;
+        JVM INSTR monitorexit ;
+        throw cursor;
     }
 }

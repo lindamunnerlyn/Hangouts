@@ -3,25 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gbo extends gep
+public interface gbo
 {
 
-    final boolean a;
-    final gbn b;
-
-    gbo(gbn gbn1, boolean flag)
-    {
-        b = gbn1;
-        a = flag;
-        super();
-    }
-
-    public void a(gem gem1)
-    {
-        if (gem1.e() && gem1.d() != null)
-        {
-            b.d.b(this);
-            b.a(a);
-        }
-    }
+    public abstract emy d();
 }

@@ -4,7 +4,7 @@
     <LinearLayout android:paddingLeft="@dimen/l_space" android:paddingRight="@dimen/l_space" android:layout_width="fill_parent" android:layout_height="fill_parent">
         <RelativeLayout android:layout_gravity="center_vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
             <TextView android:textSize="16.0sp" android:textColor="?android:textColorPrimary" android:ellipsize="end" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
-            <TextView android:textSize="14.0sp" android:textColor="?android:textColorSecondary" android:id="@id/subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_below="@id/title" android:layout_alignLeft="@id/title" android:layout_alignStart="@id/title" />
+            <TextView android:textSize="14.0sp" android:textColor="?android:textColorSecondary" android:id="@id/subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_below="@id/title" android:layout_alignLeft="@id/title" />
         </RelativeLayout>
         <CheckBox android:layout_gravity="center" android:id="@id/checkbox" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" />
     </LinearLayout>

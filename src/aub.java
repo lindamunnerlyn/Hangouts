@@ -2,22 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.AsyncTask;
+import android.os.Parcel;
 
-final class aub extends AsyncTask
+final class aub
+    implements android.os.Parcelable.Creator
 {
 
-    final Runnable a;
-
-    aub(Runnable runnable)
+    aub()
     {
-        a = runnable;
-        super();
     }
 
-    protected Object doInBackground(Object aobj[])
+    public Object createFromParcel(Parcel parcel)
     {
-        a.run();
-        return null;
+        return new aua(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new aua[i];
     }
 }

@@ -7,6 +7,6 @@
         <TextView android:textSize="@dimen/promo_body_text_size" android:textColor="@color/quantum_white_80" android:textColorLink="@color/quantum_white_80" android:id="@id/phone_callerid_promo_summary" android:layout_width="fill_parent" android:layout_height="wrap_content" />
     </LinearLayout>
     <RelativeLayout android:paddingTop="@dimen/image_padding_top" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/promo_text" android:layout_alignParentBottom="true">
-        <ImageView android:id="@id/phone_callerid_promo_image" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_alignParentEnd="true" />
+        <ImageView android:id="@id/phone_callerid_promo_image" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
     </RelativeLayout>
 </RelativeLayout>

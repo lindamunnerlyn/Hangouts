@@ -2,121 +2,106 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.TimeUnit;
 
-public final class jul extends koj
+public class jul extends jrr
+    implements Serializable
 {
 
-    public juo a;
-    public jun b;
-    public jup c;
-    public jum d;
+    private static final long serialVersionUID = 3L;
+    final jvl a;
+    final jvl b;
+    final jnk c;
+    final jnk d;
+    final long e;
+    final long f;
+    final int g;
+    final int h;
+    final fuu i;
+    transient ConcurrentMap j;
 
-    public jul()
+    jul(jvl jvl, jvl jvl1, jnk jnk, jnk jnk1, long l, long l1, int k, int i1, fuu fuu, ConcurrentMap concurrentmap)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = jvl;
+        b = jvl1;
+        c = jnk;
+        d = jnk1;
+        e = l;
+        f = l1;
+        g = k;
+        h = i1;
+        i = fuu;
+        j = concurrentmap;
     }
 
-    protected int computeSerializedSize()
+    protected ConcurrentMap a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.d(3, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.d(4, d);
-        }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    jtz a(ObjectInputStream objectinputstream)
+    {
+        int k = objectinputstream.readInt();
+        objectinputstream = (new jtz()).a(k).a(a).b(b).a(c).c(h);
+        objectinputstream.a(i);
+        if (e > 0L)
+        {
+            objectinputstream.a(e, TimeUnit.NANOSECONDS);
+        }
+        if (f > 0L)
+        {
+            objectinputstream.b(f, TimeUnit.NANOSECONDS);
+        }
+        if (g != -1)
+        {
+            objectinputstream.b(g);
+        }
+        return objectinputstream;
+    }
+
+    void a(ObjectOutputStream objectoutputstream)
+    {
+        objectoutputstream.writeInt(j.size());
+        java.util.Map.Entry entry;
+        for (Iterator iterator = j.entrySet().iterator(); iterator.hasNext(); objectoutputstream.writeObject(entry.getValue()))
+        {
+            entry = (java.util.Map.Entry)iterator.next();
+            objectoutputstream.writeObject(entry.getKey());
+        }
+
+        objectoutputstream.writeObject(null);
+    }
+
+    protected Map b()
+    {
+        return a();
+    }
+
+    void b(ObjectInputStream objectinputstream)
     {
         do
         {
-            int i = kog1.a();
-            switch (i)
+            Object obj = objectinputstream.readObject();
+            if (obj != null)
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new juo();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new jun();
-                }
-                kog1.a(b);
-                break;
-
-            case 26: // '\032'
-                if (c == null)
-                {
-                    c = new jup();
-                }
-                kog1.a(c);
-                break;
-
-            case 34: // '"'
-                if (d == null)
-                {
-                    d = new jum();
-                }
-                kog1.a(d);
-                break;
+                Object obj1 = objectinputstream.readObject();
+                j.put(obj, obj1);
+            } else
+            {
+                return;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    protected Object c()
     {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        if (c != null)
-        {
-            koh1.b(3, c);
-        }
-        if (d != null)
-        {
-            koh1.b(4, d);
-        }
-        super.writeTo(koh1);
+        return a();
     }
 }

@@ -2,42 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.accounts.Account;
-import android.os.RemoteException;
-import java.util.ArrayList;
-import java.util.List;
+import android.os.Debug;
+import android.os.Looper;
+import android.os.Process;
 
-final class goi
-    implements gnc
+public final class goi
 {
 
-    private final fxq a;
+    private static final Thread a = Looper.getMainLooper().getThread();
 
-    goi(fxq fxq1)
+    public static lgk a(int i)
     {
-        a = fxq1;
-    }
-
-    public List a()
-    {
-        Account aaccount[];
-        aaccount = a.a("com.google");
-        break MISSING_BLOCK_LABEL_12;
-        Object obj;
-        obj;
-_L2:
-        throw new gnf(((Throwable) (obj)));
-        ArrayList arraylist = new ArrayList(aaccount.length);
-        for (int i = 0; i < aaccount.length; i++)
+        if (a.equals(Thread.currentThread()))
         {
-            arraylist.add((new gnb(aaccount[i].name, i)).b());
+            throw new UnsupportedOperationException("getMemoryUsageMetric should not be called from Ui thread.");
         }
-
-        return arraylist;
-        obj;
-        continue; /* Loop/switch isn't completed */
-        obj;
-        if (true) goto _L2; else goto _L1
-_L1:
+        lgk lgk1 = new lgk();
+        lgk1.a = new lgj();
+        Object obj = lgk1.a;
+        Object obj1 = new android.os.Debug.MemoryInfo();
+        Debug.getMemoryInfo(((android.os.Debug.MemoryInfo) (obj1)));
+        lge lge1 = new lge();
+        lge1.a = Integer.valueOf(((android.os.Debug.MemoryInfo) (obj1)).dalvikPss);
+        lge1.b = Integer.valueOf(((android.os.Debug.MemoryInfo) (obj1)).nativePss);
+        lge1.c = Integer.valueOf(((android.os.Debug.MemoryInfo) (obj1)).otherPss);
+        lge1.d = Integer.valueOf(((android.os.Debug.MemoryInfo) (obj1)).dalvikPrivateDirty);
+        lge1.e = Integer.valueOf(((android.os.Debug.MemoryInfo) (obj1)).nativePrivateDirty);
+        lge1.f = Integer.valueOf(((android.os.Debug.MemoryInfo) (obj1)).otherPrivateDirty);
+        if (android.os.Build.VERSION.SDK_INT >= 19)
+        {
+            lge1.g = Integer.valueOf(((android.os.Debug.MemoryInfo) (obj1)).getTotalPrivateClean());
+            lge1.i = Integer.valueOf(((android.os.Debug.MemoryInfo) (obj1)).getTotalSwappablePss());
+        }
+        lge1.h = Integer.valueOf(((android.os.Debug.MemoryInfo) (obj1)).getTotalSharedDirty());
+        obj.a = lge1;
+        lgk1.b = new lgl();
+        obj = lgk1.b;
+        obj1 = new lgf();
+        obj1.a = Long.valueOf(Process.getElapsedCpuTime());
+        obj1.b = Boolean.valueOf(goj.a());
+        obj1.c = Integer.valueOf(Thread.activeCount());
+        obj.a = ((lgf) (obj1));
+        lgk1.c = i;
+        return lgk1;
     }
+
 }

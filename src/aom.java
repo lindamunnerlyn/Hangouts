@@ -6,16 +6,16 @@
 public final class aom
 {
 
-    final String a;
-    final byte b[];
-    final int c;
-    final boolean d;
+    public static final String a = gjj.getName();
+    private static aol b;
 
-    aom(String s, byte abyte0[], int i, boolean flag)
+    public static void a(hlp hlp1)
     {
-        a = s;
-        b = abyte0;
-        c = i;
-        d = flag;
+        if (b == null)
+        {
+            b = new aol();
+        }
+        hlp1.a(gjj, new gjj());
     }
+
 }

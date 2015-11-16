@@ -2,13 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.libraries.hangouts.video.MediaCodecSimulcastEncoder;
 
-public final class ghf extends ghi
-    implements gay
+public final class ghf
+    implements Runnable
 {
 
-    public ghf(ggv ggv, ggl ggl)
+    final MediaCodecSimulcastEncoder a;
+
+    public ghf(MediaCodecSimulcastEncoder mediacodecsimulcastencoder)
     {
-        super(ggv, a, new ghh(ggl), new ghg());
+        a = mediacodecsimulcastencoder;
+        super();
+    }
+
+    public void run()
+    {
+        a.g();
     }
 }

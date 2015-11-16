@@ -3,27 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class dwc
-    implements dtu
+public final class dwc
 {
 
-    private dvy a;
-
-    dwc(dvy dvy1)
+    public dwc()
     {
-        a = dvy1;
-    }
-
-    void a()
-    {
-        a = null;
-    }
-
-    public void a(dtv dtv)
-    {
-        if (a != null)
-        {
-            a.a(dtv);
-        }
     }
 }

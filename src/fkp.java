@@ -2,94 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
 import android.os.IBinder;
 import android.os.Parcel;
+import com.google.android.gms.maps.model.CameraPosition;
 
-public abstract class fkp extends Binder
-    implements fko
+final class fkp
+    implements fkn
 {
 
-    public static fko a(IBinder ibinder)
+    private IBinder a;
+
+    fkp(IBinder ibinder)
     {
-        if (ibinder == null)
-        {
-            return null;
-        }
-        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.maps.model.internal.IIndoorBuildingDelegate");
-        if (iinterface != null && (iinterface instanceof fko))
-        {
-            return (fko)iinterface;
-        } else
-        {
-            return new fkq(ibinder);
-        }
+        a = ibinder;
     }
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    public void a(CameraPosition cameraposition)
     {
-        boolean flag1 = false;
-        boolean flag = false;
-        switch (i)
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnCameraChangeListener");
+        if (cameraposition == null)
         {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
-
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.maps.model.internal.IIndoorBuildingDelegate");
-            return true;
-
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.IIndoorBuildingDelegate");
-            i = a();
-            parcel1.writeNoException();
-            parcel1.writeInt(i);
-            return true;
-
-        case 2: // '\002'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.IIndoorBuildingDelegate");
-            i = b();
-            parcel1.writeNoException();
-            parcel1.writeInt(i);
-            return true;
-
-        case 3: // '\003'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.IIndoorBuildingDelegate");
-            parcel = c();
-            parcel1.writeNoException();
-            parcel1.writeBinderList(parcel);
-            return true;
-
-        case 4: // '\004'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.IIndoorBuildingDelegate");
-            boolean flag2 = d();
-            parcel1.writeNoException();
-            i = ((flag) ? 1 : 0);
-            if (flag2)
-            {
-                i = 1;
-            }
-            parcel1.writeInt(i);
-            return true;
-
-        case 5: // '\005'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.IIndoorBuildingDelegate");
-            boolean flag3 = a(a(parcel.readStrongBinder()));
-            parcel1.writeNoException();
-            i = ((flag1) ? 1 : 0);
-            if (flag3)
-            {
-                i = 1;
-            }
-            parcel1.writeInt(i);
-            return true;
-
-        case 6: // '\006'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.IIndoorBuildingDelegate");
-            i = e();
-            parcel1.writeNoException();
-            parcel1.writeInt(i);
-            return true;
+            break MISSING_BLOCK_LABEL_56;
         }
+        parcel.writeInt(1);
+        cameraposition.writeToParcel(parcel, 0);
+_L1:
+        a.transact(1, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        cameraposition;
+        parcel1.recycle();
+        parcel.recycle();
+        throw cameraposition;
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
     }
 }

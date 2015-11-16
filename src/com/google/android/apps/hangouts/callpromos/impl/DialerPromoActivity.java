@@ -4,15 +4,15 @@
 
 package com.google.android.apps.hangouts.callpromos.impl;
 
-import als;
+import alp;
 import android.os.Bundle;
 import ap;
 import bg;
-import cqz;
+import ctj;
 import g;
 import l;
 
-public class DialerPromoActivity extends cqz
+public class DialerPromoActivity extends ctj
 {
 
     public DialerPromoActivity()
@@ -22,10 +22,10 @@ public class DialerPromoActivity extends cqz
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.js);
-        bundle = new als();
-        bg bg1 = t_().a();
-        bg1.a(l.tY, bundle.a());
+        setContentView(g.jk);
+        bundle = new alp();
+        bg bg1 = u_().a();
+        bg1.a(l.tp, bundle.a());
         bg1.b();
     }
 }

@@ -2,27 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
+import android.view.ViewGroup;
 
-final class aux
-    implements azj
+public abstract class aux extends auy
 {
 
-    final aut a;
+    public boolean a;
+    private final dvi d;
 
-    aux(aut aut1)
+    public aux(View view, Object obj, dvi dvi1)
     {
-        a = aut1;
-        super();
+        super(view, h.fH, obj);
+        d = dvi1;
     }
 
-    public boolean a()
+    public void a(boolean flag)
     {
-        return aut.d(a).e();
+        if (flag && !a)
+        {
+            d();
+            a = true;
+            d.a(b());
+        } else
+        if (!flag && a)
+        {
+            d.b(b());
+            a = false;
+            return;
+        }
     }
 
-    public boolean b()
+    public abstract dvg b();
+
+    protected void c()
     {
-        aut.d(a).d();
-        return false;
+    }
+
+    protected void d()
+    {
+    }
+
+    public dvh e()
+    {
+        return new dvh(b.getContext());
     }
 }

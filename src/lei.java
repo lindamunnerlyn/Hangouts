@@ -3,93 +3,90 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class lei extends lfb
+public final class lei extends kwm
 {
 
-    public final ldz a;
+    private static volatile lei c[];
+    public Integer a;
+    public len b;
 
-    lei(ldz ldz1)
+    public lei()
     {
-        super(lcz.s(), ldz1.R());
-        a = ldz1;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public int a(long l)
+    public static lei[] a()
     {
-        return a.a(l);
-    }
-
-    public long a(long l, int j)
-    {
-        if (j == 0)
+        if (c == null)
         {
-            return l;
+            synchronized (kwq.a)
+            {
+                if (c == null)
+                {
+                    c = new lei[0];
+                }
+            }
         }
-        int k = a(l);
-        int i1 = k + j;
-        if ((k ^ i1) < 0 && (k ^ j) >= 0)
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize() + kwk.e(1, a.intValue());
+        int i = j;
+        if (b != null)
         {
-            throw new ArithmeticException((new StringBuilder(61)).append("The calculation caused an overflow: ").append(k).append(" + ").append(j).toString());
-        } else
-        {
-            return b(l, i1);
+            i = j + kwk.d(2, b);
         }
+        return i;
     }
 
-    public long a(long l, long l1)
+    public kws mergeFrom(kwj kwj1)
     {
-        return a(l, h.b(l1));
-    }
-
-    public long b(long l, int j)
-    {
-        h.a(this, j, a.O(), a.P());
-        return a.f(l, j);
-    }
-
-    public boolean b(long l)
-    {
-        return a.e(a(l));
-    }
-
-    public long d(long l)
-    {
-        return a.d(a(l));
-    }
-
-    public long e(long l)
-    {
-        int j = a(l);
-        long l1 = l;
-        if (l != a.d(j))
+        do
         {
-            l1 = a.d(j + 1);
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new len();
+                }
+                kwj1.a(b);
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        kwk1.a(1, a.intValue());
+        if (b != null)
+        {
+            kwk1.b(2, b);
         }
-        return l1;
-    }
-
-    public ldh e()
-    {
-        return null;
-    }
-
-    public ldh f()
-    {
-        return ((ldw) (a)).c;
-    }
-
-    public int g()
-    {
-        return a.O();
-    }
-
-    public int h()
-    {
-        return a.P();
-    }
-
-    public long i(long l)
-    {
-        return l - d(l);
+        super.writeTo(kwk1);
     }
 }

@@ -2,84 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.IOException;
-import java.util.Iterator;
 
-public class jgu
+public final class jgu extends kwm
 {
 
-    final String a;
-
-    jgu(String s)
+    public jgu()
     {
-        a = (String)n.b(s);
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    jgu(jgu jgu1)
+    public kws mergeFrom(kwj kwj1)
     {
-        a = jgu1.a;
-    }
-
-    private StringBuilder a(StringBuilder stringbuilder, Iterator iterator)
-    {
-        try
-        {
-            a(((Appendable) (stringbuilder)), iterator);
-        }
-        // Misplaced declaration of an exception variable
-        catch (StringBuilder stringbuilder)
-        {
-            throw new AssertionError(stringbuilder);
-        }
-        return stringbuilder;
-    }
-
-    public static jgu a(String s)
-    {
-        return new jgu(s);
-    }
-
-    public Appendable a(Appendable appendable, Iterator iterator)
-    {
-        n.b(appendable);
-        if (iterator.hasNext())
-        {
-            appendable.append(a(iterator.next()));
-            for (; iterator.hasNext(); appendable.append(a(iterator.next())))
-            {
-                appendable.append(a);
-            }
-
-        }
-        return appendable;
-    }
-
-    CharSequence a(Object obj)
-    {
-        n.b(obj);
-        if (obj instanceof CharSequence)
-        {
-            return (CharSequence)obj;
-        } else
-        {
-            return obj.toString();
-        }
-    }
-
-    public final String a(Iterable iterable)
-    {
-        iterable = iterable.iterator();
-        return a(new StringBuilder(), ((Iterator) (iterable))).toString();
-    }
-
-    public jgu b(String s)
-    {
-        n.b(s);
-        return new jgv(this, this, s);
-    }
-
-    public jgw c(String s)
-    {
-        return new jgw(this, s);
+_L3:
+        int i = kwj1.a();
+        i;
+        JVM INSTR tableswitch 0 0: default 24
+    //                   0 33;
+           goto _L1 _L2
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L3; else goto _L2
+_L2:
+        return this;
     }
 }

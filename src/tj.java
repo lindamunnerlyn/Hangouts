@@ -2,19 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.ActionProvider;
+import android.view.MenuItem;
 
-public final class tj extends te
+final class tj extends sx
+    implements jf
 {
 
-    public tj(Context context, fs fs)
+    final tg a;
+
+    tj(tg tg1, android.view.MenuItem.OnActionExpandListener onactionexpandlistener)
     {
-        super(context, fs);
+        a = tg1;
+        super(onactionexpandlistener);
     }
 
-    tf a(ActionProvider actionprovider)
+    public boolean a(MenuItem menuitem)
     {
-        return new tk(this, a, actionprovider);
+        return ((android.view.MenuItem.OnActionExpandListener)d).onMenuItemActionExpand(a.a(menuitem));
+    }
+
+    public boolean b(MenuItem menuitem)
+    {
+        return ((android.view.MenuItem.OnActionExpandListener)d).onMenuItemActionCollapse(a.a(menuitem));
     }
 }

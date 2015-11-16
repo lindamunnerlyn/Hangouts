@@ -2,31 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
-import android.os.Bundle;
-import com.google.android.apps.hangouts.settings.AccountSettingsActivity;
+import java.util.Iterator;
+import java.util.List;
 
-public final class dpg extends heo
-    implements hfv
+final class dpg
+    implements Runnable
 {
 
-    private final hfu e;
+    boolean a;
+    final List b;
+    final fti c;
+    final ftp d;
+    final fti e;
+    final ftp f;
 
-    public dpg()
+    public dpg(List list, fti fti1, ftp ftp1, fti fti2, ftp ftp2)
     {
-        e = new hfu(this, c);
+        b = list;
+        c = fti1;
+        d = ftp1;
+        e = fti2;
+        f = ftp2;
     }
 
-    public void a()
+    public void run()
     {
-        e.a(new dpj());
-        Intent intent = new Intent(a, com/google/android/apps/hangouts/settings/AccountSettingsActivity);
-        e.a((new gyx()).a().a(intent).a((new gwn()).a("logged_in").b("sms_only")).b());
-    }
-
-    protected void a(Bundle bundle)
-    {
-        super.a(bundle);
-        b.a(hfy, e);
+        gdv.a();
+        long l = System.currentTimeMillis();
+        for (Iterator iterator = b.iterator(); iterator.hasNext(); iterator.next()) { }
+        if (doy.j())
+        {
+            long l1 = System.currentTimeMillis();
+            eev.b("Babel", (new StringBuilder(57)).append("GmsPeopleCache: onDataBufferReady ").append(l1 - l).append(" ms").toString());
+        }
+        if (e != null)
+        {
+            e.b();
+        }
+        if (f != null)
+        {
+            f.b();
+        }
+        a = true;
     }
 }

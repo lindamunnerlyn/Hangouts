@@ -10,11 +10,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Checkable;
 import g;
-import hga;
-import hgc;
+import hkr;
+import hku;
 import o;
 
-public class CheckBoxPreference extends hgc
+public class CheckBoxPreference extends hku
 {
 
     public CheckBoxPreference(Context context)
@@ -24,26 +24,26 @@ public class CheckBoxPreference extends hgc
 
     public CheckBoxPreference(Context context, AttributeSet attributeset)
     {
-        this(context, attributeset, g.th);
+        this(context, attributeset, g.tI);
     }
 
     private CheckBoxPreference(Context context, AttributeSet attributeset, int i)
     {
         super(context, attributeset, i);
-        context = context.obtainStyledAttributes(attributeset, hga.P, i, 0);
-        a(context.getString(hga.S));
-        d(context.getString(hga.R));
-        h(context.getBoolean(hga.Q, false));
+        context = context.obtainStyledAttributes(attributeset, hkr.P, i, 0);
+        a(context.getString(hkr.S));
+        d(context.getString(hkr.R));
+        h(context.getBoolean(hkr.Q, false));
         context.recycle();
     }
 
     protected void a(View view)
     {
         super.a(view);
-        View view1 = view.findViewById(o.D);
+        View view1 = view.findViewById(o.e);
         if (view1 instanceof Checkable)
         {
-            ((Checkable)view1).setChecked(b);
+            ((Checkable)view1).setChecked(a);
             b(view1);
         }
         c(view);

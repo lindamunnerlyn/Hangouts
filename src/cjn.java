@@ -2,23 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
-import com.google.android.apps.hangouts.phone.BabelHomeActivity;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-public final class cjn
-    implements android.content.DialogInterface.OnClickListener
+final class cjn
+    implements Runnable
 {
 
-    final BabelHomeActivity a;
+    final List a;
+    final int b;
+    final cjk c;
 
-    public cjn(BabelHomeActivity babelhomeactivity)
+    cjn(cjk cjk1, List list, int i)
     {
-        a = babelhomeactivity;
+        c = cjk1;
+        a = list;
+        b = i;
         super();
     }
 
-    public void onClick(DialogInterface dialoginterface, int i)
+    public void run()
     {
-        dialoginterface.cancel();
+        ArrayList arraylist = new ArrayList();
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); arraylist.add(new cji((String)iterator.next(), true))) { }
+        cjk.a(c, b, arraylist);
     }
 }

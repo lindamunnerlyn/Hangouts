@@ -2,99 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
 
-public final class jtj extends koj
+abstract class jtj extends jth
 {
 
-    private static volatile jtj c[];
-    public String a;
-    public jtk b;
-
-    public jtj()
+    jtj()
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    public static jtj[] a()
+    abstract Object a(int i);
+
+    public jyh a()
     {
-        if (c == null)
-        {
-            synchronized (kon.a)
-            {
-                if (c == null)
-                {
-                    c = new jtj[0];
-                }
-            }
-        }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return f().a();
     }
 
-    protected int computeSerializedSize()
+    jsh g()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        return j;
+        return new jtk(this);
     }
 
-    public kop mergeFrom(kog kog1)
+    public Iterator iterator()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new jtk();
-                }
-                kog1.a(b);
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        super.writeTo(koh1);
+        return a();
     }
 }

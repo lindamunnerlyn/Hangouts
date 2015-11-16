@@ -2,13 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.PrintWriter;
+import android.app.Activity;
 
-public interface gta
+final class gta
+    implements hmd
 {
 
-    public static final hij a = new hij("android_dump");
+    gta()
+    {
+    }
 
-    public abstract void a(PrintWriter printwriter);
+    public Class a()
+    {
+        return gsz;
+    }
 
+    public void a(Activity activity, hof hof, hlp hlp1)
+    {
+        hlp1.a(gsz, new gsz(hof));
+    }
 }

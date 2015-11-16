@@ -3,33 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hif
+public interface hif
 {
 
-    public static final String a = hhl.getName();
-    public static final String b = hhy.getName();
-    private static hie c;
+    public abstract void a(String s, hih hih, int i, String s1);
 
-    public static void a(hgx hgx1)
-    {
-        if (c == null)
-        {
-            c = new hie();
-        }
-        hgx1.a(hhl, new hhl[] {
-            new hid()
-        });
-    }
+    public abstract boolean a(String s);
 
-    public static void b(hgx hgx1)
-    {
-        if (c == null)
-        {
-            c = new hie();
-        }
-        hgx1.a(hhy, new hhy[] {
-            new hid()
-        });
-    }
+    public abstract boolean b(String s);
 
+    public abstract void c(String s);
+
+    public abstract void d(String s);
 }

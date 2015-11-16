@@ -2,12 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.Future;
 
-public interface jsj
-    extends Future
+public final class jsj extends jse
 {
 
-    public abstract void a(Runnable runnable, Executor executor);
+    public jsj()
+    {
+        this((byte)0);
+    }
+
+    private jsj(byte byte0)
+    {
+        super(4);
+    }
+
+    public jse a(Object obj)
+    {
+        return c(obj);
+    }
+
+    public jsf a(Object aobj[])
+    {
+        super.a(aobj);
+        return this;
+    }
+
+    public jsh a()
+    {
+        return jsh.b(a, b);
+    }
+
+    public jsf b(Object obj)
+    {
+        return c(obj);
+    }
+
+    public jsj c(Object obj)
+    {
+        super.a(obj);
+        return this;
+    }
 }

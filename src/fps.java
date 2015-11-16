@@ -2,28 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import com.google.android.gms.common.data.DataHolder;
+import android.widget.ImageView;
 
-final class fps extends fpa
+final class fps extends fpy
 {
 
-    private final ekm a;
+    public final int a;
+    public final String b;
+    public final ftl c;
+    final fpr d;
 
-    public fps(ekm ekm1)
+    public fps(fpr fpr1, ImageView imageview, ftl ftl1, int i)
     {
-        a = ekm1;
+        Object obj = null;
+        d = fpr1;
+        super(fpr1);
+        boolean flag = g.a(ftl1);
+        f = imageview;
+        c = ftl1;
+        if (flag)
+        {
+            fpr1 = ftl1.a();
+        } else
+        {
+            fpr1 = null;
+        }
+        g = fpr1;
+        fpr1 = obj;
+        if (flag)
+        {
+            fpr1 = ftl1.d();
+        }
+        b = fpr1;
+        a = i;
     }
 
-    public void a(int i, Bundle bundle, DataHolder dataholder)
+    public void a()
     {
-        if (g.m(3))
-        {
-            (new StringBuilder("People callback: status=")).append(i).append("\nresolution=").append(bundle).append("\nholder=").append(dataholder);
-            g.m(3);
-        }
-        bundle = fpo.a(i, bundle);
-        dataholder = fpo.a(dataholder);
-        a.a(new fpv(bundle, dataholder));
+        fph.g.a(d.c, g, b, a).a(new fpt(this));
+    }
+
+    public void a(fpc fpc1)
+    {
+        fpr.a(d, fpc1.D_(), fpc1.c(), this);
     }
 }

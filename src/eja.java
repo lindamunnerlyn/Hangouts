@@ -2,50 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import com.google.android.apps.hangouts.views.OverlayedAvatarView;
+import com.google.android.apps.hangouts.views.RichStatusView;
 
-final class eja extends ejf
+public final class eja
+    implements Runnable
 {
 
-    final ejx a;
-    final eix b;
-    private int i;
+    final OverlayedAvatarView a;
 
-    eja(eix eix1, ejx ejx1, ejx ejx2)
+    public eja(OverlayedAvatarView overlayedavatarview)
     {
-        b = eix1;
-        a = ejx2;
-        super(ejx1);
-        i = 5;
+        a = overlayedavatarview;
+        super();
     }
 
-    protected ekg a(Status status)
+    public void run()
     {
-        return status;
-    }
-
-    protected void a(ejv ejv)
-    {
-        if (eix.a().c() || i <= 0)
-        {
-            try
-            {
-                Thread.sleep(100L);
-            }
-            // Misplaced declaration of an exception variable
-            catch (ejv ejv)
-            {
-                Thread.currentThread().interrupt();
-            }
-            a.d();
-            return;
-        } else
-        {
-            i = i - 1;
-            eix.b().schedule(new ejb(this, this), 100L, TimeUnit.MILLISECONDS);
-            return;
-        }
+        OverlayedAvatarView.a(a).a();
     }
 }

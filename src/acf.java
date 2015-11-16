@@ -3,51 +3,50 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class acf extends acd
+public class acf
 {
+
+    acp a;
 
     public acf()
     {
-        a(130);
+        a = null;
+        a = new acp();
     }
 
-    acf(acn acn1)
+    acf(acp acp1)
     {
-        super(acn1);
+        a = null;
+        a = acp1;
     }
 
-    public void a(acc acc)
+    acp a()
     {
-        a.a(acc, 137);
+        return a;
     }
 
-    public void a(byte abyte0[])
+    public void a(int i)
     {
-        a.a(abyte0, 131);
+        a.a(i, 140);
     }
 
-    public acc c()
+    public void a(ace ace)
+    {
+        a.a(ace, 137);
+    }
+
+    public int b()
+    {
+        return a.a(140);
+    }
+
+    public void b(int i)
+    {
+        a.a(18, 141);
+    }
+
+    public ace c()
     {
         return a.c(137);
-    }
-
-    public byte[] d()
-    {
-        return a.b(131);
-    }
-
-    public long e()
-    {
-        return a.e(136);
-    }
-
-    public long f()
-    {
-        return a.e(142);
-    }
-
-    public byte[] g()
-    {
-        return a.b(152);
     }
 }

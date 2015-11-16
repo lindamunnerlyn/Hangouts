@@ -10,7 +10,7 @@ import java.util.Map;
 
 // Referenced classes of package org.chromium.net:
 //            HttpUrlRequestFactory, UrlRequestContextConfig, UserAgent, ChromiumUrlRequestContext, 
-//            ChromiumUrlRequest, HttpUrlRequestListener, HttpUrlRequest
+//            ChromiumUrlRequest, Version, HttpUrlRequestListener, HttpUrlRequest
 
 public class ChromiumUrlRequestFactory extends HttpUrlRequestFactory
 {
@@ -48,7 +48,7 @@ public class ChromiumUrlRequestFactory extends HttpUrlRequestFactory
 
     public String b()
     {
-        return (new StringBuilder("Chromium/")).append(ChromiumUrlRequestContext.a()).toString();
+        return (new StringBuilder("Chromium/")).append(Version.a()).toString();
     }
 
     public HttpUrlRequest b(String s, int i, Map map, WritableByteChannel writablebytechannel, HttpUrlRequestListener httpurlrequestlistener)

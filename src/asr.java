@@ -3,19 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class asr
+public interface asr
 {
 
-    public static final String a = asa.getName();
-    private static asq b;
-
-    public static void a(hgx hgx1)
-    {
-        if (b == null)
-        {
-            b = new asq();
-        }
-        hgx1.a(asa, new ass());
-    }
-
+    public abstract void a(boolean flag, amx amx);
 }

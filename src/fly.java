@@ -2,88 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Binder;
+import android.os.Parcel;
+import com.google.android.gms.maps.model.PointOfInterest;
 
-public final class fly
+public abstract class fly extends Binder
+    implements flx
 {
 
-    public static final fly a = new fly();
-    private boolean b;
-    private String c;
-    private boolean d;
-    private int e;
-    private int f;
-    private String g;
-    private boolean h;
-    private int i;
-    private int j;
-    private int k;
-
-    public fly()
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
     {
-        e = 0x1fffff;
-        i = 7;
-        j = 3;
-        k = 0;
-    }
+        switch (i)
+        {
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
 
-    public fly a(String s)
-    {
-        c = s;
-        return this;
-    }
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.maps.internal.IOnPoiClickListener");
+            return true;
 
-    public boolean a()
-    {
-        return b;
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnPoiClickListener");
+            break;
+        }
+        if (parcel.readInt() != 0)
+        {
+            fof fof1 = PointOfInterest.CREATOR;
+            parcel = fof.a(parcel);
+        } else
+        {
+            parcel = null;
+        }
+        a(parcel);
+        parcel1.writeNoException();
+        return true;
     }
-
-    public String b()
-    {
-        return c;
-    }
-
-    public boolean c()
-    {
-        return d;
-    }
-
-    public fly d()
-    {
-        d = true;
-        return this;
-    }
-
-    public int e()
-    {
-        return e;
-    }
-
-    public int f()
-    {
-        return f;
-    }
-
-    public String g()
-    {
-        return g;
-    }
-
-    public boolean h()
-    {
-        return h;
-    }
-
-    public int i()
-    {
-        return k;
-    }
-
-    public String toString()
-    {
-        return g.a(new Object[] {
-            "mIncludeInvisible", Boolean.valueOf(b), "mQuery", c, "mPeopleOnly", Boolean.valueOf(d), "mProjection", Integer.valueOf(e), "mExtraColumns", Integer.valueOf(f), 
-            "mFilterGaiaId", g, "mIncludeEvergreenPeople", Boolean.valueOf(h), "mSearchFields", Integer.valueOf(i), "mFilterGaiaEdgeTypes", Integer.valueOf(j), "mSortOrder", Integer.valueOf(k)
-        });
-    }
-
 }

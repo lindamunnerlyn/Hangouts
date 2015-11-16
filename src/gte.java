@@ -2,38 +2,97 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.SparseArray;
 
-final class gte
-    implements gtd, Runnable
+public class gte
+    implements gtm, hma, hor, hou, hoy
 {
 
-    final Runnable a;
-    final gtb b;
-    private final long c = 0L;
-    private inn d;
+    gtl a;
+    private gtz b;
+    private final SparseArray c;
+    private guh d;
 
-    gte(gtb gtb1, Runnable runnable, long l)
+    public gte(hof hof1)
     {
-        b = gtb1;
-        super();
-        a = runnable;
+        this(hof1, (byte)0);
     }
 
-    public void a()
+    public gte(hof hof1, byte byte0)
     {
-        d = inn.a();
-        g.a(this, c);
+        c = new SparseArray();
+        hof1.a(this);
     }
 
-    public void b()
+    static void a(gte gte1, int i, gtb gtb1)
     {
-        g.y().removeCallbacks(this);
-        gtb.b(b, this);
+        gte1 = (gtd)gte1.c.get(i);
+        if (gte1 != null)
+        {
+            gte1.a(gtb1.b, gtb1.c);
+        }
     }
 
-    public void run()
+    public final void G_()
     {
-        inn.a(d, new gtf(this)).run();
+        a.a(this);
+        b.a(new gtf(this));
+    }
+
+    public gte a(int i, gtd gtd1)
+    {
+        if (c.get(i) != null)
+        {
+            gtd1 = String.valueOf("Cannot register more than one handler for a given  id: ");
+            throw new IllegalArgumentException((new StringBuilder(String.valueOf(gtd1).length() + 11)).append(gtd1).append(i).toString());
+        } else
+        {
+            c.put(i, gtd1);
+            return this;
+        }
+    }
+
+    public final gte a(hlp hlp1)
+    {
+        hlp1.a(gte, this);
+        return this;
+    }
+
+    public final void a()
+    {
+        a.b(this);
+    }
+
+    public void a(int i, Intent intent)
+    {
+        b.a(i);
+        if (intent == null)
+        {
+            throw new NullPointerException("Intent must not be null!");
+        }
+        if ((gtd)c.get(i) == null)
+        {
+            throw new IllegalStateException((new StringBuilder(124)).append("You must register a result handler for request code").append(i).append(" before starting an activity for result with that request code").toString());
+        } else
+        {
+            i = b.b(i);
+            a.a(i, intent);
+            return;
+        }
+    }
+
+    public final void a(Context context, hlp hlp1, Bundle bundle)
+    {
+        a = (gtl)hlp1.a(gtl);
+        d = (guh)hlp1.a(guh);
+        b = (gtz)hlp1.a(gtz);
+    }
+
+    public final boolean a(gtb gtb1)
+    {
+        return b.a(gtb1.a, new gtg(this, gtb1));
     }
 }

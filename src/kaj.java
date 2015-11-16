@@ -2,61 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 
-public final class kaj extends koj
+abstract class kaj
+    implements Runnable
 {
 
-    public Boolean a;
+    private static final AtomicReferenceFieldUpdater c = AtomicReferenceFieldUpdater.newUpdater(kaj, java/lang/Thread, "a");
+    volatile Thread a;
+    volatile boolean b;
 
-    public kaj()
+    kaj()
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        return i;
-    }
+    abstract void a();
 
-    public kop mergeFrom(kog kog1)
+    abstract boolean b();
+
+    public final void run()
     {
-        do
+        if (c.compareAndSet(this, null, Thread.currentThread())) goto _L2; else goto _L1
+_L1:
+        return;
+_L2:
+        a();
+        if (b())
         {
-            int i = kog1.a();
-            switch (i)
+            while (!b) 
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
+                Thread.yield();
             }
-        } while (true);
+        }
+        if (true) goto _L1; else goto _L3
+_L3:
+        Exception exception;
+        exception;
+        if (b())
+        {
+            while (!b) 
+            {
+                Thread.yield();
+            }
+        }
+        throw exception;
     }
 
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
-        }
-        super.writeTo(koh1);
-    }
 }

@@ -3,14 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kdy extends koj
+public final class kdy extends kwm
 {
 
-    public String a;
+    public Long a;
+    public Long b;
 
     public kdy()
     {
         a = null;
+        b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,20 +23,25 @@ public final class kdy extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.e(1, a.longValue());
         }
-        return i;
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.longValue());
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -43,19 +50,27 @@ public final class kdy extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                a = kog1.j();
+            case 8: // '\b'
+                a = Long.valueOf(kwj1.e());
+                break;
+
+            case 16: // '\020'
+                b = Long.valueOf(kwj1.e());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.b(1, a.longValue());
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.b(2, b.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

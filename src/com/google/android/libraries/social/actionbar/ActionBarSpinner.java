@@ -9,12 +9,12 @@ import android.util.AttributeSet;
 import android.widget.Adapter;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
-import goq;
+import gsy;
 
 public final class ActionBarSpinner extends Spinner
 {
 
-    private goq a;
+    private gsy a;
 
     public ActionBarSpinner(Context context)
     {
@@ -43,15 +43,15 @@ public final class ActionBarSpinner extends Spinner
 
     protected void onMeasure(int i, int j)
     {
-        goq goq1 = a;
-        if (goq1 != null)
+        gsy gsy1 = a;
+        if (gsy1 != null)
         {
-            goq1.a(getSelectedItemPosition());
+            gsy1.a(getSelectedItemPosition());
         }
         super.onMeasure(i, j);
-        if (goq1 != null)
+        if (gsy1 != null)
         {
-            goq1.a();
+            gsy1.a();
         }
     }
 
@@ -67,7 +67,7 @@ public final class ActionBarSpinner extends Spinner
             a = null;
         } else
         {
-            a = new goq(this, spinneradapter);
+            a = new gsy(this, spinneradapter);
         }
         super.setAdapter(a);
     }

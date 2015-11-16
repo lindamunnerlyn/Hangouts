@@ -2,16 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
 
 public final class hcg
+    implements hba
 {
 
-    public final String a;
-    public final boolean b;
-
-    public hcg(String s, boolean flag)
+    public hcg()
     {
-        a = s;
-        b = flag;
+    }
+
+    public ad a(Bundle bundle)
+    {
+        return new hch();
     }
 }

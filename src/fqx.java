@@ -3,14 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface fqx
+public class fqx
 {
 
-    public abstract Iterable c();
-
-    public abstract Iterable d();
-
-    public abstract String e();
-
-    public abstract String[] i();
+    public fqx()
+    {
+    }
 }

@@ -3,49 +3,104 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-class jlf extends jlg
+public final class jlf extends kwm
 {
 
-    Object a[];
-    int b;
+    public Integer a;
+    public Integer b;
+    public Integer c;
+    public Integer d;
 
-    jlf(int i)
+    public jlf()
     {
-        g.c(4, "initialCapacity");
-        a = new Object[4];
-        b = 0;
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private void a(int i)
+    protected int computeSerializedSize()
     {
-        if (a.length < i)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            a = jpo.b(a, a(a.length, i));
+            i = j + kwk.e(1, a.intValue());
         }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.intValue());
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.intValue());
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.e(4, d.intValue());
+        }
+        return j;
     }
 
-    public jlf a(Object obj)
+    public kws mergeFrom(kwj kwj1)
     {
-        n.b(obj);
-        a(b + 1);
-        Object aobj[] = a;
-        int i = b;
-        b = i + 1;
-        aobj[i] = obj;
-        return this;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
+                break;
+
+            case 24: // '\030'
+                c = Integer.valueOf(kwj1.f());
+                break;
+
+            case 32: // ' '
+                d = Integer.valueOf(kwj1.f());
+                break;
+            }
+        } while (true);
     }
 
-    public transient jlg a(Object aobj[])
+    public void writeTo(kwk kwk1)
     {
-        jpo.a(aobj);
-        a(b + aobj.length);
-        System.arraycopy(((Object) (aobj)), 0, ((Object) (a)), b, aobj.length);
-        b = b + aobj.length;
-        return this;
-    }
-
-    public jlg b(Object obj)
-    {
-        return a(obj);
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.intValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

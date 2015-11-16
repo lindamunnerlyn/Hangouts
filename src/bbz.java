@@ -2,20 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
 
-public final class bbz
+final class bbz
+    implements gtd
 {
 
-    public static final String a = bbu.getName();
-    private static bbx b;
+    final bbx a;
 
-    public static void a(hgx hgx1)
+    bbz(bbx bbx1)
     {
-        if (b == null)
-        {
-            b = new bbx();
-        }
-        hgx1.a(bbu, b.a());
+        a = bbx1;
+        super();
     }
 
+    public void a(int i, Intent intent)
+    {
+        if (i == -1 && intent != null)
+        {
+            ((asb)bbx.e(a).a(asb)).a(new bca(this, intent));
+            return;
+        } else
+        {
+            bbx.h(a);
+            return;
+        }
+    }
 }

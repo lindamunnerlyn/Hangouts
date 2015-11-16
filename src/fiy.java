@@ -2,11 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
 
 public interface fiy
-    extends IInterface
 {
 
-    public abstract void a(ezy ezy);
+    public abstract void a(fir fir);
 }

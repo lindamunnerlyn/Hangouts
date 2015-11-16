@@ -2,50 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
-import java.util.List;
+import android.os.Binder;
+import android.os.Parcel;
 
-public interface fku
-    extends IInterface
+public abstract class fku extends Binder
+    implements fkt
 {
 
-    public abstract void a();
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    {
+        switch (i)
+        {
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
 
-    public abstract void a(float f1);
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.maps.internal.IOnInfoWindowClickListener");
+            return true;
 
-    public abstract void a(int l);
-
-    public abstract void a(List list);
-
-    public abstract void a(boolean flag);
-
-    public abstract boolean a(fku fku1);
-
-    public abstract String b();
-
-    public abstract void b(float f1);
-
-    public abstract void b(int l);
-
-    public abstract void b(List list);
-
-    public abstract void b(boolean flag);
-
-    public abstract List c();
-
-    public abstract List d();
-
-    public abstract float e();
-
-    public abstract int f();
-
-    public abstract int g();
-
-    public abstract float h();
-
-    public abstract boolean i();
-
-    public abstract boolean j();
-
-    public abstract int k();
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnInfoWindowClickListener");
+            a(fno.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            return true;
+        }
+    }
 }

@@ -3,32 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hnr extends Enum
+final class hnr
+    implements hok
 {
 
-    public static final hnr a;
-    private static final hnr b[];
+    final hnn a;
 
-    private hnr(String s)
+    hnr(hnn hnn)
     {
-        super(s, 0);
+        a = hnn;
+        super();
     }
 
-    public static hnr valueOf(String s)
+    public void a(hoy hoy)
     {
-        return (hnr)Enum.valueOf(hnr, s);
-    }
-
-    public static hnr[] values()
-    {
-        return (hnr[])b.clone();
-    }
-
-    static 
-    {
-        a = new hnr("IGNORE_CASE");
-        b = (new hnr[] {
-            a
-        });
     }
 }

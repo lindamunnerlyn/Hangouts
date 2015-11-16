@@ -2,21 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.database.Cursor;
+import com.google.android.apps.hangouts.phone.DebugActivity;
 
-final class cmm extends cmu
+public final class cmm
+    implements android.widget.PopupWindow.OnDismissListener
 {
 
-    final cls a;
+    final Cursor a;
+    final Runnable b;
+    final DebugActivity c;
 
-    cmm(cls cls1, String s)
+    public cmm(DebugActivity debugactivity, Cursor cursor, Runnable runnable)
     {
-        a = cls1;
-        super(s);
+        c = debugactivity;
+        a = cursor;
+        b = runnable;
+        super();
     }
 
-    public void a()
+    public void onDismiss()
     {
-        RealTimeChatService.a(a.c, false, false, 0, false);
+        if (a != null)
+        {
+            a.close();
+        }
+        if (b != null)
+        {
+            b.run();
+        }
     }
 }

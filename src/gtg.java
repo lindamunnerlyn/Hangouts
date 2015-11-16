@@ -4,9 +4,21 @@
 
 
 final class gtg
+    implements gud
 {
 
-    gtg()
+    final gtb a;
+    final gte b;
+
+    gtg(gte gte1, gtb gtb)
     {
+        b = gte1;
+        a = gtb;
+        super();
+    }
+
+    public void a(int i)
+    {
+        gte.a(b, i, a);
     }
 }

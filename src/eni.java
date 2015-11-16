@@ -2,28 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.ConnectionResult;
 
-public final class eni extends enb
+public interface eni
 {
 
-    final ena e;
-
-    public eni(ena ena1)
-    {
-        e = ena1;
-        super(ena1, 0, null);
-    }
-
-    protected void a(ConnectionResult connectionresult)
-    {
-        ena.a(e).a(connectionresult);
-        e.g();
-    }
-
-    protected boolean a()
-    {
-        ena.a(e).a(ConnectionResult.a);
-        return true;
-    }
+    public abstract void a(enh enh);
 }

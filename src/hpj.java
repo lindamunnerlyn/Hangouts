@@ -2,184 +2,196 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.ContentResolver;
+import android.database.Cursor;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import android.webkit.MimeTypeMap;
 
-public final class hpj extends koj
+public final class hpj
 {
 
-    public String a[];
-    public String b[];
+    private static final String a[] = {
+        "_data"
+    };
 
-    public hpj()
+    public static String a(ContentResolver contentresolver, Uri uri)
     {
-        a = kou.f;
-        b = kou.f;
-        unknownFieldData = null;
-        cachedSize = -1;
+        contentresolver = contentresolver.query(uri, new String[] {
+            "_data"
+        }, null, null, null);
+        if (contentresolver == null)
+        {
+            if (Log.isLoggable("ContentUriUtils", 5))
+            {
+                contentresolver = String.valueOf(uri);
+                (new StringBuilder(String.valueOf(contentresolver).length() + 48)).append("getFilePath: query returned null cursor for uri=").append(contentresolver);
+            }
+            return null;
+        }
+        if (contentresolver.moveToFirst())
+        {
+            break MISSING_BLOCK_LABEL_123;
+        }
+        if (Log.isLoggable("ContentUriUtils", 5))
+        {
+            uri = String.valueOf(uri);
+            (new StringBuilder(String.valueOf(uri).length() + 49)).append("getFilePath: query returned empty cursor for uri=").append(uri);
+        }
+        contentresolver.close();
+        return null;
+        String s;
+        s = contentresolver.getString(0);
+        if (!TextUtils.isEmpty(s))
+        {
+            break MISSING_BLOCK_LABEL_187;
+        }
+        if (Log.isLoggable("ContentUriUtils", 5))
+        {
+            uri = String.valueOf(uri);
+            (new StringBuilder(String.valueOf(uri).length() + 49)).append("getFilePath: MediaColumns.DATA was empty for uri=").append(uri);
+        }
+        contentresolver.close();
+        return null;
+        contentresolver.close();
+        return s;
+        uri;
+        contentresolver.close();
+        throw uri;
     }
 
-    protected int computeSerializedSize()
+    public static boolean a(Uri uri)
     {
-        boolean flag = false;
-        int k2 = super.computeSerializedSize();
-        int i;
-        int k;
-        if (a != null && a.length > 0)
-        {
-            i = 0;
-            int j = 0;
-            int l;
-            int j1;
-            for (l = 0; i < a.length; l = j1)
-            {
-                String s = a[i];
-                int l1 = j;
-                j1 = l;
-                if (s != null)
-                {
-                    j1 = l + 1;
-                    l1 = j + koh.a(s);
-                }
-                i++;
-                j = l1;
-            }
-
-            i = k2 + j + l * 1;
-        } else
-        {
-            i = k2;
-        }
-        k = i;
-        if (b != null)
-        {
-            k = i;
-            if (b.length > 0)
-            {
-                int i1 = 0;
-                int k1 = 0;
-                for (k = ((flag) ? 1 : 0); k < b.length;)
-                {
-                    String s1 = b[k];
-                    int j2 = i1;
-                    int i2 = k1;
-                    if (s1 != null)
-                    {
-                        i2 = k1 + 1;
-                        j2 = i1 + koh.a(s1);
-                    }
-                    k++;
-                    i1 = j2;
-                    k1 = i2;
-                }
-
-                k = i + i1 + k1 * 1;
-            }
-        }
-        return k;
+        return uri != null && "file".equals(uri.getScheme());
     }
 
-    public kop mergeFrom(kog kog1)
+    public static boolean a(String s)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                int l = kou.b(kog1, 10);
-                String as[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                as = new String[l + j];
-                l = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, as, 0, j);
-                    l = j;
-                }
-                for (; l < as.length - 1; l++)
-                {
-                    as[l] = kog1.j();
-                    kog1.a();
-                }
-
-                as[l] = kog1.j();
-                a = as;
-                break;
-
-            case 18: // '\022'
-                int i1 = kou.b(kog1, 18);
-                String as1[];
-                int k;
-                if (b == null)
-                {
-                    k = 0;
-                } else
-                {
-                    k = b.length;
-                }
-                as1 = new String[i1 + k];
-                i1 = k;
-                if (k != 0)
-                {
-                    System.arraycopy(b, 0, as1, 0, k);
-                    i1 = k;
-                }
-                for (; i1 < as1.length - 1; i1++)
-                {
-                    as1[i1] = kog1.j();
-                    kog1.a();
-                }
-
-                as1[i1] = kog1.j();
-                b = as1;
-                break;
-            }
-        } while (true);
+        return "image/gif".equals(s);
     }
 
-    public void writeTo(koh koh1)
+    public static String b(ContentResolver contentresolver, Uri uri)
     {
-        boolean flag = false;
-        if (a != null && a.length > 0)
+        String s = null;
+        String s2 = d(contentresolver, uri);
+        String s1;
+        s1 = s2;
+        s = s2;
+        if (!TextUtils.isEmpty(s2))
         {
-            for (int i = 0; i < a.length; i++)
+            break MISSING_BLOCK_LABEL_40;
+        }
+        s = s2;
+        s1 = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(uri.toString()));
+        s2 = s1;
+        s = s1;
+        if (!"*/*".equals(s1))
+        {
+            break MISSING_BLOCK_LABEL_75;
+        }
+        s2 = s1;
+        s = s1;
+        if (b(uri))
+        {
+            s = s1;
+            try
             {
-                String s = a[i];
-                if (s != null)
+                s2 = c(contentresolver, uri);
+            }
+            // Misplaced declaration of an exception variable
+            catch (ContentResolver contentresolver)
+            {
+                s2 = s;
+                if (Log.isLoggable("ContentUriUtils", 5))
                 {
-                    koh1.a(1, s);
+                    contentresolver = String.valueOf(uri);
+                    (new StringBuilder(String.valueOf(contentresolver).length() + 27)).append("getMimeType failed for uri=").append(contentresolver);
+                    return s;
                 }
             }
-
         }
-        if (b != null && b.length > 0)
-        {
-            for (int j = ((flag) ? 1 : 0); j < b.length; j++)
-            {
-                String s1 = b[j];
-                if (s1 != null)
-                {
-                    koh1.a(2, s1);
-                }
-            }
-
-        }
-        super.writeTo(koh1);
+        return s2;
     }
+
+    public static boolean b(Uri uri)
+    {
+        return uri != null && "content".equals(uri.getScheme()) && "media".equals(uri.getAuthority());
+    }
+
+    public static boolean b(String s)
+    {
+        return s != null && s.startsWith("image/");
+    }
+
+    private static String c(ContentResolver contentresolver, Uri uri)
+    {
+        Object obj = contentresolver.query(uri, a, null, null, null);
+        if (obj == null) goto _L2; else goto _L1
+_L1:
+        if (!((Cursor) (obj)).moveToFirst()) goto _L2; else goto _L3
+_L3:
+        contentresolver = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(((Cursor) (obj)).getString(0)));
+_L5:
+        if (obj != null)
+        {
+            ((Cursor) (obj)).close();
+        }
+        obj = contentresolver;
+        if (TextUtils.isEmpty(contentresolver))
+        {
+            boolean flag;
+            if (b(uri) && uri.toString().contains("/video/"))
+            {
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+            if (!flag)
+            {
+                break MISSING_BLOCK_LABEL_109;
+            }
+            obj = "video/*";
+        }
+        return ((String) (obj));
+        contentresolver;
+        if (obj != null)
+        {
+            ((Cursor) (obj)).close();
+        }
+        throw contentresolver;
+        return "image/*";
+_L2:
+        contentresolver = null;
+        if (true) goto _L5; else goto _L4
+_L4:
+    }
+
+    public static boolean c(String s)
+    {
+        return s != null && s.startsWith("video/");
+    }
+
+    private static String d(ContentResolver contentresolver, Uri uri)
+    {
+        Object obj = null;
+        try
+        {
+            contentresolver = contentresolver.getType(uri);
+        }
+        // Misplaced declaration of an exception variable
+        catch (ContentResolver contentresolver)
+        {
+            contentresolver = obj;
+            if (Log.isLoggable("ContentUriUtils", 5))
+            {
+                contentresolver = String.valueOf(uri);
+                (new StringBuilder(String.valueOf(contentresolver).length() + 31)).append("safeGetMimeType failed for uri=").append(contentresolver);
+                return null;
+            }
+        }
+        return contentresolver;
+    }
+
 }

@@ -2,80 +2,56 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintStream;
 
-public final class lfh extends lex
+public final class lfh
 {
 
-    private static final long serialVersionUID = 0x8c2c82ce195505fbL;
-    private final long a;
+    private InputStream a;
+    private ByteArrayOutputStream b;
 
-    public lfh(ldi ldi, long l)
+    public lfh(InputStream inputstream)
     {
-        super(ldi);
-        a = l;
-    }
-
-    public long a(long l, int i)
-    {
-        return h.a(l, (long)i * a);
-    }
-
-    public long a(long l, long l1)
-    {
-        long l2 = a;
-        if (l2 != 1L)
+        a = inputstream;
+        try
         {
-            if (l1 == 1L)
-            {
-                l1 = l2;
-            } else
-            if (l1 == 0L || l2 == 0L)
-            {
-                l1 = 0L;
-            } else
-            {
-                long l3 = l1 * l2;
-                if (l3 / l2 != l1 || l1 == 0x8000000000000000L && l2 == -1L || l2 == 0x8000000000000000L && l1 == -1L)
-                {
-                    throw new ArithmeticException((new StringBuilder(76)).append("Multiplication overflows a long: ").append(l1).append(" * ").append(l2).toString());
-                }
-                l1 = l3;
-            }
+            b();
+            return;
         }
-        return h.a(l, l1);
-    }
-
-    public final boolean c()
-    {
-        return true;
-    }
-
-    public final long d()
-    {
-        return a;
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (this != obj)
+        // Misplaced declaration of an exception variable
+        catch (InputStream inputstream)
         {
-            if (obj instanceof lfh)
-            {
-                if (super.d != ((lex) (obj = (lfh)obj)).d || a != ((lfh) (obj)).a)
-                {
-                    return false;
-                }
-            } else
-            {
-                return false;
-            }
+            System.out.println("IOException in CopyInputStream");
         }
-        return true;
+        System.out.println(inputstream.toString());
     }
 
-    public int hashCode()
+    private int b()
     {
-        long l = a;
-        return (int)(l ^ l >>> 32) + super.d.hashCode();
+        b = new ByteArrayOutputStream();
+        byte abyte0[] = new byte[256];
+        int i = 0;
+        do
+        {
+            int j = a.read(abyte0);
+            if (-1 != j)
+            {
+                i += 256;
+                b.write(abyte0, 0, j);
+            } else
+            {
+                b.flush();
+                return i;
+            }
+        } while (true);
+    }
+
+    public ByteArrayInputStream a()
+    {
+        return new ByteArrayInputStream(b.toByteArray());
     }
 }

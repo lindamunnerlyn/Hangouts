@@ -2,9 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.lang.annotation.Annotation;
+import android.os.Bundle;
 
-public interface hoa
-    extends Annotation
+final class hoa
+    implements hok
 {
+
+    final Bundle a;
+    final hny b;
+
+    hoa(hny hny1, Bundle bundle)
+    {
+        b = hny1;
+        a = bundle;
+        super();
+    }
+
+    public void a(hoy hoy)
+    {
+        if (hoy instanceof hns)
+        {
+            b.a(hoy, a);
+        }
+    }
 }

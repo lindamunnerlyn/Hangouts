@@ -7,14 +7,14 @@ package com.google.android.gms.maps;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.google.android.gms.maps.model.CameraPosition;
-import flt;
+import fop;
 import g;
 
 public final class GoogleMapOptions
     implements SafeParcelable
 {
 
-    public static final flt CREATOR = new flt();
+    public static final fop CREATOR = new fop();
     private final int a;
     private Boolean b;
     private Boolean c;
@@ -54,9 +54,69 @@ public final class GoogleMapOptions
         m = g.a(byte9);
     }
 
-    public int a()
+    private int a()
     {
         return a;
+    }
+
+    private byte b()
+    {
+        return g.a(b);
+    }
+
+    private byte c()
+    {
+        return g.a(c);
+    }
+
+    private byte d()
+    {
+        return g.a(f);
+    }
+
+    private byte e()
+    {
+        return g.a(g);
+    }
+
+    private byte f()
+    {
+        return g.a(h);
+    }
+
+    private byte g()
+    {
+        return g.a(i);
+    }
+
+    private byte h()
+    {
+        return g.a(j);
+    }
+
+    private byte i()
+    {
+        return g.a(k);
+    }
+
+    private byte j()
+    {
+        return g.a(l);
+    }
+
+    private byte k()
+    {
+        return g.a(m);
+    }
+
+    private int l()
+    {
+        return d;
+    }
+
+    private CameraPosition m()
+    {
+        return e;
     }
 
     public GoogleMapOptions a(boolean flag)
@@ -65,74 +125,28 @@ public final class GoogleMapOptions
         return this;
     }
 
-    public byte b()
-    {
-        return g.a(b);
-    }
-
-    public byte c()
-    {
-        return g.a(c);
-    }
-
-    public byte d()
-    {
-        return g.a(f);
-    }
-
     public int describeContents()
     {
         return 0;
     }
 
-    public byte e()
-    {
-        return g.a(g);
-    }
-
-    public byte f()
-    {
-        return g.a(h);
-    }
-
-    public byte g()
-    {
-        return g.a(i);
-    }
-
-    public byte h()
-    {
-        return g.a(j);
-    }
-
-    public byte i()
-    {
-        return g.a(k);
-    }
-
-    public byte j()
-    {
-        return g.a(l);
-    }
-
-    public byte k()
-    {
-        return g.a(m);
-    }
-
-    public int l()
-    {
-        return d;
-    }
-
-    public CameraPosition m()
-    {
-        return e;
-    }
-
     public void writeToParcel(Parcel parcel, int i1)
     {
-        flt.a(this, parcel, i1);
+        int j1 = g.p(parcel, 20293);
+        g.b(parcel, 1, a());
+        g.a(parcel, 2, b());
+        g.a(parcel, 3, c());
+        g.b(parcel, 4, l());
+        g.a(parcel, 5, m(), i1);
+        g.a(parcel, 6, d());
+        g.a(parcel, 7, e());
+        g.a(parcel, 8, f());
+        g.a(parcel, 9, g());
+        g.a(parcel, 10, h());
+        g.a(parcel, 11, i());
+        g.a(parcel, 12, j());
+        g.a(parcel, 14, k());
+        g.q(parcel, j1);
     }
 
 }

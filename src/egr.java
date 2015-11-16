@@ -2,28 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.AsyncTask;
+import com.google.android.apps.hangouts.views.ConversationListItemWrapper;
 
-final class egr extends AsyncTask
+public final class egr
+    implements Runnable
 {
 
-    final egp a;
+    final ConversationListItemWrapper a;
 
-    egr(egp egp1)
+    public egr(ConversationListItemWrapper conversationlistitemwrapper)
     {
-        a = egp1;
+        a = conversationlistitemwrapper;
         super();
     }
 
-    protected Object doInBackground(Object aobj[])
+    public void run()
     {
-        egp.a(a, any.b(egp.c(a), egp.d(a), egp.e(a), "video/*"));
-        return null;
-    }
-
-    protected void onPostExecute(Object obj)
-    {
-        super.onPostExecute((Void)obj);
-        a.setEnabled(true);
+        if (a.a instanceof efx)
+        {
+            ((efx)a.a).a();
+        } else
+        if (a.a instanceof com.google.android.apps.hangouts.fragments.ConversationListFragment.InviteListItem)
+        {
+            ((com.google.android.apps.hangouts.fragments.ConversationListFragment.InviteListItem)a.a).a();
+            return;
+        }
     }
 }

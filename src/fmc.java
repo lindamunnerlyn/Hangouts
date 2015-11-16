@@ -2,40 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.IBinder;
+import android.os.Parcel;
+import com.google.android.gms.maps.model.StreetViewPanoramaCamera;
 
-public final class fmc
+final class fmc
+    implements fma
 {
 
-    public static final fmc a = new fmc();
-    private boolean b;
-    private int c;
+    private IBinder a;
 
-    public fmc()
+    fmc(IBinder ibinder)
     {
-        c = 0;
+        a = ibinder;
     }
 
-    public fmc a(boolean flag)
+    public void a(StreetViewPanoramaCamera streetviewpanoramacamera)
     {
-        b = flag;
-        return this;
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnStreetViewPanoramaCameraChangeListener");
+        if (streetviewpanoramacamera == null)
+        {
+            break MISSING_BLOCK_LABEL_56;
+        }
+        parcel.writeInt(1);
+        streetviewpanoramacamera.writeToParcel(parcel, 0);
+_L1:
+        a.transact(1, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        streetviewpanoramacamera;
+        parcel1.recycle();
+        parcel.recycle();
+        throw streetviewpanoramacamera;
     }
 
-    public boolean a()
+    public IBinder asBinder()
     {
-        return b;
+        return a;
     }
-
-    public int b()
-    {
-        return c;
-    }
-
-    public String toString()
-    {
-        return g.a(new Object[] {
-            "mIncludePlusPages", Boolean.valueOf(b), "mSortOrder", Integer.valueOf(c)
-        });
-    }
-
 }

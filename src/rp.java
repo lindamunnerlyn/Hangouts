@@ -2,194 +2,100 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.res.ColorStateList;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Rect;
-import android.graphics.Region;
-import android.graphics.drawable.Drawable;
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.TypedValue;
+import android.view.View;
 
-public class rp extends Drawable
-    implements android.graphics.drawable.Drawable.Callback
+public class rp extends Dialog
+    implements qs
 {
 
-    private Drawable a;
+    private qt a;
 
-    public rp(Drawable drawable)
+    public rp(Context context, int i)
     {
-        a(drawable);
-    }
-
-    public void a(Drawable drawable)
-    {
-        if (a != null)
+        int j = i;
+        if (i == 0)
         {
-            a.setCallback(null);
+            TypedValue typedvalue = new TypedValue();
+            context.getTheme().resolveAttribute(g.D, typedvalue, true);
+            j = typedvalue.resourceId;
         }
-        a = drawable;
-        if (drawable != null)
+        super(context, j);
+        b().a(null);
+    }
+
+    public void a(vt vt)
+    {
+    }
+
+    public boolean a()
+    {
+        return b().b(1);
+    }
+
+    public void addContentView(View view, android.view.ViewGroup.LayoutParams layoutparams)
+    {
+        b().b(view, layoutparams);
+    }
+
+    public qt b()
+    {
+        if (a == null)
         {
-            drawable.setCallback(this);
+            a = qt.a(getContext(), getWindow(), this);
         }
+        return a;
     }
 
-    public void draw(Canvas canvas)
+    public void b(vt vt)
     {
-        a.draw(canvas);
     }
 
-    public int getChangingConfigurations()
+    public void invalidateOptionsMenu()
     {
-        return a.getChangingConfigurations();
+        b().f();
     }
 
-    public Drawable getCurrent()
+    protected void onCreate(Bundle bundle)
     {
-        return a.getCurrent();
+        b().i();
+        super.onCreate(bundle);
+        b().a(bundle);
     }
 
-    public int getIntrinsicHeight()
+    protected void onStop()
     {
-        return a.getIntrinsicHeight();
+        super.onStop();
+        b().d();
     }
 
-    public int getIntrinsicWidth()
+    public void setContentView(int i)
     {
-        return a.getIntrinsicWidth();
+        b().a(i);
     }
 
-    public int getMinimumHeight()
+    public void setContentView(View view)
     {
-        return a.getMinimumHeight();
+        b().a(view);
     }
 
-    public int getMinimumWidth()
+    public void setContentView(View view, android.view.ViewGroup.LayoutParams layoutparams)
     {
-        return a.getMinimumWidth();
+        b().a(view, layoutparams);
     }
 
-    public int getOpacity()
+    public void setTitle(int i)
     {
-        return a.getOpacity();
+        super.setTitle(i);
+        b().a(getContext().getString(i));
     }
 
-    public boolean getPadding(Rect rect)
+    public void setTitle(CharSequence charsequence)
     {
-        return a.getPadding(rect);
-    }
-
-    public int[] getState()
-    {
-        return a.getState();
-    }
-
-    public Region getTransparentRegion()
-    {
-        return a.getTransparentRegion();
-    }
-
-    public void invalidateDrawable(Drawable drawable)
-    {
-        invalidateSelf();
-    }
-
-    public boolean isAutoMirrored()
-    {
-        return fe.b(a);
-    }
-
-    public boolean isStateful()
-    {
-        return a.isStateful();
-    }
-
-    public void jumpToCurrentState()
-    {
-        fe.a(a);
-    }
-
-    protected void onBoundsChange(Rect rect)
-    {
-        a.setBounds(rect);
-    }
-
-    protected boolean onLevelChange(int i)
-    {
-        return a.setLevel(i);
-    }
-
-    public void scheduleDrawable(Drawable drawable, Runnable runnable, long l)
-    {
-        scheduleSelf(runnable, l);
-    }
-
-    public void setAlpha(int i)
-    {
-        a.setAlpha(i);
-    }
-
-    public void setAutoMirrored(boolean flag)
-    {
-        fe.a(a, flag);
-    }
-
-    public void setChangingConfigurations(int i)
-    {
-        a.setChangingConfigurations(i);
-    }
-
-    public void setColorFilter(ColorFilter colorfilter)
-    {
-        a.setColorFilter(colorfilter);
-    }
-
-    public void setDither(boolean flag)
-    {
-        a.setDither(flag);
-    }
-
-    public void setFilterBitmap(boolean flag)
-    {
-        a.setFilterBitmap(flag);
-    }
-
-    public void setHotspot(float f, float f1)
-    {
-        fe.a(a, f, f1);
-    }
-
-    public void setHotspotBounds(int i, int j, int k, int l)
-    {
-        fe.a(a, i, j, k, l);
-    }
-
-    public boolean setState(int ai[])
-    {
-        return a.setState(ai);
-    }
-
-    public void setTint(int i)
-    {
-        fe.a(a, i);
-    }
-
-    public void setTintList(ColorStateList colorstatelist)
-    {
-        fe.a(a, colorstatelist);
-    }
-
-    public void setTintMode(android.graphics.PorterDuff.Mode mode)
-    {
-        fe.a(a, mode);
-    }
-
-    public boolean setVisible(boolean flag, boolean flag1)
-    {
-        return super.setVisible(flag, flag1) || a.setVisible(flag, flag1);
-    }
-
-    public void unscheduleDrawable(Drawable drawable, Runnable runnable)
-    {
-        unscheduleSelf(runnable);
+        super.setTitle(charsequence);
+        b().a(charsequence);
     }
 }

@@ -3,20 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jas extends koj
+public final class jas extends kwm
 {
 
-    public jaq a;
-    public jbw b;
-    public jaq c[];
-    public ixg responseHeader;
+    public ixl a;
+    public jce b;
+    public Integer c;
 
     public jas()
     {
-        responseHeader = null;
         a = null;
         b = null;
-        c = jaq.a();
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -25,144 +23,81 @@ public final class jas extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (responseHeader != null)
-        {
-            i = j + koh.d(1, responseHeader);
-        }
-        j = i;
         if (a != null)
         {
-            j = i + koh.d(2, a);
+            i = j + kwk.d(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(2, b);
         }
         i = j;
-        if (b != null)
-        {
-            i = j + koh.d(3, b);
-        }
-        j = i;
         if (c != null)
         {
-            j = i;
-            if (c.length > 0)
-            {
-                for (j = 0; j < c.length;)
-                {
-                    jaq jaq1 = c[j];
-                    int k = i;
-                    if (jaq1 != null)
-                    {
-                        k = i + koh.d(4, jaq1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            i = j + kwk.e(3, c.intValue());
         }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L6:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 4: default 48
+    //                   0: 57
+    //                   10: 59
+    //                   18: 88
+    //                   24: 117;
+           goto _L1 _L2 _L3 _L4 _L5
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L6; else goto _L2
+_L2:
+        return this;
+_L3:
+        if (a == null)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (responseHeader == null)
-                {
-                    responseHeader = new ixg();
-                }
-                kog1.a(responseHeader);
-                break;
-
-            case 18: // '\022'
-                if (a == null)
-                {
-                    a = new jaq();
-                }
-                kog1.a(a);
-                break;
-
-            case 26: // '\032'
-                if (b == null)
-                {
-                    b = new jbw();
-                }
-                kog1.a(b);
-                break;
-
-            case 34: // '"'
-                int k = kou.b(kog1, 34);
-                jaq ajaq[];
-                int j;
-                if (c == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = c.length;
-                }
-                ajaq = new jaq[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(c, 0, ajaq, 0, j);
-                    k = j;
-                }
-                for (; k < ajaq.length - 1; k++)
-                {
-                    ajaq[k] = new jaq();
-                    kog1.a(ajaq[k]);
-                    kog1.a();
-                }
-
-                ajaq[k] = new jaq();
-                kog1.a(ajaq[k]);
-                c = ajaq;
-                break;
-            }
-        } while (true);
+            a = new ixl();
+        }
+        kwj1.a(a);
+          goto _L6
+_L4:
+        if (b == null)
+        {
+            b = new jce();
+        }
+        kwj1.a(b);
+          goto _L6
+_L5:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+            c = Integer.valueOf(j);
+            break;
+        }
+        if (true) goto _L6; else goto _L7
+_L7:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (responseHeader != null)
-        {
-            koh1.b(1, responseHeader);
-        }
         if (a != null)
         {
-            koh1.b(2, a);
+            kwk1.b(1, a);
         }
         if (b != null)
         {
-            koh1.b(3, b);
+            kwk1.b(2, b);
         }
-        if (c != null && c.length > 0)
+        if (c != null)
         {
-            for (int i = 0; i < c.length; i++)
-            {
-                jaq jaq1 = c[i];
-                if (jaq1 != null)
-                {
-                    koh1.b(4, jaq1);
-                }
-            }
-
+            kwk1.a(3, c.intValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

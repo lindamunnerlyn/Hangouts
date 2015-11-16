@@ -6,13 +6,14 @@ package com.google.android.gms.wearable.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fvo;
+import fxu;
+import g;
 
 public class PackageStorageInfo
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fvo();
+    public static final android.os.Parcelable.Creator CREATOR = new fxu();
     public final int a;
     public final String b;
     public final String c;
@@ -33,7 +34,12 @@ public class PackageStorageInfo
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fvo.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b);
+        g.a(parcel, 3, c);
+        g.a(parcel, 4, d);
+        g.q(parcel, i);
     }
 
 }

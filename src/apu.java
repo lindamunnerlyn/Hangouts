@@ -3,27 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class apu
-    implements apv
+public final class apu extends IllegalStateException
 {
 
-    public String a;
-    int b;
-
-    public apu(int i)
+    public apu()
     {
-        b = i;
     }
 
-    public boolean a(int i, StringBuilder stringbuilder)
+    public apu(Throwable throwable)
     {
-        if (i == b)
-        {
-            a = stringbuilder.toString();
-            return false;
-        } else
-        {
-            return true;
-        }
+        super(throwable);
     }
 }

@@ -3,18 +3,46 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iwi extends koj
+public final class iwi extends kwm
 {
 
-    public Boolean a;
-    public Boolean b;
+    private static volatile iwi g[];
+    public Integer a;
+    public Integer b;
+    public Integer c;
+    public String d;
+    public byte e[];
+    public Integer f;
 
     public iwi()
     {
         a = null;
         b = null;
+        c = null;
+        d = null;
+        e = null;
+        f = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static iwi[] a()
+    {
+        if (g == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (g == null)
+                {
+                    g = new iwi[0];
+                }
+            }
+        }
+        return g;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -23,27 +51,45 @@ public final class iwi extends koj
         int i = j;
         if (a != null)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            i = j + kwk.f(1, a.intValue());
         }
         j = i;
         if (b != null)
         {
-            b.booleanValue();
-            j = i + (koh.f(2) + 1);
+            j = i + kwk.f(2, b.intValue());
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.f(3, c.intValue());
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.b(4, d);
+        }
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.b(5, e);
+        }
+        j = i;
+        if (f != null)
+        {
+            j = i + kwk.f(6, f.intValue());
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -53,26 +99,58 @@ public final class iwi extends koj
                 return this;
 
             case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
+                a = Integer.valueOf(kwj1.l());
                 break;
 
             case 16: // '\020'
-                b = Boolean.valueOf(kog1.i());
+                b = Integer.valueOf(kwj1.l());
+                break;
+
+            case 24: // '\030'
+                c = Integer.valueOf(kwj1.l());
+                break;
+
+            case 34: // '"'
+                d = kwj1.j();
+                break;
+
+            case 42: // '*'
+                e = kwj1.k();
+                break;
+
+            case 48: // '0'
+                f = Integer.valueOf(kwj1.l());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.booleanValue());
+            kwk1.c(1, a.intValue());
         }
         if (b != null)
         {
-            koh1.a(2, b.booleanValue());
+            kwk1.c(2, b.intValue());
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.c(3, c.intValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d);
+        }
+        if (e != null)
+        {
+            kwk1.a(5, e);
+        }
+        if (f != null)
+        {
+            kwk1.c(6, f.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

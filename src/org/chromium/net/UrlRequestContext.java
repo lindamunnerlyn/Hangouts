@@ -4,17 +4,11 @@
 
 package org.chromium.net;
 
-import java.util.concurrent.Executor;
 
-// Referenced classes of package org.chromium.net:
-//            UrlRequestListener, UrlRequest
-
-public abstract class UrlRequestContext
+public class UrlRequestContext
 {
 
     public UrlRequestContext()
     {
     }
-
-    public abstract UrlRequest a(String s, UrlRequestListener urlrequestlistener, Executor executor);
 }

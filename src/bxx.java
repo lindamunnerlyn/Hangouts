@@ -2,25 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.ValueAnimator;
-import android.view.View;
+import android.content.Context;
+import android.content.res.Resources;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 
-final class bxx
-    implements android.animation.ValueAnimator.AnimatorUpdateListener
+public final class bxx
+    implements ejx
 {
 
-    final View a;
-    final bxu b;
-
-    bxx(bxu bxu1, View view)
+    public bxx()
     {
-        b = bxu1;
-        a = view;
-        super();
     }
 
-    public void onAnimationUpdate(ValueAnimator valueanimator)
+    public eia a(Context context, int i, bid bid, Resources resources)
     {
-        bxu.a(a);
+        return new bxv(context, i, bid, resources);
+    }
+
+    public eia a(ViewGroup viewgroup, int i, LayoutInflater layoutinflater)
+    {
+        viewgroup = layoutinflater.inflate(g.mI, viewgroup, true);
+        return new byc(layoutinflater.getContext(), i, viewgroup);
     }
 }

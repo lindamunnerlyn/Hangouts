@@ -2,29 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
 public final class hen
 {
 
-    private final int a;
-    private final String b;
-    private final gms c;
+    public static final hen a = (new heo()).a().b().c();
+    private final a b;
+    private final boolean c;
+    private final boolean d;
 
-    public hen(Context context, int i, String s)
+    hen(heo heo1)
     {
-        c = (gms)hgx.a(context, gms);
-        a = i;
-        b = s;
+        b = heo1.a;
+        c = heo1.b;
+        d = heo1.c;
     }
 
-    public void a(boolean flag)
+    public void a()
     {
-        c.b(a).c(b, flag).d();
+        if (this != a)
+        {
+            if (b == null)
+            {
+                throw new IllegalStateException("must supply network capability to validate constraints");
+            }
+            if (b.r() && !c)
+            {
+                throw new heu("metered network not allowed");
+            }
+            if (b.s() && !d)
+            {
+                throw new heu("roaming not allowed");
+            }
+        }
     }
 
-    public Boolean b(boolean flag)
-    {
-        return Boolean.valueOf(c.a(a).a(b, flag));
-    }
 }

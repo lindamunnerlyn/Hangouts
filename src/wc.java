@@ -2,11 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.view.View;
 
-public interface wc
+final class wc extends tn
 {
 
-    public abstract boolean d();
+    final vw f;
 
-    public abstract boolean e();
+    public wc(vw vw1, Context context, ta ta1, View view)
+    {
+        f = vw1;
+        super(context, ta1, view, true, g.q);
+        a();
+        a(vw1.k);
+    }
+
+    public void onDismiss()
+    {
+        super.onDismiss();
+        f.c.close();
+        f.h = null;
+    }
 }

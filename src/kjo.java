@@ -3,14 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kjo extends koj
+public final class kjo extends kwm
 {
 
-    public kaf a;
+    public lcw a;
+    public Long b;
 
     public kjo()
     {
         a = null;
+        b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,20 +23,25 @@ public final class kjo extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.d(1, a);
         }
-        return i;
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.longValue());
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -46,20 +53,28 @@ public final class kjo extends koj
             case 10: // '\n'
                 if (a == null)
                 {
-                    a = new kaf();
+                    a = new lcw();
                 }
-                kog1.a(a);
+                kwj1.a(a);
+                break;
+
+            case 16: // '\020'
+                b = Long.valueOf(kwj1.e());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.b(1, a);
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.b(2, b.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

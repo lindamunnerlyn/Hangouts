@@ -3,7 +3,7 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class afd extends afb
+public class afd extends Exception
 {
 
     public afd()

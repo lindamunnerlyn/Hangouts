@@ -2,28 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
 
-public final class dfm
-    implements Runnable
+public final class dfm extends cxr
 {
 
-    final int a;
-    final ani b;
-    final dgu c;
+    private static final boolean g = false;
+    private static final long serialVersionUID = 1L;
 
-    public dfm(int i, ani ani, dgu dgu)
+    private dfm(jbk jbk1)
     {
-        a = i;
-        b = ani;
-        c = dgu;
-        super();
+        super(jbk1.responseHeader, -1L);
+        if (g)
+        {
+            jbk1 = String.valueOf(jbk1);
+            eev.b("Babel_protos", (new StringBuilder(String.valueOf(jbk1).length() + 31)).append("MarkEventObservedResponse from:").append(jbk1).toString());
+        }
     }
 
-    public void run()
+    public static cxr a(jbk jbk1)
     {
-        for (Iterator iterator = RealTimeChatService.o().iterator(); iterator.hasNext(); ((dgp)iterator.next()).a(a, b, c)) { }
+        if (a(jbk1.responseHeader))
+        {
+            String s = String.valueOf(jbk1);
+            eev.f("Babel", (new StringBuilder(String.valueOf(s).length() + 62)).append("MarkEventObservedResponse.processResponse: request failed for ").append(s).toString());
+            return new cyd(jbk1.responseHeader);
+        } else
+        {
+            return new dfm(jbk1);
+        }
+    }
+
+    static 
+    {
+        hnc hnc = eev.k;
     }
 }

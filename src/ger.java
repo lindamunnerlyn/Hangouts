@@ -3,12 +3,24 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface ger
+final class ger
+    implements Runnable
 {
 
-    public abstract void a(gem gem);
+    final geq a;
 
-    public abstract void b(gem gem);
+    ger(geq geq1)
+    {
+        a = geq1;
+        super();
+    }
 
-    public abstract void c(gem gem);
+    public void run()
+    {
+        if (!a.a)
+        {
+            gne.a(4, "vclib", "We still don't have a connection after 10 seconds. Terminate the call");
+            geg.k(a.b);
+        }
+    }
 }

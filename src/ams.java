@@ -4,19 +4,34 @@
 
 import android.content.Context;
 
-public final class ams
+final class ams
+    implements Runnable
 {
 
-    public static final String a = amp.getName();
-    private static amr b;
+    final amr a;
 
-    public static void a(Context context, hgx hgx1)
+    ams(amr amr1)
     {
-        if (b == null)
-        {
-            b = new amr();
-        }
-        hgx1.a(amp, new amp(context));
+        a = amr1;
+        super();
     }
 
+    public void run()
+    {
+        amr amr1 = a;
+        fzd.b(amr1.b.getContentResolver(), new String[] {
+            amr1.a
+        });
+        synchronized (amr1.c)
+        {
+            amr1.d = true;
+            amr1.c.notifyAll();
+        }
+        amr1.a();
+        return;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
 }

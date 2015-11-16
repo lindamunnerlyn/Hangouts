@@ -2,21 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.TypeEvaluator;
-import android.graphics.Color;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
+import com.google.android.apps.hangouts.phone.ViewVCardActivity;
+import java.util.Locale;
 
-public final class cre
-    implements TypeEvaluator
+public final class cre extends AsyncTask
 {
 
-    public cre()
+    int a;
+    final ViewVCardActivity b;
+
+    public cre(ViewVCardActivity viewvcardactivity)
     {
+        b = viewvcardactivity;
+        super();
+        a = ViewVCardActivity.b(b).a();
     }
 
-    public Object evaluate(float f, Object obj, Object obj1)
+    protected Object doInBackground(Object aobj[])
     {
-        obj = (Integer)obj;
-        obj1 = (Integer)obj1;
-        return Integer.valueOf(Color.rgb((int)((float)Color.red(g.a(((Integer) (obj)), 0)) * (1.0F - f) + (float)Color.red(g.a(((Integer) (obj1)), 0)) * f), (int)((float)Color.green(g.a(((Integer) (obj)), 0)) * (1.0F - f) + (float)Color.green(g.a(((Integer) (obj1)), 0)) * f), (int)((float)Color.blue(g.a(((Integer) (obj)), 0)) * (1.0F - f) + (float)Color.blue(g.a(((Integer) (obj1)), 0)) * f)));
+        aobj = ((Uri[])aobj)[0];
+        if (aobj != null)
+        {
+            return ((Object) (aobj));
+        } else
+        {
+            return ViewVCardActivity.a(b, a);
+        }
+    }
+
+    protected void onPostExecute(Object obj)
+    {
+        obj = (Uri)obj;
+        if (obj != null)
+        {
+            ViewVCardActivity.a(b, ((Uri) (obj)));
+            obj = new Intent();
+            ((Intent) (obj)).setAction("android.intent.action.VIEW");
+            ((Intent) (obj)).setDataAndType(ViewVCardActivity.c(b), "text/x-vCard".toLowerCase(Locale.US));
+            ((Intent) (obj)).addFlags(1);
+            b.startActivity(((Intent) (obj)));
+        }
     }
 }

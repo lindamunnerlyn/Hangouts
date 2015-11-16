@@ -2,55 +2,75 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.cache.LocalCache;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentMap;
 
-public final class jig extends jhu
+public final class jig extends kwm
 {
 
-    final LocalCache c;
+    public String a;
+    public Long b;
 
-    public jig(LocalCache localcache, ConcurrentMap concurrentmap)
+    public jig()
     {
-        c = localcache;
-        super(localcache, concurrentmap);
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public boolean contains(Object obj)
+    protected int computeSerializedSize()
     {
-        if (obj instanceof java.util.Map.Entry)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            obj = (java.util.Map.Entry)obj;
-            Object obj1 = ((java.util.Map.Entry) (obj)).getKey();
-            if (obj1 != null)
+            i = j + kwk.b(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.longValue());
+        }
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
             {
-                obj1 = c.get(obj1);
-                if (obj1 != null && c.f.a(((java.util.Map.Entry) (obj)).getValue(), obj1))
+            default:
+                if (super.storeUnknownField(kwj1, i))
                 {
-                    return true;
+                    continue;
                 }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 16: // '\020'
+                b = Long.valueOf(kwj1.e());
+                break;
             }
-        }
-        return false;
+        } while (true);
     }
 
-    public Iterator iterator()
+    public void writeTo(kwk kwk1)
     {
-        return new jif(c);
-    }
-
-    public boolean remove(Object obj)
-    {
-        if (obj instanceof java.util.Map.Entry)
+        if (a != null)
         {
-            obj = (java.util.Map.Entry)obj;
-            Object obj1 = ((java.util.Map.Entry) (obj)).getKey();
-            if (obj1 != null && c.remove(obj1, ((java.util.Map.Entry) (obj)).getValue()))
-            {
-                return true;
-            }
+            kwk1.a(1, a);
         }
-        return false;
+        if (b != null)
+        {
+            kwk1.b(2, b.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

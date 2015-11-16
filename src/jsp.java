@@ -2,40 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.Delayed;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
 
-final class jsp extends jrz
-    implements ScheduledFuture, jsj
+final class jsp extends jyh
 {
 
-    private final ScheduledFuture a;
+    final jyh a;
+    final jso b;
 
-    public jsp(jsj jsj1, ScheduledFuture scheduledfuture)
+    jsp(jso jso, jyh jyh1)
     {
-        super(jsj1);
-        a = scheduledfuture;
+        b = jso;
+        a = jyh1;
+        super();
     }
 
-    public boolean cancel(boolean flag)
+    public boolean hasNext()
     {
-        boolean flag1 = super.cancel(flag);
-        if (flag1)
-        {
-            a.cancel(flag);
-        }
-        return flag1;
+        return a.hasNext();
     }
 
-    public int compareTo(Object obj)
+    public Object next()
     {
-        obj = (Delayed)obj;
-        return a.compareTo(obj);
-    }
-
-    public long getDelay(TimeUnit timeunit)
-    {
-        return a.getDelay(timeunit);
+        return ((java.util.Map.Entry)a.next()).getKey();
     }
 }

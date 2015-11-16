@@ -2,22 +2,136 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.wearable.WearableService;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 
-public final class ehk
-    implements Runnable
+public final class ehk extends Drawable
+    implements edi
 {
 
-    final WearableService a;
+    private Paint a;
+    private edf b;
+    private Bitmap c;
+    private boolean d;
+    private Runnable e;
 
-    public ehk(WearableService wearableservice)
+    public ehk(edf edf1)
     {
-        a = wearableservice;
-        super();
+        d = true;
+        a(edf1);
     }
 
-    public void run()
+    public void a()
     {
-        WearableService.a(a);
+        if (b != null)
+        {
+            b.g();
+        }
+    }
+
+    public void a(Bitmap bitmap)
+    {
+        if (e != null)
+        {
+            e.run();
+            e = null;
+        }
+        c = bitmap;
+        invalidateSelf();
+    }
+
+    public void a(edf edf1)
+    {
+        a = new Paint(2);
+        c();
+        if (edf1 != null)
+        {
+            b = edf1;
+            b.a(this);
+            b.a(d);
+        }
+    }
+
+    public void a(Runnable runnable)
+    {
+        e = runnable;
+    }
+
+    public void b()
+    {
+        if (b != null)
+        {
+            b.h();
+        }
+    }
+
+    public void c()
+    {
+        if (b != null)
+        {
+            b.h();
+            b.a(null);
+            b.i();
+            b = null;
+        }
+        c = null;
+        e = null;
+    }
+
+    public void d()
+    {
+        d = false;
+        if (b != null)
+        {
+            b.a(false);
+        }
+    }
+
+    public void draw(Canvas canvas)
+    {
+        if (c != null && !c.isRecycled())
+        {
+            canvas.drawBitmap(c, 0.0F, 0.0F, a);
+        }
+    }
+
+    public int getIntrinsicHeight()
+    {
+        if (b != null)
+        {
+            return b.e();
+        } else
+        {
+            return 0;
+        }
+    }
+
+    public int getIntrinsicWidth()
+    {
+        if (b != null)
+        {
+            return b.d();
+        } else
+        {
+            return 0;
+        }
+    }
+
+    public int getOpacity()
+    {
+        return -1;
+    }
+
+    public void setAlpha(int i)
+    {
+        a.setAlpha(i);
+    }
+
+    public void setColorFilter(ColorFilter colorfilter)
+    {
+        a.setColorFilter(colorfilter);
     }
 }

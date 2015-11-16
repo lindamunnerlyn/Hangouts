@@ -2,37 +2,91 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
-import com.google.android.gms.identity.accounts.api.AccountData;
+import android.os.Bundle;
+import android.os.RemoteException;
+import android.view.View;
+import android.view.ViewGroup;
 
-public final class fcp
+public class fcp
 {
 
-    static final fcs a;
-    private static final fcr b;
+    public final ViewGroup a;
+    public final fjm b;
+    public View c;
 
-    public static boolean a(Context context, Intent intent)
+    public fcp(ViewGroup viewgroup, fjm fjm1)
     {
-        return fcr.a(context, intent);
+        b = (fjm)g.d(fjm1);
+        a = (ViewGroup)g.d(viewgroup);
     }
 
-    public static AccountData b(Context context, Intent intent)
+    public void a()
     {
-        h.a(context, "Context must not be null.");
-        h.a(intent, "Intent must not be null.");
-        if (!fcr.a(context, intent))
+        try
         {
-            return null;
-        } else
+            b.b();
+            return;
+        }
+        catch (RemoteException remoteexception)
         {
-            return (AccountData)g.a(intent, "com.google.android.gms.accounts.ACCOUNT_DATA", AccountData.CREATOR);
+            throw new af(remoteexception);
         }
     }
 
-    static 
+    public void a(Bundle bundle)
     {
-        a = new fcs();
-        b = new fcr(a);
+        try
+        {
+            b.a(bundle);
+            c = (View)fcz.a(b.f());
+            a.removeAllViews();
+            a.addView(c);
+            return;
+        }
+        // Misplaced declaration of an exception variable
+        catch (Bundle bundle)
+        {
+            throw new af(bundle);
+        }
+    }
+
+    public void a(fiy fiy)
+    {
+        try
+        {
+            b.a(new fiv(this, fiy));
+            return;
+        }
+        // Misplaced declaration of an exception variable
+        catch (fiy fiy)
+        {
+            throw new af(fiy);
+        }
+    }
+
+    public void b()
+    {
+        try
+        {
+            b.c();
+            return;
+        }
+        catch (RemoteException remoteexception)
+        {
+            throw new af(remoteexception);
+        }
+    }
+
+    public void c()
+    {
+        try
+        {
+            b.d();
+            return;
+        }
+        catch (RemoteException remoteexception)
+        {
+            throw new af(remoteexception);
+        }
     }
 }

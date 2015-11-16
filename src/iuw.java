@@ -3,38 +3,34 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iuw extends koj
+public final class iuw extends kwm
 {
 
-    public jtj a;
+    public Integer a;
+    public Integer b;
 
     public iuw()
     {
         a = null;
+        b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        return i;
+        return super.computeSerializedSize() + kwk.e(1, a.intValue()) + kwk.e(2, b.intValue());
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -43,23 +39,21 @@ public final class iuw extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new jtj();
-                }
-                kog1.a(a);
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        super.writeTo(koh1);
+        kwk1.a(1, a.intValue());
+        kwk1.a(2, b.intValue());
+        super.writeTo(kwk1);
     }
 }

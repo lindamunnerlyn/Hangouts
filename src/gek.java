@@ -2,26 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.libraries.hangouts.video.MediaCodecSimulcastEncoder;
-import java.util.Iterator;
-import java.util.List;
 
-public final class gek
-    implements Runnable
+final class gek
+    implements gds
 {
 
-    final List a;
-    final MediaCodecSimulcastEncoder b;
+    final String a;
+    final geg b;
 
-    public gek(MediaCodecSimulcastEncoder mediacodecsimulcastencoder, List list)
+    gek(geg geg1, String s)
     {
-        b = mediacodecsimulcastencoder;
-        a = list;
+        b = geg1;
+        a = s;
         super();
     }
 
-    public void run()
+    public void a(kws kws)
     {
-        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((gcz)iterator.next()).b()) { }
+        kws = geg.f(b).b(a);
+        if (kws == null)
+        {
+            gne.b("vclib", "Got an ENDPOINT_EXITED event for %s, which doesn't exist in our endpoints", new Object[] {
+                a
+            });
+            return;
+        } else
+        {
+            geg.f(b).b(kws);
+            gkt gkt1 = new gkt(Integer.valueOf(43));
+            geg.a(b, kws, gkt1);
+            return;
+        }
+    }
+
+    public void b(kws kws)
+    {
+        geg.a("Failed to kick participant: %s", new Object[] {
+            a
+        });
     }
 }

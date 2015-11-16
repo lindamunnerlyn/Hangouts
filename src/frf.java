@@ -2,101 +2,133 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
-import com.google.android.gms.playlog.internal.LogEvent;
-import com.google.android.gms.playlog.internal.PlayLoggerContext;
-import java.util.List;
+import android.content.Context;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.util.Log;
+import com.google.android.gms.common.data.DataHolder;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-final class frf
-    implements frd
+final class frf extends fti
 {
 
-    private IBinder a;
+    DataHolder b;
+    Cursor c;
+    fsf d;
+    fsf e;
+    ArrayList f;
+    HashMap g;
+    frj h;
+    frj i;
+    final boolean j;
+    fre k;
+    private volatile boolean l;
+    private final int m;
+    private Context n;
 
-    frf(IBinder ibinder)
+    public frf(DataHolder dataholder, Cursor cursor, Context context, int i1, fsf fsf1, fsf fsf2, ArrayList arraylist, 
+            HashMap hashmap, int j1, Bundle bundle)
     {
-        a = ibinder;
-    }
-
-    public void a(String s, PlayLoggerContext playloggercontext, LogEvent logevent)
-    {
-        Parcel parcel = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.playlog.internal.IPlayLogService");
-        parcel.writeString(s);
-        if (playloggercontext == null) goto _L2; else goto _L1
-_L1:
-        parcel.writeInt(1);
-        playloggercontext.writeToParcel(parcel, 0);
-_L3:
-        if (logevent == null)
+        boolean flag1 = true;
+        super(dataholder);
+        g.d(dataholder);
+        g.d(cursor);
+        g.d(hashmap);
+        boolean flag;
+        if (i1 == fsf1.a())
         {
-            break MISSING_BLOCK_LABEL_90;
-        }
-        parcel.writeInt(1);
-        logevent.writeToParcel(parcel, 0);
-_L4:
-        a.transact(2, parcel, null, 1);
-        parcel.recycle();
-        return;
-_L2:
-        parcel.writeInt(0);
-          goto _L3
-        s;
-        parcel.recycle();
-        throw s;
-        parcel.writeInt(0);
-          goto _L4
-    }
-
-    public void a(String s, PlayLoggerContext playloggercontext, List list)
-    {
-        Parcel parcel = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.playlog.internal.IPlayLogService");
-        parcel.writeString(s);
-        if (playloggercontext == null)
+            flag = true;
+        } else
         {
-            break MISSING_BLOCK_LABEL_62;
+            flag = false;
         }
-        parcel.writeInt(1);
-        playloggercontext.writeToParcel(parcel, 0);
-_L1:
-        parcel.writeTypedList(list);
-        a.transact(3, parcel, null, 1);
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        s;
-        parcel.recycle();
-        throw s;
-    }
-
-    public void a(String s, PlayLoggerContext playloggercontext, byte abyte0[])
-    {
-        Parcel parcel = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.playlog.internal.IPlayLogService");
-        parcel.writeString(s);
-        if (playloggercontext == null)
+        g.b(flag);
+        if (i1 == fsf2.a())
         {
-            break MISSING_BLOCK_LABEL_62;
+            flag = true;
+        } else
+        {
+            flag = false;
         }
-        parcel.writeInt(1);
-        playloggercontext.writeToParcel(parcel, 0);
-_L1:
-        parcel.writeByteArray(abyte0);
-        a.transact(4, parcel, null, 1);
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        s;
-        parcel.recycle();
-        throw s;
+        g.b(flag);
+        if (i1 == arraylist.size())
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        g.b(flag);
+        b = dataholder;
+        c = cursor;
+        m = i1;
+        f = arraylist;
+        n = context;
+        g = hashmap;
+        h = new frg(this, n.getResources());
+        i = new frh(this, n.getResources());
+        d = fsf1;
+        e = fsf2;
+        if ((j1 & 1) != 0 && g.m(6))
+        {
+            Log.e("PeopleAggregator", "PeopleExtraColumnBitmask.EMAILS is not supported in aggregation.  Ignored.");
+        }
+        if ((j1 & 2) != 0)
+        {
+            flag = flag1;
+        } else
+        {
+            flag = false;
+        }
+        j = flag;
+        k = new fre(bundle);
     }
 
-    public IBinder asBinder()
+    public int a()
     {
-        return a;
+        e();
+        return m;
+    }
+
+    public Object a(int i1)
+    {
+        e();
+        return new fri(this, i1);
+    }
+
+    public void b()
+    {
+        if (l)
+        {
+            return;
+        } else
+        {
+            l = true;
+            b.f();
+            c.close();
+            b = null;
+            c = null;
+            d = null;
+            e = null;
+            f = null;
+            g = null;
+            n = null;
+            h = null;
+            i = null;
+            k = null;
+            return;
+        }
+    }
+
+    void e()
+    {
+        if (l)
+        {
+            throw new IllegalStateException("Already released");
+        } else
+        {
+            return;
+        }
     }
 }

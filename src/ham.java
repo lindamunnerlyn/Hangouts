@@ -3,10 +3,32 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ham
+public class ham
 {
 
-    public ham()
+    private final hao a;
+    private final hak b;
+    private final hak c;
+
+    ham(hao hao, hak hak, hak hak1)
     {
+        a = hao;
+        b = hak;
+        c = hak1;
+    }
+
+    public hao a()
+    {
+        return a;
+    }
+
+    public hak b()
+    {
+        return b;
+    }
+
+    public hak c()
+    {
+        return c;
     }
 }

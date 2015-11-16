@@ -2,80 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.AsyncTask;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import android.support.v4.view.ViewPager;
+import android.view.View;
+import com.google.android.apps.hangouts.conversation.v2.stickerpicker.impl.SlidingTabLayout;
 
-final class bct extends AsyncTask
+public final class bct
+    implements android.view.View.OnClickListener
 {
 
-    final bcq a;
+    final SlidingTabLayout a;
 
-    bct(bcq bcq1)
+    public bct(SlidingTabLayout slidingtablayout)
     {
-        a = bcq1;
+        a = slidingtablayout;
         super();
     }
 
-    protected Object doInBackground(Object aobj[])
+    public void onClick(View view)
     {
-        ArrayList arraylist;
-        Object obj;
-        aobj = String.valueOf(a.b);
-        if (((String) (aobj)).length() != 0)
-        {
-            aobj = "update albumId=".concat(((String) (aobj)));
-        } else
-        {
-            aobj = new String("update albumId=");
-        }
-        ebw.c("Babel_Stickers", ((String) (aobj)));
-        arraylist = new ArrayList();
-        obj = ((bdc)a.getTargetFragment()).a;
-        if (a.b != null && !((List) (obj)).isEmpty()) goto _L2; else goto _L1
-_L1:
-        aobj = a.b;
-        obj = String.valueOf(obj);
-        ebw.g("Babel_Stickers", (new StringBuilder(String.valueOf(((Object) (aobj))).length() + 21 + String.valueOf(obj).length())).append("Missing album:").append(((String) (aobj))).append(" cache:").append(((String) (obj))).toString());
-_L4:
-        return arraylist;
-_L2:
-        aobj = String.valueOf(a.b);
-        if (((String) (aobj)).length() != 0)
-        {
-            aobj = "Updating! - ".concat(((String) (aobj)));
-        } else
-        {
-            aobj = new String("Updating! - ");
-        }
-        ebw.g("Babel_Stickers", ((String) (aobj)));
-        aobj = ((List) (obj)).iterator();
+        int i = 0;
         do
         {
-            if (!((Iterator) (aobj)).hasNext())
+label0:
             {
-                continue; /* Loop/switch isn't completed */
+                if (i < a.c.getChildCount())
+                {
+                    if (view != a.c.getChildAt(i))
+                    {
+                        break label0;
+                    }
+                    a.a.a(i);
+                }
+                return;
             }
-            obj = (cwv)((Iterator) (aobj)).next();
-        } while (!a.b.equals(((cwv) (obj)).a));
-        aobj = ((cwv) (obj)).e.iterator();
-        while (((Iterator) (aobj)).hasNext()) 
-        {
-            cww cww1 = (cww)((Iterator) (aobj)).next();
-            bcu bcu1 = new bcu(a);
-            bcu1.b = cww1.b;
-            bcu1.a = cww1.a;
-            bcu1.c = cww1.c;
-            arraylist.add(bcu1);
-        }
-        if (true) goto _L4; else goto _L3
-_L3:
-    }
-
-    protected void onPostExecute(Object obj)
-    {
-        obj = (ArrayList)obj;
-        a.a(a.a, ((ArrayList) (obj)));
+            i++;
+        } while (true);
     }
 }

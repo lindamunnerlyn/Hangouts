@@ -2,11 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Set;
 
-public final class gsj
+final class gsj
+    implements gsc
 {
 
-    public gsj()
+    Set a;
+
+    gsj(Set set)
     {
+        a = set;
+    }
+
+    public Object a(Object obj)
+    {
+        return a;
+    }
+
+    public void a(android.content.SharedPreferences.Editor editor, String s)
+    {
+        editor.putStringSet(s, a);
     }
 }

@@ -2,22 +2,13 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.hangout.BroadcastOverlayView;
 
-final class bna extends boh
+public interface bna
 {
 
-    final bmz a;
+    public abstract void a(String s);
 
-    bna(bmz bmz1)
-    {
-        a = bmz1;
-        super();
-    }
+    public abstract void b(String s);
 
-    public void a()
-    {
-        super.a();
-        BroadcastOverlayView.a(a.a);
-    }
+    public abstract void b(boolean flag);
 }

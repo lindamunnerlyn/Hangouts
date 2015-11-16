@@ -8,7 +8,7 @@ import ai;
 import android.os.Bundle;
 import ap;
 import bg;
-import bmb;
+import bmk;
 
 public class SmsStorageLowWarningActivity extends ai
 {
@@ -20,8 +20,8 @@ public class SmsStorageLowWarningActivity extends ai
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        bundle = t_().a();
-        bundle.a(bmb.a(), null);
+        bundle = u_().a();
+        bundle.a(bmk.a(), null);
         bundle.b();
     }
 }

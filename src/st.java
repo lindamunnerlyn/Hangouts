@@ -2,201 +2,51 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import java.util.ArrayList;
+import android.support.v7.internal.view.menu.ActionMenuItemView;
 
-public abstract class st
-    implements tn
+public final class st extends yg
 {
 
-    public Context a;
-    public Context b;
-    public sy c;
-    public LayoutInflater d;
-    public LayoutInflater e;
-    public tp f;
-    private to g;
-    private int h;
-    private int i;
-    private int j;
+    final ActionMenuItemView a;
 
-    public st(Context context, int k, int l)
+    public st(ActionMenuItemView actionmenuitemview)
     {
-        a = context;
-        d = LayoutInflater.from(context);
-        h = k;
-        i = l;
+        a = actionmenuitemview;
+        super(actionmenuitemview);
     }
 
-    public View a(tc tc1, View view, ViewGroup viewgroup)
+    public yc a()
     {
-        if (view instanceof tq)
+        if (a.c != null)
         {
-            view = (tq)view;
+            return a.c.a();
         } else
         {
-            view = b(viewgroup);
-        }
-        a(tc1, ((tq) (view)));
-        return (View)view;
-    }
-
-    public to a()
-    {
-        return g;
-    }
-
-    public tp a(ViewGroup viewgroup)
-    {
-        if (f == null)
-        {
-            f = (tp)d.inflate(h, viewgroup, false);
-            f.a(c);
-            b(true);
-        }
-        return f;
-    }
-
-    public void a(int k)
-    {
-        j = k;
-    }
-
-    public void a(Context context, sy sy1)
-    {
-        b = context;
-        e = LayoutInflater.from(b);
-        c = sy1;
-    }
-
-    protected void a(View view, int k)
-    {
-        ViewGroup viewgroup = (ViewGroup)view.getParent();
-        if (viewgroup != null)
-        {
-            viewgroup.removeView(view);
-        }
-        ((ViewGroup)f).addView(view, k);
-    }
-
-    public void a(sy sy1, boolean flag)
-    {
-        if (g != null)
-        {
-            g.a(sy1, flag);
+            return null;
         }
     }
 
-    public abstract void a(tc tc1, tq tq1);
-
-    public void a(to to1)
+    protected boolean b()
     {
-        g = to1;
-    }
-
-    public boolean a(ViewGroup viewgroup, int k)
-    {
-        viewgroup.removeViewAt(k);
-        return true;
-    }
-
-    public boolean a(tc tc1)
-    {
-        return true;
-    }
-
-    public boolean a(ts ts)
-    {
-        if (g != null)
+        boolean flag1 = false;
+        boolean flag = flag1;
+        if (a.b != null)
         {
-            return g.a(ts);
-        } else
-        {
-            return false;
-        }
-    }
-
-    public tq b(ViewGroup viewgroup)
-    {
-        return (tq)d.inflate(i, viewgroup, false);
-    }
-
-    public void b(boolean flag)
-    {
-        ViewGroup viewgroup = (ViewGroup)f;
-        if (viewgroup != null)
-        {
-            int l;
-            if (c != null)
+            flag = flag1;
+            if (a.b.a(a.a))
             {
-                c.l();
-                ArrayList arraylist = c.k();
-                int j1 = arraylist.size();
-                int i1 = 0;
-                int k = 0;
-                do
+                yc yc1 = a();
+                flag = flag1;
+                if (yc1 != null)
                 {
-                    l = k;
-                    if (i1 >= j1)
+                    flag = flag1;
+                    if (yc1.n())
                     {
-                        break;
+                        flag = true;
                     }
-                    tc tc2 = (tc)arraylist.get(i1);
-                    if (a(tc2))
-                    {
-                        View view = viewgroup.getChildAt(k);
-                        tc tc1;
-                        View view1;
-                        if (view instanceof tq)
-                        {
-                            tc1 = ((tq)view).a();
-                        } else
-                        {
-                            tc1 = null;
-                        }
-                        view1 = a(tc2, view, viewgroup);
-                        if (tc2 != tc1)
-                        {
-                            view1.setPressed(false);
-                            kb.t(view1);
-                        }
-                        if (view1 != view)
-                        {
-                            a(view1, k);
-                        }
-                        k++;
-                    }
-                    i1++;
-                } while (true);
-            } else
-            {
-                l = 0;
-            }
-            while (l < viewgroup.getChildCount()) 
-            {
-                if (!a(viewgroup, l))
-                {
-                    l++;
                 }
             }
         }
-    }
-
-    public boolean b()
-    {
-        return false;
-    }
-
-    public boolean b(tc tc1)
-    {
-        return false;
-    }
-
-    public boolean c(tc tc1)
-    {
-        return false;
+        return flag;
     }
 }

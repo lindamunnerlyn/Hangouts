@@ -2,24 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.widget.TextView;
 
-final class cgt extends zq
+final class cgt extends Enum
 {
 
-    final cgh l;
-    private TextView m;
+    public static final int a;
+    public static final int b;
+    public static final int c;
+    public static final int d;
+    private static final int e[];
 
-    cgt(cgh cgh, View view)
+    public static int[] a()
     {
-        l = cgh;
-        super(view);
-        m = (TextView)view.findViewById(l.uF);
+        return (int[])e.clone();
     }
 
-    static TextView a(cgt cgt1)
+    static 
     {
-        return cgt1.m;
+        a = 1;
+        b = 2;
+        c = 3;
+        d = 4;
+        e = (new int[] {
+            a, b, c, d
+        });
     }
 }

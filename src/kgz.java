@@ -3,65 +3,58 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kgz extends koj
+public final class kgz extends kwm
 {
 
-    private static volatile kgz c[];
-    public String a;
-    public String b;
+    public kgy a[];
 
     public kgz()
     {
-        a = null;
-        b = null;
+        a = kgy.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    public static kgz[] a()
-    {
-        if (c == null)
-        {
-            synchronized (kon.a)
-            {
-                if (c == null)
-                {
-                    c = new kgz[0];
-                }
-            }
-        }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
+        int i = super.computeSerializedSize();
+        int k = i;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            k = i;
+            if (a.length > 0)
+            {
+                int j = 0;
+                do
+                {
+                    k = i;
+                    if (j >= a.length)
+                    {
+                        break;
+                    }
+                    kgy kgy1 = a[j];
+                    k = i;
+                    if (kgy1 != null)
+                    {
+                        k = i + kwk.d(1, kgy1);
+                    }
+                    j++;
+                    i = k;
+                } while (true);
+            }
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.b(2, b);
-        }
-        return j;
+        return k;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -71,26 +64,52 @@ public final class kgz extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
-                break;
+                int k = kwx.a(kwj1, 10);
+                kgy akgy[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                akgy = new kgy[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, akgy, 0, j);
+                    k = j;
+                }
+                for (; k < akgy.length - 1; k++)
+                {
+                    akgy[k] = new kgy();
+                    kwj1.a(akgy[k]);
+                    kwj1.a();
+                }
 
-            case 18: // '\022'
-                b = kog1.j();
+                akgy[k] = new kgy();
+                kwj1.a(akgy[k]);
+                a = akgy;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
+        if (a != null && a.length > 0)
         {
-            koh1.a(1, a);
+            for (int i = 0; i < a.length; i++)
+            {
+                kgy kgy1 = a[i];
+                if (kgy1 != null)
+                {
+                    kwk1.b(1, kgy1);
+                }
+            }
+
         }
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

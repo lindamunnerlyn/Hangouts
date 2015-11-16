@@ -3,8 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface dud
+public final class dud
 {
 
-    public abstract void a(dtz dtz, int i);
+    public acz a;
+    public acy b;
+
+    public dud(acz acz, acy acy)
+    {
+        a = acz;
+        b = acy;
+    }
 }

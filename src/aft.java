@@ -2,16 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Map;
 
-public final class aft extends agf
+public final class aft
 {
 
-    public aft()
+    public final int a;
+    public final byte b[];
+    public final Map c;
+    public final boolean d;
+    public final long e;
+
+    public aft(int i, byte abyte0[], Map map, boolean flag, long l)
     {
+        a = i;
+        b = abyte0;
+        c = map;
+        d = flag;
+        e = l;
     }
 
-    public aft(Throwable throwable)
+    public aft(byte abyte0[], Map map)
     {
-        super(throwable);
+        this(200, abyte0, map, false, 0L);
     }
 }

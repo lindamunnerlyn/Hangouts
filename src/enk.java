@@ -2,316 +2,293 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.os.Handler;
 import android.os.Looper;
-import android.os.Message;
-import android.util.Log;
-import com.google.android.gms.common.ConnectionResult;
+import android.os.RemoteException;
+import com.google.android.gms.common.api.Status;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.CountDownLatch;
 
-public final class enk
-    implements android.os.Handler.Callback
+public abstract class enk
+    implements ene
 {
 
-    final ArrayList a = new ArrayList();
-    private final enl b;
-    private final ArrayList c = new ArrayList();
-    private final ArrayList d = new ArrayList();
-    private volatile boolean e;
-    private final AtomicInteger f = new AtomicInteger(0);
-    private boolean g;
-    private final Handler h;
-    private final Object i = new Object();
+    private final CountDownLatch a = new CountDownLatch(1);
+    private eni b;
+    public final Object c = new Object();
+    public final enl d;
+    public final ArrayList e = new ArrayList();
+    public volatile enh f;
+    public volatile boolean g;
+    private boolean h;
+    private boolean i;
+    private eqs j;
 
-    public enk(Looper looper, enl enl1)
+    protected enk(Looper looper)
     {
-        e = false;
-        g = false;
-        b = enl1;
-        h = new Handler(looper, this);
+        d = new enl(looper);
     }
 
-    public void a()
+    static void b(enh enh)
     {
-        e = false;
-        f.incrementAndGet();
-    }
-
-    public void a(int j)
-    {
-        boolean flag = false;
-        if (Looper.myLooper() == h.getLooper())
+        if (!(enh instanceof eng))
         {
-            flag = true;
+            break MISSING_BLOCK_LABEL_16;
         }
-        h.a(flag, "onUnintentionalDisconnection must only be called on the Handler thread");
-        h.removeMessages(1);
-        Object obj = i;
+        ((eng)enh).b();
+        return;
+        RuntimeException runtimeexception;
+        runtimeexception;
+        (new StringBuilder("Unable to release ")).append(enh);
+        return;
+    }
+
+    private void c(enh enh)
+    {
+        f = enh;
+        j = null;
+        a.countDown();
+        enh = f;
+        if (b != null)
+        {
+            d.a();
+            if (!h)
+            {
+                d.a(b, g());
+            }
+        }
+        for (enh = e.iterator(); enh.hasNext(); ((enf)enh.next()).a()) { }
+        e.clear();
+    }
+
+    private enh g()
+    {
+        boolean flag = true;
+        Object obj = c;
         obj;
         JVM INSTR monitorenter ;
-        g = true;
-        Object obj1 = new ArrayList(c);
-        int k = f.get();
-        obj1 = ((ArrayList) (obj1)).iterator();
-        do
+        enh enh;
+        if (g)
         {
-            if (!((Iterator) (obj1)).hasNext())
-            {
-                break;
-            }
-            eka eka1 = (eka)((Iterator) (obj1)).next();
-            if (!e || f.get() != k)
-            {
-                break;
-            }
-            if (c.contains(eka1))
-            {
-                eka1.a(j);
-            }
-        } while (true);
-        break MISSING_BLOCK_LABEL_139;
+            flag = false;
+        }
+        g.a(flag, "Result has already been consumed.");
+        g.a(b(), "Result is not ready.");
+        enh = f;
+        f = null;
+        b = null;
+        g = true;
+        e();
+        return enh;
         Exception exception;
         exception;
         obj;
         JVM INSTR monitorexit ;
         throw exception;
-        a.clear();
-        g = false;
-        obj;
-        JVM INSTR monitorexit ;
     }
 
-    public void a(Bundle bundle)
+    public final enh a()
     {
-        Object obj;
-        boolean flag;
         boolean flag1 = true;
-        Object obj1;
-        eka eka1;
-        int j;
-        if (Looper.myLooper() == h.getLooper())
+        boolean flag;
+        if (Looper.myLooper() != Looper.getMainLooper())
         {
             flag = true;
         } else
         {
             flag = false;
         }
-        h.a(flag, "onConnectionSuccess must only be called on the Handler thread");
-        obj = i;
-        obj;
-        JVM INSTR monitorenter ;
+        g.a(flag, "await must not be called on the UI thread");
         if (!g)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        h.a(flag);
-        h.removeMessages(1);
-        g = true;
-        if (a.size() == 0)
         {
             flag = flag1;
         } else
         {
             flag = false;
         }
-        h.a(flag);
-        obj1 = new ArrayList(c);
-        j = f.get();
-        obj1 = ((ArrayList) (obj1)).iterator();
-        do
+        g.a(flag, "Result has already been consumed");
+        try
         {
-            if (!((Iterator) (obj1)).hasNext())
-            {
-                break;
-            }
-            eka1 = (eka)((Iterator) (obj1)).next();
-            if (!e || !b.d() || f.get() != j)
-            {
-                break;
-            }
-            if (!a.contains(eka1))
-            {
-                eka1.a_(bundle);
-            }
-        } while (true);
-        break MISSING_BLOCK_LABEL_203;
-        bundle;
-        obj;
-        JVM INSTR monitorexit ;
-        throw bundle;
-        a.clear();
-        g = false;
-        obj;
-        JVM INSTR monitorexit ;
+            a.await();
+        }
+        catch (InterruptedException interruptedexception)
+        {
+            b(Status.b);
+        }
+        g.a(b(), "Result is not ready.");
+        return g();
     }
 
-    public void a(ConnectionResult connectionresult)
+    public abstract enh a(Status status);
+
+    public final void a(enh enh)
     {
-        Object obj;
-        Object obj1;
-        ekc ekc1;
-        int j;
+        boolean flag1;
+label0:
+        {
+            flag1 = true;
+            synchronized (c)
+            {
+                if (!i && !h)
+                {
+                    break label0;
+                }
+                b(enh);
+            }
+            return;
+        }
         boolean flag;
-        if (Looper.myLooper() == h.getLooper())
+        if (!b())
         {
             flag = true;
         } else
         {
             flag = false;
         }
-        h.a(flag, "onConnectionFailure must only be called on the Handler thread");
-        h.removeMessages(1);
-        obj = i;
-        obj;
-        JVM INSTR monitorenter ;
-        obj1 = new ArrayList(d);
-        j = f.get();
-        obj1 = ((ArrayList) (obj1)).iterator();
-_L2:
-        if (!((Iterator) (obj1)).hasNext())
+        g.a(flag, "Results have already been set");
+        if (!g)
         {
-            break MISSING_BLOCK_LABEL_134;
-        }
-        ekc1 = (ekc)((Iterator) (obj1)).next();
-        if (!e || f.get() != j)
-        {
-            return;
-        }
-        if (d.contains(ekc1))
-        {
-            ekc1.a(connectionresult);
-        }
-        if (true) goto _L2; else goto _L1
-_L1:
-        connectionresult;
-        obj;
-        JVM INSTR monitorexit ;
-        throw connectionresult;
-        obj;
-        JVM INSTR monitorexit ;
-    }
-
-    public void a(eka eka1)
-    {
-        h.a(eka1);
-        Object obj = i;
-        obj;
-        JVM INSTR monitorenter ;
-        if (!c.contains(eka1))
-        {
-            break MISSING_BLOCK_LABEL_74;
-        }
-        (new StringBuilder("registerConnectionCallbacks(): listener ")).append(eka1).append(" is already registered");
-_L2:
-        if (b.d())
-        {
-            h.sendMessage(h.obtainMessage(1, eka1));
-        }
-        return;
-        c.add(eka1);
-        if (true) goto _L2; else goto _L1
-_L1:
-        eka1;
-        obj;
-        JVM INSTR monitorexit ;
-        throw eka1;
-    }
-
-    public void a(ekc ekc1)
-    {
-        h.a(ekc1);
-        Object obj = i;
-        obj;
-        JVM INSTR monitorenter ;
-        if (!d.contains(ekc1))
-        {
-            break MISSING_BLOCK_LABEL_45;
-        }
-        (new StringBuilder("registerConnectionFailedListener(): listener ")).append(ekc1).append(" is already registered");
-_L2:
-        return;
-        d.add(ekc1);
-        if (true) goto _L2; else goto _L1
-_L1:
-        ekc1;
-        obj;
-        JVM INSTR monitorexit ;
-        throw ekc1;
-    }
-
-    public void b()
-    {
-        e = true;
-    }
-
-    public void b(eka eka1)
-    {
-        h.a(eka1);
-        Object obj = i;
-        obj;
-        JVM INSTR monitorenter ;
-        if (c.remove(eka1)) goto _L2; else goto _L1
-_L1:
-        (new StringBuilder("unregisterConnectionCallbacks(): listener ")).append(eka1).append(" not found");
-_L4:
-        return;
-_L2:
-        if (g)
-        {
-            a.add(eka1);
-        }
-        if (true) goto _L4; else goto _L3
-_L3:
-        eka1;
-        obj;
-        JVM INSTR monitorexit ;
-        throw eka1;
-    }
-
-    public void b(ekc ekc1)
-    {
-        h.a(ekc1);
-        synchronized (i)
-        {
-            if (!d.remove(ekc1))
-            {
-                (new StringBuilder("unregisterConnectionFailedListener(): listener ")).append(ekc1).append(" not found");
-            }
-        }
-        return;
-        ekc1;
-        obj;
-        JVM INSTR monitorexit ;
-        throw ekc1;
-    }
-
-    public boolean handleMessage(Message message)
-    {
-        if (message.what == 1)
-        {
-            eka eka1 = (eka)message.obj;
-            synchronized (i)
-            {
-                if (e && b.d() && c.contains(eka1))
-                {
-                    eka1.a_(null);
-                }
-            }
-            return true;
+            flag = flag1;
         } else
         {
-            Log.wtf("GmsClientEvents", "Don't know how to handle this message.");
-            return false;
+            flag = false;
         }
+        g.a(flag, "Result has already been consumed");
+        c(enh);
+        obj;
+        JVM INSTR monitorexit ;
+        return;
+        enh;
+        obj;
+        JVM INSTR monitorexit ;
+        throw enh;
+    }
+
+    public final void a(eni eni)
+    {
+label0:
+        {
+            boolean flag;
+            if (!g)
+            {
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+            g.a(flag, "Result has already been consumed.");
+            synchronized (c)
+            {
+                if (!d())
+                {
+                    break label0;
+                }
+            }
+            return;
+        }
+        if (!b())
+        {
+            break MISSING_BLOCK_LABEL_59;
+        }
+        d.a(eni, g());
+_L1:
+        obj;
+        JVM INSTR monitorexit ;
+        return;
+        eni;
+        obj;
+        JVM INSTR monitorexit ;
+        throw eni;
+        b = eni;
+          goto _L1
+    }
+
+    public final void a(eqs eqs1)
+    {
+        synchronized (c)
+        {
+            j = eqs1;
+        }
+        return;
+        eqs1;
+        obj;
+        JVM INSTR monitorexit ;
+        throw eqs1;
+    }
+
+    public final void b(Status status)
+    {
+        synchronized (c)
+        {
+            if (!b())
+            {
+                a(a(status));
+                i = true;
+            }
+        }
+        return;
+        status;
+        obj;
+        JVM INSTR monitorexit ;
+        throw status;
+    }
+
+    public final boolean b()
+    {
+        return a.getCount() == 0L;
+    }
+
+    public void c()
+    {
+label0:
+        {
+            synchronized (c)
+            {
+                if (!h && !g)
+                {
+                    break label0;
+                }
+            }
+            return;
+        }
+        eqs eqs1 = j;
+        if (eqs1 == null)
+        {
+            break MISSING_BLOCK_LABEL_42;
+        }
+        try
+        {
+            j.a();
+        }
+        catch (RemoteException remoteexception) { }
+        b(f);
+        b = null;
+        h = true;
+        c(a(Status.e));
+        obj;
+        JVM INSTR monitorexit ;
+        return;
         exception;
-        message;
+        obj;
         JVM INSTR monitorexit ;
         throw exception;
+    }
+
+    public boolean d()
+    {
+        boolean flag;
+        synchronized (c)
+        {
+            flag = h;
+        }
+        return flag;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
+    protected void e()
+    {
     }
 }

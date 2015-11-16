@@ -2,21 +2,76 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.res.ColorStateList;
 
-final class bvl
-    implements bsh
+public final class bvl
 {
 
-    final bvj a;
+    private int a;
+    private boolean b;
+    private String c;
+    private String d;
+    private ColorStateList e;
+    private ColorStateList f;
+    private android.view.View.OnClickListener g;
+    private int h;
 
-    bvl(bvj bvj)
+    public bvl()
     {
-        a = bvj;
-        super();
+        a = 2;
+        b = true;
+        c = null;
+        d = null;
+        e = null;
+        f = null;
+        g = null;
+        h = -1;
     }
 
-    public void a(ps ps, hjm hjm)
+    public bvl a()
     {
-        new bvh(ps, hjm);
+        b = false;
+        return this;
+    }
+
+    public bvl a(int i)
+    {
+        a = i;
+        return this;
+    }
+
+    public bvl a(android.view.View.OnClickListener onclicklistener)
+    {
+        g = onclicklistener;
+        return this;
+    }
+
+    public bvl a(String s)
+    {
+        c = s;
+        return this;
+    }
+
+    public bvk b()
+    {
+        return new bvk(a, b, c, d, e, f, g, h);
+    }
+
+    public bvl b(int i)
+    {
+        f = ColorStateList.valueOf(i);
+        return this;
+    }
+
+    public bvl b(String s)
+    {
+        d = s;
+        return this;
+    }
+
+    public bvl c(int i)
+    {
+        h = i;
+        return this;
     }
 }

@@ -2,17 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import com.google.android.apps.hangouts.realtimechat.DebugOzGetMergedPersonActivity;
 
 public final class dds
-    implements ddu
+    implements android.view.View.OnClickListener
 {
 
-    public dds()
+    final TextView a;
+    final RadioGroup b;
+    final EditText c;
+    final CheckBox d;
+    final DebugOzGetMergedPersonActivity e;
+
+    public dds(DebugOzGetMergedPersonActivity debugozgetmergedpersonactivity, TextView textview, RadioGroup radiogroup, EditText edittext, CheckBox checkbox)
     {
+        e = debugozgetmergedpersonactivity;
+        a = textview;
+        b = radiogroup;
+        c = edittext;
+        d = checkbox;
+        super();
     }
 
-    public Runnable a(dbx dbx, ani ani, ai ai, dbz dbz)
+    public void onClick(View view)
     {
-        return new ddt(this, ani, dbz, dbx, ai);
+        (new ddt(this, ((gqu)e.getBinder().a(gqu)).a())).execute(new Void[0]);
     }
 }

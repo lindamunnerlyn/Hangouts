@@ -2,39 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import java.util.List;
 
-final class cqg
-    implements cib
+final class cqg extends dhy
 {
 
-    final Bundle a;
-    final cqf b;
+    final cqf a;
 
-    cqg(cqf cqf1, Bundle bundle)
+    cqg(cqf cqf1)
     {
-        b = cqf1;
-        a = bundle;
+        a = cqf1;
         super();
     }
 
-    public void a(List list, Bundle bundle)
+    public void a()
     {
-        gbh.a(Integer.valueOf(list.size()), Integer.valueOf(1));
-        list = (cic)list.get(0);
-        gbh.a(((cic) (list)).a, "android.permission.READ_PHONE_STATE");
-        cqf.a(b, ((cic) (list)).b);
-        cqf.a(b, cqf.a(b));
-        list = b;
-        boolean flag;
-        if (a == null)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        cqf.b(list, flag);
+        super.a();
+        a.d();
+    }
+
+    public void a(aoa aoa, long l)
+    {
+        super.a(aoa, l);
+        a.d();
+    }
+
+    public void b()
+    {
+        super.b();
+        a.d();
     }
 }

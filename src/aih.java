@@ -2,126 +2,56 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
-public final class aih
-    implements Parcelable
+public final class aih extends Enum
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new aii();
-    public final String a;
-    public final int b;
-    public final int c;
-    public boolean d;
-    public boolean e;
-    public ang f;
-    public String g;
-    public long h;
-    public String i;
-    public String j;
-    public int k;
-    public List l;
-    public boolean m;
-    public boolean n;
-    public boolean o;
+    public static final aih a;
+    public static final aih b;
+    public static final aih c;
+    public static final aih d;
+    public static final aih e;
+    public static final aih f;
+    public static final aih g;
+    public static final aih h;
+    public static final aih i;
+    public static final aih j;
+    public static final aih k;
+    private static final aih m[];
+    private final int l;
 
-    public aih(String s, int i1)
+    private aih(String s, int i1, int j1)
     {
-        k = 0;
-        l = new ArrayList();
-        a = s;
-        b = i1;
-        h = -1L;
-        c = 0;
+        super(s, i1);
+        l = j1;
     }
 
-    public aih(String s, int i1, int j1)
+    public static aih valueOf(String s)
     {
-        k = 0;
-        l = new ArrayList();
-        a = s;
-        b = i1;
-        c = j1;
-        h = -1L;
+        return (aih)Enum.valueOf(aih, s);
     }
 
-    public int a()
+    public static aih[] values()
     {
-        switch (k)
-        {
-        default:
-            return 0;
-
-        case 2148: 
-            return 1;
-        }
+        return (aih[])m.clone();
     }
 
-    public int describeContents()
+    static 
     {
-        return 0;
-    }
-
-    public String toString()
-    {
-        Locale locale = Locale.US;
-        String s3 = a;
-        boolean flag = d;
-        boolean flag1 = e;
-        int i1 = b;
-        int j1 = c;
-        String s4 = g;
-        String s;
-        String s1;
-        String s2;
-        if (f != null)
-        {
-            s = f.toString();
-        } else
-        {
-            s = "no-drafts";
-        }
-        if (i != null)
-        {
-            s1 = i;
-        } else
-        {
-            s1 = "no-chatRingtoneUri";
-        }
-        if (j != null)
-        {
-            s2 = j;
-        } else
-        {
-            s2 = "no-hangoutRingtoneUri";
-        }
-        return String.format(locale, "[%s;%s;%s;%d;%d;%s;%s;%s;%s]", new Object[] {
-            s3, Boolean.valueOf(flag), Boolean.valueOf(flag1), Integer.valueOf(i1), Integer.valueOf(j1), s4, s, s1, s2
+        a = new aih("PERSONAL", 0, 1);
+        b = new aih("PRIVATE_SHARED", 1, 2);
+        c = new aih("PUBLIC_SHARED", 2, 3);
+        d = new aih("FOLLOWING", 3, 4);
+        e = new aih("MY_CIRCLES", 4, 5);
+        f = new aih("VISIBLE_CIRCLE_MEMBERS", 5, 6);
+        g = new aih("EXTENDED", 6, 7);
+        h = new aih("DOMAIN", 7, 8);
+        i = new aih("PUBLIC", 8, 9);
+        j = new aih("BLOCKED", 9, 10);
+        k = new aih("ALL_CIRCLES", 10, 11);
+        m = (new aih[] {
+            a, b, c, d, e, f, g, h, i, j, 
+            k
         });
     }
-
-    public void writeToParcel(Parcel parcel, int i1)
-    {
-        parcel.writeString(a);
-        parcel.writeBooleanArray(new boolean[] {
-            d, e
-        });
-        parcel.writeInt(b);
-        parcel.writeInt(c);
-        parcel.writeParcelable(f, 0);
-        parcel.writeString(g);
-        parcel.writeInt(ebr.a(m));
-        parcel.writeLong(h);
-        parcel.writeString(i);
-        parcel.writeInt(k);
-        parcel.writeString(j);
-        parcel.writeList(l);
-        parcel.writeInt(ebr.a(n));
-        parcel.writeInt(ebr.a(o));
-    }
-
 }

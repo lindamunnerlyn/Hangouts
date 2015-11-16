@@ -3,56 +3,78 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kxn
-    implements kxx
+public final class kxn extends kwm
 {
 
-    private static final Object a = new Object();
-    private final kxx b;
-    private volatile Object c;
+    public Integer a;
+    public String b;
 
-    private kxn(kxx kxx1)
+    public kxn()
     {
-        c = a;
-        b = kxx1;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public static kxx a(kxx kxx1)
+    protected int computeSerializedSize()
     {
-        if (kxx1 == null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            throw new NullPointerException();
-        } else
-        {
-            return new kxn(kxx1);
+            i = j + kwk.e(1, a.intValue());
         }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.b(2, b);
+        }
+        return j;
     }
 
-    public Object a()
+    public kws mergeFrom(kwj kwj1)
     {
-        Object obj;
-        obj = c;
-        if (obj != a)
+_L5:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   8: 51
+    //                   18: 102;
+           goto _L1 _L2 _L3 _L4
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
         {
-            break MISSING_BLOCK_LABEL_52;
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+            a = Integer.valueOf(j);
+            break;
         }
-        this;
-        JVM INSTR monitorenter ;
-        Object obj1 = c;
-        obj = obj1;
-        if (obj1 == a)
-        {
-            obj = b.a();
-            c = obj;
-        }
-        this;
-        JVM INSTR monitorexit ;
-        return obj;
-        obj;
-        this;
-        JVM INSTR monitorexit ;
-        throw obj;
-        return obj;
+        continue; /* Loop/switch isn't completed */
+_L4:
+        b = kwj1.j();
+        if (true) goto _L5; else goto _L6
+_L6:
     }
 
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        super.writeTo(kwk1);
+    }
 }

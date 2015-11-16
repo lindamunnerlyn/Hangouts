@@ -3,43 +3,23 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class amy extends dlt
+public final class amy extends Enum
 {
 
-    public final dac a;
-    public final dle b;
+    public static final int a;
+    public static final int b;
+    public static final int c;
+    public static final int d;
+    private static final int e[];
 
-    public amy(dac dac1, dle dle)
+    static 
     {
-        if (dac1 == null)
-        {
-            ebw.g("Babel", "lookupSpec should not be empty");
-        }
-        if (dle == null)
-        {
-            ebw.g("Babel", "consumer should not be null");
-        }
-        a = dac1;
-        b = dle;
-    }
-
-    public amy(String s, dle dle)
-    {
-        this(dac.a(s), dle);
-    }
-
-    public dle a()
-    {
-        return b;
-    }
-
-    public String c()
-    {
-        return a.c();
-    }
-
-    public dac d()
-    {
-        return a;
+        a = 1;
+        b = 2;
+        c = 3;
+        d = 4;
+        e = (new int[] {
+            a, b, c, d
+        });
     }
 }

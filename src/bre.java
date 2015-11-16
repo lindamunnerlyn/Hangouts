@@ -2,26 +2,63 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.hangout.ParticipantOverlays;
-import java.util.Iterator;
-import java.util.List;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.res.Resources;
+import android.os.Bundle;
+import com.google.android.apps.hangouts.hangout.HangoutActivity;
 
-public final class bre extends bnk
+public final class bre extends ac
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final ParticipantOverlays a;
+    private boolean aj;
 
-    public bre(ParticipantOverlays participantoverlays)
+    public bre()
     {
-        a = participantoverlays;
-        super();
     }
 
-    public void c(gjr gjr1)
+    static bre q()
     {
-        if (ParticipantOverlays.a(a) != null && ParticipantOverlays.a(a).equals(gjr1))
+        return new bre();
+    }
+
+    public Dialog a(Bundle bundle)
+    {
+        bundle = getActivity().getResources();
+        bundle = (new android.app.AlertDialog.Builder(getActivity())).setMessage(l.de).setTitle(bundle.getString(l.df)).setPositiveButton(bundle.getString(l.dc), this).setNegativeButton(bundle.getString(l.dd), this).create();
+        bundle.setOnShowListener(new brf(this));
+        bundle.setCanceledOnTouchOutside(false);
+        return bundle;
+    }
+
+    public void onClick(DialogInterface dialoginterface, int i)
+    {
+        if (i == -1)
         {
-            for (Iterator iterator = a.a.iterator(); iterator.hasNext(); ((brd)iterator.next()).a(gjr1)) { }
+            startActivity(g.q(g.a(g.nU, "babel_google_voice_add_balance_url", "https://www.google.com/voice/m/billing")));
+            aj = true;
+        }
+    }
+
+    public void onDismiss(DialogInterface dialoginterface)
+    {
+        if (bnk.a().s() == null)
+        {
+            dialoginterface = (HangoutActivity)getActivity();
+            if (dialoginterface != null)
+            {
+                boolean flag;
+                if (!aj)
+                {
+                    flag = true;
+                } else
+                {
+                    flag = false;
+                }
+                dialoginterface.b(flag);
+            }
         }
     }
 }

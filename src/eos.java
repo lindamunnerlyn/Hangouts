@@ -2,28 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import java.util.regex.Pattern;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 
-public final class eos
+final class eos extends Handler
 {
 
-    private static Pattern a = null;
+    final eor a;
 
-    public static int a(int i)
+    public eos(eor eor1, Looper looper)
     {
-        return i / 1000;
+        a = eor1;
+        super(looper);
     }
 
-    public static boolean a(Context context)
+    public void handleMessage(Message message)
     {
-        return context.getPackageManager().hasSystemFeature("android.hardware.type.watch");
+        boolean flag = true;
+        if (message.what != 1)
+        {
+            flag = false;
+        }
+        g.b(flag);
+        a.b((eot)message.obj);
     }
-
-    public static boolean b(int i)
-    {
-        return (i % 1000) / 100 == 3;
-    }
-
 }

@@ -2,22 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
+import java.util.List;
 
-public final class ddf extends dfa
+public final class ddf extends dko
 {
 
-    private final String a;
+    final dmz a;
 
-    public ddf(ani ani, String s)
+    public ddf(dmz dmz1)
     {
-        super(ani);
-        gbh.b(aoe.a(s));
-        a = s;
+        a = dmz1;
     }
 
-    public void a()
+    public void a(aow aow1)
     {
-        ctg ctg1 = new ctg(a);
-        c.a(ctg1);
+        Iterator iterator = a.a.iterator();
+        do
+        {
+            if (!iterator.hasNext())
+            {
+                break;
+            }
+            dna dna1 = (dna)iterator.next();
+            if (dna1.b != 0)
+            {
+                String s = dna1.a;
+                boolean flag;
+                if (dna1.b == 1)
+                {
+                    flag = true;
+                } else
+                {
+                    flag = false;
+                }
+                aow1.a(s, null, flag);
+            }
+        } while (true);
     }
 }

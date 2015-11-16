@@ -2,76 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Collection;
+import java.util.Set;
 
-final class jrd extends jra
+final class jrd extends jqz
+    implements Set
 {
 
-    private final jrb a;
-    private final Character b;
+    final jqq a;
 
-    jrd(String s, String s1, Character character)
+    jrd(jqq jqq1, Object obj, Set set)
     {
-        this(new jrb(s, s1.toCharArray()), character);
+        a = jqq1;
+        super(jqq1, obj, set, null);
     }
 
-    private jrd(jrb jrb1, Character character)
+    public boolean removeAll(Collection collection)
     {
-        a = (jrb)n.b(jrb1);
         boolean flag;
-        if (character == null || !jrb1.b(character.charValue()))
-        {
-            flag = true;
-        } else
+        if (collection.isEmpty())
         {
             flag = false;
-        }
-        n.a(flag, "Padding character %s was already in alphabet", new Object[] {
-            character
-        });
-        b = character;
-    }
-
-    static jrb a(jrd jrd1)
-    {
-        return jrd1.a;
-    }
-
-    int a(int i)
-    {
-        return (int)(((long)a.r * (long)i + 7L) / 8L);
-    }
-
-    jgb a()
-    {
-        if (b == null)
-        {
-            return jgb.m;
         } else
         {
-            return jgb.a(b.charValue());
-        }
-    }
-
-    jrg a(jrg jrg)
-    {
-        n.b(jrg);
-        return new jre(this, jrg);
-    }
-
-    public String toString()
-    {
-        StringBuilder stringbuilder = new StringBuilder("BaseEncoding.");
-        stringbuilder.append(a.toString());
-        if (8 % a.r != 0)
-        {
-            if (b == null)
+            int i = size();
+            boolean flag1 = h.a((Set)c, collection);
+            flag = flag1;
+            if (flag1)
             {
-                stringbuilder.append(".omitPadding()");
-            } else
-            {
-                stringbuilder.append(".withPadChar(").append(b).append(')');
+                int j = c.size();
+                a.b = (j - i) + a.b;
+                b();
+                return flag1;
             }
         }
-        return stringbuilder.toString();
+        return flag;
     }
 }

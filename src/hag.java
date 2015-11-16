@@ -2,14 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.graphics.Bitmap;
+import java.util.SortedSet;
 
-public final class hag extends bgj
+final class hag
+    implements gzx
 {
 
-    private static final long serialVersionUID = 0xecc8fdff8a35df4fL;
+    private static final gzz a = new hah();
 
-    public hag(Throwable throwable)
+    hag()
     {
-        super(throwable);
     }
+
+    public gzy a(int i, int j)
+    {
+        return new gzy(i, j, a);
+    }
+
+    public gzy a(Bitmap bitmap)
+    {
+        return new gzy(bitmap.getWidth(), bitmap.getHeight(), bitmap.getAllocationByteCount(), a);
+    }
+
+    public gzy a(gzy gzy1, SortedSet sortedset, haa haa)
+    {
+        if (!sortedset.isEmpty())
+        {
+            return (gzy)sortedset.first();
+        } else
+        {
+            return null;
+        }
+    }
+
+    public void a(gzy gzy1, Bitmap bitmap)
+    {
+        bitmap.reconfigure(gzy1.b, gzy1.a, android.graphics.Bitmap.Config.ARGB_8888);
+    }
+
 }

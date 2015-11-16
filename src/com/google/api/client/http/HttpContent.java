@@ -4,11 +4,11 @@
 
 package com.google.api.client.http;
 
-import hof;
+import htb;
 import java.io.OutputStream;
 
 public interface HttpContent
-    extends hof
+    extends htb
 {
 
     public abstract long getLength();

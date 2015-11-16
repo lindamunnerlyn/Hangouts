@@ -2,385 +2,1213 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.ConcurrentHashMap;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.DashPathEffect;
+import android.graphics.LinearGradient;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Picture;
+import android.graphics.RadialGradient;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.graphics.Typeface;
+import android.util.Base64;
+import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Stack;
+import java.util.StringTokenizer;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import org.xml.sax.Attributes;
+import org.xml.sax.InputSource;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.DefaultHandler;
 
-public final class lfn
+final class lfn extends DefaultHandler
 {
 
-    private static final ConcurrentHashMap a = new ConcurrentHashMap();
-    private static final lfo b[] = new lfo[25];
+    private static final Matrix D = new Matrix();
+    private int A;
+    private boolean B;
+    private boolean C;
+    HashMap a;
+    Picture b;
+    Canvas c;
+    Paint d;
+    boolean e;
+    Stack f;
+    Stack g;
+    Paint h;
+    boolean i;
+    Stack j;
+    Stack k;
+    float l;
+    Stack m;
+    RectF n;
+    RectF o;
+    RectF p;
+    Integer q;
+    Integer r;
+    boolean s;
+    float t;
+    int u;
+    HashMap v;
+    HashMap w;
+    lfi x;
+    lfo y;
+    private boolean z;
 
-    private static String a(String s, int ai[])
+    lfn(Picture picture)
     {
-        char c;
-        StringBuilder stringbuilder;
-        int i;
-        int l;
-        stringbuilder = new StringBuilder();
-        i = ai[0];
-        l = s.length();
-        c = s.charAt(i);
-        if ((c < 'A' || c > 'Z') && (c < 'a' || c > 'z')) goto _L2; else goto _L1
-_L1:
-        int j;
-        stringbuilder.append(c);
+        a = new HashMap();
+        e = false;
+        f = new Stack();
+        g = new Stack();
+        i = false;
+        j = new Stack();
+        k = new Stack();
+        l = 1.0F;
+        m = new Stack();
+        n = new RectF();
+        o = null;
+        p = new RectF((1.0F / 0.0F), (1.0F / 0.0F), (-1.0F / 0.0F), (-1.0F / 0.0F));
+        q = null;
+        r = null;
+        s = false;
+        t = lfg.a;
+        u = 0;
+        z = false;
+        A = 0;
+        B = false;
+        v = new HashMap();
+        w = new HashMap();
+        x = null;
+        y = null;
+        C = false;
+        b = picture;
+        d = new Paint();
+        d.setAntiAlias(true);
+        d.setStyle(android.graphics.Paint.Style.STROKE);
+        h = new Paint();
+        h.setAntiAlias(true);
+        h.setStyle(android.graphics.Paint.Style.FILL);
+    }
+
+    private static float a(String s1, float f1)
+    {
+        float f2;
+        try
+        {
+            f2 = Float.parseFloat(s1);
+        }
+        // Misplaced declaration of an exception variable
+        catch (String s1)
+        {
+            return f1;
+        }
+        return f2;
+    }
+
+    private int a(int i1)
+    {
+        int j1 = 0xffffff & i1;
+        i1 = j1;
+        if (q != null)
+        {
+            i1 = j1;
+            if (q.intValue() == j1)
+            {
+                i1 = j1;
+                if (r != null)
+                {
+                    String.format("Replacing color: 0x%x->0x%x", new Object[] {
+                        Integer.valueOf(j1), r
+                    });
+                    i1 = r.intValue();
+                }
+            }
+        }
+        return i1;
+    }
+
+    private Float a(String s1, Attributes attributes, Float float1)
+    {
+        float f1 = t;
+        attributes = lfg.a(s1, attributes);
+        if (attributes == null)
+        {
+            s1 = null;
+        } else
+        if (attributes.endsWith("px"))
+        {
+            s1 = Float.valueOf(Float.parseFloat(attributes.substring(0, attributes.length() - 2)));
+        } else
+        if (attributes.endsWith("pt"))
+        {
+            s1 = Float.valueOf((f1 * Float.valueOf(attributes.substring(0, attributes.length() - 2)).floatValue()) / 72F);
+        } else
+        if (attributes.endsWith("pc"))
+        {
+            s1 = Float.valueOf((f1 * Float.valueOf(attributes.substring(0, attributes.length() - 2)).floatValue()) / 6F);
+        } else
+        if (attributes.endsWith("cm"))
+        {
+            s1 = Float.valueOf((f1 * Float.valueOf(attributes.substring(0, attributes.length() - 2)).floatValue()) / 2.54F);
+        } else
+        if (attributes.endsWith("mm"))
+        {
+            s1 = Float.valueOf((f1 * Float.valueOf(attributes.substring(0, attributes.length() - 2)).floatValue()) / 254F);
+        } else
+        if (attributes.endsWith("in"))
+        {
+            s1 = Float.valueOf(f1 * Float.valueOf(attributes.substring(0, attributes.length() - 2)).floatValue());
+        } else
+        if (attributes.endsWith("em"))
+        {
+            s1 = Float.valueOf(h.getTextSize() * Float.valueOf(attributes.substring(0, attributes.length() - 2)).floatValue());
+        } else
+        if (attributes.endsWith("ex"))
+        {
+            s1 = Float.valueOf((h.getTextSize() * Float.valueOf(attributes.substring(0, attributes.length() - 2)).floatValue()) / 2.0F);
+        } else
+        if (attributes.endsWith("%"))
+        {
+            attributes = Float.valueOf(attributes.substring(0, attributes.length() - 1));
+            float f2;
+            if (s1.indexOf("x") >= 0 || s1.equals("width"))
+            {
+                f2 = (float)c.getWidth() / 100F;
+            } else
+            if (s1.indexOf("y") >= 0 || s1.equals("height"))
+            {
+                f2 = (float)c.getHeight() / 100F;
+            } else
+            {
+                f2 = (float)(c.getHeight() + c.getWidth()) / 2.0F;
+            }
+            s1 = Float.valueOf(f2 * attributes.floatValue());
+        } else
+        {
+            s1 = Float.valueOf(attributes);
+        }
+        if (s1 == null)
+        {
+            return float1;
+        } else
+        {
+            return s1;
+        }
+    }
+
+    static Float a(lfn lfn1, String s1, Attributes attributes, Float float1)
+    {
+        return lfn1.a(s1, attributes, float1);
+    }
+
+    private lfi a(boolean flag, Attributes attributes)
+    {
+        lfi lfi1 = new lfi();
+        lfi1.a = lfg.a("id", attributes);
+        lfi1.c = flag;
+        String s1;
+        if (flag)
+        {
+            lfi1.d = a("x1", attributes, Float.valueOf(0.0F)).floatValue();
+            lfi1.f = a("x2", attributes, Float.valueOf(0.0F)).floatValue();
+            lfi1.e = a("y1", attributes, Float.valueOf(0.0F)).floatValue();
+            lfi1.g = a("y2", attributes, Float.valueOf(0.0F)).floatValue();
+        } else
+        {
+            lfi1.h = a("cx", attributes, Float.valueOf(0.0F)).floatValue();
+            lfi1.i = a("cy", attributes, Float.valueOf(0.0F)).floatValue();
+            lfi1.j = a("r", attributes, Float.valueOf(0.0F)).floatValue();
+        }
+        s1 = lfg.a("gradientTransform", attributes);
+        if (s1 != null)
+        {
+            lfi1.m = lfg.b(s1);
+        }
+        s1 = lfg.a("href", attributes);
+        if (s1 != null)
+        {
+            attributes = s1;
+            if (s1.startsWith("#"))
+            {
+                attributes = s1.substring(1);
+            }
+            lfi1.b = attributes;
+        }
+        return lfi1;
+    }
+
+    private void a()
+    {
+        c.restore();
+        u = u - 1;
+    }
+
+    private void a(float f1, float f2)
+    {
+        if (f1 < p.left)
+        {
+            p.left = f1;
+        }
+        if (f1 > p.right)
+        {
+            p.right = f1;
+        }
+        if (f2 < p.top)
+        {
+            p.top = f2;
+        }
+        if (f2 > p.bottom)
+        {
+            p.bottom = f2;
+        }
+    }
+
+    private void a(float f1, float f2, float f3, float f4)
+    {
+        a(f1, f2);
+        a(f1 + f3, f2 + f4);
+    }
+
+    private void a(Path path)
+    {
+        path.computeBounds(n, false);
+        a(n.left, n.top);
+        a(n.right, n.bottom);
+    }
+
+    private void a(lfm lfm1, Integer integer, boolean flag, Paint paint)
+    {
+        paint.setColor(a(integer.intValue()) | 0xff000000);
+        Float float1 = lfm1.d("opacity");
+        integer = float1;
+        if (float1 == null)
+        {
+            if (flag)
+            {
+                integer = "fill-opacity";
+            } else
+            {
+                integer = "stroke-opacity";
+            }
+            integer = lfm1.d(integer);
+        }
+        lfm1 = integer;
+        if (integer == null)
+        {
+            lfm1 = Float.valueOf(1.0F);
+        }
+        paint.setAlpha((int)(lfm1.floatValue() * 255F * l));
+    }
+
+    private void a(Attributes attributes)
+    {
+        attributes = lfg.a("transform", attributes);
+        if (attributes == null)
+        {
+            attributes = D;
+        } else
+        {
+            attributes = lfg.b(attributes);
+        }
+        u = u + 1;
+        c.save();
+        c.concat(attributes);
+    }
+
+    private boolean a(lfm lfm1)
+    {
+        float f3;
+        f3 = 0.0F;
+        break MISSING_BLOCK_LABEL_3;
+_L6:
+        float f2;
+        if (e)
+        {
+            if (d.getColor() != 0)
+            {
+                return true;
+            }
+        } else
+        {
+            d.setColor(0);
+            return false;
+        }
         do
         {
-            j = i;
-            if (i + 1 >= l)
+            do
             {
-                break;
-            }
-            j = i;
-            if (s.charAt(i + 1) != c)
+                return false;
+            } while (s || "none".equals(lfm1.b("display")));
+            Float float1 = lfm1.d("stroke-width");
+            if (float1 != null)
             {
-                break;
+                d.setStrokeWidth(float1.floatValue());
             }
-            stringbuilder.append(c);
-            i++;
-        } while (true);
-          goto _L3
-_L2:
-        int k;
-        stringbuilder.append('\'');
-        k = 0;
-_L7:
-        j = i;
-        if (i >= l) goto _L3; else goto _L4
-_L4:
-        c = s.charAt(i);
-        if (c != '\'') goto _L6; else goto _L5
-_L5:
-        if (i + 1 < l && s.charAt(i + 1) == '\'')
+        } while (d.getStrokeWidth() <= 0.0F);
+        s1 = lfm1.b("stroke-linecap");
+        if ("round".equals(s1))
         {
-            i++;
-            stringbuilder.append(c);
-            j = k;
+            d.setStrokeCap(android.graphics.Paint.Cap.ROUND);
         } else
-        if (k == 0)
+        if ("square".equals(s1))
         {
-            j = 1;
+            d.setStrokeCap(android.graphics.Paint.Cap.SQUARE);
         } else
+        if ("butt".equals(s1))
         {
-            j = 0;
+            d.setStrokeCap(android.graphics.Paint.Cap.BUTT);
         }
-_L8:
-        i++;
-        k = j;
-          goto _L7
-_L6:
-        if (k != 0 || (c < 'A' || c > 'Z') && (c < 'a' || c > 'z'))
+        s1 = lfm1.b("stroke-linejoin");
+        if ("miter".equals(s1))
         {
-            break MISSING_BLOCK_LABEL_247;
-        }
-        j = i - 1;
-_L3:
-        ai[0] = j;
-        return stringbuilder.toString();
-        stringbuilder.append(c);
-        j = k;
-          goto _L8
-    }
-
-    public static lfo a(String s)
-    {
-        lfo lfo1;
-label0:
+            d.setStrokeJoin(android.graphics.Paint.Join.MITER);
+        } else
+        if ("round".equals(s1))
         {
-            if (s.length() == 0)
-            {
-                throw new IllegalArgumentException("Invalid pattern specification");
-            }
-            lfo1 = (lfo)a.get(s);
-            Object obj = lfo1;
-            if (lfo1 == null)
-            {
-                obj = new lfp();
-                a(((lfp) (obj)), s);
-                lfo1 = ((lfp) (obj)).a();
-                if (a.size() >= 500)
-                {
-                    break label0;
-                }
-                obj = (lfo)a.putIfAbsent(s, lfo1);
-                if (obj == null)
-                {
-                    break label0;
-                }
-            }
-            return ((lfo) (obj));
-        }
-        return lfo1;
-    }
-
-    private static void a(lfp lfp1, String s)
-    {
-        int ai[];
-        int i;
-        int l;
-        l = s.length();
-        ai = new int[1];
-        i = 0;
-_L23:
-        String s1;
-        int k;
-        int i1;
-        char c;
-        if (i >= l)
+            d.setStrokeJoin(android.graphics.Paint.Join.ROUND);
+        } else
+        if ("bevel".equals(s1))
         {
-            break MISSING_BLOCK_LABEL_839;
+            d.setStrokeJoin(android.graphics.Paint.Join.BEVEL);
         }
-        ai[0] = i;
-        s1 = a(s, ai);
-        i1 = ai[0];
-        k = s1.length();
-        if (k == 0)
-        {
-            break MISSING_BLOCK_LABEL_839;
-        }
-        c = s1.charAt(0);
-        c;
-        JVM INSTR lookupswitch 22: default 244
-    //                   39: 783
-    //                   67: 286
-    //                   68: 699
-    //                   69: 677
-    //                   71: 272
-    //                   72: 605
-    //                   75: 625
-    //                   77: 539
-    //                   83: 655
-    //                   89: 298
-    //                   90: 741
-    //                   97: 587
-    //                   100: 577
-    //                   101: 667
-    //                   104: 595
-    //                   107: 615
-    //                   109: 635
-    //                   115: 645
-    //                   119: 709
-    //                   120: 298
-    //                   121: 298
-    //                   122: 719;
-           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L13 _L14 _L15 _L16 _L17 _L18 _L19 _L20 _L11 _L11 _L21
-_L2:
-        break MISSING_BLOCK_LABEL_783;
-_L3:
-        break; /* Loop/switch isn't completed */
+        obj = lfm1.b("stroke-dasharray");
+        s1 = lfm1.b("stroke-dashoffset");
+        if (obj == null) goto _L2; else goto _L1
 _L1:
-        lfp1 = String.valueOf(s1);
-        int j;
-        if (lfp1.length() != 0)
-        {
-            lfp1 = "Illegal pattern component: ".concat(lfp1);
-        } else
-        {
-            lfp1 = new String("Illegal pattern component: ");
-        }
-        throw new IllegalArgumentException(lfp1);
-_L6:
-        lfp1.j();
-_L24:
-        i = i1 + 1;
-        if (true) goto _L23; else goto _L22
-_L22:
-        lfp1.e(k, k);
-          goto _L24
-_L11:
-        if (k == 2)
-        {
-            boolean flag;
-            if (i1 + 1 < l)
-            {
-                ai[0] = ai[0] + 1;
-                if (b(a(s, ai)))
-                {
-                    flag = false;
-                } else
-                {
-                    flag = true;
-                }
-                ai[0] = ai[0] - 1;
-            } else
-            {
-                flag = true;
-            }
-            switch (c)
-            {
-            default:
-                lfp1.a((new lcx()).a() - 30, flag);
-                break;
-
-            case 120: // 'x'
-                lfp1.b((new lcx()).d() - 30, flag);
-                break;
-            }
-        } else
-        {
-            i = 9;
-            j = i;
-            if (i1 + 1 < l)
-            {
-                ai[0] = ai[0] + 1;
-                if (b(a(s, ai)))
-                {
-                    i = k;
-                }
-                ai[0] = ai[0] - 1;
-                j = i;
-            }
-            switch (c)
-            {
-            case 89: // 'Y'
-                lfp1.d(k, j);
-                break;
-
-            case 120: // 'x'
-                lfp1.b(k, j);
-                break;
-
-            case 121: // 'y'
-                lfp1.c(k, j);
-                break;
-            }
-        }
-        if (true) goto _L24; else goto _L25
-_L25:
-_L9:
-        if (k >= 3)
-        {
-            if (k >= 4)
-            {
-                lfp1.h();
-            } else
-            {
-                lfp1.i();
-            }
-        } else
-        {
-            lfp1.k(k);
-        }
-          goto _L24
-_L14:
-        lfp1.h(k);
-          goto _L24
-_L13:
-        lfp1.e();
-          goto _L24
-_L16:
-        lfp1.f(k);
-          goto _L24
-_L7:
-        lfp1.c(k);
-          goto _L24
-_L17:
-        lfp1.d(k);
-          goto _L24
-_L8:
-        lfp1.e(k);
-          goto _L24
-_L18:
-        lfp1.b(k);
-          goto _L24
-_L19:
-        lfp1.a(k);
-          goto _L24
-_L10:
-        lfp1.a(k, k);
-          goto _L24
-_L15:
-        lfp1.g(k);
-          goto _L24
-_L5:
-        if (k >= 4)
-        {
-            lfp1.f();
-        } else
-        {
-            lfp1.g();
-        }
-          goto _L24
-_L4:
-        lfp1.i(k);
-          goto _L24
-_L20:
-        lfp1.j(k);
-          goto _L24
-_L21:
-        if (k >= 4)
-        {
-            lfp1.k();
-        } else
-        {
-            lfp1.l();
-        }
-          goto _L24
-_L12:
-        if (k == 1)
-        {
-            lfp1.a("Z", false);
-        } else
-        if (k == 2)
-        {
-            lfp1.a("Z", true);
-        } else
-        {
-            lfp1.m();
-        }
-          goto _L24
-        s1 = s1.substring(1);
-        if (s1.length() == 1)
-        {
-            lfp1.a(s1.charAt(0));
-        } else
-        {
-            lfp1.a(new String(s1));
-        }
-          goto _L24
-    }
-
-    private static boolean b(String s)
-    {
-        int i;
-        boolean flag;
-        flag = true;
-        i = s.length();
-        if (i <= 0) goto _L2; else goto _L1
-_L1:
-        s.charAt(0);
-        JVM INSTR lookupswitch 19: default 180
-    //                   67: 182
-    //                   68: 182
-    //                   70: 182
-    //                   72: 182
-    //                   75: 182
-    //                   77: 184
-    //                   83: 182
-    //                   87: 182
-    //                   89: 182
-    //                   99: 182
-    //                   100: 182
-    //                   101: 182
-    //                   104: 182
-    //                   107: 182
-    //                   109: 182
-    //                   115: 182
-    //                   119: 182
-    //                   120: 182
-    //                   121: 182;
-           goto _L2 _L3 _L3 _L3 _L3 _L3 _L4 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L3
+        if (!((String) (obj)).equals("none")) goto _L4; else goto _L3
+_L3:
+        d.setPathEffect(null);
 _L2:
+        s1 = lfm1.a("stroke");
+        if (s1 == null) goto _L6; else goto _L5
+_L4:
+        stringtokenizer = new StringTokenizer(((String) (obj)), " ,");
+        j1 = stringtokenizer.countTokens();
+        i1 = j1;
+        if ((j1 & 1) == 1)
+        {
+            i1 = j1 << 1;
+        }
+        af = new float[i1];
+        f2 = 1.0F;
+        f1 = 0.0F;
+        for (i1 = 0; stringtokenizer.hasMoreTokens(); i1++)
+        {
+            f2 = a(stringtokenizer.nextToken(), f2);
+            af[i1] = f2;
+            f1 += f2;
+        }
+
         flag = false;
-_L3:
-        return flag;
-_L4:
-        if (i <= 2)
+        j1 = i1;
+        for (i1 = ((flag) ? 1 : 0); j1 < af.length; i1++)
         {
+            f2 = af[i1];
+            af[j1] = f2;
+            f1 += f2;
+            j1++;
+        }
+
+        f2 = f3;
+        if (s1 == null)
+        {
+            break MISSING_BLOCK_LABEL_457;
+        }
+        f2 = Float.parseFloat(s1);
+        f2 %= f1;
+_L7:
+        d.setPathEffect(new DashPathEffect(af, f2));
+          goto _L2
+_L5:
+        if (s1.equalsIgnoreCase("none"))
+        {
+            d.setColor(0);
+            return false;
+        }
+        af = lfm1.c("stroke");
+        if (af != null)
+        {
+            a(lfm1, ((Integer) (af)), false, d);
             return true;
         }
-        if (true) goto _L2; else goto _L5
+        lfm1 = String.valueOf(s1);
+        if (lfm1.length() != 0)
+        {
+            "Unrecognized stroke color, using none: ".concat(lfm1);
+        } else
+        {
+            new String("Unrecognized stroke color, using none: ");
+        }
+        d.setColor(0);
+        return false;
+        NumberFormatException numberformatexception;
+        numberformatexception;
+        f2 = f3;
+          goto _L7
+    }
+
+    private boolean a(lfm lfm1, HashMap hashmap)
+    {
+        if (!"none".equals(lfm1.b("display")))
+        {
+            if (s)
+            {
+                h.setShader(null);
+                h.setColor(-1);
+                return true;
+            }
+            String s1 = lfm1.b("fill");
+            if (s1 != null)
+            {
+                if (s1.startsWith("url(#"))
+                {
+                    s1 = s1.substring(5, s1.length() - 1);
+                    hashmap = (Shader)hashmap.get(s1);
+                    if (hashmap != null)
+                    {
+                        h.setShader(hashmap);
+                        return true;
+                    }
+                    hashmap = String.valueOf(s1);
+                    if (hashmap.length() != 0)
+                    {
+                        "Didn't find shader, using black: ".concat(hashmap);
+                    } else
+                    {
+                        new String("Didn't find shader, using black: ");
+                    }
+                    h.setShader(null);
+                    a(lfm1, Integer.valueOf(0xff000000), true, h);
+                    return true;
+                }
+                if (s1.equalsIgnoreCase("none"))
+                {
+                    h.setShader(null);
+                    h.setColor(0);
+                    return true;
+                }
+                h.setShader(null);
+                hashmap = lfm1.c("fill");
+                if (hashmap != null)
+                {
+                    a(lfm1, ((Integer) (hashmap)), true, h);
+                    return true;
+                }
+                hashmap = String.valueOf(s1);
+                if (hashmap.length() != 0)
+                {
+                    "Unrecognized fill color, using black: ".concat(hashmap);
+                } else
+                {
+                    new String("Unrecognized fill color, using black: ");
+                }
+                a(lfm1, Integer.valueOf(0xff000000), true, h);
+                return true;
+            }
+            if (i)
+            {
+                if (h.getColor() != 0)
+                {
+                    return true;
+                }
+            } else
+            {
+                h.setShader(null);
+                h.setColor(0xff000000);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    static boolean a(lfn lfn1, lfm lfm1)
+    {
+        return lfn1.a(lfm1);
+    }
+
+    static boolean a(lfn lfn1, lfm lfm1, HashMap hashmap)
+    {
+        return lfn1.a(lfm1, hashmap);
+    }
+
+    static boolean a(lfn lfn1, Attributes attributes, Paint paint)
+    {
+        return lfn1.a(attributes, paint);
+    }
+
+    private boolean a(Attributes attributes, Paint paint)
+    {
+        byte byte0 = 0;
+        if ("none".equals(attributes.getValue("display")))
+        {
+            return false;
+        }
+        if (attributes.getValue("font-size") != null)
+        {
+            paint.setTextSize(a("font-size", attributes, Float.valueOf(10F)).floatValue());
+        }
+        Object obj = lfg.a("font-family", attributes);
+        String s1 = lfg.a("font-style", attributes);
+        String s2 = lfg.a("font-weight", attributes);
+        if (obj == null && s1 == null && s2 == null)
+        {
+            obj = null;
+        } else
+        {
+            if ("italic".equals(s1))
+            {
+                byte0 = 2;
+            }
+            int i1 = byte0;
+            if ("bold".equals(s2))
+            {
+                i1 = byte0 | 1;
+            }
+            obj = Typeface.create(((String) (obj)), i1);
+        }
+        if (obj != null)
+        {
+            paint.setTypeface(((Typeface) (obj)));
+        }
+        if (c(attributes) != null)
+        {
+            paint.setTextAlign(c(attributes));
+        }
+        return true;
+    }
+
+    private static String b(Attributes attributes)
+    {
+        String s1 = "";
+        for (int i1 = 0; i1 < attributes.getLength(); i1++)
+        {
+            s1 = String.valueOf(s1);
+            String s2 = String.valueOf(attributes.getLocalName(i1));
+            String s3 = String.valueOf(attributes.getValue(i1));
+            s1 = (new StringBuilder(String.valueOf(s1).length() + 4 + String.valueOf(s2).length() + String.valueOf(s3).length())).append(s1).append(" ").append(s2).append("='").append(s3).append("'").toString();
+        }
+
+        return s1;
+    }
+
+    private static android.graphics.Paint.Align c(Attributes attributes)
+    {
+        attributes = lfg.a("text-anchor", attributes);
+        if (attributes == null)
+        {
+            return null;
+        }
+        if ("middle".equals(attributes))
+        {
+            return android.graphics.Paint.Align.CENTER;
+        }
+        if ("end".equals(attributes))
+        {
+            return android.graphics.Paint.Align.RIGHT;
+        } else
+        {
+            return android.graphics.Paint.Align.LEFT;
+        }
+    }
+
+    public void a(float f1)
+    {
+        t = f1;
+    }
+
+    public void a(Integer integer, Integer integer1)
+    {
+        q = integer;
+        r = integer1;
+    }
+
+    public void a(boolean flag)
+    {
+        s = false;
+    }
+
+    public void characters(char ac[], int i1, int j1)
+    {
+        if (y != null)
+        {
+            y.a(ac, i1, j1);
+        }
+    }
+
+    public void endDocument()
+    {
+    }
+
+    public void endElement(String s1, String s2, String s3)
+    {
+        boolean flag;
+        boolean flag1;
+        flag1 = false;
+        flag = false;
+        if (!C) goto _L2; else goto _L1
+_L1:
+        if (s2.equals("defs"))
+        {
+            C = false;
+        }
+_L4:
+        return;
+_L2:
+        if (s2.equals("svg"))
+        {
+            b.endRecording();
+            return;
+        }
+        if (!z && s2.equals("text"))
+        {
+            if (y != null)
+            {
+                y.a(c);
+                y.a();
+            }
+            a();
+            return;
+        }
+        if (!s2.equals("linearGradient"))
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        if (x.a != null)
+        {
+            if (x.b != null)
+            {
+                s1 = (lfi)w.get(x.b);
+                if (s1 != null)
+                {
+                    x = s1.a(x);
+                }
+            }
+            s1 = new int[x.l.size()];
+            for (int i1 = 0; i1 < s1.length; i1++)
+            {
+                s1[i1] = ((Integer)x.l.get(i1)).intValue();
+            }
+
+            s2 = new float[x.k.size()];
+            for (int j1 = ((flag) ? 1 : 0); j1 < s2.length; j1++)
+            {
+                s2[j1] = ((Float)x.k.get(j1)).floatValue();
+            }
+
+            s1 = new LinearGradient(x.d, x.e, x.f, x.g, s1, s2, android.graphics.Shader.TileMode.CLAMP);
+            if (x.m != null)
+            {
+                s1.setLocalMatrix(x.m);
+            }
+            v.put(x.a, s1);
+            w.put(x.a, x);
+            return;
+        }
+        if (true) goto _L4; else goto _L3
+_L3:
+        if (!s2.equals("radialGradient"))
+        {
+            continue; /* Loop/switch isn't completed */
+        }
+        if (x.a == null) goto _L4; else goto _L5
 _L5:
+        if (x.b != null)
+        {
+            s1 = (lfi)w.get(x.b);
+            if (s1 != null)
+            {
+                x = s1.a(x);
+            }
+        }
+        s1 = new int[x.l.size()];
+        for (int k1 = 0; k1 < s1.length; k1++)
+        {
+            s1[k1] = ((Integer)x.l.get(k1)).intValue();
+        }
+
+        s2 = new float[x.k.size()];
+        for (int l1 = ((flag1) ? 1 : 0); l1 < s2.length; l1++)
+        {
+            s2[l1] = ((Float)x.k.get(l1)).floatValue();
+        }
+
+        s1 = new RadialGradient(x.h, x.i, x.j, s1, s2, android.graphics.Shader.TileMode.CLAMP);
+        if (x.m != null)
+        {
+            s1.setLocalMatrix(x.m);
+        }
+        v.put(x.a, s1);
+        w.put(x.a, x);
+        return;
+        if (!s2.equals("g")) goto _L4; else goto _L6
+_L6:
+        if (B)
+        {
+            B = false;
+        }
+        if (z)
+        {
+            A = A - 1;
+            if (A == 0)
+            {
+                z = false;
+            }
+        }
+        v.clear();
+        a();
+        h = (Paint)j.pop();
+        i = ((Boolean)k.pop()).booleanValue();
+        d = (Paint)f.pop();
+        e = ((Boolean)g.pop()).booleanValue();
+        l = ((Float)m.pop()).floatValue();
+        return;
+    }
+
+    public void startDocument()
+    {
+    }
+
+    public void startElement(String s1, String s2, String s3, Attributes attributes)
+    {
+        if (!e)
+        {
+            d.setAlpha(255);
+        }
+        if (!i)
+        {
+            h.setAlpha(255);
+        }
+        if (!B) goto _L2; else goto _L1
+_L1:
+        if (s2.equals("rect"))
+        {
+            s2 = a("x", attributes, ((Float) (null)));
+            s1 = s2;
+            if (s2 == null)
+            {
+                s1 = Float.valueOf(0.0F);
+            }
+            s3 = a("y", attributes, ((Float) (null)));
+            s2 = s3;
+            if (s3 == null)
+            {
+                s2 = Float.valueOf(0.0F);
+            }
+            s3 = a("width", attributes, ((Float) (null)));
+            attributes = a("height", attributes, ((Float) (null)));
+            o = new RectF(s1.floatValue(), s2.floatValue(), s1.floatValue() + s3.floatValue(), s2.floatValue() + attributes.floatValue());
+        }
+_L4:
+        return;
+_L2:
+        if (C)
+        {
+            continue; /* Loop/switch isn't completed */
+        }
+        if (s2.equals("svg"))
+        {
+            int i1 = (int)Math.ceil(a("width", attributes, ((Float) (null))).floatValue());
+            int i2 = (int)Math.ceil(a("height", attributes, ((Float) (null))).floatValue());
+            c = b.beginRecording(i1, i2);
+            return;
+        }
+        if (s2.equals("defs"))
+        {
+            C = true;
+            return;
+        }
+        if (s2.equals("linearGradient"))
+        {
+            x = a(true, attributes);
+            return;
+        }
+        if (s2.equals("radialGradient"))
+        {
+            x = a(false, attributes);
+            return;
+        }
+        if (!s2.equals("stop"))
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        if (x != null)
+        {
+            float f1 = a("offset", attributes, ((Float) (null))).floatValue();
+            s1 = new lfp(lfg.a("style", attributes));
+            s2 = s1.a("stop-color");
+            int j1 = 0xff000000;
+            if (s2 != null)
+            {
+                if (s2.startsWith("#"))
+                {
+                    j1 = Integer.parseInt(s2.substring(1), 16);
+                } else
+                {
+                    j1 = Integer.parseInt(s2, 16);
+                }
+            }
+            j1 = a(j1);
+            s1 = s1.a("stop-opacity");
+            if (s1 != null)
+            {
+                j1 |= Math.round(Float.parseFloat(s1) * 255F) << 24;
+            } else
+            {
+                j1 |= 0xff000000;
+            }
+            x.k.add(Float.valueOf(f1));
+            x.l.add(Integer.valueOf(j1));
+            return;
+        }
+        if (true) goto _L4; else goto _L3
+_L3:
+        if (s2.equals("use"))
+        {
+            s2 = attributes.getValue("xlink:href");
+            s1 = attributes.getValue("transform");
+            String s5 = attributes.getValue("x");
+            String s4 = attributes.getValue("y");
+            s3 = new StringBuilder();
+            s3.append("<g");
+            s3.append(" xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1'");
+            if (s1 != null || s5 != null || s4 != null)
+            {
+                s3.append(" transform='");
+                if (s1 != null)
+                {
+                    s3.append(lfg.a(s1));
+                }
+                if (s5 != null || s4 != null)
+                {
+                    s3.append("translate(");
+                    int k1;
+                    if (s5 != null)
+                    {
+                        s1 = lfg.a(s5);
+                    } else
+                    {
+                        s1 = "0";
+                    }
+                    s3.append(s1);
+                    s3.append(",");
+                    if (s4 != null)
+                    {
+                        s1 = lfg.a(s4);
+                    } else
+                    {
+                        s1 = "0";
+                    }
+                    s3.append(s1);
+                    s3.append(")");
+                }
+                s3.append("'");
+            }
+            for (k1 = 0; k1 < attributes.getLength(); k1++)
+            {
+                s1 = attributes.getQName(k1);
+                if (!"x".equals(s1) && !"y".equals(s1) && !"width".equals(s1) && !"height".equals(s1) && !"xlink:href".equals(s1) && !"transform".equals(s1))
+                {
+                    s3.append(" ");
+                    s3.append(s1);
+                    s3.append("='");
+                    s3.append(lfg.a(attributes.getValue(k1)));
+                    s3.append("'");
+                }
+            }
+
+            s3.append(">");
+            s3.append((String)a.get(s2.substring(1)));
+            s3.append("</g>");
+            s1 = new InputSource(new StringReader(s3.toString()));
+            try
+            {
+                s2 = SAXParserFactory.newInstance().newSAXParser().getXMLReader();
+                s2.setContentHandler(this);
+                s2.parse(s1);
+                return;
+            }
+            // Misplaced declaration of an exception variable
+            catch (String s1)
+            {
+                s1.printStackTrace();
+            }
+            return;
+        }
+        if (s2.equals("g"))
+        {
+            if ("bounds".equalsIgnoreCase(lfg.a("id", attributes)))
+            {
+                B = true;
+            }
+            if (z)
+            {
+                A = A + 1;
+            }
+            if ("none".equals(lfg.a("display", attributes)) && !z)
+            {
+                z = true;
+                A = 1;
+            }
+            a(attributes);
+            s1 = new lfm(attributes);
+            j.push(new Paint(h));
+            f.push(new Paint(d));
+            k.push(Boolean.valueOf(i));
+            g.push(Boolean.valueOf(e));
+            m.push(Float.valueOf(l));
+            s2 = a("opacity", attributes, ((Float) (null)));
+            if (s2 != null)
+            {
+                float f2 = l;
+                l = s2.floatValue() * f2;
+            }
+            a(attributes, h);
+            a(attributes, d);
+            a(s1, v);
+            a(s1);
+            boolean flag1 = i;
+            boolean flag;
+            if (s1.b("fill") != null)
+            {
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+            i = flag | flag1;
+            flag1 = e;
+            if (s1.b("stroke") != null)
+            {
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+            e = flag | flag1;
+            return;
+        }
+        if (!z && s2.equals("rect"))
+        {
+            s1 = a("x", attributes, Float.valueOf(0.0F));
+            s2 = a("y", attributes, Float.valueOf(0.0F));
+            s3 = a("width", attributes, ((Float) (null)));
+            Float float1 = a("height", attributes, ((Float) (null)));
+            Float float5 = a("rx", attributes, Float.valueOf(0.0F));
+            Float float7 = a("ry", attributes, Float.valueOf(0.0F));
+            a(attributes);
+            attributes = new lfm(attributes);
+            if (a(attributes, v))
+            {
+                a(s1.floatValue(), s2.floatValue(), s3.floatValue(), float1.floatValue());
+                if (float5.floatValue() <= 0.0F && float7.floatValue() <= 0.0F)
+                {
+                    c.drawRect(s1.floatValue(), s2.floatValue(), s1.floatValue() + s3.floatValue(), s2.floatValue() + float1.floatValue(), h);
+                } else
+                {
+                    n.set(s1.floatValue(), s2.floatValue(), s1.floatValue() + s3.floatValue(), s2.floatValue() + float1.floatValue());
+                    c.drawRoundRect(n, float5.floatValue(), float7.floatValue(), h);
+                }
+            }
+            if (a(attributes))
+            {
+                if (float5.floatValue() <= 0.0F && float7.floatValue() <= 0.0F)
+                {
+                    c.drawRect(s1.floatValue(), s2.floatValue(), s1.floatValue() + s3.floatValue(), s2.floatValue() + float1.floatValue(), d);
+                } else
+                {
+                    n.set(s1.floatValue(), s2.floatValue(), s1.floatValue() + s3.floatValue(), s2.floatValue() + float1.floatValue());
+                    c.drawRoundRect(n, float5.floatValue(), float7.floatValue(), d);
+                }
+            }
+            a();
+            return;
+        }
+        if (z || !s2.equals("image"))
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        s1 = lfg.a("href", attributes);
+        if (s1.startsWith("data") && s1.indexOf("base64") > 0)
+        {
+            s2 = s1.substring(s1.indexOf(",") + 1);
+            s3 = a("x", attributes, Float.valueOf(0.0F));
+            Float float2 = a("y", attributes, Float.valueOf(0.0F));
+            Float float6 = a("width", attributes, Float.valueOf(0.0F));
+            Float float8 = a("height", attributes, Float.valueOf(0.0F));
+            a(attributes);
+            a(s3.floatValue(), float2.floatValue(), float6.floatValue(), float8.floatValue());
+            s1 = c;
+            float f3 = s3.floatValue();
+            float f4 = float2.floatValue();
+            float f5 = float6.floatValue();
+            float f6 = float8.floatValue();
+            s2 = Base64.decode(s2, 0);
+            s2 = BitmapFactory.decodeByteArray(s2, 0, s2.length);
+            if (s2 != null)
+            {
+                s2.prepareToDraw();
+                s3 = new Paint(3);
+                attributes = new RectF(f3, f4, f5 + f3, f6 + f4);
+                s1.clipRect(attributes, android.graphics.Region.Op.REPLACE);
+                s1.drawBitmap(s2, null, attributes, s3);
+                s2.recycle();
+            }
+            a();
+            return;
+        }
+        if (true) goto _L4; else goto _L5
+_L5:
+        if (z || !s2.equals("line"))
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        s1 = a("x1", attributes, ((Float) (null)));
+        s2 = a("x2", attributes, ((Float) (null)));
+        s3 = a("y1", attributes, ((Float) (null)));
+        Float float3 = a("y2", attributes, ((Float) (null)));
+        if (a(new lfm(attributes)))
+        {
+            a(attributes);
+            a(s1.floatValue(), s3.floatValue());
+            a(s2.floatValue(), float3.floatValue());
+            c.drawLine(s1.floatValue(), s3.floatValue(), s2.floatValue(), float3.floatValue(), d);
+            a();
+            return;
+        }
+        if (true) goto _L4; else goto _L6
+_L6:
+        if (z || !s2.equals("circle"))
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        s1 = a("cx", attributes, ((Float) (null)));
+        s2 = a("cy", attributes, ((Float) (null)));
+        s3 = a("r", attributes, ((Float) (null)));
+        if (s1 != null && s2 != null && s3 != null)
+        {
+            a(attributes);
+            attributes = new lfm(attributes);
+            if (a(attributes, v))
+            {
+                a(s1.floatValue() - s3.floatValue(), s2.floatValue() - s3.floatValue());
+                a(s1.floatValue() + s3.floatValue(), s2.floatValue() + s3.floatValue());
+                c.drawCircle(s1.floatValue(), s2.floatValue(), s3.floatValue(), h);
+            }
+            if (a(attributes))
+            {
+                c.drawCircle(s1.floatValue(), s2.floatValue(), s3.floatValue(), d);
+            }
+            a();
+            return;
+        }
+        if (true) goto _L4; else goto _L7
+_L7:
+        if (z || !s2.equals("ellipse"))
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        s1 = a("cx", attributes, ((Float) (null)));
+        s2 = a("cy", attributes, ((Float) (null)));
+        s3 = a("rx", attributes, ((Float) (null)));
+        Float float4 = a("ry", attributes, ((Float) (null)));
+        if (s1 != null && s2 != null && s3 != null && float4 != null)
+        {
+            a(attributes);
+            attributes = new lfm(attributes);
+            n.set(s1.floatValue() - s3.floatValue(), s2.floatValue() - float4.floatValue(), s1.floatValue() + s3.floatValue(), s2.floatValue() + float4.floatValue());
+            if (a(attributes, v))
+            {
+                a(s1.floatValue() - s3.floatValue(), s2.floatValue() - float4.floatValue());
+                a(s1.floatValue() + s3.floatValue(), s2.floatValue() + float4.floatValue());
+                c.drawOval(n, h);
+            }
+            if (a(attributes))
+            {
+                c.drawOval(n, d);
+            }
+            a();
+            return;
+        }
+        if (true) goto _L4; else goto _L8
+_L8:
+        if (z || !s2.equals("polygon") && !s2.equals("polyline"))
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        s3 = lfg.b("points", attributes);
+        if (s3 != null)
+        {
+            s1 = new Path();
+            s3 = ((lfl) (s3)).a;
+            if (s3.size() > 1)
+            {
+                a(attributes);
+                attributes = new lfm(attributes);
+                s1.moveTo(((Float)s3.get(0)).floatValue(), ((Float)s3.get(1)).floatValue());
+                for (int l1 = 2; l1 < s3.size(); l1 += 2)
+                {
+                    s1.lineTo(((Float)s3.get(l1)).floatValue(), ((Float)s3.get(l1 + 1)).floatValue());
+                }
+
+                if (s2.equals("polygon"))
+                {
+                    s1.close();
+                }
+                if (a(attributes, v))
+                {
+                    a(s1);
+                    c.drawPath(s1, h);
+                }
+                if (a(attributes))
+                {
+                    c.drawPath(s1, d);
+                }
+                a();
+                return;
+            }
+        }
+        if (true) goto _L4; else goto _L9
+_L9:
+        if (!z && s2.equals("path"))
+        {
+            s1 = lfg.c(lfg.a("d", attributes));
+            a(attributes);
+            s2 = new lfm(attributes);
+            if (a(s2, v))
+            {
+                a(s1);
+                c.drawPath(s1, h);
+            }
+            if (a(s2))
+            {
+                c.drawPath(s1, d);
+            }
+            a();
+            return;
+        }
+        if (!z && s2.equals("text"))
+        {
+            a(attributes);
+            y = new lfo(this, attributes);
+            return;
+        }
+        if (!z)
+        {
+            String.format("Unrecognized tag: %s (%s)", new Object[] {
+                s2, b(attributes)
+            });
+            return;
+        }
+        if (true) goto _L4; else goto _L10
+_L10:
     }
 
 }

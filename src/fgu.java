@@ -2,93 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.Parcel;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.VisibleRegion;
+import android.accounts.Account;
+import android.os.Bundle;
+import android.os.IInterface;
+import com.google.android.gms.auth.AccountChangeEventsRequest;
+import com.google.android.gms.auth.AccountChangeEventsResponse;
 
-public abstract class fgu extends Binder
-    implements fgt
+public interface fgu
+    extends IInterface
 {
 
-    public static fgt a(IBinder ibinder)
-    {
-        if (ibinder == null)
-        {
-            return null;
-        }
-        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.maps.internal.IProjectionDelegate");
-        if (iinterface != null && (iinterface instanceof fgt))
-        {
-            return (fgt)iinterface;
-        } else
-        {
-            return new fgv(ibinder);
-        }
-    }
+    public abstract Bundle a(Account account, String s, Bundle bundle);
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
-    {
-        Object obj = null;
-        switch (i)
-        {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
+    public abstract Bundle a(Bundle bundle);
 
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.maps.internal.IProjectionDelegate");
-            return true;
+    public abstract Bundle a(String s, Bundle bundle);
 
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IProjectionDelegate");
-            parcel = a(ezz.a(parcel.readStrongBinder()));
-            parcel1.writeNoException();
-            if (parcel != null)
-            {
-                parcel1.writeInt(1);
-                parcel.writeToParcel(parcel1, 1);
-            } else
-            {
-                parcel1.writeInt(0);
-            }
-            return true;
+    public abstract Bundle a(String s, String s1, Bundle bundle);
 
-        case 2: // '\002'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IProjectionDelegate");
-            ezy ezy1;
-            if (parcel.readInt() != 0)
-            {
-                flh flh1 = LatLng.CREATOR;
-                parcel = flh.a(parcel);
-            } else
-            {
-                parcel = null;
-            }
-            ezy1 = a(parcel);
-            parcel1.writeNoException();
-            parcel = obj;
-            if (ezy1 != null)
-            {
-                parcel = ezy1.asBinder();
-            }
-            parcel1.writeStrongBinder(parcel);
-            return true;
-
-        case 3: // '\003'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IProjectionDelegate");
-            parcel = a();
-            parcel1.writeNoException();
-            break;
-        }
-        if (parcel != null)
-        {
-            parcel1.writeInt(1);
-            parcel.writeToParcel(parcel1, 1);
-        } else
-        {
-            parcel1.writeInt(0);
-        }
-        return true;
-    }
+    public abstract AccountChangeEventsResponse a(AccountChangeEventsRequest accountchangeeventsrequest);
 }

@@ -2,27 +2,66 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.AbstractMap;
+import java.util.Collection;
+import java.util.Set;
 
-public final class jwk extends koj
+abstract class jwk extends AbstractMap
 {
 
-    public jwk()
+    private transient Set a;
+    private transient Set b;
+    private transient Collection c;
+
+    jwk()
     {
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    public kop mergeFrom(kog kog1)
+    abstract Set a();
+
+    Set b()
     {
-_L3:
-        int i = kog1.a();
-        i;
-        JVM INSTR tableswitch 0 0: default 24
-    //                   0 33;
-           goto _L1 _L2
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L3; else goto _L2
-_L2:
-        return this;
+        return new jwi(this);
+    }
+
+    Collection c()
+    {
+        return new jwj(this);
+    }
+
+    public Set entrySet()
+    {
+        Set set1 = a;
+        Set set = set1;
+        if (set1 == null)
+        {
+            set = a();
+            a = set;
+        }
+        return set;
+    }
+
+    public Set keySet()
+    {
+        Set set1 = b;
+        Set set = set1;
+        if (set1 == null)
+        {
+            set = b();
+            b = set;
+        }
+        return set;
+    }
+
+    public Collection values()
+    {
+        Collection collection1 = c;
+        Collection collection = collection1;
+        if (collection1 == null)
+        {
+            collection = c();
+            c = collection;
+        }
+        return collection;
     }
 }

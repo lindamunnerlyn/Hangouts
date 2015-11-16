@@ -2,19 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.libraries.hangouts.video.Stats;
 
-final class gcn
+public final class gcn
 {
 
-    final long a;
-    final long b;
-    final Stats c;
+    public static final String a = gcg.getName();
+    public static final String b = gci.getName();
+    private static gcm c;
 
-    gcn(long l, long l1, Stats stats)
+    public static void a(hlp hlp1)
     {
-        a = l;
-        b = l1;
-        c = stats;
+        if (c == null)
+        {
+            c = new gcm();
+        }
+        hlp1.a(gcg, new gck());
     }
+
+    public static void b(hlp hlp1)
+    {
+        if (c == null)
+        {
+            c = new gcm();
+        }
+        hlp1.a(gci, new gcl());
+    }
+
 }

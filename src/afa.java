@@ -3,12 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class afa extends aff
+final class afa extends Exception
 {
-
-    public afa()
-    {
-    }
 
     public afa(String s)
     {

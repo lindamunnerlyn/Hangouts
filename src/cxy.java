@@ -2,75 +2,70 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.List;
 
-public class cxy extends cvn
+public class cxy extends cxr
 {
 
     private static final long serialVersionUID = 1L;
-    private byte g[][];
+    private final long g;
+    private final String h[];
 
-    private cxy(ixu ixu1)
+    public cxy(iye iye1)
     {
-        int i = 0;
-        super(ixu1.responseHeader, -1L);
-        if (cvn.a)
+        super(iye1.responseHeader, 0L);
+        if (cxr.a)
         {
-            String s = String.valueOf(ixu1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(s).length() + 31)).append("SetCallerIdConfigResponse from:").append(s).toString());
+            String s = String.valueOf(iye1);
+            eev.b("Babel_protos", (new StringBuilder(String.valueOf(s).length() + 32)).append("DeleteConversationResponse from:").append(s).toString());
         }
-        g = new byte[ixu1.a.length][];
-        ixu1 = ixu1.a;
-        int k = ixu1.length;
-        int j = 0;
-        for (; i < k; i++)
+        String as[] = null;
+        long l;
+        if (iye1.a != null)
         {
-            kop kop1 = ixu1[i];
-            g[j] = kop.toByteArray(kop1);
-            j++;
+            if (g.a(iye1.a.a, 0) == 2)
+            {
+                as = iye1.a.d;
+            }
+            if (iye1.a.c != null)
+            {
+                l = g.a(iye1.a.c, 0L);
+                iye1 = as;
+            } else
+            {
+                iye1 = as;
+                l = -1L;
+            }
+        } else
+        {
+            iye1 = null;
+            l = -1L;
         }
-
+        g = l;
+        h = iye1;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public static cxr parseFrom(byte abyte0[])
     {
-        abyte0 = (ixu)kop.mergeFrom(new ixu(), abyte0);
-        if (a(((ixu) (abyte0)).responseHeader))
+        abyte0 = (iye)kws.mergeFrom(new iye(), abyte0);
+        if (a(((iye) (abyte0)).responseHeader))
         {
-            ((ajl)hgx.a(g.nS, ajl)).a(1);
-            return new cvz(((ixu) (abyte0)).responseHeader);
+            return new cyd(((iye) (abyte0)).responseHeader);
         } else
         {
             return new cxy(abyte0);
         }
     }
 
-    public void a(aoe aoe1, dfb dfb)
+    public void a(aow aow1, dgk dgk)
     {
-        super.a(aoe1, dfb);
-        ebw.e("Babel", "SetCallerIdConfigResponse");
-        dfb = new iqq[g.length];
-        int i = 0;
-        do
-        {
-            try
-            {
-                if (i >= g.length)
-                {
-                    break;
-                }
-                dfb[i] = (iqq)kop.mergeFrom(new iqq(), g[i]);
-            }
-            // Misplaced declaration of an exception variable
-            catch (aoe aoe1)
-            {
-                ((ajl)hgx.a(g.nS, ajl)).a(1);
-                return;
-            }
-            i++;
-        } while (true);
-        for (Iterator iterator = hgx.c(g.nS, dcd).iterator(); iterator.hasNext(); ((dcd)iterator.next()).a(aoe1.f().h(), dfb)) { }
-        ((ajl)hgx.a(g.nS, ajl)).a(0);
+        super.a(aow1, dgk);
+        aow1.a();
+        (new ddw(((cwb)b).c, g, h)).a(aow1);
+        aow1.b();
+        aow1.c();
+        return;
+        dgk;
+        aow1.c();
+        throw dgk;
     }
 }

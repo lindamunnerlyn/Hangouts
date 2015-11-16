@@ -7,20 +7,21 @@ package com.google.android.gms.maps.model;
 import android.os.IBinder;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fka;
-import fkb;
-import fla;
-import flb;
-import flr;
+import fmw;
+import fmx;
+import fnw;
+import fny;
+import fon;
+import g;
 
 public final class TileOverlayOptions
     implements SafeParcelable
 {
 
-    public static final flr CREATOR = new flr();
+    public static final fon CREATOR = new fon();
     private final int a;
-    private fla b;
-    private fkb c;
+    private fnw b;
+    private fmx c;
     private boolean d;
     private float e;
     private boolean f;
@@ -34,16 +35,32 @@ public final class TileOverlayOptions
 
     public TileOverlayOptions(int i, IBinder ibinder, boolean flag, float f1, boolean flag1)
     {
+        Object obj = null;
+        super();
         d = true;
         f = true;
         a = i;
-        b = flb.a(ibinder);
-        if (b == null)
+        if (ibinder == null)
         {
             ibinder = null;
         } else
         {
-            ibinder = new fka(this);
+            android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.maps.model.internal.ITileProviderDelegate");
+            if (iinterface != null && (iinterface instanceof fnw))
+            {
+                ibinder = (fnw)iinterface;
+            } else
+            {
+                ibinder = new fny(ibinder);
+            }
+        }
+        b = ibinder;
+        if (b == null)
+        {
+            ibinder = obj;
+        } else
+        {
+            ibinder = new fmw(this);
         }
         c = ibinder;
         d = flag;
@@ -51,29 +68,34 @@ public final class TileOverlayOptions
         f = flag1;
     }
 
-    public static fla a(TileOverlayOptions tileoverlayoptions)
-    {
-        return tileoverlayoptions.b;
-    }
-
-    public int a()
+    private int a()
     {
         return a;
     }
 
-    public IBinder b()
+    public static fnw a(TileOverlayOptions tileoverlayoptions)
+    {
+        return tileoverlayoptions.b;
+    }
+
+    private IBinder b()
     {
         return b.asBinder();
     }
 
-    public float c()
+    private float c()
     {
         return e;
     }
 
-    public boolean d()
+    private boolean d()
     {
         return d;
+    }
+
+    private boolean e()
+    {
+        return f;
     }
 
     public int describeContents()
@@ -81,14 +103,15 @@ public final class TileOverlayOptions
         return 0;
     }
 
-    public boolean e()
-    {
-        return f;
-    }
-
     public void writeToParcel(Parcel parcel, int i)
     {
-        flr.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a());
+        g.a(parcel, 2, b());
+        g.a(parcel, 3, d());
+        g.a(parcel, 4, c());
+        g.a(parcel, 5, e());
+        g.q(parcel, i);
     }
 
 }

@@ -2,46 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
 
-public final class fdq
+final class fdq extends fen
 {
 
-    public static final int a[] = new int[0];
-    public static final long b[] = new long[0];
-    public static final float c[] = new float[0];
-    public static final double d[] = new double[0];
-    public static final boolean e[] = new boolean[0];
-    public static final String f[] = new String[0];
-    public static final byte g[][] = new byte[0][];
-    public static final byte h[] = new byte[0];
+    final Intent a;
+    final fdp b;
 
-    static int a(int i)
+    fdq(fdp fdp1, Intent intent)
     {
-        return i & 7;
+        b = fdp1;
+        a = intent;
+        super();
     }
 
-    static int a(int i, int j)
+    public ene a()
     {
-        return i << 3 | j;
+        return fej.d.a(b.b, b.a, a);
     }
-
-    public static final int a(fdh fdh1, int i)
-    {
-        int j = 1;
-        int k = fdh1.m();
-        fdh1.b(i);
-        while (fdh1.a() == i) 
-        {
-            fdh1.b(i);
-            j++;
-        }
-        fdh1.e(k);
-        return j;
-    }
-
-    public static int b(int i)
-    {
-        return i >>> 3;
-    }
-
 }

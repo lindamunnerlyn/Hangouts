@@ -2,23 +2,89 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Handler;
+import android.os.SystemClock;
+import android.text.TextUtils;
 
-final class gla extends gkx
+final class gla
+    implements gds
 {
 
-    gla(String s)
+    final gkz a;
+
+    gla(gkz gkz1)
     {
-        super(s, 2);
+        a = gkz1;
+        super();
     }
 
-    boolean a(glq glq, String s, gkv gkv1)
+    public void a(kws kws)
     {
-        if (!gkv1.b(glq) || !gks.a(glq, s, gkv1) || gks.a(glq, s) || !gks.a(glq, gkv1))
+        kws = (jhx)kws;
+        if (a.e)
         {
-            return false;
+            gne.a("vclib", "Resolve flow canceled, ignoring success (%s)", new Object[] {
+                kws
+            });
+            return;
+        }
+        if (!TextUtils.isEmpty(((jhx) (kws)).a))
+        {
+            gne.a("vclib", "Successfully resolved hangout (%s)", new Object[] {
+                kws
+            });
+            a.b.a(kws);
+            return;
         } else
         {
-            return gks.a(glq, s, gkv1, new glb(this));
+            gne.c("vclib", "Hangout ID missing in successful resolve response (%s)", new Object[] {
+                kws
+            });
+            gdv.a("Hangout ID missing in successful resolve response");
+            a.b.b(kws);
+            return;
+        }
+    }
+
+    public void b(kws kws)
+    {
+        kws = (jhx)kws;
+        if (a.e)
+        {
+            gne.b("vclib", "Resolve flow canceled, ignoring error (%s)", new Object[] {
+                kws
+            });
+            return;
+        }
+        if (kws == null || g.a(((jhx) (kws)).b, -1) != 1)
+        {
+            gne.c("vclib", "Resolve flow failed (%s)", new Object[] {
+                kws
+            });
+            a.b.b(kws);
+            return;
+        }
+        if (!gkz.b(a.a))
+        {
+            gne.c("vclib", "Resolve flow failed (%s)", new Object[] {
+                kws
+            });
+            a.b.b(kws);
+            return;
+        }
+        if (a.d < 0L)
+        {
+            a.d = SystemClock.elapsedRealtime() + 30000L;
+        }
+        if (SystemClock.elapsedRealtime() >= a.d)
+        {
+            gne.a(6, "vclib", "Knocking resolve flow timed out");
+            a.b.b(kws);
+            return;
+        } else
+        {
+            a.c.postDelayed(a, 5000L);
+            return;
         }
     }
 }

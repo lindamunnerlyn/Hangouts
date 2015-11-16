@@ -3,21 +3,39 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class did extends dfa
+public final class did
 {
 
-    private final String a;
-    private final int d;
+    private final int a;
+    private final int b;
+    private final cxr c;
+    private final Exception d;
 
-    public did(ani ani, String s, int i)
+    public did(int i, int j, cxr cxr)
     {
-        super(ani);
-        a = s;
-        d = i;
+        this(i, j, cxr, (byte)0);
     }
 
-    public void a()
+    private did(int i, int j, cxr cxr, byte byte0)
     {
-        any.a(a, d, c);
+        a = i;
+        b = j;
+        c = cxr;
+        d = null;
+    }
+
+    public int a()
+    {
+        return a;
+    }
+
+    public int b()
+    {
+        return b;
+    }
+
+    public cxr c()
+    {
+        return c;
     }
 }

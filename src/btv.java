@@ -2,66 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.text.TextUtils;
 
-public final class btv extends Enum
+final class btv
+    implements bpf
 {
 
-    public static final btv a;
-    public static final btv b;
-    public static final btv c;
-    public static final btv d;
-    public static final btv e;
-    private static final btv h[];
-    private final int f;
-    private final int g;
+    final bpe a;
+    final btp b;
 
-    private btv(String s, int i, int j)
+    btv(btp btp1, bpe bpe1)
     {
-        this(s, i, j, j);
+        b = btp1;
+        a = bpe1;
+        super();
     }
 
-    private btv(String s, int i, int j, int k)
+    public void a(bpm bpm)
     {
-        super(s, i);
-        f = j;
-        g = k;
+        a.b(b.a(bpm));
     }
 
-    public static btv valueOf(String s)
+    public void a(gmt gmt1)
     {
-        return (btv)Enum.valueOf(btv, s);
-    }
-
-    public static btv[] values()
-    {
-        return (btv[])h.clone();
-    }
-
-    public String a(Context context, String s)
-    {
-        if (TextUtils.isEmpty(s))
+        if (gmt1.g())
         {
-            return context.getResources().getString(g);
-        } else
-        {
-            return context.getResources().getString(f, new Object[] {
-                s
-            });
+            btp.b(b, a);
         }
-    }
-
-    static 
-    {
-        a = new btv("INVITED_ONLY", 0, l.dM);
-        b = new btv("DOMAIN_RESTRICTED", 1, l.cT, l.cU);
-        c = new btv("DOMAIN_WITH_EXTERNAL", 2, l.cV, l.cW);
-        d = new btv("KNOCKABLE", 3, l.dQ);
-        e = new btv("OPEN", 4, l.eF);
-        h = (new btv[] {
-            a, b, c, d, e
-        });
     }
 }

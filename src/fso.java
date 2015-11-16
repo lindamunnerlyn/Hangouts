@@ -2,11 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.gms.common.api.Status;
 
-public final class fso
+final class fso
+    implements fox
 {
 
-    public fso()
+    private final Status a;
+    private final ftm b;
+
+    public fso(Status status, ftm ftm)
     {
+        a = status;
+        b = ftm;
+    }
+
+    public Status D_()
+    {
+        return a;
+    }
+
+    public void b()
+    {
+        if (b != null)
+        {
+            b.b();
+        }
+    }
+
+    public ftm c()
+    {
+        return b;
     }
 }

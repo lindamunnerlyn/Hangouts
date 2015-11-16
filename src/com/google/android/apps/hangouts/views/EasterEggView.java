@@ -11,14 +11,14 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import ani;
-import eam;
-import edr;
-import eds;
-import edt;
-import fwz;
+import aoa;
+import edq;
+import egt;
+import egu;
+import egv;
+import fzd;
 import g;
-import gbh;
+import gdv;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -51,8 +51,8 @@ public class EasterEggView extends FrameLayout
         f = new Handler();
         j = new ArrayList();
         context = context.getResources();
-        c = context.obtainTypedArray(g.cI);
-        d = context.obtainTypedArray(g.cH);
+        c = context.obtainTypedArray(g.cH);
+        d = context.obtainTypedArray(g.cG);
     }
 
     public static String a(String s)
@@ -89,7 +89,7 @@ public class EasterEggView extends FrameLayout
         return eastereggview.j;
     }
 
-    private void a(ani ani1, TypedArray typedarray, int k)
+    private void a(aoa aoa1, TypedArray typedarray, int k)
     {
         if (typedarray == null)
         {
@@ -105,16 +105,16 @@ public class EasterEggView extends FrameLayout
         {
             typedarray = new String(s);
         }
-        ani1 = new eam(typedarray, ani1.a());
-        ani1.a(false);
-        ani1.c(false);
-        ani1.d(false);
-        j.add(new edt(this, ani1, k));
+        aoa1 = new edq(typedarray, aoa1.a());
+        aoa1.a(false);
+        aoa1.c(false);
+        aoa1.d(false);
+        j.add(new egv(this, aoa1, k));
     }
 
-    public static void a(EasterEggView eastereggview, ani ani1, TypedArray typedarray, int k)
+    public static void a(EasterEggView eastereggview, aoa aoa1, TypedArray typedarray, int k)
     {
-        eastereggview.a(ani1, typedarray, k);
+        eastereggview.a(aoa1, typedarray, k);
     }
 
     public static TypedArray b(EasterEggView eastereggview)
@@ -169,7 +169,7 @@ public class EasterEggView extends FrameLayout
     {
         for (Iterator iterator = j.iterator(); iterator.hasNext(); iterator.remove())
         {
-            ((edt)iterator.next()).a();
+            ((egv)iterator.next()).a();
         }
 
         boolean flag;
@@ -180,7 +180,7 @@ public class EasterEggView extends FrameLayout
         {
             flag = false;
         }
-        gbh.a(flag);
+        gdv.a("Expected condition to be true", flag);
         if (g != null)
         {
             f.removeCallbacks(g);
@@ -193,21 +193,21 @@ public class EasterEggView extends FrameLayout
         }
     }
 
-    public void a(ani ani1, String s)
+    public void a(aoa aoa1, String s)
     {
-        if (fwz.a(getContext().getContentResolver(), "babel_easter_eggs", true))
+        if (fzd.a(getContext().getContentResolver(), "babel_easter_eggs", true))
         {
             if (TextUtils.equals("ponies", s))
             {
                 int k;
                 if (b.nextBoolean())
                 {
-                    k = g.cv;
+                    k = g.cu;
                 } else
                 {
-                    k = g.cu;
+                    k = g.ct;
                 }
-                a(ani1, c, k);
+                a(aoa1, c, k);
                 return;
             }
             if (TextUtils.equals("ponystream", s))
@@ -219,7 +219,7 @@ public class EasterEggView extends FrameLayout
                     return;
                 } else
                 {
-                    g = new edr(this, ani1);
+                    g = new egt(this, aoa1);
                     f.post(g);
                     return;
                 }
@@ -227,7 +227,7 @@ public class EasterEggView extends FrameLayout
             if (TextUtils.equals("pitchforks", s) && h == null)
             {
                 i = b.nextInt(20) + 20;
-                h = new eds(this, ani1);
+                h = new egu(this, aoa1);
                 f.post(h);
                 return;
             }
@@ -242,7 +242,7 @@ public class EasterEggView extends FrameLayout
     static 
     {
         e = (new int[] {
-            g.cw, g.cy, g.cx
+            g.cv, g.cx, g.cw
         });
     }
 }

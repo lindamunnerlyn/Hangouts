@@ -2,24 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Locale;
+import android.content.Context;
+import java.util.List;
 
-public final class hgh
+final class hgh
+    implements hge
 {
 
-    private final int a = 26;
-    private final int b = -1;
-    private String c;
+    private final List a;
+    private final Context b;
 
-    public hgh(String s)
+    hgh(Context context)
     {
-        c = s;
+        a = hlp.c(context, hgf);
+        b = context;
     }
 
-    public String toString()
+    public void a()
     {
-        return String.format(Locale.US, "GmsFailureEvent gmsApi=%d, statusCode=%d", new Object[] {
-            Integer.valueOf(a), Integer.valueOf(b)
-        });
+        int i = 0;
+        for (int j = a.size(); i < j; i++)
+        {
+            a.get(i);
+        }
+
     }
 }

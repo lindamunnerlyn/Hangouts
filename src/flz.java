@@ -2,10 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.IBinder;
+import android.os.Parcel;
+import com.google.android.gms.maps.model.PointOfInterest;
 
-public interface flz
-    extends ekf, ekg
+final class flz
+    implements flx
 {
 
-    public abstract fqp c();
+    private IBinder a;
+
+    flz(IBinder ibinder)
+    {
+        a = ibinder;
+    }
+
+    public void a(PointOfInterest pointofinterest)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnPoiClickListener");
+        if (pointofinterest == null)
+        {
+            break MISSING_BLOCK_LABEL_56;
+        }
+        parcel.writeInt(1);
+        pointofinterest.writeToParcel(parcel, 0);
+_L1:
+        a.transact(1, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        pointofinterest;
+        parcel1.recycle();
+        parcel.recycle();
+        throw pointofinterest;
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
+    }
 }

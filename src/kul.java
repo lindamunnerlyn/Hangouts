@@ -3,59 +3,50 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kul extends koj
+public final class kul extends ktx
 {
 
-    public String a;
+    final kvb a;
+    final Object b;
+    final kvb c;
+    final kuk d;
 
-    public kul()
+    public kul(kvb kvb, Object obj, kvb kvb1, kuk kuk1)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        if (kvb == null)
         {
-            i = j + koh.b(1, a);
+            throw new IllegalArgumentException("Null containingTypeDefaultInstance");
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        if (kuk1.b() == kvz.k && kvb1 == null)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
+            throw new IllegalArgumentException("Null messageDefaultInstance");
+        } else
         {
-            koh1.a(1, a);
+            a = kvb;
+            b = obj;
+            c = kvb1;
+            d = kuk1;
+            return;
         }
-        super.writeTo(koh1);
+    }
+
+    public int a()
+    {
+        return d.a();
+    }
+
+    Object a(Object obj)
+    {
+        Object obj1 = obj;
+        if (d.c() == kwe.h)
+        {
+            obj1 = Integer.valueOf(((kur)obj).a());
+        }
+        return obj1;
+    }
+
+    public kvb b()
+    {
+        return c;
     }
 }

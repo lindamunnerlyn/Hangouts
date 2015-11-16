@@ -4,19 +4,19 @@
 
 package com.google.android.apps.hangouts.views;
 
-import ahj;
+import ahb;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import ani;
-import ceu;
-import cfa;
-import eef;
+import aoa;
+import cfz;
+import cgf;
+import ehh;
 import g;
-import gbh;
+import gdv;
 import h;
 import java.util.Iterator;
 import java.util.List;
@@ -39,15 +39,15 @@ public class FixedParticipantsView extends LinearLayout
     public FixedParticipantsView(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
-        attributeset = context.getTheme().obtainStyledAttributes(attributeset, ahj.t, 0, 0);
-        e = attributeset.getDimensionPixelSize(ahj.v, 36);
-        f = attributeset.getDimensionPixelSize(ahj.x, 36);
-        g = attributeset.getDimensionPixelSize(ahj.w, 12);
+        attributeset = context.getTheme().obtainStyledAttributes(attributeset, ahb.t, 0, 0);
+        e = attributeset.getDimensionPixelSize(ahb.v, 36);
+        f = attributeset.getDimensionPixelSize(ahb.x, 36);
+        g = attributeset.getDimensionPixelSize(ahb.w, 12);
         attributeset.recycle();
-        LayoutInflater.from(context).inflate(g.fT, this, true);
-        c = (LinearLayout)findViewById(h.by);
-        d = (LinearLayout)findViewById(h.bz);
-        h = (TextView)findViewById(h.bA);
+        LayoutInflater.from(context).inflate(g.fR, this, true);
+        c = (LinearLayout)findViewById(h.bs);
+        d = (LinearLayout)findViewById(h.bt);
+        h = (TextView)findViewById(h.bu);
         return;
         context;
         attributeset.recycle();
@@ -61,7 +61,7 @@ public class FixedParticipantsView extends LinearLayout
         setContentDescription(null);
     }
 
-    public void a(ani ani, List list)
+    public void a(aoa aoa, List list)
     {
         AvatarView avatarview;
         Object obj;
@@ -75,7 +75,7 @@ public class FixedParticipantsView extends LinearLayout
             return;
         }
         k1 = list.size();
-        cfa cfa1;
+        cgf cgf1;
         byte byte0;
         if (k1 > 4)
         {
@@ -95,29 +95,29 @@ public class FixedParticipantsView extends LinearLayout
 _L6:
         if (j1 >= i1)
         {
-            break MISSING_BLOCK_LABEL_445;
+            break MISSING_BLOCK_LABEL_447;
         }
         avatarview = new AvatarView(getContext());
-        obj = (ceu)list.get(j1);
-        cfa1 = ((ceu) (obj)).a;
-        eef.a[cfa1.ordinal()];
+        obj = (cfz)list.get(j1);
+        cgf1 = ((cfz) (obj)).a;
+        ehh.a[cgf1.ordinal()];
         JVM INSTR tableswitch 1 2: default 116
-    //                   1 256
-    //                   2 262;
+    //                   1 258
+    //                   2 264;
            goto _L1 _L2 _L3
 _L3:
-        break MISSING_BLOCK_LABEL_262;
+        break MISSING_BLOCK_LABEL_264;
 _L1:
         i = 0;
 _L4:
         avatarview.a(i);
-        if (((ceu) (obj)).a == cfa.d)
+        if (((cfz) (obj)).a == cgf.d)
         {
-            gbh.a(((ceu) (obj)).g());
-            avatarview.a(((ceu) (obj)).f(), false, ani);
+            gdv.a("Expected condition to be true", ((cfz) (obj)).g());
+            avatarview.a(((cfz) (obj)).f(), false, aoa);
         } else
         {
-            avatarview.a(((ceu) (obj)).b, ani);
+            avatarview.a(((cfz) (obj)).b, aoa);
         }
         if (k1 == 1)
         {
@@ -146,7 +146,7 @@ _L4:
             ((android.widget.LinearLayout.LayoutParams) (obj)).setMargins(k, (e - k) * -1, 0, 0);
         } else
         {
-            gbh.a("Incorrect avatar margin layout being calculated");
+            gdv.a("Incorrect avatar margin layout being calculated");
         }
         avatarview.setLayoutParams(((android.view.ViewGroup.LayoutParams) (obj)));
         if (j1 < byte0)
@@ -171,14 +171,14 @@ _L2:
             h.setVisibility(0);
             d.addView(h);
         }
-        ani = new String[list.size()];
+        aoa = new String[list.size()];
         list = list.iterator();
         for (int l = 0; list.hasNext(); l++)
         {
-            ani[l] = ((ceu)list.next()).e;
+            aoa[l] = ((cfz)list.next()).e;
         }
 
-        setContentDescription(g.a(ani, i1));
+        setContentDescription(g.a(aoa, i1));
         return;
         if (true) goto _L6; else goto _L5
 _L5:

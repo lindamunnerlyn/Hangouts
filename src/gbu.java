@@ -2,21 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.graphics.Bitmap;
+import android.os.Bundle;
 
-final class gbu
-    implements Runnable
+public interface gbu
 {
 
-    final gbs a;
+    public abstract gbt a();
 
-    gbu(gbs gbs)
-    {
-        a = gbs;
-        super();
-    }
+    public abstract gbu a(Bitmap bitmap);
 
-    public void run()
-    {
-        throw new IllegalStateException("Call termination timed out");
-    }
+    public abstract gbu a(Bundle bundle);
+
+    public abstract gbu a(String s);
+
+    public abstract gbu a(String s, String s1);
+
+    public abstract gbu b(String s);
+
+    public abstract gbu c(String s);
 }

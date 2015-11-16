@@ -2,123 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.util.Log;
-import android.view.View;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public abstract class zn
+final class zn extends android.view.View.BaseSavedState
 {
 
-    private int a;
-    private yr b;
-    private ze c;
-    private boolean d;
-    private boolean e;
-    private View f;
-    private final qb g;
+    public static final android.os.Parcelable.Creator CREATOR = new zo();
+    Parcelable a;
 
-    static void a(zn zn1, int i, int j)
+    zn(Parcel parcel)
     {
-label0:
-        {
-            yr yr1 = zn1.b;
-            if (!zn1.e || zn1.a == -1 || yr1 == null)
-            {
-                zn1.a();
-            }
-            zn1.d = false;
-            if (zn1.f != null)
-            {
-                if (zn1.a(zn1.f) == zn1.a)
-                {
-                    zo zo1 = yr1.e;
-                    zn1.g.a(yr1);
-                    zn1.a();
-                } else
-                {
-                    Log.e("RecyclerView", "Passed over target position while smooth scrolling.");
-                    zn1.f = null;
-                }
-            }
-            if (zn1.e)
-            {
-                zo zo2 = yr1.e;
-                boolean flag = zn1.g.d();
-                zn1.g.a(yr1);
-                if (flag)
-                {
-                    if (!zn1.e)
-                    {
-                        break label0;
-                    }
-                    zn1.d = true;
-                    yr.t(yr1).a();
-                }
-            }
-            return;
-        }
-        zn1.a();
+        super(parcel);
+        a = parcel.readParcelable(zg.getClassLoader());
     }
 
-    public int a(View view)
+    zn(Parcelable parcelable)
     {
-        return b.c(view);
+        super(parcelable);
     }
 
-    public jsj a(Object obj, Object obj1)
+    static void a(zn zn1, zn zn2)
     {
-        n.b(obj);
-        n.b(obj1);
-        return jsa.a(f());
+        zn1.a = zn2.a;
     }
 
-    protected final void a()
+    public void writeToParcel(Parcel parcel, int i)
     {
-        if (!e)
-        {
-            return;
-        } else
-        {
-            b.e.a = -1;
-            f = null;
-            a = -1;
-            d = false;
-            e = false;
-            ze.a(c, this);
-            c = null;
-            b = null;
-            return;
-        }
+        super.writeToParcel(parcel, i);
+        parcel.writeParcelable(a, 0);
     }
 
-    public void a(int i)
-    {
-        a = i;
-    }
-
-    protected void b(View view)
-    {
-        if (a(view) == d())
-        {
-            f = view;
-        }
-    }
-
-    public boolean b()
-    {
-        return d;
-    }
-
-    public boolean c()
-    {
-        return e;
-    }
-
-    public int d()
-    {
-        return a;
-    }
-
-    public abstract View e();
-
-    public abstract Object f();
 }

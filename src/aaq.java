@@ -2,30 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.animation.Animation;
 
 final class aaq
-    implements android.view.animation.Animation.AnimationListener
+    implements Runnable
 {
 
-    final aam a;
+    final aao a;
 
-    aaq(aam aam1)
+    aaq(aao aao1)
     {
-        a = aam1;
+        a = aao1;
         super();
     }
 
-    public void onAnimationEnd(Animation animation)
+    public void run()
     {
-        a.m();
-    }
-
-    public void onAnimationRepeat(Animation animation)
-    {
-    }
-
-    public void onAnimationStart(Animation animation)
-    {
+        a.a(true, true);
     }
 }

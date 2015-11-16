@@ -3,11 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class eql
+public interface eql
 {
 
-    static final eox a[] = {
-        new eqm(eox.a("0\202\003\2770\202\002\247\240\003\002\001\002\002\t\000\220\352\207\216y\"\nH0")), new eqn(eox.a("0\202\003\2770\202\002\247\240\003\002\001\002\002\t\000\253\344\001\270\016\311[\2550"))
-    };
-
+    public abstract boolean d();
 }

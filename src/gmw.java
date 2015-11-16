@@ -2,43 +2,70 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Set;
+import android.view.Surface;
 
-public interface gmw
-    extends gmu
+public final class gmw
 {
 
-    public abstract gmw a(String s, Set set);
+    private final Surface a;
+    private final int b;
+    private final int c;
+    private final boolean d;
 
-    public abstract gmw b(String s, float f1);
+    public gmw(Surface surface, int i, int j, boolean flag)
+    {
+        a = surface;
+        b = i;
+        c = j;
+        d = flag;
+    }
 
-    public abstract gmw b(String s, int j);
+    public Surface a()
+    {
+        return a;
+    }
 
-    public abstract gmw b(String s, long l);
+    public int b()
+    {
+        return b;
+    }
 
-    public abstract gmw b(String s, String s1);
+    public int c()
+    {
+        return c;
+    }
 
-    public abstract gmw b(String s, Set set);
+    public boolean d()
+    {
+        return d;
+    }
 
-    public abstract gmw b(String s, boolean flag);
+    public boolean equals(Object obj)
+    {
+        boolean flag1 = false;
+        boolean flag = flag1;
+        if (obj instanceof gmw)
+        {
+            flag = flag1;
+            if (((gmw)obj).a == a)
+            {
+                flag = true;
+            }
+        }
+        return flag;
+    }
 
-    public abstract gmw c();
+    public int hashCode()
+    {
+        return a.hashCode();
+    }
 
-    public abstract gmw c(String s, int j);
-
-    public abstract gmw c(String s, long l);
-
-    public abstract gmw c(String s, String s1);
-
-    public abstract gmw c(String s, boolean flag);
-
-    public abstract int d();
-
-    public abstract gmw f(String s);
-
-    public abstract gmw g(String s);
-
-    public abstract gmw h(String s);
-
-    public abstract gmw i(String s);
+    public String toString()
+    {
+        String s = String.valueOf(a);
+        int i = b;
+        int j = c;
+        boolean flag = d;
+        return (new StringBuilder(String.valueOf(s).length() + 69)).append("SurfaceInfo(surface=").append(s).append(",width=").append(i).append(",height=").append(j).append(",clip=").append(flag).append(")").toString();
+    }
 }

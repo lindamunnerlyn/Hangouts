@@ -2,61 +2,78 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.Serializable;
 
-public final class jwy extends koj
+final class jwy extends jxb
+    implements Serializable
 {
 
-    public Boolean a;
+    private static final long serialVersionUID = 0L;
+    final jxb a;
 
-    public jwy()
+    jwy(jxb jxb1)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = jxb1;
     }
 
-    protected int computeSerializedSize()
+    public jxb a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        return this;
+    }
+
+    public jxb b()
+    {
+        return a.b();
+    }
+
+    public jxb c()
+    {
+        return a.c().b();
+    }
+
+    public int compare(Object obj, Object obj1)
+    {
+        if (obj == obj1)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            return 0;
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        if (obj == null)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
+            return -1;
         }
-        super.writeTo(koh1);
+        if (obj1 == null)
+        {
+            return 1;
+        } else
+        {
+            return a.compare(obj, obj1);
+        }
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (obj == this)
+        {
+            return true;
+        }
+        if (obj instanceof jwy)
+        {
+            obj = (jwy)obj;
+            return a.equals(((jwy) (obj)).a);
+        } else
+        {
+            return false;
+        }
+    }
+
+    public int hashCode()
+    {
+        return a.hashCode() ^ 0x39153a74;
+    }
+
+    public String toString()
+    {
+        String s = String.valueOf(a);
+        return (new StringBuilder(String.valueOf(s).length() + 13)).append(s).append(".nullsFirst()").toString();
     }
 }

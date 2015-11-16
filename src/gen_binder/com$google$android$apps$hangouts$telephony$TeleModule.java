@@ -5,30 +5,31 @@
 package gen_binder;
 
 import android.content.Context;
-import dve;
-import hgx;
-import hhe;
+import dym;
+import hlp;
+import hlw;
 import java.util.HashMap;
 
 public final class 
-    implements hhe
+    implements hlw
 {
 
     private HashMap a;
 
-    public void a(Context context, Class class1, hgx hgx)
+    public void a(Context context, Class class1, hlp hlp)
     {
         if (a == null)
         {
-            a = new HashMap(8);
-            a.put(dve.a, Integer.valueOf(0));
-            a.put(dve.b, Integer.valueOf(1));
-            a.put(dve.c, Integer.valueOf(2));
-            a.put(dve.d, Integer.valueOf(3));
-            a.put(dve.e, Integer.valueOf(4));
-            a.put(dve.f, Integer.valueOf(5));
-            a.put(dve.g, Integer.valueOf(6));
-            a.put(dve.h, Integer.valueOf(7));
+            a = new HashMap(9);
+            a.put(dym.a, Integer.valueOf(0));
+            a.put(dym.b, Integer.valueOf(1));
+            a.put(dym.c, Integer.valueOf(2));
+            a.put(dym.d, Integer.valueOf(3));
+            a.put(dym.e, Integer.valueOf(4));
+            a.put(dym.f, Integer.valueOf(5));
+            a.put(dym.g, Integer.valueOf(6));
+            a.put(dym.h, Integer.valueOf(7));
+            a.put(dym.i, Integer.valueOf(8));
         }
         class1 = (Integer)a.get(class1.getName());
         if (class1 == null)
@@ -41,35 +42,39 @@ public final class
             return;
 
         case 0: // '\0'
-            dve.a(hgx);
+            dym.a(hlp);
             return;
 
         case 1: // '\001'
-            dve.a(context, hgx);
+            dym.a(context, hlp);
             return;
 
         case 2: // '\002'
-            dve.b(context, hgx);
+            dym.b(context, hlp);
             return;
 
         case 3: // '\003'
-            dve.b(hgx);
+            dym.b(hlp);
             return;
 
         case 4: // '\004'
-            dve.c(context, hgx);
+            dym.c(context, hlp);
             return;
 
         case 5: // '\005'
-            dve.c(hgx);
+            dym.c(hlp);
             return;
 
         case 6: // '\006'
-            dve.d(context, hgx);
+            dym.d(context, hlp);
             return;
 
         case 7: // '\007'
-            dve.d(hgx);
+            dym.d(hlp);
+            return;
+
+        case 8: // '\b'
+            dym.e(context, hlp);
             break;
         }
     }

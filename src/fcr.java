@@ -2,24 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
+import java.util.Iterator;
+import java.util.LinkedList;
 
-public final class fcr
+final class fcr
+    implements fda
 {
 
-    private final fcs a;
+    final fcq a;
 
-    public fcr(fcs fcs)
+    fcr(fcq fcq1)
     {
-        h.a(fcs, "Callbacks must not be null.");
-        a = fcs;
+        a = fcq1;
+        super();
     }
 
-    public static boolean a(Context context, Intent intent)
+    public void a(fcp fcp)
     {
-        h.a(context, "Context must not be null.");
-        h.a(intent, "Intent must not be null.");
-        return intent.hasExtra("com.google.android.gms.accounts.ACCOUNT_DATA");
+        a.a = fcp;
+        for (fcp = a.c.iterator(); fcp.hasNext(); ((fcv)fcp.next()).b()) { }
+        a.c.clear();
+        a.b = null;
     }
 }

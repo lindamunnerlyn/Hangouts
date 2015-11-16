@@ -8,8 +8,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import ccx;
-import ebw;
+import cec;
+import eev;
 
 public class CompanionReplacedReceiver extends BroadcastReceiver
 {
@@ -25,17 +25,18 @@ public class CompanionReplacedReceiver extends BroadcastReceiver
         if (a)
         {
             context = String.valueOf(intent);
-            ebw.b("Babel", (new StringBuilder(String.valueOf(context).length() + 26)).append("CompanionReplacedReceiver ").append(context).toString());
+            eev.b("Babel", (new StringBuilder(String.valueOf(context).length() + 26)).append("CompanionReplacedReceiver ").append(context).toString());
         }
         context = intent.getData().getSchemeSpecificPart();
         if ("com.google.android.wearable.app".equals(context) || "com.google.android.projection.gearhead".equals(context))
         {
-            ccx.a();
+            cec.a = false;
+            cec.b = false;
         }
     }
 
     static 
     {
-        hik hik = ebw.j;
+        hnc hnc = eev.j;
     }
 }

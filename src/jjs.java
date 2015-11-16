@@ -2,66 +2,90 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.NoSuchElementException;
 
-abstract class jjs extends jqz
+public final class jjs extends kwm
 {
 
-    private final int a;
-    private int b;
+    public Integer a;
+    public Integer b;
+    public Integer c;
 
-    protected jjs(int i, int j)
+    public jjs()
     {
-        n.b(j, i);
-        a = i;
-        b = j;
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    protected abstract Object a(int i);
-
-    public final boolean hasNext()
+    protected int computeSerializedSize()
     {
-        return b < a;
-    }
-
-    public final boolean hasPrevious()
-    {
-        return b > 0;
-    }
-
-    public final Object next()
-    {
-        if (!hasNext())
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            throw new NoSuchElementException();
-        } else
-        {
-            int i = b;
-            b = i + 1;
-            return a(i);
+            i = j + kwk.e(1, a.intValue());
         }
-    }
-
-    public final int nextIndex()
-    {
-        return b;
-    }
-
-    public final Object previous()
-    {
-        if (!hasPrevious())
+        j = i;
+        if (b != null)
         {
-            throw new NoSuchElementException();
-        } else
-        {
-            int i = b - 1;
-            b = i;
-            return a(i);
+            j = i + kwk.e(2, b.intValue());
         }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.intValue());
+        }
+        return i;
     }
 
-    public final int previousIndex()
+    public kws mergeFrom(kwj kwj1)
     {
-        return b - 1;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
+                break;
+
+            case 24: // '\030'
+                c = Integer.valueOf(kwj1.f());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

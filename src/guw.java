@@ -2,22 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.PrintWriter;
-import java.io.Writer;
 
-final class guw extends PrintWriter
+public final class guw
 {
 
-    final guv a;
-
-    guw(guv guv, Writer writer)
+    public guw()
     {
-        a = guv;
-        super(writer);
-    }
-
-    public String toString()
-    {
-        return out.toString();
     }
 }

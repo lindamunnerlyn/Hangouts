@@ -2,11 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.animation.Animator;
+import com.google.android.apps.hangouts.views.MessageListItemView;
 
-public final class ein
+final class ein
+    implements android.animation.Animator.AnimatorListener
 {
 
-    public ein()
+    final eim a;
+
+    ein(eim eim1)
+    {
+        a = eim1;
+        super();
+    }
+
+    private void a()
+    {
+        MessageListItemView.i(a.a);
+        a.a.b(true);
+    }
+
+    public void onAnimationCancel(Animator animator)
+    {
+        a();
+    }
+
+    public void onAnimationEnd(Animator animator)
+    {
+        a();
+    }
+
+    public void onAnimationRepeat(Animator animator)
+    {
+    }
+
+    public void onAnimationStart(Animator animator)
     {
     }
 }

@@ -2,27 +2,51 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.common.cache.LocalCache;
+import java.lang.ref.ReferenceQueue;
 
-final class jpy extends jlu
+public final class jpy extends jqa
 {
 
-    private final jlu c;
-    private final jlu d;
+    volatile long a;
+    com.google.common.cache.LocalCache.ReferenceEntry b;
+    com.google.common.cache.LocalCache.ReferenceEntry c;
 
-    jpy(jlu jlu1, jlu jlu2, jlu jlu3)
+    jpy(ReferenceQueue referencequeue, Object obj, int i, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        super(jlu1);
-        c = jlu2;
-        d = jlu3;
+        super(referencequeue, obj, i, referenceentry);
+        a = 0x7fffffffffffffffL;
+        b = LocalCache.j();
+        c = LocalCache.j();
     }
 
-    jlu a()
+    public long getAccessTime()
+    {
+        return a;
+    }
+
+    public com.google.common.cache.LocalCache.ReferenceEntry getNextInAccessQueue()
+    {
+        return b;
+    }
+
+    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInAccessQueue()
     {
         return c;
     }
 
-    jlu b()
+    public void setAccessTime(long l)
     {
-        return d;
+        a = l;
+    }
+
+    public void setNextInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        b = referenceentry;
+    }
+
+    public void setPreviousInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        c = referenceentry;
     }
 }

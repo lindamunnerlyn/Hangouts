@@ -3,116 +3,66 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class icz extends koj
+public final class icz extends kwm
 {
 
-    private static volatile icz e[];
-    public ide a;
-    public idf b;
-    public idc c[];
-    public idd d[];
+    public Long a;
+    public Long b;
+    public Long c;
+    public String d;
+    public String e;
 
     public icz()
     {
         a = null;
         b = null;
-        c = idc.a();
-        d = idd.a();
+        c = null;
+        d = null;
+        e = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    public static icz[] a()
-    {
-        if (e == null)
-        {
-            synchronized (kon.a)
-            {
-                if (e == null)
-                {
-                    e = new icz[0];
-                }
-            }
-        }
-        return e;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
     protected int computeSerializedSize()
     {
-        boolean flag = false;
         int j = super.computeSerializedSize();
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.e(1, a.longValue());
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.d(2, b);
+            j = i + kwk.e(2, b.longValue());
         }
         i = j;
         if (c != null)
         {
-            i = j;
-            if (c.length > 0)
-            {
-                i = j;
-                for (int k = 0; k < c.length;)
-                {
-                    idc idc1 = c[k];
-                    int i1 = i;
-                    if (idc1 != null)
-                    {
-                        i1 = i + koh.d(3, idc1);
-                    }
-                    k++;
-                    i = i1;
-                }
-
-            }
+            i = j + kwk.e(3, c.longValue());
         }
-        int j1 = i;
+        j = i;
         if (d != null)
         {
-            j1 = i;
-            if (d.length > 0)
-            {
-                int l = ((flag) ? 1 : 0);
-                do
-                {
-                    j1 = i;
-                    if (l >= d.length)
-                    {
-                        break;
-                    }
-                    idd idd1 = d[l];
-                    j1 = i;
-                    if (idd1 != null)
-                    {
-                        j1 = i + koh.d(4, idd1);
-                    }
-                    l++;
-                    i = j1;
-                } while (true);
-            }
+            j = i + kwk.b(4, d);
         }
-        return j1;
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.b(5, e);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -121,120 +71,51 @@ public final class icz extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new ide();
-                }
-                kog1.a(a);
+            case 8: // '\b'
+                a = Long.valueOf(kwj1.e());
                 break;
 
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new idf();
-                }
-                kog1.a(b);
+            case 16: // '\020'
+                b = Long.valueOf(kwj1.e());
                 break;
 
-            case 26: // '\032'
-                int l = kou.b(kog1, 26);
-                idc aidc[];
-                int j;
-                if (c == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = c.length;
-                }
-                aidc = new idc[l + j];
-                l = j;
-                if (j != 0)
-                {
-                    System.arraycopy(c, 0, aidc, 0, j);
-                    l = j;
-                }
-                for (; l < aidc.length - 1; l++)
-                {
-                    aidc[l] = new idc();
-                    kog1.a(aidc[l]);
-                    kog1.a();
-                }
-
-                aidc[l] = new idc();
-                kog1.a(aidc[l]);
-                c = aidc;
+            case 24: // '\030'
+                c = Long.valueOf(kwj1.e());
                 break;
 
             case 34: // '"'
-                int i1 = kou.b(kog1, 34);
-                idd aidd[];
-                int k;
-                if (d == null)
-                {
-                    k = 0;
-                } else
-                {
-                    k = d.length;
-                }
-                aidd = new idd[i1 + k];
-                i1 = k;
-                if (k != 0)
-                {
-                    System.arraycopy(d, 0, aidd, 0, k);
-                    i1 = k;
-                }
-                for (; i1 < aidd.length - 1; i1++)
-                {
-                    aidd[i1] = new idd();
-                    kog1.a(aidd[i1]);
-                    kog1.a();
-                }
+                d = kwj1.j();
+                break;
 
-                aidd[i1] = new idd();
-                kog1.a(aidd[i1]);
-                d = aidd;
+            case 42: // '*'
+                e = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        boolean flag = false;
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.b(1, a.longValue());
         }
         if (b != null)
         {
-            koh1.b(2, b);
+            kwk1.b(2, b.longValue());
         }
-        if (c != null && c.length > 0)
+        if (c != null)
         {
-            for (int i = 0; i < c.length; i++)
-            {
-                idc idc1 = c[i];
-                if (idc1 != null)
-                {
-                    koh1.b(3, idc1);
-                }
-            }
-
+            kwk1.b(3, c.longValue());
         }
-        if (d != null && d.length > 0)
+        if (d != null)
         {
-            for (int j = ((flag) ? 1 : 0); j < d.length; j++)
-            {
-                idd idd1 = d[j];
-                if (idd1 != null)
-                {
-                    koh1.b(4, idd1);
-                }
-            }
-
+            kwk1.a(4, d);
         }
-        super.writeTo(koh1);
+        if (e != null)
+        {
+            kwk1.a(5, e);
+        }
+        super.writeTo(kwk1);
     }
 }

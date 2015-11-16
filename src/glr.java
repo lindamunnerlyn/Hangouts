@@ -3,38 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class glr extends Enum
+final class glr
+    implements gds
 {
 
-    public static final glr a;
-    public static final glr b;
-    public static final glr c;
-    public static final glr d;
-    private static final glr e[];
+    final glo a;
 
-    private glr(String s, int i)
+    glr(glo glo)
     {
-        super(s, i);
+        a = glo;
+        super();
     }
 
-    public static glr valueOf(String s)
+    public void a(kws kws)
     {
-        return (glr)Enum.valueOf(glr, s);
+        gne.a(3, "vclib", "Successfully updated media source");
     }
 
-    public static glr[] values()
+    public void b(kws kws)
     {
-        return (glr[])e.clone();
-    }
-
-    static 
-    {
-        a = new glr("FROM_NUMBER_WITH_PLUS_SIGN", 0);
-        b = new glr("FROM_NUMBER_WITH_IDD", 1);
-        c = new glr("FROM_NUMBER_WITHOUT_PLUS_SIGN", 2);
-        d = new glr("FROM_DEFAULT_COUNTRY", 3);
-        e = (new glr[] {
-            a, b, c, d
-        });
+        kws = String.valueOf((jjg)kws);
+        gne.a(6, "vclib", (new StringBuilder(String.valueOf(kws).length() + 31)).append("Failed to update media source: ").append(kws).toString());
     }
 }

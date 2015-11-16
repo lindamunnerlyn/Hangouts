@@ -2,25 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import com.google.android.apps.hangouts.phone.DebugActivity;
 
 public final class ckt
-    implements android.view.View.OnClickListener
 {
 
-    final String a;
-    final DebugActivity b;
+    public static final int a[];
 
-    public ckt(DebugActivity debugactivity, String s)
+    static 
     {
-        b = debugactivity;
-        a = s;
-        super();
-    }
-
-    public void onClick(View view)
-    {
-        DebugActivity.a(b, a, "conversations_view");
+        a = new int[gqv.values().length];
+        try
+        {
+            a[gqv.c.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[gqv.b.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[gqv.a.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

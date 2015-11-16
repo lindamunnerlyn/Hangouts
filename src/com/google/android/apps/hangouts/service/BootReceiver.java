@@ -8,13 +8,13 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import ani;
-import cej;
+import aoa;
+import cfo;
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 import com.google.android.apps.hangouts.sms.SmsReceiver;
-import dbf;
-import dkz;
-import ebw;
+import dcn;
+import dnw;
+import eev;
 import java.util.Iterator;
 import java.util.List;
 
@@ -37,32 +37,35 @@ public class BootReceiver extends BroadcastReceiver
     {
         if ("android.intent.action.BOOT_COMPLETED".equals(intent.getAction()))
         {
-            ebw.c("Babel", "Scheduling babel db cleanup after reboot");
+            eev.c("Babel", "Scheduling babel db cleanup after reboot");
             if (a(context))
             {
                 RealTimeChatService.a(intent.getAction(), context.getPackageName());
             }
-            dkz.a();
-            dbf.r();
+            dnw.a();
+            dcn.r();
             SmsReceiver.a();
-            intent = dbf.l();
+            intent = dcn.l();
             if (intent != null)
             {
-                cej.a(context, intent.h(), true);
+                cfo.a(context, intent.h(), true);
             }
-            intent = dbf.t().iterator();
+            intent = dcn.t();
+            int i = intent.size();
+            eev.f("Babel", (new StringBuilder(41)).append("On boot, found ").append(i).append(" ready accounts").toString());
+            intent = intent.iterator();
             do
             {
                 if (!intent.hasNext())
                 {
                     break;
                 }
-                ani ani1 = (ani)intent.next();
-                String s = String.valueOf(ani1);
-                ebw.b("Babel", (new StringBuilder(String.valueOf(s).length() + 20)).append("babel boot account: ").append(s).toString());
-                if (ani1 != null)
+                aoa aoa1 = (aoa)intent.next();
+                String s = String.valueOf(aoa1);
+                eev.e("Babel", (new StringBuilder(String.valueOf(s).length() + 20)).append("babel boot account: ").append(s).toString());
+                if (aoa1 != null)
                 {
-                    cej.a(context, ani1.h(), true);
+                    cfo.a(context, aoa1.h(), true);
                 }
             } while (true);
         }

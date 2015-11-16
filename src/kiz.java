@@ -3,151 +3,60 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kiz extends koj
+public final class kiz extends kwm
 {
 
-    private static volatile kiz f[];
-    public int a;
-    public jwv b;
-    public String c;
-    public String d;
-    public jwv e;
+    public Boolean a;
 
     public kiz()
     {
-        a = 0x80000000;
-        b = null;
-        c = null;
-        d = null;
-        e = null;
+        a = null;
         unknownFieldData = null;
         cachedSize = -1;
-    }
-
-    public static kiz[] a()
-    {
-        if (f == null)
-        {
-            synchronized (kon.a)
-            {
-                if (f == null)
-                {
-                    f = new kiz[0];
-                }
-            }
-        }
-        return f;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
     protected int computeSerializedSize()
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (a != 0x80000000)
+        if (a != null)
         {
-            i = j + koh.e(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.b(3, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.b(4, d);
-        }
-        i = j;
-        if (e != null)
-        {
-            i = j + koh.d(5, e);
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L8:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 6: default 64
-    //                   0: 73
-    //                   8: 75
-    //                   18: 123
-    //                   26: 152
-    //                   34: 163
-    //                   42: 174;
-           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L8; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
+        do
         {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-            a = j;
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        if (b == null)
-        {
-            b = new jwv();
-        }
-        kog1.a(b);
-        continue; /* Loop/switch isn't completed */
-_L5:
-        c = kog1.j();
-        continue; /* Loop/switch isn't completed */
-_L6:
-        d = kog1.j();
-        continue; /* Loop/switch isn't completed */
-_L7:
-        if (e == null)
-        {
-            e = new jwv();
-        }
-        kog1.a(e);
-        if (true) goto _L8; else goto _L9
-_L9:
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != 0x80000000)
+        if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(1, a.booleanValue());
         }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        if (c != null)
-        {
-            koh1.a(3, c);
-        }
-        if (d != null)
-        {
-            koh1.a(4, d);
-        }
-        if (e != null)
-        {
-            koh1.b(5, e);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

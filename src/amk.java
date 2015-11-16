@@ -2,83 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.AbstractCursor;
-import java.util.List;
+import com.google.android.apps.hangouts.concurrent.impl.ConcurrentServiceImpl;
 
-public final class amk extends AbstractCursor
-    implements amj
+public final class amk
+    implements Runnable
 {
 
-    private static final String a[] = new String[0];
-    private final List b;
+    final ConcurrentServiceImpl a;
 
-    public amk(List list)
+    public amk(ConcurrentServiceImpl concurrentserviceimpl)
     {
-        b = list;
+        a = concurrentserviceimpl;
+        super();
     }
 
-    public amf a()
+    public void run()
     {
-        return (amf)b.get(mPos);
+        ConcurrentServiceImpl.a(a);
     }
-
-    public void a(List list)
-    {
-    }
-
-    public int b()
-    {
-        return 0;
-    }
-
-    public String[] getColumnNames()
-    {
-        return a;
-    }
-
-    public int getCount()
-    {
-        return b.size();
-    }
-
-    public double getDouble(int i)
-    {
-        return 0.0D;
-    }
-
-    public float getFloat(int i)
-    {
-        return 0.0F;
-    }
-
-    public int getInt(int i)
-    {
-        return 0;
-    }
-
-    public long getLong(int i)
-    {
-        return 0L;
-    }
-
-    public short getShort(int i)
-    {
-        return 0;
-    }
-
-    public String getString(int i)
-    {
-        return null;
-    }
-
-    public boolean isClosed()
-    {
-        return false;
-    }
-
-    public boolean isNull(int i)
-    {
-        return false;
-    }
-
 }

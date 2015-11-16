@@ -2,22 +2,51 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
+import android.view.View;
 
-final class blt
-    implements android.content.DialogInterface.OnClickListener
+public final class blt
 {
 
-    final bls a;
+    public String a;
+    public String b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public final int f;
+    public View g;
 
-    blt(bls bls1)
+    public blt(String s, String s1, boolean flag, boolean flag1, int i)
     {
-        a = bls1;
-        super();
+        a = s;
+        b = s1;
+        c = flag;
+        d = flag1;
+        f = i;
+        g = null;
+        e = true;
     }
 
-    public void onClick(DialogInterface dialoginterface, int i)
+    public void a()
     {
-        a.a();
+        if (g != null)
+        {
+            g.setEnabled(e);
+            View view = g;
+            float f1;
+            if (e)
+            {
+                f1 = 1.0F;
+            } else
+            {
+                f1 = 0.4F;
+            }
+            view.setAlpha(f1);
+        }
+    }
+
+    public void a(boolean flag)
+    {
+        e = flag;
+        a();
     }
 }

@@ -2,22 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.phone.BabelHomeActivity;
+import java.util.List;
 
 public final class cjw
-    implements Runnable
 {
 
-    final BabelHomeActivity a;
+    final int a;
+    final List b;
 
-    public cjw(BabelHomeActivity babelhomeactivity)
+    cjw(int i, List list)
     {
-        a = babelhomeactivity;
-        super();
-    }
-
-    public void run()
-    {
-        BabelHomeActivity.k(a);
+        a = i;
+        b = list;
     }
 }

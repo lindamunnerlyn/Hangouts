@@ -2,116 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.os.Bundle;
-import android.util.TypedValue;
+import android.support.v7.internal.widget.ActionBarContextView;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
+import android.widget.PopupWindow;
 
-final class rl
+final class rl extends mf
 {
 
-    int a;
-    int b;
-    int c;
-    int d;
-    int e;
-    int f;
-    ViewGroup g;
-    View h;
-    View i;
-    sy j;
-    sw k;
-    Context l;
-    boolean m;
-    boolean n;
-    boolean o;
-    public boolean p;
-    boolean q;
-    boolean r;
-    Bundle s;
+    final rk a;
 
-    rl(int i1)
+    rl(rk rk1)
     {
-        a = i1;
-        q = false;
+        a = rk1;
+        super();
     }
 
-    tp a(to to)
+    public void b(View view)
     {
-        if (j == null)
+        a.a.p.setVisibility(8);
+        if (a.a.q == null) goto _L2; else goto _L1
+_L1:
+        a.a.q.dismiss();
+_L4:
+        a.a.p.removeAllViews();
+        a.a.s.a(null);
+        a.a.s = null;
+        return;
+_L2:
+        if (a.a.p.getParent() instanceof View)
         {
-            return null;
+            kb.s((View)a.a.p.getParent());
         }
-        if (k == null)
-        {
-            k = new sw(l, g.by);
-            k.a(to);
-            j.a(k);
-        }
-        return k.a(g);
-    }
-
-    void a(Context context)
-    {
-        TypedValue typedvalue = new TypedValue();
-        android.content.res.Resources.Theme theme = context.getResources().newTheme();
-        theme.setTo(context.getTheme());
-        theme.resolveAttribute(g.e, typedvalue, true);
-        if (typedvalue.resourceId != 0)
-        {
-            theme.applyStyle(typedvalue.resourceId, true);
-        }
-        theme.resolveAttribute(g.J, typedvalue, true);
-        if (typedvalue.resourceId != 0)
-        {
-            theme.applyStyle(typedvalue.resourceId, true);
-        } else
-        {
-            theme.applyStyle(g.bK, true);
-        }
-        context = new sg(context, 0);
-        context.getTheme().setTo(theme);
-        l = context;
-        context = context.obtainStyledAttributes(ro.bK);
-        b = context.getResourceId(ro.bN, 0);
-        f = context.getResourceId(ro.bL, 0);
-        context.recycle();
-    }
-
-    void a(sy sy1)
-    {
-        if (sy1 != j)
-        {
-            if (j != null)
-            {
-                j.b(k);
-            }
-            j = sy1;
-            if (sy1 != null && k != null)
-            {
-                sy1.a(k);
-                return;
-            }
-        }
-    }
-
-    public boolean a()
-    {
-        if (h != null)
-        {
-            if (i != null)
-            {
-                return true;
-            }
-            if (k.a().getCount() > 0)
-            {
-                return true;
-            }
-        }
-        return false;
+        if (true) goto _L4; else goto _L3
+_L3:
     }
 }

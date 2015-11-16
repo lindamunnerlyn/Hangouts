@@ -3,47 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jpo
+final class jpo extends jpm
 {
 
-    static final Object a[] = new Object[0];
-
-    static Object a(Object obj, int i)
+    jpo(String s)
     {
-        if (obj == null)
+        super(s, 1);
+    }
+
+    jpw a(jpj jpj1, com.google.common.cache.LocalCache.ReferenceEntry referenceentry, Object obj, int i)
+    {
+        if (i == 1)
         {
-            throw new NullPointerException((new StringBuilder("at index ")).append(i).toString());
+            return new jpl(jpj1.i, obj, referenceentry);
         } else
         {
-            return obj;
+            return new jqd(jpj1.i, obj, referenceentry, i);
         }
     }
-
-    static transient Object[] a(Object aobj[])
-    {
-        return c(aobj, aobj.length);
-    }
-
-    public static Object[] a(Object aobj[], int i)
-    {
-        return g.a(aobj, i);
-    }
-
-    static Object[] b(Object aobj[], int i)
-    {
-        Object aobj1[] = g.a(aobj, i);
-        System.arraycopy(((Object) (aobj)), 0, ((Object) (aobj1)), 0, Math.min(aobj.length, i));
-        return aobj1;
-    }
-
-    static Object[] c(Object aobj[], int i)
-    {
-        for (int j = 0; j < i; j++)
-        {
-            a(aobj[j], j);
-        }
-
-        return aobj;
-    }
-
 }

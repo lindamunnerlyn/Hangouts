@@ -5,25 +5,19 @@
 import android.text.TextUtils;
 
 public final class aef
-    implements adx
+    implements adz
 {
 
-    final String a;
-    private final int b;
-    private final String c;
-    private boolean d;
+    public final String a;
 
-    public aef(String s, int i, String s1, boolean flag)
+    public aef(String s)
     {
         a = s;
-        b = i;
-        c = s1;
-        d = flag;
     }
 
-    public final adz a()
+    public aeb a()
     {
-        return adz.b;
+        return aeb.k;
     }
 
     public String b()
@@ -31,64 +25,42 @@ public final class aef
         return a;
     }
 
-    public int c()
-    {
-        return b;
-    }
-
-    public String d()
-    {
-        return c;
-    }
-
     public boolean equals(Object obj)
     {
-        if (this != obj)
+        if (this == obj)
         {
-            if (!(obj instanceof aef))
-            {
-                return false;
-            }
-            obj = (aef)obj;
-            if (b != ((aef) (obj)).b || !TextUtils.equals(a, ((aef) (obj)).a) || !TextUtils.equals(c, ((aef) (obj)).c) || d != ((aef) (obj)).d)
-            {
-                return false;
-            }
+            return true;
         }
-        return true;
+        if (!(obj instanceof aef))
+        {
+            return false;
+        } else
+        {
+            obj = (aef)obj;
+            return TextUtils.equals(a, ((aef) (obj)).a);
+        }
     }
 
     public int hashCode()
     {
-        int j = 0;
-        int k = b;
-        int i;
-        char c1;
         if (a != null)
         {
-            i = a.hashCode();
+            return a.hashCode();
         } else
         {
-            i = 0;
+            return 0;
         }
-        if (c != null)
-        {
-            j = c.hashCode();
-        }
-        if (d)
-        {
-            c1 = '\u04CF';
-        } else
-        {
-            c1 = '\u04D5';
-        }
-        return c1 + ((i + k * 31) * 31 + j) * 31;
     }
 
     public String toString()
     {
-        return String.format("type: %d, data: %s, label: %s, isPrimary: %s", new Object[] {
-            Integer.valueOf(b), a, c, Boolean.valueOf(d)
-        });
+        String s = String.valueOf(a);
+        if (s.length() != 0)
+        {
+            return "note: ".concat(s);
+        } else
+        {
+            return new String("note: ");
+        }
     }
 }

@@ -2,65 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.List;
+import java.util.concurrent.Callable;
 
 final class ccy
+    implements Callable
 {
 
-    int a;
-    List b;
+    final ccx a;
 
-    ccy(int i, List list)
+    ccy(ccx ccx1)
     {
-        a = i;
-        b = list;
-        if (cdu.b)
-        {
-            i = a;
-            int j = b.size();
-            ebw.f("Babel", (new StringBuilder(80)).append("Notification list with : messageCount=").append(i).append(" conversation count=").append(j).toString());
-        }
+        a = ccx1;
+        super();
     }
 
-    static ccy a(int i, boolean flag, boolean flag1, boolean flag2)
+    private Void a()
     {
-        ccy ccy1 = cdr.a(i, flag, flag1, flag2);
-        cda cda1 = cdp.b(i);
-        if (cda1 != null)
+label0:
         {
-            for (i = 0; i < ccy1.b.size() && cda1.g < ((cda)ccy1.b.get(i)).g; i++) { }
-            if (i < ccy1.b.size())
+            synchronized (a)
             {
-                ccy1.b.add(i, cda1);
-            } else
-            {
-                ccy1.b.add(cda1);
-            }
-            ccy1.a = ccy1.a + cda1.i;
-        }
-        return ccy1;
-    }
-
-    dzx a()
-    {
-        dzx dzx1 = new dzx();
-        for (Iterator iterator = b.iterator(); iterator.hasNext();)
-        {
-            Object obj = (cda)iterator.next();
-            if (((cda) (obj)).j)
-            {
-                obj = ((cda) (obj)).h.iterator();
-                while (((Iterator) (obj)).hasNext()) 
+                if (ccx.a(a) != null)
                 {
-                    dzx1.add(((cdp)(ceb)((Iterator) (obj)).next()).o.a);
+                    break label0;
                 }
-            } else
-            {
-                dzx1.add(((cda) (obj)).a);
             }
+            return null;
         }
+        ccx.b(a);
+        if (ccx.c(a))
+        {
+            ccx.d(a);
+            ccx.e(a);
+        }
+        ccx1;
+        JVM INSTR monitorexit ;
+        return null;
+        exception;
+        ccx1;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
 
-        return dzx1;
+    public Object call()
+    {
+        return a();
     }
 }

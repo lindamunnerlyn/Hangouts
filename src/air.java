@@ -2,11 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
 
-public interface air
+final class air extends ain
+    implements aio
 {
 
-    public abstract void a();
+    private volatile boolean a;
 
-    public abstract void a(String s);
+    air()
+    {
+    }
+
+    protected void a(Activity activity)
+    {
+        a = true;
+    }
+
+    public boolean a()
+    {
+        return a;
+    }
+
+    protected void b()
+    {
+        a = false;
+    }
 }

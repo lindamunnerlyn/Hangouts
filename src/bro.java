@@ -2,15 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.hangout.ParticipantTrayView;
 
-public class bro extends boh
+public final class bro extends bns
 {
 
-    final brk a;
+    final ParticipantTrayView a;
 
-    protected bro(brk brk)
+    public bro(ParticipantTrayView participanttrayview)
     {
-        a = brk;
+        a = participanttrayview;
         super();
+    }
+
+    public void a(gmt gmt)
+    {
+        a.a(gmt);
+    }
+
+    public void d(gmt gmt)
+    {
+        a.g();
     }
 }

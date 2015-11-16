@@ -3,32 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-final class dgr
-    implements dgt
+public final class dgr
+    implements Runnable
 {
 
-    final dgq a;
-
-    dgr(dgq dgq)
+    public dgr()
     {
-        a = dgq;
-        super();
     }
 
-    public int a(ani ani, ArrayList arraylist)
+    public void run()
     {
-        return RealTimeChatService.a(ani, arraylist, null, true);
-    }
-
-    public void a(dgp dgp)
-    {
-        RealTimeChatService.a(dgp);
-    }
-
-    public void b(dgp dgp)
-    {
-        RealTimeChatService.b(dgp);
+        for (Iterator iterator = RealTimeChatService.o().iterator(); iterator.hasNext(); ((dhy)iterator.next()).b()) { }
     }
 }

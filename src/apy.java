@@ -2,25 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
 final class apy
-    implements afz
 {
 
-    final dnc a;
-    final apw b;
-
-    apy(apw apw, dnc dnc)
+    apy()
     {
-        b = apw;
-        a = dnc;
-        super();
     }
 
-    public void a(agf agf)
+    public aqb a(Context context)
     {
-        agf = String.valueOf(agf);
-        ebw.f("Babel_medialoader", (new StringBuilder(String.valueOf(agf).length() + 29)).append("downloadUseVolley: got error ").append(agf).toString());
-        ((dmt)hgx.a(g.nS, dmt)).b(a);
+        return new apz(this, context);
     }
 }

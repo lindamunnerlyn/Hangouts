@@ -2,9 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.text.TextUtils;
 
-public interface bsh
+public final class bsh
+    implements gkr
 {
 
-    public abstract void a(ps ps, hjm hjm);
+    private final String a;
+    private final String b;
+    private final String c;
+    private final int d;
+
+    bsh(String s, String s1, String s2, int i)
+    {
+        a = s;
+        b = s1;
+        c = s2;
+        d = i;
+    }
+
+    public String a()
+    {
+        if (!TextUtils.isEmpty(a))
+        {
+            return a;
+        } else
+        {
+            return b;
+        }
+    }
+
+    public String b()
+    {
+        return b;
+    }
+
+    String c()
+    {
+        return c;
+    }
+
+    int d()
+    {
+        return d;
+    }
 }

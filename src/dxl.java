@@ -3,8 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface dxl
+interface dxl
 {
 
-    public abstract void a(boolean flag, boolean flag1);
+    public abstract void a(dxh dxh, int i);
 }

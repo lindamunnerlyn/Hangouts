@@ -2,251 +2,431 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.EnumSet;
-import java.util.Iterator;
-import java.util.Set;
 
-public abstract class jmi extends jle
-    implements Set
+public final class jmi extends kwm
 {
 
-    jmi()
+    private static volatile jmi e[];
+    public Integer a;
+    public Integer b;
+    public Integer c;
+    public Long d;
+
+    public jmi()
     {
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private static int a(int i)
+    public static jmi[] a()
     {
-        int k;
-        if (i < 0x2ccccccc)
+        if (e == null)
         {
-            int j = Integer.highestOneBit(i - 1) << 1;
-            do
+            synchronized (kwq.a)
             {
-                k = j;
-                if ((double)j * 0.69999999999999996D >= (double)i)
+                if (e == null)
                 {
-                    break;
+                    e = new jmi[0];
                 }
-                j <<= 1;
-            } while (true);
-        } else
-        {
-            boolean flag;
-            if (i < 0x40000000)
-            {
-                flag = true;
-            } else
-            {
-                flag = false;
-            }
-            n.a(flag, "collection too large");
-            k = 0x40000000;
-        }
-        return k;
-    }
-
-    static jmi a(int i, Object aobj[])
-    {
-        return b(i, aobj);
-    }
-
-    public static jmi a(Object obj, Object obj1)
-    {
-        return b(2, new Object[] {
-            obj, obj1
-        });
-    }
-
-    public static jmi a(Object obj, Object obj1, Object obj2, Object obj3, Object obj4)
-    {
-        return b(5, new Object[] {
-            obj, obj1, obj2, obj3, obj4
-        });
-    }
-
-    public static transient jmi a(Object obj, Object obj1, Object obj2, Object obj3, Object obj4, Object obj5, Object aobj[])
-    {
-        Object aobj1[] = new Object[10];
-        aobj1[0] = obj;
-        aobj1[1] = obj1;
-        aobj1[2] = obj2;
-        aobj1[3] = obj3;
-        aobj1[4] = obj4;
-        aobj1[5] = obj5;
-        System.arraycopy(((Object) (aobj)), 0, ((Object) (aobj1)), 6, 4);
-        return b(10, aobj1);
-    }
-
-    public static jmi a(Collection collection)
-    {
-        if ((collection instanceof jmi) && !(collection instanceof jmn))
-        {
-            jmi jmi1 = (jmi)collection;
-            if (!jmi1.e())
-            {
-                return jmi1;
-            }
-        } else
-        if (collection instanceof EnumSet)
-        {
-            collection = EnumSet.copyOf((EnumSet)collection);
-            switch (collection.size())
-            {
-            default:
-                return new jli(collection);
-
-            case 0: // '\0'
-                return jkr.a;
-
-            case 1: // '\001'
-                return b(g.a(collection));
             }
         }
-        collection = ((Collection) (collection.toArray()));
-        return b(collection.length, collection);
+        return e;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public static jmi a(Object aobj[])
+    protected int computeSerializedSize()
     {
-        switch (aobj.length)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (b != null)
         {
-        default:
-            return b(aobj.length, (Object[])((Object []) (aobj)).clone());
-
-        case 0: // '\0'
-            return jkr.a;
-
-        case 1: // '\001'
-            return b(aobj[0]);
+            i = j + kwk.e(1, b.intValue());
         }
+        j = i;
+        if (c != null)
+        {
+            j = i + kwk.e(2, c.intValue());
+        }
+        i = j;
+        if (d != null)
+        {
+            i = j + kwk.e(3, d.longValue());
+        }
+        j = i;
+        if (a != null)
+        {
+            j = i + kwk.e(4, a.intValue());
+        }
+        return j;
     }
 
-    private static transient jmi b(int i, Object aobj[])
+    public kws mergeFrom(kwj kwj1)
     {
-        int k = i;
-_L13:
-        k;
-        JVM INSTR tableswitch 0 1: default 28
-    //                   0 136
-    //                   1 140;
-           goto _L1 _L2 _L3
-_L1:
-        Object aobj2[];
-        int j;
-        int l;
-        int j1;
-        int k1;
-        j1 = a(k);
-        aobj2 = new Object[j1];
-        k1 = j1 - 1;
-        l = 0;
-        i = 0;
-        j = 0;
-_L8:
-        if (l >= k) goto _L5; else goto _L4
-_L4:
-        Object obj;
-        int i1;
-        int l1;
-        obj = jpo.a(aobj[l], l);
-        l1 = obj.hashCode();
-        i1 = jky.a(l1);
-_L11:
-        Object obj1;
-        int i2;
-        i2 = i1 & k1;
-        obj1 = aobj2[i2];
-        if (obj1 != null) goto _L7; else goto _L6
-_L6:
-        i1 = i + 1;
-        aobj[i] = obj;
-        aobj2[i2] = obj;
-        j += l1;
-        i = i1;
-_L10:
-        l++;
-          goto _L8
-_L2:
-        return jkr.a;
-_L3:
-        return b(aobj[0]);
 _L7:
-        if (obj1.equals(obj)) goto _L10; else goto _L9
-_L9:
-        i1++;
-          goto _L11
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 5: default 56
+    //                   0: 65
+    //                   8: 67
+    //                   16: 954
+    //                   24: 1842
+    //                   32: 1856;
+           goto _L1 _L2 _L3 _L4 _L5 _L6
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L7; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+        case 5: // '\005'
+        case 6: // '\006'
+        case 7: // '\007'
+        case 8: // '\b'
+        case 9: // '\t'
+        case 100: // 'd'
+        case 101: // 'e'
+        case 102: // 'f'
+        case 103: // 'g'
+        case 104: // 'h'
+        case 105: // 'i'
+        case 106: // 'j'
+        case 107: // 'k'
+        case 108: // 'l'
+        case 109: // 'm'
+        case 110: // 'n'
+        case 111: // 'o'
+        case 112: // 'p'
+        case 113: // 'q'
+        case 114: // 'r'
+        case 200: 
+        case 201: 
+        case 202: 
+        case 203: 
+        case 204: 
+        case 205: 
+        case 300: 
+        case 301: 
+        case 302: 
+        case 303: 
+        case 304: 
+        case 305: 
+        case 306: 
+        case 307: 
+        case 308: 
+        case 309: 
+        case 310: 
+        case 311: 
+        case 312: 
+        case 313: 
+        case 314: 
+        case 315: 
+        case 316: 
+        case 317: 
+        case 318: 
+        case 319: 
+        case 320: 
+        case 321: 
+        case 322: 
+        case 323: 
+        case 324: 
+        case 325: 
+        case 326: 
+        case 327: 
+        case 328: 
+        case 329: 
+        case 330: 
+        case 331: 
+        case 332: 
+        case 333: 
+        case 334: 
+        case 335: 
+        case 336: 
+        case 337: 
+        case 338: 
+        case 339: 
+        case 340: 
+        case 341: 
+        case 342: 
+        case 343: 
+        case 344: 
+        case 345: 
+        case 346: 
+        case 347: 
+        case 348: 
+        case 349: 
+        case 350: 
+        case 351: 
+        case 352: 
+        case 353: 
+        case 354: 
+        case 355: 
+        case 400: 
+        case 401: 
+        case 402: 
+        case 403: 
+        case 404: 
+        case 405: 
+        case 406: 
+        case 407: 
+        case 500: 
+        case 501: 
+        case 502: 
+        case 503: 
+        case 1000: 
+        case 1001: 
+        case 1002: 
+        case 1003: 
+        case 1004: 
+        case 1005: 
+        case 1100: 
+        case 1101: 
+            b = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        int k = kwj1.f();
+        switch (k)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+        case 5: // '\005'
+        case 6: // '\006'
+        case 7: // '\007'
+        case 8: // '\b'
+        case 9: // '\t'
+        case 100: // 'd'
+        case 101: // 'e'
+        case 102: // 'f'
+        case 103: // 'g'
+        case 104: // 'h'
+        case 105: // 'i'
+        case 106: // 'j'
+        case 107: // 'k'
+        case 108: // 'l'
+        case 109: // 'm'
+        case 110: // 'n'
+        case 111: // 'o'
+        case 112: // 'p'
+        case 113: // 'q'
+        case 114: // 'r'
+        case 200: 
+        case 201: 
+        case 202: 
+        case 203: 
+        case 204: 
+        case 205: 
+        case 300: 
+        case 301: 
+        case 302: 
+        case 303: 
+        case 304: 
+        case 305: 
+        case 306: 
+        case 307: 
+        case 308: 
+        case 309: 
+        case 310: 
+        case 311: 
+        case 312: 
+        case 313: 
+        case 314: 
+        case 315: 
+        case 316: 
+        case 317: 
+        case 318: 
+        case 319: 
+        case 320: 
+        case 321: 
+        case 322: 
+        case 323: 
+        case 324: 
+        case 325: 
+        case 326: 
+        case 327: 
+        case 328: 
+        case 329: 
+        case 330: 
+        case 331: 
+        case 332: 
+        case 333: 
+        case 334: 
+        case 335: 
+        case 336: 
+        case 337: 
+        case 338: 
+        case 339: 
+        case 340: 
+        case 341: 
+        case 342: 
+        case 343: 
+        case 344: 
+        case 345: 
+        case 346: 
+        case 347: 
+        case 348: 
+        case 349: 
+        case 350: 
+        case 351: 
+        case 352: 
+        case 353: 
+        case 354: 
+        case 355: 
+        case 400: 
+        case 401: 
+        case 402: 
+        case 403: 
+        case 404: 
+        case 405: 
+        case 406: 
+        case 407: 
+        case 500: 
+        case 501: 
+        case 502: 
+        case 503: 
+        case 1000: 
+        case 1001: 
+        case 1002: 
+        case 1003: 
+        case 1004: 
+        case 1005: 
+        case 1100: 
+        case 1101: 
+            c = Integer.valueOf(k);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
 _L5:
-        Arrays.fill(aobj, i, k, null);
-        if (i == 1)
+        d = Long.valueOf(kwj1.e());
+        continue; /* Loop/switch isn't completed */
+_L6:
+        int l = kwj1.f();
+        switch (l)
         {
-            return new jql(aobj[0], j);
+        case 0: // '\0'
+        case 2: // '\002'
+        case 4: // '\004'
+        case 5: // '\005'
+        case 6: // '\006'
+        case 7: // '\007'
+        case 8: // '\b'
+        case 9: // '\t'
+        case 10: // '\n'
+        case 11: // '\013'
+        case 12: // '\f'
+        case 13: // '\r'
+        case 14: // '\016'
+        case 15: // '\017'
+        case 16: // '\020'
+        case 101: // 'e'
+        case 102: // 'f'
+        case 104: // 'h'
+        case 105: // 'i'
+        case 107: // 'k'
+        case 108: // 'l'
+        case 110: // 'n'
+        case 111: // 'o'
+        case 112: // 'p'
+        case 113: // 'q'
+        case 200: 
+        case 201: 
+        case 202: 
+        case 203: 
+        case 204: 
+        case 300: 
+        case 301: 
+        case 302: 
+        case 303: 
+        case 304: 
+        case 305: 
+        case 306: 
+        case 307: 
+        case 308: 
+        case 309: 
+        case 310: 
+        case 311: 
+        case 312: 
+        case 313: 
+        case 314: 
+        case 315: 
+        case 316: 
+        case 317: 
+        case 318: 
+        case 319: 
+        case 320: 
+        case 321: 
+        case 322: 
+        case 323: 
+        case 324: 
+        case 325: 
+        case 326: 
+        case 327: 
+        case 328: 
+        case 329: 
+        case 330: 
+        case 331: 
+        case 332: 
+        case 333: 
+        case 334: 
+        case 335: 
+        case 400: 
+        case 401: 
+        case 402: 
+        case 403: 
+        case 404: 
+        case 405: 
+        case 406: 
+        case 407: 
+        case 408: 
+        case 500: 
+        case 501: 
+        case 502: 
+        case 1000: 
+        case 1001: 
+        case 1002: 
+        case 1003: 
+            a = Integer.valueOf(l);
+            break;
         }
-        if (j1 == a(i))
+        if (true) goto _L7; else goto _L8
+_L8:
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (b != null)
         {
-            break; /* Loop/switch isn't completed */
+            kwk1.a(1, b.intValue());
         }
-        k = i;
-        if (true) goto _L13; else goto _L12
-_L12:
-        Object aobj1[] = aobj;
-        if (i < aobj.length)
+        if (c != null)
         {
-            aobj1 = jpo.b(aobj, i);
+            kwk1.a(2, c.intValue());
         }
-        return new jqd(aobj1, j, aobj2, k1);
-    }
-
-    public static jmi b(Object obj)
-    {
-        return new jql(obj);
-    }
-
-    public static jmi g()
-    {
-        return jkr.a;
-    }
-
-    public static jmj h()
-    {
-        return new jmj();
-    }
-
-    boolean H_()
-    {
-        return false;
-    }
-
-    public abstract jqy a();
-
-    public boolean equals(Object obj)
-    {
-        if (obj == this)
+        if (d != null)
         {
-            return true;
+            kwk1.b(3, d.longValue());
         }
-        if ((obj instanceof jmi) && H_() && ((jmi)obj).H_() && hashCode() != obj.hashCode())
+        if (a != null)
         {
-            return false;
-        } else
-        {
-            return h.a(this, obj);
+            kwk1.a(4, a.intValue());
         }
-    }
-
-    public int hashCode()
-    {
-        return h.a(this);
-    }
-
-    public Iterator iterator()
-    {
-        return a();
-    }
-
-    Object writeReplace()
-    {
-        return new jmk(toArray());
+        super.writeTo(kwk1);
     }
 }

@@ -2,9 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
 
-public interface btt
+final class btt
+    implements android.view.View.OnClickListener
 {
 
-    public abstract void a(btv btv, boolean flag);
+    final bpc a;
+    final btp b;
+
+    btt(btp btp, bpc bpc1)
+    {
+        b = btp;
+        a = bpc1;
+        super();
+    }
+
+    public void onClick(View view)
+    {
+        g.b(1227);
+        a.l();
+    }
 }

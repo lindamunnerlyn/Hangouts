@@ -2,35 +2,57 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.TextView;
-import com.google.android.apps.hangouts.realtimechat.DebugOzGetMergedPersonActivity;
+import java.util.Iterator;
+import java.util.Set;
 
 public final class dck
-    implements android.view.View.OnClickListener
 {
 
-    final TextView a;
-    final RadioGroup b;
-    final EditText c;
-    final CheckBox d;
-    final DebugOzGetMergedPersonActivity e;
+    final String a;
+    final int b;
 
-    public dck(DebugOzGetMergedPersonActivity debugozgetmergedpersonactivity, TextView textview, RadioGroup radiogroup, EditText edittext, CheckBox checkbox)
+    public dck(dns dns1)
     {
-        e = debugozgetmergedpersonactivity;
-        a = textview;
-        b = radiogroup;
-        c = edittext;
-        d = checkbox;
-        super();
+        a = dns1.a;
+        b = dns1.b;
     }
 
-    public void onClick(View view)
+    public dck(String s)
     {
-        (new dcl(this, ((gmo)e.getBinder().a(gmo)).a())).execute(new Void[0]);
+        a = s;
+        b = 1;
+    }
+
+    public void a(aow aow1)
+    {
+label0:
+        {
+            aow1.c(a, b);
+            if (aow.a(a))
+            {
+                if (b != 2)
+                {
+                    break label0;
+                }
+                aow1.l(a, 4L);
+            }
+            return;
+        }
+        aow1.k(a, 4L);
+    }
+
+    public void b(aow aow1)
+    {
+        aow1.a();
+        aow1.c(a, b);
+        for (Iterator iterator = aow1.ah(a).iterator(); iterator.hasNext(); aow1.c((String)iterator.next(), b)) { }
+        break MISSING_BLOCK_LABEL_66;
+        Exception exception;
+        exception;
+        aow1.c();
+        throw exception;
+        aow1.b();
+        aow1.c();
+        return;
     }
 }

@@ -2,23 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
 
-public final class fsw
-    implements ekg
+final class fsw extends ThreadLocal
 {
 
-    public final Status a;
-    public final int b;
-
-    public fsw(Status status, int i)
+    fsw()
     {
-        a = status;
-        b = i;
     }
 
-    public Status B_()
+    protected Object initialValue()
     {
-        return a;
+        return new String[1];
     }
 }

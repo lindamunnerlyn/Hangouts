@@ -2,29 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
+import android.content.Context;
+import android.os.IBinder;
+import android.os.IInterface;
 import android.os.Looper;
-import android.os.Message;
+import com.google.android.gms.clearcut.LogEventParcelable;
 
-final class elr extends Handler
+public final class elr extends eqa
 {
 
-    final elq a;
-
-    public elr(elq elq1, Looper looper)
+    public elr(Context context, Looper looper, epo epo, enb enb, end end)
     {
-        a = elq1;
-        super(looper);
+        super(context, looper, 40, epo, enb, end);
     }
 
-    public void handleMessage(Message message)
+    protected IInterface a(IBinder ibinder)
     {
-        boolean flag = true;
-        if (message.what != 1)
+        if (ibinder == null)
         {
-            flag = false;
+            return null;
         }
-        h.b(flag);
-        a.b((els)message.obj);
+        IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.clearcut.internal.IClearcutLoggerService");
+        if (iinterface != null && (iinterface instanceof elv))
+        {
+            return (elv)iinterface;
+        } else
+        {
+            return new elx(ibinder);
+        }
+    }
+
+    protected String a()
+    {
+        return "com.google.android.gms.clearcut.service.START";
+    }
+
+    public void a(els els, LogEventParcelable logeventparcelable)
+    {
+        ((elv)m()).a(els, logeventparcelable);
+    }
+
+    protected String b()
+    {
+        return "com.google.android.gms.clearcut.internal.IClearcutLoggerService";
     }
 }

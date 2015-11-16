@@ -2,24 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.widget.ImageView;
-import com.android.ex.photo.PhotoViewPager;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
+import com.google.android.apps.hangouts.phone.ApnEditorActivity;
 
-final class ckb
-    implements Runnable
+public final class ckb extends AsyncTask
 {
 
-    final cka a;
+    final ApnEditorActivity a;
 
-    ckb(cka cka1)
+    public ckb(ApnEditorActivity apneditoractivity)
     {
-        a = cka1;
+        a = apneditoractivity;
         super();
     }
 
-    public void run()
+    protected Object doInBackground(Object aobj[])
     {
-        a.j.setVisibility(8);
-        a.i.setVisibility(0);
+        aobj = ApnEditorActivity.a(a);
+        ApnEditorActivity.b(a).delete("apn", "_id =?", new String[] {
+            aobj
+        });
+        return null;
     }
 }

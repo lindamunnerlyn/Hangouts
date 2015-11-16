@@ -4,22 +4,33 @@
 
 
 final class bsz
-    implements bow
 {
 
-    final bss a;
-
-    bsz(bss bss)
-    {
-        a = bss;
-        super();
-    }
-
-    public void a(bpd bpd)
+    bsz()
     {
     }
 
-    public void a(gjr gjr)
+    static boolean a(int i)
     {
+        aoa aoa = dcn.e(i);
+        if (aoa == null)
+        {
+            eev.f("Babel_call_logs", "Account null.");
+        }
+        return aoa != null && g.c(aoa);
+    }
+
+    public bwk[] a()
+    {
+        return (new bwk[] {
+            new bta(this)
+        });
+    }
+
+    public bwl[] b()
+    {
+        return (new bwl[] {
+            new btb(this)
+        });
     }
 }

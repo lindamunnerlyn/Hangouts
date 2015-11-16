@@ -3,15 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class bcx
+public interface bcx
 {
 
-    bcx()
-    {
-    }
-
-    public egm a()
-    {
-        return new bcy(this);
-    }
+    public abstract void a();
 }

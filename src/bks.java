@@ -2,30 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.fragments.InvitationFragment;
+import android.util.SparseArray;
+import com.google.android.apps.hangouts.fragments.HiddenContactsFragment;
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
 public final class bks
-    implements bhv
+    implements ehx
 {
 
-    final InvitationFragment a;
+    final HiddenContactsFragment a;
 
-    public bks(InvitationFragment invitationfragment)
+    public bks(HiddenContactsFragment hiddencontactsfragment)
     {
-        a = invitationfragment;
+        a = hiddencontactsfragment;
         super();
     }
 
-    public void a(boolean flag, boolean flag1)
+    public void a(ehw ehw1)
     {
-        RealTimeChatService.a(InvitationFragment.j(a), InvitationFragment.f(a), false, flag1, flag);
-        if (flag)
+        String s = ehw1.b();
+        ehw1 = ehw1.a().a;
+        if (!g.a(HiddenContactsFragment.a(a), ehw1))
         {
-            RealTimeChatService.a(InvitationFragment.j(a), InvitationFragment.b(a).a, null, InvitationFragment.k(a), true, true);
+            HiddenContactsFragment.b(a);
+            int i = RealTimeChatService.a(HiddenContactsFragment.c(a).a(), ehw1);
+            HiddenContactsFragment.d(a).append(i, s);
+            HiddenContactsFragment.a(a).append(i, ehw1);
         }
-        bkw bkw1 = InvitationFragment.l(a);
-        InvitationFragment.f(a);
-        bkw1.u_();
+        HiddenContactsFragment.e(a).notifyDataSetChanged();
     }
 }

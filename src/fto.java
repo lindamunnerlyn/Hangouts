@@ -3,10 +3,12 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class fto
+public interface fto
 {
 
-    public fto()
-    {
-    }
+    public abstract Iterable c();
+
+    public abstract Iterable d();
+
+    public abstract String[] i();
 }

@@ -3,12 +3,12 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hvs extends koj
+public final class hvs extends kwm
 {
 
     private static volatile hvs c[];
-    public String a;
-    public hvt b;
+    public Integer a;
+    public String b;
 
     public hvs()
     {
@@ -22,7 +22,7 @@ public final class hvs extends koj
     {
         if (c == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
                 if (c == null)
                 {
@@ -43,58 +43,56 @@ public final class hvs extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.e(1, a.intValue());
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.d(2, b);
+            j = i + kwk.b(2, b);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L5:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   8: 51
+    //                   18: 94;
+           goto _L1 _L2 _L3 _L4
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new hvt();
-                }
-                kog1.a(b);
-                break;
-            }
-        } while (true);
+        case 0: // '\0'
+        case 1: // '\001'
+            a = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        b = kwj1.j();
+        if (true) goto _L5; else goto _L6
+_L6:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(1, a.intValue());
         }
         if (b != null)
         {
-            koh1.b(2, b);
+            kwk1.a(2, b);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

@@ -124,7 +124,7 @@ public class HttpResponseException extends IOException
 
         public Builder setHeaders(HttpHeaders httpheaders)
         {
-            headers = (HttpHeaders)h.b(httpheaders);
+            headers = (HttpHeaders)h.a(httpheaders);
             return this;
         }
 
@@ -180,7 +180,7 @@ public class HttpResponseException extends IOException
             httpresponse = HttpResponseException.computeMessageBuffer(httpresponse);
             if (content != null)
             {
-                httpresponse.append(hog.a).append(content);
+                httpresponse.append(htc.a).append(content);
             }
             message = httpresponse.toString();
         }

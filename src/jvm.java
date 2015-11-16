@@ -3,74 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jvm extends koj
+final class jvm extends jvl
 {
 
-    public Long a;
-    public Long b;
-
-    public jvm()
+    jvm(String s)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s, 0);
     }
 
-    protected int computeSerializedSize()
+    jnk a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.e(1, a.longValue());
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.longValue());
-        }
-        return j;
+        return jnl.a;
     }
 
-    public kop mergeFrom(kog kog1)
+    jvv a(jvi jvi, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry, Object obj)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Long.valueOf(kog1.e());
-                break;
-
-            case 16: // '\020'
-                b = Long.valueOf(kog1.e());
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.b(1, a.longValue());
-        }
-        if (b != null)
-        {
-            koh1.b(2, b.longValue());
-        }
-        super.writeTo(koh1);
+        return new jvt(obj);
     }
 }

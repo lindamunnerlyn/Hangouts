@@ -3,8 +3,13 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface hat
+public final class hat extends RuntimeException
 {
 
-    public abstract void a(long l, long l1);
+    private static final long serialVersionUID = 1L;
+
+    public hat(String s)
+    {
+        super(s);
+    }
 }

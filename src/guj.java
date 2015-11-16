@@ -3,10 +3,6 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface guj
+public interface guj
 {
-
-    public abstract long a();
-
-    public abstract long b();
 }

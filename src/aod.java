@@ -2,13 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public final class aod
+final class aod
+    implements Runnable
 {
 
-    public String a;
+    final Integer a[];
+    final Context b;
 
-    public aod()
+    aod(Integer ainteger[], Context context)
     {
+        a = ainteger;
+        b = context;
+        super();
+    }
+
+    public void run()
+    {
+        Integer ainteger[] = a;
+        int j = ainteger.length;
+        for (int i = 0; i < j; i++)
+        {
+            Integer integer = ainteger[i];
+            aps.b(b, g.a(integer, -1));
+        }
+
     }
 }

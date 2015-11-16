@@ -2,20 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.database.Cursor;
+import java.util.List;
 
-public final class anb extends Enum
+public interface anb
+    extends Cursor
 {
 
-    public static final int a;
-    public static final int b;
-    private static final int c[];
+    public abstract amx a();
 
-    static 
-    {
-        a = 1;
-        b = 2;
-        c = (new int[] {
-            a, b
-        });
-    }
+    public abstract void a(List list);
+
+    public abstract int b();
 }

@@ -3,6 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface bvt
+final class bvt
 {
+
+    final bvp a;
+
+    bvt(bvp bvp)
+    {
+        a = bvp;
+        super();
+    }
 }

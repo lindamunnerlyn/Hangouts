@@ -6,18 +6,19 @@ package com.google.android.gms.googlehelp;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fbq;
+import feo;
+import g;
 
 public final class OfflineSuggestion
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fbq();
-    public final int a;
-    public final String b;
-    public final String c;
-    public final String d;
-    public final String e;
+    public static final android.os.Parcelable.Creator CREATOR = new feo();
+    final int a;
+    final String b;
+    final String c;
+    final String d;
+    final String e;
 
     public OfflineSuggestion(int i, String s, String s1, String s2, String s3)
     {
@@ -35,7 +36,13 @@ public final class OfflineSuggestion
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fbq.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b);
+        g.a(parcel, 3, c);
+        g.a(parcel, 4, d);
+        g.a(parcel, 5, e);
+        g.q(parcel, i);
     }
 
 }

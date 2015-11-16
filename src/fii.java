@@ -2,41 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
+import com.google.android.gms.common.api.Status;
 
-final class fii
-    implements fig
+public final class fii extends fpm
 {
 
-    private IBinder a;
+    final emy a;
+    final fpg b;
+    final fpf i;
 
-    fii(IBinder ibinder)
+    public fii(fpf fpf, emy emy, emy emy1, fpg fpg)
     {
-        a = ibinder;
+        i = fpf;
+        a = emy1;
+        b = fpg;
+        super(emy);
     }
 
-    public void a()
+    protected void a(emw emw)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnMapLoadedCallback");
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public IBinder asBinder()
-    {
-        return a;
+        ((fsj)emw).a(b);
+        a(((enh) (Status.a)));
     }
 }

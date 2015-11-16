@@ -2,25 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.List;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.PowerManager;
 
-final class bng
-    implements Runnable
+final class bng extends BroadcastReceiver
 {
 
-    final bnd a;
+    final bne a;
 
-    bng(bnd bnd1)
+    bng(bne bne1)
     {
-        a = bnd1;
+        a = bne1;
         super();
     }
 
-    public void run()
+    public void onReceive(Context context, Intent intent)
     {
-        a.g = true;
-        for (Iterator iterator = a.a.iterator(); iterator.hasNext(); ((bnk)iterator.next()).a()) { }
-        gfd.a().a(new bnl(a));
+        if (bne.a(a) != null)
+        {
+            if ("android.intent.action.BATTERY_LOW".equals(intent.getAction()))
+            {
+                bne.a(a).a(bnf.a);
+                return;
+            }
+            if ("android.intent.action.BATTERY_OKAY".equals(intent.getAction()))
+            {
+                bne.a(a).a(bnf.b);
+                return;
+            }
+            if (android.os.Build.VERSION.SDK_INT >= 21 && "android.os.action.POWER_SAVE_MODE_CHANGED".equals(intent.getAction()))
+            {
+                if (((PowerManager)context.getSystemService("power")).isPowerSaveMode())
+                {
+                    bne.a(a).a(bnf.c);
+                    return;
+                } else
+                {
+                    bne.a(a).a(bnf.d);
+                    return;
+                }
+            }
+        }
     }
 }

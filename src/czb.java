@@ -3,44 +3,89 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.text.TextUtils;
-import java.util.ArrayList;
-import java.util.List;
+import android.util.SparseBooleanArray;
+import java.util.concurrent.TimeUnit;
 
-public final class czb extends cza
+public class czb extends cxr
 {
 
+    private static final SparseBooleanArray i;
     private static final long serialVersionUID = 1L;
-    public final int a;
-    public final int b;
-    public final List v;
-    public final long w;
-    public final String x;
+    private String g;
+    private String h;
 
-    public czb(isv isv, int i, long l, iug iug1)
+    private czb(hyf hyf1)
     {
-        super(isv, i, l);
-        a = g.a(iug1.a, 0) - 1;
-        b = g.a(iug1.g, 0);
-        v = g.a(iug1.b, null);
-        w = g.a(iug1.c, 0L);
-        if (iug1.d != null && !TextUtils.isEmpty(iug1.d.a))
+        super(hyf1.apiHeader);
+        g = null;
+        h = null;
+        hyf1 = hyf1.a.a;
+        if (hyf1 == null) goto _L2; else goto _L1
+_L1:
+        g = ((idr) (hyf1)).h;
+        hyf1 = ((idr) (hyf1)).r;
+        if (hyf1 == null) goto _L2; else goto _L3
+_L3:
+        int j;
+        int k;
+        hyf1 = ((iea) (hyf1)).c;
+        k = hyf1.length;
+        j = 0;
+_L8:
+        if (j >= k) goto _L2; else goto _L4
+_L4:
+        String s;
+        int l;
+        Object obj = hyf1[j];
+        s = ((ieb) (obj)).d;
+        l = g.a(((ieb) (obj)).a, 0);
+        if (TextUtils.isEmpty(s) || !g.a(Boolean.valueOf(i.get(l, false)), false)) goto _L6; else goto _L5
+_L5:
+        h = s;
+_L2:
+        return;
+_L6:
+        j++;
+        if (true) goto _L8; else goto _L7
+_L7:
+    }
+
+    public static cxr parseFrom(byte abyte0[])
+    {
+        abyte0 = (hyf)kws.mergeFrom(new hyf(), abyte0);
+        if (a(((hyf) (abyte0)).apiHeader))
         {
-            x = iug1.d.a;
-            return;
+            return new cyd(((hyf) (abyte0)).apiHeader);
         } else
         {
-            x = null;
-            return;
+            return new czb(abyte0);
         }
     }
 
-    public List a()
+    public void a(aow aow1, dgk dgk)
     {
-        ArrayList arraylist = new ArrayList(v);
-        if (a != 1)
+        super.a(aow1, dgk);
+        if (cxr.a)
         {
-            arraylist.add(d);
+            dgk = g;
+            String s = h;
+            eev.b("Babel", (new StringBuilder(String.valueOf(dgk).length() + 85 + String.valueOf(s).length())).append("GetVideoDataResponse.processResponse: retrieved video with id ").append(dgk).append(" and has stream url of ").append(s).toString());
         }
-        return arraylist;
+        if (!TextUtils.isEmpty(g) && !TextUtils.isEmpty(h))
+        {
+            long l = TimeUnit.DAYS.toMillis(20L);
+            long l1 = System.currentTimeMillis();
+            aow1.a(g, h, l + l1);
+            aoq.c(aow1);
+        }
+    }
+
+    static 
+    {
+        SparseBooleanArray sparsebooleanarray = new SparseBooleanArray();
+        i = sparsebooleanarray;
+        sparsebooleanarray.put(18, true);
+        i.put(22, true);
+        i.put(36, true);
     }
 }

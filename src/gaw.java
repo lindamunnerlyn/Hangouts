@@ -4,11 +4,7 @@
 
 
 public interface gaw
-    extends gba
 {
 
-    public static final gbf a = new gax();
-
-    public abstract jba a();
-
+    public abstract void a(fuu fuu);
 }

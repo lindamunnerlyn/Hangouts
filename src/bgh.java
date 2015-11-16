@@ -2,60 +2,111 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.database.Cursor;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import com.google.android.apps.hangouts.fragments.BlockedPeopleFragment;
 
-final class bgh extends dgp
+public final class bgh extends oa
 {
 
-    final bgg a;
+    final BlockedPeopleFragment j;
 
-    bgh(bgg bgg1)
+    public bgh(BlockedPeopleFragment blockedpeoplefragment, Context context)
     {
-        a = bgg1;
-        super();
+        j = blockedpeoplefragment;
+        super(context, null);
+        d = context;
     }
 
-    public void a(int i, ani ani, dgu dgu1)
+    public View a(Context context, Cursor cursor, ViewGroup viewgroup)
     {
-        cvn cvn1 = dgu1.c();
-        ani = ((ani) (a.c));
-        ani;
-        JVM INSTR monitorenter ;
-        if (i != a.a || !a.f().isInstance(cvn1))
-        {
-            break MISSING_BLOCK_LABEL_68;
-        }
-        i = cvn1.c.b;
-        if (i != 1 && i != 0)
-        {
-            break MISSING_BLOCK_LABEL_71;
-        }
-        a.a(dgu1);
-_L2:
-        ani;
-        JVM INSTR monitorexit ;
-        return;
-        a.a(new bgj());
-        if (true) goto _L2; else goto _L1
-_L1:
-        dgu1;
-        ani;
-        JVM INSTR monitorexit ;
-        throw dgu1;
+        context = new egk(context);
+        context.a(BlockedPeopleFragment.k(j));
+        return context;
     }
 
-    public void a(int i, ani ani, dko dko, dbo dbo)
+    public void a(View view, Cursor cursor)
     {
-        synchronized (a.c)
+        view = (egk)view;
+        String s = eep.d(cursor.getString(3));
+        view.a(s);
+        view.a(cursor.getString(4), s, BlockedPeopleFragment.c(j));
+        view.a(new cgd(cursor.getString(2), cursor.getString(1)));
+    }
+
+    public Cursor b(Cursor cursor)
+    {
+        return super.b(cursor);
+    }
+
+    public View getView(int i, View view, ViewGroup viewgroup)
+    {
+        boolean flag;
+        flag = false;
+        if (i >= super.getCount() && i >= getCount())
         {
-            if (i == a.a && a.e().isInstance(dko))
+            View view1 = view;
+            if (view == null)
             {
-                a.a(dbo);
+                view1 = a(d, a(), viewgroup);
             }
+            return view1;
         }
-        return;
-        dko;
-        ani;
-        JVM INSTR monitorexit ;
-        throw dko;
+        view = super.getView(i, view, viewgroup);
+        if (!egk.isInstance(view)) goto _L2; else goto _L1
+_L1:
+        Button button;
+        viewgroup = (egk)view;
+        button = (Button)viewgroup.findViewById(h.gw);
+        i = 0;
+_L5:
+        if (i >= BlockedPeopleFragment.d(j).size())
+        {
+            break MISSING_BLOCK_LABEL_170;
+        }
+        if (!((bgj)BlockedPeopleFragment.d(j).c(i)).a.a(viewgroup.a())) goto _L4; else goto _L3
+_L3:
+        i = 1;
+_L6:
+        int k;
+        if (i != 0)
+        {
+            k = l.sm;
+        } else
+        {
+            k = l.sl;
+        }
+        if (i == 0)
+        {
+            flag = true;
+        }
+        button.setText(k);
+        button.setClickable(flag);
+_L2:
+        return view;
+_L4:
+        i++;
+          goto _L5
+        i = 0;
+          goto _L6
+    }
+
+    public boolean isEmpty()
+    {
+        if (a() == null)
+        {
+            return true;
+        } else
+        {
+            return super.isEmpty();
+        }
+    }
+
+    public boolean isEnabled(int i)
+    {
+        return false;
     }
 }

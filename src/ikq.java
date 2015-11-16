@@ -3,16 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ikq extends koj
+public final class ikq extends kwm
 {
 
-    public ikp a[];
-    public Boolean b;
+    public ilt a[];
 
     public ikq()
     {
-        a = ikp.a();
-        b = null;
+        a = ilt.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -20,49 +18,43 @@ public final class ikq extends koj
     protected int computeSerializedSize()
     {
         int i = super.computeSerializedSize();
-        int j = i;
+        int k = i;
         if (a != null)
         {
-            j = i;
+            k = i;
             if (a.length > 0)
             {
-                int k = 0;
+                int j = 0;
                 do
                 {
-                    j = i;
-                    if (k >= a.length)
+                    k = i;
+                    if (j >= a.length)
                     {
                         break;
                     }
-                    ikp ikp1 = a[k];
-                    j = i;
-                    if (ikp1 != null)
+                    ilt ilt1 = a[j];
+                    k = i;
+                    if (ilt1 != null)
                     {
-                        j = i + koh.d(1, ikp1);
+                        k = i + kwk.d(1, ilt1);
                     }
-                    k++;
-                    i = j;
+                    j++;
+                    i = k;
                 } while (true);
             }
         }
-        i = j;
-        if (b != null)
-        {
-            b.booleanValue();
-            i = j + (koh.f(2) + 1);
-        }
-        return i;
+        return k;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -72,8 +64,8 @@ public final class ikq extends koj
                 return this;
 
             case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                ikp aikp[];
+                int k = kwx.a(kwj1, 10);
+                ilt ailt[];
                 int j;
                 if (a == null)
                 {
@@ -82,50 +74,42 @@ public final class ikq extends koj
                 {
                     j = a.length;
                 }
-                aikp = new ikp[k + j];
+                ailt = new ilt[k + j];
                 k = j;
                 if (j != 0)
                 {
-                    System.arraycopy(a, 0, aikp, 0, j);
+                    System.arraycopy(a, 0, ailt, 0, j);
                     k = j;
                 }
-                for (; k < aikp.length - 1; k++)
+                for (; k < ailt.length - 1; k++)
                 {
-                    aikp[k] = new ikp();
-                    kog1.a(aikp[k]);
-                    kog1.a();
+                    ailt[k] = new ilt();
+                    kwj1.a(ailt[k]);
+                    kwj1.a();
                 }
 
-                aikp[k] = new ikp();
-                kog1.a(aikp[k]);
-                a = aikp;
-                break;
-
-            case 16: // '\020'
-                b = Boolean.valueOf(kog1.i());
+                ailt[k] = new ilt();
+                kwj1.a(ailt[k]);
+                a = ailt;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null && a.length > 0)
         {
             for (int i = 0; i < a.length; i++)
             {
-                ikp ikp1 = a[i];
-                if (ikp1 != null)
+                ilt ilt1 = a[i];
+                if (ilt1 != null)
                 {
-                    koh1.b(1, ikp1);
+                    kwk1.b(1, ilt1);
                 }
             }
 
         }
-        if (b != null)
-        {
-            koh1.a(2, b.booleanValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

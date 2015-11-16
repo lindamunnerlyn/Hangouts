@@ -3,20 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class dip extends dfa
+public final class dip extends dgj
 {
 
     private final String a;
+    private final long e;
 
-    public dip(ani ani, String s)
+    public dip(aoa aoa, String s, long l)
     {
-        super(ani);
+        super(aoa);
         a = s;
+        e = l;
     }
 
     public void a()
     {
-        cvd cvd1 = new cvd(a);
-        c.a(cvd1);
+        aoq.a(super.c, a, e);
     }
 }

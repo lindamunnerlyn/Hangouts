@@ -2,42 +2,65 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewStub;
+import android.widget.Button;
+import com.google.android.apps.hangouts.promo.AnnouncingRelativeLayout;
 
-public class ctg extends ctc
+public abstract class ctg extends hmm
 {
 
-    private static final long serialVersionUID = 1L;
-    public final String a;
+    private int a;
+    private int b[];
+    private android.view.View.OnClickListener c;
 
-    public ctg(String s)
+    public ctg(int i, int ai[])
     {
-        a = s;
+        c = new cti(this);
+        a = i;
+        b = ai;
     }
 
-    public kop a(String s, int i, int j)
+    public abstract String a();
+
+    public void a(int i)
     {
-        jau jau1 = new jau();
-        jau1.a = "conversation";
-        jau1.b = a;
-        jbn jbn1 = new jbn();
-        jbn1.requestHeader = ctq.a(s, i, j, h);
-        jbn1.a = jau1;
-        return jbn1;
+        ((ctj)getActivity()).g();
     }
 
-    public void a(ani ani, dbo dbo)
+    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
-        RealTimeChatService.j(ani, a);
-    }
+        int i = 0;
+        layoutinflater = layoutinflater.inflate(g.ou, viewgroup, false);
+        ((AnnouncingRelativeLayout)layoutinflater.findViewById(g.ot)).a(a());
+        viewgroup = (ViewStub)layoutinflater.findViewById(g.os);
+        viewgroup.setLayoutResource(a);
+        viewgroup.inflate();
+        if (b != null)
+        {
+            viewgroup = (ViewStub)layoutinflater.findViewById(g.or);
+            if (b.length == 1)
+            {
+                viewgroup.setLayoutResource(g.ov);
+            } else
+            {
+                viewgroup.setLayoutResource(g.ow);
+            }
+            viewgroup = viewgroup.inflate();
+            bundle = b;
+            for (int j = bundle.length; i < j; i++)
+            {
+                Button button = (Button)viewgroup.findViewById(bundle[i]);
+                button.setOnClickListener(c);
+                button.setAllCaps(true);
+            }
 
-    public long b()
-    {
-        return 10000L;
-    }
-
-    public String g()
-    {
-        return "hangouts/resolve";
+        }
+        kb.c(layoutinflater, 1);
+        layoutinflater.addOnAttachStateChangeListener(new cth(this));
+        return layoutinflater;
     }
 }

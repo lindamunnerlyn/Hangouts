@@ -2,127 +2,167 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.TimeUnit;
 
-public final class jhn
+public final class jhn extends kwm
 {
 
-    private final jhp a;
-    private boolean b;
-    private long c;
-    private long d;
+    public jhh a;
+    public jif b;
+    public jhh c[];
+    public jdl responseHeader;
 
     public jhn()
     {
-        this(jhp.b());
+        responseHeader = null;
+        a = null;
+        b = null;
+        c = jhh.a();
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private jhn(jhp jhp1)
+    protected int computeSerializedSize()
     {
-        a = (jhp)n.b(jhp1, "ticker");
-    }
-
-    private long b()
-    {
-        if (b)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (responseHeader != null)
         {
-            return (a.a() - d) + c;
-        } else
-        {
-            return c;
+            i = j + kwk.d(1, responseHeader);
         }
-    }
-
-    public long a(TimeUnit timeunit)
-    {
-        return timeunit.convert(b(), TimeUnit.NANOSECONDS);
-    }
-
-    public jhn a()
-    {
-        boolean flag;
-        if (!b)
+        j = i;
+        if (a != null)
         {
-            flag = true;
-        } else
-        {
-            flag = false;
+            j = i + kwk.d(2, a);
         }
-        n.b(flag, "This stopwatch is already running.");
-        b = true;
-        d = a.a();
-        return this;
+        i = j;
+        if (b != null)
+        {
+            i = j + kwk.d(3, b);
+        }
+        j = i;
+        if (c != null)
+        {
+            j = i;
+            if (c.length > 0)
+            {
+                for (j = 0; j < c.length;)
+                {
+                    jhh jhh1 = c[j];
+                    int k = i;
+                    if (jhh1 != null)
+                    {
+                        k = i + kwk.d(4, jhh1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
+        }
+        return j;
     }
 
-    public String toString()
+    public kws mergeFrom(kwj kwj1)
     {
-        double d1;
-        long l = b();
-        TimeUnit timeunit;
-        if (TimeUnit.DAYS.convert(l, TimeUnit.NANOSECONDS) > 0L)
+        do
         {
-            timeunit = TimeUnit.DAYS;
-        } else
-        if (TimeUnit.HOURS.convert(l, TimeUnit.NANOSECONDS) > 0L)
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (responseHeader == null)
+                {
+                    responseHeader = new jdl();
+                }
+                kwj1.a(responseHeader);
+                break;
+
+            case 18: // '\022'
+                if (a == null)
+                {
+                    a = new jhh();
+                }
+                kwj1.a(a);
+                break;
+
+            case 26: // '\032'
+                if (b == null)
+                {
+                    b = new jif();
+                }
+                kwj1.a(b);
+                break;
+
+            case 34: // '"'
+                int k = kwx.a(kwj1, 34);
+                jhh ajhh[];
+                int j;
+                if (c == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = c.length;
+                }
+                ajhh = new jhh[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(c, 0, ajhh, 0, j);
+                    k = j;
+                }
+                for (; k < ajhh.length - 1; k++)
+                {
+                    ajhh[k] = new jhh();
+                    kwj1.a(ajhh[k]);
+                    kwj1.a();
+                }
+
+                ajhh[k] = new jhh();
+                kwj1.a(ajhh[k]);
+                c = ajhh;
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (responseHeader != null)
         {
-            timeunit = TimeUnit.HOURS;
-        } else
-        if (TimeUnit.MINUTES.convert(l, TimeUnit.NANOSECONDS) > 0L)
-        {
-            timeunit = TimeUnit.MINUTES;
-        } else
-        if (TimeUnit.SECONDS.convert(l, TimeUnit.NANOSECONDS) > 0L)
-        {
-            timeunit = TimeUnit.SECONDS;
-        } else
-        if (TimeUnit.MILLISECONDS.convert(l, TimeUnit.NANOSECONDS) > 0L)
-        {
-            timeunit = TimeUnit.MILLISECONDS;
-        } else
-        if (TimeUnit.MICROSECONDS.convert(l, TimeUnit.NANOSECONDS) > 0L)
-        {
-            timeunit = TimeUnit.MICROSECONDS;
-        } else
-        {
-            timeunit = TimeUnit.NANOSECONDS;
+            kwk1.b(1, responseHeader);
         }
-        d1 = (double)l / (double)TimeUnit.NANOSECONDS.convert(1L, timeunit);
-        jho.a[timeunit.ordinal()];
-        JVM INSTR tableswitch 1 7: default 92
-    //                   1 222
-    //                   2 246
-    //                   3 252
-    //                   4 258
-    //                   5 264
-    //                   6 270
-    //                   7 276;
-           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8
-_L1:
-        throw new AssertionError();
-_L2:
-        String s = "ns";
-_L10:
-        return String.format("%.4g %s", new Object[] {
-            Double.valueOf(d1), s
-        });
-_L3:
-        s = "\u03BCs";
-        continue; /* Loop/switch isn't completed */
-_L4:
-        s = "ms";
-        continue; /* Loop/switch isn't completed */
-_L5:
-        s = "s";
-        continue; /* Loop/switch isn't completed */
-_L6:
-        s = "min";
-        continue; /* Loop/switch isn't completed */
-_L7:
-        s = "h";
-        continue; /* Loop/switch isn't completed */
-_L8:
-        s = "d";
-        if (true) goto _L10; else goto _L9
-_L9:
+        if (a != null)
+        {
+            kwk1.b(2, a);
+        }
+        if (b != null)
+        {
+            kwk1.b(3, b);
+        }
+        if (c != null && c.length > 0)
+        {
+            for (int i = 0; i < c.length; i++)
+            {
+                jhh jhh1 = c[i];
+                if (jhh1 != null)
+                {
+                    kwk1.b(4, jhh1);
+                }
+            }
+
+        }
+        super.writeTo(kwk1);
     }
 }

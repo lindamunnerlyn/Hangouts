@@ -2,17 +2,101 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Arrays;
 
-final class jnr extends jnm
+public final class jnr
 {
 
-    jnr(String s)
+    private final String a;
+    private jns b;
+    private jns c;
+    private boolean d;
+
+    public jnr(String s)
     {
-        super(s, 4);
+        b = new jns();
+        c = b;
+        d = false;
+        a = (String)n.b(s);
     }
 
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry a(joh joh1, Object obj, int i, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    private jns a()
     {
-        return new jow(joh1.g, obj, i, referenceentry);
+        jns jns1 = new jns();
+        c.c = jns1;
+        c = jns1;
+        return jns1;
+    }
+
+    private jnr b(String s, Object obj)
+    {
+        jns jns1 = a();
+        jns1.b = obj;
+        jns1.a = (String)n.b(s);
+        return this;
+    }
+
+    public jnr a(Object obj)
+    {
+        a().b = obj;
+        return this;
+    }
+
+    public jnr a(String s, int i)
+    {
+        return b(s, String.valueOf(i));
+    }
+
+    public jnr a(String s, Object obj)
+    {
+        return b(s, obj);
+    }
+
+    public jnr a(String s, boolean flag)
+    {
+        return b(s, String.valueOf(flag));
+    }
+
+    public String toString()
+    {
+        boolean flag = d;
+        StringBuilder stringbuilder = (new StringBuilder(32)).append(a).append('{');
+        jns jns1 = b.c;
+        String s = "";
+        while (jns1 != null) 
+        {
+label0:
+            {
+                Object obj = jns1.b;
+                String s1;
+                if (flag)
+                {
+                    s1 = s;
+                    if (obj == null)
+                    {
+                        break label0;
+                    }
+                }
+                stringbuilder.append(s);
+                s1 = ", ";
+                if (jns1.a != null)
+                {
+                    stringbuilder.append(jns1.a).append('=');
+                }
+                if (obj != null && obj.getClass().isArray())
+                {
+                    s = Arrays.deepToString(new Object[] {
+                        obj
+                    });
+                    stringbuilder.append(s.substring(1, s.length() - 1));
+                } else
+                {
+                    stringbuilder.append(obj);
+                }
+            }
+            jns1 = jns1.c;
+            s = s1;
+        }
+        return stringbuilder.append('}').toString();
     }
 }

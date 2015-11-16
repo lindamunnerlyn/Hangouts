@@ -3,79 +3,113 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iwo extends koj
+public final class iwo extends kwm
 {
 
-    public Long a;
-    public Integer b;
+    public jex a[];
 
     public iwo()
     {
-        a = null;
-        b = null;
+        a = jex.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
+        int i = super.computeSerializedSize();
+        int k = i;
         if (a != null)
         {
-            i = j + koh.d(1, a.longValue());
+            k = i;
+            if (a.length > 0)
+            {
+                int j = 0;
+                do
+                {
+                    k = i;
+                    if (j >= a.length)
+                    {
+                        break;
+                    }
+                    jex jex1 = a[j];
+                    k = i;
+                    if (jex1 != null)
+                    {
+                        k = i + kwk.d(1, jex1);
+                    }
+                    j++;
+                    i = k;
+                } while (true);
+            }
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.intValue());
-        }
-        return j;
+        return k;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L5:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 3: default 40
-    //                   0: 49
-    //                   8: 51
-    //                   16: 65;
-           goto _L1 _L2 _L3 _L4
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L5; else goto _L2
-_L2:
-        return this;
-_L3:
-        a = Long.valueOf(kog1.d());
-          goto _L5
-_L4:
-        int j = kog1.f();
-        switch (j)
+        do
         {
-        case 1: // '\001'
-        case 10: // '\n'
-        case 20: // '\024'
-        case 30: // '\036'
-        case 40: // '('
-            b = Integer.valueOf(j);
-            break;
-        }
-        if (true) goto _L5; else goto _L6
-_L6:
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                int k = kwx.a(kwj1, 10);
+                jex ajex[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                ajex = new jex[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, ajex, 0, j);
+                    k = j;
+                }
+                for (; k < ajex.length - 1; k++)
+                {
+                    ajex[k] = new jex();
+                    kwj1.a(ajex[k]);
+                    kwj1.a();
+                }
+
+                ajex[k] = new jex();
+                kwj1.a(ajex[k]);
+                a = ajex;
+                break;
+            }
+        } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
+        if (a != null && a.length > 0)
         {
-            koh1.a(1, a.longValue());
+            for (int i = 0; i < a.length; i++)
+            {
+                jex jex1 = a[i];
+                if (jex1 != null)
+                {
+                    kwk1.b(1, jex1);
+                }
+            }
+
         }
-        if (b != null)
-        {
-            koh1.a(2, b.intValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

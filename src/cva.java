@@ -3,39 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cva extends cui
+final class cva
 {
 
-    private static final long serialVersionUID = 1L;
-    private final String a;
-    private final int b;
+    long a;
+    Object b;
 
-    public cva(String s, int i)
+    cva(Object obj, long l)
     {
-        a = s;
-        b = i;
+        b = obj;
+        a = l;
     }
 
-    public String a()
+    boolean a(Object obj)
     {
-        return "background_queue";
-    }
-
-    public kop a(String s, int i, int j)
-    {
-        if (ctr.e)
-        {
-            ebw.b("Babel_RequestWriter", "setHangoutNotificationStatus build protobuf");
-        }
-        iye iye1 = new iye();
-        iye1.a = a;
-        iye1.b = Integer.valueOf(b);
-        iye1.requestHeader = ctq.a(s, i, j, h);
-        return iye1;
-    }
-
-    public String g()
-    {
-        return "hangouts/sethangoutnotificationstatus";
+        return obj == b || obj != null && obj.equals(b);
     }
 }

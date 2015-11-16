@@ -2,32 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Locale;
+import java.io.ByteArrayInputStream;
 
-final class lgd extends lfv
+final class lgd extends ByteArrayInputStream
 {
 
-    protected lgd(lcz lcz1, int i, boolean flag)
+    final lgc a;
+
+    lgd(lgc lgc, byte abyte0[])
     {
-        super(lcz1, i, flag);
+        a = lgc;
+        super(abyte0);
     }
 
     public int a()
     {
-        return b;
-    }
-
-    public void a(StringBuffer stringbuffer, long l, lcw lcw, int i, ldd ldd, Locale locale)
-    {
-        try
-        {
-            lgj.a(stringbuffer, a.a(lcw).a(l));
-            return;
-        }
-        // Misplaced declaration of an exception variable
-        catch (lcw lcw)
-        {
-            stringbuffer.append('\uFFFD');
-        }
+        return pos;
     }
 }

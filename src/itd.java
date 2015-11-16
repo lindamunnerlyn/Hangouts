@@ -3,59 +3,30 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class itd extends koj
+public final class itd
 {
 
-    public Long a;
+    final ith a;
 
-    public itd()
+    itd(ith ith1)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = ith1;
     }
 
-    protected int computeSerializedSize()
+    public android.content.DialogInterface.OnClickListener a(android.content.DialogInterface.OnClickListener onclicklistener, String s)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.e(1, a.longValue());
-        }
-        return i;
+        return new ite(this, s, onclicklistener);
     }
 
-    public kop mergeFrom(kog kog1)
+    public void a(Class class1, String s)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Long.valueOf(kog1.e());
-                break;
-            }
-        } while (true);
+        ith ith1 = a;
+        class1 = String.valueOf(class1.getSimpleName());
+        ith1.a((new StringBuilder(String.valueOf(class1).length() + 2 + String.valueOf(s).length())).append(class1).append(": ").append(s).toString());
     }
 
-    public void writeTo(koh koh1)
+    public void a(String s)
     {
-        if (a != null)
-        {
-            koh1.b(1, a.longValue());
-        }
-        super.writeTo(koh1);
+        a.a(s);
     }
 }

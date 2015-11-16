@@ -2,94 +2,83 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Set;
 
-final class jkr extends jmi
+public final class jkr extends kwm
 {
 
-    static final jkr a = new jkr();
-    private static final long serialVersionUID = 0L;
+    public jkq a;
+    public jdk requestHeader;
 
-    private jkr()
+    public jkr()
     {
+        requestHeader = null;
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    boolean H_()
+    protected int computeSerializedSize()
     {
-        return true;
-    }
-
-    int a(Object aobj[], int i)
-    {
-        return i;
-    }
-
-    public jqy a()
-    {
-        return jmr.a();
-    }
-
-    public jlk b()
-    {
-        return jlk.d();
-    }
-
-    public boolean contains(Object obj)
-    {
-        return false;
-    }
-
-    public boolean containsAll(Collection collection)
-    {
-        return collection.isEmpty();
-    }
-
-    boolean e()
-    {
-        return false;
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (obj instanceof Set)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (requestHeader != null)
         {
-            return ((Set)obj).isEmpty();
-        } else
-        {
-            return false;
+            i = j + kwk.d(1, requestHeader);
         }
+        j = i;
+        if (a != null)
+        {
+            j = i + kwk.d(2, a);
+        }
+        return j;
     }
 
-    public final int hashCode()
+    public kws mergeFrom(kwj kwj1)
     {
-        return 0;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (requestHeader == null)
+                {
+                    requestHeader = new jdk();
+                }
+                kwj1.a(requestHeader);
+                break;
+
+            case 18: // '\022'
+                if (a == null)
+                {
+                    a = new jkq();
+                }
+                kwj1.a(a);
+                break;
+            }
+        } while (true);
     }
 
-    public boolean isEmpty()
+    public void writeTo(kwk kwk1)
     {
-        return true;
+        if (requestHeader != null)
+        {
+            kwk1.b(1, requestHeader);
+        }
+        if (a != null)
+        {
+            kwk1.b(2, a);
+        }
+        super.writeTo(kwk1);
     }
-
-    public Iterator iterator()
-    {
-        return a();
-    }
-
-    Object readResolve()
-    {
-        return a;
-    }
-
-    public int size()
-    {
-        return 0;
-    }
-
-    public String toString()
-    {
-        return "[]";
-    }
-
 }

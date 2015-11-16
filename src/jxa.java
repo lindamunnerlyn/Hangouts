@@ -2,64 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.lang.reflect.Array;
 
-public final class jxa extends koj
+public final class jxa
 {
 
-    public kiy a;
+    static final Object a[] = new Object[0];
 
-    public jxa()
+    static Object a(Object obj, int i)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        if (obj == null)
         {
-            i = j + koh.d(1, a);
+            throw new NullPointerException((new StringBuilder(20)).append("at index ").append(i).toString());
+        } else
+        {
+            return obj;
         }
-        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    static Object[] a(Object aobj[], int i)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new kiy();
-                }
-                kog1.a(a);
-                break;
-            }
-        } while (true);
+        Object aobj1[] = (Object[])Array.newInstance(((Object) (aobj)).getClass().getComponentType(), i);
+        System.arraycopy(((Object) (aobj)), 0, ((Object) (aobj1)), 0, Math.min(aobj.length, i));
+        return aobj1;
     }
 
-    public void writeTo(koh koh1)
+    public static Object[] b(Object aobj[], int i)
     {
-        if (a != null)
+        for (int j = 0; j < i; j++)
         {
-            koh1.b(1, a);
+            a(aobj[j], j);
         }
-        super.writeTo(koh1);
+
+        return aobj;
     }
+
 }

@@ -3,10 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface hfd
+public final class hfd
 {
 
-    public abstract void a();
-
-    public abstract void b();
+    public hfd()
+    {
+    }
 }

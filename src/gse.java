@@ -4,15 +4,23 @@
 
 
 final class gse
-    implements gsi
+    implements gsc
 {
 
-    gse()
+    int a;
+
+    gse(int i)
     {
+        a = i;
     }
 
-    public long a()
+    public Object a(Object obj)
     {
-        return System.currentTimeMillis();
+        return Integer.valueOf(a);
+    }
+
+    public void a(android.content.SharedPreferences.Editor editor, String s)
+    {
+        editor.putInt(s, a);
     }
 }

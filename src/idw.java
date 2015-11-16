@@ -3,16 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class idw extends koj
+public final class idw extends kwm
 {
 
     public String a;
-    public String b;
+    public idx b[];
 
     public idw()
     {
         a = null;
-        b = null;
+        b = idx.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -23,25 +23,41 @@ public final class idw extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.b(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.b(2, b);
+            j = i;
+            if (b.length > 0)
+            {
+                for (j = 0; j < b.length;)
+                {
+                    idx idx1 = b[j];
+                    int k = i;
+                    if (idx1 != null)
+                    {
+                        k = i + kwk.d(2, idx1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -51,26 +67,60 @@ public final class idw extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                a = kwj1.j();
                 break;
 
             case 18: // '\022'
-                b = kog1.j();
+                int k = kwx.a(kwj1, 18);
+                idx aidx[];
+                int j;
+                if (b == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = b.length;
+                }
+                aidx = new idx[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(b, 0, aidx, 0, j);
+                    k = j;
+                }
+                for (; k < aidx.length - 1; k++)
+                {
+                    aidx[k] = new idx();
+                    kwj1.a(aidx[k]);
+                    kwj1.a();
+                }
+
+                aidx[k] = new idx();
+                kwj1.a(aidx[k]);
+                b = aidx;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(1, a);
         }
-        if (b != null)
+        if (b != null && b.length > 0)
         {
-            koh1.a(2, b);
+            for (int i = 0; i < b.length; i++)
+            {
+                idx idx1 = b[i];
+                if (idx1 != null)
+                {
+                    kwk1.b(2, idx1);
+                }
+            }
+
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

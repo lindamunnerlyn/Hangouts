@@ -3,8 +3,37 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface aga
+public final class aga
 {
 
-    public abstract void a(Object obj);
+    public final Object a;
+    public final afl b;
+    public final agh c;
+    public boolean d;
+
+    private aga(agh agh)
+    {
+        d = false;
+        a = null;
+        b = null;
+        c = agh;
+    }
+
+    public aga(Object obj, afl afl)
+    {
+        d = false;
+        a = obj;
+        b = afl;
+        c = null;
+    }
+
+    public static aga a(agh agh)
+    {
+        return new aga(agh);
+    }
+
+    public boolean a()
+    {
+        return c == null;
+    }
 }

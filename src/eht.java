@@ -2,66 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.Parcel;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-public abstract class eht extends Binder
-    implements ehs
+final class eht
+    implements lg
 {
 
-    public static ehs a(IBinder ibinder)
+    List a;
+
+    eht()
     {
-        if (ibinder == null)
-        {
-            return null;
-        }
-        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.apps.tycho.IVoiceService");
-        if (iinterface != null && (iinterface instanceof ehs))
-        {
-            return (ehs)iinterface;
-        } else
-        {
-            return new ehu(ibinder);
-        }
+        a = new ArrayList();
     }
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    public void a(int i)
     {
-        switch (i)
-        {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((lg)iterator.next()).a(i)) { }
+    }
 
-        case 1598968902: 
-            parcel1.writeString("com.google.android.apps.tycho.IVoiceService");
-            return true;
+    public void a(int i, float f, int j)
+    {
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((lg)iterator.next()).a(i, f, j)) { }
+    }
 
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.apps.tycho.IVoiceService");
-            i = a();
-            parcel1.writeNoException();
-            parcel1.writeInt(i);
-            return true;
-
-        case 2: // '\002'
-            parcel.enforceInterface("com.google.android.apps.tycho.IVoiceService");
-            boolean flag = b();
-            parcel1.writeNoException();
-            if (flag)
-            {
-                i = 1;
-            } else
-            {
-                i = 0;
-            }
-            parcel1.writeInt(i);
-            return true;
-
-        case 3: // '\003'
-            parcel.enforceInterface("com.google.android.apps.tycho.IVoiceService");
-            c();
-            return true;
-        }
+    public void b(int i)
+    {
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((lg)iterator.next()).b(i)) { }
     }
 }

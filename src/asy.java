@@ -2,43 +2,78 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
+import android.content.Context;
+import android.os.ConditionVariable;
+import android.widget.Toast;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public class asy
+final class asy extends diq
 {
 
-    public String a;
-    public String b;
-    public asz c;
-    public String d;
+    Exception a;
+    String b;
+    final asx c;
+    private final Context d;
+    private final ConditionVariable e;
+    private int f;
 
-    public asy()
+    asy(asx asx1, Context context, ConditionVariable conditionvariable)
+    {
+        c = asx1;
+        super(context);
+        d = context;
+        e = conditionvariable;
+    }
+
+    void a(int i, aid aid, aot aot, atu atu1, int j, boolean flag, String s)
+    {
+        boolean flag1;
+        if (atu1 == atu.d || atu1 == atu.c)
+        {
+            flag1 = true;
+        } else
+        {
+            flag1 = false;
+        }
+        atu1 = dir.b();
+        f = atu1.a();
+        a(f);
+        RealTimeChatService.a(atu1, (new ddm(d)).a(i).a(aid).a(aot).a(flag1).b(flag).a(s).c(c.a).b(j).a());
+    }
+
+    public void a(int i, aoa aoa, ddo ddo1, did did1)
+    {
+        if (i != f)
+        {
+            return;
+        }
+        if (did1.b() != 1)
+        {
+            i = did1.b();
+            eev.g("Babel_ConvCreator", (new StringBuilder(89)).append("Error in RealTimeChatServiceResult returned by conversation creation request: ").append(i).toString());
+            aoa = d;
+            if (did1.b() == 4)
+            {
+                i = l.az;
+            } else
+            {
+                i = l.bU;
+            }
+            Toast.makeText(aoa, i, 0).show();
+        } else
+        {
+            b = ddo1.a;
+        }
+        e.open();
+    }
+
+    protected void a(did did1)
     {
     }
 
-    protected void a(Parcel parcel)
+    protected void a(Exception exception)
     {
-        parcel.writeInt(c.ordinal());
-        parcel.writeString(b);
-        parcel.writeString(a);
-        parcel.writeString(d);
-    }
-
-    protected void b(Parcel parcel)
-    {
-        int i = parcel.readInt();
-        c = asz.values()[i];
-        b = parcel.readString();
-        a = parcel.readString();
-        d = parcel.readString();
-    }
-
-    public String toString()
-    {
-        String s = String.valueOf(c);
-        String s1 = b;
-        String s2 = d;
-        String s3 = a;
-        return (new StringBuilder(String.valueOf(s).length() + 47 + String.valueOf(s1).length() + String.valueOf(s2).length() + String.valueOf(s3).length())).append("attachmentType: ").append(s).append(" id: ").append(s1).append(" contentType: ").append(s2).append(" uriToSend: ").append(s3).toString();
+        a = exception;
+        e.open();
     }
 }

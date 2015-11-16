@@ -2,37 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.Serializable;
 
 public final class efm
+    implements Serializable
 {
 
-    public static final int a[];
+    public final String a;
+    public final String b;
+    public final String c;
+    public final boolean d;
+    public final int e;
 
-    static 
+    public efm(String s, String s1, int i)
     {
-        a = new int[dqb.values().length];
-        try
-        {
-            a[dqb.b.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror3) { }
-        try
-        {
-            a[dqb.c.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[dqb.e.ordinal()] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[dqb.d.ordinal()] = 4;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
+        a = s;
+        b = s1;
+        c = null;
+        d = false;
+        e = i;
+    }
+
+    public efm(String s, String s1, String s2)
+    {
+        a = s;
+        b = s1;
+        c = s2;
+        d = true;
+        e = 0;
     }
 }

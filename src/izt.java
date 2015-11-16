@@ -3,16 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class izt extends koj
+public final class izt extends kwm
 {
 
-    public izs a[];
-    public ixf requestHeader;
+    public jdl responseHeader;
 
     public izt()
     {
-        requestHeader = null;
-        a = izs.a();
+        responseHeader = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,43 +19,22 @@ public final class izt extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (requestHeader != null)
+        if (responseHeader != null)
         {
-            i = j + koh.d(1, requestHeader);
+            i = j + kwk.d(1, responseHeader);
         }
-        j = i;
-        if (a != null)
-        {
-            j = i;
-            if (a.length > 0)
-            {
-                for (j = 0; j < a.length;)
-                {
-                    izs izs1 = a[j];
-                    int k = i;
-                    if (izs1 != null)
-                    {
-                        k = i + koh.d(2, izs1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
-        }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -67,64 +44,22 @@ public final class izt extends koj
                 return this;
 
             case 10: // '\n'
-                if (requestHeader == null)
+                if (responseHeader == null)
                 {
-                    requestHeader = new ixf();
+                    responseHeader = new jdl();
                 }
-                kog1.a(requestHeader);
-                break;
-
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                izs aizs[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                aizs = new izs[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aizs, 0, j);
-                    k = j;
-                }
-                for (; k < aizs.length - 1; k++)
-                {
-                    aizs[k] = new izs();
-                    kog1.a(aizs[k]);
-                    kog1.a();
-                }
-
-                aizs[k] = new izs();
-                kog1.a(aizs[k]);
-                a = aizs;
+                kwj1.a(responseHeader);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (requestHeader != null)
+        if (responseHeader != null)
         {
-            koh1.b(1, requestHeader);
+            kwk1.b(1, responseHeader);
         }
-        if (a != null && a.length > 0)
-        {
-            for (int i = 0; i < a.length; i++)
-            {
-                izs izs1 = a[i];
-                if (izs1 != null)
-                {
-                    koh1.b(2, izs1);
-                }
-            }
-
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

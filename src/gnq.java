@@ -2,37 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-final class gnq
-    implements gmz
+public final class gnq
 {
 
-    final gnj a;
+    int a;
 
-    gnq(gnj gnj)
+    gnq(int i)
     {
-        a = gnj;
-        super();
+        a = 0;
+        a = i;
     }
 
-    public String a()
+    public int a()
     {
-        return "add_skinny_page_boolean";
-    }
-
-    public void a(Context context, gmw gmw1)
-    {
-        boolean flag1 = false;
-        boolean flag = flag1;
-        if (!gmw1.d("is_google_plus"))
-        {
-            flag = flag1;
-            if (gmw1.a("page_count", 0) > 0)
-            {
-                flag = true;
-            }
-        }
-        gmw1.b("gplus_skinny_page", flag);
+        return a;
     }
 }

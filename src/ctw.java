@@ -3,53 +3,61 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class ctw extends cui
+public final class ctw
 {
 
-    private static final long serialVersionUID = 1L;
-    public final int a;
+    private final int a;
+    private final iwz b;
+    private final boolean c;
+    private final String d;
+    private final int e;
+    private final boolean f;
 
-    public ctw(int i)
+    ctw(ctx ctx1)
     {
-        a = i;
-        if (ebw.a("Babel_RequestWriter", 3))
+        b = ctx1.b;
+        a = ctx1.a;
+        e = ctx1.e;
+        c = ctx1.c;
+        f = ctx1.f;
+        if (ctx1.d == null && ctx1.a != -1)
         {
-            ebw.d("Babel_RequestWriter", "declineAllInvitesRequest constructor");
+            d = dcn.g(a);
+            return;
+        } else
+        {
+            d = ctx1.d;
+            return;
         }
     }
 
-    public String a()
+    public iwz a()
     {
-        return "event_queue";
+        return b;
     }
 
-    public kop a(String s, int i, int j)
+    public boolean b()
     {
-        if (ebw.a("Babel_RequestWriter", 3))
-        {
-            ebw.d("Babel_RequestWriter", "declineAllInvitesRequest build protobuf");
-        }
-        irs irs1 = new irs();
-        irs1.requestHeader = ctq.a(null, true, s, i, j, h);
-        s = new irt();
-        s.b = Integer.valueOf(a);
-        irs1.a = new irt[1];
-        irs1.a[0] = s;
-        return irs1;
+        return c;
     }
 
-    public void a(ani ani, dbo dbo)
+    public String c()
     {
-        super.a(ani, dbo);
+        return d;
     }
 
-    public String g()
+    public int d()
     {
-        return "conversations/declineallinvites";
+        return e;
     }
 
-    public int o()
+    public int e()
     {
-        return 4;
+        return a;
+    }
+
+    public boolean f()
+    {
+        return f;
     }
 }

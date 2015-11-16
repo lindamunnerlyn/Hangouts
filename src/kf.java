@@ -33,11 +33,6 @@ class kf extends ke
         view.setLayerType(i, null);
     }
 
-    public void a(View view, boolean flag)
-    {
-        view.setSaveFromParentEnabled(false);
-    }
-
     public void b(View view, float f1)
     {
         view.setTranslationY(f1);
@@ -45,12 +40,17 @@ class kf extends ke
 
     public void b(View view, boolean flag)
     {
-        view.setActivated(flag);
+        view.setSaveFromParentEnabled(false);
     }
 
     public void c(View view, float f1)
     {
         view.setAlpha(f1);
+    }
+
+    public void c(View view, boolean flag)
+    {
+        view.setActivated(flag);
     }
 
     public void d(View view, float f1)

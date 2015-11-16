@@ -3,21 +3,27 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gku extends Enum
+public final class gku extends gkq
 {
 
-    public static final int a;
-    public static final int b;
-    public static final int c;
-    private static final int d[];
+    private final String a;
+    private final String b;
 
-    static 
+    public gku(String s, String s1, String s2, int i, String s3, boolean flag, boolean flag1, 
+            String s4)
     {
-        a = 1;
-        b = 2;
-        c = 3;
-        d = (new int[] {
-            a, b, c
-        });
+        super(s, s1, s2, i, flag, flag1);
+        a = s3;
+        b = s4;
+    }
+
+    public String w()
+    {
+        return a;
+    }
+
+    public String x()
+    {
+        return b;
     }
 }

@@ -3,14 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ibw extends koj
+public final class ibw extends kwm
 {
 
-    public String a;
+    public Integer a;
+    public Integer b;
 
     public ibw()
     {
         a = null;
+        b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,20 +23,25 @@ public final class ibw extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.e(1, a.intValue());
         }
-        return i;
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.intValue());
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -43,19 +50,27 @@ public final class ibw extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                a = kog1.j();
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(1, a.intValue());
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

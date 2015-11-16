@@ -2,28 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.widget.ProgressBar;
 
-public class abx extends Exception
+public final class abx
 {
 
-    private static final long serialVersionUID = 0x9a5e9715137241b2L;
+    private final ProgressBar a;
+    private final ProgressBar b;
+    private boolean c;
 
-    public abx()
+    public abx(ProgressBar progressbar, ProgressBar progressbar1)
     {
+        a = progressbar;
+        b = progressbar1;
+        c = true;
+        a(c);
     }
 
-    public abx(String s)
+    private void a(boolean flag)
     {
-        super(s);
+        byte byte0 = 8;
+        ProgressBar progressbar = b;
+        int i;
+        if (flag)
+        {
+            i = 0;
+        } else
+        {
+            i = 8;
+        }
+        progressbar.setVisibility(i);
+        progressbar = a;
+        if (flag)
+        {
+            i = byte0;
+        } else
+        {
+            i = 0;
+        }
+        progressbar.setVisibility(i);
     }
 
-    public abx(String s, Throwable throwable)
+    public void a(int i)
     {
-        super(s, throwable);
-    }
-
-    public abx(Throwable throwable)
-    {
-        super(throwable);
+        if (i == 4 || i == 8)
+        {
+            b.setVisibility(i);
+            a.setVisibility(i);
+            return;
+        } else
+        {
+            a(c);
+            return;
+        }
     }
 }

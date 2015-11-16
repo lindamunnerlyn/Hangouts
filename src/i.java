@@ -154,11 +154,17 @@ label0:
                 Object obj = b(classloader, "pathList").get(classloader);
                 ArrayList arraylist = new ArrayList();
                 list = new ArrayList(list);
-                a(obj, "dexElements", (Object[])a(obj, "makeDexElements", new Class[] {
+                file = ((File) ((Object[])a(obj, "makeDexElements", new Class[] {
                     java/util/ArrayList, java/io/File, java/util/ArrayList
                 }).invoke(obj, new Object[] {
                     list, file, arraylist
-                }));
+                })));
+                list = b(obj, "dexElements");
+                Object aobj2[] = (Object[])list.get(obj);
+                Object aobj3[] = (Object[])Array.newInstance(((Object) (aobj2)).getClass().getComponentType(), aobj2.length + file.length);
+                System.arraycopy(((Object) (aobj2)), 0, ((Object) (aobj3)), 0, aobj2.length);
+                System.arraycopy(file, 0, ((Object) (aobj3)), aobj2.length, file.length);
+                list.set(obj, ((Object) (aobj3)));
                 if (arraylist.size() > 0)
                 {
                     for (file = arraylist.iterator(); file.hasNext(); file.next()) { }
@@ -182,11 +188,17 @@ label0:
         {
             classloader = ((ClassLoader) (b(classloader, "pathList").get(classloader)));
             list = new ArrayList(list);
-            a(classloader, "dexElements", (Object[])a(classloader, "makeDexElements", new Class[] {
+            file = ((File) ((Object[])a(classloader, "makeDexElements", new Class[] {
                 java/util/ArrayList, java/io/File
             }).invoke(classloader, new Object[] {
                 list, file
-            }));
+            })));
+            list = b(classloader, "dexElements");
+            Object aobj[] = (Object[])list.get(classloader);
+            Object aobj1[] = (Object[])Array.newInstance(((Object) (aobj)).getClass().getComponentType(), aobj.length + file.length);
+            System.arraycopy(((Object) (aobj)), 0, ((Object) (aobj1)), 0, aobj.length);
+            System.arraycopy(file, 0, ((Object) (aobj1)), aobj.length, file.length);
+            list.set(classloader, ((Object) (aobj1)));
             return;
         } else
         {

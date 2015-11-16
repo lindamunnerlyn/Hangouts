@@ -2,13 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.gms.common.data.DataHolder;
 
-public interface fyc
+final class fyc extends fya
 {
 
-    public abstract void a();
+    public fyc(enn enn)
+    {
+        super(enn);
+    }
 
-    public abstract void b();
-
-    public abstract boolean c();
+    public void a(DataHolder dataholder)
+    {
+        a(new fvh(dataholder));
+    }
 }

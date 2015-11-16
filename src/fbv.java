@@ -2,21 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.herrevad.PredictedNetworkQuality;
 
-public class fbv extends fbx
+final class fbv
 {
 
-    public ekm a;
+    static final erv a[] = {
+        new fbw(erv.a("0\202\003\2770\202\002\247\240\003\002\001\002\002\t\000\327\267\257\030\203\312\226\3630")), new fbx(erv.a("0\202\003\2770\202\002\247\240\003\002\001\002\002\t\000\305\034;<\316\253\023\2760"))
+    };
 
-    public fbv(ekm ekm)
-    {
-        a = ekm;
-    }
-
-    public void a(Status status, PredictedNetworkQuality predictednetworkquality)
-    {
-        throw new UnsupportedOperationException();
-    }
 }

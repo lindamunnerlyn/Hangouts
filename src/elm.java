@@ -2,9 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.os.Looper;
 
-interface elm
+final class elm extends emu
 {
 
-    public abstract void a(eln eln);
+    elm()
+    {
+    }
+
+    public emw a(Context context, Looper looper, epo epo, Object obj, enb enb, end end)
+    {
+        return new elr(context, looper, epo, enb, end);
+    }
 }

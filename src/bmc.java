@@ -2,50 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.res.Resources;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ListView;
-import java.util.ArrayList;
-import java.util.List;
 
-public final class bmc extends ac
+final class bmc
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    public bmc()
+    final bmb a;
+
+    bmc(bmb bmb1)
     {
+        a = bmb1;
+        super();
     }
 
-    public static bmc q()
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        return new bmc();
-    }
-
-    public Dialog a(Bundle bundle)
-    {
-        bundle = new android.app.AlertDialog.Builder(getActivity());
-        View view = getActivity().getLayoutInflater().inflate(g.hd, null);
-        ListView listview = (ListView)view.findViewById(h.bM);
-        Resources resources = getActivity().getResources();
-        String s = drs.a(drs.b());
-        ArrayList arraylist = new ArrayList();
-        arraylist.add(resources.getString(l.aK));
-        arraylist.add(resources.getString(l.aQ, new Object[] {
-            s
-        }));
-        arraylist.add(resources.getString(l.A, new Object[] {
-            s
-        }));
-        listview.setAdapter(new bmd(this, getActivity(), arraylist));
-        bundle.setTitle(l.kA).setView(view);
-        return bundle.create();
-    }
-
-    public void onCancel(DialogInterface dialoginterface)
-    {
-        ((bmb)getTargetFragment()).getActivity().finish();
+        a.a();
     }
 }

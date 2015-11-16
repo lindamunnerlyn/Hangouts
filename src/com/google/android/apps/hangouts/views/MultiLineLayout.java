@@ -8,14 +8,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import efu;
-import efv;
+import eiw;
+import eix;
 
 public class MultiLineLayout extends ViewGroup
 {
 
-    private final efu a = new efu(this);
-    private final efv b = new efv(this);
+    private final eiw a = new eiw(this);
+    private final eix b = new eix(this);
 
     public MultiLineLayout(Context context, AttributeSet attributeset)
     {

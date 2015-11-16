@@ -2,61 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.InputStream;
+import java.io.OutputStream;
 
-public final class jyq extends koj
+public abstract class jyq
 {
 
-    public Boolean a;
-
-    public jyq()
+    protected jyq()
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public long a(jyp jyp1)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        return i;
+        jyu jyu1;
+        n.b(jyp1);
+        jyu1 = jyu.a();
+        long l = jyr.a((InputStream)jyu1.a(a()), (OutputStream)jyu1.a(jyp1.a()));
+        jyu1.close();
+        return l;
+        jyp1;
+        throw jyu1.a(jyp1);
+        jyp1;
+        jyu1.close();
+        throw jyp1;
     }
 
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
-        }
-        super.writeTo(koh1);
-    }
+    public abstract InputStream a();
 }

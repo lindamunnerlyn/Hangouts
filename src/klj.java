@@ -2,63 +2,61 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.IOException;
 
-public abstract class klj
-    implements kmz
+public final class klj extends kwm
 {
+
+    public Boolean a;
 
     public klj()
     {
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public abstract klj a();
-
-    public klj a(klr klr1)
+    protected int computeSerializedSize()
     {
-        return a(klr1, klv.a());
-    }
-
-    public abstract klj a(klr klr1, klv klv1);
-
-    public klj a(byte abyte0[])
-    {
-        return a(abyte0, abyte0.length);
-    }
-
-    public klj a(byte abyte0[], int i)
-    {
-        try
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            abyte0 = klr.a(abyte0, 0, i);
-            a(((klr) (abyte0)));
-            abyte0.a(0);
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
-        // Misplaced declaration of an exception variable
-        catch (byte abyte0[])
+        return i;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
         {
-            throw abyte0;
-        }
-        // Misplaced declaration of an exception variable
-        catch (byte abyte0[])
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
         {
-            throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).", abyte0);
+            kwk1.a(1, a.booleanValue());
         }
-        return this;
-    }
-
-    public kmz b(klr klr1, klv klv1)
-    {
-        return a(klr1, klv1);
-    }
-
-    public kmz b(byte abyte0[])
-    {
-        return a(abyte0);
-    }
-
-    public Object clone()
-    {
-        return a();
+        super.writeTo(kwk1);
     }
 }

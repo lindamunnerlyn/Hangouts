@@ -2,27 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
 
-public final class jwl extends koj
+public interface jwl
 {
 
-    public jwl()
-    {
-        unknownFieldData = null;
-        cachedSize = -1;
-    }
+    public abstract boolean a(Object obj, Iterable iterable);
 
-    public kop mergeFrom(kog kog1)
-    {
-_L3:
-        int i = kog1.a();
-        i;
-        JVM INSTR tableswitch 0 0: default 24
-    //                   0 33;
-           goto _L1 _L2
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L3; else goto _L2
-_L2:
-        return this;
-    }
+    public abstract boolean a(Object obj, Object obj1);
+
+    public abstract Collection b(Object obj);
+
+    public abstract Map b();
+
+    public abstract boolean c(Object obj);
+
+    public abstract int f();
+
+    public abstract boolean j();
+
+    public abstract Set k();
 }

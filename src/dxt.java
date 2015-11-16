@@ -2,22 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import java.util.concurrent.TimeUnit;
 
-final class dxt
-    implements android.view.View.OnClickListener
+public final class dxt
 {
 
-    final dxq a;
+    public static final String a = null;
+    public static final int b;
+    static final String c = null;
+    static final String d = null;
+    static final String e = null;
 
-    dxt(dxq dxq1)
+    static 
     {
-        a = dxq1;
-        super();
-    }
-
-    public void onClick(View view)
-    {
-        dxq.c(a).g();
+        b = (int)TimeUnit.SECONDS.toMicros(3L);
     }
 }

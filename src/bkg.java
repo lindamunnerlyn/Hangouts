@@ -2,33 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.util.SparseArray;
-import com.google.android.apps.hangouts.fragments.HiddenContactsFragment;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.content.Context;
+import android.content.SharedPreferences;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-public final class bkg
-    implements eev
+final class bkg extends gdy
 {
 
-    final HiddenContactsFragment a;
+    final bke a;
 
-    public bkg(HiddenContactsFragment hiddencontactsfragment)
+    bkg(bke bke1)
     {
-        a = hiddencontactsfragment;
+        a = bke1;
         super();
     }
 
-    public void a(eeu eeu1)
+    protected Object a()
     {
-        String s = eeu1.b();
-        eeu1 = eeu1.a().a;
-        if (!g.a(HiddenContactsFragment.a(a), eeu1))
+        int i = 0;
+        String s = bke.a(a).getSharedPreferences("recentEmoji", 0).getString("recentEmojiKey", null);
+        bke.b(a).clear();
+        if (s != null)
         {
-            HiddenContactsFragment.b(a);
-            int i = RealTimeChatService.a(HiddenContactsFragment.c(a).a(), eeu1);
-            HiddenContactsFragment.d(a).append(i, s);
-            HiddenContactsFragment.a(a).append(i, eeu1);
+            String as[] = s.split(",");
+            for (int j = as.length; i < j; i++)
+            {
+                String s1 = as[i];
+                if (!"16".equals(s1))
+                {
+                    int k = Integer.parseInt(s1, bke.b());
+                    bke.b(a).add(Integer.valueOf(k));
+                }
+            }
+
         }
-        HiddenContactsFragment.e(a).notifyDataSetChanged();
+        return null;
+    }
+
+    protected void onPostExecute(Object obj)
+    {
+        if (bke.c(a) != null)
+        {
+            bke.c(a).i_();
+        }
     }
 }

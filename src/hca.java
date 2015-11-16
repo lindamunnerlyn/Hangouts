@@ -2,23 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
 
-final class hca
-    implements hhl
+public final class hca extends Enum
 {
 
-    hca()
-    {
-    }
+    public static final int a;
+    public static final int b;
+    private static final int c[];
 
-    public Class a()
+    static 
     {
-        return hbw;
-    }
-
-    public void a(Activity activity, hjm hjm, hgx hgx1)
-    {
-        hgx1.a(hbw, new hbx(hjm));
+        a = 1;
+        b = 2;
+        c = (new int[] {
+            a, b
+        });
     }
 }

@@ -2,32 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.animation.Interpolator;
+import android.widget.PopupWindow;
+import java.lang.reflect.Field;
 
-interface pf
+final class pf
 {
 
-    public abstract Object a(Context context, Interpolator interpolator);
+    private static Field a;
 
-    public abstract void a(Object obj, int i, int j, int k, int l, int i1);
+    static void a(PopupWindow popupwindow, boolean flag)
+    {
+        if (a == null)
+        {
+            break MISSING_BLOCK_LABEL_17;
+        }
+        a.set(popupwindow, Boolean.valueOf(flag));
+        return;
+        popupwindow;
+    }
 
-    public abstract void a(Object obj, int i, int j, int k, int l, int i1, int j1, 
-            int k1, int l1);
-
-    public abstract boolean a(Object obj);
-
-    public abstract int b(Object obj);
-
-    public abstract int c(Object obj);
-
-    public abstract float d(Object obj);
-
-    public abstract boolean e(Object obj);
-
-    public abstract void f(Object obj);
-
-    public abstract int g(Object obj);
-
-    public abstract int h(Object obj);
+    static 
+    {
+        try
+        {
+            Field field = android/widget/PopupWindow.getDeclaredField("mOverlapAnchor");
+            a = field;
+            field.setAccessible(true);
+        }
+        catch (NoSuchFieldException nosuchfieldexception) { }
+    }
 }

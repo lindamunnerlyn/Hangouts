@@ -31,16 +31,16 @@ public class AccountListItemView extends RelativeLayout
         super(context, attributeset);
         if (!a)
         {
-            b = getContext().getApplicationContext().getResources().getString(l.fa);
+            b = getContext().getApplicationContext().getResources().getString(l.eJ);
             a = true;
         }
     }
 
     public void onFinishInflate()
     {
-        c = (AvatarView)findViewById(h.F);
+        c = (AvatarView)findViewById(h.E);
         d = (TextView)findViewById(h.l);
         e = (TextView)findViewById(h.m);
-        f = findViewById(h.fV);
+        f = findViewById(h.fD);
     }
 }

@@ -2,50 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import org.webrtc.voiceengine.WebRtcAudioTrack;
+import java.util.Map;
 
-public final class ghz
-    implements gjj
+final class ghz extends gdp
 {
 
-    private gjk a;
-    private boolean b;
+    final ghy a;
 
-    public ghz()
+    ghz(ghy ghy1)
     {
+        a = ghy1;
+        super();
     }
 
-    public void a()
+    private void a(jiz jiz1)
     {
-        a = null;
-        WebRtcAudioTrack.setAudioMute(true);
-    }
-
-    public void a(gjk gjk)
-    {
-        a = gjk;
-        c_(b);
-    }
-
-    public void b()
-    {
-        c_(true);
-    }
-
-    public void c_(boolean flag)
-    {
-        b = flag;
-        if (a == null)
+        ghu ghu1;
+        if (jiz1.d.intValue() == 2)
         {
-            return;
+            if ((ghu1 = (ghu)a.a.get(jiz1.b)) != null)
+            {
+                ghu1.a(jiz1);
+                return;
+            }
         }
-        if (!flag)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        WebRtcAudioTrack.setAudioMute(flag);
+    }
+
+    public volatile void a(kws kws)
+    {
+        a((jiz)kws);
+    }
+
+    public void a(kws kws, kws kws1)
+    {
+        a((jiz)kws1);
     }
 }

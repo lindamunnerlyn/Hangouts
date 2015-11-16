@@ -2,23 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.database.Cursor;
 
-final class aag
-    implements android.app.ActionBar.OnMenuVisibilityListener
+public class aag
 {
 
-    final aaf a;
-    private final pq b;
+    boolean a;
+    boolean b;
+    Cursor c;
+    int d;
+    int e;
 
-    public aag(aaf aaf, pq pq1)
+    public aag(boolean flag, boolean flag1)
     {
-        a = aaf;
-        super();
-        b = pq1;
-    }
-
-    public void onMenuVisibilityChanged(boolean flag)
-    {
-        b.a(flag);
+        a = false;
+        b = false;
     }
 }

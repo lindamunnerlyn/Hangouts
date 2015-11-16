@@ -3,14 +3,50 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gmo
+public class gmo
 {
 
-    public abstract int a();
+    public gmo()
+    {
+    }
 
-    public abstract gmo a(gmq gmq);
+    public void a(int i)
+    {
+    }
 
-    public abstract boolean b();
+    public void a(int i, String s)
+    {
+    }
 
-    public abstract gmu c();
+    public void a(gms gms)
+    {
+    }
+
+    public void a(gmt gmt)
+    {
+    }
+
+    public void a(gmu gmu)
+    {
+    }
+
+    public void a(itz itz)
+    {
+    }
+
+    public void a(jjt jjt)
+    {
+    }
+
+    public void b(gmt gmt)
+    {
+    }
+
+    public void c(gmt gmt)
+    {
+    }
+
+    public void d(gmt gmt)
+    {
+    }
 }

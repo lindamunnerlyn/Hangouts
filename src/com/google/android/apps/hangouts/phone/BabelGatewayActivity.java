@@ -4,10 +4,10 @@
 
 package com.google.android.apps.hangouts.phone;
 
-import aik;
+import aid;
+import aie;
 import ail;
-import ais;
-import ait;
+import aim;
 import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -18,81 +18,82 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.widget.Toast;
-import ane;
-import ani;
-import aob;
-import aoh;
-import bhj;
-import bka;
-import boy;
-import bwf;
-import cjd;
-import cje;
+import anw;
+import aoa;
+import aot;
+import aoz;
+import bhv;
+import bkm;
+import bph;
+import cki;
+import ckj;
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import daf;
-import dbf;
-import dce;
-import dgp;
-import dhi;
-import dkt;
-import dlg;
-import dlj;
-import ebw;
+import dbl;
+import dcn;
+import ddm;
+import dhy;
+import dir;
+import dml;
+import dod;
+import dog;
+import eev;
 import g;
-import gam;
-import gbh;
-import gmp;
-import gmq;
-import gms;
-import gng;
-import hgx;
+import gcz;
+import gda;
+import gdd;
+import gdv;
+import gqv;
+import gqw;
+import gqz;
+import grn;
+import hlp;
 import l;
 
-public class BabelGatewayActivity extends bka
-    implements android.content.DialogInterface.OnCancelListener, android.content.DialogInterface.OnClickListener, dlj, gmq
+public class BabelGatewayActivity extends bkm
+    implements android.content.DialogInterface.OnCancelListener, android.content.DialogInterface.OnClickListener, dog, gqw
 {
 
-    private static final boolean m = false;
-    private boolean A;
+    private static final boolean n = false;
+    private long A;
     private boolean B;
-    private Uri C;
-    private boolean D;
-    private int E;
+    private boolean C;
+    private Uri D;
+    private boolean E;
     private int F;
-    private boolean G;
-    private int H;
-    private boolean I;
+    private int G;
+    private boolean H;
+    private int I;
     private boolean J;
-    private String K;
-    private int L;
-    private final dgp M = new cjd(this);
-    private Intent n;
-    private ani o;
-    private String r[];
+    private boolean K;
+    private String L;
+    private int M;
+    private final dhy N = new cki(this);
+    private Intent o;
+    private aoa p;
     private String s[];
-    private String t;
+    private String t[];
     private String u;
-    private boolean v;
+    private String v;
     private boolean w;
     private boolean x;
-    private int y;
-    private long z;
+    private boolean y;
+    private int z;
 
     public BabelGatewayActivity()
     {
-        (new gng(this, q)).a(p).a(this);
-        r = new String[0];
+        (new grn(this, r)).a(q).a(this);
         s = new String[0];
+        t = new String[0];
     }
 
     public static int a(BabelGatewayActivity babelgatewayactivity)
     {
-        return babelgatewayactivity.L;
+        return babelgatewayactivity.M;
     }
 
     public static Intent a(int i1, String s1)
     {
-        Intent intent = new Intent(g.nS, com/google/android/apps/hangouts/phone/BabelGatewayActivity);
+        Intent intent = new Intent(g.nU, com/google/android/apps/hangouts/phone/BabelGatewayActivity);
         intent.setAction("com.google.android.apps.babel.realtimechat.update-watermark");
         intent.putExtra("account_id", i1);
         intent.putExtra("conversation_id", s1);
@@ -101,7 +102,7 @@ public class BabelGatewayActivity extends bka
 
     public static Intent a(int i1, String s1, String s2)
     {
-        Intent intent = new Intent(g.nS, com/google/android/apps/hangouts/phone/BabelGatewayActivity);
+        Intent intent = new Intent(g.nU, com/google/android/apps/hangouts/phone/BabelGatewayActivity);
         intent.setAction("android.intent.action.VIEW");
         intent.putExtra("account_id", i1);
         intent.putExtra("conversation_id", s1);
@@ -111,7 +112,7 @@ public class BabelGatewayActivity extends bka
 
     public static Intent a(int i1, String s1, String s2, Uri uri, PendingIntent pendingintent, int j1, int k1)
     {
-        Intent intent = new Intent(g.nS, com/google/android/apps/hangouts/phone/BabelGatewayActivity);
+        Intent intent = new Intent(g.nU, com/google/android/apps/hangouts/phone/BabelGatewayActivity);
         intent.setAction("android.intent.action.VIEW");
         intent.putExtra("account_id", i1);
         if (s1 != null)
@@ -121,7 +122,7 @@ public class BabelGatewayActivity extends bka
             intent.putExtra("start_video", true);
         } else
         {
-            gbh.b(uri);
+            gdv.b("Expected non-null", uri);
             intent.putExtra("hangout_uri", uri);
         }
         if (pendingintent != null)
@@ -137,7 +138,7 @@ public class BabelGatewayActivity extends bka
 
     public static Intent a(int i1, String s1, String s2, String s3, boolean flag, String s4)
     {
-        Intent intent = new Intent(g.nS, com/google/android/apps/hangouts/phone/BabelGatewayActivity);
+        Intent intent = new Intent(g.nU, com/google/android/apps/hangouts/phone/BabelGatewayActivity);
         intent.setAction("android.intent.action.VIEW");
         intent.putExtra("account_id", i1);
         intent.putExtra("participant_gaia", s1);
@@ -208,7 +209,7 @@ public class BabelGatewayActivity extends bka
 
     public static String a(BabelGatewayActivity babelgatewayactivity, String s1)
     {
-        babelgatewayactivity.t = s1;
+        babelgatewayactivity.u = s1;
         return s1;
     }
 
@@ -224,7 +225,7 @@ public class BabelGatewayActivity extends bka
 
     public static String[] a(BabelGatewayActivity babelgatewayactivity, String as[])
     {
-        babelgatewayactivity.s = as;
+        babelgatewayactivity.t = as;
         return as;
     }
 
@@ -252,17 +253,17 @@ public class BabelGatewayActivity extends bka
         {
             s1 = new String(s2);
         }
-        ebw.b("Babel", s1);
+        eev.b("Babel", s1);
     }
 
     public static boolean b(BabelGatewayActivity babelgatewayactivity)
     {
-        return babelgatewayactivity.B;
+        return babelgatewayactivity.C;
     }
 
-    public static ani c(BabelGatewayActivity babelgatewayactivity)
+    public static aoa c(BabelGatewayActivity babelgatewayactivity)
     {
-        return babelgatewayactivity.o;
+        return babelgatewayactivity.p;
     }
 
     private void c(Intent intent)
@@ -274,12 +275,12 @@ public class BabelGatewayActivity extends bka
 
     public static int d(BabelGatewayActivity babelgatewayactivity)
     {
-        return babelgatewayactivity.H;
+        return babelgatewayactivity.I;
     }
 
     public static Intent d(int i1)
     {
-        Intent intent = new Intent(g.nS, com/google/android/apps/hangouts/phone/BabelGatewayActivity);
+        Intent intent = new Intent(g.nU, com/google/android/apps/hangouts/phone/BabelGatewayActivity);
         intent.setAction("android.intent.action.VIEW");
         intent.putExtra("account_id", i1);
         return intent;
@@ -294,34 +295,34 @@ public class BabelGatewayActivity extends bka
 
     public static boolean e(BabelGatewayActivity babelgatewayactivity)
     {
-        return babelgatewayactivity.D;
+        return babelgatewayactivity.E;
     }
 
     public static int f(BabelGatewayActivity babelgatewayactivity)
     {
-        return babelgatewayactivity.E;
+        return babelgatewayactivity.F;
     }
 
     private void f(int i1)
     {
-        if (v)
+        if (w)
         {
             boolean flag;
-            if (!TextUtils.isEmpty(u))
+            if (!TextUtils.isEmpty(v))
             {
                 flag = true;
             } else
             {
                 flag = false;
             }
-            gbh.a(flag);
-            if (z > 0L)
+            gdv.a("Expected condition to be true", flag);
+            if (A > 0L)
             {
-                RealTimeChatService.b(o, t, z);
+                RealTimeChatService.b(p, u, A);
             }
-            if (m)
+            if (n)
             {
-                String s1 = String.valueOf(t);
+                String s1 = String.valueOf(u);
                 if (s1.length() != 0)
                 {
                     s1 = "Auto-sending message to conversation ".concat(s1);
@@ -331,24 +332,24 @@ public class BabelGatewayActivity extends bka
                 }
                 b(s1);
             }
-            ((dkt)p.a(dkt)).a(o, t, u, null, 0, null, 0, 0, null, null, A, null, y);
+            ((dml)q.a(dml)).a(p, u, v, null, 0, null, 0, 0, null, null, B, null, z);
             setResult(-1);
             finish();
             return;
         }
-        if (w)
+        if (x)
         {
-            RealTimeChatService.b(o, t, z);
+            RealTimeChatService.b(p, u, A);
             setResult(-1);
             finish();
             return;
         }
-        Intent intent = g.a(o.h(), t, i1);
-        if (!TextUtils.isEmpty(u))
+        Intent intent = g.a(p.h(), u, i1);
+        if (!TextUtils.isEmpty(v))
         {
             Intent intent1 = new Intent();
-            intent1.putExtra("android.intent.extra.TEXT", u);
-            intent1.putExtra("conversation_id", t);
+            intent1.putExtra("android.intent.extra.TEXT", v);
+            intent1.putExtra("conversation_id", u);
             intent.putExtra("share_intent", intent1);
         }
         c(intent);
@@ -356,56 +357,56 @@ public class BabelGatewayActivity extends bka
 
     public static int g(BabelGatewayActivity babelgatewayactivity)
     {
-        return babelgatewayactivity.F;
+        return babelgatewayactivity.G;
     }
 
     public static boolean h(BabelGatewayActivity babelgatewayactivity)
     {
-        return babelgatewayactivity.G;
+        return babelgatewayactivity.H;
     }
 
     public static boolean i(BabelGatewayActivity babelgatewayactivity)
     {
-        return babelgatewayactivity.I;
+        return babelgatewayactivity.J;
     }
 
     public static boolean j()
     {
-        return m;
+        return n;
     }
 
     public static boolean j(BabelGatewayActivity babelgatewayactivity)
     {
-        return babelgatewayactivity.J;
+        return babelgatewayactivity.K;
     }
 
     public static String[] k(BabelGatewayActivity babelgatewayactivity)
     {
-        return babelgatewayactivity.r;
+        return babelgatewayactivity.s;
     }
 
     public static String[] l(BabelGatewayActivity babelgatewayactivity)
     {
-        return babelgatewayactivity.s;
+        return babelgatewayactivity.t;
     }
 
     private void m()
     {
-        if (r.length != s.length)
+        if (s.length != t.length)
         {
-            gbh.a("BabelGatewayActivity.createConversationWithParticipants: different number of participant gaia ids and names");
+            gdv.a("BabelGatewayActivity.createConversationWithParticipants: different number of participant gaia ids and names");
             return;
         }
-        ail ail1 = aik.newBuilder();
-        for (int i1 = 0; i1 < r.length; i1++)
+        aie aie1 = aid.newBuilder();
+        for (int i1 = 0; i1 < s.length; i1++)
         {
-            ail1.a(ais.newBuilder().a(s[i1]).a(daf.a(r[i1], s[i1])).a());
+            aie1.a(ail.newBuilder().a(t[i1]).a(dbl.a(s[i1], t[i1])).a());
         }
 
-        RealTimeChatService.a(M);
-        dhi dhi1 = dhi.b();
-        L = dhi1.a();
-        RealTimeChatService.a(dhi1, (new dce(getApplicationContext())).a(o.h()).a(ail1.a()).a(aob.c).a(B).b(x).a(K).a());
+        RealTimeChatService.a(N);
+        dir dir1 = dir.b();
+        M = dir1.a();
+        RealTimeChatService.a(dir1, (new ddm(getApplicationContext())).a(p.h()).a(aie1.a()).a(aot.c).a(C).b(y).a(L).a());
     }
 
     public static void m(BabelGatewayActivity babelgatewayactivity)
@@ -413,130 +414,135 @@ public class BabelGatewayActivity extends bka
         babelgatewayactivity.m();
     }
 
-    public void a(aoh aoh1)
+    public void a(aoz aoz1)
     {
-        t = aoh1.s;
-        f(aoh1.b);
+        u = aoz1.s;
+        f(aoz1.b);
     }
 
-    public void a(boolean flag, gmp gmp1, gmp gmp2, int i1, int j1)
+    public void a(boolean flag, gqv gqv1, gqv gqv2, int i1, int j1)
     {
-        if (gmp2 != gmp.c) goto _L2; else goto _L1
+        if (gqv2 != gqv.c) goto _L2; else goto _L1
 _L1:
-        o = dbf.e(j1);
-        gbh.b(o);
-        i1 = n.getIntExtra("opened_from_impression", 0);
+        p = dcn.e(j1);
+        gdv.b("Expected non-null", p);
+        i1 = o.getIntExtra("opened_from_impression", 0);
         if (i1 != 0)
         {
-            ((bwf)p.a(bwf)).a(o.h(), i1).d();
+            ((gdd)q.a(gdd)).a(p.h()).a(i1).d();
         }
-        if (!v && !w)
+        if (!w && !x)
         {
-            ((gms)p.a(gms)).a("active-hangouts-account", o.h());
+            ((gqz)q.a(gqz)).a("active-hangouts-account", p.h());
         }
-        if (C == null) goto _L4; else goto _L3
+        if (D == null) goto _L4; else goto _L3
 _L3:
-        gmp2 = C;
-        gmp1 = (PendingIntent)n.getParcelableExtra("hangout_call_end_intent");
-        gmp2 = boy.a(gmp2, o.a(), gmp1);
-        if (gmp2 != null) goto _L6; else goto _L5
+        gqv2 = D;
+        gqv1 = (PendingIntent)o.getParcelableExtra("hangout_call_end_intent");
+        gqv2 = bph.a(gqv2, p.a(), gqv1);
+        if (gqv2 != null) goto _L6; else goto _L5
 _L5:
-        ebw.g("Babel", "invalid hangout request");
-        if (gmp1 != null)
+        eev.g("Babel", "invalid hangout request");
+        if (gqv1 != null)
         {
             try
             {
-                gmp1.send();
+                gqv1.send();
             }
             // Misplaced declaration of an exception variable
-            catch (gmp gmp1)
+            catch (gqv gqv1)
             {
-                ebw.d("Babel", "callCompletionIntent failed", gmp1);
+                eev.d("Babel", "callCompletionIntent failed", gqv1);
             }
         }
-        e(l.di);
+        e(l.cR);
 _L8:
         return;
 _L6:
-        startActivity(g.a(gmp2, null, D, E, SystemClock.elapsedRealtime(), F, G, I, J));
+        startActivity(g.a(gqv2, null, E, F, SystemClock.elapsedRealtime(), G, H, J, K));
         setResult(-1);
         finish();
         return;
 _L4:
-        if (!TextUtils.isEmpty(t) || r.length > 0 || s.length > 0)
+        if (!TextUtils.isEmpty(u) || s.length > 0 || t.length > 0)
         {
-            if (m)
+            if (n)
             {
                 b("getConversation");
             }
-            gbh.b(o);
-            if (!TextUtils.isEmpty(t))
+            gdv.b("Expected non-null", p);
+            if (!TextUtils.isEmpty(u))
             {
-                dlg.a(o).a(new ane(t, this));
+                dod.a(p).a(new anw(u, this));
                 return;
             }
-            if (r.length > 0)
+            if (s.length > 0)
             {
-                if (s.length > 0)
+                if (t.length > 0)
                 {
                     m();
                     return;
                 } else
                 {
-                    ebw.f("Babel", "BabelGatewayActivity.createConversation: incoming intent has no participant name");
-                    (new cje(this)).g();
+                    eev.f("Babel", "BabelGatewayActivity.createConversation: incoming intent has no participant name");
+                    (new ckj(this)).g();
                     return;
                 }
             }
-            if (s.length > 0 && bhj.b(s[0]) != null)
+            if (t.length > 0 && bhv.b(t[0]) != null)
             {
-                gmp1 = bhj.b(s[0]);
-                gmp2 = aik.newBuilder();
-                gmp2.a(ais.newBuilder().a(gmp1).a(daf.a(gmp1)).a());
-                RealTimeChatService.a(M);
-                dhi dhi1;
-                if (x)
+                gqv1 = bhv.b(t[0]);
+                gqv2 = aid.newBuilder();
+                gqv2.a(ail.newBuilder().a(gqv1).a(dbl.a(gqv1)).a());
+                RealTimeChatService.a(N);
+                dir dir1;
+                if (y)
                 {
-                    gmp1 = aob.b;
+                    gqv1 = aot.b;
                 } else
                 {
-                    gmp1 = aob.c;
+                    gqv1 = aot.c;
                 }
-                dhi1 = dhi.b();
-                L = dhi1.a();
-                RealTimeChatService.a(dhi1, (new dce(getApplicationContext())).a(o.h()).a(gmp2.a()).a(gmp1).a(B).b(x).a(K).a());
+                dir1 = dir.b();
+                M = dir1.a();
+                RealTimeChatService.a(dir1, (new ddm(getApplicationContext())).a(p.h()).a(gqv2.a()).a(gqv1).a(C).b(y).a(L).a());
                 return;
             } else
             {
-                gbh.a("BabelGatewayActivity.createConversation: Participant id is null and conversation id is null");
+                gdv.a("BabelGatewayActivity.createConversation: Participant id is null and conversation id is null");
                 return;
             }
         } else
         {
-            c(g.e(o));
+            c(g.d(p));
             return;
         }
 _L2:
-        if (C != null)
+        if (D != null)
         {
-            gmp1 = (PendingIntent)n.getParcelableExtra("hangout_call_end_intent");
-            if (gmp1 != null)
+            gqv1 = (PendingIntent)o.getParcelableExtra("hangout_call_end_intent");
+            if (gqv1 != null)
             {
                 try
                 {
-                    gmp1.send();
+                    gqv1.send();
                     return;
                 }
                 // Misplaced declaration of an exception variable
-                catch (gmp gmp1)
+                catch (gqv gqv1)
                 {
-                    ebw.d("Babel", "Call complete intent could not be sent", gmp1);
+                    eev.d("Babel", "Call complete intent could not be sent", gqv1);
                 }
                 return;
             }
         }
         if (true) goto _L8; else goto _L7
 _L7:
+    }
+
+    public void b()
+    {
+        e(l.bX);
     }
 
     public void onCancel(DialogInterface dialoginterface)
@@ -553,14 +559,14 @@ _L7:
 
     protected void onCreate(Bundle bundle)
     {
-        if (m)
+        if (n)
         {
             b("BabelGatewayActivity.onCreate()");
         }
-        n = getIntent();
-        if (m)
+        o = getIntent();
+        if (n)
         {
-            String s1 = String.valueOf(n.getType());
+            String s1 = String.valueOf(o.getType());
             String s2;
             Intent intent;
             if (s1.length() != 0)
@@ -572,53 +578,53 @@ _L7:
             }
             b(s1);
         }
-        s1 = n.getStringExtra("participant_gaia");
-        if (!TextUtils.isEmpty(s1))
-        {
-            r = s1.split("\\|");
-        }
-        s1 = n.getStringExtra("participant_name");
+        s1 = o.getStringExtra("participant_gaia");
         if (!TextUtils.isEmpty(s1))
         {
             s = s1.split("\\|");
         }
-        t = n.getStringExtra("conversation_id");
-        intent = n;
+        s1 = o.getStringExtra("participant_name");
+        if (!TextUtils.isEmpty(s1))
+        {
+            t = s1.split("\\|");
+        }
+        u = o.getStringExtra("conversation_id");
+        intent = o;
         s2 = intent.getStringExtra("android.intent.extra.TEXT");
         s1 = s2;
         if (s2 == null)
         {
             s1 = g.a(intent, "android.intent.extra.TEXT");
         }
-        u = s1;
-        v = n.getAction().equals("android.intent.action.SENDTO");
-        w = n.getAction().equals("com.google.android.apps.babel.realtimechat.update-watermark");
-        if (n.hasExtra("otr_state"))
+        v = s1;
+        w = o.getAction().equals("android.intent.action.SENDTO");
+        x = o.getAction().equals("com.google.android.apps.babel.realtimechat.update-watermark");
+        if (o.hasExtra("otr_state"))
         {
-            if (n.getBooleanExtra("otr_state", false))
+            if (o.getBooleanExtra("otr_state", false))
             {
-                y = 2;
+                z = 2;
             } else
             {
-                y = 1;
+                z = 1;
             }
         } else
         {
-            y = 0;
+            z = 0;
         }
-        z = n.getLongExtra("watermark", 0L);
-        A = n.getBooleanExtra("requires_mms", false);
-        B = n.getBooleanExtra("start_video", false);
-        x = n.getBooleanExtra("force_group", false);
-        C = (Uri)n.getParcelableExtra("hangout_uri");
-        D = n.getBooleanExtra("hangout_auto_join", false);
-        E = n.getIntExtra("hangout_start_source", 51);
-        F = n.getIntExtra("hangout_video_source", 0);
-        G = n.getBooleanExtra("hangout_mute_microphone", false);
-        H = n.getIntExtra("media_type", 0);
-        I = n.getBooleanExtra("hangout_mute_playback", false);
-        J = n.getBooleanExtra("hangout_present_all", false);
-        K = n.getStringExtra("invite_token_url");
+        A = o.getLongExtra("watermark", 0L);
+        B = o.getBooleanExtra("requires_mms", false);
+        C = o.getBooleanExtra("start_video", false);
+        y = o.getBooleanExtra("force_group", false);
+        D = (Uri)o.getParcelableExtra("hangout_uri");
+        E = o.getBooleanExtra("hangout_auto_join", false);
+        F = o.getIntExtra("hangout_start_source", 51);
+        G = o.getIntExtra("hangout_video_source", 0);
+        H = o.getBooleanExtra("hangout_mute_microphone", false);
+        I = o.getIntExtra("media_type", 0);
+        J = o.getBooleanExtra("hangout_mute_playback", false);
+        K = o.getBooleanExtra("hangout_present_all", false);
+        L = o.getStringExtra("invite_token_url");
         super.onCreate(bundle);
     }
 
@@ -658,12 +664,12 @@ _L7:
 
     public void onDestroy()
     {
-        RealTimeChatService.b(M);
+        RealTimeChatService.b(N);
         super.onDestroy();
     }
 
     static 
     {
-        hik hik = ebw.j;
+        hnc hnc = eev.j;
     }
 }

@@ -3,19 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class dcg
+public final class dcg extends dgj
 {
 
-    public final String a;
-    public final int b;
-    public final boolean c;
-    public final ani d;
+    private final byte a[];
 
-    dcg(String s, ani ani, int i, boolean flag)
+    public dcg(aoa aoa, byte abyte0[])
     {
-        a = s;
-        b = i;
-        c = flag;
-        d = ani;
+        super(aoa);
+        a = abyte0;
+    }
+
+    public void a()
+    {
+        a(((dmf) (new cvg(a))));
     }
 }

@@ -2,30 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
 
 final class avn
-    implements byg
+    implements android.view.View.OnFocusChangeListener
 {
 
-    final ave a;
+    final avk a;
 
-    avn(ave ave1)
+    avn(avk avk1)
     {
-        a = ave1;
+        a = avk1;
         super();
     }
 
-    public void a(boolean flag)
+    public void onFocusChange(View view, boolean flag)
     {
-        if (flag)
+        if (!flag)
         {
-            android.content.Intent intent = ((byf)ave.S(a).a(byf)).a(a.getActivity());
-            ave.T(a).a(g.kt, intent);
-            return;
-        } else
-        {
-            ebw.e("Conv", "Location permission not granted!");
-            return;
+            h.a(a.a);
         }
     }
 }

@@ -2,10 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-public interface gri
+public final class gri
 {
 
-    public abstract grh a(Context context, ap ap);
+    final String a;
+    final int b;
+    boolean c;
+
+    public gri(String s, int i)
+    {
+        a = (String)g.e(s);
+        b = i;
+    }
+
+    public gri a()
+    {
+        c = true;
+        return this;
+    }
+
+    public grh b()
+    {
+        return new grh(this);
+    }
 }

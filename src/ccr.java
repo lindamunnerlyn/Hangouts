@@ -2,20 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
 
-public final class ccr
+public final class ccr extends ccm
 {
 
-    public static final String a = dkp.getName();
-    private static ccq b;
-
-    public static void a(hgx hgx1)
+    public ccr()
     {
-        if (b == null)
-        {
-            b = new ccq();
-        }
-        hgx1.a(dkp, new ccs());
     }
 
+    public int a()
+    {
+        return -1;
+    }
+
+    public void a(Activity activity)
+    {
+    }
+
+    public int b()
+    {
+        return -1;
+    }
+
+    public int c()
+    {
+        return -1;
+    }
+
+    public int d()
+    {
+        return 0;
+    }
+
+    public int e()
+    {
+        return 0;
+    }
+
+    public boolean g()
+    {
+        return false;
+    }
 }

@@ -6,8 +6,8 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import eof;
-import fls;
+import erf;
+import foo;
 import g;
 import java.util.Arrays;
 
@@ -18,7 +18,7 @@ public final class VisibleRegion
     implements SafeParcelable
 {
 
-    public static final fls CREATOR = new fls();
+    public static final foo CREATOR = new foo();
     public final LatLng a;
     public final LatLng b;
     public final LatLng c;
@@ -36,7 +36,7 @@ public final class VisibleRegion
         e = latlngbounds;
     }
 
-    public int a()
+    private int a()
     {
         return f;
     }
@@ -77,7 +77,14 @@ public final class VisibleRegion
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fls.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a());
+        g.a(parcel, 2, a, i);
+        g.a(parcel, 3, b, i);
+        g.a(parcel, 4, c, i);
+        g.a(parcel, 5, d, i);
+        g.a(parcel, 6, e, i);
+        g.q(parcel, j);
     }
 
 }

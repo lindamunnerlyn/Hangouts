@@ -2,61 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.views.OverlayedAvatarView;
-import com.google.android.apps.hangouts.views.ParticipantsGalleryView;
+import com.google.android.apps.hangouts.views.AudioAttachmentView;
 
 public final class ega
-    implements Runnable
+    implements egf
 {
 
-    final OverlayedAvatarView a;
-    final ceu b;
-    final egb c;
-    final int d;
-    final int e;
-    final ParticipantsGalleryView f;
+    final aoa a;
+    final String b;
+    final String c;
+    final AudioAttachmentView d;
 
-    public ega(ParticipantsGalleryView participantsgalleryview, OverlayedAvatarView overlayedavatarview, ceu ceu1, egb egb1, int i, int j)
+    public ega(AudioAttachmentView audioattachmentview, aoa aoa, String s, String s1)
     {
-        f = participantsgalleryview;
-        a = overlayedavatarview;
-        b = ceu1;
-        c = egb1;
-        d = i;
-        e = j;
+        d = audioattachmentview;
+        a = aoa;
+        b = s;
+        c = s1;
         super();
     }
 
-    public void run()
+    public void a()
     {
-        int i = a.c();
-        a.f(0);
-        if (i != 0)
+        if (a == null || b == null)
         {
-            a.e(i);
-            ParticipantsGalleryView.a(f, a, ParticipantsGalleryView.a(f, i), i, b.e, b.h);
-        } else
-        {
-            synchronized (ParticipantsGalleryView.f(f))
-            {
-                ParticipantsGalleryView.f(f).remove(b.b);
-            }
-            ParticipantsGalleryView.g(f);
+            eev.f("Babel", "account or photoid are null in fetchAudioUrl");
         }
-        ParticipantsGalleryView.a(f, b);
-        c.a(true);
-        if (ParticipantsGalleryView.f())
-        {
-            ParticipantsGalleryView participantsgalleryview = f;
-            OverlayedAvatarView overlayedavatarview = a;
-            int j = d;
-            int k = e;
-            ParticipantsGalleryView.a(participantsgalleryview, overlayedavatarview, (new StringBuilder(57)).append("Move (end) ").append(j).append(" -> ").append(k).append("(actual ").append(i).append(")").toString());
-        }
-        return;
-        exception;
-        eay1;
-        JVM INSTR monitorexit ;
-        throw exception;
+        aoq.a(a, null, b, c);
     }
 }

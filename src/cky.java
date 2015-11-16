@@ -2,29 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Cursor;
-import android.view.View;
-import android.widget.AdapterView;
-import com.google.android.apps.hangouts.phone.DebugActivity;
+import com.google.android.apps.hangouts.phone.BabelHomeActivity;
 
 public final class cky
-    implements android.widget.AdapterView.OnItemClickListener
+    implements dfg
 {
 
-    final Cursor a;
-    final DebugActivity b;
+    final boolean a;
+    final BabelHomeActivity b;
 
-    public cky(DebugActivity debugactivity, Cursor cursor)
+    public cky(BabelHomeActivity babelhomeactivity, boolean flag)
     {
-        b = debugactivity;
-        a = cursor;
+        b = babelhomeactivity;
+        a = flag;
         super();
     }
 
-    public void onItemClick(AdapterView adapterview, View view, int i, long l)
+    public void a()
     {
-        a.moveToPosition(i);
-        adapterview = a.getString(a.getColumnIndex("conversation_id"));
-        DebugActivity.a(b, adapterview, "conversations");
+        if (BabelHomeActivity.a(b))
+        {
+            b.m();
+            BabelHomeActivity.a(b, a);
+        }
+    }
+
+    public void b()
+    {
     }
 }

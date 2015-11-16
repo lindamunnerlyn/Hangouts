@@ -2,11 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public interface gvp
+final class gvp extends guy
 {
 
-    public abstract int a(gvo gvo);
+    public gvp()
+    {
+        super("SaveResultsTask");
+    }
 
-    public abstract boolean a(gvo gvo, gvo gvo1);
+    public gvv a(Context context)
+    {
+        ((gvq)hlp.a(context, gvq)).e();
+        return new gvv(true);
+    }
 }

@@ -2,44 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.List;
 
-public class cuk extends cua
+public final class cuk extends cvt
 {
 
-    private static final long serialVersionUID = 1L;
-    public final int a;
-    public final int b;
-    public final String k;
+    private final int a = 2;
+    private final int b;
 
-    public cuk(String s, String s1, int i, int j)
+    public cuk(aoa aoa1, dfl dfl1)
     {
-        super(s1, s);
-        a = i;
-        b = j;
-        k = s1;
+        super(hio.newBuilder().a(aoa1.a()).b(aoa1.ab()).a(true).a(), dfl1, "conversations/markeventobserved", dmi.a, new jbi(), new jbk());
+        b = aoa1.h();
     }
 
-    public kop a(String s, int i, int j)
+    protected cxr a(kws kws)
     {
-        s = new ivp();
-        itb itb1 = new itb();
-        itb1.b = aoe.c(this.j);
-        itb1.a = ctq.a(k);
-        itb1.e = Integer.valueOf(9);
-        s.b = Integer.valueOf(a);
-        s.a = itb1;
-        s.requestHeader = new ixf();
-        ((ivp) (s)).requestHeader.a = h.e();
-        return s;
+        return dfm.a((jbk)kws);
     }
 
-    public String g()
+    protected void b(kws kws)
     {
-        return "conversations/modifyotrstatus";
-    }
+        kws = (jbi)kws;
+        jsh jsh = ((dfl)super.e).a();
+        int k = jsh.size();
+        kws.a = new jbj[k];
+        for (int i = 0; i < k; i++)
+        {
+            jbj jbj1 = new jbj();
+            jbj1.a = cvu.a(((cun)jsh.get(i)).a());
+            List list = ((cun)jsh.get(i)).b();
+            int l = list.size();
+            jbj1.b = new String[l];
+            for (int j = 0; j < l; j++)
+            {
+                jbj1.b[j] = (String)list.get(j);
+            }
 
-    public ccg n()
-    {
-        return new dej(this);
+            ((jbi) (kws)).a[i] = jbj1;
+        }
+
+        kws.requestHeader = a((new ctx()).a(b).b(a).b());
     }
 }

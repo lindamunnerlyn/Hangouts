@@ -2,47 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import com.google.android.gms.common.ConnectionResult;
-import java.util.concurrent.locks.Lock;
+import android.app.PendingIntent;
+import android.os.Binder;
+import android.os.Parcel;
 
-final class ela
-    implements eka, ekc
+public abstract class ela extends Binder
+    implements ekz
 {
 
-    final ekp a;
-
-    ela(ekp ekp1)
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
     {
-        a = ekp1;
-        super();
-    }
+        switch (i)
+        {
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
 
-    public void a(int i)
-    {
-    }
+        case 1598968902: 
+            parcel1.writeString("com.google.android.dialer.incallui.IInCallUiControllerService");
+            return true;
 
-    public void a(ConnectionResult connectionresult)
-    {
-        a.b.lock();
-        if (!a.a(connectionresult)) goto _L2; else goto _L1
-_L1:
-        a.i();
-        a.h();
-_L4:
-        a.b.unlock();
-        return;
-_L2:
-        a.b(connectionresult);
-        if (true) goto _L4; else goto _L3
-_L3:
-        connectionresult;
-        a.b.unlock();
-        throw connectionresult;
-    }
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.dialer.incallui.IInCallUiControllerService");
+            i = a();
+            parcel1.writeNoException();
+            parcel1.writeInt(i);
+            return true;
 
-    public void a_(Bundle bundle)
-    {
-        a.d.a(new ekt(a));
+        case 2: // '\002'
+            parcel.enforceInterface("com.google.android.dialer.incallui.IInCallUiControllerService");
+            break;
+        }
+        if (parcel.readInt() != 0)
+        {
+            parcel = (PendingIntent)PendingIntent.CREATOR.createFromParcel(parcel);
+        } else
+        {
+            parcel = null;
+        }
+        a(parcel);
+        return true;
     }
 }

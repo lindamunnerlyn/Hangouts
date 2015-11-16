@@ -2,56 +2,83 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
 
-public abstract class lex extends ldh
-    implements Serializable
+public final class lex extends kwm
 {
 
-    private static final long serialVersionUID = 0xdc8d7f9b8cda387eL;
-    final ldi d;
+    private static volatile lex b[];
+    public Integer a;
 
-    public lex(ldi ldi1)
+    public lex()
     {
-        if (ldi1 == null)
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
+    }
+
+    public static lex[] a()
+    {
+        if (b == null)
         {
-            throw new IllegalArgumentException("The type must not be null");
-        } else
-        {
-            d = ldi1;
-            return;
+            synchronized (kwq.a)
+            {
+                if (b == null)
+                {
+                    b = new lex[0];
+                }
+            }
         }
+        return b;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public int a(ldh ldh1)
+    protected int computeSerializedSize()
     {
-        long l = ldh1.d();
-        long l1 = d();
-        if (l1 == l)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            return 0;
+            i = j + kwk.e(1, a.intValue());
         }
-        return l1 >= l ? 1 : -1;
+        return i;
     }
 
-    public final ldi a()
+    public kws mergeFrom(kwj kwj1)
     {
-        return d;
+_L4:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 2: default 32
+    //                   0: 41
+    //                   8: 43;
+           goto _L1 _L2 _L3
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L4; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+            a = Integer.valueOf(j);
+            break;
+        }
+        if (true) goto _L4; else goto _L5
+_L5:
     }
 
-    public final boolean b()
+    public void writeTo(kwk kwk1)
     {
-        return true;
-    }
-
-    public int compareTo(Object obj)
-    {
-        return a((ldh)obj);
-    }
-
-    public String toString()
-    {
-        String s = d.m();
-        return (new StringBuilder(String.valueOf(s).length() + 15)).append("DurationField[").append(s).append("]").toString();
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

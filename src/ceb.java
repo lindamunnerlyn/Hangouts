@@ -2,79 +2,62 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.SystemClock;
 
-public class ceb
+final class ceb
 {
-
-    private static Map a;
-    private static String b;
-    public cda o;
-    public cel p;
-    public String q;
-    public String r;
 
     ceb()
     {
     }
 
-    static String a(String s, String s1, cda cda1, int i)
+    void a(Context context, int i, int j)
     {
-        boolean flag = false;
-        if (!TextUtils.equals(b, cda1.a))
+        int k = g.a(context, "babel_business_renotification_max_count", 3);
+        if (j <= 0 && j > k) goto _L2; else goto _L1
+_L1:
+        ced ced1 = ced.a(i, false, false, true);
+        if (ced1.a <= 0) goto _L2; else goto _L3
+_L3:
+        if (cez.b)
         {
-            Object obj = cda1.a;
-            Object obj1 = (new aoe(g.nS, i)).J(((String) (obj)));
-            obj = new HashMap();
-            obj1 = ((List) (obj1)).iterator();
-            do
-            {
-                if (!((Iterator) (obj1)).hasNext())
-                {
-                    break;
-                }
-                ceu ceu1 = (ceu)((Iterator) (obj1)).next();
-                String s2 = ceu1.f;
-                if (!ank.e(g.nS, i).a(ceu1.b) && !TextUtils.isEmpty(s2))
-                {
-                    int j;
-                    if (((HashMap) (obj)).containsKey(s2))
-                    {
-                        j = g.a((Integer)((HashMap) (obj)).get(s2), 0);
-                    } else
-                    {
-                        j = 0;
-                    }
-                    ((HashMap) (obj)).put(s2, Integer.valueOf(j + 1));
-                }
-            } while (true);
-            a = ((Map) (obj));
-            b = cda1.a;
+            eev.b("Babel", (new StringBuilder(41)).append("Renotify the business. Count: ").append(j).toString());
         }
-        cda1 = a;
-        i = ((flag) ? 1 : 0);
-        if (cda1 != null)
+        cez.a(context, i, ced1, false, false, false);
+        j++;
+        j;
+        JVM INSTR tableswitch 1 3: default 108
+    //                   1 192
+    //                   2 206
+    //                   3 220;
+           goto _L4 _L5 _L6 _L7
+_L4:
+        long l = -1L;
+_L9:
+        if (l >= 0L)
         {
-            i = ((flag) ? 1 : 0);
-            if (s != null)
-            {
-                i = ((flag) ? 1 : 0);
-                if (g.a((Integer)cda1.get(s), 0) > 1)
-                {
-                    i = 1;
-                }
-            }
+            AlarmManager alarmmanager = (AlarmManager)context.getSystemService("alarm");
+            Intent intent = (new cea()).a(context, i, j);
+            intent.setAction("com.google.android.apps.hangouts.UPDATE_NOTIFICATION");
+            intent.setComponent(null);
+            context = PendingIntent.getBroadcast(context, eee.a(i, 1, 100, null), intent, 0x10000000);
+            alarmmanager.set(2, l + SystemClock.elapsedRealtime(), context);
         }
-        if (i != 0)
-        {
-            return s1;
-        } else
-        {
-            return s;
-        }
+_L2:
+        return;
+_L5:
+        l = g.a(context, "babel_business_1st_renotification_delay_ms", dlb.q);
+        continue; /* Loop/switch isn't completed */
+_L6:
+        l = g.a(context, "babel_business_2nd_renotification_delay_ms", dlb.r);
+        continue; /* Loop/switch isn't completed */
+_L7:
+        l = g.a(context, "babel_business_3rd_renotification_delay_ms", dlb.s);
+        if (true) goto _L9; else goto _L8
+_L8:
     }
 }

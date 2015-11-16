@@ -19,81 +19,83 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import ani;
-import bhw;
-import bhx;
-import bhy;
-import bhz;
-import bia;
-import bib;
-import bic;
-import bie;
-import bjx;
+import aoa;
+import bii;
+import bij;
+import bik;
+import bil;
+import bim;
+import bin;
+import bio;
+import biq;
+import bkj;
 import bq;
 import br;
-import cey;
-import cnh;
+import cgd;
 import com.google.android.apps.hangouts.content.EsProvider;
 import com.google.android.apps.hangouts.listui.SwipeableListView;
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import dbf;
-import dyz;
-import ebw;
-import ecd;
+import coz;
+import dcn;
+import eck;
+import eev;
+import efh;
 import em;
 import g;
-import gbh;
-import gmo;
-import gms;
-import gmu;
-import gmy;
+import gdv;
+import gqu;
+import gqz;
+import grb;
+import grf;
 import h;
-import hgx;
-import hhb;
+import hlp;
+import hlt;
 import l;
 
-public class ConversationInviteListFragment extends bjx
+public class ConversationInviteListFragment extends bkj
     implements android.widget.AdapterView.OnItemClickListener, br
 {
 
     private static final boolean a = false;
-    private static int ar;
-    private int aj;
-    private bic ak;
-    private boolean al;
-    private LinearLayout am;
-    private ImageView an;
-    private TextView ao;
-    private bie ap;
-    private boolean aq;
-    private int as;
-    private long at;
-    private long au;
-    private final gmy av = new bhw(this);
-    private final Handler aw = new Handler();
-    private final Runnable ax = new bhx(this);
-    private gmo b;
-    private ani c;
-    private Uri d;
-    private Uri e;
-    private boolean f;
-    private View i;
+    private static int at;
+    private static final efh b = efh.a("InviteListFragment");
+    private boolean aj;
+    private View ak;
+    private int al;
+    private bio am;
+    private boolean an;
+    private LinearLayout ao;
+    private ImageView ap;
+    private TextView aq;
+    private biq ar;
+    private boolean as;
+    private int au;
+    private long av;
+    private long aw;
+    private final grf ax = new bii(this);
+    private final Handler ay = new Handler();
+    private final Runnable az = new bij(this);
+    private gqu c;
+    private gqz d;
+    private aoa e;
+    private Uri h;
+    private Uri i;
 
     public ConversationInviteListFragment()
     {
-        aj = 1;
-        at = -1L;
-        au = -2L;
+        al = 1;
+        av = -1L;
+        aw = -2L;
+    }
+
+    public static gqu a(ConversationInviteListFragment conversationinvitelistfragment)
+    {
+        return conversationinvitelistfragment.c;
     }
 
     public static String a(Cursor cursor)
     {
         return c(cursor);
-    }
-
-    public static void a(ConversationInviteListFragment conversationinvitelistfragment)
-    {
-        conversationinvitelistfragment.q();
     }
 
     public static void a(ConversationInviteListFragment conversationinvitelistfragment, View view)
@@ -110,21 +112,21 @@ public class ConversationInviteListFragment extends bjx
     {
         if (a)
         {
-            int i1 = aj;
-            long l2 = at;
-            long l3 = au;
-            ebw.b("Babel", (new StringBuilder(122)).append("Updating continuation end timestamp for ").append(i1).append(" from ").append(l2).append("/").append(l3).append(" to ").append(l1).toString());
+            int i1 = al;
+            long l2 = av;
+            long l3 = aw;
+            eev.b("Babel", (new StringBuilder(122)).append("Updating continuation end timestamp for ").append(i1).append(" from ").append(l2).append("/").append(l3).append(" to ").append(l1).toString());
         }
         boolean flag1 = false;
         if (l1 == -3L)
         {
-            at = -2L;
+            av = -2L;
             flag1 = true;
         } else
         {
-            at = l1;
+            av = l1;
         }
-        au = -2L;
+        aw = -2L;
         if (flag)
         {
             f();
@@ -184,12 +186,12 @@ _L6:
 
     public static View b(View view)
     {
-        return view.findViewById(h.au);
+        return view.findViewById(h.ap);
     }
 
-    public static Runnable b(ConversationInviteListFragment conversationinvitelistfragment)
+    public static gqz b(ConversationInviteListFragment conversationinvitelistfragment)
     {
-        return conversationinvitelistfragment.ax;
+        return conversationinvitelistfragment.d;
     }
 
     public static void b(String s1)
@@ -203,12 +205,7 @@ _L6:
         {
             s1 = new String(s2);
         }
-        ebw.c("Babel", s1);
-    }
-
-    public static Handler c(ConversationInviteListFragment conversationinvitelistfragment)
-    {
-        return conversationinvitelistfragment.aw;
+        eev.c("Babel", s1);
     }
 
     private static String c(Cursor cursor)
@@ -227,7 +224,7 @@ _L6:
         if (isEmpty() && a())
         {
             showEmptyViewProgress(view);
-            i.setVisibility(8);
+            ak.setVisibility(8);
         } else
         {
             if (isEmpty())
@@ -238,18 +235,23 @@ _L6:
             showContent(view);
             if (s())
             {
-                i.setVisibility(8);
+                ak.setVisibility(8);
             } else
             {
-                i.setVisibility(0);
+                ak.setVisibility(0);
             }
-            if (!al)
+            if (!an)
             {
-                g.a(c, 1548);
-                al = true;
+                g.a(e, 1548);
+                an = true;
                 return;
             }
         }
+    }
+
+    public static void c(ConversationInviteListFragment conversationinvitelistfragment)
+    {
+        conversationinvitelistfragment.q();
     }
 
     private static void c(String s1)
@@ -263,7 +265,7 @@ _L6:
         {
             s1 = new String(s2);
         }
-        ebw.b("Babel", s1);
+        eev.b("Babel", s1);
     }
 
     public static boolean c()
@@ -273,32 +275,32 @@ _L6:
 
     public static int d()
     {
-        return ar;
+        return at;
     }
 
-    public static boolean d(ConversationInviteListFragment conversationinvitelistfragment)
+    public static Runnable d(ConversationInviteListFragment conversationinvitelistfragment)
     {
-        return conversationinvitelistfragment.f;
+        return conversationinvitelistfragment.az;
+    }
+
+    public static Handler e(ConversationInviteListFragment conversationinvitelistfragment)
+    {
+        return conversationinvitelistfragment.ay;
     }
 
     private void e()
     {
-        while (!s() || !aq || aj == 4 || r()) 
+        while (!s() || !as || al == 4 || r()) 
         {
             return;
         }
         if (a)
         {
-            ebw.b("Babel", "switching filter from high affinity to low affinity");
+            eev.b("Babel", "switching filter from high affinity to low affinity");
         }
-        aj = 4;
+        al = 4;
         a(-1L, true);
         q();
-    }
-
-    public static boolean e(ConversationInviteListFragment conversationinvitelistfragment)
-    {
-        return conversationinvitelistfragment.s();
     }
 
     private boolean f()
@@ -307,14 +309,14 @@ _L6:
         {
             if (a)
             {
-                long l1 = at;
-                long l2 = au;
-                ebw.b("Babel", (new StringBuilder(81)).append("Requesting more conversations at ").append(l1).append(" (last ").append(l2).append(")").toString());
+                long l1 = av;
+                long l2 = aw;
+                eev.b("Babel", (new StringBuilder(81)).append("Requesting more conversations at ").append(l1).append(" (last ").append(l2).append(")").toString());
             }
-            if (au != at)
+            if (aw != av)
             {
-                au = at;
-                RealTimeChatService.a(c, aj);
+                aw = av;
+                RealTimeChatService.a(e, al);
                 return true;
             }
         }
@@ -323,38 +325,48 @@ _L6:
 
     public static boolean f(ConversationInviteListFragment conversationinvitelistfragment)
     {
-        return conversationinvitelistfragment.r();
+        return conversationinvitelistfragment.aj;
     }
 
     public static boolean g(ConversationInviteListFragment conversationinvitelistfragment)
     {
+        return conversationinvitelistfragment.s();
+    }
+
+    public static boolean h(ConversationInviteListFragment conversationinvitelistfragment)
+    {
+        return conversationinvitelistfragment.r();
+    }
+
+    public static boolean i(ConversationInviteListFragment conversationinvitelistfragment)
+    {
         return conversationinvitelistfragment.f();
     }
 
-    public static void h(ConversationInviteListFragment conversationinvitelistfragment)
+    public static void j(ConversationInviteListFragment conversationinvitelistfragment)
     {
         conversationinvitelistfragment.e();
     }
 
-    public static hhb i(ConversationInviteListFragment conversationinvitelistfragment)
+    public static hlt k(ConversationInviteListFragment conversationinvitelistfragment)
     {
         return conversationinvitelistfragment.context;
     }
 
-    public static ani j(ConversationInviteListFragment conversationinvitelistfragment)
+    public static aoa l(ConversationInviteListFragment conversationinvitelistfragment)
     {
-        return conversationinvitelistfragment.c;
+        return conversationinvitelistfragment.e;
     }
 
-    public static boolean k(ConversationInviteListFragment conversationinvitelistfragment)
+    public static boolean m(ConversationInviteListFragment conversationinvitelistfragment)
     {
-        conversationinvitelistfragment.aq = true;
+        conversationinvitelistfragment.as = true;
         return true;
     }
 
     private void q()
     {
-        long l1 = ((gms)binder.a(gms)).a(c.h()).a(EsProvider.a(aj), -1L);
+        long l1 = ((gqz)binder.a(gqz)).a(e.h()).a(EsProvider.a(al), -1L);
         boolean flag = isEmpty();
         boolean flag1 = a(l1, flag);
         e();
@@ -366,12 +378,12 @@ _L6:
 
     private boolean r()
     {
-        return au != -2L;
+        return aw != -2L;
     }
 
     private boolean s()
     {
-        return c == null || !c.u() || at == -2L;
+        return e == null || !e.s() || av == -2L;
     }
 
     protected void a(View view)
@@ -384,63 +396,64 @@ _L6:
         if (flag)
         {
             view.findViewById(0x1020004).setVisibility(8);
-            view.findViewById(h.dq).setVisibility(0);
+            view.findViewById(h.de).setVisibility(0);
         }
     }
 
-    public void a(ani ani1)
+    public void a(aoa aoa1)
     {
-        c = ani1;
+        e = aoa1;
         if (a)
         {
-            ani1 = String.valueOf(c);
-            c((new StringBuilder(String.valueOf(ani1).length() + 43)).append("ConversationInviteListFragment setAccount: ").append(ani1).toString());
+            aoa1 = String.valueOf(e);
+            c((new StringBuilder(String.valueOf(aoa1).length() + 43)).append("ConversationInviteListFragment setAccount: ").append(aoa1).toString());
         }
-        if (c != null && getActivity() != null)
+        if (e != null && getActivity() != null)
         {
-            d = EsProvider.a(EsProvider.f, c.h());
-            e = EsProvider.a(EsProvider.h, c.h());
+            h = EsProvider.a(EsProvider.f, e.h());
+            i = EsProvider.a(EsProvider.h, e.h());
         }
     }
 
-    public void a(bic bic1)
+    public void a(bio bio1)
     {
-        ak = bic1;
+        am = bio1;
     }
 
     public void a(em em1, Cursor cursor)
     {
-        ani ani1;
+        aoa aoa1;
         boolean flag;
         boolean flag1;
         flag = false;
         flag1 = true;
-        ani1 = ((cnh)em1).C();
-        if (ani1 != null && c != null && TextUtils.equals(ani1.a(), c.a())) goto _L2; else goto _L1
+        aoa1 = ((coz)em1).C();
+        if (aoa1 != null && e != null && TextUtils.equals(aoa1.a(), e.a())) goto _L2; else goto _L1
 _L1:
-        ebw.f("Babel", "onLoadFinished called for mismatched account");
+        eev.f("Babel", "onLoadFinished called for mismatched account");
 _L4:
         return;
 _L2:
         if (cursor == null)
         {
-            ebw.f("Babel", "onLoadFinished returned with null data");
+            eev.f("Babel", "onLoadFinished returned with null data");
             return;
         }
         if (em1.o() != 1) goto _L4; else goto _L3
 _L3:
-        ecd.a("ConversationInviteListFragment.list load finished");
-        f = true;
-        ((bia)g).a(cursor);
-        ap.notifyDataSetChanged();
+        String s1;
+        s1 = b.b("onLoadFinished");
+        aj = true;
+        ((bim)f).a(cursor);
+        ar.notifyDataSetChanged();
         if (isEmpty())
         {
             f();
         }
         c(getView());
         ab();
-        em1 = (cnh)em1;
-        if (!em1.l().equals(e) || !cursor.moveToFirst()) goto _L6; else goto _L5
+        em1 = (coz)em1;
+        if (!em1.l().equals(i) || !cursor.moveToFirst()) goto _L6; else goto _L5
 _L5:
         long l1 = 0L;
         long l2;
@@ -449,25 +462,25 @@ _L5:
             l2 = Math.max(l1, cursor.getLong(4));
             l1 = l2;
         } while (cursor.moveToNext());
-        l1 = g.b(context, ani1.h());
+        l1 = g.b(context, aoa1.h());
         if (a)
         {
             if (l2 <= l1)
             {
                 flag1 = false;
             }
-            ebw.b("Babel", (new StringBuilder(84)).append("new invite timestamp: ").append(l2).append("; old ").append(l1).append("; greater? ").append(flag1).toString());
+            eev.b("Babel", (new StringBuilder(84)).append("new invite timestamp: ").append(l2).append("; old ").append(l1).append("; greater? ").append(flag1).toString());
         }
         if (l2 > l1)
         {
-            g.a(context, ani1.h(), g.a(Long.valueOf(l2), 0L));
+            g.a(context, aoa1.h(), g.a(Long.valueOf(l2), 0L));
         }
 _L8:
-        ecd.a();
+        b.c(s1);
         q();
         return;
 _L6:
-        if (!em1.l().equals(d)) goto _L8; else goto _L7
+        if (!em1.l().equals(h)) goto _L8; else goto _L7
 _L7:
         int i1 = ((flag) ? 1 : 0);
         if (!cursor.moveToFirst()) goto _L10; else goto _L9
@@ -477,13 +490,13 @@ _L9:
         i1 = cursor.getInt(22);
         if (j1 == 2 || i1 <= 0) goto _L11; else goto _L10
 _L10:
-        if (as != i1)
+        if (au != i1)
         {
-            as = i1;
+            au = i1;
             em1 = getActivity();
             if (em1 != null)
             {
-                em1.p_();
+                em1.q_();
             }
         }
           goto _L8
@@ -499,19 +512,19 @@ _L13:
 
     protected boolean a()
     {
-        return r() || !f;
+        return r() || !aj;
     }
 
     public void b()
     {
-        aj = 3;
-        ((SwipeableListView)h).setChoiceMode(0);
-        if (c != null)
+        al = 3;
+        ((SwipeableListView)g).setChoiceMode(0);
+        if (e != null)
         {
-            aq = false;
-            int i1 = ar + 1;
-            ar = i1;
-            (new bhz(this, i1)).execute(new Void[0]);
+            as = false;
+            int i1 = at + 1;
+            at = i1;
+            (new bil(this, i1)).execute(new Void[0]);
         }
         a(-1L, true);
     }
@@ -525,36 +538,37 @@ _L13:
     public void onAttachBinder(Bundle bundle)
     {
         super.onAttachBinder(bundle);
-        b = (gmo)binder.a(gmo);
+        c = (gqu)binder.a(gqu);
+        d = (gqz)binder.a(gqz);
     }
 
     public void onCreate(Bundle bundle)
     {
-        ecd.a("ConversationInviteListFragment.onCreate");
+        String s1 = b.b("onCreate");
         super.onCreate(bundle);
-        a(dbf.e(b.a()));
-        ecd.a();
-        al = false;
+        a(dcn.e(c.a()));
+        b.c(s1);
+        an = false;
     }
 
     public em onCreateLoader(int i1, Bundle bundle)
     {
-        gbh.b(c);
+        gdv.b("Expected non-null", e);
         switch (i1)
         {
         default:
-            gbh.a((new StringBuilder(42)).append("Loader created for unknown id: ").append(i1).toString());
+            gdv.a((new StringBuilder(42)).append("Loader created for unknown id: ").append(i1).toString());
             return null;
 
         case 1: // '\001'
             break;
         }
-        if (aq)
+        if (as)
         {
-            return new cnh(getActivity(), c, e, bib.a, null, null, "inviter_affinity, sort_timestamp DESC");
+            return new coz(getActivity(), e, i, bin.a, null, null, "inviter_affinity, sort_timestamp DESC");
         } else
         {
-            return new cnh(getActivity(), c, e, bib.a, "inviter_affinity=?", new String[] {
+            return new coz(getActivity(), e, i, bin.a, "inviter_affinity=?", new String[] {
                 "1"
             }, "inviter_affinity, sort_timestamp DESC");
         }
@@ -563,40 +577,40 @@ _L13:
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
         super.onCreateView(layoutinflater, viewgroup, bundle);
-        viewgroup = (ViewGroup)layoutinflater.inflate(g.fs, viewgroup, false);
-        h = (SwipeableListView)viewgroup.findViewById(0x102000a);
-        ((SwipeableListView)h).a(false);
-        ((SwipeableListView)h).setAccessibilityDelegate(new dyz());
-        bundle = layoutinflater.inflate(g.gF, h, false);
-        ((SwipeableListView)h).addHeaderView(bundle);
-        layoutinflater = layoutinflater.inflate(g.gD, h, false);
-        i = layoutinflater.findViewById(h.dt);
-        ((SwipeableListView)h).addFooterView(layoutinflater);
-        i.setVisibility(8);
-        ((SwipeableListView)h).setOnItemClickListener(this);
-        g = new bia(this, getActivity(), c, this);
-        am = (LinearLayout)viewgroup.findViewById(h.hc);
-        ao = (TextView)viewgroup.findViewById(h.hd);
-        ap = new bie(this, (bia)g);
-        ((SwipeableListView)h).setAdapter(ap);
-        ((SwipeableListView)h).setOnScrollListener(new bhy(this));
+        viewgroup = (ViewGroup)layoutinflater.inflate(g.fq, viewgroup, false);
+        g = (SwipeableListView)viewgroup.findViewById(0x102000a);
+        ((SwipeableListView)g).a(false);
+        ((SwipeableListView)g).setAccessibilityDelegate(new eck());
+        bundle = layoutinflater.inflate(g.gA, g, false);
+        ((SwipeableListView)g).addHeaderView(bundle);
+        layoutinflater = layoutinflater.inflate(g.gy, g, false);
+        ak = layoutinflater.findViewById(h.dh);
+        ((SwipeableListView)g).addFooterView(layoutinflater);
+        ak.setVisibility(8);
+        ((SwipeableListView)g).setOnItemClickListener(this);
+        f = new bim(this, getActivity(), e, this);
+        ao = (LinearLayout)viewgroup.findViewById(h.gI);
+        aq = (TextView)viewgroup.findViewById(h.gJ);
+        ar = new biq(this, (bim)f);
+        ((SwipeableListView)g).setAdapter(ar);
+        ((SwipeableListView)g).setOnScrollListener(new bik(this));
         viewgroup.setLayoutTransition(new LayoutTransition());
         return viewgroup;
     }
 
     public void onItemClick(AdapterView adapterview, View view, int i1, long l1)
     {
-        adapterview = ((AdapterView) (((SwipeableListView)h).getAdapter().getItem(i1)));
+        adapterview = ((AdapterView) (((SwipeableListView)g).getAdapter().getItem(i1)));
         break MISSING_BLOCK_LABEL_17;
         if (adapterview != null && (adapterview instanceof Cursor))
         {
             adapterview = (Cursor)adapterview;
             view = c(adapterview);
-            cey cey1 = new cey(adapterview.getString(16), adapterview.getString(17));
-            if (ak != null)
+            cgd cgd1 = new cgd(adapterview.getString(16), adapterview.getString(17));
+            if (am != null)
             {
                 i1 = adapterview.getInt(3);
-                ak.a(cey1, view, i1, adapterview.getLong(4));
+                am.a(cgd1, view, i1, adapterview.getLong(4));
                 return;
             }
         }
@@ -612,9 +626,9 @@ _L13:
     {
         if (em1.o() == 1)
         {
-            if (g != null)
+            if (f != null)
             {
-                ((bia)g).b(null);
+                ((bim)f).b(null);
             }
             em1 = getView();
             if (em1 != null)
@@ -627,56 +641,56 @@ _L13:
     public void onStart()
     {
         super.onStart();
-        ((bia)g).d();
-        ax.run();
+        ((bim)f).d();
+        az.run();
         if (isEmpty())
         {
             f();
         }
-        ((gms)binder.a(gms)).a(av);
+        ((gqz)binder.a(gqz)).a(ax);
         c(getView());
     }
 
     public void onStop()
     {
         super.onStop();
-        aw.removeCallbacks(ax);
-        ((bia)g).c();
-        ((gms)binder.a(gms)).b(av);
+        ay.removeCallbacks(az);
+        ((bim)f).c();
+        ((gqz)binder.a(gqz)).b(ax);
     }
 
     protected void showContent(View view)
     {
-        if (an != null)
+        if (ap != null)
         {
-            am.removeView(an);
-            an = null;
+            ao.removeView(ap);
+            ap = null;
         }
         super.showContent(view);
-        view.findViewById(h.dq).setVisibility(8);
+        view.findViewById(h.de).setVisibility(8);
     }
 
     protected void showEmptyView(View view)
     {
-        int i1 = l.gY;
-        int j1 = com.google.android.apps.hangouts.R.drawable.az;
-        if (!al)
+        int i1 = l.gH;
+        int j1 = com.google.android.apps.hangouts.R.drawable.ay;
+        if (!an)
         {
-            g.a(c, 1549);
-            al = true;
+            g.a(e, 1549);
+            an = true;
         }
-        ao.setText(i1);
-        if (an == null)
+        aq.setText(i1);
+        if (ap == null)
         {
-            an = new ImageView(am.getContext());
-            an.setImageResource(j1);
-            am.addView(an, 0);
+            ap = new ImageView(ao.getContext());
+            ap.setImageResource(j1);
+            ao.addView(ap, 0);
         }
         super.showEmptyView(view);
     }
 
     static 
     {
-        hik hik = ebw.e;
+        hnc hnc = eev.e;
     }
 }

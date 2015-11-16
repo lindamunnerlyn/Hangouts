@@ -2,27 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.gms.common.api.Status;
 
-final class gbp
-    implements gbe
+public class gbp
 {
 
-    final gbn a;
-
-    gbp(gbn gbn)
+    gbp()
     {
-        a = gbn;
-        super();
     }
 
-    public void a(kop kop)
+    public fuu a(enh enh)
     {
-        gkc.b("vclib", "Successfully set presenter on hangout");
-    }
-
-    public void b(kop kop)
-    {
-        kop = String.valueOf((jaz)kop);
-        gkc.b("vclib", (new StringBuilder(String.valueOf(kop).length() + 36)).append("Failed to set presenter on hangout: ").append(kop).toString());
+        return new gbm((Status)enh);
     }
 }

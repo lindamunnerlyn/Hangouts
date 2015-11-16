@@ -2,28 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.res.Resources;
+import android.content.Intent;
+import com.google.android.apps.hangouts.phone.HiddenContactsActivity;
 
-public final class dqg
-    implements dqd
+final class dqg
+    implements hjw
 {
 
-    public dqg()
+    final dqf a;
+
+    dqg(dqf dqf1)
     {
+        a = dqf1;
+        super();
     }
 
-    public void a(Context context, ad ad1, String s, String s1, String s2)
+    public boolean a()
     {
-        if (s == null)
+        ai ai1 = a.getActivity();
+        aoa aoa1 = dqf.a(a);
+        Intent intent = new Intent(g.nU, com/google/android/apps/hangouts/phone/HiddenContactsActivity);
+        if (aoa1 != null)
         {
-            return;
-        } else
-        {
-            ani ani1 = dbf.e(((gmo)hgx.a(context, gmo)).a());
-            int i = context.getResources().getColor(g.ds);
-            ad1.startActivityForResult(((gad)hgx.a(context, gad)).a().b(s).a(ani1.a()).a().a(i).c(s1).d(s2).b().b(i).c(), 0);
-            return;
+            intent.putExtra("account_id", aoa1.h());
         }
+        ai1.startActivity(intent);
+        return true;
     }
 }

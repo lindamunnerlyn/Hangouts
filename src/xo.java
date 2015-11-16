@@ -5,20 +5,22 @@
 import android.view.View;
 import java.util.ArrayList;
 
-final class xo extends xr
+final class xo extends xt
 {
 
-    final xp a;
-    final lr b;
-    final View c;
-    final xg d;
+    final zs a;
+    final int b;
+    final int c;
+    final lr d;
+    final xi e;
 
-    xo(xg xg1, xp xp1, lr lr1, View view)
+    xo(xi xi1, zs zs, int i, int j, lr lr1)
     {
-        d = xg1;
-        a = xp1;
-        b = lr1;
-        c = view;
+        e = xi1;
+        a = zs;
+        b = i;
+        c = j;
+        d = lr1;
         super();
     }
 
@@ -28,12 +30,21 @@ final class xo extends xr
 
     public void b(View view)
     {
-        b.a(null);
-        kb.c(c, 1.0F);
-        kb.a(c, 0.0F);
-        kb.b(c, 0.0F);
-        d.g(a.b);
-        d.g.remove(a.b);
-        d.c();
+        d.a(null);
+        e.e(a);
+        e.e.remove(a);
+        e.c();
+    }
+
+    public void c(View view)
+    {
+        if (b != 0)
+        {
+            kb.a(view, 0.0F);
+        }
+        if (c != 0)
+        {
+            kb.b(view, 0.0F);
+        }
     }
 }

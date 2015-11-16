@@ -3,11 +3,28 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class jnd extends jnb
+final class jnd extends jmr
 {
 
-    jnd(String s)
+    static final jnd o = new jnd();
+
+    private jnd()
     {
-        super(s, 1);
     }
+
+    public volatile boolean a(Object obj)
+    {
+        return super.a((Character)obj);
+    }
+
+    public boolean b(char c)
+    {
+        return Character.isLowerCase(c);
+    }
+
+    public String toString()
+    {
+        return "CharMatcher.javaLowerCase()";
+    }
+
 }

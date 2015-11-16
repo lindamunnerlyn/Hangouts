@@ -3,60 +3,23 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jup extends koj
+final class jup extends jum
 {
 
-    public Long a;
-
-    public jup()
+    jup(String s)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s, 2);
     }
 
-    protected int computeSerializedSize()
+    com.google.common.collect.MapMakerInternalMap.ReferenceEntry a(jvi jvi, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry1)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.longValue();
-            i = j + (koh.f(1) + 8);
-        }
-        return i;
+        jvi = super.a(jvi, referenceentry, referenceentry1);
+        b(referenceentry, jvi);
+        return jvi;
     }
 
-    public kop mergeFrom(kog kog1)
+    com.google.common.collect.MapMakerInternalMap.ReferenceEntry a(jvi jvi, Object obj, int i, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 9: // '\t'
-                a = Long.valueOf(kog1.g());
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.c(1, a.longValue());
-        }
-        super.writeTo(koh1);
+        return new jvq(obj, i, referenceentry);
     }
 }

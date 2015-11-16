@@ -2,42 +2,57 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.ConnectionResult;
 
-public final class fyz extends fyt
+public final class fyz
+    implements fvg
 {
 
-    public fyz()
+    private final String a;
+    private final String b;
+
+    public fyz(fvg fvg1)
     {
+        a = fvg1.a();
+        b = fvg1.b();
     }
 
-    public volatile ejs a(fyb fyb)
+    public boolean C_()
     {
-        return super.a(fyb);
+        return true;
     }
 
-    public volatile ejx a(fyc fyc)
+    public String a()
     {
-        return super.a(fyc);
+        return a;
     }
 
-    public volatile eka a(fyf fyf)
+    public String b()
     {
-        return super.a(fyf);
+        return b;
     }
 
-    public volatile ekc a(fyg fyg)
+    public Object f()
     {
-        return super.a(fyg);
+        return this;
     }
 
-    public volatile fyb a(ConnectionResult connectionresult)
+    public String toString()
     {
-        return super.a(connectionresult);
-    }
-
-    public volatile fyh a(ekd ekd)
-    {
-        return super.a(ekd);
+        StringBuilder stringbuilder = new StringBuilder();
+        stringbuilder.append("DataItemAssetEntity[");
+        stringbuilder.append("@");
+        stringbuilder.append(Integer.toHexString(hashCode()));
+        if (a == null)
+        {
+            stringbuilder.append(",noid");
+        } else
+        {
+            stringbuilder.append(",");
+            stringbuilder.append(a);
+        }
+        stringbuilder.append(", key=");
+        stringbuilder.append(b);
+        stringbuilder.append("]");
+        return stringbuilder.toString();
     }
 }

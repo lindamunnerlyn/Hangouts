@@ -2,27 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import com.google.android.apps.hangouts.hangout.HangoutActivity;
 
 final class bsx
-    implements android.view.View.OnClickListener
+    implements bsu
 {
 
-    final bot a;
-    final gjr b;
-    final bss c;
+    final bsw a;
 
-    bsx(bss bss, bot bot1, gjr gjr1)
+    bsx(bsw bsw)
     {
-        c = bss;
-        a = bot1;
-        b = gjr1;
+        a = bsw;
         super();
     }
 
-    public void onClick(View view)
+    public Class a()
     {
-        g.b(1280);
-        a.a(b.a());
+        return com/google/android/apps/hangouts/hangout/HangoutActivity;
     }
 }

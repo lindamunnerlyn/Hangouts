@@ -2,37 +2,64 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Parcel;
+import com.google.android.gms.wearable.internal.AmsEntityUpdateParcelable;
 
-public class fyk
-    implements fyc, fza
+public final class fyk
+    implements android.os.Parcelable.Creator
 {
 
-    fyz a;
-    ejx b;
-
-    protected fyk(ejx ejx1, fyz fyz)
+    public fyk()
     {
-        b = ejx1;
-        a = fyz;
     }
 
-    public void a()
+    public Object createFromParcel(Parcel parcel)
     {
-        b.b();
+        byte byte1 = 0;
+        int j = g.a(parcel);
+        String s = null;
+        byte byte0 = 0;
+        int i = 0;
+        do
+        {
+            if (parcel.dataPosition() < j)
+            {
+                int k = parcel.readInt();
+                switch (0xffff & k)
+                {
+                default:
+                    g.b(parcel, k);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, k);
+                    break;
+
+                case 2: // '\002'
+                    byte0 = g.d(parcel, k);
+                    break;
+
+                case 3: // '\003'
+                    byte1 = g.d(parcel, k);
+                    break;
+
+                case 4: // '\004'
+                    s = g.i(parcel, k);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != j)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
+            } else
+            {
+                return new AmsEntityUpdateParcelable(i, byte0, byte1, s);
+            }
+        } while (true);
     }
 
-    public void b()
+    public Object[] newArray(int i)
     {
-        b.d();
-    }
-
-    public boolean c()
-    {
-        return b.e();
-    }
-
-    public ejx d()
-    {
-        return b;
+        return new AmsEntityUpdateParcelable[i];
     }
 }

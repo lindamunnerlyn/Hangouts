@@ -3,36 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class krb extends koj
+public final class krb extends kwm
 {
 
-    private static volatile krb b[];
-    public String a;
+    public kqz a;
+    public kqw b;
+    public ksd c;
 
     public krb()
     {
         a = null;
+        b = null;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
-    }
-
-    public static krb[] a()
-    {
-        if (b == null)
-        {
-            synchronized (kon.a)
-            {
-                if (b == null)
-                {
-                    b = new krb[0];
-                }
-            }
-        }
-        return b;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -41,20 +25,30 @@ public final class krb extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.d(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(2, b);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.d(3, c);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -64,18 +58,46 @@ public final class krb extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                if (a == null)
+                {
+                    a = new kqz();
+                }
+                kwj1.a(a);
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new kqw();
+                }
+                kwj1.a(b);
+                break;
+
+            case 26: // '\032'
+                if (c == null)
+                {
+                    c = new ksd();
+                }
+                kwj1.a(c);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.b(1, a);
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.b(3, c);
+        }
+        super.writeTo(kwk1);
     }
 }

@@ -2,33 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.lang.ref.ReferenceQueue;
-import java.lang.ref.WeakReference;
 
-public final class jpa extends WeakReference
-    implements jou
+final class jpa extends jos
 {
 
-    final com.google.common.collect.MapMakerInternalMap.ReferenceEntry a;
-
-    jpa(ReferenceQueue referencequeue, Object obj, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    jpa(String s)
     {
-        super(obj, referencequeue);
-        a = referenceentry;
+        super(s, 7);
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry a()
+    com.google.common.cache.LocalCache.ReferenceEntry a(jpj jpj1, com.google.common.cache.LocalCache.ReferenceEntry referenceentry, com.google.common.cache.LocalCache.ReferenceEntry referenceentry1)
     {
-        return a;
+        jpj1 = super.a(jpj1, referenceentry, referenceentry1);
+        a(referenceentry, ((com.google.common.cache.LocalCache.ReferenceEntry) (jpj1)));
+        b(referenceentry, jpj1);
+        return jpj1;
     }
 
-    public jou a(ReferenceQueue referencequeue, Object obj, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    com.google.common.cache.LocalCache.ReferenceEntry a(jpj jpj1, Object obj, int i, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        return new jpa(referencequeue, obj, referenceentry);
-    }
-
-    public void b()
-    {
-        clear();
+        return new jpz(jpj1.h, obj, i, referenceentry);
     }
 }

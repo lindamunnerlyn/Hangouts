@@ -197,24 +197,6 @@ _L9:
           goto _L6
     }
 
-    static void a(ai ai1, ad ad1, String as[], int j)
-    {
-        if (j == -1)
-        {
-            p.a(ai1, as, j);
-            return;
-        }
-        if ((j & 0xffffff00) != 0)
-        {
-            throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
-        } else
-        {
-            ai1.i = true;
-            p.a(ai1, as, (ad1.p + 1 << 8) + (j & 0xff));
-            return;
-        }
-    }
-
     private void a(String s1, PrintWriter printwriter, View view)
     {
         printwriter.print(s1);
@@ -277,11 +259,11 @@ _L3:
             f = true;
             g = flag;
             a.removeMessages(1);
-            s_();
+            t_();
         }
     }
 
-    protected boolean a(View view, Menu menu)
+    public boolean a(View view, Menu menu)
     {
         return super.onPreparePanel(0, view, menu);
     }
@@ -311,7 +293,7 @@ _L3:
         }
     }
 
-    protected void b_()
+    public void b_()
     {
         b.k();
     }
@@ -647,7 +629,7 @@ label0:
         b.m();
     }
 
-    public void p_()
+    public void q_()
     {
         if (android.os.Build.VERSION.SDK_INT >= 11)
         {
@@ -658,12 +640,6 @@ label0:
             h = true;
             return;
         }
-    }
-
-    void s_()
-    {
-        b.a(g);
-        b.n();
     }
 
     public void startActivityForResult(Intent intent, int j)
@@ -678,7 +654,13 @@ label0:
         }
     }
 
-    public ap t_()
+    void t_()
+    {
+        b.a(g);
+        b.n();
+    }
+
+    public ap u_()
     {
         return b.a();
     }

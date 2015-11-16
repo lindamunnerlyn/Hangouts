@@ -2,33 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.telephony.PhoneStateListener;
-import com.google.android.apps.hangouts.hangout.IncomingRing;
+import com.google.android.apps.hangouts.hangout.BroadcastOverlayView;
 
-final class bni extends PhoneStateListener
+public final class bni extends bns
 {
 
-    final bnd a;
+    final BroadcastOverlayView a;
 
-    bni(bnd bnd1)
+    public bni(BroadcastOverlayView broadcastoverlayview)
     {
-        a = bnd1;
+        a = broadcastoverlayview;
         super();
     }
 
-    public void onCallStateChanged(int i, String s)
+    public void a(gms gms)
     {
-        if (i == 2)
-        {
-            if (a.q != null)
-            {
-                a.q.c(1006);
-            }
-            s = IncomingRing.a();
-            if (s != null)
-            {
-                s.m();
-            }
-        }
+        boo.a().a(new bnj(this));
+        BroadcastOverlayView.a(a);
     }
 }

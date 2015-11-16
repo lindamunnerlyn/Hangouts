@@ -2,52 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.IInterface;
+import com.google.android.gms.maps.model.StreetViewPanoramaCamera;
 
-public final class fma
+public interface fma
+    extends IInterface
 {
 
-    public static final fma a = new fma();
-    private int b;
-    private String c;
-    private String d;
-    private boolean e;
-
-    public fma()
-    {
-        b = -999;
-    }
-
-    public String a()
-    {
-        return c;
-    }
-
-    public String b()
-    {
-        return d;
-    }
-
-    public boolean c()
-    {
-        return e;
-    }
-
-    public int d()
-    {
-        return b;
-    }
-
-    public fma e()
-    {
-        b = -1;
-        return this;
-    }
-
-    public String toString()
-    {
-        return g.a(new Object[] {
-            "mFilterCircleType", Integer.valueOf(b), "mFilterCircleId", c, "mFilterCircleNamePrefix", d, "mGetVisibility", Boolean.valueOf(e)
-        });
-    }
-
+    public abstract void a(StreetViewPanoramaCamera streetviewpanoramacamera);
 }

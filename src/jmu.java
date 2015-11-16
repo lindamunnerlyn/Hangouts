@@ -2,34 +2,55 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.NoSuchElementException;
 
-final class jmu extends jqy
+final class jmu extends jmr
 {
 
-    boolean a;
-    final Object b;
+    static final jmr o = new jmu();
 
-    jmu(Object obj)
+    private jmu()
     {
-        b = obj;
-        super();
     }
 
-    public boolean hasNext()
+    public volatile boolean a(Object obj)
     {
-        return !a;
+        return super.a((Character)obj);
     }
 
-    public Object next()
+    public boolean b(char c)
     {
-        if (a)
+        switch (c)
         {
-            throw new NoSuchElementException();
-        } else
-        {
-            a = true;
-            return b;
+        default:
+            if (c < '\u2000' || c > '\u200A')
+            {
+                break;
+            }
+            // fall through
+
+        case 9: // '\t'
+        case 10: // '\n'
+        case 11: // '\013'
+        case 12: // '\f'
+        case 13: // '\r'
+        case 32: // ' '
+        case 133: 
+        case 5760: 
+        case 8232: 
+        case 8233: 
+        case 8287: 
+        case 12288: 
+            return true;
+
+        case 8199: 
+            return false;
         }
+        return false;
     }
+
+    public String toString()
+    {
+        return "CharMatcher.breakingWhitespace()";
+    }
+
 }

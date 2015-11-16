@@ -4,25 +4,45 @@
 
 import android.os.Bundle;
 
-public final class doz extends heo
-    implements hfv
+final class doz
+    implements enb
 {
 
-    private final hfu e;
+    final doy a;
 
-    public doz()
+    doz(doy doy1)
     {
-        e = new hfu(this, c);
+        a = doy1;
+        super();
     }
 
-    public void a()
+    public void a(int i)
     {
-        e.a(new dpa());
+        eev.c("Babel", "Google API client disconnected.");
     }
 
-    protected void a(Bundle bundle)
+    public void a_(Bundle bundle)
     {
-        super.a(bundle);
-        b.a(hfy, e);
+label0:
+        {
+            synchronized (doy.a(a))
+            {
+                if (!doy.b(a))
+                {
+                    break label0;
+                }
+            }
+            return;
+        }
+        eev.c("Babel", "Google API client connected.");
+        fph.m.a(doy.c(a), doy.d(a), "gms_people_cache_account");
+        doy.e(a);
+        bundle;
+        JVM INSTR monitorexit ;
+        return;
+        exception;
+        bundle;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 }

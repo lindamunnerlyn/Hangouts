@@ -2,24 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Environment;
-import java.io.File;
+import android.database.Cursor;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import com.google.android.apps.hangouts.phone.DebugActivity;
 
-final class cme
-    implements Runnable
+public final class cme
+    implements android.widget.AdapterView.OnItemClickListener
 {
 
-    final cmd a;
+    final Cursor a;
+    final DebugActivity b;
 
-    cme(cmd cmd)
+    public cme(DebugActivity debugactivity, Cursor cursor)
     {
-        a = cmd;
+        b = debugactivity;
+        a = cursor;
         super();
     }
 
-    public void run()
+    public void onItemClick(AdapterView adapterview, View view, int i, long l)
     {
-        String s = String.valueOf(Environment.getExternalStorageDirectory());
-        dqh.a(new File((new StringBuilder(String.valueOf(s).length() + 16)).append(s).append("/testapns.xml.gz").toString()));
+        a.moveToPosition(i);
+        adapterview = a.getString(a.getColumnIndex("message_id"));
+        adapterview = DebugActivity.j(b).e().a("messages", null, "message_id=?", new String[] {
+            adapterview
+        }, "timestamp DESC");
+        view = b.getLayoutInflater().inflate(g.fK, null);
+        ((ListView)view.findViewById(0x102000a)).setAdapter(DebugActivity.c(b, adapterview));
+        DebugActivity.a(b, view, adapterview, null);
     }
 }

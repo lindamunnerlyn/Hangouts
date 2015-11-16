@@ -2,34 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import android.content.Intent;
+import com.google.android.apps.hangouts.peoplelistv2.impl.PeopleSearchActivity;
 
-final class cgv extends Enum
+final class cgv extends ccm
 {
 
-    public static final int a;
-    public static final int b;
-    public static final int c;
-    public static final int d;
-    public static final int e;
-    public static final int f;
-    public static final int g[] = a();
-    private static final int h[];
-
-    public static int[] a()
+    public cgv()
     {
-        return (int[])h.clone();
     }
 
-    static 
+    public int a()
     {
-        a = 1;
-        b = 2;
-        c = 3;
-        d = 4;
-        e = 5;
-        f = 6;
-        h = (new int[] {
-            a, b, c, d, e, f
-        });
+        return h.iH;
+    }
+
+    public void a(Activity activity)
+    {
+        g.a(a, 2546);
+        Intent intent = new Intent(activity, com/google/android/apps/hangouts/peoplelistv2/impl/PeopleSearchActivity);
+        intent.putExtra("account_id", a.h());
+        activity.startActivity(intent);
+    }
+
+    public int b()
+    {
+        return n.j;
+    }
+
+    public int c()
+    {
+        return 3;
+    }
+
+    public int d()
+    {
+        return 1;
+    }
+
+    public int e()
+    {
+        return 3;
     }
 }

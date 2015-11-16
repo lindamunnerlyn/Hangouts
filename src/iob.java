@@ -3,169 +3,216 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iob extends koj
+public final class iob extends kwm
 {
 
-    public String a;
-    public String b;
-    public Integer c;
-    public Integer d;
-    public ioc e[];
+    public Boolean a;
+    public int b[];
 
     public iob()
     {
         a = null;
-        b = null;
-        c = null;
-        d = null;
-        e = ioc.a();
+        b = kwx.a;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
+        boolean flag = false;
         int j = super.computeSerializedSize();
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.b(2, b);
-        }
-        int k = j;
-        if (c != null)
-        {
-            k = j + koh.e(3, c.intValue());
-        }
-        i = k;
-        if (d != null)
-        {
-            i = k + koh.e(4, d.intValue());
-        }
-        j = i;
-        if (e != null)
-        {
             j = i;
-            if (e.length > 0)
+            if (b.length > 0)
             {
-                for (j = 0; j < e.length;)
+                int k = 0;
+                for (j = ((flag) ? 1 : 0); j < b.length; j++)
                 {
-                    ioc ioc1 = e[j];
-                    int l = i;
-                    if (ioc1 != null)
-                    {
-                        l = i + koh.c(5, ioc1);
-                    }
-                    j++;
-                    i = l;
+                    k += kwk.e(b[j]);
                 }
 
-                j = i;
+                j = i + k + b.length * 1;
             }
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L20:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 4: default 52
+    //                   0: 62
+    //                   8: 64
+    //                   16: 78
+    //                   18: 280;
+           goto _L1 _L2 _L3 _L4 _L5
+_L1:
+        if (super.storeUnknownField(kwj1, i))
         {
-            int i = kog1.a();
-            switch (i)
+            continue; /* Loop/switch isn't completed */
+        }
+_L2:
+        return this;
+_L3:
+        a = Boolean.valueOf(kwj1.i());
+        continue; /* Loop/switch isn't completed */
+_L4:
+        int ai[];
+        int j;
+        int i1;
+        i1 = kwx.a(kwj1, 16);
+        ai = new int[i1];
+        j = 0;
+        i = 0;
+_L12:
+        if (j >= i1) goto _L7; else goto _L6
+_L6:
+        int j1;
+        if (j != 0)
+        {
+            kwj1.a();
+        }
+        j1 = kwj1.f();
+        j1;
+        JVM INSTR tableswitch 1 7: default 164
+    //                   1 173
+    //                   2 173
+    //                   3 173
+    //                   4 173
+    //                   5 173
+    //                   6 173
+    //                   7 173;
+           goto _L8 _L9 _L9 _L9 _L9 _L9 _L9 _L9
+_L8:
+        j++;
+          goto _L10
+_L9:
+        int k = i + 1;
+        ai[i] = j1;
+        i = k;
+        if (true) goto _L8; else goto _L10
+_L10:
+        if (true) goto _L12; else goto _L11
+_L11:
+_L7:
+        if (i != 0)
+        {
+            if (b == null)
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-
-            case 24: // '\030'
-                c = Integer.valueOf(kog1.f());
-                break;
-
-            case 32: // ' '
-                d = Integer.valueOf(kog1.f());
-                break;
-
-            case 43: // '+'
-                int k = kou.b(kog1, 43);
-                ioc aioc[];
-                int j;
-                if (e == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = e.length;
-                }
-                aioc = new ioc[k + j];
-                k = j;
+                j = 0;
+            } else
+            {
+                j = b.length;
+            }
+            if (j == 0 && i == ai.length)
+            {
+                b = ai;
+            } else
+            {
+                int ai1[] = new int[j + i];
                 if (j != 0)
                 {
-                    System.arraycopy(e, 0, aioc, 0, j);
-                    k = j;
+                    System.arraycopy(b, 0, ai1, 0, j);
                 }
-                for (; k < aioc.length - 1; k++)
-                {
-                    aioc[k] = new ioc();
-                    kog1.a(aioc[k], 5);
-                    kog1.a();
-                }
-
-                aioc[k] = new ioc();
-                kog1.a(aioc[k], 5);
-                e = aioc;
+                System.arraycopy(ai, 0, ai1, j, i);
+                b = ai1;
+            }
+        }
+        continue; /* Loop/switch isn't completed */
+_L5:
+        int l;
+        l = kwj1.c(kwj1.p());
+        i = kwj1.r();
+        j = 0;
+_L18:
+        if (kwj1.q() > 0)
+        {
+            switch (kwj1.f())
+            {
+            case 1: // '\001'
+            case 2: // '\002'
+            case 3: // '\003'
+            case 4: // '\004'
+            case 5: // '\005'
+            case 6: // '\006'
+            case 7: // '\007'
+                j++;
                 break;
             }
-        } while (true);
+            continue; /* Loop/switch isn't completed */
+        }
+        if (j == 0) goto _L14; else goto _L13
+_L13:
+        kwj1.e(i);
+        if (b == null)
+        {
+            i = 0;
+        } else
+        {
+            i = b.length;
+        }
+        ai = new int[j + i];
+        j = i;
+        if (i != 0)
+        {
+            System.arraycopy(b, 0, ai, 0, i);
+            j = i;
+        }
+_L16:
+        if (kwj1.q() > 0)
+        {
+            i = kwj1.f();
+            switch (i)
+            {
+            case 1: // '\001'
+            case 2: // '\002'
+            case 3: // '\003'
+            case 4: // '\004'
+            case 5: // '\005'
+            case 6: // '\006'
+            case 7: // '\007'
+                ai[j] = i;
+                j++;
+                break;
+            }
+            continue; /* Loop/switch isn't completed */
+        }
+        b = ai;
+          goto _L14
+        if (true) goto _L16; else goto _L15
+_L15:
+        if (true) goto _L18; else goto _L17
+_L17:
+_L14:
+        kwj1.d(l);
+        if (true) goto _L20; else goto _L19
+_L19:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(1, a.booleanValue());
         }
-        if (b != null)
+        if (b != null && b.length > 0)
         {
-            koh1.a(2, b);
-        }
-        if (c != null)
-        {
-            koh1.a(3, c.intValue());
-        }
-        if (d != null)
-        {
-            koh1.a(4, d.intValue());
-        }
-        if (e != null && e.length > 0)
-        {
-            for (int i = 0; i < e.length; i++)
+            for (int i = 0; i < b.length; i++)
             {
-                ioc ioc1 = e[i];
-                if (ioc1 != null)
-                {
-                    koh1.a(5, ioc1);
-                }
+                kwk1.a(2, b[i]);
             }
 
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

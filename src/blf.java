@@ -2,22 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
 
-final class blf
-    implements android.view.View.OnClickListener
+public interface blf
 {
 
-    final ble a;
+    public abstract void b();
 
-    blf(ble ble1)
-    {
-        a = ble1;
-        super();
-    }
-
-    public void onClick(View view)
-    {
-        ((blg)a.c).N();
-    }
+    public abstract void b(String s);
 }

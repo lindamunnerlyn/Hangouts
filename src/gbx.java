@@ -3,25 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gbx
-    implements Runnable
+public abstract class gbx
+    implements gbr
 {
 
-    final boolean a;
-    final gbs b;
+    gbn a;
 
-    gbx(gbs gbs1, boolean flag)
+    public gbx()
     {
-        b = gbs1;
-        a = flag;
-        super();
-    }
-
-    public void run()
-    {
-        if (gbs.f(b) != null)
-        {
-            gbs.a(b, gbs.f(b).e, new ghm(a, null));
-        }
+        a = new gbn();
     }
 }

@@ -2,12 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.IBinder;
+import android.os.Parcel;
 
 final class equ
+    implements eqs
 {
 
-    static final eox a[] = {
-        new eqv(eox.a("0\202\003\2750\202\002\245\240\003\002\001\002\002\t\000\332\327\373\252\\\257\031\2330")), new eqw(eox.a("0\202\003\2750\202\002\245\240\003\002\001\002\002\t\000\372\301\373\271^U\266\2370"))
-    };
+    private IBinder a;
 
+    equ(IBinder ibinder)
+    {
+        a = ibinder;
+    }
+
+    public void a()
+    {
+        Parcel parcel = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.common.internal.ICancelToken");
+        a.transact(2, parcel, null, 1);
+        parcel.recycle();
+        return;
+        Exception exception;
+        exception;
+        parcel.recycle();
+        throw exception;
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
+    }
 }

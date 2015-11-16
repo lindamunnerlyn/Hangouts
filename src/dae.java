@@ -2,35 +2,56 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-public final class dae
-    implements Serializable
+public class dae extends cxr
 {
 
     private static final long serialVersionUID = 1L;
-    public final daf a;
-    public final int b;
-    private final String c;
 
-    private dae(iur iur1)
+    private dae(jeb jeb1)
     {
-        a = new daf(iur1.a);
-        c = iur1.b;
-        b = g.a(iur1.c, 0);
+        super(jeb1.responseHeader, 0L);
+        if (eev.a("Babel", 3))
+        {
+            String s = String.valueOf("SetConfigurationBitResponse debugUrl: ");
+            String s1 = String.valueOf(jeb1.responseHeader.c);
+            if (s1.length() != 0)
+            {
+                s = s.concat(s1);
+            } else
+            {
+                s = new String(s);
+            }
+            eev.d("Babel", s);
+            if (jeb1.a.length > 0)
+            {
+                s = String.valueOf(jeb1.a[0].b);
+                if (s.length() != 0)
+                {
+                    s = "SetConfigurationBitResponse error: ".concat(s);
+                } else
+                {
+                    s = new String("SetConfigurationBitResponse error: ");
+                }
+                eev.d("Babel", s);
+            }
+        }
+        if (cxr.a)
+        {
+            jeb1 = String.valueOf(jeb1);
+            eev.b("Babel_protos", (new StringBuilder(String.valueOf(jeb1).length() + 33)).append("SetConfigurationBitResponse from:").append(jeb1).toString());
+        }
     }
 
-    public static List a(iur aiur[])
+    public static cxr parseFrom(byte abyte0[])
     {
-        ArrayList arraylist = new ArrayList();
-        int j = aiur.length;
-        for (int i = 0; i < j; i++)
+        abyte0 = (jeb)kws.mergeFrom(new jeb(), abyte0);
+        if (a(((jeb) (abyte0)).responseHeader))
         {
-            arraylist.add(new dae(aiur[i]));
+            return new cyd(((jeb) (abyte0)).responseHeader);
+        } else
+        {
+            return new dae(abyte0);
         }
-
-        return arraylist;
     }
 }

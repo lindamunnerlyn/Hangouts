@@ -2,39 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.graphics.Bitmap;
+import java.util.SortedSet;
 
-public final class gzx
+interface gzx
 {
 
-    public static final gzx a = (new gzy()).a().b().c();
-    private final a b;
-    private final boolean c;
-    private final boolean d;
+    public abstract gzy a(int i, int j);
 
-    gzx(gzy gzy1)
-    {
-        b = gzy1.a;
-        c = gzy1.b;
-        d = gzy1.c;
-    }
+    public abstract gzy a(Bitmap bitmap);
 
-    public void a()
-    {
-        if (this != a)
-        {
-            if (b == null)
-            {
-                throw new IllegalStateException("must supply network capability to validate constraints");
-            }
-            if (b.r() && !c)
-            {
-                throw new had("metered network not allowed");
-            }
-            if (b.s() && !d)
-            {
-                throw new had("roaming not allowed");
-            }
-        }
-    }
+    public abstract gzy a(gzy gzy, SortedSet sortedset, haa haa);
 
+    public abstract void a(gzy gzy, Bitmap bitmap);
 }

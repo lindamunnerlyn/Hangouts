@@ -3,58 +3,114 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kjw extends koj
+public final class kjw extends kwm
 {
 
-    public kjt a[];
+    private static volatile kjw j[];
+    public kkk a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public kjb f;
+    public kki g;
+    public kkj h;
+    public kkh i;
 
     public kjw()
     {
-        a = kjt.a();
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        e = null;
+        f = null;
+        g = null;
+        h = null;
+        i = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
+    public static kjw[] a()
+    {
+        if (j == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (j == null)
+                {
+                    j = new kjw[0];
+                }
+            }
+        }
+        return j;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        int k = i;
+        int l = super.computeSerializedSize();
+        int k = l;
+        if (b != null)
+        {
+            k = l + kwk.b(1, b);
+        }
+        l = k;
+        if (c != null)
+        {
+            l = k + kwk.b(2, c);
+        }
+        k = l;
+        if (d != null)
+        {
+            k = l + kwk.b(3, d);
+        }
+        l = k;
+        if (e != null)
+        {
+            l = k + kwk.b(4, e);
+        }
+        k = l;
+        if (f != null)
+        {
+            k = l + kwk.d(5, f);
+        }
+        l = k;
         if (a != null)
         {
-            k = i;
-            if (a.length > 0)
-            {
-                int j = 0;
-                do
-                {
-                    k = i;
-                    if (j >= a.length)
-                    {
-                        break;
-                    }
-                    kjt kjt1 = a[j];
-                    k = i;
-                    if (kjt1 != null)
-                    {
-                        k = i + koh.d(2, kjt1);
-                    }
-                    j++;
-                    i = k;
-                } while (true);
-            }
+            l = k + kwk.d(6, a);
+        }
+        k = l;
+        if (g != null)
+        {
+            k = l + kwk.d(8, g);
+        }
+        l = k;
+        if (h != null)
+        {
+            l = k + kwk.d(10, h);
+        }
+        k = l;
+        if (i != null)
+        {
+            k = l + kwk.d(11, i);
         }
         return k;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
-            switch (i)
+            int k = kwj1.a();
+            switch (k)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, k))
                 {
                     continue;
                 }
@@ -63,53 +119,103 @@ public final class kjw extends koj
             case 0: // '\0'
                 return this;
 
+            case 10: // '\n'
+                b = kwj1.j();
+                break;
+
             case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                kjt akjt[];
-                int j;
+                c = kwj1.j();
+                break;
+
+            case 26: // '\032'
+                d = kwj1.j();
+                break;
+
+            case 34: // '"'
+                e = kwj1.j();
+                break;
+
+            case 42: // '*'
+                if (f == null)
+                {
+                    f = new kjb();
+                }
+                kwj1.a(f);
+                break;
+
+            case 50: // '2'
                 if (a == null)
                 {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
+                    a = new kkk();
                 }
-                akjt = new kjt[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, akjt, 0, j);
-                    k = j;
-                }
-                for (; k < akjt.length - 1; k++)
-                {
-                    akjt[k] = new kjt();
-                    kog1.a(akjt[k]);
-                    kog1.a();
-                }
+                kwj1.a(a);
+                break;
 
-                akjt[k] = new kjt();
-                kog1.a(akjt[k]);
-                a = akjt;
+            case 66: // 'B'
+                if (g == null)
+                {
+                    g = new kki();
+                }
+                kwj1.a(g);
+                break;
+
+            case 82: // 'R'
+                if (h == null)
+                {
+                    h = new kkj();
+                }
+                kwj1.a(h);
+                break;
+
+            case 90: // 'Z'
+                if (i == null)
+                {
+                    i = new kkh();
+                }
+                kwj1.a(i);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null && a.length > 0)
+        if (b != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                kjt kjt1 = a[i];
-                if (kjt1 != null)
-                {
-                    koh1.b(2, kjt1);
-                }
-            }
-
+            kwk1.a(1, b);
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.a(2, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(3, d);
+        }
+        if (e != null)
+        {
+            kwk1.a(4, e);
+        }
+        if (f != null)
+        {
+            kwk1.b(5, f);
+        }
+        if (a != null)
+        {
+            kwk1.b(6, a);
+        }
+        if (g != null)
+        {
+            kwk1.b(8, g);
+        }
+        if (h != null)
+        {
+            kwk1.b(10, h);
+        }
+        if (i != null)
+        {
+            kwk1.b(11, i);
+        }
+        super.writeTo(kwk1);
     }
 }

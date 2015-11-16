@@ -3,18 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gwv
+public final class gwv
 {
 
-    final gxe a;
-    final Runnable b;
-    final gwt c;
-
-    gwv(gwt gwt, gxe gxe1)
+    public gwv()
     {
-        c = gwt;
-        super();
-        a = (gxe)g.d(gxe1);
-        b = inl.a(new gww(this, gwt, gxe1));
     }
 }

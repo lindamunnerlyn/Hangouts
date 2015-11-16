@@ -2,46 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Comparator;
 
-public abstract class jpp
-    implements Comparator
+final class jpp extends jpm
 {
 
-    protected jpp()
+    jpp(String s)
     {
+        super(s, 2);
     }
 
-    public static jpp a(Comparator comparator)
+    jpw a(jpj jpj1, com.google.common.cache.LocalCache.ReferenceEntry referenceentry, Object obj, int i)
     {
-        if (comparator instanceof jpp)
+        if (i == 1)
         {
-            return (jpp)comparator;
+            return new jqb(jpj1.i, obj, referenceentry);
         } else
         {
-            return new jkn(comparator);
+            return new jqf(jpj1.i, obj, referenceentry, i);
         }
     }
-
-    public static jpp b()
-    {
-        return jpn.a;
-    }
-
-    public jpp a()
-    {
-        return new jqg(this);
-    }
-
-    public jpp a(jgt jgt)
-    {
-        return new jkl(jgt, this);
-    }
-
-    jpp c()
-    {
-        return a(jpc.a());
-    }
-
-    public abstract int compare(Object obj, Object obj1);
 }

@@ -3,20 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kgt extends koj
+public final class kgt extends kwm
 {
 
-    public int a;
-    public khm b;
-    public kil c;
-    public jxp d;
+    public Boolean a;
 
     public kgt()
     {
-        a = 0x80000000;
-        b = null;
-        c = null;
-        d = null;
+        a = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -25,98 +19,44 @@ public final class kgt extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (a != 0x80000000)
+        if (a != null)
         {
-            i = j + koh.e(1, a);
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.d(3, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.d(4, d);
-        }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L7:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 5: default 56
-    //                   0: 65
-    //                   8: 67
-    //                   18: 115
-    //                   26: 144
-    //                   34: 173;
-           goto _L1 _L2 _L3 _L4 _L5 _L6
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L7; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
+        do
         {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-            a = j;
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        if (b == null)
-        {
-            b = new khm();
-        }
-        kog1.a(b);
-        continue; /* Loop/switch isn't completed */
-_L5:
-        if (c == null)
-        {
-            c = new kil();
-        }
-        kog1.a(c);
-        continue; /* Loop/switch isn't completed */
-_L6:
-        if (d == null)
-        {
-            d = new jxp();
-        }
-        kog1.a(d);
-        if (true) goto _L7; else goto _L8
-_L8:
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != 0x80000000)
+        if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(1, a.booleanValue());
         }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        if (c != null)
-        {
-            koh1.b(3, c);
-        }
-        if (d != null)
-        {
-            koh1.b(4, d);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

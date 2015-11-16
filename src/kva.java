@@ -2,75 +2,55 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.NoSuchElementException;
 
-public final class kva extends koj
+final class kva
+    implements ktt
 {
 
-    public Integer a;
-    public Integer b;
+    final kuz a;
+    private int b;
+    private final int c;
 
-    public kva()
+    kva(kuz kuz1)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = kuz1;
+        super();
+        b = 0;
+        c = kuz1.a();
     }
 
-    protected int computeSerializedSize()
+    public byte a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        byte byte0;
+        byte abyte0[];
+        int i;
+        try
         {
-            i = j + koh.e(1, a.intValue());
+            abyte0 = a.b;
+            i = b;
+            b = i + 1;
         }
-        j = i;
-        if (b != null)
+        catch (ArrayIndexOutOfBoundsException arrayindexoutofboundsexception)
         {
-            j = i + koh.e(2, b.intValue());
+            throw new NoSuchElementException(arrayindexoutofboundsexception.getMessage());
         }
-        return j;
+        byte0 = abyte0[i];
+        return byte0;
     }
 
-    public kop mergeFrom(kog kog1)
+    public boolean hasNext()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
-                break;
-
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
-                break;
-            }
-        } while (true);
+        return b < c;
     }
 
-    public void writeTo(koh koh1)
+    public Object next()
     {
-        if (a != null)
-        {
-            koh1.a(1, a.intValue());
-        }
-        if (b != null)
-        {
-            koh1.a(2, b.intValue());
-        }
-        super.writeTo(koh1);
+        return Byte.valueOf(a());
+    }
+
+    public void remove()
+    {
+        throw new UnsupportedOperationException();
     }
 }

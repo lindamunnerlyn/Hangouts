@@ -6,20 +6,20 @@ package com.google.android.apps.hangouts.realtimechat;
 
 import android.app.IntentService;
 import android.content.Intent;
-import dez;
-import hgx;
+import dgi;
+import hlp;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import jle;
-import jme;
-import jmf;
+import jsd;
+import jte;
+import jtf;
 
 public class RealTimeChatIncomingIntentService extends IntentService
 {
 
     private static final String a = com/google/android/apps/hangouts/realtimechat/RealTimeChatIncomingIntentService.getSimpleName();
-    private jme b;
+    private jte b;
 
     public RealTimeChatIncomingIntentService()
     {
@@ -29,25 +29,25 @@ public class RealTimeChatIncomingIntentService extends IntentService
     public void onCreate()
     {
         super.onCreate();
-        jmf jmf1 = jme.a();
-        for (Iterator iterator = hgx.c(getApplicationContext(), dez).iterator(); iterator.hasNext();)
+        jtf jtf1 = new jtf();
+        for (Iterator iterator = hlp.c(getApplicationContext(), dgi).iterator(); iterator.hasNext();)
         {
-            dez dez1 = (dez)iterator.next();
-            Iterator iterator1 = dez1.a().iterator();
+            dgi dgi1 = (dgi)iterator.next();
+            Iterator iterator1 = dgi1.a().iterator();
             while (iterator1.hasNext()) 
             {
-                jmf1.a((Integer)iterator1.next(), dez1);
+                jtf1.a((Integer)iterator1.next(), dgi1);
             }
         }
 
-        b = jmf1.a();
+        b = jtf1.a();
     }
 
     public void onHandleIntent(Intent intent)
     {
         if (intent.hasExtra("op_code"))
         {
-            for (jqy jqy = b.c(Integer.valueOf(intent.getIntExtra("op_code", -1))).a(); jqy.hasNext(); ((dez)jqy.next()).a(getApplicationContext(), intent)) { }
+            for (jyh jyh = b.d(Integer.valueOf(intent.getIntExtra("op_code", -1))).a(); jyh.hasNext(); ((dgi)jyh.next()).a(getApplicationContext(), intent)) { }
         }
     }
 

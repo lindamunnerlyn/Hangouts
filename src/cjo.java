@@ -2,32 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import android.content.Context;
 
-public final class cjo
+final class cjo
+    implements hgv
 {
 
-    public static final int a[];
+    final cjk a;
 
-    static 
+    cjo(cjk cjk)
     {
-        a = new int[gmp.values().length];
-        try
-        {
-            a[gmp.c.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[gmp.b.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[gmp.a.ordinal()] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
+        a = cjk;
+        super();
+    }
+
+    public int a(Context context, String s)
+    {
+        return context.checkSelfPermission(s);
+    }
+
+    public void a(Activity activity, String as[], int i)
+    {
+        activity.requestPermissions(as, i);
     }
 }

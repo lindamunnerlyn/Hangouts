@@ -8,17 +8,21 @@ final class btk
     implements android.view.View.OnClickListener
 {
 
-    final btc a;
+    final bpc a;
+    final gmt b;
+    final btf c;
 
-    btk(btc btc1)
+    btk(btf btf, bpc bpc1, gmt gmt1)
     {
-        a = btc1;
+        c = btf;
+        a = bpc1;
+        b = gmt1;
         super();
     }
 
     public void onClick(View view)
     {
         g.b(1280);
-        btc.b(a).a(null);
+        a.a(b.a());
     }
 }

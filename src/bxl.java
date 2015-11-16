@@ -3,20 +3,54 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class bxl
+final class bxl extends bgs
 {
 
-    public static final String a = bxj.getName();
-    private static bxk b;
+    private final Context d;
+    private final aoa e;
+    private final String f;
 
-    public static void a(Context context, hgx hgx1)
+    bxl(Context context, aoa aoa, String s)
     {
-        if (b == null)
-        {
-            b = new bxk();
-        }
-        hgx1.a(bxj, new bxn(context));
+        d = context;
+        e = aoa;
+        f = s;
     }
 
+    private void a(dvg dvg)
+    {
+        ((dvi)hlp.a(d, dvi)).a(dvg);
+    }
+
+    public String a()
+    {
+        return null;
+    }
+
+    public int b()
+    {
+        return RealTimeChatService.s(e, f);
+    }
+
+    public void c()
+    {
+        a((new dvh(d)).a(d.getString(h.ih)).a());
+    }
+
+    public void d()
+    {
+        a((new dvh(d)).a(d.getString(h.ij)).a());
+    }
+
+    public Class e()
+    {
+        return cwy;
+    }
+
+    public Class f()
+    {
+        return czz;
+    }
 }

@@ -3,61 +3,58 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ivf extends koj
+public final class ivf extends kwm
 {
 
-    public ivv a[];
-    public ixg responseHeader;
+    public ivg a[];
 
     public ivf()
     {
-        responseHeader = null;
-        a = ivv.a();
+        a = ivg.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (responseHeader != null)
-        {
-            i = j + koh.d(1, responseHeader);
-        }
-        j = i;
+        int i = super.computeSerializedSize();
+        int k = i;
         if (a != null)
         {
-            j = i;
+            k = i;
             if (a.length > 0)
             {
-                for (j = 0; j < a.length;)
+                int j = 0;
+                do
                 {
-                    ivv ivv1 = a[j];
-                    int k = i;
-                    if (ivv1 != null)
+                    k = i;
+                    if (j >= a.length)
                     {
-                        k = i + koh.d(2, ivv1);
+                        break;
+                    }
+                    ivg ivg1 = a[j];
+                    k = i;
+                    if (ivg1 != null)
+                    {
+                        k = i + kwk.d(1, ivg1);
                     }
                     j++;
                     i = k;
-                }
-
-                j = i;
+                } while (true);
             }
         }
-        return j;
+        return k;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -67,16 +64,8 @@ public final class ivf extends koj
                 return this;
 
             case 10: // '\n'
-                if (responseHeader == null)
-                {
-                    responseHeader = new ixg();
-                }
-                kog1.a(responseHeader);
-                break;
-
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                ivv aivv[];
+                int k = kwx.a(kwj1, 10);
+                ivg aivg[];
                 int j;
                 if (a == null)
                 {
@@ -85,46 +74,42 @@ public final class ivf extends koj
                 {
                     j = a.length;
                 }
-                aivv = new ivv[k + j];
+                aivg = new ivg[k + j];
                 k = j;
                 if (j != 0)
                 {
-                    System.arraycopy(a, 0, aivv, 0, j);
+                    System.arraycopy(a, 0, aivg, 0, j);
                     k = j;
                 }
-                for (; k < aivv.length - 1; k++)
+                for (; k < aivg.length - 1; k++)
                 {
-                    aivv[k] = new ivv();
-                    kog1.a(aivv[k]);
-                    kog1.a();
+                    aivg[k] = new ivg();
+                    kwj1.a(aivg[k]);
+                    kwj1.a();
                 }
 
-                aivv[k] = new ivv();
-                kog1.a(aivv[k]);
-                a = aivv;
+                aivg[k] = new ivg();
+                kwj1.a(aivg[k]);
+                a = aivg;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (responseHeader != null)
-        {
-            koh1.b(1, responseHeader);
-        }
         if (a != null && a.length > 0)
         {
             for (int i = 0; i < a.length; i++)
             {
-                ivv ivv1 = a[i];
-                if (ivv1 != null)
+                ivg ivg1 = a[i];
+                if (ivg1 != null)
                 {
-                    koh1.b(2, ivv1);
+                    kwk1.b(1, ivg1);
                 }
             }
 
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

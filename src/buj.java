@@ -2,79 +2,65 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
+import android.text.TextUtils;
 
-final class buj
-    implements fsn, hhi, hjx, hka
+public final class buj extends hmk
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final ai a;
-    buz b;
-    bts c;
-    bty d;
-    btx e;
-    private final btr f = new buk(this);
-    private final Handler g = new Handler(Looper.getMainLooper());
-    private Runnable h;
-    private boolean i;
-
-    buj(ai ai, hjm hjm1)
+    public buj()
     {
-        a = ai;
-        hjm1.a(this);
     }
 
-    public void E_()
+    public Dialog a(Bundle bundle)
     {
-        i = true;
-        c.a(f);
-        if (c.a() != null)
+        eev.c("Babel", "Showing allow externals dialog");
+        ai ai = getActivity();
+        Resources resources = ai.getResources();
+        String s = ((buh)hlp.a(ak, buh)).c();
+        if (TextUtils.isEmpty(s))
         {
-            a(c.a());
+            bundle = resources.getString(h.hB);
+        } else
+        {
+            bundle = resources.getString(h.hA, new Object[] {
+                s
+            });
         }
-    }
-
-    public void a()
-    {
-        i = false;
-        c.b(f);
-        c();
-        if (e != null)
+        if (TextUtils.isEmpty(s))
         {
-            e.b();
-            e = null;
+            s = resources.getString(h.hz);
+        } else
+        {
+            s = resources.getString(h.hy, new Object[] {
+                s
+            });
         }
+        return (new android.app.AlertDialog.Builder(ai)).setTitle(bundle).setMessage(s).setPositiveButton(resources.getString(h.hw), this).setNegativeButton(resources.getString(h.hx), this).create();
     }
 
-    public void a(Context context, hgx hgx1, Bundle bundle)
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        b = (buz)hgx1.a(buz);
-        c = (bts)hgx1.a(bts);
-    }
+        switch (i)
+        {
+        default:
+            gdv.a("Unrecognized button click");
+            return;
 
-    void a(jba jba)
-    {
-        if (jba != null && e == null && i)
-        {
-            h = new bum(this, jba);
-            g.postDelayed(h, 1000L);
-        }
-    }
+        case -1: 
+            eev.e("Babel", "Allowing external users to join the call");
+            g.b(1501);
+            ((buh)hlp.a(ak, buh)).a(true);
+            return;
 
-    void c()
-    {
-        if (h != null)
-        {
-            g.removeCallbacks(h);
-            h = null;
-        }
-        if (d != null)
-        {
-            d.b();
-            d = null;
+        case -2: 
+            eev.e("Babel", "Not allowing external users to join the call");
+            return;
         }
     }
 }

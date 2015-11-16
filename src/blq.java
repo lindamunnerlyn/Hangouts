@@ -2,22 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
 
-final class blq
-    implements android.view.View.OnClickListener
+public interface blq
 {
 
-    final blp a;
-
-    blq(blp blp1)
-    {
-        a = blp1;
-        super();
-    }
-
-    public void onClick(View view)
-    {
-        blo.a(a.getResources()).a(a.getFragmentManager());
-    }
+    public abstract bjo a(atu atu, String s, cov cov, aid aid);
 }

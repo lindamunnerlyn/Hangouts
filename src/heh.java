@@ -3,114 +3,121 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.os.Bundle;
-import android.util.Log;
-import java.nio.ByteBuffer;
+import android.graphics.RectF;
+import android.net.Uri;
 
-public class heh extends hdp
+public final class heh
 {
 
-    private final String a;
-    private final String b;
-    private boolean c;
-    public final kop p;
+    public static final Uri a = Uri.parse("https://lh3.googleusercontent.com");
+    public static int b = -1;
+    private static hej c = new hej();
+    private static Context d;
 
-    protected heh(Context context, hdx hdx1, String s, String s1, kop kop1, String s2, String s3)
+    static int a(Context context)
     {
-        hdi hdi = hdx1.d();
-        if (hdi != null)
+        if (context != null)
         {
-            s3 = new hej(context, hdx1.b(), s3, hdi);
-        } else
-        if (hdx1.a())
-        {
-            s3 = new hee(context, hdx1.b(), hdx1.c(), s3);
-        } else
-        {
-            s3 = new hee(context, hdx1.b(), s3);
+            context = android.provider.Settings.Secure.getString(d.getContentResolver(), "android_id");
+            if (context != null)
+            {
+                int j = Math.abs(context.hashCode());
+                int i = j;
+                if (j == 0)
+                {
+                    i = 1;
+                }
+                return i;
+            }
         }
-        super(context, hdx1, s, s3);
-        a = s1;
-        p = kop1;
-        b = s2;
+        return 0;
     }
 
-    public String a()
+    static Context a()
     {
-        return "application/x-protobuf";
+        return d;
     }
 
-    public void a(ByteBuffer bytebuffer)
+    private static String a(float f)
     {
-        b(bytebuffer);
-        if (t())
-        {
-            b(bytebuffer, g.a(p));
-        }
-        c(p);
-    }
-
-    public void a(ByteBuffer bytebuffer, String s)
-    {
+        float f1;
 label0:
         {
-            super.a(bytebuffer, s);
-            if (Log.isLoggable("HttpOperation", 5))
+            if ((double)f >= 0.0D)
             {
-                bytebuffer = String.valueOf(new String(g.a(bytebuffer), "UTF-8"));
-                if (bytebuffer.length() == 0)
+                f1 = f;
+                if ((double)f <= 1.0D)
                 {
                     break label0;
                 }
-                "HttpOperation error: Response follows: \n".concat(bytebuffer);
             }
-            return;
+            f1 = Math.max(0.0F, Math.min(1.0F, f));
         }
-        new String("HttpOperation error: Response follows: \n");
-    }
-
-    protected kop b(ByteBuffer bytebuffer)
-    {
-        if (p != null)
+        String s1 = Integer.toString((int)(65535F * f1), 16);
+        String s = String.valueOf("0000".substring(0, 4 - s1.length()));
+        s1 = String.valueOf(s1);
+        if (s1.length() != 0)
         {
-            if (bytebuffer.hasArray())
-            {
-                bytebuffer = kog.a(bytebuffer.array(), bytebuffer.arrayOffset(), bytebuffer.limit());
-            } else
-            {
-                bytebuffer = g.a(bytebuffer);
-                bytebuffer = kog.a(bytebuffer, 0, bytebuffer.length);
-            }
-            p.mergeFrom(bytebuffer);
-            c = true;
-            return p;
+            return s.concat(s1);
         } else
         {
-            return null;
+            return new String(s);
         }
     }
 
-    public Bundle c()
+    public static String a(RectF rectf)
     {
-        return null;
+        new RectF();
+        String s = String.valueOf(a(rectf.left));
+        String s1 = String.valueOf(a(rectf.top));
+        String s2 = String.valueOf(a(rectf.right));
+        rectf = String.valueOf(a(rectf.bottom));
+        return (new StringBuilder(String.valueOf(s).length() + 11 + String.valueOf(s1).length() + String.valueOf(s2).length() + String.valueOf(rectf).length())).append("-fcrop64=1,").append(s).append(s1).append(s2).append(rectf).toString();
     }
 
-    public void c(kop kop1)
+    private static String a(String s, int i, int j, int k, int l, int i1, int j1, RectF rectf, 
+            int k1)
     {
+        return c.a(s, i, j, k, l, i1, j1, rectf, k1, -1);
     }
 
-    public String i()
+    public static String a(String s, int i, int j, int k, int l, int i1, RectF rectf)
     {
-        return a;
+        rectf = a(s, i, 0, j, k, l, i1, rectf, hei.a);
+        if (rectf == null) goto _L2; else goto _L1
+_L1:
+        return rectf;
+_L2:
+        if (j != 0)
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        rectf = s;
+        if (k == 0) goto _L1; else goto _L3
+_L3:
+        return hek.a(j, k, s);
     }
 
-    public String j()
+    public static String a(String s, int i, int j, RectF rectf)
     {
-        return g.a(g, b, u(), false, c());
+        String s1 = a(s, i, j, 0, 0, -1, -1, rectf, hei.a);
+        rectf = s1;
+        if (s1 == null)
+        {
+            rectf = hek.a(j, s);
+        }
+        return rectf;
     }
 
-    public String u()
+    public static String a(String s, int i, RectF rectf)
     {
-        return a;
+        String s1 = a(s, i, 0, 0, 0, -1, -1, rectf, hei.a);
+        rectf = s1;
+        if (s1 == null)
+        {
+            rectf = hek.a(-1, s);
+        }
+        return rectf;
     }
+
 }

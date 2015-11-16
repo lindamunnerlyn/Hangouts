@@ -2,10 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
+import android.view.MotionEvent;
+import android.view.View;
 
 final class bmh
-    implements android.content.DialogInterface.OnClickListener
+    implements android.view.View.OnTouchListener
 {
 
     final bmf a;
@@ -16,9 +17,13 @@ final class bmh
         super();
     }
 
-    public void onClick(DialogInterface dialoginterface, int i)
+    public boolean onTouch(View view, MotionEvent motionevent)
     {
-        a.a();
-        bmb.a((bmb)a.getTargetFragment());
+        bmf.a(a).f();
+        if (motionevent.getAction() == 1)
+        {
+            view.performClick();
+        }
+        return true;
     }
 }

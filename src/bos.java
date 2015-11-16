@@ -2,16 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.res.Configuration;
 
-public interface bos
+final class bos extends boq
 {
 
-    public abstract void a(int i);
+    final bor a;
 
-    public abstract void a(bot bot);
+    bos(bor bor1)
+    {
+        a = bor1;
+        super();
+    }
 
-    public abstract void i_();
+    public void b(int i)
+    {
+        a.c();
+    }
 
-    public abstract void onConfigurationChanged(Configuration configuration);
+    public void b(String s)
+    {
+        if (s != null)
+        {
+            a.a = s;
+            a.b();
+        }
+    }
+
+    public void f()
+    {
+        a.c();
+    }
 }

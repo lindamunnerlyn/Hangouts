@@ -2,58 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
 final class dsd
-    implements dsc
+    implements hjv
 {
 
-    private Cursor a;
-    private final aoe b;
+    final dup a;
+    final dsc b;
 
-    public dsd(aoe aoe1, long l, long l1)
+    dsd(dsc dsc1, dup dup1)
     {
-        b = aoe1;
-        try
-        {
-            a = b.e().a("messages", dsf.a(), dry.a(dry.c(), "timestamp", l * 1000L, 1000L * l1), null, "timestamp DESC");
-            return;
-        }
-        // Misplaced declaration of an exception variable
-        catch (aoe aoe1)
-        {
-            int i = b.f().h();
-            String s = String.valueOf(aoe1);
-            ebw.e("Babel_SMS", (new StringBuilder(String.valueOf(s).length() + 60)).append("SmsSyncManager A#").append(i).append(": failed to query local sms/mms ").append(s).toString(), aoe1);
-            throw aoe1;
-        }
+        b = dsc1;
+        a = dup1;
+        super();
     }
 
-    public dqp a()
+    public boolean a(hjr hjr, Object obj)
     {
-        Cursor cursor;
-label0:
+        boolean flag = g.a((Boolean)obj, false);
+        char c;
+        if (flag)
         {
-            if (a != null && a.moveToNext())
-            {
-                cursor = a;
-                if (cursor != null)
-                {
-                    break label0;
-                }
-            }
-            return null;
-        }
-        return new dse(cursor.getLong(0), cursor.getInt(3), dry.a(dry.a(cursor.getString(2))), cursor.getLong(1));
-    }
-
-    public void b()
-    {
-        if (a != null)
+            RealTimeChatService.e();
+        } else
         {
-            a.close();
-            a = null;
+            RealTimeChatService.f();
         }
+        a.a(flag);
+        hjr = dsc.a(b);
+        if (flag)
+        {
+            c = '\u0AFE';
+        } else
+        {
+            c = '\u0AFF';
+        }
+        hjr.a(c).d();
+        return true;
     }
 }

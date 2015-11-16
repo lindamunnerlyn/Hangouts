@@ -2,28 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.Parcel;
 
-public final class fmn
+public abstract class fmn extends Binder
+    implements fmm
 {
 
-    public static final ejw a;
-    static final ejt b;
-    public static final ejs c;
-    public static final fyb d = new fod();
-    public static final flx e = new flx();
-    public static final fmg f = new fmg();
-    public static final fmh g = new fmh();
-    public static final fmt h = new fmt();
-    public static final flv i = new flv();
-    public static final fmj j = new fmj();
-    public static final fmk k = new fmk();
-    public static final flw l = new flw();
-    public static final fml m = new fml();
-
-    static 
+    public static fmm a(IBinder ibinder)
     {
-        a = new ejw();
-        b = new fmo();
-        c = new ejs("People.API_1P", b, a);
+        if (ibinder == null)
+        {
+            return null;
+        }
+        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.maps.internal.IOnStreetViewPanoramaReadyCallback");
+        if (iinterface != null && (iinterface instanceof fmm))
+        {
+            return (fmm)iinterface;
+        } else
+        {
+            return new fmo(ibinder);
+        }
+    }
+
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    {
+        switch (i)
+        {
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
+
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.maps.internal.IOnStreetViewPanoramaReadyCallback");
+            return true;
+
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnStreetViewPanoramaReadyCallback");
+            a(fjt.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            return true;
+        }
     }
 }

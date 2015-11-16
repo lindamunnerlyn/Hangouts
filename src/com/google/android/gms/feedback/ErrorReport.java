@@ -9,7 +9,8 @@ import android.os.Bundle;
 import android.os.Parcel;
 import com.google.android.gms.common.data.BitmapTeleporter;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import faj;
+import fdh;
+import g;
 
 // Referenced classes of package com.google.android.gms.feedback:
 //            FileTeleporter, ThemeSettings, LogOptions
@@ -18,7 +19,7 @@ public class ErrorReport
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new faj();
+    public static final android.os.Parcelable.Creator CREATOR = new fdh();
     public int A;
     public String B;
     public String C;
@@ -157,7 +158,64 @@ public class ErrorReport
 
     public void writeToParcel(Parcel parcel, int i1)
     {
-        faj.a(this, parcel, i1);
+        int j1 = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b, i1);
+        g.a(parcel, 3, c);
+        g.b(parcel, 4, d);
+        g.a(parcel, 5, e);
+        g.a(parcel, 6, f);
+        g.a(parcel, 7, g);
+        g.a(parcel, 8, h);
+        g.a(parcel, 9, i);
+        g.a(parcel, 10, j);
+        g.a(parcel, 11, k);
+        g.b(parcel, 12, l);
+        g.a(parcel, 13, m);
+        g.a(parcel, 14, n);
+        g.a(parcel, 15, o);
+        g.a(parcel, 17, q);
+        g.a(parcel, 16, p);
+        g.a(parcel, 19, s);
+        g.a(parcel, 18, r);
+        g.a(parcel, 21, u);
+        g.a(parcel, 20, t);
+        g.a(parcel, 23, w);
+        g.a(parcel, 22, v);
+        g.b(parcel, 25, y);
+        g.b(parcel, 24, x);
+        g.b(parcel, 27, A);
+        g.b(parcel, 26, z);
+        g.a(parcel, 29, C);
+        g.a(parcel, 28, B);
+        g.a(parcel, 31, E);
+        g.a(parcel, 30, D);
+        g.b(parcel, 34, H);
+        g.a(parcel, 35, I);
+        g.a(parcel, 32, F);
+        g.b(parcel, 33, G);
+        g.b(parcel, 38, L);
+        g.a(parcel, 39, M);
+        g.a(parcel, 36, J);
+        g.a(parcel, 37, K);
+        g.a(parcel, 42, P);
+        g.a(parcel, 43, Q);
+        g.a(parcel, 40, N);
+        g.a(parcel, 41, O);
+        g.a(parcel, 46, T, i1);
+        g.a(parcel, 47, U);
+        g.a(parcel, 44, R);
+        g.a(parcel, 45, S);
+        g.a(parcel, 51, Y);
+        g.a(parcel, 50, X);
+        g.a(parcel, 49, W);
+        g.a(parcel, 48, V, i1);
+        g.a(parcel, 55, ac);
+        g.a(parcel, 54, ab);
+        g.a(parcel, 53, aa, i1);
+        g.a(parcel, 52, Z, i1);
+        g.a(parcel, 56, ad);
+        g.q(parcel, j1);
     }
 
 }

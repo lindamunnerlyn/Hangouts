@@ -2,38 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Looper;
+import com.google.android.apps.hangouts.requestwriter.RequestWriter;
 
-public abstract class dlt
+public final class dlt
+    implements Runnable
 {
-
-    dlp c;
 
     public dlt()
     {
     }
 
-    public void b()
+    public void run()
     {
-label0:
-        {
-            if (c != null)
-            {
-                if (Looper.myLooper() == Looper.getMainLooper())
-                {
-                    break label0;
-                }
-                c.d(this);
-            }
-            return;
-        }
-        c.b(this);
-    }
-
-    public abstract String c();
-
-    public boolean k()
-    {
-        return c == null;
+        RequestWriter.l();
     }
 }

@@ -2,27 +2,59 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
-public final class jwi extends koj
+class jwi extends jxq
 {
 
-    public jwi()
+    final Map c;
+
+    jwi(Map map)
     {
-        unknownFieldData = null;
-        cachedSize = -1;
+        c = (Map)n.b(map);
     }
 
-    public kop mergeFrom(kog kog1)
+    Map a()
     {
-_L3:
-        int i = kog1.a();
-        i;
-        JVM INSTR tableswitch 0 0: default 24
-    //                   0 33;
-           goto _L1 _L2
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L3; else goto _L2
-_L2:
-        return this;
+        return c;
+    }
+
+    public void clear()
+    {
+        a().clear();
+    }
+
+    public boolean contains(Object obj)
+    {
+        return a().containsKey(obj);
+    }
+
+    public boolean isEmpty()
+    {
+        return a().isEmpty();
+    }
+
+    public Iterator iterator()
+    {
+        return jwd.a(a().entrySet().iterator());
+    }
+
+    public boolean remove(Object obj)
+    {
+        if (contains(obj))
+        {
+            a().remove(obj);
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
+
+    public int size()
+    {
+        return a().size();
     }
 }

@@ -2,88 +2,108 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.InvalidObjectException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.Collection;
 
-public class jlq extends jme
-    implements jpl
+public final class jlq extends kwm
 {
 
-    private static final long serialVersionUID = 0L;
+    public String a;
+    public Boolean b;
+    public Boolean c;
+    public Boolean d;
 
-    jlq(jlr jlr1, int i)
+    public jlq()
     {
-        super(jlr1, i);
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private void readObject(ObjectInputStream objectinputstream)
+    protected int computeSerializedSize()
     {
-        objectinputstream.defaultReadObject();
-        int l = objectinputstream.readInt();
-        if (l < 0)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            throw new InvalidObjectException((new StringBuilder("Invalid key count ")).append(l).toString());
+            i = j + kwk.b(1, a);
         }
-        jls jls1 = jlr.i();
-        int i = 0;
-        int j = 0;
-        for (; i < l; i++)
+        j = i;
+        if (b != null)
         {
-            Object obj = objectinputstream.readObject();
-            int i1 = objectinputstream.readInt();
-            if (i1 <= 0)
+            b.booleanValue();
+            j = i + (kwk.f(2) + 1);
+        }
+        i = j;
+        if (c != null)
+        {
+            c.booleanValue();
+            i = j + (kwk.f(3) + 1);
+        }
+        j = i;
+        if (d != null)
+        {
+            d.booleanValue();
+            j = i + (kwk.f(4) + 1);
+        }
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
             {
-                throw new InvalidObjectException((new StringBuilder("Invalid value count ")).append(i1).toString());
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 16: // '\020'
+                b = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 24: // '\030'
+                c = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 32: // ' '
+                d = Boolean.valueOf(kwj1.i());
+                break;
             }
-            Object aobj[] = new Object[i1];
-            for (int k = 0; k < i1; k++)
-            {
-                aobj[k] = objectinputstream.readObject();
-            }
+        } while (true);
+    }
 
-            jls1.a(obj, jlk.a(aobj));
-            j += i1;
-        }
-
-        try
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
         {
-            objectinputstream = jls1.a();
+            kwk1.a(1, a);
         }
-        // Misplaced declaration of an exception variable
-        catch (ObjectInputStream objectinputstream)
+        if (b != null)
         {
-            throw (InvalidObjectException)(new InvalidObjectException(objectinputstream.getMessage())).initCause(objectinputstream);
+            kwk1.a(2, b.booleanValue());
         }
-        jmh.a.a(this, objectinputstream);
-        jmh.b.a(this, j);
-    }
-
-    private void writeObject(ObjectOutputStream objectoutputstream)
-    {
-        objectoutputstream.defaultWriteObject();
-        g.a(this, objectoutputstream);
-    }
-
-    public Collection a(Object obj)
-    {
-        return b(obj);
-    }
-
-    public jlk b(Object obj)
-    {
-        jlk jlk1 = (jlk)b.get(obj);
-        obj = jlk1;
-        if (jlk1 == null)
+        if (c != null)
         {
-            obj = jlk.d();
+            kwk1.a(3, c.booleanValue());
         }
-        return ((jlk) (obj));
-    }
-
-    public jle c(Object obj)
-    {
-        return b(obj);
+        if (d != null)
+        {
+            kwk1.a(4, d.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

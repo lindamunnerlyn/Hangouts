@@ -2,33 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 import android.content.DialogInterface;
 
 public final class ajw
     implements android.content.DialogInterface.OnClickListener
 {
 
-    final dbx a;
-    final int b;
-    final String c;
-    final ala d;
-    final Context e;
+    final akx a;
 
-    public ajw(dbx dbx1, int i, String s, ala ala1, Context context)
+    public ajw(akx akx1)
     {
-        a = dbx1;
-        b = i;
-        c = s;
-        d = ala1;
-        e = context;
+        a = akx1;
         super();
     }
 
     public void onClick(DialogInterface dialoginterface, int i)
     {
-        dialoginterface = a.a(b, c);
-        d.a(2250);
-        e.startActivity(dialoginterface);
+        a.a(2251);
     }
 }

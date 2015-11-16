@@ -2,46 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
+import android.database.Cursor;
 
-public final class cbn extends cbh
+public final class cbn extends cbj
 {
 
-    private hgx f;
-
-    public cbn(hgx hgx)
+    public cbn()
     {
-        f = hgx;
     }
 
-    public int a()
+    public static cbn a(Cursor cursor)
     {
-        return l.fI;
-    }
-
-    public void a(Activity activity)
-    {
-        g.a(a, 1601);
-        activity.startActivity(g.g(a));
-    }
-
-    public int b()
-    {
-        return com.google.android.apps.hangouts.R.drawable.cd;
-    }
-
-    public int c()
-    {
-        return 4;
-    }
-
-    public int d()
-    {
-        return 1;
-    }
-
-    public int e()
-    {
-        return 4;
+        cbn cbn1 = new cbn();
+        a(cursor, ((cbj) (cbn1)));
+        return cbn1;
     }
 }

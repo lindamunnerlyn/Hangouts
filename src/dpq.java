@@ -2,33 +2,66 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Map;
 
 final class dpq
-    implements hfe
+    implements Runnable
 {
 
-    final dpv a;
-    final Map b;
-    final dpo c;
+    final dpw a;
+    final byte b[];
+    final dpn c;
 
-    dpq(dpo dpo1, dpv dpv1, Map map)
+    dpq(dpn dpn1, dpw dpw1, byte abyte0[])
     {
-        c = dpo1;
-        a = dpv1;
-        b = map;
+        c = dpn1;
+        a = dpw1;
+        b = abyte0;
         super();
     }
 
-    public boolean a(hfa hfa, Object obj)
+    public void run()
     {
-        hfa = (String)obj;
-        if (!a.h().equals(hfa))
+        dpn.c().b("decodeMedia");
+        if (!dpn.d()) goto _L2; else goto _L1
+_L1:
+        Object obj;
+        Object obj1;
+        obj1 = c;
+        obj = String.valueOf(a.toString());
+        if (((String) (obj)).length() == 0) goto _L4; else goto _L3
+_L3:
+        obj = "decodingBytes start ".concat(((String) (obj)));
+_L7:
+        dpn.a(((dpn) (obj1)), ((String) (obj)));
+_L2:
+        obj1 = a.a(b);
+        if (!dpn.d()) goto _L6; else goto _L5
+_L5:
+        dpn dpn1;
+        dpn1 = c;
+        obj = String.valueOf(a.toString());
+        if (((String) (obj)).length() == 0)
         {
-            a.a(hfa);
-            a.b((CharSequence)b.get(hfa));
-            dpo.b(c).a(hfa);
+            break MISSING_BLOCK_LABEL_152;
         }
-        return true;
+        obj = "decodingBytes finish ".concat(((String) (obj)));
+_L8:
+        dpn.a(dpn1, ((String) (obj)));
+_L6:
+        if (obj1 == null)
+        {
+            break MISSING_BLOCK_LABEL_119;
+        }
+        c.a(a, ((dpv) (obj1)));
+        dpn.c().c("decodeMedia");
+        return;
+_L4:
+        obj = new String("decodingBytes start ");
+          goto _L7
+        obj;
+        dpn.c().c("decodeMedia");
+        throw obj;
+        obj = new String("decodingBytes finish ");
+          goto _L8
     }
 }

@@ -3,18 +3,36 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ibo extends koj
+public final class ibo extends kwm
 {
 
-    public ieh a;
-    public Integer b;
+    private static volatile ibo b[];
+    public Integer a;
 
     public ibo()
     {
         a = null;
-        b = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static ibo[] a()
+    {
+        if (b == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (b == null)
+                {
+                    b = new ibo[0];
+                }
+            }
+        }
+        return b;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -23,58 +41,45 @@ public final class ibo extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.e(1, a.intValue());
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.intValue());
-        }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L4:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 2: default 32
+    //                   0: 41
+    //                   8: 43;
+           goto _L1 _L2 _L3
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L4; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new ieh();
-                }
-                kog1.a(a);
-                break;
-
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
-                break;
-            }
-        } while (true);
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+        case 5: // '\005'
+            a = Integer.valueOf(j);
+            break;
+        }
+        if (true) goto _L4; else goto _L5
+_L5:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.a(1, a.intValue());
         }
-        if (b != null)
-        {
-            koh1.a(2, b.intValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

@@ -3,8 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface bzw
+public final class bzw
 {
 
-    public abstract gqn a(String s, int i, amf amf);
+    public static final String a = bzi.getName();
+    private static bzv b;
+
+    public static void a(hlp hlp1)
+    {
+        if (b == null)
+        {
+            b = new bzv();
+        }
+        hlp1.a(bzi, new bzt());
+    }
+
 }

@@ -2,129 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Comparator;
 
-public final class hrz extends koj
+final class hrz
+    implements Comparator
 {
 
-    private static volatile hrz e[];
-    public hru a;
-    public String b;
-    public String c;
-    public String d;
+    final hry a;
 
-    public hrz()
+    hrz(hry hry)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = hry;
+        super();
     }
 
-    public static hrz[] a()
+    public int compare(Object obj, Object obj1)
     {
-        if (e == null)
+        obj = (String)obj;
+        obj1 = (String)obj1;
+        if (obj == obj1)
         {
-            synchronized (kon.a)
-            {
-                if (e == null)
-                {
-                    e = new hrz[0];
-                }
-            }
+            return 0;
         }
-        return e;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        if (obj == null)
         {
-            i = j + koh.d(1, a);
+            return -1;
         }
-        j = i;
-        if (b != null)
+        if (obj1 == null)
         {
-            j = i + koh.b(2, b);
+            return 1;
+        } else
+        {
+            return ((String) (obj)).compareTo(((String) (obj1)));
         }
-        i = j;
-        if (d != null)
-        {
-            i = j + koh.b(3, d);
-        }
-        j = i;
-        if (c != null)
-        {
-            j = i + koh.b(4, c);
-        }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new hru();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-
-            case 26: // '\032'
-                d = kog1.j();
-                break;
-
-            case 34: // '"'
-                c = kog1.j();
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
-        if (d != null)
-        {
-            koh1.a(3, d);
-        }
-        if (c != null)
-        {
-            koh1.a(4, c);
-        }
-        super.writeTo(koh1);
     }
 }

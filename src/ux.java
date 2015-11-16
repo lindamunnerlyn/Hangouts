@@ -2,68 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
+import android.graphics.Rect;
 
-final class ux extends rp
+public interface ux
 {
 
-    private boolean a;
-
-    public ux(Drawable drawable)
-    {
-        super(drawable);
-        a = true;
-    }
-
-    void a(boolean flag)
-    {
-        a = flag;
-    }
-
-    public void draw(Canvas canvas)
-    {
-        if (a)
-        {
-            super.draw(canvas);
-        }
-    }
-
-    public void setHotspot(float f, float f1)
-    {
-        if (a)
-        {
-            super.setHotspot(f, f1);
-        }
-    }
-
-    public void setHotspotBounds(int i, int j, int k, int l)
-    {
-        if (a)
-        {
-            super.setHotspotBounds(i, j, k, l);
-        }
-    }
-
-    public boolean setState(int ai[])
-    {
-        if (a)
-        {
-            return super.setState(ai);
-        } else
-        {
-            return false;
-        }
-    }
-
-    public boolean setVisible(boolean flag, boolean flag1)
-    {
-        if (a)
-        {
-            return super.setVisible(flag, flag1);
-        } else
-        {
-            return false;
-        }
-    }
+    public abstract void a(Rect rect);
 }

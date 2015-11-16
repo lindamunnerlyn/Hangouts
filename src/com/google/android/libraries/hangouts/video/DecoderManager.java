@@ -5,37 +5,42 @@
 package com.google.android.libraries.hangouts.video;
 
 import android.content.Context;
-import fwz;
-import gct;
-import gdp;
-import gel;
+import fzd;
+import ggd;
+import ggv;
+import ggw;
+import ggy;
+import ghk;
 import java.nio.ByteBuffer;
 
 // Referenced classes of package com.google.android.libraries.hangouts.video:
-//            Decoder
+//            MediaCodecDecoder
 
 public final class DecoderManager
 {
 
     private final Context a;
+    private int b;
     private long nativeContext;
 
     public DecoderManager(Context context)
     {
+        b = -1;
         a = context;
         nativeInit();
+        setSupportedCodecs(d());
     }
 
     public static int a(Context context)
     {
-        if (fwz.a(context.getContentResolver(), "babel_hangout_hardware_decode", true)) goto _L2; else goto _L1
+        if (fzd.a(context.getContentResolver(), "babel_hangout_hardware_decode", true)) goto _L2; else goto _L1
 _L1:
         int i = 0;
 _L4:
-        return i & gel.a(false);
+        return i & ghk.a(false);
 _L2:
         int j;
-        if (fwz.a(context.getContentResolver(), "babel_hangout_vp8_hardware_decode", true))
+        if (fzd.a(context.getContentResolver(), "babel_hangout_vp8_hardware_decode", true))
         {
             j = 1;
         } else
@@ -43,7 +48,7 @@ _L2:
             j = 0;
         }
         i = j;
-        if (fwz.a(context.getContentResolver(), "babel_hangout_h264_hardware_decode2", true))
+        if (fzd.a(context.getContentResolver(), "babel_hangout_h264_hardware_decode2", true))
         {
             i = j | 2;
         }
@@ -51,28 +56,35 @@ _L2:
 _L3:
     }
 
-    static native boolean consumeNextEncodedFrame(int i, long l, ByteBuffer bytebuffer);
-
-    static native boolean frameRenderedExternally(int i, long l, int j, int k);
-
-    public static native int getCodecType(int i);
-
-    static native boolean getNextEncodedFrameMetadata(int i, boolean flag, Object obj);
+    private int d()
+    {
+        int j = a(a);
+        int i = j;
+        if (b != -1)
+        {
+            i = j & b;
+        }
+        return i;
+    }
 
     private final native void nativeInit();
 
     private final native void nativeRelease();
 
-    static native boolean notifyResolutionNotSupported(int i, int j, int k);
+    private final native boolean setSupportedCodecs(int i);
 
-    public Decoder a(gdp gdp, gct gct)
+    public MediaCodecDecoder a(ggd ggd, ggv ggv)
     {
         if (a(a) == 0)
         {
             return null;
+        }
+        if (android.os.Build.VERSION.SDK_INT < 21)
+        {
+            return new ggw(this, ggd, ggv);
         } else
         {
-            return new Decoder(gdp, gct);
+            return new ggy(this, ggd, ggv);
         }
     }
 
@@ -80,4 +92,25 @@ _L3:
     {
         nativeRelease();
     }
+
+    public long b()
+    {
+        return nativeContext;
+    }
+
+    public void c()
+    {
+        b = -3;
+        setSupportedCodecs(d());
+    }
+
+    native boolean consumeNextEncodedFrame(int i, long l, ByteBuffer bytebuffer);
+
+    native boolean frameRenderedExternally(int i, long l, int j, int k);
+
+    native int getCodecType(int i);
+
+    native boolean getNextEncodedFrameMetadata(int i, boolean flag, Object obj);
+
+    native boolean notifyResolutionNotSupported(int i, int j, int k);
 }

@@ -3,21 +3,40 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gpk
+public final class gpk extends Enum
 {
 
-    public static final String a = hhy.getName();
-    private static gph b;
+    public static final gpk a;
+    public static final gpk b;
+    public static final gpk c;
+    public static final gpk d;
+    public static final gpk e;
+    private static final gpk f[];
 
-    public static void a(hgx hgx1)
+    private gpk(String s, int i)
     {
-        if (b == null)
-        {
-            b = new gph();
-        }
-        hgx1.a(hhy, new hhy[] {
-            new gpl(), new gpj()
-        });
+        super(s, i);
     }
 
+    public static gpk valueOf(String s)
+    {
+        return (gpk)Enum.valueOf(gpk, s);
+    }
+
+    public static gpk[] values()
+    {
+        return (gpk[])f.clone();
+    }
+
+    static 
+    {
+        a = new gpk("NOT_A_NUMBER", 0);
+        b = new gpk("NO_MATCH", 1);
+        c = new gpk("SHORT_NSN_MATCH", 2);
+        d = new gpk("NSN_MATCH", 3);
+        e = new gpk("EXACT_MATCH", 4);
+        f = (new gpk[] {
+            a, b, c, d, e
+        });
+    }
 }

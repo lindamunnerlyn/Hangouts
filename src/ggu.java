@@ -2,27 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.libraries.hangouts.video.MediaCodecDecoder;
 
-final class ggu
-    implements ggr
+public final class ggu
+    implements Runnable
 {
 
-    private final ggl a;
+    final int a;
+    final MediaCodecDecoder b;
 
-    ggu(ggl ggl1)
+    public ggu(MediaCodecDecoder mediacodecdecoder, int i)
     {
-        a = ggl1;
+        b = mediacodecdecoder;
+        a = i;
+        super();
     }
 
-    public void a(kop kop, gbe gbe)
+    public void run()
     {
-        kop = (jah)kop;
-        a.a("broadcasts/add", kop, jai, gbe);
-    }
-
-    public void b(kop kop, gbe gbe)
-    {
-        kop = (jaj)kop;
-        a.a("broadcasts/modify", kop, jak, gbe);
+        g.o(a);
     }
 }

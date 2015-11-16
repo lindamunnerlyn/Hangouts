@@ -2,23 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.hangout.ProximityCoverView;
+import java.util.Set;
 
-final class bsd extends bro
+public final class bsd extends bns
 {
 
-    final bsb b;
+    final ProximityCoverView a;
 
-    bsd(bsb bsb1)
+    public bsd(ProximityCoverView proximitycoverview)
     {
-        b = bsb1;
-        super(bsb1);
+        a = proximitycoverview;
+        super();
     }
 
-    public void d(String s)
+    public void a(gly gly, Set set)
     {
-        if (g.g(b.a.a(), s))
-        {
-            bsb.a(b);
-        }
+        a.c();
     }
 }

@@ -2,50 +2,88 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.data.DataHolder;
 
 public final class fou
 {
 
-    public final DataHolder a;
-    private final int b;
-    private int c;
+    public static final fou a = new fou();
+    private boolean b;
+    private String c;
+    private boolean d;
+    private int e;
+    private int f;
+    private String g;
+    private boolean h;
+    private int i;
+    private int j;
+    private int k;
 
-    public fou(DataHolder dataholder)
+    public fou()
     {
-        c = -1;
-        a = dataholder;
-        b = dataholder.g();
+        e = 0x1fffff;
+        i = 7;
+        j = 3;
+        k = 0;
     }
 
-    public int a()
+    public fou a(String s)
+    {
+        c = s;
+        return this;
+    }
+
+    public boolean a()
     {
         return b;
     }
 
-    public String a(String s)
-    {
-        return a.b(s, c, a.a(c));
-    }
-
-    public void a(int i)
-    {
-        c = i;
-    }
-
-    public int b()
+    public String b()
     {
         return c;
     }
 
     public boolean c()
     {
-        c = c + 1;
-        return c >= 0 && c < b;
+        return d;
     }
 
-    public boolean d()
+    public fou d()
     {
-        return c >= b;
+        d = true;
+        return this;
     }
+
+    public int e()
+    {
+        return e;
+    }
+
+    public int f()
+    {
+        return f;
+    }
+
+    public String g()
+    {
+        return g;
+    }
+
+    public boolean h()
+    {
+        return h;
+    }
+
+    public int i()
+    {
+        return k;
+    }
+
+    public String toString()
+    {
+        return g.a(new Object[] {
+            "mIncludeInvisible", Boolean.valueOf(b), "mQuery", c, "mPeopleOnly", Boolean.valueOf(d), "mProjection", Integer.valueOf(e), "mExtraColumns", Integer.valueOf(f), 
+            "mFilterGaiaId", g, "mIncludeEvergreenPeople", Boolean.valueOf(h), "mSearchFields", Integer.valueOf(i), "mFilterGaiaEdgeTypes", Integer.valueOf(j), "mSortOrder", Integer.valueOf(k)
+        });
+    }
+
 }

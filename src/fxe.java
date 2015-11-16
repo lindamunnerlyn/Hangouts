@@ -2,44 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.IBinder;
+import android.os.Parcel;
 
 final class fxe
+    implements fxc
 {
 
-    static final boolean a[] = new boolean[0];
-    static final int b[] = new int[0];
-    static final long c[] = new long[0];
-    static final Object d[] = new Object[0];
+    private IBinder a;
 
-    static int a(int ai[], int i, int j)
+    fxe(IBinder ibinder)
     {
-        int k;
-label0:
-        {
-            k = 0;
-            int l = i - 1;
-            i = k;
-            for (k = l; i <= k;)
-            {
-                int i1 = i + k >>> 1;
-                int j1 = ai[i1];
-                if (j1 < j)
-                {
-                    i = i1 + 1;
-                } else
-                {
-                    k = i1;
-                    if (j1 <= j)
-                    {
-                        break label0;
-                    }
-                    k = i1 - 1;
-                }
-            }
-
-            k = ~i;
-        }
-        return k;
+        a = ibinder;
     }
 
+    public void a(int i, int j)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IChannelStreamCallbacks");
+        parcel.writeInt(i);
+        parcel.writeInt(j);
+        a.transact(2, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
+    }
 }

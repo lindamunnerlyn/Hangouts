@@ -6,5 +6,5 @@
 public interface hfl
 {
 
-    public abstract boolean a();
+    public abstract hfr a();
 }

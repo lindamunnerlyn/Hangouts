@@ -3,16 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kpk extends koj
+public final class kpk extends kwm
 {
 
-    public Integer a;
+    public String a;
     public String b;
+    public String c;
+    public Float d;
+    public Float e;
+    public Integer f;
+    public Float g;
 
     public kpk()
     {
         a = null;
         b = null;
+        c = null;
+        d = null;
+        e = null;
+        f = null;
+        g = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -23,58 +33,122 @@ public final class kpk extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.e(1, a.intValue());
+            i = j + kwk.b(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.b(2, b);
+            j = i + kwk.b(2, b);
         }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-_L5:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 3: default 40
-    //                   0: 49
-    //                   8: 51
-    //                   18: 102;
-           goto _L1 _L2 _L3 _L4
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L5; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
+        i = j;
+        if (c != null)
         {
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-        case 4: // '\004'
-            a = Integer.valueOf(j);
-            break;
+            i = j + kwk.b(3, c);
         }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        b = kog1.j();
-        if (true) goto _L5; else goto _L6
-_L6:
+        j = i;
+        if (d != null)
+        {
+            d.floatValue();
+            j = i + (kwk.f(4) + 4);
+        }
+        i = j;
+        if (e != null)
+        {
+            e.floatValue();
+            i = j + (kwk.f(5) + 4);
+        }
+        j = i;
+        if (f != null)
+        {
+            j = i + kwk.e(6, f.intValue());
+        }
+        i = j;
+        if (g != null)
+        {
+            g.floatValue();
+            i = j + (kwk.f(7) + 4);
+        }
+        return i;
     }
 
-    public void writeTo(koh koh1)
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+
+            case 26: // '\032'
+                c = kwj1.j();
+                break;
+
+            case 37: // '%'
+                d = Float.valueOf(kwj1.c());
+                break;
+
+            case 45: // '-'
+                e = Float.valueOf(kwj1.c());
+                break;
+
+            case 48: // '0'
+                f = Integer.valueOf(kwj1.f());
+                break;
+
+            case 61: // '='
+                g = Float.valueOf(kwj1.c());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.intValue());
+            kwk1.a(1, a);
         }
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.a(2, b);
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.floatValue());
+        }
+        if (e != null)
+        {
+            kwk1.a(5, e.floatValue());
+        }
+        if (f != null)
+        {
+            kwk1.a(6, f.intValue());
+        }
+        if (g != null)
+        {
+            kwk1.a(7, g.floatValue());
+        }
+        super.writeTo(kwk1);
     }
 }

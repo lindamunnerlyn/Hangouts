@@ -2,43 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import com.google.android.apps.hangouts.statusmessage.impl.StatusMessageSettingsActivity;
 
-final class dwd
-    implements dxl
+public final class dwd
+    implements joj
 {
 
-    private dvy a;
+    private final joj a;
 
-    dwd(dvy dvy1)
+    public dwd(joj joj1)
     {
-        a = dvy1;
+        a = joj1;
     }
 
-    void a()
+    public Object a()
     {
-        a = null;
-    }
-
-    public void a(boolean flag, boolean flag1)
-    {
-        g.w();
-        if (a != null)
+        Object obj = (Activity)a.a();
+        if (obj instanceof StatusMessageSettingsActivity)
         {
-            byte byte0;
-            if (flag)
+            obj = (StatusMessageSettingsActivity)obj;
+            if (obj == null)
             {
-                if (flag1)
-                {
-                    byte0 = 2;
-                } else
-                {
-                    byte0 = 1;
-                }
+                throw new NullPointerException("Cannot return null from a non-@Nullable @Provides method");
             } else
             {
-                byte0 = 3;
+                return obj;
             }
-            dvy.b(a, byte0);
+        } else
+        {
+            obj = String.valueOf(obj.getClass());
+            throw new IllegalStateException((new StringBuilder(String.valueOf(obj).length() + 243)).append("Attempt to inject a Activity wrapper of type com.google.android.apps.hangouts.statusmessage.impl.StatusMessageSettingsActivityPeer, but the wrapper available is of type: ").append(((String) (obj))).append(". Does your peer's @Inject constructor reference the wrong wrapper class?").toString());
         }
     }
 }

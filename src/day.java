@@ -2,37 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.api.client.http.HttpHeaders;
+import com.google.api.client.http.HttpRequest;
+import com.google.api.client.http.HttpRequestInitializer;
 
 final class day
+    implements HttpRequestInitializer
 {
 
-    static final int a[];
+    final Long a;
+    final String b;
+    final hqh c;
+    final String d;
+    final int e;
 
-    static 
+    day(Long long1, String s, hqh hqh1, String s1, int i)
     {
-        a = new int[atd.values().length];
-        try
+        a = long1;
+        b = s;
+        c = hqh1;
+        d = s1;
+        e = i;
+        super();
+    }
+
+    public void initialize(HttpRequest httprequest)
+    {
+        httprequest.getHeaders().put("X-Device-ID", dax.b);
+        String s = eco.b();
+        httprequest.getHeaders().put("X-Network-ID", s);
+        httprequest.getHeaders().setUserAgent(g.h());
+        HttpHeaders httpheaders = httprequest.getHeaders();
+        if (a != null)
         {
-            a[atd.b.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror3) { }
-        try
+            s = a.toString();
+        } else
         {
-            a[atd.c.ordinal()] = 2;
+            s = "none";
         }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
+        httpheaders.put("X-Auth-Time", s);
+        if (b != null)
         {
-            a[atd.a.ordinal()] = 3;
+            c.initialize(httprequest);
         }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
+        if (d != null)
         {
-            a[atd.d.ordinal()] = 4;
+            httprequest.getHeaders().put("X-Goog-PageId", d);
         }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
+        httprequest.setConnectTimeout(e);
+        httprequest.setReadTimeout(e);
     }
 }

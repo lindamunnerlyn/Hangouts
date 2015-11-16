@@ -2,13 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.accounts.Account;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcel;
-import com.google.android.gms.common.internal.AuthAccountRequest;
-import com.google.android.gms.common.internal.ResolveAccountRequest;
-import com.google.android.gms.signin.internal.CheckServerAuthResult;
-import com.google.android.gms.signin.internal.RecordConsentRequest;
+import android.os.ParcelFileDescriptor;
+import com.google.android.gms.common.data.DataHolder;
 
 final class fsa
     implements fry
@@ -21,281 +19,155 @@ final class fsa
         a = ibinder;
     }
 
-    public void a(int i)
+    public void a(int i, Bundle bundle, Bundle bundle1)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
+        Parcel parcel = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.people.internal.IPeopleCallbacks");
         parcel.writeInt(i);
-        a.transact(7, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
+        if (bundle == null) goto _L2; else goto _L1
+_L1:
+        parcel.writeInt(1);
+        bundle.writeToParcel(parcel, 0);
+_L3:
+        if (bundle1 == null)
+        {
+            break MISSING_BLOCK_LABEL_90;
+        }
+        parcel.writeInt(1);
+        bundle1.writeToParcel(parcel, 0);
+_L4:
+        a.transact(1, parcel, null, 1);
         parcel.recycle();
         return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
+_L2:
+        parcel.writeInt(0);
+          goto _L3
+        bundle;
         parcel.recycle();
-        throw exception;
+        throw bundle;
+        parcel.writeInt(0);
+          goto _L4
     }
 
-    public void a(int i, Account account, frv frv1)
+    public void a(int i, Bundle bundle, ParcelFileDescriptor parcelfiledescriptor)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
+        Parcel parcel = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.people.internal.IPeopleCallbacks");
         parcel.writeInt(i);
-        if (account == null) goto _L2; else goto _L1
+        if (bundle == null) goto _L2; else goto _L1
 _L1:
         parcel.writeInt(1);
-        account.writeToParcel(parcel, 0);
+        bundle.writeToParcel(parcel, 0);
 _L3:
-        if (frv1 == null)
+        if (parcelfiledescriptor == null)
         {
-            break MISSING_BLOCK_LABEL_112;
+            break MISSING_BLOCK_LABEL_90;
         }
-        account = frv1.asBinder();
+        parcel.writeInt(1);
+        parcelfiledescriptor.writeToParcel(parcel, 0);
 _L4:
-        parcel.writeStrongBinder(account);
-        a.transact(8, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
+        a.transact(3, parcel, null, 1);
         parcel.recycle();
         return;
 _L2:
         parcel.writeInt(0);
           goto _L3
-        account;
-        parcel1.recycle();
+        bundle;
         parcel.recycle();
-        throw account;
-        account = null;
+        throw bundle;
+        parcel.writeInt(0);
           goto _L4
     }
 
-    public void a(AuthAccountRequest authaccountrequest, frv frv1)
+    public void a(int i, Bundle bundle, ParcelFileDescriptor parcelfiledescriptor, Bundle bundle1)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
-        if (authaccountrequest == null) goto _L2; else goto _L1
+        Parcel parcel = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.people.internal.IPeopleCallbacks");
+        parcel.writeInt(i);
+        if (bundle == null) goto _L2; else goto _L1
 _L1:
         parcel.writeInt(1);
-        authaccountrequest.writeToParcel(parcel, 0);
+        bundle.writeToParcel(parcel, 0);
+_L5:
+        if (parcelfiledescriptor == null) goto _L4; else goto _L3
 _L3:
-        if (frv1 == null)
+        parcel.writeInt(1);
+        parcelfiledescriptor.writeToParcel(parcel, 0);
+_L6:
+        if (bundle1 == null)
         {
-            break MISSING_BLOCK_LABEL_96;
+            break MISSING_BLOCK_LABEL_118;
         }
-        authaccountrequest = frv1.asBinder();
+        parcel.writeInt(1);
+        bundle1.writeToParcel(parcel, 0);
+_L7:
+        a.transact(5, parcel, null, 1);
+        parcel.recycle();
+        return;
+_L2:
+        parcel.writeInt(0);
+          goto _L5
+        bundle;
+        parcel.recycle();
+        throw bundle;
 _L4:
-        parcel.writeStrongBinder(authaccountrequest);
-        a.transact(2, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
+        parcel.writeInt(0);
+          goto _L6
+        parcel.writeInt(0);
+          goto _L7
+    }
+
+    public void a(int i, Bundle bundle, DataHolder dataholder)
+    {
+        Parcel parcel = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.people.internal.IPeopleCallbacks");
+        parcel.writeInt(i);
+        if (bundle == null) goto _L2; else goto _L1
+_L1:
+        parcel.writeInt(1);
+        bundle.writeToParcel(parcel, 0);
+_L3:
+        if (dataholder == null)
+        {
+            break MISSING_BLOCK_LABEL_90;
+        }
+        parcel.writeInt(1);
+        dataholder.writeToParcel(parcel, 0);
+_L4:
+        a.transact(2, parcel, null, 1);
         parcel.recycle();
         return;
 _L2:
         parcel.writeInt(0);
           goto _L3
-        authaccountrequest;
-        parcel1.recycle();
+        bundle;
         parcel.recycle();
-        throw authaccountrequest;
-        authaccountrequest = null;
-          goto _L4
-    }
-
-    public void a(ResolveAccountRequest resolveaccountrequest, eob eob1)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
-        if (resolveaccountrequest == null) goto _L2; else goto _L1
-_L1:
-        parcel.writeInt(1);
-        resolveaccountrequest.writeToParcel(parcel, 0);
-_L3:
-        if (eob1 == null)
-        {
-            break MISSING_BLOCK_LABEL_96;
-        }
-        resolveaccountrequest = eob1.asBinder();
-_L4:
-        parcel.writeStrongBinder(resolveaccountrequest);
-        a.transact(5, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-_L2:
+        throw bundle;
         parcel.writeInt(0);
-          goto _L3
-        resolveaccountrequest;
-        parcel1.recycle();
-        parcel.recycle();
-        throw resolveaccountrequest;
-        resolveaccountrequest = null;
           goto _L4
     }
 
-    public void a(CheckServerAuthResult checkserverauthresult)
+    public void a(int i, Bundle bundle, DataHolder adataholder[])
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
-        if (checkserverauthresult == null)
+        Parcel parcel = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.people.internal.IPeopleCallbacks");
+        parcel.writeInt(i);
+        if (bundle == null)
         {
-            break MISSING_BLOCK_LABEL_56;
+            break MISSING_BLOCK_LABEL_63;
         }
         parcel.writeInt(1);
-        checkserverauthresult.writeToParcel(parcel, 0);
+        bundle.writeToParcel(parcel, 0);
 _L1:
-        a.transact(3, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
+        parcel.writeTypedArray(adataholder, 0);
+        a.transact(4, parcel, null, 1);
         parcel.recycle();
         return;
         parcel.writeInt(0);
           goto _L1
-        checkserverauthresult;
-        parcel1.recycle();
+        bundle;
         parcel.recycle();
-        throw checkserverauthresult;
-    }
-
-    public void a(RecordConsentRequest recordconsentrequest, frv frv1)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
-        if (recordconsentrequest == null) goto _L2; else goto _L1
-_L1:
-        parcel.writeInt(1);
-        recordconsentrequest.writeToParcel(parcel, 0);
-_L3:
-        if (frv1 == null)
-        {
-            break MISSING_BLOCK_LABEL_97;
-        }
-        recordconsentrequest = frv1.asBinder();
-_L4:
-        parcel.writeStrongBinder(recordconsentrequest);
-        a.transact(10, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-_L2:
-        parcel.writeInt(0);
-          goto _L3
-        recordconsentrequest;
-        parcel1.recycle();
-        parcel.recycle();
-        throw recordconsentrequest;
-        recordconsentrequest = null;
-          goto _L4
-    }
-
-    public void a(emq emq1, int i, boolean flag)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        boolean flag1;
-        flag1 = false;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
-        if (emq1 == null)
-        {
-            break MISSING_BLOCK_LABEL_91;
-        }
-        emq1 = emq1.asBinder();
-_L1:
-        parcel.writeStrongBinder(emq1);
-        parcel.writeInt(i);
-        i = ((flag1) ? 1 : 0);
-        if (flag)
-        {
-            i = 1;
-        }
-        parcel.writeInt(i);
-        a.transact(9, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        emq1 = null;
-          goto _L1
-        emq1;
-        parcel1.recycle();
-        parcel.recycle();
-        throw emq1;
-    }
-
-    public void a(frv frv1)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
-        if (frv1 == null)
-        {
-            break MISSING_BLOCK_LABEL_58;
-        }
-        frv1 = frv1.asBinder();
-_L1:
-        parcel.writeStrongBinder(frv1);
-        a.transact(11, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        frv1 = null;
-          goto _L1
-        frv1;
-        parcel1.recycle();
-        parcel.recycle();
-        throw frv1;
-    }
-
-    public void a(boolean flag)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        int i;
-        i = 0;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
-        if (flag)
-        {
-            i = 1;
-        }
-        parcel.writeInt(i);
-        a.transact(4, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
+        throw bundle;
     }
 
     public IBinder asBinder()

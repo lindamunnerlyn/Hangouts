@@ -2,61 +2,63 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import java.util.List;
+import android.content.Context;
+import android.os.Handler;
+import android.text.format.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
-final class cqj
-    implements android.widget.AdapterView.OnItemSelectedListener
+final class cqj extends cqn
 {
 
-    final List a;
-    final EditText b;
-    final cqf c;
+    final cqf a;
 
-    cqj(cqf cqf1, List list, EditText edittext)
+    cqj(cqf cqf1)
     {
-        c = cqf1;
-        a = list;
-        b = edittext;
-        super();
+        a = cqf1;
+        super(cqf1, (byte)0);
     }
 
-    public void onItemSelected(AdapterView adapterview, View view, int i, long l)
+    boolean a()
     {
-        adapterview = cqf.c(c).b;
-        cqf.a(c, (dll)a.get(i));
-        view = cqf.c(c).b;
-        if (!TextUtils.equals(adapterview, view))
+        long l1 = TimeUnit.MILLISECONDS.toMicros(System.currentTimeMillis());
+        long l2 = ((drj)hlp.a(cqf.f(a), drj)).d(cqf.a(a));
+        if (l1 <= l2)
         {
-            cqf.d(c).a(view);
-        }
-        view = b;
-        adapterview = String.valueOf(cqf.c(c).c);
-        if (adapterview.length() != 0)
-        {
-            adapterview = "+".concat(adapterview);
+            cqf.h(a).postDelayed(cqf.g(a), TimeUnit.MICROSECONDS.toMillis(l2) - System.currentTimeMillis());
+            return true;
         } else
         {
-            adapterview = new String("+");
+            return false;
         }
-        view.setText(adapterview);
     }
 
-    public void onNothingSelected(AdapterView adapterview)
+    dvg b()
     {
-        cqf.a(c, (dll)a.get(0));
-        EditText edittext = b;
-        adapterview = String.valueOf(cqf.c(c).c);
-        if (adapterview.length() != 0)
+        long l1 = ((drj)hlp.a(cqf.f(a), drj)).d(cqf.a(a));
+        Object obj1 = Calendar.getInstance();
+        ((Calendar) (obj1)).setTime(new Date());
+        Object obj = Calendar.getInstance();
+        ((Calendar) (obj)).setTime(new Date(l1 / 1000L));
+        String s = "";
+        if (((Calendar) (obj)).get(6) > ((Calendar) (obj1)).get(6))
         {
-            adapterview = "+".concat(adapterview);
+            s = String.valueOf(((Calendar) (obj)).getDisplayName(7, 1, Locale.getDefault())).concat(" ");
+        }
+        obj1 = DateFormat.getTimeFormat(cqf.f(a));
+        s = String.valueOf(s);
+        obj = String.valueOf(((java.text.DateFormat) (obj1)).format(((Calendar) (obj)).getTime()));
+        if (((String) (obj)).length() != 0)
+        {
+            s = s.concat(((String) (obj)));
         } else
         {
-            adapterview = new String("+");
+            s = new String(s);
         }
-        edittext.setText(adapterview);
+        return (new dvh(cqf.f(a))).a(cqf.f(a).getString(l.ha, new Object[] {
+            s
+        })).c(cqf.f(a).getString(l.hc)).a(new cqk(this)).a();
     }
 }

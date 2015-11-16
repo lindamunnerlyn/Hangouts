@@ -2,36 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
+import android.content.ContentValues;
+import android.os.AsyncTask;
+import com.google.android.apps.hangouts.fragments.ConversationListFragment;
 
-final class bja extends ArrayAdapter
+public final class bja extends AsyncTask
 {
 
-    final biz a;
+    final String a;
+    final ConversationListFragment b;
 
-    public bja(biz biz, Context context, String as[])
+    public bja(ConversationListFragment conversationlistfragment, String s)
     {
-        a = biz;
-        super(context, g.hc, as);
+        b = conversationlistfragment;
+        a = s;
+        super();
     }
 
-    public View getView(int i, View view, ViewGroup viewgroup)
+    protected Object doInBackground(Object aobj[])
     {
-        if (view == null || !(view instanceof TextView))
-        {
-            view = (TextView)LayoutInflater.from(getContext()).inflate(g.hc, viewgroup, false);
-        } else
-        {
-            view = (TextView)view;
-        }
-        viewgroup = (String)getItem(i);
-        view.setText(viewgroup);
-        view.setOnClickListener(new bjb(this, viewgroup));
-        return view;
+        aobj = new ContentValues();
+        ((ContentValues) (aobj)).put("self_watermark", Integer.valueOf(0));
+        ((ContentValues) (aobj)).put("chat_watermark", Integer.valueOf(0));
+        ((ContentValues) (aobj)).put("hangout_watermark", Integer.valueOf(0));
+        ((ContentValues) (aobj)).put("has_chat_notifications", Integer.valueOf(1));
+        ((ContentValues) (aobj)).put("has_video_notifications", Integer.valueOf(1));
+        int i = (new aow(ConversationListFragment.q(b), ConversationListFragment.h(b).h())).e().a("conversations", ((ContentValues) (aobj)), "conversation_id=?", new String[] {
+            a
+        });
+        aobj = a;
+        eev.a("Babel", (new StringBuilder(String.valueOf(((Object) (aobj))).length() + 64)).append("modifying ").append(((String) (aobj))).append(" changing notification status updated ").append(i).append(" rows").toString());
+        aoq.a(ConversationListFragment.h(b).h());
+        cfo.a(b.getActivity().getApplicationContext(), ConversationListFragment.h(b).h());
+        return null;
     }
 }

@@ -3,16 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class hoe
-    implements hod
+public interface hoe
 {
 
-    hoe()
-    {
-    }
-
-    public void a(long l)
-    {
-        Thread.sleep(l);
-    }
+    public abstract hof getLifecycle();
 }

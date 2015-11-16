@@ -2,108 +2,79 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.google.android.apps.hangouts.views.AvatarView;
+import android.text.TextUtils;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
-public final class cfg extends gmc
+public class cfg
 {
 
-    public cfg(Context context)
+    private static Map a;
+    private static String b;
+    public cef o;
+    public cfq p;
+    public String q;
+    public String r;
+
+    cfg()
     {
-        super(context, g.rK);
     }
 
-    protected Object a(int i, View view)
+    static String a(String s, String s1, cef cef1, int i)
     {
-        gme gme1 = (gme)getItem(i);
-        if (gme1 instanceof gmh)
+        boolean flag = false;
+        if (!TextUtils.equals(b, cef1.a))
         {
-            return new cfi(view);
-        }
-        if (gme1 instanceof cfo)
-        {
-            return new cfh(view);
-        }
-        view = String.valueOf(gme1.getClass().getSimpleName());
-        if (view.length() != 0)
-        {
-            view = "Unsupported item: ".concat(view);
-        } else
-        {
-            view = new String("Unsupported item: ");
-        }
-        throw new IllegalStateException(view);
-    }
-
-    protected void a(int i, Object obj)
-    {
-        Object obj1 = (gme)getItem(i);
-        if (obj1 instanceof gmh)
-        {
-            obj1 = (gmh)obj1;
-            obj = (cfi)obj;
-            ((cfi) (obj)).a.setText(((gmh) (obj1)).d());
-            ((cfi) (obj)).b.setImageDrawable(((gmh) (obj1)).f());
-            ((cfi) (obj)).b.setVisibility(0);
-            ((cfi) (obj)).c.setVisibility(8);
-            ((cfi) (obj)).a.setTextColor(((gmh) (obj1)).e());
-            return;
-        }
-        if (obj1 instanceof cfo)
-        {
-            obj1 = (cfo)obj1;
-            cfh cfh1 = (cfh)obj;
-            ani ani1 = dbf.e(((gmo)hgx.a(getContext(), gmo)).a());
-            cfh1.a.setText(ebr.d(((cfo) (obj1)).c()));
-            cfh1.d.a(((cfo) (obj1)).e(), ((cfo) (obj1)).c(), ani1);
-            if (((cfo) (obj1)).f())
+            Object obj = cef1.a;
+            Object obj1 = (new aow(g.nU, i)).J(((String) (obj)));
+            obj = new HashMap();
+            obj1 = ((List) (obj1)).iterator();
+            do
             {
-                obj = (dsx)hgx.b(getContext(), dsx);
-                if (obj == null)
+                if (!((Iterator) (obj1)).hasNext())
                 {
-                    obj = new egi(cfh1.b);
-                } else
-                {
-                    obj = ((dsx) (obj)).a((hjm)hgx.a(getContext(), hiv), ani1.h(), cfh1.b, null);
+                    break;
                 }
-                ((egi) (obj)).a(((cfo) (obj1)).c(), ((cfo) (obj1)).d());
-                obj = (egv)hgx.b(getContext(), egv);
-                if (obj != null)
+                cfz cfz1 = (cfz)((Iterator) (obj1)).next();
+                String s2 = cfz1.f;
+                if (!aoc.e(g.nU, i).a(cfz1.b) && !TextUtils.isEmpty(s2))
                 {
-                    ((egv) (obj)).a(cfh1.c, ani1.h(), LayoutInflater.from(getContext())).a(((cfo) (obj1)).d());
+                    int j;
+                    if (((HashMap) (obj)).containsKey(s2))
+                    {
+                        j = g.a((Integer)((HashMap) (obj)).get(s2), 0);
+                    } else
+                    {
+                        j = 0;
+                    }
+                    ((HashMap) (obj)).put(s2, Integer.valueOf(j + 1));
                 }
-                cfh1.e.setImageResource(com.google.android.apps.hangouts.R.drawable.aE);
-                cfh1.e.setVisibility(0);
-                return;
-            } else
+            } while (true);
+            a = ((Map) (obj));
+            b = cef1.a;
+        }
+        cef1 = a;
+        i = ((flag) ? 1 : 0);
+        if (cef1 != null)
+        {
+            i = ((flag) ? 1 : 0);
+            if (s != null)
             {
-                cfh1.b.setVisibility(8);
-                cfh1.e.setVisibility(8);
-                return;
+                i = ((flag) ? 1 : 0);
+                if (g.a((Integer)cef1.get(s), 0) > 1)
+                {
+                    i = 1;
+                }
             }
         }
-        obj = String.valueOf(obj1.getClass().getSimpleName());
-        if (((String) (obj)).length() != 0)
+        if (i != 0)
         {
-            obj = "Unsupported item: ".concat(((String) (obj)));
+            return s1;
         } else
         {
-            obj = new String("Unsupported item: ");
+            return s;
         }
-        throw new IllegalStateException(((String) (obj)));
-    }
-
-    public int getItemViewType(int i)
-    {
-        return !(getItem(i) instanceof gmh) ? 1 : 0;
-    }
-
-    public int getViewTypeCount()
-    {
-        return 2;
     }
 }

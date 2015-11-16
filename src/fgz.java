@@ -2,35 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.os.IInterface;
-import com.google.android.gms.maps.StreetViewPanoramaOptions;
 
-public interface fgz
-    extends IInterface
+final class fgz extends fgx
 {
 
-    public abstract ezy a(ezy ezy, ezy ezy1, Bundle bundle);
+    fgz(String s, Integer integer)
+    {
+        super(s, integer);
+    }
 
-    public abstract fgw a();
-
-    public abstract void a(Bundle bundle);
-
-    public abstract void a(ezy ezy, StreetViewPanoramaOptions streetviewpanoramaoptions, Bundle bundle);
-
-    public abstract void a(fjq fjq);
-
-    public abstract void b();
-
-    public abstract void b(Bundle bundle);
-
-    public abstract void c();
-
-    public abstract void d();
-
-    public abstract void e();
-
-    public abstract void f();
-
-    public abstract boolean g();
+    protected Object c()
+    {
+        return fgx.a.m();
+    }
 }

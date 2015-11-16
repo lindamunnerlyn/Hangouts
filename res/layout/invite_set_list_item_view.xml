@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <ImageView android:id="@id/avatarView" android:background="@drawable/invite_set_background" android:layout_width="@dimen/conversation_list_avatar_dimension" android:layout_height="@dimen/conversation_list_avatar_dimension" android:layout_margin="16.0dip" android:src="@drawable/quantum_ic_drafts_white_24" android:scaleType="center" android:layout_centerVertical="true" />
     <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerVertical="true" style="@style/ConversationListItemViewMarginEndStyle">
-        <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/quantum_bluegrey700" android:layout_gravity="bottom" android:id="@id/invite_set_introduction" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="7.0dip" android:fontFamily="roboto-medium" />
-        <TextView android:textSize="14.0sp" android:textColor="@color/last_message" android:ellipsize="end" android:id="@id/invite_list" android:paddingBottom="@dimen/m_space" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:fontFamily="roboto-regular" />
+        <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/quantum_bluegrey700" android:layout_gravity="bottom" android:id="@id/invite_set_introduction" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="7.0dip" />
+        <TextView android:textSize="14.0sp" android:textColor="@color/last_message" android:ellipsize="end" android:id="@id/invite_list" android:paddingBottom="@dimen/m_space" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" />
     </LinearLayout>
 </LinearLayout>

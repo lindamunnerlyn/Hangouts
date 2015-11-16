@@ -2,31 +2,143 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.database.DataSetObserver;
 import android.view.View;
-import android.widget.AdapterView;
+import android.view.ViewGroup;
 import android.widget.ListAdapter;
+import android.widget.SpinnerAdapter;
+import android.widget.ThemedSpinnerAdapter;
 
 final class wy
-    implements android.widget.AdapterView.OnItemClickListener
+    implements ListAdapter, SpinnerAdapter
 {
 
-    final wu a;
-    final wx b;
+    private SpinnerAdapter a;
+    private ListAdapter b;
 
-    wy(wx wx1, wu wu1)
+    public wy(SpinnerAdapter spinneradapter, android.content.res.Resources.Theme theme)
     {
-        b = wx1;
-        a = wu1;
-        super();
+        a = spinneradapter;
+        if (spinneradapter instanceof ListAdapter)
+        {
+            b = (ListAdapter)spinneradapter;
+        }
+        if (theme != null && ww.a() && (spinneradapter instanceof ThemedSpinnerAdapter))
+        {
+            spinneradapter = (ThemedSpinnerAdapter)spinneradapter;
+            if (spinneradapter.getDropDownViewTheme() != theme)
+            {
+                spinneradapter.setDropDownViewTheme(theme);
+            }
+        }
     }
 
-    public void onItemClick(AdapterView adapterview, View view, int i, long l)
+    public boolean areAllItemsEnabled()
     {
-        b.a.setSelection(i);
-        if (b.a.getOnItemClickListener() != null)
+        ListAdapter listadapter = b;
+        if (listadapter != null)
         {
-            b.a.performItemClick(view, i, wx.a(b).getItemId(i));
+            return listadapter.areAllItemsEnabled();
+        } else
+        {
+            return true;
         }
-        b.k();
+    }
+
+    public int getCount()
+    {
+        if (a == null)
+        {
+            return 0;
+        } else
+        {
+            return a.getCount();
+        }
+    }
+
+    public View getDropDownView(int i, View view, ViewGroup viewgroup)
+    {
+        if (a == null)
+        {
+            return null;
+        } else
+        {
+            return a.getDropDownView(i, view, viewgroup);
+        }
+    }
+
+    public Object getItem(int i)
+    {
+        if (a == null)
+        {
+            return null;
+        } else
+        {
+            return a.getItem(i);
+        }
+    }
+
+    public long getItemId(int i)
+    {
+        if (a == null)
+        {
+            return -1L;
+        } else
+        {
+            return a.getItemId(i);
+        }
+    }
+
+    public int getItemViewType(int i)
+    {
+        return 0;
+    }
+
+    public View getView(int i, View view, ViewGroup viewgroup)
+    {
+        return getDropDownView(i, view, viewgroup);
+    }
+
+    public int getViewTypeCount()
+    {
+        return 1;
+    }
+
+    public boolean hasStableIds()
+    {
+        return a != null && a.hasStableIds();
+    }
+
+    public boolean isEmpty()
+    {
+        return getCount() == 0;
+    }
+
+    public boolean isEnabled(int i)
+    {
+        ListAdapter listadapter = b;
+        if (listadapter != null)
+        {
+            return listadapter.isEnabled(i);
+        } else
+        {
+            return true;
+        }
+    }
+
+    public void registerDataSetObserver(DataSetObserver datasetobserver)
+    {
+        if (a != null)
+        {
+            a.registerDataSetObserver(datasetobserver);
+        }
+    }
+
+    public void unregisterDataSetObserver(DataSetObserver datasetobserver)
+    {
+        if (a != null)
+        {
+            a.unregisterDataSetObserver(datasetobserver);
+        }
     }
 }

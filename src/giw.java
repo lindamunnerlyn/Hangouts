@@ -2,43 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.api.client.http.HttpHeaders;
+import com.google.api.client.http.HttpResponse;
+import java.io.InputStream;
 
-public final class giw extends Enum
+public final class giw
 {
 
-    public static final giw a;
-    public static final giw b;
-    public static final giw c;
-    public static final giw d;
-    public static final giw e;
-    public static final giw f;
-    private static final giw g[];
+    final HttpResponse a;
 
-    private giw(String s, int i)
+    giw(HttpResponse httpresponse)
     {
-        super(s, i);
+        a = httpresponse;
     }
 
-    public static giw valueOf(String s)
+    public InputStream a()
     {
-        return (giw)Enum.valueOf(giw, s);
+        return a.getContent();
     }
 
-    public static giw[] values()
+    public String a(String s)
     {
-        return (giw[])g.clone();
-    }
-
-    static 
-    {
-        a = new giw("SPEAKERPHONE_ON", 0);
-        b = new giw("EARPIECE_ON", 1);
-        c = new giw("WIRED_HEADSET_ON", 2);
-        d = new giw("BLUETOOTH_ON", 3);
-        e = new giw("BLUETOOTH_TURNING_ON", 4);
-        f = new giw("BLUETOOTH_TURNING_OFF", 5);
-        g = (new giw[] {
-            a, b, c, d, e, f
-        });
+        return a.getHeaders().getFirstHeaderStringValue(s);
     }
 }

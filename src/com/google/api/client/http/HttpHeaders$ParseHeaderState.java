@@ -4,8 +4,8 @@
 
 package com.google.api.client.http;
 
-import hmu;
-import hnc;
+import hrq;
+import hry;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.List;
@@ -16,8 +16,8 @@ import java.util.List;
 final class arrayValueMap
 {
 
-    final hmu arrayValueMap;
-    final hnc classInfo;
+    final hrq arrayValueMap;
+    final hry classInfo;
     final List context;
     final StringBuilder logger;
 
@@ -32,8 +32,8 @@ final class arrayValueMap
         context = Arrays.asList(new Type[] {
             class1
         });
-        classInfo = hnc.a(class1, true);
+        classInfo = hry.a(class1, true);
         logger = stringbuilder;
-        arrayValueMap = new hmu(httpheaders);
+        arrayValueMap = new hrq(httpheaders);
     }
 }

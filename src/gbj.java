@@ -2,11 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.gms.common.ConnectionResult;
 
-public interface gbj
+final class gbj
+    implements end
 {
 
-    public abstract void b(int i);
+    final gau a;
+    final gbh b;
 
-    public abstract void h();
+    gbj(gbh gbh1, gau gau1)
+    {
+        b = gbh1;
+        a = gau1;
+        super();
+    }
+
+    public void a(ConnectionResult connectionresult)
+    {
+        a.a(b.a(connectionresult));
+    }
 }

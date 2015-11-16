@@ -2,23 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
 
-public final class gpx
-    implements hhl
+public final class gpx extends Enum
 {
 
-    public gpx()
+    public static final gpx a;
+    public static final gpx b;
+    public static final gpx c;
+    public static final gpx d;
+    private static final gpx e[];
+
+    private gpx(String s, int i)
     {
+        super(s, i);
     }
 
-    public Class a()
+    public static gpx valueOf(String s)
     {
-        return gpw;
+        return (gpx)Enum.valueOf(gpx, s);
     }
 
-    public void a(Activity activity, hjm hjm, hgx hgx1)
+    public static gpx[] values()
     {
-        hgx1.a(gpw, new gpw(hjm));
+        return (gpx[])e.clone();
+    }
+
+    static 
+    {
+        a = new gpx("FROM_NUMBER_WITH_PLUS_SIGN", 0);
+        b = new gpx("FROM_NUMBER_WITH_IDD", 1);
+        c = new gpx("FROM_NUMBER_WITHOUT_PLUS_SIGN", 2);
+        d = new gpx("FROM_DEFAULT_COUNTRY", 3);
+        e = (new gpx[] {
+            a, b, c, d
+        });
     }
 }

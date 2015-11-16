@@ -2,20 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.widget.Toast;
 
-public final class bam
+final class bam
+    implements Runnable
 {
 
-    public static final String a = baj.getName();
-    private static bak b;
+    final bal a;
 
-    public static void a(hgx hgx1)
+    bam(bal bal1)
     {
-        if (b == null)
-        {
-            b = new bak();
-        }
-        hgx1.a(baj, b.a());
+        a = bal1;
+        super();
     }
 
+    public void run()
+    {
+        Toast.makeText(a.b.a, l.sO, 0).show();
+    }
 }

@@ -9,54 +9,49 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import ani;
+import aoa;
 import ap;
-import atd;
+import atu;
 import bg;
-import cnd;
 import com.google.android.apps.hangouts.fragments.ConversationListFragment;
-import cpa;
-import cpb;
-import cpc;
-import dbf;
-import ebw;
+import cov;
+import cqq;
+import cqr;
+import cqs;
+import dcn;
+import eev;
 import g;
-import gmp;
-import gmq;
-import gwt;
-import gxe;
-import gxj;
-import gxk;
+import gqv;
+import gqw;
 import h;
-import hgi;
-import hhw;
+import hbd;
+import hbo;
+import hbu;
+import hbv;
+import hla;
+import hmo;
 import l;
 
-public class ShareIntentActivity extends hhw
-    implements gmq
+public class ShareIntentActivity extends hmo
+    implements gqw
 {
 
-    private ConversationListFragment j;
-    private ani m;
+    public aoa j;
+    private ConversationListFragment m;
     private boolean n;
-    private gwt o;
+    private hbd o;
 
     public ShareIntentActivity()
     {
-        o = (new gwt(this, l)).a(k).b(this);
+        o = (new hbd(this, l)).a(k).b(this);
     }
 
-    public static ani a(ShareIntentActivity shareintentactivity)
+    private void a(atu atu1)
     {
-        return shareintentactivity.m;
-    }
-
-    private void a(atd atd1)
-    {
-        atd1 = g.a(m, null, null, cnd.a, atd1);
-        atd1.putExtra("share_intent", getIntent());
-        startActivityForResult(atd1, 1);
-        overridePendingTransition(g.cs, g.ct);
+        atu1 = g.a(j, null, null, cov.a, atu1);
+        atu1.putExtra("share_intent", getIntent());
+        startActivityForResult(atu1, 1);
+        overridePendingTransition(g.cr, g.cs);
     }
 
     public void a(ad ad)
@@ -68,22 +63,22 @@ public class ShareIntentActivity extends hhw
         super.a(ad);
         if (!(ad instanceof ConversationListFragment)) goto _L2; else goto _L1
 _L1:
-        j = (ConversationListFragment)ad;
-        j.a(new cpb(this));
-        j.b(n);
-        j.a(3);
-        if (j == null) goto _L2; else goto _L3
+        m = (ConversationListFragment)ad;
+        m.a(new cqr(this));
+        m.b(n);
+        m.a(3);
+        if (m == null) goto _L2; else goto _L3
 _L3:
-        ad = t_().a();
-        if (m == null) goto _L5; else goto _L4
+        ad = u_().a();
+        if (j == null) goto _L5; else goto _L4
 _L4:
 label0:
         {
-            j.a(m);
+            m.a(j);
             Button button = (Button)findViewById(h.T);
             Button button1;
             int i;
-            if (m.r())
+            if (j.p())
             {
                 i = 0;
             } else
@@ -93,7 +88,7 @@ label0:
             button.setVisibility(i);
             button1 = (Button)findViewById(h.S);
             i = byte0;
-            if (!m.q())
+            if (!j.o())
             {
                 if (n)
                 {
@@ -118,26 +113,26 @@ label0:
         {
             throw new IllegalStateException(String.valueOf("At least one button must be made visible"));
         }
-        ad.c(j);
+        ad.c(m);
 _L7:
         ad.b();
 _L2:
         return;
 _L5:
-        ad.b(j);
+        ad.b(m);
         if (true) goto _L7; else goto _L6
 _L6:
     }
 
-    public void a(boolean flag, gmp gmp1, gmp gmp2, int i, int k)
+    public void a(boolean flag, gqv gqv1, gqv gqv2, int i, int k)
     {
-        if (gmp2 == gmp.c)
+        if (gqv2 == gqv.c)
         {
-            m = dbf.e(k);
-            gmp1 = t_().a();
-            j = new ConversationListFragment();
-            gmp1.a(h.az, j, com/google/android/apps/hangouts/fragments/ConversationListFragment.getName());
-            gmp1.b();
+            j = dcn.e(k);
+            gqv1 = u_().a();
+            m = new ConversationListFragment();
+            gqv1.a(h.au, m, com/google/android/apps/hangouts/fragments/ConversationListFragment.getName());
+            gqv1.b();
             return;
         } else
         {
@@ -161,7 +156,7 @@ _L6:
         bundle = getIntent();
         if (bundle == null)
         {
-            ebw.f("Babel", "Sharing detail is not attached");
+            eev.f("Babel", "Sharing detail is not attached");
             finish();
             return;
         }
@@ -169,30 +164,30 @@ _L6:
         {
             n = true;
         }
-        if (n && !dbf.j() && dbf.k() == null)
+        if (n && !dcn.j() && dcn.k() == null)
         {
-            bundle = hgi.a(getString(l.te), getString(l.td), getString(l.tf), "");
-            bundle.a(new cpa(this));
-            bundle.a(t_(), "");
+            bundle = hla.a(getString(l.sx), getString(l.sw), getString(l.sy), "");
+            bundle.a(new cqq(this));
+            bundle.a(u_(), "");
             return;
         }
-        setContentView(g.ha);
-        bundle = new gxk();
+        setContentView(g.gS);
+        bundle = new hbv();
         if (n)
         {
-            bundle.a(new cpc());
+            bundle.a(new cqs());
         }
-        bundle = (new gxe()).a(gxj, bundle.c());
+        bundle = (new hbo()).a(hbu, bundle.c());
         o.a(bundle);
     }
 
     public void onStartNewHangoutButtonClick(View view)
     {
-        a(atd.a);
+        a(atu.a);
     }
 
     public void onStartNewSmsButtonClick(View view)
     {
-        a(atd.b);
+        a(atu.b);
     }
 }

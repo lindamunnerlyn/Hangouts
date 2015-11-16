@@ -2,64 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
-public final class gjz
+final class gjz
+    implements gjs
 {
 
-    final Context a;
-    final gjk b;
-    private final Map c = new HashMap();
+    private final gjl a;
 
-    public gjz(Context context, gjk gjk1)
+    gjz(gjl gjl1)
     {
-        a = context;
-        b = gjk1;
+        a = gjl1;
     }
 
-    eik a()
+    public void a(kws kws, gds gds)
     {
-        Object obj = b.b().a();
-        Context context = a;
-        if (obj == null)
-        {
-            obj = null;
-        } else
-        {
-            obj = ((gjl) (obj)).n();
-        }
-        return new eik(context, "HANGOUT_LOG_REQUEST", ((String) (obj)));
+        kws = (jgw)kws;
+        a.a("common_announcements/add", kws, jgx, gds);
     }
 
-    public void a(int i)
+    public void b(kws kws, gds gds)
     {
-        gbh.a();
-        Object obj = b.b().a();
-        gka gka1;
-        gka gka2;
-        if (obj == null)
-        {
-            obj = null;
-        } else
-        {
-            obj = ((gjl) (obj)).n();
-        }
-        gka2 = (gka)c.get(obj);
-        gka1 = gka2;
-        if (gka2 == null)
-        {
-            gka1 = new gka(this);
-            c.put(obj, gka1);
-        }
-        gka1.a(i);
+        gdv.a("Common announcement modification operation is not supported");
     }
 
-    public void b()
+    public void c(kws kws, gds gds)
     {
-        for (Iterator iterator = c.values().iterator(); iterator.hasNext(); ((gka)iterator.next()).a()) { }
+        kws = (jgy)kws;
+        a.a("common_announcements/remove", kws, jgz, gds);
     }
 }

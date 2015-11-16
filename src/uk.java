@@ -2,29 +2,85 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.DataSetObserver;
-import android.support.v7.internal.widget.ActivityChooserView;
+import android.content.ComponentName;
+import java.math.BigDecimal;
 
-public final class uk extends DataSetObserver
+public final class uk
 {
 
-    final ActivityChooserView a;
+    public final ComponentName a;
+    public final long b;
+    public final float c;
 
-    public uk(ActivityChooserView activitychooserview)
+    public uk(ComponentName componentname, long l, float f)
     {
-        a = activitychooserview;
-        super();
+        a = componentname;
+        b = l;
+        c = f;
     }
 
-    public void onChanged()
+    public uk(String s, long l, float f)
     {
-        super.onChanged();
-        ActivityChooserView.a(a).notifyDataSetChanged();
+        this(ComponentName.unflattenFromString(s), l, f);
     }
 
-    public void onInvalidated()
+    public boolean equals(Object obj)
     {
-        super.onInvalidated();
-        ActivityChooserView.a(a).notifyDataSetInvalidated();
+        if (this != obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (getClass() != obj.getClass())
+            {
+                return false;
+            }
+            obj = (uk)obj;
+            if (a == null)
+            {
+                if (((uk) (obj)).a != null)
+                {
+                    return false;
+                }
+            } else
+            if (!a.equals(((uk) (obj)).a))
+            {
+                return false;
+            }
+            if (b != ((uk) (obj)).b)
+            {
+                return false;
+            }
+            if (Float.floatToIntBits(c) != Float.floatToIntBits(((uk) (obj)).c))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public int hashCode()
+    {
+        int i;
+        if (a == null)
+        {
+            i = 0;
+        } else
+        {
+            i = a.hashCode();
+        }
+        return ((i + 31) * 31 + (int)(b ^ b >>> 32)) * 31 + Float.floatToIntBits(c);
+    }
+
+    public String toString()
+    {
+        StringBuilder stringbuilder = new StringBuilder();
+        stringbuilder.append("[");
+        stringbuilder.append("; activity:").append(a);
+        stringbuilder.append("; time:").append(b);
+        stringbuilder.append("; weight:").append(new BigDecimal(c));
+        stringbuilder.append("]");
+        return stringbuilder.toString();
     }
 }

@@ -2,24 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.phone.DebugActivity;
+import java.util.Iterator;
+import java.util.List;
 
-public final class cli
+final class cli
     implements Runnable
 {
 
-    final String a;
-    final DebugActivity b;
-
-    public cli(DebugActivity debugactivity, String s)
+    cli()
     {
-        b = debugactivity;
-        a = s;
-        super();
     }
 
     public void run()
     {
-        DebugActivity.a(b, a, "conversations");
+        if (clh.b() != null)
+        {
+            for (Iterator iterator = clh.b().iterator(); iterator.hasNext(); edr.a((edq)iterator.next())) { }
+            clh.c();
+        }
+        clh.d();
     }
 }

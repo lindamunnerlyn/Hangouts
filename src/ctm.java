@@ -2,54 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.TimeUnit;
+import android.content.Context;
+import android.os.Bundle;
 
-public class ctm extends ctc
+public final class ctm
+    implements hma, hoy
 {
 
-    private static final long serialVersionUID = 1L;
-    public final String a;
-    private final byte b[];
+    private final ai a;
+    private final hof b;
 
-    public ctm(String s, jdh jdh1)
+    public ctm(ai ai, hof hof1)
     {
-        a = s;
-        jcn jcn1 = new jcn();
-        jcn1.b = jdh1;
-        if (s == null && jdh1 != null)
-        {
-            ebw.f("Babel", "Empty session id, clearing call perf");
-            jcn1.b.f = null;
-        }
-        b = jcn.toByteArray(jcn1);
+        a = ai;
+        b = hof1;
+        hof1.a(this);
     }
 
-    public kop a(String s, int i, int j)
+    public void a(Context context, hlp hlp1, Bundle bundle)
     {
-        jcn jcn1;
-        try
+        context = (ctn)hlp1.b(ctn);
+        if (context != null)
         {
-            jcn1 = (jcn)kop.mergeFrom(new jcn(), b);
-            jcn1.requestHeader = ctq.a(s, i, j, h);
-            jcn1.a = a;
-            jcn1.b.u = Long.valueOf(System.currentTimeMillis());
+            context.a(a, b);
         }
-        // Misplaced declaration of an exception variable
-        catch (String s)
-        {
-            return null;
-        }
-        g.b(2015);
-        return jcn1;
-    }
-
-    public long b()
-    {
-        return TimeUnit.DAYS.toMillis(2L);
-    }
-
-    public String g()
-    {
-        return "media_sessions/log";
     }
 }

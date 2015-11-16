@@ -2,17 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public interface hgj
+public final class hgj
 {
 
-    public abstract void a();
+    public static final String a = hge.getName();
+    private static hgi b;
 
-    public abstract void b();
+    public static void a(Context context, hlp hlp1)
+    {
+        if (b == null)
+        {
+            b = new hgi();
+        }
+        hlp1.a(hge, new hgh(context));
+    }
 
-    public abstract void c();
-
-    public abstract void d();
-
-    public abstract void e();
 }

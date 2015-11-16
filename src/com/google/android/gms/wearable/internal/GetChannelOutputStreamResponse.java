@@ -7,13 +7,14 @@ package com.google.android.gms.wearable.internal;
 import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fum;
+import fws;
+import g;
 
 public class GetChannelOutputStreamResponse
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fum();
+    public static final android.os.Parcelable.Creator CREATOR = new fws();
     public final int a;
     public final int b;
     public final ParcelFileDescriptor c;
@@ -32,7 +33,11 @@ public class GetChannelOutputStreamResponse
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fum.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, b);
+        g.a(parcel, 3, c, i);
+        g.q(parcel, j);
     }
 
 }

@@ -2,43 +2,79 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Looper;
+import android.os.Parcel;
+import com.google.android.gms.clearcut.LogEventParcelable;
+import com.google.android.gms.playlog.internal.PlayLoggerContext;
 
 public final class elq
+    implements android.os.Parcelable.Creator
 {
 
-    private final elr a;
-    private volatile Object b;
-
-    elq(Looper looper, Object obj)
+    public elq()
     {
-        a = new elr(this, looper);
-        b = h.a(obj, "Listener must not be null");
     }
 
-    public void a()
+    public static LogEventParcelable a(Parcel parcel)
     {
-        b = null;
-    }
-
-    public void a(els els1)
-    {
-        h.a(els1, "Notifier must not be null");
-        els1 = a.obtainMessage(1, els1);
-        a.sendMessage(els1);
-    }
-
-    void b(els els1)
-    {
-        Object obj;
-        obj = b;
-        if (obj == null)
+        int j = g.a(parcel);
+        int ai[] = null;
+        byte abyte0[] = null;
+        PlayLoggerContext playloggercontext = null;
+        int i = 0;
+        do
         {
-            break MISSING_BLOCK_LABEL_14;
-        }
-        els1.a(obj);
-        return;
-        els1;
-        throw els1;
+            if (parcel.dataPosition() < j)
+            {
+                int k = parcel.readInt();
+                switch (0xffff & k)
+                {
+                default:
+                    g.b(parcel, k);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, k);
+                    break;
+
+                case 2: // '\002'
+                    playloggercontext = (PlayLoggerContext)g.a(parcel, k, PlayLoggerContext.CREATOR);
+                    break;
+
+                case 3: // '\003'
+                    abyte0 = g.l(parcel, k);
+                    break;
+
+                case 4: // '\004'
+                    k = g.a(parcel, k);
+                    int l = parcel.dataPosition();
+                    if (k == 0)
+                    {
+                        ai = null;
+                    } else
+                    {
+                        ai = parcel.createIntArray();
+                        parcel.setDataPosition(k + l);
+                    }
+                    break;
+                }
+            } else
+            {
+                if (parcel.dataPosition() != j)
+                {
+                    throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
+                }
+                return new LogEventParcelable(i, playloggercontext, abyte0, ai);
+            }
+        } while (true);
+    }
+
+    public Object createFromParcel(Parcel parcel)
+    {
+        return a(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new LogEventParcelable[i];
     }
 }

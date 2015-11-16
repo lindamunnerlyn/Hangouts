@@ -2,128 +2,109 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-import org.apache.http.Header;
-import org.apache.http.HttpEntity;
-import org.apache.http.message.BasicHeader;
 
-public final class lcs
-    implements HttpEntity
+public final class lcs extends kwm
 {
 
-    private static final char a[] = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-    private final lcn b;
-    private final Header c;
-    private long d;
-    private volatile boolean e;
+    public Boolean a;
+    public Boolean b;
+    public Boolean c;
+    public Boolean d;
 
     public lcs()
     {
-        this(lcp.a);
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private lcs(int i)
+    protected int computeSerializedSize()
     {
-        String s = a();
-        int j = i;
-        if (i == 0)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            j = lcp.a;
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
-        b = new lcn("form-data", null, s, j);
-        StringBuilder stringbuilder = new StringBuilder();
-        stringbuilder.append("multipart/form-data; boundary=");
-        stringbuilder.append(s);
-        c = new BasicHeader("Content-Type", stringbuilder.toString());
-        e = true;
-    }
-
-    private static String a()
-    {
-        StringBuilder stringbuilder = new StringBuilder();
-        Random random = new Random();
-        int j = random.nextInt(11);
-        for (int i = 0; i < j + 30; i++)
+        j = i;
+        if (b != null)
         {
-            stringbuilder.append(a[random.nextInt(a.length)]);
+            b.booleanValue();
+            j = i + (kwk.f(2) + 1);
         }
-
-        return stringbuilder.toString();
-    }
-
-    public void a(String s, lct lct1)
-    {
-        s = new lcl(s, lct1);
-        b.a(s);
-        e = true;
-    }
-
-    public void consumeContent()
-    {
-        if (isStreaming())
+        i = j;
+        if (c != null)
         {
-            throw new UnsupportedOperationException("Streaming entity does not implement #consumeContent()");
-        } else
-        {
-            return;
+            c.booleanValue();
+            i = j + (kwk.f(3) + 1);
         }
-    }
-
-    public InputStream getContent()
-    {
-        throw new UnsupportedOperationException("Multipart form entity does not implement #getContent()");
-    }
-
-    public Header getContentEncoding()
-    {
-        return null;
-    }
-
-    public long getContentLength()
-    {
-        if (e)
+        j = i;
+        if (d != null)
         {
-            d = b.b();
-            e = false;
+            d.booleanValue();
+            j = i + (kwk.f(4) + 1);
         }
-        return d;
+        return j;
     }
 
-    public Header getContentType()
+    public kws mergeFrom(kwj kwj1)
     {
-        return c;
-    }
-
-    public boolean isChunked()
-    {
-        return !isRepeatable();
-    }
-
-    public boolean isRepeatable()
-    {
-        for (Iterator iterator = b.a().iterator(); iterator.hasNext();)
+        do
         {
-            if (((lcl)iterator.next()).a().d() < 0L)
+            int i = kwj1.a();
+            switch (i)
             {
-                return false;
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 16: // '\020'
+                b = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 24: // '\030'
+                c = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 32: // ' '
+                d = Boolean.valueOf(kwj1.i());
+                break;
             }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
         }
-
-        return true;
+        if (b != null)
+        {
+            kwk1.a(2, b.booleanValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.booleanValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
-
-    public boolean isStreaming()
-    {
-        return !isRepeatable();
-    }
-
-    public void writeTo(OutputStream outputstream)
-    {
-        b.a(outputstream);
-    }
-
 }

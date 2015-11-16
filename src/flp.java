@@ -2,73 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Binder;
 import android.os.Parcel;
-import com.google.android.gms.maps.model.StreetViewPanoramaOrientation;
 
-public final class flp
-    implements android.os.Parcelable.Creator
+public abstract class flp extends Binder
+    implements flo
 {
 
-    public flp()
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
     {
-    }
-
-    public static StreetViewPanoramaOrientation a(Parcel parcel)
-    {
-        float f1 = 0.0F;
-        int j = g.a(parcel);
-        int i = 0;
-        float f = 0.0F;
-        do
+        switch (i)
         {
-            if (parcel.dataPosition() < j)
-            {
-                int k = parcel.readInt();
-                switch (0xffff & k)
-                {
-                default:
-                    g.b(parcel, k);
-                    break;
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
 
-                case 1: // '\001'
-                    i = g.e(parcel, k);
-                    break;
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.maps.internal.IOnMarkerDragListener");
+            return true;
 
-                case 2: // '\002'
-                    f = g.g(parcel, k);
-                    break;
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnMarkerDragListener");
+            a(fno.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            return true;
 
-                case 3: // '\003'
-                    f1 = g.g(parcel, k);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != j)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
-            } else
-            {
-                return new StreetViewPanoramaOrientation(i, f, f1);
-            }
-        } while (true);
-    }
+        case 2: // '\002'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnMarkerDragListener");
+            b(fno.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            return true;
 
-    public static void a(StreetViewPanoramaOrientation streetviewpanoramaorientation, Parcel parcel)
-    {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, streetviewpanoramaorientation.a());
-        g.a(parcel, 2, streetviewpanoramaorientation.a);
-        g.a(parcel, 3, streetviewpanoramaorientation.b);
-        g.q(parcel, i);
-    }
-
-    public Object createFromParcel(Parcel parcel)
-    {
-        return a(parcel);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new StreetViewPanoramaOrientation[i];
+        case 3: // '\003'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnMarkerDragListener");
+            c(fno.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            return true;
+        }
     }
 }

@@ -2,47 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.Parcel;
-import com.google.android.gms.common.api.Scope;
+import android.database.Cursor;
+import android.database.CursorWrapper;
 
-public abstract class fru extends Binder
-    implements frt
+final class fru extends CursorWrapper
 {
 
-    public fru()
+    private int a;
+
+    public fru(Cursor cursor)
     {
-        attachInterface(this, "com.google.android.gms.signin.internal.IOfflineAccessCallbacks");
+        super(cursor);
+        a = 100;
     }
 
-    public IBinder asBinder()
+    public int getCount()
     {
-        return this;
-    }
-
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
-    {
-        switch (i)
-        {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
-
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.signin.internal.IOfflineAccessCallbacks");
-            return true;
-
-        case 2: // '\002'
-            parcel.enforceInterface("com.google.android.gms.signin.internal.IOfflineAccessCallbacks");
-            a(parcel.readString(), parcel.createTypedArrayList(Scope.CREATOR), frz.a(parcel.readStrongBinder()));
-            parcel1.writeNoException();
-            return true;
-
-        case 3: // '\003'
-            parcel.enforceInterface("com.google.android.gms.signin.internal.IOfflineAccessCallbacks");
-            a(parcel.readString(), parcel.readString(), frz.a(parcel.readStrongBinder()));
-            parcel1.writeNoException();
-            return true;
-        }
+        return Math.min(super.getCount(), a);
     }
 }

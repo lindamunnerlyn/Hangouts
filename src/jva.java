@@ -2,121 +2,103 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.common.collect.MapMakerInternalMap;
+import java.util.AbstractQueue;
+import java.util.Iterator;
 
-public final class jva extends koj
+public final class jva extends AbstractQueue
 {
 
-    public jvd a;
-    public jvc b;
-    public jve c;
-    public jvb d;
+    final com.google.common.collect.MapMakerInternalMap.ReferenceEntry a = new jvb(this);
 
-    public jva()
+    jva()
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    private com.google.common.collect.MapMakerInternalMap.ReferenceEntry a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry1 = a.getNextExpirable();
+        com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry = referenceentry1;
+        if (referenceentry1 == a)
         {
-            i = j + koh.d(1, a);
+            referenceentry = null;
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.d(3, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.d(4, d);
-        }
-        return j;
+        return referenceentry;
     }
 
-    public kop mergeFrom(kog kog1)
+    public void clear()
     {
-        do
+        com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry1;
+        for (com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry = a.getNextExpirable(); referenceentry != a; referenceentry = referenceentry1)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
+            referenceentry1 = referenceentry.getNextExpirable();
+            MapMakerInternalMap.d(referenceentry);
+        }
 
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new jvd();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new jvc();
-                }
-                kog1.a(b);
-                break;
-
-            case 26: // '\032'
-                if (c == null)
-                {
-                    c = new jve();
-                }
-                kog1.a(c);
-                break;
-
-            case 34: // '"'
-                if (d == null)
-                {
-                    d = new jvb();
-                }
-                kog1.a(d);
-                break;
-            }
-        } while (true);
+        a.setNextExpirable(a);
+        a.setPreviousExpirable(a);
     }
 
-    public void writeTo(koh koh1)
+    public boolean contains(Object obj)
     {
-        if (a != null)
+        return ((com.google.common.collect.MapMakerInternalMap.ReferenceEntry)obj).getNextExpirable() != jvg.a;
+    }
+
+    public boolean isEmpty()
+    {
+        return a.getNextExpirable() == a;
+    }
+
+    public Iterator iterator()
+    {
+        return new jvc(this, a());
+    }
+
+    public boolean offer(Object obj)
+    {
+        obj = (com.google.common.collect.MapMakerInternalMap.ReferenceEntry)obj;
+        MapMakerInternalMap.a(((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (obj)).getPreviousExpirable(), ((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (obj)).getNextExpirable());
+        MapMakerInternalMap.a(a.getPreviousExpirable(), ((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (obj)));
+        MapMakerInternalMap.a(((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (obj)), a);
+        return true;
+    }
+
+    public Object peek()
+    {
+        return a();
+    }
+
+    public Object poll()
+    {
+        com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry = a.getNextExpirable();
+        if (referenceentry == a)
         {
-            koh1.b(1, a);
-        }
-        if (b != null)
+            return null;
+        } else
         {
-            koh1.b(2, b);
+            remove(referenceentry);
+            return referenceentry;
         }
-        if (c != null)
+    }
+
+    public boolean remove(Object obj)
+    {
+        obj = (com.google.common.collect.MapMakerInternalMap.ReferenceEntry)obj;
+        com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry = ((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (obj)).getPreviousExpirable();
+        com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry1 = ((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (obj)).getNextExpirable();
+        MapMakerInternalMap.a(referenceentry, referenceentry1);
+        MapMakerInternalMap.d(((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (obj)));
+        return referenceentry1 != jvg.a;
+    }
+
+    public int size()
+    {
+        int i = 0;
+        for (com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry = a.getNextExpirable(); referenceentry != a; referenceentry = referenceentry.getNextExpirable())
         {
-            koh1.b(3, c);
+            i++;
         }
-        if (d != null)
-        {
-            koh1.b(4, d);
-        }
-        super.writeTo(koh1);
+
+        return i;
     }
 }

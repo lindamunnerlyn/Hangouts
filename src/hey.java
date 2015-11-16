@@ -3,8 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface hey
+public final class hey extends bgv
 {
 
-    public abstract void a();
+    private static final long serialVersionUID = 0x85108150b94d7d1bL;
 }

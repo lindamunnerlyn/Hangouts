@@ -2,29 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-final class cnq extends Enum
+final class cnq extends coj
 {
 
-    public static final int a;
-    public static final int b;
-    public static final int c;
-    public static final int d;
-    private static final int e[];
+    final long a;
+    final cna b;
 
-    public static int[] a()
+    cnq(cna cna1, String s, long l)
     {
-        return (int[])e.clone();
+        b = cna1;
+        a = l;
+        super(s);
     }
 
-    static 
+    public void a()
     {
-        a = 1;
-        b = 2;
-        c = 3;
-        d = 4;
-        e = (new int[] {
-            a, b, c, d
-        });
+        RealTimeChatService.c(b.b, a + 1000L);
     }
 }

@@ -2,35 +2,106 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
-public final class klv
+public final class klv extends kwm
 {
 
-    private static volatile boolean a = false;
-    private static final klv c = new klv((byte)0);
-    private final Map b;
+    public String a;
+    public Boolean b;
+    public Long c;
+    public String d;
 
-    klv()
+    public klv()
     {
-        b = new HashMap();
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private klv(byte byte0)
+    protected int computeSerializedSize()
     {
-        b = Collections.emptyMap();
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.b(1, a);
+        }
+        j = i;
+        if (c != null)
+        {
+            j = i + kwk.e(2, c.longValue());
+        }
+        i = j;
+        if (d != null)
+        {
+            i = j + kwk.b(3, d);
+        }
+        j = i;
+        if (b != null)
+        {
+            b.booleanValue();
+            j = i + (kwk.f(4) + 1);
+        }
+        return j;
     }
 
-    public static klv a()
+    public kws mergeFrom(kwj kwj1)
     {
-        return c;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 16: // '\020'
+                c = Long.valueOf(kwj1.e());
+                break;
+
+            case 26: // '\032'
+                d = kwj1.j();
+                break;
+
+            case 32: // ' '
+                b = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
     }
 
-    public kmi a(kmy kmy, int i)
+    public void writeTo(kwk kwk1)
     {
-        return (kmi)b.get(new klw(kmy, i));
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (c != null)
+        {
+            kwk1.b(2, c.longValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(3, d);
+        }
+        if (b != null)
+        {
+            kwk1.a(4, b.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
-
 }

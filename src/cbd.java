@@ -3,8 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface cbd
+final class cbd
+    implements caz
 {
 
-    public abstract void a(String s, String s1);
+    cbd()
+    {
+    }
+
+    public guy a(String s, int i, amx amx)
+    {
+        return new cbe(s, i, amx);
+    }
 }

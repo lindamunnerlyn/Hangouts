@@ -3,18 +3,28 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ksw extends koj
+public final class ksw extends kwm
 {
 
-    public ksx a;
-    public ktd b;
-    public ktc c;
+    public Float a;
+    public Float b;
+    public Float c;
+    public Float d;
+    public Float e;
+    public Float f;
+    public Float g;
+    public Float h;
 
     public ksw()
     {
         a = null;
         b = null;
         c = null;
+        d = null;
+        e = null;
+        f = null;
+        g = null;
+        h = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -25,30 +35,63 @@ public final class ksw extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            a.floatValue();
+            i = j + (kwk.f(1) + 4);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.d(2, b);
+            b.floatValue();
+            j = i + (kwk.f(2) + 4);
         }
         i = j;
         if (c != null)
         {
-            i = j + koh.d(3, c);
+            c.floatValue();
+            i = j + (kwk.f(3) + 4);
         }
-        return i;
+        j = i;
+        if (g != null)
+        {
+            g.floatValue();
+            j = i + (kwk.f(7) + 4);
+        }
+        i = j;
+        if (h != null)
+        {
+            h.floatValue();
+            i = j + (kwk.f(8) + 4);
+        }
+        j = i;
+        if (e != null)
+        {
+            e.floatValue();
+            j = i + (kwk.f(9) + 4);
+        }
+        i = j;
+        if (d != null)
+        {
+            d.floatValue();
+            i = j + (kwk.f(10) + 4);
+        }
+        j = i;
+        if (f != null)
+        {
+            f.floatValue();
+            j = i + (kwk.f(11) + 4);
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -57,47 +100,75 @@ public final class ksw extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new ksx();
-                }
-                kog1.a(a);
+            case 13: // '\r'
+                a = Float.valueOf(kwj1.c());
                 break;
 
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new ktd();
-                }
-                kog1.a(b);
+            case 21: // '\025'
+                b = Float.valueOf(kwj1.c());
                 break;
 
-            case 26: // '\032'
-                if (c == null)
-                {
-                    c = new ktc();
-                }
-                kog1.a(c);
+            case 29: // '\035'
+                c = Float.valueOf(kwj1.c());
+                break;
+
+            case 61: // '='
+                g = Float.valueOf(kwj1.c());
+                break;
+
+            case 69: // 'E'
+                h = Float.valueOf(kwj1.c());
+                break;
+
+            case 77: // 'M'
+                e = Float.valueOf(kwj1.c());
+                break;
+
+            case 85: // 'U'
+                d = Float.valueOf(kwj1.c());
+                break;
+
+            case 93: // ']'
+                f = Float.valueOf(kwj1.c());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.a(1, a.floatValue());
         }
         if (b != null)
         {
-            koh1.b(2, b);
+            kwk1.a(2, b.floatValue());
         }
         if (c != null)
         {
-            koh1.b(3, c);
+            kwk1.a(3, c.floatValue());
         }
-        super.writeTo(koh1);
+        if (g != null)
+        {
+            kwk1.a(7, g.floatValue());
+        }
+        if (h != null)
+        {
+            kwk1.a(8, h.floatValue());
+        }
+        if (e != null)
+        {
+            kwk1.a(9, e.floatValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(10, d.floatValue());
+        }
+        if (f != null)
+        {
+            kwk1.a(11, f.floatValue());
+        }
+        super.writeTo(kwk1);
     }
 }

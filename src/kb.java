@@ -63,7 +63,7 @@ public final class kb
 
     public static void a(View view, boolean flag)
     {
-        a.b(view, flag);
+        a.c(view, flag);
     }
 
     public static boolean a(View view, int i1)
@@ -103,7 +103,7 @@ public final class kb
 
     public static void d(View view)
     {
-        a.d(view);
+        a.a(view, true);
     }
 
     public static void d(View view, float f1)
@@ -116,9 +116,9 @@ public final class kb
         a.a(view, i1, null);
     }
 
-    public static int e(View view)
+    public static void e(View view)
     {
-        return a.e(view);
+        a.d(view);
     }
 
     public static void e(View view, float f1)
@@ -131,9 +131,9 @@ public final class kb
         a.d(view, i1);
     }
 
-    public static float f(View view)
+    public static int f(View view)
     {
-        return a.f(view);
+        return a.e(view);
     }
 
     public static void f(View view, float f1)
@@ -141,97 +141,102 @@ public final class kb
         a.f(view, f1);
     }
 
-    public static int g(View view)
+    public static float g(View view)
     {
-        return a.g(view);
+        return a.f(view);
     }
 
     public static int h(View view)
     {
+        return a.g(view);
+    }
+
+    public static int i(View view)
+    {
         return a.h(view);
     }
 
-    public static ViewParent i(View view)
+    public static ViewParent j(View view)
     {
         return a.i(view);
     }
 
-    public static int j(View view)
+    public static int k(View view)
     {
         return a.j(view);
     }
 
-    public static float k(View view)
+    public static float l(View view)
     {
         return a.l(view);
     }
 
-    public static float l(View view)
+    public static float m(View view)
     {
         return a.m(view);
     }
 
-    public static int m(View view)
+    public static int n(View view)
     {
         return a.n(view);
     }
 
-    public static int n(View view)
+    public static int o(View view)
     {
         return a.o(view);
     }
 
-    public static lr o(View view)
+    public static lr p(View view)
     {
         return a.p(view);
     }
 
-    public static float p(View view)
+    public static float q(View view)
     {
         return a.s(view);
     }
 
-    public static int q(View view)
+    public static int r(View view)
     {
         return a.q(view);
     }
 
-    public static void r(View view)
+    public static void s(View view)
     {
         a.r(view);
     }
 
-    public static boolean s(View view)
+    public static boolean t(View view)
     {
         return a.t(view);
     }
 
-    public static void t(View view)
+    public static void u(View view)
     {
         a.u(view);
     }
 
-    public static void u(View view)
+    public static void v(View view)
     {
-        a.a(view, false);
+        a.b(view, false);
     }
 
-    public static boolean v(View view)
+    public static boolean w(View view)
     {
         return a.k(view);
     }
 
-    public static void w(View view)
+    public static void x(View view)
     {
         a.v(view);
     }
 
-    public static boolean x(View view)
+    public static boolean y(View view)
     {
         return a.w(view);
     }
 
-    public static boolean y(View view)
+    public static boolean z(View view)
     {
         return a.x(view);
     }

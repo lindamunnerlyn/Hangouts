@@ -2,39 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.ParcelFileDescriptor;
+import android.widget.ImageView;
+import com.google.android.gms.common.api.Status;
 
-final class fpr extends fpa
+public final class fpr extends fpx
 {
 
-    private final ekm a;
-
-    public fpr(ekm ekm1)
+    public fpr(Context context, emy emy)
     {
-        a = ekm1;
+        super(context, emy, true);
     }
 
-    public void a(int i, Bundle bundle, ParcelFileDescriptor parcelfiledescriptor, Bundle bundle1)
+    public static Bitmap a(Context context)
     {
-        int j = 0;
-        if (g.m(3))
+        return g.b(BitmapFactory.decodeResource(context.getResources(), g.rB));
+    }
+
+    static void a(fpr fpr1, Status status, ParcelFileDescriptor parcelfiledescriptor, fpy fpy1)
+    {
+        fpr1.fpx.a(status, parcelfiledescriptor, fpy1, 0);
+    }
+
+    public void a(ImageView imageview, ftl ftl, int i)
+    {
+        a(((fpy) (new fps(this, imageview, ftl, i))));
+    }
+
+    protected void a(fpy fpy1, Bitmap bitmap)
+    {
+        if (bitmap == null)
         {
-            (new StringBuilder("Avatar callback: status=")).append(i).append(" resolution=").append(bundle).append(" pfd=").append(parcelfiledescriptor);
-            g.m(3);
-        }
-        bundle = fpo.a(i, bundle);
-        boolean flag;
-        if (bundle1 != null)
-        {
-            flag = bundle1.getBoolean("rewindable");
-            i = bundle1.getInt("width");
-            j = bundle1.getInt("height");
+            fpy1.f.setImageBitmap(a(b));
+            return;
         } else
         {
-            i = 0;
-            flag = false;
+            super.a(fpy1, bitmap);
+            return;
         }
-        a.a(new fpu(bundle, parcelfiledescriptor, flag, i, j));
     }
 }

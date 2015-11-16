@@ -2,24 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
 
-final class heu
-    implements android.content.DialogInterface.OnClickListener
+public final class heu extends bgv
 {
 
-    final het a;
-
-    heu(het het1)
+    heu(String s)
     {
-        a = het1;
-        super();
-    }
-
-    public void onClick(DialogInterface dialoginterface, int i)
-    {
-        het.a(a, i);
-        a.onClick(dialoginterface, -1);
-        dialoginterface.dismiss();
+        super(s);
     }
 }

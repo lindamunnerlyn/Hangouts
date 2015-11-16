@@ -2,88 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Handler;
-import com.google.android.libraries.social.async.BackgroundTaskService;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
+import java.util.Comparator;
+import java.util.List;
 
-public final class gqz
-    implements gqo, gqp
+public interface gqz
 {
 
-    private static final ThreadFactory f;
-    private static final Executor g;
-    private final Context a;
-    private final Intent b;
-    private grf c;
-    private gqn d;
-    private final Runnable e = new gra(this);
+    public static final Comparator a = new gra();
 
-    gqz(Context context)
-    {
-        a = context.getApplicationContext();
-        b = new Intent(a, com/google/android/libraries/social/async/BackgroundTaskService);
-        d = new gre();
-    }
+    public abstract grb a(int i);
 
-    static grf a(gqz gqz1)
-    {
-        return gqz1.c;
-    }
+    public abstract grd a(String s);
 
-    static gqn b(gqz gqz1)
-    {
-        return gqz1.d;
-    }
+    public abstract grd a(String s, String s1);
 
-    static Context c(gqz gqz1)
-    {
-        return gqz1.a;
-    }
+    public abstract List a();
 
-    static Intent d(gqz gqz1)
-    {
-        return gqz1.b;
-    }
+    public abstract List a(Comparator comparator);
 
-    static Runnable e(gqz gqz1)
-    {
-        return gqz1.e;
-    }
+    public transient abstract List a(String as[]);
 
-    public void a()
-    {
-        if (c == null)
-        {
-            c = (grf)hgx.a(a, grf);
-        }
-        do
-        {
-            gqn gqn1 = c.c();
-            if (gqn1 != null)
-            {
-                gqn1.a(this);
-                g.execute(inl.a(new grc(this, gqn1)));
-            } else
-            {
-                a.startService(b);
-                return;
-            }
-        } while (true);
-    }
+    public abstract void a(grf grf);
 
-    public void a(gqn gqn1, grk grk)
-    {
-        c.d().post(inl.a(new grd(this, gqn1, grk)));
-    }
+    public abstract void a(String s, int i);
 
-    static 
-    {
-        grb grb1 = new grb();
-        f = grb1;
-        g = Executors.newCachedThreadPool(grb1);
-    }
+    public abstract int b(String s);
+
+    public abstract int b(String s, String s1);
+
+    public abstract grd b(int i);
+
+    public abstract String b();
+
+    public abstract void b(grf grf);
+
+    public abstract int c(String s);
+
+    public abstract boolean c(int i);
+
+    public abstract int d(String s);
+
+    public abstract boolean d(int i);
+
+    public abstract boolean e(int i);
+
+    public abstract void f(int i);
+
 }

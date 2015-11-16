@@ -3,83 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gjo
+final class gjo
+    implements Runnable
 {
 
-    private gjl a;
-    private gjq b;
-    private String c;
-    private String d;
-    private String e;
-    private String f;
+    final gjn a;
 
-    public gjo()
+    gjo(gjn gjn1)
     {
+        a = gjn1;
+        super();
     }
 
-    public gjl a()
+    public void run()
     {
-        return a;
-    }
-
-    public gjo a(gjl gjl)
-    {
-        a = gjl;
-        return this;
-    }
-
-    public gjo a(gjq gjq)
-    {
-        b = gjq;
-        return this;
-    }
-
-    public gjo a(String s)
-    {
-        c = s;
-        return this;
-    }
-
-    public gjo b(String s)
-    {
-        d = s;
-        return this;
-    }
-
-    public gjq b()
-    {
-        return b;
-    }
-
-    public gjo c(String s)
-    {
-        e = s;
-        return this;
-    }
-
-    public String c()
-    {
-        return c;
-    }
-
-    public gjo d(String s)
-    {
-        f = s;
-        return this;
-    }
-
-    public String d()
-    {
-        return d;
-    }
-
-    public String e()
-    {
-        return e;
-    }
-
-    public String f()
-    {
-        return f;
+        gne.a(2, "vclib", "Doing delayed reporting");
+        a.a();
     }
 }

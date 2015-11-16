@@ -2,8 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.net.Uri;
 import android.os.Parcel;
-import com.google.android.gms.wearable.internal.ChannelReceiveFileResponse;
+import com.google.android.gms.wearable.internal.DataItemParcelable;
 
 public final class fwm
     implements android.os.Parcelable.Creator
@@ -13,51 +14,54 @@ public final class fwm
     {
     }
 
-    public static void a(ChannelReceiveFileResponse channelreceivefileresponse, Parcel parcel)
-    {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, channelreceivefileresponse.a);
-        g.b(parcel, 2, channelreceivefileresponse.b);
-        g.q(parcel, i);
-    }
-
     public Object createFromParcel(Parcel parcel)
     {
-        int j = 0;
-        int k = g.a(parcel);
+        int j = g.a(parcel);
+        android.os.Bundle bundle = null;
+        Uri uri = null;
         int i = 0;
+        byte abyte0[] = null;
         do
         {
-            if (parcel.dataPosition() < k)
+            if (parcel.dataPosition() < j)
             {
-                int l = parcel.readInt();
-                switch (0xffff & l)
+                int k = parcel.readInt();
+                switch (0xffff & k)
                 {
+                case 3: // '\003'
                 default:
-                    g.b(parcel, l);
+                    g.b(parcel, k);
                     break;
 
                 case 1: // '\001'
-                    i = g.e(parcel, l);
+                    i = g.e(parcel, k);
                     break;
 
                 case 2: // '\002'
-                    j = g.e(parcel, l);
+                    uri = (Uri)g.a(parcel, k, Uri.CREATOR);
+                    break;
+
+                case 4: // '\004'
+                    bundle = g.k(parcel, k);
+                    break;
+
+                case 5: // '\005'
+                    abyte0 = g.l(parcel, k);
                     break;
                 }
             } else
-            if (parcel.dataPosition() != k)
+            if (parcel.dataPosition() != j)
             {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
+                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
             } else
             {
-                return new ChannelReceiveFileResponse(i, j);
+                return new DataItemParcelable(i, uri, bundle, abyte0);
             }
         } while (true);
     }
 
     public Object[] newArray(int i)
     {
-        return new ChannelReceiveFileResponse[i];
+        return new DataItemParcelable[i];
     }
 }

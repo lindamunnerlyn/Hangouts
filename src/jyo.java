@@ -3,60 +3,103 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jyo extends koj
+class jyo extends jyj
 {
 
-    public Boolean a;
+    final jyk b;
+    final Character c;
 
-    public jyo()
+    jyo(String s, String s1, Character character)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        this(new jyk(s, s1.toCharArray()), character);
     }
 
-    protected int computeSerializedSize()
+    jyo(jyk jyk1, Character character)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        b = (jyk)n.b(jyk1);
+        boolean flag;
+        if (character == null || !jyk1.b(character.charValue()))
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            flag = true;
+        } else
+        {
+            flag = false;
         }
-        return i;
+        n.a(flag, "Padding character %s was already in alphabet", new Object[] {
+            character
+        });
+        c = character;
     }
 
-    public kop mergeFrom(kog kog1)
+    int a(int i)
     {
-        do
+        return (int)(((long)b.p * (long)i + 7L) / 8L);
+    }
+
+    int a(byte abyte0[], CharSequence charsequence)
+    {
+        n.b(abyte0);
+        charsequence = a().a(charsequence);
+        if (!b.b(charsequence.length()))
         {
-            int i = kog1.a();
-            switch (i)
+            int i = charsequence.length();
+            throw new jyn((new StringBuilder(32)).append("Invalid input length ").append(i).toString());
+        }
+        int k = 0;
+        for (int j = 0; j < charsequence.length(); j += b.q)
+        {
+            long l2 = 0L;
+            int l = 0;
+            for (int i1 = 0; i1 < b.q; i1++)
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
+                l2 <<= b.p;
+                if (j + i1 < charsequence.length())
                 {
-                    continue;
+                    long l3 = b.c(charsequence.charAt(l + j));
+                    l++;
+                    l2 |= l3;
                 }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
             }
-        } while (true);
+
+            int k1 = b.r;
+            int l1 = b.p;
+            for (int j1 = b.r - 1 << 3; j1 >= (k1 << 3) - l * l1;)
+            {
+                abyte0[k] = (byte)(int)(l2 >>> j1 & 255L);
+                j1 -= 8;
+                k++;
+            }
+
+        }
+
+        return k;
     }
 
-    public void writeTo(koh koh1)
+    jmr a()
     {
-        if (a != null)
+        if (c == null)
         {
-            koh1.a(1, a.booleanValue());
+            return jmr.n;
+        } else
+        {
+            return jmr.a(c.charValue());
         }
-        super.writeTo(koh1);
+    }
+
+    public String toString()
+    {
+        StringBuilder stringbuilder = new StringBuilder("BaseEncoding.");
+        stringbuilder.append(b.toString());
+        if (8 % b.p != 0)
+        {
+            if (c == null)
+            {
+                stringbuilder.append(".omitPadding()");
+            } else
+            {
+                stringbuilder.append(".withPadChar(").append(c).append(')');
+            }
+        }
+        return stringbuilder.toString();
     }
 }

@@ -3,65 +3,74 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class leg extends lfg
+public final class leg extends kwm
 {
 
-    private final ldz b;
+    public String a;
+    public String b;
 
-    leg(ldz ldz1, ldh ldh)
+    public leg()
     {
-        super(lcz.o(), ldh);
-        b = ldz1;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public int a(long l)
+    protected int computeSerializedSize()
     {
-        return b.f(l);
-    }
-
-    public int c(long l)
-    {
-        int j = b.e(l);
-        return b.b(j);
-    }
-
-    protected int c(long l, int j)
-    {
-        int k = 52;
-        if (j > 52)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            k = c(l);
+            i = j + kwk.b(1, a);
         }
-        return k;
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.b(2, b);
+        }
+        return j;
     }
 
-    public long d(long l)
+    public kws mergeFrom(kwj kwj1)
     {
-        return super.d(l + 0xf731400L) - 0xf731400L;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+            }
+        } while (true);
     }
 
-    public long e(long l)
+    public void writeTo(kwk kwk1)
     {
-        return super.e(l + 0xf731400L) - 0xf731400L;
-    }
-
-    public ldh e()
-    {
-        return ((ldw) (b)).e;
-    }
-
-    public int g()
-    {
-        return 1;
-    }
-
-    public int h()
-    {
-        return 53;
-    }
-
-    public long i(long l)
-    {
-        return super.i(0xf731400L + l);
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        super.writeTo(kwk1);
     }
 }

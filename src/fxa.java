@@ -2,25 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentResolver;
-import android.os.Handler;
-import android.os.Looper;
+import android.os.Parcel;
+import android.os.ParcelFileDescriptor;
+import com.google.android.gms.wearable.internal.GetFdForAssetResponse;
 
-final class fxa extends Thread
+public final class fxa
+    implements android.os.Parcelable.Creator
 {
 
-    final ContentResolver a;
-
-    fxa(String s, ContentResolver contentresolver)
+    public fxa()
     {
-        a = contentresolver;
-        super(s);
     }
 
-    public void run()
+    public Object createFromParcel(Parcel parcel)
     {
-        Looper.prepare();
-        a.registerContentObserver(fwz.a, true, new fxb(this, new Handler(Looper.myLooper())));
-        Looper.loop();
+        int j = 0;
+        int k = g.a(parcel);
+        ParcelFileDescriptor parcelfiledescriptor = null;
+        int i = 0;
+        do
+        {
+            if (parcel.dataPosition() < k)
+            {
+                int l = parcel.readInt();
+                switch (0xffff & l)
+                {
+                default:
+                    g.b(parcel, l);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, l);
+                    break;
+
+                case 2: // '\002'
+                    j = g.e(parcel, l);
+                    break;
+
+                case 3: // '\003'
+                    parcelfiledescriptor = (ParcelFileDescriptor)g.a(parcel, l, ParcelFileDescriptor.CREATOR);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != k)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
+            } else
+            {
+                return new GetFdForAssetResponse(i, j, parcelfiledescriptor);
+            }
+        } while (true);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new GetFdForAssetResponse[i];
     }
 }

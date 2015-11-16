@@ -2,24 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 
-final class dnt extends BroadcastReceiver
+public final class dnt extends dmy
 {
 
-    dnt()
+    private static final long serialVersionUID = 1L;
+
+    public dnt(String s, cgd cgd, long l)
     {
+        super(s, cgd, l);
     }
 
-    public void onReceive(Context context, Intent intent)
+    dnt(jgb jgb1)
     {
-        if (android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI.equals(intent.getData()))
-        {
-            context.unregisterReceiver(this);
-            dns.c();
-        }
+        super(jgb1.b.a, g.a(jgb1.a, null), g.a(jgb1.c, 0L));
+    }
+
+    public static dnt a(String s, cgd cgd, long l)
+    {
+        return new dnt(s, cgd, l);
     }
 }

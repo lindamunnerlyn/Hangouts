@@ -3,11 +3,36 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gmv extends IllegalArgumentException
+public final class gmv extends Enum
 {
 
-    public gmv(String s)
+    public static final gmv a;
+    public static final gmv b;
+    public static final gmv c;
+    private static final gmv d[];
+
+    private gmv(String s, int i)
     {
-        super(s);
+        super(s, i);
+    }
+
+    public static gmv valueOf(String s)
+    {
+        return (gmv)Enum.valueOf(gmv, s);
+    }
+
+    public static gmv[] values()
+    {
+        return (gmv[])d.clone();
+    }
+
+    static 
+    {
+        a = new gmv("NONE", 0);
+        b = new gmv("INSUFFICIENT_BANDWIDTH_FOR_VIDEO", 1);
+        c = new gmv("SUFFICIENT_BANDWIDTH_FOR_VIDEO", 2);
+        d = (new gmv[] {
+            a, b, c
+        });
     }
 }

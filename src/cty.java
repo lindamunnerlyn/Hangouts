@@ -2,44 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-public class cty extends cui
+public final class cty
+    implements Serializable
 {
 
     private static final long serialVersionUID = 1L;
-    public final String a;
+    public final cgd a;
+    public final String b;
+    public final String c;
+    public final int d;
 
-    public cty(String s)
+    private cty(ixn ixn1)
     {
-        a = s;
-    }
-
-    public String a()
-    {
-        return "ui_queue";
-    }
-
-    public kop a(String s, int i, int j)
-    {
-        if (ctr.e)
+        String s = null;
+        super();
+        a = g.a(ixn1.a, null);
+        c = ixn1.b;
+        if (ixn1.e != null)
         {
-            ebw.b("Babel_RequestWriter", "DismissSuggestedContactsRequest()");
+            s = ixn1.e.a;
         }
-        ish ish1 = new ish();
-        ish1.requestHeader = ctq.a(null, true, s, i, j, h);
-        if (!TextUtils.isEmpty(a))
-        {
-            s = new ivz();
-            s.b = a;
-            ish1.a = new ivz[1];
-            ish1.a[0] = s;
-        }
-        return ish1;
+        b = s;
+        d = g.a(ixn1.c, 0);
     }
 
-    public String g()
+    public static List a(ixn aixn[])
     {
-        return "contacts/dismisssuggestedcontacts";
+        ArrayList arraylist = new ArrayList();
+        int j = aixn.length;
+        for (int i = 0; i < j; i++)
+        {
+            arraylist.add(new cty(aixn[i]));
+        }
+
+        return arraylist;
     }
 }

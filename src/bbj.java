@@ -2,30 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
 
 final class bbj
-    implements gov
+    implements bjy
 {
 
-    final bbh a;
+    final bbi a;
 
-    bbj(bbh bbh1)
+    bbj(bbi bbi1)
     {
-        a = bbh1;
+        a = bbi1;
         super();
     }
 
-    public void a(int i, Intent intent)
+    public void a()
     {
-        if (i == -1 && intent != null)
-        {
-            ((arl)bbh.e(a).a(arl)).a(new bbk(this, intent));
-            return;
-        } else
-        {
-            bbh.h(a);
-            return;
-        }
+        ((beb)bbi.c(a).a(beb)).a(2319);
+        bbi.b(a).D();
+    }
+
+    public void a(CharSequence charsequence)
+    {
+        ((beb)bbi.a(a).a(beb)).a(2318);
+        bbi.b(a).a(charsequence);
+    }
+
+    public void b()
+    {
+    }
+
+    public void c()
+    {
+        ((beb)bbi.d(a).a(beb)).a(2320);
+        bbi.b(a).I();
     }
 }

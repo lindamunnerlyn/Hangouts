@@ -3,16 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ixw extends koj
+public final class ixw extends kwm
 {
 
-    public iqy a[];
-    public ixg responseHeader;
+    public iya a;
 
     public ixw()
     {
-        responseHeader = null;
-        a = iqy.a();
+        a = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,43 +19,22 @@ public final class ixw extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (responseHeader != null)
-        {
-            i = j + koh.d(1, responseHeader);
-        }
-        j = i;
         if (a != null)
         {
-            j = i;
-            if (a.length > 0)
-            {
-                for (j = 0; j < a.length;)
-                {
-                    iqy iqy1 = a[j];
-                    int k = i;
-                    if (iqy1 != null)
-                    {
-                        k = i + koh.d(2, iqy1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            i = j + kwk.d(1, a);
         }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -67,64 +44,22 @@ public final class ixw extends koj
                 return this;
 
             case 10: // '\n'
-                if (responseHeader == null)
-                {
-                    responseHeader = new ixg();
-                }
-                kog1.a(responseHeader);
-                break;
-
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                iqy aiqy[];
-                int j;
                 if (a == null)
                 {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
+                    a = new iya();
                 }
-                aiqy = new iqy[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aiqy, 0, j);
-                    k = j;
-                }
-                for (; k < aiqy.length - 1; k++)
-                {
-                    aiqy[k] = new iqy();
-                    kog1.a(aiqy[k]);
-                    kog1.a();
-                }
-
-                aiqy[k] = new iqy();
-                kog1.a(aiqy[k]);
-                a = aiqy;
+                kwj1.a(a);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (responseHeader != null)
+        if (a != null)
         {
-            koh1.b(1, responseHeader);
+            kwk1.b(1, a);
         }
-        if (a != null && a.length > 0)
-        {
-            for (int i = 0; i < a.length; i++)
-            {
-                iqy iqy1 = a[i];
-                if (iqy1 != null)
-                {
-                    koh1.b(2, iqy1);
-                }
-            }
-
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

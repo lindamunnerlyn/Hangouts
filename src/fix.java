@@ -2,49 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
+import android.content.Context;
+import android.os.RemoteException;
 
-final class fix
-    implements fiv
+public final class fix
 {
 
-    private IBinder a;
+    private static boolean a = false;
 
-    fix(IBinder ibinder)
+    public static int a(Context context)
     {
-        a = ibinder;
-    }
-
-    public boolean a()
-    {
-        Parcel parcel;
-        Parcel parcel1;
+        fix;
+        JVM INSTR monitorenter ;
         boolean flag;
-        flag = true;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        int i;
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnMyLocationButtonClickListener");
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        i = parcel1.readInt();
-        if (i == 0)
+        g.b(context, "Context is null");
+        flag = a;
+        if (!flag) goto _L2; else goto _L1
+_L1:
+        int i = 0;
+_L4:
+        fix;
+        JVM INSTR monitorexit ;
+        return i;
+_L2:
+        context = fms.a(context);
+        g.rs = (fja)g.d(context.a());
+        context = context.b();
+        if (g.rt == null)
         {
-            flag = false;
+            g.rt = (fnb)g.d(context);
         }
-        parcel1.recycle();
-        parcel.recycle();
-        return flag;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
+        a = true;
+        i = 0;
+        continue; /* Loop/switch isn't completed */
+        context;
+        i = ((emm) (context)).a;
+        if (true) goto _L4; else goto _L3
+_L3:
+        context;
+        throw new af(context);
+        context;
+        fix;
+        JVM INSTR monitorexit ;
+        throw context;
     }
 
-    public IBinder asBinder()
-    {
-        return a;
-    }
 }

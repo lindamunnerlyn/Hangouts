@@ -2,68 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
+import com.google.android.gms.common.api.Status;
 
-final class fhw
-    implements fhu
+public final class fhw extends fpl
 {
 
-    private IBinder a;
+    final fow a;
+    final fot b;
 
-    fhw(IBinder ibinder)
+    public fhw(fot fot, emy emy, fow fow1)
     {
-        a = ibinder;
+        b = fot;
+        a = fow1;
+        super(emy);
     }
 
-    public void a()
+    protected enh a(Status status)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnIndoorStateChangeListener");
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
+        return new fhx(this, status);
     }
 
-    public void a(fko fko1)
+    protected void a(emw emw)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnIndoorStateChangeListener");
-        if (fko1 == null)
-        {
-            break MISSING_BLOCK_LABEL_57;
-        }
-        fko1 = fko1.asBinder();
-_L1:
-        parcel.writeStrongBinder(fko1);
-        a.transact(2, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        fko1 = null;
-          goto _L1
-        fko1;
-        parcel1.recycle();
-        parcel.recycle();
-        throw fko1;
-    }
-
-    public IBinder asBinder()
-    {
-        return a;
+        ((fsj)emw).a(this, a.a(), a.c());
     }
 }

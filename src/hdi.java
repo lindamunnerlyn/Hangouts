@@ -2,47 +2,73 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.ContextThemeWrapper;
 
-public final class hdi
-    implements Serializable
+public final class hdi extends hmk
 {
 
-    private static final long serialVersionUID = 0x2ba6046fa3ebca2aL;
-    private final String a;
-    private final String b;
-    private final String c;
-    private final String d;
-    private final String e;
-    private final hdi f;
+    private hbi aj;
 
-    public String a()
+    public hdi()
     {
-        return a;
     }
 
-    public String b()
+    public static void a(ap ap1)
     {
-        return b;
+        ap1 = (ac)ap1.a("login.progress");
+        if (ap1 == null)
+        {
+            break MISSING_BLOCK_LABEL_18;
+        }
+        ap1.a();
+        return;
+        ap1;
     }
 
-    public String c()
+    public static void a(ap ap1, String s, boolean flag)
     {
-        return c;
+        if (b(ap1))
+        {
+            throw new IllegalStateException("Progress dialog is already showing");
+        } else
+        {
+            Bundle bundle = new Bundle();
+            bundle.putString("message", s);
+            bundle.putBoolean("cancelable", flag);
+            s = new hdi();
+            s.setArguments(bundle);
+            s.a(ap1, "login.progress");
+            return;
+        }
     }
 
-    public String d()
+    public static boolean b(ap ap1)
     {
-        return d;
+        return ap1.a("login.progress") != null;
     }
 
-    public hdi e()
+    public Dialog a(Bundle bundle)
     {
-        return f;
+        bundle = new ProgressDialog(new ContextThemeWrapper(getActivity(), h.jq));
+        bundle.setMessage(getArguments().getString("message"));
+        bundle.setProgressStyle(0);
+        bundle.setCancelable(getArguments().getBoolean("cancelable"));
+        return bundle;
     }
 
-    public String f()
+    protected void e(Bundle bundle)
     {
-        return e;
+        super.e(bundle);
+        aj = (hbi)al.a(hbi);
+    }
+
+    public void onCancel(DialogInterface dialoginterface)
+    {
+        super.onCancel(dialoginterface);
+        aj.c();
     }
 }

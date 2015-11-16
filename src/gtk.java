@@ -2,42 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import android.os.Message;
-import java.lang.ref.WeakReference;
+import android.content.Context;
 
-final class gtk extends Handler
+public final class gtk
 {
 
-    private final WeakReference a;
+    public static final String a = hmd.getName();
+    public static final String b = gug.getName();
+    public static final String c = hmq.getName();
+    private static gtj d;
 
-    gtk(gti gti1)
+    public static void a(Context context, hlp hlp1)
     {
-        a = new WeakReference(gti1);
-    }
-
-    void a()
-    {
-        if (!hasMessages(0))
+        if (d == null)
         {
-            sendEmptyMessageDelayed(0, 800L);
+            d = new gtj();
         }
+        hlp1.a(gug, new gug(context));
     }
 
-    void b()
+    public static void a(hlp hlp1)
     {
-        removeMessages(0);
-    }
-
-    public void handleMessage(Message message)
-    {
-        if (message.what == 0)
+        if (d == null)
         {
-            message = (gti)a.get();
-            if (message != null)
-            {
-                message.c();
-            }
+            d = new gtj();
         }
+        hlp1.a(hmd, new hmd[] {
+            new gui(), new gub(), new gtn(), new gth()
+        });
     }
+
+    public static void b(hlp hlp1)
+    {
+        if (d == null)
+        {
+            d = new gtj();
+        }
+        hlp1.a(hmq, new hmq[] {
+            new gti(), new guc()
+        });
+    }
+
 }

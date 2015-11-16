@@ -3,8 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface apm
+public final class apm
 {
 
-    public abstract boolean a(ani ani);
+    public String a;
+    public String b;
+    public long c;
+    public int d;
+    public int e;
+
+    public apm()
+    {
+    }
 }

@@ -3,24 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class dea extends dfa
+public final class dea extends dgj
 {
 
-    final String a;
+    private final String a;
+    private final String e;
 
-    public dea(ani ani1, String s)
+    public dea(aoa aoa, String s, String s1)
     {
-        super(ani1);
+        super(aoa);
         a = s;
+        e = s1;
     }
 
     public void a()
     {
-        aoe aoe1 = new aoe(g.nS, b.h());
-        if (aoe1.q(a) == 2)
-        {
-            any.b(aoe1, a, c);
-            cej.a(g.nS, b.h(), true);
-        }
+        a(((dmf) (new cwd(a, e))));
     }
 }

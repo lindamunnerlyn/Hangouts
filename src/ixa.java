@@ -3,18 +3,40 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ixa extends koj
+public final class ixa extends kwm
 {
 
-    public irg a;
+    private static volatile ixa d[];
+    public iwy a;
     public Integer b;
+    public Long c;
 
     public ixa()
     {
         a = null;
         b = null;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static ixa[] a()
+    {
+        if (d == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (d == null)
+                {
+                    d = new ixa[0];
+                }
+            }
+        }
+        return d;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -23,61 +45,76 @@ public final class ixa extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.d(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.e(2, b.intValue());
+            j = i + kwk.e(2, b.intValue());
         }
-        return j;
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.longValue());
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L5:
-        int i = kog1.a();
+_L6:
+        int i = kwj1.a();
         i;
-        JVM INSTR lookupswitch 3: default 40
-    //                   0: 49
-    //                   10: 51
-    //                   16: 80;
-           goto _L1 _L2 _L3 _L4
+        JVM INSTR lookupswitch 4: default 48
+    //                   0: 57
+    //                   10: 59
+    //                   16: 88
+    //                   24: 158;
+           goto _L1 _L2 _L3 _L4 _L5
 _L1:
-        if (super.storeUnknownField(kog1, i)) goto _L5; else goto _L2
+        if (super.storeUnknownField(kwj1, i)) goto _L6; else goto _L2
 _L2:
         return this;
 _L3:
         if (a == null)
         {
-            a = new irg();
+            a = new iwy();
         }
-        kog1.a(a);
-          goto _L5
+        kwj1.a(a);
+          goto _L6
 _L4:
-        int j = kog1.f();
+        int j = kwj1.f();
         switch (j)
         {
-        case 0: // '\0'
         case 1: // '\001'
-        case 2: // '\002'
+        case 10: // '\n'
+        case 20: // '\024'
+        case 30: // '\036'
+        case 40: // '('
             b = Integer.valueOf(j);
             break;
         }
-        if (true) goto _L5; else goto _L6
-_L6:
+        continue; /* Loop/switch isn't completed */
+_L5:
+        c = Long.valueOf(kwj1.e());
+        if (true) goto _L6; else goto _L7
+_L7:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.b(1, a);
         }
         if (b != null)
         {
-            koh1.a(2, b.intValue());
+            kwk1.a(2, b.intValue());
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.b(3, c.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

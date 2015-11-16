@@ -2,11 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
 
-public interface fuw
-    extends IInterface
+public final class fuw
 {
 
-    public abstract void a(int i, int j);
+    public fuw()
+    {
+    }
 }

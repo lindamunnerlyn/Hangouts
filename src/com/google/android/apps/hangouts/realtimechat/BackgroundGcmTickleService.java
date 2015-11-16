@@ -12,10 +12,10 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.SystemClock;
-import dbf;
-import dit;
-import djk;
-import ebw;
+import dcn;
+import dkg;
+import dlb;
+import eev;
 import g;
 
 public class BackgroundGcmTickleService extends IntentService
@@ -38,13 +38,13 @@ public class BackgroundGcmTickleService extends IntentService
         {
             if (a)
             {
-                ebw.b("Babel", "Cancel gcm tickle alarm");
+                eev.b("Babel", "Cancel gcm tickle alarm");
             }
             alarmmanager.cancel(((PendingIntent) (obj)));
             ((PendingIntent) (obj)).cancel();
             return;
         }
-        long l1 = g.a(g.nS, "babel_background_gcm_tickle_polling_interval_ms", djk.m);
+        long l1 = g.a(g.nU, "babel_background_gcm_tickle_polling_interval_ms", dlb.m);
         context = ((ConnectivityManager)context.getSystemService("connectivity")).getActiveNetworkInfo();
         long l = l1;
         if (context != null)
@@ -57,7 +57,7 @@ public class BackgroundGcmTickleService extends IntentService
         }
         if (a)
         {
-            ebw.b("Babel", (new StringBuilder(61)).append("Schedule gcm tickle with interval in ms: ").append(l).toString());
+            eev.b("Babel", (new StringBuilder(61)).append("Schedule gcm tickle with interval in ms: ").append(l).toString());
         }
         alarmmanager.set(2, l + SystemClock.elapsedRealtime(), ((PendingIntent) (obj)));
     }
@@ -75,7 +75,7 @@ public class BackgroundGcmTickleService extends IntentService
     protected void a()
     {
         int i;
-        Context context = g.nS;
+        Context context = g.nU;
         NetworkInfo networkinfo = ((ConnectivityManager)context.getSystemService("connectivity")).getActiveNetworkInfo();
         int ai[];
         Object obj;
@@ -89,19 +89,19 @@ public class BackgroundGcmTickleService extends IntentService
         }
         if (i == 0) goto _L2; else goto _L1
 _L1:
-        ai = dbf.f();
+        ai = dcn.f();
         j = ai.length;
         i = 0;
 _L8:
         if (i >= j) goto _L2; else goto _L3
 _L3:
-        obj = dbf.e(ai[i]);
+        obj = dcn.e(ai[i]);
         if (obj == null) goto _L5; else goto _L4
 _L4:
-        obj = dit.a(((ani) (obj)));
+        obj = dkg.a(((aoa) (obj)));
         if (obj == null) goto _L5; else goto _L6
 _L6:
-        ((dit) (obj)).a();
+        ((dkg) (obj)).a();
 _L2:
         a(context, true);
         return;
@@ -116,7 +116,7 @@ _L7:
         int i;
         if (intent == null)
         {
-            ebw.f("Babel", "BackgroundGcmTickleService onHandleIntent called with null intent");
+            eev.f("Babel", "BackgroundGcmTickleService onHandleIntent called with null intent");
             return;
         }
         i = intent.getIntExtra("op", 0);
@@ -125,13 +125,14 @@ _L1:
         String s = String.valueOf(intent);
         i;
         JVM INSTR tableswitch 1 1: default 52
-    //                   1 170;
+    //                   1 178;
            goto _L3 _L4
 _L3:
         intent = String.valueOf(Integer.toString(i));
         intent = (new StringBuilder(String.valueOf(intent).length() + 17)).append("(unknown opCode ").append(intent).append(")").toString();
 _L6:
-        ebw.b("Babel", (new StringBuilder(String.valueOf(s).length() + 24 + String.valueOf(intent).length())).append("onHandleIntent ").append(s).append(" opCode: ").append(intent).toString());
+        intent = String.valueOf(intent);
+        eev.b("Babel", (new StringBuilder(String.valueOf(s).length() + 24 + String.valueOf(intent).length())).append("onHandleIntent ").append(s).append(" opCode: ").append(intent).toString());
 _L2:
         switch (i)
         {
@@ -151,6 +152,6 @@ _L5:
 
     static 
     {
-        hik hik = ebw.n;
+        hnc hnc = eev.n;
     }
 }

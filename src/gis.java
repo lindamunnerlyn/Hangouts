@@ -2,10 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.bluetooth.BluetoothHeadset;
 
 final class gis
-    implements Runnable
+    implements gix
 {
 
     final gir a;
@@ -16,40 +15,27 @@ final class gis
         super();
     }
 
-    public void run()
+    public void a(long l)
     {
-        gir gir1 = a;
-        gkc.b("vclib", "Starting or stopping Bluetooth timed out");
-        gir1.h();
-        switch (giu.b[gir1.h.ordinal()])
+        if (a.a != null)
         {
-        default:
-            return;
-
-        case 1: // '\001'
-            if (gir1.l != null && gir1.n != null && gir1.l.isAudioConnected(gir1.n))
-            {
-                gkc.e("vclib", "We thought BT had timed out, but it's actually on; updating state.");
-                gir1.h = giw.d;
-            } else
-            {
-                gir1.f();
-                gir1.i();
-            }
-            gir1.d();
-            return;
-
-        case 2: // '\002'
-            break;
+            a.a.a(l);
         }
-        if (gir1.l == null || gir1.n == null || !gir1.l.isAudioConnected(gir1.n))
+    }
+
+    public void a(long l, String s)
+    {
+        if (a.a != null)
         {
-            gkc.e("vclib", "We thought BT had timed out, but it's actually off; updating state.");
-            gir1.i();
-        } else
-        {
-            gir1.h = giw.d;
+            a.a.a(l, s);
         }
-        gir1.d();
+    }
+
+    public void a(long l, byte abyte0[])
+    {
+        if (a.a != null)
+        {
+            a.a.a(l, abyte0);
+        }
     }
 }

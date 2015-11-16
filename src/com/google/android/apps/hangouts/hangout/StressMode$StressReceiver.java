@@ -10,7 +10,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import g;
-import qb;
+import qd;
 
 public class  extends BroadcastReceiver
 {
@@ -19,24 +19,24 @@ public class  extends BroadcastReceiver
     {
         if (!"start_next_hangout".equals(intent.getAction())) goto _L2; else goto _L1
 _L1:
-        if (qb.m != null) goto _L4; else goto _L3
+        if (qd.m != null) goto _L4; else goto _L3
 _L3:
         intent.getParcelableExtra("hangout_intent");
 _L6:
         return;
 _L4:
-        qb.m.f();
+        qd.m.f();
         return;
 _L2:
         if ("stop_stress".equals(intent.getAction()))
         {
-            if (qb.m != null)
+            if (qd.m != null)
             {
-                qb.m.g();
+                qd.m.g();
             }
-            qb.m = null;
-            context = g.nS;
-            ((AlarmManager)context.getSystemService("alarm")).cancel(qb.a(null));
+            qd.m = null;
+            context = g.nU;
+            ((AlarmManager)context.getSystemService("alarm")).cancel(qd.a(null));
             ((NotificationManager)context.getSystemService("notification")).cancel(14);
             return;
         }

@@ -3,14 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class htx extends koj
+public final class htx extends kwm
 {
 
-    public lbm a;
+    public Long a;
+    public String b;
+    public Long c;
 
     public htx()
     {
         a = null;
+        b = null;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,20 +25,30 @@ public final class htx extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.e(1, a.longValue());
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.b(2, b);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.longValue());
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -43,23 +57,35 @@ public final class htx extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new lbm();
-                }
-                kog1.a(a);
+            case 8: // '\b'
+                a = Long.valueOf(kwj1.e());
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+
+            case 24: // '\030'
+                c = Long.valueOf(kwj1.e());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.b(1, a.longValue());
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.b(3, c.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

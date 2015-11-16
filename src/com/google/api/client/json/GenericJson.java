@@ -5,7 +5,7 @@
 package com.google.api.client.json;
 
 import com.google.api.client.util.GenericData;
-import h;
+import hrj;
 import java.io.IOException;
 
 // Referenced classes of package com.google.api.client.json:
@@ -78,7 +78,7 @@ public class GenericJson extends GenericData
             }
             catch (IOException ioexception)
             {
-                throw h.a(ioexception);
+                throw hrj.a(ioexception);
             }
             return s;
         } else

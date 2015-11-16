@@ -2,21 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-final class asp
-    implements Runnable
+public interface asp
 {
 
-    final ask a;
+    public abstract asj a(Context context, hof hof, int i, ap ap);
 
-    asp(ask ask1)
-    {
-        a = ask1;
-        super();
-    }
+    public abstract asm a(Context context, hof hof, int i, ad ad, aii aii, atu atu);
 
-    public void run()
-    {
-        a.h.a(dbf.e(a.f.a()).T());
-    }
+    public abstract asq a(Context context, hof hof, int i);
+
+    public abstract ass a(Context context, hof hof, ap ap);
+
+    public abstract guy a(String s, int i, aid aid, aot aot, atu atu, int j, boolean flag, 
+            String s1, int k);
 }

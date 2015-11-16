@@ -2,34 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import android.os.Handler;
+import com.google.android.apps.hangouts.views.EasterEggView;
+import java.util.Random;
 
-final class egt
-    implements android.view.View.OnClickListener
+public final class egt
+    implements Runnable
 {
 
-    final String a;
-    final String b;
-    final ad c;
-    final egs d;
+    final aoa a;
+    final EasterEggView b;
 
-    egt(egs egs1, String s, String s1, ad ad1)
+    public egt(EasterEggView eastereggview, aoa aoa)
     {
-        d = egs1;
-        a = s;
-        b = s1;
-        c = ad1;
+        b = eastereggview;
+        a = aoa;
         super();
     }
 
-    public void onClick(View view)
+    public void run()
     {
-        if (ebw.a("Babel", 3))
+        int i;
+        if (EasterEggView.b().nextBoolean())
         {
-            view = a;
-            String s = b;
-            ebw.d("Babel", (new StringBuilder(String.valueOf(view).length() + 48 + String.valueOf(s).length())).append("VideoSmSAttachmentView urlString: ").append(view).append(" contentType: ").append(s).toString());
+            i = g.cu;
+        } else
+        {
+            i = g.ct;
         }
-        c.startActivity(g.c(egs.a(d), b));
+        EasterEggView.a(b, a, EasterEggView.b(b), i);
+        EasterEggView.c(b).postDelayed(this, 400L);
     }
 }

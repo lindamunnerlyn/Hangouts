@@ -2,20 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
 
 final class bcm
-    implements bch
+    implements gtd
 {
 
     final bcl a;
 
-    bcm(bcl bcl)
+    bcm(bcl bcl1)
     {
-        a = bcl;
+        a = bcl1;
         super();
     }
 
-    public void a()
+    public void a(int i, Intent intent)
     {
+        g.a(bcl.a(a), i, intent);
     }
 }

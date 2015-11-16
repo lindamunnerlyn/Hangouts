@@ -2,36 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Comparator;
 
 final class doj
-    implements hfe
+    implements Comparator
 {
 
-    final doi a;
-
-    doj(doi doi1)
+    doj()
     {
-        a = doi1;
-        super();
     }
 
-    public boolean a(hfa hfa, Object obj)
+    public int compare(Object obj, Object obj1)
     {
-        boolean flag = g.a((Boolean)obj, false);
-        if (!flag)
-        {
-            g.a(doi.a(a).a(), 0, 0);
-        }
-        hfa = doi.a(a);
-        char c;
-        if (flag)
-        {
-            c = '\u059D';
-        } else
-        {
-            c = '\u059B';
-        }
-        g.a(hfa, c);
-        return true;
+        obj = (doi)obj;
+        obj1 = (doi)obj1;
+        return ((doi) (obj)).d.compareToIgnoreCase(((doi) (obj1)).d);
     }
 }

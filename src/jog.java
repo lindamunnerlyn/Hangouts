@@ -3,102 +3,53 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jog extends Enum
-    implements com.google.common.collect.MapMakerInternalMap.ReferenceEntry
+final class jog extends jnv
 {
 
-    public static final jog a;
-    private static final jog b[];
+    private static final long serialVersionUID = 0L;
+    private final Object a;
 
-    private jog(String s)
+    jog(Object obj)
     {
-        super(s, 0);
+        a = obj;
     }
 
-    public static jog valueOf(String s)
+    public Object a(Object obj)
     {
-        return (jog)Enum.valueOf(jog, s);
+        n.b(obj, "use Optional.orNull() instead of Optional.or(null)");
+        return a;
     }
 
-    public static jog[] values()
+    public boolean b()
     {
-        return (jog[])b.clone();
+        return true;
     }
 
-    public long getExpirationTime()
+    public Object c()
     {
-        return 0L;
+        return a;
     }
 
-    public int getHash()
+    public boolean equals(Object obj)
     {
-        return 0;
+        if (obj instanceof jog)
+        {
+            obj = (jog)obj;
+            return a.equals(((jog) (obj)).a);
+        } else
+        {
+            return false;
+        }
     }
 
-    public Object getKey()
+    public int hashCode()
     {
-        return null;
+        return 0x598df91c + a.hashCode();
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNext()
+    public String toString()
     {
-        return null;
-    }
-
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextEvictable()
-    {
-        return this;
-    }
-
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextExpirable()
-    {
-        return this;
-    }
-
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousEvictable()
-    {
-        return this;
-    }
-
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousExpirable()
-    {
-        return this;
-    }
-
-    public jou getValueReference()
-    {
-        return null;
-    }
-
-    public void setExpirationTime(long l)
-    {
-    }
-
-    public void setNextEvictable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
-    {
-    }
-
-    public void setNextExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
-    {
-    }
-
-    public void setPreviousEvictable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
-    {
-    }
-
-    public void setPreviousExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
-    {
-    }
-
-    public void setValueReference(jou jou)
-    {
-    }
-
-    static 
-    {
-        a = new jog("INSTANCE");
-        b = (new jog[] {
-            a
-        });
+        String s = String.valueOf(a);
+        return (new StringBuilder(String.valueOf(s).length() + 13)).append("Optional.of(").append(s).append(")").toString();
     }
 }

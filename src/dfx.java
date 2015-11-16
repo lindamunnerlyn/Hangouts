@@ -2,33 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.io.Serializable;
 
 public final class dfx
-    implements Runnable
+    implements Serializable
 {
 
-    final cwp a;
-    final RealTimeChatService b;
+    public boolean a;
+    public String b;
+    public String c;
+    public String d;
 
-    public dfx(RealTimeChatService realtimechatservice, cwp cwp1)
+    dfx()
     {
-        b = realtimechatservice;
-        a = cwp1;
-        super();
     }
 
-    public void run()
+    public String toString()
     {
-        dgp dgp1;
-        for (Iterator iterator = RealTimeChatService.o().iterator(); iterator.hasNext(); dgp1.Z())
-        {
-            dgp1 = (dgp)iterator.next();
-            a.b();
-            a.k();
-        }
-
+        boolean flag = a;
+        String s = b;
+        String s1 = c;
+        String s2 = d;
+        return (new StringBuilder(String.valueOf(s).length() + 73 + String.valueOf(s1).length() + String.valueOf(s2).length())).append("MergedPerson{isHangoutsReachable=").append(flag).append(", gaiaId='").append(s).append("', avatarUrl='").append(s1).append("', name='").append(s2).append("'}").toString();
     }
 }

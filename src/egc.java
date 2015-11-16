@@ -2,19 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
+import android.content.Context;
+import android.widget.Toast;
 
-public final class egc extends egh
+final class egc
+    implements Runnable
 {
 
-    public final List a;
-    public final boolean b;
-    public final boolean c;
+    final egb a;
 
-    public egc(List list, boolean flag, boolean flag1)
+    egc(egb egb1)
     {
-        a = list;
-        b = flag1;
-        c = flag;
+        a = egb1;
+        super();
+    }
+
+    public void run()
+    {
+        if (a.e == 1 || a.e == 2 || a.e == 3)
+        {
+            Toast.makeText(a.c, a.c.getString(l.u), 0).show();
+            a.j();
+            a.d = null;
+        }
     }
 }

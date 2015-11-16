@@ -2,21 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collections;
+import android.os.AsyncTask;
+import android.os.Environment;
+import java.io.File;
 
-public final class col
-    implements kxx
+final class col extends AsyncTask
 {
 
-    private final kxx a;
+    final cna a;
+    private final String b;
 
-    col(kxx kxx1)
+    public col(cna cna1, String s)
     {
-        a = kxx1;
+        a = cna1;
+        super();
+        b = s;
     }
 
-    public Object a()
+    protected Object doInBackground(Object aobj[])
     {
-        return Collections.singleton((coc)a.a());
+        return Environment.getExternalStorageDirectory().list(new com(this));
+    }
+
+    protected void onPostExecute(Object obj)
+    {
+        obj = (String[])obj;
+        if (obj == null || obj.length <= 0)
+        {
+            return;
+        } else
+        {
+            bg bg = a.e.a();
+            bjl.a(((String []) (obj)), b).a(bg, null);
+            return;
+        }
     }
 }

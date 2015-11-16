@@ -2,16 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
 
-final class hdf
+public final class hdf
+    implements hbu
 {
 
-    hcv a;
-    Object b;
-
-    hdf(hcv hcv, Object obj)
+    public hdf()
     {
-        a = hcv;
-        b = obj;
+    }
+
+    public ad a(Bundle bundle)
+    {
+        return new hdg();
     }
 }

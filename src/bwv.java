@@ -2,34 +2,57 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import android.content.Context;
+import android.os.ConditionVariable;
+import java.util.Map;
+import org.apache.http.client.HttpResponseException;
+import org.chromium.net.HttpUrlRequest;
 
-final class bwv
-    implements android.view.View.OnClickListener
+public final class bwv
+    implements gdu
 {
 
-    final boolean a;
-    final bwr b;
-    final String c;
-    final String d;
-    final String e;
-    final int f;
-    final bws g;
-
-    bwv(bws bws1, boolean flag, bwr bwr, String s, String s1, String s2, int i)
+    public bwv()
     {
-        g = bws1;
-        a = flag;
-        b = bwr;
-        c = s;
-        d = s1;
-        e = s2;
-        f = i;
-        super();
     }
 
-    public void onClick(View view)
+    public byte[] a(Context context, String s, Map map, byte abyte0[], int i)
     {
-        bws.a(g, a, b, c, d, e, f);
+        return a(context, s, map, abyte0, i, 3);
+    }
+
+    public byte[] a(Context context, String s, Map map, byte abyte0[], int i, int j)
+    {
+        bww bww1 = new bww();
+        if (eev.a("Babel_CronetHttpSender", 3))
+        {
+            eev.c("Babel_CronetHttpSender", String.format("Request headers for [%s]: %s", new Object[] {
+                s, map
+            }));
+        }
+        context = hgc.a(context, s, j, map, bww1);
+        if (abyte0 != null)
+        {
+            context.a("application/x-protobuf", abyte0);
+            context.a("POST");
+        } else
+        {
+            context.a("GET");
+        }
+        context.h();
+        if (!bww1.a.block(i))
+        {
+            context = new HttpResponseException(0, "cronet http timeout");
+            eev.d("Babel_CronetHttpSender", "Cronet HTTP request timeout", context);
+            throw context;
+        }
+        if (bww1.c != null)
+        {
+            eev.d("Babel_CronetHttpSender", "Cronet HTTP request failed", bww1.c);
+            throw bww1.c;
+        } else
+        {
+            return bww1.b;
+        }
     }
 }

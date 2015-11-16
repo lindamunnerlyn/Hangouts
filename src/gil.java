@@ -2,47 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.SurfaceTexture;
 
 final class gil
-    implements gjx
+    implements Runnable
 {
 
-    final gih a;
+    final int a;
+    final gie b;
 
-    gil(gih gih1)
+    gil(gie gie1, int i)
     {
-        a = gih1;
+        b = gie1;
+        a = i;
         super();
     }
 
-    public void a(SurfaceTexture surfacetexture)
+    public void run()
     {
-        g.w();
-        synchronized (a.n)
+        b.n = a;
+        if (b.c != null)
         {
-            a.r = surfacetexture;
+            b.c.a(a);
         }
-        a.a(a.m);
-        return;
-        surfacetexture;
-        obj;
-        JVM INSTR monitorexit ;
-        throw surfacetexture;
-    }
-
-    public void a(gjy gjy)
-    {
-        g.w();
-        synchronized (a.n)
-        {
-            a.o = gjy;
-        }
-        gih.a(a);
-        return;
-        gjy;
-        obj;
-        JVM INSTR monitorexit ;
-        throw gjy;
     }
 }

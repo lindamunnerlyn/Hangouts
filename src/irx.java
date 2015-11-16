@@ -2,83 +2,52 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Collections;
 
-public final class irx extends koj
+public final class irx extends Enum
+    implements joj
 {
 
-    public irg a;
-    public irw b;
+    public static final irx a;
+    private static final irx b[];
 
-    public irx()
+    private irx(String s)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s, 0);
     }
 
-    protected int computeSerializedSize()
+    public static joj b()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        return j;
+        return a;
     }
 
-    public kop mergeFrom(kog kog1)
+    public static irx valueOf(String s)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new irg();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new irw();
-                }
-                kog1.a(b);
-                break;
-            }
-        } while (true);
+        return (irx)Enum.valueOf(irx, s);
     }
 
-    public void writeTo(koh koh1)
+    public static irx[] values()
     {
-        if (a != null)
+        return (irx[])b.clone();
+    }
+
+    public Object a()
+    {
+        java.util.Set set = Collections.emptySet();
+        if (set == null)
         {
-            koh1.b(1, a);
-        }
-        if (b != null)
+            throw new NullPointerException("Cannot return null from a non-@Nullable @Provides method");
+        } else
         {
-            koh1.b(2, b);
+            return set;
         }
-        super.writeTo(koh1);
+    }
+
+    static 
+    {
+        a = new irx("INSTANCE");
+        b = (new irx[] {
+            a
+        });
     }
 }

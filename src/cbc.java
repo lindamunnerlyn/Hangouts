@@ -2,79 +2,134 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import com.google.android.apps.hangouts.navigation.NavigationDrawerFragment;
-import com.google.android.gms.people.accountswitcherview.SelectedAccountNavigationView;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import android.text.TextUtils;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
-public final class cbc extends pt
+final class cbc
+    implements cax
 {
 
-    final NavigationDrawerFragment b;
+    private final Context a;
+    private final cjf b;
+    private final ContentResolver c;
 
-    public cbc(NavigationDrawerFragment navigationdrawerfragment)
+    cbc(Context context)
     {
-        b = navigationdrawerfragment;
-        super(navigationdrawerfragment.getActivity(), NavigationDrawerFragment.e(navigationdrawerfragment), l.gQ, l.gP);
+        a = context;
+        b = (cjf)hlp.a(context, cjf);
+        c = context.getContentResolver();
     }
 
-    private ani e()
+    private void a(String s, String s1)
     {
-        return dbf.e(NavigationDrawerFragment.o(b).a());
-    }
-
-    public void a(int i)
-    {
-        super.a(i);
-        if (NavigationDrawerFragment.d(b) != null)
+        if (s != null)
         {
-            NavigationDrawerFragment.a(b, null);
-        }
-        if (i != 0)
-        {
-            NavigationDrawerFragment.n(b).a(true);
-        }
-    }
-
-    public final void a(View view)
-    {
-        super.a(view);
-        b.getActivity().p_();
-        NavigationDrawerFragment.c(b);
-        g.a(e(), 1558);
-    }
-
-    public final void a(View view, float f)
-    {
-        super.a(view, f);
-        if (f == 0.0F)
-        {
-            NavigationDrawerFragment.a(b, false);
+            s = c.query(android.provider.ContactsContract.CommonDataKinds.Phone.CONTENT_URI, new String[] {
+                "contact_id", "_id"
+            }, "contact_id=? and data1=? or data4=?", new String[] {
+                s, s1, s1
+            }, null);
         } else
-        if (!NavigationDrawerFragment.m(b) && f > 0.0F)
         {
-            NavigationDrawerFragment.a(b, true);
-            h.a(b.getActivity().getCurrentFocus());
+            s = c.query(android.provider.ContactsContract.CommonDataKinds.Phone.CONTENT_URI, new String[] {
+                "contact_id", "_id"
+            }, "data1=? or data4=?", new String[] {
+                s1, s1
+            }, null);
+        }
+        s1 = new HashSet();
+        do
+        {
+            if (!s.moveToNext())
+            {
+                break;
+            }
+            String s2 = s.getString(0);
+            Object obj = s.getString(1);
+            if (!s1.contains(s2))
+            {
+                obj = android.provider.ContactsContract.DataUsageFeedback.FEEDBACK_URI.buildUpon().appendPath(((String) (obj))).appendQueryParameter("type", "short_text").build();
+                c.update(((Uri) (obj)), new ContentValues(), null, null);
+                s1.add(s2);
+            }
+        } while (true);
+        s.close();
+    }
+
+    public void a(int i, String s)
+    {
+        if (!b.a("android.permission.WRITE_CONTACTS"))
+        {
             return;
         }
+        android.net.Uri.Builder builder = cba.c.buildUpon();
+        builder.appendQueryParameter("account_id", Integer.toString(i));
+        builder.appendQueryParameter("gaia_id", s);
+        s = new cbb(null, c.query(builder.build(), cba.f, null, null, null));
+_L2:
+        Object obj1;
+        boolean flag;
+        if (!s.moveToNext())
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        obj1 = s.a();
+        flag = TextUtils.isEmpty(((amx) (obj1)).m());
+        if (flag)
+        {
+            s.close();
+            return;
+        }
+        if (!((amx) (obj1)).d().isEmpty())
+        {
+            Object obj = ((amx) (obj1)).m();
+            obj1 = ((amv)((amx) (obj1)).d().iterator().next()).b();
+            obj = c.query(android.provider.ContactsContract.CommonDataKinds.Email.CONTENT_URI, new String[] {
+                "_id"
+            }, "contact_id=? and data1=?", new String[] {
+                obj, obj1
+            }, null);
+            if (((Cursor) (obj)).moveToNext())
+            {
+                obj1 = ((Cursor) (obj)).getString(0);
+                obj1 = android.provider.ContactsContract.DataUsageFeedback.FEEDBACK_URI.buildUpon().appendPath(((String) (obj1))).appendQueryParameter("type", "short_text").build();
+                c.update(((Uri) (obj1)), new ContentValues(), null, null);
+            }
+            ((Cursor) (obj)).close();
+            continue; /* Loop/switch isn't completed */
+        }
+        break MISSING_BLOCK_LABEL_254;
+        Exception exception;
+        exception;
+        s.close();
+        throw exception;
+        if (!((amx) (obj1)).b().isEmpty())
+        {
+            a(((amx) (obj1)).m(), ((and)((amx) (obj1)).b().iterator().next()).b());
+        }
+        if (true) goto _L2; else goto _L1
+_L1:
+        s.close();
+        return;
     }
 
-    public final void b(View view)
+    public void a(String s)
     {
-        super.b(view);
-        NavigationDrawerFragment.n(b).a();
-        NavigationDrawerFragment.n(b).a(false);
-        view = b.getActivity();
-        if (view != null)
+        if (!b.a("android.permission.WRITE_CONTACTS"))
         {
-            view.p_();
-        }
-        g.a(e(), 1559);
-        if (NavigationDrawerFragment.d(b) != null)
+            return;
+        } else
         {
-            NavigationDrawerFragment.d(b).run();
-            NavigationDrawerFragment.a(b, null);
+            a(((String) (null)), s);
+            return;
         }
-        NavigationDrawerFragment.f(b).b(0);
-        NavigationDrawerFragment.a(b, NavigationDrawerFragment.f(b));
     }
 }

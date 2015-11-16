@@ -14,6 +14,7 @@ import java.security.interfaces.ECKey;
 import java.security.interfaces.RSAKey;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.spec.ECParameterSpec;
+import lmo;
 
 // Referenced classes of package org.chromium.net:
 //            AndroidKeyStore, AndroidPrivateKey
@@ -29,7 +30,7 @@ public class DefaultAndroidKeyStore
     private static Object a(AndroidPrivateKey androidprivatekey)
     {
         Object obj;
-        obj = ((DefaultAndroidPrivateKey)androidprivatekey).a();
+        obj = ((lmo)androidprivatekey).a();
         if (obj == null)
         {
             Log.e("AndroidKeyStoreInProcessImpl", "key == null");
@@ -82,7 +83,7 @@ public class DefaultAndroidKeyStore
 
     public byte[] getECKeyOrder(AndroidPrivateKey androidprivatekey)
     {
-        androidprivatekey = ((DefaultAndroidPrivateKey)androidprivatekey).a();
+        androidprivatekey = ((lmo)androidprivatekey).a();
         if (androidprivatekey instanceof ECKey)
         {
             return ((ECKey)androidprivatekey).getParams().getOrder().toByteArray();
@@ -184,7 +185,7 @@ _L3:
 
     public int getPrivateKeyType(AndroidPrivateKey androidprivatekey)
     {
-        androidprivatekey = ((DefaultAndroidPrivateKey)androidprivatekey).a().getAlgorithm();
+        androidprivatekey = ((lmo)androidprivatekey).a().getAlgorithm();
         if ("RSA".equalsIgnoreCase(androidprivatekey))
         {
             return 0;
@@ -194,7 +195,7 @@ _L3:
 
     public byte[] getRSAKeyModulus(AndroidPrivateKey androidprivatekey)
     {
-        androidprivatekey = ((DefaultAndroidPrivateKey)androidprivatekey).a();
+        androidprivatekey = ((lmo)androidprivatekey).a();
         if (androidprivatekey instanceof RSAKey)
         {
             return ((RSAKey)androidprivatekey).getModulus().toByteArray();
@@ -206,7 +207,7 @@ _L3:
 
     public byte[] rawSignDigestWithPrivateKey(AndroidPrivateKey androidprivatekey, byte abyte0[])
     {
-        PrivateKey privatekey = ((DefaultAndroidPrivateKey)androidprivatekey).a();
+        PrivateKey privatekey = ((lmo)androidprivatekey).a();
         androidprivatekey = privatekey.getAlgorithm();
         if (!"RSA".equalsIgnoreCase(androidprivatekey)) goto _L2; else goto _L1
 _L1:
@@ -250,23 +251,4 @@ _L3:
     public void releaseKey(AndroidPrivateKey androidprivatekey)
     {
     }
-
-    private class DefaultAndroidPrivateKey
-        implements AndroidPrivateKey
-    {
-
-        final PrivateKey a;
-        final DefaultAndroidKeyStore b;
-
-        PrivateKey a()
-        {
-            return a;
-        }
-
-        public AndroidKeyStore getKeyStore()
-        {
-            return b;
-        }
-    }
-
 }

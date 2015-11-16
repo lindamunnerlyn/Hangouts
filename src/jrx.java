@@ -2,46 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
 
-public abstract class jrx extends jkv
-    implements Future
+final class jrx
 {
 
-    protected jrx()
+    private static int a = 0x40000000;
+
+    static int a(int i)
     {
+        return 0x1b873593 * Integer.rotateLeft(0xcc9e2d51 * i, 15);
     }
 
-    protected abstract Future a();
-
-    protected Object c()
+    static int b(int i)
     {
-        return a();
+label0:
+        {
+            int k = Math.max(i, 2);
+            int j = Integer.highestOneBit(k);
+            i = j;
+            if (k > (int)(1.2D * (double)j))
+            {
+                i = j << 1;
+                if (i <= 0)
+                {
+                    break label0;
+                }
+            }
+            return i;
+        }
+        return a;
     }
 
-    public boolean cancel(boolean flag)
-    {
-        return a().cancel(flag);
-    }
-
-    public Object get()
-    {
-        return a().get();
-    }
-
-    public Object get(long l, TimeUnit timeunit)
-    {
-        return a().get(l, timeunit);
-    }
-
-    public boolean isCancelled()
-    {
-        return a().isCancelled();
-    }
-
-    public boolean isDone()
-    {
-        return a().isDone();
-    }
 }

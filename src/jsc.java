@@ -3,16 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class jsc
-    implements jru
+final class jsc extends jsr
 {
 
-    jsc()
+    private static final long serialVersionUID = 0L;
+
+    jsc(jsa jsa)
     {
+        super(jsa);
     }
 
-    public jsj a(Object obj)
+    Object readResolve()
     {
-        return (jsj)obj;
+        return a(new jsb());
     }
 }

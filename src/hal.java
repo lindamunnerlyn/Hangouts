@@ -3,13 +3,45 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hal extends bgj
+public final class hal
 {
 
-    private static final long serialVersionUID = 0x3f648ea2c7cd3e6dL;
+    String a;
+    long b;
+    long c;
+    float d;
+    float e;
 
-    public hal(String s)
+    public hal()
     {
-        super(s);
+    }
+
+    public hak a()
+    {
+        return new hak(this);
+    }
+
+    public hal a(float f)
+    {
+        d = f;
+        return this;
+    }
+
+    public hal a(long l)
+    {
+        b = l;
+        return this;
+    }
+
+    public hal a(String s)
+    {
+        a = s;
+        return this;
+    }
+
+    public hal b(long l)
+    {
+        c = l;
+        return this;
     }
 }

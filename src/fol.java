@@ -2,21 +2,64 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.res.Resources;
+import android.os.Parcel;
+import com.google.android.gms.maps.model.StreetViewPanoramaOrientation;
 
-final class fol extends fon
+public final class fol
+    implements android.os.Parcelable.Creator
 {
 
-    final foj a;
-
-    fol(foj foj, Resources resources)
+    public fol()
     {
-        a = foj;
-        super(resources);
     }
 
-    protected String a(Resources resources, int i)
+    public static StreetViewPanoramaOrientation a(Parcel parcel)
     {
-        return (String)android.provider.ContactsContract.CommonDataKinds.Phone.getTypeLabel(resources, i, null);
+        float f1 = 0.0F;
+        int j = g.a(parcel);
+        int i = 0;
+        float f = 0.0F;
+        do
+        {
+            if (parcel.dataPosition() < j)
+            {
+                int k = parcel.readInt();
+                switch (0xffff & k)
+                {
+                default:
+                    g.b(parcel, k);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, k);
+                    break;
+
+                case 2: // '\002'
+                    f = g.g(parcel, k);
+                    break;
+
+                case 3: // '\003'
+                    f1 = g.g(parcel, k);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != j)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
+            } else
+            {
+                return new StreetViewPanoramaOrientation(i, f, f1);
+            }
+        } while (true);
+    }
+
+    public Object createFromParcel(Parcel parcel)
+    {
+        return a(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new StreetViewPanoramaOrientation[i];
     }
 }

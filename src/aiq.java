@@ -2,23 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.List;
+import android.content.Context;
 
-final class aiq
-    implements Runnable
+public final class aiq
 {
 
-    final aip a;
+    public static final String a = android/app/Application$ActivityLifecycleCallbacks.getName();
+    public static final String b = air.getName();
+    public static final String c = aio.getName();
+    private static aip d;
 
-    aiq(aip aip1)
+    public static void a(Context context, hlp hlp1)
     {
-        a = aip1;
-        super();
+        if (d == null)
+        {
+            d = new aip();
+        }
+        hlp1.a(android/app/Application$ActivityLifecycleCallbacks, new android.app.Application.ActivityLifecycleCallbacks[] {
+            (android.app.Application.ActivityLifecycleCallbacks)hlp.a(context, air)
+        });
     }
 
-    public void run()
+    public static void a(hlp hlp1)
     {
-        for (Iterator iterator = aip.a(a).iterator(); iterator.hasNext(); ((air)iterator.next()).a()) { }
+        if (d == null)
+        {
+            d = new aip();
+        }
+        hlp1.a(air, new air());
     }
+
+    public static void b(Context context, hlp hlp1)
+    {
+        if (d == null)
+        {
+            d = new aip();
+        }
+        hlp1.a(aio, (aio)hlp.a(context, air));
+    }
+
 }

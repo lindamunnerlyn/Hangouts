@@ -3,11 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class afs extends afq
+public class afs extends agh
 {
 
     public afs()
     {
+    }
+
+    public afs(byte byte0)
+    {
+        super(null);
     }
 
     public afs(Throwable throwable)

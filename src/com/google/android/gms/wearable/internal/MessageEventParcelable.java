@@ -6,15 +6,16 @@ package com.google.android.gms.wearable.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fth;
-import fvk;
+import fvn;
+import fxq;
+import g;
 
 public class MessageEventParcelable
-    implements SafeParcelable, fth
+    implements SafeParcelable, fvn
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fvk();
-    public final int a;
+    public static final android.os.Parcelable.Creator CREATOR = new fxq();
+    final int a;
     private final int b;
     private final String c;
     private final byte d[];
@@ -70,7 +71,13 @@ public class MessageEventParcelable
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fvk.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, d());
+        g.a(parcel, 3, a());
+        g.a(parcel, 4, b());
+        g.a(parcel, 5, c());
+        g.q(parcel, i);
     }
 
 }

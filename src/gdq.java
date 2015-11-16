@@ -2,33 +2,15 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.IntentFilter;
 
-public final class gdq
+public interface gdq
 {
 
-    private final Context a;
-    private final gdr b = new gdr(this);
+    public abstract void a();
 
-    public gdq(Context context)
-    {
-        a = context;
-        context = new IntentFilter("android.intent.action.BATTERY_CHANGED");
-        a.registerReceiver(b, context);
-    }
+    public abstract void a(kws kws);
 
-    void a()
-    {
-        a.unregisterReceiver(b);
-    }
+    public abstract void a(kws kws, kws kws1);
 
-    public void a(com.google.android.libraries.hangouts.video.Stats.GlobalStats globalstats)
-    {
-        globalstats.b(gkj.b());
-        globalstats.c(gkj.d() / 1000);
-        globalstats.d(gkj.e());
-        globalstats.a(b.a());
-        globalstats.e(b.b());
-    }
+    public abstract void b(kws kws);
 }

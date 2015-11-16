@@ -4,7 +4,7 @@
 
 package com.google.api.client.http;
 
-import hof;
+import htb;
 import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
 
@@ -19,10 +19,10 @@ public class GZipEncoding
     {
     }
 
-    public void encode(hof hof1, OutputStream outputstream)
+    public void encode(htb htb1, OutputStream outputstream)
     {
         outputstream = new GZIPOutputStream(new _cls1(outputstream));
-        hof1.writeTo(outputstream);
+        htb1.writeTo(outputstream);
         outputstream.close();
     }
 

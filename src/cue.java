@@ -3,33 +3,29 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cue extends cui
+public final class cue extends kws
 {
-
-    private static final long serialVersionUID = 1L;
 
     public cue()
     {
     }
 
-    public String a()
+    public int getCachedSize()
     {
-        return "ui_queue";
+        return 0;
     }
 
-    public kop a(String s, int i, int j)
+    public int getSerializedSize()
     {
-        if (ctr.e)
-        {
-            ebw.b("Babel_RequestWriter", "GetFavoritesRequest()");
-        }
-        itv itv1 = new itv();
-        itv1.requestHeader = ctq.a(null, true, s, i, j, h);
-        return itv1;
+        return 0;
     }
 
-    public String g()
+    public kws mergeFrom(kwj kwj)
     {
-        return "contacts/getfavorites";
+        return this;
+    }
+
+    public void writeTo(kwk kwk)
+    {
     }
 }

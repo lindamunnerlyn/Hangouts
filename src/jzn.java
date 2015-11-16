@@ -3,60 +3,25 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jzn extends koj
+abstract class jzn
 {
 
-    public Boolean a;
-
-    public jzn()
+    private jzn()
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    jzn(byte byte0)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        return i;
+        this();
     }
 
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
+    abstract void a(jzx jzx, Thread thread);
 
-            case 0: // '\0'
-                return this;
+    abstract void a(jzx jzx, jzx jzx1);
 
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
-    }
+    abstract boolean a(jzm jzm, Object obj, Object obj1);
 
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
-        }
-        super.writeTo(koh1);
-    }
+    abstract boolean a(jzm jzm, jzr jzr, jzr jzr1);
+
+    abstract boolean a(jzm jzm, jzx jzx, jzx jzx1);
 }

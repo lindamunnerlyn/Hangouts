@@ -2,22 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.gms.maps.model.Tile;
 
-final class fmx
-    implements ekh
+public interface fmx
 {
 
-    final fmw a;
+    public static final Tile b = new Tile();
 
-    fmx(fmw fmw1)
-    {
-        a = fmw1;
-        super();
-    }
-
-    public void a(ekg ekg)
-    {
-        ekg = (fmi)ekg;
-        a.a(ekg);
-    }
 }

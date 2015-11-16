@@ -2,28 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
+import android.view.View;
 
 final class cij
-    implements hhl, hhy
+    implements android.view.View.OnClickListener
 {
 
-    cij()
+    final cic a;
+
+    cij(cic cic1)
     {
+        a = cic1;
+        super();
     }
 
-    public Class a()
+    public void onClick(View view)
     {
-        return cia;
-    }
-
-    public void a(ad ad, hjm hjm, hgx hgx1)
-    {
-        hgx1.a(cia, new cie(hjm));
-    }
-
-    public void a(Activity activity, hjm hjm, hgx hgx1)
-    {
-        hgx1.a(cia, new cie(activity, hjm));
+        boolean flag = cic.e(a).e();
+        view = cic.e(a);
+        if (!flag)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        view.d(flag);
     }
 }

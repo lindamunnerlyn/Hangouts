@@ -6,6 +6,7 @@
 public final class emx
 {
 
-    public static final boolean a = false;
-
+    public emx()
+    {
+    }
 }

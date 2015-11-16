@@ -2,14 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public final class gwj extends RuntimeException
+public final class gwj
 {
 
-    private static final long serialVersionUID = 1L;
+    public static final String a = gwb.getName();
+    private static gwi b;
 
-    public gwj(String s)
+    public static void a(Context context, hlp hlp1)
     {
-        super(s);
+        if (b == null)
+        {
+            b = new gwi();
+        }
+        hlp1.a(gwb, new gwd(context));
     }
+
 }

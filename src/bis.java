@@ -2,61 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import com.google.android.apps.hangouts.fragments.ConversationListFragment;
 
-final class bis
+public final class bis
+    implements bze
 {
 
-    final biq a;
-    private final Set b = new HashSet();
-    private final Map c = new HashMap();
-    private int d;
-    private boolean e;
+    final ConversationListFragment a;
 
-    bis(biq biq1)
+    public bis(ConversationListFragment conversationlistfragment)
     {
-        a = biq1;
+        a = conversationlistfragment;
         super();
-        d = 0;
-        e = false;
     }
 
-    private void b()
+    public void a(bzd bzd)
     {
-        if (e && d == c.size())
+        ConversationListFragment.a(a, bzd);
+        ConversationListFragment.a(a).v();
+    }
+
+    public void b(bzd bzd)
+    {
+        if (ConversationListFragment.b(a) == bzd)
         {
-            a.a(c, true, true);
-            c.clear();
-            b.clear();
-            d = 0;
-        }
-    }
-
-    public void a()
-    {
-        e = true;
-        b();
-    }
-
-    public void a(String s)
-    {
-        b.add(s);
-        d = d + 1;
-    }
-
-    public boolean a(String s, long l)
-    {
-        if (b.remove(s))
-        {
-            c.put(s, Long.valueOf(l));
-            b();
-            return true;
-        } else
-        {
-            return false;
+            ConversationListFragment.a(a, null);
+            ConversationListFragment.a(a).s();
         }
     }
 }

@@ -2,21 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
+import android.content.DialogInterface;
+import com.google.android.apps.hangouts.phone.ConversationUrlHandlerActivity;
 
-public final class clp extends Binder
+public final class clp
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final com.google.android.apps.hangouts.phone.DebugActivity.RecordingService a;
+    final ConversationUrlHandlerActivity a;
 
-    public clp(com.google.android.apps.hangouts.phone.DebugActivity.RecordingService recordingservice)
+    public clp(ConversationUrlHandlerActivity conversationurlhandleractivity)
     {
-        a = recordingservice;
+        a = conversationurlhandleractivity;
         super();
     }
 
-    com.google.android.apps.hangouts.phone.DebugActivity.RecordingService a()
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        return a;
+        a.finish();
     }
 }

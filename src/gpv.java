@@ -2,30 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.res.Resources;
 
-public class gpv
+public final class gpv extends gpu
 {
 
-    private Context a;
-
-    public gpv(Context context)
+    public gpv()
     {
-        a = context;
-    }
-
-    public String a(int i)
-    {
-        String s;
-        try
-        {
-            s = a.getResources().getResourceName(i);
-        }
-        catch (android.content.res.Resources.NotFoundException notfoundexception)
-        {
-            return null;
-        }
-        return s;
     }
 }

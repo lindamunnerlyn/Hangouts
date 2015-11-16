@@ -3,28 +3,38 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hwn extends koj
+public final class hwn extends kwm
 {
 
-    public hwc a;
-    public hwo b[];
-    public String c;
-    public String d;
-    public hwo e;
-    public String f;
-    public String g;
+    private static volatile hwn c[];
+    public hwx a;
+    public Integer b;
 
     public hwn()
     {
         a = null;
-        b = hwo.a();
-        c = null;
-        d = null;
-        e = null;
-        f = null;
-        g = null;
+        b = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static hwn[] a()
+    {
+        if (c == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (c == null)
+                {
+                    c = new hwn[0];
+                }
+            }
+        }
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -33,177 +43,64 @@ public final class hwn extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.d(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i;
-            if (b.length > 0)
-            {
-                for (j = 0; j < b.length;)
-                {
-                    hwo hwo1 = b[j];
-                    int k = i;
-                    if (hwo1 != null)
-                    {
-                        k = i + koh.d(2, hwo1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            j = i + kwk.e(4, b.intValue());
         }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.b(3, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.b(4, d);
-        }
-        i = j;
-        if (e != null)
-        {
-            i = j + koh.d(5, e);
-        }
-        j = i;
-        if (f != null)
-        {
-            j = i + koh.b(6, f);
-        }
-        i = j;
-        if (g != null)
-        {
-            i = j + koh.b(7, g);
-        }
-        return i;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L5:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   10: 51
+    //                   32: 80;
+           goto _L1 _L2 _L3 _L4
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
+_L2:
+        return this;
+_L3:
+        if (a == null)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new hwc();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                hwo ahwo[];
-                int j;
-                if (b == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
-                }
-                ahwo = new hwo[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, ahwo, 0, j);
-                    k = j;
-                }
-                for (; k < ahwo.length - 1; k++)
-                {
-                    ahwo[k] = new hwo();
-                    kog1.a(ahwo[k]);
-                    kog1.a();
-                }
-
-                ahwo[k] = new hwo();
-                kog1.a(ahwo[k]);
-                b = ahwo;
-                break;
-
-            case 26: // '\032'
-                c = kog1.j();
-                break;
-
-            case 34: // '"'
-                d = kog1.j();
-                break;
-
-            case 42: // '*'
-                if (e == null)
-                {
-                    e = new hwo();
-                }
-                kog1.a(e);
-                break;
-
-            case 50: // '2'
-                f = kog1.j();
-                break;
-
-            case 58: // ':'
-                g = kog1.j();
-                break;
-            }
-        } while (true);
+            a = new hwx();
+        }
+        kwj1.a(a);
+          goto _L5
+_L4:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+        case 5: // '\005'
+            b = Integer.valueOf(j);
+            break;
+        }
+        if (true) goto _L5; else goto _L6
+_L6:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.b(1, a);
         }
-        if (b != null && b.length > 0)
+        if (b != null)
         {
-            for (int i = 0; i < b.length; i++)
-            {
-                hwo hwo1 = b[i];
-                if (hwo1 != null)
-                {
-                    koh1.b(2, hwo1);
-                }
-            }
-
+            kwk1.a(4, b.intValue());
         }
-        if (c != null)
-        {
-            koh1.a(3, c);
-        }
-        if (d != null)
-        {
-            koh1.a(4, d);
-        }
-        if (e != null)
-        {
-            koh1.b(5, e);
-        }
-        if (f != null)
-        {
-            koh1.a(6, f);
-        }
-        if (g != null)
-        {
-            koh1.a(7, g);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

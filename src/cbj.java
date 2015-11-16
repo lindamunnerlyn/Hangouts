@@ -2,47 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.MenuItem;
+import android.database.Cursor;
+import android.text.TextUtils;
 
-public final class cbj
-    implements fsn, hhi, hjw
+public class cbj
 {
 
-    private final Activity a;
-    private gmo b;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public boolean e;
+    public boolean f;
+    public String g;
+    public String h;
+    public String i;
+    public long j;
 
-    public cbj(Activity activity, hjm hjm1)
+    cbj()
     {
-        a = activity;
-        hjm1.a(this);
     }
 
-    public void a(Context context, hgx hgx1, Bundle bundle)
+    protected static void a(Cursor cursor, cbj cbj1)
     {
-        b = (gmo)hgx1.a(gmo);
+        cbj1.a = cursor.getString(3);
+        cbj1.b = cursor.getString(4);
+        cbj1.c = cursor.getString(5);
+        cbj1.d = cursor.getString(6);
+        cbj1.f = eep.d(cursor.getInt(7));
+        cbj1.e = eep.d(cursor.getInt(8));
+        cbj1.g = cursor.getString(9);
+        cbj1.h = cursor.getString(10);
+        cbj1.i = cursor.getString(11);
+        cbj1.j = cursor.getLong(12);
     }
 
-    public boolean a(MenuItem menuitem)
+    public boolean a()
     {
-        if (menuitem.getItemId() == 0x102002c)
-        {
-            menuitem = bu.b(a);
-            menuitem.putExtra("account_id", b.a());
-            if (bu.a(a, menuitem))
-            {
-                dv.a(a).b(menuitem).b();
-            } else
-            {
-                bu.b(a, menuitem);
-            }
-            return true;
-        } else
-        {
-            return false;
-        }
+        return a == null || TextUtils.isEmpty(a.trim());
     }
 }

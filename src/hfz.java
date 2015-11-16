@@ -2,53 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
-import android.os.Bundle;
+import java.util.concurrent.atomic.AtomicLong;
 
-public class hfz
-    implements fsn, his
+final class hfz
+    implements Runnable
 {
 
-    public ps b;
-    public hfh c;
+    final hfy a;
 
-    public hfz(ps ps1, hjm hjm1)
+    hfz(hfy hfy1)
     {
-        this(ps1, hjm1, (byte)0);
+        a = hfy1;
+        super();
     }
 
-    private hfz(ps ps1, hjm hjm1, byte byte0)
+    public void run()
     {
-        b = ps1;
-        c = null;
-        hjm1.a(this);
-    }
-
-    public Bundle a(Intent intent)
-    {
-        return null;
-    }
-
-    public hfh a()
-    {
-        return c;
-    }
-
-    public void a(Bundle bundle)
-    {
-        if (bundle == null)
-        {
-            bundle = a();
-            if (bundle == null)
-            {
-                throw new IllegalStateException("A PreferenceFragment must be provided!");
-            }
-            Bundle bundle1 = a(b.getIntent());
-            if (bundle1 != null)
-            {
-                bundle.setArguments(bundle1);
-            }
-            b.t_().a().a(g.tr, bundle).b();
-        }
+        a.a.a(a.d.get(), a.c);
+        a.b = false;
     }
 }

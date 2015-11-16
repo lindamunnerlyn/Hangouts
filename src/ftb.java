@@ -2,33 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
+import android.os.Bundle;
+import android.text.TextUtils;
 import com.google.android.gms.common.data.DataHolder;
+import java.util.regex.Pattern;
 
-public final class ftb extends emm
-    implements ekg
+public final class ftb extends epl
+    implements fto
 {
 
-    private final Status b;
+    public static final String c[] = {
+        "_id", "qualified_id", "gaia_id", "name", "sort_key", "sort_key_irank", "avatar", "profile_type", "v_circle_ids", "blocked", 
+        "in_viewer_domain", "last_modified", "name_verified", "given_name", "family_name", "affinity1", "affinity2", "affinity3", "affinity4", "affinity5", 
+        "people_in_common", "v_emails", "v_phones"
+    };
+    private final Bundle d;
+    private final fre e;
+    private final frd f;
+    private final boolean g;
 
-    public ftb(DataHolder dataholder)
+    public ftb(DataHolder dataholder, int j, Bundle bundle, fre fre1, frd frd1)
     {
-        super(dataholder);
-        b = new Status(dataholder.e());
+        super(dataholder, j);
+        d = bundle;
+        e = fre1;
+        f = frd1;
+        g = d.getBoolean("emails_with_affinities", false);
     }
 
-    public Status B_()
+    public Iterable c()
     {
-        return b;
+        return f.a(b("v_emails"), g);
     }
 
-    protected Object a(int i, int j)
+    public Iterable d()
     {
-        return new fuh(a, i, j);
+        return e.a(b("v_phones"), false);
     }
 
-    protected String e()
+    public String[] i()
     {
-        return "path";
+        String s = b("v_circle_ids");
+        if (TextUtils.isEmpty(s))
+        {
+            return fst.d;
+        } else
+        {
+            return fst.e.split(s, -1);
+        }
     }
+
 }

@@ -2,219 +2,109 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
-import android.util.Log;
-import java.util.Arrays;
+import android.content.Context;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public final class gst
-    implements gsn
+    implements gss
 {
 
-    private static final gst a = new gst();
+    private final gqz a;
+    private final grk b;
 
-    private gst()
+    gst(Context context)
     {
+        a = (gqz)hlp.a(context, gqz);
+        b = (grk)hlp.a(context, grk);
     }
 
-    static Map b(SQLiteDatabase sqlitedatabase)
+    private void a(int i, List list)
     {
-        Object obj;
-        obj = new HashMap();
-        sqlitedatabase = sqlitedatabase.query("partition_versions", new String[] {
-            "partition_name", "version"
-        }, null, null, null, null, null);
-        while (sqlitedatabase.moveToNext()) 
+        Object obj = a.a(i);
+        if (!((grb) (obj)).d("is_managed_account"))
         {
-            ((Map) (obj)).put(sqlitedatabase.getString(0), Integer.valueOf(sqlitedatabase.getInt(1)));
-        }
-        break MISSING_BLOCK_LABEL_79;
-        obj;
-        sqlitedatabase.close();
-        throw obj;
-        sqlitedatabase.close();
-        return ((Map) (obj));
-    }
-
-    private static void b(SQLiteDatabase sqlitedatabase, gsn gsn1)
-    {
-        java.util.List list = Arrays.asList(b(sqlitedatabase, gsn1.a()));
-        Object obj = Arrays.asList(gsn1.b());
-        Object obj1 = new HashSet(list);
-        ((Set) (obj1)).removeAll(((java.util.Collection) (obj)));
-        obj = new HashSet(((java.util.Collection) (obj)));
-        ((Set) (obj)).removeAll(list);
-        String as[] = new String[2];
-        as[0] = gsn1.a();
-        for (obj1 = ((Set) (obj1)).iterator(); ((Iterator) (obj1)).hasNext(); sqlitedatabase.delete("partition_tables", "partition_name=? AND table_name=?", as))
-        {
-            as[1] = (String)((Iterator) (obj1)).next();
-        }
-
-        obj1 = new ContentValues(2);
-        ((ContentValues) (obj1)).put("partition_name", gsn1.a());
-        for (gsn1 = ((Set) (obj)).iterator(); gsn1.hasNext(); sqlitedatabase.insert("partition_tables", null, ((ContentValues) (obj1))))
-        {
-            ((ContentValues) (obj1)).put("table_name", (String)gsn1.next());
-        }
-
-    }
-
-    static String[] b(SQLiteDatabase sqlitedatabase, String s)
-    {
-        int i;
-        sqlitedatabase = sqlitedatabase.query("partition_tables", new String[] {
-            "table_name"
-        }, "partition_name=?", new String[] {
-            s
-        }, null, null, null);
-        s = new String[sqlitedatabase.getCount()];
-        i = 0;
-_L2:
-        if (!sqlitedatabase.moveToNext())
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        s[i] = sqlitedatabase.getString(0);
-        i++;
-        if (true) goto _L2; else goto _L1
-_L1:
-        sqlitedatabase.close();
-        return s;
-        s;
-        sqlitedatabase.close();
-        throw s;
-    }
-
-    private static void c(SQLiteDatabase sqlitedatabase, gsn gsn1)
-    {
-        java.util.List list = Arrays.asList(c(sqlitedatabase, gsn1.a()));
-        Object obj = Arrays.asList(gsn1.c());
-        Object obj1 = new HashSet(list);
-        ((Set) (obj1)).removeAll(((java.util.Collection) (obj)));
-        obj = new HashSet(((java.util.Collection) (obj)));
-        ((Set) (obj)).removeAll(list);
-        String as[] = new String[2];
-        as[0] = gsn1.a();
-        for (obj1 = ((Set) (obj1)).iterator(); ((Iterator) (obj1)).hasNext(); sqlitedatabase.delete("partition_views", "partition_name=? AND view_name=?", as))
-        {
-            as[1] = (String)((Iterator) (obj1)).next();
-        }
-
-        obj1 = new ContentValues(2);
-        ((ContentValues) (obj1)).put("partition_name", gsn1.a());
-        for (gsn1 = ((Set) (obj)).iterator(); gsn1.hasNext(); sqlitedatabase.insert("partition_views", null, ((ContentValues) (obj1))))
-        {
-            ((ContentValues) (obj1)).put("view_name", (String)gsn1.next());
-        }
-
-    }
-
-    static String[] c(SQLiteDatabase sqlitedatabase, String s)
-    {
-        int i;
-        sqlitedatabase = sqlitedatabase.query("partition_views", new String[] {
-            "view_name"
-        }, "partition_name=?", new String[] {
-            s
-        }, null, null, null);
-        s = new String[sqlitedatabase.getCount()];
-        i = 0;
-_L2:
-        if (!sqlitedatabase.moveToNext())
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        s[i] = sqlitedatabase.getString(0);
-        i++;
-        if (true) goto _L2; else goto _L1
-_L1:
-        sqlitedatabase.close();
-        return s;
-        s;
-        sqlitedatabase.close();
-        throw s;
-    }
-
-    public static gst d()
-    {
-        return a;
-    }
-
-    public String a()
-    {
-        return "__master_partition__";
-    }
-
-    public void a(SQLiteDatabase sqlitedatabase)
-    {
-        if (Log.isLoggable("PartitionedDatabase", 3))
-        {
-            String s = String.valueOf(a());
-            if (s.length() != 0)
+            obj = ((grb) (obj)).b("account_name");
+            List list1 = a.a();
+            int j = list1.size();
+            i = 0;
+            while (i < j) 
             {
-                "onCreate: ".concat(s);
-            } else
-            {
-                new String("onCreate: ");
+                Integer integer = (Integer)list1.get(i);
+                grb grb1 = a.a(integer.intValue());
+                if (grb1.d("is_managed_account") && grb1.b("account_name").equals(obj))
+                {
+                    list.add(integer);
+                }
+                i++;
             }
         }
-        sqlitedatabase.execSQL("CREATE TABLE partition_versions (partition_name TEXT NOT NULL PRIMARY KEY,version INT NOT NULL DEFAULT(0));");
-        sqlitedatabase.execSQL("CREATE TABLE partition_tables (partition_name TEXT NOT NULL,table_name TEXT NOT NULL,UNIQUE (partition_name,table_name));");
-        sqlitedatabase.execSQL("CREATE TABLE partition_views (partition_name TEXT NOT NULL,view_name TEXT NOT NULL,UNIQUE (partition_name,view_name));");
     }
 
-    void a(SQLiteDatabase sqlitedatabase, gsn gsn1)
+    public void a()
     {
-        ContentValues contentvalues = new ContentValues(2);
-        contentvalues.put("partition_name", gsn1.a());
-        contentvalues.put("version", Integer.valueOf(1));
-        sqlitedatabase.replace("partition_versions", null, contentvalues);
-        b(sqlitedatabase, gsn1);
-        c(sqlitedatabase, gsn1);
-    }
-
-    public void a(SQLiteDatabase sqlitedatabase, String s)
-    {
-        if (TextUtils.equals(s, a()))
+        this;
+        JVM INSTR monitorenter ;
+        HashMap hashmap;
+        grh agrh[];
+        int k;
+        hashmap = new HashMap();
+        agrh = b.a();
+        k = agrh.length;
+        int i = 0;
+_L2:
+        Object obj;
+        if (i >= k)
         {
-            throw new IllegalArgumentException("Cannot delete the master partition");
-        } else
-        {
-            String as[] = new String[1];
-            as[0] = s;
-            sqlitedatabase.delete("partition_versions", "partition_name=?", as);
-            sqlitedatabase.delete("partition_tables", "partition_name=?", as);
-            return;
+            break; /* Loop/switch isn't completed */
         }
-    }
-
-    public boolean a(int i, int j)
-    {
-        if (Log.isLoggable("PartitionedDatabase", 4))
+        obj = agrh[i];
+        hashmap.put(((grh) (obj)).a(), Integer.valueOf(((grh) (obj)).b()));
+        i++;
+        if (true) goto _L2; else goto _L1
+_L1:
+        ArrayList arraylist;
+        arraylist = new ArrayList();
+        obj = a.a().iterator();
+_L3:
+        do
         {
-            (new StringBuilder(53)).append("Upgrade master partition: ").append(i).append(" --> 1");
+            grb grb1;
+            do
+            {
+                if (!((Iterator) (obj)).hasNext())
+                {
+                    break MISSING_BLOCK_LABEL_254;
+                }
+                i = ((Integer)((Iterator) (obj)).next()).intValue();
+                grb1 = a.a(i);
+            } while (grb1.b("effective_gaia_id") != null);
+            String s = grb1.b("account_name");
+            if (!hashmap.containsKey(s))
+            {
+                break MISSING_BLOCK_LABEL_232;
+            }
+            if (((Integer)hashmap.get(s)).intValue() != grb1.a("device_index", -1))
+            {
+                a.b(i).c("device_index", ((Integer)hashmap.get(s)).intValue()).d();
+            }
+        } while (true);
+        Exception exception;
+        exception;
+        throw exception;
+        arraylist.add(Integer.valueOf(i));
+        a(i, ((List) (arraylist)));
+          goto _L3
+        int j;
+        for (Iterator iterator = arraylist.iterator(); iterator.hasNext(); a.f(j))
+        {
+            j = ((Integer)iterator.next()).intValue();
         }
-        return true;
-    }
 
-    public String[] b()
-    {
-        return (new String[] {
-            "partition_versions", "partition_tables", "partition_views"
-        });
+        this;
+        JVM INSTR monitorexit ;
     }
-
-    public String[] c()
-    {
-        return new String[0];
-    }
-
 }

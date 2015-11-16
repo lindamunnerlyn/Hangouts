@@ -2,18 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 
 final class gvm
+    implements ThreadFactory
 {
 
-    public final int a;
-    public final int b;
-    public int c;
+    private final AtomicInteger a = new AtomicInteger(1);
 
-    public gvm(int i, int j, int k)
+    gvm()
     {
-        a = i;
-        b = j;
-        c = k;
+    }
+
+    public Thread newThread(Runnable runnable)
+    {
+        int i = a.getAndIncrement();
+        runnable = new Thread(runnable, (new StringBuilder(27)).append("BackgroundTask #").append(i).toString());
+        runnable.setPriority(1);
+        return runnable;
     }
 }

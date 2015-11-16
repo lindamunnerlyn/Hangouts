@@ -2,22 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.content.res.Resources;
 
-public final class gug extends Enum
+public class gug
 {
 
-    public static final int a;
-    public static final int b;
-    public static final int c;
-    private static final int d[];
+    private Context a;
 
-    static 
+    public gug(Context context)
     {
-        a = 1;
-        b = 2;
-        c = 3;
-        d = (new int[] {
-            a, b, c
-        });
+        a = context;
+    }
+
+    public String a(int i)
+    {
+        String s;
+        try
+        {
+            s = a.getResources().getResourceName(i);
+        }
+        catch (android.content.res.Resources.NotFoundException notfoundexception)
+        {
+            return null;
+        }
+        return s;
     }
 }

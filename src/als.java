@@ -3,50 +3,32 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
-public final class als extends cqv
+public final class als extends ctf
 {
 
     public als()
     {
     }
 
-    public cqw a()
+    public ctg a()
     {
         return new alr();
     }
 
     public boolean a(Context context)
     {
-        ani ani1 = dbf.e(((gmo)hgx.a(context, gmo)).a());
-        if (ani1 != null)
-        {
-            dan dan1 = (dan)hgx.a(context.getApplicationContext(), dan);
-            boolean flag;
-            if (g.a(ani1, apk.b) && !PreferenceManager.getDefaultSharedPreferences(context).getBoolean("call_promo_shown", false) && (!ebz.e() || dan1.a(context)) && !ani1.ac() && dan1.b(ani1))
-            {
-                flag = true;
-            } else
-            {
-                flag = false;
-            }
-            if (flag)
-            {
-                return true;
-            }
-        }
-        return false;
+        context = dcn.e(((gqu)hlp.a(context, gqu)).a());
+        return context != null && context.Z();
     }
 
     public int b()
     {
-        return crb.j;
+        return ctl.l;
     }
 
     public int c()
     {
-        return g.jp;
+        return g.jf;
     }
 }

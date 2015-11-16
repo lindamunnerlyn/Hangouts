@@ -2,32 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ComponentCallbacks2;
-import android.content.res.Configuration;
+import android.content.SharedPreferences;
 
-final class coe
-    implements ComponentCallbacks2
+final class coe extends coj
 {
 
-    final coc a;
+    final SharedPreferences a;
+    final cna b;
 
-    coe(coc coc)
+    public coe(cna cna1, SharedPreferences sharedpreferences)
     {
-        a = coc;
-        super();
+        b = cna1;
+        super("Change API endpoint URLs");
+        a = sharedpreferences;
     }
 
-    public void onConfigurationChanged(Configuration configuration)
+    public void a()
     {
-    }
+        dmi admi[] = dmi.values();
+        CharSequence acharsequence[] = new CharSequence[admi.length];
+        for (int i = 0; i < admi.length; i++)
+        {
+            acharsequence[i] = admi[i].toString();
+        }
 
-    public void onLowMemory()
-    {
-        gbi.a.a();
-    }
-
-    public void onTrimMemory(int i)
-    {
-        gbi.a.a(i);
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(b.a);
+        builder.setTitle("Choose API to change");
+        builder.setItems(acharsequence, new cof(this, admi));
+        builder.show();
     }
 }

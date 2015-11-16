@@ -2,46 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
-import android.widget.LinearLayout;
+import android.view.View;
+import com.google.android.apps.hangouts.hangout.IncomingRing;
+import com.google.android.apps.hangouts.hangout.IncomingRingActivity;
 
-final class bql extends Animation
+public final class bql
+    implements android.view.View.OnClickListener
 {
 
-    final android.view.ViewGroup.LayoutParams a;
-    final int b;
-    final int c;
-    final LinearLayout d;
-    final boolean e;
-    final bqf f;
+    final IncomingRingActivity a;
 
-    bql(bqf bqf1, android.view.ViewGroup.LayoutParams layoutparams, int i, int j, LinearLayout linearlayout, boolean flag)
+    public bql(IncomingRingActivity incomingringactivity)
     {
-        f = bqf1;
-        a = layoutparams;
-        b = i;
-        c = j;
-        d = linearlayout;
-        e = flag;
+        a = incomingringactivity;
         super();
     }
 
-    protected void applyTransformation(float f1, Transformation transformation)
+    public void onClick(View view)
     {
-        transformation = (android.widget.FrameLayout.LayoutParams)a;
-        transformation.bottomMargin = b + (int)((float)c * f1);
-        d.setLayoutParams(transformation);
-        if (e)
+        if (!a.isFinishing())
         {
-            d.setAlpha(f1);
-        } else
-        {
-            d.setAlpha(1.0F - f1);
-        }
-        if (f1 == 1.0F)
-        {
-            bqf.b(f);
+            a.j.m();
         }
     }
 }

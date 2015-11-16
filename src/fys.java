@@ -2,28 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.ConnectionResult;
+import android.os.Parcel;
+import com.google.android.gms.wearable.internal.CloseChannelResponse;
 
-final class fys
-    implements fyb
+public final class fys
+    implements android.os.Parcelable.Creator
 {
 
-    private final ConnectionResult a;
-
-    public fys(ConnectionResult connectionresult)
+    public fys()
     {
-        if (connectionresult == null)
-        {
-            throw new IllegalArgumentException("null connectionResult");
-        } else
-        {
-            a = connectionresult;
-            return;
-        }
     }
 
-    public String toString()
+    public Object createFromParcel(Parcel parcel)
     {
-        return a.toString();
+        int j = 0;
+        int k = g.a(parcel);
+        int i = 0;
+        do
+        {
+            if (parcel.dataPosition() < k)
+            {
+                int l = parcel.readInt();
+                switch (0xffff & l)
+                {
+                default:
+                    g.b(parcel, l);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, l);
+                    break;
+
+                case 2: // '\002'
+                    j = g.e(parcel, l);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != k)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
+            } else
+            {
+                return new CloseChannelResponse(i, j);
+            }
+        } while (true);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new CloseChannelResponse[i];
     }
 }

@@ -2,11 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public interface byb
+public final class byb extends ctf
 {
 
-    public abstract void a(bya bya);
+    public byb()
+    {
+    }
 
-    public abstract void b(bya bya);
+    public ctg a()
+    {
+        return new bya();
+    }
+
+    public boolean a(Context context)
+    {
+        context = dcn.e(((gqu)hlp.a(context, gqu)).a());
+        return context != null && !context.o() && !context.D() && !context.u();
+    }
+
+    public int b()
+    {
+        return ctl.i;
+    }
+
+    public int c()
+    {
+        return h.it;
+    }
 }

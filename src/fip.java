@@ -2,11 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
+import android.content.Context;
+import android.content.Intent;
 
-public interface fip
-    extends IInterface
+public final class fip
 {
 
-    public abstract boolean a(fkr fkr);
+    private final Intent a = new Intent("com.google.android.gms.location.places.ui.PICK_PLACE");
+
+    public fip()
+    {
+        a.setPackage("com.google.android.gms");
+        a.putExtra("gmscore_client_jar_version", eml.a);
+    }
+
+    public Intent a(Context context)
+    {
+        eml.a();
+        eml.b(context);
+        return a;
+    }
+
+    public void a(String s)
+    {
+        a.putExtra("account_name", s);
+    }
 }

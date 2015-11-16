@@ -7,7 +7,7 @@ package com.google.android.apps.hangouts.wearable;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import ccx;
+import cec;
 
 // Referenced classes of package com.google.android.apps.hangouts.wearable:
 //            WearableService
@@ -21,7 +21,7 @@ public class WearableReceiver extends BroadcastReceiver
 
     boolean a(Context context)
     {
-        return ccx.a(context);
+        return cec.a(context);
     }
 
     public void onReceive(Context context, Intent intent)
@@ -33,39 +33,23 @@ _L1:
         s = intent.getAction();
         byte0 = -1;
         s.hashCode();
-        JVM INSTR lookupswitch 3: default 56
-    //                   798292259: 100
-    //                   1232336056: 85
-    //                   1737074039: 115;
-           goto _L3 _L4 _L5 _L6
+        JVM INSTR tableswitch 1232336056 1232336056: default 40
+    //                   1232336056 61;
+           goto _L3 _L4
 _L3:
         byte0;
-        JVM INSTR tableswitch 0 2: default 84
-    //                   0 130
-    //                   1 130
-    //                   2 130;
-           goto _L2 _L7 _L7 _L7
+        JVM INSTR tableswitch 0 0: default 60
+    //                   0 76;
+           goto _L2 _L5
 _L2:
         return;
-_L5:
+_L4:
         if (s.equals("com.google.android.apps.hangouts.intent.action.ACTION_NOTIFY_DATASET_CHANGED"))
         {
             byte0 = 0;
         }
           goto _L3
-_L4:
-        if (s.equals("android.intent.action.BOOT_COMPLETED"))
-        {
-            byte0 = 1;
-        }
-          goto _L3
-_L6:
-        if (s.equals("android.intent.action.MY_PACKAGE_REPLACED"))
-        {
-            byte0 = 2;
-        }
-          goto _L3
-_L7:
+_L5:
         Intent intent1 = new Intent(context, com/google/android/apps/hangouts/wearable/WearableService);
         intent1.setAction(intent.getAction());
         intent1.putExtras(intent);

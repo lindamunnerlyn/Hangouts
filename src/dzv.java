@@ -2,23 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import java.util.Locale;
 
-final class dzv extends BroadcastReceiver
+public final class dzv
 {
 
-    final dzu a;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public long f;
+    public long g;
 
-    dzv(dzu dzu1)
+    public dzv()
     {
-        a = dzu1;
-        super();
     }
 
-    public void onReceive(Context context, Intent intent)
+    public String toString()
     {
-        a.a = true;
+        return String.format(Locale.US, "cell signal: %d%%, wifi signal: %d%%, wifi signal handoff: %d%%, wifi link speed: %dMbps, wifi link speed handoff: %dMbps", new Object[] {
+            Integer.valueOf(a), Integer.valueOf(b), Integer.valueOf(c), Integer.valueOf(d), Integer.valueOf(e)
+        });
     }
 }

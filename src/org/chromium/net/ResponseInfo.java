@@ -4,17 +4,7 @@
 
 package org.chromium.net;
 
-import java.util.List;
-import java.util.Map;
 
 public interface ResponseInfo
 {
-
-    public abstract int a();
-
-    public abstract String b();
-
-    public abstract List c();
-
-    public abstract Map d();
 }

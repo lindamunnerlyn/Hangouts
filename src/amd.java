@@ -2,84 +2,85 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.os.Process;
+import android.util.Log;
+import com.google.android.apps.hangouts.concurrent.impl.ConcurrentServiceImpl;
 
 public final class amd
-    implements Serializable
+    implements alw
 {
 
-    private String a;
-    private String b;
+    private static final String a = Integer.toString(Process.myPid());
+    private static final boolean b = false;
+    private static final efh c = efh.a("concurrent");
+    private final Context d;
 
-    public amd(String s)
+    public amd(Context context)
     {
-        this("", s);
+        d = context;
     }
 
-    public amd(String s, String s1)
+    public alt a(alx alx)
     {
-        a = s;
-        b = s1;
-    }
-
-    public String a()
-    {
-        return a;
-    }
-
-    public String b()
-    {
-        return b;
-    }
-
-    public boolean equals(Object obj)
-    {
-        boolean flag1 = false;
-        if (this != obj) goto _L2; else goto _L1
-_L1:
-        boolean flag = true;
-_L4:
-        return flag;
-_L2:
-        flag = flag1;
-        if (obj == null) goto _L4; else goto _L3
-_L3:
-        flag = flag1;
-        if (getClass() != obj.getClass()) goto _L4; else goto _L5
-_L5:
-        obj = (amd)obj;
-        if (a == null) goto _L7; else goto _L6
-_L6:
-        flag = flag1;
-        if (!a.equals(((amd) (obj)).a)) goto _L4; else goto _L8
-_L8:
-        return b.equals(((amd) (obj)).b);
-_L7:
-        if (((amd) (obj)).a != null)
+        Object obj;
+        String s;
+        Parcelable parcelable;
+        Bundle bundle;
+        if (alx instanceof alv)
         {
-            return false;
-        }
-        if (true) goto _L8; else goto _L9
-_L9:
-    }
-
-    public int hashCode()
-    {
-        int i;
-        if (a != null)
-        {
-            i = a.hashCode();
+            obj = ((alv)alx).a();
         } else
         {
-            i = 0;
+            obj = "";
         }
-        return i * 31 + b.hashCode();
+        s = alx.getClass().getName();
+        parcelable = (Parcelable)alx;
+        bundle = new Bundle();
+        if (parcelable != null)
+        {
+            bundle.putParcelable("concurrent_bundle_util_key", parcelable);
+        }
+        obj = new alz(s, ((String) (obj)), bundle, 0);
+        if (b && ((alz) (obj)).a(alx.getClass()) == null)
+        {
+            alx = String.valueOf(alx.getClass().getName());
+            Intent intent;
+            efh efh1;
+            String s1;
+            if (alx.length() != 0)
+            {
+                "Checking task state failed - incorrect Parcelable probably for ".concat(alx);
+            } else
+            {
+                new String("Checking task state failed - incorrect Parcelable probably for ");
+            }
+        }
+        intent = new Intent(d, com/google/android/apps/hangouts/concurrent/impl/ConcurrentServiceImpl);
+        intent.putExtra("concurrent_service_command_key", amc.b - 1);
+        intent.putExtra("concurrent_process_data_key", ((Parcelable) (obj)));
+        intent.putExtra("concurrent_calling_pid_key", a);
+        intent.putExtra("concurrent_calling_origin_stack_key", Log.getStackTraceString(new Throwable()));
+        efh1 = c;
+        alx = String.valueOf("SCHEDULE_");
+        s1 = String.valueOf(((alz) (obj)).a());
+        if (s1.length() != 0)
+        {
+            alx = alx.concat(s1);
+        } else
+        {
+            alx = new String(alx);
+        }
+        efh1.b(alx);
+        d.startService(intent);
+        return ((alz) (obj)).c;
     }
 
-    public String toString()
+    static 
     {
-        String s = String.valueOf(ebw.b(b));
-        String s1 = a;
-        return (new StringBuilder(String.valueOf(s).length() + 32 + String.valueOf(s1).length())).append("EmailAddress {email: ").append(s).append(" | label: ").append(s1).append("}").toString();
+        hnc hnc = eev.p;
     }
 }

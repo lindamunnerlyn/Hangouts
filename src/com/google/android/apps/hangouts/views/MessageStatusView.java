@@ -56,13 +56,13 @@ public class MessageStatusView extends FrameLayout
     public void onFinishInflate()
     {
         a = findViewById(h.U);
-        d = (ScalingTextView)a.findViewById(h.gw);
-        b = (TextView)a.findViewById(h.dQ);
-        c = (TextView)a.findViewById(h.fM);
-        e = (ImageView)a.findViewById(h.fW);
-        f = findViewById(h.fK);
-        g = (ScalingTextView)f.findViewById(h.fL);
-        h = findViewById(h.fX);
+        d = (ScalingTextView)a.findViewById(h.ge);
+        b = (TextView)a.findViewById(h.dH);
+        c = (TextView)a.findViewById(h.fu);
+        e = (ImageView)a.findViewById(h.fE);
+        f = findViewById(h.fs);
+        g = (ScalingTextView)f.findViewById(h.ft);
+        h = findViewById(h.fF);
     }
 
     protected void onMeasure(int j, int k)

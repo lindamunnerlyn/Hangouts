@@ -2,29 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import android.content.Intent;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import com.google.android.apps.hangouts.requestwriter.RequestWriter;
 
 final class axl
-    implements Runnable
+    implements asd
 {
 
-    final ave a;
+    final axk a;
 
-    axl(ave ave1)
+    axl(axk axk1)
     {
-        a = ave1;
+        a = axk1;
         super();
     }
 
-    public void run()
+    public void a(asa asa)
     {
-        gbh.a(ave.q(a));
-        if (a.isAdded() && !ave.r(a))
-        {
-            android.view.View view = a.getView();
-            if (view != null)
-            {
-                ave.a(a, view);
-            }
-        }
+        asa = a;
+        RealTimeChatService.a(avv.h(((axk) (asa)).e), ((axk) (asa)).b, ((axk) (asa)).c);
+        Intent intent = RequestWriter.k();
+        intent.putExtra("wake_all", true);
+        ((axk) (asa)).d.startService(intent);
     }
 }

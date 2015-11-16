@@ -3,16 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hys extends koj
+public final class hys extends kwm
 {
 
-    public String a;
-    public hyt b[];
+    public hzl a;
+    public hxw apiHeader;
 
     public hys()
     {
+        apiHeader = null;
         a = null;
-        b = hyt.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,43 +21,27 @@ public final class hys extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (a != null)
+        if (apiHeader != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.d(1, apiHeader);
         }
         j = i;
-        if (b != null)
+        if (a != null)
         {
-            j = i;
-            if (b.length > 0)
-            {
-                for (j = 0; j < b.length;)
-                {
-                    hyt hyt1 = b[j];
-                    int k = i;
-                    if (hyt1 != null)
-                    {
-                        k = i + koh.d(2, hyt1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            j = i + kwk.d(2, a);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -67,60 +51,34 @@ public final class hys extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                if (apiHeader == null)
+                {
+                    apiHeader = new hxw();
+                }
+                kwj1.a(apiHeader);
                 break;
 
             case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                hyt ahyt[];
-                int j;
-                if (b == null)
+                if (a == null)
                 {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
+                    a = new hzl();
                 }
-                ahyt = new hyt[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, ahyt, 0, j);
-                    k = j;
-                }
-                for (; k < ahyt.length - 1; k++)
-                {
-                    ahyt[k] = new hyt();
-                    kog1.a(ahyt[k]);
-                    kog1.a();
-                }
-
-                ahyt[k] = new hyt();
-                kog1.a(ahyt[k]);
-                b = ahyt;
+                kwj1.a(a);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
+        if (apiHeader != null)
+        {
+            kwk1.b(1, apiHeader);
+        }
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.b(2, a);
         }
-        if (b != null && b.length > 0)
-        {
-            for (int i = 0; i < b.length; i++)
-            {
-                hyt hyt1 = b[i];
-                if (hyt1 != null)
-                {
-                    koh1.b(2, hyt1);
-                }
-            }
-
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

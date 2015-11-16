@@ -2,22 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
+import java.util.concurrent.TimeUnit;
 
-public class cus extends cui
+public class cus extends cup
 {
 
-    private static final int a[] = {
-        1
-    };
     private static final long serialVersionUID = 1L;
-    private final String b;
-    private final String c;
+    private final String a;
 
-    public cus(String s, String s1)
+    public cus(String s)
     {
-        c = s;
-        b = s1;
+        a = s;
     }
 
     public String a()
@@ -25,30 +20,22 @@ public class cus extends cui
         return "ui_queue";
     }
 
-    public kop a(String s, int i, int j)
+    public kws a(String s, int i, int j)
     {
-        ixk ixk1 = new ixk();
-        ixk1.a = c;
-        ixk1.b = Integer.valueOf(50);
-        ixk1.f = a;
-        ixk1.requestHeader = ctq.a(null, true, s, i, j, h);
-        return ixk1;
+        s = new ics();
+        s.a = a;
+        hyg hyg1 = new hyg();
+        hyg1.a = s;
+        return hyg1;
     }
 
-    public boolean a(ccg ccg)
+    public long b()
     {
-        gbh.a(getClass(), ccg.getClass());
-        return TextUtils.equals(((cus)ccg).b, b);
+        return TimeUnit.MINUTES.toMillis(5L);
     }
 
-    public boolean a(cci cci, dbo dbo)
+    public String f()
     {
-        return false;
+        return "getsimpleprofile";
     }
-
-    public String g()
-    {
-        return "contacts/searchentities";
-    }
-
 }

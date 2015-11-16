@@ -2,19 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextPaint;
-import android.text.style.UnderlineSpan;
+import java.util.Iterator;
+import java.util.List;
 
-public final class hgp extends UnderlineSpan
+final class hgp
+    implements gua
 {
 
-    public hgp()
+    final hgo a;
+
+    hgp(hgo hgo1)
     {
+        a = hgo1;
+        super();
     }
 
-    public void updateDrawState(TextPaint textpaint)
+    public void a(int i, int j)
     {
-        super.updateDrawState(textpaint);
-        textpaint.setUnderlineText(false);
+        Object obj = a.a.a(j);
+        if (!((List) (obj)).isEmpty())
+        {
+            hgt hgt1;
+            for (obj = ((List) (obj)).iterator(); ((Iterator) (obj)).hasNext(); hgo.a(a, i, hgt1))
+            {
+                hgt1 = (hgt)((Iterator) (obj)).next();
+            }
+
+        }
     }
 }

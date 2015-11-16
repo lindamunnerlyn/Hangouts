@@ -2,22 +2,7 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
 
-final class dsq
-    implements android.view.View.OnClickListener
+public interface dsq
 {
-
-    final dsp a;
-
-    dsq(dsp dsp1)
-    {
-        a = dsp1;
-        super();
-    }
-
-    public void onClick(View view)
-    {
-        a.b(dsp.a(a));
-    }
 }

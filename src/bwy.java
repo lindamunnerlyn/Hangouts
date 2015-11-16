@@ -2,10 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
+import android.content.Context;
 
-public interface bwy
+public final class bwy
 {
 
-    public abstract Intent a();
+    public static final String a = gdu.getName();
+    public static final String b = ber.getName();
+    private static bwx c;
+
+    public static void a(Context context, hlp hlp1)
+    {
+        if (c == null)
+        {
+            c = new bwx();
+        }
+        hlp1.a(gdu, c.a(context));
+    }
+
+    public static void a(hlp hlp1)
+    {
+        if (c == null)
+        {
+            c = new bwx();
+        }
+        hlp1.a(ber, c.a());
+    }
+
 }

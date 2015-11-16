@@ -2,57 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
-import java.io.Serializable;
+import android.content.res.Resources;
+import android.view.View;
+import android.view.ViewGroup;
 
-public final class bho extends bhl
-    implements Serializable
+public final class bho extends aux
 {
 
-    public final String a;
-    public final String b;
-
-    public bho(String s, String s1)
+    public bho(View view, dvi dvi)
     {
-        a = s;
-        b = s1;
+        super(view, null, dvi);
     }
 
-    public String a()
+    protected boolean a()
     {
-        String s1 = String.valueOf(ebz.p(a));
-        String s;
-        if (TextUtils.isEmpty(b))
+        if (g.a(g.nU, "babel_network_change_notification", false))
         {
-            s = "";
+            cdr cdr1 = (cdr)hlp.a(b.getContext(), cdr);
+            return cdr1 != null && cdr1.a() == cdq.c;
         } else
         {
-            s = String.valueOf(b);
-            if (s.length() != 0)
-            {
-                s = " ".concat(s);
-            } else
-            {
-                s = new String(" ");
-            }
-        }
-        s = String.valueOf(s);
-        if (s.length() != 0)
-        {
-            return s1.concat(s);
-        } else
-        {
-            return new String(s1);
+            return false;
         }
     }
 
-    public String b()
+    protected dvg b()
     {
-        return b;
-    }
-
-    public String toString()
-    {
-        return a;
+        return e().a(b.getResources().getString(l.S)).a();
     }
 }

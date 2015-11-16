@@ -2,35 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
+import android.app.Activity;
 
 final class hmv
+    implements hmd, hmq
 {
 
-    final Class a;
-    final ArrayList b = new ArrayList();
-
-    hmv(Class class1)
+    hmv()
     {
-        a = class1;
     }
 
-    Object a()
+    public Class a()
     {
-        return g.a(b, a);
+        return hmu;
     }
 
-    void a(Class class1, Object obj)
+    public void a(ad ad, hof hof, hlp hlp1)
     {
-        boolean flag;
-        if (class1 == a)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        l.a(flag);
-        b.add(obj);
+        hlp1.a(hmu, new hmu(hof, (byte)0));
+    }
+
+    public void a(Activity activity, hof hof, hlp hlp1)
+    {
+        hlp1.a(hmu, new hmu(hof));
     }
 }

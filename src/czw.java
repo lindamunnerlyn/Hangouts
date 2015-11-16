@@ -2,45 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import android.app.ActivityManager;
+import java.util.ArrayList;
+import java.util.List;
 
-public abstract class czw extends Enum
+public class czw extends cxr
 {
 
-    public static final czw a;
-    public static final czw b;
-    public static final czw c;
-    public static final czw d;
-    private static final czw e[];
+    private static final long serialVersionUID = 1L;
+    private final List g = new ArrayList();
 
-    czw(String s, int i)
+    private czw(jdq jdq1)
     {
-        super(s, i);
+        super(jdq1.responseHeader, -1L);
+        if (!ActivityManager.isUserAMonkey()) goto _L2; else goto _L1
+_L1:
+_L4:
+        if (cxr.a)
+        {
+            jdq1 = String.valueOf(jdq1);
+            eev.b("Babel_protos", (new StringBuilder(String.valueOf(jdq1).length() + 28)).append("SearchEntitiesResponse from:").append(jdq1).toString());
+        }
+        return;
+_L2:
+        g = g.a(jdq1.a);
+        if (cxr.a)
+        {
+            int i = g.size();
+            eev.b("Babel", (new StringBuilder(54)).append("SearchEntitiesResponse. Number of entities:").append(i).toString());
+        }
+        if (true) goto _L4; else goto _L3
+_L3:
     }
 
-    public static czw valueOf(String s)
+    public static cxr parseFrom(byte abyte0[])
     {
-        return (czw)Enum.valueOf(czw, s);
+        abyte0 = (jdq)kws.mergeFrom(new jdq(), abyte0);
+        if (a(((jdq) (abyte0)).responseHeader))
+        {
+            return new cyd(((jdq) (abyte0)).responseHeader);
+        } else
+        {
+            return new czw(abyte0);
+        }
     }
 
-    public static czw[] values()
+    public List k()
     {
-        return (czw[])e.clone();
-    }
-
-    public abstract Object a(Cursor cursor, int i);
-
-    public abstract void a(String s, Object obj, ContentValues contentvalues);
-
-    static 
-    {
-        a = new czx("BOOLEAN");
-        b = new czy("INTEGER");
-        c = new czz("LONG");
-        d = new daa("STRING");
-        e = (new czw[] {
-            a, b, c, d
-        });
+        return g;
     }
 }

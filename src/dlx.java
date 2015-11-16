@@ -2,61 +2,63 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import java.util.Iterator;
-import java.util.Set;
+import android.os.Handler;
+import android.os.Looper;
+import com.google.android.apps.hangouts.requestwriter.RequestWriter;
 
-final class dlx
-    implements eka
+public final class dlx extends Thread
 {
 
-    final dlw a;
+    public Handler a;
+    final RequestWriter b;
+    private final Object c = new Object();
 
-    dlx(dlw dlw1)
+    public dlx(RequestWriter requestwriter)
     {
-        a = dlw1;
+        b = requestwriter;
         super();
     }
 
-    public void a(int i)
+    public void run()
     {
+        Looper.prepare();
+        dly dly1 = new dly(b);
+        synchronized (c)
+        {
+            a = dly1;
+            c.notify();
+        }
+        Looper.loop();
+        return;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public void a_(Bundle bundle)
+    public void start()
     {
-        bundle = ((Bundle) (dlw.a(a)));
-        bundle;
+        super.start();
+        Object obj = c;
+        obj;
         JVM INSTR monitorenter ;
-        if (!dlw.b()) goto _L2; else goto _L1
-_L1:
-        if (a.a != null)
-        {
-            break MISSING_BLOCK_LABEL_132;
-        }
-        int i = 0;
 _L3:
-        int j = dlw.b(a);
-        ebw.b("Babel_medialoader", (new StringBuilder(87)).append("GmsAvatarLoader: People client onConnected. waiting = ").append(i).append(" numClient=").append(j).toString());
-_L2:
-        Object obj;
-        obj = a.a;
-        a.a = null;
-        bundle;
-        JVM INSTR monitorexit ;
-        if (obj != null)
-        {
-            for (bundle = ((Set) (obj)).iterator(); bundle.hasNext(); dlw.a(a, ((dnc) (obj))))
-            {
-                obj = (dnc)bundle.next();
-            }
-
-        }
-        break MISSING_BLOCK_LABEL_153;
-        i = a.a.size();
-          goto _L3
+        Handler handler = a;
+        if (handler != null) goto _L2; else goto _L1
+_L1:
         Exception exception;
-        exception;
-        bundle;
+        try
+        {
+            c.wait();
+        }
+        catch (InterruptedException interruptedexception) { }
+        finally { }
+        if (true) goto _L3; else goto _L2
+_L2:
+        obj;
+        JVM INSTR monitorexit ;
+        return;
+        obj;
         JVM INSTR monitorexit ;
         throw exception;
     }

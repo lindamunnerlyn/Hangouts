@@ -2,10 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.KeyEvent;
 
-public interface him
+public final class him
+    implements hif
 {
 
-    public abstract boolean a(KeyEvent keyevent);
+    private final hge a;
+
+    public him(hge hge1)
+    {
+        a = hge1;
+    }
+
+    public void a(String s, hih hih1, int i, String s1)
+    {
+        hge hge1 = a;
+        new hgg(hih1.b(), s, hih1.f(), hih1.h(), hih1.g(), hih1.i(), hih1.e(), i, s1, hih1.j(), hih1.k());
+        hge1.a();
+    }
+
+    public boolean a(String s)
+    {
+        return false;
+    }
+
+    public boolean b(String s)
+    {
+        return false;
+    }
+
+    public void c(String s)
+    {
+    }
+
+    public void d(String s)
+    {
+    }
 }

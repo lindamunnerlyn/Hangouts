@@ -2,64 +2,74 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.api.client.http.HttpTransport;
+import com.google.api.client.http.LowLevelHttpRequest;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Arrays;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSocketFactory;
 
-public final class hra extends koj
+public final class hra extends HttpTransport
 {
 
-    public hrb a;
+    private static final String a[];
+    private final hqw b;
+    private final SSLSocketFactory c;
+    private final HostnameVerifier d;
 
     public hra()
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        this((byte)0);
     }
 
-    protected int computeSerializedSize()
+    private hra(byte byte0)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        return i;
+        b = new hqw();
+        c = null;
+        d = null;
     }
 
-    public kop mergeFrom(kog kog1)
+    protected LowLevelHttpRequest buildRequest(String s, String s1)
     {
-        do
+        l.a(supportsMethod(s), "HTTP method %s not supported", new Object[] {
+            s
+        });
+        s1 = new URL(s1);
+        s1 = b.a(s1);
+        s1.setRequestMethod(s);
+        if (s1 instanceof HttpsURLConnection)
         {
-            int i = kog1.a();
-            switch (i)
+            s = (HttpsURLConnection)s1;
+            if (d != null)
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new hrb();
-                }
-                kog1.a(a);
-                break;
+                s.setHostnameVerifier(d);
             }
-        } while (true);
+            if (c != null)
+            {
+                s.setSSLSocketFactory(c);
+            }
+        }
+        return new hqx(s1);
     }
 
-    public void writeTo(koh koh1)
+    public boolean supportsMethod(String s)
     {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        super.writeTo(koh1);
+        return Arrays.binarySearch(a, s) >= 0;
+    }
+
+    static 
+    {
+        String as[] = new String[7];
+        as[0] = "DELETE";
+        as[1] = "GET";
+        as[2] = "HEAD";
+        as[3] = "OPTIONS";
+        as[4] = "POST";
+        as[5] = "PUT";
+        as[6] = "TRACE";
+        a = as;
+        Arrays.sort(as);
     }
 }

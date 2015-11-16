@@ -3,18 +3,12 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
+import java.util.List;
 
-final class gre extends gqn
+public interface gre
 {
 
-    public gre()
-    {
-        super("SaveResultsTask");
-    }
+    public abstract void a(Context context, grd grd);
 
-    public grk a(Context context)
-    {
-        ((grf)hgx.a(context, grf)).e();
-        return new grk(true);
-    }
+    public abstract void a(List list);
 }

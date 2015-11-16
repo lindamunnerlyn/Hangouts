@@ -2,22 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.wearable.WearableService;
+import android.view.View;
 
-public final class ehn
+final class ehn
+    implements android.view.View.OnLongClickListener
 {
 
-    final WearableService a;
+    final eho a;
+    final ehl b;
 
-    public ehn(WearableService wearableservice)
+    ehn(ehl ehl, eho eho1)
     {
-        a = wearableservice;
+        b = ehl;
+        a = eho1;
         super();
     }
 
-    public void a(ani ani1, String s, String s1, aqb aqb)
+    public boolean onLongClick(View view)
     {
-        ani1 = new apw((new eam(ebr.a(s1), ani1.a())).a(anv.a()).b(true).d(true), aqb, false, s);
-        ((dmt)hgx.a(a.getApplicationContext(), dmt)).a(ani1);
+        a.a(b);
+        return true;
     }
 }

@@ -3,20 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class afq extends agf
+public interface afq
 {
 
-    public afq()
-    {
-    }
-
-    public afq(byte byte0)
-    {
-        super(null);
-    }
-
-    public afq(Throwable throwable)
-    {
-        super(throwable);
-    }
+    public abstract aft a(afw afw);
 }

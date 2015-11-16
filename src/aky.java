@@ -4,45 +4,23 @@
 
 import android.content.Context;
 
-public final class aky extends ea
+final class aky
+    implements ddl
 {
 
-    private final Context f;
-    private final int g;
-    private final boolean h = false;
+    private final Context a;
 
     public aky(Context context)
     {
-        super(context);
-        f = context.getApplicationContext();
-        g = ((gmo)hgx.a(context, gmo)).a();
+        a = context;
     }
 
-    public Object d()
+    public void a(int i, iwv aiwv[])
     {
-label0:
+        if (g.a(a, i))
         {
-label1:
-            {
-                if (!g.a(f, g))
-                {
-                    break label0;
-                }
-                ajo ajo1 = ajq.a(f, g);
-                if (h && ajo1 != null)
-                {
-                    long l = System.currentTimeMillis();
-                    long l1 = ((alw)hgx.a(f, alw)).a("babel_dialer_callerid_dialer_redisplay_interval_ms", ajv.b);
-                    if (Long.valueOf(g.a(Long.valueOf(ajo1.b()), 0L)) != null && l - ajo1.b() < l1)
-                    {
-                        break label1;
-                    }
-                    ajo1.a(l);
-                }
-                return ajo1;
-            }
-            return null;
+            g.d(aiwv, "ClientCallerIdSettings cannot be null!");
+            ajn.a(a, i, System.currentTimeMillis(), aiwv);
         }
-        return null;
     }
 }

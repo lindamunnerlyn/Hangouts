@@ -2,26 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import java.util.List;
 
 final class avo
-    implements cib
+    implements azw
 {
 
-    final ave a;
+    final avk a;
 
-    avo(ave ave1)
+    avo(avk avk1)
     {
-        a = ave1;
+        a = avk1;
         super();
     }
 
-    public void a(List list, Bundle bundle)
+    public boolean a()
     {
-        if (g.a(list))
-        {
-            ave.V(a).a(bundle, ave.U(a), ave.h(a));
-        }
+        return a.b.d();
+    }
+
+    public boolean b()
+    {
+        a.b.c();
+        return false;
     }
 }

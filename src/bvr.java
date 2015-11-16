@@ -3,6 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface bvr
+final class bvr
+    implements Runnable
 {
+
+    final bvp a;
+
+    bvr(bvp bvp1)
+    {
+        a = bvp1;
+        super();
+    }
+
+    public void run()
+    {
+        a.c();
+        a.a(true);
+    }
 }

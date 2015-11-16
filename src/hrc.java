@@ -2,60 +2,79 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.api.client.json.GenericJson;
+import com.google.api.client.util.GenericData;
 
-public final class hrc extends koj
+public final class hrc extends hre
 {
 
-    public String a;
+    private String a;
+    private String b;
 
     public hrc()
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    private hrc b(String s, Object obj)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        return i;
+        return (hrc)super.a(s, obj);
     }
 
-    public kop mergeFrom(kog kog1)
+    public hrc a(String s)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-            }
-        } while (true);
+        super.d(s);
+        return this;
     }
 
-    public void writeTo(koh koh1)
+    public hre a()
     {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        super.writeTo(koh1);
+        return (hrc)super.a();
+    }
+
+    public hre a(String s, Object obj)
+    {
+        return b(s, obj);
+    }
+
+    public hrc b(String s)
+    {
+        a = s;
+        return this;
+    }
+
+    public hrc c(String s)
+    {
+        b = s;
+        return this;
+    }
+
+    public GenericJson clone()
+    {
+        return (hrc)super.a();
+    }
+
+    public GenericData clone()
+    {
+        return (hrc)super.a();
+    }
+
+    public Object clone()
+    {
+        return (hrc)super.a();
+    }
+
+    public hre d(String s)
+    {
+        return a(s);
+    }
+
+    public GenericJson set(String s, Object obj)
+    {
+        return b(s, obj);
+    }
+
+    public GenericData set(String s, Object obj)
+    {
+        return b(s, obj);
     }
 }

@@ -2,242 +2,224 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.widget.ImageView;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
 
-public final class eaf
+public final class eaf extends kws
 {
 
-    private static final boolean a = false;
-    private static final String b = (new StringBuilder()).appendCodePoint(0x1f170).appendCodePoint(0x1f607).appendCodePoint(0x1f38a).appendCodePoint(0x1f3e5).toString();
-    private static dzn c;
-    private static int d;
-    private static boolean e = false;
-    private static boolean f;
-    private static int g;
-    private static int h;
-    private static final ThreadFactory n;
-    private static final Executor o;
-    private final int i;
-    private final Paint j;
-    private final he k;
-    private final Context l;
-    private final boolean m;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public int j;
+    public int k;
+    public String l;
 
-    public eaf(Context context, int i1)
+    public eaf()
     {
-        l = context.getApplicationContext();
-        a(l);
-        k = new he(d);
-        boolean flag;
-        if (android.os.Build.VERSION.SDK_INT >= 19 && g.a(g.nS, "babel_prefer_emoji_system_font_rendering", true))
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        m = flag;
-        if (m)
-        {
-            i = context.getResources().getDimensionPixelSize(g.eh);
-            j = new Paint(1);
-            j.setColor(i1);
-            a(i);
-            return;
-        } else
-        {
-            i = 0;
-            j = null;
-            return;
-        }
+        a = "";
+        b = "";
+        c = "";
+        d = "";
+        e = "";
+        f = "";
+        g = "";
+        h = "";
+        i = "";
+        j = 0;
+        k = 0;
+        l = "";
+        cachedSize = -1;
     }
 
-    public static android.graphics.BitmapFactory.Options a()
+    protected int computeSerializedSize()
     {
-        if (!e)
+        int j1 = super.computeSerializedSize();
+        int i1 = j1;
+        if (!a.equals(""))
         {
-            g = 128;
-            if (android.os.Build.VERSION.SDK_INT >= 16)
-            {
-                f = false;
-                h = 128;
-            } else
-            {
-                f = true;
-                h = g.nS.getResources().getDimensionPixelSize(g.eh);
-            }
-            e = true;
+            i1 = j1 + kwk.b(1, a);
         }
-        return dzn.a(f, g, h);
+        j1 = i1;
+        if (!b.equals(""))
+        {
+            j1 = i1 + kwk.b(2, b);
+        }
+        i1 = j1;
+        if (!c.equals(""))
+        {
+            i1 = j1 + kwk.b(3, c);
+        }
+        j1 = i1;
+        if (!d.equals(""))
+        {
+            j1 = i1 + kwk.b(4, d);
+        }
+        i1 = j1;
+        if (!e.equals(""))
+        {
+            i1 = j1 + kwk.b(5, e);
+        }
+        j1 = i1;
+        if (!f.equals(""))
+        {
+            j1 = i1 + kwk.b(6, f);
+        }
+        i1 = j1;
+        if (!g.equals(""))
+        {
+            i1 = j1 + kwk.b(7, g);
+        }
+        j1 = i1;
+        if (!h.equals(""))
+        {
+            j1 = i1 + kwk.b(8, h);
+        }
+        i1 = j1;
+        if (!i.equals(""))
+        {
+            i1 = j1 + kwk.b(9, i);
+        }
+        j1 = i1;
+        if (j != 0)
+        {
+            j1 = i1 + kwk.e(10, j);
+        }
+        i1 = j1;
+        if (k != 0)
+        {
+            i1 = j1 + kwk.e(11, k);
+        }
+        j1 = i1;
+        if (!l.equals(""))
+        {
+            j1 = i1 + kwk.b(12, l);
+        }
+        return j1;
     }
 
-    public static dzn a(Context context)
+    public kws mergeFrom(kwj kwj1)
     {
-        if (c == null)
+        do
         {
-            android.graphics.BitmapFactory.Options options = a();
-            Resources resources = context.getResources();
-            Bitmap bitmap = BitmapFactory.decodeResource(resources, com.google.android.apps.hangouts.R.drawable.emoji_u00a9, options);
-            int l1 = bitmap.getByteCount();
-            int j1 = bitmap.getWidth();
-            int k1 = bitmap.getHeight();
-            int i1;
-            int i2;
-            int j2;
-            if (android.os.Build.VERSION.SDK_INT >= 16)
+            int i1 = kwj1.a();
+            switch (i1)
             {
-                i1 = 0x20000;
-            } else
-            {
-                i1 = 0x10000;
-            }
-            i2 = Math.min(Math.max(((ActivityManager)context.getSystemService("activity")).getMemoryClass() * i1, 0x400000), 0x1000000);
-            if ((resources.getConfiguration().screenLayout & 0xf) >= 3)
-            {
-                i1 = 1;
-            } else
-            {
-                i1 = 0;
-            }
-            j2 = i2 / l1;
-            if (i1 != 0)
-            {
-                i1 = Math.min(j2, g.a(g.nS, "babel_emoji_max_pool_size_large", 256));
-            } else
-            {
-                i1 = Math.min(j2, g.a(g.nS, "babel_emoji_max_pool_size", 128));
-            }
-            if (a || ebw.a("Babel", 3))
-            {
-                ebw.d("Babel", (new StringBuilder(97)).append("[BitmapPoolICS ctor] maxItems=").append(i1).append(", poolMemSize=").append(i2).append(", memTakenPerBitmap=").append(l1).toString());
-            }
-            d = i1;
-            i1 = d;
-            ebw.f("Babel", (new StringBuilder(30)).append("getBitmapPool size=").append(i1).toString());
-            c = dzn.a(d, 0, 0, 0, "Emoji");
-            if (android.os.Build.VERSION.SDK_INT < 19)
-            {
-                c.a(bitmap);
-                (new eag(j1, k1, 64, resources, options)).execute(new Object[0]);
-            }
-        }
-        return c;
-    }
-
-    static eaj a(ImageView imageview)
-    {
-        if (imageview != null)
-        {
-            imageview = imageview.getDrawable();
-            if (imageview instanceof eai)
-            {
-                return ((eai)imageview).a();
-            }
-        }
-        return null;
-    }
-
-    private void a(int i1)
-    {
-        Rect rect = new Rect();
-        int j1 = 0;
-        int k1;
-        int i2;
-        for (k1 = i1; j1 < b.length(); k1 = i2)
-        {
-            int j2 = Character.charCount(b.codePointAt(j1));
-            i2 = i1 + 1;
-            int l1;
-            do
-            {
-                do
+            default:
+                if (kwj1.b(i1))
                 {
-                    Paint paint = j;
-                    l1 = i2 - 1;
-                    paint.setTextSize(l1);
-                    j.getTextBounds(b, j1, j1 + j2, rect);
-                    i2 = l1;
-                } while (rect.height() > i);
-                i2 = l1;
-            } while (rect.width() > i);
-            i2 = k1;
-            if (l1 < k1)
-            {
-                if (a || ebw.a("Babel", 3))
-                {
-                    ebw.d("Babel", (new StringBuilder(56)).append("Emoji font size min so far:").append(l1).append(" for i:").append(j1).toString());
+                    continue;
                 }
-                i2 = l1;
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+
+            case 26: // '\032'
+                c = kwj1.j();
+                break;
+
+            case 34: // '"'
+                d = kwj1.j();
+                break;
+
+            case 42: // '*'
+                e = kwj1.j();
+                break;
+
+            case 50: // '2'
+                f = kwj1.j();
+                break;
+
+            case 58: // ':'
+                g = kwj1.j();
+                break;
+
+            case 66: // 'B'
+                h = kwj1.j();
+                break;
+
+            case 74: // 'J'
+                i = kwj1.j();
+                break;
+
+            case 80: // 'P'
+                j = kwj1.f();
+                break;
+
+            case 88: // 'X'
+                k = kwj1.f();
+                break;
+
+            case 98: // 'b'
+                l = kwj1.j();
+                break;
             }
-            j1 += j2;
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (!a.equals(""))
+        {
+            kwk1.a(1, a);
         }
-
-        j.setTextSize(k1);
-    }
-
-    static boolean a(eaf eaf1)
-    {
-        return eaf1.m;
-    }
-
-    static he b(eaf eaf1)
-    {
-        return eaf1.k;
-    }
-
-    static int c(eaf eaf1)
-    {
-        return eaf1.i;
-    }
-
-    static dzn c()
-    {
-        return c;
-    }
-
-    static Paint d(eaf eaf1)
-    {
-        return eaf1.j;
-    }
-
-    static boolean d()
-    {
-        return a;
-    }
-
-    public eaj a(int ai[])
-    {
-        ai = new eaj(this, l, ai);
-        ai.executeOnExecutor(o, new Void[0]);
-        return ai;
-    }
-
-    public void a(Resources resources, int i1, eaj eaj1, ImageView imageview)
-    {
-        imageview.setImageDrawable(new eai(this, resources, eaj1));
-        eaj1.a(i1, imageview);
-    }
-
-    public void b()
-    {
-        k.a(-1);
-    }
-
-    static 
-    {
-        hik hik = ebw.u;
-        n = new eah();
-        o = Executors.newFixedThreadPool(2, n);
+        if (!b.equals(""))
+        {
+            kwk1.a(2, b);
+        }
+        if (!c.equals(""))
+        {
+            kwk1.a(3, c);
+        }
+        if (!d.equals(""))
+        {
+            kwk1.a(4, d);
+        }
+        if (!e.equals(""))
+        {
+            kwk1.a(5, e);
+        }
+        if (!f.equals(""))
+        {
+            kwk1.a(6, f);
+        }
+        if (!g.equals(""))
+        {
+            kwk1.a(7, g);
+        }
+        if (!h.equals(""))
+        {
+            kwk1.a(8, h);
+        }
+        if (!i.equals(""))
+        {
+            kwk1.a(9, i);
+        }
+        if (j != 0)
+        {
+            kwk1.a(10, j);
+        }
+        if (k != 0)
+        {
+            kwk1.a(11, k);
+        }
+        if (!l.equals(""))
+        {
+            kwk1.a(12, l);
+        }
+        super.writeTo(kwk1);
     }
 }

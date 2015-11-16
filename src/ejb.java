@@ -2,23 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import com.google.android.apps.hangouts.views.OverlayedAvatarView;
 
-final class ejb
-    implements Runnable
+public final class ejb extends csw
 {
 
-    final ejf a;
-    final eja b;
+    final OverlayedAvatarView a;
 
-    ejb(eja eja1, ejf ejf)
+    public ejb(OverlayedAvatarView overlayedavatarview, Context context, hof hof, int i)
     {
-        b = eja1;
-        a = ejf;
-        super();
+        a = overlayedavatarview;
+        super(context, hof, i, OverlayedAvatarView.h());
     }
 
-    public void run()
+    public void a(cuz cuz)
     {
-        eix.a(b.b, b.a, a);
+        a.a(cuz);
+    }
+
+    protected void c()
+    {
+        a.a(null);
     }
 }

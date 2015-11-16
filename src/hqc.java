@@ -2,21 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.api.client.http.HttpExecuteInterceptor;
+import com.google.api.client.http.HttpRequest;
 
-public final class hqc extends koj
+final class hqc
+    implements HttpExecuteInterceptor
 {
 
-    public kop mergeFrom(kog kog1)
+    final HttpExecuteInterceptor a;
+    final hqb b;
+
+    hqc(hqb hqb1, HttpExecuteInterceptor httpexecuteinterceptor)
     {
-_L3:
-        int i = kog1.a();
-        i;
-        JVM INSTR tableswitch 0 0: default 24
-    //                   0 33;
-           goto _L1 _L2
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L3; else goto _L2
-_L2:
-        return this;
+        b = hqb1;
+        a = httpexecuteinterceptor;
+        super();
+    }
+
+    public void intercept(HttpRequest httprequest)
+    {
+        if (a != null)
+        {
+            a.intercept(httprequest);
+        }
+        if (b.a.b != null)
+        {
+            b.a.b.intercept(httprequest);
+        }
     }
 }

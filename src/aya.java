@@ -3,20 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class aya
+final class aya
+    implements bxf
 {
 
-    String a;
-    cey b;
-    boolean c;
-    final ave d;
+    final avv a;
 
-    public aya(ave ave, String s, cey cey, boolean flag)
+    aya(avv avv1)
     {
-        d = ave;
+        a = avv1;
         super();
-        a = s;
-        b = cey;
-        c = flag;
+    }
+
+    public aya a(hlp hlp1)
+    {
+        hlp1.a(bxf, this);
+        return this;
+    }
+
+    public void a(String s)
+    {
+        avv.bv(a).a(s, false);
     }
 }

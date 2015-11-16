@@ -2,29 +2,62 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import java.util.List;
 
 public final class dgh
-    implements Runnable
+    implements dmf
 {
 
-    final Intent a;
-    final dgu b;
-    final Object c;
-    final RealTimeChatService d;
+    private static final long serialVersionUID = 2L;
+    private final jsh a;
+    private final int b;
+    private int c;
+    private final String d = eev.a(new Throwable());
+    private String e;
 
-    public dgh(RealTimeChatService realtimechatservice, Intent intent, dgu dgu, Object obj)
+    public dgh(List list, int i)
     {
-        d = realtimechatservice;
-        a = intent;
-        b = dgu;
-        c = obj;
-        super();
+        c = 0;
+        a = jsh.a(list);
+        b = i;
     }
 
-    public void run()
+    public int a()
     {
-        d.a(a, b, c, false);
+        return b;
+    }
+
+    public void a(int i)
+    {
+        c = i;
+    }
+
+    public jsh b()
+    {
+        return a;
+    }
+
+    public void b(String s)
+    {
+        e = s;
+    }
+
+    public int k()
+    {
+        return c;
+    }
+
+    public cdl m()
+    {
+        return new dgg(this);
+    }
+
+    public String toString()
+    {
+        int i = b;
+        int j = a.size();
+        String s = d;
+        String s1 = e;
+        return (new StringBuilder(String.valueOf(s).length() + 102 + String.valueOf(s1).length())).append("query presence request: field mask=").append(i).append(" len(gaiaIds)").append(j).append("\nCreation stack:\n").append(s).append("\nOrigin stack:\n").append(s1).toString();
     }
 }

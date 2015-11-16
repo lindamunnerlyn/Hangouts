@@ -2,17 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-final class apg
+public final class apg
 {
 
-    apg()
-    {
-    }
+    public long a;
+    public long b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
+    public long g;
+    public long h;
 
-    public apj a(Context context)
+    public apg()
     {
-        return new aph(this, context);
     }
 }

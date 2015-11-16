@@ -2,16 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
 
-final class cgq extends zq
+final class cgq
+    implements hok
 {
 
-    final cgh l;
+    final cgo a;
 
-    cgq(cgh cgh, View view)
+    cgq(cgo cgo1)
     {
-        l = cgh;
-        super(view);
+        a = cgo1;
+        super();
+    }
+
+    public void a(hoy hoy)
+    {
+        if (hoy instanceof hma)
+        {
+            ((hma)hoy).a(cgo.e(a), cgo.f(a), null);
+        }
     }
 }

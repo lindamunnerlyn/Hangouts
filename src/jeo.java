@@ -3,16 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jeo extends koj
+public final class jeo extends kwm
 {
 
-    public Boolean a;
-    public Boolean b;
+    public jdm a[];
+    public jdl responseHeader;
 
     public jeo()
     {
-        a = null;
-        b = null;
+        responseHeader = null;
+        a = jdm.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,29 +21,43 @@ public final class jeo extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (a != null)
+        if (responseHeader != null)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            i = j + kwk.d(1, responseHeader);
         }
         j = i;
-        if (b != null)
+        if (a != null)
         {
-            b.booleanValue();
-            j = i + (koh.f(2) + 1);
+            j = i;
+            if (a.length > 0)
+            {
+                for (j = 0; j < a.length;)
+                {
+                    jdm jdm1 = a[j];
+                    int k = i;
+                    if (jdm1 != null)
+                    {
+                        k = i + kwk.d(2, jdm1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -52,27 +66,65 @@ public final class jeo extends koj
             case 0: // '\0'
                 return this;
 
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
+            case 10: // '\n'
+                if (responseHeader == null)
+                {
+                    responseHeader = new jdl();
+                }
+                kwj1.a(responseHeader);
                 break;
 
-            case 16: // '\020'
-                b = Boolean.valueOf(kog1.i());
+            case 18: // '\022'
+                int k = kwx.a(kwj1, 18);
+                jdm ajdm[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                ajdm = new jdm[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, ajdm, 0, j);
+                    k = j;
+                }
+                for (; k < ajdm.length - 1; k++)
+                {
+                    ajdm[k] = new jdm();
+                    kwj1.a(ajdm[k]);
+                    kwj1.a();
+                }
+
+                ajdm[k] = new jdm();
+                kwj1.a(ajdm[k]);
+                a = ajdm;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
+        if (responseHeader != null)
         {
-            koh1.a(1, a.booleanValue());
+            kwk1.b(1, responseHeader);
         }
-        if (b != null)
+        if (a != null && a.length > 0)
         {
-            koh1.a(2, b.booleanValue());
+            for (int i = 0; i < a.length; i++)
+            {
+                jdm jdm1 = a[i];
+                if (jdm1 != null)
+                {
+                    kwk1.b(2, jdm1);
+                }
+            }
+
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

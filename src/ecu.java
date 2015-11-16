@@ -2,21 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.graphics.Bitmap;
 
-public final class ecu
+final class ecu
 {
 
-    public static final String a = ecs.getName();
-    private static ect b;
+    int a;
+    Bitmap b[];
 
-    public static void a(Context context, hgx hgx1)
+    ecu(int i)
     {
-        if (b == null)
-        {
-            b = new ect();
-        }
-        hgx1.a(ecs, new ecs(context));
+        a = 0;
+        b = new Bitmap[i];
     }
-
 }

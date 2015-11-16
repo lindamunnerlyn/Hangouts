@@ -8,32 +8,32 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
-import boy;
-import dzj;
+import bph;
+import ecn;
 import g;
-import gmp;
-import gmq;
-import gmu;
-import gwt;
-import gxe;
-import gxj;
-import hhw;
+import gqv;
+import gqw;
+import grb;
+import hbd;
+import hbo;
+import hbu;
+import hmo;
 
-public class NfcHangoutTransferActivity extends hhw
-    implements gmq
+public class NfcHangoutTransferActivity extends hmo
+    implements gqw
 {
 
-    private boy j;
-    private gwt m;
+    private bph j;
+    private hbd m;
 
     public NfcHangoutTransferActivity()
     {
-        m = (new gwt(this, l)).a("active-hangouts-account").a(k).b(this);
+        m = (new hbd(this, l)).a("active-hangouts-account").a(k).b(this);
     }
 
-    public void a(boolean flag, gmp gmp1, gmp gmp2, int i, int k)
+    public void a(boolean flag, gqv gqv1, gqv gqv2, int i, int k)
     {
-        if (gmp2 == gmp.c)
+        if (gqv2 == gqv.c)
         {
             j = j.c(m.c().b("account_name"));
             startActivity(g.a(j, null, null, false, 51, SystemClock.elapsedRealtime()));
@@ -44,7 +44,7 @@ public class NfcHangoutTransferActivity extends hhw
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        if (dzj.d())
+        if (ecn.d())
         {
             bundle = getIntent();
             boolean flag;
@@ -58,7 +58,7 @@ public class NfcHangoutTransferActivity extends hhw
             if (flag)
             {
                 j = g.e(getIntent());
-                bundle = (new gxe()).b().a(j.a()).a(gxj);
+                bundle = (new hbo()).b().a(j.a()).a(hbu);
                 m.a(bundle);
                 return;
             }

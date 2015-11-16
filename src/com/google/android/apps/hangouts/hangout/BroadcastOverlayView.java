@@ -10,22 +10,22 @@ import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import bmz;
-import bnd;
+import bni;
 import bnk;
-import bos;
-import bot;
-import bpd;
+import bns;
+import bpb;
+import bpc;
+import bpm;
 import g;
 import h;
 import l;
 
 public final class BroadcastOverlayView extends LinearLayout
-    implements bos
+    implements bpb
 {
 
-    private final bnk a = new bmz(this);
-    private final bnd b = bnd.a();
+    private final bns a = new bni(this);
+    private final bnk b = bnk.a();
     private TextView c;
     private TextView d;
 
@@ -36,29 +36,20 @@ public final class BroadcastOverlayView extends LinearLayout
 
     public static void a(BroadcastOverlayView broadcastoverlayview)
     {
-        Object obj = broadcastoverlayview.b.t();
-        if (((bpd) (obj)).a(((bpd) (obj)).n(), ((bpd) (obj)).o()))
+        Object obj = broadcastoverlayview.b.s();
+        if (((bpm) (obj)).a(((bpm) (obj)).m(), ((bpm) (obj)).n()))
         {
-            boolean flag = ((bpd) (obj)).p();
+            boolean flag = ((bpm) (obj)).o();
             obj = broadcastoverlayview.c;
             int i;
             if (flag)
             {
-                i = l.eK;
+                i = l.et;
             } else
             {
-                i = l.eC;
+                i = l.el;
             }
             ((TextView) (obj)).setText(i);
-            obj = broadcastoverlayview.c;
-            if (flag)
-            {
-                i = broadcastoverlayview.getContext().getResources().getColor(g.dN);
-            } else
-            {
-                i = broadcastoverlayview.getContext().getResources().getColor(g.dm);
-            }
-            ((TextView) (obj)).setTextColor(i);
             obj = broadcastoverlayview.c;
             if (flag)
             {
@@ -66,6 +57,15 @@ public final class BroadcastOverlayView extends LinearLayout
             } else
             {
                 i = broadcastoverlayview.getContext().getResources().getColor(g.dl);
+            }
+            ((TextView) (obj)).setTextColor(i);
+            obj = broadcastoverlayview.c;
+            if (flag)
+            {
+                i = broadcastoverlayview.getContext().getResources().getColor(g.dL);
+            } else
+            {
+                i = broadcastoverlayview.getContext().getResources().getColor(g.dk);
             }
             ((TextView) (obj)).setBackgroundColor(i);
             broadcastoverlayview.c.setVisibility(0);
@@ -81,12 +81,12 @@ public final class BroadcastOverlayView extends LinearLayout
     {
     }
 
-    public void a(bot bot)
+    public void a(bpc bpc)
     {
         b.a(a);
     }
 
-    public void i_()
+    public void j_()
     {
         b.b(a);
     }
@@ -98,7 +98,7 @@ public final class BroadcastOverlayView extends LinearLayout
     protected void onFinishInflate()
     {
         super.onFinishInflate();
-        c = (TextView)findViewById(h.bW);
-        d = (TextView)findViewById(h.bY);
+        c = (TextView)findViewById(h.bM);
+        d = (TextView)findViewById(h.bO);
     }
 }

@@ -3,26 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class act extends acd
+public interface act
 {
 
-    public act()
-    {
-        a(136);
-    }
+    public abstract long a();
 
-    act(acn acn1)
-    {
-        super(acn1);
-    }
-
-    public void a(acc acc)
-    {
-        a.a(acc, 137);
-    }
-
-    public acc c()
-    {
-        return a.c(137);
-    }
+    public abstract void a(long l);
 }

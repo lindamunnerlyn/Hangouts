@@ -2,99 +2,71 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.AbstractMap;
+import java.util.Set;
 
-public final class hsd extends koj
+final class hsd extends AbstractMap
 {
 
-    private static volatile hsd c[];
-    public hru a;
-    public String b;
+    final Object a;
+    final hry b;
 
-    public hsd()
+    hsd(Object obj, boolean flag)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = obj;
+        b = hry.a(obj.getClass(), flag);
+        if (!b.a())
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        l.a(flag);
     }
 
-    public static hsd[] a()
+    public hsg a()
     {
-        if (c == null)
+        return new hsg(this);
+    }
+
+    public boolean containsKey(Object obj)
+    {
+        return get(obj) != null;
+    }
+
+    public Set entrySet()
+    {
+        return a();
+    }
+
+    public Object get(Object obj)
+    {
+        if (obj instanceof String)
         {
-            synchronized (kon.a)
+            if ((obj = b.a((String)obj)) != null)
             {
-                if (c == null)
-                {
-                    c = new hsd[0];
-                }
+                return ((hsk) (obj)).a(a);
             }
         }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return null;
     }
 
-    protected int computeSerializedSize()
+    public Object put(Object obj, Object obj1)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        obj = (String)obj;
+        hsk hsk1 = b.a(((String) (obj)));
+        obj = String.valueOf(obj);
+        if (((String) (obj)).length() != 0)
         {
-            i = j + koh.d(1, a);
+            obj = "no field of key ".concat(((String) (obj)));
+        } else
+        {
+            obj = new String("no field of key ");
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.b(2, b);
-        }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new hru();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
-        super.writeTo(koh1);
+        l.b(hsk1, obj);
+        obj = hsk1.a(a);
+        hsk1.a(a, h.a(obj1));
+        return obj;
     }
 }

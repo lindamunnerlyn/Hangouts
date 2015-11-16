@@ -2,53 +2,62 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ComponentName;
-import android.content.pm.ActivityInfo;
 import android.content.pm.ResolveInfo;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.math.BigDecimal;
 
-final class uh
-    implements ug
+public final class uh
+    implements Comparable
 {
 
-    final ue a;
-    private final Map b = new HashMap();
+    public final ResolveInfo a;
+    public float b;
+    final ug c;
 
-    uh(ue ue)
+    public uh(ug ug, ResolveInfo resolveinfo)
     {
-        a = ue;
+        c = ug;
         super();
+        a = resolveinfo;
     }
 
-    public void a(List list, List list1)
+    public int compareTo(Object obj)
     {
-        Map map = b;
-        map.clear();
-        int k = list.size();
-        for (int i = 0; i < k; i++)
-        {
-            uf uf1 = (uf)list.get(i);
-            uf1.b = 0.0F;
-            map.put(new ComponentName(uf1.a.activityInfo.packageName, uf1.a.activityInfo.name), uf1);
-        }
+        return Float.floatToIntBits(((uh)obj).b) - Float.floatToIntBits(b);
+    }
 
-        int j = list1.size();
-        float f = 1.0F;
-        for (j--; j >= 0; j--)
+    public boolean equals(Object obj)
+    {
+        if (this != obj)
         {
-            ui ui1 = (ui)list1.get(j);
-            uf uf2 = (uf)map.get(ui1.a);
-            if (uf2 != null)
+            if (obj == null)
             {
-                float f1 = uf2.b;
-                uf2.b = ui1.c * f + f1;
-                f = 0.95F * f;
+                return false;
+            }
+            if (getClass() != obj.getClass())
+            {
+                return false;
+            }
+            obj = (uh)obj;
+            if (Float.floatToIntBits(b) != Float.floatToIntBits(((uh) (obj)).b))
+            {
+                return false;
             }
         }
+        return true;
+    }
 
-        Collections.sort(list);
+    public int hashCode()
+    {
+        return Float.floatToIntBits(b) + 31;
+    }
+
+    public String toString()
+    {
+        StringBuilder stringbuilder = new StringBuilder();
+        stringbuilder.append("[");
+        stringbuilder.append("resolveInfo:").append(a.toString());
+        stringbuilder.append("; weight:").append(new BigDecimal(b));
+        stringbuilder.append("]");
+        return stringbuilder.toString();
     }
 }

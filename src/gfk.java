@@ -7,28 +7,18 @@ final class gfk
     implements Runnable
 {
 
-    final boolean a;
-    final int b;
-    final int c;
-    final int d;
-    final int e;
-    final gff f;
+    final int a;
+    final gfj b;
 
-    gfk(gff gff1, boolean flag, int i, int j, int k, int l)
+    gfk(gfj gfj1, int i)
     {
-        f = gff1;
-        a = flag;
-        b = i;
-        c = j;
-        d = k;
-        e = l;
+        b = gfj1;
+        a = i;
         super();
     }
 
     public void run()
     {
-        f.k = a;
-        f.i = new gki(b, c);
-        f.a(new gki(d, e));
+        b.a.a();
     }
 }

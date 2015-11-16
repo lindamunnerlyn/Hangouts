@@ -2,50 +2,61 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.NoSuchElementException;
 
-final class klo
-    implements klq
+public final class klo extends kwm
 {
 
-    final kln a;
-    private int b;
-    private final int c;
+    public Boolean a;
 
-    klo(kln kln1)
+    public klo()
     {
-        a = kln1;
-        super();
-        b = kln1.b();
-        c = b + kln1.a();
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public byte a()
+    protected int computeSerializedSize()
     {
-        if (b >= c)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            throw new NoSuchElementException();
-        } else
-        {
-            byte abyte0[] = a.b;
-            int i = b;
-            b = i + 1;
-            return abyte0[i];
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
+        return i;
     }
 
-    public boolean hasNext()
+    public kws mergeFrom(kwj kwj1)
     {
-        return b < c;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
     }
 
-    public Object next()
+    public void writeTo(kwk kwk1)
     {
-        return Byte.valueOf(a());
-    }
-
-    public void remove()
-    {
-        throw new UnsupportedOperationException();
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

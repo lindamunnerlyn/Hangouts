@@ -2,23 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.app.Activity;
+import android.os.Bundle;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.TimeZone;
 
-public final class btb
+final class btb
+    implements bwl
 {
 
-    public static final String a = brc.getName();
-    private static bta b;
+    final bsz a;
 
-    public static void a(Context context, hgx hgx1)
+    btb(bsz bsz1)
     {
-        if (b == null)
-        {
-            b = new bta();
-        }
-        hgx1.a(brc, new brc[] {
-            new btc()
-        });
+        a = bsz1;
+        super();
     }
 
+    public void a(Activity activity, Bundle bundle)
+    {
+        int i = ((gqu)hlp.a(activity, gqu)).a();
+        if (bsz.a(i))
+        {
+            activity = (dra)hlp.a(activity, dra);
+            long l = activity.f(i);
+            bundle.putString("last_call_timestamp_millis", String.valueOf(l));
+            if (l != -1L)
+            {
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTimeInMillis(l);
+                SimpleDateFormat simpledateformat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss Z");
+                bundle.putString("last_call_timestamp", simpledateformat.format(calendar.getTime()));
+                simpledateformat.setTimeZone(TimeZone.getTimeZone("UTC"));
+                bundle.putString("last_call_timestamp_utc", simpledateformat.format(calendar.getTime()));
+            }
+            bundle.putString("last_call_local_session", activity.d(i));
+        }
+    }
 }

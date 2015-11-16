@@ -2,26 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
 
-final class cqo
-    implements android.view.View.OnClickListener
+public final class cqo extends Enum
 {
 
-    final cqn a;
+    public static final cqo a;
+    public static final cqo b;
+    private static final cqo d[];
+    public final String c;
 
-    cqo(cqn cqn1)
+    private cqo(String s, int i, String s1)
     {
-        a = cqn1;
-        super();
+        super(s, i);
+        c = s1;
     }
 
-    public void onClick(View view)
+    public static cqo valueOf(String s)
     {
-        g.a(dbf.e(cqn.a(a).a()), 2408);
-        if (cqn.b(a) != null)
-        {
-            cqn.b(a).a(cqn.c(a), cqn.a(a).c().b("account_name"), cqn.d(a));
-        }
+        return (cqo)Enum.valueOf(cqo, s);
+    }
+
+    public static cqo[] values()
+    {
+        return (cqo[])d.clone();
+    }
+
+    static 
+    {
+        a = new cqo("TRANSPORT_SPINNER", 0, "transport_spinner_promo_shown");
+        b = new cqo("AUTOSWITCH_TRANSPORT", 1, "autoswitch_transport_promo_shown");
+        d = (new cqo[] {
+            a, b
+        });
     }
 }

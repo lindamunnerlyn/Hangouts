@@ -2,26 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.google.android.apps.hangouts.views.MessageListItemView;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
-final class bcg
-    implements android.view.View.OnClickListener
+public class bcg extends hmm
+    implements avi
 {
 
-    final bcf a;
-
-    bcg(bcf bcf1)
+    public bcg()
     {
-        a = bcf1;
-        super();
     }
 
-    public void onClick(View view)
+    public boolean a()
     {
-        if (bcf.a(a).g())
+        if (!g.a(dcn.e(((gqu)binder.a(gqu)).a()), aqc.f))
         {
-            bcf.b(a).b(bcf.a(a).s());
+            Toast.makeText(context, g.kD, 0).show();
+            return false;
+        } else
+        {
+            return true;
         }
+    }
+
+    public void b()
+    {
+    }
+
+    public boolean c()
+    {
+        return false;
+    }
+
+    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
+    {
+        return layoutinflater.inflate(g.le, viewgroup, false);
     }
 }

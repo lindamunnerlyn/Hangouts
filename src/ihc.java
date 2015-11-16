@@ -3,111 +3,45 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ihc extends koj
+public final class ihc extends kwm
 {
 
-    public Boolean a;
-    public Boolean b;
-    public Boolean c;
-    public Boolean d;
-    public Boolean e;
-    public Boolean f;
-    public Boolean g;
-    public Boolean h;
-    public Boolean i;
-    public Boolean j;
+    public String a;
+    public String b;
 
     public ihc()
     {
         a = null;
         b = null;
-        c = null;
-        d = null;
-        e = null;
-        f = null;
-        g = null;
-        h = null;
-        i = null;
-        j = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int l = super.computeSerializedSize();
-        int k = l;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            a.booleanValue();
-            k = l + (koh.f(1) + 1);
+            i = j + kwk.b(1, a);
         }
-        l = k;
+        j = i;
         if (b != null)
         {
-            b.booleanValue();
-            l = k + (koh.f(2) + 1);
+            j = i + kwk.b(2, b);
         }
-        k = l;
-        if (c != null)
-        {
-            c.booleanValue();
-            k = l + (koh.f(3) + 1);
-        }
-        l = k;
-        if (d != null)
-        {
-            d.booleanValue();
-            l = k + (koh.f(4) + 1);
-        }
-        k = l;
-        if (e != null)
-        {
-            e.booleanValue();
-            k = l + (koh.f(5) + 1);
-        }
-        l = k;
-        if (f != null)
-        {
-            f.booleanValue();
-            l = k + (koh.f(6) + 1);
-        }
-        k = l;
-        if (g != null)
-        {
-            g.booleanValue();
-            k = l + (koh.f(7) + 1);
-        }
-        l = k;
-        if (h != null)
-        {
-            h.booleanValue();
-            l = k + (koh.f(8) + 1);
-        }
-        k = l;
-        if (i != null)
-        {
-            i.booleanValue();
-            k = l + (koh.f(9) + 1);
-        }
-        l = k;
-        if (j != null)
-        {
-            j.booleanValue();
-            l = k + (koh.f(10) + 1);
-        }
-        return l;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int k = kog1.a();
-            switch (k)
+            int i = kwj1.a();
+            switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, k))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -116,91 +50,27 @@ public final class ihc extends koj
             case 0: // '\0'
                 return this;
 
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
+            case 10: // '\n'
+                a = kwj1.j();
                 break;
 
-            case 16: // '\020'
-                b = Boolean.valueOf(kog1.i());
-                break;
-
-            case 24: // '\030'
-                c = Boolean.valueOf(kog1.i());
-                break;
-
-            case 32: // ' '
-                d = Boolean.valueOf(kog1.i());
-                break;
-
-            case 40: // '('
-                e = Boolean.valueOf(kog1.i());
-                break;
-
-            case 48: // '0'
-                f = Boolean.valueOf(kog1.i());
-                break;
-
-            case 56: // '8'
-                g = Boolean.valueOf(kog1.i());
-                break;
-
-            case 64: // '@'
-                h = Boolean.valueOf(kog1.i());
-                break;
-
-            case 72: // 'H'
-                i = Boolean.valueOf(kog1.i());
-                break;
-
-            case 80: // 'P'
-                j = Boolean.valueOf(kog1.i());
+            case 18: // '\022'
+                b = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.booleanValue());
+            kwk1.a(1, a);
         }
         if (b != null)
         {
-            koh1.a(2, b.booleanValue());
+            kwk1.a(2, b);
         }
-        if (c != null)
-        {
-            koh1.a(3, c.booleanValue());
-        }
-        if (d != null)
-        {
-            koh1.a(4, d.booleanValue());
-        }
-        if (e != null)
-        {
-            koh1.a(5, e.booleanValue());
-        }
-        if (f != null)
-        {
-            koh1.a(6, f.booleanValue());
-        }
-        if (g != null)
-        {
-            koh1.a(7, g.booleanValue());
-        }
-        if (h != null)
-        {
-            koh1.a(8, h.booleanValue());
-        }
-        if (i != null)
-        {
-            koh1.a(9, i.booleanValue());
-        }
-        if (j != null)
-        {
-            koh1.a(10, j.booleanValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

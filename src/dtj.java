@@ -3,20 +3,42 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class dtj
-    implements ebc
+public abstract class dtj
 {
 
-    final dti a;
-
-    dtj(dti dti1)
+    public dtj()
     {
-        a = dti1;
-        super();
     }
 
-    public void a(csw csw1)
+    public abstract int a();
+
+    public abstract long b();
+
+    public abstract long c();
+
+    public boolean equals(Object obj)
     {
-        dti.a(a, csw1.a());
+        if (obj != null && (obj instanceof dtj))
+        {
+            if (a() == ((dtj) (obj = (dtj)obj)).a() && b() == ((dtj) (obj)).b())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int hashCode()
+    {
+        String s = String.valueOf(Integer.toString(a()));
+        String s1 = String.valueOf(Long.toString(b()));
+        if (s1.length() != 0)
+        {
+            s = s.concat(s1);
+        } else
+        {
+            s = new String(s);
+        }
+        return s.hashCode();
     }
 }

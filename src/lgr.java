@@ -3,72 +3,113 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lgr extends ldd
+public final class lgr extends kwm
 {
 
-    private static final long serialVersionUID = 0xcf3f4667c8adc9fcL;
-    private final String c;
-    private final int d;
-    private final int e;
+    public lgp a[];
 
-    public lgr(String s, String s1, int i, int j)
+    public lgr()
     {
-        super(s);
-        c = s1;
-        d = i;
-        e = j;
+        a = lgp.a();
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public String a(long l)
+    protected int computeSerializedSize()
     {
-        return c;
-    }
-
-    public int b(long l)
-    {
-        return d;
-    }
-
-    public int c(long l)
-    {
-        return d;
-    }
-
-    public boolean c()
-    {
-        return true;
-    }
-
-    public long e(long l)
-    {
-        return l;
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (this != obj)
+        int i = super.computeSerializedSize();
+        int k = i;
+        if (a != null)
         {
-            if (obj instanceof lgr)
+            k = i;
+            if (a.length > 0)
             {
-                if (!super.b.equals(((ldd) (obj = (lgr)obj)).b) || e != ((lgr) (obj)).e || d != ((lgr) (obj)).d)
+                int j = 0;
+                do
                 {
-                    return false;
-                }
-            } else
-            {
-                return false;
+                    k = i;
+                    if (j >= a.length)
+                    {
+                        break;
+                    }
+                    lgp lgp1 = a[j];
+                    k = i;
+                    if (lgp1 != null)
+                    {
+                        k = i + kwk.d(1, lgp1);
+                    }
+                    j++;
+                    i = k;
+                } while (true);
             }
         }
-        return true;
+        return k;
     }
 
-    public long f(long l)
+    public kws mergeFrom(kwj kwj1)
     {
-        return l;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                int k = kwx.a(kwj1, 10);
+                lgp algp[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                algp = new lgp[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, algp, 0, j);
+                    k = j;
+                }
+                for (; k < algp.length - 1; k++)
+                {
+                    algp[k] = new lgp();
+                    kwj1.a(algp[k]);
+                    kwj1.a();
+                }
+
+                algp[k] = new lgp();
+                kwj1.a(algp[k]);
+                a = algp;
+                break;
+            }
+        } while (true);
     }
 
-    public int hashCode()
+    public void writeTo(kwk kwk1)
     {
-        return super.b.hashCode() + e * 37 + d * 31;
+        if (a != null && a.length > 0)
+        {
+            for (int i = 0; i < a.length; i++)
+            {
+                lgp lgp1 = a[i];
+                if (lgp1 != null)
+                {
+                    kwk1.b(1, lgp1);
+                }
+            }
+
+        }
+        super.writeTo(kwk1);
     }
 }

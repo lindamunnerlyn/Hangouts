@@ -3,23 +3,32 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class jnp extends jnm
+final class jnp extends jno
 {
 
-    jnp(String s)
+    final String b;
+    final jno c;
+
+    jnp(jno jno1, jno jno2, String s)
     {
-        super(s, 2);
+        c = jno1;
+        b = s;
+        super(jno2);
     }
 
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry a(joh joh, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry1)
+    CharSequence a(Object obj)
     {
-        joh = super.a(joh, referenceentry, referenceentry1);
-        b(referenceentry, joh);
-        return joh;
+        if (obj == null)
+        {
+            return b;
+        } else
+        {
+            return c.a(obj);
+        }
     }
 
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry a(joh joh, Object obj, int i, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    public jno b(String s)
     {
-        return new jop(obj, i, referenceentry);
+        throw new UnsupportedOperationException("already specified useForNull");
     }
 }

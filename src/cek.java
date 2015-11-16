@@ -2,54 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.content.Intent;
 
-final class cek
+public final class cek extends cfh
 {
 
-    static final int a[];
-    static final int b[];
-
-    static 
+    public cek()
     {
-        b = new int[cel.values().length];
-        try
-        {
-            b[cel.a.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror6) { }
-        try
-        {
-            b[cel.c.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror5) { }
-        try
-        {
-            b[cel.d.ordinal()] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror4) { }
-        try
-        {
-            b[cel.b.ordinal()] = 4;
-        }
-        catch (NoSuchFieldError nosuchfielderror3) { }
-        a = new int[dfd.values().length];
-        try
-        {
-            a[dfd.d.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[dfd.c.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[dfd.e.ordinal()] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
+    }
+
+    Intent a(Context context, int i)
+    {
+        Intent intent = new Intent();
+        intent.putExtra("account_id", i);
+        return b(context, intent);
+    }
+
+    public void a(Context context, Intent intent)
+    {
+        int i = intent.getIntExtra("account_id", -1);
+        intent = ceh.b;
+        cel.a(context, i);
     }
 }

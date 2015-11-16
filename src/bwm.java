@@ -5,6 +5,4 @@
 
 public interface bwm
 {
-
-    public abstract void a(String s);
 }

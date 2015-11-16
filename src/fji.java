@@ -2,39 +2,68 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
+import android.os.IBinder;
 import android.os.Parcel;
-import com.google.android.gms.maps.model.StreetViewPanoramaLocation;
 
-public abstract class fji extends Binder
-    implements fjh
+final class fji
+    implements fjg
 {
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    private IBinder a;
+
+    fji(IBinder ibinder)
     {
-        switch (i)
-        {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
+        a = ibinder;
+    }
 
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.maps.internal.IOnStreetViewPanoramaChangeListener");
-            return true;
+    public void a()
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.ILocationSourceDelegate");
+        a.transact(2, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
 
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnStreetViewPanoramaChangeListener");
-            break;
-        }
-        if (parcel.readInt() != 0)
+    public void a(fkw fkw1)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.ILocationSourceDelegate");
+        if (fkw1 == null)
         {
-            flo flo1 = StreetViewPanoramaLocation.CREATOR;
-            parcel = flo.a(parcel);
-        } else
-        {
-            parcel = null;
+            break MISSING_BLOCK_LABEL_57;
         }
-        a(parcel);
-        parcel1.writeNoException();
-        return true;
+        fkw1 = fkw1.asBinder();
+_L1:
+        parcel.writeStrongBinder(fkw1);
+        a.transact(1, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        fkw1 = null;
+          goto _L1
+        fkw1;
+        parcel1.recycle();
+        parcel.recycle();
+        throw fkw1;
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
     }
 }

@@ -2,14 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
-import java.util.Collection;
 
-public interface dez
+public final class dez
+    implements dfg
 {
 
-    public abstract Collection a();
+    final Runnable a;
 
-    public abstract void a(Context context, Intent intent);
+    public dez(Runnable runnable)
+    {
+        a = runnable;
+        super();
+    }
+
+    public void a()
+    {
+        a.run();
+    }
+
+    public void b()
+    {
+    }
 }

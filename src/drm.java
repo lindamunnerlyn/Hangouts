@@ -2,28 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
+import com.google.android.apps.hangouts.settings.NotificationSettingsActivity;
 
-final class drm
-    implements android.os.Parcelable.Creator
+public final class drm extends hkq
 {
 
-    drm()
+    final NotificationSettingsActivity a;
+
+    public drm(NotificationSettingsActivity notificationsettingsactivity, pu pu, hof hof)
     {
+        a = notificationsettingsactivity;
+        super(pu, hof);
     }
 
-    public Object createFromParcel(Parcel parcel)
+    protected hjy a()
     {
-        drl drl1 = new drl();
-        drl1.a = parcel.readString();
-        drl1.b = parcel.readString();
-        drl1.c = parcel.readInt();
-        drl1.d = parcel.readInt();
-        return drl1;
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new drl[i];
+        return new dro();
     }
 }

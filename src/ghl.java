@@ -2,29 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-final class ghl
-    implements gbe
+public final class ghl extends gea
 {
 
-    final gbe a;
-    final ghi b;
+    private static final int a[] = {
+        2
+    };
+    private final geb b;
+    private final gfh c;
 
-    ghl(ghi ghi1, gbe gbe1)
+    public ghl(Context context, geb geb1)
     {
-        b = ghi1;
-        a = gbe1;
-        super();
+        super(context, a);
+        b = geb1;
+        c = new gfh(context);
     }
 
-    public void a(kop kop)
+    public void a(jll jll1)
     {
-        b.a_.a(ghi.a(b.b.b(kop)));
-        a.a(kop);
+        super.a(jll1);
+        gmq gmq1 = b.d();
+        jll1.a = new jlk();
+        jll1.a.k = gmq1.c();
+        jll1.a.b = gmq1.d();
+        jll1.g = new iui();
+        jll1.g.d = Integer.valueOf(c.a());
     }
 
-    public void b(kop kop)
-    {
-        a.b(kop);
-    }
 }

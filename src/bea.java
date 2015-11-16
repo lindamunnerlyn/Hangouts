@@ -2,10 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
+import java.util.concurrent.atomic.AtomicBoolean;
 
-public interface bea
+final class bea
+    implements Runnable
 {
 
-    public abstract Intent a();
+    final bdz a;
+
+    bea(bdz bdz1)
+    {
+        a = bdz1;
+        super();
+    }
+
+    public void run()
+    {
+        a.a.set(true);
+    }
 }

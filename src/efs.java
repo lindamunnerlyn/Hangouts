@@ -2,22 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.views.MessageListView;
 
 public final class efs
 {
 
-    public int a;
-    public int b;
-    public boolean c;
-    final MessageListView d;
+    public static final String a = efl.getName();
+    private static efr b;
 
-    public efs(MessageListView messagelistview)
+    public static void a(hlp hlp1)
     {
-        d = messagelistview;
-        super();
-        a = -1;
-        b = 0;
-        c = false;
+        if (b == null)
+        {
+            b = new efr();
+        }
+        hlp1.a(efl, new efn());
     }
+
 }

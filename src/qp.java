@@ -2,213 +2,68 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import android.content.Intent;
-import android.content.res.Configuration;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
+import android.util.TypedValue;
+import android.view.KeyEvent;
 
-public class qp extends ai
-    implements dw, pv, qq
+public final class qp extends rp
+    implements DialogInterface
 {
 
-    private qr j;
+    qg a;
 
-    public qp()
+    qp(Context context, int i)
     {
+        super(context, a(context, i));
+        a = new qg(getContext(), this, getWindow());
     }
 
-    public void a(Toolbar toolbar)
+    static int a(Context context, int i)
     {
-        i().a(toolbar);
-    }
-
-    public void a(dv dv1)
-    {
-        dv1.a(this);
-    }
-
-    public void a(vr vr)
-    {
-    }
-
-    public boolean a_(Intent intent)
-    {
-        return bu.a(this, intent);
-    }
-
-    public void addContentView(View view, android.view.ViewGroup.LayoutParams layoutparams)
-    {
-        i().b(view, layoutparams);
-    }
-
-    public pu b()
-    {
-        return i().h();
-    }
-
-    public void b(Intent intent)
-    {
-        bu.b(this, intent);
-    }
-
-    public void b(vr vr)
-    {
-    }
-
-    public po g()
-    {
-        return i().a();
-    }
-
-    public MenuInflater getMenuInflater()
-    {
-        return i().b();
-    }
-
-    public qr i()
-    {
-        if (j == null)
+        if (i >= 0x1000000)
         {
-            j = qr.a(this, getWindow(), this);
+            return i;
+        } else
+        {
+            TypedValue typedvalue = new TypedValue();
+            context.getTheme().resolveAttribute(g.t, typedvalue, true);
+            return typedvalue.resourceId;
         }
-        return j;
     }
 
-    public void invalidateOptionsMenu()
+    protected void onCreate(Bundle bundle)
     {
-        i().f();
-    }
-
-    public void onConfigurationChanged(Configuration configuration)
-    {
-        super.onConfigurationChanged(configuration);
-        i().a(configuration);
-    }
-
-    public void onContentChanged()
-    {
-    }
-
-    public void onCreate(Bundle bundle)
-    {
-        i().i();
-        i().a(bundle);
         super.onCreate(bundle);
+        a.a();
     }
 
-    public void onDestroy()
+    public boolean onKeyDown(int i, KeyEvent keyevent)
     {
-        super.onDestroy();
-        i().g();
-    }
-
-    public final boolean onMenuItemSelected(int k, MenuItem menuitem)
-    {
-        if (super.onMenuItemSelected(k, menuitem))
+        if (a.a(keyevent))
         {
-            return true;
-        }
-        po po1 = g();
-        if (menuitem.getItemId() == 0x102002c && po1 != null && (po1.d() & 4) != 0)
-        {
-            return q_();
-        } else
-        {
-            return false;
-        }
-    }
-
-    public boolean onMenuOpened(int k, Menu menu)
-    {
-        return super.onMenuOpened(k, menu);
-    }
-
-    public void onPanelClosed(int k, Menu menu)
-    {
-        super.onPanelClosed(k, menu);
-    }
-
-    public void onPostCreate(Bundle bundle)
-    {
-        super.onPostCreate(bundle);
-        i().c();
-    }
-
-    public void onPostResume()
-    {
-        super.onPostResume();
-        i().e();
-    }
-
-    public void onStop()
-    {
-        super.onStop();
-        i().d();
-    }
-
-    protected void onTitleChanged(CharSequence charsequence, int k)
-    {
-        super.onTitleChanged(charsequence, k);
-        i().a(charsequence);
-    }
-
-    public void p_()
-    {
-        i().f();
-    }
-
-    public boolean q_()
-    {
-        Object obj = r_();
-        if (obj != null)
-        {
-            if (a_(((Intent) (obj))))
-            {
-                obj = dv.a(this);
-                a(((dv) (obj)));
-                ((dv) (obj)).b();
-                try
-                {
-                    p.a(this);
-                }
-                // Misplaced declaration of an exception variable
-                catch (Object obj)
-                {
-                    finish();
-                }
-            } else
-            {
-                b(((Intent) (obj)));
-            }
             return true;
         } else
         {
-            return false;
+            return super.onKeyDown(i, keyevent);
         }
     }
 
-    public Intent r_()
+    public boolean onKeyUp(int i, KeyEvent keyevent)
     {
-        return bu.b(this);
+        if (a.b(keyevent))
+        {
+            return true;
+        } else
+        {
+            return super.onKeyUp(i, keyevent);
+        }
     }
 
-    public void setContentView(int k)
+    public void setTitle(CharSequence charsequence)
     {
-        i().a(k);
-    }
-
-    public void setContentView(View view)
-    {
-        i().a(view);
-    }
-
-    public void setContentView(View view, android.view.ViewGroup.LayoutParams layoutparams)
-    {
-        i().a(view, layoutparams);
+        super.setTitle(charsequence);
+        a.a(charsequence);
     }
 }

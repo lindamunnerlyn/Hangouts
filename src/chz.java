@@ -2,12 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
+import android.view.View;
+import android.widget.TextView;
 
-public interface chz
+final class chz extends zs
 {
 
-    public abstract boolean a(String s);
+    final chn l;
+    private TextView m;
 
-    public abstract boolean a(List list);
+    chz(chn chn, View view)
+    {
+        l = chn;
+        super(view);
+        m = (TextView)view.findViewById(l.tW);
+    }
+
+    static TextView a(chz chz1)
+    {
+        return chz1.m;
+    }
 }

@@ -2,68 +2,91 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.gms.identity.accounts.api.AccountData;
+import android.os.Bundle;
+import java.util.LinkedList;
 
-public final class fcq
-    implements android.os.Parcelable.Creator
+public abstract class fcq
 {
+
+    fcp a;
+    Bundle b;
+    LinkedList c;
+    private final fda d = new fcr(this);
 
     public fcq()
     {
     }
 
-    public static void a(AccountData accountdata, Parcel parcel)
+    private void a(int i)
     {
-        int i = g.p(parcel, 20293);
-        g.a(parcel, 1, accountdata.b());
-        g.b(parcel, 1000, accountdata.a());
-        g.a(parcel, 2, accountdata.c());
-        g.q(parcel, i);
+        for (; !c.isEmpty() && ((fcv)c.getLast()).a() >= i; c.removeLast()) { }
     }
 
-    public Object createFromParcel(Parcel parcel)
+    private void a(Bundle bundle, fcv fcv1)
     {
-        String s1 = null;
-        int j = g.a(parcel);
-        int i = 0;
-        String s = null;
-        do
+        if (a != null)
         {
-            if (parcel.dataPosition() < j)
+            fcv1.b();
+            return;
+        }
+        if (c == null)
+        {
+            c = new LinkedList();
+        }
+        c.add(fcv1);
+        if (bundle != null)
+        {
+            if (b == null)
             {
-                int k = parcel.readInt();
-                switch (0xffff & k)
-                {
-                default:
-                    g.b(parcel, k);
-                    break;
-
-                case 1: // '\001'
-                    s = g.i(parcel, k);
-                    break;
-
-                case 1000: 
-                    i = g.e(parcel, k);
-                    break;
-
-                case 2: // '\002'
-                    s1 = g.i(parcel, k);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != j)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
+                b = (Bundle)bundle.clone();
             } else
             {
-                return new AccountData(i, s, s1);
+                b.putAll(bundle);
             }
-        } while (true);
+        }
+        a(d);
     }
 
-    public Object[] newArray(int i)
+    public fcp a()
     {
-        return new AccountData[i];
+        return a;
+    }
+
+    public void a(Bundle bundle)
+    {
+        a(null, ((fcv) (new fcs(this, null))));
+    }
+
+    public abstract void a(fda fda);
+
+    public void b()
+    {
+        a(null, new fcu(this));
+    }
+
+    public void c()
+    {
+        if (a != null)
+        {
+            a.b();
+            return;
+        } else
+        {
+            a(5);
+            return;
+        }
+    }
+
+    public void d()
+    {
+        if (a != null)
+        {
+            a.c();
+            return;
+        } else
+        {
+            a(1);
+            return;
+        }
     }
 }

@@ -2,27 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
 
-public final class dab
-    implements Serializable
+public class dab extends cxr
 {
 
     private static final long serialVersionUID = 1L;
-    private final String a;
-    private final boolean b;
-    private final boolean c;
-    private final boolean d;
-    private final int e;
-    private final String f;
+    public final boolean g;
 
-    dab(String s, boolean flag, boolean flag1, boolean flag2, int i, String s1)
+    private dab(jdx jdx1)
     {
-        a = s;
-        b = flag;
-        c = flag1;
-        d = flag2;
-        e = i;
-        f = s1;
+        super(jdx1.responseHeader, -1L);
+        if (jdx1.a != null && g.a(jdx1.a, 0) == 1)
+        {
+            g = true;
+            return;
+        } else
+        {
+            g = false;
+            return;
+        }
+    }
+
+    public static cxr parseFrom(byte abyte0[])
+    {
+        abyte0 = (jdx)kws.mergeFrom(new jdx(), abyte0);
+        if (a(((jdx) (abyte0)).responseHeader))
+        {
+            return new cyd(((jdx) (abyte0)).responseHeader);
+        } else
+        {
+            return new dab(abyte0);
+        }
     }
 }

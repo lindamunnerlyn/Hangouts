@@ -8,9 +8,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
-import bnd;
-import bpd;
-import ebw;
+import bnk;
+import bpm;
+import eev;
 import g;
 
 public class Q extends BroadcastReceiver
@@ -19,22 +19,22 @@ public class Q extends BroadcastReceiver
     public void onReceive(Context context, Intent intent)
     {
         String s = intent.getStringExtra("session");
-        bpd bpd1 = bnd.a().t();
-        if (bpd1 == null || !bpd1.m().equals(s))
+        bpm bpm1 = bnk.a().s();
+        if (bpm1 == null || !bpm1.l().equals(s))
         {
-            ebw.a("Babel", "SessionId is no longer valid");
+            eev.a("Babel", "SessionId is no longer valid");
         } else
         {
             if ("com.google.android.apps.hangouts.hangout.joined".equals(intent.getAction()))
             {
-                intent = g.a(bpd1.e(), null, false, 51, bpd1.M(), SystemClock.elapsedRealtime());
+                intent = g.a(bpm1.e(), null, false, 51, bpm1.L(), SystemClock.elapsedRealtime());
                 intent.setFlags(0x34000000);
                 context.startActivity(intent);
                 return;
             }
             if ("com.google.android.apps.hangouts.hangout.exit".equals(intent.getAction()))
             {
-                bpd1.c(1004);
+                bpm1.c(1004);
                 return;
             }
         }

@@ -2,34 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.google.android.apps.hangouts.peoplelistv2.impl.EditParticipantsView;
+import android.os.Parcel;
 
-public final class cga
-    implements cfr
+final class cga
+    implements android.os.Parcelable.Creator
 {
 
-    final EditParticipantsView a;
-
-    public cga(EditParticipantsView editparticipantsview)
+    cga()
     {
-        a = editparticipantsview;
-        super();
     }
 
-    public void a()
+    public Object createFromParcel(Parcel parcel)
     {
-        if (EditParticipantsView.a(a).getChildCount() > 0)
+        ClassLoader classloader = getClass().getClassLoader();
+        cfz cfz1 = new cfz();
+        cfz1.a = cgf.values()[parcel.readInt()];
+        cfz1.b = (cgd)parcel.readParcelable(classloader);
+        cfz1.c = parcel.readString();
+        cfz1.d = parcel.readString();
+        cfz1.e = parcel.readString();
+        cfz1.f = parcel.readString();
+        cfz1.c(parcel.readString());
+        cfz1.h = parcel.readString();
+        cfz1.r = parcel.readString();
+        cfz1.s = parcel.readString();
+        boolean flag;
+        if (parcel.readInt() == 1)
         {
-            View view = EditParticipantsView.a(a).getChildAt(EditParticipantsView.a(a).getChildCount() - 1);
-            ais ais1 = (ais)view.getTag();
-            if (ais1 != null)
-            {
-                view.setTag(null);
-                EditParticipantsView.b(a).b(ais1);
-                EditParticipantsView.c(a);
-            }
+            flag = true;
+        } else
+        {
+            flag = false;
         }
+        cfz1.t = flag;
+        cfz1.w = parcel.readInt();
+        cfz.a(cfz1, parcel.readString());
+        cfz.a(cfz1, new byte[parcel.readInt()]);
+        parcel.readByteArray(cfz.a(cfz1));
+        return cfz1;
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new cfz[i];
     }
 }

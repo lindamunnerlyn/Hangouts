@@ -2,32 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
-final class qh extends ArrayAdapter
+final class qh
+    implements android.view.View.OnClickListener
 {
 
-    final ListView a;
-    final qg b;
+    final qg a;
 
-    qh(qg qg1, Context context, int i, CharSequence acharsequence[], ListView listview)
+    qh(qg qg1)
     {
-        b = qg1;
-        a = listview;
-        super(context, i, 0x1020014, acharsequence);
+        a = qg1;
+        super();
     }
 
-    public View getView(int i, View view, ViewGroup viewgroup)
+    public void onClick(View view)
     {
-        view = super.getView(i, view, viewgroup);
-        if (b.C != null && b.C[i])
+        if (view == a.c && a.d != null)
         {
-            a.setItemChecked(i, true);
+            view = Message.obtain(a.d);
+        } else
+        if (view == a.e && a.f != null)
+        {
+            view = Message.obtain(a.f);
+        } else
+        if (view == a.g && a.h != null)
+        {
+            view = Message.obtain(a.h);
+        } else
+        {
+            view = null;
         }
-        return view;
+        if (view != null)
+        {
+            view.sendToTarget();
+        }
+        a.o.obtainMessage(1, a.a).sendToTarget();
     }
 }

@@ -2,37 +2,84 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.Serializable;
 
-public final class amv extends Enum
+public final class amv
+    implements Serializable
 {
 
-    public static final amv a;
-    public static final amv b;
-    public static final amv c;
-    private static final amv d[];
+    private String a;
+    private String b;
 
-    private amv(String s, int i)
+    public amv(String s)
     {
-        super(s, i);
+        this("", s);
     }
 
-    public static amv valueOf(String s)
+    public amv(String s, String s1)
     {
-        return (amv)Enum.valueOf(amv, s);
+        a = s;
+        b = s1;
     }
 
-    public static amv[] values()
+    public String a()
     {
-        return (amv[])d.clone();
+        return a;
     }
 
-    static 
+    public String b()
     {
-        a = new amv("NONE", 0);
-        b = new amv("CARRIER", 1);
-        c = new amv("GV", 2);
-        d = (new amv[] {
-            a, b, c
-        });
+        return b;
+    }
+
+    public boolean equals(Object obj)
+    {
+        boolean flag1 = false;
+        if (this != obj) goto _L2; else goto _L1
+_L1:
+        boolean flag = true;
+_L4:
+        return flag;
+_L2:
+        flag = flag1;
+        if (obj == null) goto _L4; else goto _L3
+_L3:
+        flag = flag1;
+        if (getClass() != obj.getClass()) goto _L4; else goto _L5
+_L5:
+        obj = (amv)obj;
+        if (a == null) goto _L7; else goto _L6
+_L6:
+        flag = flag1;
+        if (!a.equals(((amv) (obj)).a)) goto _L4; else goto _L8
+_L8:
+        return b.equals(((amv) (obj)).b);
+_L7:
+        if (((amv) (obj)).a != null)
+        {
+            return false;
+        }
+        if (true) goto _L8; else goto _L9
+_L9:
+    }
+
+    public int hashCode()
+    {
+        int i;
+        if (a != null)
+        {
+            i = a.hashCode();
+        } else
+        {
+            i = 0;
+        }
+        return i * 31 + b.hashCode();
+    }
+
+    public String toString()
+    {
+        String s = String.valueOf(eev.b(b));
+        String s1 = a;
+        return (new StringBuilder(String.valueOf(s).length() + 32 + String.valueOf(s1).length())).append("EmailAddress {email: ").append(s).append(" | label: ").append(s1).append("}").toString();
     }
 }

@@ -2,21 +2,69 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.FilterInputStream;
-import java.io.InputStream;
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.view.LayoutInflater;
 
-final class hlt extends FilterInputStream
+public final class hlt extends ContextWrapper
+    implements hls
 {
 
-    final hls a;
+    private final hlp a;
+    private LayoutInflater b;
 
-    hlt(hls hls, InputStream inputstream)
+    public hlt()
     {
-        a = hls;
-        super(inputstream);
+        super(null);
+        a = new hlp();
     }
 
-    public void close()
+    public hlt(Context context)
     {
+        this(context, hlp.b(context));
+    }
+
+    public hlt(Context context, hlp hlp1)
+    {
+        super(context);
+        if (context == null)
+        {
+            throw new IllegalArgumentException("Cannot construct BinderContextWrapper with null Context");
+        } else
+        {
+            a = new hlp(this, hlp1);
+            return;
+        }
+    }
+
+    public void a(Context context)
+    {
+        attachBaseContext(context);
+        a.a(context);
+    }
+
+    public void a(hlp hlp1)
+    {
+        a.a(hlp1);
+    }
+
+    public hlp getBinder()
+    {
+        return a;
+    }
+
+    public Object getSystemService(String s)
+    {
+        if (s.equals("layout_inflater"))
+        {
+            if (b == null)
+            {
+                b = ((LayoutInflater)super.getSystemService(s)).cloneInContext(this);
+            }
+            return b;
+        } else
+        {
+            return super.getSystemService(s);
+        }
     }
 }

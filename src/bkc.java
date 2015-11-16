@@ -2,37 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.AsyncTask;
-import java.io.IOException;
+import android.content.res.Resources;
+import java.util.List;
 
-final class bkc extends AsyncTask
+final class bkc extends bka
 {
 
-    final String a;
-    final bka b;
+    final bkb a;
+    private final List b;
+    private final int c;
 
-    bkc(bka bka1, String s)
+    public bkc(bkb bkb1, Resources resources, List list, int i)
     {
-        b = bka1;
-        a = s;
-        super();
+        a = bkb1;
+        super(resources, bkb.a(bkb1));
+        b = list;
+        c = i;
     }
 
-    private transient Void a()
+    public int getCount()
     {
-        try
-        {
-            ((gxa)bka.a(b).a(gxa)).a(a, (new gxd()).c());
-        }
-        catch (IOException ioexception)
-        {
-            ebw.d("Babel", "Unable to refresh account", ioexception);
-        }
-        return null;
+        int i = c;
+        int j = bkb.c(a);
+        return Math.min(bkb.c(a), b.size() - i * j);
     }
 
-    protected Object doInBackground(Object aobj[])
+    public long getItemId(int i)
     {
-        return a();
+        int j = c;
+        int k = bkb.c(a);
+        return (long)g.a((Integer)b.get(j * k + i), 0);
     }
 }

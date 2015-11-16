@@ -2,22 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.wearable.WearableService;
+import android.text.Spannable;
+import java.util.Comparator;
 
-public final class ehf
-    implements Runnable
+final class ehf
+    implements Comparator
 {
 
-    final WearableService a;
+    Spannable a;
 
-    public ehf(WearableService wearableservice)
+    ehf(Spannable spannable)
     {
-        a = wearableservice;
-        super();
+        a = spannable;
     }
 
-    public void run()
+    public int compare(Object obj, Object obj1)
     {
-        WearableService.b(a);
+        obj = (ehe)obj;
+        obj1 = (ehe)obj1;
+        int i = a.getSpanStart(obj);
+        int j = a.getSpanStart(obj1);
+        if (i < j)
+        {
+            return -1;
+        }
+        return i != j ? 1 : 0;
     }
 }

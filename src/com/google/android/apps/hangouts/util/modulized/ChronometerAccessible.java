@@ -49,7 +49,7 @@ public class ChronometerAccessible extends Chronometer
             s = "";
         } else
         {
-            s = getResources().getQuantityString(g.qw, i, new Object[] {
+            s = getResources().getQuantityString(g.qy, i, new Object[] {
                 Integer.valueOf(i)
             });
         }
@@ -58,7 +58,7 @@ public class ChronometerAccessible extends Chronometer
             s1 = "";
         } else
         {
-            s1 = getResources().getQuantityString(g.qi, j, new Object[] {
+            s1 = getResources().getQuantityString(g.qk, j, new Object[] {
                 Integer.valueOf(j)
             });
         }
@@ -67,11 +67,11 @@ public class ChronometerAccessible extends Chronometer
             s2 = "";
         } else
         {
-            s2 = getResources().getQuantityString(g.qk, k, new Object[] {
+            s2 = getResources().getQuantityString(g.qm, k, new Object[] {
                 Integer.valueOf(k)
             });
         }
-        return getResources().getString(g.qA, new Object[] {
+        return getResources().getString(g.qC, new Object[] {
             s, s1, s2
         });
     }

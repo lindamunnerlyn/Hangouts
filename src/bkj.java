@@ -3,11 +3,45 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface bkj
+public class bkj extends bkp
+    implements android.widget.AbsListView.OnScrollListener
 {
 
-    public static final String a[] = {
-        "_id", "chat_id", "gaia_id", "name", "profile_photo_url"
-    };
+    public coy f;
 
+    public bkj()
+    {
+    }
+
+    public boolean isEmpty()
+    {
+        return f == null || f.a() == null || f.getCount() == 0;
+    }
+
+    public void onDetach()
+    {
+        if (f != null)
+        {
+            f.b(null);
+        }
+        super.onDetach();
+    }
+
+    public void onPause()
+    {
+        super.onPause();
+        if (f != null && f.a() != null)
+        {
+            f.c();
+        }
+    }
+
+    public void onResume()
+    {
+        super.onResume();
+        if (f != null && f.a() != null)
+        {
+            f.d();
+        }
+    }
 }

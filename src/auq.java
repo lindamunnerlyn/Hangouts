@@ -2,24 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import android.app.AlertDialog;
+import android.os.AsyncTask;
+import android.widget.ArrayAdapter;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
 
-final class auq
-    implements android.view.View.OnClickListener
+final class auq extends AsyncTask
 {
 
-    final auk a;
-    private final int b;
+    final aup a;
 
-    auq(auk auk1, int i)
+    auq(aup aup1)
     {
-        a = auk1;
+        a = aup1;
         super();
-        b = i;
     }
 
-    public void onClick(View view)
+    protected Object doInBackground(Object aobj[])
     {
-        a.b(b);
+        return aoq.f(new aow(a.b.a, a.a), a.b.c.a);
+    }
+
+    protected void onPostExecute(Object obj)
+    {
+        obj = (List)obj;
+        ArrayAdapter arrayadapter = new ArrayAdapter(a.b.a, 0x1090003);
+        for (Iterator iterator = ((List) (obj)).iterator(); iterator.hasNext(); arrayadapter.add((String)iterator.next())) { }
+        (new android.app.AlertDialog.Builder(a.b.a)).setTitle(String.format(Locale.US, "%d recipients", new Object[] {
+            Integer.valueOf(((List) (obj)).size())
+        })).setAdapter(arrayadapter, null).create().show();
     }
 }

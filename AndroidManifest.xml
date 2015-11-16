@@ -12,9 +12,6 @@
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.NFC"/>
-    <uses-permission android:name="android.permission.READ_SMS"/>
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
-    <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
@@ -23,16 +20,16 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
     <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="android.permission.WRITE_SMS"/>
     <uses-permission android:name="android.permission.RECEIVE_MMS"/>
     <uses-permission android:name="android.permission.CALL_PHONE"/>
@@ -71,7 +68,6 @@
         <activity android:label="@string/smsmms_settings_title" android:name="com.google.android.apps.hangouts.settings.SmsSettingsActivity" android:theme="@style/Theme.Hangouts.Settings"/>
         <activity android:configChanges="keyboardHidden|orientation" android:name="com.google.android.apps.hangouts.phone.ApnSettingsActivity" android:theme="@style/Theme.EmeraldSea.Settings"/>
         <activity android:configChanges="keyboardHidden|orientation" android:name="com.google.android.apps.hangouts.phone.ApnEditorActivity" android:theme="@style/Theme.EmeraldSea.Settings"/>
-        <activity android:name="com.google.android.apps.hangouts.phone.LicenseActivity"/>
         <activity android:name="com.google.android.apps.hangouts.phone.GoogleVoiceTermsOfServiceActivity" android:theme="@style/Theme.EmeraldSea"/>
         <activity android:configChanges="keyboardHidden|orientation" android:label="@string/home_screen_babel_label" android:launchMode="singleTop" android:name="com.google.android.apps.hangouts.phone.BabelHomeActivity" android:theme="@style/Theme.EmeraldSea.Launcher" android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
@@ -89,6 +85,14 @@
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <data android:scheme="mms"/>
                 <data android:scheme="mmsto"/>
+            </intent-filter>
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="hangouts.google.com" android:path="" android:scheme="http"/>
+                <data android:host="hangouts.google.com" android:path="" android:scheme="https"/>
+                <data android:host="hangouts.google.com" android:path="" android:scheme="content"/>
             </intent-filter>
         </activity>
         <activity android:label="@string/home_screen_babel_label" android:name="com.google.android.apps.hangouts.phone.GmsInstallActivity" android:theme="@style/Theme.EmeraldSea"/>
@@ -147,7 +151,6 @@
             </intent-filter>
         </activity>
         <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.google.android.apps.hangouts.phone.BabelGatewayActivity" android:theme="@style/Theme.EmeraldSea.NoDisplay"/>
-        <activity android:label="@string/upgrade_to_google_plus_activity_label" android:name="com.google.android.apps.hangouts.phone.GooglePlusUpgradeActivity" android:theme="@android:style/Theme.Holo.Light.Dialog"/>
         <activity android:configChanges="keyboard|keyboardHidden" android:exported="false" android:name="com.google.android.apps.hangouts.hangout.HangoutSupportInitializationActivity" android:theme="@style/Theme.EmeraldSea.NoDisplay"/>
         <activity android:configChanges="keyboard|keyboardHidden|orientation" android:exported="false" android:label="@string/hangout_activity_label" android:name="com.google.android.apps.hangouts.hangout.HangoutActivity" android:theme="@style/Theme.Hangout"/>
         <activity android:name="com.google.android.apps.hangouts.phone.HangoutUrlHandlerActivity" android:theme="@style/Theme.EmeraldSea.NoDisplay">
@@ -207,14 +210,6 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="hangouts.google.com" android:pathPrefix="/chat/" android:scheme="http"/>
-                <data android:host="hangouts.google.com" android:pathPrefix="/chat/" android:scheme="https"/>
-                <data android:host="hangouts.google.com" android:pathPrefix="/chat/" android:scheme="content"/>
-            </intent-filter>
-            <intent-filter android:priority="999">
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
                 <data android:host="plus.google.com" android:pathPrefix="/hangouts/app/conversation" android:scheme="http"/>
                 <data android:host="plus.google.com" android:pathPrefix="/hangouts/app/conversation" android:scheme="https"/>
                 <data android:host="plus.google.com" android:pathPrefix="/hangouts/app/conversation" android:scheme="content"/>
@@ -223,9 +218,9 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="hangouts.google.com" android:pathPrefix="/hangouts/app/conversation" android:scheme="http"/>
-                <data android:host="hangouts.google.com" android:pathPrefix="/hangouts/app/conversation" android:scheme="https"/>
-                <data android:host="hangouts.google.com" android:pathPrefix="/hangouts/app/conversation" android:scheme="content"/>
+                <data android:host="hangouts.google.com" android:pathPrefix="/chat/" android:scheme="http"/>
+                <data android:host="hangouts.google.com" android:pathPrefix="/chat/" android:scheme="https"/>
+                <data android:host="hangouts.google.com" android:pathPrefix="/chat/" android:scheme="content"/>
             </intent-filter>
         </activity>
         <activity android:name="com.google.android.apps.hangouts.phone.NfcHangoutTransferActivity" android:theme="@style/Theme.EmeraldSea.NoDisplay">
@@ -325,13 +320,17 @@
                 <action android:name="com.google.android.apps.hangouts.UPDATE_NOTIFICATION"/>
             </intent-filter>
         </receiver>
-        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.apps.hangouts.service.NetworkStateReceiver">
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.apps.hangouts.service.GcmStateReceiver">
             <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
                 <action android:name="android.intent.action.GTALK_CONNECTED"/>
                 <action android:name="android.intent.action.GTALK_DISCONNECTED"/>
                 <action android:name="com.google.android.gcm.CONNECTED"/>
                 <action android:name="com.google.android.gcm.DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:exported="true" android:name="com.google.android.apps.hangouts.service.NetworkConnectivityChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
         </receiver>
         <service android:name="com.google.android.apps.hangouts.service.NetworkConnectionCheckingService"/>
@@ -470,7 +469,6 @@
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.google.android.apps.hangouts.phone.BabelHomeActivity"/>
         </activity>
         <activity android:exported="true" android:name="com.google.android.apps.hangouts.phone.ShowDialerActivity"/>
-        <activity android:name="com.google.android.apps.hangouts.invite.OffnetworkInviteActivity" android:theme="@style/Theme.EmeraldSea.NoDisplay"/>
         <activity android:name="com.google.android.apps.hangouts.conversation.v2.PreviewImageActivity" android:theme="@style/Theme.EmeraldSea"/>
         <activity android:excludeFromRecents="true" android:name="com.google.android.apps.hangouts.fragments.BabelPhotoViewFragment$StoragePermissionHelperActivity" android:theme="@style/Theme.EmeraldSea.NoDisplay"/>
         <activity android:label="Features" android:name="com.google.android.apps.hangouts.fishfood.DebugFeaturesActivity" android:theme="@style/Theme.Hangouts.Settings"/>
@@ -496,6 +494,7 @@
         <service android:name="com.google.android.apps.hangouts.callmemaybe.NewPlusAccountService"/>
         <activity android:exported="false" android:name="com.google.android.apps.hangouts.callpromos.impl.DialerPromoActivity" android:theme="@style/Theme.DialerPromo"/>
         <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc"/>
+        <service android:enabled="true" android:exported="false" android:label="@string/hangouts_service_name" android:name="com.google.android.apps.hangouts.concurrent.impl.ConcurrentServiceImpl"/>
         <provider android:authorities="com.google.android.apps.hangouts.conversation.v2" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
         </provider>
@@ -512,6 +511,7 @@
             </intent-filter>
         </receiver>
         <activity android:exported="true" android:label="@string/help_menu_license" android:name="com.google.android.apps.hangouts.help.impl.OpenSourceLicensesActivity"/>
+        <activity android:name="com.google.android.apps.hangouts.invites.offnetwork.impl.OffnetworkInviteActivity" android:theme="@style/Theme.EmeraldSea.NoDisplay"/>
         <provider android:authorities="com.google.android.apps.hangouts.mergedcontacts.MergedContactProvider" android:exported="false" android:name="com.google.android.apps.hangouts.mergedcontacts.impl.MergedContactProviderImpl"/>
         <service android:name="com.google.android.apps.hangouts.mergedcontacts.impl.MergeContactsService"/>
         <activity android:name="com.google.android.apps.hangouts.permissions.impl.RationaleActivity"/>
@@ -554,12 +554,6 @@
         <receiver android:exported="false" android:name="com.google.android.apps.hangouts.wearable.WearableReceiver">
             <intent-filter>
                 <action android:name="com.google.android.apps.hangouts.intent.action.ACTION_NOTIFY_DATASET_CHANGED"/>
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
             </intent-filter>
         </receiver>
         <service android:name="com.google.android.apps.hangouts.wearable.WearableService">

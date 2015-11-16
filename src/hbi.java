@@ -2,23 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.atomic.AtomicLong;
 
-final class hbi
-    implements Runnable
+public interface hbi
 {
 
-    final hbh a;
+    public abstract void a(String s, String s1);
 
-    hbi(hbh hbh1)
-    {
-        a = hbh1;
-        super();
-    }
+    public abstract void b();
 
-    public void run()
-    {
-        a.a.a(a.d.get(), a.c);
-        a.b = false;
-    }
+    public abstract void b(String s, String s1);
+
+    public abstract void c();
+
+    public abstract void d();
 }

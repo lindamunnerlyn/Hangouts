@@ -3,40 +3,95 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ghm
-    implements fyb
+final class ghm
 {
 
-    private final boolean a;
-    private final gho b;
+    private final ghn a;
+    private final gmt b = new gmt();
+    private gio c;
+    private gkq d;
 
-    public ghm(boolean flag, gho gho)
+    ghm(ghn ghn1)
     {
-        boolean flag1;
-        if (flag || gho == null)
+        a = ghn1;
+    }
+
+    public String a()
+    {
+        return b.a();
+    }
+
+    void a(gio gio1)
+    {
+        c = gio1;
+    }
+
+    void a(gkq gkq1)
+    {
+        d = gkq1;
+        b.a(gkq1.a());
+        b.b(gkq1.b());
+        b.c(gkq1.c());
+        b.a(gkq1.g());
+        if (gkq1 instanceof gku)
         {
-            flag1 = true;
-        } else
-        {
-            flag1 = false;
+            b.d(((gku)gkq1).w());
         }
-        gbh.a(flag1);
-        a = flag;
-        b = gho;
+        b.g(gkq1 instanceof gkx);
     }
 
-    public boolean b()
-    {
-        return a;
-    }
-
-    public boolean c()
-    {
-        return b != null;
-    }
-
-    public gho d()
+    public gmt b()
     {
         return b;
+    }
+
+    public gio c()
+    {
+        return c;
+    }
+
+    public gkq d()
+    {
+        return d;
+    }
+
+    public boolean e()
+    {
+        if (d == null)
+        {
+            return true;
+        } else
+        {
+            return d.k();
+        }
+    }
+
+    public void f()
+    {
+        if (d != null)
+        {
+            b.a(d.n());
+            b.h(d.p());
+            b.b(d.o());
+        }
+        boolean flag;
+        boolean flag1;
+        if (d == null)
+        {
+            flag = true;
+        } else
+        {
+            flag = d.o();
+        }
+        if (c == null)
+        {
+            flag1 = false;
+        } else
+        {
+            flag1 = c.q();
+        }
+        b.b(flag);
+        b.k(flag1);
+        a.b(this);
     }
 }

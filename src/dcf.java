@@ -2,108 +2,158 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.List;
+import android.content.Context;
+import java.util.HashSet;
+import java.util.Set;
 
-public final class dcf extends dfa
+public final class dcf
 {
 
-    public String a;
-    private String d;
-    private final boolean e;
-    private int f;
-    private final aik g;
-    private int h;
-    private int i;
-    private final aob j;
-    private final boolean k;
-    private final String l;
+    private static final boolean a = false;
+    private final gqz b;
 
-    public dcf(ani ani1, String s, aik aik1, aob aob, boolean flag, boolean flag1, int i1, 
-            String s1)
+    public dcf(Context context)
     {
-        super(ani1);
-        d = s;
-        g = aik1;
-        j = aob;
-        e = flag;
-        i = 1;
-        k = flag1;
-        h = i1;
-        l = s1;
+        b = (gqz)hlp.a(context, gqz);
     }
 
-    public void a()
+    private void b(int i, long l)
     {
-        java.util.ArrayList arraylist = g.a(g.nS, g);
-        java.util.ArrayList arraylist1 = g.a(g);
-        if (arraylist.size() > 100)
+        if (i == -1)
         {
-            i = 4;
             return;
-        }
-        Object obj = arraylist.iterator();
-        int i1 = 0;
-        boolean flag = false;
-        boolean flag1 = false;
-        while (((Iterator) (obj)).hasNext()) 
-        {
-            ceu ceu1 = (ceu)((Iterator) (obj)).next();
-            boolean flag2;
-            if (ceu1.a == cfa.d)
-            {
-                flag2 = true;
-            } else
-            {
-                flag2 = false;
-            }
-            flag2 = flag1 | flag2;
-            if (ceu1.a == cfa.c || ceu1.a == cfa.b)
-            {
-                flag1 = true;
-            } else
-            {
-                flag1 = false;
-            }
-            flag |= flag1;
-            i1 = ceu1.i() | i1;
-            flag1 = flag2;
-        }
-        if (flag && (flag1 || i1))
-        {
-            i = 2;
-            return;
-        }
-        Object obj1;
-        if (k || arraylist.size() > 1 || arraylist1.size() > 0)
-        {
-            i1 = 2;
         } else
         {
-            i1 = 1;
+            b.b(i).c("cachehash_client_hash", l).d();
+            return;
         }
-        f = i1;
-        obj1 = null;
-        obj = obj1;
-        if (f == 1)
+    }
+
+    private void c(int i, long l)
+    {
+        if (i == -1)
         {
-            ais ais1 = g.a(0);
-            obj = obj1;
-            if (ais1 != null)
+            return;
+        } else
+        {
+            b.b(i).c("cachehash_latest_rollup_version", l).d();
+            return;
+        }
+    }
+
+    private void d(int i)
+    {
+        if (i == -1)
+        {
+            return;
+        } else
+        {
+            b.b(i).b("cachehash_update_ids", null).d();
+            return;
+        }
+    }
+
+    public long a(int i)
+    {
+        if (i == -1)
+        {
+            return -1L;
+        } else
+        {
+            return b.a(i).a("cachehash_client_hash", -1L);
+        }
+    }
+
+    public void a(int i, long l)
+    {
+        if (i != -1)
+        {
+            long l1 = b.a(i).a("cachehash_client_hash", -1L);
+            if (l1 != -1L)
             {
-                obj = ais1.b().c();
+                b.b(i).c("cachehash_client_hash", l1 + l).d();
+                return;
+            }
+            if (a)
+            {
+                eev.b("Babel", "Fail to udpate the client hash by hash_diff from the server, because the original client hash is UNKNOWN_HASH.");
+                return;
             }
         }
-        a = any.a(new aoe(g.nS, b.h()), false, d, arraylist, arraylist1, ((List) (obj)), j, f, h, true, c, l);
     }
 
-    public int b()
+    public void a(int i, long l, long l1)
     {
-        return i;
+        if (i == -1)
+        {
+            return;
+        } else
+        {
+            b(i, l);
+            c(i, l1);
+            d(i);
+            return;
+        }
     }
 
-    public Object c()
+    public boolean a(int i, String s)
     {
-        return new dcg(a, b, f, e);
+        Set set;
+        if (i != -1)
+        {
+            if ((set = b.a(i).c("cachehash_update_ids")) != null && set.contains(s))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public long b(int i)
+    {
+        if (i == -1)
+        {
+            return -1L;
+        } else
+        {
+            return b.a(i).a("cachehash_latest_rollup_version", -1L);
+        }
+    }
+
+    public void b(int i, String s)
+    {
+        if (i == -1)
+        {
+            return;
+        }
+        Object obj = b.a(i).c("cachehash_update_ids");
+        if (obj == null)
+        {
+            obj = new HashSet();
+        } else
+        {
+            obj = new HashSet(((java.util.Collection) (obj)));
+        }
+        ((Set) (obj)).add(s);
+        b.b(i).b("cachehash_update_ids", ((Set) (obj))).d();
+    }
+
+    public void c(int i)
+    {
+        if (i == -1)
+        {
+            return;
+        } else
+        {
+            b(i, -1L);
+            c(i, -1L);
+            d(i);
+            return;
+        }
+    }
+
+    static 
+    {
+        hnc hnc = eev.n;
     }
 }

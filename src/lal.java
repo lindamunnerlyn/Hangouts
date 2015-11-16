@@ -3,74 +3,58 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lal extends koj
+public final class lal extends kwm
 {
 
-    private static volatile lal e[];
-    public String a;
-    public kyo b;
-    public String c;
-    public String d;
+    public lam a[];
 
     public lal()
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
+        a = lam.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    public static lal[] a()
-    {
-        if (e == null)
-        {
-            synchronized (kon.a)
-            {
-                if (e == null)
-                {
-                    e = new lal[0];
-                }
-            }
-        }
-        return e;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize() + koh.b(1, a);
-        int i = j;
-        if (b != null)
+        int i = super.computeSerializedSize();
+        int k = i;
+        if (a != null)
         {
-            i = j + koh.d(2, b);
+            k = i;
+            if (a.length > 0)
+            {
+                int j = 0;
+                do
+                {
+                    k = i;
+                    if (j >= a.length)
+                    {
+                        break;
+                    }
+                    lam lam1 = a[j];
+                    k = i;
+                    if (lam1 != null)
+                    {
+                        k = i + kwk.d(1, lam1);
+                    }
+                    j++;
+                    i = k;
+                } while (true);
+            }
         }
-        j = i;
-        if (c != null)
-        {
-            j = i + koh.b(3, c);
-        }
-        i = j;
-        if (d != null)
-        {
-            i = j + koh.b(4, d);
-        }
-        return i;
+        return k;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -80,43 +64,52 @@ public final class lal extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 18: // '\022'
-                if (b == null)
+                int k = kwx.a(kwj1, 10);
+                lam alam[];
+                int j;
+                if (a == null)
                 {
-                    b = new kyo();
+                    j = 0;
+                } else
+                {
+                    j = a.length;
                 }
-                kog1.a(b);
-                break;
+                alam = new lam[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, alam, 0, j);
+                    k = j;
+                }
+                for (; k < alam.length - 1; k++)
+                {
+                    alam[k] = new lam();
+                    kwj1.a(alam[k]);
+                    kwj1.a();
+                }
 
-            case 26: // '\032'
-                c = kog1.j();
-                break;
-
-            case 34: // '"'
-                d = kog1.j();
+                alam[k] = new lam();
+                kwj1.a(alam[k]);
+                a = alam;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.a(1, a);
-        if (b != null)
+        if (a != null && a.length > 0)
         {
-            koh1.b(2, b);
+            for (int i = 0; i < a.length; i++)
+            {
+                lam lam1 = a[i];
+                if (lam1 != null)
+                {
+                    kwk1.b(1, lam1);
+                }
+            }
+
         }
-        if (c != null)
-        {
-            koh1.a(3, c);
-        }
-        if (d != null)
-        {
-            koh1.a(4, d);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

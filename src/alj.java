@@ -2,33 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
+import com.google.android.apps.hangouts.callmemaybe.NewPlusAccountService;
 
-final class alj
-    implements gmz
+public class alj
+    implements hcb
 {
 
-    final ali a;
+    private final Context a;
+    private final gqz b;
 
-    alj(ali ali1)
+    public alj(Context context, hlp hlp1)
     {
-        a = ali1;
-        super();
+        a = context;
+        b = (gqz)hlp1.a(gqz);
     }
 
-    public String a()
+    public void a(int i)
     {
-        return "cmm-signed-out";
-    }
-
-    public void a(Context context, gmw gmw1)
-    {
-        if (gmw1.b("effective_gaia_id") != null && gmw1.d("is_business_features_enabled"))
+        if (b.c(i))
         {
-            gmw1.b("logged_in", true).b("logged_out", false);
-            if (gmw1.b("full_jid") == null)
+            grb grb1 = b.a(i);
+            int j = grb1.a("PAGE_NOTIFICATION_COUNT", 0);
+            if (grb1.b("effective_gaia_id") != null && grb1.d("is_business_features_eligible") && !grb1.d("business_features_promo_shown") && j < 3)
             {
-                dbf.f(ali.a(a).b(gmw1.b("account_name"), gmw1.b("effective_gaia_id")));
+                alk.a(a, i);
+                j++;
+                b.b(i).c("PAGE_NOTIFICATION_COUNT", j).d();
+                if (j < 3)
+                {
+                    Object obj = dcn.e(i);
+                    Context context = g.nU;
+                    Intent intent = new Intent(context, com/google/android/apps/hangouts/callmemaybe/NewPlusAccountService);
+                    intent.putExtra("account_id", ((aoa) (obj)).h());
+                    obj = PendingIntent.getService(context, 0, intent, 0);
+                    ((AlarmManager)context.getSystemService("alarm")).set(1, 0x240c8400L, ((PendingIntent) (obj)));
+                    return;
+                }
             }
         }
     }

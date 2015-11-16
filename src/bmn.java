@@ -2,30 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.fragments.dialpad.DialpadKeyButton;
+import android.view.View;
 
-public final class bmn
-    implements Runnable
+final class bmn
+    implements android.view.View.OnClickListener
 {
 
     final int a;
-    final DialpadKeyButton b;
+    final bmm b;
 
-    public bmn(DialpadKeyButton dialpadkeybutton, int i)
+    bmn(bmm bmm1, int i)
     {
-        b = dialpadkeybutton;
+        b = bmm1;
         a = i;
         super();
     }
 
-    public void run()
+    public void onClick(View view)
     {
-        if (a == DialpadKeyButton.a(b))
-        {
-            gbh.a(b.isPressed());
-            b.setPressed(false);
-            DialpadKeyButton.b(b);
-            DialpadKeyButton.c(b);
-        }
+        b.a.a();
+        bmk.a((bmk)b.a.getTargetFragment(), a);
     }
 }

@@ -2,8 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.gms.wearable.internal.DeleteDataItemsResponse;
 
-public interface fyb
-    extends ekg, kna
+final class fyb extends fya
 {
+
+    public fyb(enn enn)
+    {
+        super(enn);
+    }
+
+    public void a(DeleteDataItemsResponse deletedataitemsresponse)
+    {
+        a(new fvc(g.n(deletedataitemsresponse.b), deletedataitemsresponse.c));
+    }
 }

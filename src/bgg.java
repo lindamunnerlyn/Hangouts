@@ -2,110 +2,67 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Handler;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.widget.Toast;
+import com.google.android.apps.hangouts.fragments.BlockedPeopleFragment;
 
-public abstract class bgg
-    implements bge
+public final class bgg extends dhy
 {
 
-    public int a;
-    public bgf b;
-    final Object c = new Object();
-    private final Handler d = new Handler();
-    private final dgp e = new bgh(this);
-    private final Runnable f = new bgi(this);
+    final BlockedPeopleFragment a;
 
-    public bgg()
+    public bgg(BlockedPeopleFragment blockedpeoplefragment)
     {
-        a = -1;
-        b = null;
+        a = blockedpeoplefragment;
+        super();
     }
 
-    public static boolean j()
+    public void a(int i, aoa aoa, did did1)
     {
-        ConnectivityManager connectivitymanager = (ConnectivityManager)g.nS.getSystemService("connectivity");
-        return connectivitymanager != null && connectivitymanager.getActiveNetworkInfo() != null && connectivitymanager.getActiveNetworkInfo().isConnected();
-    }
-
-    public void a(bgf bgf1)
-    {
-        b = bgf1;
-    }
-
-    public void a(dgu dgu)
-    {
-        RealTimeChatService.b(e);
-        d.removeCallbacks(f);
-        if (b != null)
+        aoa = did1.c();
+        if (BlockedPeopleFragment.f(a) == i && czj.isInstance(aoa))
         {
-            b.a(this);
+            BlockedPeopleFragment.g(a);
+        } else
+        if (czi.isInstance(aoa))
+        {
+            BlockedPeopleFragment.a(a, i);
+            BlockedPeopleFragment.e(a).notifyDataSetChanged();
+            BlockedPeopleFragment.a(a, a.getView());
+            return;
         }
     }
 
-    public void a(Exception exception)
+    public void a(int i, aoa aoa, dmf dmf, dcx dcx)
     {
-        RealTimeChatService.b(e);
-        d.removeCallbacks(f);
-        if (b != null)
+        if (BlockedPeopleFragment.f(a) == i && cuw.isInstance(dmf))
         {
-            b.b(this);
+            BlockedPeopleFragment.g(a);
+            int j;
+            if (bgs.j())
+            {
+                j = l.ir;
+            } else
+            {
+                j = l.is;
+            }
+            Toast.makeText(BlockedPeopleFragment.h(a), j, 0).show();
+            BlockedPeopleFragment.a(a, a.getView());
         }
-    }
-
-    public abstract int b();
-
-    public void c()
-    {
-    }
-
-    public void d()
-    {
-    }
-
-    public abstract Class e();
-
-    public abstract Class f();
-
-    public void g()
-    {
-        RealTimeChatService.a(e);
-        Object obj = c;
-        obj;
-        JVM INSTR monitorenter ;
-        a = b();
-        if (a >= 0) goto _L2; else goto _L1
-_L1:
-        a(new bgk());
-        ebw.g("Babel", String.valueOf(getClass().getName()).concat(" failed to start!"));
-_L4:
-        return;
-_L2:
-        if (i() > 0)
+        aoa = (bgj)BlockedPeopleFragment.d(a).get(Integer.valueOf(i));
+        if (aoa != null && cuv.isInstance(dmf))
         {
-            d.postDelayed(f, i());
+            BlockedPeopleFragment.a(a, i);
+            BlockedPeopleFragment.e(a).notifyDataSetChanged();
+            if (bgs.j())
+            {
+                i = l.iQ;
+            } else
+            {
+                i = l.iR;
+            }
+            Toast.makeText(BlockedPeopleFragment.i(a), BlockedPeopleFragment.j(a).getString(i, new Object[] {
+                ((bgj) (aoa)).b
+            }), 0).show();
         }
-        if (true) goto _L4; else goto _L3
-_L3:
-        Exception exception;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
-    public void h()
-    {
-        RealTimeChatService.b(e);
-        a = -1;
-        d.removeCallbacks(f);
-    }
-
-    public int i()
-    {
-        return -1;
     }
 }

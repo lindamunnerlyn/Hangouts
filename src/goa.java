@@ -3,24 +3,29 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class goa
-    implements gnu
+final class goa extends gno
 {
 
-    String a;
+    private final gon a;
+    private final gnp b;
+    private final gnx c;
+    private final String d;
 
-    goa(String s)
+    goa(gnx gnx1, gon gon1, gnp gnp1, gny gny, String s)
     {
-        a = s;
+        a = gon1;
+        b = gnp1;
+        c = gnx1;
+        d = s;
+        a(gny);
     }
 
-    public Object a(Object obj)
+    protected void a(String s, gnq gnq)
     {
-        return a;
-    }
-
-    public void a(android.content.SharedPreferences.Editor editor, String s)
-    {
-        editor.putString(s, a);
+        gnq = c.a(gnq);
+        gnq = b.a(gnq);
+        gnq.e = new lgg();
+        ((lgm) (gnq)).e.a = d;
+        a.a(gnq, s);
     }
 }

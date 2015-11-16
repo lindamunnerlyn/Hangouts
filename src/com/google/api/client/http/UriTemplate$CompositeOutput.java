@@ -5,7 +5,7 @@
 package com.google.api.client.http;
 
 import h;
-import hok;
+import htg;
 import java.util.Map;
 
 // Referenced classes of package com.google.api.client.http:
@@ -43,10 +43,10 @@ final class ES extends Enum
     {
         if (reservedExpansion)
         {
-            return hok.c(s);
+            return htg.c(s);
         } else
         {
-            return hok.a(s);
+            return htg.a(s);
         }
     }
 
@@ -94,8 +94,8 @@ final class ES extends Enum
     {
         super(s, i);
         propertyPrefix = character;
-        outputPrefix = (String)h.b(s1);
-        explodeJoiner = (String)h.b(s2);
+        outputPrefix = (String)h.a(s1);
+        explodeJoiner = (String)h.a(s2);
         requiresVarAssignment = flag;
         reservedExpansion = flag1;
         if (character != null)

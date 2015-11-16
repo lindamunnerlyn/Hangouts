@@ -2,29 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
-import android.os.Parcel;
+import com.google.android.gms.common.api.Status;
 
-public abstract class fhy extends Binder
-    implements fhx
+public final class fhy extends fpl
 {
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    final String a;
+    final String b;
+    final foy i;
+    final fot j;
+
+    public fhy(fot fot, emy emy, String s, String s1, foy foy)
     {
-        switch (i)
-        {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
+        j = fot;
+        a = s;
+        b = s1;
+        i = foy;
+        super(emy);
+    }
 
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.maps.internal.IOnInfoWindowClickListener");
-            return true;
+    protected enh a(Status status)
+    {
+        return new fhz(this, status);
+    }
 
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnInfoWindowClickListener");
-            a(fks.a(parcel.readStrongBinder()));
-            parcel1.writeNoException();
-            return true;
-        }
+    protected void a(emw emw)
+    {
+        ((fsj)emw).a(this, a, b, i);
     }
 }

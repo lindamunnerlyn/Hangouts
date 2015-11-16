@@ -3,150 +3,74 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public abstract class koj extends kop
+public final class koj extends kwm
 {
 
-    public kol unknownFieldData;
+    public byte a[];
+    public byte b[];
 
     public koj()
     {
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public volatile Object clone()
+    protected int computeSerializedSize()
     {
-        return clone();
-    }
-
-    public koj clone()
-    {
-        koj koj1 = (koj)super.clone();
-        kon.a(this, koj1);
-        return koj1;
-    }
-
-    public volatile kop clone()
-    {
-        return clone();
-    }
-
-    public int computeSerializedSize()
-    {
-        int j = 0;
-        int k;
-        if (unknownFieldData != null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            int i = 0;
-            do
+            i = j + kwk.b(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.b(2, b);
+        }
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
             {
-                k = i;
-                if (j >= unknownFieldData.a())
+            default:
+                if (super.storeUnknownField(kwj1, i))
                 {
-                    break;
+                    continue;
                 }
-                i += unknownFieldData.c(j).a();
-                j++;
-            } while (true);
-        } else
-        {
-            k = 0;
-        }
-        return k;
-    }
+                // fall through
 
-    public final Object getExtension(kok kok1)
-    {
-        kom kom1;
-        if (unknownFieldData != null)
-        {
-            if ((kom1 = unknownFieldData.a(kou.b(kok1.c))) != null)
-            {
-                return kom1.a(kok1);
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.k();
+                break;
+
+            case 18: // '\022'
+                b = kwj1.k();
+                break;
             }
-        }
-        return null;
+        } while (true);
     }
 
-    public final boolean hasExtension(kok kok1)
+    public void writeTo(kwk kwk1)
     {
-        while (unknownFieldData == null || unknownFieldData.a(kou.b(kok1.c)) == null) 
+        if (a != null)
         {
-            return false;
+            kwk1.a(1, a);
         }
-        return true;
-    }
-
-    public final koj setExtension(kok kok1, Object obj)
-    {
-        kom kom1 = null;
-        int i = kou.b(kok1.c);
-        if (obj == null)
+        if (b != null)
         {
-            if (unknownFieldData != null)
-            {
-                unknownFieldData.b(i);
-                if (unknownFieldData.b())
-                {
-                    unknownFieldData = null;
-                }
-            }
-            return this;
+            kwk1.a(2, b);
         }
-        if (unknownFieldData == null)
-        {
-            unknownFieldData = new kol();
-        } else
-        {
-            kom1 = unknownFieldData.a(i);
-        }
-        if (kom1 == null)
-        {
-            unknownFieldData.a(i, new kom(kok1, obj));
-            return this;
-        } else
-        {
-            kom1.a(kok1, obj);
-            return this;
-        }
-    }
-
-    public final boolean storeUnknownField(kog kog1, int i)
-    {
-        int j = kog1.r();
-        if (!kog1.b(i))
-        {
-            return false;
-        }
-        int k = kou.b(i);
-        kos kos1 = new kos(i, kog1.a(j, kog1.r() - j));
-        kog1 = null;
-        Object obj;
-        if (unknownFieldData == null)
-        {
-            unknownFieldData = new kol();
-        } else
-        {
-            kog1 = unknownFieldData.a(k);
-        }
-        obj = kog1;
-        if (kog1 == null)
-        {
-            obj = new kom();
-            unknownFieldData.a(k, ((kom) (obj)));
-        }
-        ((kom) (obj)).a(kos1);
-        return true;
-    }
-
-    public void writeTo(koh koh)
-    {
-        if (unknownFieldData != null)
-        {
-            int i = 0;
-            while (i < unknownFieldData.a()) 
-            {
-                unknownFieldData.c(i).a(koh);
-                i++;
-            }
-        }
+        super.writeTo(kwk1);
     }
 }

@@ -3,17 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class dct extends dfa
+final class dct
 {
 
-    public dct(ani ani)
+    dct()
     {
-        super(ani);
-    }
-
-    public void a()
-    {
-        csc csc1 = new csc();
-        c.a(csc1);
     }
 }

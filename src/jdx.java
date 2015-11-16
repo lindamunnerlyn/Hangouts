@@ -3,79 +3,109 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jdx extends koj
+public final class jdx extends kwm
 {
 
-    private static volatile jdx b[];
-    public String a;
+    public Integer a;
+    public Long b;
+    public Long c;
+    public jdl responseHeader;
 
     public jdx()
     {
+        responseHeader = null;
         a = null;
+        b = null;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
-    }
-
-    public static jdx[] a()
-    {
-        if (b == null)
-        {
-            synchronized (kon.a)
-            {
-                if (b == null)
-                {
-                    b = new jdx[0];
-                }
-            }
-        }
-        return b;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
     protected int computeSerializedSize()
     {
         int j = super.computeSerializedSize();
         int i = j;
+        if (responseHeader != null)
+        {
+            i = j + kwk.d(1, responseHeader);
+        }
+        j = i;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            j = i + kwk.e(2, a.intValue());
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        i = j;
+        if (b != null)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-            }
-        } while (true);
+            i = j + kwk.d(3, b.longValue());
+        }
+        j = i;
+        if (c != null)
+        {
+            j = i + kwk.d(4, c.longValue());
+        }
+        return j;
     }
 
-    public void writeTo(koh koh1)
+    public kws mergeFrom(kwj kwj1)
     {
+_L7:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 5: default 56
+    //                   0: 65
+    //                   10: 67
+    //                   16: 96
+    //                   24: 134
+    //                   32: 148;
+           goto _L1 _L2 _L3 _L4 _L5 _L6
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L7; else goto _L2
+_L2:
+        return this;
+_L3:
+        if (responseHeader == null)
+        {
+            responseHeader = new jdl();
+        }
+        kwj1.a(responseHeader);
+          goto _L7
+_L4:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 1: // '\001'
+            a = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L5:
+        b = Long.valueOf(kwj1.d());
+        continue; /* Loop/switch isn't completed */
+_L6:
+        c = Long.valueOf(kwj1.d());
+        if (true) goto _L7; else goto _L8
+_L8:
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (responseHeader != null)
+        {
+            kwk1.b(1, responseHeader);
+        }
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(2, a.intValue());
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.a(3, b.longValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(4, c.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

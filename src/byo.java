@@ -3,21 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class byo
-    implements Runnable
+public final class byo
 {
 
-    final byn a;
-
-    byo(byn byn1)
+    public byo()
     {
-        a = byn1;
-        super();
     }
 
-    public void run()
+    public bym a()
     {
-        byn.a(a);
-        byn.c(a).a(byn.b(a));
+        return new byp(this);
     }
 }

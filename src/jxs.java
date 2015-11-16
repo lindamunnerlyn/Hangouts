@@ -2,95 +2,64 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
+import java.util.List;
 
-public final class jxs extends koj
+final class jxs extends jsh
 {
 
-    private static volatile jxs c[];
-    public Integer a;
-    public String b;
+    final transient Object a;
 
-    public jxs()
+    jxs(Object obj)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = n.b(obj);
     }
 
-    public static jxs[] a()
+    public jsh a(int i, int j)
     {
-        if (c == null)
+        n.a(i, j, 1);
+        Object obj = this;
+        if (i == j)
         {
-            synchronized (kon.a)
-            {
-                if (c == null)
-                {
-                    c = new jxs[0];
-                }
-            }
+            obj = jxj.a;
         }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return ((jsh) (obj));
     }
 
-    protected int computeSerializedSize()
+    public jyh a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (b != null)
-        {
-            i = j + koh.b(2, b);
-        }
-        j = i;
-        if (a != null)
-        {
-            j = i + koh.e(3, a.intValue());
-        }
-        return j;
+        return jts.a(a);
     }
 
-    public kop mergeFrom(kog kog1)
+    boolean e()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-
-            case 24: // '\030'
-                a = Integer.valueOf(kog1.f());
-                break;
-            }
-        } while (true);
+        return false;
     }
 
-    public void writeTo(koh koh1)
+    public Object get(int i)
     {
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
-        if (a != null)
-        {
-            koh1.a(3, a.intValue());
-        }
-        super.writeTo(koh1);
+        n.a(i, 1);
+        return a;
+    }
+
+    public Iterator iterator()
+    {
+        return a();
+    }
+
+    public int size()
+    {
+        return 1;
+    }
+
+    public List subList(int i, int j)
+    {
+        return a(i, j);
+    }
+
+    public String toString()
+    {
+        String s = a.toString();
+        return (new StringBuilder(s.length() + 2)).append('[').append(s).append(']').toString();
     }
 }

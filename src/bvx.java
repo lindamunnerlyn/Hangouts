@@ -2,26 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
 final class bvx
-    implements fsn, hjx, hka
+    implements bvn
 {
 
     final bvw a;
 
-    bvx(bvw bvw1)
+    bvx(bvw bvw)
     {
-        a = bvw1;
+        a = bvw;
         super();
     }
 
-    public void E_()
+    public bvm a(Context context, hof hof)
     {
-        bvw.a(a);
-    }
-
-    public void a()
-    {
-        bvw.b(a);
+        return new bvp(context, hof);
     }
 }

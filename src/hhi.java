@@ -2,11 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.os.Bundle;
+import android.net.Uri;
 
-public interface hhi
+final class hhi
 {
 
-    public abstract void a(Context context, hgx hgx, Bundle bundle);
+    final Uri a;
+    final String b;
+    final hhk c;
+    final hhh d;
+
+    hhi(hhh hhh, Uri uri, String s, hhk hhk)
+    {
+        d = hhh;
+        a = uri;
+        b = s;
+        c = hhk;
+        super();
+    }
 }

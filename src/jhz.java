@@ -3,23 +3,98 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class jhz extends jhw
+public final class jhz extends kwm
 {
 
-    jhz(String s)
+    public kbm a;
+    public kbm b;
+    public Boolean c;
+
+    public jhz()
     {
-        super(s, 2);
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    com.google.common.cache.LocalCache.ReferenceEntry a(jin jin, com.google.common.cache.LocalCache.ReferenceEntry referenceentry, com.google.common.cache.LocalCache.ReferenceEntry referenceentry1)
+    protected int computeSerializedSize()
     {
-        jin = super.a(jin, referenceentry, referenceentry1);
-        b(referenceentry, jin);
-        return jin;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.d(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(2, b);
+        }
+        i = j;
+        if (c != null)
+        {
+            c.booleanValue();
+            i = j + (kwk.f(3) + 1);
+        }
+        return i;
     }
 
-    com.google.common.cache.LocalCache.ReferenceEntry a(jin jin, Object obj, int i, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    public kws mergeFrom(kwj kwj1)
     {
-        return new jiy(obj, i, referenceentry);
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new kbm();
+                }
+                kwj1.a(a);
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new kbm();
+                }
+                kwj1.a(b);
+                break;
+
+            case 24: // '\030'
+                c = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.b(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

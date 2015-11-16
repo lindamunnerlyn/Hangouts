@@ -6,7 +6,7 @@ package com.google.android.apps.hangouts.service;
 
 import android.app.IntentService;
 import android.content.Intent;
-import ank;
+import aoc;
 
 public class ReferrerTrackingService extends IntentService
 {
@@ -18,6 +18,6 @@ public class ReferrerTrackingService extends IntentService
 
     protected void onHandleIntent(Intent intent)
     {
-        ank.a(this, intent.getStringExtra("referrer"));
+        aoc.a(this, intent.getStringExtra("referrer"));
     }
 }

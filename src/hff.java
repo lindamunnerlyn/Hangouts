@@ -3,8 +3,31 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface hff
+public final class hff
 {
 
-    public abstract boolean a();
+    private final hfq a;
+    private final String b;
+    private final long c;
+    private final String d;
+    private final long e;
+    private final String f;
+    private final String g;
+
+    public hff(hfq hfq, String s, long l, String s1, long l1, 
+            String s2, String s3)
+    {
+        a = hfq;
+        b = s;
+        c = l;
+        d = s1;
+        e = l1;
+        f = s2;
+        g = s3;
+    }
+
+    public long a()
+    {
+        return e;
+    }
 }

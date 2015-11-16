@@ -3,10 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gsc
+interface gsc
 {
 
-    public gsc()
-    {
-    }
+    public abstract Object a(Object obj);
+
+    public abstract void a(android.content.SharedPreferences.Editor editor, String s);
 }

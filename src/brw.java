@@ -2,31 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import com.google.android.apps.hangouts.hangout.ProximityCoverView;
 
-public final class brw
-    implements SensorEventListener
+public class brw extends bns
 {
 
-    final ProximityCoverView a;
+    final brt a;
 
-    public brw(ProximityCoverView proximitycoverview)
+    protected brw(brt brt1)
     {
-        a = proximitycoverview;
+        a = brt1;
         super();
     }
 
-    public void onAccuracyChanged(Sensor sensor, int i)
+    public void c(gmt gmt1)
     {
-    }
-
-    public void onSensorChanged(SensorEvent sensorevent)
-    {
-        ProximityCoverView.a(a, sensorevent.sensor.getMaximumRange());
-        ProximityCoverView.b(a, sensorevent.values[0]);
-        a.c();
+        if (a.a.equals(gmt1))
+        {
+            a.a = gmt1;
+            a.i();
+        }
     }
 }

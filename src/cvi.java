@@ -2,44 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
 
-public class cvi extends cui
+public class cvi extends cvf
 {
 
     private static final long serialVersionUID = 1L;
-    public final String a;
+    private final String a;
+    private final String b;
 
-    public cvi(String s)
+    public cvi(String s, String s1)
     {
-        a = s;
+        a = s1;
+        b = s;
     }
 
-    public String a()
+    public kws a(String s, int i, int j)
     {
-        return "ui_queue";
+        jgq jgq1 = new jgq();
+        jgq1.requestHeader = cvu.a(s, i, j, h);
+        jgq1.b = b;
+        jgq1.a = a;
+        return jgq1;
     }
 
-    public kop a(String s, int i, int j)
+    public long b()
     {
-        if (ctr.e)
-        {
-            ebw.b("Babel_RequestWriter", "UndismissSuggestedContactsRequest()");
-        }
-        izj izj1 = new izj();
-        izj1.requestHeader = ctq.a(null, true, s, i, j, h);
-        if (!TextUtils.isEmpty(a))
-        {
-            s = new ivz();
-            s.b = a;
-            izj1.a = new ivz[1];
-            izj1.a[0] = s;
-        }
-        return izj1;
+        return bpm.F();
     }
 
-    public String g()
+    public String f()
     {
-        return "contacts/undismisssuggestedcontacts";
+        return "broadcasts/query";
     }
 }

@@ -2,179 +2,173 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import android.telephony.PhoneNumberUtils;
+import android.text.Editable;
+import android.text.Selection;
+import android.text.TextWatcher;
+import java.util.Locale;
 
 public final class aha
+    implements TextWatcher
 {
 
-    ahc a;
-    ExecutorService b;
-    LinkedHashMap c;
-    BlockingQueue d;
-    String e;
-    String f;
-    String g;
-    int h;
-    int i;
-    int j;
-    int k;
+    private boolean a;
+    private boolean b;
+    private goq c;
 
-    public aha(String s, String s1, String s2, ahc ahc1, int l, int i1, int j1)
+    public aha()
     {
-        c = new LinkedHashMap();
-        i = 1;
-        e = s;
-        f = s1;
-        g = s2;
-        a = ahc1;
-        h = l;
-        j = i1;
-        k = j1;
-        b();
+        this(Locale.getDefault().getCountry());
     }
 
-    private Map a(List list)
+    public aha(String s)
     {
-        LinkedHashMap linkedhashmap;
-        linkedhashmap = new LinkedHashMap();
-        LinkedHashMap linkedhashmap1 = new LinkedHashMap();
-        for (list = list.iterator(); list.hasNext();)
+        a = false;
+        if (s == null)
         {
-            ahf ahf1 = (ahf)list.next();
-            String s = ahf1.a();
-            if (linkedhashmap1.containsKey(s))
+            throw new IllegalArgumentException();
+        } else
+        {
+            c = gpb.b().g(s);
+            return;
+        }
+    }
+
+    private String a(char c1, boolean flag)
+    {
+        if (flag)
+        {
+            return c.b(c1);
+        } else
+        {
+            return c.a(c1);
+        }
+    }
+
+    private void a()
+    {
+        b = true;
+        c.a();
+    }
+
+    private static boolean a(CharSequence charsequence, int i, int j)
+    {
+        for (int k = i; k < i + j; k++)
+        {
+            if (!PhoneNumberUtils.isNonSeparator(charsequence.charAt(k)))
             {
-                ((List)linkedhashmap1.get(s)).add(ahf1);
-            } else
-            {
-                ArrayList arraylist = new ArrayList();
-                arraylist.add(ahf1);
-                linkedhashmap1.put(s, arraylist);
+                return true;
             }
         }
 
-        list = linkedhashmap1.entrySet().iterator();
-_L2:
-        Object obj;
-        java.util.Map.Entry entry;
-        LinkedHashMap linkedhashmap2;
-        if (!list.hasNext())
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        entry = (java.util.Map.Entry)list.next();
-        obj = (List)entry.getValue();
-        linkedhashmap2 = new LinkedHashMap(c);
-        Map map = ahf.a((ahf[])((List) (obj)).toArray(new ahf[0]));
-        linkedhashmap2.putAll(map);
-        linkedhashmap.put(entry.getKey(), linkedhashmap2);
-        continue; /* Loop/switch isn't completed */
-        agy agy1;
-        agy1;
-        obj = String.valueOf(obj);
-        (new StringBuilder(String.valueOf(obj).length() + 24)).append("failed to merge tickers:").append(((String) (obj)));
-        if (true) goto _L2; else goto _L1
-_L1:
-        return linkedhashmap;
+        return false;
     }
 
-    private boolean a(Map map)
+    public void a(String s)
     {
-        int l;
-        boolean flag;
-        l = j;
-        flag = false;
-_L2:
-        if (flag || l <= 0)
+        if (s == null)
         {
-            break; /* Loop/switch isn't completed */
+            throw new IllegalArgumentException();
+        } else
+        {
+            c = gpb.b().g(s);
+            a = false;
+            b = false;
+            return;
         }
-        Thread.sleep(k);
-        a.a(e, map);
-        flag = true;
+    }
+
+    public void afterTextChanged(Editable editable)
+    {
+        boolean flag = true;
+        this;
+        JVM INSTR monitorenter ;
+        if (!b) goto _L2; else goto _L1
+_L1:
+        if (editable.length() == 0)
+        {
+            flag = false;
+        }
+        b = flag;
+_L4:
+        this;
+        JVM INSTR monitorexit ;
+        return;
+_L2:
+        if (a) goto _L4; else goto _L3
 _L3:
-        l--;
-        if (true) goto _L2; else goto _L1
-        ahd ahd1;
-        ahd1;
-        (new StringBuilder(34)).append("#").append(l).append(" failed to send report");
+        int j = Selection.getSelectionEnd(editable);
+        String s = null;
+        int k;
+        c.a();
+        k = editable.length();
+        char c1;
+        int i;
+        i = 0;
         flag = false;
-          goto _L3
-_L1:
-        return flag;
-    }
-
-    private List b(int l)
-    {
-        ArrayList arraylist = new ArrayList();
-        for (int i1 = 0; i1 < l; i1++)
+        c1 = '\0';
+_L8:
+        if (i >= k)
         {
-            arraylist.add(d.take());
+            break MISSING_BLOCK_LABEL_121;
         }
-
-        return arraylist;
-    }
-
-    private void b()
-    {
-        a("v", g);
-        a("s", f);
-        d = new ArrayBlockingQueue(h);
-        b = Executors.newSingleThreadExecutor();
-        b.execute(new ahb(this));
-    }
-
-    void a()
-    {
-        try
+        char c2;
+        c2 = editable.charAt(i);
+        if (!PhoneNumberUtils.isNonSeparator(c2))
         {
-            do
-            {
-                Iterator iterator = a(b(i)).values().iterator();
-                while (iterator.hasNext()) 
-                {
-                    a((Map)iterator.next());
-                }
-            } while (true);
+            break MISSING_BLOCK_LABEL_218;
         }
-        catch (InterruptedException interruptedexception)
+        boolean flag1;
+        flag1 = flag;
+        if (c1 == 0)
         {
-            Thread.currentThread().interrupt();
+            break MISSING_BLOCK_LABEL_212;
         }
+        s = a(c1, flag);
+        flag1 = false;
+        break MISSING_BLOCK_LABEL_212;
+        if (c1 == 0) goto _L6; else goto _L5
+_L5:
+        s = a(c1, flag);
+_L6:
+        if (s == null) goto _L4; else goto _L7
+_L7:
+        i = c.b();
+        a = true;
+        editable.replace(0, editable.length(), s, 0, s.length());
+        if (s.equals(editable.toString()))
+        {
+            Selection.setSelection(editable, i);
+        }
+        a = false;
+          goto _L4
+        editable;
+        throw editable;
+        c1 = c2;
+        flag = flag1;
+        if (i == j - 1)
+        {
+            flag = true;
+        }
+        i++;
+          goto _L8
     }
 
-    public void a(int l)
+    public void beforeTextChanged(CharSequence charsequence, int i, int j, int k)
     {
-        int i1 = l;
-        if (l <= 0)
+        while (a || b || j <= 0 || !a(charsequence, i, j)) 
         {
-            (new StringBuilder(47)).append("too small batch size :").append(l).append(", changed to 1");
-            i1 = 1;
+            return;
         }
-        if (i1 > h)
-        {
-            (new StringBuilder(71)).append("batch size :").append(i1).append(" bigger than buffer size, change to buffer limit");
-        }
-        i = i1;
+        a();
     }
 
-    public void a(String s, String s1)
+    public void onTextChanged(CharSequence charsequence, int i, int j, int k)
     {
-        c.put(s, s1);
-    }
-
-    public boolean a(ahf ahf1)
-    {
-        return d.offer(ahf1);
+        while (a || b || k <= 0 || !a(charsequence, i, k)) 
+        {
+            return;
+        }
+        a();
     }
 }

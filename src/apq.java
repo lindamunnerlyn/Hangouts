@@ -3,16 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class apq extends apn
+public final class apq
 {
+
+    public long a;
+    public long b;
+    public long c;
+    public long d;
 
     public apq()
     {
-        super(apk.g);
-    }
-
-    public boolean a(ani ani1)
-    {
-        return ani1.n();
     }
 }

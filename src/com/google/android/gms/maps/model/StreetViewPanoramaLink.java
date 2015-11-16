@@ -6,8 +6,8 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import eof;
-import fln;
+import erf;
+import foj;
 import g;
 import java.util.Arrays;
 
@@ -15,7 +15,7 @@ public class StreetViewPanoramaLink
     implements SafeParcelable
 {
 
-    public static final fln CREATOR = new fln();
+    public static final foj CREATOR = new foj();
     public final String a;
     public final float b;
     private final int c;
@@ -32,7 +32,7 @@ public class StreetViewPanoramaLink
         b = f1 % 360F;
     }
 
-    public int a()
+    int a()
     {
         return c;
     }
@@ -73,7 +73,11 @@ public class StreetViewPanoramaLink
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fln.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a());
+        g.a(parcel, 2, a);
+        g.a(parcel, 3, b);
+        g.q(parcel, i);
     }
 
 }

@@ -3,16 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gky extends gkx
+public final class gky
+    implements gap
 {
 
-    gky(String s)
-    {
-        super(s, 0);
-    }
+    private final boolean a;
 
-    boolean a(glq glq, String s, gkv gkv1)
+    public gky(boolean flag)
     {
-        return gkv1.d(glq);
+        a = flag;
     }
 }

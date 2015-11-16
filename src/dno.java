@@ -2,23 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.ArrayList;
+import java.util.List;
 
-final class dno
-    implements hff
+public final class dno extends dmw
 {
 
-    final dnm a;
+    private static final long serialVersionUID = 1L;
+    public final List a;
 
-    dno(dnm dnm1)
+    public dno(jdn jdn1)
     {
-        a = dnm1;
-        super();
-    }
+        a = new ArrayList(jdn1.a.length);
+        jdn1 = jdn1.a;
+        int j = jdn1.length;
+        for (int i = 0; i < j; i++)
+        {
+            Object obj = jdn1[i];
+            a.add(new eeh(((jdm) (obj)).a, ((jdm) (obj)).b));
+        }
 
-    public boolean a()
-    {
-        dnm.b(a);
-        dnm.e(a).a(new dnq(dnm.c(a), dnm.d(a).a()));
-        return true;
     }
 }

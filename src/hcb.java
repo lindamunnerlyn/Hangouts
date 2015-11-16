@@ -3,21 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class hcb
-    implements hhy
+public interface hcb
 {
 
-    hcb()
-    {
-    }
-
-    public Class a()
-    {
-        return hbw;
-    }
-
-    public void a(ad ad, hjm hjm, hgx hgx1)
-    {
-        hgx1.a(hbw, new hbx(hjm));
-    }
+    public abstract void a(int i);
 }

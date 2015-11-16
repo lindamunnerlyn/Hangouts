@@ -2,16 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Parcel;
 
-final class hkw extends ThreadLocal
+final class hkw
+    implements android.os.Parcelable.Creator
 {
 
     hkw()
     {
     }
 
-    protected Object initialValue()
+    public Object createFromParcel(Parcel parcel)
     {
-        return new hkx();
+        return new hkv(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new hkv[i];
     }
 }

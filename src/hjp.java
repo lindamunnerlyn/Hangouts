@@ -3,23 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class hjp
-    implements hjr
+public interface hjp
 {
 
-    final hjm a;
-
-    hjp(hjm hjm)
-    {
-        a = hjm;
-        super();
-    }
-
-    public void a(fsn fsn)
-    {
-        if (fsn instanceof hka)
-        {
-            ((hka)fsn).E_();
-        }
-    }
+    public abstract void a();
 }

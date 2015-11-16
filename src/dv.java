@@ -83,7 +83,7 @@ _L1:
         Object obj = null;
         if (activity instanceof dw)
         {
-            obj = ((dw)activity).r_();
+            obj = ((dw)activity).s_();
         }
         if (obj == null)
         {

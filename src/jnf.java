@@ -3,11 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class jnf extends jnb
+abstract class jnf extends jmw
 {
+
+    private final String o;
 
     jnf(String s)
     {
-        super(s, 3);
+        o = (String)n.b(s);
+    }
+
+    public final String toString()
+    {
+        return o;
     }
 }

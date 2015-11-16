@@ -109,9 +109,9 @@ final class bt
                 em1.g();
                 o.c.b(a);
             }
-            if (bs.a(o) != null && !o.a())
+            if (o.h != null && !o.a())
             {
-                bs.a(o).d.f();
+                o.h.d.f();
                 return;
             }
         }
@@ -189,10 +189,10 @@ final class bt
             break MISSING_BLOCK_LABEL_119;
         }
         String s;
-        if (bs.a(o) != null)
+        if (o.h != null)
         {
-            s = bs.a(o).d.u;
-            bs.a(o).d.u = "onLoadFinished";
+            s = o.h.d.u;
+            o.h.d.u = "onLoadFinished";
         } else
         {
             s = null;
@@ -202,16 +202,16 @@ final class bt
             (new StringBuilder("  onLoadFinished in ")).append(em1).append(": ").append(em1.c(obj));
         }
         c.onLoadFinished(em1, obj);
-        if (bs.a(o) != null)
+        if (o.h != null)
         {
-            bs.a(o).d.u = s;
+            o.h.d.u = s;
         }
         f = true;
         return;
         em1;
-        if (bs.a(o) != null)
+        if (o.h != null)
         {
-            bs.a(o).d.u = s;
+            o.h.d.u = s;
         }
         throw em1;
     }
@@ -295,18 +295,18 @@ final class bt
         }
         String s;
         Exception exception;
-        if (bs.a(o) != null)
+        if (o.h != null)
         {
-            s = bs.a(o).d.u;
-            bs.a(o).d.u = "onLoaderReset";
+            s = o.h.d.u;
+            o.h.d.u = "onLoaderReset";
         } else
         {
             s = null;
         }
         c.onLoaderReset(d);
-        if (bs.a(o) != null)
+        if (o.h != null)
         {
-            bs.a(o).d.u = s;
+            o.h.d.u = s;
         }
         c = null;
         g = null;
@@ -327,9 +327,9 @@ final class bt
         }
         return;
         exception;
-        if (bs.a(o) != null)
+        if (o.h != null)
         {
-            bs.a(o).d.u = s;
+            o.h.d.u = s;
         }
         throw exception;
     }

@@ -2,35 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
 
-final class dad
-    implements android.os.Parcelable.Creator
+public class dad extends cxr
 {
 
-    dad()
+    private static final long serialVersionUID = 1L;
+
+    private dad(hyp hyp1)
     {
+        super(hyp1.apiHeader);
     }
 
-    public Object createFromParcel(Parcel parcel)
+    public static cxr parseFrom(byte abyte0[])
     {
-        String s = parcel.readString();
-        String s1 = parcel.readString();
-        String s2 = parcel.readString();
-        String s3 = parcel.readString();
-        boolean flag;
-        if (parcel.readInt() != 0)
+        abyte0 = (hyp)kws.mergeFrom(new hyp(), abyte0);
+        if (a(((hyp) (abyte0)).apiHeader))
         {
-            flag = true;
+            String s = String.valueOf(abyte0);
+            eev.f("Babel", (new StringBuilder(String.valueOf(s).length() + 62)).append("SetChatAclSettingResponse.processResponse: request failed for ").append(s).toString());
+            return new cyd(((hyp) (abyte0)).apiHeader);
         } else
         {
-            flag = false;
+            return new dad(abyte0);
         }
-        return new dac(s, s1, s2, s3, flag);
     }
 
-    public Object[] newArray(int i)
+    public void a(aow aow1, dgk dgk)
     {
-        return new dac[i];
+        super.a(aow1, dgk);
+        if (cxr.a)
+        {
+            aow1 = String.valueOf(aow1.f().a());
+            if (aow1.length() != 0)
+            {
+                aow1 = "SetChatAclSettingResponse.processResponse: success=,account=".concat(aow1);
+            } else
+            {
+                aow1 = new String("SetChatAclSettingResponse.processResponse: success=,account=");
+            }
+            eev.b("Babel", aow1);
+        }
     }
 }

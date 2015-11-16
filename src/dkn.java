@@ -2,21 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import java.util.HashMap;
+import java.util.Map;
 
-public final class dkn
+public final class dkn extends dgj
 {
 
-    public static final String a = dki.getName();
-    private static dkm b;
+    private byte a[];
+    private Map e;
+    private boolean f;
 
-    public static void a(Context context, hgx hgx1)
+    public dkn(aoa aoa, byte abyte0[], String s, boolean flag)
     {
-        if (b == null)
+        super(aoa);
+        a = abyte0;
+        e = new HashMap();
+        abyte0 = e;
+        if (flag)
         {
-            b = new dkm();
+            aoa = null;
+        } else
+        {
+            aoa = Integer.valueOf(0);
         }
-        hgx1.a(dki, new dki(context));
+        abyte0.put(s, aoa);
+        f = flag;
     }
 
+    public void a()
+    {
+        a(((dmf) (new cxn(a, e, f))));
+    }
 }

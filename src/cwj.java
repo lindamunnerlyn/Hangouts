@@ -2,83 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
-public class cwj extends cvn
+public class cwj extends cwm
 {
 
     private static final long serialVersionUID = 1L;
-    public byte g[];
-    public List h;
+    public final String a[];
 
-    private cwj(itw itw1)
+    public cwj(String as[])
     {
-        super(itw1.responseHeader, -1L);
-        h = new ArrayList();
-        g = itw1.b;
-        itk aitk[] = itw1.a;
-        int j = aitk.length;
-        for (int i = 0; i < j; i++)
-        {
-            String s1 = aitk[i].a.b;
-            h.add(s1);
-        }
-
-        if (ebw.a("Babel", 3))
-        {
-            String s = String.valueOf("GetFavoritesResponse debugUrl: ");
-            itw1 = String.valueOf(itw1.responseHeader.c);
-            if (itw1.length() != 0)
-            {
-                itw1 = s.concat(itw1);
-            } else
-            {
-                itw1 = new String(s);
-            }
-            ebw.d("Babel", itw1);
-        }
+        a = as;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public String a()
     {
-        abyte0 = (itw)kop.mergeFrom(new itw(), abyte0);
-        if (a(((itw) (abyte0)).responseHeader))
-        {
-            return new cvz(((itw) (abyte0)).responseHeader);
-        } else
-        {
-            return new cwj(abyte0);
-        }
+        return "ui_queue";
     }
 
-    public void a(aoe aoe1, dfb dfb)
+    public kws a(String s, int i, int j)
     {
-        super.a(aoe1, dfb);
-        dfb = new ArrayList(h.size());
-        aoe1.a();
-        Iterator iterator = h.iterator();
-_L2:
-        ceu ceu;
-        do
+        eev.c("Babel_RequestWriter", "GetFifeUrlRequest build protobuf");
+        jfy jfy1 = new jfy();
+        jfy1.requestHeader = cvu.a(s, i, j, h);
+        j = a.length;
+        s = new jfx[j];
+        for (i = 0; i < j; i++)
         {
-            if (!iterator.hasNext())
-            {
-                break MISSING_BLOCK_LABEL_85;
-            }
-            ceu = aoe1.N((String)iterator.next());
-        } while (ceu == null);
-        dfb.add(ceu);
-        if (true) goto _L2; else goto _L1
-_L1:
-        dfb;
-        aoe1.c();
-        throw dfb;
-        aoe1.b(dfb, 3);
-        aoe1.b();
-        aoe1.c();
-        ank.b(g.nS, aoe1.f().h(), "hash_pinned");
-        return;
+            String s1 = a[i];
+            jfx jfx1 = new jfx();
+            jfx1.b = s1;
+            jfx1.a = Integer.valueOf(1);
+            s[i] = jfx1;
+        }
+
+        jfy1.a = s;
+        return jfy1;
+    }
+
+    public String f()
+    {
+        return "urls/urlredirectwrapper";
     }
 }

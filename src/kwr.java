@@ -2,80 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.IOException;
 
-public final class kwr extends koj
+public final class kwr extends IOException
 {
 
-    private static volatile kwr b[];
-    public String a;
+    private static final long serialVersionUID = 0xe9924688c2f20054L;
 
-    public kwr()
+    public kwr(String s)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s);
     }
 
-    public static kwr[] a()
+    static kwr a()
     {
-        if (b == null)
-        {
-            synchronized (kon.a)
-            {
-                if (b == null)
-                {
-                    b = new kwr[0];
-                }
-            }
-        }
-        return b;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return new kwr("While parsing a protocol message, the input ended unexpectedly in the middle of a field.  This could mean either than the input has been truncated or that an embedded message misreported its own length.");
     }
 
-    protected int computeSerializedSize()
+    static kwr b()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        return i;
+        return new kwr("CodedInputStream encountered an embedded string or message which claimed to have negative size.");
     }
 
-    public kop mergeFrom(kog kog1)
+    static kwr c()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-            }
-        } while (true);
+        return new kwr("CodedInputStream encountered a malformed varint.");
     }
 
-    public void writeTo(koh koh1)
+    static kwr d()
     {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        super.writeTo(koh1);
+        return new kwr("Protocol message had too many levels of nesting.  May be malicious.  Use CodedInputStream.setRecursionLimit() to increase the depth limit.");
     }
 }

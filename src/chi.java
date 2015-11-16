@@ -2,46 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.util.SparseArray;
+import android.text.Editable;
+import android.text.TextWatcher;
+import com.google.android.apps.hangouts.peoplelistv2.impl.EditParticipantsView;
 
-final class chi extends dgp
+public final class chi
+    implements TextWatcher
 {
 
-    final cgw a;
+    final EditParticipantsView a;
 
-    chi(cgw cgw1)
+    public chi(EditParticipantsView editparticipantsview)
     {
-        a = cgw1;
+        a = editparticipantsview;
         super();
     }
 
-    public void a(int i, ani ani, dgu dgu1)
+    public void afterTextChanged(Editable editable)
     {
-        if ((dgu1.c() instanceof cvv) && g.a(cgw.r(a), i))
-        {
-            cgw.a(a, i);
-        }
+        EditParticipantsView.b(a).a(editable.toString());
     }
 
-    public void a(int i, ani ani, dko dko, dbo dbo)
+    public void beforeTextChanged(CharSequence charsequence, int i, int j, int k)
     {
-        if (g.a(cgw.r(a), i) && (dko instanceof cty))
-        {
-            ani = a.getActivity();
-            dko = (String)cgw.r(a).get(i);
-            cgw.a(a, i);
-            if (bgg.j())
-            {
-                i = l.iR;
-            } else
-            {
-                i = l.iQ;
-            }
-            ebr.a(ani, ani.getResources().getString(i, new Object[] {
-                dko
-            }));
-        }
+    }
+
+    public void onTextChanged(CharSequence charsequence, int i, int j, int k)
+    {
     }
 }

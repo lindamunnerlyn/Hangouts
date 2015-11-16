@@ -4,75 +4,86 @@
 
 import android.content.Context;
 import android.view.animation.Interpolator;
-import android.widget.Scroller;
 
-final class pg
-    implements pf
+public final class pg
 {
 
-    pg()
-    {
-    }
+    Object a;
+    ph b;
 
-    public Object a(Context context, Interpolator interpolator)
+    private pg(int i, Context context, Interpolator interpolator)
     {
-        if (interpolator != null)
+        if (i >= 14)
         {
-            return new Scroller(context, interpolator);
+            b = new pk();
+        } else
+        if (i >= 9)
+        {
+            b = new pj();
         } else
         {
-            return new Scroller(context);
+            b = new pi();
         }
+        a = b.a(context, interpolator);
     }
 
-    public void a(Object obj, int i, int j, int k, int l, int i1)
+    private pg(Context context, Interpolator interpolator)
     {
-        ((Scroller)obj).startScroll(i, j, k, l, i1);
+        this(android.os.Build.VERSION.SDK_INT, context, interpolator);
     }
 
-    public void a(Object obj, int i, int j, int k, int l, int i1, int j1, 
-            int k1, int l1)
+    public static pg a(Context context, Interpolator interpolator)
     {
-        ((Scroller)obj).fling(0, 0, k, l, i1, j1, 0x80000000, 0x7fffffff);
+        return new pg(context, interpolator);
     }
 
-    public boolean a(Object obj)
+    public void a(int i, int j, int k, int l)
     {
-        return ((Scroller)obj).isFinished();
+        b.a(a, 0, 0, i, j, k, l, 0x80000000, 0x7fffffff);
     }
 
-    public int b(Object obj)
+    public void a(int i, int j, int k, int l, int i1)
     {
-        return ((Scroller)obj).getCurrX();
+        b.a(a, i, j, k, l, i1);
     }
 
-    public int c(Object obj)
+    public boolean a()
     {
-        return ((Scroller)obj).getCurrY();
+        return b.a(a);
     }
 
-    public float d(Object obj)
+    public int b()
     {
-        return 0.0F;
+        return b.b(a);
     }
 
-    public boolean e(Object obj)
+    public int c()
     {
-        return ((Scroller)obj).computeScrollOffset();
+        return b.c(a);
     }
 
-    public void f(Object obj)
+    public int d()
     {
-        ((Scroller)obj).abortAnimation();
+        return b.g(a);
     }
 
-    public int g(Object obj)
+    public int e()
     {
-        return ((Scroller)obj).getFinalX();
+        return b.h(a);
     }
 
-    public int h(Object obj)
+    public float f()
     {
-        return ((Scroller)obj).getFinalY();
+        return b.d(a);
+    }
+
+    public boolean g()
+    {
+        return b.e(a);
+    }
+
+    public void h()
+    {
+        b.f(a);
     }
 }

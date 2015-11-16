@@ -3,19 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class egf extends egh
+public interface egf
 {
 
-    public final ceu a;
-    public final int b;
-    public final boolean c;
-    public final boolean d;
-
-    public egf(ceu ceu, int i, boolean flag, boolean flag1)
-    {
-        a = ceu;
-        b = i;
-        c = flag;
-        d = flag1;
-    }
+    public abstract void a();
 }

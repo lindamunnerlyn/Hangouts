@@ -4,8 +4,8 @@
 
 package com.google.android.apps.hangouts.floatingactionbutton.impl;
 
-import aic;
-import aig;
+import ahv;
+import ahz;
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.ValueAnimator;
@@ -20,25 +20,25 @@ import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Interpolator;
-import bei;
-import bej;
-import bek;
-import bel;
-import bem;
+import bey;
+import bez;
+import bfa;
+import bfb;
+import bfc;
 import g;
 
 public class FloatingActionButton extends View
 {
 
-    private bel a;
-    private ValueAnimator b;
-    private Interpolator c;
-    private int d;
-    private Bitmap e;
-    private int f;
-    private Bitmap g;
-    private float h;
-    private int i;
+    public bfb a;
+    public int b;
+    public Bitmap c;
+    public int d;
+    public Bitmap e;
+    public float f;
+    public int g;
+    private ValueAnimator h;
+    private Interpolator i;
     private android.animation.ValueAnimator.AnimatorUpdateListener j;
     private android.animation.Animator.AnimatorListener k;
     private android.view.View.OnClickListener l;
@@ -56,48 +56,25 @@ public class FloatingActionButton extends View
     public FloatingActionButton(Context context, AttributeSet attributeset, int i1)
     {
         super(context, attributeset, i1);
-        d = 0;
-        f = -1;
-        j = new bei(this);
-        k = new bej(this);
-        l = new bek(this);
+        b = 0;
+        d = -1;
+        j = new bey(this);
+        k = new bez(this);
+        l = new bfa(this);
         if (android.os.Build.VERSION.SDK_INT >= 21)
         {
             a(context);
         }
         setOnClickListener(l);
-        c = new aic(aig.a);
-        b = ValueAnimator.ofFloat(new float[] {
+        i = new ahv(ahz.a);
+        h = ValueAnimator.ofFloat(new float[] {
             0.0F, 1.0F
         });
-        b.setInterpolator(c);
-        b.setDuration(getResources().getInteger(g.lW));
-        b.setStartDelay(0L);
-        b.addUpdateListener(j);
-        b.addListener(k);
-    }
-
-    public static float a(FloatingActionButton floatingactionbutton, float f1)
-    {
-        floatingactionbutton.h = f1;
-        return f1;
-    }
-
-    public static int a(FloatingActionButton floatingactionbutton)
-    {
-        return floatingactionbutton.i;
-    }
-
-    public static int a(FloatingActionButton floatingactionbutton, int i1)
-    {
-        floatingactionbutton.d = i1;
-        return i1;
-    }
-
-    public static Bitmap a(FloatingActionButton floatingactionbutton, Bitmap bitmap)
-    {
-        floatingactionbutton.e = bitmap;
-        return bitmap;
+        h.setInterpolator(i);
+        h.setDuration(getResources().getInteger(g.lK));
+        h.setStartDelay(0L);
+        h.addUpdateListener(j);
+        h.addListener(k);
     }
 
     private void a(Canvas canvas, Bitmap bitmap, float f1, int i1)
@@ -113,76 +90,44 @@ public class FloatingActionButton extends View
         canvas.drawBitmap(bitmap, ((Matrix) (obj)), paint);
     }
 
-    public static int b(FloatingActionButton floatingactionbutton)
-    {
-        return floatingactionbutton.f;
-    }
-
-    public static Bitmap c(FloatingActionButton floatingactionbutton)
-    {
-        return floatingactionbutton.g;
-    }
-
-    public static int d(FloatingActionButton floatingactionbutton)
-    {
-        floatingactionbutton.f = -1;
-        return -1;
-    }
-
-    public static Bitmap e(FloatingActionButton floatingactionbutton)
-    {
-        floatingactionbutton.g = null;
-        return null;
-    }
-
-    public static bel f(FloatingActionButton floatingactionbutton)
-    {
-        return floatingactionbutton.a;
-    }
-
-    public static int g(FloatingActionButton floatingactionbutton)
-    {
-        return floatingactionbutton.d;
-    }
-
     public Animator a(int i1, int j1)
     {
-        i = j1;
-        if (i1 != d)
+        g = j1;
+        if (i1 != b)
         {
-            if (b.isRunning())
+            if (h.isRunning())
             {
-                b.cancel();
+                h.cancel();
             }
-            h = 0.0F;
-            if (j1 == bem.a)
+            f = 0.0F;
+            if (j1 == bfc.a)
             {
-                f = i1;
-                g = ((BitmapDrawable)getResources().getDrawable(i1)).getBitmap();
-                b.start();
-            } else
-            {
-                f = d;
-                g = e;
                 d = i1;
                 e = ((BitmapDrawable)getResources().getDrawable(i1)).getBitmap();
-                b.reverse();
+                h.start();
+            } else
+            {
+                d = b;
+                e = c;
+                b = i1;
+                c = ((BitmapDrawable)getResources().getDrawable(i1)).getBitmap();
+                h.reverse();
             }
         }
-        return b;
+        return h;
     }
 
     public void a(int i1)
     {
-        if (b.isRunning())
+        if (h.isRunning())
         {
-            b.cancel();
+            h.cancel();
         }
-        h = 0.0F;
-        f = -1;
-        g = null;
-        d = i1;
-        e = ((BitmapDrawable)getResources().getDrawable(i1)).getBitmap();
+        f = 0.0F;
+        d = -1;
+        e = null;
+        b = i1;
+        c = ((BitmapDrawable)getResources().getDrawable(i1)).getBitmap();
         invalidate();
     }
 
@@ -192,9 +137,9 @@ public class FloatingActionButton extends View
         {
             throw new IllegalArgumentException("fraction argument to transitionPartlyBetween should be between 0.0 and 1.0");
         }
-        if (b.isRunning())
+        if (h.isRunning())
         {
-            b.cancel();
+            h.cancel();
         }
         if (f1 < 0.001F)
         {
@@ -207,12 +152,12 @@ public class FloatingActionButton extends View
             return;
         } else
         {
-            h = c.getInterpolation(f1);
-            d = i1;
-            e = ((BitmapDrawable)getResources().getDrawable(i1)).getBitmap();
-            f = j1;
-            g = ((BitmapDrawable)getResources().getDrawable(j1)).getBitmap();
-            i = bem.a;
+            f = i.getInterpolation(f1);
+            b = i1;
+            c = ((BitmapDrawable)getResources().getDrawable(i1)).getBitmap();
+            d = j1;
+            e = ((BitmapDrawable)getResources().getDrawable(j1)).getBitmap();
+            g = bfc.a;
             invalidate();
             return;
         }
@@ -220,34 +165,34 @@ public class FloatingActionButton extends View
 
     public void a(android.animation.Animator.AnimatorListener animatorlistener)
     {
-        b.addListener(animatorlistener);
+        h.addListener(animatorlistener);
     }
 
     public void a(android.animation.ValueAnimator.AnimatorUpdateListener animatorupdatelistener)
     {
-        b.addUpdateListener(animatorupdatelistener);
+        h.addUpdateListener(animatorupdatelistener);
     }
 
     public void a(Context context)
     {
-        setStateListAnimator(AnimatorInflater.loadStateListAnimator(context, g.lG));
+        setStateListAnimator(AnimatorInflater.loadStateListAnimator(context, g.ly));
     }
 
-    public void a(bel bel)
+    public void a(bfb bfb)
     {
-        a = bel;
+        a = bfb;
     }
 
     protected void onDraw(Canvas canvas)
     {
         super.onDraw(canvas);
+        if (c != null)
+        {
+            a(canvas, c, f, 135);
+        }
         if (e != null)
         {
-            a(canvas, e, h, 135);
-        }
-        if (g != null)
-        {
-            a(canvas, g, 1.0F - h, -135);
+            a(canvas, e, 1.0F - f, -135);
         }
     }
 }

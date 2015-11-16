@@ -3,210 +3,104 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class lgo
+public final class lgo extends kwm
 {
 
-    final char a;
-    final int b;
-    final int c;
-    final int d;
-    final boolean e;
-    final int f;
+    public Integer a;
+    public Integer b;
+    public Integer c;
+    public Integer d;
 
-    lgo(char c1, int i, int j, int k, boolean flag, int l)
+    public lgo()
     {
-        if (c1 != 'u' && c1 != 'w' && c1 != 's')
-        {
-            throw new IllegalArgumentException((new StringBuilder(15)).append("Unknown mode: ").append(c1).toString());
-        } else
-        {
-            a = c1;
-            b = i;
-            c = j;
-            d = k;
-            e = flag;
-            f = l;
-            return;
-        }
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private long a(lcw lcw1, long l)
+    protected int computeSerializedSize()
     {
-        long l1;
-        try
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            l1 = c(lcw1, l);
+            i = j + kwk.e(1, a.intValue());
         }
-        catch (IllegalArgumentException illegalargumentexception)
+        j = i;
+        if (b != null)
         {
-            if (b == 2 && c == 29)
-            {
-                for (; !lcw1.E().b(l); l = lcw1.E().a(l, 1)) { }
-                return c(lcw1, l);
-            } else
-            {
-                throw illegalargumentexception;
-            }
+            j = i + kwk.e(2, b.intValue());
         }
-        return l1;
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.intValue());
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.e(4, d.intValue());
+        }
+        return j;
     }
 
-    private long b(lcw lcw1, long l)
+    public kws mergeFrom(kwj kwj1)
     {
-        long l1;
-        try
+        do
         {
-            l1 = c(lcw1, l);
-        }
-        catch (IllegalArgumentException illegalargumentexception)
-        {
-            if (b == 2 && c == 29)
+            int i = kwj1.a();
+            switch (i)
             {
-                for (; !lcw1.E().b(l); l = lcw1.E().a(l, -1)) { }
-                return c(lcw1, l);
-            } else
-            {
-                throw illegalargumentexception;
-            }
-        }
-        return l1;
-    }
-
-    private long c(lcw lcw1, long l)
-    {
-        if (c >= 0)
-        {
-            return lcw1.u().b(l, c);
-        } else
-        {
-            l = lcw1.u().b(l, 1);
-            l = lcw1.C().a(l, 1);
-            return lcw1.u().a(l, c);
-        }
-    }
-
-    private long d(lcw lcw1, long l)
-    {
-        int k;
-        long l1;
-        int i = lcw1.t().a(l);
-        k = d - i;
-        l1 = l;
-        if (k == 0) goto _L2; else goto _L1
-_L1:
-        if (!e) goto _L4; else goto _L3
-_L3:
-        int j;
-        j = k;
-        if (k < 0)
-        {
-            j = k + 7;
-        }
-_L6:
-        l1 = lcw1.t().a(l, j);
-_L2:
-        return l1;
-_L4:
-        j = k;
-        if (k > 0)
-        {
-            j = k - 7;
-        }
-        if (true) goto _L6; else goto _L5
-_L5:
-    }
-
-    public long a(long l, int i, int j)
-    {
-        lep lep1;
-        long l1;
-        long l2;
-        if (a == 'w')
-        {
-            i += j;
-        } else
-        if (a != 's')
-        {
-            i = 0;
-        }
-        l2 = (long)i + l;
-        lep1 = lep.L();
-        l = lep1.C().b(l2, b);
-        l = lep1.e().b(l, 0);
-        l1 = a(((lcw) (lep1)), lep1.e().a(l, f));
-        if (d == 0)
-        {
-            l = l1;
-            if (l1 <= l2)
-            {
-                l = a(((lcw) (lep1)), lep1.E().a(l1, 1));
-            }
-        } else
-        {
-            l1 = d(lep1, l1);
-            l = l1;
-            if (l1 <= l2)
-            {
-                l = lep1.E().a(l1, 1);
-                l = d(lep1, a(((lcw) (lep1)), lep1.C().b(l, b)));
-            }
-        }
-        return l - (long)i;
-    }
-
-    public long b(long l, int i, int j)
-    {
-        lep lep1;
-        long l1;
-        long l2;
-        if (a == 'w')
-        {
-            i += j;
-        } else
-        if (a != 's')
-        {
-            i = 0;
-        }
-        l2 = (long)i + l;
-        lep1 = lep.L();
-        l = lep1.C().b(l2, b);
-        l = lep1.e().b(l, 0);
-        l1 = b(((lcw) (lep1)), lep1.e().a(l, f));
-        if (d == 0)
-        {
-            l = l1;
-            if (l1 >= l2)
-            {
-                l = b(((lcw) (lep1)), lep1.E().a(l1, -1));
-            }
-        } else
-        {
-            l1 = d(lep1, l1);
-            l = l1;
-            if (l1 >= l2)
-            {
-                l = lep1.E().a(l1, -1);
-                l = d(lep1, b(((lcw) (lep1)), lep1.C().b(l, b)));
-            }
-        }
-        return l - (long)i;
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (this != obj)
-        {
-            if (obj instanceof lgo)
-            {
-                if (a != ((lgo) (obj = (lgo)obj)).a || b != ((lgo) (obj)).b || c != ((lgo) (obj)).c || d != ((lgo) (obj)).d || e != ((lgo) (obj)).e || f != ((lgo) (obj)).f)
+            default:
+                if (super.storeUnknownField(kwj1, i))
                 {
-                    return false;
+                    continue;
                 }
-            } else
-            {
-                return false;
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
+                break;
+
+            case 24: // '\030'
+                c = Integer.valueOf(kwj1.f());
+                break;
+
+            case 32: // ' '
+                d = Integer.valueOf(kwj1.f());
+                break;
             }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
         }
-        return true;
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.intValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

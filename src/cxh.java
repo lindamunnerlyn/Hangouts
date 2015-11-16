@@ -2,26 +2,73 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.text.TextUtils;
 
-public class cxh extends cvn
+public class cxh extends cwm
 {
 
     private static final long serialVersionUID = 1L;
+    public final String a;
 
-    private cxh()
+    public cxh(String s)
     {
+        a = s;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public String a()
     {
-        return new cxh();
+        return "ui_queue";
     }
 
-    public void a(aoe aoe, dfb dfb)
+    public kws a(String s, int i, int j)
     {
-        super.a(aoe, dfb);
-        dfb = (cum)b;
-        RealTimeChatService.a(aoe, ((cum) (dfb)).c, ((cum) (dfb)).a);
+        if (cvv.e)
+        {
+            Object obj = String.valueOf(a);
+            Object obj1;
+            iwx iwx1;
+            if (((String) (obj)).length() != 0)
+            {
+                obj = "SetStatusMessageRequest.buildProtobuf: statusMessage=".concat(((String) (obj)));
+            } else
+            {
+                obj = new String("SetStatusMessageRequest.buildProtobuf: statusMessage=");
+            }
+            eev.b("Babel_RequestWriter", ((String) (obj)));
+        }
+        obj = new jfb();
+        if (!TextUtils.isEmpty(a))
+        {
+            obj1 = new lcv();
+            obj1.b = a;
+            obj1.a = Integer.valueOf(0);
+            iwx1 = new iwx();
+            iwx1.a = (new lcv[] {
+                obj1
+            });
+            obj.a = (new iwx[] {
+                iwx1
+            });
+        }
+        obj1 = new jel();
+        obj1.f = ((jfb) (obj));
+        obj1.requestHeader = cvu.a(s, i, j, h);
+        return ((kws) (obj1));
+    }
+
+    public boolean a(cdl cdl)
+    {
+        gdv.a(getClass(), cdl.getClass());
+        return true;
+    }
+
+    public boolean a(String s)
+    {
+        return TextUtils.equals(s, a);
+    }
+
+    public String f()
+    {
+        return "presence/setpresence";
     }
 }

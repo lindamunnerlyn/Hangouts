@@ -3,16 +3,90 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class kny extends knw
+public final class kny extends kwm
 {
 
-    kny(String s, kob kob)
+    public String a;
+    public Long b;
+    public Long c;
+
+    public kny()
     {
-        super(s, 9, kob, 3, (byte)0);
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public boolean c()
+    protected int computeSerializedSize()
     {
-        return false;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.b(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            b.longValue();
+            j = i + (kwk.f(2) + 8);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.longValue());
+        }
+        return i;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 17: // '\021'
+                b = Long.valueOf(kwj1.g());
+                break;
+
+            case 24: // '\030'
+                c = Long.valueOf(kwj1.e());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.c(2, b.longValue());
+        }
+        if (c != null)
+        {
+            kwk1.b(3, c.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

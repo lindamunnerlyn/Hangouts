@@ -2,19 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.animation.Interpolator;
 
 final class yu
-    implements Interpolator
+    implements Runnable
 {
 
-    yu()
+    final yt a;
+
+    yu(yt yt1)
     {
+        a = yt1;
+        super();
     }
 
-    public float getInterpolation(float f)
+    public void run()
     {
-        f--;
-        return f * (f * f * f * f) + 1.0F;
+        if (yt.a(a))
+        {
+            if (yt.b(a))
+            {
+                g.a("RV FullInvalidate");
+                a.p();
+                g.a();
+                return;
+            }
+            if (a.b.d())
+            {
+                g.a("RV PartialInvalidate");
+                a.e();
+                a.b.b();
+                if (!yt.c(a))
+                {
+                    a.t();
+                }
+                a.a(true);
+                g.a();
+                return;
+            }
+        }
     }
 }

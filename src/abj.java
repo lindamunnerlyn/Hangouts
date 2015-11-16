@@ -2,36 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
 
-public final class abj extends eg
+public interface abj
 {
 
-    private final Uri w;
-    private final String x[];
+    public abstract void a(String s);
 
-    public abj(Context context, Uri uri, String as[])
-    {
-        super(context);
-        w = uri;
-        if (as == null)
-        {
-            as = abk.a;
-        }
-        x = as;
-    }
-
-    public Object d()
-    {
-        return h();
-    }
-
-    public Cursor h()
-    {
-        a(w.buildUpon().appendQueryParameter("contentType", "image/").build());
-        a(x);
-        return super.h();
-    }
+    public abstract void u();
 }

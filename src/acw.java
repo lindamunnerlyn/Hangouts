@@ -3,26 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class acw extends acd
+public final class acw extends acf
 {
 
-    public acw()
+    acw(acp acp)
     {
-        a(129);
-    }
-
-    acw(acn acn1)
-    {
-        super(acn1);
-    }
-
-    public byte[] d()
-    {
-        return a.b(139);
-    }
-
-    public int e()
-    {
-        return a.a(146);
+        super(acp);
     }
 }

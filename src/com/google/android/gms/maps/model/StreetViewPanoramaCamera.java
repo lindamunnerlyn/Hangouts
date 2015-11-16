@@ -6,11 +6,10 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import eof;
-import fjz;
-import flm;
+import erf;
+import fmv;
+import foi;
 import g;
-import h;
 import java.util.Arrays;
 
 // Referenced classes of package com.google.android.gms.maps.model:
@@ -20,7 +19,7 @@ public class StreetViewPanoramaCamera
     implements SafeParcelable
 {
 
-    public static final flm CREATOR = new flm();
+    public static final foi CREATOR = new foi();
     public final float a;
     public final float b;
     public final float c;
@@ -38,7 +37,7 @@ public class StreetViewPanoramaCamera
         {
             flag = false;
         }
-        h.b(flag, "Tilt needs to be between -90 and 90 inclusive");
+        g.b(flag, "Tilt needs to be between -90 and 90 inclusive");
         d = i;
         f3 = f;
         if ((double)f <= 0.0D)
@@ -55,10 +54,10 @@ public class StreetViewPanoramaCamera
             f = f2;
         }
         c = f % 360F;
-        e = (new fjz()).a(f1).b(f2).a();
+        e = (new fmv()).a(f1).b(f2).a();
     }
 
-    public int a()
+    int a()
     {
         return d;
     }
@@ -99,7 +98,12 @@ public class StreetViewPanoramaCamera
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        flm.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a());
+        g.a(parcel, 2, a);
+        g.a(parcel, 3, b);
+        g.a(parcel, 4, c);
+        g.q(parcel, i);
     }
 
 }

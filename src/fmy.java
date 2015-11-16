@@ -2,45 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.widget.ImageView;
+import android.os.IInterface;
+import java.util.List;
 
-public final class fmy extends fnb
+public interface fmy
+    extends IInterface
 {
 
-    private Bitmap d;
+    public abstract void a();
 
-    public fmy(Context context, ejx ejx)
-    {
-        super(context, ejx, false);
-    }
+    public abstract void a(float f1);
 
-    public Bitmap a(Context context)
-    {
-        if (d == null)
-        {
-            d = BitmapFactory.decodeResource(context.getResources(), g.ry);
-        }
-        return d;
-    }
+    public abstract void a(int j);
 
-    public void a(ImageView imageview, fqu fqu1, int i)
-    {
-        a(((fnc) (new fmz(this, imageview, fqu1.a(), fqu1.d(), i))));
-    }
+    public abstract void a(List list);
 
-    protected void a(fnc fnc1, Bitmap bitmap)
-    {
-        if (bitmap == null)
-        {
-            fnc1.f.setImageBitmap(a(b));
-            return;
-        } else
-        {
-            super.a(fnc1, bitmap);
-            return;
-        }
-    }
+    public abstract void a(boolean flag);
+
+    public abstract boolean a(fmy fmy1);
+
+    public abstract String b();
+
+    public abstract void b(float f1);
+
+    public abstract void b(boolean flag);
+
+    public abstract List c();
+
+    public abstract float d();
+
+    public abstract int e();
+
+    public abstract float f();
+
+    public abstract boolean g();
+
+    public abstract boolean h();
+
+    public abstract int i();
 }

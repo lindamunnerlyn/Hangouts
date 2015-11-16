@@ -2,67 +2,218 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Map;
+import android.graphics.Bitmap;
+import android.os.IBinder;
+import android.os.Parcel;
+import com.google.android.gms.googlehelp.GoogleHelp;
 
-final class fee extends feg
+final class fee
+    implements fec
 {
 
-    final fed a;
+    private IBinder a;
 
-    fee(fed fed1)
+    fee(IBinder ibinder)
     {
-        a = fed1;
-        super();
+        a = ibinder;
     }
 
-    protected int a()
+    public void a(Bitmap bitmap, fdz fdz1)
     {
-        return a.h;
-    }
-
-    protected int a(Object obj)
-    {
-        if (obj == null)
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.googlehelp.internal.common.IGoogleHelpService");
+        if (bitmap == null) goto _L2; else goto _L1
+_L1:
+        parcel.writeInt(1);
+        bitmap.writeToParcel(parcel, 0);
+_L3:
+        if (fdz1 == null)
         {
-            return a.a();
-        } else
-        {
-            return a.a(obj, obj.hashCode());
+            break MISSING_BLOCK_LABEL_96;
         }
+        bitmap = fdz1.asBinder();
+_L4:
+        parcel.writeStrongBinder(bitmap);
+        a.transact(3, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+_L2:
+        parcel.writeInt(0);
+          goto _L3
+        bitmap;
+        parcel1.recycle();
+        parcel.recycle();
+        throw bitmap;
+        bitmap = null;
+          goto _L4
     }
 
-    protected Object a(int i, int j)
+    public void a(GoogleHelp googlehelp, Bitmap bitmap, fdz fdz1)
     {
-        return a.g[(i << 1) + j];
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.googlehelp.internal.common.IGoogleHelpService");
+        if (googlehelp == null) goto _L2; else goto _L1
+_L1:
+        parcel.writeInt(1);
+        googlehelp.writeToParcel(parcel, 0);
+_L5:
+        if (bitmap == null) goto _L4; else goto _L3
+_L3:
+        parcel.writeInt(1);
+        bitmap.writeToParcel(parcel, 0);
+_L6:
+        if (fdz1 == null)
+        {
+            break MISSING_BLOCK_LABEL_131;
+        }
+        googlehelp = fdz1.asBinder();
+_L7:
+        parcel.writeStrongBinder(googlehelp);
+        a.transact(2, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+_L2:
+        parcel.writeInt(0);
+          goto _L5
+        googlehelp;
+        parcel1.recycle();
+        parcel.recycle();
+        throw googlehelp;
+_L4:
+        parcel.writeInt(0);
+          goto _L6
+        googlehelp = null;
+          goto _L7
     }
 
-    protected Object a(int i, Object obj)
+    public void a(GoogleHelp googlehelp, fdz fdz1)
     {
-        return a.a(i, obj);
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.googlehelp.internal.common.IGoogleHelpService");
+        if (googlehelp == null) goto _L2; else goto _L1
+_L1:
+        parcel.writeInt(1);
+        googlehelp.writeToParcel(parcel, 0);
+_L3:
+        if (fdz1 == null)
+        {
+            break MISSING_BLOCK_LABEL_96;
+        }
+        googlehelp = fdz1.asBinder();
+_L4:
+        parcel.writeStrongBinder(googlehelp);
+        a.transact(1, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+_L2:
+        parcel.writeInt(0);
+          goto _L3
+        googlehelp;
+        parcel1.recycle();
+        parcel.recycle();
+        throw googlehelp;
+        googlehelp = null;
+          goto _L4
     }
 
-    protected void a(int i)
+    public void a(fdz fdz1)
     {
-        a.d(i);
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.googlehelp.internal.common.IGoogleHelpService");
+        if (fdz1 == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        fdz1 = fdz1.asBinder();
+_L1:
+        parcel.writeStrongBinder(fdz1);
+        a.transact(4, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        fdz1 = null;
+          goto _L1
+        fdz1;
+        parcel1.recycle();
+        parcel.recycle();
+        throw fdz1;
     }
 
-    protected void a(Object obj, Object obj1)
-    {
-        a.put(obj, obj1);
-    }
-
-    protected int b(Object obj)
-    {
-        return a.a(obj);
-    }
-
-    protected Map b()
+    public IBinder asBinder()
     {
         return a;
     }
 
-    protected void c()
+    public void b(fdz fdz1)
     {
-        a.clear();
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.googlehelp.internal.common.IGoogleHelpService");
+        if (fdz1 == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        fdz1 = fdz1.asBinder();
+_L1:
+        parcel.writeStrongBinder(fdz1);
+        a.transact(5, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        fdz1 = null;
+          goto _L1
+        fdz1;
+        parcel1.recycle();
+        parcel.recycle();
+        throw fdz1;
+    }
+
+    public void c(fdz fdz1)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.googlehelp.internal.common.IGoogleHelpService");
+        if (fdz1 == null)
+        {
+            break MISSING_BLOCK_LABEL_58;
+        }
+        fdz1 = fdz1.asBinder();
+_L1:
+        parcel.writeStrongBinder(fdz1);
+        a.transact(6, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        fdz1 = null;
+          goto _L1
+        fdz1;
+        parcel1.recycle();
+        parcel.recycle();
+        throw fdz1;
     }
 }

@@ -3,20 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ane extends dlt
+final class ane
 {
 
-    public final String a;
-    public final dlj b;
-
-    public ane(String s, dlj dlj)
+    ane()
     {
-        a = s;
-        b = dlj;
-    }
-
-    public String c()
-    {
-        return a;
     }
 }

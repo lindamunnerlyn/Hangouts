@@ -2,74 +2,97 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.gms.wearable.internal.ChannelImpl;
+import android.net.Uri;
+import android.util.Log;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 public final class fwl
-    implements android.os.Parcelable.Creator
+    implements fvf
 {
 
-    public fwl()
-    {
-    }
+    private Uri a;
+    private byte b[];
+    private Map c;
 
-    public static void a(ChannelImpl channelimpl, Parcel parcel)
+    public fwl(fvf fvf1)
     {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, channelimpl.a);
-        g.a(parcel, 2, channelimpl.c());
-        g.a(parcel, 3, channelimpl.a());
-        g.a(parcel, 4, channelimpl.b());
-        g.q(parcel, i);
-    }
-
-    public Object createFromParcel(Parcel parcel)
-    {
-        String s2 = null;
-        int j = g.a(parcel);
-        String s = null;
-        int i = 0;
-        String s1 = null;
+        a = fvf1.a();
+        b = fvf1.b();
+        HashMap hashmap = new HashMap();
+        fvf1 = fvf1.c().entrySet().iterator();
         do
         {
-            if (parcel.dataPosition() < j)
+            if (!fvf1.hasNext())
             {
-                int k = parcel.readInt();
-                switch (0xffff & k)
-                {
-                default:
-                    g.b(parcel, k);
-                    break;
-
-                case 1: // '\001'
-                    i = g.e(parcel, k);
-                    break;
-
-                case 2: // '\002'
-                    s = g.i(parcel, k);
-                    break;
-
-                case 3: // '\003'
-                    s1 = g.i(parcel, k);
-                    break;
-
-                case 4: // '\004'
-                    s2 = g.i(parcel, k);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != j)
+                break;
+            }
+            java.util.Map.Entry entry = (java.util.Map.Entry)fvf1.next();
+            if (entry.getKey() != null)
             {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
-            } else
-            {
-                return new ChannelImpl(i, s, s1, s2);
+                hashmap.put(entry.getKey(), ((fvg)entry.getValue()).f());
             }
         } while (true);
+        c = Collections.unmodifiableMap(hashmap);
     }
 
-    public Object[] newArray(int i)
+    public boolean C_()
     {
-        return new ChannelImpl[i];
+        return true;
+    }
+
+    public Uri a()
+    {
+        return a;
+    }
+
+    public byte[] b()
+    {
+        return b;
+    }
+
+    public Map c()
+    {
+        return c;
+    }
+
+    public Object f()
+    {
+        return this;
+    }
+
+    public String toString()
+    {
+        boolean flag = Log.isLoggable("DataItem", 3);
+        StringBuilder stringbuilder = new StringBuilder("DataItemEntity{ ");
+        stringbuilder.append((new StringBuilder("uri=")).append(a).toString());
+        StringBuilder stringbuilder1 = new StringBuilder(", dataSz=");
+        Object obj;
+        if (b == null)
+        {
+            obj = "null";
+        } else
+        {
+            obj = Integer.valueOf(b.length);
+        }
+        stringbuilder.append(stringbuilder1.append(obj).toString());
+        stringbuilder.append((new StringBuilder(", numAssets=")).append(c.size()).toString());
+        if (flag && !c.isEmpty())
+        {
+            stringbuilder.append(", assets=[");
+            Iterator iterator = c.entrySet().iterator();
+            for (obj = ""; iterator.hasNext(); obj = ", ")
+            {
+                java.util.Map.Entry entry = (java.util.Map.Entry)iterator.next();
+                stringbuilder.append((new StringBuilder()).append(((String) (obj))).append((String)entry.getKey()).append(": ").append(((fvg)entry.getValue()).a()).toString());
+            }
+
+            stringbuilder.append("]");
+        }
+        stringbuilder.append(" }");
+        return stringbuilder.toString();
     }
 }

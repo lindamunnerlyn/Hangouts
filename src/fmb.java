@@ -2,10 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Binder;
+import android.os.Parcel;
+import com.google.android.gms.maps.model.StreetViewPanoramaCamera;
 
-public interface fmb
-    extends ekf, ekg
+public abstract class fmb extends Binder
+    implements fma
 {
 
-    public abstract fqr c();
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    {
+        switch (i)
+        {
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
+
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.maps.internal.IOnStreetViewPanoramaCameraChangeListener");
+            return true;
+
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnStreetViewPanoramaCameraChangeListener");
+            break;
+        }
+        if (parcel.readInt() != 0)
+        {
+            foi foi1 = StreetViewPanoramaCamera.CREATOR;
+            parcel = foi.a(parcel);
+        } else
+        {
+            parcel = null;
+        }
+        a(parcel);
+        parcel1.writeNoException();
+        return true;
+    }
 }

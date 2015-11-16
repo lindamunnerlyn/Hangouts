@@ -2,66 +2,112 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.AbstractMap;
-import java.util.Collection;
-import java.util.Set;
 
-abstract class jpi extends AbstractMap
+public final class jpi extends Enum
+    implements com.google.common.cache.LocalCache.ReferenceEntry
 {
 
-    private transient Set a;
-    private transient Set b;
-    private transient Collection c;
+    public static final jpi a;
+    private static final jpi b[];
 
-    jpi()
+    private jpi(String s)
+    {
+        super(s, 0);
+    }
+
+    public static jpi valueOf(String s)
+    {
+        return (jpi)Enum.valueOf(jpi, s);
+    }
+
+    public static jpi[] values()
+    {
+        return (jpi[])b.clone();
+    }
+
+    public long getAccessTime()
+    {
+        return 0L;
+    }
+
+    public int getHash()
+    {
+        return 0;
+    }
+
+    public Object getKey()
+    {
+        return null;
+    }
+
+    public com.google.common.cache.LocalCache.ReferenceEntry getNext()
+    {
+        return null;
+    }
+
+    public com.google.common.cache.LocalCache.ReferenceEntry getNextInAccessQueue()
+    {
+        return this;
+    }
+
+    public com.google.common.cache.LocalCache.ReferenceEntry getNextInWriteQueue()
+    {
+        return this;
+    }
+
+    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInAccessQueue()
+    {
+        return this;
+    }
+
+    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInWriteQueue()
+    {
+        return this;
+    }
+
+    public jpw getValueReference()
+    {
+        return null;
+    }
+
+    public long getWriteTime()
+    {
+        return 0L;
+    }
+
+    public void setAccessTime(long l)
     {
     }
 
-    abstract Set a();
-
-    Set b()
+    public void setNextInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        return new jpj(this);
     }
 
-    Collection c()
+    public void setNextInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        return new jpk(this);
     }
 
-    public Set entrySet()
+    public void setPreviousInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        Set set1 = a;
-        Set set = set1;
-        if (set1 == null)
-        {
-            set = a();
-            a = set;
-        }
-        return set;
     }
 
-    public Set keySet()
+    public void setPreviousInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        Set set1 = b;
-        Set set = set1;
-        if (set1 == null)
-        {
-            set = b();
-            b = set;
-        }
-        return set;
     }
 
-    public Collection values()
+    public void setValueReference(jpw jpw)
     {
-        Collection collection1 = c;
-        Collection collection = collection1;
-        if (collection1 == null)
-        {
-            collection = c();
-            c = collection;
-        }
-        return collection;
+    }
+
+    public void setWriteTime(long l)
+    {
+    }
+
+    static 
+    {
+        a = new jpi("INSTANCE");
+        b = (new jpi[] {
+            a
+        });
     }
 }

@@ -3,211 +3,135 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.content.res.Configuration;
-import android.content.res.TypedArray;
-import android.support.v7.widget.ActionMenuView;
-import android.util.AttributeSet;
-import android.util.TypedValue;
-import android.view.ContextThemeWrapper;
-import android.view.MotionEvent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
-import android.view.ViewGroup;
 
-public class tu extends ViewGroup
+public final class tu extends ta
+    implements SubMenu
 {
 
-    public final tv a;
-    public final Context b;
-    public ActionMenuView c;
-    public vu d;
-    public int e;
-    public lr f;
-    private boolean g;
-    private boolean h;
+    private ta d;
+    private te e;
 
-    tu(Context context)
+    public tu(Context context, ta ta1, te te1)
     {
-        this(context, null);
+        super(context);
+        d = ta1;
+        e = te1;
     }
 
-    tu(Context context, AttributeSet attributeset)
+    public void a(tb tb)
     {
-        this(context, attributeset, 0);
+        d.a(tb);
     }
 
-    public tu(Context context, AttributeSet attributeset, int i)
+    boolean a(ta ta1, MenuItem menuitem)
     {
-        super(context, attributeset, i);
-        a = new tv(this);
-        attributeset = new TypedValue();
-        if (context.getTheme().resolveAttribute(g.e, attributeset, true) && ((TypedValue) (attributeset)).resourceId != 0)
+        return super.a(ta1, menuitem) || d.a(ta1, menuitem);
+    }
+
+    public boolean a(te te1)
+    {
+        return d.a(te1);
+    }
+
+    public String b()
+    {
+        int i;
+        if (e != null)
         {
-            b = new ContextThemeWrapper(context, ((TypedValue) (attributeset)).resourceId);
-            return;
+            i = e.getItemId();
         } else
         {
-            b = context;
-            return;
-        }
-    }
-
-    public static int a(int i, int j, boolean flag)
-    {
-        if (flag)
-        {
-            return i - j;
-        } else
-        {
-            return i + j;
-        }
-    }
-
-    static void a(tu tu1)
-    {
-        tu1.View.setVisibility(0);
-    }
-
-    static void a(tu tu1, int i)
-    {
-        tu1.View.setVisibility(i);
-    }
-
-    public int a(View view, int i, int j)
-    {
-        view.measure(android.view.View.MeasureSpec.makeMeasureSpec(i, 0x80000000), j);
-        return Math.max(0, i - view.getMeasuredWidth());
-    }
-
-    public int a(View view, int i, int j, int k, boolean flag)
-    {
-        int l = view.getMeasuredWidth();
-        int i1 = view.getMeasuredHeight();
-        j = (k - i1) / 2 + j;
-        if (flag)
-        {
-            view.layout(i - l, j, i, i1 + j);
-        } else
-        {
-            view.layout(i, j, i + l, i1 + j);
-        }
-        i = l;
-        if (flag)
-        {
-            i = -l;
-        }
-        return i;
-    }
-
-    public lr a(int i, long l)
-    {
-        if (f != null)
-        {
-            f.b();
+            i = 0;
         }
         if (i == 0)
         {
-            if (getVisibility() != 0)
-            {
-                kb.c(this, 0.0F);
-            }
-            lr lr1 = kb.o(this).a(1.0F);
-            lr1.a(l);
-            lr1.a(a.a(lr1, i));
-            return lr1;
+            return null;
         } else
         {
-            lr lr2 = kb.o(this).a(0.0F);
-            lr2.a(l);
-            lr2.a(a.a(lr2, i));
-            return lr2;
+            return (new StringBuilder()).append(super.b()).append(":").append(i).toString();
         }
     }
 
-    public void a(int i)
+    public boolean b(te te1)
     {
-        e = i;
-        requestLayout();
+        return d.b(te1);
     }
 
-    public boolean a()
+    public boolean c()
     {
-        if (d != null)
-        {
-            return d.e();
-        } else
-        {
-            return false;
-        }
+        return d.c();
     }
 
-    protected void onConfigurationChanged(Configuration configuration)
+    public boolean d()
     {
-        if (android.os.Build.VERSION.SDK_INT >= 8)
-        {
-            super.onConfigurationChanged(configuration);
-        }
-        configuration = getContext().obtainStyledAttributes(null, ro.a, g.g, 0);
-        a(configuration.getLayoutDimension(ro.j, 0));
-        configuration.recycle();
-        if (d != null)
-        {
-            d.c();
-        }
+        return d.d();
     }
 
-    public boolean onHoverEvent(MotionEvent motionevent)
+    public MenuItem getItem()
     {
-        int i = jg.a(motionevent);
-        if (i == 9)
-        {
-            h = false;
-        }
-        if (!h)
-        {
-            boolean flag = super.onHoverEvent(motionevent);
-            if (i == 9 && !flag)
-            {
-                h = true;
-            }
-        }
-        if (i == 10 || i == 3)
-        {
-            h = false;
-        }
-        return true;
+        return e;
     }
 
-    public boolean onTouchEvent(MotionEvent motionevent)
+    public ta r()
     {
-        int i = jg.a(motionevent);
-        if (i == 0)
-        {
-            g = false;
-        }
-        if (!g)
-        {
-            boolean flag = super.onTouchEvent(motionevent);
-            if (i == 0 && !flag)
-            {
-                g = true;
-            }
-        }
-        if (i == 1 || i == 3)
-        {
-            g = false;
-        }
-        return true;
+        return d;
     }
 
-    public void setVisibility(int i)
+    public SubMenu setHeaderIcon(int i)
     {
-        if (i != getVisibility())
-        {
-            if (f != null)
-            {
-                f.b();
-            }
-            super.setVisibility(i);
-        }
+        super.a(ef.a(e(), i));
+        return this;
+    }
+
+    public SubMenu setHeaderIcon(Drawable drawable)
+    {
+        super.a(drawable);
+        return this;
+    }
+
+    public SubMenu setHeaderTitle(int i)
+    {
+        super.a(e().getResources().getString(i));
+        return this;
+    }
+
+    public SubMenu setHeaderTitle(CharSequence charsequence)
+    {
+        super.a(charsequence);
+        return this;
+    }
+
+    public SubMenu setHeaderView(View view)
+    {
+        super.a(view);
+        return this;
+    }
+
+    public SubMenu setIcon(int i)
+    {
+        e.setIcon(i);
+        return this;
+    }
+
+    public SubMenu setIcon(Drawable drawable)
+    {
+        e.setIcon(drawable);
+        return this;
+    }
+
+    public void setQwertyMode(boolean flag)
+    {
+        d.setQwertyMode(flag);
+    }
+
+    public Menu u()
+    {
+        return d;
     }
 }

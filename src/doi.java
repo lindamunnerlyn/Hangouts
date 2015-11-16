@@ -2,41 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import com.google.android.libraries.social.settings.PreferenceCategory;
+import java.util.Comparator;
+import java.util.Locale;
 
-public final class doi extends hhu
-    implements hey
+public final class doi
 {
 
-    private gmo a;
-    private ani b;
+    public static final Comparator a = new doj();
+    public final String b;
+    public final String c;
+    public final String d;
 
-    public doi()
+    public doi(String s, String s1)
     {
-        new hex(this, lifecycle);
+        b = s;
+        c = s1;
+        d = (new Locale("", s)).getDisplayCountry();
     }
 
-    static ani a(doi doi1)
-    {
-        return doi1.b;
-    }
-
-    public void a()
-    {
-        PreferenceCategory preferencecategory = (new hfg(context)).a(l.fe);
-        hem hem1 = new hem(context, a.a(), "improve_hangouts_key");
-        hem1.g(l.fg);
-        hem1.h(l.ff);
-        hem1.b(Boolean.valueOf(((doh)binder.a(doh)).a(a.a())));
-        hem1.a(new doj(this));
-        preferencecategory.c(hem1);
-    }
-
-    protected void onAttachBinder(Bundle bundle)
-    {
-        super.onAttachBinder(bundle);
-        a = (gmo)binder.a(gmo);
-        b = dbf.e(a.a());
-    }
 }

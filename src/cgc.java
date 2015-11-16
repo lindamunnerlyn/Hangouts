@@ -2,32 +2,13 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import com.google.android.apps.hangouts.peoplelistv2.impl.EditParticipantsView;
 
-public final class cgc
-    implements TextWatcher
+public interface cgc
 {
 
-    final EditParticipantsView a;
+    public static final String a[] = {
+        "_id", "gaia_id", "chat_id", "circle_id", "full_name", "first_name", "fallback_name", "profile_photo_url", "participant_type", "blocked", 
+        "phone_id", "batch_gebi_tag"
+    };
 
-    public cgc(EditParticipantsView editparticipantsview)
-    {
-        a = editparticipantsview;
-        super();
-    }
-
-    public void afterTextChanged(Editable editable)
-    {
-        EditParticipantsView.b(a).a(editable.toString());
-    }
-
-    public void beforeTextChanged(CharSequence charsequence, int i, int j, int k)
-    {
-    }
-
-    public void onTextChanged(CharSequence charsequence, int i, int j, int k)
-    {
-    }
 }

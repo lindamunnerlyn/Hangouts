@@ -2,56 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.net.Uri;
+import android.content.Context;
 
-final class has
-    implements hbg
+public final class has
 {
 
-    final hap a;
-    private final Uri b;
-    private final long c;
-    private final long d = 0L;
-    private long e;
-    private had f;
+    public static final String a = ham.getName();
+    private static har b;
 
-    public has(hap hap1, Uri uri, long l, long l1)
+    public static void a(Context context, hlp hlp1)
     {
-        a = hap1;
-        super();
-        e = 0L;
-        b = uri;
-        c = l;
-    }
-
-    public void a(long l, long l1)
-    {
-        if (l - e > hap.d())
+        if (b == null)
         {
-            e = l;
-            try
-            {
-                a.b();
-            }
-            catch (had had1)
-            {
-                f = had1;
-                a.a();
-            }
+            b = new har();
         }
-        if (d + l < l1)
-        {
-            hap.a(a).a(d + l, c);
-        }
+        hlp1.a(ham, (new han(context)).a());
     }
 
-    public boolean a()
-    {
-        return f != null;
-    }
-
-    public had b()
-    {
-        return f;
-    }
 }

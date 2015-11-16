@@ -2,30 +2,59 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.view.ActionMode;
 
-public final class csi extends ctp
+public final class csi
 {
 
-    private final int a;
+    final csk a;
+    ActionMode b;
+    private final android.widget.AbsListView.MultiChoiceModeListener c = new csj(this);
 
-    public csi(ani ani1, int i, cuk cuk1, String s)
+    public csi(csk csk)
     {
-        super(hdx.newBuilder().a(ani1.a()).b(ani1.ae()).a().b(), cuk1, cuk1.g(), "hangouts", (ivp)cuk1.a(s, i, ani1.h()), new ivq());
-        a = ani1.h();
+        a = csk;
     }
 
-    protected cvn a(kop kop)
+    public android.widget.AbsListView.MultiChoiceModeListener a()
     {
-        return cxc.parseFrom((ivq)kop);
+        return c;
     }
 
-    public void a(int i, Exception exception)
+    public void a(CharSequence charsequence)
     {
-        exception = e();
-        if (exception != null)
+label0:
         {
-            RealTimeChatService.a(a, exception);
+            if (b != null)
+            {
+                if (charsequence == null)
+                {
+                    break label0;
+                }
+                charsequence = new SpannableString(charsequence);
+                charsequence.setSpan(new ForegroundColorSpan(-1), 0, charsequence.length(), 33);
+                b.setTitle(charsequence);
+            }
+            return;
+        }
+        b.setTitle(null);
+    }
+
+    public void b()
+    {
+        if (b != null)
+        {
+            b.invalidate();
+        }
+    }
+
+    public void c()
+    {
+        if (b != null)
+        {
+            b.finish();
         }
     }
 }

@@ -3,15 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class cpu
+final class cpu
+    implements Runnable
 {
 
-    public final int a;
-    public final String b;
+    final cpt a;
 
-    public cpu(int i, String s)
+    cpu(cpt cpt1)
     {
-        a = i;
-        b = s;
+        a = cpt1;
+        super();
+    }
+
+    public void run()
+    {
+        cpt.a(a);
     }
 }

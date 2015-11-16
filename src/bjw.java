@@ -2,50 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.res.Resources;
-import android.view.View;
-import android.view.ViewGroup;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.Map;
 
-final class bjw extends bjo
-    implements bjv
+final class bjw
+    implements android.widget.TabHost.OnTabChangeListener
 {
 
-    final bjp a;
-    private View b;
+    final bjq a;
 
-    public bjw(bjp bjp1, Resources resources)
+    bjw(bjq bjq1)
     {
-        a = bjp1;
-        super(resources, bjp.a(bjp1));
-        bjp.b(bjp1).a(this);
+        a = bjq1;
+        super();
     }
 
-    public void a(View view)
+    public void onTabChanged(String s)
     {
-        b = view;
-    }
-
-    public void g_()
-    {
-        if (b != null && bjp.b(a).a().size() > 0)
-        {
-            b.findViewById(h.bl).setVisibility(0);
-            ViewGroup viewgroup = (ViewGroup)b.findViewById(h.fp);
-            viewgroup.setVisibility(8);
-            viewgroup.removeViewAt(0);
-            b = null;
-            notifyDataSetChanged();
-        }
-    }
-
-    public int getCount()
-    {
-        return Math.min(bjp.b(a).a().size(), bjp.c(a));
-    }
-
-    public long getItemId(int i)
-    {
-        return (long)g.a((Integer)bjp.b(a).a().get(i), 0);
+        int i = g.a((Integer)bjq.i(a).get(s), 0);
+        bjq.a(a, i, false);
+        bjq.j(a);
     }
 }

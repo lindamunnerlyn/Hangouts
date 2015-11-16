@@ -2,34 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.database.DataSetObserver;
 import android.support.v7.internal.widget.ActivityChooserView;
-import android.view.View;
 
-public final class um extends ye
+public final class um extends DataSetObserver
 {
 
     final ActivityChooserView a;
 
-    public um(ActivityChooserView activitychooserview, View view)
+    public um(ActivityChooserView activitychooserview)
     {
         a = activitychooserview;
-        super(view);
+        super();
     }
 
-    public ya a()
+    public void onChanged()
     {
-        return ActivityChooserView.b(a);
+        super.onChanged();
+        a.a.notifyDataSetChanged();
     }
 
-    protected boolean b()
+    public void onInvalidated()
     {
-        a.a();
-        return true;
-    }
-
-    protected boolean c()
-    {
-        a.b();
-        return true;
+        super.onInvalidated();
+        a.a.notifyDataSetInvalidated();
     }
 }

@@ -3,43 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gsh extends Enum
-    implements kxx
+final class gsh
+    implements gsc
 {
 
-    public static final gsh a;
-    private static final gsh b[];
-
-    private gsh(String s)
+    gsh()
     {
-        super(s, 0);
     }
 
-    public static kxx b()
+    public Object a(Object obj)
     {
-        return a;
+        return obj;
     }
 
-    public static gsh valueOf(String s)
+    public void a(android.content.SharedPreferences.Editor editor, String s)
     {
-        return (gsh)Enum.valueOf(gsh, s);
-    }
-
-    public static gsh[] values()
-    {
-        return (gsh[])b.clone();
-    }
-
-    public Object a()
-    {
-        return new gse();
-    }
-
-    static 
-    {
-        a = new gsh("INSTANCE");
-        b = (new gsh[] {
-            a
-        });
+        editor.remove(s);
     }
 }

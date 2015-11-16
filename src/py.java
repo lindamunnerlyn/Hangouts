@@ -4,39 +4,33 @@
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 
-final class py
-    implements pu
+final class py extends rs
+    implements pz
 {
 
-    final Activity a;
+    private final Activity a;
 
-    py(Activity activity)
+    public py(Activity activity, Context context)
     {
+        super(context);
         a = activity;
     }
 
-    public Drawable a()
+    public void a(float f)
     {
-        return null;
-    }
-
-    public void a(int i)
-    {
-    }
-
-    public void a(Drawable drawable, int i)
-    {
-    }
-
-    public Context b()
-    {
-        return a;
-    }
-
-    public boolean c()
-    {
-        return true;
+        if (f != 1.0F) goto _L2; else goto _L1
+_L1:
+        b(true);
+_L4:
+        d(f);
+        return;
+_L2:
+        if (f == 0.0F)
+        {
+            b(false);
+        }
+        if (true) goto _L4; else goto _L3
+_L3:
     }
 }

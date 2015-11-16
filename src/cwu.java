@@ -2,112 +2,68 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import java.util.Arrays;
 
-public class cwu extends cvn
+public class cwu extends cvy
 {
 
     private static final long serialVersionUID = 1L;
-    private final List g = new ArrayList();
+    public final cgd a;
+    public final int b;
+    public final int j[];
 
-    private cwu(htn htn1)
+    public cwu(String s)
     {
-        super(htn1.apiHeader);
-        if (htn1.a != null && htn1.a.b != null)
+        super(s);
+        b = 1;
+        a = null;
+        j = new int[0];
+    }
+
+    public cwu(String s, int i, int ai[])
+    {
+        super(s);
+        b = i;
+        a = null;
+        j = ai;
+    }
+
+    public String a()
+    {
+        return "event_queue";
+    }
+
+    public kws a(String s, int i, int k)
+    {
+        if (eev.a("Babel_RequestWriter", 3))
         {
-            hye ahye[] = htn1.a.b;
-            int k = ahye.length;
-            for (int i = 0; i < k; i++)
-            {
-                Object obj = ahye[i];
-                if (obj == null)
-                {
-                    continue;
-                }
-                cwv cwv1 = new cwv();
-                cwv1.a = ((hye) (obj)).i;
-                cwv1.b = ((hye) (obj)).f;
-                if (((hye) (obj)).b == null)
-                {
-                    htn1 = null;
-                } else
-                {
-                    htn1 = ((hye) (obj)).b.h;
-                }
-                cwv1.e = new ArrayList();
-                if (((hye) (obj)).p != null)
-                {
-                    obj = ((hye) (obj)).p;
-                    int l = obj.length;
-                    for (int j = 0; j < l; j++)
-                    {
-                        Object obj1 = obj[j];
-                        if (obj1 == null || ((hyn) (obj1)).c == null)
-                        {
-                            continue;
-                        }
-                        cww cww1 = new cww();
-                        cww1.a = ((hyn) (obj1)).h;
-                        cww1.b = ((hyn) (obj1)).c.a;
-                        if (cww1.b != null)
-                        {
-                            cww1.b = cww1.b.replace("s0-d/photo.jpg", "");
-                        }
-                        if (cww1.a.equals(htn1))
-                        {
-                            cwv1.c = cww1;
-                        }
-                        cwv1.e.add(cww1);
-                    }
+            eev.d("Babel_RequestWriter", "replyToInviteRequest build protobuf");
+        }
+        jdg jdg1 = new jdg();
+        jdg1.requestHeader = cvu.a(s, i, k, h);
+        jdg1.c = Integer.valueOf(b);
+        jdg1.a = cvu.a(c);
+        jdg1.d = Arrays.copyOf(j, j.length);
+        return jdg1;
+    }
 
-                }
-                g.add(cwv1);
-            }
-
+    public void a(aoa aoa1, dcx dcx)
+    {
+        super.a(aoa1, dcx);
+        if (!d)
+        {
+            RealTimeChatService.b(aoa1.h(), c);
         }
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public String f()
     {
-        abyte0 = (htn)kop.mergeFrom(new htn(), abyte0);
-        if (a(((htn) (abyte0)).apiHeader))
-        {
-            return new cvz(((htn) (abyte0)).apiHeader);
-        } else
-        {
-            return new cwu(abyte0);
-        }
+        return "conversations/replytoinvite";
     }
 
-    public void a(aoe aoe1, dfb dfb)
+    public int n()
     {
-        super.a(aoe1, dfb);
-        if (g.size() == 0)
-        {
-            ebw.g("Babel", "Missing sticker response data.");
-            if (!g.a(g.nS, "babel_stickers_retry_on_fail", true))
-            {
-                ank.b(g.nS, aoe1.f(), System.currentTimeMillis());
-            }
-            return;
-        }
-        if (cvn.a)
-        {
-            int i = g.size();
-            ebw.b("Babel", (new StringBuilder(24)).append("Albums found:").append(i).toString());
-            String s;
-            int j;
-            for (dfb = g.iterator(); dfb.hasNext(); ebw.b("Babel", (new StringBuilder(String.valueOf(s).length() + 19)).append("Album:").append(s).append(": ").append(j).toString()))
-            {
-                cwv cwv1 = (cwv)dfb.next();
-                s = cwv1.b;
-                j = cwv1.e.size();
-            }
-
-        }
-        aoe1.c(g);
-        ank.b(g.nS, aoe1.f(), System.currentTimeMillis());
+        return 4;
     }
 }

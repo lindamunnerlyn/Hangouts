@@ -2,56 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.net.Uri;
-import android.os.Handler;
-import android.util.Log;
-import com.google.android.apps.hangouts.phone.ViewVCardActivity;
+import com.google.android.apps.hangouts.phone.GoogleVoiceTermsOfServiceActivity;
 
-public final class cpo
-    implements Runnable
+final class cpo
+    implements dfg
 {
 
-    final Uri a;
-    final ViewVCardActivity b;
+    final cpn a;
 
-    public cpo(ViewVCardActivity viewvcardactivity, Uri uri)
+    cpo(cpn cpn1)
     {
-        b = viewvcardactivity;
-        a = uri;
+        a = cpn1;
         super();
     }
 
-    public void run()
+    public void a()
     {
-        aem aem1 = new aem();
-        aew aew1 = new aew();
-        boolean flag;
-        try
+        if (dcn.e(GoogleVoiceTermsOfServiceActivity.b(a.a).a()).U() == 1)
         {
-            flag = ViewVCardActivity.a(b, a, 0, aew1, true);
-        }
-        catch (afe afe2)
-        {
-            try
-            {
-                int i = aew1.c();
-                flag = ViewVCardActivity.a(b, a, i, aem1, false);
-            }
-            catch (afe afe1)
-            {
-                String s = String.valueOf(afe1);
-                Log.e("Babel", (new StringBuilder(String.valueOf(s).length() + 21)).append("Must not reach here. ").append(s).toString());
-                flag = false;
-            }
-        }
-        if (!flag)
-        {
-            ViewVCardActivity.e(b).post(new cpp(this));
+            GoogleVoiceTermsOfServiceActivity.a(a.a, -1);
             return;
         } else
         {
-            ViewVCardActivity.a(b, a, aew1);
+            eev.f("Babel", "EnableVoiceCalling didn't return valid response");
+            GoogleVoiceTermsOfServiceActivity.a(a.a, 0);
             return;
         }
+    }
+
+    public void b()
+    {
+        GoogleVoiceTermsOfServiceActivity.a(a.a, 0);
     }
 }

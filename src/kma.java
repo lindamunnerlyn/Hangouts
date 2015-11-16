@@ -2,114 +2,121 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
-import java.util.List;
 
-public abstract class kma extends kli
-    implements Serializable
+public final class kma extends kwm
 {
 
-    private static final long serialVersionUID = 1L;
-    public knr b;
-    public int c;
+    public Integer a;
+    public kmm b;
+    public kna c;
+    public kgb d;
 
     public kma()
     {
-        b = knr.a();
-        c = -1;
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    static kma a(kma kma1, klr klr, klv klv)
+    protected int computeSerializedSize()
     {
-        try
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            kma1 = (kma)kma1.a(kmj.b, klr, klv);
+            i = j + kwk.e(1, a.intValue());
         }
-        // Misplaced declaration of an exception variable
-        catch (kma kma1)
+        j = i;
+        if (b != null)
         {
-            if (kma1.getCause() instanceof kmr)
-            {
-                throw (kmr)kma1.getCause();
-            } else
-            {
-                throw kma1;
-            }
+            j = i + kwk.d(2, b);
         }
-        return kma1;
-    }
-
-    public static kmq a(List list)
-    {
-        return new knd(list);
-    }
-
-    protected static final boolean a(kma kma1)
-    {
-        boolean flag = false;
-        if (kma1.a(kmj.a, Boolean.valueOf(false)) != null)
+        i = j;
+        if (c != null)
         {
-            flag = true;
+            i = j + kwk.d(3, c);
         }
-        return flag;
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.d(4, d);
+        }
+        return j;
     }
 
-    public final boolean C_()
+    public kws mergeFrom(kwj kwj1)
     {
-        return a(kmj.a, Boolean.TRUE) != null;
+_L7:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 5: default 56
+    //                   0: 65
+    //                   8: 67
+    //                   18: 118
+    //                   26: 147
+    //                   34: 176;
+           goto _L1 _L2 _L3 _L4 _L5 _L6
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L7; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+            a = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        if (b == null)
+        {
+            b = new kmm();
+        }
+        kwj1.a(b);
+        continue; /* Loop/switch isn't completed */
+_L5:
+        if (c == null)
+        {
+            c = new kna();
+        }
+        kwj1.a(c);
+        continue; /* Loop/switch isn't completed */
+_L6:
+        if (d == null)
+        {
+            d = new kgb();
+        }
+        kwj1.a(d);
+        if (true) goto _L7; else goto _L8
+_L8:
     }
 
-    protected Object a(int j)
+    public void writeTo(kwk kwk1)
     {
-        return a(j, null, null);
-    }
-
-    protected Object a(int j, Object obj)
-    {
-        return a(j, obj, null);
-    }
-
-    public abstract Object a(int j, Object obj, Object obj1);
-
-    public final void a(knr knr1)
-    {
-        b = knr.a(b, knr1);
-    }
-
-    public final knc c()
-    {
-        return (knc)a(kmj.h);
-    }
-
-    public final kma d()
-    {
-        return (kma)a(kmj.g);
-    }
-
-    public final kmc e()
-    {
-        return (kmc)a(kmj.f);
-    }
-
-    public final kmc g()
-    {
-        kmc kmc1 = (kmc)a(kmj.f);
-        kmc1.a(this);
-        return kmc1;
-    }
-
-    public kmz h()
-    {
-        return g();
-    }
-
-    public kmz i()
-    {
-        return e();
-    }
-
-    protected Object writeReplace()
-    {
-        return new kmk(this);
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.b(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.b(4, d);
+        }
+        super.writeTo(kwk1);
     }
 }

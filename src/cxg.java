@@ -2,90 +2,91 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
-public final class cxg extends cvn
+public class cxg extends cwm
 {
 
     private static final long serialVersionUID = 1L;
-    private final List g;
+    private final Map a = new HashMap();
 
-    private cxg(iwr iwr1)
+    public cxg(List list)
     {
-        super(iwr1.responseHeader, -1L);
-        iwn aiwn[] = iwr1.a;
-        ArrayList arraylist = new ArrayList();
-        long l = System.currentTimeMillis();
-        int j = aiwn.length;
-        int i = 0;
-        while (i < j) 
+        eeh eeh1;
+        for (list = list.iterator(); list.hasNext(); a.put(eeh1.a, eeh1.b))
         {
-            Object obj1 = aiwn[i];
-            if (((iwn) (obj1)).a == null || TextUtils.isEmpty(((iwn) (obj1)).a.b))
+            eeh1 = (eeh)list.next();
+        }
+
+    }
+
+    public String a()
+    {
+        return "event_queue";
+    }
+
+    public kws a(String s, int i, int j)
+    {
+        jen jen1 = new jen();
+        Object obj = new StringBuilder();
+        jen1.a = new jdm[a.size()];
+        Iterator iterator = a.entrySet().iterator();
+        for (int k = 0; iterator.hasNext(); k++)
+        {
+            java.util.Map.Entry entry = (java.util.Map.Entry)iterator.next();
+            jdm jdm1 = new jdm();
+            int l = g.a((Integer)entry.getKey(), 0);
+            boolean flag = g.a((Boolean)entry.getValue(), false);
+            if (cvv.e)
             {
-                ebw.g("Babel", "Received empty gaiaid in parseClientUserPresenceList.");
-            } else
-            if (((iwn) (obj1)).b == null)
-            {
-                if (((iwn) (obj1)).c != null)
-                {
-                    Object obj = new csy(((iwn) (obj1)).c);
-                    obj1 = String.valueOf(((iwn) (obj1)).a.b);
-                    obj = ((csy) (obj)).b;
-                    ebw.f("Babel", (new StringBuilder(String.valueOf(obj1).length() + 39 + String.valueOf(obj).length())).append("Received presence error for ").append(((String) (obj1))).append(". Details: ").append(((String) (obj))).toString());
-                }
-            } else
-            {
-                arraylist.add(new czu(((iwn) (obj1)).b, ((iwn) (obj1)).a.b, l));
+                ((StringBuilder) (obj)).append("{").append(l).append(", ").append(flag).append("} ");
             }
-            i++;
+            jdm1.a = Integer.valueOf(l);
+            jdm1.b = Boolean.valueOf(flag);
+            jen1.a[k] = jdm1;
         }
-        g = arraylist;
-        if (cvn.a)
+
+        if (cvv.e)
         {
-            iwr1 = String.valueOf(iwr1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(iwr1).length() + 27)).append("QueryPresenceResponse from:").append(iwr1).toString());
+            obj = String.valueOf(((StringBuilder) (obj)).toString());
+            if (((String) (obj)).length() != 0)
+            {
+                obj = "SetRichPresenceEnabledStateRequest build protobuf. Values: ".concat(((String) (obj)));
+            } else
+            {
+                obj = new String("SetRichPresenceEnabledStateRequest build protobuf. Values: ");
+            }
+            eev.b("Babel_RequestWriter", ((String) (obj)));
         }
+        jen1.requestHeader = cvu.a(s, i, j, h);
+        return jen1;
     }
 
-    public static cvn parseFrom(iwr iwr1)
+    public boolean a(cdl cdl)
     {
-        if (a(iwr1.responseHeader))
+        gdv.a(getClass(), cdl.getClass());
+        cdl = ((cxg)cdl).a.entrySet().iterator();
+        do
         {
-            return new cvz(iwr1.responseHeader);
-        } else
-        {
-            return new cxg(iwr1);
-        }
+            if (!cdl.hasNext())
+            {
+                break;
+            }
+            java.util.Map.Entry entry = (java.util.Map.Entry)cdl.next();
+            if (a.get(entry.getKey()) == null)
+            {
+                a.put(entry.getKey(), entry.getValue());
+            }
+        } while (true);
+        return true;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public String f()
     {
-        return parseFrom((iwr)kop.mergeFrom(new iwr(), abyte0));
-    }
-
-    public void a(dko dko)
-    {
-        super.a(dko);
-        int j = ((dey)dko).b().size();
-        int i;
-        if (g != null)
-        {
-            i = g.size();
-        } else
-        {
-            i = 0;
-        }
-        if (j != i)
-        {
-            ebw.f("Babel", (new StringBuilder(71)).append("Queried presence for ").append(j).append(", but only get response for ").append(i).toString());
-        }
-    }
-
-    public List k()
-    {
-        return g;
+        return "presence/setrichpresenceenabledstate";
     }
 }

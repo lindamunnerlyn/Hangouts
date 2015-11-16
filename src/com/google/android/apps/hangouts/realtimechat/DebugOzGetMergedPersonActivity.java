@@ -11,31 +11,31 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import dci;
-import dcj;
-import dck;
+import ddq;
+import ddr;
+import dds;
 import g;
-import gng;
+import grn;
 import h;
-import hhg;
+import hly;
 
-public class DebugOzGetMergedPersonActivity extends hhg
+public class DebugOzGetMergedPersonActivity extends hly
 {
 
     public DebugOzGetMergedPersonActivity()
     {
-        (new gng(this, b)).a(a);
+        (new grn(this, b)).a(a);
     }
 
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.fJ);
-        bundle = (EditText)findViewById(h.eP);
-        RadioGroup radiogroup = (RadioGroup)findViewById(h.eQ);
-        ((RadioButton)findViewById(h.eA)).setOnClickListener(new dci(this, bundle));
-        ((RadioButton)findViewById(h.bh)).setOnClickListener(new dcj(this, bundle));
+        setContentView(g.fH);
+        bundle = (EditText)findViewById(h.ex);
+        RadioGroup radiogroup = (RadioGroup)findViewById(h.ey);
+        ((RadioButton)findViewById(h.ej)).setOnClickListener(new ddq(this, bundle));
+        ((RadioButton)findViewById(h.bb)).setOnClickListener(new ddr(this, bundle));
         CheckBox checkbox = (CheckBox)findViewById(h.v);
-        ((Button)findViewById(h.fI)).setOnClickListener(new dck(this, (TextView)findViewById(h.ft), radiogroup, bundle, checkbox));
+        ((Button)findViewById(h.fq)).setOnClickListener(new dds(this, (TextView)findViewById(h.fb), radiogroup, bundle, checkbox));
     }
 }

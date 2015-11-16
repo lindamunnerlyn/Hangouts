@@ -2,61 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.RemoteException;
+import android.os.Bundle;
+import android.os.IInterface;
 
-public final class fjy
+public interface fjy
+    extends IInterface
 {
 
-    private final fkr a;
+    public abstract fjs a();
 
-    public fjy(fkr fkr1)
-    {
-        a = (fkr)h.a(fkr1);
-    }
+    public abstract void a(Bundle bundle);
 
-    public void a()
-    {
-        try
-        {
-            a.g();
-            return;
-        }
-        catch (RemoteException remoteexception)
-        {
-            throw new af(remoteexception);
-        }
-    }
+    public abstract void a(fmm fmm);
 
-    public boolean equals(Object obj)
-    {
-        if (!(obj instanceof fjy))
-        {
-            return false;
-        }
-        boolean flag;
-        try
-        {
-            flag = a.a(((fjy)obj).a);
-        }
-        // Misplaced declaration of an exception variable
-        catch (Object obj)
-        {
-            throw new af(((RemoteException) (obj)));
-        }
-        return flag;
-    }
+    public abstract void b();
 
-    public int hashCode()
-    {
-        int i;
-        try
-        {
-            i = a.k();
-        }
-        catch (RemoteException remoteexception)
-        {
-            throw new af(remoteexception);
-        }
-        return i;
-    }
+    public abstract void b(Bundle bundle);
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public abstract void e();
+
+    public abstract fcw f();
 }

@@ -2,20 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.views.BalanceView;
 
-public class egg
-    implements egd
+public final class egg
+    implements grf
 {
 
-    public egg()
+    final BalanceView a;
+
+    public egg(BalanceView balanceview)
     {
+        a = balanceview;
+        super();
     }
 
-    public void a()
+    public void H_()
     {
-    }
-
-    public void a(boolean flag)
-    {
+        a.a();
     }
 }

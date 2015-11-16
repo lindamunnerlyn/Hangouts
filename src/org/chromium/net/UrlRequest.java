@@ -4,26 +4,7 @@
 
 package org.chromium.net;
 
-import java.nio.ByteBuffer;
-import java.util.concurrent.Executor;
-
-// Referenced classes of package org.chromium.net:
-//            UploadDataProvider
 
 public interface UrlRequest
 {
-
-    public abstract void a();
-
-    public abstract void a(String s, String s1);
-
-    public abstract void a(ByteBuffer bytebuffer);
-
-    public abstract void a(UploadDataProvider uploaddataprovider, Executor executor);
-
-    public abstract void b();
-
-    public abstract void c();
-
-    public abstract void e();
 }

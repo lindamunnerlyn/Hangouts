@@ -3,12 +3,36 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface efa
+final class efa extends he
+    implements gdx
 {
 
-    public abstract void a(eew eew, String s, String s1);
+    public efa()
+    {
+        super(1000);
+    }
 
-    public abstract void b(int i);
+    public void b(int i)
+    {
+        switch (i)
+        {
+        default:
+            return;
 
-    public abstract void c(String s);
+        case 15: // '\017'
+        case 60: // '<'
+        case 80: // 'P'
+            a(-1);
+            return;
+
+        case 10: // '\n'
+            a(b() / 2);
+            return;
+        }
+    }
+
+    public void h()
+    {
+        a(-1);
+    }
 }

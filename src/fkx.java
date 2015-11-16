@@ -2,31 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
+import android.location.Location;
+import android.os.Binder;
+import android.os.Parcel;
 
-public interface fkx
-    extends IInterface
+public abstract class fkx extends Binder
+    implements fkw
 {
 
-    public abstract void a();
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    {
+        switch (i)
+        {
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
 
-    public abstract void a(float f1);
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.maps.internal.IOnLocationChangeListener");
+            return true;
 
-    public abstract void a(boolean flag);
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnLocationChangeListener");
+            a(fcx.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            return true;
 
-    public abstract boolean a(fkx fkx1);
-
-    public abstract void b();
-
-    public abstract void b(boolean flag);
-
-    public abstract String c();
-
-    public abstract float d();
-
-    public abstract boolean e();
-
-    public abstract int f();
-
-    public abstract boolean g();
+        case 2: // '\002'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnLocationChangeListener");
+            break;
+        }
+        if (parcel.readInt() != 0)
+        {
+            parcel = (Location)Location.CREATOR.createFromParcel(parcel);
+        } else
+        {
+            parcel = null;
+        }
+        a(parcel);
+        parcel1.writeNoException();
+        return true;
+    }
 }

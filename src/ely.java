@@ -2,273 +2,241 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import android.app.PendingIntent;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.SparseArray;
-import com.google.android.gms.common.ConnectionResult;
+import android.content.Context;
+import android.util.Log;
+import com.google.android.gms.clearcut.LogEventParcelable;
+import java.util.ArrayList;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 
-public final class ely extends ad
-    implements android.content.DialogInterface.OnCancelListener, br
+public final class ely
+    implements elp
 {
 
-    private boolean a;
-    private int b;
-    private ConnectionResult c;
-    private final Handler d = new Handler(Looper.getMainLooper());
-    private final SparseArray e = new SparseArray();
+    private static final Object a = new Object();
+    private static ScheduledExecutorService b;
+    private static final emj c = new emj();
+    private static final long d;
+    private final erp e;
+    private final emf f;
+    private final Object g;
+    private long h;
+    private final long i;
+    private ScheduledFuture j;
+    private emy k;
+    private final Runnable l;
 
     public ely()
     {
-        b = -1;
+        this(((erp) (new err())), d, new emf());
     }
 
-    public static ely a(ai ai1)
+    private ely(erp erp1, long l1, emf emf1)
     {
-label0:
+        g = new Object();
+        h = 0L;
+        j = null;
+        k = null;
+        l = new elz(this);
+        e = erp1;
+        i = l1;
+        f = emf1;
+    }
+
+    static emj a()
+    {
+        return c;
+    }
+
+    static ene a(ely ely1, emy emy1, emg emg)
+    {
+        return ely1.a(emy1, emg);
+    }
+
+    private ene a(emy emy1, emg emg)
+    {
+        c().execute(new ema(this, emy1, emg));
+        return emg;
+    }
+
+    static Object a(ely ely1)
+    {
+        return ely1.g;
+    }
+
+    static void a(LogEventParcelable logeventparcelable)
+    {
+        b(logeventparcelable);
+    }
+
+    static long b(ely ely1)
+    {
+        return ely1.h;
+    }
+
+    static ScheduledExecutorService b()
+    {
+        return c();
+    }
+
+    private static void b(LogEventParcelable logeventparcelable)
+    {
+        if (logeventparcelable.f != null && logeventparcelable.e.i.length == 0)
         {
-            h.c("Must be called from main thread of process");
-            ap ap1 = ai1.t_();
-            ely ely1;
-            try
-            {
-                ely1 = (ely)ap1.a("GmsSupportLoaderLifecycleFragment");
-            }
-            // Misplaced declaration of an exception variable
-            catch (ai ai1)
-            {
-                throw new IllegalStateException("Fragment with tag GmsSupportLoaderLifecycleFragment is not a SupportLoaderLifecycleFragment", ai1);
-            }
-            if (ely1 != null)
-            {
-                ai1 = ely1;
-                if (!ely1.isRemoving())
-                {
-                    break label0;
-                }
-            }
-            ai1 = new ely();
-            ap1.a().a(ai1, "GmsSupportLoaderLifecycleFragment").b();
-            ap1.b();
+            logeventparcelable.e.i = logeventparcelable.f.d();
         }
-        return ai1;
-    }
-
-    private void a()
-    {
-        int i = 0;
-        a = false;
-        b = -1;
-        c = null;
-        bq bq1 = getLoaderManager();
-        for (; i < e.size(); i++)
+        if (logeventparcelable.g != null && logeventparcelable.e.r.length == 0)
         {
-            int j = e.keyAt(i);
-            elz elz1 = b(j);
-            if (elz1 != null && elz1.c())
-            {
-                bq1.a(j);
-                bq1.a(j, null, this);
-            }
+            logeventparcelable.e.r = logeventparcelable.g.d();
         }
-
+        logeventparcelable.c = fgm.a(logeventparcelable.e);
     }
 
-    private void a(int i, ConnectionResult connectionresult)
+    private emh c(emy emy1, LogEventParcelable logeventparcelable)
     {
-        Object obj = (ema)e.get(i);
-        if (obj != null)
-        {
-            e.remove(i);
-            getLoaderManager().a(i);
-            obj = ((ema) (obj)).b;
-            if (obj != null)
-            {
-                ((ekc) (obj)).a(connectionresult);
-            }
-        }
-        a();
-    }
-
-    static void a(ely ely1)
-    {
-        ely1.a();
-    }
-
-    static void a(ely ely1, int i, ConnectionResult connectionresult)
-    {
-        ely1.a(i, connectionresult);
-    }
-
-    private elz b(int i)
-    {
-        elz elz1;
-        try
-        {
-            elz1 = (elz)getLoaderManager().b(i);
-        }
-        catch (ClassCastException classcastexception)
-        {
-            throw new IllegalStateException("Unknown loader in SupportLoaderLifecycleFragment", classcastexception);
-        }
-        return elz1;
-    }
-
-    public ejx a(int i)
-    {
-        if (getActivity() != null)
-        {
-            elz elz1 = b(i);
-            if (elz1 != null)
-            {
-                return elz1.a;
-            }
-        }
-        return null;
-    }
-
-    public void a(int i, ejx ejx, ekc ekc1)
-    {
-        h.a(ejx, "GoogleApiClient instance cannot be null");
+        c.a();
+        logeventparcelable = new emh(this, logeventparcelable, emy1);
+        eme eme1 = new eme(this);
+        enh enh;
         boolean flag;
-        if (e.indexOfKey(i) < 0)
+        if (!((enk) (logeventparcelable)).g)
         {
             flag = true;
         } else
         {
             flag = false;
         }
-        h.a(flag, (new StringBuilder("Already managing a GoogleApiClient with id ")).append(i).toString());
-        ejx = new ema(ejx, ekc1);
-        e.put(i, ejx);
-        if (getActivity() != null)
+        g.a(flag, "Result has already been consumed.");
+        emy1 = ((emy) (((enk) (logeventparcelable)).c));
+        emy1;
+        JVM INSTR monitorenter ;
+        if (!logeventparcelable.b())
         {
-            bs.a = false;
-            getLoaderManager().a(i, null, this);
+            break MISSING_BLOCK_LABEL_73;
         }
-    }
-
-    public void onActivityResult(int i, int j, Intent intent)
-    {
-        boolean flag = true;
-        i;
-        JVM INSTR tableswitch 1 2: default 28
-    //                   1 55
-    //                   2 39;
-           goto _L1 _L2 _L3
-_L1:
-        i = 0;
-_L5:
-        if (i != 0)
-        {
-            a();
-            return;
-        } else
-        {
-            a(b, c);
-            return;
-        }
-_L3:
-        if (ejn.a(getActivity()) != 0) goto _L1; else goto _L4
-_L4:
-        i = ((flag) ? 1 : 0);
-          goto _L5
+        enh = ((enk) (logeventparcelable)).f;
+        eme1.a();
 _L2:
-        if (j != -1) goto _L1; else goto _L6
-_L6:
-        i = ((flag) ? 1 : 0);
-          goto _L5
+        return logeventparcelable;
+        ((enk) (logeventparcelable)).e.add(eme1);
+        if (true) goto _L2; else goto _L1
+_L1:
+        logeventparcelable;
+        emy1;
+        JVM INSTR monitorexit ;
+        throw logeventparcelable;
     }
 
-    public void onAttach(Activity activity)
+    static erp c(ely ely1)
     {
-        super.onAttach(activity);
-        int i = 0;
-        while (i < e.size()) 
+        return ely1.e;
+    }
+
+    private static ScheduledExecutorService c()
+    {
+        synchronized (a)
         {
-            int j = e.keyAt(i);
-            activity = b(j);
-            if (activity != null && ((ema)e.valueAt(i)).a != ((elz) (activity)).a)
+            if (b == null)
             {
-                getLoaderManager().b(j, null, this);
-            } else
-            {
-                getLoaderManager().a(j, null, this);
-            }
-            i++;
-        }
-    }
-
-    public void onCancel(DialogInterface dialoginterface)
-    {
-        a(b, new ConnectionResult(13, null));
-    }
-
-    public void onCreate(Bundle bundle)
-    {
-        super.onCreate(bundle);
-        if (bundle != null)
-        {
-            a = bundle.getBoolean("resolving_error", false);
-            b = bundle.getInt("failed_client_id", -1);
-            if (b >= 0)
-            {
-                c = new ConnectionResult(bundle.getInt("failed_status"), (PendingIntent)bundle.getParcelable("failed_resolution"));
+                b = Executors.newSingleThreadScheduledExecutor();
             }
         }
+        return b;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public em onCreateLoader(int i, Bundle bundle)
+    static emy d(ely ely1)
     {
-        return new elz(getActivity(), ((ema)e.get(i)).a);
+        return ely1.k;
     }
 
-    public void onLoadFinished(em em1, Object obj)
+    static emy e(ely ely1)
     {
-        obj = (ConnectionResult)obj;
-        if (!((ConnectionResult) (obj)).b())
+        ely1.k = null;
+        return null;
+    }
+
+    public ene a(Context context, LogEventParcelable logeventparcelable)
+    {
+        synchronized (g)
         {
-            int i = em1.o();
-            if (!a)
+            if (k == null)
             {
-                a = true;
-                b = i;
-                c = ((ConnectionResult) (obj));
-                d.post(new emb(this, i, ((ConnectionResult) (obj))));
+                k = (new emz(context)).a(ell.c).a();
+                k.b();
             }
-        }
-    }
-
-    public void onLoaderReset(em em1)
-    {
-    }
-
-    public void onSaveInstanceState(Bundle bundle)
-    {
-        super.onSaveInstanceState(bundle);
-        bundle.putBoolean("resolving_error", a);
-        if (b >= 0)
-        {
-            bundle.putInt("failed_client_id", b);
-            bundle.putInt("failed_status", c.c());
-            bundle.putParcelable("failed_resolution", c.d());
-        }
-    }
-
-    public void onStart()
-    {
-        super.onStart();
-        if (!a)
-        {
-            for (int i = 0; i < e.size(); i++)
+            h = e.b() + i;
+            if (j != null)
             {
-                getLoaderManager().a(e.keyAt(i), null, this);
+                j.cancel(false);
             }
-
+            j = c().schedule(l, i, TimeUnit.MILLISECONDS);
+            context = b(k, logeventparcelable);
         }
+        return context;
+        context;
+        obj;
+        JVM INSTR monitorexit ;
+        throw context;
+    }
+
+    public ene a(emy emy1, LogEventParcelable logeventparcelable)
+    {
+        b(logeventparcelable);
+        return emy1.a(c(emy1, logeventparcelable));
+    }
+
+    public void a(emy emy1)
+    {
+        emb emb1 = new emb(this, emy1, emy1);
+        Object obj = a;
+        obj;
+        JVM INSTR monitorenter ;
+        if (b != null)
+        {
+            break MISSING_BLOCK_LABEL_34;
+        }
+        emy1.a(emb1);
+_L2:
+        return;
+        b.execute(new emd(this, emy1, emb1));
+        if (true) goto _L2; else goto _L1
+_L1:
+        emy1;
+        obj;
+        JVM INSTR monitorexit ;
+        throw emy1;
+    }
+
+    public boolean a(long l1, TimeUnit timeunit)
+    {
+        boolean flag;
+        try
+        {
+            flag = c.a(5000L, timeunit);
+        }
+        // Misplaced declaration of an exception variable
+        catch (TimeUnit timeunit)
+        {
+            Log.e("ClearcutLoggerApiImpl", "flush interrupted");
+            Thread.currentThread().interrupt();
+            return false;
+        }
+        return flag;
+    }
+
+    public ene b(emy emy1, LogEventParcelable logeventparcelable)
+    {
+        return a(emy1, c(emy1, logeventparcelable));
+    }
+
+    static 
+    {
+        d = TimeUnit.MILLISECONDS.convert(2L, TimeUnit.MINUTES);
     }
 }

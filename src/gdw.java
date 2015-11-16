@@ -2,72 +2,65 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 public final class gdw
 {
 
-    private ggi a;
-    private int b;
-    private boolean c;
-    private int d;
+    public static final gdw a = new gdw();
+    private Set b;
+    private final Object c = new Object();
 
     public gdw()
     {
-        b = 0;
-        d = 8;
+        b = new HashSet();
     }
 
-    ggi a()
+    public void a()
     {
-        return a;
+        Object obj = c;
+        obj;
+        JVM INSTR monitorenter ;
+        for (Iterator iterator = b.iterator(); iterator.hasNext(); ((gdx)iterator.next()).h()) { }
+        break MISSING_BLOCK_LABEL_48;
+        Exception exception;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+        obj;
+        JVM INSTR monitorexit ;
     }
 
-    void a(int i)
+    public void a(int i)
     {
-        gbh.a(i, 0, 3);
-        b = i;
-        if (i == 0)
+        Object obj = c;
+        obj;
+        JVM INSTR monitorenter ;
+        for (Iterator iterator = b.iterator(); iterator.hasNext(); ((gdx)iterator.next()).b(i)) { }
+        break MISSING_BLOCK_LABEL_49;
+        Exception exception;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+        obj;
+        JVM INSTR monitorexit ;
+    }
+
+    public void a(gdx gdx1)
+    {
+        synchronized (c)
         {
-            a = null;
+            b.add(gdx1);
         }
+        return;
+        gdx1;
+        obj;
+        JVM INSTR monitorexit ;
+        throw gdx1;
     }
 
-    void a(ggi ggi1)
-    {
-        gbh.a(a);
-        gbh.a(g.x(ggi1.a()), ggi1.a());
-        a = ggi1;
-    }
-
-    int b()
-    {
-        return b;
-    }
-
-    int c()
-    {
-        return d;
-    }
-
-    void d()
-    {
-        boolean flag = false;
-        gbh.a(8, 0, 9);
-        if (b == 3)
-        {
-            flag = true;
-        }
-        gbh.a(flag);
-        d = 8;
-    }
-
-    boolean e()
-    {
-        return c;
-    }
-
-    void f()
-    {
-        c = true;
-    }
 }

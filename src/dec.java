@@ -2,57 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.TimeUnit;
 
-public final class dec extends die
+public final class dec extends dgj
 {
 
-    public dec(ded ded1)
+    private final String a;
+    private final String e;
+
+    public dec(aoa aoa, String s, String s1)
     {
-        super(ded1);
+        super(aoa);
+        a = s;
+        e = s1;
     }
 
-    protected ctp a(ani ani, int i, String s)
+    public void a()
     {
-        return new csh(ani, (ded)a);
-    }
-
-    public String a()
-    {
-        return "background_queue";
-    }
-
-    public boolean a(ccg ccg)
-    {
-        return false;
-    }
-
-    public boolean a(String s)
-    {
-        return false;
-    }
-
-    public long b()
-    {
-        return TimeUnit.SECONDS.toMillis(30L);
-    }
-
-    protected void b(int i, dbo dbo)
-    {
-    }
-
-    public boolean c()
-    {
-        return false;
-    }
-
-    public boolean d()
-    {
-        return true;
-    }
-
-    public String e()
-    {
-        return null;
+        a(((dmf) (new cug(a, e))));
     }
 }

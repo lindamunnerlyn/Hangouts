@@ -2,68 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.ByteArrayOutputStream;
+import java.util.Vector;
 
-final class acj
+public final class acj
 {
 
-    int a;
-    final aci b;
-    private ack c;
-    private ack d;
+    private Vector a;
 
-    acj(aci aci1)
+    public acj()
     {
-        b = aci1;
-        super();
-        c = null;
-        d = null;
-        a = 0;
+        a = null;
+        a = new Vector();
     }
 
-    void a()
+    public acr a(int i)
     {
-        if (d != null)
+        return (acr)a.get(i);
+    }
+
+    public void a()
+    {
+        a.clear();
+    }
+
+    public boolean a(acr acr1)
+    {
+        if (acr1 == null)
         {
-            throw new RuntimeException("BUG: Invalid newbuf() before copy()");
+            throw new NullPointerException();
         } else
         {
-            ack ack1 = new ack();
-            ack1.a = b.a;
-            ack1.b = b.b;
-            ack1.c = c;
-            c = ack1;
-            a = a + 1;
-            b.a = new ByteArrayOutputStream();
-            b.b = 0;
-            return;
+            return a.add(acr1);
         }
     }
 
-    void b()
+    public int b()
     {
-        ByteArrayOutputStream bytearrayoutputstream = b.a;
-        int i = b.b;
-        b.a = c.a;
-        b.b = c.b;
-        d = c;
-        c = c.c;
-        a = a - 1;
-        d.a = bytearrayoutputstream;
-        d.b = i;
+        return a.size();
     }
 
-    void c()
+    public void b(acr acr1)
     {
-        b.a(d.a.toByteArray(), d.b);
-        d = null;
-    }
-
-    acl d()
-    {
-        acl acl1 = new acl(b);
-        acl1.a = b.b;
-        acl1.b = a;
-        return acl1;
+        if (acr1 == null)
+        {
+            throw new NullPointerException();
+        } else
+        {
+            a.add(0, acr1);
+            return;
+        }
     }
 }

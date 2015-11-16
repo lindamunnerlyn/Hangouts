@@ -3,8 +3,24 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gsi
+final class gsi
+    implements gsc
 {
 
-    public abstract long a();
+    String a;
+
+    gsi(String s)
+    {
+        a = s;
+    }
+
+    public Object a(Object obj)
+    {
+        return a;
+    }
+
+    public void a(android.content.SharedPreferences.Editor editor, String s)
+    {
+        editor.putString(s, a);
+    }
 }

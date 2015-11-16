@@ -4,44 +4,33 @@
 
 
 final class bal
-    implements baj
+    implements asd
 {
 
-    final bak a;
+    final atx a;
+    final bak b;
 
-    bal(bak bak)
+    bal(bak bak, atx atx1)
     {
-        a = bak;
+        b = bak;
+        a = atx1;
         super();
     }
 
-    public int a()
+    public void a(asa asa1)
     {
-        return g.kR;
-    }
-
-    public boolean a(ani ani)
-    {
-        return true;
-    }
-
-    public azm b()
-    {
-        if (android.os.Build.VERSION.SDK_INT >= 16)
+        if (g.d(asa1.b))
         {
-            return new azm(2658, new String[] {
-                "android.permission.CAMERA", "android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"
-            });
+            long l = dtp.a().e() - 4096;
+            if (a.i >= l)
+            {
+                g.a(new bam(this));
+            }
+            return;
         } else
         {
-            return new azm(2658, new String[] {
-                "android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE"
-            });
+            g.a(new ban(this));
+            return;
         }
-    }
-
-    public Class c()
-    {
-        return ban;
     }
 }

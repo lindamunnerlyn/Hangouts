@@ -2,26 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.navigation.NavigationDrawerFragment;
+import android.os.Bundle;
 
-public final class cas
-    implements ekh
+public final class cas extends hmm
+    implements hbc
 {
 
-    final NavigationDrawerFragment a;
+    private hbi a;
 
-    public cas(NavigationDrawerFragment navigationdrawerfragment)
+    public cas()
     {
-        a = navigationdrawerfragment;
-        super();
     }
 
-    public void a(ekg ekg)
+    public void a(hbo hbo)
     {
-        ekg = (fmd)ekg;
-        if (a.getActivity() != null)
-        {
-            NavigationDrawerFragment.a(a, ekg.c());
-        }
+        a.b();
+    }
+
+    protected void onAttachBinder(Bundle bundle)
+    {
+        super.onAttachBinder(bundle);
+        a = (hbi)binder.a(hbi);
     }
 }

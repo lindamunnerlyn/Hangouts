@@ -2,45 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.AsyncTask;
-import com.google.android.apps.hangouts.phone.ApnEditorActivity;
+import android.content.Context;
 
-public final class ciu extends AsyncTask
+final class ciu
+    implements cgi
 {
 
-    final ApnEditorActivity a;
+    final ciq a;
 
-    public ciu(ApnEditorActivity apneditoractivity)
+    ciu(ciq ciq1)
     {
-        a = apneditoractivity;
+        a = ciq1;
         super();
     }
 
-    protected Object doInBackground(Object aobj[])
+    public int a()
     {
-        if (ApnEditorActivity.a(a) != null)
-        {
-            aobj = ApnEditorActivity.a(a);
-            ApnEditorActivity.a(a, ApnEditorActivity.b(a).query("apn", ApnEditorActivity.a(), "_id =?", new String[] {
-                aobj
-            }, null, null, null, null));
-        }
-        return null;
+        return h.iL;
     }
 
-    protected void onPostExecute(Object obj)
+    public void a(Context context)
     {
-        if (ApnEditorActivity.c(a) == null)
-        {
-            a.finish();
-            return;
-        } else
-        {
-            ApnEditorActivity.c(a).moveToFirst();
-            ApnEditorActivity.d(a);
-            return;
-        }
+        g.a(ciq.a(context), 2503);
+        ciq.a(context, cov.a, atu.a);
+    }
+
+    public int b()
+    {
+        return n.i;
     }
 }

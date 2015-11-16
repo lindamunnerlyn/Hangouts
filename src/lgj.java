@@ -3,166 +3,82 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lgj
+public final class lgj extends kwm
 {
 
-    private static final double a = Math.log(10D);
+    public lge a;
+    public lgh b;
 
-    static int a(String s, int i)
+    public lgj()
     {
-        int j = s.charAt(i) - 48;
-        return ((j << 1) + (j << 3) + s.charAt(i + 1)) - 48;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public static void a(StringBuffer stringbuffer, int i)
+    protected int computeSerializedSize()
     {
-        int j;
-label0:
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-label1:
+            i = j + kwk.d(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(2, b);
+        }
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
             {
-                j = i;
-                if (i < 0)
+            default:
+                if (super.storeUnknownField(kwj1, i))
                 {
-                    stringbuffer.append('-');
-                    if (i == 0x80000000)
-                    {
-                        break label1;
-                    }
-                    j = -i;
+                    continue;
                 }
-                if (j < 10)
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
                 {
-                    stringbuffer.append((char)(j + 48));
-                    return;
+                    a = new lge();
                 }
-                break label0;
-            }
-            stringbuffer.append("2147483648");
-            return;
-        }
-        if (j < 100)
-        {
-            i = (j + 1) * 0xcccccc >> 27;
-            stringbuffer.append((char)(i + 48));
-            stringbuffer.append((char)((j - (i << 3) - (i << 1)) + 48));
-            return;
-        } else
-        {
-            stringbuffer.append(Integer.toString(j));
-            return;
-        }
-    }
+                kwj1.a(a);
+                break;
 
-    public static void a(StringBuffer stringbuffer, int i, int j)
-    {
-        int k;
-label0:
-        {
-label1:
-            {
-label2:
+            case 18: // '\022'
+                if (b == null)
                 {
-                    k = i;
-                    if (i < 0)
-                    {
-                        stringbuffer.append('-');
-                        k = j;
-                        if (i == 0x80000000)
-                        {
-                            break label2;
-                        }
-                        k = -i;
-                    }
-                    if (k >= 10)
-                    {
-                        break label0;
-                    }
-                    for (; j > 1; j--)
-                    {
-                        stringbuffer.append('0');
-                    }
-
-                    break label1;
+                    b = new lgh();
                 }
-                for (; k > 10; k--)
-                {
-                    stringbuffer.append('0');
-                }
-
-                stringbuffer.append("2147483648");
-                return;
+                kwj1.a(b);
+                break;
             }
-            stringbuffer.append((char)(k + 48));
-            return;
-        }
-        if (k < 100)
-        {
-            for (; j > 2; j--)
-            {
-                stringbuffer.append('0');
-            }
-
-            i = (k + 1) * 0xcccccc >> 27;
-            stringbuffer.append((char)(i + 48));
-            stringbuffer.append((char)((k - (i << 3) - (i << 1)) + 48));
-            return;
-        }
-        if (k >= 1000)
-        {
-            if (k < 10000)
-            {
-                i = 4;
-            } else
-            {
-                i = (int)(Math.log(k) / a) + 1;
-            }
-        }
-        for (i = 3; j > i; j--)
-        {
-            stringbuffer.append('0');
-        }
-
-        stringbuffer.append(Integer.toString(k));
+        } while (true);
     }
 
-    public static void a(StringBuffer stringbuffer, long l)
+    public void writeTo(kwk kwk1)
     {
-        int i = (int)l;
-        if ((long)i == l)
+        if (a != null)
         {
-            a(stringbuffer, i);
-            return;
-        } else
-        {
-            stringbuffer.append(Long.toString(l));
-            return;
+            kwk1.b(1, a);
         }
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        super.writeTo(kwk1);
     }
-
-    static String b(String s, int i)
-    {
-        int j = i + 32;
-        String s1;
-        if (s.length() <= j + 3)
-        {
-            s1 = s;
-        } else
-        {
-            s1 = s.substring(0, j).concat("...");
-        }
-        if (i <= 0)
-        {
-            return (new StringBuilder(String.valueOf(s1).length() + 18)).append("Invalid format: \"").append(s1).append("\"").toString();
-        }
-        if (i >= s.length())
-        {
-            return (new StringBuilder(String.valueOf(s1).length() + 31)).append("Invalid format: \"").append(s1).append("\" is too short").toString();
-        } else
-        {
-            s = String.valueOf(s1.substring(i));
-            return (new StringBuilder(String.valueOf(s1).length() + 37 + String.valueOf(s).length())).append("Invalid format: \"").append(s1).append("\" is malformed at \"").append(s).append("\"").toString();
-        }
-    }
-
 }

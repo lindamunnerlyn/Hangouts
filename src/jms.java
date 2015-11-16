@@ -2,42 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.NoSuchElementException;
 
-final class jms extends jqz
+final class jms extends jnf
 {
 
-    jms()
+    static final jms o = new jms();
+
+    private jms()
     {
+        super("CharMatcher.any()");
     }
 
-    public boolean hasNext()
+    public boolean b(char c)
     {
-        return false;
+        return true;
     }
 
-    public boolean hasPrevious()
-    {
-        return false;
-    }
-
-    public Object next()
-    {
-        throw new NoSuchElementException();
-    }
-
-    public int nextIndex()
-    {
-        return 0;
-    }
-
-    public Object previous()
-    {
-        throw new NoSuchElementException();
-    }
-
-    public int previousIndex()
-    {
-        return -1;
-    }
 }

@@ -2,22 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
-public final class bwp extends Enum
+final class bwp
+    implements bwn, crc
 {
 
-    public static final int a;
-    public static final int b;
-    public static final int c;
-    private static final int d[];
+    int a;
 
-    static 
+    bwp()
     {
-        a = 1;
-        b = 2;
-        c = 3;
-        d = (new int[] {
-            a, b, c
-        });
+    }
+
+    public void a(Menu menu)
+    {
+        if (a > 0)
+        {
+            menu.removeItem(g.mk);
+        }
+    }
+
+    public void a(MenuInflater menuinflater, Menu menu)
+    {
+        menuinflater.inflate(g.mn, menu);
+    }
+
+    public void a(hof hof1)
+    {
+        hof1.a(new bwq(this));
+    }
+
+    public boolean a(Activity activity, MenuItem menuitem)
+    {
+        if (menuitem.getItemId() == g.mk)
+        {
+            bwt.a(activity);
+            return true;
+        } else
+        {
+            return false;
+        }
     }
 }

@@ -2,28 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
 
 final class hhv
-    implements hjr
+    implements hhp
 {
 
-    final Bundle a;
-    final hhu b;
+    final hhr a;
 
-    hhv(hhu hhu1, Bundle bundle)
+    hhv(hhr hhr1)
     {
-        b = hhu1;
-        a = bundle;
+        a = hhr1;
         super();
     }
 
-    public void a(fsn fsn)
+    public void a(hhm hhm1)
     {
-        if (fsn instanceof hhi)
+        if (hhm1.x() == 2)
         {
-            Bundle bundle = hhu.a(b).a(fsn, a);
-            ((hhi)fsn).a(b.context, b.binder, bundle);
+            return;
+        } else
+        {
+            hhr.a(a, hhm1);
+            return;
         }
     }
 }

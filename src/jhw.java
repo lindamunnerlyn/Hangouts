@@ -2,75 +2,235 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.cache.LocalCache;
 
-public abstract class jhw extends Enum
+public final class jhw extends kwm
 {
 
-    public static final jhw a;
-    public static final jhw b;
-    public static final jhw c;
-    public static final jhw d;
-    public static final jhw e;
-    public static final jhw f;
-    public static final jhw g;
-    public static final jhw h;
-    static final jhw i[];
-    private static final jhw j[];
+    public jhb a;
+    public jax b[];
+    public jhy c;
+    public Boolean d;
+    public Integer e;
+    public String f;
+    public jif g;
+    public jdk requestHeader;
 
-    jhw(String s, int k)
+    public jhw()
     {
-        super(s, k);
+        requestHeader = null;
+        a = null;
+        b = jax.a();
+        c = null;
+        d = null;
+        e = null;
+        f = null;
+        g = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public static jhw valueOf(String s)
+    protected int computeSerializedSize()
     {
-        return (jhw)Enum.valueOf(jhw, s);
+        int i = super.computeSerializedSize();
+        int j = i;
+        if (requestHeader != null)
+        {
+            j = i + kwk.d(1, requestHeader);
+        }
+        i = j;
+        if (a != null)
+        {
+            i = j + kwk.d(2, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i;
+            if (b.length > 0)
+            {
+                for (j = 0; j < b.length;)
+                {
+                    jax jax1 = b[j];
+                    int k = i;
+                    if (jax1 != null)
+                    {
+                        k = i + kwk.d(3, jax1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.d(4, c);
+        }
+        j = i;
+        if (d != null)
+        {
+            d.booleanValue();
+            j = i + (kwk.f(5) + 1);
+        }
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.e(6, e.intValue());
+        }
+        j = i;
+        if (f != null)
+        {
+            j = i + kwk.b(7, f);
+        }
+        i = j;
+        if (g != null)
+        {
+            i = j + kwk.d(8, g);
+        }
+        return i;
     }
 
-    public static jhw[] values()
+    public kws mergeFrom(kwj kwj1)
     {
-        return (jhw[])j.clone();
+_L11:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 9: default 88
+    //                   0: 97
+    //                   10: 99
+    //                   18: 128
+    //                   26: 157
+    //                   34: 281
+    //                   40: 310
+    //                   48: 324
+    //                   58: 370
+    //                   66: 381;
+           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L11; else goto _L2
+_L2:
+        return this;
+_L3:
+        if (requestHeader == null)
+        {
+            requestHeader = new jdk();
+        }
+        kwj1.a(requestHeader);
+          goto _L11
+_L4:
+        if (a == null)
+        {
+            a = new jhb();
+        }
+        kwj1.a(a);
+          goto _L11
+_L5:
+        int l = kwx.a(kwj1, 26);
+        jax ajax[];
+        int j;
+        if (b == null)
+        {
+            j = 0;
+        } else
+        {
+            j = b.length;
+        }
+        ajax = new jax[l + j];
+        l = j;
+        if (j != 0)
+        {
+            System.arraycopy(b, 0, ajax, 0, j);
+            l = j;
+        }
+        for (; l < ajax.length - 1; l++)
+        {
+            ajax[l] = new jax();
+            kwj1.a(ajax[l]);
+            kwj1.a();
+        }
+
+        ajax[l] = new jax();
+        kwj1.a(ajax[l]);
+        b = ajax;
+          goto _L11
+_L6:
+        if (c == null)
+        {
+            c = new jhy();
+        }
+        kwj1.a(c);
+          goto _L11
+_L7:
+        d = Boolean.valueOf(kwj1.i());
+          goto _L11
+_L8:
+        int k = kwj1.f();
+        switch (k)
+        {
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+            e = Integer.valueOf(k);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L9:
+        f = kwj1.j();
+        continue; /* Loop/switch isn't completed */
+_L10:
+        if (g == null)
+        {
+            g = new jif();
+        }
+        kwj1.a(g);
+        if (true) goto _L11; else goto _L12
+_L12:
     }
 
-    com.google.common.cache.LocalCache.ReferenceEntry a(jin jin, com.google.common.cache.LocalCache.ReferenceEntry referenceentry, com.google.common.cache.LocalCache.ReferenceEntry referenceentry1)
+    public void writeTo(kwk kwk1)
     {
-        return a(jin, referenceentry.getKey(), referenceentry.getHash(), referenceentry1);
-    }
+        if (requestHeader != null)
+        {
+            kwk1.b(1, requestHeader);
+        }
+        if (a != null)
+        {
+            kwk1.b(2, a);
+        }
+        if (b != null && b.length > 0)
+        {
+            for (int i = 0; i < b.length; i++)
+            {
+                jax jax1 = b[i];
+                if (jax1 != null)
+                {
+                    kwk1.b(3, jax1);
+                }
+            }
 
-    abstract com.google.common.cache.LocalCache.ReferenceEntry a(jin jin, Object obj, int k, com.google.common.cache.LocalCache.ReferenceEntry referenceentry);
-
-    void a(com.google.common.cache.LocalCache.ReferenceEntry referenceentry, com.google.common.cache.LocalCache.ReferenceEntry referenceentry1)
-    {
-        referenceentry1.setAccessTime(referenceentry.getAccessTime());
-        LocalCache.a(referenceentry.getPreviousInAccessQueue(), referenceentry1);
-        LocalCache.a(referenceentry1, referenceentry.getNextInAccessQueue());
-        LocalCache.b(referenceentry);
-    }
-
-    void b(com.google.common.cache.LocalCache.ReferenceEntry referenceentry, com.google.common.cache.LocalCache.ReferenceEntry referenceentry1)
-    {
-        referenceentry1.setWriteTime(referenceentry.getWriteTime());
-        LocalCache.b(referenceentry.getPreviousInWriteQueue(), referenceentry1);
-        LocalCache.b(referenceentry1, referenceentry.getNextInWriteQueue());
-        LocalCache.c(referenceentry);
-    }
-
-    static 
-    {
-        a = new jhx("STRONG");
-        b = new jhy("STRONG_ACCESS");
-        c = new jhz("STRONG_WRITE");
-        d = new jia("STRONG_ACCESS_WRITE");
-        e = new jib("WEAK");
-        f = new jic("WEAK_ACCESS");
-        g = new jid("WEAK_WRITE");
-        h = new jie("WEAK_ACCESS_WRITE");
-        j = (new jhw[] {
-            a, b, c, d, e, f, g, h
-        });
-        i = (new jhw[] {
-            a, b, c, d, e, f, g, h
-        });
+        }
+        if (c != null)
+        {
+            kwk1.b(4, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(5, d.booleanValue());
+        }
+        if (e != null)
+        {
+            kwk1.a(6, e.intValue());
+        }
+        if (f != null)
+        {
+            kwk1.a(7, f);
+        }
+        if (g != null)
+        {
+            kwk1.b(8, g);
+        }
+        super.writeTo(kwk1);
     }
 }

@@ -6,15 +6,15 @@ package com.google.android.apps.hangouts.hangout;
 
 import ai;
 import android.os.Bundle;
-import bof;
-import bps;
+import boo;
+import bqb;
 import g;
 
 public final class InCallDialpadActivity extends ai
 {
 
-    private final bof j = bof.a();
-    private bps k;
+    private final boo j = boo.a();
+    private bqb k;
 
     public InCallDialpadActivity()
     {
@@ -23,13 +23,13 @@ public final class InCallDialpadActivity extends ai
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.gs);
+        setContentView(g.go);
     }
 
     protected void onStart()
     {
         super.onStart();
-        k = new bps(this);
+        k = new bqb(this);
         j.a(k);
     }
 

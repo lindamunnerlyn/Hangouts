@@ -2,56 +2,66 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.internal.ResolveAccountResponse;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.Parcel;
 
-final class eku extends elk
+public abstract class eku extends Binder
+    implements ekt
 {
 
-    final ekp a;
-    final ResolveAccountResponse b;
-    final ekt c;
-
-    eku(ekt ekt, elo elo, ekp ekp1, ResolveAccountResponse resolveaccountresponse)
+    public static ekt a(IBinder ibinder)
     {
-        c = ekt;
-        a = ekp1;
-        b = resolveaccountresponse;
-        super(elo);
-    }
-
-    public void a()
-    {
-        ekp ekp1;
-        ConnectionResult connectionresult;
-label0:
+        if (ibinder == null)
         {
-            ekp1 = a;
-            ResolveAccountResponse resolveaccountresponse = b;
-            if (ekp1.b(0))
-            {
-                connectionresult = resolveaccountresponse.b();
-                if (!connectionresult.b())
-                {
-                    break label0;
-                }
-                ekp1.g = resolveaccountresponse.a();
-                ekp1.f = true;
-                ekp1.h = resolveaccountresponse.c();
-                ekp1.i = resolveaccountresponse.d();
-                ekp1.f();
-            }
-            return;
+            return null;
         }
-        if (ekp1.a(connectionresult))
+        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.apps.tycho.IVoiceService");
+        if (iinterface != null && (iinterface instanceof ekt))
         {
-            ekp1.i();
-            ekp1.f();
-            return;
+            return (ekt)iinterface;
         } else
         {
-            ekp1.b(connectionresult);
-            return;
+            return new ekv(ibinder);
+        }
+    }
+
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    {
+        switch (i)
+        {
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
+
+        case 1598968902: 
+            parcel1.writeString("com.google.android.apps.tycho.IVoiceService");
+            return true;
+
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.apps.tycho.IVoiceService");
+            i = a();
+            parcel1.writeNoException();
+            parcel1.writeInt(i);
+            return true;
+
+        case 2: // '\002'
+            parcel.enforceInterface("com.google.android.apps.tycho.IVoiceService");
+            boolean flag = b();
+            parcel1.writeNoException();
+            if (flag)
+            {
+                i = 1;
+            } else
+            {
+                i = 0;
+            }
+            parcel1.writeInt(i);
+            return true;
+
+        case 3: // '\003'
+            parcel.enforceInterface("com.google.android.apps.tycho.IVoiceService");
+            c();
+            return true;
         }
     }
 }

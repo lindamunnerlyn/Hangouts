@@ -2,28 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.IInterface;
+import com.google.android.gms.common.api.Status;
 
-public final class els
+public interface els
+    extends IInterface
 {
 
-    public final String a;
-    public final String b;
-    public final int c;
-
-    public els(String s, String s1, int i)
-    {
-        a = s;
-        b = s1;
-        c = i;
-    }
-
-    private void a(fmm fmm1)
-    {
-        fmm1.a(a, b, c);
-    }
-
-    public void a(Object obj)
-    {
-        a((fmm)obj);
-    }
+    public abstract void a(Status status);
 }

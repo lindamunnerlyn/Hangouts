@@ -3,91 +3,42 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kuw extends koj
+final class kuw
+    implements java.util.Map.Entry
 {
 
-    public String a;
-    public int b;
+    private java.util.Map.Entry a;
 
-    public kuw()
+    kuw(java.util.Map.Entry entry)
     {
-        a = null;
-        b = 0x80000000;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = entry;
     }
 
-    protected int computeSerializedSize()
+    public Object getKey()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != 0x80000000)
-        {
-            j = i + koh.e(2, b);
-        }
-        return j;
+        return a.getKey();
     }
 
-    public kop mergeFrom(kog kog1)
+    public Object getValue()
     {
-_L5:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 3: default 40
-    //                   0: 49
-    //                   10: 51
-    //                   16: 62;
-           goto _L1 _L2 _L3 _L4
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L5; else goto _L2
-_L2:
-        return this;
-_L3:
-        a = kog1.j();
-          goto _L5
-_L4:
-        int j = kog1.f();
-        switch (j)
+        kuv kuv1 = (kuv)a.getValue();
+        if (kuv1 == null)
         {
-        case 0: // '\0'
-        case 73046798: 
-        case 73046859: 
-        case 73046960: 
-        case 73047122: 
-        case 73063113: 
-        case 77630322: 
-        case 78631618: 
-        case 89449585: 
-        case 91688171: 
-        case 91756137: 
-        case 91760736: 
-        case 92366587: 
-        case 95298271: 
-        case 96372017: 
-        case 98979821: 
-        case 101530918: 
-            b = j;
-            break;
+            return null;
+        } else
+        {
+            return kuv1.a();
         }
-        if (true) goto _L5; else goto _L6
-_L6:
     }
 
-    public void writeTo(koh koh1)
+    public Object setValue(Object obj)
     {
-        if (a != null)
+        if (!(obj instanceof kvb))
         {
-            koh1.a(1, a);
-        }
-        if (b != 0x80000000)
+            throw new IllegalArgumentException("LazyField now only used for MessageSet, and the value of MessageSet must be an instance of MessageLite");
+        } else
         {
-            koh1.a(2, b);
+            return ((kuv)a.getValue()).b((kvb)obj);
         }
-        super.writeTo(koh1);
     }
 }

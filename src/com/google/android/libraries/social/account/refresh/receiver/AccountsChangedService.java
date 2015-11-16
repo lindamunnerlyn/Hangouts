@@ -6,9 +6,9 @@ package com.google.android.libraries.social.account.refresh.receiver;
 
 import android.app.IntentService;
 import android.content.Intent;
-import gnf;
-import gok;
-import hgx;
+import grm;
+import gss;
+import hlp;
 
 // Referenced classes of package com.google.android.libraries.social.account.refresh.receiver:
 //            AccountsChangedReceiver
@@ -30,9 +30,9 @@ public final class AccountsChangedService extends IntentService
         Exception exception;
         try
         {
-            ((gok)hgx.a(this, gok)).a();
+            ((gss)hlp.a(this, gss)).a();
         }
-        catch (gnf gnf1) { }
+        catch (grm grm1) { }
         finally
         {
             AccountsChangedReceiver.a(intent);

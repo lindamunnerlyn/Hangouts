@@ -3,38 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class izl extends koj
+public final class izl extends kwm
 {
 
-    private static volatile izl c[];
-    public irg a;
-    public Long b;
+    public Long a;
+    public Double b;
+    public String c;
+    public Boolean d;
 
     public izl()
     {
         a = null;
         b = null;
+        c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
-    }
-
-    public static izl[] a()
-    {
-        if (c == null)
-        {
-            synchronized (kon.a)
-            {
-                if (c == null)
-                {
-                    c = new izl[0];
-                }
-            }
-        }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -43,25 +27,37 @@ public final class izl extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.e(1, a.longValue());
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.d(2, b.longValue());
+            b.doubleValue();
+            j = i + (kwk.f(2) + 8);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.b(3, c);
+        }
+        j = i;
+        if (d != null)
+        {
+            d.booleanValue();
+            j = i + (kwk.f(4) + 1);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -70,31 +66,43 @@ public final class izl extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new irg();
-                }
-                kog1.a(a);
+            case 8: // '\b'
+                a = Long.valueOf(kwj1.e());
                 break;
 
-            case 16: // '\020'
-                b = Long.valueOf(kog1.d());
+            case 17: // '\021'
+                b = Double.valueOf(kwj1.b());
+                break;
+
+            case 26: // '\032'
+                c = kwj1.j();
+                break;
+
+            case 32: // ' '
+                d = Boolean.valueOf(kwj1.i());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.b(1, a.longValue());
         }
         if (b != null)
         {
-            koh1.a(2, b.longValue());
+            kwk1.a(2, b.doubleValue());
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

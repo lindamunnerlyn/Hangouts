@@ -2,45 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.AlertDialog;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
-import com.google.android.apps.hangouts.phone.BabelHomeActivity;
+import android.content.Intent;
+import android.util.SparseArray;
+import java.util.ArrayList;
 
-public final class cjl
-    implements TextWatcher
+final class cjl
+    implements gtd
 {
 
-    final AlertDialog a;
-    final BabelHomeActivity b;
+    final cjk a;
 
-    public cjl(BabelHomeActivity babelhomeactivity, AlertDialog alertdialog)
+    cjl(cjk cjk1)
     {
-        b = babelhomeactivity;
-        a = alertdialog;
+        a = cjk1;
         super();
     }
 
-    public void afterTextChanged(Editable editable)
+    public void a(int i, Intent intent)
     {
-    }
-
-    public void beforeTextChanged(CharSequence charsequence, int i, int j, int k)
-    {
-    }
-
-    public void onTextChanged(CharSequence charsequence, int i, int j, int k)
-    {
-        Button button = a.getButton(-1);
+        intent = new cjw(intent.getIntExtra("original_request_code", 0), (ArrayList)intent.getSerializableExtra("permission_results"));
+        Object obj = (cjq)a.a.get(((cjw) (intent)).a);
+        cjk cjk1 = a;
+        int j = ((cjq) (obj)).a;
+        obj = ((cjw) (intent)).b;
         boolean flag;
-        if (charsequence.toString().trim().length() > 0)
+        if (i == -1)
         {
             flag = true;
         } else
         {
             flag = false;
         }
-        button.setEnabled(flag);
+        cjk.a(cjk1, j, ((java.util.List) (obj)), true, flag);
+        cjk.a(a, ((cjw) (intent)).a, ((cjw) (intent)).b);
     }
 }

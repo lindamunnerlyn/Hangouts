@@ -3,24 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class deg
-    implements hat
+public final class deg extends dgj
 {
 
-    final def a;
+    private final String a;
 
-    deg(def def1)
+    public deg(aoa aoa, String s)
     {
-        a = def1;
-        super();
+        super(aoa);
+        a = s;
     }
 
-    public void a(long l, long l1)
+    public void a()
     {
-        if (def.f())
-        {
-            float f = (float)((double)l / (double)l1);
-            ebw.b("Babel_MediaUploadNetworkRequest", (new StringBuilder(32)).append("Upload progress: ").append(f).toString());
-        }
+        a(((dmf) (new cuq(a))));
     }
 }

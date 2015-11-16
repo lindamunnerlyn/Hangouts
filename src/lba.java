@@ -3,144 +3,96 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lba extends koj
+public final class lba extends kwm
 {
 
-    private static volatile lba l[];
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public kyo f;
-    public String g;
-    public String h;
-    public String i;
-    public kyo j;
-    public lbc k[];
+    public ksx a[];
+    public Integer b;
+    public Integer c;
+    public lar d[];
 
     public lba()
     {
-        a = null;
+        a = ksx.a();
         b = null;
         c = null;
-        d = null;
-        e = null;
-        f = null;
-        g = null;
-        h = null;
-        i = null;
-        j = null;
-        k = lbc.a();
+        d = lar.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    public static lba[] a()
-    {
-        if (l == null)
-        {
-            synchronized (kon.a)
-            {
-                if (l == null)
-                {
-                    l = new lba[0];
-                }
-            }
-        }
-        return l;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
     protected int computeSerializedSize()
     {
-        int j1 = super.computeSerializedSize();
-        int i1 = j1;
-        if (b != null)
-        {
-            i1 = j1 + koh.b(1, b);
-        }
-        j1 = i1;
-        if (c != null)
-        {
-            j1 = i1 + koh.b(2, c);
-        }
-        i1 = j1;
-        if (f != null)
-        {
-            i1 = j1 + koh.d(4, f);
-        }
-        j1 = i1;
-        if (g != null)
-        {
-            j1 = i1 + koh.b(5, g);
-        }
-        i1 = j1;
-        if (i != null)
-        {
-            i1 = j1 + koh.b(6, i);
-        }
-        j1 = i1;
-        if (j != null)
-        {
-            j1 = i1 + koh.d(7, j);
-        }
-        i1 = j1;
-        if (h != null)
-        {
-            i1 = j1 + koh.b(8, h);
-        }
-        j1 = i1;
-        if (k != null)
-        {
-            j1 = i1;
-            if (k.length > 0)
-            {
-                for (j1 = 0; j1 < k.length;)
-                {
-                    lbc lbc1 = k[j1];
-                    int k1 = i1;
-                    if (lbc1 != null)
-                    {
-                        k1 = i1 + koh.d(9, lbc1);
-                    }
-                    j1++;
-                    i1 = k1;
-                }
-
-                j1 = i1;
-            }
-        }
-        i1 = j1;
+        boolean flag = false;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            i1 = j1 + koh.b(10, a);
+            i = j;
+            if (a.length > 0)
+            {
+                i = j;
+                for (j = 0; j < a.length;)
+                {
+                    ksx ksx1 = a[j];
+                    int l = i;
+                    if (ksx1 != null)
+                    {
+                        l = i + kwk.d(1, ksx1);
+                    }
+                    j++;
+                    i = l;
+                }
+
+            }
         }
-        j1 = i1;
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.intValue());
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.intValue());
+        }
+        int i1 = i;
         if (d != null)
         {
-            j1 = i1 + koh.b(11, d);
-        }
-        i1 = j1;
-        if (e != null)
-        {
-            i1 = j1 + koh.b(12, e);
+            i1 = i;
+            if (d.length > 0)
+            {
+                int k = ((flag) ? 1 : 0);
+                do
+                {
+                    i1 = i;
+                    if (k >= d.length)
+                    {
+                        break;
+                    }
+                    lar lar1 = d[k];
+                    i1 = i;
+                    if (lar1 != null)
+                    {
+                        i1 = i + kwk.d(4, lar1);
+                    }
+                    k++;
+                    i = i1;
+                } while (true);
+            }
         }
         return i1;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i1 = kog1.a();
-            switch (i1)
+            int i = kwj1.a();
+            switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i1))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -150,140 +102,111 @@ public final class lba extends koj
                 return this;
 
             case 10: // '\n'
-                b = kog1.j();
+                int l = kwx.a(kwj1, 10);
+                ksx aksx[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                aksx = new ksx[l + j];
+                l = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, aksx, 0, j);
+                    l = j;
+                }
+                for (; l < aksx.length - 1; l++)
+                {
+                    aksx[l] = new ksx();
+                    kwj1.a(aksx[l]);
+                    kwj1.a();
+                }
+
+                aksx[l] = new ksx();
+                kwj1.a(aksx[l]);
+                a = aksx;
                 break;
 
-            case 18: // '\022'
-                c = kog1.j();
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
+                break;
+
+            case 24: // '\030'
+                c = Integer.valueOf(kwj1.f());
                 break;
 
             case 34: // '"'
-                if (f == null)
+                int i1 = kwx.a(kwj1, 34);
+                lar alar[];
+                int k;
+                if (d == null)
                 {
-                    f = new kyo();
-                }
-                kog1.a(f);
-                break;
-
-            case 42: // '*'
-                g = kog1.j();
-                break;
-
-            case 50: // '2'
-                i = kog1.j();
-                break;
-
-            case 58: // ':'
-                if (j == null)
-                {
-                    j = new kyo();
-                }
-                kog1.a(j);
-                break;
-
-            case 66: // 'B'
-                h = kog1.j();
-                break;
-
-            case 74: // 'J'
-                int k1 = kou.b(kog1, 74);
-                lbc albc[];
-                int j1;
-                if (k == null)
-                {
-                    j1 = 0;
+                    k = 0;
                 } else
                 {
-                    j1 = k.length;
+                    k = d.length;
                 }
-                albc = new lbc[k1 + j1];
-                k1 = j1;
-                if (j1 != 0)
+                alar = new lar[i1 + k];
+                i1 = k;
+                if (k != 0)
                 {
-                    System.arraycopy(k, 0, albc, 0, j1);
-                    k1 = j1;
+                    System.arraycopy(d, 0, alar, 0, k);
+                    i1 = k;
                 }
-                for (; k1 < albc.length - 1; k1++)
+                for (; i1 < alar.length - 1; i1++)
                 {
-                    albc[k1] = new lbc();
-                    kog1.a(albc[k1]);
-                    kog1.a();
+                    alar[i1] = new lar();
+                    kwj1.a(alar[i1]);
+                    kwj1.a();
                 }
 
-                albc[k1] = new lbc();
-                kog1.a(albc[k1]);
-                k = albc;
-                break;
-
-            case 82: // 'R'
-                a = kog1.j();
-                break;
-
-            case 90: // 'Z'
-                d = kog1.j();
-                break;
-
-            case 98: // 'b'
-                e = kog1.j();
+                alar[i1] = new lar();
+                kwj1.a(alar[i1]);
+                d = alar;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (b != null)
+        boolean flag = false;
+        if (a != null && a.length > 0)
         {
-            koh1.a(1, b);
-        }
-        if (c != null)
-        {
-            koh1.a(2, c);
-        }
-        if (f != null)
-        {
-            koh1.b(4, f);
-        }
-        if (g != null)
-        {
-            koh1.a(5, g);
-        }
-        if (i != null)
-        {
-            koh1.a(6, i);
-        }
-        if (j != null)
-        {
-            koh1.b(7, j);
-        }
-        if (h != null)
-        {
-            koh1.a(8, h);
-        }
-        if (k != null && k.length > 0)
-        {
-            for (int i1 = 0; i1 < k.length; i1++)
+            for (int i = 0; i < a.length; i++)
             {
-                lbc lbc1 = k[i1];
-                if (lbc1 != null)
+                ksx ksx1 = a[i];
+                if (ksx1 != null)
                 {
-                    koh1.b(9, lbc1);
+                    kwk1.b(1, ksx1);
                 }
             }
 
         }
-        if (a != null)
+        if (b != null)
         {
-            koh1.a(10, a);
+            kwk1.a(2, b.intValue());
         }
-        if (d != null)
+        if (c != null)
         {
-            koh1.a(11, d);
+            kwk1.a(3, c.intValue());
         }
-        if (e != null)
+        if (d != null && d.length > 0)
         {
-            koh1.a(12, e);
+            for (int j = ((flag) ? 1 : 0); j < d.length; j++)
+            {
+                lar lar1 = d[j];
+                if (lar1 != null)
+                {
+                    kwk1.b(4, lar1);
+                }
+            }
+
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

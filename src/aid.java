@@ -2,23 +2,71 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.animation.AccelerateDecelerateInterpolator;
+import java.io.Serializable;
+import java.util.List;
 
-final class aid extends AccelerateDecelerateInterpolator
+public final class aid
+    implements Serializable
 {
 
-    final aic a;
-    private ahz b;
+    private List a;
+    private List b;
 
-    aid(aic aic)
+    aid(aie aie1)
     {
-        a = aic;
-        super();
-        b = new ahz(0.8F);
+        a = aie1.a;
+        b = aie1.b;
     }
 
-    public float getInterpolation(float f)
+    public static aie newBuilder()
     {
-        return super.getInterpolation(b.getInterpolation(f));
+        return new aie();
+    }
+
+    public static aie newBuilder(aid aid1)
+    {
+        return newBuilder().a(aid1);
+    }
+
+    public ail a(int i)
+    {
+        if (i < 0 || i >= a.size())
+        {
+            return null;
+        } else
+        {
+            return (ail)a.get(i);
+        }
+    }
+
+    public List a()
+    {
+        return a;
+    }
+
+    public int b()
+    {
+        return a.size();
+    }
+
+    public aif b(int i)
+    {
+        if (i < 0 || i >= b.size())
+        {
+            return null;
+        } else
+        {
+            return (aif)b.get(i);
+        }
+    }
+
+    public List c()
+    {
+        return b;
+    }
+
+    public int d()
+    {
+        return b.size();
     }
 }

@@ -3,49 +3,36 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.content.res.TypedArray;
-import android.support.v4.widget.DrawerLayout;
-import android.util.AttributeSet;
+import android.graphics.drawable.Drawable;
+import android.view.View;
 
-public final class oj extends android.view.ViewGroup.MarginLayoutParams
+public final class oj
+    implements oh
 {
-
-    public int a;
-    public float b;
-    public boolean c;
-    public boolean d;
 
     public oj()
     {
-        super(-1, -1);
-        a = 0;
     }
 
-    public oj(Context context, AttributeSet attributeset)
+    public int a(Object obj)
     {
-        super(context, attributeset);
-        a = 0;
-        context = context.obtainStyledAttributes(attributeset, DrawerLayout.h());
-        a = context.getInt(0, 0);
-        context.recycle();
+        return 0;
     }
 
-    public oj(android.view.ViewGroup.LayoutParams layoutparams)
+    public Drawable a(Context context)
     {
-        super(layoutparams);
-        a = 0;
+        return null;
     }
 
-    public oj(android.view.ViewGroup.MarginLayoutParams marginlayoutparams)
+    public void a(View view)
     {
-        super(marginlayoutparams);
-        a = 0;
     }
 
-    public oj(oj oj1)
+    public void a(View view, Object obj, int i)
     {
-        super(oj1);
-        a = 0;
-        a = oj1.a;
+    }
+
+    public void a(android.view.ViewGroup.MarginLayoutParams marginlayoutparams, Object obj, int i)
+    {
     }
 }

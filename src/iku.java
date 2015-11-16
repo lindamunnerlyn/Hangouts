@@ -3,20 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iku extends koj
+public final class iku extends kwm
 {
 
-    public Float a;
-    public Float b;
-    public Float c;
-    public Float d;
+    public String a;
+    public ikv b;
+    public Integer c;
 
     public iku()
     {
         a = null;
         b = null;
         c = null;
-        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -27,39 +25,30 @@ public final class iku extends koj
         int i = j;
         if (a != null)
         {
-            a.floatValue();
-            i = j + (koh.f(1) + 4);
+            i = j + kwk.b(1, a);
         }
         j = i;
         if (b != null)
         {
-            b.floatValue();
-            j = i + (koh.f(2) + 4);
+            j = i + kwk.d(2, b);
         }
         i = j;
         if (c != null)
         {
-            c.floatValue();
-            i = j + (koh.f(3) + 4);
+            i = j + kwk.e(3, c.intValue());
         }
-        j = i;
-        if (d != null)
-        {
-            d.floatValue();
-            j = i + (koh.f(4) + 4);
-        }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -68,43 +57,39 @@ public final class iku extends koj
             case 0: // '\0'
                 return this;
 
-            case 13: // '\r'
-                a = Float.valueOf(kog1.c());
+            case 10: // '\n'
+                a = kwj1.j();
                 break;
 
-            case 21: // '\025'
-                b = Float.valueOf(kog1.c());
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new ikv();
+                }
+                kwj1.a(b);
                 break;
 
-            case 29: // '\035'
-                c = Float.valueOf(kog1.c());
-                break;
-
-            case 37: // '%'
-                d = Float.valueOf(kog1.c());
+            case 24: // '\030'
+                c = Integer.valueOf(kwj1.f());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.floatValue());
+            kwk1.a(1, a);
         }
         if (b != null)
         {
-            koh1.a(2, b.floatValue());
+            kwk1.b(2, b);
         }
         if (c != null)
         {
-            koh1.a(3, c.floatValue());
+            kwk1.a(3, c.intValue());
         }
-        if (d != null)
-        {
-            koh1.a(4, d.floatValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

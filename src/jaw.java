@@ -3,166 +3,163 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jaw extends koj
+public final class jaw extends kwm
 {
 
-    public jav a;
-    public jbw b;
-    public jav c[];
-    public ixf requestHeader;
+    private static volatile jaw g[];
+    public jax a;
+    public String b;
+    public Integer c;
+    public String d;
+    public String e;
+    public byte f[];
 
     public jaw()
     {
-        requestHeader = null;
         a = null;
         b = null;
-        c = jav.a();
+        c = null;
+        d = null;
+        e = null;
+        f = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static jaw[] a()
+    {
+        if (g == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (g == null)
+                {
+                    g = new jaw[0];
+                }
+            }
+        }
+        return g;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (requestHeader != null)
-        {
-            i = j + koh.d(1, requestHeader);
-        }
-        j = i;
         if (a != null)
         {
-            j = i + koh.d(2, a);
+            i = j + kwk.d(1, a);
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.b(2, d);
+        }
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.b(3, e);
+        }
+        j = i;
+        if (f != null)
+        {
+            j = i + kwk.b(4, f);
         }
         i = j;
         if (b != null)
         {
-            i = j + koh.d(3, b);
+            i = j + kwk.b(5, b);
         }
         j = i;
         if (c != null)
         {
-            j = i;
-            if (c.length > 0)
-            {
-                for (j = 0; j < c.length;)
-                {
-                    jav jav1 = c[j];
-                    int k = i;
-                    if (jav1 != null)
-                    {
-                        k = i + koh.d(4, jav1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            j = i + kwk.e(6, c.intValue());
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L9:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 7: default 72
+    //                   0: 81
+    //                   10: 83
+    //                   18: 112
+    //                   26: 123
+    //                   34: 134
+    //                   42: 145
+    //                   48: 156;
+           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L9; else goto _L2
+_L2:
+        return this;
+_L3:
+        if (a == null)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (requestHeader == null)
-                {
-                    requestHeader = new ixf();
-                }
-                kog1.a(requestHeader);
-                break;
-
-            case 18: // '\022'
-                if (a == null)
-                {
-                    a = new jav();
-                }
-                kog1.a(a);
-                break;
-
-            case 26: // '\032'
-                if (b == null)
-                {
-                    b = new jbw();
-                }
-                kog1.a(b);
-                break;
-
-            case 34: // '"'
-                int k = kou.b(kog1, 34);
-                jav ajav[];
-                int j;
-                if (c == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = c.length;
-                }
-                ajav = new jav[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(c, 0, ajav, 0, j);
-                    k = j;
-                }
-                for (; k < ajav.length - 1; k++)
-                {
-                    ajav[k] = new jav();
-                    kog1.a(ajav[k]);
-                    kog1.a();
-                }
-
-                ajav[k] = new jav();
-                kog1.a(ajav[k]);
-                c = ajav;
-                break;
-            }
-        } while (true);
+            a = new jax();
+        }
+        kwj1.a(a);
+          goto _L9
+_L4:
+        d = kwj1.j();
+          goto _L9
+_L5:
+        e = kwj1.j();
+          goto _L9
+_L6:
+        f = kwj1.k();
+          goto _L9
+_L7:
+        b = kwj1.j();
+          goto _L9
+_L8:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+            c = Integer.valueOf(j);
+            break;
+        }
+        if (true) goto _L9; else goto _L10
+_L10:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (requestHeader != null)
-        {
-            koh1.b(1, requestHeader);
-        }
         if (a != null)
         {
-            koh1.b(2, a);
+            kwk1.b(1, a);
+        }
+        if (d != null)
+        {
+            kwk1.a(2, d);
+        }
+        if (e != null)
+        {
+            kwk1.a(3, e);
+        }
+        if (f != null)
+        {
+            kwk1.a(4, f);
         }
         if (b != null)
         {
-            koh1.b(3, b);
+            kwk1.a(5, b);
         }
-        if (c != null && c.length > 0)
+        if (c != null)
         {
-            for (int i = 0; i < c.length; i++)
-            {
-                jav jav1 = c[i];
-                if (jav1 != null)
-                {
-                    koh1.b(4, jav1);
-                }
-            }
-
+            kwk1.a(6, c.intValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

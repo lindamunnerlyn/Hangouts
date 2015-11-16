@@ -2,49 +2,64 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.data.DataHolder;
+import android.os.Parcel;
+import com.google.android.gms.wearable.internal.GetCloudSyncOptInStatusResponse;
 
-public final class fwu extends eml
-    implements fsx
+public final class fwu
+    implements android.os.Parcelable.Creator
 {
 
-    private final int c;
-
-    public fwu(DataHolder dataholder, int i, int j)
+    public fwu()
     {
-        super(dataholder, i);
-        c = j;
     }
 
-    public fsz a()
+    public Object createFromParcel(Parcel parcel)
     {
-        return new fuh(a, b, c);
-    }
-
-    public int b()
-    {
-        return a("event_type");
-    }
-
-    public Object e()
-    {
-        return new fwt(this);
-    }
-
-    public String toString()
-    {
-        String s;
-        if (b() == 1)
+        boolean flag1 = false;
+        int k = g.a(parcel);
+        boolean flag = false;
+        int j = 0;
+        int i = 0;
+        do
         {
-            s = "changed";
-        } else
-        if (b() == 2)
-        {
-            s = "deleted";
-        } else
-        {
-            s = "unknown";
-        }
-        return (new StringBuilder("DataEventRef{ type=")).append(s).append(", dataitem=").append(a()).append(" }").toString();
+            if (parcel.dataPosition() < k)
+            {
+                int l = parcel.readInt();
+                switch (0xffff & l)
+                {
+                default:
+                    g.b(parcel, l);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, l);
+                    break;
+
+                case 2: // '\002'
+                    j = g.e(parcel, l);
+                    break;
+
+                case 3: // '\003'
+                    flag = g.c(parcel, l);
+                    break;
+
+                case 4: // '\004'
+                    flag1 = g.c(parcel, l);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != k)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
+            } else
+            {
+                return new GetCloudSyncOptInStatusResponse(i, j, flag, flag1);
+            }
+        } while (true);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new GetCloudSyncOptInStatusResponse[i];
     }
 }

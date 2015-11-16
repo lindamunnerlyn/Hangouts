@@ -3,8 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface azz
+interface azz
 {
 
-    public abstract void a(jlk jlk);
+    public abstract boolean t();
 }

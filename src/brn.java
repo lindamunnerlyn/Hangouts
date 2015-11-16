@@ -2,24 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.hangout.ParticipantOverlays;
+import java.util.Iterator;
+import java.util.List;
 
-public class brn extends bnk
+public final class brn extends bns
 {
 
-    final brk a;
+    final ParticipantOverlays a;
 
-    protected brn(brk brk1)
+    public brn(ParticipantOverlays participantoverlays)
     {
-        a = brk1;
+        a = participantoverlays;
         super();
     }
 
-    public void c(gjr gjr1)
+    public void c(gmt gmt1)
     {
-        if (a.a.equals(gjr1))
+        if (a.a != null && a.a.equals(gmt1))
         {
-            a.a = gjr1;
-            a.i();
+            for (Iterator iterator = a.b.iterator(); iterator.hasNext(); ((brm)iterator.next()).a(gmt1)) { }
         }
     }
 }

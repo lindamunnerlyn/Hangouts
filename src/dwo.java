@@ -3,8 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface dwo
+final class dwo
+    implements csv
 {
 
-    public abstract void a(dws dws);
+    final dwn a;
+
+    dwo(dwn dwn1)
+    {
+        a = dwn1;
+        super();
+    }
+
+    public void a(cuz cuz1)
+    {
+        dwn.a(a, cuz1.a());
+    }
 }

@@ -2,41 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.Animator;
-import android.content.Context;
-import android.content.res.Resources;
-import android.view.View;
-import com.google.android.apps.hangouts.conversation.v2.FloatingButtonWithCounter;
-import com.google.android.libraries.quantum.fab.FloatingActionButton;
+import java.util.List;
 
-public final class azd
-    implements android.animation.Animator.AnimatorListener
+final class azd
+    implements Runnable
 {
 
-    final FloatingButtonWithCounter a;
+    final List a;
+    final asa b;
+    final aza c;
 
-    public azd(FloatingButtonWithCounter floatingbuttonwithcounter)
+    azd(aza aza1, List list, asa asa)
     {
-        a = floatingbuttonwithcounter;
+        c = aza1;
+        a = list;
+        b = asa;
         super();
     }
 
-    public void onAnimationCancel(Animator animator)
+    public void run()
     {
-    }
-
-    public void onAnimationEnd(Animator animator)
-    {
-        FloatingButtonWithCounter.b(a).b(a.getContext().getResources().getColor(g.jU));
-        FloatingButtonWithCounter.b(a).clearColorFilter();
-        a.findViewById(g.kj).setVisibility(0);
-    }
-
-    public void onAnimationRepeat(Animator animator)
-    {
-    }
-
-    public void onAnimationStart(Animator animator)
-    {
+        if (aza.a(c) != null)
+        {
+            aza.a(c).a("finish fg");
+            aza.c(c);
+        }
+        aza.d(c).a(a, b);
     }
 }

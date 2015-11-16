@@ -18,21 +18,21 @@ import android.view.Display;
 import android.view.Surface;
 import android.view.WindowManager;
 import eq;
-import fwz;
-import gim;
-import gjc;
-import gjk;
-import gjv;
-import gjw;
-import gjy;
-import gkc;
-import gki;
+import fzd;
+import glo;
+import gme;
+import gmm;
+import gmx;
+import gmy;
+import gna;
+import gne;
+import gnk;
 
 public final class ScreenVideoCapturer
-    implements gjv
+    implements gmx
 {
 
-    private static final gki a = new gki(1920, 1080);
+    private static final gnk a = new gnk(1920, 1080);
     private final Context b;
     private final WindowManager c;
     private final DisplayManager d;
@@ -42,8 +42,8 @@ public final class ScreenVideoCapturer
     private final BroadcastReceiver h;
     private final android.hardware.display.DisplayManager.DisplayListener i;
     private final int j;
-    private gim k;
-    private gjw l;
+    private glo k;
+    private gmy l;
     private Surface m;
     private SurfaceTexture n;
     private MediaProjection o;
@@ -65,41 +65,78 @@ public final class ScreenVideoCapturer
         return screenvideocapturer.p;
     }
 
-    private gki a()
+    private gnk a()
     {
         c.getDefaultDisplay().getRealSize(r);
         int i1 = r.x;
         int j1 = r.y;
         float f1;
-        if (l.b().a >= 1280)
+        if (l.n().a >= 1280)
         {
-            f1 = fwz.a(b.getContentResolver(), "babel_hangout_screen_capture_scale_hw", 1.0F);
+            f1 = fzd.a(b.getContentResolver(), "babel_hangout_screen_capture_scale_hw", 1.0F);
         } else
         {
-            f1 = fwz.a(b.getContentResolver(), "babel_hangout_screen_capture_scale_sw", 0.75F);
+            f1 = fzd.a(b.getContentResolver(), "babel_hangout_screen_capture_scale_sw", 0.75F);
         }
-        return gki.b(gki.a(new gki(i1, j1), f1), a);
+        return gnk.b(gnk.a(new gnk(i1, j1), f1), a);
     }
 
     private void a(boolean flag)
     {
+        float f2 = 1.0F;
         if (k == null)
         {
             return;
         }
         k.a(flag);
+        glo glo1 = k;
+        float f1;
         if (flag)
         {
-            k.a();
+            f1 = 1.0F;
+        } else
+        {
+            f1 = 0.0F;
         }
-        k.b();
+        if (!flag)
+        {
+            f2 = 0.0F;
+        }
+        glo1.a(f1, f2);
+        k.a();
     }
 
     private void b()
     {
+        s = false;
+        a(false);
+    }
+
+    public static void b(ScreenVideoCapturer screenvideocapturer)
+    {
+        if (screenvideocapturer.n != null)
+        {
+            gnk gnk1 = screenvideocapturer.a();
+            int i1;
+            if (screenvideocapturer.l.n().a >= 1280)
+            {
+                i1 = fzd.a(screenvideocapturer.b.getContentResolver(), "babel_hangout_screen_capture_framerate_hw", 10);
+            } else
+            {
+                i1 = fzd.a(screenvideocapturer.b.getContentResolver(), "babel_hangout_screen_capture_framerate_sw", 5);
+            }
+            screenvideocapturer.q = i1;
+            screenvideocapturer.n.setDefaultBufferSize(gnk1.a, gnk1.b);
+            screenvideocapturer.l.a(gnk1.a, gnk1.b, gnk1.a, gnk1.b, true);
+            screenvideocapturer.l.a(screenvideocapturer.q);
+        }
+    }
+
+    private void c()
+    {
         if (p != null)
         {
-            gkc.b("vclib", "Releasing virtual display for screen capture");
+            gne.a(3, "vclib", "Releasing virtual display for screen capture");
             p.release();
             p = null;
         }
@@ -110,45 +147,30 @@ public final class ScreenVideoCapturer
         }
     }
 
-    public static void b(ScreenVideoCapturer screenvideocapturer)
+    public static void c(ScreenVideoCapturer screenvideocapturer)
     {
-        if (screenvideocapturer.n != null)
-        {
-            gki gki1 = screenvideocapturer.a();
-            int i1;
-            if (screenvideocapturer.l.b().a >= 1280)
-            {
-                i1 = fwz.a(screenvideocapturer.b.getContentResolver(), "babel_hangout_screen_capture_framerate_hw", 10);
-            } else
-            {
-                i1 = fwz.a(screenvideocapturer.b.getContentResolver(), "babel_hangout_screen_capture_framerate_sw", 5);
-            }
-            screenvideocapturer.q = i1;
-            screenvideocapturer.n.setDefaultBufferSize(gki1.a, gki1.b);
-            screenvideocapturer.l.a(gki1.a, gki1.b, gki1.a, gki1.b, true);
-            screenvideocapturer.l.a(screenvideocapturer.q);
-        }
+        screenvideocapturer.d();
     }
 
-    private void c()
+    private void d()
     {
         if (o == null || n == null)
         {
-            gkc.b("vclib", "Waiting to create virtual display.");
+            gne.a(3, "vclib", "Waiting to create virtual display.");
         } else
         {
-            b();
-            gki gki1 = a();
-            String s1 = String.valueOf(gki1);
-            gkc.b("vclib", (new StringBuilder(String.valueOf(s1).length() + 21)).append("Capturing screen at: ").append(s1).toString());
+            c();
+            gnk gnk1 = a();
+            String s1 = String.valueOf(gnk1);
+            gne.a(3, "vclib", (new StringBuilder(String.valueOf(s1).length() + 21)).append("Capturing screen at: ").append(s1).toString());
             int i1 = r.x;
             int j1 = r.y;
-            int k1 = gki1.a;
-            int l1 = gki1.b;
+            int k1 = gnk1.a;
+            int l1 = gnk1.b;
             float f1 = j;
             i1 = Math.round(((float)(k1 * l1) / (float)(i1 * j1)) * f1);
             m = new Surface(n);
-            p = o.createVirtualDisplay("HangoutsScreenCapture", gki1.a, gki1.b, i1, 3, m, null, null);
+            p = o.createVirtualDisplay("HangoutsScreenCapture", gnk1.a, gnk1.b, i1, 3, m, null, null);
             if (!t)
             {
                 t = true;
@@ -157,42 +179,34 @@ public final class ScreenVideoCapturer
         }
     }
 
-    public static void c(ScreenVideoCapturer screenvideocapturer)
+    public void a(gmm gmm, gmy gmy1)
     {
-        screenvideocapturer.c();
-    }
-
-    public void a(gjk gjk, gjw gjw1)
-    {
-        l = gjw1;
-        k = new gim(gjk);
-        gjw1.a(new gjc(this));
-        gjw1.b(false);
-        gjw1.b(0);
+        boolean flag1;
+        boolean flag = false;
+        l = gmy1;
+        k = new glo(gmm);
+        gmy1.a(new gme(this));
+        gmy1.c(false);
+        gmy1.b(0);
         d.registerDisplayListener(i, null);
         eq.a(b).a(g, new IntentFilter("com.google.android.libraries.hangouts.video.sdk.ScreenCapturer"));
-        gjk = new IntentFilter("android.intent.action.SCREEN_OFF");
-        gjk.addAction("android.intent.action.USER_PRESENT");
-        b.registerReceiver(h, gjk);
-        boolean flag1 = s;
+        gmm = new IntentFilter("android.intent.action.SCREEN_OFF");
+        gmm.addAction("android.intent.action.USER_PRESENT");
+        b.registerReceiver(h, gmm);
+        flag1 = s;
         s = flag1;
         if (l != null)
         {
-            gjk = l;
-            boolean flag;
+            gmm = l;
             if (!flag1)
             {
                 flag = true;
-            } else
-            {
-                flag = false;
             }
-            gjk.a(flag);
+            gmm.b(flag);
         }
         if (flag1) goto _L2; else goto _L1
 _L1:
-        s = false;
-        a(false);
+        b();
 _L6:
         return;
 _L2:
@@ -201,25 +215,25 @@ _L3:
         if (u) goto _L6; else goto _L5
 _L5:
         u = true;
-        gjk = new Intent(b, com/google/android/libraries/hangouts/video/sdk/ScreenVideoCapturer$HandleAuthIntentActivity);
-        gjk.addFlags(0x18800000);
-        gjk.putExtra("share_permission_intent", e.createScreenCaptureIntent());
-        b.startActivity(gjk);
+        gmm = new Intent(b, com/google/android/libraries/hangouts/video/sdk/ScreenVideoCapturer$HandleAuthIntentActivity);
+        gmm.addFlags(0x18800000);
+        gmm.putExtra("share_permission_intent", e.createScreenCaptureIntent());
+        b.startActivity(gmm);
 _L8:
         a(true);
         return;
 _L4:
-        c();
+        d();
         if (true) goto _L8; else goto _L7
 _L7:
     }
 
     public void g()
     {
-        gkc.b("vclib", "ScreenVideoCapturer.onDetachFromCall");
-        a(false);
-        k = null;
+        gne.a(3, "vclib", "ScreenVideoCapturer.onDetachFromCall");
         b();
+        k = null;
+        c();
         eq.a(b).a(g);
         d.unregisterDisplayListener(i);
         b.unregisterReceiver(h);

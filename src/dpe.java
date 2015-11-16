@@ -2,21 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.settings.SettingsActivity;
 
-public final class dpe extends hfz
+final class dpe
+    implements Runnable
 {
 
-    final SettingsActivity a;
+    final doy a;
 
-    public dpe(SettingsActivity settingsactivity, ps ps, hjm hjm)
+    dpe(doy doy1)
     {
-        a = settingsactivity;
-        super(ps, hjm);
+        a = doy1;
+        super();
     }
 
-    protected hfh a()
+    public void run()
     {
-        return new dpg();
+        doy.f();
     }
 }

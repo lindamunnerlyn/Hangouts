@@ -2,22 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-final class gvt
-    implements gvp
+public interface gvt
 {
 
-    gvt()
-    {
-    }
-
-    public int a(gvo gvo1)
-    {
-        return gvo1.b + (gvo1.a + 527) * 31;
-    }
-
-    public boolean a(gvo gvo1, gvo gvo2)
-    {
-        return gvo1.b == gvo2.b && gvo1.a == gvo2.a;
-    }
+    public abstract gvs a(Context context, ap ap);
 }

@@ -2,26 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+import com.google.android.apps.hangouts.fragments.ConversationListFragment;
 
-public interface biv
+public final class biv
+    implements android.view.View.OnClickListener
 {
 
-    public abstract void a(aih aih);
+    final View a;
+    final Uri b;
+    final Context c;
+    final ConversationListFragment d;
 
-    public abstract void a(Intent intent);
+    public biv(ConversationListFragment conversationlistfragment, View view, Uri uri, Context context)
+    {
+        d = conversationlistfragment;
+        a = view;
+        b = uri;
+        c = context;
+        super();
+    }
 
-    public abstract void a(cey cey, String s, int i, long l);
-
-    public abstract void a(dsn dsn);
-
-    public abstract void a(dsn dsn, dsn dsn1);
-
-    public abstract void a(String s, boolean flag, int i, int k);
-
-    public abstract boolean a(String s);
-
-    public abstract void j();
-
-    public abstract void l_();
+    public void onClick(View view)
+    {
+        a.setVisibility(8);
+        view = new Intent("android.intent.action.VIEW");
+        view.setData(b);
+        c.startActivity(view);
+    }
 }

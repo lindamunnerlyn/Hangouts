@@ -3,8 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gpp
+public final class gpp extends gpo
 {
 
-    public abstract void a(int i, int j);
+    public gpp()
+    {
+    }
 }

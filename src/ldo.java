@@ -2,52 +2,57 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
-public final class ldo extends lev
+final class ldo
 {
 
-    private static final long serialVersionUID = 0xc1cfd7268213a8c7L;
-    private ldn a;
-    private lcy b;
+    static final int a[];
 
-    ldo(ldn ldn1, lcy lcy1)
+    static 
     {
-        a = ldn1;
-        b = lcy1;
-    }
-
-    private void readObject(ObjectInputStream objectinputstream)
-    {
-        a = (ldn)objectinputstream.readObject();
-        b = ((lcz)objectinputstream.readObject()).a(a.c());
-    }
-
-    private void writeObject(ObjectOutputStream objectoutputstream)
-    {
-        objectoutputstream.writeObject(a);
-        objectoutputstream.writeObject(b.a());
-    }
-
-    public lcy a()
-    {
-        return b;
-    }
-
-    public ldn a(int i)
-    {
-        a.a(a().b(a.b(), i));
-        return a;
-    }
-
-    protected long b()
-    {
-        return a.b();
-    }
-
-    protected lcw c()
-    {
-        return a.c();
+        a = new int[kum.a().length];
+        try
+        {
+            a[kum.b - 1] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror7) { }
+        try
+        {
+            a[kum.e - 1] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror6) { }
+        try
+        {
+            a[kum.a - 1] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror5) { }
+        try
+        {
+            a[kum.d - 1] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror4) { }
+        try
+        {
+            a[kum.f - 1] = 5;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[kum.c - 1] = 6;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[kum.g - 1] = 7;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[kum.h - 1] = 8;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

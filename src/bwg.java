@@ -3,8 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface bwg
+final class bwg extends gog
 {
 
-    public abstract void a(int i, bwh bwh);
+    final boolean a;
+    final bwf b;
+
+    bwg(bwf bwf, boolean flag)
+    {
+        b = bwf;
+        a = flag;
+        super();
+    }
+
+    public boolean a()
+    {
+        return a;
+    }
 }

@@ -3,18 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jeg extends koj
+public final class jeg extends kwm
 {
 
-    public Long a;
-    public Long b;
-    public Integer c;
+    public ixl a;
+    public jce b;
+    public Long c;
+    public Integer d;
+    public Integer e;
 
     public jeg()
     {
         a = null;
         b = null;
         c = null;
+        d = null;
+        e = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -25,75 +29,103 @@ public final class jeg extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.e(1, a.longValue());
+            i = j + kwk.d(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.e(2, b.longValue());
+            j = i + kwk.d(2, b);
         }
         i = j;
         if (c != null)
         {
-            i = j + koh.e(3, c.intValue());
+            i = j + kwk.d(3, c.longValue());
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.e(4, d.intValue());
+        }
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.f(5, e.intValue());
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L6:
-        int i = kog1.a();
+_L8:
+        int i = kwj1.a();
         i;
-        JVM INSTR lookupswitch 4: default 48
-    //                   0: 57
-    //                   8: 59
-    //                   16: 73
-    //                   24: 87;
-           goto _L1 _L2 _L3 _L4 _L5
+        JVM INSTR lookupswitch 6: default 64
+    //                   0: 73
+    //                   10: 75
+    //                   18: 104
+    //                   24: 133
+    //                   32: 147
+    //                   40: 190;
+           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7
 _L1:
-        if (super.storeUnknownField(kog1, i)) goto _L6; else goto _L2
+        if (super.storeUnknownField(kwj1, i)) goto _L8; else goto _L2
 _L2:
         return this;
 _L3:
-        a = Long.valueOf(kog1.e());
-          goto _L6
+        if (a == null)
+        {
+            a = new ixl();
+        }
+        kwj1.a(a);
+          goto _L8
 _L4:
-        b = Long.valueOf(kog1.e());
-          goto _L6
+        if (b == null)
+        {
+            b = new jce();
+        }
+        kwj1.a(b);
+          goto _L8
 _L5:
-        int j = kog1.f();
+        c = Long.valueOf(kwj1.d());
+          goto _L8
+_L6:
+        int j = kwj1.f();
         switch (j)
         {
-        case 0: // '\0'
         case 1: // '\001'
         case 2: // '\002'
-        case 3: // '\003'
-        case 4: // '\004'
-        case 5: // '\005'
-        case 6: // '\006'
-        case 7: // '\007'
-            c = Integer.valueOf(j);
+            d = Integer.valueOf(j);
             break;
         }
-        if (true) goto _L6; else goto _L7
+        continue; /* Loop/switch isn't completed */
 _L7:
+        e = Integer.valueOf(kwj1.l());
+        if (true) goto _L8; else goto _L9
+_L9:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a.longValue());
+            kwk1.b(1, a);
         }
         if (b != null)
         {
-            koh1.b(2, b.longValue());
+            kwk1.b(2, b);
         }
         if (c != null)
         {
-            koh1.a(3, c.intValue());
+            kwk1.a(3, c.longValue());
         }
-        super.writeTo(koh1);
+        if (d != null)
+        {
+            kwk1.a(4, d.intValue());
+        }
+        if (e != null)
+        {
+            kwk1.c(5, e.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

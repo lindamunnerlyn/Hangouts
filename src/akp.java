@@ -2,32 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
-final class akp
-    implements br
+final class akp extends BroadcastReceiver
 {
 
-    final aki a;
+    final akn a;
 
-    akp(aki aki1)
+    akp(akn akn1)
     {
-        a = aki1;
+        a = akn1;
         super();
     }
 
-    public em onCreateLoader(int i, Bundle bundle)
+    public void onReceive(Context context, Intent intent)
     {
-        return new akz(aki.a(a), aki.b(a));
-    }
-
-    public void onLoadFinished(em em, Object obj)
-    {
-        em = (ajo)obj;
-        aki.a(a, em);
-    }
-
-    public void onLoaderReset(em em)
-    {
+        akn.b(a).setVisibility(8);
+        if (intent.getIntExtra("set_callerid_result", -1) == 0)
+        {
+            akn.c(a).a(2256);
+            akn.d(a).setText(context.getString(g.jc));
+            akn.f(a).setText(context.getString(g.ja, new Object[] {
+                eey.o(akn.e(a))
+            }));
+            akn.g(a).setVisibility(8);
+            akn.h(a).setText(context.getString(g.iX));
+            akn.h(a).setOnClickListener(new akq(this));
+            akn.d(a).sendAccessibilityEvent(32);
+            return;
+        } else
+        {
+            Toast.makeText(context, context.getString(g.iW), 0).show();
+            akn.g(a).setText(context.getString(g.iY));
+            akn.h(a).setText(context.getString(g.iU));
+            return;
+        }
     }
 }

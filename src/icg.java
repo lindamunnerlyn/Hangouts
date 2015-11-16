@@ -3,12 +3,12 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class icg extends koj
+public final class icg extends kwm
 {
 
-    public String a;
-    public ieh b;
-    public ich c;
+    public Integer a;
+    public Integer b;
+    public String c;
 
     public icg()
     {
@@ -21,34 +21,24 @@ public final class icg extends koj
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
+        int j = super.computeSerializedSize() + kwk.e(1, a.intValue()) + kwk.e(2, b.intValue());
         int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(2, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(3, b);
-        }
-        i = j;
         if (c != null)
         {
-            i = j + koh.d(4, c);
+            i = j + kwk.b(3, c);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -57,43 +47,29 @@ public final class icg extends koj
             case 0: // '\0'
                 return this;
 
-            case 18: // '\022'
-                a = kog1.j();
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
                 break;
 
             case 26: // '\032'
-                if (b == null)
-                {
-                    b = new ieh();
-                }
-                kog1.a(b);
-                break;
-
-            case 34: // '"'
-                if (c == null)
-                {
-                    c = new ich();
-                }
-                kog1.a(c);
+                c = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
-        {
-            koh1.a(2, a);
-        }
-        if (b != null)
-        {
-            koh1.b(3, b);
-        }
+        kwk1.a(1, a.intValue());
+        kwk1.a(2, b.intValue());
         if (c != null)
         {
-            koh1.b(4, c);
+            kwk1.a(3, c);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

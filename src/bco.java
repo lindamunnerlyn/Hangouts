@@ -4,7 +4,7 @@
 
 
 final class bco
-    implements bca
+    implements bck
 {
 
     final bcn a;
@@ -17,27 +17,29 @@ final class bco
 
     public int a()
     {
-        return g.lA;
+        return g.lg;
     }
 
-    public boolean a(ani ani)
+    public boolean a(aoa aoa)
     {
-        return true;
+        if (aoa != null)
+        {
+            return g.a(aoa, aqc.a);
+        } else
+        {
+            return true;
+        }
     }
 
-    public azm b()
+    public bab b()
     {
-        return null;
+        return new bab(2661, new String[] {
+            "android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"
+        });
     }
 
     public Class c()
     {
-        if (android.os.Build.VERSION.SDK_INT < 16)
-        {
-            return bck;
-        } else
-        {
-            return bcl;
-        }
+        return bcl;
     }
 }

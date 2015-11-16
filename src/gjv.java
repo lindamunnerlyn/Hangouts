@@ -3,10 +3,32 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gjv
+final class gjv
+    implements gjs
 {
 
-    public abstract void a(gjk gjk, gjw gjw);
+    private final gjl a;
 
-    public abstract void g();
+    gjv(gjl gjl1)
+    {
+        a = gjl1;
+    }
+
+    public void a(kws kws, gds gds)
+    {
+        kws = (jgm)kws;
+        a.a("broadcasts/add", kws, jgn, gds);
+    }
+
+    public void b(kws kws, gds gds)
+    {
+        kws = (jgo)kws;
+        a.a("broadcasts/modify", kws, jgp, gds);
+    }
+
+    public void c(kws kws, gds gds)
+    {
+        kws = (jgs)kws;
+        a.a("broadcasts/remove", kws, jgt, gds);
+    }
 }

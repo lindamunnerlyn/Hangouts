@@ -3,10 +3,13 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ftk
+public interface ftk
 {
 
-    public ftk()
-    {
-    }
+    public static final Iterable a = new frx();
+
+    public abstract String a();
+
+    public abstract String b();
+
 }

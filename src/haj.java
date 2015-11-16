@@ -2,37 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Comparator;
 
-public final class haj extends Exception
+final class haj
+    implements Comparator
 {
 
-    private static final long serialVersionUID = 0xdc41cfb411ac01f7L;
-    private final String a;
-    private final boolean b;
+    final hai a;
 
-    public haj(Exception exception, String s)
+    haj(hai hai)
     {
-        super(exception);
-        a = s;
-        b = false;
+        a = hai;
+        super();
     }
 
-    public haj(String s)
+    public int compare(Object obj, Object obj1)
     {
-        this(s, ((String) (null)));
-    }
-
-    public haj(String s, byte byte0)
-    {
-        super(s);
-        b = true;
-        a = null;
-    }
-
-    public haj(String s, String s1)
-    {
-        super(s);
-        a = s1;
-        b = false;
+        obj = (gzy)obj;
+        obj1 = (gzy)obj1;
+        return Long.signum(((gzy) (obj)).c - ((gzy) (obj1)).c);
     }
 }

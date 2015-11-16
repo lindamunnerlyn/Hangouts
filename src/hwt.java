@@ -3,18 +3,38 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hwt extends koj
+public final class hwt extends kwm
 {
 
-    public idi a;
-    public idt b[];
+    private static volatile hwt c[];
+    public hws a;
+    public hws b;
 
     public hwt()
     {
         a = null;
-        b = idt.a();
+        b = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static hwt[] a()
+    {
+        if (c == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (c == null)
+                {
+                    c = new hwt[0];
+                }
+            }
+        }
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -23,41 +43,25 @@ public final class hwt extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.d(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i;
-            if (b.length > 0)
-            {
-                for (j = 0; j < b.length;)
-                {
-                    idt idt1 = b[j];
-                    int k = i;
-                    if (idt1 != null)
-                    {
-                        k = i + koh.d(2, idt1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            j = i + kwk.d(2, b);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -69,62 +73,32 @@ public final class hwt extends koj
             case 10: // '\n'
                 if (a == null)
                 {
-                    a = new idi();
+                    a = new hws();
                 }
-                kog1.a(a);
+                kwj1.a(a);
                 break;
 
             case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                idt aidt[];
-                int j;
                 if (b == null)
                 {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
+                    b = new hws();
                 }
-                aidt = new idt[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, aidt, 0, j);
-                    k = j;
-                }
-                for (; k < aidt.length - 1; k++)
-                {
-                    aidt[k] = new idt();
-                    kog1.a(aidt[k]);
-                    kog1.a();
-                }
-
-                aidt[k] = new idt();
-                kog1.a(aidt[k]);
-                b = aidt;
+                kwj1.a(b);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.b(1, a);
         }
-        if (b != null && b.length > 0)
+        if (b != null)
         {
-            for (int i = 0; i < b.length; i++)
-            {
-                idt idt1 = b[i];
-                if (idt1 != null)
-                {
-                    koh1.b(2, idt1);
-                }
-            }
-
+            kwk1.b(2, b);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

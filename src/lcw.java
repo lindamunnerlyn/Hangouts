@@ -3,86 +3,113 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public abstract class lcw
+public final class lcw extends kwm
 {
+
+    public lcv a[];
 
     public lcw()
     {
+        a = lcv.a();
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public abstract lcy A();
+    protected int computeSerializedSize()
+    {
+        int i = super.computeSerializedSize();
+        int k = i;
+        if (a != null)
+        {
+            k = i;
+            if (a.length > 0)
+            {
+                int j = 0;
+                do
+                {
+                    k = i;
+                    if (j >= a.length)
+                    {
+                        break;
+                    }
+                    lcv lcv1 = a[j];
+                    k = i;
+                    if (lcv1 != null)
+                    {
+                        k = i + kwk.d(1, lcv1);
+                    }
+                    j++;
+                    i = k;
+                } while (true);
+            }
+        }
+        return k;
+    }
 
-    public abstract ldh B();
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
 
-    public abstract lcy C();
+            case 0: // '\0'
+                return this;
 
-    public abstract ldh D();
+            case 10: // '\n'
+                int k = kwx.a(kwj1, 10);
+                lcv alcv[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                alcv = new lcv[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, alcv, 0, j);
+                    k = j;
+                }
+                for (; k < alcv.length - 1; k++)
+                {
+                    alcv[k] = new lcv();
+                    kwj1.a(alcv[k]);
+                    kwj1.a();
+                }
 
-    public abstract lcy E();
+                alcv[k] = new lcv();
+                kwj1.a(alcv[k]);
+                a = alcv;
+                break;
+            }
+        } while (true);
+    }
 
-    public abstract lcy F();
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null && a.length > 0)
+        {
+            for (int i = 0; i < a.length; i++)
+            {
+                lcv lcv1 = a[i];
+                if (lcv1 != null)
+                {
+                    kwk1.b(1, lcv1);
+                }
+            }
 
-    public abstract lcy G();
-
-    public abstract ldh H();
-
-    public abstract lcy I();
-
-    public abstract ldh J();
-
-    public abstract lcy K();
-
-    public abstract lcw a(ldd ldd);
-
-    public abstract ldd a();
-
-    public abstract lcw b();
-
-    public abstract ldh c();
-
-    public abstract lcy d();
-
-    public abstract lcy e();
-
-    public abstract ldh f();
-
-    public abstract lcy g();
-
-    public abstract lcy h();
-
-    public abstract ldh i();
-
-    public abstract lcy j();
-
-    public abstract lcy k();
-
-    public abstract ldh l();
-
-    public abstract lcy m();
-
-    public abstract lcy n();
-
-    public abstract ldh o();
-
-    public abstract lcy p();
-
-    public abstract lcy q();
-
-    public abstract lcy r();
-
-    public abstract ldh s();
-
-    public abstract lcy t();
-
-    public abstract lcy u();
-
-    public abstract lcy v();
-
-    public abstract ldh w();
-
-    public abstract lcy x();
-
-    public abstract ldh y();
-
-    public abstract lcy z();
+        }
+        super.writeTo(kwk1);
+    }
 }

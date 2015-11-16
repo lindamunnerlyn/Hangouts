@@ -2,28 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Map;
+import java.util.ArrayList;
 
-public final class dic extends dfa
+public interface dic
 {
 
-    private final String a;
-    private final String d;
-    private final int e;
-    private final String f;
-    private final Map g;
+    public abstract int a(aoa aoa, ArrayList arraylist);
 
-    public dic(ani ani, String s, String s1, int i, String s2, Map map)
-    {
-        super(ani);
-        a = s;
-        d = s1;
-        e = i;
-        f = s2;
-        g = map;
-    }
+    public abstract void a(int i);
 
-    public void a()
-    {
-    }
+    public abstract void a(dhy dhy);
+
+    public abstract void b(dhy dhy);
 }

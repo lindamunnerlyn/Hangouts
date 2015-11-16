@@ -2,133 +2,178 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Set;
 
-public final class jth extends koj
+public abstract class jth extends jsd
+    implements Set
 {
 
-    private static volatile jth e[];
-    public jtj a;
-    public jtl b;
-    public String c;
-    public String d;
-
-    public jth()
+    jth()
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    public static jth[] a()
+    private static int a(int i)
     {
-        if (e == null)
+        int k;
+        if (i < 0x2ccccccc)
         {
-            synchronized (kon.a)
+            int j = Integer.highestOneBit(i - 1) << 1;
+            do
             {
-                if (e == null)
+                k = j;
+                if ((double)j * 0.69999999999999996D >= (double)i)
                 {
-                    e = new jth[0];
+                    break;
                 }
-            }
-        }
-        return e;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+                j <<= 1;
+            } while (true);
+        } else
         {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.b(3, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.b(4, d);
-        }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
+            boolean flag;
+            if (i < 0x40000000)
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new jtj();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new jtl();
-                }
-                kog1.a(b);
-                break;
-
-            case 26: // '\032'
-                c = kog1.j();
-                break;
-
-            case 34: // '"'
-                d = kog1.j();
-                break;
+                flag = true;
+            } else
+            {
+                flag = false;
             }
-        } while (true);
+            n.a(flag, "collection too large");
+            k = 0x40000000;
+        }
+        return k;
     }
 
-    public void writeTo(koh koh1)
+    public static transient jth a(int i, Object aobj[])
     {
-        if (a != null)
+        int k = i;
+_L13:
+        k;
+        JVM INSTR tableswitch 0 1: default 28
+    //                   0 136
+    //                   1 140;
+           goto _L1 _L2 _L3
+_L1:
+        Object aobj2[];
+        int j;
+        int l;
+        int j1;
+        int k1;
+        j1 = a(k);
+        aobj2 = new Object[j1];
+        k1 = j1 - 1;
+        l = 0;
+        i = 0;
+        j = 0;
+_L8:
+        if (l >= k) goto _L5; else goto _L4
+_L4:
+        Object obj;
+        int i1;
+        int l1;
+        obj = jxa.a(aobj[l], l);
+        l1 = obj.hashCode();
+        i1 = jrx.a(l1);
+_L11:
+        Object obj1;
+        int i2;
+        i2 = i1 & k1;
+        obj1 = aobj2[i2];
+        if (obj1 != null) goto _L7; else goto _L6
+_L6:
+        i1 = i + 1;
+        aobj[i] = obj;
+        aobj2[i2] = obj;
+        j += l1;
+        i = i1;
+_L10:
+        l++;
+          goto _L8
+_L2:
+        return jxl.a;
+_L3:
+        return b(aobj[0]);
+_L7:
+        if (obj1.equals(obj)) goto _L10; else goto _L9
+_L9:
+        i1++;
+          goto _L11
+_L5:
+        Arrays.fill(aobj, i, k, null);
+        if (i == 1)
         {
-            koh1.b(1, a);
+            return new jxt(aobj[0], j);
         }
-        if (b != null)
+        if (j1 == a(i))
         {
-            koh1.b(2, b);
+            break; /* Loop/switch isn't completed */
         }
-        if (c != null)
+        k = i;
+        if (true) goto _L13; else goto _L12
+_L12:
+        Object aobj1[] = aobj;
+        if (i < aobj.length)
         {
-            koh1.a(3, c);
+            aobj1 = jxa.a(aobj, i);
         }
-        if (d != null)
+        return new jxl(aobj1, j, aobj2, k1);
+    }
+
+    public static jth a(Object aobj[])
+    {
+        switch (aobj.length)
         {
-            koh1.a(4, d);
+        default:
+            return a(aobj.length, (Object[])((Object []) (aobj)).clone());
+
+        case 0: // '\0'
+            return jxl.a;
+
+        case 1: // '\001'
+            return b(aobj[0]);
         }
-        super.writeTo(koh1);
+    }
+
+    public static jth b(Object obj)
+    {
+        return new jxt(obj);
+    }
+
+    boolean I_()
+    {
+        return false;
+    }
+
+    public abstract jyh a();
+
+    public boolean equals(Object obj)
+    {
+        if (obj == this)
+        {
+            return true;
+        }
+        if ((obj instanceof jth) && I_() && ((jth)obj).I_() && hashCode() != obj.hashCode())
+        {
+            return false;
+        } else
+        {
+            return h.a(this, obj);
+        }
+    }
+
+    public int hashCode()
+    {
+        return h.a(this);
+    }
+
+    public Iterator iterator()
+    {
+        return a();
+    }
+
+    Object writeReplace()
+    {
+        return new jtl(toArray());
     }
 }

@@ -2,234 +2,107 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.KeyEvent;
-import java.util.List;
+import android.content.Context;
+import java.io.IOException;
+import java.util.Locale;
+import java.util.Map;
+import org.chromium.net.UserAgent;
 
-public class hiv extends hjm
+public class hiv
+    implements hik
 {
 
-    private hjr c;
-    private hjr d;
-    private hjr e;
-    private hjr f;
+    static final hnb a = new hnb("debug.allowBackendOverride");
+    private static String g;
+    private final Context b;
+    private final String c;
+    private final String d;
+    private final String e;
+    private final String f;
 
-    public hiv()
+    public hiv(Context context, String s, String s1)
     {
+        this(context, s, s1, (byte)0);
+    }
+
+    private hiv(Context context, String s, String s1, byte byte0)
+    {
+        this(context, s, null, s1, null);
+    }
+
+    public hiv(Context context, String s, String s1, String s2, String s3)
+    {
+        b = context;
+        c = s;
+        d = s2;
+        f = s1;
+        e = s3;
+    }
+
+    protected String a(Context context)
+    {
+        if (g == null)
+        {
+            g = String.valueOf(UserAgent.a(context)).concat(" (gzip)");
+        }
+        return g;
+    }
+
+    public Map a(String s)
+    {
+        gz gz1 = new gz();
+        gz1.put("Accept-Encoding", "gzip");
+        gz1.put("Accept-Language", Locale.getDefault().toString());
+        gz1.put("User-Agent", a(b));
+        if (c != null)
+        {
+            Object obj;
+            try
+            {
+                obj = ((his)hlp.a(b, his)).a(d);
+                s = ((hit) (obj)).a(b, c);
+                obj = Long.toString(((hit) (obj)).c(b, s).longValue());
+            }
+            // Misplaced declaration of an exception variable
+            catch (String s)
+            {
+                new hkz(c);
+                hlp.a(b, guj);
+                throw new IOException("Cannot obtain authentication token", s);
+            }
+            s = String.valueOf(s);
+            if (s.length() != 0)
+            {
+                s = "Bearer ".concat(s);
+            } else
+            {
+                s = new String("Bearer ");
+            }
+            gz1.put("Authorization", s);
+            gz1.put("X-Auth-Time", obj);
+            if (f != null)
+            {
+                gz1.put("X-Goog-PageId", f);
+            }
+        }
+        if ("PUT".equals(e))
+        {
+            gz1.put("X-HTTP-Method-Override", "PUT");
+        }
+        return gz1;
     }
 
     public void a()
     {
-        e = a(((hjr) (new hiy(this))));
-    }
-
-    public void a(Intent intent)
-    {
-        for (int i1 = 0; i1 < a.size(); i1++)
+        if (c == null)
         {
-            fsn fsn1 = (fsn)a.get(i1);
-            if (fsn1 instanceof hiu)
-            {
-                ((hiu)fsn1).a(intent);
-            }
+            break MISSING_BLOCK_LABEL_37;
         }
-
+        ((his)hlp.a(b, his)).a(d).b(b, c);
+        return;
+        Exception exception;
+        exception;
+        throw new IOException("Cannot invalidate authentication token", exception);
     }
 
-    public void a(Bundle bundle)
-    {
-        c = a(((hjr) (new hiw(this, bundle))));
-    }
-
-    public boolean a(KeyEvent keyevent)
-    {
-        boolean flag1 = false;
-        int i1 = 0;
-        do
-        {
-label0:
-            {
-                boolean flag = flag1;
-                if (i1 < a.size())
-                {
-                    fsn fsn1 = (fsn)a.get(i1);
-                    if (!(fsn1 instanceof him) || !((him)fsn1).a(keyevent))
-                    {
-                        break label0;
-                    }
-                    flag = true;
-                }
-                return flag;
-            }
-            i1++;
-        } while (true);
-    }
-
-    public void b()
-    {
-        b(e);
-        super.b();
-    }
-
-    public void b(Bundle bundle)
-    {
-        d = a(new hix(this, bundle));
-    }
-
-    public void c()
-    {
-        b(d);
-        b(c);
-        super.c();
-    }
-
-    public void d()
-    {
-        f = a(new hiz(this));
-    }
-
-    public void e()
-    {
-        b(f);
-        for (int i1 = 0; i1 < a.size(); i1++)
-        {
-            a.get(i1);
-        }
-
-    }
-
-    public void f()
-    {
-        for (int i1 = 0; i1 < a.size(); i1++)
-        {
-            a.get(i1);
-        }
-
-    }
-
-    public void g()
-    {
-        for (int i1 = 0; i1 < a.size(); i1++)
-        {
-            a.get(i1);
-        }
-
-    }
-
-    public void h()
-    {
-        for (int i1 = 0; i1 < a.size(); i1++)
-        {
-            a.get(i1);
-        }
-
-    }
-
-    public void i()
-    {
-        for (int i1 = 0; i1 < a.size(); i1++)
-        {
-            a.get(i1);
-        }
-
-    }
-
-    public void j()
-    {
-        for (int i1 = 0; i1 < a.size(); i1++)
-        {
-            fsn fsn1 = (fsn)a.get(i1);
-            if (fsn1 instanceof hio)
-            {
-                ((hio)fsn1).a();
-            }
-        }
-
-    }
-
-    public void k()
-    {
-        for (int i1 = 0; i1 < a.size(); i1++)
-        {
-            fsn fsn1 = (fsn)a.get(i1);
-            if (fsn1 instanceof hin)
-            {
-                ((hin)fsn1).b();
-            }
-        }
-
-    }
-
-    public boolean l()
-    {
-        boolean flag1 = false;
-        int i1 = 0;
-        do
-        {
-label0:
-            {
-                boolean flag = flag1;
-                if (i1 < a.size())
-                {
-                    fsn fsn1 = (fsn)a.get(i1);
-                    if (!(fsn1 instanceof hip) || !((hip)fsn1).a())
-                    {
-                        break label0;
-                    }
-                    flag = true;
-                }
-                return flag;
-            }
-            i1++;
-        } while (true);
-    }
-
-    public boolean m()
-    {
-        boolean flag1 = false;
-        int i1 = 0;
-        do
-        {
-label0:
-            {
-                boolean flag = flag1;
-                if (i1 < a.size())
-                {
-                    fsn fsn1 = (fsn)a.get(i1);
-                    if (!(fsn1 instanceof hiq) || !((hiq)fsn1).a())
-                    {
-                        break label0;
-                    }
-                    flag = true;
-                }
-                return flag;
-            }
-            i1++;
-        } while (true);
-    }
-
-    public boolean n()
-    {
-        boolean flag1 = false;
-        int i1 = 0;
-        do
-        {
-label0:
-            {
-                boolean flag = flag1;
-                if (i1 < a.size())
-                {
-                    fsn fsn1 = (fsn)a.get(i1);
-                    if (!(fsn1 instanceof hir) || !((hir)fsn1).a())
-                    {
-                        break label0;
-                    }
-                    flag = true;
-                }
-                return flag;
-            }
-            i1++;
-        } while (true);
-    }
 }

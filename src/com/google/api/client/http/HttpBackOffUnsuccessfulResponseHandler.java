@@ -6,8 +6,8 @@ package com.google.api.client.http;
 
 import g;
 import h;
-import hmw;
-import hod;
+import hrs;
+import hsz;
 
 // Referenced classes of package com.google.api.client.http:
 //            HttpUnsuccessfulResponseHandler, HttpRequest, HttpResponse
@@ -16,18 +16,18 @@ public class HttpBackOffUnsuccessfulResponseHandler
     implements HttpUnsuccessfulResponseHandler
 {
 
-    private final hmw backOff;
+    private final hrs backOff;
     private BackOffRequired backOffRequired;
-    private hod sleeper;
+    private hsz sleeper;
 
-    public HttpBackOffUnsuccessfulResponseHandler(hmw hmw1)
+    public HttpBackOffUnsuccessfulResponseHandler(hrs hrs1)
     {
         backOffRequired = BackOffRequired.ON_SERVER_ERROR;
-        sleeper = hod.a;
-        backOff = (hmw)h.b(hmw1);
+        sleeper = hsz.a;
+        backOff = (hrs)h.a(hrs1);
     }
 
-    public final hmw getBackOff()
+    public final hrs getBackOff()
     {
         return backOff;
     }
@@ -37,7 +37,7 @@ public class HttpBackOffUnsuccessfulResponseHandler
         return backOffRequired;
     }
 
-    public final hod getSleeper()
+    public final hsz getSleeper()
     {
         return sleeper;
     }
@@ -62,13 +62,13 @@ public class HttpBackOffUnsuccessfulResponseHandler
 
     public HttpBackOffUnsuccessfulResponseHandler setBackOffRequired(BackOffRequired backoffrequired)
     {
-        backOffRequired = (BackOffRequired)h.b(backoffrequired);
+        backOffRequired = (BackOffRequired)h.a(backoffrequired);
         return this;
     }
 
-    public HttpBackOffUnsuccessfulResponseHandler setSleeper(hod hod1)
+    public HttpBackOffUnsuccessfulResponseHandler setSleeper(hsz hsz1)
     {
-        sleeper = (hod)h.b(hod1);
+        sleeper = (hsz)h.a(hsz1);
         return this;
     }
 

@@ -2,31 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.res.Resources;
-import android.view.View;
-import android.view.ViewGroup;
+import android.os.AsyncTask;
+import android.text.TextUtils;
+import com.google.android.apps.hangouts.fragments.InvitationFragment;
 
-public final class blc extends aug
+public final class blc extends AsyncTask
 {
 
-    public blc(View view, bld bld1, dsp dsp)
+    final String a;
+    final InvitationFragment b;
+
+    public blc(InvitationFragment invitationfragment)
     {
-        super(view, bld1, dsp);
+        b = invitationfragment;
+        super();
+        a = InvitationFragment.e(b);
     }
 
-    protected boolean a()
+    protected Object doInBackground(Object aobj[])
     {
-        if (g.a(g.nS, "babel_network_change_notification", false))
+        aobj = new aow(InvitationFragment.h(b), InvitationFragment.i(b).h());
+        ((aow) (aobj)).D(InvitationFragment.e(b));
+        ((aow) (aobj)).i(InvitationFragment.e(b));
+        return null;
+    }
+
+    protected void onPostExecute(Object obj)
+    {
+        super.onPostExecute((Void)obj);
+        if (InvitationFragment.f(b) != null && TextUtils.equals(InvitationFragment.e(b), a))
         {
-            return ((bld)c).x() && !((bld)c).y();
-        } else
-        {
-            return false;
+            obj = new aia(InvitationFragment.e(b), InvitationFragment.g(b));
+            b.restartFragment(((aia) (obj)));
         }
-    }
-
-    protected dsn b()
-    {
-        return e().a(b.getResources().getString(l.gR)).a();
     }
 }

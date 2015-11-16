@@ -3,10 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ajc
+final class ajc
 {
 
-    public ajc()
+    ajc()
     {
     }
 }

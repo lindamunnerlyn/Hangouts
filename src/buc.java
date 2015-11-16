@@ -2,43 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Map;
+import android.content.Context;
 
-final class buc extends bnk
+final class buc
+    implements btz
 {
 
-    final btz a;
+    final bub a;
 
-    buc(btz btz1)
+    buc(bub bub)
     {
-        a = btz1;
+        a = bub;
         super();
     }
 
-    public void a(int i)
+    public bty a(Context context, hof hof)
     {
-        btz.i(a).b(btz.h(a));
-        if (btz.l(a) != null)
-        {
-            btz.m(a);
-            btz.n(a);
-        }
-        if (btz.b(a) != null)
-        {
-            btz.b(a).b(btz.k(a));
-            btz.a(a, null);
-        }
-        btz.c(a).clear();
-        btz.a(a, null);
-        btz.o(a);
-        btz.a(a, false);
-        btz.p(a);
-    }
-
-    public void a(gjq gjq)
-    {
-        btz.i(a).a(btz.h(a));
-        btz.a(a, (gaw)btz.j(a).p().a(gaw));
-        btz.b(a).a(btz.k(a));
+        return new bua(context, hof);
     }
 }

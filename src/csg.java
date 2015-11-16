@@ -2,28 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
+import android.widget.TextView;
 
-public class csg extends csa
+final class csg
+    implements TextWatcher
 {
 
-    private static final long serialVersionUID = 1L;
+    final cse a;
 
-    public csg()
+    csg(cse cse1)
+    {
+        a = cse1;
+        super();
+    }
+
+    public void afterTextChanged(Editable editable)
+    {
+        cse.e(a).setVisibility(8);
+        cse.f(a).setVisibility(0);
+    }
+
+    public void beforeTextChanged(CharSequence charsequence, int i, int j, int k)
     {
     }
 
-    public kop a(String s, int j, int k)
+    public void onTextChanged(CharSequence charsequence, int i, int j, int k)
     {
-        return new csb();
-    }
-
-    public String g()
-    {
-        return "users/@me/account";
-    }
-
-    public boolean i()
-    {
-        return false;
     }
 }

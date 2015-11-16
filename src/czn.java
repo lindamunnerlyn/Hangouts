@@ -3,23 +3,30 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class czn extends cys
+public class czn extends cxr
 {
 
     private static final long serialVersionUID = 1L;
 
-    czn(izw izw1)
+    private czn(jgt jgt1)
     {
-        super(izw1.b.a, g.a(izw1.a, null), g.a(izw1.c, 0L));
+        super(jgt1.responseHeader, -1L);
+        if (cxr.a)
+        {
+            jgt1 = String.valueOf(jgt1);
+            eev.b("Babel_protos", (new StringBuilder(String.valueOf(jgt1).length() + 29)).append("RemoveBroadcastResponse from:").append(jgt1).toString());
+        }
     }
 
-    public czn(String s, cey cey, long l)
+    public static cxr parseFrom(byte abyte0[])
     {
-        super(s, cey, l);
-    }
-
-    public static czn a(String s, cey cey, long l)
-    {
-        return new czn(s, cey, l);
+        abyte0 = (jgt)kws.mergeFrom(new jgt(), abyte0);
+        if (a(((jgt) (abyte0)).responseHeader))
+        {
+            return new cyd(((jgt) (abyte0)).responseHeader);
+        } else
+        {
+            return new czn(abyte0);
+        }
     }
 }

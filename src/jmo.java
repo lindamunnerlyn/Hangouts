@@ -2,62 +2,82 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Comparator;
 
-public final class jmo extends jmj
+public final class jmo extends kwm
 {
 
-    private final Comparator c;
+    public static final kwn a = kwn.a(jmo, 0x2e58344aL);
+    private static final jmo d[] = new jmo[0];
+    public kxc b;
+    public String c;
 
-    public jmo(Comparator comparator)
+    public jmo()
     {
-        c = (Comparator)n.b(comparator);
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public jlf a(Object obj)
+    protected int computeSerializedSize()
     {
-        super.c(obj);
-        return this;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (b != null)
+        {
+            i = j + kwk.d(1, b);
+        }
+        j = i;
+        if (c != null)
+        {
+            j = i + kwk.b(2, c);
+        }
+        return j;
     }
 
-    public jlg a(Object aobj[])
+    public kws mergeFrom(kwj kwj1)
     {
-        return c(aobj);
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (b == null)
+                {
+                    b = new kxc();
+                }
+                kwj1.a(b);
+                break;
+
+            case 18: // '\022'
+                c = kwj1.j();
+                break;
+            }
+        } while (true);
     }
 
-    public jmi a()
+    public void writeTo(kwk kwk1)
     {
-        return b();
+        if (b != null)
+        {
+            kwk1.b(1, b);
+        }
+        if (c != null)
+        {
+            kwk1.a(2, c);
+        }
+        super.writeTo(kwk1);
     }
 
-    public jlg b(Object obj)
-    {
-        super.c(obj);
-        return this;
-    }
-
-    public jmj b(Object aobj[])
-    {
-        return c(aobj);
-    }
-
-    public jmn b()
-    {
-        Object aobj[] = (Object[])a;
-        jmn jmn1 = jmn.a(c, b, aobj);
-        b = jmn1.size();
-        return jmn1;
-    }
-
-    public jmj c(Object obj)
-    {
-        super.c(obj);
-        return this;
-    }
-
-    public transient jmo c(Object aobj[])
-    {
-        super.b(aobj);
-        return this;
-    }
 }

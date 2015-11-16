@@ -2,49 +2,147 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.os.RemoteException;
 
-public final class fgb
+public final class fgb extends fgh
 {
 
-    private static boolean a = false;
+    public fgc a[];
 
-    public static int a(Context context)
+    public fgb()
     {
-        fgb;
-        JVM INSTR monitorenter ;
-        boolean flag;
-        h.a(context, "Context is null");
-        flag = a;
-        if (!flag) goto _L2; else goto _L1
-_L1:
-        int i = 0;
-_L4:
-        fgb;
-        JVM INSTR monitorexit ;
-        return i;
-_L2:
-        context = fjw.a(context);
-        g.rq = (fge)h.a(context.a());
-        context = context.b();
-        if (g.rr == null)
-        {
-            g.rr = (fkf)h.a(context);
-        }
-        a = true;
-        i = 0;
-        continue; /* Loop/switch isn't completed */
-        context;
-        i = ((ejl) (context)).a;
-        if (true) goto _L4; else goto _L3
-_L3:
-        context;
-        throw new af(context);
-        context;
-        fgb;
-        JVM INSTR monitorexit ;
-        throw context;
+        a = fgc.b();
+        o = null;
+        p = -1;
     }
 
+    public static fgb a(byte abyte0[])
+    {
+        return (fgb)fgm.a(new fgb(), abyte0, abyte0.length);
+    }
+
+    protected int a()
+    {
+        int i = super.a();
+        int k = i;
+        if (a != null)
+        {
+            k = i;
+            if (a.length > 0)
+            {
+                int j = 0;
+                do
+                {
+                    k = i;
+                    if (j >= a.length)
+                    {
+                        break;
+                    }
+                    fgc fgc1 = a[j];
+                    k = i;
+                    if (fgc1 != null)
+                    {
+                        k = i + fgg.b(1, fgc1);
+                    }
+                    j++;
+                    i = k;
+                } while (true);
+            }
+        }
+        return k;
+    }
+
+    public fgm a(fgf fgf1)
+    {
+        do
+        {
+            int i = fgf1.a();
+            switch (i)
+            {
+            default:
+                if (a(fgf1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                int k = fgo.a(fgf1, 10);
+                fgc afgc[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                afgc = new fgc[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, afgc, 0, j);
+                    k = j;
+                }
+                for (; k < afgc.length - 1; k++)
+                {
+                    afgc[k] = new fgc();
+                    fgf1.a(afgc[k]);
+                    fgf1.a();
+                }
+
+                afgc[k] = new fgc();
+                fgf1.a(afgc[k]);
+                a = afgc;
+                break;
+            }
+        } while (true);
+    }
+
+    public void a(fgg fgg1)
+    {
+        if (a != null && a.length > 0)
+        {
+            for (int i = 0; i < a.length; i++)
+            {
+                fgc fgc1 = a[i];
+                if (fgc1 != null)
+                {
+                    fgg1.a(1, fgc1);
+                }
+            }
+
+        }
+        super.a(fgg1);
+    }
+
+    public boolean equals(Object obj)
+    {
+        boolean flag1 = false;
+        boolean flag;
+        if (obj == this)
+        {
+            flag = true;
+        } else
+        {
+            flag = flag1;
+            if (obj instanceof fgb)
+            {
+                obj = (fgb)obj;
+                flag = flag1;
+                if (fgk.a(a, ((fgb) (obj)).a))
+                {
+                    return a(((fgh) (obj)));
+                }
+            }
+        }
+        return flag;
+    }
+
+    public int hashCode()
+    {
+        return (fgk.a(a) + 527) * 31 + c();
+    }
 }

@@ -3,16 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iyi extends koj
+public final class iyi extends kwm
 {
 
-    public ixh a[];
-    public ixf requestHeader;
+    public Integer a;
+    public Integer b;
 
     public iyi()
     {
-        requestHeader = null;
-        a = ixh.a();
+        a = null;
+        b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,110 +21,65 @@ public final class iyi extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (requestHeader != null)
-        {
-            i = j + koh.d(1, requestHeader);
-        }
-        j = i;
         if (a != null)
         {
-            j = i;
-            if (a.length > 0)
-            {
-                for (j = 0; j < a.length;)
-                {
-                    ixh ixh1 = a[j];
-                    int k = i;
-                    if (ixh1 != null)
-                    {
-                        k = i + koh.d(2, ixh1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            i = j + kwk.e(1, a.intValue());
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.intValue());
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L5:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   8: 51
+    //                   16: 94;
+           goto _L1 _L2 _L3 _L4
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (requestHeader == null)
-                {
-                    requestHeader = new ixf();
-                }
-                kog1.a(requestHeader);
-                break;
-
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                ixh aixh[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                aixh = new ixh[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aixh, 0, j);
-                    k = j;
-                }
-                for (; k < aixh.length - 1; k++)
-                {
-                    aixh[k] = new ixh();
-                    kog1.a(aixh[k]);
-                    kog1.a();
-                }
-
-                aixh[k] = new ixh();
-                kog1.a(aixh[k]);
-                a = aixh;
-                break;
-            }
-        } while (true);
+        case 1: // '\001'
+        case 2: // '\002'
+            a = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        int k = kwj1.f();
+        switch (k)
+        {
+        case 1: // '\001'
+        case 2: // '\002'
+            b = Integer.valueOf(k);
+            break;
+        }
+        if (true) goto _L5; else goto _L6
+_L6:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (requestHeader != null)
+        if (a != null)
         {
-            koh1.b(1, requestHeader);
+            kwk1.a(1, a.intValue());
         }
-        if (a != null && a.length > 0)
+        if (b != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                ixh ixh1 = a[i];
-                if (ixh1 != null)
-                {
-                    koh1.b(2, ixh1);
-                }
-            }
-
+            kwk1.a(2, b.intValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

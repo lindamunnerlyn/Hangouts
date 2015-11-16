@@ -3,8 +3,17 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface jru
+public class jru
 {
 
-    public abstract jsj a(Object obj);
+    fuu a;
+
+    jru()
+    {
+    }
+
+    public fuu a()
+    {
+        return (fuu)g.e(a, jrv.a);
+    }
 }

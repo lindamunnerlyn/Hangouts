@@ -2,53 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.api.client.http.AbstractHttpContent;
-import com.google.api.client.http.HttpMediaType;
-import java.io.OutputStream;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuItem;
 
-public final class csj extends AbstractHttpContent
+final class csj
+    implements android.widget.AbsListView.MultiChoiceModeListener
 {
 
-    private static final boolean b = false;
-    final kop a;
+    final csi a;
 
-    protected csj(kop kop1)
+    csj(csi csi1)
     {
-        super("application/x-protobuf");
-        a = kop1;
+        a = csi1;
+        super();
     }
 
-    public long getLength()
+    public boolean onActionItemClicked(ActionMode actionmode, MenuItem menuitem)
     {
-        int i = a.getSerializedSize();
-        if (b)
-        {
-            String s = String.valueOf(a.toString());
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(s).length() + 56)).append("NanoProtoHttpContent serialized size: ").append(i).append(" proto=").append(s).toString());
-        }
-        return (long)i;
+        return a.a.a(menuitem);
     }
 
-    public AbstractHttpContent setMediaType(HttpMediaType httpmediatype)
+    public boolean onCreateActionMode(ActionMode actionmode, Menu menu)
     {
-        return (csj)super.setMediaType(httpmediatype);
+        a.b = actionmode;
+        return a.a.a(a, menu);
     }
 
-    public void writeTo(OutputStream outputstream)
+    public void onDestroyActionMode(ActionMode actionmode)
     {
-        byte abyte0[] = kop.toByteArray(a);
-        if (b)
-        {
-            int i = abyte0.length;
-            String s = String.valueOf(toString());
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(s).length() + 51)).append("NanoProtoHttpContent write size: ").append(i).append(" proto=").append(s).toString());
-        }
-        outputstream.write(abyte0);
-        outputstream.flush();
+        a.a.b();
+        a.b = null;
     }
 
-    static 
+    public void onItemCheckedStateChanged(ActionMode actionmode, int i, long l, boolean flag)
     {
-        hik hik = ebw.k;
+        a.a.a(a, i, flag);
+    }
+
+    public boolean onPrepareActionMode(ActionMode actionmode, Menu menu)
+    {
+        return a.a.b(a, menu);
     }
 }

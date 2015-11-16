@@ -18,7 +18,7 @@ public class ShowToastForTesting extends Activity
     public void onStart()
     {
         super.onStart();
-        Toast.makeText(this, getIntent().getStringExtra("toast_text"), 1).show();
+        Toast.makeText(this, getIntent().getStringExtra("toast_text"), 0).show();
         finish();
     }
 }

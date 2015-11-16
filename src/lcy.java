@@ -2,64 +2,114 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Locale;
 
-public abstract class lcy
+public final class lcy extends kwm
 {
+
+    public lcr a[];
 
     public lcy()
     {
+        a = lcr.a();
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public abstract int a(long l);
+    protected int computeSerializedSize()
+    {
+        int i = super.computeSerializedSize();
+        int k = i;
+        if (a != null)
+        {
+            k = i;
+            if (a.length > 0)
+            {
+                int j = 0;
+                do
+                {
+                    k = i;
+                    if (j >= a.length)
+                    {
+                        break;
+                    }
+                    lcr lcr1 = a[j];
+                    k = i;
+                    if (lcr1 != null)
+                    {
+                        k = i + kwk.d(1, lcr1);
+                    }
+                    j++;
+                    i = k;
+                } while (true);
+            }
+        }
+        return k;
+    }
 
-    public abstract int a(Locale locale);
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
 
-    public abstract long a(long l, int j);
+            case 0: // '\0'
+                return this;
 
-    public abstract long a(long l, long l1);
+            case 10: // '\n'
+                int k = kwx.a(kwj1, 10);
+                lcr alcr[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                alcr = new lcr[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, alcr, 0, j);
+                    k = j;
+                }
+                for (; k < alcr.length - 1; k++)
+                {
+                    alcr[k] = new lcr();
+                    kwj1.a(alcr[k]);
+                    kwj1.a();
+                }
 
-    public abstract long a(long l, String s, Locale locale);
+                alcr[k] = new lcr();
+                kwj1.a(alcr[k]);
+                a = alcr;
+                break;
+            }
+        } while (true);
+    }
 
-    public abstract String a(int j, Locale locale);
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null && a.length > 0)
+        {
+            for (int i = 0; i < a.length; i++)
+            {
+                lcr lcr1 = a[i];
+                if (lcr1 != null)
+                {
+                    kwk1.b(1, lcr1);
+                }
+            }
 
-    public abstract String a(long l, Locale locale);
-
-    public abstract lcz a();
-
-    public abstract long b(long l, int j);
-
-    public abstract String b();
-
-    public abstract String b(int j, Locale locale);
-
-    public abstract String b(long l, Locale locale);
-
-    public abstract boolean b(long l);
-
-    public abstract int c(long l);
-
-    public abstract boolean c();
-
-    public abstract long d(long l);
-
-    public abstract ldh d();
-
-    public abstract long e(long l);
-
-    public abstract ldh e();
-
-    public abstract long f(long l);
-
-    public abstract ldh f();
-
-    public abstract int g();
-
-    public abstract long g(long l);
-
-    public abstract int h();
-
-    public abstract long h(long l);
-
-    public abstract long i(long l);
+        }
+        super.writeTo(kwk1);
+    }
 }

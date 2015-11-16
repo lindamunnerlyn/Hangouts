@@ -3,101 +3,105 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.view.View;
-import java.util.List;
 
 final class xx
 {
 
-    boolean a;
+    int a;
     int b;
-    int c;
-    int d;
-    int e;
-    int f;
-    int g;
-    int h;
-    boolean i;
-    int j;
-    List k;
+    boolean c;
+    final xw d;
 
-    xx()
+    xx(xw xw1)
     {
-        a = true;
-        h = 0;
-        i = false;
-        k = null;
+        d = xw1;
+        super();
     }
 
-    private void a(View view)
+    void a()
     {
-        int k1 = k.size();
-        View view1 = null;
-        int l = 0x7fffffff;
-        for (int i1 = 0; i1 < k1; i1++)
-        {
-            View view2 = ((zq)k.get(i1)).a;
-            zf zf1 = (zf)view2.getLayoutParams();
-            if (view2 == view || zf1.a())
-            {
-                continue;
-            }
-            int j1 = (zf1.c() - d) * e;
-            if (j1 < 0 || j1 >= l)
-            {
-                continue;
-            }
-            view1 = view2;
-            if (j1 == 0)
-            {
-                break;
-            }
-            view1 = view2;
-            l = j1;
-        }
+        a = -1;
+        b = 0x80000000;
+        c = false;
+    }
 
-        if (view1 == null)
+    public void a(View view)
+    {
+        int k = d.b.b();
+        if (k < 0) goto _L2; else goto _L1
+_L1:
+        b(view);
+_L4:
+        return;
+_L2:
+        a = d.d(view);
+        if (!c)
         {
-            d = -1;
-            return;
+            break; /* Loop/switch isn't completed */
+        }
+        int i = d.b.d() - k - d.b.b(view);
+        b = d.b.d() - i;
+        if (i > 0)
+        {
+            k = d.b.c(view);
+            int l = b;
+            int k1 = d.b.c();
+            k = l - k - (k1 + Math.min(d.b.a(view) - k1, 0));
+            if (k < 0)
+            {
+                int i1 = b;
+                b = Math.min(i, -k) + i1;
+                return;
+            }
+        }
+        if (true) goto _L4; else goto _L3
+_L3:
+        int j1 = d.b.a(view);
+        int j = j1 - d.b.c();
+        b = j1;
+        if (j > 0)
+        {
+            int l1 = d.b.c(view);
+            int i2 = d.b.d();
+            int j2 = d.b.b(view);
+            k = d.b.d() - Math.min(0, i2 - k - j2) - (j1 + l1);
+            if (k < 0)
+            {
+                b = b - Math.min(j, -k);
+                return;
+            }
+        }
+        if (true) goto _L4; else goto _L5
+_L5:
+    }
+
+    void b()
+    {
+        int i;
+        if (c)
+        {
+            i = d.b.d();
         } else
         {
-            d = ((zf)view1.getLayoutParams()).c();
-            return;
+            i = d.b.c();
         }
+        b = i;
     }
 
-    View a(zj zj1)
+    public void b(View view)
     {
-        if (k != null)
+        if (c)
         {
-            int i1 = k.size();
-            for (int l = 0; l < i1; l++)
-            {
-                zj1 = ((zq)k.get(l)).a;
-                zf zf1 = (zf)zj1.getLayoutParams();
-                if (!zf1.a() && d == zf1.c())
-                {
-                    a(((View) (zj1)));
-                    return zj1;
-                }
-            }
-
-            return null;
+            b = d.b.b(view) + d.b.b();
         } else
         {
-            zj1 = zj1.a(d);
-            d = d + e;
-            return zj1;
+            b = d.b.a(view);
         }
+        a = d.d(view);
     }
 
-    public void a()
+    public String toString()
     {
-        a(((View) (null)));
-    }
-
-    boolean a(zo zo1)
-    {
-        return d >= 0 && d < zo1.d();
+        return (new StringBuilder("AnchorInfo{mPosition=")).append(a).append(", mCoordinate=").append(b).append(", mLayoutFromEnd=").append(c).append('}').toString();
     }
 }

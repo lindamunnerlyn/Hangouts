@@ -3,20 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jbg extends koj
+public final class jbg extends kwm
 {
 
-    public jba a;
-    public jbw b;
-    public jba c[];
-    public ixg responseHeader;
+    public kxy a;
+    public byte b[];
 
     public jbg()
     {
-        responseHeader = null;
         a = null;
         b = null;
-        c = jba.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -25,53 +21,27 @@ public final class jbg extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (responseHeader != null)
-        {
-            i = j + koh.d(1, responseHeader);
-        }
-        j = i;
         if (a != null)
         {
-            j = i + koh.d(2, a);
-        }
-        i = j;
-        if (b != null)
-        {
-            i = j + koh.d(3, b);
+            i = j + kwk.d(1, a);
         }
         j = i;
-        if (c != null)
+        if (b != null)
         {
-            j = i;
-            if (c.length > 0)
-            {
-                for (j = 0; j < c.length;)
-                {
-                    jba jba1 = c[j];
-                    int k = i;
-                    if (jba1 != null)
-                    {
-                        k = i + koh.d(4, jba1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            j = i + kwk.b(2, b);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -81,88 +51,30 @@ public final class jbg extends koj
                 return this;
 
             case 10: // '\n'
-                if (responseHeader == null)
+                if (a == null)
                 {
-                    responseHeader = new ixg();
+                    a = new kxy();
                 }
-                kog1.a(responseHeader);
+                kwj1.a(a);
                 break;
 
             case 18: // '\022'
-                if (a == null)
-                {
-                    a = new jba();
-                }
-                kog1.a(a);
-                break;
-
-            case 26: // '\032'
-                if (b == null)
-                {
-                    b = new jbw();
-                }
-                kog1.a(b);
-                break;
-
-            case 34: // '"'
-                int k = kou.b(kog1, 34);
-                jba ajba[];
-                int j;
-                if (c == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = c.length;
-                }
-                ajba = new jba[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(c, 0, ajba, 0, j);
-                    k = j;
-                }
-                for (; k < ajba.length - 1; k++)
-                {
-                    ajba[k] = new jba();
-                    kog1.a(ajba[k]);
-                    kog1.a();
-                }
-
-                ajba[k] = new jba();
-                kog1.a(ajba[k]);
-                c = ajba;
+                b = kwj1.k();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (responseHeader != null)
-        {
-            koh1.b(1, responseHeader);
-        }
         if (a != null)
         {
-            koh1.b(2, a);
+            kwk1.b(1, a);
         }
         if (b != null)
         {
-            koh1.b(3, b);
+            kwk1.a(2, b);
         }
-        if (c != null && c.length > 0)
-        {
-            for (int i = 0; i < c.length; i++)
-            {
-                jba jba1 = c[i];
-                if (jba1 != null)
-                {
-                    koh1.b(4, jba1);
-                }
-            }
-
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

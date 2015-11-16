@@ -5,11 +5,6 @@
 package org.chromium.net;
 
 
-// Referenced classes of package org.chromium.net:
-//            ResponseInfo
-
 public interface ExtendedResponseInfo
 {
-
-    public abstract ResponseInfo a();
 }

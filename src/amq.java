@@ -2,23 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Context;
+import java.util.concurrent.Executors;
 
-final class amq
-    implements dqn
+public final class amq
 {
 
-    final SQLiteDatabase a;
+    public static final String a = amo.getName();
+    private static amp b;
 
-    amq(SQLiteDatabase sqlitedatabase)
+    public static void a(Context context, hlp hlp1)
     {
-        a = sqlitedatabase;
-        super();
+        if (b == null)
+        {
+            b = new amp();
+        }
+        hlp1.a(amo, new amr("babel_", context, Executors.newSingleThreadExecutor()));
     }
 
-    public void a(ContentValues contentvalues)
-    {
-        a.insert("apn", null, contentvalues);
-    }
 }

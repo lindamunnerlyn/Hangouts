@@ -2,115 +2,116 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
+import android.view.View;
 
-public class abd extends aba
+public abstract class abd extends jq
 {
 
-    public hm g;
-    public final float h;
-    public boolean i;
+    private final ap a;
+    private ad b;
+    private he c;
+    bg f;
 
-    public abd(Context context, ap ap, Cursor cursor, float f1, boolean flag)
+    public abd(ap ap1)
     {
-        super(context, ap, cursor);
-        g = new hm(abk.a.length);
-        h = f1;
-        i = flag;
+        f = null;
+        b = null;
+        c = new abe(this);
+        a = ap1;
     }
 
-    private String a(Cursor cursor, String s)
+    public abstract ad a(int i);
+
+    public Object a(View view, int i)
     {
-        if (g.containsKey(s))
+        if (f == null)
         {
-            return cursor.getString(((Integer)g.get(s)).intValue());
+            f = a.a();
+        }
+        Object obj = a(view.getId(), i);
+        c.b(obj);
+        obj = a.a(((String) (obj)));
+        if (obj != null)
+        {
+            f.e(((ad) (obj)));
+            view = ((View) (obj));
         } else
         {
-            return null;
+            ad ad1 = a(i);
+            if (ad1 == null)
+            {
+                return null;
+            }
+            f.a(view.getId(), ad1, a(view.getId(), i));
+            view = ad1;
         }
+        if (view != b)
+        {
+            view.setMenuVisibility(false);
+        }
+        return view;
     }
 
-    protected abe a(Intent intent, int j, boolean flag)
+    protected String a(int i, int j)
     {
-        return abe.a(intent, j, flag);
+        return (new StringBuilder(40)).append("android:switcher:").append(i).append(":").append(j).toString();
     }
 
-    public ad a(Cursor cursor, int j)
+    public void a(View view, int i, Object obj)
     {
-        String s = b(cursor);
-        String s1 = c(cursor);
-        boolean flag2 = d(cursor);
-        boolean flag1 = false;
-        boolean flag = flag1;
+        if (f == null)
+        {
+            f = a.a();
+        }
+        ad ad1 = (ad)obj;
+        String s = ad1.getTag();
+        obj = s;
         if (s == null)
         {
-            flag = flag1;
-            if (flag2)
+            obj = a(view.getId(), i);
+        }
+        c.a(obj, ad1);
+        f.d(ad1);
+    }
+
+    public boolean a(View view, Object obj)
+    {
+        obj = ((ad)obj).getView();
+        for (; view instanceof View; view = ((View)view).getParent())
+        {
+            if (view == obj)
             {
-                flag = true;
+                return true;
             }
         }
-        cursor = g.a(a, f());
-        cursor.c(s).d(s1).a(i).a(h);
-        return a(cursor.b(), j, flag);
+
+        return false;
     }
 
-    public Cursor a(Cursor cursor)
+    public void b(Object obj)
     {
-        boolean flag = false;
-        g.clear();
-        if (cursor != null)
+        obj = (ad)obj;
+        if (obj != b)
         {
-            String as[] = abk.a;
-            int i1 = as.length;
-            for (int j = 0; j < i1; j++)
+            if (b != null)
             {
-                String s = as[j];
-                g.put(s, Integer.valueOf(cursor.getColumnIndexOrThrow(s)));
+                b.setMenuVisibility(false);
             }
-
-            as = abk.b;
-            i1 = as.length;
-            for (int k = ((flag) ? 1 : 0); k < i1; k++)
+            if (obj != null)
             {
-                String s1 = as[k];
-                int l = cursor.getColumnIndex(s1);
-                if (l != -1)
-                {
-                    g.put(s1, Integer.valueOf(l));
-                }
+                ((ad) (obj)).setMenuVisibility(true);
             }
-
-        }
-        return super.a(cursor);
-    }
-
-    public String b(Cursor cursor)
-    {
-        return a(cursor, "contentUri");
-    }
-
-    public String c(Cursor cursor)
-    {
-        return a(cursor, "thumbnailUri");
-    }
-
-    public boolean d(Cursor cursor)
-    {
-        cursor = a(cursor, "loadingIndicator");
-        if (cursor == null)
-        {
-            return false;
-        } else
-        {
-            return Boolean.valueOf(cursor).booleanValue();
+            b = ((ad) (obj));
         }
     }
 
-    protected Class f()
+    public void c()
     {
-        return abe;
+        if (f != null && !a.e())
+        {
+            f.c();
+            f = null;
+            a.b();
+        }
     }
 }

@@ -2,69 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.gms.wearable.internal.GetConnectedNodesResponse;
-import com.google.android.gms.wearable.internal.NodeParcelable;
+import java.util.Set;
 
-public final class fus
-    implements android.os.Parcelable.Creator
+public interface fus
+    extends emw
 {
 
-    public fus()
-    {
-    }
+    public abstract void a(epq epq, Set set, fuc fuc);
 
-    public static void a(GetConnectedNodesResponse getconnectednodesresponse, Parcel parcel)
-    {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, getconnectednodesresponse.a);
-        g.b(parcel, 2, getconnectednodesresponse.b);
-        g.c(parcel, 3, getconnectednodesresponse.c);
-        g.q(parcel, i);
-    }
+    public abstract void a(epq epq, boolean flag);
 
-    public Object createFromParcel(Parcel parcel)
-    {
-        int j = 0;
-        int k = g.a(parcel);
-        java.util.ArrayList arraylist = null;
-        int i = 0;
-        do
-        {
-            if (parcel.dataPosition() < k)
-            {
-                int l = parcel.readInt();
-                switch (0xffff & l)
-                {
-                default:
-                    g.b(parcel, l);
-                    break;
+    public abstract void a(erb erb);
 
-                case 1: // '\001'
-                    i = g.e(parcel, l);
-                    break;
+    public abstract void n();
 
-                case 2: // '\002'
-                    j = g.e(parcel, l);
-                    break;
-
-                case 3: // '\003'
-                    arraylist = g.c(parcel, l, NodeParcelable.CREATOR);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != k)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
-            } else
-            {
-                return new GetConnectedNodesResponse(i, j, arraylist);
-            }
-        } while (true);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new GetConnectedNodesResponse[i];
-    }
+    public abstract void o();
 }

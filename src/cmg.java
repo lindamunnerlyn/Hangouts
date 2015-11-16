@@ -2,24 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
-import com.google.android.apps.hangouts.phone.DebugBitmapsActivity;
+import android.database.Cursor;
+import android.view.View;
+import android.widget.AdapterView;
+import com.google.android.apps.hangouts.phone.DebugActivity;
 
-final class cmg extends cmu
+public final class cmg
+    implements android.widget.AdapterView.OnItemClickListener
 {
 
-    final cls a;
+    final Cursor a;
+    final DebugActivity b;
 
-    cmg(cls cls1, String s)
+    public cmg(DebugActivity debugactivity, Cursor cursor)
     {
-        a = cls1;
-        super(s);
+        b = debugactivity;
+        a = cursor;
+        super();
     }
 
-    public void a()
+    public void onItemClick(AdapterView adapterview, View view, int i, long l)
     {
-        Intent intent = new Intent(a.a, com/google/android/apps/hangouts/phone/DebugBitmapsActivity);
-        a.a.startActivity(intent);
+        a.moveToPosition(i);
+        adapterview = a.getString(a.getColumnIndex("conversation_id"));
+        DebugActivity.a(b, adapterview, "conversations");
     }
 }

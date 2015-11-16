@@ -2,36 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.content.IntentFilter;
+import android.net.Uri;
+import android.os.AsyncTask;
+import java.io.File;
 
-abstract class cox
+public final class cox extends AsyncTask
 {
 
-    boolean b;
-    final cop c;
+    final Context a;
 
-    private cox(cop cop1)
+    public cox(Context context)
     {
-        c = cop1;
+        a = context;
         super();
-        b = false;
     }
 
-    cox(cop cop1, byte byte0)
+    private transient Void a()
     {
-        this(cop1);
+        Object obj = a;
+        try
+        {
+            dql.y_();
+        }
+        catch (UnsupportedOperationException unsupportedoperationexception)
+        {
+            IntentFilter intentfilter = new IntentFilter();
+            intentfilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
+            intentfilter.addDataPath(android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI.getPath(), 0);
+            intentfilter.addDataScheme(android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI.getScheme());
+            ((Context) (obj)).registerReceiver(new dqm(), intentfilter);
+        }
+        obj = ((Context) (obj)).getCacheDir();
+        (new File(((File) (obj)), "telephony_brief_call_log")).delete();
+        (new File(((File) (obj)), "telephony_brief_call_log_v2")).delete();
+        return null;
     }
 
-    abstract boolean a();
-
-    abstract dsn b();
-
-    void c()
+    protected Object doInBackground(Object aobj[])
     {
-        cop.d(c).a(b());
-    }
-
-    void d()
-    {
-        cop.d(c).b(b());
+        return a();
     }
 }

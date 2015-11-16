@@ -2,48 +2,65 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
+import android.os.Parcel;
+import com.google.android.gms.googlehelp.internal.common.OverflowMenuItem;
 
 public final class fef
+    implements android.os.Parcelable.Creator
 {
 
-    public static final int a[] = new int[0];
-    public static final long b[] = new long[0];
-    public static final Object c[] = new Object[0];
-
-    public static int a(int ai[], int i, int j)
+    public fef()
     {
-        int k;
-label0:
+    }
+
+    public Object createFromParcel(Parcel parcel)
+    {
+        Intent intent = null;
+        int k = g.a(parcel);
+        int j = 0;
+        int i = 0;
+        String s = null;
+        do
         {
-            k = 0;
-            int l = i - 1;
-            i = k;
-            for (k = l; i <= k;)
+            if (parcel.dataPosition() < k)
             {
-                int i1 = i + k >>> 1;
-                int j1 = ai[i1];
-                if (j1 < j)
+                int l = parcel.readInt();
+                switch (0xffff & l)
                 {
-                    i = i1 + 1;
-                } else
-                {
-                    k = i1;
-                    if (j1 <= j)
-                    {
-                        break label0;
-                    }
-                    k = i1 - 1;
+                default:
+                    g.b(parcel, l);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, l);
+                    break;
+
+                case 2: // '\002'
+                    j = g.e(parcel, l);
+                    break;
+
+                case 3: // '\003'
+                    s = g.i(parcel, l);
+                    break;
+
+                case 4: // '\004'
+                    intent = (Intent)g.a(parcel, l, Intent.CREATOR);
+                    break;
                 }
+            } else
+            if (parcel.dataPosition() != k)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
+            } else
+            {
+                return new OverflowMenuItem(i, j, s, intent);
             }
-
-            k = ~i;
-        }
-        return k;
+        } while (true);
     }
 
-    public static boolean a(Object obj, Object obj1)
+    public Object[] newArray(int i)
     {
-        return obj == obj1 || obj != null && obj.equals(obj1);
+        return new OverflowMenuItem[i];
     }
-
 }

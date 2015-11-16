@@ -2,30 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
 
-public final class cpi
-    implements gwl
+final class cpi extends Enum
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new cpj();
+    public static final int a;
+    public static final int b;
+    public static final int c;
+    public static final int d;
+    private static final int e[];
 
-    public cpi()
+    public static int[] a()
     {
+        return (int[])e.clone();
     }
 
-    public boolean a(int i, gmu gmu1)
+    static 
     {
-        return gmu1.d("logged_in") || gmu1.d("sms_only");
+        a = 1;
+        b = 2;
+        c = 3;
+        d = 4;
+        e = (new int[] {
+            a, b, c, d
+        });
     }
-
-    public int describeContents()
-    {
-        return 0;
-    }
-
-    public void writeToParcel(Parcel parcel, int i)
-    {
-    }
-
 }

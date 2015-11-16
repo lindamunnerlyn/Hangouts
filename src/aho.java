@@ -2,22 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-final class aho
-    implements ahl
+public final class aho
 {
 
-    aho()
+    public static final String a = ahm.getName();
+    private static ahn b;
+
+    public static void a(Context context, hlp hlp1)
     {
+        if (b == null)
+        {
+            b = new ahn();
+        }
+        hlp1.a(ahm, new ahp(context));
     }
 
-    public boolean a(int i)
-    {
-        return dbf.e(i).t();
-    }
-
-    public boolean b(int i)
-    {
-        return dbf.e(i).ab();
-    }
 }

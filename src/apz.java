@@ -2,36 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
 final class apz
-    implements Runnable
+    implements aqb
 {
 
-    final ebh a;
-    final eab b;
-    final boolean c;
-    final boolean d;
-    final apw e;
+    final Context a;
+    final apy b;
 
-    apz(apw apw1, ebh ebh, eab eab, boolean flag, boolean flag1)
+    apz(apy apy, Context context)
     {
-        e = apw1;
-        a = ebh;
-        b = eab;
-        c = flag;
-        d = flag1;
+        b = apy;
+        a = context;
         super();
     }
 
-    public void run()
+    public aps a(int i)
     {
-        ecd.a("ImageRequest.deliverImageOnCorrectThread");
-        apw.a(e).a(a, b, c, e, d);
-        ecd.a();
-        return;
-        Exception exception;
-        exception;
-        ecd.a();
-        throw exception;
+        return aps.a(a, i);
     }
 }

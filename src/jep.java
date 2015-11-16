@@ -3,19 +3,13 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jep extends koj
+public final class jep extends kwm
 {
 
-    public Boolean a;
-    public Boolean b;
-    public Boolean c;
+    public ixl a;
+    public jce b;
+    public Long c;
     public Integer d;
-    public Long e;
-    public String f;
-    public Boolean g;
-    public Long h;
-    public Long i;
-    public Long j;
 
     public jep()
     {
@@ -23,181 +17,101 @@ public final class jep extends koj
         b = null;
         c = null;
         d = null;
-        e = null;
-        f = null;
-        g = null;
-        h = null;
-        i = null;
-        j = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int l = super.computeSerializedSize();
-        int k = l;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            a.booleanValue();
-            k = l + (koh.f(1) + 1);
+            i = j + kwk.d(1, a);
         }
-        l = k;
+        j = i;
         if (b != null)
         {
-            b.booleanValue();
-            l = k + (koh.f(2) + 1);
+            j = i + kwk.d(2, b);
         }
-        k = l;
+        i = j;
         if (c != null)
         {
-            c.booleanValue();
-            k = l + (koh.f(3) + 1);
+            i = j + kwk.d(3, c.longValue());
         }
-        l = k;
+        j = i;
         if (d != null)
         {
-            l = k + koh.e(4, d.intValue());
+            j = i + kwk.e(4, d.intValue());
         }
-        k = l;
-        if (e != null)
-        {
-            k = l + koh.e(5, e.longValue());
-        }
-        l = k;
-        if (f != null)
-        {
-            l = k + koh.b(6, f);
-        }
-        k = l;
-        if (g != null)
-        {
-            g.booleanValue();
-            k = l + (koh.f(7) + 1);
-        }
-        l = k;
-        if (h != null)
-        {
-            l = k + koh.e(8, h.longValue());
-        }
-        k = l;
-        if (i != null)
-        {
-            k = l + koh.e(9, i.longValue());
-        }
-        l = k;
-        if (j != null)
-        {
-            l = k + koh.e(10, j.longValue());
-        }
-        return l;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L13:
-        int k = kog1.a();
-        k;
-        JVM INSTR lookupswitch 11: default 104
-    //                   0: 113
-    //                   8: 115
-    //                   16: 129
-    //                   24: 143
-    //                   32: 157
-    //                   40: 210
-    //                   50: 224
-    //                   56: 235
-    //                   64: 249
-    //                   72: 263
-    //                   80: 277;
-           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12
+_L7:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 5: default 56
+    //                   0: 65
+    //                   10: 67
+    //                   18: 96
+    //                   24: 125
+    //                   32: 139;
+           goto _L1 _L2 _L3 _L4 _L5 _L6
 _L1:
-        if (super.storeUnknownField(kog1, k)) goto _L13; else goto _L2
+        if (super.storeUnknownField(kwj1, i)) goto _L7; else goto _L2
 _L2:
         return this;
 _L3:
-        a = Boolean.valueOf(kog1.i());
-          goto _L13
-_L4:
-        b = Boolean.valueOf(kog1.i());
-          goto _L13
-_L5:
-        c = Boolean.valueOf(kog1.i());
-          goto _L13
-_L6:
-        int l = kog1.f();
-        switch (l)
+        if (a == null)
         {
-        case 10: // '\n'
-        case 20: // '\024'
-        case 30: // '\036'
-            d = Integer.valueOf(l);
+            a = new ixl();
+        }
+        kwj1.a(a);
+          goto _L7
+_L4:
+        if (b == null)
+        {
+            b = new jce();
+        }
+        kwj1.a(b);
+          goto _L7
+_L5:
+        c = Long.valueOf(kwj1.d());
+          goto _L7
+_L6:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+            d = Integer.valueOf(j);
             break;
         }
-        continue; /* Loop/switch isn't completed */
-_L7:
-        e = Long.valueOf(kog1.e());
-        continue; /* Loop/switch isn't completed */
+        if (true) goto _L7; else goto _L8
 _L8:
-        f = kog1.j();
-        continue; /* Loop/switch isn't completed */
-_L9:
-        g = Boolean.valueOf(kog1.i());
-        continue; /* Loop/switch isn't completed */
-_L10:
-        h = Long.valueOf(kog1.e());
-        continue; /* Loop/switch isn't completed */
-_L11:
-        i = Long.valueOf(kog1.e());
-        continue; /* Loop/switch isn't completed */
-_L12:
-        j = Long.valueOf(kog1.e());
-        if (true) goto _L13; else goto _L14
-_L14:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.booleanValue());
+            kwk1.b(1, a);
         }
         if (b != null)
         {
-            koh1.a(2, b.booleanValue());
+            kwk1.b(2, b);
         }
         if (c != null)
         {
-            koh1.a(3, c.booleanValue());
+            kwk1.a(3, c.longValue());
         }
         if (d != null)
         {
-            koh1.a(4, d.intValue());
+            kwk1.a(4, d.intValue());
         }
-        if (e != null)
-        {
-            koh1.b(5, e.longValue());
-        }
-        if (f != null)
-        {
-            koh1.a(6, f);
-        }
-        if (g != null)
-        {
-            koh1.a(7, g.booleanValue());
-        }
-        if (h != null)
-        {
-            koh1.b(8, h.longValue());
-        }
-        if (i != null)
-        {
-            koh1.b(9, i.longValue());
-        }
-        if (j != null)
-        {
-            koh1.b(10, j.longValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

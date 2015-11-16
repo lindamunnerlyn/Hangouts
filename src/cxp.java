@@ -2,78 +2,67 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
 
-public final class cxp
-    implements Serializable
+public class cxp extends cwm
 {
 
-    private static final long serialVersionUID = 1L;
-    public final String a;
+    private static final long serialVersionUID = 2L;
+    public final cxq a[];
     public final int b;
-    public final String c;
-    public final long d;
-    public int e;
-    public final long f;
 
-    public cxp()
+    public cxp(cxq acxq[], int i)
     {
-        e = cxq.a;
-        a = "";
-        b = 1;
-        c = "";
-        d = 0L;
-        f = -1L;
+        a = acxq;
+        b = i;
     }
 
-    public cxp(hsv hsv)
+    public String a()
     {
-        e = cxq.a;
-        d = 0L;
-        a = "";
-        b = 1;
-        c = "";
-        f = -1L;
+        return "background_queue";
     }
 
-    public cxp(ixg ixg1)
+    public kws a(String s, int i, int j)
     {
-        e = cxq.a;
-        a = ixg1.b;
-        b = g.a(ixg1.a, 0);
-        c = ixg1.c;
-        d = g.a(ixg1.d, 0L);
-        if (ixg1.i != null && ixg1.i.a != null && ixg1.i.b != null)
+        int k = 0;
+        if (cvv.e)
         {
-            f = g.a(ixg1.i.b, 0L);
-            switch (g.a(ixg1.i.a, 0))
-            {
-            default:
-                ixg1 = String.valueOf(ixg1.i.a);
-                ebw.g("Babel", (new StringBuilder(String.valueOf(ixg1).length() + 66)).append("Unexpected error code for syncHintAnswer in clientResponseHeader: ").append(ixg1).toString());
-                return;
-
-            case 0: // '\0'
-                e = cxq.a;
-                return;
-
-            case 1: // '\001'
-                e = cxq.b;
-                return;
-
-            case 2: // '\002'
-                e = cxq.c;
-                return;
-
-            case 3: // '\003'
-                e = cxq.d;
-                break;
-            }
-            return;
-        } else
-        {
-            f = -1L;
-            return;
+            eev.b("Babel_RequestWriter", "Build proto for UploadAnalyticsRequest");
         }
+        jcx jcx1 = new jcx();
+        jcx1.requestHeader = cvu.a(null, true, s, i, j, h);
+        if (a != null && b > 0)
+        {
+            jcx1.b = new jam[b];
+            j = 0;
+            for (i = k; i < a.length && j < b; j = k)
+            {
+                k = j;
+                if (a[i].b() > 0L)
+                {
+                    jcx1.b[j] = a[i].c();
+                    k = j + 1;
+                }
+                i++;
+            }
+
+        }
+        return jcx1;
+    }
+
+    public void a(aoa aoa1, dcx dcx)
+    {
+        dcx = dku.b(aoa1.h());
+        if (dcx.g())
+        {
+            String s = String.valueOf(getClass().getSimpleName());
+            aoa1 = String.valueOf(eev.b(aoa1.a()));
+            eev.f("Babel_RequestWriter", (new StringBuilder(String.valueOf(s).length() + 9 + String.valueOf(aoa1).length())).append(s).append(" failed: ").append(aoa1).toString());
+            dcx.a(0);
+        }
+    }
+
+    public String f()
+    {
+        return "analytics/recordanalyticsevents";
     }
 }

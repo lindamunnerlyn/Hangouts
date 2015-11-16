@@ -3,99 +3,139 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.accounts.Account;
-import android.os.Parcel;
-import com.google.android.gms.common.api.Scope;
-import com.google.android.gms.common.internal.GetServiceRequest;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.View;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public final class emz
-    implements android.os.Parcelable.Creator
 {
 
-    public emz()
+    ai a;
+    private Account b;
+    private final Set c = new HashSet();
+    private int d;
+    private View e;
+    private String f;
+    private String g;
+    private final Map h = new fhb();
+    private final Context i;
+    private final Map j = new fhb();
+    private int k;
+    private int l;
+    private end m;
+    private Looper n;
+    private eml o;
+    private emu p;
+    private final ArrayList q = new ArrayList();
+    private final ArrayList r = new ArrayList();
+    private ftw s;
+
+    public emz(Context context)
     {
+        k = -1;
+        l = -1;
+        o = eml.a();
+        p = fuo.c;
+        s = new ftw();
+        i = context;
+        n = context.getMainLooper();
+        f = context.getPackageName();
+        g = context.getClass().getName();
     }
 
-    public static void a(GetServiceRequest getservicerequest, Parcel parcel, int i)
+    private epo b()
     {
-        int j = g.p(parcel, 20293);
-        g.b(parcel, 1, getservicerequest.a);
-        g.b(parcel, 2, getservicerequest.b);
-        g.b(parcel, 3, getservicerequest.c);
-        g.a(parcel, 4, getservicerequest.d);
-        g.a(parcel, 5, getservicerequest.e);
-        g.a(parcel, 6, getservicerequest.f, i);
-        g.a(parcel, 7, getservicerequest.g);
-        g.a(parcel, 8, getservicerequest.h, i);
-        g.q(parcel, j);
+        return new epo(b, c, h, d, e, f, g, s.a());
     }
 
-    public Object createFromParcel(Parcel parcel)
+    public emy a()
     {
-        int i = 0;
-        Account account = null;
-        int l = g.a(parcel);
-        android.os.Bundle bundle = null;
-        Scope ascope[] = null;
-        android.os.IBinder ibinder = null;
-        String s = null;
-        int j = 0;
-        int k = 0;
-        do
+        boolean flag;
+        if (!j.isEmpty())
         {
-            if (parcel.dataPosition() < l)
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        g.b(flag, "must call addApi() to add at least one API");
+        if (k >= 0)
+        {
+            eof eof1 = new eof(i.getApplicationContext(), n, b(), o, p, j, q, r, k, -1);
+            eow eow1 = eow.a(a);
+            if (eow1 == null)
             {
-                int i1 = parcel.readInt();
-                switch (0xffff & i1)
-                {
-                default:
-                    g.b(parcel, i1);
-                    break;
-
-                case 1: // '\001'
-                    k = g.e(parcel, i1);
-                    break;
-
-                case 2: // '\002'
-                    j = g.e(parcel, i1);
-                    break;
-
-                case 3: // '\003'
-                    i = g.e(parcel, i1);
-                    break;
-
-                case 4: // '\004'
-                    s = g.i(parcel, i1);
-                    break;
-
-                case 5: // '\005'
-                    ibinder = g.j(parcel, i1);
-                    break;
-
-                case 6: // '\006'
-                    ascope = (Scope[])g.b(parcel, i1, Scope.CREATOR);
-                    break;
-
-                case 7: // '\007'
-                    bundle = g.k(parcel, i1);
-                    break;
-
-                case 8: // '\b'
-                    account = (Account)g.a(parcel, i1, Account.CREATOR);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != l)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(l).toString(), parcel);
+                (new Handler(i.getMainLooper())).post(new ena(this, eof1));
             } else
             {
-                return new GetServiceRequest(k, j, i, s, ibinder, ascope, bundle, account);
+                a(eow1, ((emy) (eof1)));
             }
-        } while (true);
+            return eof1;
+        }
+        if (l >= 0)
+        {
+            eoz eoz1 = eoz.a(a);
+            emy emy = eoz1.a(l);
+            Object obj = emy;
+            if (emy == null)
+            {
+                obj = new eof(i.getApplicationContext(), n, b(), o, p, j, q, r, -1, l);
+            }
+            eoz1.a(l, ((emy) (obj)), m);
+            return ((emy) (obj));
+        } else
+        {
+            return new eof(i, n, b(), o, p, j, q, r, -1, -1);
+        }
     }
 
-    public Object[] newArray(int i)
+    public emz a(emt emt1)
     {
-        return new GetServiceRequest[i];
+        j.put(emt1, null);
+        c.addAll(emt1.a().a());
+        return this;
+    }
+
+    public emz a(emt emt1, emv emv)
+    {
+        g.b(emv, "Null options are not permitted for this Api");
+        j.put(emt1, emv);
+        c.addAll(emt1.a().a());
+        return this;
+    }
+
+    public emz a(enb enb)
+    {
+        q.add(enb);
+        return this;
+    }
+
+    public emz a(end end)
+    {
+        r.add(end);
+        return this;
+    }
+
+    public emz a(String s1)
+    {
+        if (s1 == null)
+        {
+            s1 = null;
+        } else
+        {
+            s1 = new Account(s1, "com.google");
+        }
+        b = s1;
+        return this;
+    }
+
+    void a(eow eow1, emy emy)
+    {
+        eow1.a(k, emy, m);
     }
 }

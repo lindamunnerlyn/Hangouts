@@ -6,15 +6,16 @@ package com.google.android.gms.wearable.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fwg;
-import fyb;
+import fyl;
+import g;
+import gap;
 
 public class AncsNotificationParcelable
-    implements SafeParcelable, fyb
+    implements SafeParcelable, gap
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fwg();
-    public final int a;
+    public static final android.os.Parcelable.Creator CREATOR = new fyl();
+    final int a;
     private int b;
     private final String c;
     private final String d;
@@ -194,7 +195,20 @@ public class AncsNotificationParcelable
 
     public void writeToParcel(Parcel parcel, int i1)
     {
-        fwg.a(this, parcel);
+        i1 = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, b());
+        g.a(parcel, 3, c());
+        g.a(parcel, 4, d());
+        g.a(parcel, 5, e());
+        g.a(parcel, 6, f());
+        g.a(parcel, 7, g());
+        g.a(parcel, 8, h());
+        g.a(parcel, 9, i());
+        g.a(parcel, 10, j());
+        g.a(parcel, 11, k());
+        g.a(parcel, 12, l());
+        g.q(parcel, i1);
     }
 
 }

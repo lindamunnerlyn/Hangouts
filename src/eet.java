@@ -2,81 +2,95 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import java.util.Iterator;
-import java.util.List;
+import android.view.Choreographer;
 
-public final class eet extends ay
+public final class eet
+    implements hor, hou, hoy
 {
 
-    private final int a;
-    private final int b = 2;
-    private final Context c;
-    private final List d;
+    private static final boolean a = false;
+    private final String b;
+    private final eeu c;
+    private long d;
+    private int e;
 
-    public eet(ap ap, Context context, int i, List list)
+    public eet(String s, hof hof1)
     {
-        super(ap);
-        c = context;
-        d = list;
-        a = i;
-    }
-
-    public int a(ees ees1)
-    {
-        return d.indexOf(ees1);
-    }
-
-    public int a(String s)
-    {
-        for (int i = d.size() - 1; i >= 0; i--)
+        b = s;
+        hof1.a(this);
+        if (android.os.Build.VERSION.SDK_INT >= 16)
         {
-            if (((ees)d.get(i)).d.equals(s))
-            {
-                return i;
-            }
-        }
-
-        return -1;
-    }
-
-    public ad a(int i)
-    {
-        ees ees1 = d(i);
-        return ad.instantiate(c, ees1.e.getName());
-    }
-
-    public boolean a(Class class1)
-    {
-        for (Iterator iterator = d.iterator(); iterator.hasNext();)
+            c = new eeu(this);
+            return;
+        } else
         {
-            if (class1.equals(((ees)iterator.next()).e))
-            {
-                return true;
-            }
+            c = null;
+            return;
         }
-
-        return false;
     }
 
-    public int b()
+    static long a(eet eet1)
     {
-        return d.size();
+        return eet1.d;
     }
 
-    public long b(int i)
+    static long a(eet eet1, long l)
     {
-        return (long)(a * b + i);
+        eet1.d = l;
+        return l;
     }
 
-    public CharSequence c(int i)
+    static String b(eet eet1)
     {
-        ees ees1 = d(i);
-        return c.getString(ees1.a);
+        return eet1.b;
     }
 
-    public ees d(int i)
+    static int c(eet eet1)
     {
-        return (ees)d.get(i);
+        return eet1.e;
+    }
+
+    private void c()
+    {
+        Choreographer.getInstance().postFrameCallback(c);
+    }
+
+    static int d(eet eet1)
+    {
+        eet1.e = 0;
+        return 0;
+    }
+
+    static int e(eet eet1)
+    {
+        int i = eet1.e;
+        eet1.e = i + 1;
+        return i;
+    }
+
+    static void f(eet eet1)
+    {
+        eet1.c();
+    }
+
+    public void G_()
+    {
+        if (a && android.os.Build.VERSION.SDK_INT >= 16)
+        {
+            c();
+        }
+    }
+
+    public void a()
+    {
+        if (android.os.Build.VERSION.SDK_INT >= 16)
+        {
+            Choreographer.getInstance().removeFrameCallback(c);
+        }
+    }
+
+    static 
+    {
+        hnc hnc = eev.g;
     }
 }

@@ -2,50 +2,103 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.cache.LocalCache;
 
-public final class jiu extends jiw
+public final class jiu extends kwm
 {
 
-    volatile long a;
-    com.google.common.cache.LocalCache.ReferenceEntry b;
-    com.google.common.cache.LocalCache.ReferenceEntry c;
+    private static volatile jiu c[];
+    public Integer a;
+    public jjr b;
 
-    jiu(Object obj, int i, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    public jiu()
     {
-        super(obj, i, referenceentry);
-        a = 0x7fffffffffffffffL;
-        b = LocalCache.j();
-        c = LocalCache.j();
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public long getAccessTime()
+    public static jiu[] a()
     {
-        return a;
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry getNextInAccessQueue()
-    {
-        return b;
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInAccessQueue()
-    {
+        if (c == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (c == null)
+                {
+                    c = new jiu[0];
+                }
+            }
+        }
         return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public void setAccessTime(long l)
+    protected int computeSerializedSize()
     {
-        a = l;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.e(1, a.intValue());
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(2, b);
+        }
+        return j;
     }
 
-    public void setNextInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    public kws mergeFrom(kwj kwj1)
     {
-        b = referenceentry;
+_L5:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   8: 51
+    //                   18: 102;
+           goto _L1 _L2 _L3 _L4
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+            a = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        if (b == null)
+        {
+            b = new jjr();
+        }
+        kwj1.a(b);
+        if (true) goto _L5; else goto _L6
+_L6:
     }
 
-    public void setPreviousInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    public void writeTo(kwk kwk1)
     {
-        c = referenceentry;
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        super.writeTo(kwk1);
     }
 }

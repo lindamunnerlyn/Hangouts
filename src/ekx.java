@@ -2,43 +2,79 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.ConnectionResult;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.regex.Pattern;
 
-final class ekx extends elc
+public final class ekx
+    implements Comparable
 {
 
-    final ekp a;
-    private final Map c;
+    public static final ekx e = new ekx();
+    public final String a;
+    public final String b;
+    public final String c;
+    public final boolean d;
 
-    public ekx(ekp ekp1, Map map)
+    private ekx()
     {
-        a = ekp1;
-        super(ekp1, (byte)0);
-        c = map;
+        a = "DEFAULT";
+        b = "";
+        c = null;
+        d = false;
     }
 
-    public void a()
+    public ekx(String s, String s1)
     {
-        int i = ejk.a(a.c);
-        if (i != 0)
+        a = s;
+        String as[] = ekw.a().split(s1);
+        if (as.length == 0)
         {
-            ConnectionResult connectionresult = new ConnectionResult(i, null);
-            a.a.a(new eky(this, a, connectionresult));
-        } else
+            throw new eky("Empty rule");
+        }
+        b = as[0];
+        s = null;
+        boolean flag = false;
+        for (int i = 1; i < as.length;)
         {
-            if (a.e)
+            String s2 = as[i].toLowerCase();
+            if (s2.equals("rewrite") && i + 1 < as.length)
             {
-                a.d.p();
-            }
-            Iterator iterator = c.keySet().iterator();
-            while (iterator.hasNext()) 
+                s = as[i + 1];
+                i += 2;
+            } else
+            if (s2.equals("block"))
             {
-                ejv ejv1 = (ejv)iterator.next();
-                ejv1.a((ekb)c.get(ejv1));
+                i++;
+                flag = true;
+            } else
+            {
+                throw new eky((new StringBuilder("Illegal rule: ")).append(s1).toString());
             }
         }
+
+        c = s;
+        d = flag;
     }
+
+    public String a(String s)
+    {
+        String s1;
+        if (d)
+        {
+            s1 = null;
+        } else
+        {
+            s1 = s;
+            if (c != null)
+            {
+                return (new StringBuilder()).append(c).append(s.substring(b.length())).toString();
+            }
+        }
+        return s1;
+    }
+
+    public int compareTo(Object obj)
+    {
+        return ((ekx)obj).b.compareTo(b);
+    }
+
 }

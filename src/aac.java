@@ -2,132 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public final class aac extends koj
+public final class aac extends android.view.View.BaseSavedState
 {
 
-    public static final kok a = kok.a(aac, 0xbb61f6aL);
-    private static final aac d[] = new aac[0];
-    public c b;
-    public b c[];
+    public static final android.os.Parcelable.Creator CREATOR = new aad();
+    public int a;
+    public boolean b;
 
-    public aac()
+    public aac(Parcel parcel)
     {
-        b = null;
-        c = b.a();
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(parcel);
+        a = parcel.readInt();
+        boolean flag;
+        if (parcel.readInt() != 0)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        b = flag;
     }
 
-    protected int computeSerializedSize()
+    public aac(Parcelable parcelable)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (b != null)
-        {
-            i = j + koh.d(1, b);
-        }
-        j = i;
-        if (c != null)
-        {
-            j = i;
-            if (c.length > 0)
-            {
-                for (j = 0; j < c.length;)
-                {
-                    b b1 = c[j];
-                    int k = i;
-                    if (b1 != null)
-                    {
-                        k = i + koh.d(2, b1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
-        }
-        return j;
+        super(parcelable);
     }
 
-    public kop mergeFrom(kog kog1)
+    public void writeToParcel(Parcel parcel, int i)
     {
-        do
+        super.writeToParcel(parcel, i);
+        parcel.writeInt(a);
+        if (b)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (b == null)
-                {
-                    b = new c();
-                }
-                kog1.a(b);
-                break;
-
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                b ab[];
-                int j;
-                if (c == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = c.length;
-                }
-                ab = new b[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(c, 0, ab, 0, j);
-                    k = j;
-                }
-                for (; k < ab.length - 1; k++)
-                {
-                    ab[k] = new b();
-                    kog1.a(ab[k]);
-                    kog1.a();
-                }
-
-                ab[k] = new b();
-                kog1.a(ab[k]);
-                c = ab;
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (b != null)
+            i = 1;
+        } else
         {
-            koh1.b(1, b);
+            i = 0;
         }
-        if (c != null && c.length > 0)
-        {
-            for (int i = 0; i < c.length; i++)
-            {
-                b b1 = c[i];
-                if (b1 != null)
-                {
-                    koh1.b(2, b1);
-                }
-            }
-
-        }
-        super.writeTo(koh1);
+        parcel.writeInt(i);
     }
 
 }

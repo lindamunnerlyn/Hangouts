@@ -2,9 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
+import com.google.android.apps.hangouts.wearable.WearableService;
 
-public interface ekh
+public final class ekh
+    implements enb
 {
 
-    public abstract void a(ekg ekg);
+    final WearableService a;
+
+    public ekh(WearableService wearableservice)
+    {
+        a = wearableservice;
+        super();
+    }
+
+    public void a(int i)
+    {
+    }
+
+    public void a_(Bundle bundle)
+    {
+        a.d.a(a.b, WearableService.a).a(new eki(this));
+    }
 }

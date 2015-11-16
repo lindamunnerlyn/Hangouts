@@ -6,10 +6,9 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import eof;
-import flg;
+import erf;
+import foc;
 import g;
-import h;
 import java.util.Arrays;
 
 // Referenced classes of package com.google.android.gms.maps.model:
@@ -19,15 +18,15 @@ public final class LatLngBounds
     implements SafeParcelable
 {
 
-    public static final flg CREATOR = new flg();
+    public static final foc CREATOR = new foc();
     public final LatLng a;
     public final LatLng b;
     private final int c;
 
     public LatLngBounds(int i, LatLng latlng, LatLng latlng1)
     {
-        h.a(latlng, "null southwest");
-        h.a(latlng1, "null northeast");
+        g.b(latlng, "null southwest");
+        g.b(latlng1, "null northeast");
         boolean flag;
         if (latlng1.a >= latlng.a)
         {
@@ -36,7 +35,7 @@ public final class LatLngBounds
         {
             flag = false;
         }
-        h.a(flag, "southern latitude exceeds northern latitude (%s > %s)", new Object[] {
+        g.a(flag, "southern latitude exceeds northern latitude (%s > %s)", new Object[] {
             Double.valueOf(latlng.a), Double.valueOf(latlng1.a)
         });
         c = i;
@@ -44,7 +43,7 @@ public final class LatLngBounds
         b = latlng1;
     }
 
-    public int a()
+    private int a()
     {
         return c;
     }
@@ -85,7 +84,11 @@ public final class LatLngBounds
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        flg.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a());
+        g.a(parcel, 2, a, i);
+        g.a(parcel, 3, b, i);
+        g.q(parcel, j);
     }
 
 }

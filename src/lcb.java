@@ -3,59 +3,56 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lcb extends koj
+final class lcb
 {
 
-    public String a;
+    static final int a[];
 
-    public lcb()
+    static 
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        a = new int[kum.a().length];
+        try
         {
-            i = j + koh.b(1, a);
+            a[kum.b - 1] = 1;
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        catch (NoSuchFieldError nosuchfielderror7) { }
+        try
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a);
+            a[kum.e - 1] = 2;
         }
-        super.writeTo(koh1);
+        catch (NoSuchFieldError nosuchfielderror6) { }
+        try
+        {
+            a[kum.a - 1] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror5) { }
+        try
+        {
+            a[kum.d - 1] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror4) { }
+        try
+        {
+            a[kum.f - 1] = 5;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[kum.c - 1] = 6;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[kum.g - 1] = 7;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[kum.h - 1] = 8;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

@@ -3,139 +3,25 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jxh extends koj
+final class jxh extends jry
 {
 
-    public jxj a;
-    public jxk b;
-    public jxl c;
-    public jxm d;
-    public jxi e;
+    final jxg a;
 
-    public jxh()
+    jxh(jxg jxg1)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        e = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = jxg1;
+        super();
     }
 
-    protected int computeSerializedSize()
+    jsd b()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.d(3, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.d(4, d);
-        }
-        i = j;
-        if (e != null)
-        {
-            i = j + koh.d(5, e);
-        }
-        return i;
+        return a;
     }
 
-    public kop mergeFrom(kog kog1)
+    public Object get(int i)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new jxj();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new jxk();
-                }
-                kog1.a(b);
-                break;
-
-            case 26: // '\032'
-                if (c == null)
-                {
-                    c = new jxl();
-                }
-                kog1.a(c);
-                break;
-
-            case 34: // '"'
-                if (d == null)
-                {
-                    d = new jxm();
-                }
-                kog1.a(d);
-                break;
-
-            case 42: // '*'
-                if (e == null)
-                {
-                    e = new jxi();
-                }
-                kog1.a(e);
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        if (c != null)
-        {
-            koh1.b(3, c);
-        }
-        if (d != null)
-        {
-            koh1.b(4, d);
-        }
-        if (e != null)
-        {
-            koh1.b(5, e);
-        }
-        super.writeTo(koh1);
+        java.util.Map.Entry entry = jxe.d(a.a.b)[i];
+        return jwd.a(entry.getValue(), entry.getKey());
     }
 }

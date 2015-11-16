@@ -2,87 +2,57 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.os.Parcel;
+import android.os.Parcelable;
+import com.google.android.gms.maps.model.LatLng;
 
-public final class bzk
+public class bzk
+    implements Parcelable
 {
 
-    public static final String a = gxm.getName();
-    public static final String b = gxq.getName();
-    public static final String c = bzl.getName();
-    public static final String d = gnc.getName();
-    public static final String e = gxl.getName();
-    public static final String f = bzb.getName();
-    public static final String g = bzc.getName();
-    private static bzj h;
+    public static final android.os.Parcelable.Creator CREATOR = new bzl();
+    public final String a;
+    public final LatLng b;
+    public final CharSequence c;
+    public final CharSequence d;
 
-    public static void a(Context context, hgx hgx1)
+    bzk(Parcel parcel)
     {
-        if (h == null)
-        {
-            h = new bzj();
-        }
-        hgx1.a(gxq, new gxq[] {
-            (gxq)hgx.a(context, bzl)
-        });
+        a = parcel.readString();
+        b = (LatLng)parcel.readParcelable(com/google/android/gms/maps/model/LatLng.getClassLoader());
+        c = parcel.readString();
+        d = parcel.readString();
     }
 
-    public static void a(hgx hgx1)
+    private bzk(String s, LatLng latlng, CharSequence charsequence, CharSequence charsequence1)
     {
-        if (h == null)
-        {
-            h = new bzj();
-        }
-        hgx1.a(gxm, new gxm[] {
-            new bzh()
-        });
+        a = s;
+        b = latlng;
+        c = charsequence;
+        d = charsequence1;
     }
 
-    public static void b(Context context, hgx hgx1)
+    public static bzk a(fik fik1)
     {
-        if (h == null)
-        {
-            h = new bzj();
-        }
-        hgx1.a(bzl, new bzl(context));
+        return new bzk(fik1.a(), fik1.d(), fik1.b(), fik1.c());
     }
 
-    public static void b(hgx hgx1)
+    public fik a()
     {
-        if (h == null)
-        {
-            h = new bzj();
-        }
-        hgx1.a(gnc, new gnc[] {
-            new bzs()
-        });
+        return new bzm(this);
     }
 
-    public static void c(hgx hgx1)
+    public int describeContents()
     {
-        if (h == null)
-        {
-            h = new bzj();
-        }
-        hgx1.a(gxl, new bzi());
+        return 0;
     }
 
-    public static void d(hgx hgx1)
+    public void writeToParcel(Parcel parcel, int i)
     {
-        if (h == null)
-        {
-            h = new bzj();
-        }
-        hgx1.a(bzb, new bzo());
-    }
-
-    public static void e(hgx hgx1)
-    {
-        if (h == null)
-        {
-            h = new bzj();
-        }
-        hgx1.a(bzc, new bzq());
+        parcel.writeString(a);
+        parcel.writeParcelable(b, 0);
+        parcel.writeString(c.toString());
+        parcel.writeString(d.toString());
     }
 
 }

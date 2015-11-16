@@ -2,39 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.AsyncTask;
-import android.os.Environment;
-import java.io.File;
+import android.content.Intent;
+import android.text.TextUtils;
+import android.widget.ArrayAdapter;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
-final class cmw extends AsyncTask
+final class cmw
+    implements Runnable
 {
 
-    final cls a;
-    private final String b;
+    final Intent a;
+    final cmv b;
 
-    public cmw(cls cls1, String s)
+    cmw(cmv cmv1, Intent intent)
     {
-        a = cls1;
+        b = cmv1;
+        a = intent;
         super();
-        b = s;
     }
 
-    protected Object doInBackground(Object aobj[])
+    public void run()
     {
-        return Environment.getExternalStorageDirectory().list(new cmx(this));
-    }
-
-    protected void onPostExecute(Object obj)
-    {
-        obj = (String[])obj;
-        if (obj == null || obj.length <= 0)
+        Intent intent = (Intent)a.clone();
+        intent.putExtra("___time", com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.a().format(new Date()));
+        com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.a(b.a).add(intent);
+        if ((com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.b(b.a) == null || TextUtils.equals(intent.getStringExtra("conversation_id"), com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.b(b.a))) && com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.c(b.a) != null)
         {
-            return;
-        } else
-        {
-            bg bg = a.e.a();
-            biz.a(((String []) (obj)), b).a(bg, null);
-            return;
+            com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.c(b.a).add(intent);
+            com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.c(b.a).notifyDataSetChanged();
         }
+        do
+        {
+            if (com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.a(b.a).size() <= 1000)
+            {
+                break;
+            }
+            Intent intent1 = (Intent)com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.a(b.a).remove(0);
+            if (com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.c(b.a) != null)
+            {
+                com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.c(b.a).remove(intent1);
+            }
+        } while (true);
     }
 }

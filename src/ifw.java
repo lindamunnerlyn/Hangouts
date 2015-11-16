@@ -3,34 +3,32 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ifw extends koj
+public final class ifw extends kwm
 {
 
-    private static volatile ifw c[];
+    private static volatile ifw b[];
     public String a;
-    public String b[];
 
     public ifw()
     {
         a = null;
-        b = kou.f;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     public static ifw[] a()
     {
-        if (c == null)
+        if (b == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
-                if (c == null)
+                if (b == null)
                 {
-                    c = new ifw[0];
+                    b = new ifw[0];
                 }
             }
         }
-        return c;
+        return b;
         exception;
         obj;
         JVM INSTR monitorexit ;
@@ -39,51 +37,24 @@ public final class ifw extends koj
 
     protected int computeSerializedSize()
     {
-        boolean flag = false;
         int j = super.computeSerializedSize();
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.b(1, a);
         }
-        j = i;
-        if (b != null)
-        {
-            j = i;
-            if (b.length > 0)
-            {
-                int k = 0;
-                int l = 0;
-                for (j = ((flag) ? 1 : 0); j < b.length;)
-                {
-                    String s = b[j];
-                    int j1 = k;
-                    int i1 = l;
-                    if (s != null)
-                    {
-                        i1 = l + 1;
-                        j1 = k + koh.a(s);
-                    }
-                    j++;
-                    k = j1;
-                    l = i1;
-                }
-
-                j = i + k + l * 1;
-            }
-        }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -93,58 +64,18 @@ public final class ifw extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                String as[];
-                int j;
-                if (b == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
-                }
-                as = new String[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, as, 0, j);
-                    k = j;
-                }
-                for (; k < as.length - 1; k++)
-                {
-                    as[k] = kog1.j();
-                    kog1.a();
-                }
-
-                as[k] = kog1.j();
-                b = as;
+                a = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(1, a);
         }
-        if (b != null && b.length > 0)
-        {
-            for (int i = 0; i < b.length; i++)
-            {
-                String s = b[i];
-                if (s != null)
-                {
-                    koh1.a(2, s);
-                }
-            }
-
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

@@ -76,9 +76,9 @@ public class ThreadUtils
         b().post(runnable);
     }
 
-    public static void c(Runnable runnable)
+    private static boolean isThreadPriorityAudio(int i)
     {
-        b().postDelayed(runnable, 500L);
+        return Process.getThreadPriority(i) == -16;
     }
 
     public static void setThreadPriorityAudio(int i)

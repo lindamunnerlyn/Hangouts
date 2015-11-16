@@ -2,201 +2,126 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Locale;
 
-public abstract class lew extends lcy
+public final class lew extends kwm
 {
 
-    final lcz g;
+    public Boolean a;
+    public lex b[];
 
-    public lew(lcz lcz1)
+    public lew()
     {
-        if (lcz1 == null)
-        {
-            throw new IllegalArgumentException("The type must not be null");
-        } else
-        {
-            g = lcz1;
-            return;
-        }
+        a = null;
+        b = lex.a();
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public abstract int a(long l);
-
-    public int a(String s, Locale locale)
+    protected int computeSerializedSize()
     {
-        int j;
-        try
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            j = Integer.parseInt(s);
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
-        // Misplaced declaration of an exception variable
-        catch (Locale locale)
+        j = i;
+        if (b != null)
         {
-            throw new ldk(g, s);
+            j = i;
+            if (b.length > 0)
+            {
+                for (j = 0; j < b.length;)
+                {
+                    lex lex1 = b[j];
+                    int k = i;
+                    if (lex1 != null)
+                    {
+                        k = i + kwk.d(2, lex1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
         }
         return j;
     }
 
-    public int a(Locale locale)
+    public kws mergeFrom(kwj kwj1)
     {
-        int j = h();
-        if (j >= 0)
+        do
         {
-            if (j < 10)
+            int i = kwj1.a();
+            switch (i)
             {
-                return 1;
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 18: // '\022'
+                int k = kwx.a(kwj1, 18);
+                lex alex[];
+                int j;
+                if (b == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = b.length;
+                }
+                alex = new lex[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(b, 0, alex, 0, j);
+                    k = j;
+                }
+                for (; k < alex.length - 1; k++)
+                {
+                    alex[k] = new lex();
+                    kwj1.a(alex[k]);
+                    kwj1.a();
+                }
+
+                alex[k] = new lex();
+                kwj1.a(alex[k]);
+                b = alex;
+                break;
             }
-            if (j < 100)
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
+        }
+        if (b != null && b.length > 0)
+        {
+            for (int i = 0; i < b.length; i++)
             {
-                return 2;
+                lex lex1 = b[i];
+                if (lex1 != null)
+                {
+                    kwk1.b(2, lex1);
+                }
             }
-            if (j < 1000)
-            {
-                return 3;
-            }
+
         }
-        return Integer.toString(j).length();
-    }
-
-    public long a(long l, int j)
-    {
-        return d().a(l, j);
-    }
-
-    public long a(long l, long l1)
-    {
-        return d().a(l, l1);
-    }
-
-    public long a(long l, String s, Locale locale)
-    {
-        return b(l, a(s, locale));
-    }
-
-    public String a(int j, Locale locale)
-    {
-        return Integer.toString(j);
-    }
-
-    public String a(long l, Locale locale)
-    {
-        return a(a(l), locale);
-    }
-
-    public final lcz a()
-    {
-        return g;
-    }
-
-    public abstract long b(long l, int j);
-
-    public final String b()
-    {
-        return g.x();
-    }
-
-    public String b(int j, Locale locale)
-    {
-        return a(j, locale);
-    }
-
-    public String b(long l, Locale locale)
-    {
-        return b(a(l), locale);
-    }
-
-    public boolean b(long l)
-    {
-        return false;
-    }
-
-    public int c(long l)
-    {
-        return h();
-    }
-
-    public final boolean c()
-    {
-        return true;
-    }
-
-    public abstract long d(long l);
-
-    public abstract ldh d();
-
-    public long e(long l)
-    {
-        long l2 = d(l);
-        long l1 = l;
-        if (l2 != l)
-        {
-            l1 = a(l2, 1);
-        }
-        return l1;
-    }
-
-    public long f(long l)
-    {
-        long l1 = d(l);
-        long l2 = e(l);
-        if (l - l1 <= l2 - l)
-        {
-            return l1;
-        } else
-        {
-            return l2;
-        }
-    }
-
-    public ldh f()
-    {
-        return null;
-    }
-
-    public long g(long l)
-    {
-        long l1 = d(l);
-        long l2 = e(l);
-        if (l2 - l <= l - l1)
-        {
-            return l2;
-        } else
-        {
-            return l1;
-        }
-    }
-
-    public abstract int h();
-
-    public long h(long l)
-    {
-        long l1 = d(l);
-        long l2 = e(l);
-        long l3 = l - l1;
-        l = l2 - l;
-        if (l3 >= l)
-        {
-            if (l < l3)
-            {
-                return l2;
-            }
-            if ((a(l2) & 1) == 0)
-            {
-                return l2;
-            }
-        }
-        return l1;
-    }
-
-    public long i(long l)
-    {
-        return l - d(l);
-    }
-
-    public String toString()
-    {
-        String s = g.x();
-        return (new StringBuilder(String.valueOf(s).length() + 15)).append("DateTimeField[").append(s).append("]").toString();
+        super.writeTo(kwk1);
     }
 }

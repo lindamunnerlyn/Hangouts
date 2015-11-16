@@ -2,66 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-public final class gqm
+final class gqm
 {
 
-    public static final String a = hhl.getName();
-    public static final String b = grf.getName();
-    public static final String c = gqp.getName();
-    public static final String d = hhy.getName();
-    public static final String e = hig.getName();
-    private static gql f;
+    TextView a;
+    ImageView b;
+    ImageView c;
 
-    public static void a(Context context, hgx hgx1)
+    public gqm(View view)
     {
-        if (f == null)
-        {
-            f = new gql();
-        }
-        hgx1.a(grf, new grf(context));
+        a = (TextView)view.findViewById(g.sj);
+        b = (ImageView)view.findViewById(g.sh);
+        c = (ImageView)view.findViewById(g.si);
     }
-
-    public static void a(hgx hgx1)
-    {
-        if (f == null)
-        {
-            f = new gql();
-        }
-        hgx1.a(hhl, new hhl[] {
-            new gqs()
-        });
-    }
-
-    public static void b(Context context, hgx hgx1)
-    {
-        if (f == null)
-        {
-            f = new gql();
-        }
-        hgx1.a(gqp, new gqz(context));
-    }
-
-    public static void b(hgx hgx1)
-    {
-        if (f == null)
-        {
-            f = new gql();
-        }
-        hgx1.a(hhy, new hhy[] {
-            new gqs()
-        });
-    }
-
-    public static void c(Context context, hgx hgx1)
-    {
-        if (f == null)
-        {
-            f = new gql();
-        }
-        context = hig.a;
-        hgx1.a(hig, new hig[0]);
-    }
-
 }

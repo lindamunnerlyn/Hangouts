@@ -2,33 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
 
-public class cth extends ctc
+final class cth
+    implements android.view.View.OnAttachStateChangeListener
 {
 
-    private static final long serialVersionUID = 1L;
-    public final String a;
+    final ctg a;
 
-    public cth(String s)
+    cth(ctg ctg)
     {
-        a = s;
+        a = ctg;
+        super();
     }
 
-    public kop a(String s, int i, int j)
+    public void onViewAttachedToWindow(View view)
     {
-        jbl jbl1 = new jbl();
-        jbl1.requestHeader = ctq.a(s, i, j, h);
-        jbl1.a = a;
-        return jbl1;
+        view.sendAccessibilityEvent(32);
     }
 
-    public boolean a(cci cci, dbo dbo)
+    public void onViewDetachedFromWindow(View view)
     {
-        return false;
-    }
-
-    public String g()
-    {
-        return "hangouts/query";
     }
 }

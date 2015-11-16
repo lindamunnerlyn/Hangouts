@@ -2,20 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.os.Looper;
+import android.os.IBinder;
+import android.os.Parcel;
 
-final class fmo extends ejt
+final class fmo
+    implements fmm
 {
 
-    fmo()
+    private IBinder a;
+
+    fmo(IBinder ibinder)
     {
+        a = ibinder;
     }
 
-    public ejv a(Context context, Looper looper, emo emo, Object obj, eka eka, ekc ekc)
+    public void a(fjs fjs1)
     {
-        obj = (fmp)obj;
-        h.a(obj, "Must provide valid PeopleOptions!");
-        return new fpo(context, looper, eka, ekc, String.valueOf(((fmp) (obj)).a), emo);
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnStreetViewPanoramaReadyCallback");
+        if (fjs1 == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        fjs1 = fjs1.asBinder();
+_L1:
+        parcel.writeStrongBinder(fjs1);
+        a.transact(1, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        fjs1 = null;
+          goto _L1
+        fjs1;
+        parcel1.recycle();
+        parcel.recycle();
+        throw fjs1;
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
     }
 }

@@ -2,68 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.gms.wearable.internal.SendMessageResponse;
+import android.content.Context;
+import android.os.Looper;
 
-public final class fvs
-    implements android.os.Parcelable.Creator
+final class fvs extends emu
 {
 
-    public fvs()
+    fvs()
     {
     }
 
-    public static void a(SendMessageResponse sendmessageresponse, Parcel parcel)
+    public emw a(Context context, Looper looper, epo epo, Object obj, enb enb, end end)
     {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, sendmessageresponse.a);
-        g.b(parcel, 2, sendmessageresponse.b);
-        g.b(parcel, 3, sendmessageresponse.c);
-        g.q(parcel, i);
-    }
-
-    public Object createFromParcel(Parcel parcel)
-    {
-        int k = 0;
-        int l = g.a(parcel);
-        int j = 0;
-        int i = 0;
-        do
+        if ((fvt)obj == null)
         {
-            if (parcel.dataPosition() < l)
-            {
-                int i1 = parcel.readInt();
-                switch (0xffff & i1)
-                {
-                default:
-                    g.b(parcel, i1);
-                    break;
-
-                case 1: // '\001'
-                    i = g.e(parcel, i1);
-                    break;
-
-                case 2: // '\002'
-                    j = g.e(parcel, i1);
-                    break;
-
-                case 3: // '\003'
-                    k = g.e(parcel, i1);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != l)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(l).toString(), parcel);
-            } else
-            {
-                return new SendMessageResponse(i, j, k);
-            }
-        } while (true);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new SendMessageResponse[i];
+            new fvu();
+            new fvt();
+        }
+        return new fyg(context, looper, enb, end, epo);
     }
 }

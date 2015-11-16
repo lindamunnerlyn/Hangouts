@@ -3,22 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class liq extends koj
+public final class liq extends kwm
 {
 
-    public Float a;
-    public Integer b;
-    public Integer c;
-    public Integer d;
-    public Integer e;
+    public lit a;
+    public lir b;
 
     public liq()
     {
         a = null;
         b = null;
-        c = null;
-        d = null;
-        e = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -29,41 +23,25 @@ public final class liq extends koj
         int i = j;
         if (a != null)
         {
-            a.floatValue();
-            i = j + (koh.f(1) + 4);
+            i = j + kwk.d(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.e(2, b.intValue());
+            j = i + kwk.d(2, b);
         }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.intValue());
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.e(4, d.intValue());
-        }
-        i = j;
-        if (e != null)
-        {
-            i = j + koh.e(5, e.intValue());
-        }
-        return i;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -72,51 +50,35 @@ public final class liq extends koj
             case 0: // '\0'
                 return this;
 
-            case 13: // '\r'
-                a = Float.valueOf(kog1.c());
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new lit();
+                }
+                kwj1.a(a);
                 break;
 
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
-                break;
-
-            case 24: // '\030'
-                c = Integer.valueOf(kog1.f());
-                break;
-
-            case 32: // ' '
-                d = Integer.valueOf(kog1.f());
-                break;
-
-            case 40: // '('
-                e = Integer.valueOf(kog1.f());
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new lir();
+                }
+                kwj1.a(b);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.floatValue());
+            kwk1.b(1, a);
         }
         if (b != null)
         {
-            koh1.a(2, b.intValue());
+            kwk1.b(2, b);
         }
-        if (c != null)
-        {
-            koh1.a(3, c.intValue());
-        }
-        if (d != null)
-        {
-            koh1.a(4, d.intValue());
-        }
-        if (e != null)
-        {
-            koh1.a(5, e.intValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

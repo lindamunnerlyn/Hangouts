@@ -2,79 +2,59 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public class ctx extends ctu
+public final class ctx
 {
 
-    private static final long serialVersionUID = 1L;
-    public final long a;
-    public final String b[];
+    int a;
+    iwz b;
+    boolean c;
+    String d;
+    int e;
+    boolean f;
 
-    public ctx(String s, long l, String as[])
+    public ctx()
     {
-        super(s);
-        a = l;
-        b = as;
+        a = -1;
+        b = null;
+        c = false;
+        d = null;
+        e = 0;
+        f = true;
     }
 
-    public String a()
+    public ctx a()
     {
-        return "event_queue";
+        c = true;
+        return this;
     }
 
-    public kop a(String s, int i, int j)
+    public ctx a(int i)
     {
-        if (ctr.e)
-        {
-            String s1 = c;
-            long l = a;
-            ebw.b("Babel_RequestWriter", (new StringBuilder(String.valueOf(s1).length() + 41)).append("Delete conversation ").append(s1).append(" ").append(l).toString());
-        }
-        iry iry1 = new iry();
-        iry1.requestHeader = ctq.a(s, i, j, h);
-        iry1.b = ctq.a(c);
-        if (b != null)
-        {
-            iry1.d = b;
-            iry1.a = Integer.valueOf(2);
-            return iry1;
-        } else
-        {
-            iry1.c = Long.valueOf(a);
-            iry1.a = Integer.valueOf(1);
-            return iry1;
-        }
+        a = i;
+        return this;
     }
 
-    public void a(ani ani, dbo dbo)
+    public ctx a(iwz iwz)
     {
-        if (ebw.a("Babel_RequestWriter", 3))
-        {
-            String s = String.valueOf(c);
-            if (s.length() != 0)
-            {
-                s = "DeleteConversationRequest: expired for ".concat(s);
-            } else
-            {
-                s = new String("DeleteConversationRequest: expired for ");
-            }
-            ebw.d("Babel_RequestWriter", s);
-        }
-        super.a(ani, dbo);
-        if (!d)
-        {
-            RealTimeChatService.a(ani, c, b);
-        }
+        b = iwz;
+        return this;
     }
 
-    public boolean a(cci cci, dbo dbo)
+    public ctx a(String s)
     {
-        return false;
+        d = s;
+        return this;
     }
 
-    public String g()
+    public ctw b()
     {
-        return "conversations/deleteconversation";
+        return new ctw(this);
+    }
+
+    public ctx b(int i)
+    {
+        e = i;
+        return this;
     }
 }

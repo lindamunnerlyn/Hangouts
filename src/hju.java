@@ -2,10 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.Menu;
 
-public interface hju
+interface hju
 {
 
-    public abstract boolean a(Menu menu);
+    public abstract void a();
+
+    public abstract void b();
 }

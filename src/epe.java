@@ -3,11 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class epe
+public interface epe
+    extends eng, Iterable
 {
 
-    static final eox a[] = {
-        new epf(eox.a("0\202\003\3030\202\002\253\240\003\002\001\002\002\t\000\215\210\345c\324\3705\2560")), new epg(eox.a("0\202\003\3030\202\002\253\240\003\002\001\002\002\t\000\342Q\236rQ\205|b0"))
-    };
+    public abstract int a();
 
+    public abstract Object a(int i);
 }

@@ -2,22 +2,91 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.notifications.DndDialogActivity;
+import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
 
-public final class cdb
-    implements Runnable
+final class cdb
 {
 
-    final DndDialogActivity a;
+    final String a;
+    final long b[];
+    boolean c;
+    ccz d;
+    long e;
+    final ccx f;
 
-    public cdb(DndDialogActivity dnddialogactivity)
+    cdb(ccx ccx1, String s)
     {
-        a = dnddialogactivity;
+        f = ccx1;
         super();
+        a = s;
+        b = new long[ccx.f(ccx1)];
     }
 
-    public void run()
+    private static IOException b(String as[])
     {
-        a.finish();
+        as = String.valueOf(Arrays.toString(as));
+        if (as.length() != 0)
+        {
+            as = "unexpected journal line: ".concat(as);
+        } else
+        {
+            as = new String("unexpected journal line: ");
+        }
+        throw new IOException(as);
+    }
+
+    public File a(int i)
+    {
+        File file = ccx.g(f);
+        String s = a;
+        return new File(file, (new StringBuilder(String.valueOf(s).length() + 12)).append(s).append(".").append(i).toString());
+    }
+
+    public String a()
+    {
+        StringBuilder stringbuilder = new StringBuilder();
+        long al[] = b;
+        int j = al.length;
+        for (int i = 0; i < j; i++)
+        {
+            long l = al[i];
+            stringbuilder.append(' ').append(l);
+        }
+
+        return stringbuilder.toString();
+    }
+
+    void a(String as[])
+    {
+        if (as.length != ccx.f(f))
+        {
+            throw b(as);
+        }
+        int i = 0;
+        do
+        {
+            try
+            {
+                if (i >= as.length)
+                {
+                    break;
+                }
+                b[i] = Long.parseLong(as[i]);
+            }
+            catch (NumberFormatException numberformatexception)
+            {
+                throw b(as);
+            }
+            i++;
+        } while (true);
+    }
+
+    public File b(int i)
+    {
+        File file = ccx.g(f);
+        String s = a;
+        return new File(file, (new StringBuilder(String.valueOf(s).length() + 16)).append(s).append(".").append(i).append(".tmp").toString());
     }
 }

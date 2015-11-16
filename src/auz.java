@@ -4,21 +4,20 @@
 
 import android.view.View;
 
-final class auz
-    implements android.view.View.OnLongClickListener
+public final class auz
+    implements Runnable
 {
 
-    final aut a;
+    final View a;
 
-    auz(aut aut1)
+    public auz(View view)
     {
-        a = aut1;
+        a = view;
         super();
     }
 
-    public boolean onLongClick(View view)
+    public void run()
     {
-        aut.d(a).a();
-        return true;
+        g.d(a);
     }
 }

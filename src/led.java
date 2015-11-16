@@ -3,51 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class led extends lfg
+public final class led extends kwm
 {
 
-    private final ldz b;
-
-    led(ldz ldz1, ldh ldh)
+    public led()
     {
-        super(lcz.n(), ldh);
-        b = ldz1;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public int a(long l)
+    public kws mergeFrom(kwj kwj1)
     {
-        return b.d(l);
-    }
-
-    public int c(long l)
-    {
-        int i = b.a(l);
-        return b.a(i);
-    }
-
-    protected int c(long l, int i)
-    {
-        int j = 365;
-        b.M();
-        if (i > 365 || i <= 0)
-        {
-            j = c(l);
-        }
-        return j;
-    }
-
-    public ldh e()
-    {
-        return ((ldw) (b)).g;
-    }
-
-    public int g()
-    {
-        return 1;
-    }
-
-    public int h()
-    {
-        return b.M();
+_L3:
+        int i = kwj1.a();
+        i;
+        JVM INSTR tableswitch 0 0: default 24
+    //                   0 33;
+           goto _L1 _L2
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L3; else goto _L2
+_L2:
+        return this;
     }
 }

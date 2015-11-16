@@ -2,82 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
 public final class hdx
 {
 
-    private final String a;
-    private final String b;
-    private final boolean c;
-    private final hdi d;
-    private final boolean e;
-    private final hdq f;
+    public static final String a = hdv.getName();
+    private static hdw b;
 
-    hdx(hdy hdy1)
+    public static void a(Context context, hlp hlp1)
     {
-        a = hdy1.a;
-        b = hdy1.b;
-        d = hdy1.d;
-        e = hdy1.e;
-        f = hdy1.f;
-        boolean flag;
-        if (hdy1.c && hdy1.b != null)
+        if (b == null)
         {
-            flag = true;
-        } else
-        {
-            flag = false;
+            b = new hdw();
         }
-        c = flag;
+        hlp1.a(hdv, new hdv(context));
     }
 
-    private hdx(String s, String s1, hdi hdi, boolean flag, hdq hdq)
-    {
-        a = (String)g.c(s, "accountName");
-        b = s1;
-        d = null;
-        e = flag;
-        f = null;
-        c = false;
-    }
-
-    public hdx(String s, String s1, boolean flag)
-    {
-        this(s, s1, null, flag, null);
-    }
-
-    public static hdy newBuilder()
-    {
-        return new hdy();
-    }
-
-    public boolean a()
-    {
-        return c;
-    }
-
-    public String b()
-    {
-        return a;
-    }
-
-    public String c()
-    {
-        return b;
-    }
-
-    public hdi d()
-    {
-        return d;
-    }
-
-    public boolean e()
-    {
-        return e;
-    }
-
-    public hdq f()
-    {
-        return f;
-    }
 }

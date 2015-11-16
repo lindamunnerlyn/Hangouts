@@ -2,13 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.data.DataHolder;
+import com.google.android.gms.people.accountswitcherview.SelectedAccountNavigationView;
 
-public abstract class fqp extends fqs
+public interface fqp
 {
 
-    public fqp(DataHolder dataholder)
-    {
-        super(dataholder);
-    }
+    public abstract void a(SelectedAccountNavigationView selectedaccountnavigationview);
 }

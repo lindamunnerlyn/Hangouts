@@ -2,17 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
+import com.google.android.apps.hangouts.fragments.InvitationFragment;
 
-public interface bky
+public final class bky
+    implements enb
 {
 
-    public abstract boolean a();
+    final InvitationFragment a;
 
-    public abstract boolean b();
+    public bky(InvitationFragment invitationfragment)
+    {
+        a = invitationfragment;
+        super();
+    }
 
-    public abstract String c();
+    public void a(int i)
+    {
+    }
 
-    public abstract boolean d();
-
-    public abstract boolean e();
+    public void a_(Bundle bundle)
+    {
+        if (a.getActivity() == null)
+        {
+            eev.c("Babel", "People client connected but InvitationFragment is detached.");
+        }
+    }
 }

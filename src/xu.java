@@ -2,1612 +2,1521 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcelable;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
+import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
-import java.util.List;
+import android.view.accessibility.AccessibilityNodeInfo;
 
-public final class xu extends ze
+public class xu extends ViewGroup
 {
 
-    int a;
-    yo b;
-    boolean c;
-    int d;
-    int e;
-    xy f;
-    final xv g = new xv(this);
-    private xx k;
-    private boolean l;
-    private boolean m;
-    private boolean n;
-    private boolean o;
-    private boolean p;
+    private boolean a;
+    private int b;
+    private int c;
+    private int d;
+    private int e;
+    private int f;
+    private float g;
+    private boolean h;
+    private int i[];
+    private int j[];
+    private Drawable k;
+    private int l;
+    private int m;
+    private int n;
+    private int o;
 
-    public xu()
+    public xu(Context context)
     {
-        m = false;
-        c = false;
-        n = false;
-        o = true;
-        d = -1;
-        e = 0x80000000;
-        f = null;
-        a(((String) (null)));
-        if (1 != a)
-        {
-            a = 1;
-            b = null;
-            g();
-        }
-        a(((String) (null)));
-        if (!m)
-        {
-            return;
-        } else
-        {
-            m = false;
-            g();
-            return;
-        }
+        this(context, null);
     }
 
-    private View A()
+    public xu(Context context, AttributeSet attributeset)
     {
-        int i1;
-        if (c)
-        {
-            i1 = 0;
-        } else
-        {
-            i1 = k() - 1;
-        }
-        return e(i1);
+        this(context, attributeset, 0);
     }
 
-    private int a(int i1, zj zj1, zo zo1, boolean flag)
+    public xu(Context context, AttributeSet attributeset, int i1)
     {
-        int j1 = b.d() - i1;
-        if (j1 > 0)
-        {
-            int k1 = -d(-j1, zj1, zo1);
-            j1 = k1;
-            if (flag)
-            {
-                i1 = b.d() - (i1 + k1);
-                j1 = k1;
-                if (i1 > 0)
-                {
-                    b.a(i1);
-                    j1 = k1 + i1;
-                }
-            }
-            return j1;
-        } else
-        {
-            return 0;
-        }
-    }
-
-    private int a(zj zj1, xx xx1, zo zo1, boolean flag)
-    {
-        int k2 = xx1.c;
-        if (xx1.g != 0x80000000)
-        {
-            if (xx1.c < 0)
-            {
-                xx1.g = xx1.g + xx1.c;
-            }
-            a(zj1, xx1);
-        }
-        int i1 = xx1.c;
-        int k1 = xx1.h;
-        xw xw1 = new xw();
-        k1 = i1 + k1;
-        do
-        {
-label0:
-            {
-                if (k1 > 0 && xx1.a(zo1))
-                {
-                    xw1.a();
-                    View view = xx1.a(zj1);
-                    if (view == null)
-                    {
-                        xw1.b = true;
-                    } else
-                    {
-                        zf zf1 = (zf)view.getLayoutParams();
-                        int l1;
-                        int i2;
-                        int j2;
-                        if (xx1.k == null)
-                        {
-                            boolean flag3 = c;
-                            boolean flag1;
-                            if (xx1.f == -1)
-                            {
-                                flag1 = true;
-                            } else
-                            {
-                                flag1 = false;
-                            }
-                            if (flag3 == flag1)
-                            {
-                                b(view);
-                            } else
-                            {
-                                b(view, 0);
-                            }
-                        } else
-                        {
-                            boolean flag4 = c;
-                            boolean flag2;
-                            if (xx1.f == -1)
-                            {
-                                flag2 = true;
-                            } else
-                            {
-                                flag2 = false;
-                            }
-                            if (flag4 == flag2)
-                            {
-                                a(view);
-                            } else
-                            {
-                                a(view, 0);
-                            }
-                        }
-                        e(view);
-                        xw1.a = b.c(view);
-                        if (a == 1)
-                        {
-                            if (x())
-                            {
-                                j1 = l() - p();
-                                l1 = j1 - b.d(view);
-                            } else
-                            {
-                                l1 = n();
-                                j1 = b.d(view) + l1;
-                            }
-                            if (xx1.f == -1)
-                            {
-                                i2 = xx1.b;
-                                j2 = xx1.b - xw1.a;
-                            } else
-                            {
-                                j2 = xx1.b;
-                                i2 = xx1.b;
-                                int l2 = xw1.a;
-                                i2 += l2;
-                            }
-                        } else
-                        {
-                            j2 = o();
-                            i2 = b.d(view) + j2;
-                            if (xx1.f == -1)
-                            {
-                                j1 = xx1.b;
-                                l1 = xx1.b - xw1.a;
-                            } else
-                            {
-                                l1 = xx1.b;
-                                j1 = xx1.b;
-                                int i3 = xw1.a;
-                                j1 += i3;
-                            }
-                        }
-                        a(view, l1 + zf1.leftMargin, j2 + zf1.topMargin, j1 - zf1.rightMargin, i2 - zf1.bottomMargin);
-                        if (zf1.a() || zf1.b())
-                        {
-                            xw1.c = true;
-                        }
-                        xw1.d = view.isFocusable();
-                    }
-                    if (!xw1.b)
-                    {
-                        xx1.b = xx1.b + xw1.a * xx1.f;
-                        int j1;
-                        if (!xw1.c || k.k != null || !zo1.a())
-                        {
-                            xx1.c = xx1.c - xw1.a;
-                            j1 = k1 - xw1.a;
-                        } else
-                        {
-                            j1 = k1;
-                        }
-                        if (xx1.g != 0x80000000)
-                        {
-                            xx1.g = xx1.g + xw1.a;
-                            if (xx1.c < 0)
-                            {
-                                xx1.g = xx1.g + xx1.c;
-                            }
-                            a(zj1, xx1);
-                        }
-                        if (!flag || !xw1.d)
-                        {
-                            break label0;
-                        }
-                    }
-                }
-                return k2 - xx1.c;
-            }
-            k1 = j1;
-        } while (true);
-    }
-
-    private View a(int i1, int j1, int k1)
-    {
-        View view1;
-label0:
-        {
-            View view3;
-label1:
-            {
-                View view = null;
-                y();
-                int i2 = b.c();
-                int j2 = b.d();
-                int l1;
-                if (j1 > i1)
-                {
-                    l1 = 1;
-                } else
-                {
-                    l1 = -1;
-                }
-                view1 = null;
-                while (i1 != j1) 
-                {
-                    View view2 = e(i1);
-                    int k2 = d(view2);
-                    if (k2 >= 0 && k2 < k1)
-                    {
-                        if (((zf)view2.getLayoutParams()).a())
-                        {
-                            if (view1 == null)
-                            {
-                                view1 = view2;
-                            }
-                        } else
-                        {
-                            if (b.a(view2) < j2)
-                            {
-                                view3 = view2;
-                                if (b.b(view2) >= i2)
-                                {
-                                    break label1;
-                                }
-                            }
-                            if (view == null)
-                            {
-                                view = view2;
-                            }
-                        }
-                    }
-                    i1 += l1;
-                }
-                if (view == null)
-                {
-                    break label0;
-                }
-                view3 = view;
-            }
-            return view3;
-        }
-        return view1;
-    }
-
-    private View a(int i1, int j1, boolean flag, boolean flag1)
-    {
-        y();
-        int k1 = b.c();
-        int l1 = b.d();
-        View view;
-        byte byte0;
-        if (j1 > i1)
-        {
-            byte0 = 1;
-        } else
-        {
-            byte0 = -1;
-        }
-        view = null;
-        for (; i1 != j1; i1 += byte0)
-        {
-            View view1 = e(i1);
-            int i2 = b.a(view1);
-            int j2 = b.b(view1);
-            if (i2 >= l1 || j2 <= k1)
-            {
-                continue;
-            }
-            if (!flag || i2 >= k1 && j2 <= l1)
-            {
-                return view1;
-            }
-            if (view == null)
-            {
-                view = view1;
-            }
-        }
-
-        return view;
-    }
-
-    private View a(boolean flag)
-    {
-        if (c)
-        {
-            return a(k() - 1, -1, flag, true);
-        } else
-        {
-            return a(0, k(), flag, true);
-        }
-    }
-
-    private void a(int i1, int j1, boolean flag, zo zo1)
-    {
-        byte byte0 = -1;
-        boolean flag1 = true;
-        k.h = g(zo1);
-        k.f = i1;
-        if (i1 == 1)
-        {
-            zo1 = k;
-            zo1.h = ((xx) (zo1)).h + b.g();
-            zo1 = A();
-            xx xx1 = k;
-            if (c)
-            {
-                i1 = byte0;
-            } else
-            {
-                i1 = 1;
-            }
-            xx1.e = i1;
-            k.d = d(zo1) + k.e;
-            k.b = b.b(zo1);
-            i1 = b.b(zo1) - b.d();
-        } else
-        {
-            zo1 = z();
-            xx xx2 = k;
-            xx2.h = xx2.h + b.c();
-            xx2 = k;
-            if (c)
-            {
-                i1 = ((flag1) ? 1 : 0);
-            } else
-            {
-                i1 = -1;
-            }
-            xx2.e = i1;
-            k.d = d(zo1) + k.e;
-            k.b = b.a(zo1);
-            i1 = -b.a(zo1) + b.c();
-        }
-        k.c = j1;
-        if (flag)
-        {
-            zo1 = k;
-            zo1.c = ((xx) (zo1)).c - i1;
-        }
-        k.g = i1;
-    }
-
-    private void a(xv xv1)
-    {
-        c(xv1.a, xv1.b);
-    }
-
-    private void a(zj zj1, int i1, int j1)
-    {
-        if (i1 != j1) goto _L2; else goto _L1
-_L1:
-        return;
-_L2:
-        int k1;
-        k1 = i1;
-        if (j1 <= i1)
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        j1--;
-        while (j1 >= i1) 
-        {
-            a(j1, zj1);
-            j1--;
-        }
-        if (true) goto _L1; else goto _L3
-_L3:
-        while (k1 > j1) 
-        {
-            a(k1, zj1);
-            k1--;
-        }
-        if (true) goto _L1; else goto _L4
-_L4:
-    }
-
-    private void a(zj zj1, xx xx1)
-    {
-        if (xx1.a) goto _L2; else goto _L1
-_L1:
-        return;
-_L2:
-        if (xx1.f != -1)
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        int i1 = xx1.g;
-        int j2 = k();
+        super(context, attributeset, i1);
+        a = true;
+        b = -1;
+        c = 0;
+        e = 0x800033;
+        context = vm.a(context, attributeset, rq.ak, i1);
+        i1 = context.a(rq.ao, -1);
         if (i1 >= 0)
         {
-            int l2 = b.e() - i1;
-            if (c)
-            {
-                int j1 = 0;
-                while (j1 < j2) 
-                {
-                    xx1 = e(j1);
-                    if (b.a(xx1) < l2)
-                    {
-                        a(zj1, 0, j1);
-                        return;
-                    }
-                    j1++;
-                }
-            } else
-            {
-                int k1 = j2 - 1;
-                while (k1 >= 0) 
-                {
-                    xx1 = e(k1);
-                    if (b.a(xx1) < l2)
-                    {
-                        a(zj1, j2 - 1, k1);
-                        return;
-                    }
-                    k1--;
-                }
-            }
+            e(i1);
         }
-        if (true) goto _L1; else goto _L3
-_L3:
-        int k2;
-        int i3;
-        k2 = xx1.g;
-        if (k2 < 0)
+        i1 = context.a(rq.an, -1);
+        if (i1 >= 0)
         {
-            continue; /* Loop/switch isn't completed */
+            f(i1);
         }
-        i3 = k();
-        if (!c)
+        boolean flag = context.a(rq.al, true);
+        if (!flag)
         {
-            break; /* Loop/switch isn't completed */
+            b(flag);
         }
-        int l1 = i3 - 1;
-        while (l1 >= 0) 
-        {
-            xx1 = e(l1);
-            if (b.b(xx1) > k2)
-            {
-                a(zj1, i3 - 1, l1);
-                return;
-            }
-            l1--;
-        }
-        if (true) goto _L1; else goto _L4
-_L4:
-        int i2 = 0;
-        while (i2 < i3) 
-        {
-            xx1 = e(i2);
-            if (b.b(xx1) > k2)
-            {
-                a(zj1, 0, i2);
-                return;
-            }
-            i2++;
-        }
-        if (true) goto _L1; else goto _L5
-_L5:
+        g = context.e(rq.ap);
+        b = context.a(rq.am, -1);
+        h = context.a(rq.as, false);
+        a(context.a(rq.aq));
+        n = context.a(rq.at, 0);
+        o = context.d(rq.ar, 0);
+        context.b();
     }
 
-    private int b(int i1, zj zj1, zo zo1, boolean flag)
+    private static void a(View view, int i1, int j1, int k1, int l1)
     {
-        int j1 = i1 - b.c();
-        if (j1 > 0)
-        {
-            int k1 = -d(j1, zj1, zo1);
-            j1 = k1;
-            if (flag)
-            {
-                i1 = (i1 + k1) - b.c();
-                j1 = k1;
-                if (i1 > 0)
-                {
-                    b.a(-i1);
-                    j1 = k1 - i1;
-                }
-            }
-            return j1;
-        } else
-        {
-            return 0;
-        }
-    }
-
-    private View b(zj zj1, zo zo1)
-    {
-        if (c)
-        {
-            return k(zo1);
-        } else
-        {
-            return l(zo1);
-        }
-    }
-
-    private View b(boolean flag)
-    {
-        if (c)
-        {
-            return a(0, k(), flag, true);
-        } else
-        {
-            return a(k() - 1, -1, flag, true);
-        }
-    }
-
-    private void b(xv xv1)
-    {
-        d(xv1.a, xv1.b);
-    }
-
-    private View c(zj zj1, zo zo1)
-    {
-        if (c)
-        {
-            return l(zo1);
-        } else
-        {
-            return k(zo1);
-        }
+        view.layout(i1, j1, i1 + k1, j1 + l1);
     }
 
     private void c(int i1, int j1)
     {
-        k.c = b.d() - j1;
-        xx xx1 = k;
-        int k1;
-        if (c)
+        int l1 = android.view.View.MeasureSpec.makeMeasureSpec(getMeasuredWidth(), 0x40000000);
+        for (int k1 = 0; k1 < i1; k1++)
         {
-            k1 = -1;
-        } else
-        {
-            k1 = 1;
+            View view = c(k1);
+            if (view.getVisibility() == 8)
+            {
+                continue;
+            }
+            xv xv1 = (xv)view.getLayoutParams();
+            if (xv1.width == -1)
+            {
+                int i2 = xv1.height;
+                xv1.height = view.getMeasuredHeight();
+                measureChildWithMargins(view, l1, 0, j1, 0);
+                xv1.height = i2;
+            }
         }
-        xx1.e = k1;
-        k.d = i1;
-        k.f = 1;
-        k.b = j1;
-        k.g = 0x80000000;
+
     }
 
-    private int d(int i1, zj zj1, zo zo1)
+    void a(int i1, int j1)
     {
-        if (k() == 0 || i1 == 0)
-        {
-            return 0;
-        }
-        k.a = true;
-        y();
-        int j1;
+        float f1;
         int k1;
         int l1;
-        if (i1 > 0)
+        int i2;
+        int j2;
+        int k2;
+        int l2;
+        int i3;
+        boolean flag;
+        int j3;
+        int l9;
+        int i10;
+        int j10;
+        int k10;
+        boolean flag1;
+        f = 0;
+        i2 = 0;
+        l1 = 0;
+        k1 = 0;
+        i3 = 0;
+        j2 = 1;
+        f1 = 0.0F;
+        l9 = n();
+        i10 = android.view.View.MeasureSpec.getMode(i1);
+        j10 = android.view.View.MeasureSpec.getMode(j1);
+        flag = false;
+        l2 = 0;
+        k10 = b;
+        flag1 = h;
+        k2 = 0x80000000;
+        j3 = 0;
+_L5:
+        if (j3 >= l9) goto _L2; else goto _L1
+_L1:
+        View view = c(j3);
+        if (view != null) goto _L4; else goto _L3
+_L3:
+        f = f;
+        int j4 = k2;
+        int j6 = l2;
+        int i8 = j2;
+        j2 = i3;
+        i3 = i2;
+        l2 = l1;
+        k2 = k1;
+        i2 = i8;
+        l1 = j6;
+        k1 = j4;
+_L10:
+        int j9 = j3 + 1;
+        j3 = j2;
+        int k4 = k2;
+        int k6 = l2;
+        int j8 = i3;
+        k2 = k1;
+        l2 = l1;
+        j2 = i2;
+        i3 = j3;
+        k1 = k4;
+        l1 = k6;
+        i2 = j8;
+        j3 = j9;
+          goto _L5
+_L4:
+        xv xv1;
+        if (view.getVisibility() == 8)
         {
-            j1 = 1;
-        } else
-        {
-            j1 = -1;
+            break MISSING_BLOCK_LABEL_1626;
         }
-        k1 = Math.abs(i1);
-        a(j1, k1, true, zo1);
-        l1 = k.g + a(zj1, k, zo1, false);
-        if (l1 < 0)
+        if (d(j3))
         {
-            return 0;
+            f = f + m;
         }
-        if (k1 > l1)
+        xv1 = (xv)view.getLayoutParams();
+        f1 += xv1.g;
+        if (j10 != 0x40000000 || xv1.height != 0 || xv1.g <= 0.0F) goto _L7; else goto _L6
+_L6:
+        l2 = f;
+        f = Math.max(l2, xv1.topMargin + l2 + xv1.bottomMargin);
+        l2 = 1;
+_L9:
+        if (k10 >= 0 && k10 == j3 + 1)
         {
-            i1 = j1 * l1;
+            c = f;
         }
-        b.a(-i1);
-        k.j = i1;
-        return i1;
-    }
-
-    private void d(int i1, int j1)
-    {
-        k.c = j1 - b.c();
-        k.d = i1;
-        xx xx1 = k;
-        if (c)
+        if (j3 < k10 && xv1.g > 0.0F)
         {
-            i1 = 1;
-        } else
-        {
-            i1 = -1;
+            throw new RuntimeException("A child of LinearLayout with index less than mBaselineAlignedChildIndex has weight > 0, which won't work.  Either remove the weight, or don't set mBaselineAlignedChildIndex.");
         }
-        xx1.e = i1;
-        k.f = -1;
-        k.b = j1;
-        k.g = 0x80000000;
-    }
-
-    private int g(zo zo1)
-    {
-        if (zo1.c())
+        break; /* Loop/switch isn't completed */
+_L7:
+        int l6 = 0x80000000;
+        int l4 = l6;
+        if (xv1.height == 0)
         {
-            return b.f();
-        } else
-        {
-            return 0;
-        }
-    }
-
-    private int h(zo zo1)
-    {
-        boolean flag2 = true;
-        boolean flag = false;
-        int j1;
-        if (k() == 0)
-        {
-            j1 = ((flag) ? 1 : 0);
-        } else
-        {
-            y();
-            yo yo1 = b;
-            View view;
-            View view1;
-            boolean flag1;
-            if (!o)
+            l4 = l6;
+            if (xv1.g > 0.0F)
             {
-                flag1 = true;
-            } else
-            {
-                flag1 = false;
+                l4 = 0;
+                xv1.height = -2;
             }
-            view = a(flag1);
-            if (!o)
+        }
+        if (f1 == 0.0F)
+        {
+            l6 = f;
+        } else
+        {
+            l6 = 0;
+        }
+        b(view, i1, 0, j1, l6);
+        if (l4 != 0x80000000)
+        {
+            xv1.height = l4;
+        }
+        l4 = view.getMeasuredHeight();
+        l6 = f;
+        f = Math.max(l6, l6 + l4 + xv1.topMargin + xv1.bottomMargin);
+        if (flag1)
+        {
+            k2 = Math.max(l4, k2);
+        }
+        if (true) goto _L9; else goto _L8
+_L8:
+        int i7 = 0;
+        if (i10 != 0x40000000 && xv1.width == -1)
+        {
+            flag = true;
+            i7 = 1;
+        }
+        int k8 = xv1.leftMargin + xv1.rightMargin;
+        int k9 = view.getMeasuredWidth() + k8;
+        i2 = Math.max(i2, k9);
+        int i5 = vr.a(l1, kb.k(view));
+        if (j2 != 0 && xv1.width == -1)
+        {
+            l1 = 1;
+        } else
+        {
+            l1 = 0;
+        }
+        if (xv1.g > 0.0F)
+        {
+            if (i7 == 0)
             {
-                flag1 = flag2;
-            } else
-            {
-                flag1 = false;
+                k8 = k9;
             }
-            view1 = b(flag1);
-            flag1 = o;
-            flag2 = c;
-            j1 = ((flag) ? 1 : 0);
-            if (k() != 0)
+            i3 = Math.max(i3, k8);
+            j2 = l1;
+            l1 = k2;
+            k2 = k1;
+            i7 = i2;
+            k1 = l1;
+            l1 = l2;
+            i2 = j2;
+            j2 = i3;
+            l2 = i5;
+            i3 = i7;
+        } else
+        {
+            if (i7 == 0)
             {
-                j1 = ((flag) ? 1 : 0);
-                if (zo1.d() != 0)
+                k8 = k9;
+            }
+            k1 = Math.max(k1, k8);
+            j2 = l1;
+            l1 = l2;
+            i7 = i2;
+            l2 = k1;
+            k1 = k2;
+            i2 = j2;
+            j2 = i3;
+            k2 = l2;
+            l2 = i5;
+            i3 = i7;
+        }
+          goto _L10
+_L2:
+        if (f > 0 && d(l9))
+        {
+            f = f + m;
+        }
+        if (flag1 && (j10 == 0x80000000 || j10 == 0))
+        {
+            f = 0;
+            int k3 = 0;
+            while (k3 < l9) 
+            {
+                Object obj = c(k3);
+                if (obj == null)
                 {
-                    j1 = ((flag) ? 1 : 0);
-                    if (view != null)
+                    f = f;
+                } else
+                if (((View) (obj)).getVisibility() != 8)
+                {
+                    obj = (xv)((View) (obj)).getLayoutParams();
+                    int j5 = f;
+                    int j7 = ((xv) (obj)).topMargin;
+                    f = Math.max(j5, ((xv) (obj)).bottomMargin + (j5 + k2 + j7));
+                }
+                k3++;
+            }
+        }
+        f = f + (getPaddingTop() + getPaddingBottom());
+        int k7 = kb.a(Math.max(f, getSuggestedMinimumHeight()), j1, 0);
+        int l3 = (0xffffff & k7) - f;
+        if (l2 != 0 || l3 != 0 && f1 > 0.0F)
+        {
+            if (g > 0.0F)
+            {
+                f1 = g;
+            }
+            f = 0;
+            i3 = 0;
+            k2 = j2;
+            l2 = k1;
+            k1 = l1;
+            j2 = i2;
+            i2 = l2;
+            l1 = k2;
+            k2 = l3;
+            while (i3 < l9) 
+            {
+                View view1 = c(i3);
+                if (view1.getVisibility() != 8)
+                {
+                    xv xv2 = (xv)view1.getLayoutParams();
+                    float f2 = xv2.g;
+                    int l5;
+                    if (f2 > 0.0F)
                     {
-                        j1 = ((flag) ? 1 : 0);
-                        if (view1 != null)
+                        int i4 = (int)(((float)k2 * f2) / f1);
+                        int l8 = getChildMeasureSpec(i1, getPaddingLeft() + getPaddingRight() + xv2.leftMargin + xv2.rightMargin, xv2.width);
+                        if (xv2.height != 0 || j10 != 0x40000000)
                         {
-                            int i1 = Math.min(d(view), d(view1));
-                            j1 = Math.max(d(view), d(view1));
-                            if (flag2)
+                            int k5 = i4 + view1.getMeasuredHeight();
+                            l2 = k5;
+                            if (k5 < 0)
                             {
-                                i1 = Math.max(0, zo1.d() - j1 - 1);
-                            } else
-                            {
-                                i1 = Math.max(0, i1);
+                                l2 = 0;
                             }
-                            j1 = i1;
-                            if (flag1)
-                            {
-                                int k1 = Math.abs(yo1.b(view1) - yo1.a(view));
-                                int l1 = Math.abs(d(view) - d(view1));
-                                float f1 = (float)k1 / (float)(l1 + 1);
-                                float f2 = i1;
-                                return Math.round((float)(yo1.c() - yo1.a(view)) + f1 * f2);
-                            }
+                        } else
+                        if (i4 > 0)
+                        {
+                            l2 = i4;
+                        } else
+                        {
+                            l2 = 0;
                         }
+                        view1.measure(l8, android.view.View.MeasureSpec.makeMeasureSpec(l2, 0x40000000));
+                        k1 = vr.a(k1, kb.k(view1) & 0xffffff00);
+                        l2 = k2 - i4;
+                        k2 = k1;
+                        f1 -= f2;
+                        k1 = l2;
+                    } else
+                    {
+                        l2 = k1;
+                        k1 = k2;
+                        k2 = l2;
+                    }
+                    i4 = xv2.leftMargin + xv2.rightMargin;
+                    l5 = view1.getMeasuredWidth() + i4;
+                    l2 = Math.max(j2, l5);
+                    if (i10 != 0x40000000 && xv2.width == -1)
+                    {
+                        j2 = 1;
+                    } else
+                    {
+                        j2 = 0;
+                    }
+                    if (j2 != 0)
+                    {
+                        j2 = i4;
+                    } else
+                    {
+                        j2 = l5;
+                    }
+                    i2 = Math.max(i2, j2);
+                    if (l1 != 0 && xv2.width == -1)
+                    {
+                        l1 = 1;
+                    } else
+                    {
+                        l1 = 0;
+                    }
+                    j2 = f;
+                    i4 = view1.getMeasuredHeight();
+                    l5 = xv2.topMargin;
+                    f = Math.max(j2, xv2.bottomMargin + (i4 + j2 + l5));
+                    j2 = l1;
+                    l1 = l2;
+                } else
+                {
+                    l2 = l1;
+                    l1 = j2;
+                    j2 = k1;
+                    k1 = k2;
+                    k2 = j2;
+                    j2 = l2;
+                }
+                i4 = i3 + 1;
+                i3 = k2;
+                l2 = l1;
+                k2 = k1;
+                k1 = i3;
+                l1 = j2;
+                j2 = l2;
+                i3 = i4;
+            }
+            f = f + (getPaddingTop() + getPaddingBottom());
+            k2 = i2;
+            i2 = j2;
+            j2 = l1;
+            l1 = k1;
+            k1 = k2;
+        } else
+        {
+            l2 = Math.max(k1, i3);
+            if (flag1 && j10 != 0x40000000)
+            {
+                for (k1 = 0; k1 < l9; k1++)
+                {
+                    view1 = c(k1);
+                    if (view1 != null && view1.getVisibility() != 8 && ((xv)view1.getLayoutParams()).g > 0.0F)
+                    {
+                        view1.measure(android.view.View.MeasureSpec.makeMeasureSpec(view1.getMeasuredWidth(), 0x40000000), android.view.View.MeasureSpec.makeMeasureSpec(k2, 0x40000000));
                     }
                 }
-            }
-        }
-        return j1;
-    }
 
-    private int i(zo zo1)
-    {
-        boolean flag1 = true;
-        if (k() != 0)
+            }
+            k1 = l2;
+        }
+        if (j2 != 0 || i10 == 0x40000000)
         {
-            y();
-            yo yo1 = b;
-            View view;
-            View view1;
-            boolean flag;
-            if (!o)
-            {
-                flag = true;
-            } else
-            {
-                flag = false;
-            }
-            view = a(flag);
-            if (!o)
-            {
-                flag = flag1;
-            } else
-            {
-                flag = false;
-            }
-            view1 = b(flag);
-            flag = o;
-            if (k() != 0 && zo1.d() != 0 && view != null && view1 != null)
-            {
-                if (!flag)
-                {
-                    return Math.abs(d(view) - d(view1)) + 1;
-                } else
-                {
-                    int i1 = yo1.b(view1);
-                    int j1 = yo1.a(view);
-                    return Math.min(yo1.f(), i1 - j1);
-                }
-            }
+            k1 = i2;
         }
-        return 0;
-    }
-
-    private int j(zo zo1)
-    {
-        boolean flag1 = true;
-        if (k() != 0)
+        setMeasuredDimension(kb.a(Math.max(k1 + (getPaddingLeft() + getPaddingRight()), getSuggestedMinimumWidth()), i1, l1), k7);
+        if (flag)
         {
-            y();
-            yo yo1 = b;
-            View view;
-            View view1;
-            boolean flag;
-            if (!o)
-            {
-                flag = true;
-            } else
-            {
-                flag = false;
-            }
-            view = a(flag);
-            if (!o)
-            {
-                flag = flag1;
-            } else
-            {
-                flag = false;
-            }
-            view1 = b(flag);
-            flag = o;
-            if (k() != 0 && zo1.d() != 0 && view != null && view1 != null)
-            {
-                if (!flag)
-                {
-                    return zo1.d();
-                } else
-                {
-                    int i1 = yo1.b(view1);
-                    int j1 = yo1.a(view);
-                    int k1 = Math.abs(d(view) - d(view1));
-                    return (int)(((float)(i1 - j1) / (float)(k1 + 1)) * (float)zo1.d());
-                }
-            }
+            c(l9, j1);
         }
-        return 0;
-    }
-
-    private View k(zo zo1)
-    {
-        return a(0, k(), zo1.d());
-    }
-
-    private View l(zo zo1)
-    {
-        return a(k() - 1, -1, zo1.d());
-    }
-
-    private void w()
-    {
-        boolean flag = true;
-        if (a != 1 && x()) goto _L2; else goto _L1
-_L1:
-        flag = m;
-_L4:
-        c = flag;
         return;
-_L2:
-        if (m)
-        {
-            flag = false;
-        }
-        if (true) goto _L4; else goto _L3
-_L3:
+        int i6 = i3;
+        int l7 = k1;
+        int i9 = l1;
+        i3 = i2;
+        k1 = k2;
+        l1 = l2;
+        i2 = j2;
+        j2 = i6;
+        k2 = l7;
+        l2 = i9;
+          goto _L10
     }
 
-    private boolean x()
+    void a(int i1, int j1, int k1, int l1)
     {
-        return j() == 1;
-    }
-
-    private void y()
-    {
-        if (k == null)
-        {
-            k = new xx();
-        }
-        if (b != null) goto _L2; else goto _L1
+        int i2;
+        int j2;
+        int k2;
+        int l2;
+        int i3;
+        int j3;
+        i2 = getPaddingLeft();
+        j2 = k1 - i1;
+        k2 = getPaddingRight();
+        l2 = getPaddingRight();
+        i3 = n();
+        i1 = e;
+        j3 = e;
+        i1 & 0x70;
+        JVM INSTR lookupswitch 2: default 72
+    //                   16: 126
+    //                   80: 108;
+           goto _L1 _L2 _L3
 _L1:
-        a;
-        JVM INSTR tableswitch 0 1: default 52
-    //                   0 63
-    //                   1 78;
-           goto _L3 _L4 _L5
-_L3:
-        throw new IllegalArgumentException("invalid orientation");
+        i1 = getPaddingTop();
+_L16:
+        k1 = 0;
+_L8:
+        if (k1 >= i3) goto _L5; else goto _L4
 _L4:
-        Object obj = new yp(this);
-_L7:
-        b = ((yo) (obj));
-_L2:
-        return;
-_L5:
-        obj = new yq(this);
-        if (true) goto _L7; else goto _L6
+        View view = c(k1);
+        if (view != null) goto _L7; else goto _L6
 _L6:
-    }
-
-    private View z()
-    {
-        int i1;
-        if (c)
-        {
-            i1 = k() - 1;
-        } else
-        {
-            i1 = 0;
-        }
-        return e(i1);
-    }
-
-    public int a(int i1, zj zj1, zo zo1)
-    {
-        if (a == 1)
-        {
-            return 0;
-        } else
-        {
-            return d(i1, zj1, zo1);
-        }
-    }
-
-    public int a(zo zo1)
-    {
-        return h(zo1);
-    }
-
-    public View a(int i1)
-    {
-        int j1 = k();
-        if (j1 != 0) goto _L2; else goto _L1
-_L1:
-        View view = null;
-_L4:
-        return view;
-_L2:
-        View view1;
-        int k1 = i1 - d(e(0));
-        if (k1 < 0 || k1 >= j1)
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        view1 = e(k1);
-        view = view1;
-        if (d(view1) == i1) goto _L4; else goto _L3
+        j1 = i1;
+_L10:
+        k1++;
+        i1 = j1;
+          goto _L8
 _L3:
-        return super.a(i1);
-    }
-
-    public zf a()
-    {
-        return new zf();
-    }
-
-    public void a(Parcelable parcelable)
-    {
-        if (parcelable instanceof xy)
+        i1 = (getPaddingTop() + l1) - j1 - f;
+        continue; /* Loop/switch isn't completed */
+_L2:
+        i1 = getPaddingTop() + (l1 - j1 - f) / 2;
+        continue; /* Loop/switch isn't completed */
+_L7:
+        j1 = i1;
+        if (view.getVisibility() == 8) goto _L10; else goto _L9
+_L9:
+        xv xv1;
+        int k3;
+        int l3;
+        k3 = view.getMeasuredWidth();
+        l3 = view.getMeasuredHeight();
+        xv1 = (xv)view.getLayoutParams();
+        l1 = xv1.h;
+        j1 = l1;
+        if (l1 < 0)
         {
-            f = (xy)parcelable;
-            g();
+            j1 = 0x800007 & j3;
         }
+        ih.a(j1, kb.i(this)) & 7;
+        JVM INSTR lookupswitch 2: default 240
+    //                   1: 302
+    //                   5: 334;
+           goto _L11 _L12 _L13
+_L13:
+        break MISSING_BLOCK_LABEL_334;
+_L11:
+        j1 = xv1.leftMargin + i2;
+_L14:
+        l1 = i1;
+        if (d(k1))
+        {
+            l1 = i1 + m;
+        }
+        i1 = l1 + xv1.topMargin;
+        a(view, j1, i1, k3, l3);
+        j1 = i1 + (xv1.bottomMargin + l3);
+          goto _L10
+_L12:
+        j1 = ((j2 - i2 - l2 - k3) / 2 + i2 + xv1.leftMargin) - xv1.rightMargin;
+          goto _L14
+        j1 = j2 - k2 - k3 - xv1.rightMargin;
+          goto _L14
+_L5:
+        return;
+        if (true) goto _L16; else goto _L15
+_L15:
     }
 
-    public void a(AccessibilityEvent accessibilityevent)
+    void a(Canvas canvas)
     {
-        byte byte0 = -1;
-        super.a(accessibilityevent);
-        if (k() > 0)
+        int k1 = n();
+        for (int i1 = 0; i1 < k1; i1++)
         {
-            accessibilityevent = mj.a(accessibilityevent);
-            View view = a(0, k(), false, true);
-            int i1;
-            if (view == null)
+            View view = c(i1);
+            if (view != null && view.getVisibility() != 8 && d(i1))
             {
-                i1 = -1;
+                xv xv1 = (xv)view.getLayoutParams();
+                a(canvas, view.getTop() - xv1.topMargin - m);
+            }
+        }
+
+        if (d(k1))
+        {
+            View view1 = c(k1 - 1);
+            int j1;
+            if (view1 == null)
+            {
+                j1 = getHeight() - getPaddingBottom() - m;
             } else
             {
-                i1 = d(view);
+                xv xv2 = (xv)view1.getLayoutParams();
+                j1 = view1.getBottom();
+                j1 = xv2.bottomMargin + j1;
             }
-            accessibilityevent.b(i1);
-            view = a(k() - 1, -1, false, true);
-            if (view == null)
-            {
-                i1 = byte0;
-            } else
-            {
-                i1 = d(view);
-            }
-            accessibilityevent.c(i1);
+            a(canvas, j1);
         }
     }
 
-    public void a(String s)
+    void a(Canvas canvas, int i1)
     {
-        if (f == null)
-        {
-            super.a(s);
-        }
+        k.setBounds(getPaddingLeft() + o, i1, getWidth() - getPaddingRight() - o, m + i1);
+        k.draw(canvas);
     }
 
-    public void a(yr yr, zj zj1)
+    public void a(Drawable drawable)
     {
-        super.a(yr, zj1);
-        if (p)
+        boolean flag = false;
+        if (drawable == k)
         {
-            c(zj1);
-            zj1.a();
-        }
-    }
-
-    public void a(zj zj1, zo zo1)
-    {
-        Object obj2;
-        int i1;
-        int j1;
-        int k1;
-        int l1;
-        if ((f != null || d != -1) && zo1.d() == 0)
-        {
-            c(zj1);
             return;
         }
-        if (f != null && f.a())
+        k = drawable;
+        if (drawable != null)
         {
-            d = f.a;
+            l = drawable.getIntrinsicWidth();
+            m = drawable.getIntrinsicHeight();
+        } else
+        {
+            l = 0;
+            m = 0;
         }
-        y();
-        k.a = false;
-        w();
-        g.a();
-        g.c = c ^ n;
-        obj2 = g;
-        View view;
-        zf zf1;
-        int i2;
-        if (zo1.a() || d == -1)
+        if (drawable == null)
         {
-            i1 = 0;
-        } else
-        if (d < 0 || d >= zo1.d())
+            flag = true;
+        }
+        setWillNotDraw(flag);
+        requestLayout();
+    }
+
+    public xv b(AttributeSet attributeset)
+    {
+        return new xv(getContext(), attributeset);
+    }
+
+    public xv b(android.view.ViewGroup.LayoutParams layoutparams)
+    {
+        return new xv(layoutparams);
+    }
+
+    void b(int i1, int j1)
+    {
+        f = 0;
+        int i3 = 0;
+        int j2 = 0;
+        int i2 = 0;
+        int l2 = 0;
+        int k2 = 1;
+        float f1 = 0.0F;
+        int i7 = n();
+        int k7 = android.view.View.MeasureSpec.getMode(i1);
+        int j7 = android.view.View.MeasureSpec.getMode(j1);
+        boolean flag = false;
+        int k1 = 0;
+        if (i == null || j == null)
         {
-            d = -1;
-            e = 0x80000000;
-            i1 = 0;
+            i = new int[4];
+            j = new int[4];
+        }
+        int ai[] = i;
+        int ai1[] = j;
+        ai[3] = -1;
+        ai[2] = -1;
+        ai[1] = -1;
+        ai[0] = -1;
+        ai1[3] = -1;
+        ai1[2] = -1;
+        ai1[1] = -1;
+        ai1[0] = -1;
+        boolean flag2 = a;
+        boolean flag3 = h;
+        int l1;
+        boolean flag1;
+        int j3;
+        if (k7 == 0x40000000)
+        {
+            flag1 = true;
         } else
+        {
+            flag1 = false;
+        }
+        l1 = 0x80000000;
+        j3 = 0;
+        while (j3 < i7) 
+        {
+            Object obj = c(j3);
+            int i4;
+            int k5;
+            if (obj == null)
+            {
+                f = f;
+                int l3 = l1;
+                l1 = k2;
+                int j5 = l2;
+                l2 = j2;
+                k2 = i2;
+                j2 = j5;
+                i2 = l1;
+                l1 = k1;
+                k1 = l3;
+            } else
+            if (((View) (obj)).getVisibility() != 8)
+            {
+                if (d(j3))
+                {
+                    f = f + l;
+                }
+                xv xv2 = (xv)((View) (obj)).getLayoutParams();
+                f1 += xv2.g;
+                int k4;
+                int l5;
+                int j6;
+                int l6;
+                if (k7 == 0x40000000 && xv2.width == 0 && xv2.g > 0.0F)
+                {
+                    int l7;
+                    if (flag1)
+                    {
+                        f = f + (xv2.leftMargin + xv2.rightMargin);
+                    } else
+                    {
+                        k4 = f;
+                        f = Math.max(k4, xv2.leftMargin + k4 + xv2.rightMargin);
+                    }
+                    if (flag2)
+                    {
+                        int j4 = android.view.View.MeasureSpec.makeMeasureSpec(0, 0);
+                        ((View) (obj)).measure(j4, j4);
+                        j4 = l1;
+                        l1 = k1;
+                        k1 = j4;
+                    } else
+                    {
+                        k1 = l1;
+                        l1 = 1;
+                    }
+                } else
+                {
+                    l5 = 0x80000000;
+                    k4 = l5;
+                    if (xv2.width == 0)
+                    {
+                        k4 = l5;
+                        if (xv2.g > 0.0F)
+                        {
+                            k4 = 0;
+                            xv2.width = -2;
+                        }
+                    }
+                    if (f1 == 0.0F)
+                    {
+                        l5 = f;
+                    } else
+                    {
+                        l5 = 0;
+                    }
+                    b(((View) (obj)), i1, l5, j1, 0);
+                    if (k4 != 0x80000000)
+                    {
+                        xv2.width = k4;
+                    }
+                    k4 = ((View) (obj)).getMeasuredWidth();
+                    if (flag1)
+                    {
+                        f = f + (xv2.leftMargin + k4 + xv2.rightMargin);
+                    } else
+                    {
+                        l5 = f;
+                        f = Math.max(l5, l5 + k4 + xv2.leftMargin + xv2.rightMargin);
+                    }
+                    float f2;
+                    View view;
+                    xv xv1;
+                    int k3;
+                    if (flag3)
+                    {
+                        k4 = Math.max(k4, l1);
+                        l1 = k1;
+                        k1 = k4;
+                    } else
+                    {
+                        int l4 = k1;
+                        k1 = l1;
+                        l1 = l4;
+                    }
+                }
+                l5 = 0;
+                if (j7 != 0x40000000 && xv2.height == -1)
+                {
+                    flag = true;
+                    l5 = 1;
+                }
+                j6 = xv2.topMargin + xv2.bottomMargin;
+                l6 = ((View) (obj)).getMeasuredHeight() + j6;
+                k4 = vr.a(j2, kb.k(((View) (obj))));
+                if (flag2)
+                {
+                    l7 = ((View) (obj)).getBaseline();
+                    if (l7 != -1)
+                    {
+                        if (xv2.h < 0)
+                        {
+                            j2 = e;
+                        } else
+                        {
+                            j2 = xv2.h;
+                        }
+                        j2 = ((j2 & 0x70) >> 4 & -2) >> 1;
+                        ai[j2] = Math.max(ai[j2], l7);
+                        ai1[j2] = Math.max(ai1[j2], l6 - l7);
+                    }
+                }
+                i3 = Math.max(i3, l6);
+                if (k2 != 0 && xv2.height == -1)
+                {
+                    j2 = 1;
+                } else
+                {
+                    j2 = 0;
+                }
+                if (xv2.g > 0.0F)
+                {
+                    if (l5 == 0)
+                    {
+                        j6 = l6;
+                    }
+                    k2 = Math.max(l2, j6);
+                    l2 = k4;
+                    k4 = i2;
+                    i2 = j2;
+                    j2 = k2;
+                    k2 = k4;
+                } else
+                {
+                    if (l5 == 0)
+                    {
+                        j6 = l6;
+                    }
+                    k2 = Math.max(i2, j6);
+                    i2 = j2;
+                    j2 = l2;
+                    l2 = k4;
+                }
+            } else
+            {
+                int i5 = k1;
+                int i6 = i2;
+                int k6 = j2;
+                k1 = l1;
+                l1 = i5;
+                i2 = k2;
+                j2 = l2;
+                k2 = i6;
+                l2 = k6;
+            }
+            k5 = j3 + 1;
+            j3 = k2;
+            i4 = l2;
+            k2 = l1;
+            l1 = k1;
+            k1 = k2;
+            k2 = i2;
+            l2 = j2;
+            i2 = j3;
+            j2 = i4;
+            j3 = k5;
+        }
+        if (f > 0 && d(i7))
+        {
+            f = f + l;
+        }
+        if (ai[1] != -1 || ai[0] != -1 || ai[2] != -1 || ai[3] != -1)
+        {
+            i3 = Math.max(i3, Math.max(ai[3], Math.max(ai[0], Math.max(ai[1], ai[2]))) + Math.max(ai1[3], Math.max(ai1[0], Math.max(ai1[1], ai1[2]))));
+        }
+        if (flag3 && (k7 == 0x80000000 || k7 == 0))
+        {
+            f = 0;
+            k3 = 0;
+            while (k3 < i7) 
+            {
+                obj = c(k3);
+                if (obj == null)
+                {
+                    f = f;
+                } else
+                if (((View) (obj)).getVisibility() != 8)
+                {
+                    obj = (xv)((View) (obj)).getLayoutParams();
+                    if (flag1)
+                    {
+                        k4 = f;
+                        l5 = ((xv) (obj)).leftMargin;
+                        f = ((xv) (obj)).rightMargin + (l5 + l1) + k4;
+                    } else
+                    {
+                        k4 = f;
+                        l5 = ((xv) (obj)).leftMargin;
+                        f = Math.max(k4, ((xv) (obj)).rightMargin + (k4 + l1 + l5));
+                    }
+                }
+                k3++;
+            }
+        }
+        f = f + (getPaddingLeft() + getPaddingRight());
+        j6 = kb.a(Math.max(f, getSuggestedMinimumWidth()), i1, 0);
+        k3 = (0xffffff & j6) - f;
+        if (k1 != 0 || k3 != 0 && f1 > 0.0F)
         {
 label0:
             {
-                obj2.a = d;
-                if (f == null || !f.a())
+                if (g > 0.0F)
                 {
-                    break label0;
+                    f1 = g;
                 }
-                obj2.c = f.c;
-                if (((xv) (obj2)).c)
+                ai[3] = -1;
+                ai[2] = -1;
+                ai[1] = -1;
+                ai[0] = -1;
+                ai1[3] = -1;
+                ai1[2] = -1;
+                ai1[1] = -1;
+                ai1[0] = -1;
+                f = 0;
+                i3 = 0;
+                l1 = k2;
+                k2 = -1;
+                k1 = j2;
+                j2 = k2;
+                k2 = k3;
+                while (i3 < i7) 
                 {
-                    obj2.b = b.d() - f.b;
-                } else
-                {
-                    obj2.b = b.c() + f.b;
+                    obj = c(i3);
+                    if (obj != null && ((View) (obj)).getVisibility() != 8)
+                    {
+                        xv2 = (xv)((View) (obj)).getLayoutParams();
+                        f2 = xv2.g;
+                        if (f2 > 0.0F)
+                        {
+                            k3 = (int)(((float)k2 * f2) / f1);
+                            l5 = getChildMeasureSpec(j1, getPaddingTop() + getPaddingBottom() + xv2.topMargin + xv2.bottomMargin, xv2.height);
+                            if (xv2.width != 0 || k7 != 0x40000000)
+                            {
+                                k4 = k3 + ((View) (obj)).getMeasuredWidth();
+                                l2 = k4;
+                                if (k4 < 0)
+                                {
+                                    l2 = 0;
+                                }
+                            } else
+                            if (k3 > 0)
+                            {
+                                l2 = k3;
+                            } else
+                            {
+                                l2 = 0;
+                            }
+                            ((View) (obj)).measure(android.view.View.MeasureSpec.makeMeasureSpec(l2, 0x40000000), l5);
+                            k1 = vr.a(k1, kb.k(((View) (obj))) & 0xff000000);
+                            f1 -= f2;
+                            l2 = k2 - k3;
+                            k2 = k1;
+                            k1 = l2;
+                        } else
+                        {
+                            l2 = k1;
+                            k1 = k2;
+                            k2 = l2;
+                        }
+                        if (flag1)
+                        {
+                            f = f + (((View) (obj)).getMeasuredWidth() + xv2.leftMargin + xv2.rightMargin);
+                        } else
+                        {
+                            l2 = f;
+                            f = Math.max(l2, ((View) (obj)).getMeasuredWidth() + l2 + xv2.leftMargin + xv2.rightMargin);
+                        }
+                        if (j7 != 0x40000000 && xv2.height == -1)
+                        {
+                            l2 = 1;
+                        } else
+                        {
+                            l2 = 0;
+                        }
+                        l5 = xv2.topMargin + xv2.bottomMargin;
+                        k4 = ((View) (obj)).getMeasuredHeight() + l5;
+                        k3 = Math.max(j2, k4);
+                        if (l2 != 0)
+                        {
+                            j2 = l5;
+                        } else
+                        {
+                            j2 = k4;
+                        }
+                        j2 = Math.max(i2, j2);
+                        if (l1 != 0 && xv2.height == -1)
+                        {
+                            l1 = 1;
+                        } else
+                        {
+                            l1 = 0;
+                        }
+                        if (flag2)
+                        {
+                            l2 = ((View) (obj)).getBaseline();
+                            if (l2 != -1)
+                            {
+                                if (xv2.h < 0)
+                                {
+                                    i2 = e;
+                                } else
+                                {
+                                    i2 = xv2.h;
+                                }
+                                i2 = ((i2 & 0x70) >> 4 & -2) >> 1;
+                                ai[i2] = Math.max(ai[i2], l2);
+                                ai1[i2] = Math.max(ai1[i2], k4 - l2);
+                            }
+                        }
+                        l2 = k2;
+                        k2 = l1;
+                        i2 = k3;
+                        l1 = l2;
+                    } else
+                    {
+                        k3 = l1;
+                        l1 = k1;
+                        l2 = j2;
+                        k1 = k2;
+                        k2 = k3;
+                        j2 = i2;
+                        i2 = l2;
+                    }
+                    k3 = i3 + 1;
+                    l2 = k2;
+                    i3 = i2;
+                    k2 = k1;
+                    k1 = l1;
+                    l1 = l2;
+                    i2 = j2;
+                    j2 = i3;
+                    i3 = k3;
                 }
-                i1 = 1;
+                f = f + (getPaddingLeft() + getPaddingRight());
+                if (ai[1] == -1 && ai[0] == -1 && ai[2] == -1)
+                {
+                    k2 = j2;
+                    if (ai[3] == -1)
+                    {
+                        break label0;
+                    }
+                }
+                k2 = Math.max(j2, Math.max(ai[3], Math.max(ai[0], Math.max(ai[1], ai[2]))) + Math.max(ai1[3], Math.max(ai1[0], Math.max(ai1[1], ai1[2]))));
+            }
+            j2 = k1;
+            i3 = k2;
+            k1 = i2;
+            do
+            {
+                if (l1 != 0 || j7 == 0x40000000)
+                {
+                    k1 = i3;
+                }
+                setMeasuredDimension(0xff000000 & j2 | j6, kb.a(Math.max(k1 + (getPaddingTop() + getPaddingBottom()), getSuggestedMinimumHeight()), j1, j2 << 16));
+                if (flag)
+                {
+                    k1 = android.view.View.MeasureSpec.makeMeasureSpec(getMeasuredHeight(), 0x40000000);
+                    for (j1 = 0; j1 < i7; j1++)
+                    {
+                        view = c(j1);
+                        if (view.getVisibility() != 8)
+                        {
+                            xv1 = (xv)view.getLayoutParams();
+                            if (xv1.height == -1)
+                            {
+                                l1 = xv1.width;
+                                xv1.width = view.getMeasuredWidth();
+                                measureChildWithMargins(view, i1, 0, k1, 0);
+                                xv1.width = l1;
+                            }
+                        }
+                    }
+
+                }
+                return;
+            } while (true);
+        } else
+        {
+            i2 = Math.max(i2, l2);
+            if (flag3 && k7 != 0x40000000)
+            {
+                for (k1 = 0; k1 < i7; k1++)
+                {
+                    view = c(k1);
+                    if (view != null && view.getVisibility() != 8 && ((xv)view.getLayoutParams()).g > 0.0F)
+                    {
+                        view.measure(android.view.View.MeasureSpec.makeMeasureSpec(l1, 0x40000000), android.view.View.MeasureSpec.makeMeasureSpec(view.getMeasuredHeight(), 0x40000000));
+                    }
+                }
+
+            }
+            k1 = i2;
+            l1 = k2;
+            continue;
+        }
+    }
+
+    void b(int i1, int j1, int k1, int l1)
+    {
+        int ai[];
+        int ai1[];
+        int k2;
+        int i3;
+        int j3;
+        int k3;
+        int l3;
+        int i4;
+        boolean flag;
+        boolean flag1;
+        flag = vr.a(this);
+        k2 = getPaddingTop();
+        i3 = l1 - j1;
+        j3 = getPaddingBottom();
+        k3 = getPaddingBottom();
+        l3 = n();
+        j1 = e;
+        i4 = e;
+        flag1 = a;
+        ai = i;
+        ai1 = j;
+        ih.a(j1 & 0x800007, kb.i(this));
+        JVM INSTR lookupswitch 2: default 104
+    //                   1: 186
+    //                   5: 169;
+           goto _L1 _L2 _L3
+_L1:
+        i1 = getPaddingLeft();
+_L6:
+        View view;
+        xv xv1;
+        int i2;
+        int j2;
+        int l2;
+        int j4;
+        int k4;
+        int l4;
+        if (flag)
+        {
+            l1 = l3 - 1;
+            k1 = -1;
+        } else
+        {
+            l1 = 0;
+            k1 = 1;
+        }
+        i2 = 0;
+        j1 = i1;
+_L5:
+        if (i2 >= l3)
+        {
+            break MISSING_BLOCK_LABEL_492;
+        }
+        l4 = l1 + k1 * i2;
+        view = c(l4);
+        if (view != null)
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        i1 = j1;
+_L8:
+        i2++;
+        j1 = i1;
+        if (true) goto _L5; else goto _L4
+_L3:
+        i1 = (getPaddingLeft() + k1) - i1 - f;
+          goto _L6
+_L2:
+        i1 = getPaddingLeft() + (k1 - i1 - f) / 2;
+          goto _L6
+_L4:
+        i1 = j1;
+        if (view.getVisibility() == 8) goto _L8; else goto _L7
+_L7:
+        j4 = view.getMeasuredWidth();
+        k4 = view.getMeasuredHeight();
+        i1 = -1;
+        xv1 = (xv)view.getLayoutParams();
+        j2 = i1;
+        if (flag1)
+        {
+            j2 = i1;
+            if (xv1.height != -1)
+            {
+                j2 = view.getBaseline();
             }
         }
-_L8:
+        l2 = xv1.h;
+        i1 = l2;
+        if (l2 < 0)
+        {
+            i1 = i4 & 0x70;
+        }
+        i1 & 0x70;
+        JVM INSTR lookupswitch 3: default 328
+    //                   16: 413
+    //                   48: 380
+    //                   80: 445;
+           goto _L9 _L10 _L11 _L12
+_L12:
+        break MISSING_BLOCK_LABEL_445;
+_L9:
+        i1 = k2;
+_L13:
+        if (d(l4))
+        {
+            j1 = l + j1;
+        }
+        j1 += xv1.leftMargin;
+        a(view, j1, i1, j4, k4);
+        i1 = j1 + (xv1.rightMargin + j4);
+          goto _L8
+_L11:
+        l2 = xv1.topMargin + k2;
+        i1 = l2;
+        if (j2 != -1)
+        {
+            i1 = (ai[1] - j2) + l2;
+        }
+          goto _L13
+_L10:
+        i1 = ((i3 - k2 - k3 - k4) / 2 + k2 + xv1.topMargin) - xv1.bottomMargin;
+          goto _L13
+        l2 = i3 - j3 - k4 - xv1.bottomMargin;
+        i1 = l2;
+        if (j2 != -1)
+        {
+            i1 = view.getMeasuredHeight();
+            i1 = l2 - (ai1[2] - (i1 - j2));
+        }
+          goto _L13
+    }
+
+    void b(Canvas canvas)
+    {
+        int l1 = n();
+        boolean flag = vr.a(this);
+        int i1 = 0;
+        while (i1 < l1) 
+        {
+            View view = c(i1);
+            if (view != null && view.getVisibility() != 8 && d(i1))
+            {
+                xv xv1 = (xv)view.getLayoutParams();
+                int k1;
+                if (flag)
+                {
+                    k1 = view.getRight();
+                    k1 = xv1.rightMargin + k1;
+                } else
+                {
+                    k1 = view.getLeft() - xv1.leftMargin - l;
+                }
+                b(canvas, k1);
+            }
+            i1++;
+        }
+        if (d(l1))
+        {
+            View view1 = c(l1 - 1);
+            int j1;
+            if (view1 == null)
+            {
+                if (flag)
+                {
+                    j1 = getPaddingLeft();
+                } else
+                {
+                    j1 = getWidth() - getPaddingRight() - l;
+                }
+            } else
+            {
+                xv xv2 = (xv)view1.getLayoutParams();
+                if (flag)
+                {
+                    j1 = view1.getLeft() - xv2.leftMargin - l;
+                } else
+                {
+                    j1 = view1.getRight();
+                    j1 = xv2.rightMargin + j1;
+                }
+            }
+            b(canvas, j1);
+        }
+    }
+
+    void b(Canvas canvas, int i1)
+    {
+        k.setBounds(i1, getPaddingTop() + o, l + i1, getHeight() - getPaddingBottom() - o);
+        k.draw(canvas);
+    }
+
+    void b(View view, int i1, int j1, int k1, int l1)
+    {
+        measureChildWithMargins(view, i1, j1, k1, l1);
+    }
+
+    public void b(boolean flag)
+    {
+        a = flag;
+    }
+
+    View c(int i1)
+    {
+        return getChildAt(i1);
+    }
+
+    public boolean checkLayoutParams(android.view.ViewGroup.LayoutParams layoutparams)
+    {
+        return layoutparams instanceof xv;
+    }
+
+    protected boolean d(int i1)
+    {
         if (i1 != 0) goto _L2; else goto _L1
 _L1:
-        if (k() == 0)
-        {
-            break MISSING_BLOCK_LABEL_1336;
-        }
-        view = r();
-        if (view == null) goto _L4; else goto _L3
+        if ((n & 1) == 0) goto _L4; else goto _L3
 _L3:
-        zf1 = (zf)view.getLayoutParams();
-        boolean flag;
-        if (!zf1.a() && zf1.c() >= 0 && zf1.c() < zo1.d())
-        {
-            i1 = 1;
-        } else
-        {
-            i1 = 0;
-        }
-        if (i1 == 0) goto _L4; else goto _L5
-_L5:
-        ((xv) (obj2)).a(view);
-        i1 = 1;
-_L11:
-        if (i1 == 0)
-        {
-            ((xv) (obj2)).b();
-            if (n)
-            {
-                i1 = zo1.d() - 1;
-            } else
-            {
-                i1 = 0;
-            }
-            obj2.a = i1;
-        }
-_L2:
-        i1 = g(zo1);
-        if (k.j >= 0)
-        {
-            j1 = 0;
-        } else
-        {
-            j1 = i1;
-            i1 = 0;
-        }
-        k1 = j1 + b.c();
-        l1 = i1 + b.g();
-        i1 = l1;
-        j1 = k1;
-        if (zo1.a())
-        {
-            i1 = l1;
-            j1 = k1;
-            if (d != -1)
-            {
-                i1 = l1;
-                j1 = k1;
-                if (e != 0x80000000)
-                {
-                    Object obj = a(d);
-                    i1 = l1;
-                    j1 = k1;
-                    if (obj != null)
-                    {
-                        if (c)
-                        {
-                            i1 = b.d() - b.b(((View) (obj))) - e;
-                        } else
-                        {
-                            i1 = b.a(((View) (obj)));
-                            j1 = b.c();
-                            i1 = e - (i1 - j1);
-                        }
-                        if (i1 > 0)
-                        {
-                            j1 = k1 + i1;
-                            i1 = l1;
-                        } else
-                        {
-                            i1 = l1 - i1;
-                            j1 = k1;
-                        }
-                    }
-                }
-            }
-        }
-        a(zj1);
-        k.i = zo1.a();
-        if (g.c)
-        {
-            b(g);
-            k.h = j1;
-            a(zj1, k, zo1, false);
-            l1 = k.b;
-            i2 = k.d;
-            j1 = i1;
-            if (k.c > 0)
-            {
-                j1 = i1 + k.c;
-            }
-            a(g);
-            k.h = j1;
-            obj = k;
-            obj.d = ((xx) (obj)).d + k.e;
-            a(zj1, k, zo1, false);
-            k1 = k.b;
-            Object obj1;
-            int j2;
-            int k2;
-            int l2;
-            int i3;
-            boolean flag1;
-            if (k.c > 0)
-            {
-                i1 = k.c;
-                d(i2, l1);
-                k.h = i1;
-                a(zj1, k, zo1, false);
-                i1 = k.b;
-            } else
-            {
-                i1 = l1;
-            }
-            j1 = i1;
-            i1 = k1;
-        } else
-        {
-            a(g);
-            k.h = i1;
-            a(zj1, k, zo1, false);
-            k1 = k.b;
-            j2 = k.d;
-            i1 = j1;
-            if (k.c > 0)
-            {
-                i1 = j1 + k.c;
-            }
-            b(g);
-            k.h = i1;
-            obj1 = k;
-            obj1.d = ((xx) (obj1)).d + k.e;
-            a(zj1, k, zo1, false);
-            l1 = k.b;
-            i1 = k1;
-            j1 = l1;
-            if (k.c > 0)
-            {
-                i1 = k.c;
-                c(j2, k1);
-                k.h = i1;
-                a(zj1, k, zo1, false);
-                i1 = k.b;
-                j1 = l1;
-            }
-        }
-        if (k() > 0)
-        {
-            if (c ^ n)
-            {
-                k1 = a(i1, zj1, zo1, true);
-                l1 = j1 + k1;
-                j1 = b(l1, zj1, zo1, false);
-                l1 += j1;
-                k1 = i1 + k1 + j1;
-            } else
-            {
-                k1 = b(j1, zj1, zo1, true);
-                i1 += k1;
-                j2 = a(i1, zj1, zo1, false);
-                l1 = j1 + k1 + j2;
-                k1 = i1 + j2;
-            }
-        } else
-        {
-            k1 = i1;
-            l1 = j1;
-        }
-        if (zo1.b() && k() != 0 && !zo1.a() && f())
-        {
-            i1 = 0;
-            j1 = 0;
-            obj1 = zj1.b();
-            l2 = ((List) (obj1)).size();
-            i3 = d(e(0));
-            j2 = 0;
-            while (j2 < l2) 
-            {
-                obj2 = (zq)((List) (obj1)).get(j2);
-                if (!((zq) (obj2)).n())
-                {
-                    if (((zq) (obj2)).d() < i3)
-                    {
-                        flag1 = true;
-                    } else
-                    {
-                        flag1 = false;
-                    }
-                    if (flag1 != c)
-                    {
-                        k2 = -1;
-                    } else
-                    {
-                        k2 = 1;
-                    }
-                    if (k2 == -1)
-                    {
-                        k2 = b.c(((zq) (obj2)).a) + i1;
-                        i1 = j1;
-                        j1 = k2;
-                    } else
-                    {
-                        k2 = b.c(((zq) (obj2)).a) + j1;
-                        j1 = i1;
-                        i1 = k2;
-                    }
-                } else
-                {
-                    k2 = i1;
-                    i1 = j1;
-                    j1 = k2;
-                }
-                k2 = j2 + 1;
-                j2 = j1;
-                j1 = i1;
-                i1 = j2;
-                j2 = k2;
-            }
-            k.k = ((List) (obj1));
-            if (i1 > 0)
-            {
-                d(d(z()), l1);
-                k.h = i1;
-                k.c = 0;
-                k.a();
-                a(zj1, k, zo1, false);
-            }
-            if (j1 > 0)
-            {
-                c(d(A()), k1);
-                k.h = j1;
-                k.c = 0;
-                k.a();
-                a(zj1, k, zo1, false);
-            }
-            k.k = null;
-        }
-        if (!zo1.a())
-        {
-            d = -1;
-            e = 0x80000000;
-            b.a();
-        }
-        l = n;
-        f = null;
-        return;
-        if (e != 0x80000000)
-        {
-            break MISSING_BLOCK_LABEL_1122;
-        }
-        obj = a(d);
-        if (obj == null) goto _L7; else goto _L6
-_L6:
-        if (b.c(((View) (obj))) > b.f())
-        {
-            ((xv) (obj2)).b();
-        } else
-        if (b.a(((View) (obj))) - b.c() < 0)
-        {
-            obj2.b = b.c();
-            obj2.c = false;
-        } else
-        {
-label1:
-            {
-                if (b.d() - b.b(((View) (obj))) >= 0)
-                {
-                    break label1;
-                }
-                obj2.b = b.d();
-                obj2.c = true;
-            }
-        }
-_L10:
-        i1 = 1;
-          goto _L8
-        if (((xv) (obj2)).c)
-        {
-            i1 = b.b(((View) (obj))) + b.b();
-        } else
-        {
-            i1 = b.a(((View) (obj)));
-        }
-        obj2.b = i1;
-_L9:
-        i1 = 1;
-          goto _L8
-_L7:
-        if (k() > 0)
-        {
-            i1 = d(e(0));
-            if (d < i1)
-            {
-                flag = true;
-            } else
-            {
-                flag = false;
-            }
-            if (flag == c)
-            {
-                flag = true;
-            } else
-            {
-                flag = false;
-            }
-            obj2.c = flag;
-        }
-        ((xv) (obj2)).b();
-          goto _L9
-        obj2.c = c;
-        if (c)
-        {
-            obj2.b = b.d() - e;
-        } else
-        {
-            obj2.b = b.c() + e;
-        }
-          goto _L10
+        return true;
 _L4:
-        if (l != n)
+        return false;
+_L2:
+        if (i1 != getChildCount())
         {
-            break MISSING_BLOCK_LABEL_1336;
+            break; /* Loop/switch isn't completed */
         }
-        if (((xv) (obj2)).c)
+        if ((n & 4) == 0)
         {
-            obj = b(zj1, zo1);
-        } else
-        {
-            obj = c(zj1, zo1);
+            return false;
         }
-        if (obj == null)
+        if (true) goto _L3; else goto _L5
+_L5:
+        if ((n & 2) == 0)
         {
-            break MISSING_BLOCK_LABEL_1336;
+            break; /* Loop/switch isn't completed */
         }
-        ((xv) (obj2)).b(((View) (obj)));
-        if (!zo1.a() && f())
+        i1--;
+        do
         {
-            if (b.a(((View) (obj))) >= b.d() || b.b(((View) (obj))) < b.c())
+            if (i1 < 0)
             {
-                i1 = 1;
-            } else
-            {
-                i1 = 0;
+                break MISSING_BLOCK_LABEL_75;
             }
-            if (i1 != 0)
+            if (getChildAt(i1).getVisibility() != 8)
             {
-                if (((xv) (obj2)).c)
-                {
-                    i1 = b.d();
-                } else
-                {
-                    i1 = b.c();
-                }
-                obj2.b = i1;
+                break;
             }
-        }
-        i1 = 1;
-          goto _L11
-        i1 = 0;
-          goto _L11
+            i1--;
+        } while (true);
+        if (true) goto _L3; else goto _L6
+_L6:
+        return false;
+        return false;
     }
 
-    public int b(int i1, zj zj1, zo zo1)
+    public void e(int i1)
     {
-        if (a == 0)
+        if (d != i1)
         {
-            return 0;
-        } else
-        {
-            return d(i1, zj1, zo1);
+            d = i1;
+            requestLayout();
         }
     }
 
-    public int b(zo zo1)
+    public void f(int i1)
     {
-        return h(zo1);
-    }
-
-    public Parcelable b()
-    {
-        if (f != null)
+        if (e != i1)
         {
-            return new xy(f);
-        }
-        xy xy1 = new xy();
-        if (k() > 0)
-        {
-            y();
-            boolean flag = l ^ c;
-            xy1.c = flag;
-            if (flag)
+            if ((0x800007 & i1) == 0)
             {
-                View view = A();
-                xy1.b = b.d() - b.b(view);
-                xy1.a = d(view);
-                return xy1;
-            } else
-            {
-                View view1 = z();
-                xy1.a = d(view1);
-                xy1.b = b.a(view1) - b.c();
-                return xy1;
+                i1 = 0x800003 | i1;
             }
-        } else
-        {
-            xy1.b();
-            return xy1;
+            int j1 = i1;
+            if ((i1 & 0x70) == 0)
+            {
+                j1 = i1 | 0x30;
+            }
+            e = j1;
+            requestLayout();
         }
     }
 
-    public void b(int i1)
+    public android.view.ViewGroup.LayoutParams generateDefaultLayoutParams()
     {
-        d = i1;
-        e = 0x80000000;
-        if (f != null)
-        {
-            f.b();
-        }
-        g();
+        return l();
     }
 
-    public int c(zo zo1)
+    public android.view.ViewGroup.LayoutParams generateLayoutParams(AttributeSet attributeset)
     {
-        return i(zo1);
+        return b(attributeset);
     }
 
-    public View c(int i1, zj zj1, zo zo1)
+    public android.view.ViewGroup.LayoutParams generateLayoutParams(android.view.ViewGroup.LayoutParams layoutparams)
     {
-        w();
-        if (k() != 0) goto _L2; else goto _L1
+        return b(layoutparams);
+    }
+
+    public int getBaseline()
+    {
+        int i1 = -1;
+        if (b >= 0) goto _L2; else goto _L1
 _L1:
-        return null;
-_L2:
-        i1;
-        JVM INSTR lookupswitch 6: default 72
-    //                   1: 181
-    //                   2: 186
-    //                   17: 229
-    //                   33: 191
-    //                   66: 247
-    //                   130: 210;
-           goto _L3 _L4 _L5 _L6 _L7 _L8 _L9
-_L3:
-        i1 = 0x80000000;
-_L10:
-        if (i1 != 0x80000000)
-        {
-            y();
-            View view;
-            if (i1 == -1)
-            {
-                view = c(zj1, zo1);
-            } else
-            {
-                view = b(zj1, zo1);
-            }
-            if (view != null)
-            {
-                y();
-                a(i1, (int)(0.33F * (float)b.f()), false, zo1);
-                k.g = 0x80000000;
-                k.a = false;
-                a(zj1, k, zo1, true);
-                if (i1 == -1)
-                {
-                    zj1 = z();
-                } else
-                {
-                    zj1 = A();
-                }
-                if (zj1 != view && zj1.isFocusable())
-                {
-                    return zj1;
-                }
-            }
-        }
-        if (true) goto _L1; else goto _L4
+        i1 = super.getBaseline();
 _L4:
-        i1 = -1;
-          goto _L10
+        return i1;
+_L2:
+        View view;
+        int j1;
+        if (getChildCount() <= b)
+        {
+            throw new RuntimeException("mBaselineAlignedChildIndex of LinearLayout set to an index that is out of bounds.");
+        }
+        view = getChildAt(b);
+        j1 = view.getBaseline();
+        if (j1 != -1)
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        if (b != 0)
+        {
+            throw new RuntimeException("mBaselineAlignedChildIndex of LinearLayout points to a View that doesn't know how to get its baseline.");
+        }
+        if (true) goto _L4; else goto _L3
+_L3:
+        i1 = c;
+        if (d != 1) goto _L6; else goto _L5
 _L5:
-        i1 = 1;
-          goto _L10
+        int k1 = e & 0x70;
+        if (k1 == 48) goto _L6; else goto _L7
 _L7:
-        if (a == 1)
-        {
-            i1 = -1;
-        } else
-        {
-            i1 = 0x80000000;
-        }
-          goto _L10
-_L9:
-        if (a == 1)
-        {
-            i1 = 1;
-        } else
-        {
-            i1 = 0x80000000;
-        }
-          goto _L10
+        k1;
+        JVM INSTR lookupswitch 2: default 132
+    //                   16: 170
+    //                   80: 147;
+           goto _L6 _L8 _L9
 _L6:
-        if (a == 0)
-        {
-            i1 = -1;
-        } else
-        {
-            i1 = 0x80000000;
-        }
-          goto _L10
+        return ((xv)view.getLayoutParams()).topMargin + i1 + j1;
+_L9:
+        i1 = getBottom() - getTop() - getPaddingBottom() - f;
+        continue; /* Loop/switch isn't completed */
 _L8:
-        if (a == 0)
+        i1 += (getBottom() - getTop() - getPaddingTop() - getPaddingBottom() - f) / 2;
+        if (true) goto _L6; else goto _L10
+_L10:
+    }
+
+    public xv l()
+    {
+        if (d == 0)
         {
-            i1 = 1;
+            return new xv(-2, -2);
+        }
+        if (d == 1)
+        {
+            return new xv(-1, -2);
         } else
         {
-            i1 = 0x80000000;
+            return null;
         }
-          goto _L10
     }
 
-    public boolean c()
+    public int m()
     {
-        return a == 0;
+        return l;
     }
 
-    public int d(zo zo1)
+    int n()
     {
-        return i(zo1);
+        return getChildCount();
     }
 
-    public boolean d()
+    protected void onDraw(Canvas canvas)
     {
-        return a == 1;
+        if (k == null)
+        {
+            return;
+        }
+        if (d == 1)
+        {
+            a(canvas);
+            return;
+        } else
+        {
+            b(canvas);
+            return;
+        }
     }
 
-    public int e(zo zo1)
+    public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityevent)
     {
-        return j(zo1);
+        if (android.os.Build.VERSION.SDK_INT >= 14)
+        {
+            super.onInitializeAccessibilityEvent(accessibilityevent);
+            accessibilityevent.setClassName(xu.getName());
+        }
     }
 
-    public void e()
+    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilitynodeinfo)
     {
-        o = true;
+        if (android.os.Build.VERSION.SDK_INT >= 14)
+        {
+            super.onInitializeAccessibilityNodeInfo(accessibilitynodeinfo);
+            accessibilitynodeinfo.setClassName(xu.getName());
+        }
     }
 
-    public int f(zo zo1)
+    public void onLayout(boolean flag, int i1, int j1, int k1, int l1)
     {
-        return j(zo1);
+        if (d == 1)
+        {
+            a(i1, j1, k1, l1);
+            return;
+        } else
+        {
+            b(i1, j1, k1, l1);
+            return;
+        }
     }
 
-    public boolean f()
+    public void onMeasure(int i1, int j1)
     {
-        return f == null && l == n;
+        if (d == 1)
+        {
+            a(i1, j1);
+            return;
+        } else
+        {
+            b(i1, j1);
+            return;
+        }
+    }
+
+    public boolean shouldDelayChildPressedState()
+    {
+        return false;
     }
 }

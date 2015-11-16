@@ -7,16 +7,18 @@ final class dvm
     implements Runnable
 {
 
-    final dvl a;
+    final dvg a;
+    final dvi b;
 
-    dvm(dvl dvl1)
+    dvm(dvi dvi1, dvg dvg)
     {
-        a = dvl1;
+        b = dvi1;
+        a = dvg;
         super();
     }
 
     public void run()
     {
-        a.a();
+        b.b(a);
     }
 }

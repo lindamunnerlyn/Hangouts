@@ -2,23 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.ConnectionResult;
 
-final class eky extends elk
+public final class eky extends Exception
 {
 
-    final ConnectionResult a;
-    final ekx b;
-
-    eky(ekx ekx1, elo elo, ConnectionResult connectionresult)
+    public eky(String s)
     {
-        b = ekx1;
-        a = connectionresult;
-        super(elo);
-    }
-
-    public void a()
-    {
-        b.a.b(a);
+        super(s);
     }
 }

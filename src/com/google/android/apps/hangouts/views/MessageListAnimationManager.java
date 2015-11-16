@@ -7,9 +7,9 @@ package com.google.android.apps.hangouts.views;
 import android.content.res.Resources;
 import android.os.Handler;
 import android.widget.AbsListView;
-import ebw;
-import efc;
-import efd;
+import eev;
+import eie;
+import eif;
 import g;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -25,21 +25,21 @@ public final class MessageListAnimationManager
     private final Queue b = new PriorityQueue();
     private boolean c;
     private AbsListView d;
-    private final efc e;
-    private efd f;
+    private final eie e;
+    private eif f;
     private Handler g;
     private MessageListItemWrapperView h;
 
-    public MessageListAnimationManager(AbsListView abslistview, efc efc1, Handler handler)
+    public MessageListAnimationManager(AbsListView abslistview, eie eie1, Handler handler)
     {
         c = false;
         d = abslistview;
-        e = efc1;
+        e = eie1;
         g = handler;
-        i = abslistview.getResources().getInteger(g.eZ);
+        i = abslistview.getResources().getInteger(g.eX);
     }
 
-    static efc a(MessageListAnimationManager messagelistanimationmanager)
+    static eie a(MessageListAnimationManager messagelistanimationmanager)
     {
         return messagelistanimationmanager.e;
     }
@@ -64,7 +64,7 @@ public final class MessageListAnimationManager
         return i;
     }
 
-    static efd c(MessageListAnimationManager messagelistanimationmanager)
+    static eif c(MessageListAnimationManager messagelistanimationmanager)
     {
         return messagelistanimationmanager.f;
     }
@@ -74,7 +74,7 @@ public final class MessageListAnimationManager
         messagelistanimationmanager.a((Runnable)messagelistanimationmanager.b.poll());
     }
 
-    public efc a()
+    public eie a()
     {
         return e;
     }
@@ -84,9 +84,9 @@ public final class MessageListAnimationManager
         h = messagelistitemwrapperview;
     }
 
-    public void a(efd efd)
+    public void a(eif eif)
     {
-        f = efd;
+        f = eif;
     }
 
     public void a(boolean flag)
@@ -116,7 +116,7 @@ public final class MessageListAnimationManager
         if (a)
         {
             String s = String.valueOf(messagelistitemwrapperview);
-            ebw.b("Babel", (new StringBuilder(String.valueOf(s).length() + 20)).append("enqueueForAnimation ").append(s).toString());
+            eev.b("Babel", (new StringBuilder(String.valueOf(s).length() + 20)).append("enqueueForAnimation ").append(s).toString());
         }
         messagelistitemwrapperview = new AnimateInNewMessageRunnable(messagelistitemwrapperview, d);
         if (c)
@@ -132,7 +132,7 @@ public final class MessageListAnimationManager
 
     static 
     {
-        hik hik = ebw.w;
+        hnc hnc = eev.w;
     }
 
     private class AnimateInNewMessageRunnable
@@ -146,7 +146,12 @@ public final class MessageListAnimationManager
         private ObjectAnimator e;
         private boolean f;
 
-        private void a()
+        public int a(AnimateInNewMessageRunnable animateinnewmessagerunnable)
+        {
+            return a.g() <= animateinnewmessagerunnable.a.g() ? -1 : 1;
+        }
+
+        public void a()
         {
             if (MessageListAnimationManager.a(b) != null)
             {
@@ -161,16 +166,6 @@ public final class MessageListAnimationManager
             MessageListAnimationManager.d(b);
         }
 
-        public static void b(AnimateInNewMessageRunnable animateinnewmessagerunnable)
-        {
-            animateinnewmessagerunnable.a();
-        }
-
-        public int a(AnimateInNewMessageRunnable animateinnewmessagerunnable)
-        {
-            return a.g() <= animateinnewmessagerunnable.a.g() ? -1 : 1;
-        }
-
         public int compareTo(Object obj)
         {
             return a((AnimateInNewMessageRunnable)obj);
@@ -182,8 +177,8 @@ public final class MessageListAnimationManager
                 0.0F, 1.0F
             });
             e.setDuration(MessageListAnimationManager.c());
-            e.setInterpolator(new aia((byte)0));
-            e.addListener(new efb(this));
+            e.setInterpolator(new aht((byte)0));
+            e.addListener(new eid(this));
             if (MessageListAnimationManager.a(b) != null)
             {
                 MessageListAnimationManager.a(b).a();

@@ -6,6 +6,8 @@ package org.chromium.net;
 
 import android.content.Context;
 import android.content.IntentFilter;
+import lna;
+import lnb;
 
 public class ProxyChangeListener
 {
@@ -13,24 +15,24 @@ public class ProxyChangeListener
     private static boolean a = true;
     private long b;
     private Context c;
-    private ProxyReceiver d;
+    private lnb d;
 
     private ProxyChangeListener(Context context)
     {
         c = context;
     }
 
-    static void a(ProxyChangeListener proxychangelistener, ProxyConfig proxyconfig)
+    public static void a(ProxyChangeListener proxychangelistener, lna lna1)
     {
 label0:
         {
             if (a && proxychangelistener.b != 0L)
             {
-                if (proxyconfig == null)
+                if (lna1 == null)
                 {
                     break label0;
                 }
-                proxychangelistener.nativeProxySettingsChangedTo(proxychangelistener.b, proxyconfig.a, proxyconfig.b, proxyconfig.c, proxyconfig.d);
+                proxychangelistener.nativeProxySettingsChangedTo(proxychangelistener.b, lna1.a, lna1.b, lna1.c, lna1.d);
             }
             return;
         }
@@ -58,7 +60,7 @@ label0:
         {
             IntentFilter intentfilter = new IntentFilter();
             intentfilter.addAction("android.intent.action.PROXY_CHANGE");
-            d = new ProxyReceiver();
+            d = new lnb(this);
             c.getApplicationContext().registerReceiver(d, intentfilter);
         }
     }
@@ -70,133 +72,6 @@ label0:
         {
             c.unregisterReceiver(d);
             d = null;
-        }
-    }
-
-
-    private class ProxyConfig
-    {
-
-        public final String a;
-        public final int b;
-        public final String c;
-        public final String d[];
-
-        public ProxyConfig(String s, int i, String s1, String as[])
-        {
-            a = s;
-            b = i;
-            c = s1;
-            d = as;
-        }
-    }
-
-
-    private class ProxyReceiver extends BroadcastReceiver
-    {
-
-        final ProxyChangeListener a;
-
-        private static ProxyConfig a(Intent intent)
-        {
-            Object obj;
-            Object obj1;
-            Class class1;
-            Method method;
-            int i;
-            if (android.os.Build.VERSION.SDK_INT <= 19)
-            {
-                obj = "android.net.ProxyProperties";
-                obj1 = "proxy";
-            } else
-            {
-                obj = "android.net.ProxyInfo";
-                obj1 = "android.intent.extra.PROXY_INFO";
-            }
-            try
-            {
-                obj1 = intent.getExtras().get(((String) (obj1)));
-            }
-            // Misplaced declaration of an exception variable
-            catch (Intent intent)
-            {
-                Log.e("ProxyChangeListener", (new StringBuilder("Using no proxy configuration due to exception:")).append(intent).toString());
-                return null;
-            }
-            // Misplaced declaration of an exception variable
-            catch (Intent intent)
-            {
-                Log.e("ProxyChangeListener", (new StringBuilder("Using no proxy configuration due to exception:")).append(intent).toString());
-                return null;
-            }
-            // Misplaced declaration of an exception variable
-            catch (Intent intent)
-            {
-                Log.e("ProxyChangeListener", (new StringBuilder("Using no proxy configuration due to exception:")).append(intent).toString());
-                return null;
-            }
-            // Misplaced declaration of an exception variable
-            catch (Intent intent)
-            {
-                Log.e("ProxyChangeListener", (new StringBuilder("Using no proxy configuration due to exception:")).append(intent).toString());
-                return null;
-            }
-            // Misplaced declaration of an exception variable
-            catch (Intent intent)
-            {
-                Log.e("ProxyChangeListener", (new StringBuilder("Using no proxy configuration due to exception:")).append(intent).toString());
-                return null;
-            }
-            if (obj1 == null)
-            {
-                return null;
-            }
-            class1 = Class.forName(((String) (obj)));
-            obj = class1.getDeclaredMethod("getHost", new Class[0]);
-            intent = class1.getDeclaredMethod("getPort", new Class[0]);
-            method = class1.getDeclaredMethod("getExclusionList", new Class[0]);
-            obj = (String)((Method) (obj)).invoke(obj1, new Object[0]);
-            i = ((Integer)intent.invoke(obj1, new Object[0])).intValue();
-            if (android.os.Build.VERSION.SDK_INT <= 19)
-            {
-                intent = ((String)method.invoke(obj1, new Object[0])).split(",");
-            } else
-            {
-                intent = (String[])method.invoke(obj1, new Object[0]);
-            }
-            if (android.os.Build.VERSION.SDK_INT == 19)
-            {
-                obj1 = (String)class1.getDeclaredMethod("getPacFileUrl", new Class[0]).invoke(obj1, new Object[0]);
-                if (!TextUtils.isEmpty(((CharSequence) (obj1))))
-                {
-                    return new ProxyConfig(((String) (obj)), i, ((String) (obj1)), intent);
-                }
-                break MISSING_BLOCK_LABEL_248;
-            }
-            if (android.os.Build.VERSION.SDK_INT > 19)
-            {
-                obj1 = (Uri)class1.getDeclaredMethod("getPacFileUrl", new Class[0]).invoke(obj1, new Object[0]);
-                if (!Uri.EMPTY.equals(obj1))
-                {
-                    return new ProxyConfig(((String) (obj)), i, ((Uri) (obj1)).toString(), intent);
-                }
-            }
-            intent = new ProxyConfig(((String) (obj)), i, null, intent);
-            return intent;
-        }
-
-        public void onReceive(Context context, Intent intent)
-        {
-            if (intent.getAction().equals("android.intent.action.PROXY_CHANGE"))
-            {
-                ProxyChangeListener.a(a, a(intent));
-            }
-        }
-
-        ProxyReceiver()
-        {
-            a = ProxyChangeListener.this;
-            super();
         }
     }
 

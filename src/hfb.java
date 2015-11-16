@@ -2,23 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.view.AbsSavedState;
 
-public class hfb extends AbsSavedState
+public final class hfb extends bgv
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new hfc();
+    private static final long serialVersionUID = 0x67c1af976118ea4bL;
 
-    public hfb(Parcel parcel)
+    public hfb(String s)
     {
-        super(parcel);
+        super(s);
     }
 
-    public hfb(Parcelable parcelable)
+    public hfb(Throwable throwable)
     {
-        super(parcelable);
+        super(throwable);
     }
-
 }

@@ -6,14 +6,15 @@ package com.google.android.gms.common.server;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import eok;
+import eri;
+import g;
 
 public class FavaDiagnosticsEntity
     implements SafeParcelable
 {
 
-    public static final eok CREATOR = new eok();
-    public final int a;
+    public static final eri CREATOR = new eri();
+    final int a;
     public final String b;
     public final int c;
 
@@ -31,7 +32,11 @@ public class FavaDiagnosticsEntity
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        eok.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b);
+        g.b(parcel, 3, c);
+        g.q(parcel, i);
     }
 
 }

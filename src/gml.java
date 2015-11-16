@@ -2,31 +2,13 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import com.google.android.libraries.quantum.snackbar.Snackbar;
 
-public final class gml extends AnimatorListenerAdapter
+public interface gml
 {
 
-    final Snackbar a;
+    public abstract void a();
 
-    public gml(Snackbar snackbar)
-    {
-        a = snackbar;
-        super();
-    }
+    public abstract void a(gmm gmm);
 
-    public void onAnimationEnd(Animator animator)
-    {
-        if (android.os.Build.VERSION.SDK_INT < 21 && a.d() != 0)
-        {
-            Snackbar.b(a);
-        }
-    }
-
-    public void onAnimationStart(Animator animator)
-    {
-        a.setVisibility(0);
-    }
+    public abstract void c_(boolean flag);
 }

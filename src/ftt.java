@@ -2,23 +2,51 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.wearable.internal.NodeParcelable;
+import android.content.Context;
+import android.os.AsyncTask;
 
-final class ftt
-    implements Runnable
+final class ftt extends AsyncTask
 {
 
-    final NodeParcelable a;
-    final ftq b;
+    final Context a;
+    final ftu b;
 
-    ftt(ftq ftq, NodeParcelable nodeparcelable)
+    ftt(Context context, ftu ftu1)
     {
-        b = ftq;
-        a = nodeparcelable;
+        a = context;
+        b = ftu1;
         super();
     }
 
-    public void run()
+    private transient Integer a()
     {
+        try
+        {
+            fts.a(a);
+        }
+        catch (emn emn1)
+        {
+            return Integer.valueOf(emn1.a());
+        }
+        catch (emm emm1)
+        {
+            return Integer.valueOf(emm1.a);
+        }
+        return Integer.valueOf(0);
+    }
+
+    protected Object doInBackground(Object aobj[])
+    {
+        return a();
+    }
+
+    protected void onPostExecute(Object obj)
+    {
+        obj = (Integer)obj;
+        if (((Integer) (obj)).intValue() != 0)
+        {
+            emo.a(((Integer) (obj)).intValue());
+            b.b(((Integer) (obj)).intValue());
+        }
     }
 }

@@ -4,69 +4,28 @@
 
 import android.content.Context;
 
-public final class alh
+final class alh
+    implements grg
 {
 
-    public static final String a = alm.getName();
-    public static final String b = gxq.getName();
-    public static final String c = ddm.getName();
-    public static final String d = ali.getName();
-    public static final String e = beb.getName();
-    public static final String f = gmx.getName();
-    private static alg g;
+    final alf a;
 
-    public static void a(Context context, hgx hgx1)
+    alh(alf alf1)
     {
-        if (g == null)
-        {
-            g = new alg();
-        }
-        hgx1.a(alm, g.a(hgx1, context));
+        a = alf1;
+        super();
     }
 
-    public static void a(hgx hgx1)
+    public String a()
     {
-        if (g == null)
-        {
-            g = new alg();
-        }
-        hgx1.a(beb, g.a());
+        return "cmm-signed-out2";
     }
 
-    public static void b(Context context, hgx hgx1)
+    public void a(Context context, grd grd1)
     {
-        if (g == null)
+        if (grd1.b("effective_gaia_id") != null && grd1.d("is_business_features_enabled") && grd1.b("full_jid") == null && grd1.d("logged_in"))
         {
-            g = new alg();
+            dcn.f(a.a.b(grd1.b("account_name"), grd1.b("effective_gaia_id")));
         }
-        hgx1.a(gxq, g.b(hgx1, context));
     }
-
-    public static void c(Context context, hgx hgx1)
-    {
-        if (g == null)
-        {
-            g = new alg();
-        }
-        hgx1.a(ddm, g.c(context));
-    }
-
-    public static void d(Context context, hgx hgx1)
-    {
-        if (g == null)
-        {
-            g = new alg();
-        }
-        hgx1.a(ali, g.a(context));
-    }
-
-    public static void e(Context context, hgx hgx1)
-    {
-        if (g == null)
-        {
-            g = new alg();
-        }
-        hgx1.a(gmx, g.b(context));
-    }
-
 }

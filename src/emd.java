@@ -2,58 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import com.google.android.gms.common.data.DataHolder;
-import java.util.Iterator;
 
-public abstract class emd
-    implements eme
+final class emd
+    implements Runnable
 {
 
-    public final DataHolder a;
+    final emy a;
+    final emg b;
+    final ely c;
 
-    public emd(DataHolder dataholder)
+    emd(ely ely, emy emy1, emg emg)
     {
-        a = dataholder;
-        if (a != null)
-        {
-            a.a(this);
-        }
+        c = ely;
+        a = emy1;
+        b = emg;
+        super();
     }
 
-    public int a()
+    public void run()
     {
-        if (a == null)
-        {
-            return 0;
-        } else
-        {
-            return a.g();
-        }
-    }
-
-    public abstract Object a(int i);
-
-    public void b()
-    {
-        if (a != null)
-        {
-            a.i();
-        }
-    }
-
-    public boolean c()
-    {
-        return a == null || a.h();
-    }
-
-    public Bundle d()
-    {
-        return a.f();
-    }
-
-    public Iterator iterator()
-    {
-        return new emk(this);
+        a.a(b);
     }
 }

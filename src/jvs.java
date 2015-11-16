@@ -2,131 +2,75 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.common.collect.MapMakerInternalMap;
 
-public final class jvs extends koj
+public final class jvs extends jvp
+    implements com.google.common.collect.MapMakerInternalMap.ReferenceEntry
 {
 
-    private static volatile jvs e[];
-    public jvp a;
-    public Long b;
-    public Float c;
-    public Float d;
+    volatile long e;
+    com.google.common.collect.MapMakerInternalMap.ReferenceEntry f;
+    com.google.common.collect.MapMakerInternalMap.ReferenceEntry g;
+    com.google.common.collect.MapMakerInternalMap.ReferenceEntry h;
+    com.google.common.collect.MapMakerInternalMap.ReferenceEntry i;
 
-    public jvs()
+    jvs(Object obj, int j, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(obj, j, referenceentry);
+        e = 0x7fffffffffffffffL;
+        f = MapMakerInternalMap.h();
+        g = MapMakerInternalMap.h();
+        h = MapMakerInternalMap.h();
+        i = MapMakerInternalMap.h();
     }
 
-    public static jvs[] a()
+    public long getExpirationTime()
     {
-        if (e == null)
-        {
-            synchronized (kon.a)
-            {
-                if (e == null)
-                {
-                    e = new jvs[0];
-                }
-            }
-        }
         return e;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
-    protected int computeSerializedSize()
+    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextEvictable()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.longValue());
-        }
-        i = j;
-        if (d != null)
-        {
-            d.floatValue();
-            i = j + (koh.f(3) + 4);
-        }
-        j = i;
-        if (c != null)
-        {
-            c.floatValue();
-            j = i + (koh.f(4) + 4);
-        }
-        return j;
+        return h;
     }
 
-    public kop mergeFrom(kog kog1)
+    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextExpirable()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new jvp();
-                }
-                kog1.a(a);
-                break;
-
-            case 16: // '\020'
-                b = Long.valueOf(kog1.e());
-                break;
-
-            case 29: // '\035'
-                d = Float.valueOf(kog1.c());
-                break;
-
-            case 37: // '%'
-                c = Float.valueOf(kog1.c());
-                break;
-            }
-        } while (true);
+        return f;
     }
 
-    public void writeTo(koh koh1)
+    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousEvictable()
     {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        if (b != null)
-        {
-            koh1.b(2, b.longValue());
-        }
-        if (d != null)
-        {
-            koh1.a(3, d.floatValue());
-        }
-        if (c != null)
-        {
-            koh1.a(4, c.floatValue());
-        }
-        super.writeTo(koh1);
+        return i;
+    }
+
+    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousExpirable()
+    {
+        return g;
+    }
+
+    public void setExpirationTime(long l)
+    {
+        e = l;
+    }
+
+    public void setNextEvictable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    {
+        h = referenceentry;
+    }
+
+    public void setNextExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    {
+        f = referenceentry;
+    }
+
+    public void setPreviousEvictable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    {
+        i = referenceentry;
+    }
+
+    public void setPreviousExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    {
+        g = referenceentry;
     }
 }

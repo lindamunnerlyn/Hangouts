@@ -3,36 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iaq extends koj
+public final class iaq extends kwm
 {
 
-    private static volatile iaq b[];
-    public String a;
+    public ibg a;
+    public ibg b;
+    public iap c[];
+    public Boolean d;
 
     public iaq()
     {
         a = null;
+        b = null;
+        c = iap.a();
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
-    }
-
-    public static iaq[] a()
-    {
-        if (b == null)
-        {
-            synchronized (kon.a)
-            {
-                if (b == null)
-                {
-                    b = new iaq[0];
-                }
-            }
-        }
-        return b;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -41,20 +27,52 @@ public final class iaq extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.d(1, a);
         }
-        return i;
+        j = i;
+        if (c != null)
+        {
+            j = i;
+            if (c.length > 0)
+            {
+                for (j = 0; j < c.length;)
+                {
+                    iap iap1 = c[j];
+                    int k = i;
+                    if (iap1 != null)
+                    {
+                        k = i + kwk.d(2, iap1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
+        }
+        i = j;
+        if (b != null)
+        {
+            i = j + kwk.d(3, b);
+        }
+        j = i;
+        if (d != null)
+        {
+            d.booleanValue();
+            j = i + (kwk.f(4) + 1);
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -64,18 +82,84 @@ public final class iaq extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                if (a == null)
+                {
+                    a = new ibg();
+                }
+                kwj1.a(a);
+                break;
+
+            case 18: // '\022'
+                int k = kwx.a(kwj1, 18);
+                iap aiap[];
+                int j;
+                if (c == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = c.length;
+                }
+                aiap = new iap[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(c, 0, aiap, 0, j);
+                    k = j;
+                }
+                for (; k < aiap.length - 1; k++)
+                {
+                    aiap[k] = new iap();
+                    kwj1.a(aiap[k]);
+                    kwj1.a();
+                }
+
+                aiap[k] = new iap();
+                kwj1.a(aiap[k]);
+                c = aiap;
+                break;
+
+            case 26: // '\032'
+                if (b == null)
+                {
+                    b = new ibg();
+                }
+                kwj1.a(b);
+                break;
+
+            case 32: // ' '
+                d = Boolean.valueOf(kwj1.i());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.b(1, a);
         }
-        super.writeTo(koh1);
+        if (c != null && c.length > 0)
+        {
+            for (int i = 0; i < c.length; i++)
+            {
+                iap iap1 = c[i];
+                if (iap1 != null)
+                {
+                    kwk1.b(2, iap1);
+                }
+            }
+
+        }
+        if (b != null)
+        {
+            kwk1.b(3, b);
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

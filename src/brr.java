@@ -2,28 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
-import com.google.android.apps.hangouts.hangout.PresentToAllBannerView;
+import com.google.android.apps.hangouts.hangout.ParticipantTrayView;
 
-public final class brr extends Animation
+public final class brr extends boq
 {
 
-    final android.widget.RelativeLayout.LayoutParams a;
-    final int b;
-    final PresentToAllBannerView c;
+    final ParticipantTrayView a;
 
-    public brr(PresentToAllBannerView presenttoallbannerview, android.widget.RelativeLayout.LayoutParams layoutparams, int i)
+    public brr(ParticipantTrayView participanttrayview)
     {
-        c = presenttoallbannerview;
-        a = layoutparams;
-        b = i;
+        a = participanttrayview;
         super();
     }
 
-    protected void applyTransformation(float f, Transformation transformation)
+    public void g()
     {
-        a.topMargin = (int)((float)b * f) + 0;
-        c.setLayoutParams(a);
+        a.d();
+        a.g();
     }
 }

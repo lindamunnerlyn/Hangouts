@@ -3,24 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.view.View;
-import com.google.android.apps.hangouts.hangout.ParticipantTrayView;
 
-final class brm
-    implements android.view.View.OnLongClickListener
+public interface brm
 {
 
-    final brk a;
+    public abstract View a();
 
-    brm(brk brk1)
-    {
-        a = brk1;
-        super();
-    }
-
-    public boolean onLongClick(View view)
-    {
-        a.f.a(a);
-        brk.a(a);
-        return true;
-    }
+    public abstract void a(gmt gmt);
 }

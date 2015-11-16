@@ -2,42 +2,79 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public class cwb extends cvn
+public class cwb extends cvy
 {
 
     private static final long serialVersionUID = 1L;
+    public final long a;
+    public final String b[];
 
-    private cwb(ito ito1)
+    public cwb(String s, long l, String as[])
     {
-        super(ito1.responseHeader, -1L);
-        if (cvn.a)
-        {
-            ito1 = String.valueOf(ito1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(ito1).length() + 37)).append("FinishPhoneVerificationResponse from:").append(ito1).toString());
-        }
+        super(s);
+        a = l;
+        b = as;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public String a()
     {
-        abyte0 = (ito)kop.mergeFrom(new ito(), abyte0);
-        if (a(((ito) (abyte0)).responseHeader))
+        return "event_queue";
+    }
+
+    public kws a(String s, int i, int j)
+    {
+        if (cvv.e)
         {
-            return new cvz(((ito) (abyte0)).responseHeader);
+            String s1 = c;
+            long l = a;
+            eev.b("Babel_RequestWriter", (new StringBuilder(String.valueOf(s1).length() + 41)).append("Delete conversation ").append(s1).append(" ").append(l).toString());
+        }
+        iyd iyd1 = new iyd();
+        iyd1.requestHeader = cvu.a(s, i, j, h);
+        iyd1.b = cvu.a(c);
+        if (b != null)
+        {
+            iyd1.d = b;
+            iyd1.a = Integer.valueOf(2);
+            return iyd1;
         } else
         {
-            return new cwb(abyte0);
+            iyd1.c = Long.valueOf(a);
+            iyd1.a = Integer.valueOf(1);
+            return iyd1;
         }
     }
 
-    public void a(aoe aoe, dfb dfb)
+    public void a(aoa aoa, dcx dcx)
     {
-        super.a(aoe, dfb);
-        dbf.b(true);
-        aoe = (cpt)hgx.b(g.nS, cpt);
-        if (aoe != null)
+        if (eev.a("Babel_RequestWriter", 3))
         {
-            aoe.a(104, false);
+            String s = String.valueOf(c);
+            if (s.length() != 0)
+            {
+                s = "DeleteConversationRequest: expired for ".concat(s);
+            } else
+            {
+                s = new String("DeleteConversationRequest: expired for ");
+            }
+            eev.d("Babel_RequestWriter", s);
         }
+        super.a(aoa, dcx);
+        if (!d)
+        {
+            RealTimeChatService.a(aoa, c, b);
+        }
+    }
+
+    public boolean a(cdn cdn, dcx dcx)
+    {
+        return false;
+    }
+
+    public String f()
+    {
+        return "conversations/deleteconversation";
     }
 }

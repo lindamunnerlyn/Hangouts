@@ -2,25 +2,15 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentResolver;
-import android.net.Uri;
-import java.io.InputStream;
 
-class abm
-    implements abp
+public interface abm
 {
 
-    public final ContentResolver a;
-    public final Uri b;
+    public static final String a[] = {
+        "uri", "_display_name", "contentUri", "thumbnailUri", "contentType"
+    };
+    public static final String b[] = {
+        "loadingIndicator"
+    };
 
-    public abm(ContentResolver contentresolver, Uri uri)
-    {
-        a = contentresolver;
-        b = uri;
-    }
-
-    public InputStream a()
-    {
-        return a.openInputStream(b);
-    }
 }

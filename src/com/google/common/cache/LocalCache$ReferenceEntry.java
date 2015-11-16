@@ -4,7 +4,7 @@
 
 package com.google.common.cache;
 
-import jja;
+import jpw;
 
 public interface 
 {
@@ -25,7 +25,7 @@ public interface
 
     public abstract  getPreviousInWriteQueue();
 
-    public abstract jja getValueReference();
+    public abstract jpw getValueReference();
 
     public abstract long getWriteTime();
 
@@ -39,7 +39,7 @@ public interface
 
     public abstract void setPreviousInWriteQueue( );
 
-    public abstract void setValueReference(jja jja);
+    public abstract void setValueReference(jpw jpw);
 
     public abstract void setWriteTime(long l);
 }

@@ -2,24 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import com.google.android.apps.hangouts.views.MessageListItemView;
+import android.app.Dialog;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-final class bcy
-    implements egm
+public class bcy extends hmk
 {
 
-    final bcx a;
-
-    bcy(bcx bcx)
+    public bcy()
     {
-        a = bcx;
-        super();
     }
 
-    public eez a(Context context, ani ani1, boolean flag, String s, String s1, int i, int j, 
-            String s2, String s3, MessageListItemView messagelistitemview, efa efa)
+    public Dialog a(Bundle bundle)
     {
-        return new bcf(context, ani1.h(), flag, s, s1, i, j, s2, s3, messagelistitemview, efa);
+        bundle = super.a(bundle);
+        bundle.requestWindowFeature(1);
+        return bundle;
+    }
+
+    protected void e(Bundle bundle)
+    {
+        super.e(bundle);
+        al.a(bcx, new bcz(this));
+    }
+
+    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
+    {
+        super.onCreateView(layoutinflater, viewgroup, bundle);
+        layoutinflater = layoutinflater.inflate(g.lt, viewgroup, false);
+        viewgroup = hmm.instantiate(ak, bds.getName());
+        getChildFragmentManager().a().b(h.hl, viewgroup).b();
+        return layoutinflater;
     }
 }

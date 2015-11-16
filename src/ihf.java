@@ -3,188 +3,367 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ihf extends koj
+public final class ihf extends kwm
 {
 
-    public int a[];
+    public ior a;
+    public inw b;
+    public ihr c;
+    public iom d;
+    public iox e;
+    public inz f;
+    public iou g;
+    public ilc h;
+    public ios i;
+    public inx j;
+    public igz k;
+    public iob l;
+    public ioc m;
+    public iod n;
+    public igt o;
+    public iop p;
+    public ihd q;
 
     public ihf()
     {
-        a = kou.a;
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        e = null;
+        f = null;
+        g = null;
+        h = null;
+        i = null;
+        j = null;
+        k = null;
+        l = null;
+        m = null;
+        n = null;
+        o = null;
+        p = null;
+        q = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int i = 0;
-        int k = super.computeSerializedSize();
-        if (a != null && a.length > 0)
+        int j1 = super.computeSerializedSize();
+        int i1 = j1;
+        if (a != null)
         {
-            int j = 0;
-            for (; i < a.length; i++)
-            {
-                j += koh.e(a[i]);
-            }
-
-            return k + j + a.length * 1;
-        } else
-        {
-            return k;
+            i1 = j1 + kwk.d(1, a);
         }
+        j1 = i1;
+        if (b != null)
+        {
+            j1 = i1 + kwk.d(2, b);
+        }
+        i1 = j1;
+        if (c != null)
+        {
+            i1 = j1 + kwk.d(3, c);
+        }
+        j1 = i1;
+        if (d != null)
+        {
+            j1 = i1 + kwk.d(4, d);
+        }
+        i1 = j1;
+        if (e != null)
+        {
+            i1 = j1 + kwk.d(5, e);
+        }
+        j1 = i1;
+        if (f != null)
+        {
+            j1 = i1 + kwk.d(6, f);
+        }
+        i1 = j1;
+        if (g != null)
+        {
+            i1 = j1 + kwk.d(7, g);
+        }
+        j1 = i1;
+        if (h != null)
+        {
+            j1 = i1 + kwk.d(8, h);
+        }
+        i1 = j1;
+        if (i != null)
+        {
+            i1 = j1 + kwk.d(9, i);
+        }
+        j1 = i1;
+        if (j != null)
+        {
+            j1 = i1 + kwk.d(11, j);
+        }
+        i1 = j1;
+        if (k != null)
+        {
+            i1 = j1 + kwk.d(12, k);
+        }
+        j1 = i1;
+        if (l != null)
+        {
+            j1 = i1 + kwk.d(13, l);
+        }
+        i1 = j1;
+        if (m != null)
+        {
+            i1 = j1 + kwk.d(14, m);
+        }
+        j1 = i1;
+        if (n != null)
+        {
+            j1 = i1 + kwk.d(15, n);
+        }
+        i1 = j1;
+        if (o != null)
+        {
+            i1 = j1 + kwk.d(16, o);
+        }
+        j1 = i1;
+        if (p != null)
+        {
+            j1 = i1 + kwk.d(17, p);
+        }
+        i1 = j1;
+        if (q != null)
+        {
+            i1 = j1 + kwk.d(18, q);
+        }
+        return i1;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L19:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 3: default 44
-    //                   0: 54
-    //                   8: 56
-    //                   10: 248;
-           goto _L1 _L2 _L3 _L4
-_L1:
-        if (super.storeUnknownField(kog1, i))
+        do
         {
-            continue; /* Loop/switch isn't completed */
-        }
-_L2:
-        return this;
-_L3:
-        int ai[];
-        int j;
-        int i1;
-        i1 = kou.b(kog1, 8);
-        ai = new int[i1];
-        j = 0;
-        i = 0;
-_L11:
-        if (j >= i1) goto _L6; else goto _L5
-_L5:
-        int j1;
-        if (j != 0)
-        {
-            kog1.a();
-        }
-        j1 = kog1.f();
-        j1;
-        JVM INSTR tableswitch 1 4: default 132
-    //                   1 141
-    //                   2 141
-    //                   3 141
-    //                   4 141;
-           goto _L7 _L8 _L8 _L8 _L8
-_L7:
-        j++;
-          goto _L9
-_L8:
-        int k = i + 1;
-        ai[i] = j1;
-        i = k;
-        if (true) goto _L7; else goto _L9
-_L9:
-        if (true) goto _L11; else goto _L10
-_L10:
-_L6:
-        if (i != 0)
-        {
-            if (a == null)
+            int i1 = kwj1.a();
+            switch (i1)
             {
-                j = 0;
-            } else
-            {
-                j = a.length;
-            }
-            if (j == 0 && i == ai.length)
-            {
-                a = ai;
-            } else
-            {
-                int ai1[] = new int[j + i];
-                if (j != 0)
+            default:
+                if (super.storeUnknownField(kwj1, i1))
                 {
-                    System.arraycopy(a, 0, ai1, 0, j);
+                    continue;
                 }
-                System.arraycopy(ai, 0, ai1, j, i);
-                a = ai1;
-            }
-        }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        int l;
-        l = kog1.c(kog1.p());
-        i = kog1.r();
-        j = 0;
-_L17:
-        if (kog1.q() > 0)
-        {
-            switch (kog1.f())
-            {
-            case 1: // '\001'
-            case 2: // '\002'
-            case 3: // '\003'
-            case 4: // '\004'
-                j++;
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new ior();
+                }
+                kwj1.a(a);
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new inw();
+                }
+                kwj1.a(b);
+                break;
+
+            case 26: // '\032'
+                if (c == null)
+                {
+                    c = new ihr();
+                }
+                kwj1.a(c);
+                break;
+
+            case 34: // '"'
+                if (d == null)
+                {
+                    d = new iom();
+                }
+                kwj1.a(d);
+                break;
+
+            case 42: // '*'
+                if (e == null)
+                {
+                    e = new iox();
+                }
+                kwj1.a(e);
+                break;
+
+            case 50: // '2'
+                if (f == null)
+                {
+                    f = new inz();
+                }
+                kwj1.a(f);
+                break;
+
+            case 58: // ':'
+                if (g == null)
+                {
+                    g = new iou();
+                }
+                kwj1.a(g);
+                break;
+
+            case 66: // 'B'
+                if (h == null)
+                {
+                    h = new ilc();
+                }
+                kwj1.a(h);
+                break;
+
+            case 74: // 'J'
+                if (i == null)
+                {
+                    i = new ios();
+                }
+                kwj1.a(i);
+                break;
+
+            case 90: // 'Z'
+                if (j == null)
+                {
+                    j = new inx();
+                }
+                kwj1.a(j);
+                break;
+
+            case 98: // 'b'
+                if (k == null)
+                {
+                    k = new igz();
+                }
+                kwj1.a(k);
+                break;
+
+            case 106: // 'j'
+                if (l == null)
+                {
+                    l = new iob();
+                }
+                kwj1.a(l);
+                break;
+
+            case 114: // 'r'
+                if (m == null)
+                {
+                    m = new ioc();
+                }
+                kwj1.a(m);
+                break;
+
+            case 122: // 'z'
+                if (n == null)
+                {
+                    n = new iod();
+                }
+                kwj1.a(n);
+                break;
+
+            case 130: 
+                if (o == null)
+                {
+                    o = new igt();
+                }
+                kwj1.a(o);
+                break;
+
+            case 138: 
+                if (p == null)
+                {
+                    p = new iop();
+                }
+                kwj1.a(p);
+                break;
+
+            case 146: 
+                if (q == null)
+                {
+                    q = new ihd();
+                }
+                kwj1.a(q);
                 break;
             }
-            continue; /* Loop/switch isn't completed */
-        }
-        if (j == 0) goto _L13; else goto _L12
-_L12:
-        kog1.e(i);
-        if (a == null)
-        {
-            i = 0;
-        } else
-        {
-            i = a.length;
-        }
-        ai = new int[j + i];
-        j = i;
-        if (i != 0)
-        {
-            System.arraycopy(a, 0, ai, 0, i);
-            j = i;
-        }
-_L15:
-        if (kog1.q() > 0)
-        {
-            i = kog1.f();
-            switch (i)
-            {
-            case 1: // '\001'
-            case 2: // '\002'
-            case 3: // '\003'
-            case 4: // '\004'
-                ai[j] = i;
-                j++;
-                break;
-            }
-            continue; /* Loop/switch isn't completed */
-        }
-        a = ai;
-          goto _L13
-        if (true) goto _L15; else goto _L14
-_L14:
-        if (true) goto _L17; else goto _L16
-_L16:
-_L13:
-        kog1.d(l);
-        if (true) goto _L19; else goto _L18
-_L18:
+        } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null && a.length > 0)
+        if (a != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                koh1.a(1, a[i]);
-            }
-
+            kwk1.b(1, a);
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.b(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.b(4, d);
+        }
+        if (e != null)
+        {
+            kwk1.b(5, e);
+        }
+        if (f != null)
+        {
+            kwk1.b(6, f);
+        }
+        if (g != null)
+        {
+            kwk1.b(7, g);
+        }
+        if (h != null)
+        {
+            kwk1.b(8, h);
+        }
+        if (i != null)
+        {
+            kwk1.b(9, i);
+        }
+        if (j != null)
+        {
+            kwk1.b(11, j);
+        }
+        if (k != null)
+        {
+            kwk1.b(12, k);
+        }
+        if (l != null)
+        {
+            kwk1.b(13, l);
+        }
+        if (m != null)
+        {
+            kwk1.b(14, m);
+        }
+        if (n != null)
+        {
+            kwk1.b(15, n);
+        }
+        if (o != null)
+        {
+            kwk1.b(16, o);
+        }
+        if (p != null)
+        {
+            kwk1.b(17, p);
+        }
+        if (q != null)
+        {
+            kwk1.b(18, q);
+        }
+        super.writeTo(kwk1);
     }
 }

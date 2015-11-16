@@ -2,16 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
 
-final class fqe extends ThreadLocal
+public interface fqe
 {
 
-    fqe()
-    {
-    }
-
-    protected Object initialValue()
-    {
-        return new String[2];
-    }
+    public abstract fqd a(View view);
 }

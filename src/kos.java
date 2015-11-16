@@ -2,50 +2,61 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Arrays;
 
-final class kos
+public final class kos extends kwm
 {
 
-    final int a;
-    final byte b[];
+    public Boolean a;
 
-    kos(int i, byte abyte0[])
+    public kos()
     {
-        a = i;
-        b = abyte0;
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    int a()
+    protected int computeSerializedSize()
     {
-        return koh.h(a) + 0 + b.length;
-    }
-
-    void a(koh koh1)
-    {
-        koh1.g(a);
-        koh1.b(b);
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (obj != this)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            if (!(obj instanceof kos))
-            {
-                return false;
-            }
-            obj = (kos)obj;
-            if (a != ((kos) (obj)).a || !Arrays.equals(b, ((kos) (obj)).b))
-            {
-                return false;
-            }
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
-        return true;
+        return i;
     }
 
-    public int hashCode()
+    public kws mergeFrom(kwj kwj1)
     {
-        return (a + 527) * 31 + Arrays.hashCode(b);
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

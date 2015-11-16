@@ -2,193 +2,156 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.ContentResolver;
 import android.content.Context;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Looper;
-import android.os.RemoteException;
-import android.util.Log;
-import com.google.android.gms.playlog.internal.LogEvent;
-import com.google.android.gms.playlog.internal.PlayLoggerContext;
-import java.util.ArrayList;
-import java.util.Iterator;
+import android.database.Cursor;
+import android.text.TextUtils;
 
-public final class frk extends ena
+public final class frk
 {
 
-    private final String e;
-    private final frj f;
-    private final frg g = new frg();
-    private final Object h = new Object();
-    private boolean i;
+    public static final String a[] = {
+        "contact_id", "display_name", "mimetype", "data1", "data2", "data3"
+    };
+    private static boolean b = false;
+    private static boolean c = false;
 
-    public frk(Context context, Looper looper, frj frj1, emo emo)
+    public static final String a()
     {
-        super(context, looper, 24, emo, frj1, frj1);
-        e = context.getPackageName();
-        f = (frj)h.a(frj1);
-        f.a(this);
-        i = true;
+        if (android.os.Build.VERSION.SDK_INT < 14)
+        {
+            return null;
+        } else
+        {
+            return "((data_set IS NULL) OR (account_type='com.google' AND data_set!='plus'))";
+        }
     }
 
-    private void b(PlayLoggerContext playloggercontext, LogEvent logevent)
+    public static final void a(ftc ftc1)
     {
-        g.a(playloggercontext, logevent);
+        ftc1.b("(mimetype IN ('vnd.android.cursor.item/email_v2','vnd.android.cursor.item/phone_v2'))");
     }
 
-    private void p()
+    public static final void a(ftc ftc1, boolean flag, Context context)
+    {
+        if (!flag)
+        {
+            if (android.os.Build.VERSION.SDK_INT >= 11)
+            {
+                if (a(context))
+                {
+                    ftc1.b("(contact_id IN (SELECT _id FROM default_directory))");
+                }
+            } else
+            {
+                ftc1.b("(in_visible_group=1)");
+            }
+        }
+        context = a();
+        if (!TextUtils.isEmpty(context))
+        {
+            ftc1.b(context);
+        }
+    }
+
+    private static final boolean a(Context context)
+    {
+        frk;
+        JVM INSTR monitorenter ;
+        if (!c) goto _L2; else goto _L1
+_L1:
+        boolean flag = b;
+_L4:
+        frk;
+        JVM INSTR monitorexit ;
+        return flag;
+_L2:
+        c = true;
+        Cursor cursor = context.getContentResolver().query(android.provider.ContactsContract.Groups.CONTENT_URI, null, "EXISTS (SELECT _id FROM default_directory LIMIT 1)", null, null);
+        if (cursor == null)
+        {
+            break MISSING_BLOCK_LABEL_48;
+        }
+        context = cursor;
+        b = true;
+        if (cursor == null)
+        {
+            break MISSING_BLOCK_LABEL_58;
+        }
+        cursor.close();
+_L6:
+        flag = b;
+        if (true) goto _L4; else goto _L3
+_L3:
+        Exception exception1;
+        exception1;
+        cursor = null;
+_L9:
+        context = cursor;
+        g.m(5);
+        context = cursor;
+        exception1.getMessage();
+        context = cursor;
+        g.m(3);
+        if (cursor == null) goto _L6; else goto _L5
+_L5:
+        cursor.close();
+          goto _L6
+        context;
+        throw context;
+        Exception exception;
+        exception;
+        context = null;
+_L8:
+        if (context == null)
+        {
+            break MISSING_BLOCK_LABEL_121;
+        }
+        context.close();
+        throw exception;
+        exception;
+        if (true) goto _L8; else goto _L7
+_L7:
+        exception1;
+          goto _L9
+    }
+
+    public static boolean a(Cursor cursor)
+    {
+        if (!cursor.isAfterLast())
+        {
+            long l = cursor.getLong(0);
+            while (cursor.moveToNext()) 
+            {
+                if (l != cursor.getLong(0))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean b(Cursor cursor)
     {
         boolean flag;
-        if (!i)
+        if (!cursor.isBeforeFirst())
         {
             flag = true;
         } else
         {
             flag = false;
         }
-        if (!flag)
+        g.b(flag);
+        if (!cursor.isAfterLast())
         {
-            throw new IllegalStateException();
-        }
-        if (g.c()) goto _L2; else goto _L1
-_L1:
-        ArrayList arraylist;
-        Iterator iterator;
-        arraylist = new ArrayList();
-        iterator = g.a().iterator();
-        Object obj = null;
-_L5:
-        frh frh1;
-        if (!iterator.hasNext())
-        {
-            break MISSING_BLOCK_LABEL_203;
-        }
-        frh1 = (frh)iterator.next();
-        if (frh1.c == null) goto _L4; else goto _L3
-_L3:
-        ((frd)n()).a(e, frh1.a, fdo.a(frh1.c));
-          goto _L5
-        obj;
-        Log.e("PlayLoggerImpl", "Couldn't send cached log events to AndroidLog service.  Retaining in memory cache.");
-_L2:
-        return;
-_L4:
-label0:
-        {
-            if (!frh1.a.equals(obj))
+            long l = cursor.getLong(0);
+            if (cursor.moveToNext() && l == cursor.getLong(0))
             {
-                break label0;
+                return true;
             }
-            arraylist.add(frh1.b);
         }
-          goto _L5
-        if (!arraylist.isEmpty())
-        {
-            ((frd)n()).a(e, ((PlayLoggerContext) (obj)), arraylist);
-            arraylist.clear();
-        }
-        obj = frh1.a;
-        arraylist.add(frh1.b);
-          goto _L5
-        if (!arraylist.isEmpty())
-        {
-            ((frd)n()).a(e, ((PlayLoggerContext) (obj)), arraylist);
-        }
-        g.b();
-        return;
+        return false;
     }
 
-    protected IInterface a(IBinder ibinder)
-    {
-        return fre.a(ibinder);
-    }
-
-    protected String a()
-    {
-        return "com.google.android.gms.playlog.service.START";
-    }
-
-    public void a(PlayLoggerContext playloggercontext, LogEvent logevent)
-    {
-        Object obj = h;
-        obj;
-        JVM INSTR monitorenter ;
-        if (!i) goto _L2; else goto _L1
-_L1:
-        b(playloggercontext, logevent);
-_L3:
-        return;
-_L2:
-        p();
-        ((frd)n()).a(e, playloggercontext, logevent);
-          goto _L3
-        Object obj1;
-        obj1;
-        Log.e("PlayLoggerImpl", "Couldn't send log event.  Will try caching.");
-        b(playloggercontext, logevent);
-          goto _L3
-        playloggercontext;
-        obj;
-        JVM INSTR monitorexit ;
-        throw playloggercontext;
-        obj1;
-        Log.e("PlayLoggerImpl", "Service was disconnected.  Will try caching.");
-        b(playloggercontext, logevent);
-          goto _L3
-    }
-
-    void a(boolean flag)
-    {
-        Object obj = h;
-        obj;
-        JVM INSTR monitorenter ;
-        boolean flag1;
-        flag1 = i;
-        i = flag;
-        if (!flag1)
-        {
-            break MISSING_BLOCK_LABEL_34;
-        }
-        if (!i)
-        {
-            p();
-        }
-        obj;
-        JVM INSTR monitorexit ;
-        return;
-        Exception exception;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
-    protected String b()
-    {
-        return "com.google.android.gms.playlog.internal.IPlayLogService";
-    }
-
-    public void o()
-    {
-label0:
-        {
-            synchronized (h)
-            {
-                if (!i() && !d())
-                {
-                    break label0;
-                }
-            }
-            return;
-        }
-        f.a();
-        h();
-        obj;
-        JVM INSTR monitorexit ;
-        return;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
 }

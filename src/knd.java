@@ -2,67 +2,125 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.List;
 
-public final class knd extends klm
+public final class knd extends kwm
 {
 
-    private static final knd b;
-    private final List c;
+    private static volatile knd e[];
+    public Integer a;
+    public Integer b;
+    public Integer c;
+    public String d;
 
     public knd()
     {
-        c = new ArrayList();
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    knd(List list)
+    public static knd[] a()
     {
-        c = new ArrayList(list);
+        if (e == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (e == null)
+                {
+                    e = new knd[0];
+                }
+            }
+        }
+        return e;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public static knd d()
+    protected int computeSerializedSize()
     {
-        return b;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.e(1, a.intValue());
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.intValue());
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.intValue());
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.b(4, d);
+        }
+        return j;
     }
 
-    public void add(int i, Object obj)
+    public kws mergeFrom(kwj kwj1)
     {
-        c();
-        c.add(i, obj);
-        modCount = modCount + 1;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
+                break;
+
+            case 24: // '\030'
+                c = Integer.valueOf(kwj1.f());
+                break;
+
+            case 34: // '"'
+                d = kwj1.j();
+                break;
+            }
+        } while (true);
     }
 
-    public Object get(int i)
+    public void writeTo(kwk kwk1)
     {
-        return c.get(i);
-    }
-
-    public Object remove(int i)
-    {
-        c();
-        Object obj = c.remove(i);
-        modCount = modCount + 1;
-        return obj;
-    }
-
-    public Object set(int i, Object obj)
-    {
-        c();
-        obj = c.set(i, obj);
-        modCount = modCount + 1;
-        return obj;
-    }
-
-    public int size()
-    {
-        return c.size();
-    }
-
-    static 
-    {
-        knd knd1 = new knd();
-        b = knd1;
-        knd1.a = false;
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.intValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d);
+        }
+        super.writeTo(kwk1);
     }
 }

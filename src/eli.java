@@ -2,33 +2,74 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.ConnectionResult;
-import java.util.concurrent.locks.Lock;
+import android.os.Parcel;
+import com.google.android.gms.auth.AccountChangeEvent;
 
-final class eli
-    implements ekc
+public final class eli
+    implements android.os.Parcelable.Creator
 {
 
-    final ejs a;
-    final int b;
-    final ele c;
-
-    eli(ele ele1, ejs ejs, int i)
+    public eli()
     {
-        c = ele1;
-        a = ejs;
-        b = i;
-        super();
     }
 
-    public void a(ConnectionResult connectionresult)
+    public Object createFromParcel(Parcel parcel)
     {
-        c.a.lock();
-        c.k.a(connectionresult, a, b);
-        c.a.unlock();
-        return;
-        connectionresult;
-        c.a.unlock();
-        throw connectionresult;
+        String s = null;
+        int i = 0;
+        int l = g.a(parcel);
+        long l1 = 0L;
+        int j = 0;
+        String s1 = null;
+        int k = 0;
+        do
+        {
+            if (parcel.dataPosition() < l)
+            {
+                int i1 = parcel.readInt();
+                switch (0xffff & i1)
+                {
+                default:
+                    g.b(parcel, i1);
+                    break;
+
+                case 1: // '\001'
+                    k = g.e(parcel, i1);
+                    break;
+
+                case 2: // '\002'
+                    l1 = g.f(parcel, i1);
+                    break;
+
+                case 3: // '\003'
+                    s1 = g.i(parcel, i1);
+                    break;
+
+                case 4: // '\004'
+                    j = g.e(parcel, i1);
+                    break;
+
+                case 5: // '\005'
+                    i = g.e(parcel, i1);
+                    break;
+
+                case 6: // '\006'
+                    s = g.i(parcel, i1);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != l)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(l).toString(), parcel);
+            } else
+            {
+                return new AccountChangeEvent(k, l1, s1, j, i, s);
+            }
+        } while (true);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new AccountChangeEvent[i];
     }
 }

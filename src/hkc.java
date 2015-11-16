@@ -6,5 +6,5 @@
 public interface hkc
 {
 
-    public abstract void j_();
+    public abstract boolean a();
 }

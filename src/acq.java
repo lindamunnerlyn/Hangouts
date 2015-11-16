@@ -2,1957 +2,1442 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentResolver;
-import android.content.ContentUris;
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
-import android.net.Uri;
-import android.telephony.PhoneNumberUtils;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
-import android.util.SparseIntArray;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.Arrays;
 
 public final class acq
 {
 
-    public static final String a[] = {
-        "_id", "msg_box", "thread_id", "retr_txt", "sub", "ct_l", "ct_t", "m_cls", "m_id", "resp_txt", 
-        "tr_id", "ct_cls", "d_rpt", "m_type", "v", "pri", "rr", "read_status", "rpt_a", "retr_st", 
-        "st", "date", "d_tm", "exp", "m_size", "sub_cs", "retr_txt_cs", "read", "seen"
-    };
-    private static acq b;
-    private static final adb c = adb.b();
-    private static final int d[] = {
-        129, 130, 137, 151
-    };
-    private static final String e[] = {
-        "_id", "chset", "cd", "cid", "cl", "ct", "fn", "name", "text"
-    };
-    private static final hm f;
-    private static final SparseIntArray g;
-    private static final SparseIntArray h;
-    private static final SparseIntArray i;
-    private static final SparseIntArray j;
-    private static final SparseIntArray k;
-    private static final SparseArray l;
-    private static final SparseArray m;
-    private static final SparseArray n;
-    private static final SparseArray o;
-    private static final SparseArray p;
-    private final Context q;
-    private final ContentResolver r;
-    private final TelephonyManager s;
+    private static byte d[] = null;
+    private static byte e[] = null;
+    private ByteArrayInputStream a;
+    private acp b;
+    private acj c;
 
-    private acq(Context context)
+    public acq(byte abyte0[])
     {
-        q = context;
-        r = context.getContentResolver();
-        s = (TelephonyManager)context.getSystemService("phone");
+        a = null;
+        b = null;
+        c = null;
+        a = new ByteArrayInputStream(abyte0);
     }
 
-    private ach a(long l1, int i1)
+    private static acp a(ByteArrayInputStream bytearrayinputstream)
     {
-        ach ach1 = new ach();
-        if (i1 == 132 || i1 == 128)
-        {
-            acp aacp[] = a(l1);
-            if (aacp != null)
-            {
-                int j1 = aacp.length;
-                for (i1 = 0; i1 < j1; i1++)
-                {
-                    ach1.a(aacp[i1]);
-                }
-
-            }
-        }
-        return ach1;
-    }
-
-    public static acq a(Context context)
-    {
-        if (b == null || !context.equals(b.q))
-        {
-            b = new acq(context);
-        }
-        return b;
-    }
-
-    private Uri a(acp acp1, long l1, Map map)
-    {
-        Uri uri = Uri.parse((new StringBuilder(39)).append("content://mms/").append(l1).append("/part").toString());
-        ContentValues contentvalues = new ContentValues(8);
-        int i1 = acp1.d();
-        if (i1 != 0)
-        {
-            contentvalues.put("chset", Integer.valueOf(i1));
-        }
-        String s1 = a(acp1);
-        if (s1 != null)
-        {
-            Object obj = s1;
-            if ("image/jpg".equals(s1))
-            {
-                obj = "image/jpeg";
-            }
-            s1 = ((String) (obj));
-            if ("text/plain".equals(obj))
-            {
-                s1 = ((String) (obj));
-                if ((new acc(i1, acp1.a())).c().startsWith("BEGIN:VCARD"))
-                {
-                    s1 = "text/x-vCard";
-                    acp1.e("text/x-vCard".getBytes());
-                }
-            }
-            contentvalues.put("ct", s1);
-            if ("application/smil".equals(s1))
-            {
-                contentvalues.put("seq", Integer.valueOf(-1));
-            }
-            byte abyte0[] = acp1.j();
-            if (abyte0 != null)
-            {
-                contentvalues.put("fn", new String(abyte0));
-            }
-            abyte0 = acp1.i();
-            if (abyte0 != null)
-            {
-                contentvalues.put("name", new String(abyte0));
-            }
-            abyte0 = acp1.f();
-            if (abyte0 != null)
-            {
-                contentvalues.put("cd", a(abyte0));
-            }
-            abyte0 = acp1.c();
-            if (abyte0 != null)
-            {
-                contentvalues.put("cid", a(abyte0));
-            }
-            abyte0 = acp1.e();
-            if (abyte0 != null)
-            {
-                contentvalues.put("cl", a(abyte0));
-            }
-            abyte0 = g.b(r, uri, contentvalues);
-            if (abyte0 == null)
-            {
-                throw new abx("Failed to persist part, return null.");
-            } else
-            {
-                a(acp1, ((Uri) (abyte0)), s1, map);
-                acp1.a(abyte0);
-                return abyte0;
-            }
-        } else
-        {
-            throw new abx("MIME type of the part must be set.");
-        }
-    }
-
-    private static String a(acp acp1)
-    {
-        if (acp1.g() == null)
+        acp acp1;
+        boolean flag;
+        if (bytearrayinputstream == null)
         {
             return null;
+        }
+        flag = true;
+        acp1 = new acp();
+_L32:
+        if (!flag || bytearrayinputstream.available() <= 0) goto _L2; else goto _L1
+_L1:
+        int i;
+        bytearrayinputstream.mark(1);
+        i = f(bytearrayinputstream);
+        if (i < 32 || i > 127) goto _L4; else goto _L3
+_L3:
+        bytearrayinputstream.reset();
+        a(bytearrayinputstream, 0);
+          goto _L5
+_L4:
+        i;
+        JVM INSTR tableswitch 129 191: default 336
+    //                   129 339
+    //                   130 339
+    //                   131 706
+    //                   132 1567
+    //                   133 632
+    //                   134 558
+    //                   135 827
+    //                   136 827
+    //                   137 926
+    //                   138 1078
+    //                   139 706
+    //                   140 406
+    //                   141 1269
+    //                   142 632
+    //                   143 558
+    //                   144 558
+    //                   145 558
+    //                   146 558
+    //                   147 754
+    //                   148 558
+    //                   149 558
+    //                   150 754
+    //                   151 339
+    //                   152 706
+    //                   153 558
+    //                   154 754
+    //                   155 558
+    //                   156 558
+    //                   157 827
+    //                   158 706
+    //                   159 632
+    //                   160 1347
+    //                   161 1428
+    //                   162 558
+    //                   163 558
+    //                   164 1499
+    //                   165 558
+    //                   166 754
+    //                   167 558
+    //                   168 336
+    //                   169 558
+    //                   170 1517
+    //                   171 558
+    //                   172 1517
+    //                   173 669
+    //                   174 336
+    //                   175 669
+    //                   176 336
+    //                   177 558
+    //                   178 1558
+    //                   179 669
+    //                   180 558
+    //                   181 754
+    //                   182 754
+    //                   183 706
+    //                   184 706
+    //                   185 706
+    //                   186 558
+    //                   187 558
+    //                   188 558
+    //                   189 706
+    //                   190 706
+    //                   191 558;
+           goto _L5 _L6 _L6 _L7 _L8 _L9 _L10 _L11 _L11 _L12 _L13 _L7 _L14 _L15 _L9 _L10 _L10 _L10 _L10 _L16 _L10 _L10 _L16 _L6 _L7 _L10 _L16 _L10 _L10 _L11 _L7 _L9 _L17 _L18 _L10 _L10 _L19 _L10 _L16 _L10 _L5 _L10 _L20 _L10 _L20 _L21 _L5 _L21 _L5 _L10 _L22 _L21 _L10 _L16 _L16 _L7 _L7 _L7 _L10 _L10 _L10 _L7 _L7 _L10
+_L6:
+        ace ace3 = e(bytearrayinputstream);
+        if (ace3 != null)
+        {
+            String s = new String(ace3.b());
+            int j = s.indexOf("/");
+            Object obj = s;
+            if (j > 0)
+            {
+                obj = s.substring(0, j);
+            }
+            byte abyte0[];
+            NullPointerException nullpointerexception1;
+            try
+            {
+                ace3.a(((String) (obj)).getBytes());
+            }
+            // Misplaced declaration of an exception variable
+            catch (ByteArrayInputStream bytearrayinputstream)
+            {
+                return null;
+            }
+            try
+            {
+                acp1.b(ace3, i);
+            }
+            catch (NullPointerException nullpointerexception) { }
+            // Misplaced declaration of an exception variable
+            catch (ByteArrayInputStream bytearrayinputstream)
+            {
+                (new StringBuilder(52)).append(i).append("is not Encoded-String-Value header field!");
+                return null;
+            }
+        }
+          goto _L5
+_L14:
+        j = f(bytearrayinputstream);
+        switch (j)
+        {
+        default:
+            try
+            {
+                acp1.a(j, i);
+            }
+            // Misplaced declaration of an exception variable
+            catch (ByteArrayInputStream bytearrayinputstream)
+            {
+                (new StringBuilder(71)).append("Set invalid Octet value: ").append(j).append(" into the header filed: ").append(i);
+                return null;
+            }
+            // Misplaced declaration of an exception variable
+            catch (ByteArrayInputStream bytearrayinputstream)
+            {
+                (new StringBuilder(37)).append(i).append("is not Octet header field!");
+                return null;
+            }
+            break;
+
+        case 137: 
+        case 138: 
+        case 139: 
+        case 140: 
+        case 141: 
+        case 142: 
+        case 143: 
+        case 144: 
+        case 145: 
+        case 146: 
+        case 147: 
+        case 148: 
+        case 149: 
+        case 150: 
+        case 151: 
+            return null;
+        }
+          goto _L5
+_L10:
+        j = f(bytearrayinputstream);
+        try
+        {
+            acp1.a(j, i);
+        }
+        // Misplaced declaration of an exception variable
+        catch (ByteArrayInputStream bytearrayinputstream)
+        {
+            (new StringBuilder(71)).append("Set invalid Octet value: ").append(j).append(" into the header filed: ").append(i);
+            return null;
+        }
+        // Misplaced declaration of an exception variable
+        catch (ByteArrayInputStream bytearrayinputstream)
+        {
+            (new StringBuilder(37)).append(i).append("is not Octet header field!");
+            return null;
+        }
+          goto _L5
+_L9:
+        try
+        {
+            acp1.a(g(bytearrayinputstream), i);
+        }
+        // Misplaced declaration of an exception variable
+        catch (ByteArrayInputStream bytearrayinputstream)
+        {
+            (new StringBuilder(44)).append(i).append("is not Long-Integer header field!");
+            return null;
+        }
+          goto _L5
+_L21:
+        try
+        {
+            acp1.a(h(bytearrayinputstream), i);
+        }
+        // Misplaced declaration of an exception variable
+        catch (ByteArrayInputStream bytearrayinputstream)
+        {
+            (new StringBuilder(44)).append(i).append("is not Long-Integer header field!");
+            return null;
+        }
+          goto _L5
+_L7:
+        abyte0 = a(bytearrayinputstream, 0);
+        if (abyte0 != null)
+        {
+            try
+            {
+                acp1.a(abyte0, i);
+            }
+            // Misplaced declaration of an exception variable
+            catch (NullPointerException nullpointerexception1) { }
+            // Misplaced declaration of an exception variable
+            catch (ByteArrayInputStream bytearrayinputstream)
+            {
+                (new StringBuilder(43)).append(i).append("is not Text-String header field!");
+                return null;
+            }
+        }
+          goto _L5
+_L16:
+        nullpointerexception1 = e(bytearrayinputstream);
+        if (nullpointerexception1 != null)
+        {
+            try
+            {
+                acp1.a(nullpointerexception1, i);
+            }
+            // Misplaced declaration of an exception variable
+            catch (NullPointerException nullpointerexception1) { }
+            // Misplaced declaration of an exception variable
+            catch (ByteArrayInputStream bytearrayinputstream)
+            {
+                (new StringBuilder(52)).append(i).append("is not Encoded-String-Value header field!");
+                return null;
+            }
+        }
+          goto _L5
+_L11:
+        d(bytearrayinputstream);
+        int k = f(bytearrayinputstream);
+        long l1;
+        long l2;
+        try
+        {
+            l1 = g(bytearrayinputstream);
+        }
+        // Misplaced declaration of an exception variable
+        catch (ByteArrayInputStream bytearrayinputstream)
+        {
+            (new StringBuilder(44)).append(i).append("is not Long-Integer header field!");
+            return null;
+        }
+        l2 = l1;
+        if (129 == k)
+        {
+            l2 = l1 + System.currentTimeMillis() / 1000L;
+        }
+        try
+        {
+            acp1.a(l2, i);
+        }
+        // Misplaced declaration of an exception variable
+        catch (ByteArrayInputStream bytearrayinputstream)
+        {
+            (new StringBuilder(44)).append(i).append("is not Long-Integer header field!");
+            return null;
+        }
+          goto _L5
+_L12:
+        d(bytearrayinputstream);
+        Object obj1;
+        if (128 == f(bytearrayinputstream))
+        {
+            ace ace2 = e(bytearrayinputstream);
+            obj1 = ace2;
+            if (ace2 != null)
+            {
+                String s1 = new String(ace2.b());
+                int l = s1.indexOf("/");
+                obj1 = s1;
+                if (l > 0)
+                {
+                    obj1 = s1.substring(0, l);
+                }
+                try
+                {
+                    ace2.a(((String) (obj1)).getBytes());
+                }
+                // Misplaced declaration of an exception variable
+                catch (ByteArrayInputStream bytearrayinputstream)
+                {
+                    return null;
+                }
+                obj1 = ace2;
+            }
         } else
         {
-            return a(acp1.g());
+            try
+            {
+                obj1 = new ace("insert-address-token".getBytes());
+            }
+            // Misplaced declaration of an exception variable
+            catch (ByteArrayInputStream bytearrayinputstream)
+            {
+                (new StringBuilder(52)).append(i).append("is not Encoded-String-Value header field!");
+                return null;
+            }
+        }
+        try
+        {
+            acp1.a(((ace) (obj1)), 137);
+        }
+        // Misplaced declaration of an exception variable
+        catch (Object obj1) { }
+        // Misplaced declaration of an exception variable
+        catch (ByteArrayInputStream bytearrayinputstream)
+        {
+            (new StringBuilder(52)).append(i).append("is not Encoded-String-Value header field!");
+            return null;
+        }
+          goto _L5
+_L13:
+        int i1;
+        bytearrayinputstream.mark(1);
+        i1 = f(bytearrayinputstream);
+        if (i1 < 128) goto _L24; else goto _L23
+_L23:
+        if (128 != i1) goto _L26; else goto _L25
+_L25:
+        try
+        {
+            acp1.a("personal".getBytes(), 138);
+        }
+        catch (NullPointerException nullpointerexception4) { }
+        // Misplaced declaration of an exception variable
+        catch (ByteArrayInputStream bytearrayinputstream)
+        {
+            (new StringBuilder(43)).append(i).append("is not Text-String header field!");
+            return null;
+        }
+          goto _L5
+_L26:
+        if (129 != i1) goto _L28; else goto _L27
+_L27:
+        acp1.a("advertisement".getBytes(), 138);
+          goto _L5
+_L28:
+        if (130 != i1) goto _L30; else goto _L29
+_L29:
+        acp1.a("informational".getBytes(), 138);
+          goto _L5
+_L30:
+        if (131 != i1) goto _L5; else goto _L31
+_L31:
+        acp1.a("auto".getBytes(), 138);
+          goto _L5
+_L24:
+        bytearrayinputstream.reset();
+        byte abyte1[] = a(bytearrayinputstream, 0);
+        if (abyte1 != null)
+        {
+            try
+            {
+                acp1.a(abyte1, 138);
+            }
+            catch (NullPointerException nullpointerexception2) { }
+            // Misplaced declaration of an exception variable
+            catch (ByteArrayInputStream bytearrayinputstream)
+            {
+                (new StringBuilder(43)).append(i).append("is not Text-String header field!");
+                return null;
+            }
+        }
+          goto _L5
+_L15:
+        int j1 = bytearrayinputstream.read() & 0x7f;
+        try
+        {
+            acp1.a(j1, 141);
+        }
+        // Misplaced declaration of an exception variable
+        catch (ByteArrayInputStream bytearrayinputstream)
+        {
+            (new StringBuilder(71)).append("Set invalid Octet value: ").append(j1).append(" into the header filed: ").append(i);
+            return null;
+        }
+        // Misplaced declaration of an exception variable
+        catch (ByteArrayInputStream bytearrayinputstream)
+        {
+            (new StringBuilder(37)).append(i).append("is not Octet header field!");
+            return null;
+        }
+          goto _L5
+_L17:
+        d(bytearrayinputstream);
+        ace ace1;
+        try
+        {
+            h(bytearrayinputstream);
+        }
+        // Misplaced declaration of an exception variable
+        catch (ByteArrayInputStream bytearrayinputstream)
+        {
+            (new StringBuilder(32)).append(i).append(" is not Integer-Value");
+            return null;
+        }
+        ace1 = e(bytearrayinputstream);
+        if (ace1 != null)
+        {
+            try
+            {
+                acp1.a(ace1, 160);
+            }
+            catch (NullPointerException nullpointerexception3) { }
+            // Misplaced declaration of an exception variable
+            catch (ByteArrayInputStream bytearrayinputstream)
+            {
+                (new StringBuilder(52)).append(i).append("is not Encoded-String-Value header field!");
+                return null;
+            }
+        }
+          goto _L5
+_L18:
+        d(bytearrayinputstream);
+        try
+        {
+            h(bytearrayinputstream);
+        }
+        // Misplaced declaration of an exception variable
+        catch (ByteArrayInputStream bytearrayinputstream)
+        {
+            (new StringBuilder(32)).append(i).append(" is not Integer-Value");
+            return null;
+        }
+        try
+        {
+            acp1.a(g(bytearrayinputstream), 161);
+        }
+        // Misplaced declaration of an exception variable
+        catch (ByteArrayInputStream bytearrayinputstream)
+        {
+            (new StringBuilder(44)).append(i).append("is not Long-Integer header field!");
+            return null;
+        }
+          goto _L5
+_L19:
+        d(bytearrayinputstream);
+        f(bytearrayinputstream);
+        e(bytearrayinputstream);
+          goto _L5
+_L20:
+        d(bytearrayinputstream);
+        f(bytearrayinputstream);
+        try
+        {
+            h(bytearrayinputstream);
+        }
+        // Misplaced declaration of an exception variable
+        catch (ByteArrayInputStream bytearrayinputstream)
+        {
+            (new StringBuilder(32)).append(i).append(" is not Integer-Value");
+            return null;
+        }
+          goto _L5
+_L22:
+        a(bytearrayinputstream, ((SparseArray) (null)));
+          goto _L5
+_L8:
+        SparseArray sparsearray = new SparseArray();
+        byte abyte2[] = a(bytearrayinputstream, sparsearray);
+        if (abyte2 != null)
+        {
+            try
+            {
+                acp1.a(abyte2, 132);
+            }
+            catch (NullPointerException nullpointerexception5) { }
+            // Misplaced declaration of an exception variable
+            catch (ByteArrayInputStream bytearrayinputstream)
+            {
+                (new StringBuilder(43)).append(i).append("is not Text-String header field!");
+                return null;
+            }
+        }
+        e = (byte[])sparsearray.get(153);
+        d = (byte[])sparsearray.get(131);
+        flag = false;
+_L5:
+        if (true) goto _L32; else goto _L2
+_L2:
+        return acp1;
+    }
+
+    private static boolean a(ByteArrayInputStream bytearrayinputstream, acr acr1, int i)
+    {
+        int k = bytearrayinputstream.available();
+        int j = i;
+        do
+        {
+            if (j <= 0)
+            {
+                break;
+            }
+            int l = bytearrayinputstream.read();
+            j--;
+            if (l > 127)
+            {
+                switch (l)
+                {
+                default:
+                    if (-1 == b(bytearrayinputstream, j))
+                    {
+                        Log.e("PduParser", "Corrupt Part headers");
+                        return false;
+                    }
+                    break;
+
+                case 142: 
+                    byte abyte0[] = a(bytearrayinputstream, 0);
+                    if (abyte0 != null)
+                    {
+                        acr1.c(abyte0);
+                    }
+                    j = i - (k - bytearrayinputstream.available());
+                    continue;
+
+                case 192: 
+                    byte abyte1[] = a(bytearrayinputstream, 1);
+                    if (abyte1 != null)
+                    {
+                        acr1.b(abyte1);
+                    }
+                    j = i - (k - bytearrayinputstream.available());
+                    continue;
+
+                case 174: 
+                case 197: 
+                    if (adj.a().v())
+                    {
+                        j = d(bytearrayinputstream);
+                        bytearrayinputstream.mark(1);
+                        l = bytearrayinputstream.available();
+                        int i1 = bytearrayinputstream.read();
+                        if (i1 == 128)
+                        {
+                            acr1.d(acr.a);
+                        } else
+                        if (i1 == 129)
+                        {
+                            acr1.d(acr.b);
+                        } else
+                        if (i1 == 130)
+                        {
+                            acr1.d(acr.c);
+                        } else
+                        {
+                            bytearrayinputstream.reset();
+                            acr1.d(a(bytearrayinputstream, 0));
+                        }
+                        if (l - bytearrayinputstream.available() < j)
+                        {
+                            if (bytearrayinputstream.read() == 152)
+                            {
+                                acr1.h(a(bytearrayinputstream, 0));
+                            }
+                            i1 = bytearrayinputstream.available();
+                            if (l - i1 < j)
+                            {
+                                j -= l - i1;
+                                bytearrayinputstream.read(new byte[j], 0, j);
+                            }
+                        }
+                        j = i - (k - bytearrayinputstream.available());
+                    }
+                    continue;
+                }
+                j = 0;
+            } else
+            if (l >= 32 && l <= 127)
+            {
+                byte abyte2[] = a(bytearrayinputstream, 0);
+                byte abyte3[] = a(bytearrayinputstream, 0);
+                if ("Content-Transfer-Encoding".equalsIgnoreCase(new String(abyte2)))
+                {
+                    acr1.f(abyte3);
+                }
+                j = i - (k - bytearrayinputstream.available());
+            } else
+            {
+                if (-1 == b(bytearrayinputstream, j))
+                {
+                    Log.e("PduParser", "Corrupt Part headers");
+                    return false;
+                }
+                j = 0;
+            }
+        } while (true);
+        if (j != 0)
+        {
+            Log.e("PduParser", "Corrupt Part headers");
+            return false;
+        } else
+        {
+            return true;
         }
     }
 
-    private static String a(Context context, Uri uri)
+    private static byte[] a(ByteArrayInputStream bytearrayinputstream, int i)
     {
-        Context context1;
-        Context context2;
-        String s1;
-        context2 = null;
-        context1 = null;
-        if (uri == null)
+        ByteArrayOutputStream bytearrayoutputstream;
+        int j;
+        int k;
+        bytearrayinputstream.mark(1);
+        j = bytearrayinputstream.read();
+        if (1 == i && 34 == j)
         {
-            break MISSING_BLOCK_LABEL_216;
+            bytearrayinputstream.mark(1);
+        } else
+        if (i == 0 && 127 == j)
+        {
+            bytearrayinputstream.mark(1);
+        } else
+        {
+            bytearrayinputstream.reset();
         }
-        s1 = uri.getScheme();
-        if (s1 != null && !s1.equals("") && !s1.equals("file")) goto _L2; else goto _L1
+        bytearrayoutputstream = new ByteArrayOutputStream();
+        k = bytearrayinputstream.read();
+_L14:
+        if (-1 == k || k == 0) goto _L2; else goto _L1
 _L1:
-        uri = uri.getPath();
-_L4:
-        return uri;
-_L2:
-        if (s1.equals("http"))
+        if (i != 2) goto _L4; else goto _L3
+_L3:
+        if (k >= 33 && k <= 126) goto _L6; else goto _L5
+_L5:
+        j = 0;
+_L12:
+        if (j != 0)
         {
-            return uri.toString();
+            bytearrayoutputstream.write(k);
         }
-        if (!s1.equals("content"))
+_L8:
+        k = bytearrayinputstream.read();
+        continue; /* Loop/switch isn't completed */
+_L6:
+        switch (k)
+        {
+        default:
+            j = 1;
+            break;
+
+        case 34: // '"'
+        case 40: // '('
+        case 41: // ')'
+        case 44: // ','
+        case 47: // '/'
+        case 58: // ':'
+        case 59: // ';'
+        case 60: // '<'
+        case 61: // '='
+        case 62: // '>'
+        case 63: // '?'
+        case 64: // '@'
+        case 91: // '['
+        case 92: // '\\'
+        case 93: // ']'
+        case 123: // '{'
+        case 125: // '}'
+            j = 0;
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        boolean flag;
+        if ((k < 32 || k > 126) && (k < 128 || k > 255))
         {
             break; /* Loop/switch isn't completed */
         }
-        context = context.getContentResolver().query(uri, new String[] {
-            "_data"
-        }, null, null, null);
-        if (context == null)
+        flag = true;
+_L10:
+        if (flag)
         {
-            break MISSING_BLOCK_LABEL_127;
+            bytearrayoutputstream.write(k);
         }
-        context1 = context;
-        context2 = context;
-        if (context.getCount() == 0)
+        if (true) goto _L8; else goto _L7
+_L7:
+        switch (k)
         {
-            break MISSING_BLOCK_LABEL_127;
+        case 11: // '\013'
+        case 12: // '\f'
+        default:
+            flag = false;
+            break;
+
+        case 9: // '\t'
+        case 10: // '\n'
+        case 13: // '\r'
+            flag = true;
+            break;
         }
-        context1 = context;
-        context2 = context;
-        if (context.moveToFirst())
+        continue; /* Loop/switch isn't completed */
+_L2:
+        if (bytearrayoutputstream.size() > 0)
         {
-            break MISSING_BLOCK_LABEL_169;
+            return bytearrayoutputstream.toByteArray();
         }
-        context1 = context;
-        context2 = context;
-        try
-        {
-            throw new IllegalArgumentException("Given Uri could not be found in media store");
-        }
-        // Misplaced declaration of an exception variable
-        catch (Context context)
-        {
-            context2 = context1;
-        }
-        finally
-        {
-            if (context2 == null) goto _L0; else goto _L0
-        }
-        throw new IllegalArgumentException("Given Uri is not formatted in a way so that it can be found in media store.");
-        context2.close();
-        throw context;
-        context1 = context;
-        context2 = context;
-        uri = context.getString(context.getColumnIndexOrThrow("_data"));
-        Uri uri1 = uri;
-        uri = uri1;
-        if (context != null)
-        {
-            context.close();
-            return uri1;
-        }
-        if (true) goto _L4; else goto _L3
+        break MISSING_BLOCK_LABEL_378;
+        if (true) goto _L10; else goto _L9
+_L9:
+        if (true) goto _L12; else goto _L11
+_L11:
+        return null;
+        if (true) goto _L14; else goto _L13
+_L13:
+    }
+
+    private static byte[] a(ByteArrayInputStream bytearrayinputstream, SparseArray sparsearray)
+    {
+        int i;
+        bytearrayinputstream.mark(1);
+        i = bytearrayinputstream.read();
+        bytearrayinputstream.reset();
+        i &= 0xff;
+        if (i >= 32) goto _L2; else goto _L1
+_L1:
+        int j;
+        int k;
+        i = d(bytearrayinputstream);
+        j = bytearrayinputstream.available();
+        bytearrayinputstream.mark(1);
+        k = bytearrayinputstream.read();
+        bytearrayinputstream.reset();
+        k &= 0xff;
+        if (k < 32 || k > 127) goto _L4; else goto _L3
 _L3:
-        throw new IllegalArgumentException("Given Uri scheme is not supported");
+        byte abyte0[] = a(bytearrayinputstream, 0);
+_L19:
+        j = i - (j - bytearrayinputstream.available());
+        if (j <= 0) goto _L6; else goto _L5
+_L5:
+        Integer integer;
+        integer = Integer.valueOf(j);
+        k = bytearrayinputstream.available();
+        i = integer.intValue();
+_L18:
+        if (i <= 0) goto _L8; else goto _L7
+_L7:
+        int l;
+        l = bytearrayinputstream.read();
+        i--;
+        l;
+        JVM INSTR lookupswitch 7: default 204
+    //                   129: 446
+    //                   131: 295
+    //                   133: 585
+    //                   137: 295
+    //                   138: 400
+    //                   151: 585
+    //                   153: 400;
+           goto _L9 _L10 _L11 _L12 _L11 _L13 _L12 _L13
+_L9:
+        if (-1 == b(bytearrayinputstream, i))
+        {
+            Log.e("PduParser", "Corrupt Content-Type");
+        } else
+        {
+            i = 0;
+        }
+          goto _L14
+_L4:
+        if (k <= 127) goto _L16; else goto _L15
+_L14:
+        if (true) goto _L18; else goto _L17
+_L17:
+_L15:
+        k = bytearrayinputstream.read() & 0x7f;
+        if (k < aco.a.length)
+        {
+            abyte0 = aco.a[k].getBytes();
+        } else
+        {
+            bytearrayinputstream.reset();
+            abyte0 = a(bytearrayinputstream, 0);
+        }
+          goto _L19
+_L16:
+        Log.e("PduParser", "Corrupt content-type");
+        abyte0 = aco.a[0].getBytes();
+_L21:
+        return abyte0;
+_L11:
+        bytearrayinputstream.mark(1);
+        i = f(bytearrayinputstream);
+        bytearrayinputstream.reset();
+        if (i > 127)
+        {
+            i = bytearrayinputstream.read() & 0x7f;
+            if (i < aco.a.length)
+            {
+                sparsearray.put(131, aco.a[i].getBytes());
+            }
+        } else
+        {
+            byte abyte1[] = a(bytearrayinputstream, 0);
+            if (abyte1 != null && sparsearray != null)
+            {
+                sparsearray.put(131, abyte1);
+            }
+        }
+        i = bytearrayinputstream.available();
+        i = integer.intValue() - (k - i);
+          goto _L18
+_L13:
+        byte abyte2[] = a(bytearrayinputstream, 0);
+        if (abyte2 != null && sparsearray != null)
+        {
+            sparsearray.put(153, abyte2);
+        }
+        i = bytearrayinputstream.available();
+        i = integer.intValue() - (k - i);
+          goto _L18
+_L10:
+        bytearrayinputstream.mark(1);
+        i = f(bytearrayinputstream);
+        bytearrayinputstream.reset();
+        if (i > 32 && i < 127 || i == 0)
+        {
+            byte abyte3[] = a(bytearrayinputstream, 0);
+            try
+            {
+                sparsearray.put(129, Integer.valueOf(acc.a(new String(abyte3))));
+            }
+            catch (UnsupportedEncodingException unsupportedencodingexception)
+            {
+                Log.e("PduParser", Arrays.toString(abyte3), unsupportedencodingexception);
+                sparsearray.put(129, Integer.valueOf(0));
+            }
+        } else
+        {
+            i = (int)h(bytearrayinputstream);
+            if (sparsearray != null)
+            {
+                sparsearray.put(129, Integer.valueOf(i));
+            }
+        }
+        i = bytearrayinputstream.available();
+        i = integer.intValue() - (k - i);
+          goto _L18
+_L12:
+        byte abyte4[] = a(bytearrayinputstream, 0);
+        if (abyte4 != null && sparsearray != null)
+        {
+            sparsearray.put(151, abyte4);
+        }
+        i = bytearrayinputstream.available();
+        i = integer.intValue() - (k - i);
+          goto _L18
+_L8:
+        if (i != 0)
+        {
+            Log.e("PduParser", "Corrupt Content-Type");
+        }
+_L6:
+        if (j >= 0) goto _L21; else goto _L20
+_L20:
+        Log.e("PduParser", "Corrupt MMS message");
+        return aco.a[0].getBytes();
+_L2:
+        if (i <= 127)
+        {
+            return a(bytearrayinputstream, 0);
+        }
+        return aco.a[bytearrayinputstream.read() & 0x7f].getBytes();
+          goto _L18
+    }
+
+    private static int b(ByteArrayInputStream bytearrayinputstream, int i)
+    {
+        int k = bytearrayinputstream.read(new byte[i], 0, i);
+        int j = k;
+        if (k < i)
+        {
+            j = -1;
+        }
+        return j;
+    }
+
+    private static acj b(ByteArrayInputStream bytearrayinputstream)
+    {
+        acj acj1;
+        int j;
+        int k;
+        if (bytearrayinputstream == null)
+        {
+            return null;
+        }
+        k = c(bytearrayinputstream);
+        acj1 = new acj();
+        j = 0;
+_L13:
+        byte abyte0[];
+        int i;
+        if (j >= k)
+        {
+            break MISSING_BLOCK_LABEL_471;
+        }
+        int l = c(bytearrayinputstream);
+        i = c(bytearrayinputstream);
+        abyte0 = new acr();
+        int i1 = bytearrayinputstream.available();
+        if (i1 <= 0)
+        {
+            return null;
+        }
+        Object obj = new SparseArray();
+        byte abyte2[] = a(bytearrayinputstream, ((SparseArray) (obj)));
+        if (abyte2 != null)
+        {
+            abyte0.e(abyte2);
+        } else
+        {
+            abyte0.e(aco.a[0].getBytes());
+        }
+        abyte2 = (byte[])((SparseArray) (obj)).get(151);
+        if (abyte2 != null)
+        {
+            abyte0.g(abyte2);
+        }
+        obj = (Integer)((SparseArray) (obj)).get(129);
+        if (obj != null)
+        {
+            abyte0.a(((Integer) (obj)).intValue());
+        }
+        l -= i1 - bytearrayinputstream.available();
+        if (l > 0)
+        {
+            if (!a(bytearrayinputstream, abyte0, l))
+            {
+                return null;
+            }
+        } else
+        if (l < 0)
+        {
+            return null;
+        }
+        if (abyte0.e() == null && abyte0.i() == null && abyte0.j() == null && abyte0.c() == null)
+        {
+            abyte0.c(Long.toOctalString(System.currentTimeMillis()).getBytes());
+        }
+        if (i <= 0) goto _L2; else goto _L1
+_L1:
+        Object obj1;
+        byte abyte3[];
+        abyte3 = new byte[i];
+        obj1 = new String(abyte0.g());
+        bytearrayinputstream.read(abyte3, 0, i);
+        if (!((String) (obj1)).equalsIgnoreCase("application/vnd.wap.multipart.alternative")) goto _L4; else goto _L3
+_L3:
+        obj1 = b(new ByteArrayInputStream(abyte3)).a(0);
+_L10:
+        boolean flag;
+        if (d == null && e == null)
+        {
+            break MISSING_BLOCK_LABEL_455;
+        }
+        if (e != null)
+        {
+            abyte0 = ((acr) (obj1)).c();
+            byte abyte4[];
+            String s;
+            if (abyte0 != null && Arrays.equals(e, abyte0))
+            {
+                flag = false;
+            } else
+            {
+                flag = true;
+            }
+        } else
+        {
+            if (d == null)
+            {
+                break MISSING_BLOCK_LABEL_455;
+            }
+            byte abyte1[] = ((acr) (obj1)).g();
+            if (abyte1 == null || !Arrays.equals(d, abyte1))
+            {
+                break MISSING_BLOCK_LABEL_455;
+            }
+            flag = false;
+        }
+_L11:
+        if (!flag)
+        {
+            acj1.b(((acr) (obj1)));
+        } else
+        {
+            acj1.a(((acr) (obj1)));
+        }
+        j++;
+        continue; /* Loop/switch isn't completed */
+_L4:
+        abyte4 = abyte0.h();
+        obj1 = abyte3;
+        if (abyte4 == null) goto _L6; else goto _L5
+_L5:
+        s = new String(abyte4);
+        if (!s.equalsIgnoreCase("base64")) goto _L8; else goto _L7
+_L7:
+        obj1 = acb.a(abyte3);
+_L6:
+        if (obj1 == null)
+        {
+            return null;
+        }
+        break; /* Loop/switch isn't completed */
+_L8:
+        obj1 = abyte3;
+        if (s.equalsIgnoreCase("quoted-printable"))
+        {
+            obj1 = acu.a(abyte3);
+        }
+        if (true) goto _L6; else goto _L9
+_L9:
+        abyte0.a(((byte []) (obj1)));
+_L2:
+        obj1 = abyte0;
+          goto _L10
+        flag = true;
+          goto _L11
+        return acj1;
+        if (true) goto _L13; else goto _L12
+_L12:
+    }
+
+    private static int c(ByteArrayInputStream bytearrayinputstream)
+    {
+        int j = 0;
+        int k = bytearrayinputstream.read();
+        int i = k;
+        if (k == -1)
+        {
+            return k;
+        }
+        while ((i & 0x80) != 0) 
+        {
+            j = j << 7 | i & 0x7f;
+            int l = bytearrayinputstream.read();
+            i = l;
+            if (l == -1)
+            {
+                return l;
+            }
+        }
+        return i & 0x7f | j << 7;
+    }
+
+    private static int d(ByteArrayInputStream bytearrayinputstream)
+    {
+        int i = bytearrayinputstream.read() & 0xff;
+        if (i <= 30)
+        {
+            return i;
+        }
+        if (i == 31)
+        {
+            return c(bytearrayinputstream);
+        } else
+        {
+            throw new RuntimeException("Value length > LENGTH_QUOTE!");
+        }
+    }
+
+    private static ace e(ByteArrayInputStream bytearrayinputstream)
+    {
+        bytearrayinputstream.mark(1);
+        int i = bytearrayinputstream.read() & 0xff;
+        if (i == 0)
+        {
+            return null;
+        }
+        bytearrayinputstream.reset();
+        if (i < 32)
+        {
+            d(bytearrayinputstream);
+            i = bytearrayinputstream.read() & 0x7f;
+        } else
+        {
+            i = 0;
+        }
+        bytearrayinputstream = a(bytearrayinputstream, 0);
+        if (i == 0)
+        {
+            break MISSING_BLOCK_LABEL_63;
+        }
+        return new ace(i, bytearrayinputstream);
+        bytearrayinputstream = new ace(bytearrayinputstream);
+        return bytearrayinputstream;
+        bytearrayinputstream;
         return null;
     }
 
-    public static String a(byte abyte0[])
+    private static int f(ByteArrayInputStream bytearrayinputstream)
     {
-        try
-        {
-            abyte0 = new String(abyte0, "iso-8859-1");
-        }
-        // Misplaced declaration of an exception variable
-        catch (byte abyte0[])
-        {
-            Log.e("PduPersister", "ISO_8859_1 must be supported!", abyte0);
-            return "";
-        }
-        return abyte0;
+        return bytearrayinputstream.read() & 0xff;
     }
 
-    private void a(int i1, HashSet hashset, SparseArray sparsearray, boolean flag)
+    private static long g(ByteArrayInputStream bytearrayinputstream)
     {
-        acc aacc[];
-        aacc = (acc[])sparsearray.get(i1);
-        break MISSING_BLOCK_LABEL_10;
-        if (aacc != null && (!flag || aacc.length != 1))
+        int j = bytearrayinputstream.read() & 0xff;
+        if (j > 8)
         {
-            int j1;
-            if (flag)
-            {
-                sparsearray = s.getLine1Number();
-            } else
-            {
-                sparsearray = null;
-            }
-            j1 = aacc.length;
-            i1 = 0;
-            while (i1 < j1) 
-            {
-                Object obj = aacc[i1];
-                if (obj != null)
-                {
-                    obj = ((acc) (obj)).c();
-                    if ((sparsearray == null || !PhoneNumberUtils.compare(((String) (obj)), sparsearray)) && !hashset.contains(obj))
-                    {
-                        hashset.add(obj);
-                    }
-                }
-                i1++;
-            }
+            throw new RuntimeException("Octet count greater than 8 and I can't represent that!");
         }
-        return;
+        long l = 0L;
+        for (int i = 0; i < j; i++)
+        {
+            l = (l << 8) + (long)(bytearrayinputstream.read() & 0xff);
+        }
+
+        return l;
     }
 
-    private void a(long l1, int i1, acc aacc[])
+    private static long h(ByteArrayInputStream bytearrayinputstream)
     {
-        ContentValues contentvalues = new ContentValues(3);
-        int k1 = aacc.length;
-        for (int j1 = 0; j1 < k1; j1++)
+        bytearrayinputstream.mark(1);
+        int i = bytearrayinputstream.read();
+        bytearrayinputstream.reset();
+        if (i > 127)
         {
-            Object obj = aacc[j1];
-            contentvalues.clear();
-            contentvalues.put("address", a(((acc) (obj)).b()));
-            contentvalues.put("charset", Integer.valueOf(((acc) (obj)).a()));
-            contentvalues.put("type", Integer.valueOf(i1));
-            obj = Uri.parse((new StringBuilder(39)).append("content://mms/").append(l1).append("/addr").toString());
-            g.b(r, ((Uri) (obj)), contentvalues);
+            return (long)(bytearrayinputstream.read() & 0x7f);
+        } else
+        {
+            return g(bytearrayinputstream);
         }
-
     }
 
-    private void a(long l1, acn acn1)
+    public acf a()
     {
-        Cursor cursor;
-        cursor = g.a(r, Uri.parse((new StringBuilder(39)).append("content://mms/").append(l1).append("/addr").toString()), new String[] {
-            "address", "charset", "type"
-        }, null, null, null);
-        if (cursor == null)
-        {
-            break MISSING_BLOCK_LABEL_260;
-        }
-_L5:
-        String s1;
-        int i1;
-        if (!cursor.moveToNext())
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        s1 = cursor.getString(0);
-        if (TextUtils.isEmpty(s1))
+        if (a != null) goto _L2; else goto _L1
+_L1:
+        return null;
+_L2:
+        acp acp1;
+        int i;
+        b = a(a);
+        if (b == null)
         {
             continue; /* Loop/switch isn't completed */
         }
-        i1 = cursor.getInt(2);
-        i1;
-        JVM INSTR lookupswitch 4: default 261
-    //                   129: 224
-    //                   130: 224
-    //                   137: 195
-    //                   151: 224;
-           goto _L1 _L2 _L2 _L3 _L2
-        while (true) 
-        {
-            while (true) 
-            {
-                if (false)
-                {
-                }
-                break; /* Loop/switch isn't completed */
-            }
-        }
-_L1:
-        Log.e("PduPersister", (new StringBuilder(33)).append("Unknown address type: ").append(i1).toString());
-        break; /* Loop/switch isn't completed */
-        acn1;
-        cursor.close();
-        throw acn1;
-_L3:
-        acn1.a(new acc(cursor.getInt(1), a(s1)), i1);
-        break; /* Loop/switch isn't completed */
-_L2:
-        acn1.b(new acc(cursor.getInt(1), a(s1)), i1);
-        if (true) goto _L5; else goto _L4
-_L4:
-        cursor.close();
-    }
-
-    private void a(acp acp1, Uri uri, String s1, Map map)
-    {
-        Object obj;
-        Object obj1;
-        Object obj2;
-        Object obj3;
-        Object obj4;
-        Object obj6;
-        Object obj8;
-        Object obj9;
-        String s2;
-        Object obj10;
-        Object obj11;
-        Object obj12;
-        Object obj13;
-        ada ada1;
-        String s3;
-        String s4;
-        Object obj14;
-        Object obj15;
-        Object obj16;
-        Object obj17;
-        Object obj18;
-        Object obj19;
-        Object obj20;
-        Object obj21;
-        Object obj22;
-        Object obj23;
-        Object obj24;
-        Object obj25;
-        Object obj26;
-        Object obj27;
-        Object obj28;
-        obj23 = null;
-        s2 = null;
-        obj17 = null;
-        obj4 = null;
-        obj16 = null;
-        obj21 = null;
-        obj9 = null;
-        obj15 = null;
-        obj22 = null;
-        obj19 = null;
-        obj14 = null;
-        obj25 = null;
-        obj20 = null;
-        obj18 = null;
-        obj8 = null;
-        obj6 = null;
-        ada1 = null;
-        obj26 = null;
-        obj = null;
-        obj1 = null;
-        obj28 = null;
-        obj27 = null;
-        obj24 = null;
-        obj2 = obj24;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj3 = obj26;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        byte abyte0[] = acp1.a();
-        obj2 = obj24;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj3 = obj26;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        int i1 = acp1.d();
-        obj2 = obj24;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj3 = obj26;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        if ("text/plain".equals(s1)) goto _L2; else goto _L1
-_L1:
-        obj2 = obj24;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj3 = obj26;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        if ("application/smil".equals(s1)) goto _L2; else goto _L3
-_L3:
-        obj2 = obj24;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj3 = obj26;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        if (!"text/html".equals(s1)) goto _L4; else goto _L2
-_L2:
-        map = obj27;
-        obj = obj6;
-        obj1 = obj19;
-        obj8 = obj4;
-        if (abyte0 == null) goto _L6; else goto _L5
-_L5:
-        obj2 = obj24;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj3 = obj26;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        acp1 = new ContentValues();
-        obj2 = obj24;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj3 = obj26;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        acp1.put("text", (new acc(i1, abyte0)).c());
-        obj2 = obj24;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj3 = obj26;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        map = obj27;
-        obj = obj6;
-        obj1 = obj19;
-        obj8 = obj4;
-        if (r.update(uri, acp1, null, null) == 1) goto _L6; else goto _L7
-_L7:
-        obj2 = obj24;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj3 = obj26;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        acp1 = String.valueOf(uri.toString());
-        obj2 = obj24;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj3 = obj26;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        if (acp1.length() == 0) goto _L9; else goto _L8
-_L8:
-        obj2 = obj24;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj3 = obj26;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        acp1 = "unable to update ".concat(acp1);
-_L10:
-        obj2 = obj24;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj3 = obj26;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        throw new abx(acp1);
-        acp1;
-        obj = obj2;
-        obj8 = obj10;
-        obj9 = obj11;
-        s2 = s3;
-        Log.e("PduPersister", "Failed to open Input/Output stream.", acp1);
-        obj = obj2;
-        obj8 = obj10;
-        obj9 = obj11;
-        s2 = s3;
-        throw new abx(acp1);
-        acp1;
-        uri = ((Uri) (obj));
-_L25:
-        if (s2 != null)
-        {
-            try
-            {
-                s2.close();
-            }
-            // Misplaced declaration of an exception variable
-            catch (String s1)
-            {
-                map = String.valueOf(s2);
-                Log.e("PduPersister", (new StringBuilder(String.valueOf(map).length() + 27)).append("IOException while closing: ").append(map).toString(), s1);
-            }
-        }
-        if (obj9 != null)
-        {
-            try
-            {
-                ((InputStream) (obj9)).close();
-            }
-            // Misplaced declaration of an exception variable
-            catch (String s1)
-            {
-                map = String.valueOf(obj9);
-                Log.e("PduPersister", (new StringBuilder(String.valueOf(map).length() + 27)).append("IOException while closing: ").append(map).toString(), s1);
-            }
-        }
-        if (obj8 != null)
-        {
-            ((ada) (obj8)).a(uri);
-            uri = new File(uri);
-            s1 = new ContentValues(0);
-            map = r;
-            uri = String.valueOf(uri.getName());
-            Object obj5;
-            Object obj7;
-            int j1;
-            long l1;
-            boolean flag;
-            if (uri.length() != 0)
-            {
-                uri = "content://mms/resetFilePerm/".concat(uri);
-            } else
-            {
-                uri = new String("content://mms/resetFilePerm/");
-            }
-            g.a(map, Uri.parse(uri), s1);
-        }
-        throw acp1;
-_L9:
-        obj2 = obj24;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj3 = obj26;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        acp1 = new String("unable to update ");
-          goto _L10
-        acp1;
-        obj = obj3;
-        obj8 = obj12;
-        obj9 = obj13;
-        s2 = s4;
-        Log.e("PduPersister", "Failed to read/write data.", acp1);
-        obj = obj3;
-        obj8 = obj12;
-        obj9 = obj13;
-        s2 = s4;
-        throw new abx(acp1);
-_L4:
-        obj2 = obj24;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj3 = obj26;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        flag = "application/vnd.oma.drm.message".equals(s1);
-        obj5 = obj28;
-        obj7 = obj8;
-        if (!flag) goto _L12; else goto _L11
-_L11:
-        if (uri == null) goto _L14; else goto _L13
-_L13:
-        obj2 = obj24;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj3 = obj26;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        obj1 = obj;
-        obj5 = a(q, uri);
-        obj2 = obj5;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj = obj5;
-        obj8 = obj25;
-        obj9 = obj21;
-        s2 = obj23;
-        obj3 = obj5;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        obj1 = obj5;
-        l1 = (new File(((String) (obj5)))).length();
-        obj1 = obj5;
-        if (l1 <= 0L) goto _L14; else goto _L15
-_L15:
-        return;
-        obj5;
-        obj2 = obj1;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj = obj1;
-        obj8 = obj25;
-        obj9 = obj21;
-        s2 = obj23;
-        obj3 = obj1;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        obj7 = String.valueOf(acp1.b());
-        obj2 = obj1;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj = obj1;
-        obj8 = obj25;
-        obj9 = obj21;
-        s2 = obj23;
-        obj3 = obj1;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        Log.e("PduPersister", (new StringBuilder(String.valueOf(obj7).length() + 25)).append("Can't get file info for: ").append(((String) (obj7))).toString(), ((Throwable) (obj5)));
-_L14:
-        obj2 = obj1;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj = obj1;
-        obj8 = obj25;
-        obj9 = obj21;
-        s2 = obj23;
-        obj3 = obj1;
-        obj12 = obj18;
-        obj13 = obj15;
-        s4 = obj17;
-        ada1 = ada.a(q, s1);
-        obj5 = obj1;
-        obj7 = ada1;
-        if (ada1 != null) goto _L12; else goto _L16
-_L16:
-        obj2 = obj1;
-        obj10 = ada1;
-        obj11 = obj14;
-        s3 = obj16;
-        obj = obj1;
-        obj8 = ada1;
-        obj9 = obj21;
-        s2 = obj23;
-        obj3 = obj1;
-        obj12 = ada1;
-        obj13 = obj15;
-        s4 = obj17;
-        throw new abx((new StringBuilder(String.valueOf(s1).length() + 31)).append("Mimetype ").append(s1).append(" can not be converted.").toString());
-_L12:
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = obj14;
-        s3 = obj16;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = obj21;
-        s2 = obj23;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = obj15;
-        s4 = obj17;
-        s1 = r.openOutputStream(uri);
-        if (s1 != null)
-        {
-            break MISSING_BLOCK_LABEL_1542;
-        }
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = obj14;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = obj21;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = obj15;
-        s4 = s1;
-        acp1 = String.valueOf(uri);
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = obj14;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = obj21;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = obj15;
-        s4 = s1;
-        throw new abx((new StringBuilder(String.valueOf(acp1).length() + 34)).append("Failed to create output stream on ").append(acp1).toString());
-        if (abyte0 != null) goto _L18; else goto _L17
-_L17:
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = obj14;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = obj21;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = obj15;
-        s4 = s1;
-        obj1 = acp1.b();
-        if (obj1 != null && obj1 != uri) goto _L20; else goto _L19
-_L19:
-        if (s1 != null)
-        {
-            try
-            {
-                s1.close();
-            }
-            // Misplaced declaration of an exception variable
-            catch (acp acp1)
-            {
-                uri = String.valueOf(s1);
-                Log.e("PduPersister", (new StringBuilder(String.valueOf(uri).length() + 27)).append("IOException while closing: ").append(uri).toString(), acp1);
-            }
-        }
-        if (obj7 != null)
-        {
-            ((ada) (obj7)).a(((String) (obj5)));
-            acp1 = new File(((String) (obj5)));
-            uri = new ContentValues(0);
-            s1 = r;
-            acp1 = String.valueOf(acp1.getName());
-            if (acp1.length() != 0)
-            {
-                acp1 = "content://mms/resetFilePerm/".concat(acp1);
-            } else
-            {
-                acp1 = new String("content://mms/resetFilePerm/");
-            }
-            g.a(s1, Uri.parse(acp1), uri);
-            return;
-        }
-          goto _L21
-_L20:
-        uri = obj22;
-        if (map == null)
-        {
-            break MISSING_BLOCK_LABEL_1875;
-        }
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = obj14;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = obj21;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = obj15;
-        s4 = s1;
-        uri = obj22;
-        if (!map.containsKey(obj1))
-        {
-            break MISSING_BLOCK_LABEL_1875;
-        }
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = obj14;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = obj21;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = obj15;
-        s4 = s1;
-        uri = (InputStream)map.get(obj1);
-        acp1 = uri;
-        if (uri != null)
-        {
-            break MISSING_BLOCK_LABEL_1933;
-        }
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = uri;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = uri;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = uri;
-        s4 = s1;
-        acp1 = r.openInputStream(((Uri) (obj1)));
-        if (acp1 != null)
-        {
-            break MISSING_BLOCK_LABEL_2065;
-        }
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = acp1;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = acp1;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = acp1;
-        s4 = s1;
-        uri = String.valueOf(obj1);
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = acp1;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = acp1;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = acp1;
-        s4 = s1;
-        throw new abx((new StringBuilder(String.valueOf(uri).length() + 33)).append("Failed to create input stream on ").append(uri).toString());
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = acp1;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = acp1;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = acp1;
-        s4 = s1;
-        uri = new byte[8192];
-_L22:
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = acp1;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = acp1;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = acp1;
-        s4 = s1;
-        j1 = acp1.read(uri);
-        map = ((Map) (obj5));
-        obj = obj7;
-        obj1 = acp1;
-        obj8 = s1;
-        if (j1 == -1)
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        if (flag)
-        {
-            break MISSING_BLOCK_LABEL_2240;
-        }
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = acp1;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = acp1;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = acp1;
-        s4 = s1;
-        s1.write(uri, 0, j1);
-        continue; /* Loop/switch isn't completed */
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = acp1;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = acp1;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = acp1;
-        s4 = s1;
-        map = ((ada) (obj7)).a(uri, j1);
-        if (map == null)
-        {
-            break MISSING_BLOCK_LABEL_2352;
-        }
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = acp1;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = acp1;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = acp1;
-        s4 = s1;
-        s1.write(map, 0, map.length);
-        if (true) goto _L22; else goto _L6
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = acp1;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = acp1;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = acp1;
-        s4 = s1;
-        throw new abx("Error converting drm data.");
-_L18:
-        if (flag) goto _L24; else goto _L23
-_L23:
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = obj14;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = obj21;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = obj15;
-        s4 = s1;
-        s1.write(abyte0);
-        obj8 = s1;
-        obj1 = obj19;
-        obj = obj7;
-        map = ((Map) (obj5));
-_L6:
-        if (obj8 != null)
-        {
-            try
-            {
-                ((OutputStream) (obj8)).close();
-            }
-            // Misplaced declaration of an exception variable
-            catch (acp acp1)
-            {
-                uri = String.valueOf(obj8);
-                Log.e("PduPersister", (new StringBuilder(String.valueOf(uri).length() + 27)).append("IOException while closing: ").append(uri).toString(), acp1);
-            }
-        }
-        if (obj1 != null)
-        {
-            try
-            {
-                ((InputStream) (obj1)).close();
-            }
-            // Misplaced declaration of an exception variable
-            catch (acp acp1)
-            {
-                uri = String.valueOf(obj1);
-                Log.e("PduPersister", (new StringBuilder(String.valueOf(uri).length() + 27)).append("IOException while closing: ").append(uri).toString(), acp1);
-            }
-        }
-        if (obj != null)
-        {
-            ((ada) (obj)).a(map);
-            acp1 = new File(map);
-            uri = new ContentValues(0);
-            s1 = r;
-            acp1 = String.valueOf(acp1.getName());
-            if (acp1.length() != 0)
-            {
-                acp1 = "content://mms/resetFilePerm/".concat(acp1);
-            } else
-            {
-                acp1 = new String("content://mms/resetFilePerm/");
-            }
-            g.a(s1, Uri.parse(acp1), uri);
-            return;
-        }
-_L21:
-        if (true) goto _L15; else goto _L24
-_L24:
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = obj14;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = obj21;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = obj15;
-        s4 = s1;
-        acp1 = ((ada) (obj7)).a(abyte0, abyte0.length);
+        int j = b.a(140);
+        acp1 = b;
         if (acp1 == null)
         {
-            break MISSING_BLOCK_LABEL_2698;
-        }
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = obj14;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = obj21;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = obj15;
-        s4 = s1;
-        s1.write(acp1, 0, acp1.length);
-        map = ((Map) (obj5));
-        obj = obj7;
-        obj1 = obj19;
-        obj8 = s1;
-          goto _L6
-        obj2 = obj5;
-        obj10 = obj7;
-        obj11 = obj14;
-        s3 = s1;
-        obj = obj5;
-        obj8 = obj7;
-        obj9 = obj21;
-        s2 = s1;
-        obj3 = obj5;
-        obj12 = obj7;
-        obj13 = obj15;
-        s4 = s1;
-        throw new abx("Error converting drm data.");
-        acp1;
-        uri = null;
-        obj8 = obj20;
-          goto _L25
-    }
-
-    private static void a(Cursor cursor, acn acn1)
-    {
-        int i1 = h.size();
-        do
-        {
-            int j1 = i1 - 1;
-            if (j1 < 0)
-            {
-                break;
-            }
-            i1 = h.valueAt(j1);
-            int j2 = h.keyAt(j1);
-            String s1 = cursor.getString(i1);
-            i1 = j1;
-            if (s1 != null)
-            {
-                i1 = j1;
-                if (s1.length() > 0)
-                {
-                    acn1.a(new acc(cursor.getInt(g.get(j2)), a(s1)), j2);
-                    i1 = j1;
-                }
-            }
-        } while (true);
-        i1 = i.size();
-        do
-        {
-            int k1 = i1 - 1;
-            if (k1 < 0)
-            {
-                break;
-            }
-            i1 = i.valueAt(k1);
-            int k2 = i.keyAt(k1);
-            String s2 = cursor.getString(i1);
-            i1 = k1;
-            if (s2 != null)
-            {
-                acn1.a(a(s2), k2);
-                i1 = k1;
-            }
-        } while (true);
-        i1 = j.size();
-        do
-        {
-            int l1 = i1 - 1;
-            if (l1 < 0)
-            {
-                break;
-            }
-            int l2 = j.valueAt(l1);
-            int j3 = j.keyAt(l1);
-            i1 = l1;
-            if (!cursor.isNull(l2))
-            {
-                acn1.a(cursor.getInt(l2), j3);
-                i1 = l1;
-            }
-        } while (true);
-        i1 = k.size();
-        do
-        {
-            int i2 = i1 - 1;
-            if (i2 < 0)
-            {
-                break;
-            }
-            int i3 = k.valueAt(i2);
-            int k3 = k.keyAt(i2);
-            i1 = i2;
-            if (!cursor.isNull(i3))
-            {
-                acn1.a(cursor.getLong(i3), k3);
-                i1 = i2;
-            }
-        } while (true);
-    }
-
-    private static byte[] a(Cursor cursor, int i1)
-    {
-        if (!cursor.isNull(i1))
-        {
-            return a(cursor.getString(i1));
+            i = 0;
         } else
         {
-            return null;
+label0:
+            {
+                i = acp1.a(140);
+                if (acp1.a(141) != 0)
+                {
+                    break label0;
+                }
+                i = 0;
+            }
         }
-    }
-
-    private static byte[] a(String s1)
-    {
-        try
-        {
-            s1 = s1.getBytes("iso-8859-1");
-        }
-        // Misplaced declaration of an exception variable
-        catch (String s1)
-        {
-            Log.e("PduPersister", "ISO_8859_1 must be supported!", s1);
-            return new byte[0];
-        }
-        return s1;
-    }
-
-    private acp[] a(long l1)
-    {
-        Object obj2;
-        Object obj3;
-        Cursor cursor;
-        obj3 = null;
-        obj2 = null;
-        cursor = g.a(r, Uri.parse((new StringBuilder(39)).append("content://mms/").append(l1).append("/part").toString()), e, null, null, null);
-        if (cursor == null)
-        {
-            break MISSING_BLOCK_LABEL_69;
-        }
-        int i1 = cursor.getCount();
-        if (i1 != 0)
-        {
-            break MISSING_BLOCK_LABEL_83;
-        }
-        if (cursor != null)
-        {
-            cursor.close();
-        }
-        return null;
-        acp aacp[] = new acp[cursor.getCount()];
-        i1 = 0;
-_L23:
-        if (!cursor.moveToNext()) goto _L2; else goto _L1
-_L1:
-        Object obj;
-        acp acp1;
-        acp1 = new acp();
-        if (cursor.isNull(1))
-        {
-            break MISSING_BLOCK_LABEL_706;
-        }
-        obj = Integer.valueOf(cursor.getInt(1));
-_L24:
-        if (obj == null)
-        {
-            break MISSING_BLOCK_LABEL_153;
-        }
-        acp1.a(((Integer) (obj)).intValue());
-        byte abyte0[] = a(cursor, 2);
-        if (abyte0 == null)
-        {
-            break MISSING_BLOCK_LABEL_173;
-        }
-        acp1.d(abyte0);
-        abyte0 = a(cursor, 3);
-        if (abyte0 == null)
-        {
-            break MISSING_BLOCK_LABEL_193;
-        }
-        acp1.b(abyte0);
-        abyte0 = a(cursor, 4);
-        if (abyte0 == null)
-        {
-            break MISSING_BLOCK_LABEL_213;
-        }
-        acp1.c(abyte0);
-        byte abyte1[] = a(cursor, 5);
-        if (abyte1 == null) goto _L4; else goto _L3
-_L3:
-        acp1.e(abyte1);
-        abyte0 = a(cursor, 6);
-        if (abyte0 == null)
-        {
-            break MISSING_BLOCK_LABEL_254;
-        }
-        acp1.h(abyte0);
-        abyte0 = a(cursor, 7);
-        if (abyte0 == null)
-        {
-            break MISSING_BLOCK_LABEL_275;
-        }
-        acp1.g(abyte0);
-        Object obj1;
-        String s1;
-        l1 = cursor.getLong(0);
-        obj1 = Uri.parse((new StringBuilder(39)).append("content://mms/part/").append(l1).toString());
-        acp1.a(((Uri) (obj1)));
-        s1 = a(abyte1);
-        if (g.b(s1) || g.c(s1) || g.d(s1)) goto _L6; else goto _L5
 _L5:
-        ByteArrayOutputStream bytearrayoutputstream = new ByteArrayOutputStream();
-        if (!"text/plain".equals(s1) && !"application/smil".equals(s1) && !"text/html".equals(s1)) goto _L8; else goto _L7
-_L7:
-        obj1 = cursor.getString(8);
-        if (obj == null) goto _L10; else goto _L9
-_L9:
-        int j1 = ((Integer) (obj)).intValue();
-          goto _L11
-_L22:
-        obj = (new acc(j1, ((String) (obj)))).b();
-        bytearrayoutputstream.write(((byte []) (obj)), 0, obj.length);
-_L15:
-        acp1.a(bytearrayoutputstream.toByteArray());
-        break; /* Loop/switch isn't completed */
-_L4:
-        throw new abx("Content-Type must be set.");
-        obj;
-        if (cursor != null)
+        if (i == 0)
         {
-            cursor.close();
+            continue; /* Loop/switch isn't completed */
         }
-        throw obj;
-_L10:
-        j1 = 106;
-          goto _L11
-_L21:
-        obj = "";
-        continue; /* Loop/switch isn't completed */
-_L8:
-        obj = obj3;
-        obj1 = r.openInputStream(((Uri) (obj1)));
-        obj = new byte[256];
-        j1 = ((InputStream) (obj1)).read(((byte []) (obj)));
-_L13:
-        if (j1 < 0)
+        if (128 != j && 132 != j)
         {
             break; /* Loop/switch isn't completed */
         }
-        bytearrayoutputstream.write(((byte []) (obj)), 0, j1);
-        j1 = ((InputStream) (obj1)).read(((byte []) (obj)));
-        if (true) goto _L13; else goto _L12
-_L12:
-        if (obj1 == null) goto _L15; else goto _L14
-_L14:
-        ((InputStream) (obj1)).close();
-          goto _L15
-        obj;
-        Log.e("PduPersister", "Failed to close stream", ((Throwable) (obj)));
-          goto _L15
-        obj;
-        obj1 = obj2;
-        obj2 = obj;
-_L19:
-        obj = obj1;
-        Log.e("PduPersister", "Failed to load part data", ((Throwable) (obj2)));
-        obj = obj1;
-        cursor.close();
-        obj = obj1;
-        throw new abx(((Throwable) (obj2)));
-        Exception exception;
-        exception;
-        obj1 = obj;
-        obj = exception;
-_L18:
-        if (obj1 == null)
-        {
-            break MISSING_BLOCK_LABEL_636;
-        }
-        ((InputStream) (obj1)).close();
-_L16:
-        throw obj;
-        obj1;
-        Log.e("PduPersister", "Failed to close stream", ((Throwable) (obj1)));
-          goto _L16
-_L2:
-        if (cursor != null)
-        {
-            cursor.close();
-        }
-        return aacp;
-        obj;
-        if (true) goto _L18; else goto _L17
-_L17:
-        exception;
-        if (true) goto _L19; else goto _L11
-_L11:
-        if (obj1 == null) goto _L21; else goto _L20
-_L20:
-        obj = obj1;
-        if (true) goto _L22; else goto _L6
-_L6:
-        aacp[i1] = acp1;
-        i1++;
-          goto _L23
-        obj = null;
-          goto _L24
-    }
-
-    private acd b(Uri uri)
-    {
-        obj = c;
-        obj;
-        JVM INSTR monitorenter ;
-        boolean flag = c.a(uri);
-        if (!flag)
-        {
-            break MISSING_BLOCK_LABEL_122;
-        }
-        c.wait();
-_L1:
-        Object obj1 = (adc)c.a(uri);
-        if (obj1 == null)
-        {
-            break MISSING_BLOCK_LABEL_122;
-        }
-        obj1 = ((adc) (obj1)).a();
-        obj;
-        JVM INSTR monitorexit ;
-        synchronized (c)
-        {
-            c.a(uri, false);
-            c.notifyAll();
-        }
-        return ((acd) (obj1));
-        Object obj2;
-        obj2;
-        Log.e("PduPersister", "load: ", ((Throwable) (obj2)));
-          goto _L1
-        obj2;
-        obj;
-        JVM INSTR monitorexit ;
-        throw obj2;
-        obj2;
-        synchronized (c)
-        {
-            c.a(uri, false);
-            c.notifyAll();
-        }
-        throw obj2;
-        uri;
-        obj;
-        JVM INSTR monitorexit ;
-        throw uri;
-        c.a(uri, true);
-        obj;
-        JVM INSTR monitorexit ;
-        long l1;
-        obj = g.a(r, uri, a, null, null, null);
-        obj3 = new acn();
-        l1 = ContentUris.parseId(uri);
-        if (obj == null)
-        {
-            break MISSING_BLOCK_LABEL_184;
-        }
-        if (((Cursor) (obj)).getCount() == 1 && ((Cursor) (obj)).moveToFirst())
-        {
-            break MISSING_BLOCK_LABEL_240;
-        }
-        obj3 = String.valueOf(uri);
-        throw new abx((new StringBuilder(String.valueOf(obj3).length() + 9)).append("Bad uri: ").append(((String) (obj3))).toString());
-        obj3;
-        if (obj == null)
-        {
-            break MISSING_BLOCK_LABEL_238;
-        }
-        ((Cursor) (obj)).close();
-        throw obj3;
-        int i1;
-        long l2;
-        i1 = ((Cursor) (obj)).getInt(1);
-        l2 = ((Cursor) (obj)).getLong(2);
-        a(((Cursor) (obj)), ((acn) (obj3)));
-        if (obj == null)
-        {
-            break MISSING_BLOCK_LABEL_273;
-        }
-        ((Cursor) (obj)).close();
-        if (l1 != -1L)
-        {
-            break MISSING_BLOCK_LABEL_293;
-        }
-        throw new abx("Error! ID of the message: -1.");
-        int j1;
-        a(l1, ((acn) (obj3)));
-        j1 = ((acn) (obj3)).a(140);
-        obj = a(l1, j1);
-        j1;
-        JVM INSTR tableswitch 128 151: default 679
-    //                   128 564
-    //                   129 613
-    //                   130 465
-    //                   131 589
-    //                   132 551
-    //                   133 577
-    //                   134 527
-    //                   135 601
-    //                   136 539
-    //                   137 613
-    //                   138 613
-    //                   139 613
-    //                   140 613
-    //                   141 613
-    //                   142 613
-    //                   143 613
-    //                   144 613
-    //                   145 613
-    //                   146 613
-    //                   147 613
-    //                   148 613
-    //                   149 613
-    //                   150 613
-    //                   151 613;
-           goto _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L4 _L4 _L4 _L4 _L4 _L4 _L4 _L4 _L4 _L4 _L4 _L4 _L4 _L4 _L4
-_L2:
-        obj = String.valueOf(Integer.toHexString(j1));
-        if (((String) (obj)).length() == 0)
-        {
-            break MISSING_BLOCK_LABEL_660;
-        }
-        obj = "Unrecognized PDU type: ".concat(((String) (obj)));
-_L13:
-        throw new abx(((String) (obj)));
-_L5:
-        obj = new acf(((acn) (obj3)));
-_L12:
-        synchronized (c)
-        {
-            adc adc1 = new adc(((acd) (obj)), i1, l2);
-            c.a(uri, adc1);
-            c.a(uri, false);
-            c.notifyAll();
-        }
-        return ((acd) (obj));
-        uri;
-        obj3;
-        JVM INSTR monitorexit ;
-        throw uri;
-_L9:
-        obj = new acb(((acn) (obj3)));
-          goto _L12
-_L11:
-        obj = new act(((acn) (obj3)));
-          goto _L12
-_L7:
-        obj = new acv(((acn) (obj3)), ((ach) (obj)));
-          goto _L12
+        c = b(a);
+        if (c == null) goto _L1; else goto _L3
 _L3:
-        obj = new acx(((acn) (obj3)), ((ach) (obj)));
-          goto _L12
-_L8:
-        obj = new aby(((acn) (obj3)));
-          goto _L12
-_L6:
-        obj = new acg(((acn) (obj3)));
-          goto _L12
-_L10:
-        obj = new acu(((acn) (obj3)));
-          goto _L12
-_L4:
-        obj = String.valueOf(Integer.toHexString(j1));
-        if (((String) (obj)).length() != 0)
+        switch (j)
         {
-            obj = "Unsupported PDU type: ".concat(((String) (obj)));
-        } else
-        {
-            obj = new String("Unsupported PDU type: ");
-        }
-        throw new abx(((String) (obj)));
-        obj = new String("Unrecognized PDU type: ");
-          goto _L13
-        uri;
-        obj;
-        JVM INSTR monitorexit ;
-        throw uri;
-    }
+        default:
+            return null;
 
-    public acd a(Uri uri)
-    {
-        return b(uri);
-    }
+        case 128: 
+            return new acz(b, c);
 
-    public Uri a(acd acd1, Uri uri, boolean flag)
-    {
-        return a(acd1, uri, true, flag, null, null);
-    }
+        case 129: 
+            return new acy(b);
 
-    public Uri a(acd acd1, Uri uri, boolean flag, boolean flag1, Map map, acr acr1)
-    {
-        long l3;
-        if (uri == null)
-        {
-            throw new abx("Uri may not be null.");
-        }
-        l3 = -1L;
-        long l4 = ContentUris.parseId(uri);
-        l3 = l4;
-_L9:
-        boolean flag3;
-        if (l3 != -1L)
-        {
-            flag3 = true;
-        } else
-        {
-            flag3 = false;
-        }
-        if (!flag3 && f.get(uri) == null)
-        {
-            throw new abx("Bad destination, must be one of content://mms/inbox, content://mms/sent, content://mms/drafts, content://mms/outbox, content://mms/temp.");
-        }
-        map = c;
-        map;
-        JVM INSTR monitorenter ;
-        flag = c.a(uri);
-        if (!flag)
-        {
-            break MISSING_BLOCK_LABEL_100;
-        }
-        c.wait();
-_L1:
-        map;
-        JVM INSTR monitorexit ;
-        ContentValues contentvalues;
-        acn acn1;
-        c.b(uri);
-        acn1 = acd1.a();
-        contentvalues = new ContentValues();
-        int i1 = m.size();
-        do
-        {
-            i1--;
-            if (i1 < 0)
+        case 130: 
+            return new ach(b);
+
+        case 131: 
+            return new aci(b);
+
+        case 132: 
+            acx acx1 = new acx(b, c);
+            byte abyte0[] = acx1.g();
+            if (abyte0 != null)
             {
-                break;
-            }
-            int i2 = m.keyAt(i1);
-            map = acn1.c(i2);
-            if (map != null)
-            {
-                String s1 = (String)l.get(i2);
-                contentvalues.put((String)m.valueAt(i1), a(map.b()));
-                contentvalues.put(s1, Integer.valueOf(map.a()));
-            }
-        } while (true);
-        break MISSING_BLOCK_LABEL_247;
-        InterruptedException interruptedexception;
-        interruptedexception;
-        Log.e("PduPersister", "persist1: ", interruptedexception);
-          goto _L1
-        acd1;
-        map;
-        JVM INSTR monitorexit ;
-        throw acd1;
-        SparseArray sparsearray;
-        int j1;
-        j1 = n.size();
-        do
-        {
-            j1--;
-            if (j1 < 0)
-            {
-                break;
-            }
-            map = acn1.b(n.keyAt(j1));
-            if (map != null)
-            {
-                contentvalues.put((String)n.valueAt(j1), a(((byte []) (map))));
-            }
-        } while (true);
-        j1 = o.size();
-        do
-        {
-            j1--;
-            if (j1 < 0)
-            {
-                break;
-            }
-            int j2 = acn1.a(o.keyAt(j1));
-            if (j2 != 0)
-            {
-                contentvalues.put((String)o.valueAt(j1), Integer.valueOf(j2));
-            }
-        } while (true);
-        j1 = p.size();
-        do
-        {
-            j1--;
-            if (j1 < 0)
-            {
-                break;
-            }
-            l4 = acn1.e(p.keyAt(j1));
-            if (l4 != -1L)
-            {
-                contentvalues.put((String)p.valueAt(j1), Long.valueOf(l4));
-            }
-        } while (true);
-        sparsearray = new SparseArray(d.length);
-        int ai[] = d;
-        int k2 = ai.length;
-        j1 = 0;
-        while (j1 < k2) 
-        {
-            int j3 = ai[j1];
-            map = null;
-            if (j3 == 137)
-            {
-                acc acc1 = acn1.c(j3);
-                if (acc1 != null)
+                String s = new String(abyte0);
+                if (s.equals("application/vnd.wap.multipart.mixed") || s.equals("application/vnd.wap.multipart.related") || s.equals("application/vnd.wap.multipart.alternative"))
                 {
-                    map = new acc[1];
-                    map[0] = acc1;
+                    return acx1;
                 }
-            } else
-            {
-                map = acn1.d(j3);
-            }
-            sparsearray.put(j3, map);
-            j1++;
-        }
-        map = new HashSet();
-        j1 = acd1.b();
-        if (j1 != 130 && j1 != 132 && j1 != 128) goto _L3; else goto _L2
-_L2:
-        j1;
-        JVM INSTR tableswitch 128 132: default 624
-    //                   128 865
-    //                   129 624
-    //                   130 821
-    //                   131 624
-    //                   132 821;
-           goto _L4 _L5 _L4 _L6 _L4 _L6
-_L4:
-        l4 = -1L;
-        if (!map.isEmpty())
-        {
-            l4 = ade.a(q, map);
-        }
-        contentvalues.put("thread_id", Long.valueOf(l4));
-        if (acr1 != null)
-        {
-            acr1.a(l4);
-        }
-_L3:
-        boolean flag5;
-        l4 = System.currentTimeMillis();
-        boolean flag4 = true;
-        boolean flag2 = true;
-        flag5 = flag4;
-        if (acd1 instanceof ace)
-        {
-            acd1 = ((ace)acd1).d();
-            flag5 = flag4;
-            if (acd1 != null)
-            {
-                int k3 = acd1.b();
-                if (k3 > 2)
+                if (s.equals("application/vnd.wap.multipart.alternative"))
                 {
-                    flag2 = false;
+                    acr acr1 = c.a(0);
+                    c.a();
+                    c.b(acr1);
+                    return acx1;
                 }
-                int l2 = 0;
-                do
-                {
-                    flag5 = flag2;
-                    if (l2 >= k3)
-                    {
-                        break;
-                    }
-                    map = acd1.a(l2);
-                    a(((acp) (map)), l4, ((Map) (null)));
-                    map = a(((acp) (map)));
-                    flag5 = flag2;
-                    if (map != null)
-                    {
-                        flag5 = flag2;
-                        if (!"application/smil".equals(map))
-                        {
-                            flag5 = flag2;
-                            if (!"text/plain".equals(map))
-                            {
-                                flag5 = false;
-                            }
-                        }
-                    }
-                    l2++;
-                    flag2 = flag5;
-                } while (true);
             }
-        }
-        break; /* Loop/switch isn't completed */
-_L6:
-        a(137, ((HashSet) (map)), sparsearray, false);
-        if (flag1)
-        {
-            a(151, ((HashSet) (map)), sparsearray, true);
-            a(130, ((HashSet) (map)), sparsearray, true);
+            break;
+
+        case 134: 
+            return new acd(b);
+
+        case 133: 
+            return new aca(b);
+
+        case 136: 
+            return new acv(b);
+
+        case 135: 
+            return new acw(b);
         }
         continue; /* Loop/switch isn't completed */
-_L5:
-        a(151, ((HashSet) (map)), sparsearray, false);
-        if (true) goto _L4; else goto _L7
-_L7:
-        if (android.os.Build.VERSION.SDK_INT >= 17)
+label1:
         {
-            int k1;
-            int l1;
-            int i3;
-            if (flag5)
+            switch (i)
             {
-                k1 = 1;
-            } else
-            {
-                k1 = 0;
-            }
-            contentvalues.put("text_only", Integer.valueOf(k1));
-        }
-        if (flag3)
-        {
-            g.a(r, uri, contentvalues);
-            acd1 = uri;
-        } else
-        {
-            acd1 = g.b(r, uri, contentvalues);
-            if (acd1 == null)
-            {
-                throw new abx("persist() failed: return null.");
-            }
-            l3 = ContentUris.parseId(acd1);
-        }
-        map = new ContentValues(1);
-        map.put("mid", Long.valueOf(l3));
-        g.a(r, Uri.parse((new StringBuilder(39)).append("content://mms/").append(l4).append("/part").toString()), map);
-        if (!flag3)
-        {
-            acd1 = String.valueOf(uri);
-            acd1 = Uri.parse((new StringBuilder(String.valueOf(acd1).length() + 21)).append(acd1).append("/").append(l3).toString());
-        }
-        uri = d;
-        l1 = uri.length;
-        for (k1 = 0; k1 < l1; k1++)
-        {
-            i3 = uri[k1];
-            map = (acc[])sparsearray.get(i3);
-            if (map != null)
-            {
-                a(l3, i3, ((acc []) (map)));
-            }
-        }
+            default:
+                i = 0;
+                break label1;
 
-        break MISSING_BLOCK_LABEL_1145;
-        map;
-        if (true) goto _L9; else goto _L8
-_L8:
-        return acd1;
+            case 128: 
+                if (acp1.b(132) == null)
+                {
+                    i = 0;
+                } else
+                if (acp1.c(137) == null)
+                {
+                    i = 0;
+                } else
+                {
+                    if (acp1.b(152) != null)
+                    {
+                        break label1;
+                    }
+                    i = 0;
+                }
+                break;
+
+            case 129: 
+                if (acp1.a(146) == 0)
+                {
+                    i = 0;
+                } else
+                {
+                    if (acp1.b(152) != null)
+                    {
+                        break label1;
+                    }
+                    i = 0;
+                }
+                break;
+
+            case 130: 
+                if (acp1.b(131) == null)
+                {
+                    i = 0;
+                } else
+                if (-1L == acp1.e(136))
+                {
+                    i = 0;
+                } else
+                if (acp1.b(138) == null)
+                {
+                    i = 0;
+                } else
+                if (-1L == acp1.e(142))
+                {
+                    i = 0;
+                } else
+                {
+                    if (acp1.b(152) != null)
+                    {
+                        break label1;
+                    }
+                    i = 0;
+                }
+                break;
+
+            case 131: 
+                if (acp1.a(149) == 0)
+                {
+                    i = 0;
+                } else
+                {
+                    if (acp1.b(152) != null)
+                    {
+                        break label1;
+                    }
+                    i = 0;
+                }
+                break;
+
+            case 132: 
+                if (acp1.b(132) == null)
+                {
+                    i = 0;
+                } else
+                {
+                    if (-1L != acp1.e(133))
+                    {
+                        break label1;
+                    }
+                    i = 0;
+                }
+                break;
+
+            case 134: 
+                if (-1L == acp1.e(133))
+                {
+                    i = 0;
+                } else
+                if (acp1.b(139) == null)
+                {
+                    i = 0;
+                } else
+                if (acp1.a(149) == 0)
+                {
+                    i = 0;
+                } else
+                {
+                    if (acp1.d(151) != null)
+                    {
+                        break label1;
+                    }
+                    i = 0;
+                }
+                break;
+
+            case 133: 
+                if (acp1.b(152) != null)
+                {
+                    break label1;
+                }
+                i = 0;
+                break;
+
+            case 136: 
+                if (-1L == acp1.e(133))
+                {
+                    i = 0;
+                } else
+                if (acp1.c(137) == null)
+                {
+                    i = 0;
+                } else
+                if (acp1.b(139) == null)
+                {
+                    i = 0;
+                } else
+                if (acp1.a(155) == 0)
+                {
+                    i = 0;
+                } else
+                {
+                    if (acp1.d(151) != null)
+                    {
+                        break label1;
+                    }
+                    i = 0;
+                }
+                break;
+
+            case 135: 
+                if (acp1.c(137) == null)
+                {
+                    i = 0;
+                } else
+                if (acp1.b(139) == null)
+                {
+                    i = 0;
+                } else
+                if (acp1.a(155) == 0)
+                {
+                    i = 0;
+                } else
+                {
+                    if (acp1.d(151) != null)
+                    {
+                        break label1;
+                    }
+                    i = 0;
+                }
+                break;
+            }
+            continue; /* Loop/switch isn't completed */
+        }
+        i = 1;
+        if (true) goto _L5; else goto _L4
+_L4:
+        if (true) goto _L1; else goto _L6
+_L6:
     }
 
-    static 
-    {
-        Object obj = new hm();
-        f = ((hm) (obj));
-        ((hm) (obj)).put(android.provider.Telephony.Mms.Inbox.CONTENT_URI, Integer.valueOf(1));
-        f.put(android.provider.Telephony.Mms.Sent.CONTENT_URI, Integer.valueOf(2));
-        f.put(android.provider.Telephony.Mms.Draft.CONTENT_URI, Integer.valueOf(3));
-        f.put(android.provider.Telephony.Mms.Outbox.CONTENT_URI, Integer.valueOf(4));
-        obj = new SparseIntArray();
-        g = ((SparseIntArray) (obj));
-        ((SparseIntArray) (obj)).put(150, 25);
-        g.put(154, 26);
-        obj = new SparseArray();
-        l = ((SparseArray) (obj));
-        ((SparseArray) (obj)).put(150, "sub_cs");
-        l.put(154, "retr_txt_cs");
-        obj = new SparseIntArray();
-        h = ((SparseIntArray) (obj));
-        ((SparseIntArray) (obj)).put(154, 3);
-        h.put(150, 4);
-        obj = new SparseArray();
-        m = ((SparseArray) (obj));
-        ((SparseArray) (obj)).put(154, "retr_txt");
-        m.put(150, "sub");
-        obj = new SparseIntArray();
-        i = ((SparseIntArray) (obj));
-        ((SparseIntArray) (obj)).put(131, 5);
-        i.put(132, 6);
-        i.put(138, 7);
-        i.put(139, 8);
-        i.put(147, 9);
-        i.put(152, 10);
-        obj = new SparseArray();
-        n = ((SparseArray) (obj));
-        ((SparseArray) (obj)).put(131, "ct_l");
-        n.put(132, "ct_t");
-        n.put(138, "m_cls");
-        n.put(139, "m_id");
-        n.put(147, "resp_txt");
-        n.put(152, "tr_id");
-        obj = new SparseIntArray();
-        j = ((SparseIntArray) (obj));
-        ((SparseIntArray) (obj)).put(186, 11);
-        j.put(134, 12);
-        j.put(140, 13);
-        j.put(141, 14);
-        j.put(143, 15);
-        j.put(144, 16);
-        j.put(155, 17);
-        j.put(145, 18);
-        j.put(153, 19);
-        j.put(149, 20);
-        obj = new SparseArray();
-        o = ((SparseArray) (obj));
-        ((SparseArray) (obj)).put(186, "ct_cls");
-        o.put(134, "d_rpt");
-        o.put(140, "m_type");
-        o.put(141, "v");
-        o.put(143, "pri");
-        o.put(144, "rr");
-        o.put(155, "read_status");
-        o.put(145, "rpt_a");
-        o.put(153, "retr_st");
-        o.put(149, "st");
-        obj = new SparseIntArray();
-        k = ((SparseIntArray) (obj));
-        ((SparseIntArray) (obj)).put(133, 21);
-        k.put(135, 22);
-        k.put(136, 23);
-        k.put(142, 24);
-        obj = new SparseArray();
-        p = ((SparseArray) (obj));
-        ((SparseArray) (obj)).put(133, "date");
-        p.put(135, "d_tm");
-        p.put(136, "exp");
-        p.put(142, "m_size");
-    }
 }

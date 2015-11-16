@@ -3,10 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface dyj
+final class dyj
+    implements Runnable
 {
 
-    public abstract void a(hhw hhw, gwt gwt);
+    final dyi a;
 
-    public abstract void d();
+    dyj(dyi dyi1)
+    {
+        a = dyi1;
+        super();
+    }
+
+    public void run()
+    {
+        eev.e("Babel_telephony", "TeleIncomingWifiCallRequest, answering a new call");
+        a.a.d();
+    }
 }

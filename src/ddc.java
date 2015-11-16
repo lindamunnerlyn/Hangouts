@@ -2,26 +2,69 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import android.content.Context;
+import com.google.android.apps.hangouts.realtimechat.BackgroundGcmTickleService;
+import java.util.Iterator;
 import java.util.List;
 
-public final class ddc extends dfa
+public final class ddc extends ain
 {
 
-    private final List a;
-    private final String d;
-    private final boolean e;
+    private static final boolean a = false;
+    private static ddc b = null;
+    private final Context c;
 
-    public ddc(ani ani, List list, String s, boolean flag)
+    private ddc(Context context)
     {
-        super(ani);
-        a = list;
-        d = s;
-        e = flag;
+        c = context;
     }
 
-    public void a()
+    public static ddc a(Context context)
     {
-        cud cud1 = new cud(a, d, e, false);
-        c.a(cud1);
+        if (b == null)
+        {
+            b = new ddc(context);
+        }
+        return b;
+    }
+
+    protected void a(Activity activity)
+    {
+        if (BackgroundGcmTickleService.a(c))
+        {
+            if (a)
+            {
+                eev.b("Babel", "Turn off service alarm for BackgroundGcmTicklerService when the first activity starts");
+            }
+            BackgroundGcmTickleService.a(c, false);
+        }
+    }
+
+    protected void b()
+    {
+        Iterator iterator = ((gqz)hlp.a(c, gqz)).a().iterator();
+        do
+        {
+            if (!iterator.hasNext())
+            {
+                break;
+            }
+            if (!dcz.e(g.a((Integer)iterator.next(), 0)) || BackgroundGcmTickleService.a(c))
+            {
+                continue;
+            }
+            if (a)
+            {
+                eev.b("Babel", "Set service alarm for BackgroundGcmTicklerServicewhen the last activity stops.");
+            }
+            BackgroundGcmTickleService.a(c, true);
+            break;
+        } while (true);
+    }
+
+    static 
+    {
+        hnc hnc = eev.n;
     }
 }

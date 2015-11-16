@@ -4,13 +4,52 @@
 
 
 public final class fyx
-    implements fyj
+    implements fvd
 {
 
-    String a;
+    private int a;
+    private fvf b;
 
-    public fyx()
+    public fyx(fvd fvd1)
     {
-        a = null;
+        a = fvd1.b();
+        b = (fvf)fvd1.a().f();
+    }
+
+    public boolean C_()
+    {
+        return true;
+    }
+
+    public fvf a()
+    {
+        return b;
+    }
+
+    public int b()
+    {
+        return a;
+    }
+
+    public Object f()
+    {
+        return this;
+    }
+
+    public String toString()
+    {
+        String s;
+        if (b() == 1)
+        {
+            s = "changed";
+        } else
+        if (b() == 2)
+        {
+            s = "deleted";
+        } else
+        {
+            s = "unknown";
+        }
+        return (new StringBuilder("DataEventEntity{ type=")).append(s).append(", dataitem=").append(a()).append(" }").toString();
     }
 }

@@ -2,20 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.widget.CompoundButton;
+import com.google.android.apps.hangouts.phone.DebugActivity;
 
-final class cmp extends cmu
+public final class cmp
+    implements android.widget.CompoundButton.OnCheckedChangeListener
 {
 
-    final cls a;
+    final DebugActivity a;
 
-    cmp(cls cls, String s)
+    public cmp(DebugActivity debugactivity)
     {
-        a = cls;
-        super(s);
+        a = debugactivity;
+        super();
     }
 
-    public void a()
+    public void onCheckedChanged(CompoundButton compoundbutton, boolean flag)
     {
-        (new cmq(this)).execute(new Void[0]);
+        compoundbutton = a.getApplicationContext();
+        int i = DebugActivity.b(a).h();
+        long l;
+        if (flag)
+        {
+            l = 1L;
+        } else
+        {
+            l = 0L;
+        }
+        aoc.b(compoundbutton, i, "DEBUG_RTCS", l);
+        DebugActivity.a(a, flag);
     }
 }

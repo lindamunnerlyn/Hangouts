@@ -2,60 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.FileOutputStream;
-import java.io.OutputStream;
+import com.google.android.apps.hangouts.navigation.NavigationDrawerFragment;
 
 public final class cbu
+    implements Runnable
 {
 
-    final cbw a;
-    boolean b;
-    final cbs c;
+    final ftl a;
+    final NavigationDrawerFragment b;
 
-    cbu(cbs cbs1, cbw cbw1)
+    public cbu(NavigationDrawerFragment navigationdrawerfragment, ftl ftl1)
     {
-        c = cbs1;
+        b = navigationdrawerfragment;
+        a = ftl1;
         super();
-        a = cbw1;
     }
 
-    public OutputStream a()
+    public void run()
     {
-        cbs cbs1 = c;
-        cbs1;
-        JVM INSTR monitorenter ;
-        if (a.d != this)
-        {
-            throw new IllegalStateException();
-        }
-        break MISSING_BLOCK_LABEL_31;
-        Exception exception;
-        exception;
-        cbs1;
-        JVM INSTR monitorexit ;
-        throw exception;
-        cbv cbv1 = new cbv(this, new FileOutputStream(a.b(0)));
-        cbs1;
-        JVM INSTR monitorexit ;
-        return cbv1;
-    }
-
-    public void b()
-    {
-        if (b)
-        {
-            cbs.a(c, this, false);
-            c.c(a.a);
-            return;
-        } else
-        {
-            cbs.a(c, this, true);
-            return;
-        }
-    }
-
-    public void c()
-    {
-        cbs.a(c, this, false);
+        NavigationDrawerFragment.a(b).a(a.a(), a.e());
     }
 }

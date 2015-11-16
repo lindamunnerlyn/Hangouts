@@ -2,37 +2,70 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.media.MediaCodec;
-import android.media.MediaFormat;
 
-final class gef extends android.media.MediaCodec.Callback
+final class gef extends gex
 {
 
-    final gee a;
+    final geb a;
 
-    gef(gee gee1)
+    gef(geb geb1)
     {
-        a = gee1;
+        a = geb1;
         super();
     }
 
-    public void onError(MediaCodec mediacodec, android.media.MediaCodec.CodecException codecexception)
+    public void a(geu geu1)
     {
-        gkc.b("vclib", "Encoder codec error.", codecexception);
+        a.e = true;
+        a.k();
     }
 
-    public void onInputBufferAvailable(MediaCodec mediacodec, int i)
+    public void a(gkq gkq1, gap gap)
     {
-        gkc.d("vclib", "Ignoring unexpected onInputBufferAvailable from encoder MediaCodec.");
+        if ((gap instanceof gks) && gkq1.k())
+        {
+            if (a.g == null)
+            {
+                gne.a(5, "vclib", "The call has started but HangoutId was not resolved.");
+            }
+            a.f = 2;
+            a.i = (new gms(a.g)).a(gkq1.a());
+            a.d.a(2690);
+            a.b.a(a.i);
+        }
     }
 
-    public void onOutputBufferAvailable(MediaCodec mediacodec, int i, android.media.MediaCodec.BufferInfo bufferinfo)
+    public void a(gmu gmu1)
     {
-        a.a(i, bufferinfo);
+        String s = String.valueOf(gmu1.a());
+        gne.a(2, "vclib", (new StringBuilder(String.valueOf(s).length() + 28)).append("Call.onQualityNotification: ").append(s).toString());
+        a.b.a(gmu1);
     }
 
-    public void onOutputFormatChanged(MediaCodec mediacodec, MediaFormat mediaformat)
+    public void a(String s)
     {
-        a.a(mediaformat);
+        a.g = s;
+    }
+
+    public void b(geu geu1)
+    {
+        int i;
+        if (geu1 == null)
+        {
+            i = 30;
+        } else
+        {
+            i = geu1.p();
+        }
+        if (geu1 != null && a.i == null)
+        {
+            a.d.a(2691);
+        }
+        gne.a(4, "vclib", (new StringBuilder(29)).append("Call.onCallEnded: ").append(i).toString());
+        geb.a(a, geu1);
+        geb.a(a);
+        a.b.a(i);
+        a.f = 4;
+        gic.a().a(null);
     }
 }

@@ -2,31 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.net.Uri;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.common.data.DataHolder;
+import android.os.Parcel;
+import android.os.ParcelFileDescriptor;
+import com.google.android.gms.wearable.internal.GetChannelInputStreamResponse;
 
-public final class fwr extends fwh
+public final class fwr
+    implements android.os.Parcelable.Creator
 {
 
-    final Uri a;
-    final int b = 0;
-    final fst i;
-
-    public fwr(fst fst, ejx ejx, Uri uri, int j)
+    public fwr()
     {
-        i = fst;
-        a = uri;
-        super(ejx);
     }
 
-    protected ekg a(Status status)
+    public Object createFromParcel(Parcel parcel)
     {
-        return new ftb(DataHolder.b(status.f()));
+        int j = 0;
+        int k = g.a(parcel);
+        ParcelFileDescriptor parcelfiledescriptor = null;
+        int i = 0;
+        do
+        {
+            if (parcel.dataPosition() < k)
+            {
+                int l = parcel.readInt();
+                switch (0xffff & l)
+                {
+                default:
+                    g.b(parcel, l);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, l);
+                    break;
+
+                case 2: // '\002'
+                    j = g.e(parcel, l);
+                    break;
+
+                case 3: // '\003'
+                    parcelfiledescriptor = (ParcelFileDescriptor)g.a(parcel, l, ParcelFileDescriptor.CREATOR);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != k)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
+            } else
+            {
+                return new GetChannelInputStreamResponse(i, j, parcelfiledescriptor);
+            }
+        } while (true);
     }
 
-    protected void a(ejv ejv)
+    public Object[] newArray(int i)
     {
-        ((fwb)ejv).a(this, a, b);
+        return new GetChannelInputStreamResponse[i];
     }
 }

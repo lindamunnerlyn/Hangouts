@@ -2,35 +2,137 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.res.Resources;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-public final class bkk extends aug
+public abstract class bkk extends hmm
 {
 
-    public bkk(View view, bkl bkl1, dsp dsp)
+    private boolean a;
+    private boolean b;
+    private final Handler c = new bkl(this);
+
+    public bkk()
     {
-        super(view, bkl1, dsp);
     }
 
-    protected boolean a()
+    protected void Y()
     {
-        return ((bkl)c).c() && ((bkl)c).b() != ((bkl)c).a();
-    }
-
-    protected dsn b()
-    {
-        dso dso1 = e();
-        int i;
-        if (((bkl)c).b())
+        if (isAdded() && !isPaused())
         {
-            i = l.kN;
+            View view = getView();
+            if (view != null)
+            {
+                a(view);
+            }
+        }
+    }
+
+    protected void Z()
+    {
+        c.removeMessages(0);
+    }
+
+    public void a(View view)
+    {
+        if (isEmpty())
+        {
+            view.findViewById(0x1020004).setVisibility(0);
+            view.findViewById(h.df).setVisibility(8);
+            view.findViewById(h.de).setVisibility(0);
+        }
+    }
+
+    public void displayDeleteConversationDialog(int i)
+    {
+        bfr bfr1 = bfr.a(getString(l.hX), getString(l.hW), getString(l.hV), getString(l.Q));
+        bfr1.setTargetFragment(this, 0);
+        bfr1.getArguments().putInt("account_id", i);
+        bfr1.a(getFragmentManager(), "delete_conversation");
+    }
+
+    public aoa getAccountForConversationDeletion(Bundle bundle)
+    {
+        bundle = dcn.e(bundle.getInt("account_id"));
+        if (bundle == null)
+        {
+            eev.g("Babel", "Delete conversation called for unknown account");
+        }
+        return bundle;
+    }
+
+    public abstract boolean isEmpty();
+
+    public boolean isPaused()
+    {
+        return a;
+    }
+
+    public void onCreate(Bundle bundle)
+    {
+        super.onCreate(bundle);
+        if (bundle != null)
+        {
+            b = true;
+        }
+    }
+
+    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle, int i)
+    {
+        return layoutinflater.inflate(i, viewgroup, false);
+    }
+
+    public void onPause()
+    {
+        a = true;
+        super.onPause();
+    }
+
+    public void onResume()
+    {
+        a = false;
+        super.onResume();
+    }
+
+    public void setupEmptyView(View view, int i, int j)
+    {
+        eep.a((TextView)view.findViewById(h.df), view.findViewById(0x1020004), i, j, 0);
+    }
+
+    public void showContent(View view)
+    {
+        Z();
+        view.findViewById(0x1020004).setVisibility(8);
+    }
+
+    public void showEmptyView(View view)
+    {
+        Z();
+        if (isEmpty())
+        {
+            view.findViewById(0x1020004).setVisibility(0);
+            view.findViewById(h.df).setVisibility(0);
+            view.findViewById(h.de).setVisibility(8);
+        }
+    }
+
+    public void showEmptyViewProgress(View view)
+    {
+        if (b)
+        {
+            if (!c.hasMessages(0) && isEmpty())
+            {
+                c.sendEmptyMessageDelayed(0, 800L);
+            }
+            return;
         } else
         {
-            i = l.kO;
+            a(view);
+            return;
         }
-        dso1.a(b.getResources().getString(i));
-        return dso1.a();
     }
 }

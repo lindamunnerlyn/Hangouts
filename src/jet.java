@@ -3,22 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jet extends koj
+public final class jet extends kwm
 {
 
     public Integer a;
-    public String b;
-    public Integer c;
-    public Integer d;
-    public inw e;
+    public Long b;
 
     public jet()
     {
         a = null;
         b = null;
-        c = null;
-        d = null;
-        e = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -29,97 +23,57 @@ public final class jet extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.e(1, a.intValue());
+            i = j + kwk.e(1, a.intValue());
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.b(2, b);
+            j = i + kwk.e(2, b.longValue());
         }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.intValue());
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.e(4, d.intValue());
-        }
-        i = j;
-        if (e != null)
-        {
-            i = j + koh.d(5, e);
-        }
-        return i;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L5:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   8: 51
+    //                   16: 98;
+           goto _L1 _L2 _L3 _L4
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
-                break;
-
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-
-            case 24: // '\030'
-                c = Integer.valueOf(kog1.f());
-                break;
-
-            case 32: // ' '
-                d = Integer.valueOf(kog1.f());
-                break;
-
-            case 42: // '*'
-                if (e == null)
-                {
-                    e = new inw();
-                }
-                kog1.a(e);
-                break;
-            }
-        } while (true);
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+            a = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        b = Long.valueOf(kwj1.e());
+        if (true) goto _L5; else goto _L6
+_L6:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.intValue());
+            kwk1.a(1, a.intValue());
         }
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.b(2, b.longValue());
         }
-        if (c != null)
-        {
-            koh1.a(3, c.intValue());
-        }
-        if (d != null)
-        {
-            koh1.a(4, d.intValue());
-        }
-        if (e != null)
-        {
-            koh1.b(5, e);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

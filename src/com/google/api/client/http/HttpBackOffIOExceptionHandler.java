@@ -6,8 +6,8 @@ package com.google.api.client.http;
 
 import g;
 import h;
-import hmw;
-import hod;
+import hrs;
+import hsz;
 
 // Referenced classes of package com.google.api.client.http:
 //            HttpIOExceptionHandler, HttpRequest
@@ -16,21 +16,21 @@ public class HttpBackOffIOExceptionHandler
     implements HttpIOExceptionHandler
 {
 
-    private final hmw backOff;
-    private hod sleeper;
+    private final hrs backOff;
+    private hsz sleeper;
 
-    public HttpBackOffIOExceptionHandler(hmw hmw1)
+    public HttpBackOffIOExceptionHandler(hrs hrs1)
     {
-        sleeper = hod.a;
-        backOff = (hmw)h.b(hmw1);
+        sleeper = hsz.a;
+        backOff = (hrs)h.a(hrs1);
     }
 
-    public final hmw getBackOff()
+    public final hrs getBackOff()
     {
         return backOff;
     }
 
-    public final hod getSleeper()
+    public final hsz getSleeper()
     {
         return sleeper;
     }
@@ -53,9 +53,9 @@ public class HttpBackOffIOExceptionHandler
         return flag;
     }
 
-    public HttpBackOffIOExceptionHandler setSleeper(hod hod1)
+    public HttpBackOffIOExceptionHandler setSleeper(hsz hsz1)
     {
-        sleeper = (hod)h.b(hod1);
+        sleeper = (hsz)h.a(hsz1);
         return this;
     }
 }

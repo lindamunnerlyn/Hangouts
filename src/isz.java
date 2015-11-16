@@ -3,89 +3,43 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class isz extends koj
+public final class isz extends Enum
+    implements joj
 {
 
-    public Long a;
-    public byte b[];
-    public String c;
+    public static final isz a;
+    private static final isz b[];
 
-    public isz()
+    private isz(String s)
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s, 0);
     }
 
-    protected int computeSerializedSize()
+    public static joj b()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (c != null)
-        {
-            i = j + koh.b(1, c);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.b(2, b);
-        }
-        i = j;
-        if (a != null)
-        {
-            i = j + koh.d(3, a.longValue());
-        }
-        return i;
+        return a;
     }
 
-    public kop mergeFrom(kog kog1)
+    public static isz valueOf(String s)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                c = kog1.j();
-                break;
-
-            case 18: // '\022'
-                b = kog1.k();
-                break;
-
-            case 24: // '\030'
-                a = Long.valueOf(kog1.d());
-                break;
-            }
-        } while (true);
+        return (isz)Enum.valueOf(isz, s);
     }
 
-    public void writeTo(koh koh1)
+    public static isz[] values()
     {
-        if (c != null)
-        {
-            koh1.a(1, c);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
-        if (a != null)
-        {
-            koh1.a(3, a.longValue());
-        }
-        super.writeTo(koh1);
+        return (isz[])b.clone();
+    }
+
+    public Object a()
+    {
+        return new itg();
+    }
+
+    static 
+    {
+        a = new isz("INSTANCE");
+        b = (new isz[] {
+            a
+        });
     }
 }

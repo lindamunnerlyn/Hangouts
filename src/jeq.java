@@ -3,14 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jeq extends koj
+public final class jeq extends kwm
 {
 
-    public Boolean a;
+    public ixl a;
     public Integer b;
+    public jdk requestHeader;
 
     public jeq()
     {
+        requestHeader = null;
         a = null;
         b = null;
         unknownFieldData = null;
@@ -21,61 +23,80 @@ public final class jeq extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (a != null)
+        if (requestHeader != null)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            i = j + kwk.d(1, requestHeader);
         }
         j = i;
+        if (a != null)
+        {
+            j = i + kwk.d(2, a);
+        }
+        i = j;
         if (b != null)
         {
-            j = i + koh.e(2, b.intValue());
+            i = j + kwk.e(3, b.intValue());
         }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L5:
-        int i = kog1.a();
+_L6:
+        int i = kwj1.a();
         i;
-        JVM INSTR lookupswitch 3: default 40
-    //                   0: 49
-    //                   8: 51
-    //                   16: 65;
-           goto _L1 _L2 _L3 _L4
+        JVM INSTR lookupswitch 4: default 48
+    //                   0: 57
+    //                   10: 59
+    //                   18: 88
+    //                   24: 117;
+           goto _L1 _L2 _L3 _L4 _L5
 _L1:
-        if (super.storeUnknownField(kog1, i)) goto _L5; else goto _L2
+        if (super.storeUnknownField(kwj1, i)) goto _L6; else goto _L2
 _L2:
         return this;
 _L3:
-        a = Boolean.valueOf(kog1.i());
-          goto _L5
+        if (requestHeader == null)
+        {
+            requestHeader = new jdk();
+        }
+        kwj1.a(requestHeader);
+          goto _L6
 _L4:
-        int j = kog1.f();
+        if (a == null)
+        {
+            a = new ixl();
+        }
+        kwj1.a(a);
+          goto _L6
+_L5:
+        int j = kwj1.f();
         switch (j)
         {
-        case 0: // '\0'
         case 1: // '\001'
         case 2: // '\002'
         case 3: // '\003'
             b = Integer.valueOf(j);
             break;
         }
-        if (true) goto _L5; else goto _L6
-_L6:
+        if (true) goto _L6; else goto _L7
+_L7:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
+        if (requestHeader != null)
+        {
+            kwk1.b(1, requestHeader);
+        }
         if (a != null)
         {
-            koh1.a(1, a.booleanValue());
+            kwk1.b(2, a);
         }
         if (b != null)
         {
-            koh1.a(2, b.intValue());
+            kwk1.a(3, b.intValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

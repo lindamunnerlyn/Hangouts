@@ -4,13 +4,10 @@
 
 package com.google.android.libraries.hangouts.video;
 
-import ioe;
-import iof;
-import jgz;
+import iuj;
+import iuk;
+import jnt;
 import n;
-
-// Referenced classes of package com.google.android.libraries.hangouts.video:
-//            ConnectivityReporter
 
 public class l
 {
@@ -28,52 +25,52 @@ public class l
     private final nfo k;
     private final nfo l;
 
-    public ioe a()
+    public iuj a()
     {
-        ioe ioe1 = new ioe();
-        ioe1.a = a;
-        ioe1.b = b;
-        ioe1.d = c;
-        ioe1.e = d;
-        ioe1.c = e;
-        ioe1.f = Integer.valueOf(f);
+        iuj iuj1 = new iuj();
+        iuj1.a = a;
+        iuj1.b = b;
+        iuj1.d = c;
+        iuj1.e = d;
+        iuj1.c = e;
+        iuj1.f = Integer.valueOf(f);
         if (g != null)
         {
-            ioe1.h = (iof[])ConnectivityReporter.a(new iof[] {
+            iuj1.h = (iuk[])(new iuk[] {
                 g.a()
             });
         }
         if (h != null)
         {
-            ioe1.i = (iof[])ConnectivityReporter.a(new iof[] {
+            iuj1.i = (iuk[])(new iuk[] {
                 h.a()
             });
         }
         if (i != null)
         {
-            ioe1.j = (iof[])ConnectivityReporter.a(new iof[] {
+            iuj1.j = (iuk[])(new iuk[] {
                 i.a()
             });
         }
         if (j != null)
         {
-            ioe1.k = (iof[])ConnectivityReporter.a(new iof[] {
+            iuj1.k = (iuk[])(new iuk[] {
                 j.a()
             });
         }
         if (k != null)
         {
-            ioe1.l = (iof[])ConnectivityReporter.a(new iof[] {
+            iuj1.l = (iuk[])(new iuk[] {
                 k.a()
             });
         }
         if (l != null)
         {
-            ioe1.m = (iof[])ConnectivityReporter.a(new iof[] {
+            iuj1.m = (iuk[])(new iuk[] {
                 l.a()
             });
         }
-        return ioe1;
+        return iuj1;
     }
 
     public String toString()

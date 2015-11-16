@@ -2,49 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import android.content.Intent;
-import com.google.android.apps.hangouts.settings.SettingsActivity;
+import android.content.ContentResolver;
+import android.content.Context;
+import com.google.android.apps.hangouts.mergedcontacts.impl.MergeContactsService;
+import com.google.android.apps.hangouts.mergedcontacts.impl.MergedContactProviderImpl;
 
-public final class cbo extends cbh
+public final class cbo extends MergeContactsService
 {
 
-    public cbo()
+    final MergedContactProviderImpl d;
+
+    public cbo(MergedContactProviderImpl mergedcontactproviderimpl)
     {
+        d = mergedcontactproviderimpl;
+        super();
     }
 
-    public int a()
+    public Context getApplicationContext()
     {
-        return l.ju;
+        return d.getContext();
     }
 
-    public void a(Activity activity)
+    public ContentResolver getContentResolver()
     {
-        g.a(a, 1606);
-        ani ani1 = a;
-        Intent intent = new Intent(g.nS, com/google/android/apps/hangouts/settings/SettingsActivity);
-        intent.setAction("android.intent.action.VIEW");
-        intent.putExtra("account_id", ani1.h());
-        activity.startActivity(intent);
-    }
-
-    public int b()
-    {
-        return com.google.android.apps.hangouts.R.drawable.cu;
-    }
-
-    public int c()
-    {
-        return 7;
-    }
-
-    public int d()
-    {
-        return 2;
-    }
-
-    public int e()
-    {
-        return 7;
+        return d.getContext().getContentResolver();
     }
 }

@@ -2,86 +2,304 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.net.Uri;
-import android.util.Log;
-import com.google.android.gms.common.data.DataHolder;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import android.accounts.Account;
+import android.os.IBinder;
+import android.os.Parcel;
+import com.google.android.gms.common.internal.AuthAccountRequest;
+import com.google.android.gms.common.internal.ResolveAccountRequest;
+import com.google.android.gms.signin.internal.CheckServerAuthResult;
+import com.google.android.gms.signin.internal.RecordConsentRequest;
 
-public final class fuh extends eml
-    implements fsz
+final class fuh
+    implements fuf
 {
 
-    private final int c;
+    private IBinder a;
 
-    public fuh(DataHolder dataholder, int i, int j)
+    fuh(IBinder ibinder)
     {
-        super(dataholder, i);
-        c = j;
+        a = ibinder;
     }
 
-    public Uri a()
+    public void a(int i)
     {
-        return Uri.parse(b("path"));
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
+        parcel.writeInt(i);
+        a.transact(7, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
     }
 
-    public byte[] b()
+    public void a(int i, Account account, fuc fuc1)
     {
-        return c("data");
-    }
-
-    public Map c()
-    {
-        HashMap hashmap = new HashMap(c);
-        for (int i = 0; i < c; i++)
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
+        parcel.writeInt(i);
+        if (account == null) goto _L2; else goto _L1
+_L1:
+        parcel.writeInt(1);
+        account.writeToParcel(parcel, 0);
+_L3:
+        if (fuc1 == null)
         {
-            fue fue1 = new fue(a, b + i);
-            if (fue1.b() != null)
-            {
-                hashmap.put(fue1.b(), fue1);
-            }
+            break MISSING_BLOCK_LABEL_112;
         }
-
-        return hashmap;
+        account = fuc1.asBinder();
+_L4:
+        parcel.writeStrongBinder(account);
+        a.transact(8, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+_L2:
+        parcel.writeInt(0);
+          goto _L3
+        account;
+        parcel1.recycle();
+        parcel.recycle();
+        throw account;
+        account = null;
+          goto _L4
     }
 
-    public Object e()
+    public void a(AuthAccountRequest authaccountrequest, fuc fuc1)
     {
-        return new fuf(this);
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
+        if (authaccountrequest == null) goto _L2; else goto _L1
+_L1:
+        parcel.writeInt(1);
+        authaccountrequest.writeToParcel(parcel, 0);
+_L3:
+        if (fuc1 == null)
+        {
+            break MISSING_BLOCK_LABEL_96;
+        }
+        authaccountrequest = fuc1.asBinder();
+_L4:
+        parcel.writeStrongBinder(authaccountrequest);
+        a.transact(2, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+_L2:
+        parcel.writeInt(0);
+          goto _L3
+        authaccountrequest;
+        parcel1.recycle();
+        parcel.recycle();
+        throw authaccountrequest;
+        authaccountrequest = null;
+          goto _L4
     }
 
-    public String toString()
+    public void a(ResolveAccountRequest resolveaccountrequest, erb erb1)
     {
-        boolean flag = Log.isLoggable("DataItem", 3);
-        Object obj = b();
-        Object obj1 = c();
-        StringBuilder stringbuilder = new StringBuilder("DataItemInternal{ ");
-        stringbuilder.append((new StringBuilder("uri=")).append(a()).toString());
-        StringBuilder stringbuilder1 = new StringBuilder(", dataSz=");
-        if (obj == null)
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
+        if (resolveaccountrequest == null) goto _L2; else goto _L1
+_L1:
+        parcel.writeInt(1);
+        resolveaccountrequest.writeToParcel(parcel, 0);
+_L3:
+        if (erb1 == null)
         {
-            obj = "null";
-        } else
-        {
-            obj = Integer.valueOf(obj.length);
+            break MISSING_BLOCK_LABEL_96;
         }
-        stringbuilder.append(stringbuilder1.append(obj).toString());
-        stringbuilder.append((new StringBuilder(", numAssets=")).append(((Map) (obj1)).size()).toString());
-        if (flag && !((Map) (obj1)).isEmpty())
-        {
-            stringbuilder.append(", assets=[");
-            obj1 = ((Map) (obj1)).entrySet().iterator();
-            for (obj = ""; ((Iterator) (obj1)).hasNext(); obj = ", ")
-            {
-                java.util.Map.Entry entry = (java.util.Map.Entry)((Iterator) (obj1)).next();
-                stringbuilder.append((new StringBuilder()).append(((String) (obj))).append((String)entry.getKey()).append(": ").append(((fta)entry.getValue()).a()).toString());
-            }
+        resolveaccountrequest = erb1.asBinder();
+_L4:
+        parcel.writeStrongBinder(resolveaccountrequest);
+        a.transact(5, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+_L2:
+        parcel.writeInt(0);
+          goto _L3
+        resolveaccountrequest;
+        parcel1.recycle();
+        parcel.recycle();
+        throw resolveaccountrequest;
+        resolveaccountrequest = null;
+          goto _L4
+    }
 
-            stringbuilder.append("]");
+    public void a(CheckServerAuthResult checkserverauthresult)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
+        if (checkserverauthresult == null)
+        {
+            break MISSING_BLOCK_LABEL_56;
         }
-        stringbuilder.append(" }");
-        return stringbuilder.toString();
+        parcel.writeInt(1);
+        checkserverauthresult.writeToParcel(parcel, 0);
+_L1:
+        a.transact(3, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        checkserverauthresult;
+        parcel1.recycle();
+        parcel.recycle();
+        throw checkserverauthresult;
+    }
+
+    public void a(RecordConsentRequest recordconsentrequest, fuc fuc1)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
+        if (recordconsentrequest == null) goto _L2; else goto _L1
+_L1:
+        parcel.writeInt(1);
+        recordconsentrequest.writeToParcel(parcel, 0);
+_L3:
+        if (fuc1 == null)
+        {
+            break MISSING_BLOCK_LABEL_97;
+        }
+        recordconsentrequest = fuc1.asBinder();
+_L4:
+        parcel.writeStrongBinder(recordconsentrequest);
+        a.transact(10, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+_L2:
+        parcel.writeInt(0);
+          goto _L3
+        recordconsentrequest;
+        parcel1.recycle();
+        parcel.recycle();
+        throw recordconsentrequest;
+        recordconsentrequest = null;
+          goto _L4
+    }
+
+    public void a(epq epq1, int i, boolean flag)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        boolean flag1;
+        flag1 = false;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
+        if (epq1 == null)
+        {
+            break MISSING_BLOCK_LABEL_91;
+        }
+        epq1 = epq1.asBinder();
+_L1:
+        parcel.writeStrongBinder(epq1);
+        parcel.writeInt(i);
+        i = ((flag1) ? 1 : 0);
+        if (flag)
+        {
+            i = 1;
+        }
+        parcel.writeInt(i);
+        a.transact(9, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        epq1 = null;
+          goto _L1
+        epq1;
+        parcel1.recycle();
+        parcel.recycle();
+        throw epq1;
+    }
+
+    public void a(fuc fuc1)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
+        if (fuc1 == null)
+        {
+            break MISSING_BLOCK_LABEL_58;
+        }
+        fuc1 = fuc1.asBinder();
+_L1:
+        parcel.writeStrongBinder(fuc1);
+        a.transact(11, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        fuc1 = null;
+          goto _L1
+        fuc1;
+        parcel1.recycle();
+        parcel.recycle();
+        throw fuc1;
+    }
+
+    public void a(boolean flag)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        int i;
+        i = 0;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInService");
+        if (flag)
+        {
+            i = 1;
+        }
+        parcel.writeInt(i);
+        a.transact(4, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
     }
 }

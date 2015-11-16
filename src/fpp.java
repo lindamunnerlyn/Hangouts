@@ -2,36 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
+import java.util.ArrayList;
 
-public final class fpp
-    implements flz
+public interface fpp
 {
 
-    private final Status a;
-    private final fqp b;
-
-    public fpp(Status status, fqp fqp)
-    {
-        a = status;
-        b = fqp;
-    }
-
-    public Status B_()
-    {
-        return a;
-    }
-
-    public void b()
-    {
-        if (b != null)
-        {
-            b.b();
-        }
-    }
-
-    public fqp c()
-    {
-        return b;
-    }
+    public abstract void a(ArrayList arraylist);
 }

@@ -9,17 +9,17 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.ListView;
-import efs;
+import eiu;
 
 public class MessageListView extends ListView
 {
 
-    efs a;
+    eiu a;
 
     public MessageListView(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
-        a = new efs(this);
+        a = new eiu(this);
     }
 
     public void a(int i, int j)

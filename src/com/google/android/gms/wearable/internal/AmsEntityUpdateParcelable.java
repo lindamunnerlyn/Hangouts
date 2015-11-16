@@ -6,15 +6,16 @@ package com.google.android.gms.wearable.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fwf;
-import fyb;
+import fyk;
+import g;
+import gap;
 
 public class AmsEntityUpdateParcelable
-    implements SafeParcelable, fyb
+    implements SafeParcelable, gap
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fwf();
-    public final int a;
+    public static final android.os.Parcelable.Creator CREATOR = new fyk();
+    final int a;
     private byte b;
     private final byte c;
     private final String d;
@@ -88,7 +89,12 @@ public class AmsEntityUpdateParcelable
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fwf.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b());
+        g.a(parcel, 3, c());
+        g.a(parcel, 4, d());
+        g.q(parcel, i);
     }
 
 }

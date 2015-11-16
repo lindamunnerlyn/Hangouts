@@ -2,29 +2,87 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
+import android.os.ResultReceiver;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AutoCompleteTextView;
+import java.lang.reflect.Method;
 
 public final class zv
-    implements wg
 {
 
-    final Toolbar a;
+    private Method a;
+    private Method b;
+    private Method c;
+    private Method d;
 
-    public zv(Toolbar toolbar)
+    public zv()
     {
-        a = toolbar;
-        super();
+        try
+        {
+            a = android/widget/AutoCompleteTextView.getDeclaredMethod("doBeforeTextChanged", new Class[0]);
+            a.setAccessible(true);
+        }
+        catch (NoSuchMethodException nosuchmethodexception3) { }
+        try
+        {
+            b = android/widget/AutoCompleteTextView.getDeclaredMethod("doAfterTextChanged", new Class[0]);
+            b.setAccessible(true);
+        }
+        catch (NoSuchMethodException nosuchmethodexception2) { }
+        try
+        {
+            c = android/widget/AutoCompleteTextView.getMethod("ensureImeVisible", new Class[] {
+                Boolean.TYPE
+            });
+            c.setAccessible(true);
+        }
+        catch (NoSuchMethodException nosuchmethodexception1) { }
+        try
+        {
+            d = android/view/inputmethod/InputMethodManager.getMethod("showSoftInputUnchecked", new Class[] {
+                Integer.TYPE, android/os/ResultReceiver
+            });
+            d.setAccessible(true);
+            return;
+        }
+        catch (NoSuchMethodException nosuchmethodexception)
+        {
+            return;
+        }
     }
 
-    public boolean a(MenuItem menuitem)
+    public void a(AutoCompleteTextView autocompletetextview)
     {
-        if (Toolbar.a(a) != null)
+        if (a == null)
         {
-            return Toolbar.a(a).a(menuitem);
-        } else
-        {
-            return false;
+            break MISSING_BLOCK_LABEL_20;
         }
+        a.invoke(autocompletetextview, new Object[0]);
+        return;
+        autocompletetextview;
+    }
+
+    public void b(AutoCompleteTextView autocompletetextview)
+    {
+        if (b == null)
+        {
+            break MISSING_BLOCK_LABEL_20;
+        }
+        b.invoke(autocompletetextview, new Object[0]);
+        return;
+        autocompletetextview;
+    }
+
+    public void c(AutoCompleteTextView autocompletetextview)
+    {
+        if (c == null)
+        {
+            break MISSING_BLOCK_LABEL_27;
+        }
+        c.invoke(autocompletetextview, new Object[] {
+            Boolean.valueOf(true)
+        });
+        return;
+        autocompletetextview;
     }
 }

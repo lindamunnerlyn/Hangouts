@@ -2,28 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.Callable;
 
 final class hdc
-    implements ThreadFactory
+    implements Callable
 {
 
-    final hda a;
-    private final AtomicInteger b = new AtomicInteger(0);
+    final hdd a;
+    final hda b;
 
-    hdc(hda hda)
+    hdc(hda hda, hdd hdd1)
     {
-        a = hda;
+        b = hda;
+        a = hdd1;
         super();
     }
 
-    public Thread newThread(Runnable runnable)
+    public Object call()
     {
-        runnable = Executors.defaultThreadFactory().newThread(runnable);
-        int i = b.incrementAndGet();
-        runnable.setName((new StringBuilder(36)).append("Resource Decoder Thread #").append(i).toString());
-        return runnable;
+        a.b();
+        return null;
     }
 }

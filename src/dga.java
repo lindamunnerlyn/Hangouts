@@ -2,60 +2,72 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.text.TextUtils;
+import java.util.ArrayList;
 
 public final class dga
-    implements Runnable
+    implements dgd
 {
 
-    final int a;
-    final ani b;
-    final String c;
-    final String d;
-    final String e;
-    final String f;
-    final int g;
-    final int h;
-    final String i;
-    final String j;
-    final boolean k;
-    final ffo l;
-    final long m;
+    final ArrayList a;
+    final Context b;
 
-    public dga(int i1, ani ani, String s, String s1, String s2, String s3, int j1, 
-            int k1, String s4, String s5, boolean flag, ffo ffo, long l1)
+    public dga(ArrayList arraylist, Context context)
     {
-        a = i1;
-        b = ani;
-        c = s;
-        d = s1;
-        e = s2;
-        f = s3;
-        g = j1;
-        h = k1;
-        i = s4;
-        j = s5;
-        k = flag;
-        l = ffo;
-        m = l1;
+        a = arraylist;
+        b = context;
         super();
     }
 
-    public void run()
+    public void a(dbl dbl1, aif aif)
     {
-        int i1 = 1;
-        while (i1 <= a) 
+    }
+
+    public void a(dbl dbl1, ail ail1)
+    {
+        String s = ail1.d();
+        String s1 = ail1.g();
+        if (!TextUtils.isEmpty(dbl1.a))
         {
-            dkt dkt1 = (dkt)hgx.a(g.nS, dkt);
-            ani ani = b;
-            String s = c;
-            String s1 = d;
-            dkt1.a(ani, s, (new StringBuilder(String.valueOf(s1).length() + 13)).append(s1).append("--").append(i1).toString(), e, 0, f, g, h, i, j, k, l, 0);
-            try
+            Object obj;
+            String s2;
+            String s3;
+            String s4;
+            if (s == null)
             {
-                Thread.sleep(m);
+                obj = null;
+            } else
+            {
+                obj = s.split(" ");
+                if (obj.length > 0)
+                {
+                    obj = obj[0];
+                } else
+                {
+                    obj = s;
+                }
             }
-            catch (InterruptedException interruptedexception) { }
-            i1++;
+            s2 = dbl1.a;
+            s3 = dbl1.b;
+            s4 = dbl1.d;
+            if (TextUtils.isEmpty(s))
+            {
+                dbl1 = dbl1.e;
+            } else
+            {
+                dbl1 = s;
+            }
+            dbl1 = g.a(s2, s3, null, s4, s, ((String) (obj)), dbl1, s1, null, null);
+            dbl1.C = ail1.l();
+            dbl1.B = ail1.j();
+            dbl1.A = ail1.k();
+            a.add(dbl1);
+            return;
+        } else
+        {
+            a.add(g.a(b, dbl1.d, s, s1));
+            return;
         }
     }
 }

@@ -2,30 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.style.ClickableSpan;
-import android.text.style.URLSpan;
-import android.view.View;
+import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-public final class eak extends ClickableSpan
+final class eak
+    implements Runnable
 {
 
-    final URLSpan a;
-    final Context b;
+    final String a;
+    final eaj b;
 
-    public eak(URLSpan urlspan, Context context)
+    eak(eaj eaj1, String s)
     {
-        a = urlspan;
-        b = context;
+        b = eaj1;
+        a = s;
         super();
     }
 
-    public void onClick(View view)
+    public void run()
     {
-        view = new Intent("android.intent.action.VIEW");
-        view.setData(Uri.parse(a.getURL()));
-        b.startActivity(view);
+        for (Iterator iterator = eaj.l().iterator(); iterator.hasNext(); ((eal)iterator.next()).a(a)) { }
     }
 }

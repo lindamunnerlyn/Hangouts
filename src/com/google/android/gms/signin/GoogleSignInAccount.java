@@ -7,15 +7,15 @@ package com.google.android.gms.signin;
 import android.net.Uri;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fsg;
-import h;
+import fun;
+import g;
 
 public class GoogleSignInAccount
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fsg();
-    public final int a;
+    public static final android.os.Parcelable.Creator CREATOR = new fun();
+    final int a;
     private String b;
     private String c;
     private String d;
@@ -25,7 +25,7 @@ public class GoogleSignInAccount
     public GoogleSignInAccount(int i, String s, String s1, String s2, String s3, Uri uri)
     {
         a = i;
-        b = h.b(s);
+        b = g.x(s);
         c = s1;
         d = s2;
         e = s3;
@@ -64,7 +64,14 @@ public class GoogleSignInAccount
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fsg.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, a());
+        g.a(parcel, 3, b());
+        g.a(parcel, 4, c());
+        g.a(parcel, 5, d());
+        g.a(parcel, 6, e(), i);
+        g.q(parcel, j);
     }
 
 }

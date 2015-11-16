@@ -2,26 +2,62 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import com.google.android.gms.people.accountswitcherview.SelectedAccountNavigationView;
+import android.os.IInterface;
+import com.google.android.gms.maps.model.LatLng;
 
-public final class fnn extends AnimatorListenerAdapter
+public interface fnn
+    extends IInterface
 {
 
-    final SelectedAccountNavigationView a;
+    public abstract void a();
 
-    public fnn(SelectedAccountNavigationView selectedaccountnavigationview)
-    {
-        a = selectedaccountnavigationview;
-        super();
-    }
+    public abstract void a(float f1);
 
-    public void onAnimationEnd(Animator animator)
-    {
-        SelectedAccountNavigationView.e(a);
-        SelectedAccountNavigationView.b(a);
-        SelectedAccountNavigationView.c(a);
-        SelectedAccountNavigationView.d(a);
-    }
+    public abstract void a(float f1, float f2);
+
+    public abstract void a(LatLng latlng);
+
+    public abstract void a(fcw fcw);
+
+    public abstract void a(String s);
+
+    public abstract void a(boolean flag);
+
+    public abstract boolean a(fnn fnn1);
+
+    public abstract String b();
+
+    public abstract void b(float f1);
+
+    public abstract void b(float f1, float f2);
+
+    public abstract void b(String s);
+
+    public abstract void b(boolean flag);
+
+    public abstract LatLng c();
+
+    public abstract void c(boolean flag);
+
+    public abstract String d();
+
+    public abstract String e();
+
+    public abstract boolean f();
+
+    public abstract void g();
+
+    public abstract void h();
+
+    public abstract boolean i();
+
+    public abstract boolean j();
+
+    public abstract int k();
+
+    public abstract boolean l();
+
+    public abstract float m();
+
+    public abstract float n();
 }

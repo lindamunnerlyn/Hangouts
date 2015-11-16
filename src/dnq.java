@@ -2,27 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.os.Bundle;
 
-final class dnq extends gqn
+public final class dnq extends dmy
 {
 
-    private final int a;
-    private final gxa b;
+    private static final long serialVersionUID = 1L;
+    public final int a;
+    public final int b;
 
-    public dnq(Context context, int i)
+    private dnq(String s, int i, cgd cgd, long l)
     {
-        super(context, "sign_out");
+        super(s, cgd, l);
         a = i;
-        b = (gxa)hgx.a(context, gxa);
+        b = 10;
     }
 
-    protected grk a()
+    public dnq(jeg jeg1)
     {
-        b.a(a);
-        grk grk1 = new grk(true);
-        grk1.d().putInt("account_id", a);
-        return grk1;
+        super(jeg1.a.a, g.a(jeg1.b, null), g.a(jeg1.c, 0L));
+        a = g.a(jeg1.d, 0);
+        b = g.a(jeg1.e, 0);
+    }
+
+    public static dnq a(String s, int i, cgd cgd, long l)
+    {
+        return new dnq(s, i, cgd, l);
     }
 }

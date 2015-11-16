@@ -3,90 +3,60 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class knu
+public final class knu extends kwm
 {
 
-    static final int a = 11;
-    static final int b = 12;
-    static final int c = 16;
-    static final int d = 26;
+    public Boolean a;
 
-    public static int a(int i)
+    public knu()
     {
-        return i & 7;
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    static int a(int i, int j)
+    protected int computeSerializedSize()
     {
-        return i << 3 | j;
-    }
-
-    static Object a(klr klr1, knw knw1, koc koc1)
-    {
-        switch (knv.a[knw1.ordinal()])
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-        default:
-            throw new RuntimeException("There is no way to get here, but the compiler thinks otherwise.");
-
-        case 1: // '\001'
-            return Double.valueOf(klr1.b());
-
-        case 2: // '\002'
-            return Float.valueOf(klr1.c());
-
-        case 3: // '\003'
-            return Long.valueOf(klr1.e());
-
-        case 4: // '\004'
-            return Long.valueOf(klr1.d());
-
-        case 5: // '\005'
-            return Integer.valueOf(klr1.f());
-
-        case 6: // '\006'
-            return Long.valueOf(klr1.g());
-
-        case 7: // '\007'
-            return Integer.valueOf(klr1.h());
-
-        case 8: // '\b'
-            return Boolean.valueOf(klr1.i());
-
-        case 9: // '\t'
-            return klr1.l();
-
-        case 10: // '\n'
-            return Integer.valueOf(klr1.m());
-
-        case 11: // '\013'
-            return Integer.valueOf(klr1.o());
-
-        case 12: // '\f'
-            return Long.valueOf(klr1.p());
-
-        case 13: // '\r'
-            return Integer.valueOf(klr1.q());
-
-        case 14: // '\016'
-            return Long.valueOf(klr1.r());
-
-        case 15: // '\017'
-            return koc1.a(klr1);
-
-        case 16: // '\020'
-            throw new IllegalArgumentException("readPrimitiveField() cannot handle nested groups.");
-
-        case 17: // '\021'
-            throw new IllegalArgumentException("readPrimitiveField() cannot handle embedded messages.");
-
-        case 18: // '\022'
-            throw new IllegalArgumentException("readPrimitiveField() cannot handle enums.");
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
+        return i;
     }
 
-    public static int b(int i)
+    public kws mergeFrom(kwj kwj1)
     {
-        return i >>> 3;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
     }
 
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
+        }
+        super.writeTo(kwk1);
+    }
 }

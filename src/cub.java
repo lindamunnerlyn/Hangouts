@@ -2,58 +2,52 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
+import java.util.Iterator;
+import java.util.List;
 
-public class cub extends cui
+public final class cub
 {
 
-    private static final long serialVersionUID = 1L;
-    public final String a;
-    public final String b;
-    public final boolean c;
+    public static final cub c = new cub();
+    public int a;
+    public String b;
 
-    public cub(String s, String s1, boolean flag)
+    public cub()
     {
-        a = s;
-        b = s1;
-        c = flag;
+        a = 1;
+        b = null;
     }
 
-    public kop a(String s, int i, int j)
+    public cub(iyf iyf1)
     {
-        if (ctr.e)
+        a = 1;
+        b = null;
+        if (iyf1 != null)
         {
-            ebw.b("Babel_RequestWriter", "FinishPhoneVerificationRequest build protobuf ");
-        }
-        s = new itn();
-        s.c = Boolean.valueOf(c);
-        if (!TextUtils.isEmpty(b))
-        {
-            jtj jtj1 = new jtj();
-            jtj1.a = a;
-            s.a = jtj1;
-            s.b = b;
-        }
-        return s;
-    }
-
-    public void a(ani ani, dbo dbo)
-    {
-        g.a(ani, 2050);
-        ani = (cpt)hgx.b(g.nS, cpt);
-        if (ani != null)
-        {
-            ani.a(105, false);
+            a = g.a(iyf1.a, 1);
+            if (iyf1.b != null)
+            {
+                b = iyf1.b.a;
+            }
         }
     }
 
-    public boolean a(cci cci, dbo dbo)
+    public static String a(List list)
     {
-        return false;
+        if (list == null || list.size() == 0)
+        {
+            return "Empty deliveryMediumList. ";
+        }
+        StringBuilder stringbuilder = new StringBuilder();
+        for (list = list.iterator(); list.hasNext(); stringbuilder.append((cub)list.next())) { }
+        return stringbuilder.toString();
     }
 
-    public String g()
+    public String toString()
     {
-        return "devices/finishphonenumberverification";
+        int i = a;
+        String s = b;
+        return (new StringBuilder(String.valueOf(s).length() + 33)).append("Medium (type=").append(i).append(" phone=").append(s).append(") ").toString();
     }
+
 }

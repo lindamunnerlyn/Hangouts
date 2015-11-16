@@ -2,13 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Handler;
+import android.os.Message;
 
-public interface bkl
+final class bkl extends Handler
 {
 
-    public abstract boolean a();
+    private final bkk a;
 
-    public abstract boolean b();
+    public bkl(bkk bkk1)
+    {
+        a = bkk1;
+    }
 
-    public abstract boolean c();
+    public void handleMessage(Message message)
+    {
+        if (message.what == 0)
+        {
+            a.Y();
+        }
+    }
 }

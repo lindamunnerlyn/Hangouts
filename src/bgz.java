@@ -2,23 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Cursor;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuItem;
+import com.google.android.apps.hangouts.fragments.CallContactPickerFragment;
 
-public interface bgz
-    extends Cursor
+public final class bgz
+    implements android.view.ActionMode.Callback
 {
 
-    public abstract fqo a();
+    final CallContactPickerFragment a;
 
-    public abstract void a(bgl bgl);
+    public bgz(CallContactPickerFragment callcontactpickerfragment)
+    {
+        a = callcontactpickerfragment;
+        super();
+    }
 
-    public abstract bhj b();
+    public boolean onActionItemClicked(ActionMode actionmode, MenuItem menuitem)
+    {
+        return false;
+    }
 
-    public abstract bhb c();
+    public boolean onCreateActionMode(ActionMode actionmode, Menu menu)
+    {
+        CallContactPickerFragment.a(a).o_();
+        return true;
+    }
 
-    public abstract int d();
+    public void onDestroyActionMode(ActionMode actionmode)
+    {
+        CallContactPickerFragment.a(a).p_();
+    }
 
-    public abstract int e();
-
-    public abstract boolean f();
+    public boolean onPrepareActionMode(ActionMode actionmode, Menu menu)
+    {
+        return false;
+    }
 }

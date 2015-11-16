@@ -2,21 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.collect.MapMakerInternalMap;
 
-public final class jot extends jod
+final class jot extends jos
 {
 
-    final MapMakerInternalMap a;
-
-    jot(MapMakerInternalMap mapmakerinternalmap)
+    jot(String s)
     {
-        a = mapmakerinternalmap;
-        super(mapmakerinternalmap);
+        super(s, 0);
     }
 
-    public Object next()
+    com.google.common.cache.LocalCache.ReferenceEntry a(jpj jpj, Object obj, int i, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        return c().getValue();
+        return new jps(obj, i, referenceentry);
     }
 }

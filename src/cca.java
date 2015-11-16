@@ -2,75 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Map;
+import android.support.v4.widget.DrawerLayout;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import com.google.android.apps.hangouts.navigation.NavigationDrawerFragment;
+import com.google.android.gms.people.accountswitcherview.SelectedAccountNavigationView;
 
-final class cca
+public final class cca
+    implements android.widget.AdapterView.OnItemClickListener
 {
 
-    public int a;
-    public String b;
-    public String c;
-    public long d;
-    public long e;
-    public long f;
-    public Map g;
+    final NavigationDrawerFragment a;
 
-    cca()
+    public cca(NavigationDrawerFragment navigationdrawerfragment)
     {
+        a = navigationdrawerfragment;
+        super();
     }
 
-    public cca(String s, afj afj1)
+    public final void onItemClick(AdapterView adapterview, View view, int i, long l)
     {
-        b = s;
-        a = afj1.a.length;
-        c = afj1.b;
-        d = afj1.c;
-        e = afj1.e;
-        f = afj1.f;
-        g = afj1.g;
-    }
+        gdv.a("Expected null", NavigationDrawerFragment.d(a));
+        NavigationDrawerFragment.e(a).i(a.getView());
+        int j = NavigationDrawerFragment.f(a).a();
+        switch (NavigationDrawerFragment.f(a).a())
+        {
+        default:
+            NavigationDrawerFragment.a(a, null);
+            gdv.a((new StringBuilder(36)).append("Unknown navigation mode: ").append(j).toString());
+            return;
 
-    public afj a(byte abyte0[])
-    {
-        afj afj1 = new afj();
-        afj1.a = abyte0;
-        afj1.b = c;
-        afj1.c = d;
-        afj1.e = e;
-        afj1.f = f;
-        afj1.g = g;
-        return afj1;
-    }
+        case 0: // '\0'
+            adapterview = (ccm)NavigationDrawerFragment.g(a).getItemAtPosition(i);
+            gdv.b("Expected non-null", adapterview);
+            NavigationDrawerFragment.a(a, new ccb(this, adapterview));
+            return;
 
-    public boolean a(OutputStream outputstream)
-    {
-        cbz.a(outputstream, 0x20140131);
-        cbz.a(outputstream, a);
-        cbz.a(outputstream, b);
-        if (c != null)
-        {
-            break MISSING_BLOCK_LABEL_75;
+        case 1: // '\001'
+            i -= NavigationDrawerFragment.g(a).getHeaderViewsCount();
+            break;
         }
-        String s = "";
-_L1:
-        try
-        {
-            cbz.a(outputstream, s);
-            cbz.a(outputstream, d);
-            cbz.a(outputstream, e);
-            cbz.a(outputstream, f);
-            cbz.a(g, outputstream);
-            outputstream.flush();
-        }
-        // Misplaced declaration of an exception variable
-        catch (OutputStream outputstream)
-        {
-            return false;
-        }
-        return true;
-        s = c;
-          goto _L1
+        j = NavigationDrawerFragment.h(a).getItemViewType(i);
+        adapterview = NavigationDrawerFragment.h(a).a(i);
+        NavigationDrawerFragment.a(a, new ccc(this, j, adapterview));
     }
 }

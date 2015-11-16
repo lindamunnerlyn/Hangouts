@@ -2,12 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
+import android.net.Uri;
 
-final class eqr
+public final class eqr
 {
 
-    static final eox a[] = {
-        new eqs(eox.a("0\202\003\3110\202\002\261\240\003\002\001\002\002\t\000\327 \270U\2543$K0")), new eqt(eox.a("0\202\003\3110\202\002\261\240\003\002\001\002\002\t\000\317\346U\204\325\200j\2500"))
-    };
+    private static final Uri a;
+    private static final Uri b;
 
+    public static Intent a()
+    {
+        Intent intent = new Intent("com.google.android.clockwork.home.UPDATE_ANDROID_WEAR_ACTION");
+        intent.setPackage("com.google.android.wearable.app");
+        return intent;
+    }
+
+    public static Intent a(String s)
+    {
+        s = Uri.fromParts("package", s, null);
+        Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
+        intent.setData(s);
+        return intent;
+    }
+
+    public static Intent b(String s)
+    {
+        Intent intent = new Intent("android.intent.action.VIEW");
+        intent.setData(Uri.parse("market://details").buildUpon().appendQueryParameter("id", s).build());
+        intent.setPackage("com.android.vending");
+        intent.addFlags(0x80000);
+        return intent;
+    }
+
+    static 
+    {
+        Uri uri = Uri.parse("http://plus.google.com/");
+        a = uri;
+        b = uri.buildUpon().appendPath("circles").appendPath("find").build();
+    }
 }

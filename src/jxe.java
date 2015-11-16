@@ -3,63 +3,180 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jxe extends koj
+final class jxe extends jsa
 {
 
-    public kff a;
+    static final jxe b;
+    private final transient jss c[];
+    private final transient jss d[];
+    private final transient java.util.Map.Entry e[];
+    private final transient int f;
+    private final transient int g;
+    private transient jsa h;
 
-    public jxe()
+    private jxe(jss ajss[], jss ajss1[], java.util.Map.Entry aentry[], int j, int k)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        c = ajss;
+        d = ajss1;
+        e = aentry;
+        f = j;
+        g = k;
     }
 
-    protected int computeSerializedSize()
+    static jxe a(int j, java.util.Map.Entry aentry[])
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        n.b(j, aentry.length);
+        int k = jrx.b(j);
+        int i1 = k - 1;
+        jss ajss[] = new jss[k];
+        jss ajss1[] = new jss[k];
+        Object aobj[];
+        int l;
+        if (j == aentry.length)
         {
-            i = j + koh.d(1, a);
+            aobj = aentry;
+        } else
+        {
+            aobj = new jss[j];
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        l = 0;
+        k = 0;
+        while (k < j) 
         {
-            int i = kog1.a();
-            switch (i)
+            java.util.Map.Entry entry = aentry[k];
+            Object obj1 = entry.getKey();
+            Object obj2 = entry.getValue();
+            g.f(obj1, obj2);
+            int j1 = obj1.hashCode();
+            int k1 = obj2.hashCode();
+            int l1 = jrx.a(j1) & i1;
+            int i2 = jrx.a(k1) & i1;
+            jss jss2 = ajss[l1];
+            jxk.a(obj1, entry, jss2);
+            jss jss1 = ajss1[i2];
+            Object obj = jss1;
+            while (obj != null) 
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
+                boolean flag1;
+                if (!obj2.equals(((jss) (obj)).getValue()))
                 {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
+                    flag1 = true;
+                } else
                 {
-                    a = new kff();
+                    flag1 = false;
                 }
-                kog1.a(a);
-                break;
+                a(flag1, "value", entry, ((java.util.Map.Entry) (obj)));
+                obj = ((jss) (obj)).b();
             }
-        } while (true);
+            if (jss1 == null && jss2 == null)
+            {
+                boolean flag;
+                if ((entry instanceof jss) && ((jss)entry).c())
+                {
+                    flag = true;
+                } else
+                {
+                    flag = false;
+                }
+                if (flag)
+                {
+                    obj = (jss)entry;
+                } else
+                {
+                    obj = new jss(obj1, obj2);
+                }
+            } else
+            {
+                obj = new jst(obj1, obj2, jss2, jss1);
+            }
+            ajss[l1] = ((jss) (obj));
+            ajss1[i2] = ((jss) (obj));
+            aobj[k] = obj;
+            l += j1 ^ k1;
+            k++;
+        }
+        return new jxe(ajss, ajss1, ((java.util.Map.Entry []) (aobj)), i1, l);
     }
 
-    public void writeTo(koh koh1)
+    static jss[] a(jxe jxe1)
     {
-        if (a != null)
+        return jxe1.d;
+    }
+
+    static int b(jxe jxe1)
+    {
+        return jxe1.f;
+    }
+
+    static int c(jxe jxe1)
+    {
+        return jxe1.g;
+    }
+
+    static java.util.Map.Entry[] d(jxe jxe1)
+    {
+        return jxe1.e;
+    }
+
+    public jsa a()
+    {
+        Object obj;
+        if (isEmpty())
         {
-            koh1.b(1, a);
+            obj = b;
+        } else
+        {
+            jsa jsa1 = h;
+            obj = jsa1;
+            if (jsa1 == null)
+            {
+                jxf jxf1 = new jxf(this);
+                h = jxf1;
+                return jxf1;
+            }
         }
-        super.writeTo(koh1);
+        return ((jsa) (obj));
+    }
+
+    jth e()
+    {
+        if (isEmpty())
+        {
+            return jxl.a;
+        } else
+        {
+            return new jsx(this, e);
+        }
+    }
+
+    public Object get(Object obj)
+    {
+        if (c == null)
+        {
+            return null;
+        } else
+        {
+            return jxk.a(obj, c, f);
+        }
+    }
+
+    public int hashCode()
+    {
+        return g;
+    }
+
+    boolean i()
+    {
+        return true;
+    }
+
+    public int size()
+    {
+        return e.length;
+    }
+
+    static 
+    {
+        b = new jxe(null, null, jso.a, 0, 0);
     }
 }

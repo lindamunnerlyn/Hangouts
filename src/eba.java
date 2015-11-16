@@ -2,59 +2,115 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 
-public final class eba
+public final class eba extends ad
 {
 
-    private static final boolean a = false;
+    private eaj a;
+    private int b[];
 
-    public static int a(int i)
+    public eba()
     {
+    }
+
+    static int a(eba eba1)
+    {
+        int i = -1;
+        int j = b(eba1.getView());
+        if (j != -1)
+        {
+            i = eba1.b[j];
+        }
         return i;
     }
 
-    public static int a(int i, int j, int k, String s)
+    public static eba a()
     {
-        if (i == -1)
-        {
-            return k;
-        }
-        Object obj = g.nS.getSharedPreferences("notificationRequestCodes.v1", 0);
-        int l;
-        int i1;
-        if (s == null)
-        {
-            s = String.valueOf("|");
-            s = (new StringBuilder(String.valueOf(s).length() + 22)).append(i).append(s).append(k).toString();
-        } else
-        {
-            String s1 = String.valueOf("|");
-            String s2 = String.valueOf("|");
-            s = (new StringBuilder(String.valueOf(s1).length() + 22 + String.valueOf(s2).length() + String.valueOf(s).length())).append(i).append(s1).append(k).append(s2).append(s).toString();
-        }
-        i1 = ((SharedPreferences) (obj)).getInt(s, 0);
-        l = i1;
-        if (i1 == 0)
-        {
-            int j1 = ((SharedPreferences) (obj)).getInt("maxRequestCode", 1001) + 1;
-            obj = ((SharedPreferences) (obj)).edit();
-            ((android.content.SharedPreferences.Editor) (obj)).putInt("maxRequestCode", (j1 + j) - 1);
-            ((android.content.SharedPreferences.Editor) (obj)).putInt(s, j1);
-            ((android.content.SharedPreferences.Editor) (obj)).apply();
-            l = j1;
-            if (a)
-            {
-                ebw.b("Babel", (new StringBuilder(String.valueOf(s).length() + 118)).append("New Request code assigned for account=").append(i).append(" numReserved=").append(j).append(" type=").append(k).append(" assigned=").append(j1).append(" (key=").append(s).append(")").toString());
-                l = j1;
-            }
-        }
-        return l;
+        return new eba();
     }
 
-    static 
+    private static void a(View view)
     {
-        hik hik = ebw.u;
+        Button button = (Button)view.findViewById(g.pV);
+        boolean flag;
+        if (b(view) != -1)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        button.setEnabled(flag);
+    }
+
+    static void a(eba eba1, View view)
+    {
+        a(view);
+    }
+
+    private static int b(View view)
+    {
+        return ((ListView)view.findViewById(0x102000a)).getCheckedItemPosition();
+    }
+
+    static eaj b(eba eba1)
+    {
+        return eba1.a;
+    }
+
+    private String[] b()
+    {
+        String as[] = new String[b.length];
+        for (int i = 0; i < b.length; i++)
+        {
+            as[i] = dcn.a(getActivity(), b[i]);
+        }
+
+        return as;
+    }
+
+    static ebe c(eba eba1)
+    {
+        return (ebe)((ebv)eba1.getActivity()).g();
+    }
+
+    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
+    {
+        int i = 0;
+        a = eaj.a(getActivity());
+        b = eaj.a();
+        layoutinflater = layoutinflater.inflate(g.pW, viewgroup, false);
+        viewgroup = (ListView)layoutinflater.findViewById(0x102000a);
+        viewgroup.setAdapter(new ArrayAdapter(getActivity(), g.pY, b()));
+        int j = a.b();
+        do
+        {
+label0:
+            {
+                if (i < b.length)
+                {
+                    if (b[i] != j)
+                    {
+                        break label0;
+                    }
+                    viewgroup.setItemChecked(i, true);
+                }
+                viewgroup.setOnItemClickListener(new ebb(this));
+                viewgroup = (Button)layoutinflater.findViewById(g.pV);
+                viewgroup.setText(getActivity().getString(g.qb));
+                viewgroup.setOnClickListener(new ebc(this));
+                a(layoutinflater);
+                ((Button)layoutinflater.findViewById(g.pU)).setOnClickListener(new ebd(this));
+                return layoutinflater;
+            }
+            i++;
+        } while (true);
     }
 }

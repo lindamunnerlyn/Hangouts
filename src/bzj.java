@@ -3,10 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class bzj
+public interface bzj
 {
 
-    bzj()
-    {
-    }
+    public abstract void a(boolean flag);
 }

@@ -4,15 +4,20 @@
 
 
 final class dqi
-    implements Runnable
+    implements hjw
 {
 
-    dqi()
+    final dqf a;
+
+    dqi(dqf dqf1)
     {
+        a = dqf1;
+        super();
     }
 
-    public void run()
+    public boolean a()
     {
-        dqh.a();
+        dqf.f(a);
+        return true;
     }
 }

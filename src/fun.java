@@ -2,8 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.net.Uri;
 import android.os.Parcel;
-import com.google.android.gms.wearable.internal.GetCloudSyncOptInOutDoneResponse;
+import com.google.android.gms.signin.GoogleSignInAccount;
 
 public final class fun
     implements android.os.Parcelable.Creator
@@ -13,57 +14,63 @@ public final class fun
     {
     }
 
-    public static void a(GetCloudSyncOptInOutDoneResponse getcloudsyncoptinoutdoneresponse, Parcel parcel)
-    {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, getcloudsyncoptinoutdoneresponse.a);
-        g.b(parcel, 2, getcloudsyncoptinoutdoneresponse.b);
-        g.a(parcel, 3, getcloudsyncoptinoutdoneresponse.c);
-        g.q(parcel, i);
-    }
-
     public Object createFromParcel(Parcel parcel)
     {
-        boolean flag = false;
-        int k = g.a(parcel);
-        int j = 0;
+        Uri uri = null;
+        int j = g.a(parcel);
         int i = 0;
+        String s = null;
+        String s1 = null;
+        String s2 = null;
+        String s3 = null;
         do
         {
-            if (parcel.dataPosition() < k)
+            if (parcel.dataPosition() < j)
             {
-                int l = parcel.readInt();
-                switch (0xffff & l)
+                int k = parcel.readInt();
+                switch (0xffff & k)
                 {
                 default:
-                    g.b(parcel, l);
+                    g.b(parcel, k);
                     break;
 
                 case 1: // '\001'
-                    i = g.e(parcel, l);
+                    i = g.e(parcel, k);
                     break;
 
                 case 2: // '\002'
-                    j = g.e(parcel, l);
+                    s3 = g.i(parcel, k);
                     break;
 
                 case 3: // '\003'
-                    flag = g.c(parcel, l);
+                    s2 = g.i(parcel, k);
+                    break;
+
+                case 4: // '\004'
+                    s1 = g.i(parcel, k);
+                    break;
+
+                case 5: // '\005'
+                    s = g.i(parcel, k);
+                    break;
+
+                case 6: // '\006'
+                    uri = (Uri)g.a(parcel, k, Uri.CREATOR);
                     break;
                 }
             } else
-            if (parcel.dataPosition() != k)
+            if (parcel.dataPosition() != j)
             {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
+                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
             } else
             {
-                return new GetCloudSyncOptInOutDoneResponse(i, j, flag);
+                return new GoogleSignInAccount(i, s3, s2, s1, s, uri);
             }
         } while (true);
     }
 
     public Object[] newArray(int i)
     {
-        return new GetCloudSyncOptInOutDoneResponse[i];
+        return new GoogleSignInAccount[i];
     }
 }

@@ -4,13 +4,13 @@
 
 package com.google.apps.gcomm.hangout.proto;
 
-import kog;
-import koh;
-import koj;
-import kon;
-import kop;
+import kwj;
+import kwk;
+import kwm;
+import kwq;
+import kws;
 
-public final class clear extends koj
+public final class clear extends kwm
 {
 
     private static volatile shortDisplayName _emptyArray[];
@@ -23,7 +23,7 @@ public final class clear extends koj
     {
         if (_emptyArray == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
                 if (_emptyArray == null)
                 {
@@ -38,14 +38,14 @@ public final class clear extends koj
         throw exception;
     }
 
-    public static _emptyArray parseFrom(kog kog1)
+    public static _emptyArray parseFrom(kwj kwj1)
     {
-        return (new <init>()).mergeFrom(kog1);
+        return (new <init>()).mergeFrom(kwj1);
     }
 
     public static mergeFrom parseFrom(byte abyte0[])
     {
-        return (mergeFrom)kop.mergeFrom(new <init>(), abyte0);
+        return (mergeFrom)kws.mergeFrom(new <init>(), abyte0);
     }
 
     public <init> clear()
@@ -65,35 +65,35 @@ public final class clear extends koj
         int i = j;
         if (profileId != null)
         {
-            i = j + koh.b(1, profileId);
+            i = j + kwk.b(1, profileId);
         }
         j = i;
         if (profileName != null)
         {
-            j = i + koh.b(2, profileName);
+            j = i + kwk.b(2, profileName);
         }
         i = j;
         if (inviteeId != null)
         {
-            i = j + koh.d(3, inviteeId);
+            i = j + kwk.d(3, inviteeId);
         }
         j = i;
         if (shortDisplayName != null)
         {
-            j = i + koh.b(4, shortDisplayName);
+            j = i + kwk.b(4, shortDisplayName);
         }
         return j;
     }
 
-    public shortDisplayName mergeFrom(kog kog1)
+    public shortDisplayName mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -103,15 +103,15 @@ public final class clear extends koj
                 return this;
 
             case 10: // '\n'
-                profileId = kog1.j();
+                profileId = kwj1.j();
                 break;
 
             case 18: // '\022'
-                profileName = kog1.j();
+                profileName = kwj1.j();
                 break;
 
             case 26: // '\032'
-                class InviteeId extends koj
+                class InviteeId extends kwm
                 {
 
                     private static volatile InviteeId _emptyArray[];
@@ -124,7 +124,7 @@ public final class clear extends koj
                     {
                         if (_emptyArray == null)
                         {
-                            synchronized (kon.a)
+                            synchronized (kwq.a)
                             {
                                 if (_emptyArray == null)
                                 {
@@ -139,14 +139,14 @@ public final class clear extends koj
                         throw exception;
                     }
 
-                    public static InviteeId parseFrom(kog kog2)
+                    public static InviteeId parseFrom(kwj kwj2)
                     {
-                        return (new InviteeId()).mergeFrom(kog2);
+                        return (new InviteeId()).mergeFrom(kwj2);
                     }
 
                     public static InviteeId parseFrom(byte abyte0[])
                     {
-                        return (InviteeId)kop.mergeFrom(new InviteeId(), abyte0);
+                        return (InviteeId)kws.mergeFrom(new InviteeId(), abyte0);
                     }
 
                     public InviteeId clear()
@@ -166,35 +166,35 @@ public final class clear extends koj
                         int j = k;
                         if (profileId != null)
                         {
-                            j = k + koh.b(1, profileId);
+                            j = k + kwk.b(1, profileId);
                         }
                         k = j;
                         if (phoneNumber != null)
                         {
-                            k = j + koh.b(2, phoneNumber);
+                            k = j + kwk.b(2, phoneNumber);
                         }
                         j = k;
                         if (circleId != null)
                         {
-                            j = k + koh.b(3, circleId);
+                            j = k + kwk.b(3, circleId);
                         }
                         k = j;
                         if (email != null)
                         {
-                            k = j + koh.b(4, email);
+                            k = j + kwk.b(4, email);
                         }
                         return k;
                     }
 
-                    public InviteeId mergeFrom(kog kog2)
+                    public InviteeId mergeFrom(kwj kwj2)
                     {
                         do
                         {
-                            int j = kog2.a();
+                            int j = kwj2.a();
                             switch (j)
                             {
                             default:
-                                if (super.storeUnknownField(kog2, j))
+                                if (super.storeUnknownField(kwj2, j))
                                 {
                                     continue;
                                 }
@@ -204,48 +204,48 @@ public final class clear extends koj
                                 return this;
 
                             case 10: // '\n'
-                                profileId = kog2.j();
+                                profileId = kwj2.j();
                                 break;
 
                             case 18: // '\022'
-                                phoneNumber = kog2.j();
+                                phoneNumber = kwj2.j();
                                 break;
 
                             case 26: // '\032'
-                                circleId = kog2.j();
+                                circleId = kwj2.j();
                                 break;
 
                             case 34: // '"'
-                                email = kog2.j();
+                                email = kwj2.j();
                                 break;
                             }
                         } while (true);
                     }
 
-                    public volatile kop mergeFrom(kog kog2)
+                    public volatile kws mergeFrom(kwj kwj2)
                     {
-                        return mergeFrom(kog2);
+                        return mergeFrom(kwj2);
                     }
 
-                    public void writeTo(koh koh1)
+                    public void writeTo(kwk kwk1)
                     {
                         if (profileId != null)
                         {
-                            koh1.a(1, profileId);
+                            kwk1.a(1, profileId);
                         }
                         if (phoneNumber != null)
                         {
-                            koh1.a(2, phoneNumber);
+                            kwk1.a(2, phoneNumber);
                         }
                         if (circleId != null)
                         {
-                            koh1.a(3, circleId);
+                            kwk1.a(3, circleId);
                         }
                         if (email != null)
                         {
-                            koh1.a(4, email);
+                            kwk1.a(4, email);
                         }
-                        super.writeTo(koh1);
+                        super.writeTo(kwk1);
                     }
 
             public InviteeId()
@@ -258,40 +258,40 @@ public final class clear extends koj
                 {
                     inviteeId = new InviteeId();
                 }
-                kog1.a(inviteeId);
+                kwj1.a(inviteeId);
                 break;
 
             case 34: // '"'
-                shortDisplayName = kog1.j();
+                shortDisplayName = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public volatile kop mergeFrom(kog kog1)
+    public volatile kws mergeFrom(kwj kwj1)
     {
-        return mergeFrom(kog1);
+        return mergeFrom(kwj1);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (profileId != null)
         {
-            koh1.a(1, profileId);
+            kwk1.a(1, profileId);
         }
         if (profileName != null)
         {
-            koh1.a(2, profileName);
+            kwk1.a(2, profileName);
         }
         if (inviteeId != null)
         {
-            koh1.b(3, inviteeId);
+            kwk1.b(3, inviteeId);
         }
         if (shortDisplayName != null)
         {
-            koh1.a(4, shortDisplayName);
+            kwk1.a(4, shortDisplayName);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 
     public InviteeId()

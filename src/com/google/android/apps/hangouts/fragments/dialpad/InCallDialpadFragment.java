@@ -14,10 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import ap;
-import bmm;
-import bnd;
-import bpd;
-import ebw;
+import bmt;
+import bnk;
+import bpm;
+import eev;
 import g;
 import h;
 
@@ -25,10 +25,10 @@ import h;
 //            DialpadFragment
 
 public class InCallDialpadFragment extends ad
-    implements bmm
+    implements bmt
 {
 
-    private final bnd a = bnd.a();
+    private final bnk a = bnk.a();
     private EditText b;
     private DialpadFragment c;
     private String d;
@@ -64,22 +64,22 @@ _L2:
            goto _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L13 _L14 _L15
 _L3:
         char c1;
-        ebw.c("Babel", (new StringBuilder(39)).append("keyCode is not a dtmf code: ").append(i).toString());
+        eev.c("Babel", (new StringBuilder(39)).append("keyCode is not a dtmf code: ").append(i).toString());
         c1 = '\0';
 _L16:
         if (c1 != 0)
         {
             b.getText().append(c1);
-            bpd bpd1 = a.t();
-            if (bpd1 != null)
+            bpm bpm1 = a.s();
+            if (bpm1 != null)
             {
                 if (d == null)
                 {
-                    bpd1.a(c1);
+                    bpm1.a(c1);
                     return;
                 } else
                 {
-                    bpd1.a(d, c1);
+                    bpm1.a(d, c1);
                     return;
                 }
             }
@@ -125,15 +125,15 @@ _L14:
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
-        layoutinflater = layoutinflater.inflate(g.gt, viewgroup, false);
-        b = (EditText)layoutinflater.findViewById(h.cV);
-        c = (DialpadFragment)getChildFragmentManager().a(h.aT);
+        layoutinflater = layoutinflater.inflate(g.gp, viewgroup, false);
+        b = (EditText)layoutinflater.findViewById(h.cK);
+        c = (DialpadFragment)getChildFragmentManager().a(h.aN);
         c.a(this);
         d = getActivity().getIntent().getStringExtra("extra_endpoint_jid");
-        viewgroup = a.t();
+        viewgroup = a.s();
         if (viewgroup != null)
         {
-            b.setText(viewgroup.P());
+            b.setText(viewgroup.O());
         }
         return layoutinflater;
     }

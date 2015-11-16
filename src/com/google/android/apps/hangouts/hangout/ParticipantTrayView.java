@@ -13,23 +13,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import bnd;
 import bnk;
-import bof;
-import bos;
-import bot;
-import bpd;
-import bqf;
-import brf;
-import brg;
-import brh;
-import bri;
-import brk;
-import bsb;
-import bse;
+import bns;
+import boo;
+import bpb;
+import bpc;
+import bpm;
+import bqo;
+import bro;
+import brp;
+import brq;
+import brr;
+import brt;
+import bsk;
+import bsn;
 import g;
-import gbh;
-import gjr;
+import gdv;
+import gmt;
 import h;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -39,115 +39,45 @@ import java.util.List;
 //            FocusedParticipantView
 
 public final class ParticipantTrayView extends LinearLayout
-    implements bos
+    implements bpb
 {
 
-    public bot a;
-    private final bnk b = new brf(this);
-    private final bof c = bof.a();
-    private final bnd d = bnd.a();
-    private final bri e = new bri(this);
-    private bqf f;
-    private FocusedParticipantView g;
-    private bse h;
-    private Handler i;
-    private final ArrayList j = new ArrayList();
-    private boolean k;
-    private final HorizontalScrollNotifier l;
-    private final LinearLayout m;
+    public bpc a;
+    public final FrameLayout b;
+    private final bns c = new bro(this);
+    private final boo d = boo.a();
+    private final bnk e = bnk.a();
+    private final brr f = new brr(this);
+    private bqo g;
+    private FocusedParticipantView h;
+    private bsn i;
+    private Handler j;
+    private final ArrayList k = new ArrayList();
+    private boolean l;
+    private final HorizontalScrollNotifier m;
     private final LinearLayout n;
-    private final FrameLayout o;
+    private final LinearLayout o;
 
     public ParticipantTrayView(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
-        i = new Handler();
-        context = LayoutInflater.from(context).inflate(g.ge, this, true);
-        l = (HorizontalScrollNotifier)context.findViewById(h.fF);
-        m = (LinearLayout)context.findViewById(h.ew);
-        n = (LinearLayout)context.findViewById(h.fr);
-        o = (FrameLayout)context.findViewById(h.fH);
+        j = new Handler();
+        context = LayoutInflater.from(context).inflate(g.ga, this, true);
+        m = (HorizontalScrollNotifier)context.findViewById(h.fn);
+        n = (LinearLayout)context.findViewById(h.ef);
+        o = (LinearLayout)context.findViewById(h.eZ);
+        b = (FrameLayout)context.findViewById(h.fp);
     }
 
-    public static void a(ParticipantTrayView participanttrayview)
+    brt a(String s)
     {
-        participanttrayview.f();
-    }
-
-    public static void a(ParticipantTrayView participanttrayview, gjr gjr1)
-    {
-        participanttrayview.a(gjr1);
-    }
-
-    private void a(gjr gjr1)
-    {
-        Object obj;
-        gbh.b(gjr1);
-        obj = null;
-        if (!gjr1.g()) goto _L2; else goto _L1
-_L1:
-        gbh.a(h);
-        h = new bse(f, gjr1, this, g);
-        obj = h;
-        o.addView(((View) (obj)));
-_L4:
-        if (obj != null)
+        for (Iterator iterator = k.iterator(); iterator.hasNext();)
         {
-            j.add(obj);
-            ((brk) (obj)).a(a);
-        }
-        if (!k)
-        {
-            f();
-        }
-        return;
-_L2:
-        if (a(gjr1.a()) == null)
-        {
-            obj = new bsb(f, gjr1, this, g);
-            n.addView(((View) (obj)));
-        }
-        if (true) goto _L4; else goto _L3
-_L3:
-    }
-
-    public static FrameLayout b(ParticipantTrayView participanttrayview)
-    {
-        return participanttrayview.o;
-    }
-
-    private void f()
-    {
-        bpd bpd1 = d.t();
-        if (j.size() <= 1 || bpd1 != null && bpd1.N())
-        {
-            n.setVisibility(8);
-            o.setVisibility(8);
-        } else
-        if (j.size() == 2 && h != null && !h.c().k())
-        {
-            n.setVisibility(8);
-            o.setVisibility(0);
-        } else
-        {
-            n.setVisibility(0);
-            o.setVisibility(0);
-        }
-        if (n.getVisibility() == 8)
-        {
-            e();
-        }
-    }
-
-    brk a(String s)
-    {
-        for (Iterator iterator = j.iterator(); iterator.hasNext();)
-        {
-            brk brk1 = (brk)iterator.next();
-            gjr gjr1 = brk1.c();
-            if (s == null && gjr1.g() || s.equals(gjr1.a()))
+            brt brt1 = (brt)iterator.next();
+            gmt gmt1 = brt1.c();
+            if (s == null && gmt1.g() || s.equals(gmt1.a()))
             {
-                return brk1;
+                return brt1;
             }
         }
 
@@ -164,73 +94,73 @@ _L3:
         int j1;
         int k1;
         int l1;
-        if (view == o)
+        if (view == b)
         {
-            j1 = n.getLeft() + n.getWidth() + i1;
-            i1 = o.getWidth() + j1;
+            j1 = o.getLeft() + o.getWidth() + i1;
+            i1 = b.getWidth() + j1;
         } else
         {
             j1 = view.getLeft() + i1;
             i1 += view.getRight();
         }
-        k1 = l.getScrollX();
-        l1 = l.getWidth() + k1;
+        k1 = m.getScrollX();
+        l1 = m.getWidth() + k1;
         if (k1 > j1)
         {
-            l.smoothScrollTo(j1, 0);
+            m.smoothScrollTo(j1, 0);
         } else
         if (i1 > l1)
         {
-            l.smoothScrollTo(i1 - (l1 - k1), 0);
+            m.smoothScrollTo(i1 - (l1 - k1), 0);
             return;
         }
     }
 
-    public void a(bot bot)
+    public void a(bpc bpc)
     {
-        a = bot;
-        c.a(e);
-        d.a(b);
-        gbh.b(k);
-        k = true;
-        for (bot = d.r().iterator(); bot.hasNext(); a((gjr)bot.next())) { }
-        gbh.a(k);
-        k = false;
-        f();
+        a = bpc;
+        d.a(f);
+        e.a(c);
+        gdv.b("Expected condition to be false", l);
+        l = true;
+        for (bpc = e.q().iterator(); bpc.hasNext(); a((gmt)bpc.next())) { }
+        gdv.a("Expected condition to be true", l);
+        l = false;
+        g();
     }
 
-    void a(bqf bqf)
+    void a(bqo bqo)
     {
-        f = bqf;
-        k = false;
-        l.a(new brg(this, bqf));
+        g = bqo;
+        l = false;
+        m.a(new brp(this, bqo));
         if (android.os.Build.VERSION.SDK_INT < 19)
         {
-            bqf = (android.widget.FrameLayout.LayoutParams)m.getLayoutParams();
-            bqf.gravity = 3;
-            m.setLayoutParams(bqf);
+            bqo = (android.widget.FrameLayout.LayoutParams)n.getLayoutParams();
+            bqo.gravity = 3;
+            n.setLayoutParams(bqo);
         }
     }
 
-    public void a(brk brk1)
+    public void a(brt brt1)
     {
-        brk1.b();
+        brt1.b();
         int i1 = 0;
         do
         {
 label0:
             {
-                if (i1 < j.size())
+                if (i1 < k.size())
                 {
-                    if (j.get(i1) != brk1)
+                    if (k.get(i1) != brt1)
                     {
                         break label0;
                     }
-                    j.remove(i1);
+                    k.remove(i1);
                 }
-                n.removeView(brk1);
-                o.removeView(brk1);
-                f();
+                o.removeView(brt1);
+                b.removeView(brt1);
+                g();
                 return;
             }
             i1++;
@@ -239,72 +169,135 @@ label0:
 
     void a(FocusedParticipantView focusedparticipantview)
     {
-        g = focusedparticipantview;
+        h = focusedparticipantview;
     }
 
-    public void b()
+    public void a(gmt gmt1)
     {
-        i.postDelayed(new brh(this), 500L);
+        Object obj;
+        gdv.b("Expected non-null", gmt1);
+        obj = null;
+        if (!gmt1.g()) goto _L2; else goto _L1
+_L1:
+        gdv.a("Expected null", i);
+        i = new bsn(g, gmt1, this, h);
+        obj = i;
+        b.addView(((View) (obj)));
+_L4:
+        if (obj != null)
+        {
+            k.add(obj);
+            ((brt) (obj)).a(a);
+        }
+        if (!l)
+        {
+            g();
+        }
+        return;
+_L2:
+        if (a(gmt1.a()) == null)
+        {
+            obj = new bsk(g, gmt1, this, h);
+            o.addView(((View) (obj)));
+        }
+        if (true) goto _L4; else goto _L3
+_L3:
+    }
+
+    void b()
+    {
+        m.a(null);
     }
 
     public void c()
     {
-        for (Iterator iterator = j.iterator(); iterator.hasNext(); ((brk)iterator.next()).i()) { }
+        j.postDelayed(new brq(this), 500L);
     }
 
-    brk d()
+    public void d()
     {
-        for (Iterator iterator = j.iterator(); iterator.hasNext();)
+        for (Iterator iterator = k.iterator(); iterator.hasNext(); ((brt)iterator.next()).i()) { }
+    }
+
+    brt e()
+    {
+        for (Iterator iterator = k.iterator(); iterator.hasNext();)
         {
-            brk brk1 = (brk)iterator.next();
-            if (brk1 != h)
+            brt brt1 = (brt)iterator.next();
+            if (brt1 != i)
             {
-                return brk1;
+                return brt1;
             }
         }
 
-        return h;
+        return i;
     }
 
-    public void e()
+    public void f()
     {
-        for (Iterator iterator = j.iterator(); iterator.hasNext(); ((brk)iterator.next()).e()) { }
+        for (Iterator iterator = k.iterator(); iterator.hasNext(); ((brt)iterator.next()).e()) { }
     }
 
-    public void i_()
+    public void g()
     {
-        d.b(b);
-        c.b(e);
-        for (Iterator iterator = j.iterator(); iterator.hasNext(); ((brk)iterator.next()).i_()) { }
-        j.clear();
-        h = null;
-        n.removeAllViews();
+        bpm bpm1 = e.s();
+        if (k.size() <= 1 || bpm1 != null && bpm1.M())
+        {
+            o.setVisibility(8);
+            b.setVisibility(8);
+        } else
+        if (k.size() == 2 && i != null && !i.c().k())
+        {
+            o.setVisibility(8);
+            b.setVisibility(0);
+        } else
+        {
+            o.setVisibility(0);
+            b.setVisibility(0);
+        }
+        if (o.getVisibility() == 8)
+        {
+            f();
+        }
+    }
+
+    public void j_()
+    {
+        e.b(c);
+        d.b(f);
+        for (Iterator iterator = k.iterator(); iterator.hasNext(); ((brt)iterator.next()).j_()) { }
+        k.clear();
+        i = null;
         o.removeAllViews();
+        b.removeAllViews();
     }
 
     public void onConfigurationChanged(Configuration configuration)
     {
-        for (Iterator iterator = j.iterator(); iterator.hasNext(); ((brk)iterator.next()).onConfigurationChanged(configuration)) { }
+        for (Iterator iterator = k.iterator(); iterator.hasNext(); ((brt)iterator.next()).onConfigurationChanged(configuration)) { }
     }
 
     protected void onVisibilityChanged(View view, int i1)
     {
-        e();
+        f();
     }
 
     private class HorizontalScrollNotifier extends HorizontalScrollView
     {
 
-        brj a;
+        brs a;
 
-        void a(brj brj1)
+        void a(brs brs1)
         {
-            a = brj1;
+            a = brs1;
         }
 
         public void onScrollChanged(int i1, int j1, int k1, int l1)
         {
-            a.a();
+            if (a != null)
+            {
+                a.a();
+            }
         }
 
         public HorizontalScrollNotifier(Context context, AttributeSet attributeset)

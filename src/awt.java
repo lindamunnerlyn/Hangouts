@@ -2,24 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
+import android.content.Intent;
 
 final class awt
-    implements arn
+    implements gtd
 {
 
-    final List a;
-    final ave b;
+    final avv a;
 
-    awt(ave ave1, List list)
+    awt(avv avv1)
     {
-        b = ave1;
-        a = list;
+        a = avv1;
         super();
     }
 
-    public void a(ark ark)
+    public void a(int i, Intent intent)
     {
-        ave.a(b, a, ark);
+        g.a(avv.c(a), i, intent);
     }
 }

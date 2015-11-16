@@ -3,89 +3,46 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kvj extends koj
+final class kvj
+    implements ktt
 {
 
-    public String a;
-    public String b;
-    public Long c;
+    int a;
+    final kvh b;
+    private final kvi c;
+    private ktt d;
 
-    public kvj()
+    kvj(kvh kvh1)
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        b = kvh1;
+        super();
+        c = new kvi(kvh1);
+        d = c.a().c();
+        a = kvh1.a();
     }
 
-    protected int computeSerializedSize()
+    public byte a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        if (!d.hasNext())
         {
-            i = j + koh.b(1, a);
+            d = c.a().c();
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.b(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.longValue());
-        }
-        return i;
+        a = a - 1;
+        return d.a();
     }
 
-    public kop mergeFrom(kog kog1)
+    public boolean hasNext()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-
-            case 24: // '\030'
-                c = Long.valueOf(kog1.e());
-                break;
-            }
-        } while (true);
+        return a > 0;
     }
 
-    public void writeTo(koh koh1)
+    public Object next()
     {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
-        if (c != null)
-        {
-            koh1.b(3, c.longValue());
-        }
-        super.writeTo(koh1);
+        return Byte.valueOf(a());
+    }
+
+    public void remove()
+    {
+        throw new UnsupportedOperationException();
     }
 }

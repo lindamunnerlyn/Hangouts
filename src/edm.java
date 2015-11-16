@@ -2,53 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import com.google.android.apps.hangouts.views.ConversationListItemView;
+import android.content.res.Resources;
+import android.graphics.drawable.BitmapDrawable;
+import java.lang.ref.WeakReference;
 
-public final class edm
-    implements android.view.View.OnClickListener
+final class edm extends BitmapDrawable
 {
 
-    final ConversationListItemView a;
+    final edj a;
+    private final WeakReference b;
 
-    public edm(ConversationListItemView conversationlistitemview)
+    public edm(edj edj, Resources resources, edn edn1)
     {
-        a = conversationlistitemview;
-        super();
+        a = edj;
+        super(resources, null);
+        b = new WeakReference(edn1);
     }
 
-    public void onClick(View view)
+    public edn a()
     {
-        int i;
-        byte byte0;
-        boolean flag;
-        if (a.d == 0)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        if (a.o())
-        {
-            i = 1;
-        } else
-        {
-            i = 2;
-        }
-        if (flag)
-        {
-            byte0 = 57;
-        } else
-        {
-            byte0 = 58;
-        }
-        if (a.e != null && a.a != null)
-        {
-            view = a.e;
-            String s = a.a;
-            int j = a.b;
-            view.a(s, flag, i, byte0);
-        }
+        return (edn)b.get();
     }
 }

@@ -17,24 +17,22 @@ import android.view.ViewPropertyAnimator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import azb;
-import azc;
-import azd;
-import aze;
-import azf;
+import azp;
+import azq;
+import azr;
+import azs;
 import com.google.android.libraries.quantum.fab.FloatingActionButton;
-import ebr;
+import eep;
 import g;
 import l;
 
 public class FloatingButtonWithCounter extends FrameLayout
 {
 
-    private int a;
-    private View b;
-    private FloatingActionButton c;
+    public FloatingActionButton a;
+    private int b;
+    private View c;
     private int d;
-    private azf e;
 
     public FloatingButtonWithCounter(Context context)
     {
@@ -44,19 +42,19 @@ public class FloatingButtonWithCounter extends FrameLayout
     public FloatingButtonWithCounter(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
-        a = 0;
-        LayoutInflater.from(getContext()).inflate(g.kB, this);
-        c = (FloatingActionButton)getRootView().findViewById(g.ki);
-        c.setScaleType(android.widget.ImageView.ScaleType.CENTER);
-        c.setOnClickListener(new azb(this));
+        b = 0;
+        LayoutInflater.from(getContext()).inflate(g.ku, this);
+        a = (FloatingActionButton)getRootView().findViewById(g.kb);
+        a.setScaleType(android.widget.ImageView.ScaleType.CENTER);
+        a.setOnClickListener(new azp(this, context));
         c();
-        b = getRootView().findViewById(g.ke);
-        b.bringToFront();
-        b.setVisibility(8);
+        c = getRootView().findViewById(g.jX);
+        c.bringToFront();
+        c.setVisibility(8);
         int i = (int)TypedValue.applyDimension(1, 5F, getResources().getDisplayMetrics());
-        context = b;
+        context = c;
         float f;
-        if (ebr.d())
+        if (eep.d())
         {
             f = i;
         } else
@@ -64,12 +62,7 @@ public class FloatingButtonWithCounter extends FrameLayout
             f = -i;
         }
         context.setTranslationX(f);
-        setTranslationY(getContext().getResources().getDimensionPixelSize(g.jX));
-    }
-
-    public static azf a(FloatingButtonWithCounter floatingbuttonwithcounter)
-    {
-        return floatingbuttonwithcounter.e;
+        setTranslationY(getContext().getResources().getDimensionPixelSize(g.jQ));
     }
 
     private static String a(int i)
@@ -83,31 +76,9 @@ public class FloatingButtonWithCounter extends FrameLayout
         }
     }
 
-    public static FloatingActionButton b(FloatingButtonWithCounter floatingbuttonwithcounter)
-    {
-        return floatingbuttonwithcounter.c;
-    }
-
-    private void c()
-    {
-        c.b(getContext().getResources().getColor(g.jT));
-        c.setColorFilter(getResources().getColor(g.jS), android.graphics.PorterDuff.Mode.SRC_IN);
-        findViewById(g.kj).setVisibility(8);
-    }
-
-    public static void c(FloatingButtonWithCounter floatingbuttonwithcounter)
-    {
-        floatingbuttonwithcounter.c();
-    }
-
     public int a()
     {
-        return getContext().getResources().getDimensionPixelSize(g.jZ);
-    }
-
-    public void a(azf azf)
-    {
-        e = azf;
+        return getContext().getResources().getDimensionPixelSize(g.jS);
     }
 
     public void a(boolean flag, int i)
@@ -126,10 +97,10 @@ public class FloatingButtonWithCounter extends FrameLayout
         {
             j = 0;
         }
-        obj1 = (TextView)b.findViewById(g.kc);
-        textview = (TextView)b.findViewById(g.kd);
-        imageview = (ImageView)b.findViewById(g.kf);
-        s = a(a);
+        obj1 = (TextView)c.findViewById(g.jV);
+        textview = (TextView)c.findViewById(g.jW);
+        imageview = (ImageView)c.findViewById(g.jY);
+        s = a(b);
         obj = a(i);
         ((TextView) (obj1)).setText(s);
         textview.setText(((CharSequence) (obj)));
@@ -148,12 +119,12 @@ public class FloatingButtonWithCounter extends FrameLayout
                 Animator animator = g.a(1.0F, 0.0F, 1.0F, 0.0F);
                 animator.setStartDelay(0L);
                 animator.setDuration(100L);
-                animator.setInterpolator(g.d());
-                animator.addListener(new azd(this));
+                animator.setInterpolator(g.c());
+                animator.addListener(new azr(this));
                 Animator animator2 = g.a(0.0F, 1.0F, 0.0F, 1.0F);
                 animator2.setStartDelay(0L);
                 animator2.setDuration(150L);
-                animator2.setInterpolator(g.d());
+                animator2.setInterpolator(g.c());
                 animatorset.playSequentially(new Animator[] {
                     animator, animator2
                 });
@@ -165,12 +136,12 @@ public class FloatingButtonWithCounter extends FrameLayout
                 Animator animator1 = g.a(1.0F, 0.0F, 1.0F, 0.0F);
                 animator1.setStartDelay(0L);
                 animator1.setDuration(150L);
-                animator1.setInterpolator(g.d());
-                animator1.addListener(new aze(this));
+                animator1.setInterpolator(g.c());
+                animator1.addListener(new azs(this));
                 Animator animator3 = g.a(0.0F, 1.0F, 0.0F, 1.0F);
                 animator3.setStartDelay(0L);
                 animator3.setDuration(100L);
-                animator3.setInterpolator(g.d());
+                animator3.setInterpolator(g.c());
                 animatorset1.playSequentially(new Animator[] {
                     animator1, animator3
                 });
@@ -179,26 +150,26 @@ public class FloatingButtonWithCounter extends FrameLayout
             }
             d = k;
         }
-        if (a != i)
+        if (b != i)
         {
             if (imageview != null)
             {
                 imageview.setVisibility(8);
             }
-            if (a > 0)
+            if (b > 0)
             {
                 ((TextView) (obj1)).setAlpha(1.0F);
                 ((TextView) (obj1)).setTranslationY(0.0F);
-                ((TextView) (obj1)).animate().alpha(0.0F).setDuration(102L).setInterpolator(g.c()).start();
+                ((TextView) (obj1)).animate().alpha(0.0F).setDuration(102L).setInterpolator(g.b()).start();
             } else
             {
                 ((TextView) (obj1)).setAlpha(0.0F);
             }
             textview.setAlpha(0.0F);
             textview.setTranslationY(20F);
-            textview.animate().setStartDelay(16L).translationY(0.0F).alpha(1.0F).setDuration(102L).setInterpolator(g.d()).setListener(new azc(this, imageview)).start();
+            textview.animate().setStartDelay(16L).translationY(0.0F).alpha(1.0F).setDuration(102L).setInterpolator(g.c()).setListener(new azq(this, imageview)).start();
         }
-        obj1 = b;
+        obj1 = c;
         if (j != 0 && !TextUtils.isEmpty(((CharSequence) (obj))))
         {
             j = 0;
@@ -212,25 +183,32 @@ public class FloatingButtonWithCounter extends FrameLayout
         {
             if (!flag)
             {
-                c.setContentDescription(((Resources) (obj)).getQuantityString(g.hB, i, new Object[] {
+                a.setContentDescription(((Resources) (obj)).getQuantityString(g.ht, i, new Object[] {
                     Integer.valueOf(i)
                 }));
             } else
             {
-                c.setContentDescription(((Resources) (obj)).getQuantityString(g.hC, i, new Object[] {
+                a.setContentDescription(((Resources) (obj)).getQuantityString(g.hu, i, new Object[] {
                     Integer.valueOf(i)
                 }));
             }
         } else
         {
-            c.setContentDescription(((Resources) (obj)).getText(l.aq));
+            a.setContentDescription(((Resources) (obj)).getText(l.al));
         }
-        a = i;
+        b = i;
     }
 
     public int b()
     {
-        return getContext().getResources().getDimensionPixelSize(g.jZ);
+        return getContext().getResources().getDimensionPixelSize(g.jS);
+    }
+
+    public void c()
+    {
+        a.b(getContext().getResources().getColor(g.jM));
+        a.setColorFilter(getResources().getColor(g.jL), android.graphics.PorterDuff.Mode.SRC_IN);
+        findViewById(g.kc).setVisibility(8);
     }
 
     protected void onMeasure(int i, int j)

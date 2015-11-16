@@ -6,9 +6,9 @@ package com.google.api.client.http;
 
 import g;
 import h;
-import hng;
-import hno;
-import hok;
+import hsc;
+import hsk;
+import htg;
 import java.io.BufferedWriter;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -37,7 +37,7 @@ public class UrlEncodedContent extends AbstractHttpContent
         boolean flag1 = flag;
         if (obj != null)
         {
-            if (hng.a(obj))
+            if (hsc.a(obj))
             {
                 flag1 = flag;
             } else
@@ -52,12 +52,12 @@ public class UrlEncodedContent extends AbstractHttpContent
                 writer.write(s);
                 if (obj instanceof Enum)
                 {
-                    s = hno.a((Enum)obj).b();
+                    s = hsk.a((Enum)obj).b();
                 } else
                 {
                     s = obj.toString();
                 }
-                s = hok.a(s);
+                s = htg.a(s);
                 flag1 = flag;
                 if (s.length() != 0)
                 {
@@ -91,7 +91,7 @@ public class UrlEncodedContent extends AbstractHttpContent
 
     public UrlEncodedContent setData(Object obj)
     {
-        data = h.b(obj);
+        data = h.a(obj);
         return this;
     }
 
@@ -109,7 +109,7 @@ public class UrlEncodedContent extends AbstractHttpContent
     public void writeTo(OutputStream outputstream)
     {
         outputstream = new BufferedWriter(new OutputStreamWriter(outputstream, getCharset()));
-        Iterator iterator = hng.b(data).entrySet().iterator();
+        Iterator iterator = hsc.b(data).entrySet().iterator();
         boolean flag = true;
         do
         {
@@ -121,11 +121,11 @@ public class UrlEncodedContent extends AbstractHttpContent
             Object obj = ((java.util.Map.Entry) (obj1)).getValue();
             if (obj != null)
             {
-                obj1 = hok.a((String)((java.util.Map.Entry) (obj1)).getKey());
+                obj1 = htg.a((String)((java.util.Map.Entry) (obj1)).getKey());
                 Class class1 = obj.getClass();
                 if ((obj instanceof Iterable) || class1.isArray())
                 {
-                    obj = g.e(obj).iterator();
+                    obj = g.f(obj).iterator();
                     while (((Iterator) (obj)).hasNext()) 
                     {
                         flag = appendParam(flag, outputstream, ((String) (obj1)), ((Iterator) (obj)).next());

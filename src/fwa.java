@@ -2,18 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.wearable.internal.SendMessageResponse;
+import com.google.android.gms.wearable.internal.NodeParcelable;
 
-final class fwa extends fvv
+final class fwa
+    implements Runnable
 {
 
-    public fwa(ekm ekm)
+    final NodeParcelable a;
+    final fvw b;
+
+    fwa(fvw fvw, NodeParcelable nodeparcelable)
     {
-        super(ekm);
+        b = fvw;
+        a = nodeparcelable;
+        super();
     }
 
-    public void a(SendMessageResponse sendmessageresponse)
+    public void run()
     {
-        a(new ftg(g.n(sendmessageresponse.b), sendmessageresponse.c));
     }
 }

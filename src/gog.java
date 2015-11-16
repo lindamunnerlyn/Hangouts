@@ -2,29 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
 
-final class gog
-    implements Runnable
+public abstract class gog
+    implements gny
 {
 
-    final goh a;
-    final Intent b;
-    final goe c;
-
-    gog(goe goe, goh goh1, Intent intent)
+    public gog()
     {
-        c = goe;
-        a = goh1;
-        b = intent;
-        super();
     }
 
-    public void run()
+    public int b()
     {
-        if (a.isAdded())
-        {
-            ((gow)hgx.a(a.getActivity(), a).a(gow)).a(g.rX, b);
-        }
+        return 3;
     }
 }

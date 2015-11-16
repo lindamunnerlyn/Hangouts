@@ -2,23 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-final class cgn extends cgs
+final class cgn
 {
 
-    final cgh b;
+    TextView a;
+    ImageView b;
+    ImageView c;
 
-    cgn(cgh cgh, int i)
+    public cgn(View view)
     {
-        b = cgh;
-        super(cgh, i, false, true);
-    }
-
-    protected void a(zq zq)
-    {
-        zq = (cgu)zq;
-        zq.b(h.iT);
-        cgu.a(zq).setFocusableInTouchMode(true);
+        a = (TextView)view.findViewById(g.sj);
+        b = (ImageView)view.findViewById(g.sh);
+        c = (ImageView)view.findViewById(g.si);
     }
 }

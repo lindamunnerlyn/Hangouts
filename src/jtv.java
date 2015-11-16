@@ -2,91 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.NoSuchElementException;
 
-public final class jtv extends koj
+final class jtv extends jyh
 {
 
-    public Integer a;
-    public Integer b;
-    public Float c;
+    boolean a;
+    final Object b;
 
-    public jtv()
+    jtv(Object obj)
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        b = obj;
+        super();
     }
 
-    protected int computeSerializedSize()
+    public boolean hasNext()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.e(1, a.intValue());
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.intValue());
-        }
-        i = j;
-        if (c != null)
-        {
-            c.floatValue();
-            i = j + (koh.f(4) + 4);
-        }
-        return i;
+        return !a;
     }
 
-    public kop mergeFrom(kog kog1)
+    public Object next()
     {
-        do
+        if (a)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
-                break;
-
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
-                break;
-
-            case 37: // '%'
-                c = Float.valueOf(kog1.c());
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
+            throw new NoSuchElementException();
+        } else
         {
-            koh1.a(1, a.intValue());
+            a = true;
+            return b;
         }
-        if (b != null)
-        {
-            koh1.a(2, b.intValue());
-        }
-        if (c != null)
-        {
-            koh1.a(4, c.floatValue());
-        }
-        super.writeTo(koh1);
     }
 }

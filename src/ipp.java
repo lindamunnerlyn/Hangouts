@@ -3,14 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ipp extends koj
+public final class ipp extends kwm
 {
 
     private static volatile ipp e[];
     public Integer a;
-    public Integer b;
-    public Integer c;
-    public String d;
+    public String b;
+    public String c;
+    public Boolean d;
 
     public ipp()
     {
@@ -26,7 +26,7 @@ public final class ipp extends koj
     {
         if (e == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
                 if (e == null)
                 {
@@ -47,35 +47,32 @@ public final class ipp extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.e(1, a.intValue());
+            i = j + kwk.e(1, a.intValue());
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.e(2, b.intValue());
+            j = i + kwk.b(2, b);
         }
+        j += kwk.b(3, c);
         i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.intValue());
-        }
-        j = i;
         if (d != null)
         {
-            j = i + koh.b(4, d);
+            d.booleanValue();
+            i = j + (kwk.f(4) + 1);
         }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -85,42 +82,39 @@ public final class ipp extends koj
                 return this;
 
             case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
+                a = Integer.valueOf(kwj1.f());
                 break;
 
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
+            case 18: // '\022'
+                b = kwj1.j();
                 break;
 
-            case 24: // '\030'
-                c = Integer.valueOf(kog1.f());
+            case 26: // '\032'
+                c = kwj1.j();
                 break;
 
-            case 34: // '"'
-                d = kog1.j();
+            case 32: // ' '
+                d = Boolean.valueOf(kwj1.i());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.intValue());
+            kwk1.a(1, a.intValue());
         }
         if (b != null)
         {
-            koh1.a(2, b.intValue());
+            kwk1.a(2, b);
         }
-        if (c != null)
-        {
-            koh1.a(3, c.intValue());
-        }
+        kwk1.a(3, c);
         if (d != null)
         {
-            koh1.a(4, d);
+            kwk1.a(4, d.booleanValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

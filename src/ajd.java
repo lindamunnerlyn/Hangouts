@@ -2,43 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-public final class ajd
+final class ajd
 {
 
-    public static final String a = aiw.getName();
-    public static final String b = dha.getName();
-    public static final String c = ajf.getName();
-    private static ajc d;
-
-    public static void a(Context context, hgx hgx1)
+    ajd()
     {
-        if (d == null)
-        {
-            d = new ajc();
-        }
-        hgx1.a(dha, new dha[] {
-            new aje(context)
-        });
     }
-
-    public static void a(hgx hgx1)
-    {
-        if (d == null)
-        {
-            d = new ajc();
-        }
-        hgx1.a(aiw, new aix());
-    }
-
-    public static void b(hgx hgx1)
-    {
-        if (d == null)
-        {
-            d = new ajc();
-        }
-        hgx1.a(ajf, new ajf());
-    }
-
 }

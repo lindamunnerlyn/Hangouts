@@ -3,19 +3,31 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class aoo
+final class aoo
 {
 
-    public long a;
-    public long b;
-    public int c;
-    public String d;
-    public String e;
-    public String f;
-    public long g;
-    public long h;
+    static final int a[];
 
-    public aoo()
+    static 
     {
+        a = new int[ann.values().length];
+        try
+        {
+            a[ann.b.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[ann.c.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[ann.a.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

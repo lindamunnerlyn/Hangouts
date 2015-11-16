@@ -2,33 +2,73 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
+import java.util.Comparator;
+import java.util.Set;
+import java.util.SortedMap;
+import java.util.SortedSet;
 
-abstract class jqx
-    implements Iterator
+final class jqx extends jqr
+    implements SortedMap
 {
 
-    final Iterator b;
+    SortedSet c;
+    final jqq d;
 
-    jqx(Iterator iterator)
+    jqx(jqq jqq, SortedMap sortedmap)
     {
-        b = (Iterator)n.b(iterator);
+        d = jqq;
+        super(jqq, sortedmap);
     }
 
-    abstract Object a(Object obj);
-
-    public final boolean hasNext()
+    private SortedSet d()
     {
-        return b.hasNext();
+        return new jqy(d, (SortedMap)a);
     }
 
-    public final Object next()
+    Set b()
     {
-        return a(b.next());
+        return d();
     }
 
-    public final void remove()
+    public Comparator comparator()
     {
-        b.remove();
+        return ((SortedMap)a).comparator();
+    }
+
+    public Object firstKey()
+    {
+        return ((SortedMap)a).firstKey();
+    }
+
+    public SortedMap headMap(Object obj)
+    {
+        return new jqx(d, ((SortedMap)a).headMap(obj));
+    }
+
+    public Set keySet()
+    {
+        SortedSet sortedset1 = c;
+        SortedSet sortedset = sortedset1;
+        if (sortedset1 == null)
+        {
+            sortedset = d();
+            c = sortedset;
+        }
+        return sortedset;
+    }
+
+    public Object lastKey()
+    {
+        return ((SortedMap)a).lastKey();
+    }
+
+    public SortedMap subMap(Object obj, Object obj1)
+    {
+        return new jqx(d, ((SortedMap)a).subMap(obj, obj1));
+    }
+
+    public SortedMap tailMap(Object obj)
+    {
+        return new jqx(d, ((SortedMap)a).tailMap(obj));
     }
 }

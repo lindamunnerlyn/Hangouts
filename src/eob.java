@@ -2,12 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
-import com.google.android.gms.common.internal.ResolveAccountResponse;
+import android.os.Bundle;
+import com.google.android.gms.common.ConnectionResult;
+import java.util.concurrent.locks.Lock;
 
-public interface eob
-    extends IInterface
+final class eob
+    implements enb, end
 {
 
-    public abstract void a(ResolveAccountResponse resolveaccountresponse);
+    final enq a;
+
+    eob(enq enq1)
+    {
+        a = enq1;
+        super();
+    }
+
+    public void a(int i)
+    {
+    }
+
+    public void a(ConnectionResult connectionresult)
+    {
+        a.b.lock();
+        if (!a.a(connectionresult)) goto _L2; else goto _L1
+_L1:
+        a.i();
+        a.h();
+_L4:
+        a.b.unlock();
+        return;
+_L2:
+        a.b(connectionresult);
+        if (true) goto _L4; else goto _L3
+_L3:
+        connectionresult;
+        a.b.unlock();
+        throw connectionresult;
+    }
+
+    public void a_(Bundle bundle)
+    {
+        a.d.a(new enu(a));
+    }
 }

@@ -2,10 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.people.accountswitcherview.SelectedAccountNavigationView;
+import android.os.IInterface;
 
 public interface fnt
+    extends IInterface
 {
 
-    public abstract void a(SelectedAccountNavigationView selectedaccountnavigationview);
+    public abstract void a();
+
+    public abstract void a(float f1);
+
+    public abstract void a(boolean flag);
+
+    public abstract boolean a(fnt fnt1);
+
+    public abstract void b();
+
+    public abstract void b(boolean flag);
+
+    public abstract String c();
+
+    public abstract float d();
+
+    public abstract boolean e();
+
+    public abstract int f();
+
+    public abstract boolean g();
 }

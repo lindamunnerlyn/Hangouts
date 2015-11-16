@@ -2,27 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.widget.Toast;
-import com.google.android.apps.hangouts.phone.DebugActivity;
-import java.util.Arrays;
+import com.google.android.apps.hangouts.phone.BabelHomeActivity;
 
 public final class clb
-    implements android.view.View.OnClickListener
+    implements Runnable
 {
 
-    final String a[];
-    final DebugActivity b;
+    final BabelHomeActivity a;
 
-    public clb(DebugActivity debugactivity, String as[])
+    public clb(BabelHomeActivity babelhomeactivity)
     {
-        b = debugactivity;
-        a = as;
+        a = babelhomeactivity;
         super();
     }
 
-    public void onClick(View view)
+    public void run()
     {
-        Toast.makeText(b, Arrays.toString(a), 1).show();
+        BabelHomeActivity.k(a);
     }
 }

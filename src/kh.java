@@ -22,6 +22,11 @@ class kh extends kg
         view.postOnAnimationDelayed(runnable, l);
     }
 
+    public void a(View view, boolean flag)
+    {
+        view.setHasTransientState(true);
+    }
+
     public void c(View view, int j)
     {
         int l = j;

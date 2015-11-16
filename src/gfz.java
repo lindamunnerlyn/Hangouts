@@ -2,28 +2,76 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.List;
+import android.graphics.Canvas;
+import android.graphics.Rect;
+import android.view.Surface;
+import android.view.SurfaceHolder;
 
-public final class gfz
+final class gfz
+    implements SurfaceHolder
 {
 
-    long a;
-    int b;
-    List c;
+    private final Surface a;
 
-    public gfz()
+    gfz(Surface surface)
     {
-        b = 0;
-        c = new ArrayList();
+        a = surface;
     }
 
-    static void a(gfz gfz1, long l, String s, byte abyte0[])
+    public void addCallback(android.view.SurfaceHolder.Callback callback)
     {
-        ggb ggb1 = new ggb();
-        ggb1.a = l;
-        ggb1.c = abyte0;
-        ggb1.b = s;
-        gfz1.c.add(ggb1);
+    }
+
+    public Surface getSurface()
+    {
+        return a;
+    }
+
+    public Rect getSurfaceFrame()
+    {
+        return null;
+    }
+
+    public boolean isCreating()
+    {
+        return false;
+    }
+
+    public Canvas lockCanvas()
+    {
+        return null;
+    }
+
+    public Canvas lockCanvas(Rect rect)
+    {
+        return null;
+    }
+
+    public void removeCallback(android.view.SurfaceHolder.Callback callback)
+    {
+    }
+
+    public void setFixedSize(int i, int j)
+    {
+    }
+
+    public void setFormat(int i)
+    {
+    }
+
+    public void setKeepScreenOn(boolean flag)
+    {
+    }
+
+    public void setSizeFromLayout()
+    {
+    }
+
+    public void setType(int i)
+    {
+    }
+
+    public void unlockCanvasAndPost(Canvas canvas)
+    {
     }
 }

@@ -2,24 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.libraries.social.jni.crashreporter.NativeCrashReporterActivity;
+import java.util.ArrayList;
+import java.util.List;
 
 public final class gwk
-    implements Runnable
+    implements hnh, hoy
 {
 
-    final String a;
-    final NativeCrashReporterActivity b;
+    private List a;
 
-    public gwk(NativeCrashReporterActivity nativecrashreporteractivity, String s)
+    public gwk(hof hof1)
     {
-        b = nativecrashreporteractivity;
-        a = s;
-        super();
+        a = new ArrayList();
+        hof1.a(this);
     }
 
-    public void run()
+    public gwk a(gwm gwm1)
     {
-        throw new gwj(a);
+        if (a.contains(gwm1))
+        {
+            throw new IllegalStateException("BackNavigationHandler already on stack.");
+        } else
+        {
+            a.add(gwm1);
+            return this;
+        }
+    }
+
+    public boolean a()
+    {
+        for (int i = a.size() - 1; i >= 0; i--)
+        {
+            if (((gwm)a.get(i)).a())
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

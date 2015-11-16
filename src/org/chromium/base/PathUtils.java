@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.os.StrictMode;
 import java.io.File;
 import java.util.concurrent.ExecutionException;
 
@@ -51,7 +52,14 @@ _L1:
 
     private static String getDownloadsDirectory(Context context)
     {
-        return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
+        context = StrictMode.allowThreadDiskReads();
+        String s = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
+        StrictMode.setThreadPolicy(context);
+        return s;
+        Exception exception;
+        exception;
+        StrictMode.setThreadPolicy(context);
+        throw exception;
     }
 
     public static String getExternalStorageDirectory()

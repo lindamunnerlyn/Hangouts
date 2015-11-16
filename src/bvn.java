@@ -2,11 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-final class bvn
+public interface bvn
 {
 
-    bvn()
-    {
-    }
+    public abstract bvm a(Context context, hof hof);
 }

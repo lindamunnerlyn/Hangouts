@@ -2,115 +2,120 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
-public final class dxq extends ad
+public final class dxq extends ac
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    private dwz a;
-    private int b[];
+    private List aj;
 
     public dxq()
     {
     }
 
-    static int a(dxq dxq1)
+    public static dxq a(int i, boolean flag, boolean flag1)
     {
-        int i = -1;
-        int j = b(dxq1.getView());
-        if (j != -1)
+        dxq dxq1 = new dxq();
+        Bundle bundle = new Bundle();
+        bundle.putInt("rating", i);
+        bundle.putBoolean("should_show_audio_issues", flag);
+        bundle.putBoolean("is_incoming", flag1);
+        dxq1.setArguments(bundle);
+        return dxq1;
+    }
+
+    private int q()
+    {
+        return getArguments().getInt("rating");
+    }
+
+    private boolean r()
+    {
+        return getArguments().getBoolean("should_show_audio_issues");
+    }
+
+    public Dialog a(Bundle bundle)
+    {
+        android.app.AlertDialog.Builder builder;
+        int i;
+        if (r())
         {
-            i = dxq1.b[j];
+            i = g.oU;
+        } else
+        {
+            i = g.oV;
         }
-        return i;
+        aj = new LinkedList(Arrays.asList(getResources().getTextArray(i)));
+        if (q() == 1)
+        {
+            aj.remove(getResources().getText(g.pn));
+        }
+        if (getArguments().getBoolean("is_incoming"))
+        {
+            aj.remove(getResources().getText(g.pm));
+        }
+        bundle = (CharSequence[])aj.toArray(new CharSequence[aj.size()]);
+        builder = new android.app.AlertDialog.Builder(getActivity());
+        if (r())
+        {
+            i = g.pl;
+        } else
+        if (q() == 0)
+        {
+            i = g.pq;
+        } else
+        {
+            i = g.pp;
+        }
+        return builder.setTitle(i).setItems(bundle, this).setCancelable(false).setIcon(g.pf).create();
     }
 
-    public static dxq a()
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        return new dxq();
-    }
-
-    private static void a(View view)
-    {
-        Button button = (Button)view.findViewById(g.pT);
+        DialogInterface dialoginterface1;
+        com.google.android.apps.hangouts.telephony.TeleFeedback.FeedbackActivity feedbackactivity;
+        Resources resources;
+label0:
+        {
+            dialoginterface1 = null;
+            if (getActivity() != null)
+            {
+                feedbackactivity = (com.google.android.apps.hangouts.telephony.TeleFeedback.FeedbackActivity)getActivity();
+                dialoginterface = ((CharSequence)aj.get(i)).toString();
+                resources = getResources();
+                if (!r())
+                {
+                    break label0;
+                }
+                dialoginterface1 = dialoginterface;
+                if (resources.getString(g.pk).equals(dialoginterface))
+                {
+                    dialoginterface1 = null;
+                }
+                feedbackactivity.a(dialoginterface1);
+            }
+            return;
+        }
         boolean flag;
-        if (b(view) != -1)
+        if (resources.getString(g.po).equals(dialoginterface))
+        {
+            flag = false;
+            dialoginterface = dialoginterface1;
+        } else
+        if (resources.getString(g.pn).equals(dialoginterface))
         {
             flag = true;
         } else
         {
             flag = false;
         }
-        button.setEnabled(flag);
-    }
-
-    static void a(dxq dxq1, View view)
-    {
-        a(view);
-    }
-
-    private static int b(View view)
-    {
-        return ((ListView)view.findViewById(0x102000a)).getCheckedItemPosition();
-    }
-
-    static dwz b(dxq dxq1)
-    {
-        return dxq1.a;
-    }
-
-    private String[] b()
-    {
-        String as[] = new String[b.length];
-        for (int i = 0; i < b.length; i++)
-        {
-            as[i] = dbf.a(getActivity(), b[i]);
-        }
-
-        return as;
-    }
-
-    static dxu c(dxq dxq1)
-    {
-        return (dxu)((dyk)dxq1.getActivity()).g();
-    }
-
-    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
-    {
-        int i = 0;
-        a = dwz.a(getActivity());
-        b = dwz.a();
-        layoutinflater = layoutinflater.inflate(g.pU, viewgroup, false);
-        viewgroup = (ListView)layoutinflater.findViewById(0x102000a);
-        viewgroup.setAdapter(new ArrayAdapter(getActivity(), g.pW, b()));
-        int j = a.b();
-        do
-        {
-label0:
-            {
-                if (i < b.length)
-                {
-                    if (b[i] != j)
-                    {
-                        break label0;
-                    }
-                    viewgroup.setItemChecked(i, true);
-                }
-                viewgroup.setOnItemClickListener(new dxr(this));
-                viewgroup = (Button)layoutinflater.findViewById(g.pT);
-                viewgroup.setText(getActivity().getString(g.pZ));
-                viewgroup.setOnClickListener(new dxs(this));
-                a(layoutinflater);
-                ((Button)layoutinflater.findViewById(g.pS)).setOnClickListener(new dxt(this));
-                return layoutinflater;
-            }
-            i++;
-        } while (true);
+        feedbackactivity.a(dialoginterface, flag);
     }
 }

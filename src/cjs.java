@@ -2,28 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.AsyncTask;
-import android.os.Handler;
-import com.google.android.apps.hangouts.phone.BabelHomeActivity;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-final class cjs extends AsyncTask
+public final class cjs
 {
 
-    final int a;
-    final cjr b;
-
-    cjs(cjr cjr1, int i)
+    public cjs()
     {
-        b = cjr1;
-        a = i;
-        super();
-    }
-
-    protected Object doInBackground(Object aobj[])
-    {
-        RealTimeChatService.a(a, false, true, 0, false);
-        BabelHomeActivity.h(b.a).postDelayed(BabelHomeActivity.e(b.a), BabelHomeActivity.g(b.a).a("babel_poll_conversation_data_frequency_ms", 60000L));
-        return null;
     }
 }

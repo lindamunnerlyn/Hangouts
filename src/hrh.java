@@ -3,125 +3,61 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hrh extends koj
+public final class hrh
 {
 
-    private static volatile hrh d[];
-    public hru a;
-    public Integer b;
-    public Integer c;
+    private final String a;
+    private hri b;
+    private hri c;
+    private boolean d;
 
-    public hrh()
+    public hrh(String s)
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        b = new hri();
+        c = b;
+        d = false;
+        a = (String)h.a(s);
     }
 
-    public static hrh[] a()
+    public hrh a(String s, Object obj)
     {
-        if (d == null)
-        {
-            synchronized (kon.a)
-            {
-                if (d == null)
-                {
-                    d = new hrh[0];
-                }
-            }
-        }
-        return d;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.intValue());
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.intValue());
-        }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-_L6:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 4: default 48
-    //                   0: 57
-    //                   10: 59
-    //                   16: 88
-    //                   24: 138;
-           goto _L1 _L2 _L3 _L4 _L5
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L6; else goto _L2
-_L2:
+        hri hri1 = new hri();
+        c.c = hri1;
+        c = hri1;
+        hri1.b = obj;
+        hri1.a = (String)h.a(s);
         return this;
-_L3:
-        if (a == null)
-        {
-            a = new hru();
-        }
-        kog1.a(a);
-          goto _L6
-_L4:
-        int j = kog1.f();
-        switch (j)
-        {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-            b = Integer.valueOf(j);
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L5:
-        int k = kog1.f();
-        switch (k)
-        {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-            c = Integer.valueOf(k);
-            break;
-        }
-        if (true) goto _L6; else goto _L7
-_L7:
     }
 
-    public void writeTo(koh koh1)
+    public String toString()
     {
-        if (a != null)
+        boolean flag = d;
+        StringBuilder stringbuilder = (new StringBuilder(32)).append(a).append('{');
+        hri hri1 = b.c;
+        String s1;
+        for (String s = ""; hri1 != null; s = s1)
         {
-            koh1.b(1, a);
+label0:
+            {
+                if (flag)
+                {
+                    s1 = s;
+                    if (hri1.b == null)
+                    {
+                        break label0;
+                    }
+                }
+                stringbuilder.append(s);
+                s1 = ", ";
+                if (hri1.a != null)
+                {
+                    stringbuilder.append(hri1.a).append('=');
+                }
+                stringbuilder.append(hri1.b);
+            }
+            hri1 = hri1.c;
         }
-        if (b != null)
-        {
-            koh1.a(2, b.intValue());
-        }
-        if (c != null)
-        {
-            koh1.a(3, c.intValue());
-        }
-        super.writeTo(koh1);
+
+        return stringbuilder.append('}').toString();
     }
 }

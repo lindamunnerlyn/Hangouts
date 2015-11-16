@@ -2,10 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
 import android.widget.PopupWindow;
+import java.lang.reflect.Method;
 
-class pc
+class pc extends pe
 {
 
     pc()
@@ -14,14 +14,27 @@ class pc
 
     public void a(PopupWindow popupwindow, int i)
     {
-    }
-
-    public void a(PopupWindow popupwindow, View view, int i, int j, int k)
-    {
-        popupwindow.showAsDropDown(view, i, j);
-    }
-
-    public void a(PopupWindow popupwindow, boolean flag)
-    {
+        if (!h.j)
+        {
+            try
+            {
+                Method method = android/widget/PopupWindow.getDeclaredMethod("setWindowLayoutType", new Class[] {
+                    Integer.TYPE
+                });
+                h.i = method;
+                method.setAccessible(true);
+            }
+            catch (Exception exception) { }
+            h.j = true;
+        }
+        if (h.i == null)
+        {
+            break MISSING_BLOCK_LABEL_62;
+        }
+        h.i.invoke(popupwindow, new Object[] {
+            Integer.valueOf(2)
+        });
+        return;
+        popupwindow;
     }
 }

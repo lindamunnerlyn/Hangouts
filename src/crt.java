@@ -2,62 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public final class crt
+final class crt
 {
 
-    private final int a;
-    private final iqu b;
-    private final boolean c;
-    private final String d;
-    private final int e;
-    private final boolean f;
+    private final ber a = (new bes()).a("phoneverification").b("Module that hosts the phone verification UI.").a(true).a();
 
-    crt(cru cru1)
+    public crt()
     {
-        b = cru1.b;
-        a = cru1.a;
-        e = cru1.e;
-        c = cru1.c;
-        f = cru1.f;
-        if (cru1.d == null && cru1.a != -1)
-        {
-            d = dbf.g(a);
-            return;
-        } else
-        {
-            d = cru1.d;
-            return;
-        }
     }
 
-    public iqu a()
+    public cro a(Context context)
     {
-        return b;
+        return (cro)a.a(context, new crv());
     }
 
-    public boolean b()
+    public ber[] a()
     {
-        return c;
+        return (new ber[] {
+            a
+        });
     }
 
-    public String c()
+    public ctf[] b(Context context)
     {
-        return d;
-    }
-
-    public int d()
-    {
-        return e;
-    }
-
-    public int e()
-    {
-        return a;
-    }
-
-    public boolean f()
-    {
-        return f;
+        return (ctf[])a.a(context, ctf, new crs(false));
     }
 }

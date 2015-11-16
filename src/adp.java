@@ -2,70 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
-import java.io.OutputStream;
-import org.apache.http.entity.ByteArrayEntity;
+import org.apache.http.conn.ClientConnectionOperator;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.params.HttpParams;
 
-public final class adp extends ByteArrayEntity
+final class adp extends ado
 {
 
-    private final Context a;
-    private final byte b[];
-    private final long c = -1L;
-
-    public adp(Context context, long l, byte abyte0[])
+    public adp(HttpParams httpparams, SchemeRegistry schemeregistry)
     {
-        super(abyte0);
-        a = context;
-        b = abyte0;
+        super(httpparams, schemeregistry, (byte)0);
     }
 
-    private void a(int i)
+    protected ClientConnectionOperator createConnectionOperator(SchemeRegistry schemeregistry)
     {
-        if (c > 0L)
-        {
-            Intent intent = new Intent("com.android.mms.PROGRESS_STATUS");
-            intent.putExtra("progress", i);
-            intent.putExtra("token", c);
-            a.sendBroadcast(intent);
-        }
-    }
-
-    public void writeTo(OutputStream outputstream)
-    {
-        if (outputstream == null)
-        {
-            throw new IllegalArgumentException("Output stream may not be null");
-        }
-        int l;
-        a(-1);
-        l = b.length;
-        int i = 0;
-          goto _L1
-_L5:
-        int j;
-        outputstream.write(b, i, j);
-        outputstream.flush();
-        i = j + i;
-        a((i * 100) / l);
-          goto _L1
-_L3:
-        a(100);
-        return;
-        outputstream;
-        a(-2);
-        throw outputstream;
-_L1:
-        if (i >= l) goto _L3; else goto _L2
-_L2:
-        int k = l - i;
-        j = k;
-        if (k > 4096)
-        {
-            j = 4096;
-        }
-        if (true) goto _L5; else goto _L4
-_L4:
+        return new adi(schemeregistry, false);
     }
 }

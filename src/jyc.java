@@ -2,64 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Comparator;
+import java.util.List;
 
-public final class jyc extends koj
+final class jyc extends jxz
 {
 
-    public jzm a;
-
-    public jyc()
+    jyc(String s)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s, 2);
     }
 
-    protected int computeSerializedSize()
+    int a(Comparator comparator, Object obj, List list, int i)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        int j;
+        for (j = 0; j < i;)
         {
-            i = j + koh.d(1, a);
-        }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
+            int k = j + i >>> 1;
+            if (comparator.compare(list.get(k), obj) < 0)
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new jzm();
-                }
-                kog1.a(a);
-                break;
+                j = k + 1;
+            } else
+            {
+                i = k;
             }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.b(1, a);
         }
-        super.writeTo(koh1);
+
+        return j;
     }
 }

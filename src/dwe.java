@@ -3,184 +3,106 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.location.Criteria;
-import android.location.Location;
-import android.location.LocationManager;
-import android.telecom.ConnectionRequest;
-import android.telecom.DisconnectCause;
-import android.text.TextUtils;
-import com.google.android.apps.hangouts.telephony.TeleConnectionService;
-import java.util.Collections;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.accessibility.AccessibilityManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import com.google.android.apps.hangouts.statusmessage.impl.StatusMessageSettingsFragment;
+import com.google.android.apps.hangouts.views.AvatarView;
 
 public final class dwe
 {
 
-    dvj a;
+    final Context a;
+    final StatusMessageSettingsFragment b;
+    final aoa c;
+    final csy d;
+    EditText e;
+    TextView f;
+    View g;
+    Button h;
+    private AccessibilityManager i;
+    private final TextWatcher j = new dwh(this);
 
-    dwe(dvj dvj1)
+    dwe(Context context, iql iql1, StatusMessageSettingsFragment statusmessagesettingsfragment, csy csy)
     {
-        a = dvj1;
+        a = context;
+        b = statusmessagesettingsfragment;
+        c = dcn.e(iql1.a());
+        d = csy;
     }
 
-    public void a()
+    static int a(String s)
     {
-        if (a != null)
-        {
-            dvj dvj1 = a;
-            if (!g.a(dvj1.a, "babel_remote_connection_allowed", true))
-            {
-                ebw.e("Babel_telephony", "TeleOutgoingCallRequest.startCellularCall, remote connection disallowed by gservices");
-                dvj1.b.setDisconnected(new DisconnectCause(10));
-            } else
-            {
-                Object obj = dvj1.b.d();
-                obj = ((TeleConnectionService) (obj)).createRemoteOutgoingConnection(g.l(((Context) (obj))), dvj1.b.e());
-                if (obj == null)
-                {
-                    ebw.g("Babel_telephony", "TeleOutgoingCallRequest.startCellularCall, unable to create remote connection");
-                    dvj1.b.setDisconnected(new DisconnectCause(10));
-                } else
-                {
-                    ebw.e("Babel_telephony", "TeleOutgoingCallRequest.startCellularCall, starting remote cellular call");
-                    dvj1.b.a(new dvq(dvj1.a, ((android.telecom.RemoteConnection) (obj)), null, null, dvj1.b.i(), false));
-                }
-            }
-            dvj1.c();
-            a = null;
-        }
+        return s.codePointCount(0, s.length());
     }
 
-    public void a(ani ani1)
+    static void a(dwe dwe1)
     {
-        if (a == null) goto _L2; else goto _L1
-_L1:
-        String s;
-        dvj dvj1;
-        bnd bnd1;
-        ceu ceu;
-        java.util.List list;
-        java.util.List list1;
-        dvj1 = a;
-        dvj1.b.b(ani1.a());
-        TeleConnectionService teleconnectionservice = dvj1.b.d();
-        String s1 = dvj1.b.f().f();
-        s = s1;
-        if (ebz.c(dvj1.b.f().e()))
+        ((InputMethodManager)dwe1.a.getSystemService("input_method")).hideSoftInputFromWindow(dwe1.e.getWindowToken(), 0);
+        dwe1.b.getActivity().finish();
+    }
+
+    static boolean b(dwe dwe1)
+    {
+        return dwe1.i != null && dwe1.i.isEnabled() && dwe1.i.isTouchExplorationEnabled();
+    }
+
+    public View a(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
+    {
+        viewgroup = layoutinflater.inflate(g.gW, viewgroup, false);
+        e = (EditText)viewgroup.findViewById(h.fN);
+        f = (TextView)viewgroup.findViewById(h.fL);
+        g = viewgroup.findViewById(h.fM);
+        h = (Button)viewgroup.findViewById(h.fP);
+        Button button = (Button)viewgroup.findViewById(h.fO);
+        ((AvatarView)viewgroup.findViewById(h.ds)).a(c.v(), c.c(), c);
+        e.addTextChangedListener(j);
+        if (eco.d(a))
         {
-            s = ebz.d(s1);
+            b.getActivity().getWindow().setSoftInputMode(2);
         }
-        s1 = String.valueOf(g.u(s));
-        if (s1.length() != 0)
+        if (bundle != null)
         {
-            s1 = "TeleOutgoingCallRequest.startWifiCall, outgoing phone number: ".concat(s1);
+            layoutinflater = bundle.getString("saved_text");
         } else
         {
-            s1 = new String("TeleOutgoingCallRequest.startWifiCall, outgoing phone number: ");
+            layoutinflater = b.getActivity().getIntent().getStringExtra("status_message");
         }
-        ebw.e("Babel_telephony", s1);
-        ceu = g.a(s, g.p(), false, null, s, 0);
-        list = Collections.singletonList(ceu);
-        list1 = Collections.emptyList();
-        bnd1 = bnd.a();
-        if (bnd1.u() && dwh.a(teleconnectionservice))
+        if (layoutinflater != null)
         {
-            ebw.e("Babel_telephony", "TeleOutgoingCallRequest.startWifiCall, inviting to existing hangout");
-            bnd1.b(list, list1);
-            dwm.a(teleconnectionservice, dvj1.b);
+            layoutinflater = eep.a(Html.fromHtml(layoutinflater));
         } else
         {
-label0:
-            {
-                if (!bnd.a().n())
-                {
-                    break label0;
-                }
-                ebw.e("Babel_telephony", "TeleOutgoingCallRequest.startWifiCall, hangout in progress, cancelling");
-                dvj1.b();
-            }
+            layoutinflater = new SpannableString("");
         }
-_L5:
-        ani1 = new dwh(dvj1.a, null, null, false);
-        dvj1.b.a(ani1);
-        ani1.a(bnd1.t(), bof.a());
-        dvj1.b.setDialing();
-        if (dvj1.b.f().n())
-        {
-            dvj1.b.setAddress(dvj1.b.f().i().getAddress(), 1);
-        }
-        dvj1.c();
-        a = null;
-_L2:
-        return;
-        jtd jtd1;
-        ebw.e("Babel_telephony", "TeleOutgoingCallRequest.startWifiCall, creating a new hangout");
-        jtd1 = new jtd();
-        jte jte = g.g(dvj1.b.d());
-        if (jte != null)
-        {
-            jtd1.d = jte;
-        }
-        if (!ebz.j(s)) goto _L4; else goto _L3
-_L3:
-        Object obj;
-        obj = (LocationManager)dvj1.a.getSystemService("location");
-        if (obj == null)
-        {
-            break MISSING_BLOCK_LABEL_632;
-        }
-        Object obj1 = new Criteria();
-        ((Criteria) (obj1)).setAccuracy(1);
-        obj1 = ((LocationManager) (obj)).getBestProvider(((Criteria) (obj1)), true);
-        if (TextUtils.isEmpty(((CharSequence) (obj1))))
-        {
-            break MISSING_BLOCK_LABEL_632;
-        }
-        obj1 = ((LocationManager) (obj)).getLastKnownLocation(((String) (obj1)));
-        if (obj1 == null)
-        {
-            break MISSING_BLOCK_LABEL_632;
-        }
-        obj = new jtf();
-        obj.a = Integer.valueOf((int)Math.round(((Location) (obj1)).getLatitude() * 1000000D));
-        obj.b = Integer.valueOf((int)Math.round(((Location) (obj1)).getLongitude() * 1000000D));
-        obj.c = Double.valueOf(((Location) (obj1)).getAccuracy());
-_L6:
-        if (obj != null)
-        {
-            jtd1.b = ((jtf) (obj));
-        }
-        if (dvj1.b.u())
-        {
-            ebw.e("Babel_telephony", "TeleOutgoingCallRequest.startWifiCall, setting timestamp for emergency LTE call");
-            dwz.a(dvj1.a).b(System.currentTimeMillis());
-        }
-_L4:
-        bnd1.a((new bpa(ani1.a(), 1)).i(s).a(), false, list, list1, false, ceu, 85, 1, false, dvj1.c, g.a(dvj1.b), jtd1, dvj1.b.i());
-        bnd1.x();
-        if (dvj1.b.r() != null)
-        {
-            bnd1.t().j(dvj1.b.r().a());
-        }
-        if (!dvj1.b.t())
-        {
-            bnd1.t().j("tycho_network_auto");
-        }
-          goto _L5
-        obj = null;
-          goto _L6
+        eha.a(a).a(layoutinflater, e);
+        e.setText(layoutinflater);
+        e.setSelection(layoutinflater.length());
+        i = (AccessibilityManager)a.getSystemService("accessibility");
+        layoutinflater = a.getResources();
+        ((TextView)viewgroup.findViewById(h.dt)).setText(layoutinflater.getString(l.fG, new Object[] {
+            "\uD83D\uDE4B"
+        }));
+        h.setOnClickListener(new dwf(this));
+        button.setOnClickListener(new dwg(this));
+        return viewgroup;
     }
 
-    public void b()
+    public void a(Bundle bundle)
     {
-        if (a != null)
-        {
-            a.b();
-            a = null;
-        }
-    }
-
-    void c()
-    {
-        a = null;
+        bundle.putString("saved_text", e.getText().toString());
     }
 }

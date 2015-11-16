@@ -3,129 +3,100 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class ldj extends ldi
+public final class ldj extends kwm
 {
 
-    private static final long serialVersionUID = 0x1c563f5ae6d3L;
-    private final byte m;
+    public int a;
+    public ldi b;
+    public ldk c;
 
-    ldj(String s, byte byte0)
+    public ldj()
     {
-        super(s);
-        m = byte0;
+        a = 0x80000000;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private Object readResolve()
+    protected int computeSerializedSize()
     {
-        switch (m)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != 0x80000000)
         {
-        default:
-            return this;
+            i = j + kwk.e(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(2, b);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.d(3, c);
+        }
+        return i;
+    }
 
+    public kws mergeFrom(kwj kwj1)
+    {
+_L6:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 4: default 48
+    //                   0: 57
+    //                   8: 59
+    //                   18: 103
+    //                   26: 132;
+           goto _L1 _L2 _L3 _L4 _L5
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L6; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 0: // '\0'
         case 1: // '\001'
-            return a;
-
         case 2: // '\002'
-            return b;
-
-        case 3: // '\003'
-            return c;
-
-        case 4: // '\004'
-            return d;
-
-        case 5: // '\005'
-            return e;
-
-        case 6: // '\006'
-            return f;
-
-        case 7: // '\007'
-            return g;
-
-        case 8: // '\b'
-            return h;
-
-        case 9: // '\t'
-            return i;
-
-        case 10: // '\n'
-            return j;
-
-        case 11: // '\013'
-            return k;
-
-        case 12: // '\f'
-            return l;
+            a = j;
+            break;
         }
-    }
-
-    public ldh a(lcw lcw1)
-    {
-        lcw1 = ldb.a(lcw1);
-        switch (m)
+        continue; /* Loop/switch isn't completed */
+_L4:
+        if (b == null)
         {
-        default:
-            throw new InternalError();
-
-        case 1: // '\001'
-            return lcw1.J();
-
-        case 2: // '\002'
-            return lcw1.H();
-
-        case 3: // '\003'
-            return lcw1.y();
-
-        case 4: // '\004'
-            return lcw1.D();
-
-        case 5: // '\005'
-            return lcw1.B();
-
-        case 6: // '\006'
-            return lcw1.w();
-
-        case 7: // '\007'
-            return lcw1.s();
-
-        case 8: // '\b'
-            return lcw1.o();
-
-        case 9: // '\t'
-            return lcw1.l();
-
-        case 10: // '\n'
-            return lcw1.i();
-
-        case 11: // '\013'
-            return lcw1.f();
-
-        case 12: // '\f'
-            return lcw1.c();
+            b = new ldi();
         }
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (this != obj)
+        kwj1.a(b);
+        continue; /* Loop/switch isn't completed */
+_L5:
+        if (c == null)
         {
-            if (obj instanceof ldj)
-            {
-                if (m != ((ldj)obj).m)
-                {
-                    return false;
-                }
-            } else
-            {
-                return false;
-            }
+            c = new ldk();
         }
-        return true;
+        kwj1.a(c);
+        if (true) goto _L6; else goto _L7
+_L7:
     }
 
-    public int hashCode()
+    public void writeTo(kwk kwk1)
     {
-        return 1 << m;
+        if (a != 0x80000000)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.b(3, c);
+        }
+        super.writeTo(kwk1);
     }
 }

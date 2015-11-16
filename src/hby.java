@@ -2,32 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
 import java.util.List;
 
-final class hby
-    implements gpp
+public final class hby
 {
 
-    final hbx a;
+    public cuc a;
 
-    hby(hbx hbx1)
+    public hby()
     {
-        a = hbx1;
-        super();
     }
 
-    public void a(int i, int j)
+    public int a(grd grd)
     {
-        Object obj = hbx.a(a).a(j);
-        if (!((List) (obj)).isEmpty())
+        if (a.m())
         {
-            hcc hcc1;
-            for (obj = ((List) (obj)).iterator(); ((Iterator) (obj)).hasNext(); hbx.a(a, i, hcc1))
-            {
-                hcc1 = (hcc)((Iterator) (obj)).next();
-            }
-
+            return hbz.b;
+        } else
+        {
+            a.a(grd);
+            return hbz.a;
         }
+    }
+
+    public void a(hio hio1, List list)
+    {
+        a = new cuc(hio1, new det(hio1.e()));
+        list.add(a);
     }
 }

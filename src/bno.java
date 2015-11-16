@@ -2,37 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 final class bno
+    implements gmc
 {
 
-    static final int a[];
+    final bnk a;
 
-    static 
+    bno(bnk bnk1)
     {
-        a = new int[bnq.values().length];
-        try
-        {
-            a[bnq.b.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror3) { }
-        try
-        {
-            a[bnq.c.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[bnq.d.ordinal()] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[bnq.a.ordinal()] = 4;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
+        a = bnk1;
+        super();
+    }
+
+    public void a(gly gly, Set set)
+    {
+        for (Iterator iterator = a.a.iterator(); iterator.hasNext(); ((bns)iterator.next()).a(gly, set)) { }
     }
 }

@@ -2,10 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.MenuItem;
 
 public interface hjw
 {
 
-    public abstract boolean a(MenuItem menuitem);
+    public abstract boolean a();
 }

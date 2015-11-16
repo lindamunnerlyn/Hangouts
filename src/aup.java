@@ -2,48 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Arrays;
 
-final class aup
+final class aup extends coj
 {
 
-    final azn a;
-    final int b;
+    final int a;
+    final aui b;
 
-    aup(azn azn1, int i)
+    aup(aui aui, String s, int i)
     {
-        g.d(azn1);
-        a = azn1;
-        b = i;
+        b = aui;
+        a = i;
+        super(s);
     }
 
-    String a()
+    public void a()
     {
-        return a.c().getName();
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (obj != this)
-        {
-            if (obj instanceof aup)
-            {
-                if (!((aup) (obj = (aup)obj)).a.equals(a) || ((aup) (obj)).b != b)
-                {
-                    return false;
-                }
-            } else
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public int hashCode()
-    {
-        return Arrays.hashCode(new Object[] {
-            a, Integer.valueOf(b)
-        });
+        (new auq(this)).execute(new Void[0]);
     }
 }

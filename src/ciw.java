@@ -2,27 +2,72 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.sqlite.SQLiteDatabase;
-import android.os.AsyncTask;
-import com.google.android.apps.hangouts.phone.ApnEditorActivity;
 
-public final class ciw extends AsyncTask
+public final class ciw
 {
 
-    final ApnEditorActivity a;
+    public static final String a = blq.getName();
+    public static final String b = cgh.getName();
+    public static final String c = cgi.getName();
+    public static final String d = ccm.getName();
+    public static final String e = cgk.getName();
+    public static final String f = cgj.getName();
+    private static ciq g;
 
-    public ciw(ApnEditorActivity apneditoractivity)
+    public static void a(hlp hlp1)
     {
-        a = apneditoractivity;
-        super();
+        if (g == null)
+        {
+            g = new ciq();
+        }
+        hlp1.a(blq, g.e());
     }
 
-    protected Object doInBackground(Object aobj[])
+    public static void b(hlp hlp1)
     {
-        aobj = ApnEditorActivity.a(a);
-        ApnEditorActivity.b(a).delete("apn", "_id =?", new String[] {
-            aobj
+        if (g == null)
+        {
+            g = new ciq();
+        }
+        hlp1.a(cgh, g.c());
+    }
+
+    public static void c(hlp hlp1)
+    {
+        if (g == null)
+        {
+            g = new ciq();
+        }
+        hlp1.a(cgi, g.d());
+    }
+
+    public static void d(hlp hlp1)
+    {
+        if (g == null)
+        {
+            g = new ciq();
+        }
+        hlp1.a(ccm, new cgv[] {
+            new cgv()
         });
-        return null;
     }
+
+    public static void e(hlp hlp1)
+    {
+        if (g == null)
+        {
+            g = new ciq();
+        }
+        hlp1.a(cgk, g.a());
+    }
+
+    public static void f(hlp hlp1)
+    {
+        if (g == null)
+        {
+            g = new ciq();
+        }
+        hlp1.a(cgj, g.b());
+    }
+
 }

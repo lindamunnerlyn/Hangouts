@@ -7,7 +7,7 @@ package com.google.android.apps.hangouts.sms;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import dbf;
+import dcn;
 
 // Referenced classes of package com.google.android.apps.hangouts.sms:
 //            SmsReceiver
@@ -21,7 +21,7 @@ public final class AbortSmsReceiver extends BroadcastReceiver
 
     public void onReceive(Context context, Intent intent)
     {
-        if (android.os.Build.VERSION.SDK_INT < 19 && dbf.j() && !SmsReceiver.a(intent))
+        if (android.os.Build.VERSION.SDK_INT < 19 && dcn.j() && !SmsReceiver.a(intent))
         {
             abortBroadcast();
         }

@@ -2,38 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
+import android.content.Context;
 
-public final class crs extends crn
-    implements Serializable
+public final class crs extends ctf
 {
 
-    private static final long serialVersionUID = 1L;
-    public final String i;
-    public final int j;
+    private boolean a;
 
-    protected crs(koz koz, kpw kpw1)
+    public crs(boolean flag)
     {
-        super(koz, null, null, null, null, "hangouts/gv_voicemail");
-        i = kpw1.X;
-        j = Integer.parseInt(kpw1.G);
-        if (crm.d())
-        {
-            koz = i;
-            int k = j;
-            ebw.b("Babel", (new StringBuilder(String.valueOf(koz).length() + 57)).append("Received voicemail with media key: ").append(koz).append(" duration: ").append(k).toString());
-        }
+        a = flag;
     }
 
-    public String toString()
+    public ctg a()
     {
-        String s = String.valueOf(i);
-        if (s.length() != 0)
-        {
-            return "mediaKey: ".concat(s);
-        } else
-        {
-            return new String("mediaKey: ");
-        }
+        return crr.a(a);
+    }
+
+    public boolean a(Context context)
+    {
+        aoa aoa = dcn.e(((gqu)hlp.a(context, gqu)).a());
+        context = (crk)hlp.b(context, crk);
+        return context != null && context.b(aoa);
+    }
+
+    public int b()
+    {
+        return ctl.e;
+    }
+
+    public int c()
+    {
+        return h.iY;
     }
 }

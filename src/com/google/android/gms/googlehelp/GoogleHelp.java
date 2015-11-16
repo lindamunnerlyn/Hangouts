@@ -21,8 +21,9 @@ import com.google.android.gms.feedback.FeedbackOptions;
 import com.google.android.gms.feedback.ThemeSettings;
 import com.google.android.gms.googlehelp.internal.common.OverflowMenuItem;
 import com.google.android.gms.googlehelp.internal.common.TogglingData;
-import fbk;
-import fen;
+import fei;
+import fhl;
+import g;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,33 +32,33 @@ public final class GoogleHelp
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fbk();
-    public final int a;
-    public String b;
-    public Account c;
-    public Bundle d;
-    public String e;
-    public int f;
-    public int g;
-    public boolean h;
-    public boolean i;
-    public List j;
-    public Bundle k;
-    public Bitmap l;
-    public byte m[];
-    public int n;
-    public int o;
-    public String p;
-    public Uri q;
-    public List r;
-    public int s;
-    public ThemeSettings t;
-    public List u;
-    public boolean v;
-    public ErrorReport w;
-    public TogglingData x;
-    public int y;
-    public PendingIntent z;
+    public static final android.os.Parcelable.Creator CREATOR = new fei();
+    final int a;
+    String b;
+    Account c;
+    Bundle d;
+    String e;
+    int f;
+    int g;
+    boolean h;
+    boolean i;
+    List j;
+    Bundle k;
+    Bitmap l;
+    byte m[];
+    int n;
+    int o;
+    String p;
+    Uri q;
+    List r;
+    int s;
+    ThemeSettings t;
+    List u;
+    boolean v;
+    ErrorReport w;
+    TogglingData x;
+    int y;
+    PendingIntent z;
 
     public GoogleHelp(int i1, String s1, Account account, Bundle bundle, String s2, int j1, int k1, 
             boolean flag, boolean flag1, List list, Bundle bundle1, Bitmap bitmap, byte abyte0[], int l1, 
@@ -160,7 +161,7 @@ _L3:
 
     public GoogleHelp a(FeedbackOptions feedbackoptions, File file)
     {
-        w = fen.a(feedbackoptions, file);
+        w = fhl.a(feedbackoptions, file);
         w.Y = "GoogleHelp";
         return this;
     }
@@ -188,7 +189,34 @@ _L3:
 
     public void writeToParcel(Parcel parcel, int i1)
     {
-        fbk.a(this, parcel, i1);
+        int j1 = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b);
+        g.a(parcel, 3, c, i1);
+        g.a(parcel, 4, d);
+        g.a(parcel, 5, h);
+        g.a(parcel, 6, i);
+        g.b(parcel, 7, j);
+        g.a(parcel, 10, k);
+        g.a(parcel, 11, l, i1);
+        g.a(parcel, 14, p);
+        g.a(parcel, 15, q, i1);
+        g.b(parcel, 17, s);
+        g.c(parcel, 16, r);
+        g.a(parcel, 19, m);
+        g.c(parcel, 18, u);
+        g.b(parcel, 21, o);
+        g.b(parcel, 20, n);
+        g.a(parcel, 23, w, i1);
+        g.a(parcel, 22, v);
+        g.a(parcel, 25, t, i1);
+        g.b(parcel, 29, f);
+        g.a(parcel, 28, e);
+        g.a(parcel, 31, x, i1);
+        g.b(parcel, 30, g);
+        g.b(parcel, 32, y);
+        g.a(parcel, 33, z, i1);
+        g.q(parcel, j1);
     }
 
 }

@@ -4,30 +4,48 @@
 
 
 public final class det
+    implements dmf
 {
 
-    public static final int a[];
+    private static final long serialVersionUID = 2L;
+    private int a;
+    private final String b = eev.a(new Throwable());
+    private final boolean c;
+    private String d;
 
-    static 
+    public det(boolean flag)
     {
-        a = new int[cfa.values().length];
-        try
-        {
-            a[cfa.d.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[cfa.b.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[cfa.c.ordinal()] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
+        a = 0;
+        c = flag;
+    }
+
+    public void a(int i)
+    {
+        a = i;
+    }
+
+    public boolean a()
+    {
+        return c;
+    }
+
+    public void b(String s)
+    {
+        d = s;
+    }
+
+    public int k()
+    {
+        return a;
+    }
+
+    public cdl m()
+    {
+        return new des(this);
+    }
+
+    public String toString()
+    {
+        return g.g(this).a("shouldRetry", c).a("creationStack", b).a("originStack", d).toString();
     }
 }

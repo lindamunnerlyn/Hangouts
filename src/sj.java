@@ -3,72 +3,137 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.view.ActionMode;
+import android.support.v7.internal.widget.ActionBarContextView;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
-import java.util.ArrayList;
+import android.view.View;
+import java.lang.ref.WeakReference;
 
-public final class sj
-    implements vs
+public final class sj extends vt
+    implements tb
 {
 
-    final android.view.ActionMode.Callback a;
-    final Context b;
-    final ArrayList c = new ArrayList();
-    final hm d = new hm();
+    private Context a;
+    private ActionBarContextView b;
+    private vu c;
+    private WeakReference d;
+    private boolean e;
+    private boolean f;
+    private ta g;
 
-    public sj(Context context, android.view.ActionMode.Callback callback)
+    public sj(Context context, ActionBarContextView actionbarcontextview, vu vu1, boolean flag)
     {
-        b = context;
-        a = callback;
+        a = context;
+        b = actionbarcontextview;
+        c = vu1;
+        g = (new ta(actionbarcontextview.getContext())).a();
+        g.a(this);
+        f = flag;
     }
 
-    private Menu a(Menu menu)
+    public MenuInflater a()
     {
-        Menu menu2 = (Menu)d.get(menu);
-        Menu menu1 = menu2;
-        if (menu2 == null)
+        return new MenuInflater(b.getContext());
+    }
+
+    public void a(int j)
+    {
+        b(a.getString(j));
+    }
+
+    public void a(View view)
+    {
+        b.a(view);
+        if (view != null)
         {
-            menu1 = g.a(b, (fr)menu);
-            d.put(menu, menu1);
-        }
-        return menu1;
-    }
-
-    public void a(vr vr)
-    {
-        a.onDestroyActionMode(b(vr));
-    }
-
-    public boolean a(vr vr, Menu menu)
-    {
-        return a.onCreateActionMode(b(vr), a(menu));
-    }
-
-    public boolean a(vr vr, MenuItem menuitem)
-    {
-        return a.onActionItemClicked(b(vr), g.a(b, (fs)menuitem));
-    }
-
-    public ActionMode b(vr vr)
-    {
-        int j = c.size();
-        for (int i = 0; i < j; i++)
+            view = new WeakReference(view);
+        } else
         {
-            si si1 = (si)c.get(i);
-            if (si1 != null && si1.b == vr)
-            {
-                return si1;
-            }
+            view = null;
         }
-
-        vr = new si(b, vr);
-        c.add(vr);
-        return vr;
+        d = view;
     }
 
-    public boolean b(vr vr, Menu menu)
+    public void a(CharSequence charsequence)
     {
-        return a.onPrepareActionMode(b(vr), a(menu));
+        b.b(charsequence);
+    }
+
+    public void a(ta ta1)
+    {
+        d();
+        b.a();
+    }
+
+    public void a(boolean flag)
+    {
+        super.a(flag);
+        b.a(flag);
+    }
+
+    public boolean a(ta ta1, MenuItem menuitem)
+    {
+        return c.a(this, menuitem);
+    }
+
+    public Menu b()
+    {
+        return g;
+    }
+
+    public void b(int j)
+    {
+        a(a.getString(j));
+    }
+
+    public void b(CharSequence charsequence)
+    {
+        b.a(charsequence);
+    }
+
+    public void c()
+    {
+        if (e)
+        {
+            return;
+        } else
+        {
+            e = true;
+            b.sendAccessibilityEvent(32);
+            c.a(this);
+            return;
+        }
+    }
+
+    public void d()
+    {
+        c.b(this, g);
+    }
+
+    public CharSequence f()
+    {
+        return b.b();
+    }
+
+    public CharSequence g()
+    {
+        return b.c();
+    }
+
+    public boolean h()
+    {
+        return b.f();
+    }
+
+    public View i()
+    {
+        if (d != null)
+        {
+            return (View)d.get();
+        } else
+        {
+            return null;
+        }
     }
 }

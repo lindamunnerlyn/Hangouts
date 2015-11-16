@@ -2,43 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.lang.ref.WeakReference;
 
-abstract class eux extends eox
+final class eux
 {
 
-    private static final WeakReference b = new WeakReference(null);
-    private WeakReference a;
-
-    eux(byte abyte0[])
-    {
-        super(abyte0);
-        a = b;
-    }
-
-    byte[] a()
-    {
-        this;
-        JVM INSTR monitorenter ;
-        byte abyte1[] = (byte[])a.get();
-        byte abyte0[];
-        abyte0 = abyte1;
-        if (abyte1 != null)
-        {
-            break MISSING_BLOCK_LABEL_36;
-        }
-        abyte0 = b();
-        a = new WeakReference(abyte0);
-        this;
-        JVM INSTR monitorexit ;
-        return abyte0;
-        Exception exception;
-        exception;
-        this;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
-    protected abstract byte[] b();
+    static final erv a[] = {
+        new euy(erv.a("0\202\003\3130\202\002\263\240\003\002\001\002\002\t\000\324O\006o`\364e\3370")), new euz(erv.a("0\202\003\3130\202\002\263\240\003\002\001\002\002\t\000\213\310\352\037<R\\\3060"))
+    };
 
 }

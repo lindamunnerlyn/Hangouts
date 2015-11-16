@@ -2,38 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import android.view.View;
 
-public final class ok extends android.view.View.BaseSavedState
+public interface ok
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new ol();
-    public int a;
-    public int b;
-    public int c;
+    public abstract void a(int i);
 
-    public ok(Parcel parcel)
-    {
-        super(parcel);
-        a = 0;
-        b = 0;
-        c = 0;
-        a = parcel.readInt();
-    }
+    public abstract void a(View view);
 
-    public ok(Parcelable parcelable)
-    {
-        super(parcelable);
-        a = 0;
-        b = 0;
-        c = 0;
-    }
+    public abstract void a(View view, float f);
 
-    public void writeToParcel(Parcel parcel, int i)
-    {
-        super.writeToParcel(parcel, i);
-        parcel.writeInt(a);
-    }
-
+    public abstract void b(View view);
 }

@@ -2,51 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ComponentName;
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.ServiceConnection;
-import android.os.IBinder;
+import android.content.Intent;
 
-public final class dxk
-    implements ServiceConnection
+final class dxk extends BroadcastReceiver
 {
 
-    private final Context a;
-    private dxl b;
+    private final dxh a;
 
-    public dxk(Context context, dxl dxl1)
+    dxk(dxh dxh1)
     {
-        a = context;
-        b = dxl1;
+        a = dxh1;
     }
 
-    public void onServiceConnected(ComponentName componentname, IBinder ibinder)
+    public void onReceive(Context context, Intent intent)
     {
-        ebw.e("Babel_telephony", "TeleTychoController.HomeVocieNetworkConnection.onServiceConnected");
-        componentname = eht.a(ibinder);
-        b.a(true, componentname.b());
-        b = null;
-        a.unbindService(this);
-        return;
-        componentname;
-        ebw.e("Babel_telephony", "TeleTychoController.HomeVocieNetworkConnection.onServiceConnected, calling isOnHomeVoiceNetwork failed", componentname);
-        b.a(false, false);
-        b = null;
-        a.unbindService(this);
-        return;
-        componentname;
-        b = null;
-        a.unbindService(this);
-        throw componentname;
-    }
-
-    public void onServiceDisconnected(ComponentName componentname)
-    {
-        ebw.e("Babel_telephony", "TeleTychoController.HomeVocieNetworkConnection.onServiceDisconnected");
-        if (b != null)
+        context = String.valueOf(this);
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(context).length() + 34)).append("HandoffBroadcastReceiver.onReceive").append(context).toString());
+        if (dxh.b(a) != null && dxh.b(a).a() == a)
         {
-            b.a(false, false);
-            b = null;
+            dxh.c(a);
         }
     }
 }

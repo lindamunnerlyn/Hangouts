@@ -2,18 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
-public final class ajp
-    implements ajk
+final class ajp
 {
 
-    public ajp()
+    final Map a = new gz();
+
+    ajp()
     {
     }
 
-    public boolean a(Context context, int i)
+    public void a(int i, ajl ajl1)
     {
-        return g.a(context, i);
+        if (ajn.c.containsKey(Integer.valueOf(i)))
+        {
+            for (Iterator iterator = ((Set)ajn.c.get(Integer.valueOf(i))).iterator(); iterator.hasNext(); ((ajo)iterator.next()).a(ajl1)) { }
+        }
+        if (ajl1 == null)
+        {
+            a.remove(Integer.valueOf(i));
+            return;
+        } else
+        {
+            a.put(Integer.valueOf(i), ajl1);
+            return;
+        }
+    }
+
+    public boolean a(int i)
+    {
+        return a.containsKey(Integer.valueOf(i));
+    }
+
+    public ajl b(int i)
+    {
+        return (ajl)a.get(Integer.valueOf(i));
     }
 }

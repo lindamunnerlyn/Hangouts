@@ -2,28 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.view.MotionEvent;
+import android.view.View;
 
 final class bmg
-    implements android.content.DialogInterface.OnClickListener
+    implements android.view.View.OnTouchListener
 {
 
-    final int a;
-    final bmf b;
+    final bmf a;
 
-    bmg(bmf bmf1, int i)
+    bmg(bmf bmf1)
     {
-        b = bmf1;
-        a = i;
+        a = bmf1;
         super();
     }
 
-    public void onClick(DialogInterface dialoginterface, int i)
+    public boolean onTouch(View view, MotionEvent motionevent)
     {
-        b.a();
-        RealTimeChatService.b(a, drs.b(bmb.b()));
-        b.getActivity().finish();
-        g.n();
+        bmf.a(a).q();
+        if (motionevent.getAction() == 1)
+        {
+            view.performClick();
+        }
+        return false;
     }
 }

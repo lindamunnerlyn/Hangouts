@@ -3,16 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gav
-    implements gbf
+public final class gav
 {
 
-    gav()
+    public final ene a;
+    public final gbp b;
+
+    public gav(ene ene1, gbp gbp)
     {
+        a = ene1;
+        b = gbp;
     }
 
-    public String a(kop kop)
+    public void a(gaw gaw)
     {
-        return ((jav)kop).a;
+        a.a(new gbk(gaw, b));
     }
 }

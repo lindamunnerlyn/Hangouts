@@ -2,14 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.os.IInterface;
 
-public interface fcm
-    extends IInterface
+final class fcm
 {
 
-    public abstract Bundle a(String s);
+    static final erv a[] = {
+        new fcn(erv.a("0\202\003\2770\202\002\247\240\003\002\001\002\002\t\000\272\302\210d\245MZP0")), new fco(erv.a("0\202\003\2770\202\002\247\240\003\002\001\002\002\t\000\303\274\035\200\007]\202\1770"))
+    };
 
-    public abstract void a(String s, int i);
 }

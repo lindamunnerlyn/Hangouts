@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <TextureView android:id="@id/hangout_focused_textureview" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/focused_avatar_background" android:background="@color/quantum_black_100" android:layout_width="fill_parent" android:layout_height="fill_parent">
-        <LinearLayout android:orientation="vertical" android:paddingBottom="@dimen/hangout_join_or_end_button_height" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
             <ImageView android:layout_gravity="center_horizontal" android:id="@id/focused_avatar_image_view" android:background="@drawable/hangout_avatar_border" android:padding="@dimen/hangout_avatar_border_thickness" android:layout_width="@dimen/hangout_avatar_border_diameter" android:layout_height="@dimen/hangout_avatar_border_diameter" />
             <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/pstn_meta_data_container" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/pstn_call_info_top_margin">
                 <TextView android:textSize="@dimen/pstn_call_info_font_size" android:textColor="@color/pstn_call_info" android:layout_gravity="center_horizontal" android:id="@id/cost_of_call_text_view" android:background="@color/transparent" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />

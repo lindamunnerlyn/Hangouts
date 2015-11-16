@@ -3,36 +3,38 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hxd extends koj
+public final class hxd extends kwm
 {
 
-    private static volatile hxd d[];
-    public hxc a;
-    public hxc b;
-    public Boolean c;
+    private static volatile hxd e[];
+    public hwx a;
+    public String b;
+    public String c;
+    public String d;
 
     public hxd()
     {
         a = null;
         b = null;
         c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     public static hxd[] a()
     {
-        if (d == null)
+        if (e == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
-                if (d == null)
+                if (e == null)
                 {
-                    d = new hxd[0];
+                    e = new hxd[0];
                 }
             }
         }
-        return d;
+        return e;
         exception;
         obj;
         JVM INSTR monitorexit ;
@@ -45,31 +47,35 @@ public final class hxd extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.d(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.d(2, b);
+            j = i + kwk.b(2, b);
         }
         i = j;
+        if (d != null)
+        {
+            i = j + kwk.b(3, d);
+        }
+        j = i;
         if (c != null)
         {
-            c.booleanValue();
-            i = j + (koh.f(3) + 1);
+            j = i + kwk.b(4, c);
         }
-        return i;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -81,40 +87,44 @@ public final class hxd extends koj
             case 10: // '\n'
                 if (a == null)
                 {
-                    a = new hxc();
+                    a = new hwx();
                 }
-                kog1.a(a);
+                kwj1.a(a);
                 break;
 
             case 18: // '\022'
-                if (b == null)
-                {
-                    b = new hxc();
-                }
-                kog1.a(b);
+                b = kwj1.j();
                 break;
 
-            case 24: // '\030'
-                c = Boolean.valueOf(kog1.i());
+            case 26: // '\032'
+                d = kwj1.j();
+                break;
+
+            case 34: // '"'
+                c = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.b(1, a);
         }
         if (b != null)
         {
-            koh1.b(2, b);
+            kwk1.a(2, b);
+        }
+        if (d != null)
+        {
+            kwk1.a(3, d);
         }
         if (c != null)
         {
-            koh1.a(3, c.booleanValue());
+            kwk1.a(4, c);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

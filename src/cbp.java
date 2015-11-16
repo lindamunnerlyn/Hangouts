@@ -2,51 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
+import android.content.Context;
 
-public final class cbp extends cbh
+final class cbp
 {
 
-    public cbp()
+    cbp()
     {
     }
 
-    public int a()
+    public caw a(Context context)
     {
-        return l.bC;
-    }
-
-    public void a(Activity activity)
-    {
-        g.a(a, 1604);
-        if (a != null)
-        {
-            ((doq)hgx.a(activity, doq)).a(activity, a.h(), null);
-            return;
-        } else
-        {
-            ebw.g("Babel", "Unexpected null account in dnd_item");
-            return;
-        }
-    }
-
-    public int b()
-    {
-        return com.google.android.apps.hangouts.R.drawable.co;
-    }
-
-    public int c()
-    {
-        return 2;
-    }
-
-    public int d()
-    {
-        return 0;
-    }
-
-    public int e()
-    {
-        return 2;
+        return new cbq(this, context);
     }
 }

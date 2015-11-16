@@ -3,16 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class keg extends koj
+public final class keg extends kwm
 {
 
-    public Integer a;
-    public Integer b;
+    public Double a;
 
     public keg()
     {
         a = null;
-        b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -23,27 +21,21 @@ public final class keg extends koj
         int i = j;
         if (a != null)
         {
-            a.intValue();
-            i = j + (koh.f(1) + 4);
+            a.doubleValue();
+            i = j + (kwk.f(1) + 8);
         }
-        j = i;
-        if (b != null)
-        {
-            b.intValue();
-            j = i + (koh.f(2) + 4);
-        }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -52,27 +44,19 @@ public final class keg extends koj
             case 0: // '\0'
                 return this;
 
-            case 13: // '\r'
-                a = Integer.valueOf(kog1.h());
-                break;
-
-            case 21: // '\025'
-                b = Integer.valueOf(kog1.h());
+            case 9: // '\t'
+                a = Double.valueOf(kwj1.b());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a.intValue());
+            kwk1.a(1, a.doubleValue());
         }
-        if (b != null)
-        {
-            koh1.b(2, b.intValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

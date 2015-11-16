@@ -2,23 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.os.Looper;
+import com.google.android.gms.common.data.DataHolder;
 
-final class ftm extends ejt
+public final class ftm extends epd
 {
 
-    ftm()
+    public ftm(DataHolder dataholder)
     {
+        super(dataholder);
     }
 
-    public ejv a(Context context, Looper looper, emo emo, Object obj, eka eka, ekc ekc)
+    public Object a(int i)
     {
-        if ((ftn)obj == null)
-        {
-            new fto();
-            new ftn();
-        }
-        return new fwb(context, looper, eka, ekc, emo);
+        return new fsg(a, i);
+    }
+
+    public String toString()
+    {
+        return (new StringBuilder("Owner:size=")).append(a()).toString();
     }
 }

@@ -2,60 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.database.Cursor;
-import android.view.View;
-import android.view.ViewGroup;
+import android.os.AsyncTask;
+import android.widget.Toast;
 
-public class cng extends ny
+final class cng extends AsyncTask
 {
 
-    public cng(Context context, Cursor cursor)
+    final cnf a;
+
+    cng(cnf cnf1)
     {
-        super(context, null, (byte)0);
+        a = cnf1;
+        super();
     }
 
-    public View a(Context context, Cursor cursor, ViewGroup viewgroup)
+    protected Object doInBackground(Object aobj[])
     {
+        aobj = dnw.a(a.a.b);
+        ((dnw) (aobj)).a(true);
+        ((dnw) (aobj)).a(a.a.a);
         return null;
     }
 
-    public void a(View view, Cursor cursor)
+    protected void onPostExecute(Object obj)
     {
-    }
-
-    public void c()
-    {
-    }
-
-    public void d()
-    {
-    }
-
-    public View getView(int i, View view, ViewGroup viewgroup)
-    {
-        if (i >= getCount())
-        {
-            View view1 = view;
-            if (view == null)
-            {
-                view1 = a(d, a(), viewgroup);
-            }
-            return view1;
-        } else
-        {
-            return super.getView(i, view, viewgroup);
-        }
-    }
-
-    public boolean isEmpty()
-    {
-        if (a() == null)
-        {
-            return true;
-        } else
-        {
-            return super.isEmpty();
-        }
+        Toast.makeText(a.a.a, "done cleaning", 0).show();
     }
 }

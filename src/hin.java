@@ -6,5 +6,9 @@
 public interface hin
 {
 
-    public abstract void b();
+    public abstract String a();
+
+    public abstract String a(String s);
+
+    public abstract String b();
 }

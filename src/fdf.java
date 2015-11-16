@@ -2,151 +2,80 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import com.google.android.gms.feedback.FeedbackOptions;
+import com.google.android.gms.feedback.FileTeleporter;
+import com.google.android.gms.feedback.LogOptions;
+import com.google.android.gms.feedback.ThemeSettings;
+import java.util.ArrayList;
 
-public final class fdf extends fdj
+public class fdf
 {
 
-    private static volatile fdf c[];
-    public int a;
-    public fdg b;
+    private Bitmap a;
+    private String b;
+    private Bundle c;
+    private String d;
+    private String e;
+    private ArrayList f;
+    private boolean g;
+    private ThemeSettings h;
+    private LogOptions i;
 
     public fdf()
     {
-        a = 1;
-        b = null;
-        o = null;
-        p = -1;
+        c = new Bundle();
+        f = new ArrayList();
     }
 
-    public static fdf[] b()
+    public FeedbackOptions a()
     {
-        if (c == null)
-        {
-            synchronized (fdm.a)
-            {
-                if (c == null)
-                {
-                    c = new fdf[0];
-                }
-            }
-        }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return FeedbackOptions.a(FeedbackOptions.a(FeedbackOptions.a(FeedbackOptions.a(FeedbackOptions.c(FeedbackOptions.a(FeedbackOptions.b(FeedbackOptions.a(FeedbackOptions.a(new FeedbackOptions(), a), b), d), c), e), f), g), h), i);
     }
 
-    protected int a()
+    public fdf a(Bitmap bitmap)
     {
-        int j = super.a() + fdi.b(1, a);
-        int i = j;
-        if (b != null)
-        {
-            i = j + fdi.b(2, b);
-        }
-        return i;
-    }
-
-    public fdo a(fdh fdh1)
-    {
-_L5:
-        int i = fdh1.a();
-        i;
-        JVM INSTR lookupswitch 3: default 40
-    //                   0: 49
-    //                   8: 51
-    //                   18: 143;
-           goto _L1 _L2 _L3 _L4
-_L1:
-        if (a(fdh1, i)) goto _L5; else goto _L2
-_L2:
+        a = bitmap;
         return this;
-_L3:
-        int j = fdh1.e();
-        switch (j)
-        {
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-        case 4: // '\004'
-        case 5: // '\005'
-        case 6: // '\006'
-        case 7: // '\007'
-        case 8: // '\b'
-        case 9: // '\t'
-        case 10: // '\n'
-        case 11: // '\013'
-        case 12: // '\f'
-        case 13: // '\r'
-        case 14: // '\016'
-        case 15: // '\017'
-            a = j;
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        if (b == null)
-        {
-            b = new fdg();
-        }
-        fdh1.a(b);
-        if (true) goto _L5; else goto _L6
-_L6:
     }
 
-    public void a(fdi fdi1)
+    public fdf a(Bundle bundle)
     {
-        fdi1.a(1, a);
-        if (b != null)
+        if (bundle != null)
         {
-            fdi1.a(2, b);
+            c.putAll(bundle);
         }
-        super.a(fdi1);
+        return this;
     }
 
-    public boolean equals(Object obj)
+    public fdf a(String s)
     {
-        boolean flag1 = false;
-        if (obj != this) goto _L2; else goto _L1
-_L1:
-        boolean flag = true;
-_L4:
-        return flag;
-_L2:
-        flag = flag1;
-        if (!(obj instanceof fdf)) goto _L4; else goto _L3
-_L3:
-        obj = (fdf)obj;
-        flag = flag1;
-        if (a != ((fdf) (obj)).a) goto _L4; else goto _L5
-_L5:
-        if (b != null) goto _L7; else goto _L6
-_L6:
-        flag = flag1;
-        if (((fdf) (obj)).b != null) goto _L4; else goto _L8
-_L8:
-        return a(((fdj) (obj)));
-_L7:
-        if (!b.equals(((fdf) (obj)).b))
-        {
-            return false;
-        }
-        if (true) goto _L8; else goto _L9
-_L9:
+        b = s;
+        return this;
     }
 
-    public int hashCode()
+    public fdf a(String s, String s1)
     {
-        int j = a;
-        int i;
-        if (b == null)
-        {
-            i = 0;
-        } else
-        {
-            i = b.hashCode();
-        }
-        return (i + (j + 527) * 31) * 31 + c();
+        c.putString(s, s1);
+        return this;
+    }
+
+    public fdf a(String s, String s1, byte abyte0[])
+    {
+        f.add(new FileTeleporter(abyte0, s1, s));
+        return this;
+    }
+
+    public fdf b(String s)
+    {
+        d = s;
+        return this;
+    }
+
+    public fdf c(String s)
+    {
+        e = s;
+        return this;
     }
 }

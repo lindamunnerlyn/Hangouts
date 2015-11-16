@@ -2,71 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.util.Log;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
 
-final class ing
-    implements Runnable
+public final class ing extends kwm
 {
 
-    final inc a;
-    final List b;
-    final inf c;
+    public String a;
 
-    ing(inf inf, inc inc, List list)
+    public ing()
     {
-        c = inf;
-        a = inc;
-        b = list;
-        super();
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public void run()
+    protected int computeSerializedSize()
     {
-        List list;
-        list = b;
-        if (!Log.isLoggable("trace_manager", 2))
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            break MISSING_BLOCK_LABEL_274;
+            i = j + kwk.b(1, a);
         }
-        Object obj1 = new hd();
-        list;
-        JVM INSTR monitorenter ;
-        kvl kvl1;
-        for (Iterator iterator1 = list.iterator(); iterator1.hasNext(); ((hd) (obj1)).a(kvl1.j(), kvl1))
-        {
-            kvl1 = (kvl)iterator1.next();
-        }
+        return i;
+    }
 
-        break MISSING_BLOCK_LABEL_70;
-        obj1;
-        list;
-        JVM INSTR monitorexit ;
-        throw obj1;
-        list;
-        JVM INSTR monitorexit ;
-        ArrayList arraylist = new ArrayList();
-        for (int i = 0; i < ((hd) (obj1)).a(); i++)
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
         {
-            Object obj = (kvl)((hd) (obj1)).a(i);
-            long l = ((kvl) (obj)).j();
-            long l1 = (long)((kvl) (obj)).n();
-            long l2 = Math.max(l1, (long)((kvl) (obj)).o());
-            obj = (new StringBuilder(23)).append(l2 - l1).append(" ms").toString();
-            do
+            int i = kwj1.a();
+            switch (i)
             {
-                Object obj2 = (kvl)((hd) (obj1)).a(l);
-                l = ((kvl) (obj2)).k();
-                obj2 = String.valueOf(((kvl) (obj2)).l());
-                obj = (new StringBuilder(String.valueOf(obj2).length() + 3 + String.valueOf(obj).length())).append(((String) (obj2))).append(" > ").append(((String) (obj))).toString();
-            } while (l != 0L);
-            arraylist.add(obj);
-        }
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
 
-        Collections.sort(arraylist);
-        for (Iterator iterator = arraylist.iterator(); iterator.hasNext(); iterator.next()) { }
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        super.writeTo(kwk1);
     }
 }

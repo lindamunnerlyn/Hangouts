@@ -2,112 +2,162 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Rect;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.ListAdapter;
-import horizontallistview.HorizontalListView;
 
-public final class kxw extends android.view.GestureDetector.SimpleOnGestureListener
+public final class kxw extends kwm
 {
 
-    final HorizontalListView a;
+    public static final kwn a = kwn.a(kxw, 0xcfab3f2L);
+    private static final kxw i[] = new kxw[0];
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public kxd h;
 
-    public kxw(HorizontalListView horizontallistview)
+    public kxw()
     {
-        a = horizontallistview;
-        super();
+        b = null;
+        c = null;
+        d = null;
+        e = null;
+        f = null;
+        g = null;
+        h = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private static boolean a(MotionEvent motionevent, View view)
+    public static kxw[] a()
     {
-        Rect rect = new Rect();
-        int ai[] = new int[2];
-        view.getLocationOnScreen(ai);
-        int i = ai[0];
-        int j = view.getWidth();
-        int k = ai[1];
-        rect.set(i, k, j + i, view.getHeight() + k);
-        return rect.contains((int)motionevent.getRawX(), (int)motionevent.getRawY());
+        return i;
     }
 
-    public boolean onDown(MotionEvent motionevent)
+    protected int computeSerializedSize()
     {
-        return a.c();
-    }
-
-    public boolean onFling(MotionEvent motionevent, MotionEvent motionevent1, float f, float f1)
-    {
-        return a.a(f);
-    }
-
-    public void onLongPress(MotionEvent motionevent)
-    {
-        int j = a.getChildCount();
-        int i = 0;
-        do
+        int k = super.computeSerializedSize();
+        int j = k;
+        if (b != null)
         {
-label0:
-            {
-                if (i < j)
-                {
-                    View view = a.getChildAt(i);
-                    if (!a(motionevent, view))
-                    {
-                        break label0;
-                    }
-                    if (HorizontalListView.f(a) != null)
-                    {
-                        HorizontalListView.f(a).onItemLongClick(a, view, HorizontalListView.d(a) + 1 + i, a.b.getItemId(i + (HorizontalListView.d(a) + 1)));
-                    }
-                }
-                return;
-            }
-            i++;
-        } while (true);
-    }
-
-    public boolean onScroll(MotionEvent motionevent, MotionEvent motionevent1, float f, float f1)
-    {
-        synchronized (a)
-        {
-            motionevent1 = a;
-            motionevent1.d = ((HorizontalListView) (motionevent1)).d + (int)f;
+            j = k + kwk.b(1, b);
         }
-        a.requestLayout();
-        return true;
-        motionevent1;
-        motionevent;
-        JVM INSTR monitorexit ;
-        throw motionevent1;
+        k = j;
+        if (c != null)
+        {
+            k = j + kwk.b(2, c);
+        }
+        j = k;
+        if (d != null)
+        {
+            j = k + kwk.b(3, d);
+        }
+        k = j;
+        if (e != null)
+        {
+            k = j + kwk.b(4, e);
+        }
+        j = k;
+        if (f != null)
+        {
+            j = k + kwk.b(5, f);
+        }
+        k = j;
+        if (g != null)
+        {
+            k = j + kwk.b(6, g);
+        }
+        j = k;
+        if (h != null)
+        {
+            j = k + kwk.d(7, h);
+        }
+        return j;
     }
 
-    public boolean onSingleTapConfirmed(MotionEvent motionevent)
+    public kws mergeFrom(kwj kwj1)
     {
-        int i = 0;
         do
         {
-label0:
+            int j = kwj1.a();
+            switch (j)
             {
-                if (i < a.getChildCount())
+            default:
+                if (super.storeUnknownField(kwj1, j))
                 {
-                    View view = a.getChildAt(i);
-                    if (!a(motionevent, view))
-                    {
-                        break label0;
-                    }
-                    if (HorizontalListView.c(a) != null)
-                    {
-                        HorizontalListView.c(a).onItemClick(a, view, HorizontalListView.d(a) + 1 + i, a.b.getItemId(HorizontalListView.d(a) + 1 + i));
-                    }
-                    if (HorizontalListView.e(a) != null)
-                    {
-                        HorizontalListView.e(a).onItemSelected(a, view, HorizontalListView.d(a) + 1 + i, a.b.getItemId(HorizontalListView.d(a) + 1 + i));
-                    }
+                    continue;
                 }
-                return true;
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                b = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                c = kwj1.j();
+                break;
+
+            case 26: // '\032'
+                d = kwj1.j();
+                break;
+
+            case 34: // '"'
+                e = kwj1.j();
+                break;
+
+            case 42: // '*'
+                f = kwj1.j();
+                break;
+
+            case 50: // '2'
+                g = kwj1.j();
+                break;
+
+            case 58: // ':'
+                if (h == null)
+                {
+                    h = new kxd();
+                }
+                kwj1.a(h);
+                break;
             }
-            i++;
         } while (true);
     }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (b != null)
+        {
+            kwk1.a(1, b);
+        }
+        if (c != null)
+        {
+            kwk1.a(2, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(3, d);
+        }
+        if (e != null)
+        {
+            kwk1.a(4, e);
+        }
+        if (f != null)
+        {
+            kwk1.a(5, f);
+        }
+        if (g != null)
+        {
+            kwk1.a(6, g);
+        }
+        if (h != null)
+        {
+            kwk1.b(7, h);
+        }
+        super.writeTo(kwk1);
+    }
+
 }

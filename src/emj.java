@@ -2,69 +2,102 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import android.os.ParcelFileDescriptor;
-import com.google.android.gms.common.data.BitmapTeleporter;
+import java.util.concurrent.TimeUnit;
 
-public final class emj
-    implements android.os.Parcelable.Creator
+final class emj
 {
 
-    public emj()
+    private int a;
+
+    emj()
     {
+        a = 0;
     }
 
-    public static void a(BitmapTeleporter bitmapteleporter, Parcel parcel, int i)
+    public void a()
     {
-        int j = g.p(parcel, 20293);
-        g.b(parcel, 1, bitmapteleporter.a);
-        g.a(parcel, 2, bitmapteleporter.b, i);
-        g.b(parcel, 3, bitmapteleporter.c);
-        g.q(parcel, j);
+        this;
+        JVM INSTR monitorenter ;
+        a = a + 1;
+        this;
+        JVM INSTR monitorexit ;
+        return;
+        Exception exception;
+        exception;
+        throw exception;
     }
 
-    public Object createFromParcel(Parcel parcel)
+    public boolean a(long l, TimeUnit timeunit)
     {
-        int k = g.a(parcel);
-        ParcelFileDescriptor parcelfiledescriptor = null;
-        int i = 0;
-        int j = 0;
-        do
+        long l1 = System.currentTimeMillis();
+        l = TimeUnit.MILLISECONDS.convert(l, timeunit);
+        this;
+        JVM INSTR monitorenter ;
+_L2:
+        if (a == 0)
         {
-            if (parcel.dataPosition() < k)
-            {
-                int l = parcel.readInt();
-                switch (0xffff & l)
-                {
-                default:
-                    g.b(parcel, l);
-                    break;
-
-                case 1: // '\001'
-                    i = g.e(parcel, l);
-                    break;
-
-                case 2: // '\002'
-                    parcelfiledescriptor = (ParcelFileDescriptor)g.a(parcel, l, ParcelFileDescriptor.CREATOR);
-                    break;
-
-                case 3: // '\003'
-                    j = g.e(parcel, l);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != k)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
-            } else
-            {
-                return new BitmapTeleporter(i, parcelfiledescriptor, j);
-            }
-        } while (true);
+            return true;
+        }
+        if (l > 0L)
+        {
+            break MISSING_BLOCK_LABEL_42;
+        }
+        this;
+        JVM INSTR monitorexit ;
+        return false;
+        timeunit;
+        this;
+        JVM INSTR monitorexit ;
+        throw timeunit;
+        long l2;
+        wait(l);
+        l2 = System.currentTimeMillis();
+        l -= l2 - l1;
+        if (true) goto _L2; else goto _L1
+_L1:
     }
 
-    public Object[] newArray(int i)
+    public void b()
     {
-        return new BitmapTeleporter[i];
+        this;
+        JVM INSTR monitorenter ;
+        if (a == 0)
+        {
+            throw new RuntimeException("too many decrements");
+        }
+        break MISSING_BLOCK_LABEL_24;
+        Exception exception;
+        exception;
+        this;
+        JVM INSTR monitorexit ;
+        throw exception;
+        a = a - 1;
+        if (a == 0)
+        {
+            notifyAll();
+        }
+        this;
+        JVM INSTR monitorexit ;
+    }
+
+    public boolean c()
+    {
+        this;
+        JVM INSTR monitorenter ;
+        int i = a;
+        boolean flag;
+        if (i == 0)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        this;
+        JVM INSTR monitorexit ;
+        return flag;
+        Exception exception;
+        exception;
+        throw exception;
     }
 }

@@ -3,42 +3,44 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cuu extends cui
+public class cuu extends cup
 {
 
     private static final long serialVersionUID = 1L;
-    public final String a;
+    private final String a;
+    private final String b;
 
-    public cuu(String s)
+    public cuu(String s, String s1)
     {
         a = s;
+        b = s1;
     }
 
-    public kop a(String s, int i, int j)
+    public kws a(String s, int i, int j)
     {
-        if (ctr.e)
-        {
-            ebw.b("Babel_RequestWriter", "SendOffnetworkInvitationRequest build protobuf ");
-        }
-        ivx ivx1 = new ivx();
-        if (a != null)
-        {
-            ivx1.a = Integer.valueOf(1);
-            ivx1.c = a;
-        }
-        ixp ixp1 = new ixp();
-        ixp1.requestHeader = ctq.a(s, i, j, h);
-        ixp1.a = ivx1;
-        return ixp1;
+        s = new hzq();
+        s.b = b;
+        s.a = a;
+        Object obj = new hzr();
+        obj.g = Boolean.valueOf(false);
+        obj.i = Boolean.valueOf(false);
+        obj.a = Boolean.valueOf(false);
+        obj.h = Boolean.valueOf(false);
+        obj.l = Boolean.valueOf(true);
+        obj.e = Boolean.valueOf(false);
+        obj.f = Boolean.valueOf(true);
+        obj.d = Boolean.valueOf(false);
+        obj.b = Boolean.valueOf(true);
+        obj.c = Boolean.valueOf(true);
+        obj.k = Integer.valueOf(1);
+        s.c = ((hzr) (obj));
+        obj = new hye();
+        obj.a = s;
+        return ((kws) (obj));
     }
 
-    public boolean a(cci cci, dbo dbo)
+    public String f()
     {
-        return false;
-    }
-
-    public String g()
-    {
-        return "devices/sendoffnetworkinvitation";
+        return "getphoto";
     }
 }

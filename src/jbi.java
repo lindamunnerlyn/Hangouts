@@ -3,16 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jbi extends koj
+public final class jbi extends kwm
 {
 
-    public jbw a;
-    public ixg responseHeader;
+    public jbj a[];
+    public jdk requestHeader;
 
     public jbi()
     {
-        responseHeader = null;
-        a = null;
+        requestHeader = null;
+        a = jbj.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,27 +21,43 @@ public final class jbi extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (responseHeader != null)
+        if (requestHeader != null)
         {
-            i = j + koh.d(1, responseHeader);
+            i = j + kwk.d(1, requestHeader);
         }
         j = i;
         if (a != null)
         {
-            j = i + koh.d(2, a);
+            j = i;
+            if (a.length > 0)
+            {
+                for (j = 0; j < a.length;)
+                {
+                    jbj jbj1 = a[j];
+                    int k = i;
+                    if (jbj1 != null)
+                    {
+                        k = i + kwk.d(2, jbj1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -51,34 +67,64 @@ public final class jbi extends koj
                 return this;
 
             case 10: // '\n'
-                if (responseHeader == null)
+                if (requestHeader == null)
                 {
-                    responseHeader = new ixg();
+                    requestHeader = new jdk();
                 }
-                kog1.a(responseHeader);
+                kwj1.a(requestHeader);
                 break;
 
             case 18: // '\022'
+                int k = kwx.a(kwj1, 18);
+                jbj ajbj[];
+                int j;
                 if (a == null)
                 {
-                    a = new jbw();
+                    j = 0;
+                } else
+                {
+                    j = a.length;
                 }
-                kog1.a(a);
+                ajbj = new jbj[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, ajbj, 0, j);
+                    k = j;
+                }
+                for (; k < ajbj.length - 1; k++)
+                {
+                    ajbj[k] = new jbj();
+                    kwj1.a(ajbj[k]);
+                    kwj1.a();
+                }
+
+                ajbj[k] = new jbj();
+                kwj1.a(ajbj[k]);
+                a = ajbj;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (responseHeader != null)
+        if (requestHeader != null)
         {
-            koh1.b(1, responseHeader);
+            kwk1.b(1, requestHeader);
         }
-        if (a != null)
+        if (a != null && a.length > 0)
         {
-            koh1.b(2, a);
+            for (int i = 0; i < a.length; i++)
+            {
+                jbj jbj1 = a[i];
+                if (jbj1 != null)
+                {
+                    kwk1.b(2, jbj1);
+                }
+            }
+
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

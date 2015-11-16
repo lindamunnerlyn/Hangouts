@@ -2,21 +2,86 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.ParcelFileDescriptor;
+import android.util.Log;
+import java.io.IOException;
+import java.util.concurrent.Callable;
 
-public final class fyh
+final class fyh
+    implements Callable
 {
 
-    public final ekd a;
-    public final fzb b;
+    final ParcelFileDescriptor a;
+    final byte b[];
+    final fyg c;
 
-    public fyh(ekd ekd1, fzb fzb)
+    fyh(fyg fyg, ParcelFileDescriptor parcelfiledescriptor, byte abyte0[])
     {
-        a = ekd1;
-        b = fzb;
+        c = fyg;
+        a = parcelfiledescriptor;
+        b = abyte0;
+        super();
     }
 
-    public void a(fyi fyi)
+    private Boolean a()
     {
-        a.a(new fyw(fyi, b));
+        android.os.ParcelFileDescriptor.AutoCloseOutputStream autocloseoutputstream;
+        if (Log.isLoggable("WearableClient", 3))
+        {
+            (new StringBuilder("processAssets: writing data to FD : ")).append(a);
+        }
+        autocloseoutputstream = new android.os.ParcelFileDescriptor.AutoCloseOutputStream(a);
+        Object obj;
+        autocloseoutputstream.write(b);
+        autocloseoutputstream.flush();
+        if (Log.isLoggable("WearableClient", 3))
+        {
+            (new StringBuilder("processAssets: wrote data: ")).append(a);
+        }
+        obj = Boolean.valueOf(true);
+        IOException ioexception;
+        try
+        {
+            if (Log.isLoggable("WearableClient", 3))
+            {
+                (new StringBuilder("processAssets: closing: ")).append(a);
+            }
+            autocloseoutputstream.close();
+        }
+        catch (IOException ioexception1)
+        {
+            return ((Boolean) (obj));
+        }
+        return ((Boolean) (obj));
+        obj;
+        (new StringBuilder("processAssets: writing data failed: ")).append(a);
+        try
+        {
+            if (Log.isLoggable("WearableClient", 3))
+            {
+                (new StringBuilder("processAssets: closing: ")).append(a);
+            }
+            autocloseoutputstream.close();
+        }
+        // Misplaced declaration of an exception variable
+        catch (IOException ioexception) { }
+        return Boolean.valueOf(false);
+        obj;
+        try
+        {
+            if (Log.isLoggable("WearableClient", 3))
+            {
+                (new StringBuilder("processAssets: closing: ")).append(a);
+            }
+            autocloseoutputstream.close();
+        }
+        // Misplaced declaration of an exception variable
+        catch (IOException ioexception) { }
+        throw obj;
+    }
+
+    public Object call()
+    {
+        return a();
     }
 }

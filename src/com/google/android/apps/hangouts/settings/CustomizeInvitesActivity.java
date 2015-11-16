@@ -5,25 +5,25 @@
 package com.google.android.apps.hangouts.settings;
 
 import android.os.Bundle;
-import doa;
+import dqt;
 import g;
-import gng;
-import hgt;
-import hhj;
+import grn;
+import hll;
+import hmb;
 
-public class CustomizeInvitesActivity extends hhj
+public class CustomizeInvitesActivity extends hmb
 {
 
     public CustomizeInvitesActivity()
     {
-        (new gng(this, q)).a(p).d();
-        new hgt(this, q);
-        new doa(this, this, q);
+        (new grn(this, r)).a(q).d();
+        new hll(this, r);
+        new dqt(this, this, r);
     }
 
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.fL);
+        setContentView(g.fJ);
     }
 }

@@ -2,26 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.widget.PopupWindow;
+import android.view.View;
 
 final class re
-    implements Runnable
+    implements jp
 {
 
-    final ra a;
+    final rc a;
 
-    re(ra ra1)
+    re(rc rc1)
     {
-        a = ra1;
+        a = rc1;
         super();
     }
 
-    public void run()
+    public mh a(View view, mh mh1)
     {
-        a.q.showAtLocation(a.p, 55, 0, 0);
-        a.m();
-        kb.c(a.p, 0.0F);
-        a.s = kb.o(a.p).a(1.0F);
-        a.s.a(new rf(this));
+        int i = mh1.b();
+        int j = rc.b(a, i);
+        mh mh2 = mh1;
+        if (i != j)
+        {
+            mh2 = mh1.a(mh1.a(), j, mh1.c(), mh1.d());
+        }
+        return kb.a(view, mh2);
     }
 }

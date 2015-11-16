@@ -7,10 +7,4 @@ package org.chromium.net;
 
 public interface UploadDataSink
 {
-
-    public abstract void a();
-
-    public abstract void a(Exception exception);
-
-    public abstract void a(boolean flag);
 }

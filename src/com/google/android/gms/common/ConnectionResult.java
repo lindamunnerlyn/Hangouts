@@ -8,8 +8,8 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import eof;
-import eov;
+import erf;
+import ert;
 import g;
 import java.util.Arrays;
 
@@ -17,9 +17,9 @@ public final class ConnectionResult
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new eov();
+    public static final android.os.Parcelable.Creator CREATOR = new ert();
     public static final ConnectionResult a = new ConnectionResult(0, null);
-    public final int b;
+    final int b;
     private final int c;
     private final PendingIntent d;
 
@@ -98,9 +98,9 @@ public final class ConnectionResult
 
     public String toString()
     {
-        eof eof1;
+        erf erf1;
         int i;
-        eof1 = g.c(this);
+        erf1 = g.c(this);
         i = c;
         i;
         JVM INSTR tableswitch 0 18: default 100
@@ -127,7 +127,7 @@ public final class ConnectionResult
 _L1:
         String s = (new StringBuilder("UNKNOWN_ERROR_CODE(")).append(i).append(")").toString();
 _L21:
-        return eof1.a("statusCode", s).a("resolution", d).toString();
+        return erf1.a("statusCode", s).a("resolution", d).toString();
 _L2:
         s = "SUCCESS";
         continue; /* Loop/switch isn't completed */
@@ -187,7 +187,11 @@ _L20:
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        eov.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, b);
+        g.b(parcel, 2, c());
+        g.a(parcel, 3, d(), i);
+        g.q(parcel, j);
     }
 
 }

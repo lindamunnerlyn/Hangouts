@@ -2,69 +2,69 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import android.util.Log;
 
 public final class hic
-    implements fsn, hje, hkc, hkd
+    implements hif
 {
 
-    private List a;
-    private boolean b;
-    private boolean c;
-    private boolean d;
+    public static final hnb a = new hnb("debug.social.rpc.debug_log");
 
-    hic(hjm hjm1)
-    {
-        a = new ArrayList();
-        d = true;
-        hjm1.a(this);
-    }
-
-    hic(hjm hjm1, byte byte0)
-    {
-        a = new ArrayList();
-        d = true;
-        hjm1.a(this);
-    }
-
-    private void c()
+    private static boolean a(String s, int i)
     {
         boolean flag;
-        if (b && d)
-        {
-            flag = true;
-        } else
+label0:
         {
             flag = false;
-        }
-        if (flag != c)
-        {
-            c = flag;
-            Iterator iterator = a.iterator();
-            while (iterator.hasNext()) 
+            if (!Log.isLoggable("HttpOperation", i))
             {
-                iterator.next();
+                String s1 = s;
+                if (s != null)
+                {
+                    s1 = s;
+                    if (s.length() > 23)
+                    {
+                        s1 = s.substring(0, 23);
+                    }
+                }
+                if (!Log.isLoggable(s1, i))
+                {
+                    break label0;
+                }
             }
+            flag = true;
+        }
+        return flag;
+    }
+
+    public void a(String s, hih hih, int i, String s1)
+    {
+    }
+
+    public boolean a(String s)
+    {
+        return a(s, 3);
+    }
+
+    public boolean b(String s)
+    {
+        return a(s, 2);
+    }
+
+    public void c(String s)
+    {
+        if (s != null)
+        {
+            g.b(3, "HttpOperation", s);
         }
     }
 
-    public void a(boolean flag)
+    public void d(String s)
     {
-        d = flag;
-        c();
+        if (s != null)
+        {
+            g.b(2, "HttpOperation", s);
+        }
     }
 
-    public void j_()
-    {
-        b = true;
-        c();
-    }
-
-    public void k_()
-    {
-        b = false;
-        c();
-    }
 }

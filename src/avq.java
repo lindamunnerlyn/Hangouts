@@ -2,25 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
+import android.view.View;
 
 final class avq
-    implements gov
+    implements android.view.View.OnLongClickListener
 {
 
-    final ave a;
+    final avk a;
 
-    avq(ave ave1)
+    avq(avk avk1)
     {
-        a = ave1;
+        a = avk1;
         super();
     }
 
-    public void a(int i, Intent intent)
+    public boolean onLongClick(View view)
     {
-        if (i == -1 && intent != null)
-        {
-            ave.b(a).a(new avr(this, intent));
-        }
+        a.b.a();
+        return true;
     }
 }

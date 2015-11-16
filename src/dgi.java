@@ -2,29 +2,14 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 import android.content.Intent;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import java.util.Collection;
 
-public final class dgi
-    implements Runnable
+public interface dgi
 {
 
-    final Intent a;
-    final dgu b;
-    final Object c;
-    final RealTimeChatService d;
+    public abstract Collection a();
 
-    public dgi(RealTimeChatService realtimechatservice, Intent intent, dgu dgu, Object obj)
-    {
-        d = realtimechatservice;
-        a = intent;
-        b = dgu;
-        c = obj;
-        super();
-    }
-
-    public void run()
-    {
-        d.a(a, b, c, true);
-    }
+    public abstract void a(Context context, Intent intent);
 }

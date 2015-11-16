@@ -2,16 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-public interface bpu
+final class bpu
 {
 
-    public abstract boolean a(Context context, int i, boy boy, int j);
+    private final String a;
+    private final int b;
+    private final String c;
 
-    public abstract boolean a(Context context, ani ani);
+    bpu(String s, int i, String s1)
+    {
+        boolean flag;
+        if (i == 0)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        gdv.b("Expected condition to be false", flag);
+        a = s;
+        b = i;
+        c = s1;
+    }
 
-    public abstract boolean a(Context context, dgw dgw, ani ani, boy boy, String s, long l);
+    String a()
+    {
+        return a;
+    }
 
-    public abstract boolean b(Context context, ani ani);
+    String b()
+    {
+        return c;
+    }
 }

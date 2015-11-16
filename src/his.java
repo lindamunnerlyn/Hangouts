@@ -2,10 +2,13 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
 
-public interface his
+public abstract class his
 {
 
-    public abstract void a(Bundle bundle);
+    his()
+    {
+    }
+
+    public abstract hit a(String s);
 }

@@ -2,40 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import com.google.android.apps.hangouts.views.ParticipantsGalleryView;
-import java.lang.ref.WeakReference;
-import java.util.Queue;
 
-public final class ege extends Handler
+public interface ege
 {
 
-    private final WeakReference a;
-
-    public ege(ParticipantsGalleryView participantsgalleryview)
-    {
-        super(Looper.getMainLooper());
-        a = new WeakReference(participantsgalleryview);
-    }
-
-    public void handleMessage(Message message)
-    {
-        if (message.what == 0) goto _L2; else goto _L1
-_L1:
-        return;
-_L2:
-        if ((message = (ParticipantsGalleryView)a.get()) != null)
-        {
-            ParticipantsGalleryView.d(message);
-            egb egb1 = new egb(message, ParticipantsGalleryView.e(message).size());
-            while (ParticipantsGalleryView.e(message).size() > 0) 
-            {
-                ParticipantsGalleryView.a(message, (egh)ParticipantsGalleryView.e(message).poll(), egb1);
-            }
-        }
-        if (true) goto _L1; else goto _L3
-_L3:
-    }
+    public abstract void a(int i);
 }

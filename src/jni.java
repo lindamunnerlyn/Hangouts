@@ -2,32 +2,15 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.lang.ref.ReferenceQueue;
 
-public final class jni
-    implements jou
+final class jni extends jnh
 {
 
-    public jni()
+    static final jni o = new jni();
+
+    private jni()
     {
+        super("CharMatcher.singleWidth()", "\000\u05BE\u05D0\u05F3\u0600\u0750\u0E00\u1E00\u2100\uFB50\uFE70\uFF61".toCharArray(), "\u04F9\u05BE\u05EA\u05F4\u06FF\u077F\u0E7F\u20AF\u213A\uFDFF\uFEFF\uFFDC".toCharArray());
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry a()
-    {
-        return null;
-    }
-
-    public jou a(ReferenceQueue referencequeue, Object obj, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
-    {
-        return this;
-    }
-
-    public void b()
-    {
-    }
-
-    public Object get()
-    {
-        return null;
-    }
 }

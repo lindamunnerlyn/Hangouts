@@ -2,38 +2,67 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.Semaphore;
+import android.content.Context;
+import android.telephony.PhoneStateListener;
+import android.telephony.ServiceState;
+import android.telephony.SignalStrength;
+import java.lang.reflect.Method;
 
-final class dxe extends dgp
+final class dxe extends PhoneStateListener
 {
 
-    final int a;
-    final cwe b[];
-    final Semaphore c;
-    final dxd d;
+    private final Context a;
+    private dxc b;
+    private ServiceState c;
+    private SignalStrength d;
 
-    dxe(dxd dxd, int i, cwe acwe[], Semaphore semaphore)
+    dxe(Context context, dxc dxc1)
     {
-        d = dxd;
-        a = i;
-        b = acwe;
-        c = semaphore;
-        super();
+        a = context;
+        b = dxc1;
     }
 
-    public void a(int i, ani ani, dgu dgu1)
+    private void a()
     {
-        if (a == i)
+        if (c != null && d != null && b != null)
         {
-            ani = (cwe)dgu1.c();
-            if (ani != null)
-            {
-                b[0] = ani;
-            } else
-            {
-                ebw.g("Babel_telephony", "TeleHangoutsService.getCallRateResponseBlocking, response could not be decoded");
-            }
-            c.release();
+            b.a(dxb.a(a, c.getState(), b()));
+            b = null;
         }
+    }
+
+    private int b()
+    {
+        if (dxb.a != -1)
+        {
+            return dxb.a(dxb.a);
+        }
+        Method method = d.getClass().getDeclaredMethod("getLevel", new Class[0]);
+        if (method == null)
+        {
+            break MISSING_BLOCK_LABEL_69;
+        }
+        int i = dxb.a(g.a((Integer)method.invoke(d, new Object[0]), 0));
+        return i;
+        Exception exception;
+        exception;
+        eev.e("Babel_telephony", "TeleCellServiceUtils.getSignalLevelPercent, error calling SignalStrength.getLevel", exception);
+        return -1;
+    }
+
+    public void onServiceStateChanged(ServiceState servicestate)
+    {
+        String s = String.valueOf(servicestate);
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(s).length() + 41)).append("CellStateListener.onServiceStateChanged: ").append(s).toString());
+        c = servicestate;
+        a();
+    }
+
+    public void onSignalStrengthsChanged(SignalStrength signalstrength)
+    {
+        String s = String.valueOf(signalstrength);
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(s).length() + 44)).append("CellStateListener.onSignalStrengthsChanged: ").append(s).toString());
+        d = signalstrength;
+        a();
     }
 }

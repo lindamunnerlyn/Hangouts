@@ -3,10 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gpi
+final class gpi extends gpd
 {
 
-    public abstract gpw a();
+    gpi(String s)
+    {
+        super(s, 3);
+    }
 
-    public abstract gpd b();
+    boolean a(gpw gpw, String s, gpb gpb1)
+    {
+        if (!gpb1.b(gpw) || !goy.a(gpw, s, gpb1) || goy.a(gpw, s) || !goy.a(gpw, gpb1))
+        {
+            return false;
+        } else
+        {
+            return goy.a(gpw, s, gpb1, new gpj(this));
+        }
+    }
 }

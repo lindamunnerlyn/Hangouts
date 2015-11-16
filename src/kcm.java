@@ -3,20 +3,42 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kcm extends koj
+public final class kcm extends kwm
 {
 
-    public String a;
+    private static volatile kcm e[];
+    public kcj a;
     public Long b;
-    public String c;
+    public Float c;
+    public Float d;
 
     public kcm()
     {
         a = null;
         b = null;
         c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static kcm[] a()
+    {
+        if (e == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (e == null)
+                {
+                    e = new kcm[0];
+                }
+            }
+        }
+        return e;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -25,31 +47,37 @@ public final class kcm extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.d(1, a);
         }
         j = i;
         if (b != null)
         {
-            b.longValue();
-            j = i + (koh.f(2) + 8);
+            j = i + kwk.e(2, b.longValue());
         }
         i = j;
+        if (d != null)
+        {
+            d.floatValue();
+            i = j + (kwk.f(3) + 4);
+        }
+        j = i;
         if (c != null)
         {
-            i = j + koh.b(3, c);
+            c.floatValue();
+            j = i + (kwk.f(4) + 4);
         }
-        return i;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -59,34 +87,46 @@ public final class kcm extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                if (a == null)
+                {
+                    a = new kcj();
+                }
+                kwj1.a(a);
                 break;
 
-            case 17: // '\021'
-                b = Long.valueOf(kog1.g());
+            case 16: // '\020'
+                b = Long.valueOf(kwj1.e());
                 break;
 
-            case 26: // '\032'
-                c = kog1.j();
+            case 29: // '\035'
+                d = Float.valueOf(kwj1.c());
+                break;
+
+            case 37: // '%'
+                c = Float.valueOf(kwj1.c());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.b(1, a);
         }
         if (b != null)
         {
-            koh1.c(2, b.longValue());
+            kwk1.b(2, b.longValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(3, d.floatValue());
         }
         if (c != null)
         {
-            koh1.a(3, c);
+            kwk1.a(4, c.floatValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

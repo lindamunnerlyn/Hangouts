@@ -3,36 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class acv extends ace
+public final class acv extends acf
 {
 
     public acv()
     {
-        a(132);
+        a(136);
     }
 
-    acv(acn acn1, ach ach)
+    acv(acp acp1)
     {
-        super(acn1, ach);
+        super(acp1);
     }
 
-    public void a(acc acc)
+    public void a(ace ace)
     {
-        a.a(acc, 137);
+        a.a(ace, 137);
     }
 
-    public acc c()
+    public ace c()
     {
         return a.c(137);
-    }
-
-    public byte[] g()
-    {
-        return a.b(132);
-    }
-
-    public byte[] h()
-    {
-        return a.b(139);
     }
 }

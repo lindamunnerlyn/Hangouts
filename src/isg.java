@@ -2,93 +2,52 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Collections;
 
-public final class isg extends koj
+public final class isg extends Enum
+    implements joj
 {
 
-    public Boolean a;
-    public Boolean b;
-    public Boolean c;
+    public static final isg a;
+    private static final isg b[];
 
-    public isg()
+    private isg(String s)
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s, 0);
     }
 
-    protected int computeSerializedSize()
+    public static joj b()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        j = i;
-        if (b != null)
-        {
-            b.booleanValue();
-            j = i + (koh.f(2) + 1);
-        }
-        i = j;
-        if (c != null)
-        {
-            c.booleanValue();
-            i = j + (koh.f(3) + 1);
-        }
-        return i;
+        return a;
     }
 
-    public kop mergeFrom(kog kog1)
+    public static isg valueOf(String s)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-
-            case 16: // '\020'
-                b = Boolean.valueOf(kog1.i());
-                break;
-
-            case 24: // '\030'
-                c = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
+        return (isg)Enum.valueOf(isg, s);
     }
 
-    public void writeTo(koh koh1)
+    public static isg[] values()
     {
-        if (a != null)
+        return (isg[])b.clone();
+    }
+
+    public Object a()
+    {
+        java.util.Set set = Collections.emptySet();
+        if (set == null)
         {
-            koh1.a(1, a.booleanValue());
-        }
-        if (b != null)
+            throw new NullPointerException("Cannot return null from a non-@Nullable @Provides method");
+        } else
         {
-            koh1.a(2, b.booleanValue());
+            return set;
         }
-        if (c != null)
-        {
-            koh1.a(3, c.booleanValue());
-        }
-        super.writeTo(koh1);
+    }
+
+    static 
+    {
+        a = new isg("INSTANCE");
+        b = (new isg[] {
+            a
+        });
     }
 }

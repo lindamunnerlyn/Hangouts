@@ -4,43 +4,27 @@
 
 package org.chromium.base;
 
-import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
+import gap;
+import llr;
 
 public class PowerMonitor
-    implements ApplicationStatus.ApplicationStateListener
+    implements gap
 {
 
     private static PowerMonitor a;
-    private static final Runnable d = new _cls1();
+    private static final Runnable d = new llr();
     private boolean b;
     private final Handler c = new Handler(Looper.getMainLooper());
 
-    PowerMonitor()
+    private PowerMonitor()
     {
     }
 
-    static void a()
+    public static void b()
     {
         nativeOnMainActivitySuspended();
-    }
-
-    public static void a(Intent intent)
-    {
-        boolean flag = true;
-        if (a == null)
-        {
-            return;
-        }
-        int i = intent.getIntExtra("plugged", -1);
-        intent = a;
-        if (i == 2 || i == 1)
-        {
-            flag = false;
-        }
-        intent.b = flag;
-        nativeOnBatteryChargingChanged();
     }
 
     private static boolean isBatteryPower()
@@ -53,34 +37,5 @@ public class PowerMonitor
     private static native void nativeOnMainActivityResumed();
 
     private static native void nativeOnMainActivitySuspended();
-
-    public void a(int i)
-    {
-        if (i == 1)
-        {
-            c.removeCallbacks(d);
-            nativeOnMainActivityResumed();
-        } else
-        if (i == 2)
-        {
-            c.postDelayed(d, 60000L);
-            return;
-        }
-    }
-
-
-    private class _cls1
-        implements Runnable
-    {
-
-        public void run()
-        {
-            PowerMonitor.a();
-        }
-
-        _cls1()
-        {
-        }
-    }
 
 }

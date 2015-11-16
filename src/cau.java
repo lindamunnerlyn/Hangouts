@@ -3,26 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.os.Bundle;
-import com.google.android.apps.hangouts.navigation.NavigationDrawerFragment;
 
-public final class cau
-    implements eka
+public final class cau extends hmm
+    implements hbc
 {
 
-    final NavigationDrawerFragment a;
+    private hbi a;
 
-    public cau(NavigationDrawerFragment navigationdrawerfragment)
-    {
-        a = navigationdrawerfragment;
-        super();
-    }
-
-    public void a(int i)
+    public cau()
     {
     }
 
-    public void a_(Bundle bundle)
+    public void a(hbo hbo)
     {
-        NavigationDrawerFragment.c(a);
+        hbo = getArguments();
+        a.a(hbo.getString("account_name"), hbo.getString("effective_gaia_id"));
+    }
+
+    protected void onAttachBinder(Bundle bundle)
+    {
+        super.onAttachBinder(bundle);
+        a = (hbi)binder.a(hbi);
     }
 }

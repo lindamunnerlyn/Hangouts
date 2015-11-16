@@ -3,27 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ftl
+public interface ftl
 {
 
-    public static final fst a = new fst();
-    public static final fsp b = new fsp();
-    public static final fte c = new fte();
-    public static final fti d = new fti();
-    public static final fsr e = new fsr();
-    public static final fso f = new fso();
-    public static final fsm g = new fsm();
-    public static final fss h = new fss();
-    public static final ftk i = new ftk();
-    public static final fub j = new fub();
-    public static final ejw k;
-    public static final ejs l;
-    private static final ejt m;
+    public abstract String a();
 
-    static 
-    {
-        k = new ejw();
-        m = new ftm();
-        l = new ejs("Wearable.API", m, k);
-    }
+    public abstract boolean b();
+
+    public abstract String c();
+
+    public abstract String d();
+
+    public abstract String e();
+
+    public abstract String f();
+
+    public abstract String g();
 }

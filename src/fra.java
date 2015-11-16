@@ -2,59 +2,79 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.util.Log;
-import com.google.android.gms.playlog.internal.LogEvent;
-import com.google.android.gms.playlog.internal.PlayLoggerContext;
+import android.os.Parcel;
+import com.google.android.gms.people.identity.internal.ParcelableGetOptions;
 
 public final class fra
+    implements android.os.Parcelable.Creator
 {
 
-    private final frk a;
-    private PlayLoggerContext b;
-
-    private fra(Context context, int i, String s, frb frb, String s1)
+    public fra()
     {
-        this(context, 50, s, null, frb, null);
     }
 
-    private fra(Context context, int i, String s, String s1, frb frb, String s2)
+    public static ParcelableGetOptions a(Parcel parcel)
     {
-        int j;
-        s1 = context.getPackageName();
-        j = 0;
-        int k = context.getPackageManager().getPackageInfo(s1, 0).versionCode;
-        j = k;
-_L2:
-        b = new PlayLoggerContext(s1, j, i, s, null, true);
-        a = new frk(context, context.getMainLooper(), new frj(frb), new emo(null, null, null, 49, null, s1, s2, null));
-        return;
-        android.content.pm.PackageManager.NameNotFoundException namenotfoundexception;
-        namenotfoundexception;
-        Log.wtf("PlayLogger", "This can't happen.");
-        if (true) goto _L2; else goto _L1
-_L1:
+        android.os.Bundle bundle = null;
+        boolean flag = false;
+        int j = g.a(parcel);
+        String s = null;
+        boolean flag1 = false;
+        boolean flag2 = false;
+        int i = 0;
+        do
+        {
+            if (parcel.dataPosition() < j)
+            {
+                int k = parcel.readInt();
+                switch (0xffff & k)
+                {
+                default:
+                    g.b(parcel, k);
+                    break;
+
+                case 1: // '\001'
+                    flag2 = g.c(parcel, k);
+                    break;
+
+                case 1000: 
+                    i = g.e(parcel, k);
+                    break;
+
+                case 2: // '\002'
+                    flag1 = g.c(parcel, k);
+                    break;
+
+                case 3: // '\003'
+                    s = g.i(parcel, k);
+                    break;
+
+                case 4: // '\004'
+                    flag = g.c(parcel, k);
+                    break;
+
+                case 5: // '\005'
+                    bundle = g.k(parcel, k);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != j)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
+            } else
+            {
+                return new ParcelableGetOptions(i, flag2, flag1, flag, s, bundle);
+            }
+        } while (true);
     }
 
-    public fra(Context context, String s, frb frb)
+    public Object createFromParcel(Parcel parcel)
     {
-        this(context, 50, s, frb, null);
+        return a(parcel);
     }
 
-    public void a()
+    public Object[] newArray(int i)
     {
-        a.o();
-    }
-
-    public transient void a(long l, String s, byte abyte0[], String as[])
-    {
-        a.a(b, new LogEvent(l, s, abyte0, as));
-    }
-
-    public transient void a(String s, byte abyte0[], String as[])
-    {
-        a(System.currentTimeMillis(), s, abyte0, as);
+        return new ParcelableGetOptions[i];
     }
 }

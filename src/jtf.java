@@ -2,91 +2,87 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
-public final class jtf extends koj
+public final class jtf
 {
 
-    public Integer a;
-    public Integer b;
-    public Double c;
+    jwl a;
+    Comparator b;
+    Comparator c;
 
     public jtf()
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        g.c(8, "expectedKeys");
+        this((new jwo(8)).b().a());
     }
 
-    protected int computeSerializedSize()
+    private jtf(jwl jwl1)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.e(1, a.intValue());
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.intValue());
-        }
-        i = j;
+        a = jwl1;
+    }
+
+    public jte a()
+    {
         if (c != null)
         {
-            c.doubleValue();
-            i = j + (koh.f(3) + 8);
+            for (Iterator iterator = a.b().values().iterator(); iterator.hasNext(); Collections.sort((List)(Collection)iterator.next(), c)) { }
         }
-        return i;
-    }
+        if (b != null)
+        {
+            g.c(8, "expectedKeys");
+            jwl jwl1 = (new jwo(8)).b().a();
+            java.util.Map.Entry entry;
+            for (Iterator iterator1 = jxb.a(b).d().a(a.b().entrySet()).iterator(); iterator1.hasNext(); jwl1.a(entry.getKey(), (Iterable)entry.getValue()))
+            {
+                entry = (java.util.Map.Entry)iterator1.next();
+            }
 
-    public kop mergeFrom(kog kog1)
-    {
+            a = jwl1;
+        }
+        Object obj = a;
+        if (obj instanceof jte)
+        {
+            return (jte)obj;
+        }
+        if (((jwl) (obj)).j())
+        {
+            return jrq.a;
+        }
+        if (obj instanceof jsn)
+        {
+            return (jsn)obj;
+        }
+        jsq jsq1 = new jsq(((jwl) (obj)).b().size());
+        obj = ((jwl) (obj)).b().entrySet().iterator();
+        int i = 0;
         do
         {
-            int i = kog1.a();
-            switch (i)
+            if (!((Iterator) (obj)).hasNext())
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
-                break;
-
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
-                break;
-
-            case 25: // '\031'
-                c = Double.valueOf(kog1.b());
                 break;
             }
+            java.util.Map.Entry entry1 = (java.util.Map.Entry)((Iterator) (obj)).next();
+            jsh jsh1 = jsh.a((Collection)entry1.getValue());
+            if (!jsh1.isEmpty())
+            {
+                jsq1.a(entry1.getKey(), jsh1);
+                i = jsh1.size() + i;
+            }
         } while (true);
+        return new jsn(jsq1.a(), i);
     }
 
-    public void writeTo(koh koh1)
+    public jtf a(Object obj, Object obj1)
     {
-        if (a != null)
-        {
-            koh1.a(1, a.intValue());
-        }
-        if (b != null)
-        {
-            koh1.a(2, b.intValue());
-        }
-        if (c != null)
-        {
-            koh1.a(3, c.doubleValue());
-        }
-        super.writeTo(koh1);
+        g.f(obj, obj1);
+        a.a(obj, obj1);
+        return this;
     }
 }

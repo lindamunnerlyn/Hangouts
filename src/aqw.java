@@ -3,19 +3,46 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class aqw extends amy
+final class aqw
+    implements bzh
 {
 
-    private final boolean d;
+    final boolean a;
+    final String b;
+    final aqu c;
 
-    public aqw(String s, boolean flag, dlf dlf)
+    aqw(aqu aqu1, boolean flag, String s)
     {
-        super(dac.b(s), dlf);
-        d = flag;
+        c = aqu1;
+        a = flag;
+        b = s;
+        super();
     }
 
-    public String e()
+    public void a()
     {
-        return a.d;
+        aoa aoa = dcn.e(((gqu)aqu.a(c).getBinder().a(gqu)).a());
+        char c1;
+        if (a)
+        {
+            c1 = '\u09D7';
+        } else
+        {
+            c1 = '\u078E';
+        }
+        g.a(aoa, c1, b);
+        if (a)
+        {
+            c1 = '\u0A67';
+        } else
+        {
+            c1 = '\u0A66';
+        }
+        aqu.a(c).c(c1);
+    }
+
+    public void a(String s)
+    {
+        aqu.a(c).d(s);
     }
 }

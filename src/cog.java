@@ -2,21 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.content.DialogInterface;
 
-public final class cog
-    implements kxx
+final class cog
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    private final kxx a;
+    final coe a;
 
-    cog(kxx kxx1)
+    cog(coe coe)
     {
-        a = kxx1;
+        a = coe;
+        super();
     }
 
-    public Object a()
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        return new coc((Context)a.a());
+        dialoginterface.dismiss();
     }
 }

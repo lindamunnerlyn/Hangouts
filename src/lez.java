@@ -3,46 +3,113 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class lez extends lex
+public final class lez extends kwm
 {
 
-    private static final long serialVersionUID = 0x6f4cb35dbe61c66fL;
-    final ldh a;
+    public lfa a;
+    public leu b;
+    public Long c;
+    public Boolean d;
 
-    public lez(ldh ldh1, ldi ldi)
+    public lez()
     {
-        super(ldi);
-        if (ldh1 == null)
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        unknownFieldData = null;
+        cachedSize = -1;
+    }
+
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            throw new IllegalArgumentException("The field must not be null");
+            i = j + kwk.d(1, a);
         }
-        if (!ldh1.b())
+        j = i;
+        if (b != null)
         {
-            throw new IllegalArgumentException("The field must be supported");
-        } else
-        {
-            a = ldh1;
-            return;
+            j = i + kwk.d(2, b);
         }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.d(3, c.longValue());
+        }
+        j = i;
+        if (d != null)
+        {
+            d.booleanValue();
+            j = i + (kwk.f(4) + 1);
+        }
+        return j;
     }
 
-    public long a(long l, int i)
+    public kws mergeFrom(kwj kwj1)
     {
-        return a.a(l, i);
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new lfa();
+                }
+                kwj1.a(a);
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new leu();
+                }
+                kwj1.a(b);
+                break;
+
+            case 24: // '\030'
+                c = Long.valueOf(kwj1.d());
+                break;
+
+            case 32: // ' '
+                d = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
     }
 
-    public long a(long l, long l1)
+    public void writeTo(kwk kwk1)
     {
-        return a.a(l, l1);
-    }
-
-    public boolean c()
-    {
-        return a.c();
-    }
-
-    public long d()
-    {
-        return a.d();
+        if (a != null)
+        {
+            kwk1.b(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.longValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

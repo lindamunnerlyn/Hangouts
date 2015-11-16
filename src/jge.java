@@ -3,16 +3,104 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class jge extends jgn
+public final class jge extends kwm
 {
 
-    jge(String s)
+    public String a;
+    public Long b;
+    public String c;
+    public String d;
+
+    public jge()
     {
-        super(s);
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public boolean b(char c)
+    protected int computeSerializedSize()
     {
-        return "\u2002\u3000\r\205\u200A\u2005\u2000\u3000\u2029\013\u3000\u2008\u2003\u205F\u3000\u1680\t \u2006\u2001\u202F\240\f\u2009\u3000\u2004\u3000\u3000\u2028\n\u2007\u3000".charAt(0x6449bf0a * c >>> o) == c;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.b(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.longValue());
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.b(3, c);
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.b(4, d);
+        }
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 16: // '\020'
+                b = Long.valueOf(kwj1.e());
+                break;
+
+            case 26: // '\032'
+                c = kwj1.j();
+                break;
+
+            case 34: // '"'
+                d = kwj1.j();
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.b(2, b.longValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d);
+        }
+        super.writeTo(kwk1);
     }
 }

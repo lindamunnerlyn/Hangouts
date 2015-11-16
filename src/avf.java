@@ -2,25 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
 
 final class avf
-    implements gov
+    implements Runnable
 {
 
-    final ave a;
+    final avb a;
 
-    avf(ave ave1)
+    avf(avb avb1)
     {
-        a = ave1;
+        a = avb1;
         super();
     }
 
-    public void a(int i, Intent intent)
+    public void run()
     {
-        if (i == 1)
-        {
-            a.getActivity().finish();
-        }
+        avb.d(a);
     }
 }

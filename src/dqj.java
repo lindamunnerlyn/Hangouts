@@ -2,17 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.os.Bundle;
 
-final class dqj
-    implements Runnable
+final class dqj extends guy
 {
 
-    dqj()
+    private final int a;
+    private final hbk b;
+
+    public dqj(Context context, int i)
     {
+        super(context, "sign_out");
+        a = i;
+        b = (hbk)hlp.a(context, hbk);
     }
 
-    public void run()
+    protected gvv a()
     {
-        dqh.b();
+        b.a(a);
+        gvv gvv1 = new gvv(true);
+        gvv1.d().putInt("account_id", a);
+        return gvv1;
     }
 }

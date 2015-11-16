@@ -2,54 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
+import android.bluetooth.BluetoothHeadset;
+import android.bluetooth.BluetoothProfile;
+import java.util.Set;
 
-public final class gmb
+final class gmb
+    implements android.bluetooth.BluetoothProfile.ServiceListener
 {
 
-    private final gma a;
-    private Animator b;
+    final glt a;
 
-    public gmb(gma gma1)
+    gmb(glt glt1)
     {
-        b = new AnimatorSet();
-        a = gma1;
+        a = glt1;
+        super();
     }
 
-    private void a()
+    public void onServiceConnected(int i, BluetoothProfile bluetoothprofile)
     {
-        if (b.isStarted())
+        if (i == 1)
         {
-            b.end();
+            gne.a(3, "vclib", "BluetoothProfile.ServiceListener : onServiceConnected");
+            a.l = (BluetoothHeadset)bluetoothprofile;
+            if (a.h == gly.e)
+            {
+                a.e();
+            }
         }
     }
 
-    public void a(Animator animator)
+    public void onServiceDisconnected(int i)
     {
-        a();
-        if (!a.c())
+        if (i == 1)
         {
-            return;
-        } else
-        {
-            b = animator;
-            b.start();
-            return;
-        }
-    }
-
-    public void b(Animator animator)
-    {
-        a();
-        if (a.c())
-        {
-            return;
-        } else
-        {
-            b = animator;
-            b.start();
-            return;
+            gne.a(3, "vclib", "BluetoothProfile.ServiceListener : onServiceDisconnected");
+            a.f();
+            a.n = null;
+            a.l = null;
+            if (a.i.remove(glx.c))
+            {
+                a.d();
+            }
         }
     }
 }

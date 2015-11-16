@@ -2,35 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.Animator;
-import com.google.android.apps.hangouts.conversation.v2.FloatingButtonWithCounter;
+import android.text.TextUtils;
+import java.util.Comparator;
 
-public final class aze
-    implements android.animation.Animator.AnimatorListener
+final class aze
+    implements Comparator
 {
 
-    final FloatingButtonWithCounter a;
+    final aza a;
 
-    public aze(FloatingButtonWithCounter floatingbuttonwithcounter)
+    aze(aza aza)
     {
-        a = floatingbuttonwithcounter;
+        a = aza;
         super();
     }
 
-    public void onAnimationCancel(Animator animator)
+    public int compare(Object obj, Object obj1)
     {
-    }
-
-    public void onAnimationEnd(Animator animator)
-    {
-        FloatingButtonWithCounter.c(a);
-    }
-
-    public void onAnimationRepeat(Animator animator)
-    {
-    }
-
-    public void onAnimationStart(Animator animator)
-    {
+        obj = (asa)obj;
+        obj1 = (asa)obj1;
+        cfz cfz1 = ((asa) (obj)).h;
+        cfz cfz2 = ((asa) (obj1)).h;
+        if (TextUtils.isEmpty(cfz1.b()) || !TextUtils.isEmpty(cfz2.b()))
+        {
+            if (TextUtils.isEmpty(cfz1.b()) && !TextUtils.isEmpty(cfz2.b()))
+            {
+                return 1;
+            }
+            if (!TextUtils.isEmpty(((asa) (obj)).e) && !TextUtils.isEmpty(((asa) (obj1)).e))
+            {
+                aoz aoz = ((asa) (obj)).i;
+                aoz aoz1 = ((asa) (obj1)).i;
+                if (aoz == null && aoz1 != null)
+                {
+                    return 1;
+                }
+                if (aoz == null || aoz1 != null)
+                {
+                    return ((asa) (obj)).e.compareTo(((asa) (obj1)).e);
+                }
+            } else
+            {
+                return 0;
+            }
+        }
+        return -1;
     }
 }

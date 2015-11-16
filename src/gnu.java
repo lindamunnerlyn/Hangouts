@@ -2,11 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
-interface gnu
+final class gnu
+    implements gnn
 {
 
-    public abstract Object a(Object obj);
+    final gnr a;
 
-    public abstract void a(android.content.SharedPreferences.Editor editor, String s);
+    gnu(gnr gnr1)
+    {
+        a = gnr1;
+        super();
+    }
+
+    public void a()
+    {
+        a.a(3);
+        a.a.schedule(new gnv(this), 10L, TimeUnit.SECONDS);
+    }
 }

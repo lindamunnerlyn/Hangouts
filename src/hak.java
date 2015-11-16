@@ -3,18 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hak extends bgj
+public final class hak
 {
 
-    private static final long serialVersionUID = 0x67c1af976118ea4bL;
+    public final String a;
+    public final long b;
+    public final long c;
+    public final float d;
+    public final float e;
 
-    public hak(String s)
+    hak(hal hal1)
     {
-        super(s);
-    }
-
-    public hak(Throwable throwable)
-    {
-        super(throwable);
+        a = hal1.a;
+        b = hal1.b;
+        c = hal1.c;
+        d = hal1.d;
+        e = hal1.e;
     }
 }

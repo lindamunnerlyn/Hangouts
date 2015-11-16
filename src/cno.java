@@ -2,24 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
+import android.content.Context;
+import android.content.Intent;
+import com.google.android.apps.hangouts.phone.DebugBitmapsActivity;
 
-final class cno
-    implements Iterable
+final class cno extends coj
 {
 
-    final CharSequence a;
-    final cnl b;
+    final cna a;
 
-    cno(cnl cnl1, CharSequence charsequence)
+    cno(cna cna1, String s)
     {
-        b = cnl1;
-        a = charsequence;
-        super();
+        a = cna1;
+        super(s);
     }
 
-    public Iterator iterator()
+    public void a()
     {
-        return b.b.a(b, a);
+        Intent intent = new Intent(a.a, com/google/android/apps/hangouts/phone/DebugBitmapsActivity);
+        a.a.startActivity(intent);
     }
 }

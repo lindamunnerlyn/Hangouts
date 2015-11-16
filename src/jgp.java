@@ -2,70 +2,167 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Arrays;
 
-final class jgp extends jgb
+public final class jgp extends kwm
 {
 
-    private final char q[];
-    private final char r[];
+    public jgc a;
+    public jif b;
+    public jgc c[];
+    public jdl responseHeader;
 
-    jgp(String s, char ac[], char ac1[])
+    public jgp()
     {
-        super(s);
-        q = ac;
-        r = ac1;
-        int i;
-        boolean flag;
-        if (ac.length == ac1.length)
+        responseHeader = null;
+        a = null;
+        b = null;
+        c = jgc.a();
+        unknownFieldData = null;
+        cachedSize = -1;
+    }
+
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (responseHeader != null)
         {
-            flag = true;
-        } else
-        {
-            flag = false;
+            i = j + kwk.d(1, responseHeader);
         }
-        n.a(flag);
-        i = 0;
-        while (i < ac.length) 
+        j = i;
+        if (a != null)
         {
-            if (ac[i] <= ac1[i])
+            j = i + kwk.d(2, a);
+        }
+        i = j;
+        if (b != null)
+        {
+            i = j + kwk.d(3, b);
+        }
+        j = i;
+        if (c != null)
+        {
+            j = i;
+            if (c.length > 0)
             {
-                flag = true;
-            } else
-            {
-                flag = false;
-            }
-            n.a(flag);
-            if (i + 1 < ac.length)
-            {
-                if (ac1[i] < ac[i + 1])
+                for (j = 0; j < c.length;)
                 {
-                    flag = true;
+                    jgc jgc1 = c[j];
+                    int k = i;
+                    if (jgc1 != null)
+                    {
+                        k = i + kwk.d(4, jgc1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
+        }
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (responseHeader == null)
+                {
+                    responseHeader = new jdl();
+                }
+                kwj1.a(responseHeader);
+                break;
+
+            case 18: // '\022'
+                if (a == null)
+                {
+                    a = new jgc();
+                }
+                kwj1.a(a);
+                break;
+
+            case 26: // '\032'
+                if (b == null)
+                {
+                    b = new jif();
+                }
+                kwj1.a(b);
+                break;
+
+            case 34: // '"'
+                int k = kwx.a(kwj1, 34);
+                jgc ajgc[];
+                int j;
+                if (c == null)
+                {
+                    j = 0;
                 } else
                 {
-                    flag = false;
+                    j = c.length;
                 }
-                n.a(flag);
+                ajgc = new jgc[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(c, 0, ajgc, 0, j);
+                    k = j;
+                }
+                for (; k < ajgc.length - 1; k++)
+                {
+                    ajgc[k] = new jgc();
+                    kwj1.a(ajgc[k]);
+                    kwj1.a();
+                }
+
+                ajgc[k] = new jgc();
+                kwj1.a(ajgc[k]);
+                c = ajgc;
+                break;
             }
-            i++;
-        }
+        } while (true);
     }
 
-    public volatile boolean a(Object obj)
+    public void writeTo(kwk kwk1)
     {
-        return super.a((Character)obj);
-    }
-
-    public boolean b(char c)
-    {
-        int i = Arrays.binarySearch(q, c);
-        if (i < 0)
+        if (responseHeader != null)
         {
-            if ((i = ~i - 1) < 0 || c > r[i])
-            {
-                return false;
-            }
+            kwk1.b(1, responseHeader);
         }
-        return true;
+        if (a != null)
+        {
+            kwk1.b(2, a);
+        }
+        if (b != null)
+        {
+            kwk1.b(3, b);
+        }
+        if (c != null && c.length > 0)
+        {
+            for (int i = 0; i < c.length; i++)
+            {
+                jgc jgc1 = c[i];
+                if (jgc1 != null)
+                {
+                    kwk1.b(4, jgc1);
+                }
+            }
+
+        }
+        super.writeTo(kwk1);
     }
 }

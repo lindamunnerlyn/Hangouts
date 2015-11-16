@@ -2,87 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
-import java.util.Locale;
+import android.content.Context;
 
 public final class ctq
 {
 
-    private static final boolean a = false;
+    public static final String a = ctn.getName();
+    public static final String b = ber.getName();
+    public static final String c = ctt.getName();
+    private static ctp d;
 
-    public static irg a(String s)
+    public static void a(Context context, hlp hlp1)
     {
-        if (TextUtils.isEmpty(s))
+        if (d == null)
         {
-            return null;
-        } else
-        {
-            irg irg1 = new irg();
-            irg1.a = s;
-            return irg1;
+            d = new ctp();
         }
+        hlp1.a(ctn, d.a(context));
     }
 
-    static ixf a(iqu iqu, boolean flag, String s, int i, int j, ecs ecs1)
+    public static void a(hlp hlp1)
     {
-        return a(a(iqu, flag, s, i, ecs1), j);
-    }
-
-    static ixf a(iqu iqu, boolean flag, String s, int i, ecs ecs1)
-    {
-        ixf ixf1 = new ixf();
-        ixf1.a = ecs1.e();
-        long l = dcx.a();
-        if (l != 0L || !TextUtils.isEmpty(s))
+        if (d == null)
         {
-            ixf1.b = new iqt();
-            if (l != 0L)
-            {
-                ixf1.b.b = Long.toString(l);
-                ixf1.b.c = Long.toString(l);
-            }
-            if (!TextUtils.isEmpty(s))
-            {
-                ixf1.b.a = s;
-            }
+            d = new ctp();
         }
-        if (iqu != null)
-        {
-            ixf1.c = iqu;
-        }
-        if (flag)
-        {
-            ixf1.d = Locale.getDefault().toString();
-        }
-        ixf1.f = Integer.valueOf(i);
-        return ixf1;
+        hlp1.a(ber, d.a());
     }
 
-    static ixf a(ixf ixf1, int i)
+    public static void b(hlp hlp1)
     {
-        if (i != -1 && dbq.j(i))
+        if (d == null)
         {
-            daz daz1 = new daz(g.nS);
-            long l = daz1.a(i);
-            long l1 = daz1.b(i);
-            if (l != -1L && l1 != -1L)
-            {
-                ixf1.i = new iqm();
-                ixf1.i.c = Long.valueOf(l);
-                ixf1.i.d = Long.valueOf(l1);
-                return ixf1;
-            }
+            d = new ctp();
         }
-        return ixf1;
+        hlp1.a(ctt, d.b());
     }
 
-    static ixf a(String s, int i, int j, ecs ecs1)
-    {
-        return a(null, false, s, i, j, ecs1);
-    }
-
-    static 
-    {
-        hik hik = ebw.k;
-    }
 }

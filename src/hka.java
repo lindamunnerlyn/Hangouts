@@ -2,9 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.widget.ListView;
 
-public interface hka
+final class hka
+    implements Runnable
 {
 
-    public abstract void E_();
+    final hjy a;
+
+    hka(hjy hjy1)
+    {
+        a = hjy1;
+        super();
+    }
+
+    public void run()
+    {
+        hjy.b(a).focusableViewAvailable(hjy.b(a));
+    }
 }

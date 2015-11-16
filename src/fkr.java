@@ -2,62 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
-import com.google.android.gms.maps.model.LatLng;
+import android.os.Binder;
+import android.os.Parcel;
 
-public interface fkr
-    extends IInterface
+public abstract class fkr extends Binder
+    implements fkq
 {
 
-    public abstract void a();
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    {
+        switch (i)
+        {
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
 
-    public abstract void a(float f1);
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.maps.internal.IOnIndoorStateChangeListener");
+            return true;
 
-    public abstract void a(float f1, float f2);
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnIndoorStateChangeListener");
+            a();
+            parcel1.writeNoException();
+            return true;
 
-    public abstract void a(LatLng latlng);
-
-    public abstract void a(ezy ezy);
-
-    public abstract void a(String s);
-
-    public abstract void a(boolean flag);
-
-    public abstract boolean a(fkr fkr1);
-
-    public abstract String b();
-
-    public abstract void b(float f1);
-
-    public abstract void b(float f1, float f2);
-
-    public abstract void b(String s);
-
-    public abstract void b(boolean flag);
-
-    public abstract LatLng c();
-
-    public abstract void c(boolean flag);
-
-    public abstract String d();
-
-    public abstract String e();
-
-    public abstract boolean f();
-
-    public abstract void g();
-
-    public abstract void h();
-
-    public abstract boolean i();
-
-    public abstract boolean j();
-
-    public abstract int k();
-
-    public abstract boolean l();
-
-    public abstract float m();
-
-    public abstract float n();
+        case 2: // '\002'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnIndoorStateChangeListener");
+            a(fnl.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            return true;
+        }
+    }
 }

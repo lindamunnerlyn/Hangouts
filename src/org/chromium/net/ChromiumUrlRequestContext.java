@@ -9,14 +9,15 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
 import android.util.Log;
+import lmb;
 
 // Referenced classes of package org.chromium.net:
-//            CronetLibraryLoader, UrlRequestContextConfig, Version
+//            CronetLibraryLoader, UrlRequestContextConfig
 
 public class ChromiumUrlRequestContext
 {
 
-    private long a;
+    public long a;
 
     protected ChromiumUrlRequestContext(Context context, String s, UrlRequestContextConfig urlrequestcontextconfig)
     {
@@ -37,23 +38,13 @@ public class ChromiumUrlRequestContext
             throw new NullPointerException("Context Adapter creation failed");
         } else
         {
-            context = new _cls1();
+            context = new lmb(this);
             (new Handler(Looper.getMainLooper())).post(context);
             return;
         }
     }
 
-    static long a(ChromiumUrlRequestContext chromiumurlrequestcontext)
-    {
-        return chromiumurlrequestcontext.a;
-    }
-
-    public static String a()
-    {
-        return Version.a();
-    }
-
-    static void a(ChromiumUrlRequestContext chromiumurlrequestcontext, long l)
+    public static void a(ChromiumUrlRequestContext chromiumurlrequestcontext, long l)
     {
         chromiumurlrequestcontext.nativeInitRequestContextOnMainThread(l);
     }
@@ -78,33 +69,17 @@ public class ChromiumUrlRequestContext
 
     private native void nativeStopNetLog(long l);
 
-    protected long b()
+    protected long a()
     {
         return a;
     }
 
     protected void finalize()
     {
-        nativeReleaseRequestContextAdapter(a);
+        if (a != 0L)
+        {
+            nativeReleaseRequestContextAdapter(a);
+        }
         super.finalize();
     }
-
-    private class _cls1
-        implements Runnable
-    {
-
-        final ChromiumUrlRequestContext a;
-
-        public void run()
-        {
-            ChromiumUrlRequestContext.a(a, ChromiumUrlRequestContext.a(a));
-        }
-
-        _cls1()
-        {
-            a = ChromiumUrlRequestContext.this;
-            super();
-        }
-    }
-
 }

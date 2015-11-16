@@ -2,23 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.views.MessageListItemView;
-import java.util.List;
+import android.view.animation.Animation;
 
 final class awf
-    implements aqh
+    implements android.view.animation.Animation.AnimationListener
 {
 
-    final ave a;
+    final boolean a;
+    final avv b;
 
-    awf(ave ave1)
+    awf(avv avv1, boolean flag)
     {
-        a = ave1;
+        b = avv1;
+        a = flag;
         super();
     }
 
-    public void a(MessageListItemView messagelistitemview)
+    public void onAnimationEnd(Animation animation)
     {
-        a.e.add(messagelistitemview);
+        if (a && avv.X(b) != null)
+        {
+            avv.X(b).run();
+            avv.Y(b);
+        }
+    }
+
+    public void onAnimationRepeat(Animation animation)
+    {
+    }
+
+    public void onAnimationStart(Animation animation)
+    {
     }
 }

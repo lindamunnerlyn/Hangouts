@@ -2,25 +2,14 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import com.google.android.apps.hangouts.hangout.ParticipantTrayView;
+import android.content.Context;
+import java.util.List;
 
-final class brl
-    implements android.view.View.OnClickListener
+public interface brl
+    extends Comparable
 {
 
-    final brk a;
+    public abstract int a();
 
-    brl(brk brk1)
-    {
-        a = brk1;
-        super();
-    }
-
-    public void onClick(View view)
-    {
-        a.f.a(a);
-        a.d();
-        a.e();
-    }
+    public abstract List a(Context context, bpc bpc, gmt gmt, bpm bpm);
 }

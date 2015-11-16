@@ -3,42 +3,28 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class fro
-    implements eju
+final class fro extends Thread
 {
 
-    public static final fro a = (new frp()).a();
-    private final boolean b;
-    private final boolean c;
-    private final String d;
-    private final a e;
+    final frn a;
 
-    fro(boolean flag, boolean flag1, String s, a a1)
+    public fro(frn frn1)
     {
-        b = flag;
-        c = flag1;
-        d = s;
-        e = a1;
+        a = frn1;
+        super("PeopleAggregator-aggregator");
     }
 
-    public boolean a()
+    public final void run()
     {
-        return b;
+        try
+        {
+            frn.a(a);
+            return;
+        }
+        catch (Exception exception)
+        {
+            g.a("PeopleAggregator", "Unknown exception during aggregation", exception);
+        }
+        a.d();
     }
-
-    public boolean b()
-    {
-        return c;
-    }
-
-    public String c()
-    {
-        return d;
-    }
-
-    public a d()
-    {
-        return e;
-    }
-
 }

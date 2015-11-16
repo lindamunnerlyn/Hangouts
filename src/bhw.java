@@ -2,22 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.fragments.ConversationInviteListFragment;
+import java.io.Serializable;
 
-public final class bhw
-    implements gmy
+public final class bhw extends bhx
+    implements Serializable
 {
 
-    final ConversationInviteListFragment a;
+    public final String a;
 
-    public bhw(ConversationInviteListFragment conversationinvitelistfragment)
+    public bhw(String s)
     {
-        a = conversationinvitelistfragment;
-        super();
+        a = s;
     }
 
-    public void F_()
+    public String a()
     {
-        ConversationInviteListFragment.a(a);
+        return a;
+    }
+
+    public String toString()
+    {
+        return a;
     }
 }

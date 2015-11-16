@@ -2,22 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.phone.ViewVCardActivity;
+import android.view.View;
+import com.google.android.apps.hangouts.phone.GoogleVoiceTermsOfServiceActivity;
 
-final class cpp
-    implements Runnable
+public final class cpp
+    implements android.view.View.OnClickListener
 {
 
-    final cpo a;
+    final GoogleVoiceTermsOfServiceActivity a;
 
-    cpp(cpo cpo1)
+    public cpp(GoogleVoiceTermsOfServiceActivity googlevoicetermsofserviceactivity)
     {
-        a = cpo1;
+        a = googlevoicetermsofserviceactivity;
         super();
     }
 
-    public void run()
+    public void onClick(View view)
     {
-        ViewVCardActivity.d(a.b);
+        GoogleVoiceTermsOfServiceActivity.a(a, 0);
     }
 }

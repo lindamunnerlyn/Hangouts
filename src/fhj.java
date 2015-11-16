@@ -2,52 +2,135 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.Parcel;
+import java.util.Collection;
+import java.util.Iterator;
 
-public abstract class fhj extends Binder
-    implements fhi
+final class fhj
+    implements Collection
 {
 
-    public static fhi a(IBinder ibinder)
+    final fhe a;
+
+    fhj(fhe fhe1)
     {
-        if (ibinder == null)
+        a = fhe1;
+        super();
+    }
+
+    public boolean add(Object obj)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public boolean addAll(Collection collection)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void clear()
+    {
+        a.c();
+    }
+
+    public boolean contains(Object obj)
+    {
+        return a.b(obj) >= 0;
+    }
+
+    public boolean containsAll(Collection collection)
+    {
+        for (collection = collection.iterator(); collection.hasNext();)
         {
-            return null;
+            if (!contains(collection.next()))
+            {
+                return false;
+            }
         }
-        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.maps.internal.ICancelableCallback");
-        if (iinterface != null && (iinterface instanceof fhi))
+
+        return true;
+    }
+
+    public boolean isEmpty()
+    {
+        return a.a() == 0;
+    }
+
+    public Iterator iterator()
+    {
+        return new fhf(a, 1);
+    }
+
+    public boolean remove(Object obj)
+    {
+        int i = a.b(obj);
+        if (i >= 0)
         {
-            return (fhi)iinterface;
+            a.a(i);
+            return true;
         } else
         {
-            return new fhk(ibinder);
+            return false;
         }
     }
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    public boolean removeAll(Collection collection)
     {
-        switch (i)
+        int i = 0;
+        int j = a.a();
+        boolean flag = false;
+        int k;
+        for (; i < j; j = k)
         {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
-
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.maps.internal.ICancelableCallback");
-            return true;
-
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.ICancelableCallback");
-            a();
-            parcel1.writeNoException();
-            return true;
-
-        case 2: // '\002'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.ICancelableCallback");
-            b();
-            parcel1.writeNoException();
-            return true;
+            int l = i;
+            k = j;
+            if (collection.contains(a.a(i, 1)))
+            {
+                a.a(i);
+                l = i - 1;
+                k = j - 1;
+                flag = true;
+            }
+            i = l + 1;
         }
+
+        return flag;
+    }
+
+    public boolean retainAll(Collection collection)
+    {
+        int i = 0;
+        int j = a.a();
+        boolean flag = false;
+        int k;
+        for (; i < j; j = k)
+        {
+            int l = i;
+            k = j;
+            if (!collection.contains(a.a(i, 1)))
+            {
+                a.a(i);
+                l = i - 1;
+                k = j - 1;
+                flag = true;
+            }
+            i = l + 1;
+        }
+
+        return flag;
+    }
+
+    public int size()
+    {
+        return a.a();
+    }
+
+    public Object[] toArray()
+    {
+        return a.b(1);
+    }
+
+    public Object[] toArray(Object aobj[])
+    {
+        return a.a(aobj, 1);
     }
 }

@@ -2,51 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.animation.Animator;
+import com.google.android.apps.hangouts.views.ConversationListItemWrapper;
 
-public final class egs extends eez
+public final class egs
+    implements android.animation.Animator.AnimatorListener
 {
 
-    private String a;
+    final Runnable a;
+    final ConversationListItemWrapper b;
 
-    public egs(Context context)
+    public egs(ConversationListItemWrapper conversationlistitemwrapper, Runnable runnable)
     {
-        this(context, (byte)0);
+        b = conversationlistitemwrapper;
+        a = runnable;
+        super();
     }
 
-    private egs(Context context, byte byte0)
+    public void onAnimationCancel(Animator animator)
     {
-        super(context, null);
     }
 
-    static String a(egs egs1)
+    public void onAnimationEnd(Animator animator)
     {
-        return egs1.a;
+        a.run();
     }
 
-    public void a(ani ani, boolean flag, String s, String s1, ad ad, int i, int j, 
-            int k)
+    public void onAnimationRepeat(Animator animator)
     {
-        a(s);
-        setOnClickListener(new egt(this, s, s1, ad));
-        a(l.ts);
-        if (drk.a())
-        {
-            s = a;
-        } else
-        {
-            s = null;
-        }
-        super.a(ani, flag, s, i, j, k);
     }
 
-    public void a(String s)
+    public void onAnimationStart(Animator animator)
     {
-        a = s;
-    }
-
-    protected boolean f()
-    {
-        return true;
     }
 }

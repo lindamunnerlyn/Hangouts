@@ -2,38 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
-import android.util.SparseArray;
-import com.google.android.apps.hangouts.permissions.impl.RationaleActivity;
+import android.view.View;
+import java.util.ArrayList;
+import java.util.List;
 
 final class cif
-    implements gov
+    implements android.view.View.OnClickListener
 {
 
-    final cie a;
+    final View a;
+    final cic b;
 
-    cif(cie cie1)
+    cif(cic cic1, View view)
     {
-        a = cie1;
+        b = cic1;
+        a = view;
         super();
     }
 
-    public void a(int i, Intent intent)
+    public void onClick(View view)
     {
-        intent = RationaleActivity.a(intent);
-        Object obj = (cik)cie.a(a).get(((ciq) (intent)).a);
-        cie cie1 = a;
-        int j = ((cik) (obj)).a;
-        obj = ((ciq) (intent)).b;
-        boolean flag;
-        if (i == -1)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        cie.a(cie1, j, ((java.util.List) (obj)), true, flag);
-        cie.a(a, ((ciq) (intent)).a, ((ciq) (intent)).b);
+        a.setVisibility(8);
+        view = (cjg)cic.d(b).a(cjg);
+        ArrayList arraylist = new ArrayList();
+        arraylist.add("android.permission.READ_CONTACTS");
+        arraylist.add("android.permission.WRITE_CONTACTS");
+        view.a(l.tY, arraylist, 2653, null);
     }
 }

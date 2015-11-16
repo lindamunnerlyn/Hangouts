@@ -4,23 +4,19 @@
 
 
 final class gpj
-    implements hhy
+    implements goz
 {
 
-    gpj()
+    final gpi a;
+
+    gpj(gpi gpi)
     {
+        a = gpi;
+        super();
     }
 
-    public Class a()
+    public boolean a(gpb gpb, gpw gpw, StringBuilder stringbuilder, String as[])
     {
-        return gpd;
-    }
-
-    public void a(ad ad1, hjm hjm, hgx hgx1)
-    {
-        if (ad1.getActivity() instanceof ily)
-        {
-            hgx1.a(gpd, ((gpi)g.a(ad1.getActivity(), gpi)).b());
-        }
+        return goy.b(gpb, gpw, stringbuilder, as);
     }
 }

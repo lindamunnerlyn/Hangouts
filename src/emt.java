@@ -2,73 +2,74 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.accounts.Account;
-import android.content.Context;
-import android.os.Binder;
-import android.os.RemoteException;
 
-public final class emt extends emr
+public final class emt
 {
 
-    int a;
-    private Account b;
-    private Context c;
+    private final emu a;
+    private final a b = null;
+    private final emx c;
+    private final g d = null;
+    private final String e;
 
-    public static Account a(emq emq1)
+    public emt(String s, emu emu, emx emx)
     {
-        Account account = null;
-        if (emq1 != null)
-        {
-            long l = Binder.clearCallingIdentity();
-            try
-            {
-                account = emq1.a();
-            }
-            // Misplaced declaration of an exception variable
-            catch (emq emq1)
-            {
-                Binder.restoreCallingIdentity(l);
-                return null;
-            }
-            finally
-            {
-                Binder.restoreCallingIdentity(l);
-            }
-            Binder.restoreCallingIdentity(l);
-        }
-        return account;
-        throw emq1;
+        g.b(emu, "Cannot construct an Api with a null ClientBuilder");
+        g.b(emx, "Cannot construct an Api with a null ClientKey");
+        e = s;
+        a = emu;
+        c = emx;
     }
 
-    public Account a()
+    public emu a()
     {
-        int i = Binder.getCallingUid();
-        if (i == a)
+        boolean flag;
+        if (a != null)
         {
-            return b;
-        }
-        if (ejn.a(c, i))
-        {
-            a = i;
-            return b;
+            flag = true;
         } else
         {
-            throw new SecurityException("Caller is not GooglePlayServices");
+            flag = false;
         }
+        g.a(flag, "This API was constructed with a SimpleClientBuilder. Use getSimpleClientBuilder");
+        return a;
     }
 
-    public boolean equals(Object obj)
+    public a b()
     {
-        if (this == obj)
+        boolean flag;
+        if (b != null)
         {
-            return true;
-        }
-        if (!(obj instanceof emt))
-        {
-            return false;
+            flag = true;
         } else
         {
-            return b.equals(((emt)obj).b);
+            flag = false;
         }
+        g.a(flag, "This API was constructed with a ClientBuilder. Use getClientBuilder");
+        return b;
+    }
+
+    public emx c()
+    {
+        boolean flag;
+        if (c != null)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        g.a(flag, "This API was constructed with a SimpleClientKey. Use getSimpleClientKey");
+        return c;
+    }
+
+    public boolean d()
+    {
+        return d != null;
+    }
+
+    public String e()
+    {
+        return e;
     }
 }

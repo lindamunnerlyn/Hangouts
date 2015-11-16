@@ -2,23 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.hangout.RemoteParticipantPopupMenu;
-import java.util.Iterator;
-import java.util.List;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
+import com.google.android.apps.hangouts.hangout.PresentToAllBannerView;
 
-public final class bsa extends bnk
+public final class bsa extends Animation
 {
 
-    final RemoteParticipantPopupMenu a;
+    final android.widget.RelativeLayout.LayoutParams a;
+    final int b;
+    final PresentToAllBannerView c;
 
-    public bsa(RemoteParticipantPopupMenu remoteparticipantpopupmenu)
+    bsa(PresentToAllBannerView presenttoallbannerview, android.widget.RelativeLayout.LayoutParams layoutparams, int i)
     {
-        a = remoteparticipantpopupmenu;
+        c = presenttoallbannerview;
+        a = layoutparams;
+        b = i;
         super();
     }
 
-    public void c(gjr gjr)
+    protected void applyTransformation(float f, Transformation transformation)
     {
-        for (Iterator iterator = RemoteParticipantPopupMenu.a(a).iterator(); iterator.hasNext(); ((bov)iterator.next()).a(gjr)) { }
+        a.topMargin = (int)((float)b * f) + 0;
+        c.setLayoutParams(a);
     }
 }

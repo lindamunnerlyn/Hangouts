@@ -3,26 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class dhu
-    implements acr
+public final class dhu
 {
 
-    final dht a;
-    private long b;
+    public final int a;
+    public final long b;
+    public final long c;
+    public final long d;
+    public final long e;
 
-    dhu(dht dht)
+    public dhu(int i, long l, long l1, long l2, 
+            long l3)
     {
-        a = dht;
-        super();
-    }
-
-    public long a()
-    {
-        return b;
-    }
-
-    public void a(long l)
-    {
+        a = i;
         b = l;
+        c = l1;
+        d = l2;
+        e = l3;
     }
 }

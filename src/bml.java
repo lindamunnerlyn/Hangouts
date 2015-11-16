@@ -2,83 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.res.Resources;
-import android.media.ToneGenerator;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ListView;
+import java.util.ArrayList;
+import java.util.List;
 
-public final class bml
+public final class bml extends ac
 {
 
-    private boolean a;
-    private final Context b;
-    private final bmr c = new bmr();
-    private ToneGenerator d;
-
-    public bml(Context context)
+    public bml()
     {
-        b = context;
-        try
-        {
-            d = new ToneGenerator(8, 80);
-        }
-        // Misplaced declaration of an exception variable
-        catch (Context context)
-        {
-            context = String.valueOf(context);
-            ebw.f("Babel_dialer", (new StringBuilder(String.valueOf(context).length() + 54)).append("Exception caught while creating local tone generator: ").append(context).toString());
-            d = null;
-        }
-        try
-        {
-            c.a(b, b.getResources().getBoolean(g.da));
-        }
-        // Misplaced declaration of an exception variable
-        catch (Context context)
-        {
-            ebw.e("Babel_dialer", "Vibrate control bool missing.", context);
-        }
-        b();
     }
 
-    public void a()
+    public Dialog a(Bundle bundle)
     {
-        if (d != null)
-        {
-            d.release();
-            d = null;
-        }
+        bundle = new android.app.AlertDialog.Builder(getActivity());
+        View view = getActivity().getLayoutInflater().inflate(g.gV, null);
+        ListView listview = (ListView)view.findViewById(h.bF);
+        Resources resources = getActivity().getResources();
+        String s = dul.a(dul.b());
+        ArrayList arraylist = new ArrayList();
+        arraylist.add(resources.getString(l.aE));
+        arraylist.add(resources.getString(l.aK, new Object[] {
+            s
+        }));
+        arraylist.add(resources.getString(l.x, new Object[] {
+            s
+        }));
+        listview.setAdapter(new bmm(this, getActivity(), arraylist));
+        bundle.setTitle(l.jT).setView(view);
+        return bundle.create();
     }
 
-    public void a(int i)
+    public void onCancel(DialogInterface dialoginterface)
     {
-        if (a && d != null)
-        {
-            d.startTone(i, -1);
-        }
-    }
-
-    public void b()
-    {
-        boolean flag = true;
-        if (android.provider.Settings.System.getInt(b.getContentResolver(), "dtmf_tone", 1) != 1)
-        {
-            flag = false;
-        }
-        a = flag;
-        c.a();
-    }
-
-    public void c()
-    {
-        while (!a || d == null) 
-        {
-            return;
-        }
-        d.stopTone();
-    }
-
-    public void d()
-    {
-        c.b();
+        ((bmk)getTargetFragment()).getActivity().finish();
     }
 }

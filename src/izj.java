@@ -3,16 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class izj extends koj
+public final class izj extends kwm
 {
 
-    public ivz a[];
-    public ixf requestHeader;
+    public String a;
+    public String b;
+    public Boolean c;
+    public Boolean d;
 
     public izj()
     {
-        requestHeader = null;
-        a = ivz.a();
+        a = null;
+        b = null;
+        c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,43 +25,39 @@ public final class izj extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (requestHeader != null)
+        if (b != null)
         {
-            i = j + koh.d(1, requestHeader);
+            i = j + kwk.b(1, b);
         }
         j = i;
+        if (c != null)
+        {
+            c.booleanValue();
+            j = i + (kwk.f(2) + 1);
+        }
+        i = j;
         if (a != null)
         {
-            j = i;
-            if (a.length > 0)
-            {
-                for (j = 0; j < a.length;)
-                {
-                    ivz ivz1 = a[j];
-                    int k = i;
-                    if (ivz1 != null)
-                    {
-                        k = i + koh.d(2, ivz1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            i = j + kwk.b(3, a);
+        }
+        j = i;
+        if (d != null)
+        {
+            d.booleanValue();
+            j = i + (kwk.f(4) + 1);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -67,64 +67,42 @@ public final class izj extends koj
                 return this;
 
             case 10: // '\n'
-                if (requestHeader == null)
-                {
-                    requestHeader = new ixf();
-                }
-                kog1.a(requestHeader);
+                b = kwj1.j();
                 break;
 
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                ivz aivz[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                aivz = new ivz[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aivz, 0, j);
-                    k = j;
-                }
-                for (; k < aivz.length - 1; k++)
-                {
-                    aivz[k] = new ivz();
-                    kog1.a(aivz[k]);
-                    kog1.a();
-                }
+            case 16: // '\020'
+                c = Boolean.valueOf(kwj1.i());
+                break;
 
-                aivz[k] = new ivz();
-                kog1.a(aivz[k]);
-                a = aivz;
+            case 26: // '\032'
+                a = kwj1.j();
+                break;
+
+            case 32: // ' '
+                d = Boolean.valueOf(kwj1.i());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (requestHeader != null)
+        if (b != null)
         {
-            koh1.b(1, requestHeader);
+            kwk1.a(1, b);
         }
-        if (a != null && a.length > 0)
+        if (c != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                ivz ivz1 = a[i];
-                if (ivz1 != null)
-                {
-                    koh1.b(2, ivz1);
-                }
-            }
-
+            kwk1.a(2, c.booleanValue());
         }
-        super.writeTo(koh1);
+        if (a != null)
+        {
+            kwk1.a(3, a);
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

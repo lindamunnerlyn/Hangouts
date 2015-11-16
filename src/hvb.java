@@ -3,16 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hvb extends koj
+public final class hvb extends kwm
 {
 
-    public hwc a;
-    public hva b[];
+    public Long a;
+    public String b;
+    public String c;
 
     public hvb()
     {
         a = null;
-        b = hva.a();
+        b = null;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -23,41 +25,30 @@ public final class hvb extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.e(2, a.longValue());
         }
         j = i;
         if (b != null)
         {
-            j = i;
-            if (b.length > 0)
-            {
-                for (j = 0; j < b.length;)
-                {
-                    hva hva1 = b[j];
-                    int k = i;
-                    if (hva1 != null)
-                    {
-                        k = i + koh.d(2, hva1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            j = i + kwk.b(3, b);
         }
-        return j;
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.b(4, c);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -66,65 +57,35 @@ public final class hvb extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new hwc();
-                }
-                kog1.a(a);
+            case 16: // '\020'
+                a = Long.valueOf(kwj1.e());
                 break;
 
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                hva ahva[];
-                int j;
-                if (b == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
-                }
-                ahva = new hva[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, ahva, 0, j);
-                    k = j;
-                }
-                for (; k < ahva.length - 1; k++)
-                {
-                    ahva[k] = new hva();
-                    kog1.a(ahva[k]);
-                    kog1.a();
-                }
+            case 26: // '\032'
+                b = kwj1.j();
+                break;
 
-                ahva[k] = new hva();
-                kog1.a(ahva[k]);
-                b = ahva;
+            case 34: // '"'
+                c = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.b(2, a.longValue());
         }
-        if (b != null && b.length > 0)
+        if (b != null)
         {
-            for (int i = 0; i < b.length; i++)
-            {
-                hva hva1 = b[i];
-                if (hva1 != null)
-                {
-                    koh1.b(2, hva1);
-                }
-            }
-
+            kwk1.a(3, b);
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.a(4, c);
+        }
+        super.writeTo(kwk1);
     }
 }

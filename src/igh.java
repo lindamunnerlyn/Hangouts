@@ -3,7 +3,7 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class igh extends koj
+public final class igh extends kwm
 {
 
     public String a;
@@ -21,34 +21,24 @@ public final class igh extends koj
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
+        int j = super.computeSerializedSize() + kwk.b(1, a) + kwk.b(2, b);
         int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.b(2, b);
-        }
-        i = j;
         if (c != null)
         {
-            i = j + koh.b(3, c);
+            i = j + kwk.b(3, c);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -58,34 +48,28 @@ public final class igh extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                a = kwj1.j();
                 break;
 
             case 18: // '\022'
-                b = kog1.j();
+                b = kwj1.j();
                 break;
 
             case 26: // '\032'
-                c = kog1.j();
+                c = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
+        kwk1.a(1, a);
+        kwk1.a(2, b);
         if (c != null)
         {
-            koh1.a(3, c);
+            kwk1.a(3, c);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

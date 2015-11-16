@@ -3,10 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface bpy
+public final class bpy
+    implements Runnable
 {
 
-    public abstract void a();
+    final gda a;
 
-    public abstract void b();
+    public bpy(gda gda1)
+    {
+        a = gda1;
+        super();
+    }
+
+    public void run()
+    {
+        a.a().d();
+    }
 }

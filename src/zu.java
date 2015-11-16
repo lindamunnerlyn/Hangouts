@@ -2,35 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
-import android.support.v7.widget.ShareActionProvider;
-import android.view.MenuItem;
+import android.os.Bundle;
+import android.view.View;
 
-public final class zu
-    implements android.view.MenuItem.OnMenuItemClickListener
+final class zu extends hp
 {
 
-    final ShareActionProvider a;
+    final zt b;
 
-    public zu(ShareActionProvider shareactionprovider)
+    zu(zt zt1)
     {
-        a = shareactionprovider;
+        b = zt1;
         super();
     }
 
-    public boolean onMenuItemClick(MenuItem menuitem)
+    public void a(View view, mq mq)
     {
-        menuitem = ue.a(ShareActionProvider.a(a), ShareActionProvider.b(a)).b(menuitem.getItemId());
-        if (menuitem != null)
+        super.a(view, mq);
+        if (!b.b.x() && b.b.d() != null)
         {
-            String s = menuitem.getAction();
-            if ("android.intent.action.SEND".equals(s) || "android.intent.action.SEND_MULTIPLE".equals(s))
-            {
-                ShareActionProvider.a(menuitem);
-            }
-            ShareActionProvider.a(a).startActivity(menuitem);
+            b.b.d().a(view, mq);
         }
-        return true;
+    }
+
+    public boolean a(View view, int i, Bundle bundle)
+    {
+        if (super.a(view, i, bundle))
+        {
+            return true;
+        }
+        if (!b.b.x() && b.b.d() != null)
+        {
+            return b.b.d().v();
+        } else
+        {
+            return false;
+        }
     }
 }

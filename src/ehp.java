@@ -3,58 +3,30 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ehp
+final class ehp
+    implements aik
 {
 
-    private ftc a;
+    final ehl a;
+    private final aii b;
 
-    public ehp()
+    ehp(ehl ehl1, aii aii1)
     {
-        this(new ftc());
+        a = ehl1;
+        super();
+        b = aii1;
+        aii1.a(this);
     }
 
-    private ehp(ftc ftc1)
+    public void a()
     {
-        a = ftc1;
-    }
-
-    public ftc a()
-    {
-        return a;
+        if (ehl.a(a) != null)
+        {
+            a.setChecked(b.c(ehl.a(a)));
+        }
     }
 
     public void a(String s)
     {
-        a.a("18", s);
-    }
-
-    public void a(boolean flag)
-    {
-        a.a("21", flag);
-    }
-
-    public void b(String s)
-    {
-        a.a("9", s);
-    }
-
-    public void b(boolean flag)
-    {
-        a.a("33", flag);
-    }
-
-    public void c(String s)
-    {
-        a.a("3", s);
-    }
-
-    public void d(String s)
-    {
-        a.a("32", s);
-    }
-
-    public void e(String s)
-    {
-        a.a("10", s);
     }
 }

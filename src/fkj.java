@@ -2,192 +2,363 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
 import android.os.IBinder;
 import android.os.Parcel;
-import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.GoogleMapOptions;
+import com.google.android.gms.maps.StreetViewPanoramaOptions;
 
-public abstract class fkj extends Binder
-    implements fki
+final class fkj
+    implements fkh
 {
 
-    public static fki a(IBinder ibinder)
+    private IBinder a;
+
+    fkj(IBinder ibinder)
     {
-        if (ibinder == null)
-        {
-            return null;
-        }
-        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-        if (iinterface != null && (iinterface instanceof fki))
-        {
-            return (fki)iinterface;
-        } else
-        {
-            return new fkk(ibinder);
-        }
+        a = ibinder;
     }
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    public fja a()
     {
-        boolean flag = false;
-        boolean flag1 = false;
-        boolean flag2 = false;
-        switch (i)
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        Object obj;
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.ICreator");
+        a.transact(4, parcel, parcel1, 0);
+        parcel1.readException();
+        obj = parcel1.readStrongBinder();
+        if (obj != null) goto _L2; else goto _L1
+_L1:
+        obj = null;
+_L3:
+        parcel1.recycle();
+        parcel.recycle();
+        return ((fja) (obj));
+_L2:
+        android.os.IInterface iinterface = ((IBinder) (obj)).queryLocalInterface("com.google.android.gms.maps.internal.ICameraUpdateFactoryDelegate");
+        if (iinterface == null)
         {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
-
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            return true;
-
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            a();
-            parcel1.writeNoException();
-            return true;
-
-        case 2: // '\002'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            parcel = b();
-            parcel1.writeNoException();
-            parcel1.writeString(parcel);
-            return true;
-
-        case 3: // '\003'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            if (parcel.readInt() != 0)
-            {
-                flh flh1 = LatLng.CREATOR;
-                parcel = flh.a(parcel);
-            } else
-            {
-                parcel = null;
-            }
-            a(parcel);
-            parcel1.writeNoException();
-            return true;
-
-        case 4: // '\004'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            parcel = c();
-            parcel1.writeNoException();
-            if (parcel != null)
-            {
-                parcel1.writeInt(1);
-                parcel.writeToParcel(parcel1, 1);
-                return true;
-            } else
-            {
-                parcel1.writeInt(0);
-                return true;
-            }
-
-        case 5: // '\005'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            a(parcel.readDouble());
-            parcel1.writeNoException();
-            return true;
-
-        case 6: // '\006'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            double d = d();
-            parcel1.writeNoException();
-            parcel1.writeDouble(d);
-            return true;
-
-        case 7: // '\007'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            a(parcel.readFloat());
-            parcel1.writeNoException();
-            return true;
-
-        case 8: // '\b'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            float f = e();
-            parcel1.writeNoException();
-            parcel1.writeFloat(f);
-            return true;
-
-        case 9: // '\t'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            a(parcel.readInt());
-            parcel1.writeNoException();
-            return true;
-
-        case 10: // '\n'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            i = f();
-            parcel1.writeNoException();
-            parcel1.writeInt(i);
-            return true;
-
-        case 11: // '\013'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            b(parcel.readInt());
-            parcel1.writeNoException();
-            return true;
-
-        case 12: // '\f'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            i = g();
-            parcel1.writeNoException();
-            parcel1.writeInt(i);
-            return true;
-
-        case 13: // '\r'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            b(parcel.readFloat());
-            parcel1.writeNoException();
-            return true;
-
-        case 14: // '\016'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            float f1 = h();
-            parcel1.writeNoException();
-            parcel1.writeFloat(f1);
-            return true;
-
-        case 15: // '\017'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            if (parcel.readInt() != 0)
-            {
-                flag2 = true;
-            }
-            a(flag2);
-            parcel1.writeNoException();
-            return true;
-
-        case 16: // '\020'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            boolean flag3 = i();
-            parcel1.writeNoException();
-            i = ((flag) ? 1 : 0);
-            if (flag3)
-            {
-                i = 1;
-            }
-            parcel1.writeInt(i);
-            return true;
-
-        case 17: // '\021'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            boolean flag4 = a(a(parcel.readStrongBinder()));
-            parcel1.writeNoException();
-            i = ((flag1) ? 1 : 0);
-            if (flag4)
-            {
-                i = 1;
-            }
-            parcel1.writeInt(i);
-            return true;
-
-        case 18: // '\022'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ICircleDelegate");
-            i = j();
-            parcel1.writeNoException();
-            parcel1.writeInt(i);
-            return true;
+            break MISSING_BLOCK_LABEL_85;
         }
+        if (!(iinterface instanceof fja))
+        {
+            break MISSING_BLOCK_LABEL_85;
+        }
+        obj = (fja)iinterface;
+          goto _L3
+        obj = new fjc(((IBinder) (obj)));
+          goto _L3
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public fjm a(fcw fcw1, GoogleMapOptions googlemapoptions)
+    {
+        Object obj;
+        Parcel parcel;
+        Parcel parcel1;
+        obj = null;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.ICreator");
+        if (fcw1 == null) goto _L2; else goto _L1
+_L1:
+        fcw1 = fcw1.asBinder();
+_L7:
+        parcel.writeStrongBinder(fcw1);
+        if (googlemapoptions == null) goto _L4; else goto _L3
+_L3:
+        parcel.writeInt(1);
+        googlemapoptions.writeToParcel(parcel, 0);
+_L8:
+        a.transact(3, parcel, parcel1, 0);
+        parcel1.readException();
+        fcw1 = parcel1.readStrongBinder();
+        if (fcw1 != null) goto _L6; else goto _L5
+_L5:
+        fcw1 = obj;
+_L9:
+        parcel1.recycle();
+        parcel.recycle();
+        return fcw1;
+_L2:
+        fcw1 = null;
+          goto _L7
+_L4:
+        parcel.writeInt(0);
+          goto _L8
+        fcw1;
+        parcel1.recycle();
+        parcel.recycle();
+        throw fcw1;
+_L6:
+        googlemapoptions = fcw1.queryLocalInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
+        if (googlemapoptions == null)
+        {
+            break MISSING_BLOCK_LABEL_153;
+        }
+        if (!(googlemapoptions instanceof fjm))
+        {
+            break MISSING_BLOCK_LABEL_153;
+        }
+        fcw1 = (fjm)googlemapoptions;
+          goto _L9
+        fcw1 = new fjo(fcw1);
+          goto _L9
+    }
+
+    public fjy a(fcw fcw1, StreetViewPanoramaOptions streetviewpanoramaoptions)
+    {
+        Object obj;
+        Parcel parcel;
+        Parcel parcel1;
+        obj = null;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.ICreator");
+        if (fcw1 == null) goto _L2; else goto _L1
+_L1:
+        fcw1 = fcw1.asBinder();
+_L7:
+        parcel.writeStrongBinder(fcw1);
+        if (streetviewpanoramaoptions == null) goto _L4; else goto _L3
+_L3:
+        parcel.writeInt(1);
+        streetviewpanoramaoptions.writeToParcel(parcel, 0);
+_L8:
+        a.transact(7, parcel, parcel1, 0);
+        parcel1.readException();
+        fcw1 = parcel1.readStrongBinder();
+        if (fcw1 != null) goto _L6; else goto _L5
+_L5:
+        fcw1 = obj;
+_L9:
+        parcel1.recycle();
+        parcel.recycle();
+        return fcw1;
+_L2:
+        fcw1 = null;
+          goto _L7
+_L4:
+        parcel.writeInt(0);
+          goto _L8
+        fcw1;
+        parcel1.recycle();
+        parcel.recycle();
+        throw fcw1;
+_L6:
+        streetviewpanoramaoptions = fcw1.queryLocalInterface("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
+        if (streetviewpanoramaoptions == null)
+        {
+            break MISSING_BLOCK_LABEL_154;
+        }
+        if (!(streetviewpanoramaoptions instanceof fjy))
+        {
+            break MISSING_BLOCK_LABEL_154;
+        }
+        fcw1 = (fjy)streetviewpanoramaoptions;
+          goto _L9
+        fcw1 = new fka(fcw1);
+          goto _L9
+    }
+
+    public void a(fcw fcw1)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.ICreator");
+        if (fcw1 == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        fcw1 = fcw1.asBinder();
+_L1:
+        parcel.writeStrongBinder(fcw1);
+        a.transact(1, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        fcw1 = null;
+          goto _L1
+        fcw1;
+        parcel1.recycle();
+        parcel.recycle();
+        throw fcw1;
+    }
+
+    public void a(fcw fcw1, int i)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.ICreator");
+        if (fcw1 == null)
+        {
+            break MISSING_BLOCK_LABEL_67;
+        }
+        fcw1 = fcw1.asBinder();
+_L1:
+        parcel.writeStrongBinder(fcw1);
+        parcel.writeInt(i);
+        a.transact(6, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        fcw1 = null;
+          goto _L1
+        fcw1;
+        parcel1.recycle();
+        parcel.recycle();
+        throw fcw1;
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
+    }
+
+    public fjj b(fcw fcw1)
+    {
+        android.os.IInterface iinterface;
+        Parcel parcel;
+        Parcel parcel1;
+        iinterface = null;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.ICreator");
+        if (fcw1 == null) goto _L2; else goto _L1
+_L1:
+        fcw1 = fcw1.asBinder();
+_L5:
+        parcel.writeStrongBinder(fcw1);
+        a.transact(2, parcel, parcel1, 0);
+        parcel1.readException();
+        fcw1 = parcel1.readStrongBinder();
+        if (fcw1 != null) goto _L4; else goto _L3
+_L3:
+        fcw1 = iinterface;
+_L6:
+        parcel1.recycle();
+        parcel.recycle();
+        return fcw1;
+_L2:
+        fcw1 = null;
+          goto _L5
+_L4:
+        iinterface = fcw1.queryLocalInterface("com.google.android.gms.maps.internal.IMapFragmentDelegate");
+        if (iinterface == null)
+        {
+            break MISSING_BLOCK_LABEL_109;
+        }
+        if (!(iinterface instanceof fjj))
+        {
+            break MISSING_BLOCK_LABEL_109;
+        }
+        fcw1 = (fjj)iinterface;
+          goto _L6
+        fcw1 = new fjl(fcw1);
+          goto _L6
+        fcw1;
+        parcel1.recycle();
+        parcel.recycle();
+        throw fcw1;
+          goto _L5
+    }
+
+    public fnb b()
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        Object obj;
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.ICreator");
+        a.transact(5, parcel, parcel1, 0);
+        parcel1.readException();
+        obj = parcel1.readStrongBinder();
+        if (obj != null) goto _L2; else goto _L1
+_L1:
+        obj = null;
+_L3:
+        parcel1.recycle();
+        parcel.recycle();
+        return ((fnb) (obj));
+_L2:
+        android.os.IInterface iinterface = ((IBinder) (obj)).queryLocalInterface("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
+        if (iinterface == null)
+        {
+            break MISSING_BLOCK_LABEL_85;
+        }
+        if (!(iinterface instanceof fnb))
+        {
+            break MISSING_BLOCK_LABEL_85;
+        }
+        obj = (fnb)iinterface;
+          goto _L3
+        obj = new fnd(((IBinder) (obj)));
+          goto _L3
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public fjv c(fcw fcw1)
+    {
+        android.os.IInterface iinterface;
+        Parcel parcel;
+        Parcel parcel1;
+        iinterface = null;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.ICreator");
+        if (fcw1 == null) goto _L2; else goto _L1
+_L1:
+        fcw1 = fcw1.asBinder();
+_L5:
+        parcel.writeStrongBinder(fcw1);
+        a.transact(8, parcel, parcel1, 0);
+        parcel1.readException();
+        fcw1 = parcel1.readStrongBinder();
+        if (fcw1 != null) goto _L4; else goto _L3
+_L3:
+        fcw1 = iinterface;
+_L6:
+        parcel1.recycle();
+        parcel.recycle();
+        return fcw1;
+_L2:
+        fcw1 = null;
+          goto _L5
+_L4:
+        iinterface = fcw1.queryLocalInterface("com.google.android.gms.maps.internal.IStreetViewPanoramaFragmentDelegate");
+        if (iinterface == null)
+        {
+            break MISSING_BLOCK_LABEL_110;
+        }
+        if (!(iinterface instanceof fjv))
+        {
+            break MISSING_BLOCK_LABEL_110;
+        }
+        fcw1 = (fjv)iinterface;
+          goto _L6
+        fcw1 = new fjx(fcw1);
+          goto _L6
+        fcw1;
+        parcel1.recycle();
+        parcel.recycle();
+        throw fcw1;
+          goto _L5
     }
 }

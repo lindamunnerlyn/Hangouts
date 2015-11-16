@@ -6,14 +6,15 @@ package com.google.android.gms.signin.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import frq;
+import ftx;
+import g;
 
 public class AuthAccountResult
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new frq();
-    public final int a;
+    public static final android.os.Parcelable.Creator CREATOR = new ftx();
+    final int a;
 
     public AuthAccountResult()
     {
@@ -32,7 +33,9 @@ public class AuthAccountResult
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        frq.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.q(parcel, i);
     }
 
 }

@@ -3,11 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class arz extends gqn
+public final class arz
 {
 
-    public arz(String s)
+    public static final String a = aru.getName();
+    private static ary b;
+
+    public static void a(hlp hlp1)
     {
-        super(s);
+        if (b == null)
+        {
+            b = new ary();
+        }
+        hlp1.a(aru, new aru());
     }
+
 }

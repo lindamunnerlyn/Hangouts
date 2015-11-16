@@ -3,58 +3,45 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iyv extends koj
+public final class iyv extends kwm
 {
 
-    public ivm a[];
+    public Long a;
+    public jdl responseHeader;
 
     public iyv()
     {
-        a = ivm.a();
+        responseHeader = null;
+        a = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        int k = i;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (responseHeader != null)
+        {
+            i = j + kwk.d(1, responseHeader);
+        }
+        j = i;
         if (a != null)
         {
-            k = i;
-            if (a.length > 0)
-            {
-                int j = 0;
-                do
-                {
-                    k = i;
-                    if (j >= a.length)
-                    {
-                        break;
-                    }
-                    ivm ivm1 = a[j];
-                    k = i;
-                    if (ivm1 != null)
-                    {
-                        k = i + koh.d(1, ivm1);
-                    }
-                    j++;
-                    i = k;
-                } while (true);
-            }
+            j = i + kwk.d(2, a.longValue());
         }
-        return k;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -64,52 +51,30 @@ public final class iyv extends koj
                 return this;
 
             case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                ivm aivm[];
-                int j;
-                if (a == null)
+                if (responseHeader == null)
                 {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
+                    responseHeader = new jdl();
                 }
-                aivm = new ivm[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aivm, 0, j);
-                    k = j;
-                }
-                for (; k < aivm.length - 1; k++)
-                {
-                    aivm[k] = new ivm();
-                    kog1.a(aivm[k]);
-                    kog1.a();
-                }
+                kwj1.a(responseHeader);
+                break;
 
-                aivm[k] = new ivm();
-                kog1.a(aivm[k]);
-                a = aivm;
+            case 16: // '\020'
+                a = Long.valueOf(kwj1.d());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null && a.length > 0)
+        if (responseHeader != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                ivm ivm1 = a[i];
-                if (ivm1 != null)
-                {
-                    koh1.b(1, ivm1);
-                }
-            }
-
+            kwk1.b(1, responseHeader);
         }
-        super.writeTo(koh1);
+        if (a != null)
+        {
+            kwk1.a(2, a.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

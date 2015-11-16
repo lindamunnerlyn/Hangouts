@@ -2,43 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.app.Activity;
 
-public final class ccp
+public final class ccp extends ccm
 {
 
-    public static final String a = android/app/Application$ActivityLifecycleCallbacks.getName();
-    public static final String b = ccn.getName();
-    public static final String c = ccm.getName();
-    private static cco d;
-
-    public static void a(Context context, hgx hgx1)
+    public ccp()
     {
-        if (d == null)
-        {
-            d = new cco();
-        }
-        hgx1.a(android/app/Application$ActivityLifecycleCallbacks, new android.app.Application.ActivityLifecycleCallbacks[] {
-            (android.app.Application.ActivityLifecycleCallbacks)hgx.a(context, ccn)
-        });
     }
 
-    public static void b(Context context, hgx hgx1)
+    public int a()
     {
-        if (d == null)
-        {
-            d = new cco();
-        }
-        hgx1.a(ccn, new ccn(context));
+        return l.fk;
     }
 
-    public static void c(Context context, hgx hgx1)
+    public void a(Activity activity)
     {
-        if (d == null)
-        {
-            d = new cco();
-        }
-        hgx1.a(ccm, (ccm)hgx.a(context, ccn));
+        g.a(a, 1602);
+        activity.startActivity(g.a(a, null, 2, "android.intent.action.VIEW"));
     }
 
+    public int b()
+    {
+        return com.google.android.apps.hangouts.R.drawable.bM;
+    }
+
+    public int c()
+    {
+        return 5;
+    }
+
+    public int d()
+    {
+        return 1;
+    }
+
+    public int e()
+    {
+        return 5;
+    }
 }

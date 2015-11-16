@@ -3,11 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class erp
+public interface erp
 {
 
-    static final eox a[] = {
-        new erq(eox.a("0\202\003\3110\202\002\261\240\003\002\001\002\002\t\000\331\377\214Y\243z^\2530")), new err(eox.a("0\202\003\3110\202\002\261\240\003\002\001\002\002\t\000\303\352X\260\3158\241\3350"))
-    };
+    public abstract long a();
 
+    public abstract long b();
 }

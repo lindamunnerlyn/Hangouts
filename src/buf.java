@@ -2,50 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-final class buf
+public interface buf
 {
 
-    private final beb a = (new bec()).a("knocking").b("Module that enables responding to knocks").a(true).a();
+    public abstract jhh a();
 
-    public buf()
-    {
-    }
+    public abstract void a(bue bue);
 
-    public btu a(Context context)
-    {
-        if (a.a(context))
-        {
-            return new buq();
-        } else
-        {
-            return null;
-        }
-    }
+    public abstract void a(jhh jhh);
 
-    public beb[] a()
-    {
-        return (new beb[] {
-            a
-        });
-    }
+    public abstract void b(bue bue);
 
-    public bts b(Context context)
-    {
-        if (a.a(context))
-        {
-            return new btz(context);
-        } else
-        {
-            return null;
-        }
-    }
+    public abstract void b(jhh jhh);
 
-    public bsh[] c(Context context)
-    {
-        return (bsh[])a.a(context, bsh, new bsh[] {
-            new bug(this), new buh(this)
-        });
-    }
+    public abstract boolean b();
 }

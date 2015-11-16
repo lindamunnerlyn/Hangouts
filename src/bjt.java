@@ -2,61 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.backup.BackupManager;
-import android.content.Context;
-import android.content.SharedPreferences;
-import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 final class bjt
-    implements Runnable
+    implements android.view.ViewTreeObserver.OnGlobalLayoutListener
 {
 
-    final bjs a;
+    final bjq a;
 
-    bjt(bjs bjs1)
+    bjt(bjq bjq1)
     {
-        a = bjs1;
+        a = bjq1;
         super();
     }
 
-    public void run()
+    public void onGlobalLayout()
     {
-        Object obj = bjs.c();
-        obj;
-        JVM INSTR monitorenter ;
-        StringBuilder stringbuilder;
-        Iterator iterator;
-        stringbuilder = new StringBuilder();
-        iterator = bjs.b(a).iterator();
-        boolean flag = true;
-_L2:
-        Integer integer;
-        if (!iterator.hasNext())
+        gng.a(bjq.b(a), this);
+        if (a.getActivity() == null)
         {
-            break; /* Loop/switch isn't completed */
-        }
-        integer = (Integer)iterator.next();
-        if (flag)
+            return;
+        } else
         {
-            break MISSING_BLOCK_LABEL_60;
+            bjq.f(a);
+            return;
         }
-        stringbuilder.append(",");
-        stringbuilder.append(Integer.toString(g.a(integer, 0), bjs.b()));
-        flag = false;
-        if (true) goto _L2; else goto _L1
-_L1:
-        android.content.SharedPreferences.Editor editor = bjs.a(a).getSharedPreferences("recentEmoji", 0).edit();
-        editor.putString("recentEmojiKey", stringbuilder.toString());
-        editor.apply();
-        (new BackupManager(bjs.a(a))).dataChanged();
-        obj;
-        JVM INSTR monitorexit ;
-        return;
-        Exception exception;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 }

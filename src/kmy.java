@@ -3,19 +3,79 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface kmy
-    extends kna
+public final class kmy extends kwm
 {
 
-    public abstract void a(kls kls);
+    public Boolean a;
+    public kmz b;
 
-    public abstract byte[] a();
+    public kmy()
+    {
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
+    }
 
-    public abstract knc c();
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(2, b);
+        }
+        return j;
+    }
 
-    public abstract kmz h();
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
 
-    public abstract kmz i();
+            case 0: // '\0'
+                return this;
 
-    public abstract int m();
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new kmz();
+                }
+                kwj1.a(b);
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
+        }
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        super.writeTo(kwk1);
+    }
 }

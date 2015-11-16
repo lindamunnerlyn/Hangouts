@@ -6,6 +6,7 @@ import android.os.IInterface;
 import android.view.View;
 
 public interface a
+    extends hoy
 {
 
     public abstract void a(View view);
@@ -28,7 +29,7 @@ public interface a
 
     public abstract int i();
 
-    public abstract qb j();
+    public abstract qd j();
 
     public abstract boolean k();
 

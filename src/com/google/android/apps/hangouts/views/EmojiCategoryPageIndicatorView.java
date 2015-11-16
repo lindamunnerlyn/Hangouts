@@ -34,8 +34,8 @@ public class EmojiCategoryPageIndicatorView extends LinearLayout
         d = 0;
         e = 0.0F;
         context = context.getResources();
-        a.setColor(context.getColor(g.dk));
-        b = context.getDimension(g.eJ);
+        a.setColor(context.getColor(g.dj));
+        b = context.getDimension(g.eH);
     }
 
     public void a(int i, int j, float f)

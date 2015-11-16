@@ -2,103 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
+import android.content.Context;
+import android.widget.FrameLayout;
+import com.google.android.gms.maps.GoogleMapOptions;
 
-final class fiu
-    implements fis
+public class fiu extends FrameLayout
 {
 
-    private IBinder a;
+    public final fiw a;
 
-    fiu(IBinder ibinder)
+    public fiu(Context context, GoogleMapOptions googlemapoptions)
     {
-        a = ibinder;
+        super(context);
+        a = new fiw(this, context, googlemapoptions);
+        setClickable(true);
     }
 
-    public void a(fkr fkr1)
+    public void a(fiy fiy)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnMarkerDragListener");
-        if (fkr1 == null)
-        {
-            break MISSING_BLOCK_LABEL_57;
-        }
-        fkr1 = fkr1.asBinder();
-_L1:
-        parcel.writeStrongBinder(fkr1);
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        fkr1 = null;
-          goto _L1
-        fkr1;
-        parcel1.recycle();
-        parcel.recycle();
-        throw fkr1;
-    }
-
-    public IBinder asBinder()
-    {
-        return a;
-    }
-
-    public void b(fkr fkr1)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnMarkerDragListener");
-        if (fkr1 == null)
-        {
-            break MISSING_BLOCK_LABEL_57;
-        }
-        fkr1 = fkr1.asBinder();
-_L1:
-        parcel.writeStrongBinder(fkr1);
-        a.transact(2, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        fkr1 = null;
-          goto _L1
-        fkr1;
-        parcel1.recycle();
-        parcel.recycle();
-        throw fkr1;
-    }
-
-    public void c(fkr fkr1)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnMarkerDragListener");
-        if (fkr1 == null)
-        {
-            break MISSING_BLOCK_LABEL_57;
-        }
-        fkr1 = fkr1.asBinder();
-_L1:
-        parcel.writeStrongBinder(fkr1);
-        a.transact(3, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        fkr1 = null;
-          goto _L1
-        fkr1;
-        parcel1.recycle();
-        parcel.recycle();
-        throw fkr1;
+        g.y("getMapAsync() must be called on the main thread");
+        a.a(fiy);
     }
 }

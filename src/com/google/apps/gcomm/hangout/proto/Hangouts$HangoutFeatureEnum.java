@@ -4,12 +4,12 @@
 
 package com.google.apps.gcomm.hangout.proto;
 
-import kog;
-import koj;
-import kon;
-import kop;
+import kwj;
+import kwm;
+import kwq;
+import kws;
 
-public final class clear extends koj
+public final class clear extends kwm
 {
 
     private static volatile mergeFrom _emptyArray[];
@@ -18,7 +18,7 @@ public final class clear extends koj
     {
         if (_emptyArray == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
                 if (_emptyArray == null)
                 {
@@ -33,14 +33,14 @@ public final class clear extends koj
         throw exception;
     }
 
-    public static _emptyArray parseFrom(kog kog1)
+    public static _emptyArray parseFrom(kwj kwj1)
     {
-        return (new <init>()).mergeFrom(kog1);
+        return (new <init>()).mergeFrom(kwj1);
     }
 
     public static mergeFrom parseFrom(byte abyte0[])
     {
-        return (mergeFrom)kop.mergeFrom(new <init>(), abyte0);
+        return (mergeFrom)kws.mergeFrom(new <init>(), abyte0);
     }
 
     public <init> clear()
@@ -50,23 +50,23 @@ public final class clear extends koj
         return this;
     }
 
-    public cachedSize mergeFrom(kog kog1)
+    public cachedSize mergeFrom(kwj kwj1)
     {
 _L3:
-        int i = kog1.a();
+        int i = kwj1.a();
         i;
         JVM INSTR tableswitch 0 0: default 24
     //                   0 33;
            goto _L1 _L2
 _L1:
-        if (super.storeUnknownField(kog1, i)) goto _L3; else goto _L2
+        if (super.storeUnknownField(kwj1, i)) goto _L3; else goto _L2
 _L2:
         return this;
     }
 
-    public volatile kop mergeFrom(kog kog1)
+    public volatile kws mergeFrom(kwj kwj1)
     {
-        return mergeFrom(kog1);
+        return mergeFrom(kwj1);
     }
 
     public ()

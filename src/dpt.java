@@ -4,29 +4,21 @@
 
 
 final class dpt
-    implements hfe
+    implements Runnable
 {
 
-    final dpo a;
+    final dpw a;
+    final dpn b;
 
-    dpt(dpo dpo1)
+    dpt(dpn dpn, dpw dpw1)
     {
-        a = dpo1;
+        b = dpn;
+        a = dpw1;
         super();
     }
 
-    public boolean a(hfa hfa, Object obj)
+    public void run()
     {
-        boolean flag = false;
-        boolean flag1 = g.a((Boolean)obj, false);
-        dpo.b(a).a("use_local_apn_pref_key", flag1);
-        hfa = dpo.d(a);
-        if (!flag1)
-        {
-            flag = true;
-        }
-        drk.a(hfa, flag);
-        a.getActivity().finish();
-        return true;
+        a.g();
     }
 }

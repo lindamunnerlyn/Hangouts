@@ -5,6 +5,7 @@
 package org.chromium.base;
 
 import android.os.Looper;
+import lly;
 
 // Referenced classes of package org.chromium.base:
 //            ThreadUtils
@@ -12,18 +13,23 @@ import android.os.Looper;
 public class TraceEvent
 {
 
-    private static volatile boolean a = false;
+    public static volatile boolean a = false;
     private static volatile boolean b = false;
 
     public TraceEvent()
     {
     }
 
+    public static void a()
+    {
+        nativeBeginToplevel();
+    }
+
     public static void a(String s)
     {
         if (a)
         {
-            nativeBegin(s, null);
+            nativeEnd(s, null);
         }
     }
 
@@ -35,22 +41,9 @@ public class TraceEvent
         }
     }
 
-    static boolean a()
+    public static void b()
     {
-        return a;
-    }
-
-    static void b()
-    {
-        nativeBeginToplevel();
-    }
-
-    public static void b(String s)
-    {
-        if (a)
-        {
-            nativeEnd(s, null);
-        }
+        nativeEndToplevel();
     }
 
     public static void b(String s, String s1)
@@ -59,11 +52,6 @@ public class TraceEvent
         {
             nativeBegin(s, s1);
         }
-    }
-
-    static void c()
-    {
-        nativeEndToplevel();
     }
 
     private static native void nativeBegin(String s, String s1);
@@ -94,176 +82,15 @@ public class TraceEvent
             return;
         }
         Looper looper = ThreadUtils.a();
-        BasicLooperMonitor basicloopermonitor;
+        llw llw;
         if (flag)
         {
-            basicloopermonitor = LooperMonitorHolder.a();
+            llw = lly.a();
         } else
         {
-            basicloopermonitor = null;
+            llw = null;
         }
-        looper.setMessageLogging(basicloopermonitor);
-    }
-
-
-    private class LooperMonitorHolder
-    {
-
-        private static final BasicLooperMonitor a;
-
-        static BasicLooperMonitor a()
-        {
-            return a;
-        }
-
-        static 
-        {
-            Object obj;
-            if (CommandLine.a().a("enable-idle-tracing"))
-            {
-                obj = new IdleTracingLooperMonitor();
-            } else
-            {
-                obj = new BasicLooperMonitor((byte)0);
-            }
-            a = ((BasicLooperMonitor) (obj));
-        }
-
-        private LooperMonitorHolder()
-        {
-        }
-
-        private class IdleTracingLooperMonitor extends BasicLooperMonitor
-            implements android.os.MessageQueue.IdleHandler
-        {
-            private class BasicLooperMonitor
-                implements Printer
-            {
-
-                void a(String s)
-                {
-                    if (TraceEvent.a())
-                    {
-                        TraceEvent.b();
-                    }
-                }
-
-                void b(String s)
-                {
-                    if (TraceEvent.a())
-                    {
-                        TraceEvent.c();
-                    }
-                }
-
-                public void println(String s)
-                {
-                    if (s.startsWith(">"))
-                    {
-                        a(s);
-                        return;
-                    } else
-                    {
-                        b(s);
-                        return;
-                    }
-                }
-
-                private BasicLooperMonitor()
-                {
-                }
-
-                BasicLooperMonitor(byte byte0)
-                {
-                    this();
-                }
-            }
-
-
-            private long a;
-            private long b;
-            private int c;
-            private int d;
-            private int e;
-            private boolean f;
-
-            private final void a()
-            {
-                if (TraceEvent.a() && !f)
-                {
-                    a = SystemClock.elapsedRealtime();
-                    Looper.myQueue().addIdleHandler(this);
-                    f = true;
-                } else
-                if (f && !TraceEvent.a())
-                {
-                    Looper.myQueue().removeIdleHandler(this);
-                    f = false;
-                    return;
-                }
-            }
-
-            private static void a(int i, String s)
-            {
-                TraceEvent.a("TraceEvent.LooperMonitor:IdleStats", s);
-                Log.println(i, "TraceEvent.LooperMonitor", s);
-            }
-
-            final void a(String s)
-            {
-                if (e == 0)
-                {
-                    TraceEvent.b("Looper.queueIdle");
-                }
-                b = SystemClock.elapsedRealtime();
-                a();
-                super.a(s);
-            }
-
-            final void b(String s)
-            {
-                long l = SystemClock.elapsedRealtime() - b;
-                if (l > 16L)
-                {
-                    a(5, (new StringBuilder("observed a task that took ")).append(l).append("ms: ").append(s).toString());
-                }
-                super.b(s);
-                a();
-                c = c + 1;
-                e = e + 1;
-            }
-
-            public final boolean queueIdle()
-            {
-                long l = SystemClock.elapsedRealtime();
-                if (a == 0L)
-                {
-                    a = l;
-                }
-                long l1 = l - a;
-                d = d + 1;
-                TraceEvent.b("Looper.queueIdle", (new StringBuilder()).append(e).append(" tasks since last idle.").toString());
-                if (l1 > 48L)
-                {
-                    a(3, (new StringBuilder()).append(c).append(" tasks and ").append(d).append(" idles processed so far, ").append(e).append(" tasks bursted and ").append(l1).append("ms elapsed since last idle").toString());
-                }
-                a = l;
-                e = 0;
-                return true;
-            }
-
-            IdleTracingLooperMonitor()
-            {
-                super((byte)0);
-                a = 0L;
-                b = 0L;
-                c = 0;
-                d = 0;
-                e = 0;
-                f = false;
-            }
-        }
-
+        looper.setMessageLogging(llw);
     }
 
 }

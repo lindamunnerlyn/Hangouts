@@ -2,22 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.os.Looper;
-import java.util.Collections;
-import java.util.List;
+import android.os.AsyncTask;
 
-public abstract class ejt
+final class ejt extends AsyncTask
 {
 
-    public ejt()
+    final ejr a;
+
+    ejt(ejr ejr1)
     {
+        a = ejr1;
+        super();
     }
 
-    public abstract ejv a(Context context, Looper looper, emo emo, Object obj, eka eka, ekc ekc);
-
-    public List a()
+    protected Object doInBackground(Object aobj[])
     {
-        return Collections.emptyList();
+        ejr.a(a, aoq.b(ejr.c(a), ejr.d(a), ejr.e(a), "video/*"));
+        return null;
+    }
+
+    protected void onPostExecute(Object obj)
+    {
+        super.onPostExecute((Void)obj);
+        a.setEnabled(true);
     }
 }

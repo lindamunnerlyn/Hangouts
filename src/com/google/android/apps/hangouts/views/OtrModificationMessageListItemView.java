@@ -10,14 +10,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import cao;
-import dqb;
-import efx;
+import cbt;
+import dsu;
+import eiz;
 import h;
 import l;
 
 public class OtrModificationMessageListItemView extends LinearLayout
-    implements cao
+    implements cbt
 {
 
     private static int c[][];
@@ -39,7 +39,7 @@ public class OtrModificationMessageListItemView extends LinearLayout
         return b;
     }
 
-    public void a(int i, dqb dqb1, String s, boolean flag)
+    public void a(int i, dsu dsu1, String s, boolean flag)
     {
         boolean flag1 = false;
         if (i == 1)
@@ -51,7 +51,7 @@ public class OtrModificationMessageListItemView extends LinearLayout
         }
         if (!flag) goto _L2; else goto _L1
 _L1:
-        efx.a[dqb1.ordinal()];
+        eiz.a[dsu1.ordinal()];
         JVM INSTR tableswitch 1 4: default 52
     //                   1 73
     //                   2 73
@@ -76,8 +76,8 @@ _L6:
         i = c[i][2];
         if (true) goto _L7; else goto _L2
 _L2:
-        dqb1 = getResources();
-        a.setText(dqb1.getString(c[i][3], new Object[] {
+        dsu1 = getResources();
+        a.setText(dsu1.getString(c[i][3], new Object[] {
             s
         }));
         return;
@@ -100,16 +100,16 @@ _L2:
 
     public void onFinishInflate()
     {
-        a = (TextView)findViewById(h.gp);
+        a = (TextView)findViewById(h.fX);
     }
 
     static 
     {
         c = (new int[][] {
             new int[] {
-                l.rI, l.rF, l.rH, l.rG
+                l.rb, l.qY, l.ra, l.qZ
             }, new int[] {
-                l.rM, l.rJ, l.rL, l.rK
+                l.rf, l.rc, l.re, l.rd
             }
         });
     }

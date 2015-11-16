@@ -20,17 +20,17 @@ class nw
 
     public void a(CompoundButton compoundbutton, ColorStateList colorstatelist)
     {
-        if (compoundbutton instanceof pj)
+        if (compoundbutton instanceof pl)
         {
-            ((pj)compoundbutton).a(colorstatelist);
+            ((pl)compoundbutton).a(colorstatelist);
         }
     }
 
     public void a(CompoundButton compoundbutton, android.graphics.PorterDuff.Mode mode)
     {
-        if (compoundbutton instanceof pj)
+        if (compoundbutton instanceof pl)
         {
-            ((pj)compoundbutton).a(mode);
+            ((pl)compoundbutton).a(mode);
         }
     }
 }

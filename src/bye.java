@@ -6,7 +6,7 @@
 public interface bye
 {
 
-    public abstract void a();
+    public abstract void a(int i, String s, long l, int j);
 
     public abstract void a(String s);
 }

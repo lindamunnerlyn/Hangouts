@@ -2,32 +2,97 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
+import java.util.ArrayList;
 
-public final class gxn
+public class gxn
+    implements hop, hoy
 {
 
-    public crz a;
+    private ArrayList a;
+    private boolean b;
 
-    public gxn()
+    public gxn(hof hof1)
     {
+        a = new ArrayList();
+        b = true;
+        hof1.a(this);
     }
 
-    public int a(gmw gmw)
+    public gxp a(Runnable runnable)
     {
-        if (a.m())
+        this;
+        JVM INSTR monitorenter ;
+        runnable = b(runnable);
+        this;
+        JVM INSTR monitorexit ;
+        return runnable;
+        runnable;
+        throw runnable;
+    }
+
+    void a(gxp gxp1)
+    {
+        this;
+        JVM INSTR monitorenter ;
+        a.remove(gxp1);
+        this;
+        JVM INSTR monitorexit ;
+        return;
+        gxp1;
+        throw gxp1;
+    }
+
+    public gxp b(Runnable runnable)
+    {
+        this;
+        JVM INSTR monitorenter ;
+        gxq gxq1 = null;
+        if (b)
         {
-            return gxo.b;
-        } else
-        {
-            a.a(gmw);
-            return gxo.a;
+            gxq1 = new gxq(this, runnable, 0L);
+            a.add(gxq1);
+            gxq1.a();
         }
+        this;
+        JVM INSTR monitorexit ;
+        return gxq1;
+        runnable;
+        throw runnable;
     }
 
-    public void a(hdx hdx1, List list)
+    void b(gxp gxp1)
     {
-        a = new crz(hdx1, new ddl(hdx1.e()));
-        list.add(a);
+        this;
+        JVM INSTR monitorenter ;
+        a.remove(gxp1);
+        this;
+        JVM INSTR monitorexit ;
+        return;
+        gxp1;
+        throw gxp1;
+    }
+
+    public void f_()
+    {
+        this;
+        JVM INSTR monitorenter ;
+        b = false;
+        int i = 0;
+_L2:
+        if (i >= a.size())
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        ((gxp)a.get(i)).b();
+        i++;
+        if (true) goto _L2; else goto _L1
+_L1:
+        a.clear();
+        this;
+        JVM INSTR monitorexit ;
+        return;
+        Exception exception;
+        exception;
+        throw exception;
     }
 }

@@ -2,24 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.os.Bundle;
+import com.google.android.libraries.social.settings.PreferenceScreen;
 
-final class hjo
-    implements hjr
+public final class hjo
+    implements hma, how, hoy
 {
 
-    final hjm a;
+    private hjp a;
+    private final joj b = null;
+    private hkp c;
+    private PreferenceScreen d;
+    private boolean e;
 
-    hjo(hjm hjm)
+    public hjo(hjp hjp1, hof hof1)
     {
-        a = hjm;
-        super();
+        c = null;
+        e = false;
+        a = hjp1;
+        hof1.a(this);
     }
 
-    public void a(fsn fsn)
+    public hjr a(hjr hjr)
     {
-        if (fsn instanceof hkc)
+        d.c(hjr);
+        return hjr;
+    }
+
+    public void a(Context context, hlp hlp1, Bundle bundle)
+    {
+        c = (hkp)hlp1.a(hkp);
+    }
+
+    public void k_()
+    {
+        PreferenceScreen preferencescreen;
+        if (c != null)
         {
-            ((hkc)fsn).j_();
+            preferencescreen = c.b();
+        } else
+        {
+            preferencescreen = (PreferenceScreen)b.a();
         }
+        d = preferencescreen;
+        if (!e)
+        {
+            a.a();
+        }
+        e = true;
     }
 }

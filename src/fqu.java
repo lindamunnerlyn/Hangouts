@@ -3,20 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface fqu
+public class fqu
 {
 
-    public abstract String a();
-
-    public abstract boolean b();
-
-    public abstract String c();
-
-    public abstract String d();
-
-    public abstract String e();
-
-    public abstract String f();
-
-    public abstract String g();
+    public fqu()
+    {
+    }
 }

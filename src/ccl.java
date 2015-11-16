@@ -2,46 +2,121 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
-public final class ccl extends Enum
+public final class ccl extends BaseAdapter
 {
 
-    public static final ccl a;
-    public static final ccl b;
-    public static final ccl c;
-    public static final ccl d;
-    private static final ccl f[];
-    private final boolean e;
+    private final List a = new ArrayList();
+    private boolean b;
+    private final gqu c;
+    private final hlp d;
+    private final Activity e;
 
-    private ccl(String s, int i, boolean flag)
+    public ccl(hmm hmm1)
     {
-        super(s, i);
-        e = flag;
+        e = hmm1.getActivity();
+        d = hmm1.getBinder();
+        c = (gqu)d.a(gqu);
     }
 
-    public static ccl valueOf(String s)
+    public void a()
     {
-        return (ccl)Enum.valueOf(ccl, s);
+        a.clear();
+        Object obj = d.c(ccm);
+        Collections.sort(((List) (obj)));
+        aoa aoa = dcn.e(c.a());
+        obj = ((List) (obj)).iterator();
+        int i = -1;
+        do
+        {
+            if (!((Iterator) (obj)).hasNext())
+            {
+                break;
+            }
+            ccm ccm1 = (ccm)((Iterator) (obj)).next();
+            ccm1.a(aoa);
+            if (ccm1.g())
+            {
+                int j = ccm1.d();
+                if (j != i && i != -1)
+                {
+                    a.add(new ccr());
+                }
+                a.add(ccm1);
+                i = j;
+            }
+        } while (true);
+        notifyDataSetChanged();
     }
 
-    public static ccl[] values()
+    public void a(boolean flag)
     {
-        return (ccl[])f.clone();
+        if (b != flag)
+        {
+            b = flag;
+            Iterator iterator = a.iterator();
+            while (iterator.hasNext()) 
+            {
+                ((ccm)iterator.next()).a(flag);
+            }
+        }
     }
 
-    public boolean a()
+    public final boolean areAllItemsEnabled()
     {
-        return e;
+        return false;
     }
 
-    static 
+    public final int getCount()
     {
-        a = new ccl("UNKNOWN", 0, true);
-        b = new ccl("DISCONNECTED", 1, false);
-        c = new ccl("CAPTIVE_PORTAL", 2, false);
-        d = new ccl("CONNECTED", 3, true);
-        f = (new ccl[] {
-            a, b, c, d
-        });
+        return a.size();
+    }
+
+    public final Object getItem(int i)
+    {
+        return a.get(i);
+    }
+
+    public final long getItemId(int i)
+    {
+        return (long)((ccm)a.get(i)).c();
+    }
+
+    public final int getItemViewType(int i)
+    {
+        return !((ccm)a.get(i)).g() ? 0 : 1;
+    }
+
+    public final View getView(int i, View view, ViewGroup viewgroup)
+    {
+        return ((ccm)a.get(i)).a(e, view, viewgroup);
+    }
+
+    public final int getViewTypeCount()
+    {
+        return 2;
+    }
+
+    public final boolean hasStableIds()
+    {
+        return false;
+    }
+
+    public final boolean isEmpty()
+    {
+        return a.isEmpty();
+    }
+
+    public final boolean isEnabled(int i)
+    {
+        return ((ccm)a.get(i)).g();
     }
 }

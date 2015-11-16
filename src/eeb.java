@@ -2,25 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
 
-final class eeb
+final class eeb extends Binder
+    implements IInterface
 {
 
-    final ArrayList a = new ArrayList();
-    final ArrayList b = new ArrayList();
-    final WeakReference c;
+    Object a;
 
-    public eeb(View view)
+    eeb(Object obj)
     {
-        c = new WeakReference(view);
+        a = obj;
     }
 
-    public void a(int i, eec eec)
+    public IBinder asBinder()
     {
-        a.add(Integer.valueOf(i));
-        b.add(eec);
+        return this;
     }
 }

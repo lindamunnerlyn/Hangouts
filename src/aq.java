@@ -309,10 +309,10 @@ _L3:
         boolean flag1;
         flag1 = false;
         flag = flag1;
-        if (kb.g(view) != 0) goto _L2; else goto _L1
+        if (kb.h(view) != 0) goto _L2; else goto _L1
 _L1:
         flag = flag1;
-        if (!kb.v(view)) goto _L2; else goto _L3
+        if (!kb.w(view)) goto _L2; else goto _L3
 _L3:
         if (!(animation instanceof AlphaAnimation)) goto _L5; else goto _L4
 _L4:
@@ -909,7 +909,7 @@ _L4:
                 Object obj1;
                 if (android.os.Build.VERSION.SDK_INT >= 11)
                 {
-                    kb.u(ad1.S);
+                    kb.v(ad1.S);
                 } else
                 {
                     ad1.S = bx.a(ad1.S);
@@ -961,7 +961,7 @@ _L5:
                     ad1.T = ad1.S;
                     if (android.os.Build.VERSION.SDK_INT >= 11)
                     {
-                        kb.u(ad1.S);
+                        kb.v(ad1.S);
                     } else
                     {
                         ad1.S = bx.a(ad1.S);

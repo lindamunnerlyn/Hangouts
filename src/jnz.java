@@ -2,26 +2,61 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.Serializable;
+import java.util.Collection;
 
-final class jnz extends jkk
+final class jnz
+    implements Serializable, jnx
 {
 
-    final jnx a;
+    private static final long serialVersionUID = 0L;
+    private final Collection a;
 
-    jnz(jnx jnx1, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    jnz(Collection collection)
     {
-        a = jnx1;
-        super(referenceentry);
+        a = (Collection)n.b(collection);
     }
 
-    protected Object a(Object obj)
+    public boolean a(Object obj)
     {
-        com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry = ((com.google.common.collect.MapMakerInternalMap.ReferenceEntry)obj).getNextEvictable();
-        obj = referenceentry;
-        if (referenceentry == a.a)
+        boolean flag;
+        try
         {
-            obj = null;
+            flag = a.contains(obj);
         }
-        return obj;
+        // Misplaced declaration of an exception variable
+        catch (Object obj)
+        {
+            return false;
+        }
+        // Misplaced declaration of an exception variable
+        catch (Object obj)
+        {
+            return false;
+        }
+        return flag;
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (obj instanceof jnz)
+        {
+            obj = (jnz)obj;
+            return a.equals(((jnz) (obj)).a);
+        } else
+        {
+            return false;
+        }
+    }
+
+    public int hashCode()
+    {
+        return a.hashCode();
+    }
+
+    public String toString()
+    {
+        String s = String.valueOf(a);
+        return (new StringBuilder(String.valueOf(s).length() + 15)).append("Predicates.in(").append(s).append(")").toString();
     }
 }

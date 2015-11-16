@@ -2,13 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.nio.ByteBuffer;
 
-public interface gzj
+final class gzj
 {
 
-    public abstract int a();
+    public android.graphics.Bitmap.Config a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public ByteBuffer g;
 
-    public abstract int b();
-
-    public abstract int c();
+    gzj()
+    {
+    }
 }

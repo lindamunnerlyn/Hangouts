@@ -2,12 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.SystemClock;
 
-public interface axq
+final class axq
+    implements asd
 {
 
-    public static final String a[] = {
-        "conversation_id", "event_id", "timestamp", "type", "gem_asset_url", "gem_horizontal_alignment"
-    };
+    final avv a;
 
+    axq(avv avv1)
+    {
+        a = avv1;
+        super();
+    }
+
+    public void a(asa asa)
+    {
+        avv.bC(a).a(avv.h(a).h(), "conversation_variant_engine_computation", SystemClock.elapsedRealtime(), 1006);
+    }
 }

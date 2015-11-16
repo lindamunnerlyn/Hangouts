@@ -2,20 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 
-final class aue extends cmu
+public final class aue extends aux
 {
 
-    final atr a;
-
-    public aue(atr atr, String s)
+    public aue(View view, auf auf1, dvi dvi)
     {
-        a = atr;
-        super(s);
+        super(view, auf1, dvi);
     }
 
-    public void a()
+    protected boolean a()
     {
-        (new auf(this)).execute(new Void[0]);
+        boolean flag;
+        if (dcn.h() && g.f(((auf)c).d()))
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        return ((auf)c).b() && !((auf)c).c() && flag;
+    }
+
+    protected dvg b()
+    {
+        aoa aoa1 = ((auf)c).a();
+        return e().a(b.getContext().getString(l.jp, new Object[] {
+            aoa1.d()
+        })).a();
     }
 }

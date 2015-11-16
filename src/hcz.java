@@ -3,23 +3,34 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
+import android.os.Bundle;
+import java.util.List;
 
-public interface hcz
+final class hcz extends guy
 {
 
-    public abstract void a(hcv hcv);
+    private final String a;
+    private final String b;
+    private final hda c;
+    private final hbo d;
 
-    public abstract void a(hcv hcv, int i);
+    hcz(String s, String s1, String s2, hda hda1, hbo hbo)
+    {
+        super(s);
+        a = s1;
+        b = s2;
+        c = hda1;
+        d = hbo;
+    }
 
-    public abstract void a(hcv hcv, int i, int k);
-
-    public abstract void a(hcv hcv, int i, Object obj);
-
-    public abstract void a(hcv hcv, Object obj);
-
-    public abstract void b(hcv hcv);
-
-    public abstract void b(hcv hcv, int i);
-
-    public abstract Context j();
+    protected gvv a(Context context)
+    {
+        context = c.a(a, b, d, false);
+        gvv gvv1 = hct.a(context);
+        if (((hcf) (context)).a)
+        {
+            gvv1.d().putInt("account_id", ((Integer)((hcf) (context)).f.get(0)).intValue());
+        }
+        return gvv1;
+    }
 }

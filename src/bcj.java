@@ -2,21 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-final class bcj
-    implements bch
+public final class bcj
 {
 
-    final bci a;
+    public static final String a = ber.getName();
+    public static final String b = bcf.getName();
+    private static bch c;
 
-    bcj(bci bci1)
+    public static void a(Context context, hlp hlp1)
     {
-        a = bci1;
-        super();
+        if (c == null)
+        {
+            c = new bch();
+        }
+        hlp1.a(bcf, c.a(context));
     }
 
-    public void a()
+    public static void a(hlp hlp1)
     {
-        a.a();
+        if (c == null)
+        {
+            c = new bch();
+        }
+        hlp1.a(ber, c.a());
     }
+
 }

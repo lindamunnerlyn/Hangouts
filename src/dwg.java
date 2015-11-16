@@ -2,41 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.view.View;
 
-public final class dwg
-    implements dtu
+final class dwg
+    implements android.view.View.OnClickListener
 {
 
-    final gam a;
-    final Context b;
+    final dwe a;
 
-    public dwg(gam gam1, Context context)
+    dwg(dwe dwe1)
     {
-        a = gam1;
-        b = context;
+        a = dwe1;
         super();
     }
 
-    public void a(dtv dtv1)
+    public void onClick(View view)
     {
-        gam gam1 = a;
-        dws dws1 = dwn.a(b);
-        jet jet1 = new jet();
-        jet1.a = Integer.valueOf(dtv1.c);
-        if (!TextUtils.isEmpty(dtv1.d))
-        {
-            jet1.b = dtv1.d;
-        }
-        jet1.d = Integer.valueOf(dtv1.e);
-        jet1.e = new inw();
-        jet1.e.c = Integer.valueOf(dtv1.b);
-        jet1.e.a = Integer.valueOf(dws1.b);
-        if (dtv1.f != -1)
-        {
-            jet1.c = Integer.valueOf(dtv1.f);
-        }
-        gam1.a(jet1).d();
+        dwe.a(a);
     }
 }

@@ -2,46 +2,85 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.cache.LocalCache;
-import java.util.AbstractCollection;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentMap;
 
-public final class jjb extends AbstractCollection
+public final class jjb extends kwm
 {
 
-    final LocalCache a;
-    private final ConcurrentMap b;
+    public Boolean a;
+    public String b;
+    public Float c;
 
-    public jjb(LocalCache localcache, ConcurrentMap concurrentmap)
+    public jjb()
     {
-        a = localcache;
-        super();
-        b = concurrentmap;
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public void clear()
+    protected int computeSerializedSize()
     {
-        b.clear();
+        int i = super.computeSerializedSize();
+        a.booleanValue();
+        int j = i + (kwk.f(1) + 1);
+        i = j;
+        if (b != null)
+        {
+            i = j + kwk.b(2, b);
+        }
+        j = i;
+        if (c != null)
+        {
+            c.floatValue();
+            j = i + (kwk.f(3) + 4);
+        }
+        return j;
     }
 
-    public boolean contains(Object obj)
+    public kws mergeFrom(kwj kwj1)
     {
-        return b.containsValue(obj);
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+
+            case 29: // '\035'
+                c = Float.valueOf(kwj1.c());
+                break;
+            }
+        } while (true);
     }
 
-    public boolean isEmpty()
+    public void writeTo(kwk kwk1)
     {
-        return b.isEmpty();
-    }
-
-    public Iterator iterator()
-    {
-        return new jiz(a);
-    }
-
-    public int size()
-    {
-        return b.size();
+        kwk1.a(1, a.booleanValue());
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.floatValue());
+        }
+        super.writeTo(kwk1);
     }
 }

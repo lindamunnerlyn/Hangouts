@@ -2,24 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.wearable.internal.ChannelEventParcelable;
+import android.os.Parcel;
+import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.signin.internal.CheckServerAuthResult;
 
-final class ftz
-    implements Runnable
+public final class ftz
+    implements android.os.Parcelable.Creator
 {
 
-    final ChannelEventParcelable a;
-    final ftq b;
-
-    ftz(ftq ftq, ChannelEventParcelable channeleventparcelable)
+    public ftz()
     {
-        b = ftq;
-        a = channeleventparcelable;
-        super();
     }
 
-    public void run()
+    public Object createFromParcel(Parcel parcel)
     {
-        a.a();
+        boolean flag = false;
+        int j = g.a(parcel);
+        java.util.ArrayList arraylist = null;
+        int i = 0;
+        do
+        {
+            if (parcel.dataPosition() < j)
+            {
+                int k = parcel.readInt();
+                switch (0xffff & k)
+                {
+                default:
+                    g.b(parcel, k);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, k);
+                    break;
+
+                case 2: // '\002'
+                    flag = g.c(parcel, k);
+                    break;
+
+                case 3: // '\003'
+                    arraylist = g.c(parcel, k, Scope.CREATOR);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != j)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
+            } else
+            {
+                return new CheckServerAuthResult(i, flag, arraylist);
+            }
+        } while (true);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new CheckServerAuthResult[i];
     }
 }

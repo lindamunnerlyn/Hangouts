@@ -2,23 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
 
-final class gwo
-    implements android.os.Parcelable.Creator
+public final class gwo
 {
 
-    gwo()
+    public static final String a = hmd.getName();
+    private static gwn b;
+
+    public static void a(hlp hlp1)
     {
+        if (b == null)
+        {
+            b = new gwn();
+        }
+        hlp1.a(hmd, new hmd[] {
+            new gwl()
+        });
     }
 
-    public Object createFromParcel(Parcel parcel)
-    {
-        return new gwn(parcel);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new gwn[i];
-    }
 }

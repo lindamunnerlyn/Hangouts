@@ -3,12 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface ary
+public final class ary
 {
 
-    public abstract void a();
-
-    public abstract void a(String s);
-
-    public abstract void a(boolean flag);
+    public ary()
+    {
+    }
 }

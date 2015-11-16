@@ -2,51 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.Parcel;
 
-public class ezz extends Binder
-    implements ezy
+final class ezz
 {
 
-    public ezz()
-    {
-        attachInterface(this, "com.google.android.gms.dynamic.IObjectWrapper");
-    }
+    static final erv a[] = {
+        new faa(erv.a("0\202\003\3370\202\002\307\240\003\002\001\002\002\t\000\266\335\356\340\001\263\371\0040")), new fab(erv.a("0\202\003\3370\202\002\307\240\003\002\001\002\002\t\000\200?A\304\265\357\322\2200"))
+    };
 
-    public static ezy a(IBinder ibinder)
-    {
-        if (ibinder == null)
-        {
-            return null;
-        }
-        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.dynamic.IObjectWrapper");
-        if (iinterface != null && (iinterface instanceof ezy))
-        {
-            return (ezy)iinterface;
-        } else
-        {
-            return new faa(ibinder);
-        }
-    }
-
-    public IBinder asBinder()
-    {
-        return this;
-    }
-
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
-    {
-        switch (i)
-        {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
-
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.dynamic.IObjectWrapper");
-            break;
-        }
-        return true;
-    }
 }

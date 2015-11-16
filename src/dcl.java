@@ -2,57 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.AsyncTask;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.TextView;
-import java.util.Arrays;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-final class dcl extends AsyncTask
+public final class dcl
+    implements Parcelable
 {
 
-    final int a;
-    final dck b;
+    public static final android.os.Parcelable.Creator CREATOR = new dcm();
+    public final int a;
+    public final aoa b;
+    public final dcw c;
 
-    dcl(dck dck1, int i)
+    protected dcl(Parcel parcel)
     {
-        b = dck1;
-        a = i;
-        super();
+        b = dcn.a(parcel.readString(), parcel.readString());
+        a = b.h();
+        c = dcn.g(b);
     }
 
-    protected Object doInBackground(Object aobj[])
+    public dcl(aoa aoa1)
     {
-        java.util.List list;
-        byte byte0;
-        if (b.b.getCheckedRadioButtonId() == h.eA)
-        {
-            byte0 = 3;
-        } else
-        {
-            byte0 = 2;
-        }
-        list = Arrays.asList(new String[] {
-            b.c.getText().toString()
-        });
-        if (b.d.isChecked())
-        {
-            aobj = Integer.valueOf(2);
-        } else
-        {
-            aobj = null;
-        }
-        return csl.a(a, byte0, ((Integer) (aobj)), list);
+        a = aoa1.h();
+        c = dcn.g(aoa1);
+        b = aoa1;
     }
 
-    protected void onPostExecute(Object obj)
+    public int describeContents()
     {
-        obj = (csl)obj;
-        if (!((csl) (obj)).m())
-        {
-            obj = (den)((csl) (obj)).e();
-            b.a.setText(((den) (obj)).h.toString());
-        }
+        return 0;
     }
+
+    public void writeToParcel(Parcel parcel, int i)
+    {
+        parcel.writeString(b.a());
+        parcel.writeString(b.ab());
+    }
+
 }

@@ -7,10 +7,11 @@ package com.google.android.gms.maps.model;
 import android.os.IBinder;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import ezy;
-import ezz;
-import fjx;
-import flf;
+import fcw;
+import fcx;
+import fmt;
+import fob;
+import g;
 
 // Referenced classes of package com.google.android.gms.maps.model:
 //            LatLng, LatLngBounds
@@ -19,9 +20,9 @@ public final class GroundOverlayOptions
     implements SafeParcelable
 {
 
-    public static final flf CREATOR = new flf();
+    public static final fob CREATOR = new fob();
     private final int a;
-    private fjx b;
+    private fmt b;
     private LatLng c;
     private float d;
     private float e;
@@ -50,7 +51,7 @@ public final class GroundOverlayOptions
         k = 0.5F;
         l = 0.5F;
         a = i1;
-        b = new fjx(ezz.a(ibinder));
+        b = new fmt(fcx.a(ibinder));
         c = latlng;
         d = f1;
         e = f2;
@@ -63,24 +64,64 @@ public final class GroundOverlayOptions
         l = f7;
     }
 
-    public IBinder a()
+    private IBinder a()
     {
         return b.a().asBinder();
     }
 
-    public int b()
+    private int b()
     {
         return a;
     }
 
-    public LatLng c()
+    private LatLng c()
     {
         return c;
     }
 
-    public float d()
+    private float d()
     {
         return d;
+    }
+
+    private float e()
+    {
+        return e;
+    }
+
+    private LatLngBounds f()
+    {
+        return f;
+    }
+
+    private float g()
+    {
+        return g;
+    }
+
+    private float h()
+    {
+        return h;
+    }
+
+    private float i()
+    {
+        return j;
+    }
+
+    private float j()
+    {
+        return k;
+    }
+
+    private float k()
+    {
+        return l;
+    }
+
+    private boolean l()
+    {
+        return i;
     }
 
     public int describeContents()
@@ -88,49 +129,22 @@ public final class GroundOverlayOptions
         return 0;
     }
 
-    public float e()
-    {
-        return e;
-    }
-
-    public LatLngBounds f()
-    {
-        return f;
-    }
-
-    public float g()
-    {
-        return g;
-    }
-
-    public float h()
-    {
-        return h;
-    }
-
-    public float i()
-    {
-        return j;
-    }
-
-    public float j()
-    {
-        return k;
-    }
-
-    public float k()
-    {
-        return l;
-    }
-
-    public boolean l()
-    {
-        return i;
-    }
-
     public void writeToParcel(Parcel parcel, int i1)
     {
-        flf.a(this, parcel, i1);
+        int j1 = g.p(parcel, 20293);
+        g.b(parcel, 1, b());
+        g.a(parcel, 2, a());
+        g.a(parcel, 3, c(), i1);
+        g.a(parcel, 4, d());
+        g.a(parcel, 5, e());
+        g.a(parcel, 6, f(), i1);
+        g.a(parcel, 7, g());
+        g.a(parcel, 8, h());
+        g.a(parcel, 9, l());
+        g.a(parcel, 10, i());
+        g.a(parcel, 11, j());
+        g.a(parcel, 12, k());
+        g.q(parcel, j1);
     }
 
 }

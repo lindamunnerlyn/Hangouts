@@ -2,93 +2,117 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.InvalidObjectException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.Collection;
+import java.util.Comparator;
 
-public final class jtm extends koj
+public class jtm extends jte
+    implements jwl
 {
 
-    public Float a;
-    public Float b;
-    public Float c;
+    private static final long serialVersionUID = 0L;
+    private final transient jth a;
 
-    public jtm()
+    private void readObject(ObjectInputStream objectinputstream)
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        objectinputstream.defaultReadObject();
+        Comparator comparator = (Comparator)objectinputstream.readObject();
+        int l = objectinputstream.readInt();
+        if (l < 0)
         {
-            a.floatValue();
-            i = j + (koh.f(1) + 4);
+            throw new InvalidObjectException((new StringBuilder(29)).append("Invalid key count ").append(l).toString());
         }
-        j = i;
-        if (b != null)
+        jsq jsq1 = new jsq();
+        int j = 0;
+        int i;
+        int i1;
+        for (i = 0; j < l; i += i1)
         {
-            b.floatValue();
-            j = i + (koh.f(2) + 4);
-        }
-        i = j;
-        if (c != null)
-        {
-            c.floatValue();
-            i = j + (koh.f(3) + 4);
-        }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
+            Object obj1 = objectinputstream.readObject();
+            i1 = objectinputstream.readInt();
+            if (i1 <= 0)
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 13: // '\r'
-                a = Float.valueOf(kog1.c());
-                break;
-
-            case 21: // '\025'
-                b = Float.valueOf(kog1.c());
-                break;
-
-            case 29: // '\035'
-                c = Float.valueOf(kog1.c());
-                break;
+                throw new InvalidObjectException((new StringBuilder(31)).append("Invalid value count ").append(i1).toString());
             }
-        } while (true);
+            Object obj;
+            int k;
+            if (comparator == null)
+            {
+                obj = new jti();
+            } else
+            {
+                obj = new jtp(comparator);
+            }
+            for (k = 0; k < i1; k++)
+            {
+                ((jti) (obj)).c(objectinputstream.readObject());
+            }
+
+            obj = ((jti) (obj)).a();
+            if (((jth) (obj)).size() != i1)
+            {
+                objectinputstream = String.valueOf(obj1);
+                throw new InvalidObjectException((new StringBuilder(String.valueOf(objectinputstream).length() + 40)).append("Duplicate key-value pairs exist for key ").append(objectinputstream).toString());
+            }
+            jsq1.a(obj1, obj);
+            j++;
+        }
+
+        jxp jxp1;
+        try
+        {
+            objectinputstream = jsq1.a();
+        }
+        // Misplaced declaration of an exception variable
+        catch (ObjectInputStream objectinputstream)
+        {
+            throw (InvalidObjectException)(new InvalidObjectException(objectinputstream.getMessage())).initCause(objectinputstream);
+        }
+        jtg.a.a(this, objectinputstream);
+        jtg.b.a(this, i);
+        jxp1 = jtg.c;
+        if (comparator == null)
+        {
+            objectinputstream = jxl.a;
+        } else
+        {
+            objectinputstream = jto.a(comparator);
+        }
+        jxp1.a(this, objectinputstream);
     }
 
-    public void writeTo(koh koh1)
+    private void writeObject(ObjectOutputStream objectoutputstream)
     {
-        if (a != null)
+        objectoutputstream.defaultWriteObject();
+        objectoutputstream.writeObject(d());
+        g.a(this, objectoutputstream);
+    }
+
+    public jth a(Object obj)
+    {
+        return (jth)g.e((jth)b.get(obj), a);
+    }
+
+    public Collection b(Object obj)
+    {
+        return a(obj);
+    }
+
+    Comparator d()
+    {
+        if (a instanceof jto)
         {
-            koh1.a(1, a.floatValue());
-        }
-        if (b != null)
+            return ((jto)a).comparator();
+        } else
         {
-            koh1.a(2, b.floatValue());
+            return null;
         }
-        if (c != null)
-        {
-            koh1.a(3, c.floatValue());
-        }
-        super.writeTo(koh1);
+    }
+
+    public jsd d(Object obj)
+    {
+        return a(obj);
     }
 }

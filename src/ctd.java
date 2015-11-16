@@ -2,42 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public class ctd extends ctc
+public final class ctd
 {
 
-    private static final long serialVersionUID = 1L;
-    private final byte a[];
+    public static final String a = csy.getName();
+    private static ctc b;
 
-    public ctd(byte abyte0[])
+    public static void a(Context context, hlp hlp1)
     {
-        a = abyte0;
-    }
-
-    public kop a(String s, int i, int j)
-    {
-        jah jah1 = new jah();
-        jah1.requestHeader = ctq.a(s, i, j, h);
-        try
+        if (b == null)
         {
-            jah1.a = (izx)kop.mergeFrom(new izx(), a);
+            b = new ctc();
         }
-        // Misplaced declaration of an exception variable
-        catch (String s)
-        {
-            ebw.e("Babel", "Parse failed", s);
-            return null;
-        }
-        return jah1;
+        hlp1.a(csy, new csy(context));
     }
 
-    public long b()
-    {
-        return bpd.G();
-    }
-
-    public String g()
-    {
-        return "broadcasts/add";
-    }
 }

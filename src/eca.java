@@ -2,32 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
 
 final class eca
+    implements android.view.View.OnClickListener
 {
 
-    static final int a[];
+    final eby a;
 
-    static 
+    eca(eby eby1)
     {
-        a = new int[ecc.a().length];
-        try
-        {
-            a[ecc.a - 1] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[ecc.b - 1] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[ecc.c - 1] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
+        a = eby1;
+        super();
+    }
+
+    public void onClick(View view)
+    {
+        eby.a(a).j();
     }
 }

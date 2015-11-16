@@ -2,28 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.DialogInterface;
 
 final class axa
-    implements ays
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final ave a;
+    final avv a;
 
-    axa(ave ave1)
+    axa(avv avv1)
     {
-        a = ave1;
+        a = avv1;
         super();
     }
 
-    public void a()
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        if (a.getActivity() == null)
+        dialoginterface = a.getActivity();
+        if (dialoginterface != null)
         {
-            return;
-        } else
-        {
-            a.getActivity().runOnUiThread(new axb(this));
-            return;
+            dialoginterface.finish();
         }
     }
 }

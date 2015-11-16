@@ -3,10 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gyk
+final class gyk
 {
 
-    public gyk()
+    int a;
+    int b;
+
+    gyk()
     {
+        a = 0;
+        b = 3;
+    }
+
+    gyk(int i)
+    {
+        b = 4;
+        a = i;
     }
 }

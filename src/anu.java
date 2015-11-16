@@ -3,19 +3,12 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class anu
+public interface anu
 {
 
-    public static final String a = ggj.getName();
-    private static ant b;
-
-    public static void a(hgx hgx1)
-    {
-        if (b == null)
-        {
-            b = new ant();
-        }
-        hgx1.a(ggj, new ggj());
-    }
+    public static final String a[] = {
+        "_id", "chat_id", "gaia_id", "circle_id", "full_name", "first_name", "fallback_name", "profile_photo_url", "participant_type", "blocked", 
+        "phone_id", "batch_gebi_tag", "conversation_id", "active", "invitation_status"
+    };
 
 }

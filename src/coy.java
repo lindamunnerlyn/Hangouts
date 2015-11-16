@@ -2,37 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.database.Cursor;
+import android.view.View;
+import android.view.ViewGroup;
 
-public final class coy extends Enum
+public class coy extends oa
 {
 
-    public static final coy a;
-    public static final coy b;
-    private static final coy d[];
-    public final String c;
-
-    private coy(String s, int i, String s1)
+    public coy(Context context, Cursor cursor)
     {
-        super(s, i);
-        c = s1;
+        super(context, null, (byte)0);
     }
 
-    public static coy valueOf(String s)
+    public View a(Context context, Cursor cursor, ViewGroup viewgroup)
     {
-        return (coy)Enum.valueOf(coy, s);
+        return null;
     }
 
-    public static coy[] values()
+    public void a(View view, Cursor cursor)
     {
-        return (coy[])d.clone();
     }
 
-    static 
+    public void c()
     {
-        a = new coy("TRANSPORT_SPINNER", 0, "transport_spinner_promo_shown");
-        b = new coy("AUTOSWITCH_TRANSPORT", 1, "autoswitch_transport_promo_shown");
-        d = (new coy[] {
-            a, b
-        });
+    }
+
+    public void d()
+    {
+    }
+
+    public View getView(int i, View view, ViewGroup viewgroup)
+    {
+        if (i >= getCount())
+        {
+            View view1 = view;
+            if (view == null)
+            {
+                view1 = a(d, a(), viewgroup);
+            }
+            return view1;
+        } else
+        {
+            return super.getView(i, view, viewgroup);
+        }
+    }
+
+    public boolean isEmpty()
+    {
+        if (a() == null)
+        {
+            return true;
+        } else
+        {
+            return super.isEmpty();
+        }
     }
 }

@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import java.lang.ref.WeakReference;
-import ro;
+import rq;
 
 public final class ViewStubCompat extends View
 {
@@ -31,10 +31,10 @@ public final class ViewStubCompat extends View
     {
         super(context, attributeset, i);
         a = 0;
-        context = context.obtainStyledAttributes(attributeset, ro.cH, i, 0);
-        b = context.getResourceId(ro.cJ, -1);
-        a = context.getResourceId(ro.cK, 0);
-        setId(context.getResourceId(ro.cI, -1));
+        context = context.obtainStyledAttributes(attributeset, rq.cH, i, 0);
+        b = context.getResourceId(rq.cJ, -1);
+        a = context.getResourceId(rq.cK, 0);
+        setId(context.getResourceId(rq.cI, -1));
         context.recycle();
         setVisibility(8);
         setWillNotDraw(true);

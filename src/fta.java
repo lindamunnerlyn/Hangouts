@@ -3,11 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface fta
-    extends emi
+final class fta extends ThreadLocal
 {
 
-    public abstract String a();
+    fta()
+    {
+    }
 
-    public abstract String b();
+    protected Object initialValue()
+    {
+        return new String[5];
+    }
 }

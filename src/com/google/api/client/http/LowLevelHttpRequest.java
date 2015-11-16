@@ -4,7 +4,7 @@
 
 package com.google.api.client.http;
 
-import hof;
+import htb;
 
 // Referenced classes of package com.google.api.client.http:
 //            LowLevelHttpResponse
@@ -15,7 +15,7 @@ public abstract class LowLevelHttpRequest
     private String contentEncoding;
     private long contentLength;
     private String contentType;
-    private hof streamingContent;
+    private htb streamingContent;
 
     public LowLevelHttpRequest()
     {
@@ -41,7 +41,7 @@ public abstract class LowLevelHttpRequest
         return contentType;
     }
 
-    public final hof getStreamingContent()
+    public final htb getStreamingContent()
     {
         return streamingContent;
     }
@@ -61,9 +61,9 @@ public abstract class LowLevelHttpRequest
         contentType = s;
     }
 
-    public final void setStreamingContent(hof hof)
+    public final void setStreamingContent(htb htb)
     {
-        streamingContent = hof;
+        streamingContent = htb;
     }
 
     public void setTimeout(int i, int j)

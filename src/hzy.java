@@ -3,49 +3,53 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hzy extends koj
+public final class hzy extends kwm
 {
 
-    public Long a;
-    public Long b;
+    public idr a;
+    public ige b;
     public Boolean c;
-    public Boolean d;
 
     public hzy()
     {
         a = null;
         b = null;
         c = null;
-        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        int j = koh.e(1, a.longValue());
-        int k = koh.e(2, b.longValue());
-        c.booleanValue();
-        j = i + j + k + (koh.f(3) + 1);
-        i = j;
-        if (d != null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            d.booleanValue();
-            i = j + (koh.f(4) + 1);
+            i = j + kwk.d(1, a);
+        }
+        j = i;
+        if (c != null)
+        {
+            c.booleanValue();
+            j = i + (kwk.f(2) + 1);
+        }
+        i = j;
+        if (b != null)
+        {
+            i = j + kwk.d(3, b);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -54,34 +58,43 @@ public final class hzy extends koj
             case 0: // '\0'
                 return this;
 
-            case 8: // '\b'
-                a = Long.valueOf(kog1.e());
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new idr();
+                }
+                kwj1.a(a);
                 break;
 
             case 16: // '\020'
-                b = Long.valueOf(kog1.e());
+                c = Boolean.valueOf(kwj1.i());
                 break;
 
-            case 24: // '\030'
-                c = Boolean.valueOf(kog1.i());
-                break;
-
-            case 32: // ' '
-                d = Boolean.valueOf(kog1.i());
+            case 26: // '\032'
+                if (b == null)
+                {
+                    b = new ige();
+                }
+                kwj1.a(b);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.b(1, a.longValue());
-        koh1.b(2, b.longValue());
-        koh1.a(3, c.booleanValue());
-        if (d != null)
+        if (a != null)
         {
-            koh1.a(4, d.booleanValue());
+            kwk1.b(1, a);
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.a(2, c.booleanValue());
+        }
+        if (b != null)
+        {
+            kwk1.b(3, b);
+        }
+        super.writeTo(kwk1);
     }
 }

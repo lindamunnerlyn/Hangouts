@@ -3,22 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class dna
-    implements Runnable
+public final class dna
 {
 
-    final dnc a;
-    final dmt b;
+    public final String a;
+    public final int b;
 
-    dna(dmt dmt1, dnc dnc)
+    public dna(String s, int i)
     {
-        b = dmt1;
-        a = dnc;
-        super();
-    }
-
-    public void run()
-    {
-        b.a(a);
+        a = s;
+        b = i;
     }
 }

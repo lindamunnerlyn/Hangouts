@@ -2,240 +2,76 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Looper;
-import android.util.Log;
+import com.google.android.gms.common.ConnectionResult;
+import java.util.Map;
 
-public final class gbh
+class gbh
 {
 
-    private static volatile boolean a = true;
-    private static volatile boolean b = true;
+    private Map a;
+    private Map b;
 
-    public static void a()
+    public gbh()
     {
-        while (!b || Looper.myLooper() == Looper.getMainLooper() || Thread.currentThread().getName().contains("test")) 
-        {
-            return;
-        }
-        String s = String.valueOf(Looper.myLooper());
-        throw new AssertionError((new StringBuilder(String.valueOf(s).length() + 32)).append("Expected main thread instead of ").append(s).toString());
+        a = new gz();
+        b = new gz();
     }
 
-    public static void a(int i, int j, int k)
+    public emt a(gap gap)
     {
-        a("", i, j, k);
-    }
-
-    public static void a(Object obj)
-    {
-        a("Expected null", obj);
-    }
-
-    public static void a(Object obj, Object obj1)
-    {
-        String s;
-        try
+        if (gap instanceof gbf)
         {
-            s = String.format("Expected %s and %s to be equal.", new Object[] {
-                obj, obj1
-            });
-        }
-        catch (Throwable throwable)
-        {
-            throwable = "Expected objects to be equal.";
-        }
-        a(s, obj, obj1);
-    }
-
-    public static void a(String s)
-    {
-        if (a)
-        {
-            throw new AssertionError(s);
+            return fdb.a;
         } else
         {
-            return;
+            return null;
         }
     }
 
-    public static void a(String s, int i, int j, int k)
+    public emy a(gaq gaq)
     {
-        if (a && (i < j || i > k))
+        if (gaq instanceof gbo)
         {
-            Log.e("vclib", String.format("Expected value in range [%d, %d], but was %d. %s", new Object[] {
-                Integer.valueOf(j), Integer.valueOf(k), Integer.valueOf(i), s
-            }));
-            throw new AssertionError(String.format("Value is out of range [%d, %d]", new Object[] {
-                Integer.valueOf(j), Integer.valueOf(k)
-            }));
+            return ((gbo)gaq).d();
         } else
         {
-            return;
+            return null;
         }
     }
 
-    public static void a(String s, Object obj)
+    public enb a(gat gat)
     {
-        if (a && obj != null)
+        if (a.containsKey(gat))
         {
-            throw new AssertionError(s);
+            return (enb)a.get(gat);
         } else
         {
-            return;
+            gbi gbi1 = new gbi(this, gat);
+            a.put(gat, gbi1);
+            return gbi1;
         }
     }
 
-    public static void a(String s, Object obj, Object obj1)
+    public end a(gau gau)
     {
-        if (a && (obj != null ? !obj.equals(obj1) : obj1 != null))
+        if (b.containsKey(gau))
         {
-            Log.e("vclib", s);
-            throw new AssertionError("Expected objects to be equal.");
+            return (end)b.get(gau);
         } else
         {
-            return;
+            gbj gbj1 = new gbj(this, gau);
+            b.put(gau, gbj1);
+            return gbj1;
         }
     }
 
-    public static void a(String s, boolean flag)
+    public gap a(ConnectionResult connectionresult)
     {
-        if (a && !flag)
-        {
-            throw new AssertionError(s);
-        } else
-        {
-            return;
-        }
+        return new gbg(connectionresult);
     }
 
-    public static void a(boolean flag)
+    public gav a(ene ene)
     {
-        a("Expected condition to be true", flag);
+        return new gav(ene, gbm.a);
     }
-
-    public static void a(boolean flag, boolean flag1)
-    {
-        a = flag;
-        b = flag1;
-    }
-
-    public static Object b(Object obj)
-    {
-        return b("Expected non-null", obj);
-    }
-
-    public static Object b(String s, Object obj)
-    {
-        if (a && obj == null)
-        {
-            throw new AssertionError(s);
-        } else
-        {
-            return obj;
-        }
-    }
-
-    public static void b()
-    {
-        while (!b || Looper.myLooper() != Looper.getMainLooper()) 
-        {
-            return;
-        }
-        throw new AssertionError("Main thread unexpected");
-    }
-
-    public static void b(Object obj, Object obj1)
-    {
-        String s;
-        try
-        {
-            s = String.format("Expected different objects in %s and %s.", new Object[] {
-                obj, obj1
-            });
-        }
-        catch (Throwable throwable)
-        {
-            throwable = "Expected objects to be not equal.";
-        }
-        b(s, obj, obj1);
-    }
-
-    public static void b(String s, Object obj, Object obj1)
-    {
-        if (a && obj == obj1)
-        {
-            Log.e("vclib", s);
-            throw new AssertionError("Expected objects to be not equal.");
-        } else
-        {
-            return;
-        }
-    }
-
-    public static void b(String s, boolean flag)
-    {
-        if (a && flag)
-        {
-            throw new AssertionError(s);
-        } else
-        {
-            return;
-        }
-    }
-
-    public static void b(boolean flag)
-    {
-        b("Expected condition to be false", flag);
-    }
-
-    public static void c()
-    {
-        while (!b || Thread.currentThread().getName().startsWith("GLThread") || Thread.currentThread().getName().contains("test")) 
-        {
-            return;
-        }
-        String s = String.valueOf(Thread.currentThread());
-        throw new AssertionError((new StringBuilder(String.valueOf(s).length() + 40)).append("Expected GL rendering thread instead of ").append(s).toString());
-    }
-
-    public static void d()
-    {
-        while (!b || Thread.currentThread().getName().equals("LibjingleSignalingThread") || Thread.currentThread().getName().contains("test")) 
-        {
-            return;
-        }
-        String s = String.valueOf(Thread.currentThread());
-        throw new AssertionError((new StringBuilder(String.valueOf(s).length() + 47)).append("Expected Libjingle signaling thread instead of ").append(s).toString());
-    }
-
-    public static void e()
-    {
-        while (!b || Thread.currentThread().getName().equals("CameraOpenThread") || Thread.currentThread().getName().contains("test")) 
-        {
-            return;
-        }
-        String s = String.valueOf(Thread.currentThread());
-        throw new AssertionError((new StringBuilder(String.valueOf(s).length() + 49)).append("Expected CameraOpen background thread instead of ").append(s).toString());
-    }
-
-    public static void f()
-    {
-        while (!b || Thread.currentThread().getName().equals("DecoderHandlerThread") || Thread.currentThread().getName().contains("test")) 
-        {
-            return;
-        }
-        String s = String.valueOf(Thread.currentThread());
-        throw new AssertionError((new StringBuilder(String.valueOf(s).length() + 35)).append("Expected Decoder thread instead of ").append(s).toString());
-    }
-
-    public static void g()
-    {
-        while (!b || Thread.currentThread().getName().equals("EncoderHandlerThread") || Thread.currentThread().getName().contains("test")) 
-        {
-            return;
-        }
-        String s = String.valueOf(Thread.currentThread());
-        throw new AssertionError((new StringBuilder(String.valueOf(s).length() + 35)).append("Expected Encoder thread instead of ").append(s).toString());
-    }
-
 }

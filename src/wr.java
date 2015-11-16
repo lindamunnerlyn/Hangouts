@@ -4,105 +4,123 @@
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.widget.MultiAutoCompleteTextView;
+import android.widget.CompoundButton;
 
-public final class wr extends MultiAutoCompleteTextView
-    implements jw
+final class wr
 {
 
-    private static final int a[] = {
-        0x1010176
-    };
-    private vi b;
-    private wl c;
-    private xb d;
+    private final CompoundButton a;
+    private final vk b;
+    private ColorStateList c;
+    private android.graphics.PorterDuff.Mode d;
+    private boolean e;
+    private boolean f;
+    private boolean g;
 
-    public wr(Context context, AttributeSet attributeset)
+    wr(CompoundButton compoundbutton, vk vk1)
     {
-        this(context, attributeset, g.u);
+        c = null;
+        d = null;
+        e = false;
+        f = false;
+        a = compoundbutton;
+        b = vk1;
     }
 
-    private wr(Context context, AttributeSet attributeset, int i)
+    private void b()
     {
-        super(vf.a(context), attributeset, i);
-        context = vk.a(getContext(), attributeset, a, i);
-        b = context.c();
-        if (context.g(0))
+        Drawable drawable = nu.a(a);
+        if (drawable != null && (e || f))
         {
-            setDropDownBackgroundDrawable(context.a(0));
-        }
-        context.b();
-        c = new wl(this, b);
-        c.a(attributeset, i);
-        d = new xb(this);
-        d.a(attributeset, i);
-    }
-
-    public void a(ColorStateList colorstatelist)
-    {
-        if (c != null)
-        {
-            c.a(colorstatelist);
-        }
-    }
-
-    public void a(android.graphics.PorterDuff.Mode mode)
-    {
-        if (c != null)
-        {
-            c.a(mode);
+            drawable = fe.c(drawable).mutate();
+            if (e)
+            {
+                fe.a(drawable, c);
+            }
+            if (f)
+            {
+                fe.a(drawable, d);
+            }
+            if (drawable.isStateful())
+            {
+                drawable.setState(a.getDrawableState());
+            }
+            a.setButtonDrawable(drawable);
         }
     }
 
-    protected void drawableStateChanged()
+    int a(int i)
     {
-        super.drawableStateChanged();
-        if (c != null)
+        int j = i;
+        if (android.os.Build.VERSION.SDK_INT < 17)
         {
-            c.b();
+            Drawable drawable = nu.a(a);
+            j = i;
+            if (drawable != null)
+            {
+                j = i + drawable.getIntrinsicWidth();
+            }
         }
+        return j;
     }
 
-    public void setBackgroundDrawable(Drawable drawable)
+    void a()
     {
-        super.setBackgroundDrawable(drawable);
-        if (c != null)
+        if (g)
         {
-            c.a();
-        }
-    }
-
-    public void setBackgroundResource(int i)
-    {
-        super.setBackgroundResource(i);
-        if (c != null)
-        {
-            c.a(i);
-        }
-    }
-
-    public void setDropDownBackgroundResource(int i)
-    {
-        if (b != null)
-        {
-            setDropDownBackgroundDrawable(b.a(i));
+            g = false;
             return;
         } else
         {
-            super.setDropDownBackgroundResource(i);
+            g = true;
+            b();
             return;
         }
     }
 
-    public void setTextAppearance(Context context, int i)
+    void a(ColorStateList colorstatelist)
     {
-        super.setTextAppearance(context, i);
-        if (d != null)
-        {
-            d.a(context, i);
-        }
+        c = colorstatelist;
+        e = true;
+        b();
     }
 
+    void a(android.graphics.PorterDuff.Mode mode)
+    {
+        d = mode;
+        f = true;
+        b();
+    }
+
+    void a(AttributeSet attributeset, int i)
+    {
+        attributeset = a.getContext().obtainStyledAttributes(attributeset, rq.Q, i, 0);
+        if (!attributeset.hasValue(rq.R))
+        {
+            break MISSING_BLOCK_LABEL_55;
+        }
+        i = attributeset.getResourceId(rq.R, 0);
+        if (i == 0)
+        {
+            break MISSING_BLOCK_LABEL_55;
+        }
+        a.setButtonDrawable(b.a(i));
+        if (attributeset.hasValue(rq.S))
+        {
+            nu.a(a, attributeset.getColorStateList(rq.S));
+        }
+        if (attributeset.hasValue(rq.T))
+        {
+            nu.a(a, g.a(attributeset.getInt(rq.T, -1)));
+        }
+        attributeset.recycle();
+        return;
+        Exception exception;
+        exception;
+        attributeset.recycle();
+        throw exception;
+    }
 }

@@ -2,17 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
+import android.content.Context;
+import android.os.Looper;
 
-public final class fdc
+final class fdc extends emu
 {
 
-    public final fdd a;
-    public final List b;
-
-    public fdc(fdd fdd, List list)
+    fdc()
     {
-        a = fdd;
-        b = list;
+    }
+
+    public emw a(Context context, Looper looper, epo epo, Object obj, enb enb, end end)
+    {
+        return new fhl(context, looper, enb, end, epo);
     }
 }

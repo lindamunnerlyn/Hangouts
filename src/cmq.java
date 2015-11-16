@@ -2,23 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.AsyncTask;
+import com.google.android.apps.hangouts.phone.DebugActivity;
 
-final class cmq extends AsyncTask
+public final class cmq
+    implements Runnable
 {
 
-    final cmp a;
+    final String a;
+    final DebugActivity b;
 
-    cmq(cmp cmp1)
+    public cmq(DebugActivity debugactivity, String s)
     {
-        a = cmp1;
+        b = debugactivity;
+        a = s;
         super();
     }
 
-    protected Object doInBackground(Object aobj[])
+    public void run()
     {
-        long l = System.currentTimeMillis();
-        (new aoe(a.a.a, a.a.c)).e(l * 1000L - 0xc92a69c000L);
-        return null;
+        DebugActivity.a(b, a, "conversations");
     }
 }

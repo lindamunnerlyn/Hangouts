@@ -2,26 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
 final class bdx
 {
 
-    private final beb a = (new bec()).a("diagnosticspromo").b("Module that hosts the diagnostics promo.").a(true).a();
+    public ehk a;
+    public eef b;
+    final bdv c;
 
-    public bdx()
+    bdx(bdv bdv)
     {
+        c = bdv;
+        super();
+        a = null;
+        b = null;
     }
 
-    public beb[] a()
+    public void a()
     {
-        return (new beb[] {
-            a
-        });
-    }
-
-    public cqv[] a(Context context)
-    {
-        return (cqv[])a.a(context, cqv, new bdw());
+        if (b != null)
+        {
+            b.b();
+            b = null;
+        }
+        if (a != null)
+        {
+            a.c();
+            a = null;
+        }
     }
 }

@@ -15,11 +15,11 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.FrameLayout;
-import bmn;
-import bmo;
-import bmp;
+import bmu;
+import bmv;
+import bmw;
 import g;
-import gbh;
+import gdv;
 import mn;
 
 public class DialpadKeyButton extends FrameLayout
@@ -37,7 +37,7 @@ public class DialpadKeyButton extends FrameLayout
     private boolean j;
     private boolean k;
     private Runnable l;
-    private bmp m;
+    private bmw m;
 
     public DialpadKeyButton(Context context, AttributeSet attributeset)
     {
@@ -131,9 +131,9 @@ public class DialpadKeyButton extends FrameLayout
         return dialpadkeybutton.c;
     }
 
-    public void a(bmp bmp1)
+    public void a(bmw bmw1)
     {
-        m = bmp1;
+        m = bmw1;
     }
 
     public void a(CharSequence charsequence)
@@ -165,7 +165,7 @@ _L3:
         {
             if (l == null)
             {
-                l = new bmo(this);
+                l = new bmv(this);
             }
             postDelayed(l, a);
         }
@@ -187,7 +187,7 @@ _L4:
                 setPressed(true);
                 a(true);
             }
-            gbh.a(isPressed());
+            gdv.a("Expected condition to be true", isPressed());
             setPressed(false);
             a(false);
             if (g)
@@ -251,7 +251,7 @@ _L5:
     public void onMeasure(int i1, int j1)
     {
         super.onMeasure(i1, j1);
-        setMeasuredDimension(android.view.View.MeasureSpec.getSize(i1) / 3, getResources().getDimensionPixelSize(g.ea));
+        setMeasuredDimension(android.view.View.MeasureSpec.getSize(i1) / 3, getResources().getDimensionPixelSize(g.dY));
     }
 
     public void onSizeChanged(int i1, int j1, int k1, int l1)
@@ -275,7 +275,7 @@ _L2:
             setPressed(true);
             a(true);
             int i1 = f;
-            b.postDelayed(new bmn(this, i1), ViewConfiguration.getLongPressTimeout());
+            b.postDelayed(new bmu(this, i1), ViewConfiguration.getLongPressTimeout());
             return true;
         }
         continue; /* Loop/switch isn't completed */

@@ -2,27 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
-import android.view.View;
-import com.google.android.apps.hangouts.conversation.v2.PreviewImageActivity;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.google.android.libraries.quantum.snackbar.Snackbar;
 
-public final class azo
-    implements android.view.View.OnClickListener
+public final class azo extends dvi
 {
 
-    final PreviewImageActivity a;
-
-    public azo(PreviewImageActivity previewimageactivity)
+    public azo(ad ad, hof hof)
     {
-        a = previewimageactivity;
-        super();
+        super(ad, hof);
     }
 
-    public void onClick(View view)
+    public azo a(hlp hlp)
     {
-        view = a.getIntent();
-        view.putExtra("result_media_attachment", PreviewImageActivity.b(a));
-        a.setResult(-1, view);
-        a.finish();
+        super.b(hlp);
+        return this;
+    }
+
+    protected void a(dvg dvg, boolean flag)
+    {
+        ViewGroup viewgroup = (ViewGroup)c.getParent();
+        Snackbar snackbar = (Snackbar)b.getLayoutInflater().inflate(g.fo, viewgroup, false);
+        viewgroup.addView(snackbar);
+        a(snackbar);
+        super.a(dvg, flag);
+    }
+
+    public dvi b(hlp hlp)
+    {
+        return a(hlp);
     }
 }

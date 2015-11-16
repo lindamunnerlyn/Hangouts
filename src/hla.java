@@ -2,339 +2,209 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpExecuteInterceptor;
-import com.google.api.client.http.HttpHeaders;
-import com.google.api.client.http.HttpRequest;
-import com.google.api.client.http.HttpRequestInitializer;
-import com.google.api.client.http.HttpResponse;
-import com.google.api.client.http.HttpTransport;
-import com.google.api.client.http.HttpUnsuccessfulResponseHandler;
-import com.google.api.client.json.JsonFactory;
-import java.io.IOException;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.text.Spannable;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 
-public class hla
-    implements HttpExecuteInterceptor, HttpRequestInitializer, HttpUnsuccessfulResponseHandler
+public class hla extends hmk
+    implements android.content.DialogInterface.OnClickListener, android.content.DialogInterface.OnMultiChoiceClickListener
 {
 
-    static final Logger a = Logger.getLogger(hla.getName());
-    public final hne b;
-    public final HttpTransport c;
-    public final HttpExecuteInterceptor d;
-    public final JsonFactory e;
-    public final String f;
-    private final Lock g = new ReentrantLock();
-    private final hlb h;
-    private String i;
-    private Long j;
-    private String k;
-    private final Collection l;
-    private final HttpRequestInitializer m;
+    private hlb aj;
 
-    public hla(hlc hlc1)
+    public hla()
     {
-        h = (hlb)h.b(hlc1.a);
-        c = hlc1.b;
-        e = hlc1.c;
-        String s;
-        if (hlc1.d == null)
-        {
-            s = null;
-        } else
-        {
-            s = hlc1.d.build();
-        }
-        f = s;
-        d = hlc1.f;
-        m = hlc1.g;
-        l = Collections.unmodifiableCollection(hlc1.h);
-        b = (hne)h.b(hlc1.e);
     }
 
-    private Long b()
+    public static hla a(String s, CharSequence charsequence, String s1, String s2)
     {
-        g.lock();
-        Long long1 = j;
-        if (long1 == null)
+        return (new hla()).a(s, charsequence, s1, s2, 0, 0);
+    }
+
+    private hlb r()
+    {
+        if (aj != null)
         {
-            g.unlock();
+            return aj;
+        }
+        if (getTargetFragment() instanceof hlb)
+        {
+            return (hlb)getTargetFragment();
+        }
+        if (getActivity() instanceof hlb)
+        {
+            return (hlb)getActivity();
+        } else
+        {
             return null;
         }
-        long l1 = (j.longValue() - b.a()) / 1000L;
-        g.unlock();
-        return Long.valueOf(l1);
-        Exception exception;
-        exception;
-        g.unlock();
-        throw exception;
     }
 
-    private boolean c()
+    public Dialog a(Bundle bundle)
     {
-        boolean flag;
-        flag = true;
-        g.lock();
-        hli hli1 = a();
-        if (hli1 == null)
-        {
-            break MISSING_BLOCK_LABEL_162;
-        }
-        a(hli1);
-        for (Iterator iterator = l.iterator(); iterator.hasNext(); iterator.next()) { }
-        break MISSING_BLOCK_LABEL_140;
+        android.app.AlertDialog.Builder builder;
         Object obj;
-        obj;
-        Iterator iterator1;
-        if (400 > ((hlj) (obj)).getStatusCode() || ((hlj) (obj)).getStatusCode() >= 500)
+        bundle = getArguments();
+        obj = q();
+        builder = new android.app.AlertDialog.Builder(((Context) (obj)));
+        if (bundle.containsKey("title"))
         {
-            flag = false;
+            builder.setTitle(bundle.getString("title"));
         }
-        if (((hlj) (obj)).a == null || !flag)
-        {
-            break MISSING_BLOCK_LABEL_99;
-        }
-        a(((String) (null)));
-        b(((Long) (null)));
-        for (iterator1 = l.iterator(); iterator1.hasNext(); iterator1.next()) { }
-        break MISSING_BLOCK_LABEL_156;
-        obj;
-        g.unlock();
-        throw obj;
-        g.unlock();
-        return true;
-        if (!flag)
-        {
-            break MISSING_BLOCK_LABEL_162;
-        }
-        throw obj;
-        g.unlock();
-        return false;
-    }
-
-    public hla a(hli hli1)
-    {
-        a(hli1.a);
-        if (hli1.c != null)
-        {
-            b(hli1.c);
-        }
-        b(hli1.b);
-        return this;
-    }
-
-    public hla a(Long long1)
-    {
-        g.lock();
-        j = long1;
-        g.unlock();
-        return this;
-        long1;
-        g.unlock();
-        throw long1;
-    }
-
-    public hla a(String s)
-    {
-        g.lock();
-        i = s;
-        g.unlock();
-        return this;
-        s;
-        g.unlock();
-        throw s;
-    }
-
-    public hli a()
-    {
-        if (k == null)
-        {
-            return null;
-        } else
-        {
-            return (new hld(c, e, new GenericUrl(f), k)).a(d).a(m).a();
-        }
-    }
-
-    public hla b(Long long1)
-    {
-        if (long1 == null)
-        {
-            long1 = null;
-        } else
-        {
-            long1 = Long.valueOf(b.a() + long1.longValue() * 1000L);
-        }
-        return a(long1);
-    }
-
-    public hla b(String s)
-    {
-        g.lock();
-        if (s == null)
-        {
-            break MISSING_BLOCK_LABEL_49;
-        }
-        boolean flag;
-        if (e != null && c != null && d != null && f != null)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        l.a(flag, "Please use the Builder and call setJsonFactory, setTransport, setClientAuthentication and setTokenServerUrl/setTokenServerEncodedUrl");
-        k = s;
-        g.unlock();
-        return this;
-        s;
-        g.unlock();
-        throw s;
-    }
-
-    public boolean handleResponse(HttpRequest httprequest, HttpResponse httpresponse, boolean flag)
-    {
-        Object obj;
-        boolean flag2;
-        flag2 = true;
-        obj = httpresponse.getHeaders().getAuthenticateAsList();
-        if (obj == null) goto _L2; else goto _L1
+        if (!bundle.containsKey("message")) goto _L2; else goto _L1
 _L1:
-        obj = ((List) (obj)).iterator();
-_L5:
-        if (!((Iterator) (obj)).hasNext()) goto _L2; else goto _L3
+        CharSequence charsequence = bundle.getCharSequence("message");
+        TextView textview;
+        obj = LayoutInflater.from(((Context) (obj))).inflate(g.tT, null);
+        textview = (TextView)((View) (obj)).findViewById(l.uf);
+        if (textview == null) goto _L4; else goto _L3
 _L3:
-        String s1 = (String)((Iterator) (obj)).next();
-        if (!s1.startsWith("Bearer ")) goto _L5; else goto _L4
+        if (!(charsequence instanceof String)) goto _L6; else goto _L5
+_L5:
+        g.a(textview, (String)charsequence);
 _L4:
-        boolean flag1;
-        flag = hkz.a.matcher(s1).find();
-        flag1 = true;
-_L8:
-        if (!flag1)
+        builder.setView(((View) (obj)));
+_L2:
+        if (bundle.containsKey("positive"))
         {
-            if (httpresponse.getStatusCode() == 401)
+            builder.setPositiveButton(bundle.getString("positive"), this);
+        }
+        if (bundle.containsKey("negative"))
+        {
+            builder.setNegativeButton(bundle.getString("negative"), this);
+        }
+        if (bundle.containsKey("icon_attribute") && android.os.Build.VERSION.SDK_INT >= 11)
+        {
+            builder.setIconAttribute(bundle.getInt("icon_attribute"));
+        } else
+        if (bundle.containsKey("icon"))
+        {
+            builder.setIcon(bundle.getInt("icon"));
+        }
+        if (bundle.containsKey("list"))
+        {
+            builder.setItems(bundle.getStringArray("list"), this);
+        }
+        if (bundle.containsKey("multi_choice_list"))
+        {
+            charsequence = bundle.getStringArray("multi_choice_list");
+            Exception exception;
+            if (bundle.containsKey("multi_choice_list_states"))
             {
-                flag = true;
+                bundle = bundle.getBooleanArray("multi_choice_list_states");
             } else
             {
-                flag = false;
+                bundle = new boolean[charsequence.length];
             }
+            builder.setMultiChoiceItems(charsequence, bundle, this);
         }
-        if (!flag) goto _L7; else goto _L6
+        return builder.create();
 _L6:
-        g.lock();
-        httpresponse = i;
-        httprequest = httprequest.getHeaders().getAuthorizationAsList();
-        if (httprequest == null)
-        {
-            break MISSING_BLOCK_LABEL_240;
-        }
-        httprequest = httprequest.iterator();
-        String s;
-        do
-        {
-            if (!httprequest.hasNext())
-            {
-                break MISSING_BLOCK_LABEL_240;
-            }
-            s = (String)httprequest.next();
-        } while (!s.startsWith("Bearer "));
-        httprequest = s.substring(7);
-_L9:
-        flag = flag2;
-        if (!l.a(httpresponse, httprequest))
-        {
-            break MISSING_BLOCK_LABEL_188;
-        }
-        flag = c();
-        if (flag)
-        {
-            flag = flag2;
-        } else
-        {
-            flag = false;
-        }
-        g.unlock();
-        return flag;
-        httprequest;
-        try
-        {
-            g.unlock();
-            throw httprequest;
-        }
-        // Misplaced declaration of an exception variable
-        catch (HttpRequest httprequest)
-        {
-            a.log(Level.SEVERE, "unable to refresh token", httprequest);
-        }
+        if (!(charsequence instanceof Spannable)) goto _L4; else goto _L7
 _L7:
-        return false;
-_L2:
-        flag1 = false;
-        flag = false;
-          goto _L8
-        httprequest = null;
-          goto _L9
+        g.a(textview, (Spannable)charsequence);
+          goto _L4
+        exception;
+        Log.e("AlertFragmentDialog", "Cannot inflated view", exception);
+        builder.setMessage(charsequence);
+          goto _L2
     }
 
-    public void initialize(HttpRequest httprequest)
+    protected hla a(String s, CharSequence charsequence, String s1, String s2, int i, int j)
     {
-        httprequest.setInterceptor(this);
-        httprequest.setUnsuccessfulResponseHandler(this);
+        Bundle bundle = new Bundle();
+        if (s != null)
+        {
+            bundle.putString("title", s);
+        }
+        if (charsequence != null)
+        {
+            bundle.putCharSequence("message", charsequence);
+        }
+        if (s1 != null)
+        {
+            bundle.putString("positive", s1);
+        }
+        if (s2 != null)
+        {
+            bundle.putString("negative", s2);
+        }
+        setArguments(bundle);
+        return this;
     }
 
-    public void intercept(HttpRequest httprequest)
+    public void a(hlb hlb1)
     {
-        g.lock();
-        Object obj;
-        obj = b();
-        if (i == null)
+        aj = hlb1;
+    }
+
+    public void onCancel(DialogInterface dialoginterface)
+    {
+        dialoginterface = r();
+        if (dialoginterface != null)
         {
-            break MISSING_BLOCK_LABEL_36;
+            getArguments();
+            getTag();
+            dialoginterface.c();
         }
-        if (obj == null)
+    }
+
+    public void onClick(DialogInterface dialoginterface, int i)
+    {
+label0:
         {
-            break MISSING_BLOCK_LABEL_60;
-        }
-        if (((Long) (obj)).longValue() > 60L)
-        {
-            break MISSING_BLOCK_LABEL_60;
-        }
-        c();
-        obj = i;
-        if (obj == null)
-        {
-            g.unlock();
+label1:
+            {
+                dialoginterface = r();
+                if (dialoginterface != null)
+                {
+                    switch (i)
+                    {
+                    default:
+                        if (getArguments().containsKey("list") && i >= 0)
+                        {
+                            getTag();
+                            dialoginterface.d();
+                        }
+                        break;
+
+                    case -2: 
+                        break label0;
+
+                    case -1: 
+                        break label1;
+                    }
+                }
+                return;
+            }
+            getArguments();
+            getTag();
+            dialoginterface.a();
             return;
         }
-        String s = i;
-        obj = httprequest.getHeaders();
-        httprequest = String.valueOf("Bearer ");
-        s = String.valueOf(s);
-        if (s.length() == 0)
-        {
-            break MISSING_BLOCK_LABEL_110;
-        }
-        httprequest = httprequest.concat(s);
-_L1:
-        ((HttpHeaders) (obj)).setAuthorization(httprequest);
-        g.unlock();
-        return;
-        httprequest = new String(httprequest);
-          goto _L1
-        httprequest;
-        g.unlock();
-        throw httprequest;
+        getArguments();
+        getTag();
+        dialoginterface.b();
     }
 
+    public void onClick(DialogInterface dialoginterface, int i, boolean flag)
+    {
+        dialoginterface = r();
+        if (dialoginterface != null && getArguments().containsKey("multi_choice_list") && i >= 0)
+        {
+            getTag();
+            dialoginterface.e();
+        }
+    }
+
+    public Context q()
+    {
+        return getActivity();
+    }
 }

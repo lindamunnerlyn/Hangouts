@@ -3,8 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface gqo
+public final class gqo
+    implements gqk
 {
 
-    public abstract void a(gqn gqn, grk grk);
+    public gqo()
+    {
+    }
+
+    public boolean a()
+    {
+        return false;
+    }
+
+    public int b()
+    {
+        return g.sm;
+    }
 }

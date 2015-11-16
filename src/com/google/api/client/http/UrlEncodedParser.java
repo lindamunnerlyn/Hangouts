@@ -6,14 +6,14 @@ package com.google.api.client.http;
 
 import com.google.api.client.util.GenericData;
 import g;
-import h;
-import hmu;
-import hnb;
-import hnc;
-import hng;
-import hno;
-import hob;
-import hok;
+import hrj;
+import hrq;
+import hrx;
+import hry;
+import hsc;
+import hsk;
+import hsx;
+import htg;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,7 +34,7 @@ import l;
 //            HttpMediaType
 
 public class UrlEncodedParser
-    implements hob
+    implements hsx
 {
 
     public static final String CONTENT_TYPE = "application/x-www-form-urlencoded";
@@ -50,13 +50,13 @@ public class UrlEncodedParser
         Object obj1;
         Object obj2;
         Object obj4;
-        hnc hnc1;
+        hry hry1;
         List list;
-        hmu hmu1;
+        hrq hrq1;
         boolean flag;
         int i;
         obj1 = obj.getClass();
-        hnc1 = hnc.a(((Class) (obj1)));
+        hry1 = hry.a(((Class) (obj1)));
         list = Arrays.asList(new Type[] {
             obj1
         });
@@ -75,7 +75,7 @@ public class UrlEncodedParser
         {
             obj1 = null;
         }
-        hmu1 = new hmu(obj);
+        hrq1 = new hrq(obj);
         obj2 = new StringWriter();
         stringwriter = new StringWriter();
         flag = true;
@@ -91,7 +91,7 @@ _L10:
            goto _L1 _L2 _L2 _L3
 _L1:
         Object obj3;
-        hno hno1;
+        hsk hsk1;
         Object obj5;
         if (flag)
         {
@@ -102,27 +102,27 @@ _L1:
         }
         continue; /* Loop/switch isn't completed */
 _L2:
-        obj5 = hok.b(((StringWriter) (obj4)).toString());
+        obj5 = htg.b(((StringWriter) (obj4)).toString());
         if (((String) (obj5)).length() == 0) goto _L5; else goto _L4
 _L4:
-        obj4 = hok.b(((StringWriter) (obj2)).toString());
-        hno1 = hnc1.a(((String) (obj5)));
-        if (hno1 == null) goto _L7; else goto _L6
+        obj4 = htg.b(((StringWriter) (obj2)).toString());
+        hsk1 = hry1.a(((String) (obj5)));
+        if (hsk1 == null) goto _L7; else goto _L6
 _L6:
-        obj5 = hng.a(list, hno1.c());
+        obj5 = hsc.a(list, hsk1.c());
         if (g.a(((Type) (obj5))))
         {
             obj2 = g.a(list, g.b(((Type) (obj5))));
-            hmu1.a(hno1.a(), ((Class) (obj2)), parseValue(((Type) (obj2)), list, ((String) (obj4))));
+            hrq1.a(hsk1.a(), ((Class) (obj2)), parseValue(((Type) (obj2)), list, ((String) (obj4))));
         } else
         if (g.a(g.a(list, ((Type) (obj5))), java/lang/Iterable))
         {
-            obj3 = (Collection)hno1.a(obj);
+            obj3 = (Collection)hsk1.a(obj);
             obj2 = obj3;
             if (obj3 == null)
             {
-                obj2 = hng.b(((Type) (obj5)));
-                hno1.a(obj, obj2);
+                obj2 = hsc.b(((Type) (obj5)));
+                hsk1.a(obj, obj2);
             }
             if (obj5 == java/lang/Object)
             {
@@ -134,14 +134,14 @@ _L6:
             ((Collection) (obj2)).add(parseValue(((Type) (obj3)), list, ((String) (obj4))));
         } else
         {
-            hno1.a(obj, parseValue(((Type) (obj5)), list, ((String) (obj4))));
+            hsk1.a(obj, parseValue(((Type) (obj5)), list, ((String) (obj4))));
         }
 _L5:
         obj4 = new StringWriter();
         obj2 = new StringWriter();
         if (i == -1)
         {
-            hmu1.a();
+            hrq1.a();
             return;
         }
         break; /* Loop/switch isn't completed */
@@ -187,13 +187,13 @@ _L9:
         // Misplaced declaration of an exception variable
         catch (String s)
         {
-            throw h.a(s);
+            throw hrj.a(s);
         }
     }
 
     private static Object parseValue(Type type, List list, String s)
     {
-        return hng.a(hng.a(list, type), s);
+        return hsc.a(hsc.a(list, type), s);
     }
 
     public Object parseAndClose(InputStream inputstream, Charset charset, Class class1)
@@ -221,6 +221,6 @@ _L9:
 
     static 
     {
-        MEDIA_TYPE = (new HttpMediaType("application/x-www-form-urlencoded")).setCharsetParameter(hnb.a).build();
+        MEDIA_TYPE = (new HttpMediaType("application/x-www-form-urlencoded")).setCharsetParameter(hrx.a).build();
     }
 }

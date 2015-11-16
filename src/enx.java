@@ -2,80 +2,95 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Parcel;
+import android.os.Looper;
+import com.google.android.gms.common.ConnectionResult;
+import java.lang.ref.WeakReference;
+import java.util.concurrent.locks.Lock;
 
 final class enx
-    implements env
+    implements enc
 {
 
-    private IBinder a;
+    private final WeakReference a;
+    private final emt b;
+    private final int c;
 
-    enx(IBinder ibinder)
+    public enx(enq enq1, emt emt, int i)
     {
-        a = ibinder;
+        a = new WeakReference(enq1);
+        b = emt;
+        c = i;
     }
 
-    public void a(int i, Bundle bundle)
+    public void a(ConnectionResult connectionresult)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.common.internal.IGmsCallbacks");
-        parcel.writeInt(i);
-        if (bundle == null)
+        enq enq1;
+        boolean flag = false;
+        enq1 = (enq)a.get();
+        if (enq1 == null)
         {
-            break MISSING_BLOCK_LABEL_65;
+            return;
         }
-        parcel.writeInt(1);
-        bundle.writeToParcel(parcel, 0);
-_L1:
-        a.transact(2, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        bundle;
-        parcel1.recycle();
-        parcel.recycle();
-        throw bundle;
-    }
-
-    public void a(int i, IBinder ibinder, Bundle bundle)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.common.internal.IGmsCallbacks");
-        parcel.writeInt(i);
-        parcel.writeStrongBinder(ibinder);
-        if (bundle == null)
+        if (Looper.myLooper() == enq1.a.a())
         {
-            break MISSING_BLOCK_LABEL_78;
+            flag = true;
         }
-        parcel.writeInt(1);
-        bundle.writeToParcel(parcel, 0);
-_L1:
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
+        g.a(flag, "onReportServiceBinding must be called on the GoogleApiClient handler thread");
+        enq1.b.lock();
+        boolean flag1 = enq1.b(0);
+        if (!flag1)
+        {
+            enq1.b.unlock();
+            return;
+        }
+        if (!connectionresult.b())
+        {
+            enq1.b(connectionresult, b, c);
+        }
+        if (enq1.e())
+        {
+            enq1.f();
+        }
+        enq1.b.unlock();
         return;
-        parcel.writeInt(0);
-          goto _L1
-        ibinder;
-        parcel1.recycle();
-        parcel.recycle();
-        throw ibinder;
+        connectionresult;
+        enq1.b.unlock();
+        throw connectionresult;
     }
 
-    public IBinder asBinder()
+    public void b(ConnectionResult connectionresult)
     {
-        return a;
+        enq enq1;
+        boolean flag = true;
+        enq1 = (enq)a.get();
+        if (enq1 == null)
+        {
+            return;
+        }
+        if (Looper.myLooper() != enq1.a.a())
+        {
+            flag = false;
+        }
+        g.a(flag, "onReportAccountValidation must be called on the GoogleApiClient handler thread");
+        enq1.b.lock();
+        flag = enq1.b(1);
+        if (!flag)
+        {
+            enq1.b.unlock();
+            return;
+        }
+        if (!connectionresult.b())
+        {
+            enq1.b(connectionresult, b, c);
+        }
+        if (enq1.e())
+        {
+            enq1.g();
+        }
+        enq1.b.unlock();
+        return;
+        connectionresult;
+        enq1.b.unlock();
+        throw connectionresult;
     }
 }

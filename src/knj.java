@@ -2,50 +2,91 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
 
-final class knj extends kni
+public final class knj extends kwm
 {
 
-    knj(int i)
+    public String a;
+    public Long b;
+    public String c;
+
+    public knj()
     {
-        super(i, (byte)0);
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public void a()
+    protected int computeSerializedSize()
     {
-        if (!b())
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            for (int i = 0; i < c(); i++)
-            {
-                java.util.Map.Entry entry = b(i);
-                if (((klz)entry.getKey()).d())
-                {
-                    entry.setValue(Collections.unmodifiableList((List)entry.getValue()));
-                }
-            }
-
-            Iterator iterator = d().iterator();
-            do
-            {
-                if (!iterator.hasNext())
-                {
-                    break;
-                }
-                java.util.Map.Entry entry1 = (java.util.Map.Entry)iterator.next();
-                if (((klz)entry1.getKey()).d())
-                {
-                    entry1.setValue(Collections.unmodifiableList((List)entry1.getValue()));
-                }
-            } while (true);
+            i = j + kwk.b(1, a);
         }
-        super.a();
+        j = i;
+        if (b != null)
+        {
+            b.longValue();
+            j = i + (kwk.f(2) + 8);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.b(3, c);
+        }
+        return i;
     }
 
-    public Object put(Object obj, Object obj1)
+    public kws mergeFrom(kwj kwj1)
     {
-        return super.a((klz)obj, obj1);
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 17: // '\021'
+                b = Long.valueOf(kwj1.g());
+                break;
+
+            case 26: // '\032'
+                c = kwj1.j();
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.c(2, b.longValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        super.writeTo(kwk1);
     }
 }

@@ -2,21 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.widget.TextView;
 
-public final class akb
-    implements ajm
+final class akb
+    implements Runnable
 {
 
-    public akb()
+    final ajl a;
+    final aka b;
+
+    akb(aka aka1, ajl ajl)
     {
+        b = aka1;
+        a = ajl;
+        super();
     }
 
-    public void a(ai ai, hjm hjm, TextView textview)
+    public void run()
     {
-        if (g.a(ai, ((gmo)hgx.a(ai, gmo)).a()))
-        {
-            new akc(this, hjm, ai, textview);
-        }
+        ajz.a(b.b, a);
     }
 }

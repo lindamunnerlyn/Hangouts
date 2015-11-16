@@ -2,17 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.res.Resources;
+import android.view.View;
+import android.view.ViewGroup;
 
-public interface blg
+public final class blg extends aux
 {
 
-    public abstract boolean B();
+    public blg(View view, blh blh1, dvi dvi)
+    {
+        super(view, blh1, dvi);
+    }
 
-    public abstract void N();
+    protected boolean a()
+    {
+        return ((blh)c).d() && ((blh)c).a() && ((blh)c).b();
+    }
 
-    public abstract void b(long l);
-
-    public abstract long s();
-
-    public abstract boolean v();
+    protected dvg b()
+    {
+        String s;
+        int i;
+        if (((blh)c).e())
+        {
+            i = l.eU;
+        } else
+        {
+            i = l.eV;
+        }
+        s = b.getResources().getString(i, new Object[] {
+            ((blh)c).c()
+        });
+        return e().a(s).a();
+    }
 }

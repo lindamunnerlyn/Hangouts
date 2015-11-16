@@ -3,15 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iey extends koj
+public final class iey extends kwm
 {
 
-    public int a;
-    public iex b;
+    public Integer a;
+    public Integer b;
 
     public iey()
     {
-        a = 0x80000000;
+        a = null;
         b = null;
         unknownFieldData = null;
         cachedSize = -1;
@@ -19,66 +19,45 @@ public final class iey extends koj
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != 0x80000000)
-        {
-            i = j + koh.e(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        return j;
+        int i = super.computeSerializedSize();
+        a.intValue();
+        int j = kwk.f(1);
+        b.intValue();
+        return i + (j + 4) + (kwk.f(2) + 4);
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L5:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 3: default 40
-    //                   0: 49
-    //                   8: 51
-    //                   18: 99;
-           goto _L1 _L2 _L3 _L4
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L5; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
+        do
         {
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-        case 4: // '\004'
-            a = j;
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        if (b == null)
-        {
-            b = new iex();
-        }
-        kog1.a(b);
-        if (true) goto _L5; else goto _L6
-_L6:
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 13: // '\r'
+                a = Integer.valueOf(kwj1.h());
+                break;
+
+            case 21: // '\025'
+                b = Integer.valueOf(kwj1.h());
+                break;
+            }
+        } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != 0x80000000)
-        {
-            koh1.a(1, a);
-        }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        super.writeTo(koh1);
+        kwk1.b(1, a.intValue());
+        kwk1.b(2, b.intValue());
+        super.writeTo(kwk1);
     }
 }

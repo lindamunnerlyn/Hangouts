@@ -2,20 +2,56 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.google.android.apps.hangouts.phone.DebugActivity;
+import java.util.List;
 
-final class clx extends cmu
+public final class clx extends BaseAdapter
 {
 
-    final cls a;
+    final List a;
+    final List b;
+    final DebugActivity c;
 
-    clx(cls cls, String s)
+    public clx(DebugActivity debugactivity, List list, List list1)
     {
-        a = cls;
-        super(s);
+        c = debugactivity;
+        a = list;
+        b = list1;
+        super();
     }
 
-    public void a()
+    public int getCount()
     {
-        (new cly(this)).execute(new Void[0]);
+        return a.size();
+    }
+
+    public Object getItem(int i)
+    {
+        return new cmu(c, (String)a.get(i), b.get(i));
+    }
+
+    public long getItemId(int i)
+    {
+        return (long)i;
+    }
+
+    public View getView(int i, View view, ViewGroup viewgroup)
+    {
+        View view1 = view;
+        if (view == null)
+        {
+            view1 = c.getLayoutInflater().inflate(g.gz, viewgroup, false);
+        }
+        view = (TextView)view1.findViewById(h.da);
+        viewgroup = (TextView)view1.findViewById(h.gz);
+        String s = (String)a.get(i);
+        view.setText(s);
+        viewgroup.setText(DebugActivity.a(s, b.get(i)));
+        return view1;
     }
 }

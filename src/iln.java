@@ -3,26 +3,77 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iln
-    implements kxx
+public final class iln extends kwm
 {
 
-    private final kxx a;
+    public int a;
+    public Integer b;
 
-    public iln(kxx kxx1)
+    public iln()
     {
-        a = kxx1;
+        a = 0x80000000;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public Object a()
+    protected int computeSerializedSize()
     {
-        java.util.concurrent.Executor executor = ili.b((jsl)a.a());
-        if (executor == null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != 0x80000000)
         {
-            throw new NullPointerException("Cannot return null from a non-@Nullable @Provides method");
-        } else
-        {
-            return executor;
+            i = j + kwk.e(1, a);
         }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.intValue());
+        }
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+_L5:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   8: 51
+    //                   16: 95;
+           goto _L1 _L2 _L3 _L4
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+            a = j;
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        b = Integer.valueOf(kwj1.f());
+        if (true) goto _L5; else goto _L6
+_L6:
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != 0x80000000)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

@@ -2,41 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.util.Log;
+import android.os.IBinder;
+import android.os.Parcel;
+import com.google.android.gms.maps.model.StreetViewPanoramaOrientation;
 
-public final class fml
+final class fml
+    implements fmj
 {
 
-    public fml()
+    private IBinder a;
+
+    fml(IBinder ibinder)
     {
+        a = ibinder;
     }
 
-    private ekd b(ejx ejx1, fmm fmm, String s, String s1, int i)
+    public void a(StreetViewPanoramaOrientation streetviewpanoramaorientation)
     {
-        return ejx1.a(new ffl(this, ejx1, ejx1, fmm, s, s1, i));
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnStreetViewPanoramaLongClickListener");
+        if (streetviewpanoramaorientation == null)
+        {
+            break MISSING_BLOCK_LABEL_56;
+        }
+        parcel.writeInt(1);
+        streetviewpanoramaorientation.writeToParcel(parcel, 0);
+_L1:
+        a.transact(1, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        streetviewpanoramaorientation;
+        parcel1.recycle();
+        parcel.recycle();
+        throw streetviewpanoramaorientation;
     }
 
-    public ekd a(ejx ejx1, fmm fmm)
+    public IBinder asBinder()
     {
-        if (Log.isLoggable("PeopleClientCall", 3))
-        {
-            g.a("unregisterOnDataChangedListener", new Object[0]);
-        }
-        return ejx1.a(new ffm(this, ejx1, ejx1, fmm));
-    }
-
-    public ekd a(ejx ejx1, fmm fmm, String s, String s1, int i)
-    {
-        if (s == null)
-        {
-            throw new IllegalArgumentException("account must not be null");
-        }
-        if (Log.isLoggable("PeopleClientCall", 3))
-        {
-            g.a("registerOnDataChangedListenerForOwner", new Object[] {
-                s, s1, Integer.valueOf(i)
-            });
-        }
-        return b(ejx1, fmm, s, s1, i);
+        return a;
     }
 }

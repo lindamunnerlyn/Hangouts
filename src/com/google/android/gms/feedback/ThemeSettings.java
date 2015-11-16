@@ -6,16 +6,17 @@ package com.google.android.gms.feedback;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fan;
+import fdl;
+import g;
 
 public class ThemeSettings
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fan();
-    public final int a;
-    public int b;
-    public int c;
+    public static final android.os.Parcelable.Creator CREATOR = new fdl();
+    final int a;
+    int b;
+    int c;
 
     public ThemeSettings()
     {
@@ -48,7 +49,11 @@ public class ThemeSettings
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fan.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, b);
+        g.b(parcel, 3, c);
+        g.q(parcel, i);
     }
 
 }

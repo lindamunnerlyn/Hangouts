@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fww;
+import fza;
 import g;
 import java.util.Arrays;
 
@@ -16,8 +16,8 @@ public class Asset
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fww();
-    public final int a;
+    public static final android.os.Parcelable.Creator CREATOR = new fza();
+    final int a;
     public ParcelFileDescriptor b;
     public Uri c;
     private byte d[];
@@ -148,7 +148,14 @@ public class Asset
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fww.a(this, parcel, i | 1);
+        i |= 1;
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, a());
+        g.a(parcel, 3, b());
+        g.a(parcel, 4, b, i);
+        g.a(parcel, 5, c, i);
+        g.q(parcel, j);
     }
 
 }

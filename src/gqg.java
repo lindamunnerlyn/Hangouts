@@ -2,12 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.Keyframe;
-import android.animation.TimeInterpolator;
 
-interface gqg
-    extends TimeInterpolator
+public interface gqg
 {
 
-    public abstract void a(Keyframe keyframe, Keyframe keyframe1);
+    public abstract boolean c();
 }

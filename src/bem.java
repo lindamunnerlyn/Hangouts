@@ -2,20 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public final class bem extends Enum
+public final class bem extends ctf
 {
 
-    public static final int a;
-    public static final int b;
-    private static final int c[];
-
-    static 
+    public bem()
     {
-        a = 1;
-        b = 2;
-        c = (new int[] {
-            a, b
-        });
+    }
+
+    public ctg a()
+    {
+        return new bel();
+    }
+
+    public boolean a(Context context)
+    {
+        aoa aoa = dcn.e(((gqu)hlp.a(context, gqu)).a());
+        if (aoa == null)
+        {
+            return false;
+        }
+        if (g.c(aoa))
+        {
+            aoc.b(context, aoa);
+            return false;
+        }
+        return !aoc.c(context, aoa);
+    }
+
+    public int b()
+    {
+        return ctl.g;
+    }
+
+    public int c()
+    {
+        return h.hm;
     }
 }

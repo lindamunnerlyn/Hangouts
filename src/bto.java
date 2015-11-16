@@ -2,16 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
 public final class bto
 {
 
-    public bto()
+    public static final String a = brl.getName();
+    private static btn b;
+
+    public static void a(Context context, hlp hlp1)
     {
+        if (b == null)
+        {
+            b = new btn();
+        }
+        hlp1.a(brl, new brl[] {
+            new btp()
+        });
     }
 
-    public btm a()
-    {
-        return new btp(this);
-    }
 }

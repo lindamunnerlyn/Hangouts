@@ -3,12 +3,12 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kjg extends koj
+public final class kjg extends kwm
 {
 
-    public kje a;
-    public kjd b;
-    public kjj c;
+    public String a;
+    public Boolean b;
+    public Boolean c;
 
     public kjg()
     {
@@ -25,30 +25,32 @@ public final class kjg extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.b(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.d(2, b);
+            b.booleanValue();
+            j = i + (kwk.f(2) + 1);
         }
         i = j;
         if (c != null)
         {
-            i = j + koh.d(3, c);
+            c.booleanValue();
+            i = j + (kwk.f(3) + 1);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -58,46 +60,34 @@ public final class kjg extends koj
                 return this;
 
             case 10: // '\n'
-                if (a == null)
-                {
-                    a = new kje();
-                }
-                kog1.a(a);
+                a = kwj1.j();
                 break;
 
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new kjd();
-                }
-                kog1.a(b);
+            case 16: // '\020'
+                b = Boolean.valueOf(kwj1.i());
                 break;
 
-            case 26: // '\032'
-                if (c == null)
-                {
-                    c = new kjj();
-                }
-                kog1.a(c);
+            case 24: // '\030'
+                c = Boolean.valueOf(kwj1.i());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.a(1, a);
         }
         if (b != null)
         {
-            koh1.b(2, b);
+            kwk1.a(2, b.booleanValue());
         }
         if (c != null)
         {
-            koh1.b(3, c);
+            kwk1.a(3, c.booleanValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

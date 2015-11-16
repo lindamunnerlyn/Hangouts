@@ -2,26 +2,8 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
 
-final class cqx
-    implements android.view.View.OnAttachStateChangeListener
+public interface cqx
+    extends hcl, iqu, iro, irw, isi
 {
-
-    final cqw a;
-
-    cqx(cqw cqw)
-    {
-        a = cqw;
-        super();
-    }
-
-    public void onViewAttachedToWindow(View view)
-    {
-        view.sendAccessibilityEvent(32);
-    }
-
-    public void onViewDetachedFromWindow(View view)
-    {
-    }
 }

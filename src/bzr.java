@@ -2,27 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
 
-public final class bzr extends hhu
-    implements gws
+final class bzr
+    implements Runnable
 {
 
-    private gwy a;
+    final bzq a;
 
-    public bzr()
+    bzr(bzq bzq1)
     {
+        a = bzq1;
+        super();
     }
 
-    public void a(gxe gxe)
+    public void run()
     {
-        gxe = getArguments();
-        a.a(gxe.getString("account_name"), gxe.getString("effective_gaia_id"));
-    }
-
-    protected void onAttachBinder(Bundle bundle)
-    {
-        super.onAttachBinder(bundle);
-        a = (gwy)binder.a(gwy);
+        a.c = false;
+        a.a.a(a.b);
     }
 }

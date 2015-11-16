@@ -2,31 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
+import android.content.Context;
+import android.content.Intent;
+import com.google.android.gms.identity.accounts.api.AccountData;
 
-public final class ffn extends fms
+public final class ffn
 {
 
-    final String a;
-    final String b;
-    final long i;
-    final boolean j = false;
-    final boolean k = false;
-    final fmt l;
+    static final ffq a;
+    private static final ffp b;
 
-    public ffn(fmt fmt, ejx ejx, String s, String s1, long l1, boolean flag, 
-            boolean flag1)
+    public static boolean a(Context context, Intent intent)
     {
-        l = fmt;
-        a = s;
-        b = s1;
-        i = l1;
-        super(ejx);
+        return ffp.a(context, intent);
     }
 
-    protected void a(ejv ejv)
+    public static AccountData b(Context context, Intent intent)
     {
-        ((fpo)ejv).a(a, b, i, j, k);
-        a(((ekg) (Status.a)));
+        g.b(context, "Context must not be null.");
+        g.b(intent, "Intent must not be null.");
+        if (!ffp.a(context, intent))
+        {
+            return null;
+        } else
+        {
+            return (AccountData)g.a(intent, "com.google.android.gms.accounts.ACCOUNT_DATA", AccountData.CREATOR);
+        }
+    }
+
+    static 
+    {
+        a = new ffq();
+        b = new ffp(a);
     }
 }

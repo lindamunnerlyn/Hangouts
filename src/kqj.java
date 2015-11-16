@@ -3,20 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kqj extends koj
+public final class kqj extends kwm
 {
 
-    public kqd a;
-    public kpu b[];
-    public kpu c;
-    public Integer d;
+    public Boolean a;
+    public kql b;
 
     public kqj()
     {
         a = null;
-        b = kpu.a();
-        c = null;
-        d = null;
+        b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -27,143 +23,59 @@ public final class kqj extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
         j = i;
         if (b != null)
         {
-            j = i;
-            if (b.length > 0)
-            {
-                for (j = 0; j < b.length;)
-                {
-                    kpu kpu1 = b[j];
-                    int k = i;
-                    if (kpu1 != null)
-                    {
-                        k = i + koh.d(2, kpu1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.d(3, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.e(4, d.intValue());
+            j = i + kwk.d(2, b);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L7:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 5: default 56
-    //                   0: 65
-    //                   10: 67
-    //                   18: 96
-    //                   26: 220
-    //                   32: 249;
-           goto _L1 _L2 _L3 _L4 _L5 _L6
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L7; else goto _L2
-_L2:
-        return this;
-_L3:
-        if (a == null)
+        do
         {
-            a = new kqd();
-        }
-        kog1.a(a);
-          goto _L7
-_L4:
-        int l = kou.b(kog1, 18);
-        kpu akpu[];
-        int j;
-        if (b == null)
-        {
-            j = 0;
-        } else
-        {
-            j = b.length;
-        }
-        akpu = new kpu[l + j];
-        l = j;
-        if (j != 0)
-        {
-            System.arraycopy(b, 0, akpu, 0, j);
-            l = j;
-        }
-        for (; l < akpu.length - 1; l++)
-        {
-            akpu[l] = new kpu();
-            kog1.a(akpu[l]);
-            kog1.a();
-        }
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
 
-        akpu[l] = new kpu();
-        kog1.a(akpu[l]);
-        b = akpu;
-          goto _L7
-_L5:
-        if (c == null)
-        {
-            c = new kpu();
-        }
-        kog1.a(c);
-          goto _L7
-_L6:
-        int k = kog1.f();
-        switch (k)
-        {
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-        case 4: // '\004'
-        case 5: // '\005'
-            d = Integer.valueOf(k);
-            break;
-        }
-        if (true) goto _L7; else goto _L8
-_L8:
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new kql();
+                }
+                kwj1.a(b);
+                break;
+            }
+        } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.a(1, a.booleanValue());
         }
-        if (b != null && b.length > 0)
+        if (b != null)
         {
-            for (int i = 0; i < b.length; i++)
-            {
-                kpu kpu1 = b[i];
-                if (kpu1 != null)
-                {
-                    koh1.b(2, kpu1);
-                }
-            }
-
+            kwk1.b(2, b);
         }
-        if (c != null)
-        {
-            koh1.b(3, c);
-        }
-        if (d != null)
-        {
-            koh1.a(4, d.intValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

@@ -2,21 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import org.webrtc.voiceengine.WebRtcAudioTrack;
 
-final class glb
-    implements gkt
+public final class glb
+    implements gml
 {
 
-    final gla a;
+    private gmm a;
+    private boolean b;
 
-    glb(gla gla)
+    public glb()
     {
-        a = gla;
-        super();
     }
 
-    public boolean a(gkv gkv, glq glq, StringBuilder stringbuilder, String as[])
+    public void a()
     {
-        return gks.a(gkv, glq, stringbuilder, as);
+        a = null;
+        WebRtcAudioTrack.setAudioMute(true);
+    }
+
+    public void a(gmm gmm)
+    {
+        a = gmm;
+        c_(b);
+    }
+
+    public void b()
+    {
+        c_(true);
+    }
+
+    public void c_(boolean flag)
+    {
+        b = flag;
+        if (a == null)
+        {
+            return;
+        }
+        if (!flag)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        WebRtcAudioTrack.setAudioMute(flag);
     }
 }

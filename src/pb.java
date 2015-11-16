@@ -2,18 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
 import android.widget.PopupWindow;
 
-class pb extends pa
+final class pb extends pa
 {
 
     pb()
     {
     }
 
-    public void a(PopupWindow popupwindow, View view, int i, int j, int k)
+    public void a(PopupWindow popupwindow, int i)
     {
-        popupwindow.showAsDropDown(view, i, j, k);
+        popupwindow.setWindowLayoutType(2);
+    }
+
+    public void a(PopupWindow popupwindow, boolean flag)
+    {
+        popupwindow.setOverlapAnchor(flag);
     }
 }

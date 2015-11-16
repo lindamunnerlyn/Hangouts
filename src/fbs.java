@@ -2,18 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.os.Looper;
 
-final class fbs extends ejt
+final class fbs
 {
 
-    fbs()
-    {
-    }
+    static final erv a[] = {
+        new fbt(erv.a("0\202\003\3370\202\002\307\240\003\002\001\002\002\t\000\255\3349.?\376\020\b0")), new fbu(erv.a("0\202\003\3370\202\002\307\240\003\002\001\002\002\t\000\272\363Jf\032\271\200\2330"))
+    };
 
-    public ejv a(Context context, Looper looper, emo emo, Object obj, eka eka, ekc ekc)
-    {
-        return new fcc(context, looper, emo, eka, ekc);
-    }
 }

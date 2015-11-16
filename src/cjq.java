@@ -2,29 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.view.inputmethod.InputMethodManager;
-import com.google.android.apps.hangouts.phone.BabelHomeActivity;
-import com.google.android.apps.hangouts.views.MainViewPager;
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public final class cjq extends lk
+final class cjq
+    implements Parcelable
 {
 
-    final BabelHomeActivity a;
+    public static final android.os.Parcelable.Creator CREATOR = new cjr();
+    final int a;
+    final Bundle b;
+    final int c;
 
-    public cjq(BabelHomeActivity babelhomeactivity)
+    cjq(int i, int j, Bundle bundle)
     {
-        a = babelhomeactivity;
-        super();
+        c = i;
+        a = j;
+        b = bundle;
     }
 
-    public void a(int i)
+    public int describeContents()
     {
-        BabelHomeActivity.c(a);
-        a.p_();
-        ((InputMethodManager)a.getSystemService("input_method")).hideSoftInputFromWindow(BabelHomeActivity.d(a).getWindowToken(), 0);
-        ees ees1 = BabelHomeActivity.d(a).j();
-        PreferenceManager.getDefaultSharedPreferences(a).edit().putString("last_selected_tab", ees1.d).apply();
+        return 0;
     }
+
+    public void writeToParcel(Parcel parcel, int i)
+    {
+        parcel.writeInt(c);
+        parcel.writeInt(a);
+        parcel.writeBundle(b);
+    }
+
 }

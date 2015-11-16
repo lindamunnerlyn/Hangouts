@@ -2,21 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 final class gmg
+    implements Runnable
 {
 
-    TextView a;
-    ImageView b;
-    ImageView c;
+    final gmf a;
 
-    public gmg(View view)
+    gmg(gmf gmf1)
     {
-        a = (TextView)view.findViewById(g.rI);
-        b = (ImageView)view.findViewById(g.rG);
-        c = (ImageView)view.findViewById(g.rH);
+        a = gmf1;
+        super();
+    }
+
+    public void run()
+    {
+        if (a.a != null)
+        {
+            gdv.a();
+            a.a.d();
+            a.b = false;
+            a.c = false;
+        }
     }
 }

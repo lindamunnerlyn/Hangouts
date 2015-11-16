@@ -2,33 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.ProgressDialog;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.widget.Toast;
+import android.view.View;
 
-final class ako extends BroadcastReceiver
+final class ako
+    implements android.view.View.OnClickListener
 {
 
-    final aki a;
+    final akn a;
 
-    ako(aki aki1)
+    ako(akn akn1)
     {
-        a = aki1;
+        a = akn1;
         super();
     }
 
-    public void onReceive(Context context, Intent intent)
+    public void onClick(View view)
     {
-        aki.f(a).dismiss();
-        if (intent.getIntExtra("set_callerid_result", -1) != 0)
-        {
-            Toast.makeText(context, context.getString(g.iW), 1).show();
-        } else
-        {
-            aki.g(a).a_(false);
-        }
-        eq.a(context).a(aki.h(a));
+        akn.a(a);
     }
 }

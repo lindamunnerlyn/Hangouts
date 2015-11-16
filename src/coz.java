@@ -2,9 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.net.Uri;
 
-public interface coz
+public final class coz extends eg
 {
 
-    public abstract void a(ai ai, dbx dbx, int i, String s);
+    private final aoa w;
+
+    public coz(Context context, aoa aoa, Uri uri, String as[], String s, String as1[], String s1)
+    {
+        super(context, uri, as, s, as1, s1);
+        w = aoa;
+    }
+
+    public aoa C()
+    {
+        return w;
+    }
 }

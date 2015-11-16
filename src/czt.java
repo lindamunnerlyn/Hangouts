@@ -2,32 +2,78 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.Serializable;
 
-public final class czt extends ctp
+public final class czt
+    implements Serializable
 {
 
-    private final int a;
-    private final String b;
-    private final long r;
+    private static final long serialVersionUID = 1L;
+    public final String a;
+    public final int b;
+    public final String c;
+    public final long d;
+    public int e;
+    public final long f;
 
-    public czt(ani ani1, String s, long l)
+    public czt()
     {
-        super(hdx.newBuilder().a(ani1.a()).b(ani1.ae()).a().b(), null, "conversations/updatewatermark", "hangouts", new izo(), new izp());
-        b = s;
-        r = l;
-        a = ani1.h();
+        e = czu.a;
+        a = "";
+        b = 1;
+        c = "";
+        d = 0L;
+        f = -1L;
     }
 
-    protected cvn a(kop kop)
+    public czt(hxz hxz)
     {
-        return cyo.parseFrom((izp)kop);
+        e = czu.a;
+        d = 0L;
+        a = "";
+        b = 1;
+        c = "";
+        f = -1L;
     }
 
-    protected void b(kop kop)
+    public czt(jdl jdl1)
     {
-        kop = (izo)kop;
-        kop.requestHeader = a((new cru()).a(a).b());
-        kop.a = ctq.a(b);
-        kop.b = Long.valueOf(r);
+        e = czu.a;
+        a = jdl1.b;
+        b = g.a(jdl1.a, 0);
+        c = jdl1.c;
+        d = g.a(jdl1.d, 0L);
+        if (jdl1.i != null && jdl1.i.a != null && jdl1.i.b != null)
+        {
+            f = g.a(jdl1.i.b, 0L);
+            switch (g.a(jdl1.i.a, 0))
+            {
+            default:
+                jdl1 = String.valueOf(jdl1.i.a);
+                eev.g("Babel", (new StringBuilder(String.valueOf(jdl1).length() + 66)).append("Unexpected error code for syncHintAnswer in clientResponseHeader: ").append(jdl1).toString());
+                return;
+
+            case 0: // '\0'
+                e = czu.a;
+                return;
+
+            case 1: // '\001'
+                e = czu.b;
+                return;
+
+            case 2: // '\002'
+                e = czu.c;
+                return;
+
+            case 3: // '\003'
+                e = czu.d;
+                break;
+            }
+            return;
+        } else
+        {
+            f = -1L;
+            return;
+        }
     }
 }

@@ -3,104 +3,62 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hrn extends koj
+final class hrn
+    implements java.util.Map.Entry
 {
 
-    private static volatile hrn c[];
-    public hru a;
-    public Integer b;
+    final hrm a;
+    private int b;
 
-    public hrn()
+    hrn(hrm hrm1, int i)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = hrm1;
+        super();
+        b = i;
     }
 
-    public static hrn[] a()
+    public boolean equals(Object obj)
     {
-        if (c == null)
+        if (this != obj)
         {
-            synchronized (kon.a)
+            if (!(obj instanceof java.util.Map.Entry))
             {
-                if (c == null)
-                {
-                    c = new hrn[0];
-                }
+                return false;
+            }
+            obj = (java.util.Map.Entry)obj;
+            if (!l.a(getKey(), ((java.util.Map.Entry) (obj)).getKey()) || !l.a(getValue(), ((java.util.Map.Entry) (obj)).getValue()))
+            {
+                return false;
             }
         }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return true;
     }
 
-    protected int computeSerializedSize()
+    public Object getKey()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        hrm hrm1 = a;
+        int i = b;
+        if (i < 0 || i >= hrm1.a)
         {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
+            return null;
+        } else
         {
-            j = i + koh.e(4, b.intValue());
+            return hrm1.b[i << 1];
         }
-        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public Object getValue()
     {
-_L5:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 3: default 40
-    //                   0: 49
-    //                   10: 51
-    //                   32: 80;
-           goto _L1 _L2 _L3 _L4
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L5; else goto _L2
-_L2:
-        return this;
-_L3:
-        if (a == null)
-        {
-            a = new hru();
-        }
-        kog1.a(a);
-          goto _L5
-_L4:
-        int j = kog1.f();
-        switch (j)
-        {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-        case 4: // '\004'
-        case 5: // '\005'
-            b = Integer.valueOf(j);
-            break;
-        }
-        if (true) goto _L5; else goto _L6
-_L6:
+        return a.a(b);
     }
 
-    public void writeTo(koh koh1)
+    public int hashCode()
     {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(4, b.intValue());
-        }
-        super.writeTo(koh1);
+        return getKey().hashCode() ^ getValue().hashCode();
+    }
+
+    public Object setValue(Object obj)
+    {
+        return a.a(b, obj);
     }
 }

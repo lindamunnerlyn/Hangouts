@@ -2,41 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
-import android.widget.TextView;
+import com.google.android.apps.hangouts.views.BalanceView;
 
-public class egi
+public final class egi
+    implements Runnable
 {
 
-    public final TextView a;
-    private CharSequence b;
+    final BalanceView a;
 
-    public egi(TextView textview)
+    public egi(BalanceView balanceview)
     {
-        a = textview;
+        a = balanceview;
+        super();
     }
 
-    public void a()
+    public void run()
     {
-        b = null;
-        b();
-    }
-
-    public void a(String s, String s1)
-    {
-    }
-
-    public void b()
-    {
-        int i;
-        if (!TextUtils.isEmpty(b))
-        {
-            i = 0;
-        } else
-        {
-            i = 8;
-        }
-        a.setVisibility(i);
-        a.setText(b);
+        a.b.a(new egj(this));
     }
 }

@@ -6,10 +6,10 @@ package com.google.api.client.http;
 
 import g;
 import h;
-import hnx;
-import hob;
-import hod;
-import hog;
+import hst;
+import hsx;
+import hsz;
+import htc;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
@@ -44,13 +44,13 @@ public final class HttpRequest
     private HttpIOExceptionHandler ioExceptionHandler;
     private boolean loggingEnabled;
     private int numRetries;
-    private hob objectParser;
+    private hsx objectParser;
     private int readTimeout;
     private String requestMethod;
     private HttpHeaders responseHeaders;
     private HttpResponseInterceptor responseInterceptor;
     private boolean retryOnExecuteIOException;
-    private hod sleeper;
+    private hsz sleeper;
     private boolean suppressUserAgentSuffix;
     private boolean throwExceptionOnExecuteError;
     private final HttpTransport transport;
@@ -70,7 +70,7 @@ public final class HttpRequest
         followRedirects = true;
         throwExceptionOnExecuteError = true;
         retryOnExecuteIOException = false;
-        sleeper = hod.a;
+        sleeper = hsz.a;
         transport = httptransport;
         setRequestMethod(s);
     }
@@ -106,8 +106,8 @@ public final class HttpRequest
             backOffPolicy.reset();
         }
         obj = null;
-        h.b(requestMethod);
-        h.b(url);
+        h.a(requestMethod);
+        h.a(url);
 _L11:
         if (obj != null)
         {
@@ -133,8 +133,8 @@ _L11:
         if (flag)
         {
             obj2 = new StringBuilder();
-            ((StringBuilder) (obj2)).append("-------------- REQUEST  --------------").append(hog.a);
-            ((StringBuilder) (obj2)).append(requestMethod).append(' ').append(s2).append(hog.a);
+            ((StringBuilder) (obj2)).append("-------------- REQUEST  --------------").append(htc.a);
+            ((StringBuilder) (obj2)).append(requestMethod).append(' ').append(s2).append(htc.a);
             obj1 = obj;
             stringbuilder = ((StringBuilder) (obj2));
             if (curlLoggingEnabled)
@@ -182,7 +182,7 @@ _L11:
             s3 = content.getType();
             if (flag)
             {
-                obj = new hnx(((hof) (obj)), HttpTransport.LOGGER, Level.CONFIG, contentLoggingLimit);
+                obj = new hst(((htb) (obj)), HttpTransport.LOGGER, Level.CONFIG, contentLoggingLimit);
             }
             long l1;
             if (encoding == null)
@@ -192,10 +192,10 @@ _L11:
             } else
             {
                 obj2 = encoding.getName();
-                obj = new HttpEncodingStreamingContent(((hof) (obj)), encoding);
+                obj = new HttpEncodingStreamingContent(((htb) (obj)), encoding);
                 if (flag1)
                 {
-                    l1 = g.a(((hof) (obj)));
+                    l1 = g.a(((htb) (obj)));
                 } else
                 {
                     l1 = -1L;
@@ -214,7 +214,7 @@ _L11:
                     {
                         s1 = new String("Content-Type: ");
                     }
-                    stringbuilder.append(s1).append(hog.a);
+                    stringbuilder.append(s1).append(htc.a);
                     if (obj1 != null)
                     {
                         ((StringBuilder) (obj1)).append((new StringBuilder(String.valueOf(s1).length() + 6)).append(" -H '").append(s1).append("'").toString());
@@ -230,7 +230,7 @@ _L11:
                     {
                         s1 = new String("Content-Encoding: ");
                     }
-                    stringbuilder.append(s1).append(hog.a);
+                    stringbuilder.append(s1).append(htc.a);
                     if (obj1 != null)
                     {
                         ((StringBuilder) (obj1)).append((new StringBuilder(String.valueOf(s1).length() + 6)).append(" -H '").append(s1).append("'").toString());
@@ -238,7 +238,7 @@ _L11:
                 }
                 if (l1 >= 0L)
                 {
-                    stringbuilder.append((new StringBuilder(36)).append("Content-Length: ").append(l1).toString()).append(hog.a);
+                    stringbuilder.append((new StringBuilder(36)).append("Content-Length: ").append(l1).toString()).append(htc.a);
                 }
             }
             if (obj1 != null)
@@ -248,7 +248,7 @@ _L11:
             lowlevelhttprequest.setContentType(s3);
             lowlevelhttprequest.setContentEncoding(((String) (obj2)));
             lowlevelhttprequest.setContentLength(l1);
-            lowlevelhttprequest.setStreamingContent(((hof) (obj)));
+            lowlevelhttprequest.setStreamingContent(((htb) (obj)));
             obj2 = obj;
         }
         if (flag)
@@ -451,7 +451,7 @@ _L10:
         return numRetries;
     }
 
-    public final hob getParser()
+    public final hsx getParser()
     {
         return objectParser;
     }
@@ -481,7 +481,7 @@ _L10:
         return retryOnExecuteIOException;
     }
 
-    public hod getSleeper()
+    public hsz getSleeper()
     {
         return sleeper;
     }
@@ -607,7 +607,7 @@ _L10:
 
     public HttpRequest setHeaders(HttpHeaders httpheaders)
     {
-        headers = (HttpHeaders)h.b(httpheaders);
+        headers = (HttpHeaders)h.a(httpheaders);
         return this;
     }
 
@@ -644,9 +644,9 @@ _L10:
         return this;
     }
 
-    public HttpRequest setParser(hob hob)
+    public HttpRequest setParser(hsx hsx)
     {
-        objectParser = hob;
+        objectParser = hsx;
         return this;
     }
 
@@ -682,7 +682,7 @@ _L10:
 
     public HttpRequest setResponseHeaders(HttpHeaders httpheaders)
     {
-        responseHeaders = (HttpHeaders)h.b(httpheaders);
+        responseHeaders = (HttpHeaders)h.a(httpheaders);
         return this;
     }
 
@@ -698,9 +698,9 @@ _L10:
         return this;
     }
 
-    public HttpRequest setSleeper(hod hod1)
+    public HttpRequest setSleeper(hsz hsz1)
     {
-        sleeper = (hod)h.b(hod1);
+        sleeper = (hsz)h.a(hsz1);
         return this;
     }
 
@@ -724,7 +724,7 @@ _L10:
 
     public HttpRequest setUrl(GenericUrl genericurl)
     {
-        url = (GenericUrl)h.b(genericurl);
+        url = (GenericUrl)h.a(genericurl);
         return this;
     }
 

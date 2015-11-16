@@ -2,51 +2,51 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
-public class ctt extends ctu
+public class ctt
 {
 
-    private static final long serialVersionUID = 1L;
-    public final boolean a;
-    public final long b;
+    private List a;
 
-    public ctt(String s, long l, boolean flag)
+    public ctt()
     {
-        super(s);
-        b = l;
-        a = flag;
     }
 
-    public String a()
+    public int a()
     {
-        return "event_queue";
+        return a.size();
     }
 
-    public kop a(String s, int i, int j)
+    public ctk a(int i)
     {
-        if (ctr.e)
-        {
-            String s1 = c;
-            boolean flag = a;
-            ebw.b("Babel_RequestWriter", (new StringBuilder(String.valueOf(s1).length() + 27)).append("Archive conversation ").append(s1).append(" ").append(flag).toString());
-        }
-        ivn ivn1 = new ivn();
-        ivn1.requestHeader = ctq.a(s, i, j, h);
-        ivn1.a = ctq.a(c);
-        ivn1.c = Long.valueOf(b);
-        if (a)
-        {
-            i = 2;
-        } else
-        {
-            i = 1;
-        }
-        ivn1.b = Integer.valueOf(i);
-        return ivn1;
+        return (ctk)a.get(i);
     }
 
-    public String g()
+    public void a(Context context)
     {
-        return "conversations/modifyconversationview";
+        a = hlp.c(context, ctf);
+        Iterator iterator = a.iterator();
+        do
+        {
+            if (!iterator.hasNext())
+            {
+                break;
+            }
+            if (!((ctk)iterator.next()).a(context))
+            {
+                iterator.remove();
+            }
+        } while (true);
+        Collections.sort(a);
+    }
+
+    public boolean b(int i)
+    {
+        a.get(i);
+        return false;
     }
 }

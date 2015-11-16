@@ -2,59 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 
-final class gbz
-    implements gbe, Runnable
+public final class gbz extends gbw
 {
 
-    private final ggl a;
-    private final String b;
-    private final String c;
-    private CountDownLatch d;
-
-    gbz(ggl ggl1, String s, String s1)
+    gbz(gaq gaq, gbn gbn1)
     {
-        a = ggl1;
-        b = s;
-        c = s1;
+        super(gaq, gbn1);
     }
 
-    public void a(kop kop)
+    public gav a(gbt gbt1)
     {
-        gkc.b("vclib", "Leave RPC succeeded!");
-        d.countDown();
-    }
-
-    public void b(kop kop)
-    {
-        gkc.d("vclib", "Leave RPC failed!");
-        d.countDown();
-    }
-
-    public void run()
-    {
-        gkc.b("vclib", "LeaveHandler starting");
-        d = new CountDownLatch(1);
-        jbh jbh1 = new jbh();
-        jbh1.a = b;
-        jbh1.b = c;
-        gkc.b("vclib", String.format("Sending leave RPC: %s, %s", new Object[] {
-            b, c
-        }));
-        a.a(jbh1, this);
-        try
-        {
-            if (!d.await(1L, TimeUnit.MINUTES))
-            {
-                gkc.d("vclib", "LeaveRPC not complete yet! Not waiting any further");
-            }
-        }
-        catch (InterruptedException interruptedexception)
-        {
-            gkc.e("vclib", "LeaveHandler was interrupted!");
-        }
-        gkc.b("vclib", "LeaveHandler terminating");
+        return a.a(fdb.a(a.a(b), ((gbt)gbt1).b()));
     }
 }

@@ -2,11 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.signin.internal.AuthAccountResult;
+import java.lang.ref.WeakReference;
 
-public interface ens
-    extends IInterface
+final class ens extends fty
 {
 
-    public abstract void a();
+    private final WeakReference a;
+
+    ens(enq enq1)
+    {
+        a = new WeakReference(enq1);
+    }
+
+    public void a(ConnectionResult connectionresult, AuthAccountResult authaccountresult)
+    {
+        authaccountresult = (enq)a.get();
+        if (authaccountresult == null)
+        {
+            return;
+        } else
+        {
+            ((enq) (authaccountresult)).a.a(new ent(this, authaccountresult, authaccountresult, connectionresult));
+            return;
+        }
+    }
 }

@@ -5,25 +5,25 @@
 package com.google.android.apps.hangouts.settings;
 
 import android.os.Bundle;
-import dpe;
+import drx;
 import g;
-import gng;
-import hgt;
-import hhj;
+import grn;
+import hll;
+import hmb;
 
-public class SettingsActivity extends hhj
+public class SettingsActivity extends hmb
 {
 
     public SettingsActivity()
     {
-        (new gng(this, q)).a(p).d();
-        new hgt(this, q);
-        new dpe(this, this, q);
+        (new grn(this, r)).a(q).d();
+        new hll(this, r);
+        new drx(this, this, r);
     }
 
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.fL);
+        setContentView(g.fJ);
     }
 }

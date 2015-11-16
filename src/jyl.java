@@ -3,60 +3,55 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jyl extends koj
+final class jyl extends jyo
 {
 
-    public Boolean a;
+    final char a[];
 
-    public jyl()
+    jyl(String s, String s1)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        this(new jyk(s, s1.toCharArray()));
     }
 
-    protected int computeSerializedSize()
+    private jyl(jyk jyk1)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        int i = 0;
+        super(jyk1, null);
+        a = new char[512];
+        boolean flag;
+        if (jyk.a(jyk1).length == 16)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            flag = true;
+        } else
+        {
+            flag = false;
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        n.a(flag);
+        for (; i < 256; i++)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
+            a[i] = jyk1.a(i >>> 4);
+            a[i | 0x100] = jyk1.a(i & 0xf);
         }
-        super.writeTo(koh1);
+
+    }
+
+    int a(byte abyte0[], CharSequence charsequence)
+    {
+        int k = 0;
+        n.b(abyte0);
+        if (charsequence.length() % 2 == 1)
+        {
+            int i = charsequence.length();
+            throw new jyn((new StringBuilder(32)).append("Invalid input length ").append(i).toString());
+        }
+        int j;
+        for (j = 0; k < charsequence.length(); j++)
+        {
+            int l = b.c(charsequence.charAt(k));
+            abyte0[j] = (byte)(b.c(charsequence.charAt(k + 1)) | l << 4);
+            k += 2;
+        }
+
+        return j;
     }
 }

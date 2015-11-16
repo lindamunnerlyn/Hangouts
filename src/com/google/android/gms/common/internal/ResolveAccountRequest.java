@@ -7,14 +7,15 @@ package com.google.android.gms.common.internal;
 import android.accounts.Account;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import eog;
+import erg;
+import g;
 
 public class ResolveAccountRequest
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new eog();
-    public final int a;
+    public static final android.os.Parcelable.Creator CREATOR = new erg();
+    final int a;
     private final Account b;
     private final int c;
 
@@ -47,7 +48,11 @@ public class ResolveAccountRequest
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        eog.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, a(), i);
+        g.b(parcel, 3, b());
+        g.q(parcel, j);
     }
 
 }

@@ -2,103 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.collect.MapMakerInternalMap;
-import java.util.AbstractQueue;
-import java.util.Iterator;
+import java.io.Serializable;
 
-public final class joa extends AbstractQueue
+final class joa
+    implements Serializable, jnx
 {
 
-    final com.google.common.collect.MapMakerInternalMap.ReferenceEntry a = new job(this);
+    private static final long serialVersionUID = 0L;
+    private final Object a;
 
-    joa()
+    joa(Object obj)
     {
+        a = obj;
     }
 
-    private com.google.common.collect.MapMakerInternalMap.ReferenceEntry a()
+    public boolean a(Object obj)
     {
-        com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry1 = a.getNextExpirable();
-        com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry = referenceentry1;
-        if (referenceentry1 == a)
+        return a.equals(obj);
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (obj instanceof joa)
         {
-            referenceentry = null;
-        }
-        return referenceentry;
-    }
-
-    public void clear()
-    {
-        com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry1;
-        for (com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry = a.getNextExpirable(); referenceentry != a; referenceentry = referenceentry1)
-        {
-            referenceentry1 = referenceentry.getNextExpirable();
-            MapMakerInternalMap.d(referenceentry);
-        }
-
-        a.setNextExpirable(a);
-        a.setPreviousExpirable(a);
-    }
-
-    public boolean contains(Object obj)
-    {
-        return ((com.google.common.collect.MapMakerInternalMap.ReferenceEntry)obj).getNextExpirable() != jog.a;
-    }
-
-    public boolean isEmpty()
-    {
-        return a.getNextExpirable() == a;
-    }
-
-    public Iterator iterator()
-    {
-        return new joc(this, a());
-    }
-
-    public boolean offer(Object obj)
-    {
-        obj = (com.google.common.collect.MapMakerInternalMap.ReferenceEntry)obj;
-        MapMakerInternalMap.a(((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (obj)).getPreviousExpirable(), ((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (obj)).getNextExpirable());
-        MapMakerInternalMap.a(a.getPreviousExpirable(), ((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (obj)));
-        MapMakerInternalMap.a(((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (obj)), a);
-        return true;
-    }
-
-    public Object peek()
-    {
-        return a();
-    }
-
-    public Object poll()
-    {
-        com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry = a.getNextExpirable();
-        if (referenceentry == a)
-        {
-            return null;
+            obj = (joa)obj;
+            return a.equals(((joa) (obj)).a);
         } else
         {
-            remove(referenceentry);
-            return referenceentry;
+            return false;
         }
     }
 
-    public boolean remove(Object obj)
+    public int hashCode()
     {
-        obj = (com.google.common.collect.MapMakerInternalMap.ReferenceEntry)obj;
-        com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry = ((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (obj)).getPreviousExpirable();
-        com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry1 = ((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (obj)).getNextExpirable();
-        MapMakerInternalMap.a(referenceentry, referenceentry1);
-        MapMakerInternalMap.d(((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (obj)));
-        return referenceentry1 != jog.a;
+        return a.hashCode();
     }
 
-    public int size()
+    public String toString()
     {
-        int i = 0;
-        for (com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry = a.getNextExpirable(); referenceentry != a; referenceentry = referenceentry.getNextExpirable())
-        {
-            i++;
-        }
-
-        return i;
+        String s = String.valueOf(a);
+        return (new StringBuilder(String.valueOf(s).length() + 20)).append("Predicates.equalTo(").append(s).append(")").toString();
     }
 }

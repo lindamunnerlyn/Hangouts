@@ -2,58 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
+import android.os.Handler;
+import com.google.android.gms.common.ConnectionResult;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
 
-abstract class eox
+final class eox
+    implements end
 {
 
-    private int a;
+    public final int a;
+    public final emy b;
+    public final end c;
+    final eow d;
 
-    protected eox(byte abyte0[])
+    public eox(eow eow1, int i, emy emy1, end end1)
     {
-        boolean flag;
-        if (abyte0.length == 25)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        h.b(flag, "cert hash data has incorrect length");
-        a = Arrays.hashCode(abyte0);
+        d = eow1;
+        super();
+        a = i;
+        b = emy1;
+        c = end1;
+        emy1.a(this);
     }
 
-    protected static byte[] a(String s)
+    public void a()
     {
-        try
-        {
-            s = s.getBytes("ISO-8859-1");
-        }
-        // Misplaced declaration of an exception variable
-        catch (String s)
-        {
-            throw new AssertionError(s);
-        }
-        return s;
+        b.b(this);
+        b.d();
     }
 
-    abstract byte[] a();
-
-    public boolean equals(Object obj)
+    public void a(ConnectionResult connectionresult)
     {
-        if (obj == null || !(obj instanceof eox))
-        {
-            return false;
-        } else
-        {
-            obj = (eox)obj;
-            return Arrays.equals(a(), ((eox) (obj)).a());
-        }
+        eow.e(d).post(new eoy(d, a, connectionresult));
     }
 
-    public int hashCode()
+    public void a(String s, FileDescriptor filedescriptor, PrintWriter printwriter, String as[])
     {
-        return a;
+        printwriter.append(s).append("GoogleApiClient #").print(a);
+        printwriter.println(":");
+        b.a((new StringBuilder()).append(s).append("  ").toString(), printwriter);
     }
 }

@@ -2,61 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.security.PrivateKey;
+import java.util.Collection;
 
-public final class hqi extends koj
+public final class hqi extends hpx
 {
 
-    public Boolean a;
+    String i;
+    Collection j;
+    PrivateKey k;
+    String l;
+    String m;
 
     public hqi()
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(hpu.a());
+        b("https://accounts.google.com/o/oauth2/token");
     }
 
-    protected int computeSerializedSize()
+    private hqi b(String s)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        return i;
+        return (hqi)super.a(s);
     }
 
-    public kop mergeFrom(kog kog1)
+    public hpx a(String s)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
-        }
-        super.writeTo(koh1);
+        return b(s);
     }
 }

@@ -2,73 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import com.google.android.gms.feedback.FeedbackOptions;
-import com.google.android.gms.feedback.LogOptions;
-import com.google.android.gms.feedback.ThemeSettings;
-import java.util.ArrayList;
 
-public class fah
+final class fah
 {
 
-    private Bitmap a;
-    private String b;
-    private Bundle c;
-    private String d;
-    private String e;
-    private ArrayList f;
-    private boolean g;
-    private ThemeSettings h;
-    private LogOptions i;
+    static final erv a[] = {
+        new fai(erv.a("0\202\003\3570\202\002\327\240\003\002\001\002\002\t\000\343\323\306\330x\212\311\3710")), new faj(erv.a("0\202\003\3570\202\002\327\240\003\002\001\002\002\t\000\214\311F\360\241\0161a0"))
+    };
 
-    public fah()
-    {
-        c = new Bundle();
-        f = new ArrayList();
-    }
-
-    public FeedbackOptions a()
-    {
-        return FeedbackOptions.a(FeedbackOptions.a(FeedbackOptions.a(FeedbackOptions.a(FeedbackOptions.c(FeedbackOptions.a(FeedbackOptions.b(FeedbackOptions.a(FeedbackOptions.a(new FeedbackOptions(), a), b), d), c), e), f), g), h), i);
-    }
-
-    public fah a(Bitmap bitmap)
-    {
-        a = bitmap;
-        return this;
-    }
-
-    public fah a(Bundle bundle)
-    {
-        if (bundle != null)
-        {
-            c.putAll(bundle);
-        }
-        return this;
-    }
-
-    public fah a(String s)
-    {
-        b = s;
-        return this;
-    }
-
-    public fah a(String s, String s1)
-    {
-        c.putString(s, s1);
-        return this;
-    }
-
-    public fah b(String s)
-    {
-        d = s;
-        return this;
-    }
-
-    public fah c(String s)
-    {
-        e = s;
-        return this;
-    }
 }

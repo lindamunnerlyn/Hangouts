@@ -2,47 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.List;
+import android.content.Context;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-final class dmm
-    implements Runnable
+public final class dmm
+    implements dml
 {
 
-    boolean a;
-    final List b;
-    final fqp c;
-    final fqy d;
-    final fqp e;
-    final fqy f;
+    private Context a;
 
-    public dmm(List list, fqp fqp1, fqy fqy1, fqp fqp2, fqy fqy2)
+    public dmm()
     {
-        b = list;
-        c = fqp1;
-        d = fqy1;
-        e = fqp2;
-        f = fqy2;
     }
 
-    public void run()
+    public dml a(Context context)
     {
-        gbh.a();
-        long l = System.currentTimeMillis();
-        for (Iterator iterator = b.iterator(); iterator.hasNext(); iterator.next()) { }
-        if (dme.j())
-        {
-            long l1 = System.currentTimeMillis();
-            ebw.b("Babel", (new StringBuilder(57)).append("GmsPeopleCache: onDataBufferReady ").append(l1 - l).append(" ms").toString());
-        }
-        if (e != null)
-        {
-            e.b();
-        }
-        if (f != null)
-        {
-            f.b();
-        }
-        a = true;
+        a = context;
+        return this;
+    }
+
+    public String a(aoa aoa1, String s, String s1, String s2, int i, String s3, int j, 
+            int k, String s4, String s5, boolean flag, fik fik, int l)
+    {
+        ((bwz)hlp.a(a, bwz)).a(aoa1.h(), bxa.c);
+        String s6 = aow.g();
+        RealTimeChatService.a(aoa1, s, s6, s1, s2, i, s3, j, k, s4, s5, flag, fik, l);
+        return s6;
     }
 }

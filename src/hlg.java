@@ -2,27 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.api.client.http.HttpRequest;
-import com.google.api.client.http.HttpRequestInitializer;
+import android.graphics.Paint;
+import android.graphics.PorterDuffXfermode;
 
-final class hlg
-    implements HttpRequestInitializer
+final class hlg extends gyv
 {
 
-    final hlf a;
-
-    hlg(hlf hlf1)
+    hlg()
     {
-        a = hlf1;
-        super();
     }
 
-    public void initialize(HttpRequest httprequest)
+    protected Object a()
     {
-        if (a.a != null)
-        {
-            a.a.initialize(httprequest);
-        }
-        httprequest.setInterceptor(new hlh(this, httprequest.getInterceptor()));
+        Paint paint = new Paint();
+        paint.setAntiAlias(true);
+        paint.setStyle(android.graphics.Paint.Style.STROKE);
+        paint.setColor(0);
+        paint.setXfermode(new PorterDuffXfermode(android.graphics.PorterDuff.Mode.MULTIPLY));
+        return paint;
     }
 }

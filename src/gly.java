@@ -2,147 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.security.SecureRandomSpi;
 
-public final class gly extends SecureRandomSpi
+public final class gly extends Enum
 {
 
-    private static final File a = new File("/dev/urandom");
-    private static final Object b = new Object();
-    private static DataInputStream c;
-    private static OutputStream d;
-    private boolean e;
+    public static final gly a;
+    public static final gly b;
+    public static final gly c;
+    public static final gly d;
+    public static final gly e;
+    public static final gly f;
+    private static final gly g[];
 
-    public gly()
+    private gly(String s, int i)
     {
+        super(s, i);
     }
 
-    private static DataInputStream a()
+    public static gly valueOf(String s)
     {
-        Object obj = b;
-        obj;
-        JVM INSTR monitorenter ;
-        DataInputStream datainputstream = c;
-        if (datainputstream != null)
-        {
-            break MISSING_BLOCK_LABEL_34;
-        }
-        c = new DataInputStream(new FileInputStream(a));
-        datainputstream = c;
-        obj;
-        JVM INSTR monitorexit ;
-        return datainputstream;
-        Object obj1;
-        obj1;
-        String s = String.valueOf(a);
-        throw new SecurityException((new StringBuilder(String.valueOf(s).length() + 27)).append("Failed to open ").append(s).append(" for reading").toString(), ((Throwable) (obj1)));
-        obj1;
-        obj;
-        JVM INSTR monitorexit ;
-        throw obj1;
+        return (gly)Enum.valueOf(gly, s);
     }
 
-    private static OutputStream b()
+    public static gly[] values()
     {
-        Object obj = b;
-        obj;
-        JVM INSTR monitorenter ;
-        OutputStream outputstream = d;
-        if (outputstream != null)
-        {
-            break MISSING_BLOCK_LABEL_27;
-        }
-        d = new FileOutputStream(a);
-        outputstream = d;
-        obj;
-        JVM INSTR monitorexit ;
-        return outputstream;
-        Object obj1;
-        obj1;
-        String s = String.valueOf(a);
-        throw new SecurityException((new StringBuilder(String.valueOf(s).length() + 27)).append("Failed to open ").append(s).append(" for writing").toString(), ((Throwable) (obj1)));
-        obj1;
-        obj;
-        JVM INSTR monitorexit ;
-        throw obj1;
+        return (gly[])g.clone();
     }
 
-    protected byte[] engineGenerateSeed(int i)
+    static 
     {
-        byte abyte0[] = new byte[i];
-        engineNextBytes(abyte0);
-        return abyte0;
+        a = new gly("SPEAKERPHONE_ON", 0);
+        b = new gly("EARPIECE_ON", 1);
+        c = new gly("WIRED_HEADSET_ON", 2);
+        d = new gly("BLUETOOTH_ON", 3);
+        e = new gly("BLUETOOTH_TURNING_ON", 4);
+        f = new gly("BLUETOOTH_TURNING_OFF", 5);
+        g = (new gly[] {
+            a, b, c, d, e, f
+        });
     }
-
-    protected void engineNextBytes(byte abyte0[])
-    {
-        if (!e)
-        {
-            engineSetSeed(glx.b());
-        }
-        DataInputStream datainputstream;
-        synchronized (b)
-        {
-            datainputstream = a();
-        }
-        datainputstream;
-        JVM INSTR monitorenter ;
-        datainputstream.readFully(abyte0);
-        datainputstream;
-        JVM INSTR monitorexit ;
-        return;
-        abyte0;
-        obj;
-        JVM INSTR monitorexit ;
-        String s;
-        try
-        {
-            throw abyte0;
-        }
-        // Misplaced declaration of an exception variable
-        catch (byte abyte0[])
-        {
-            s = String.valueOf(a);
-        }
-        throw new SecurityException((new StringBuilder(String.valueOf(s).length() + 20)).append("Failed to read from ").append(s).toString(), abyte0);
-        abyte0;
-        datainputstream;
-        JVM INSTR monitorexit ;
-        throw abyte0;
-    }
-
-    protected void engineSetSeed(byte abyte0[])
-    {
-        String s;
-        OutputStream outputstream;
-        synchronized (b)
-        {
-            outputstream = b();
-        }
-        try
-        {
-            outputstream.write(abyte0);
-            outputstream.flush();
-            e = true;
-            return;
-        }
-        // Misplaced declaration of an exception variable
-        catch (byte abyte0[])
-        {
-            s = String.valueOf(a);
-        }
-        break MISSING_BLOCK_LABEL_40;
-        abyte0;
-        obj;
-        JVM INSTR monitorexit ;
-        throw abyte0;
-        throw new SecurityException((new StringBuilder(String.valueOf(s).length() + 24)).append("Failed to mix seed into ").append(s).toString(), abyte0);
-    }
-
 }

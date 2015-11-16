@@ -3,25 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class bbc
-    implements Runnable
+public final class bbc
 {
 
-    final String a;
-    final int b;
-    final bba c;
+    public static final String a = baz.getName();
+    private static bba b;
 
-    bbc(bba bba1, String s, int i)
+    public static void a(hlp hlp1)
     {
-        c = bba1;
-        a = s;
-        b = i;
-        super();
+        if (b == null)
+        {
+            b = new bba();
+        }
+        hlp1.a(baz, b.a());
     }
 
-    public void run()
-    {
-        int i = g.j(a);
-        ((bdp)hgx.a(bba.a(c), bdp)).a(2322, b, Integer.valueOf(i));
-    }
 }

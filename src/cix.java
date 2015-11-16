@@ -2,125 +2,65 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.preference.Preference;
-import android.util.AttributeSet;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.FrameLayout;
 
-public final class cix extends Preference
-    implements android.view.View.OnClickListener, android.widget.CompoundButton.OnCheckedChangeListener
+public final class cix extends hmm
 {
 
-    private static String a = null;
-    private static CompoundButton b = null;
-    private boolean c;
-    private boolean d;
+    private cic a;
+    private aii b;
+    private EditText c;
+    private final TextWatcher d = new ciz(this);
 
-    private cix(Context context)
+    public cix()
     {
-        this(context, null, g.cW);
     }
 
-    public cix(Context context, byte byte0)
+    static hlt a(cix cix1)
     {
-        this(context);
+        return cix1.context;
     }
 
-    private cix(Context context, AttributeSet attributeset, int i)
+    static EditText b(cix cix1)
     {
-        super(context, null, i);
-        c = false;
-        d = true;
+        return cix1.c;
     }
 
-    private static void a(CompoundButton compoundbutton)
+    static aii c(cix cix1)
     {
-        compoundbutton.setContentDescription(((TextView)((View)compoundbutton.getParent()).findViewById(0x1020016)).getText().toString());
+        return cix1.b;
     }
 
-    public void a()
+    public void a(LayoutInflater layoutinflater, Toolbar toolbar)
     {
-        a = getKey();
+        toolbar.b("");
+        toolbar.setPadding(toolbar.getPaddingLeft(), 0, toolbar.getPaddingRight(), 0);
+        layoutinflater = (FrameLayout)layoutinflater.inflate(g.nK, toolbar, false);
+        toolbar.addView(layoutinflater);
+        c = (EditText)layoutinflater.findViewById(l.tU);
+        c.addTextChangedListener(d);
+        c.setOnFocusChangeListener(new ciy(this));
     }
 
-    public View getView(View view, ViewGroup viewgroup)
+    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
-        view = super.getView(view, viewgroup);
-        viewgroup = view.findViewById(h.u);
-        if (viewgroup != null && (viewgroup instanceof RadioButton))
+        setHasOptionsMenu(true);
+        layoutinflater = layoutinflater.inflate(g.nJ, viewgroup, false);
+        a = (cic)getChildFragmentManager().a(cic.getName());
+        if (a == null)
         {
-            viewgroup = (RadioButton)viewgroup;
-            if (d)
-            {
-                viewgroup.setOnCheckedChangeListener(this);
-                boolean flag = getKey().equals(a);
-                if (flag)
-                {
-                    b = viewgroup;
-                    a = getKey();
-                }
-                c = true;
-                viewgroup.setChecked(flag);
-                c = false;
-            } else
-            {
-                viewgroup.setVisibility(8);
-            }
-            a(viewgroup);
+            a = new cic();
+            getChildFragmentManager().a().a(l.tP, a, cic.getName()).b();
         }
-        viewgroup = view.findViewById(h.gu);
-        if (viewgroup != null && (viewgroup instanceof RelativeLayout))
-        {
-            viewgroup.setOnClickListener(this);
-        }
-        return view;
+        b = new aii();
+        a.a(b);
+        return layoutinflater;
     }
-
-    public void onCheckedChanged(CompoundButton compoundbutton, boolean flag)
-    {
-        String s = String.valueOf(getKey());
-        (new StringBuilder(String.valueOf(s).length() + 11)).append("ID: ").append(s).append(" :").append(flag);
-        if (c)
-        {
-            return;
-        }
-        if (flag)
-        {
-            if (b != null)
-            {
-                b.setChecked(false);
-            }
-            b = compoundbutton;
-            a = getKey();
-            callChangeListener(a);
-        } else
-        {
-            b = null;
-            a = null;
-        }
-        a(compoundbutton);
-    }
-
-    public void onClick(View view)
-    {
-        if (view != null && h.gu == view.getId())
-        {
-            view = getContext();
-            if (view != null)
-            {
-                view.startActivity(g.p(getKey()));
-            }
-        }
-    }
-
-    public void setSelectable(boolean flag)
-    {
-        d = flag;
-    }
-
 }

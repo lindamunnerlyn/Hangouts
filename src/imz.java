@@ -3,23 +3,94 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class imz
+public final class imz extends kwm
 {
 
-    private final ind a;
+    private static volatile imz c[];
+    public String a;
+    public String b;
 
-    imz(ind ind)
+    public imz()
     {
-        a = ind;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    static ind a(imz imz1)
+    public static imz[] a()
     {
-        return imz1.a;
+        if (c == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (c == null)
+                {
+                    c = new imz[0];
+                }
+            }
+        }
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public android.content.DialogInterface.OnClickListener a(android.content.DialogInterface.OnClickListener onclicklistener, String s)
+    protected int computeSerializedSize()
     {
-        return new ina(this, s, onclicklistener);
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.b(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.b(2, b);
+        }
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        super.writeTo(kwk1);
     }
 }

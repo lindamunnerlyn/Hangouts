@@ -4,9 +4,11 @@
 
 
 public interface gaq
-    extends gba
 {
 
-    public static final gbf a = new gar();
+    public abstract void a();
 
+    public abstract void b();
+
+    public abstract boolean c();
 }

@@ -3,11 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class hkt extends hkp
+public final class hkt
 {
 
-    hkt(String s)
+    public hkt()
     {
-        super(s, 3, 1024L);
     }
 }

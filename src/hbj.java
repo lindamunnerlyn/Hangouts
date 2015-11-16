@@ -2,22 +2,7 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.AsyncTask;
 
-final class hbj extends AsyncTask
+public interface hbj
 {
-
-    final hbh a;
-
-    hbj(hbh hbh1)
-    {
-        a = hbh1;
-        super();
-    }
-
-    protected Object doInBackground(Object aobj[])
-    {
-        a.e.run();
-        return null;
-    }
 }

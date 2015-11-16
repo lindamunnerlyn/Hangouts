@@ -2,49 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import com.google.android.apps.hangouts.peoplelistv2.impl.EditParticipantsView;
-import com.google.android.apps.hangouts.peoplelistv2.impl.ScrollViewCustom;
+import android.os.Parcel;
 
-public final class cge
-    implements android.view.View.OnClickListener
+final class cge
+    implements android.os.Parcelable.Creator
 {
 
-    final EditParticipantsView a;
-
-    public cge(EditParticipantsView editparticipantsview)
+    cge()
     {
-        a = editparticipantsview;
-        super();
     }
 
-    public void onClick(View view)
+    public Object createFromParcel(Parcel parcel)
     {
-        Object obj;
-        int i;
-        EditParticipantsView.e(a).requestChildFocus(EditParticipantsView.a(a), view);
-        i = EditParticipantsView.a(a).indexOfChild(view);
-        obj = view.getTag();
-        if (i != -1) goto _L2; else goto _L1
-_L1:
-        EditParticipantsView.a(a, null);
-_L4:
-        EditParticipantsView.c(a);
-        ((InputMethodManager)view.getContext().getSystemService("input_method")).hideSoftInputFromWindow(view.getWindowToken(), 0);
-        if (EditParticipantsView.g(a) != null)
+        String s1 = null;
+        String s;
+        if (parcel.readInt() == 1)
         {
-            EditParticipantsView.e(a).requestChildFocus(EditParticipantsView.g(a), EditParticipantsView.g(a));
-        }
-        return;
-_L2:
-        if (obj != null)
+            s = parcel.readString();
+        } else
         {
-            EditParticipantsView.a(a, view);
+            s = null;
         }
-        if (true) goto _L4; else goto _L3
-_L3:
+        if (parcel.readInt() == 1)
+        {
+            s1 = parcel.readString();
+        }
+        return new cgd(s, s1);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new cgd[i];
     }
 }

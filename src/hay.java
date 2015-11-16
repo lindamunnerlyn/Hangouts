@@ -2,17 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
+import android.os.Parcel;
 
-final class hay extends ThreadLocal
+final class hay
+    implements android.os.Parcelable.Creator
 {
 
     hay()
     {
     }
 
-    protected Object initialValue()
+    public Object createFromParcel(Parcel parcel)
     {
-        return new ArrayList(8);
+        return new hax(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new hax[i];
     }
 }

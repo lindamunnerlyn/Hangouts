@@ -18,26 +18,26 @@ import android.view.View;
 import android.widget.Toast;
 import g;
 import kb;
-import ro;
-import sr;
-import ss;
-import ta;
+import rq;
+import st;
+import su;
 import tc;
-import tq;
-import wc;
-import xc;
-import ye;
+import te;
+import ts;
+import we;
+import xe;
+import yg;
 
-public class ActionMenuItemView extends xc
-    implements android.view.View.OnClickListener, android.view.View.OnLongClickListener, tq, wc
+public class ActionMenuItemView extends xe
+    implements android.view.View.OnClickListener, android.view.View.OnLongClickListener, ts, we
 {
 
-    private tc a;
-    private CharSequence b;
-    private Drawable c;
-    private ta d;
-    private ye e;
-    private ss f;
+    public te a;
+    public tc b;
+    public su c;
+    private CharSequence d;
+    private Drawable e;
+    private yg f;
     private boolean g;
     private boolean h;
     private int i;
@@ -59,28 +59,13 @@ public class ActionMenuItemView extends xc
         super(context, attributeset, l);
         Resources resources = context.getResources();
         g = resources.getBoolean(g.T);
-        context = context.obtainStyledAttributes(attributeset, ro.v, l, 0);
-        i = context.getDimensionPixelSize(ro.w, 0);
+        context = context.obtainStyledAttributes(attributeset, rq.v, l, 0);
+        i = context.getDimensionPixelSize(rq.w, 0);
         context.recycle();
         k = (int)(resources.getDisplayMetrics().density * 32F + 0.5F);
         setOnClickListener(this);
         setOnLongClickListener(this);
         j = -1;
-    }
-
-    public static ss a(ActionMenuItemView actionmenuitemview)
-    {
-        return actionmenuitemview.f;
-    }
-
-    public static ta b(ActionMenuItemView actionmenuitemview)
-    {
-        return actionmenuitemview.d;
-    }
-
-    public static tc c(ActionMenuItemView actionmenuitemview)
-    {
-        return actionmenuitemview.a;
     }
 
     private void f()
@@ -91,14 +76,14 @@ label0:
             boolean flag2 = false;
             boolean flag;
             boolean flag1;
-            if (!TextUtils.isEmpty(b))
+            if (!TextUtils.isEmpty(d))
             {
                 flag = true;
             } else
             {
                 flag = false;
             }
-            if (c != null)
+            if (e != null)
             {
                 flag1 = flag2;
                 if (!a.l())
@@ -118,7 +103,7 @@ label0:
         }
         if (flag & flag1)
         {
-            charsequence = b;
+            charsequence = d;
         } else
         {
             charsequence = null;
@@ -126,14 +111,14 @@ label0:
         setText(charsequence);
     }
 
-    public tc a()
+    public te a()
     {
         return a;
     }
 
     public void a(Drawable drawable)
     {
-        c = drawable;
+        e = drawable;
         if (drawable != null)
         {
             int k1 = drawable.getIntrinsicWidth();
@@ -162,29 +147,29 @@ label0:
 
     public void a(CharSequence charsequence)
     {
-        b = charsequence;
-        setContentDescription(b);
+        d = charsequence;
+        setContentDescription(d);
         f();
     }
 
-    public void a(ss ss)
+    public void a(su su)
     {
-        f = ss;
-    }
-
-    public void a(ta ta1)
-    {
-        d = ta1;
+        c = su;
     }
 
     public void a(tc tc1)
     {
-        a = tc1;
-        a(tc1.getIcon());
-        a(tc1.a(this));
-        setId(tc1.getItemId());
+        b = tc1;
+    }
+
+    public void a(te te1)
+    {
+        a = te1;
+        a(te1.getIcon());
+        a(te1.a(this));
+        setId(te1.getItemId());
         int l;
-        if (tc1.isVisible())
+        if (te1.isVisible())
         {
             l = 0;
         } else
@@ -192,10 +177,10 @@ label0:
             l = 8;
         }
         setVisibility(l);
-        setEnabled(tc1.isEnabled());
-        if (tc1.hasSubMenu() && e == null)
+        setEnabled(te1.isEnabled());
+        if (te1.hasSubMenu() && f == null)
         {
-            e = new sr(this);
+            f = new st(this);
         }
     }
 
@@ -221,9 +206,9 @@ label0:
 
     public void onClick(View view)
     {
-        if (d != null)
+        if (b != null)
         {
-            d.a(a);
+            b.a(a);
         }
     }
 
@@ -255,7 +240,7 @@ label0:
         int i1 = ai[0];
         i1 = l / 2 + i1;
         l = i1;
-        if (kb.h(view) == 0)
+        if (kb.i(view) == 0)
         {
             l = context.getResources().getDisplayMetrics().widthPixels - i1;
         }
@@ -293,15 +278,15 @@ label0:
         {
             super.onMeasure(android.view.View.MeasureSpec.makeMeasureSpec(l, 0x40000000), i1);
         }
-        if (!flag && c != null)
+        if (!flag && e != null)
         {
-            super.setPadding((getMeasuredWidth() - c.getBounds().width()) / 2, getPaddingTop(), getPaddingRight(), getPaddingBottom());
+            super.setPadding((getMeasuredWidth() - e.getBounds().width()) / 2, getPaddingTop(), getPaddingRight(), getPaddingBottom());
         }
     }
 
     public boolean onTouchEvent(MotionEvent motionevent)
     {
-        if (a.hasSubMenu() && e != null && e.onTouch(this, motionevent))
+        if (a.hasSubMenu() && f != null && f.onTouch(this, motionevent))
         {
             return true;
         } else

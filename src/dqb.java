@@ -3,44 +3,106 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class dqb extends Enum
+public final class dqb extends fti
 {
 
-    public static final dqb a;
-    public static final dqb b;
-    public static final dqb c;
-    public static final dqb d;
-    public static final dqb e;
-    public static final dqb f;
-    public static final dqb g;
-    private static final dqb h[];
+    private fti b;
+    private final Object c = new Object();
+    private Throwable d;
 
-    private dqb(String s, int i)
+    public dqb(fti fti1)
     {
-        super(s, i);
+        super(null);
+        gdv.b("Expected condition to be false", fti1.c());
+        b = fti1;
     }
 
-    public static dqb valueOf(String s)
+    private dqc b(int i)
     {
-        return (dqb)Enum.valueOf(dqb, s);
+        Object obj = c;
+        obj;
+        JVM INSTR monitorenter ;
+        if (b == null)
+        {
+            throw new IllegalStateException("Already released", d);
+        }
+        break MISSING_BLOCK_LABEL_33;
+        Exception exception;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+        dqc dqc1 = new dqc((fth)b.a(i));
+        obj;
+        JVM INSTR monitorexit ;
+        return dqc1;
     }
 
-    public static dqb[] values()
+    public int a()
     {
-        return (dqb[])h.clone();
+        Object obj = c;
+        obj;
+        JVM INSTR monitorenter ;
+        if (b == null)
+        {
+            throw new IllegalStateException("Already released", d);
+        }
+        break MISSING_BLOCK_LABEL_33;
+        Exception exception;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+        int i = b.a();
+        obj;
+        JVM INSTR monitorexit ;
+        return i;
     }
 
-    static 
+    public Object a(int i)
     {
-        a = new dqb("UNKNOWN", 0);
-        b = new dqb("QUEUED", 1);
-        c = new dqb("SENDING", 2);
-        d = new dqb("FAILED_TO_SEND", 3);
-        e = new dqb("ON_SERVER", 4);
-        f = new dqb("PENDING_DELETE", 5);
-        g = new dqb("LOCAL_SYSTEM_MESSAGE", 6);
-        h = (new dqb[] {
-            a, b, c, d, e, f, g
-        });
+        return b(i);
+    }
+
+    public void b()
+    {
+        super.b();
+        d = new Throwable("ThreadSafeAggregatedPersonBuffer released");
+        synchronized (c)
+        {
+            if (b != null)
+            {
+                b.b();
+                b = null;
+            }
+        }
+        return;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
+    public boolean c()
+    {
+label0:
+        {
+            synchronized (c)
+            {
+                if (b != null)
+                {
+                    break label0;
+                }
+            }
+            return true;
+        }
+        boolean flag = b.c();
+        obj;
+        JVM INSTR monitorexit ;
+        return flag;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 }

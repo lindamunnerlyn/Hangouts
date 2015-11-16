@@ -6,13 +6,14 @@ package com.google.android.gms.people.identity.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fnz;
+import fqv;
+import g;
 
 public final class AccountToken
     implements SafeParcelable
 {
 
-    public static final fnz CREATOR = new fnz();
+    public static final fqv CREATOR = new fqv();
     private final int a;
     private final String b;
     private final String c;
@@ -24,17 +25,17 @@ public final class AccountToken
         c = s1;
     }
 
-    public int a()
+    private int a()
     {
         return a;
     }
 
-    public String b()
+    private String b()
     {
         return b;
     }
 
-    public String c()
+    private String c()
     {
         return c;
     }
@@ -46,7 +47,11 @@ public final class AccountToken
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fnz.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.a(parcel, 1, b());
+        g.b(parcel, 1000, a());
+        g.a(parcel, 2, c());
+        g.q(parcel, i);
     }
 
 }

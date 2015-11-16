@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.apps.hangouts.views.AudioAttachmentView android:orientation="horizontal" android:paddingTop="5.0dip" android:paddingBottom="6.0dip" android:clickable="true" android:longClickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:importantForAccessibility="2">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:gravity="left" android:id="@id/audio_attachment_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" android:importantForAccessibility="2" style="@style/RealTimeChat.Message.VoicemailTitle" />
+            <TextView android:gravity="right" android:id="@id/audio_attachment_info" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" android:importantForAccessibility="2" style="@style/RealTimeChat.Message.VoicemailInfo" />
+        </LinearLayout>
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:importantForAccessibility="2">
+            <ImageView android:id="@id/playOrPauseButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/quantum_ic_play_arrow_black_24" android:layout_alignParentLeft="true" android:layout_centerInParent="true" android:contentDescription="@string/play_media" android:importantForAccessibility="1" />
+            <ImageView android:id="@id/speakerphoneButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/quantum_ic_speaker_phone_black_24" android:layout_alignParentRight="true" android:layout_centerInParent="true" android:contentDescription="@string/speakerphone_on" android:importantForAccessibility="1" />
+            <SeekBar android:id="@id/playBackControl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/speakerphoneButton" android:layout_toRightOf="@id/playOrPauseButton" android:layout_centerInParent="true" android:importantForAccessibility="2" />
+        </RelativeLayout>
+    </LinearLayout>
+</com.google.android.apps.hangouts.views.AudioAttachmentView>

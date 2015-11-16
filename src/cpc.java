@@ -2,30 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
+import java.util.Iterator;
 
-public final class cpc
-    implements gwl
+final class cpc
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new cpd();
+    private final String a;
 
-    public cpc()
+    cpc(String s)
     {
+        a = s;
     }
 
-    public boolean a(int i, gmu gmu)
+    private static CharSequence a(Object obj)
     {
-        return dbf.e(i).r();
+        if (obj instanceof CharSequence)
+        {
+            return (CharSequence)obj;
+        } else
+        {
+            return obj.toString();
+        }
     }
 
-    public int describeContents()
+    public final StringBuilder a(StringBuilder stringbuilder, Iterable iterable)
     {
-        return 0;
-    }
+        iterable = iterable.iterator();
+        if (iterable.hasNext())
+        {
+            stringbuilder.append(a(iterable.next()));
+            for (; iterable.hasNext(); stringbuilder.append(a(iterable.next())))
+            {
+                stringbuilder.append(a);
+            }
 
-    public void writeToParcel(Parcel parcel, int i)
-    {
+        }
+        return stringbuilder;
     }
-
 }

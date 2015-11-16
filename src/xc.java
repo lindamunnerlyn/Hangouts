@@ -2,38 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.widget.TextView;
+import android.view.ViewTreeObserver;
 
-public class xc extends TextView
+final class xc
+    implements android.widget.PopupWindow.OnDismissListener
 {
 
-    private xb a;
+    final android.view.ViewTreeObserver.OnGlobalLayoutListener a;
+    final wz b;
 
-    public xc(Context context)
+    xc(wz wz1, android.view.ViewTreeObserver.OnGlobalLayoutListener ongloballayoutlistener)
     {
-        this(context, null);
+        b = wz1;
+        a = ongloballayoutlistener;
+        super();
     }
 
-    public xc(Context context, AttributeSet attributeset)
+    public void onDismiss()
     {
-        this(context, attributeset, 0x1010084);
-    }
-
-    public xc(Context context, AttributeSet attributeset, int i)
-    {
-        super(context, attributeset, i);
-        a = new xb(this);
-        a.a(attributeset, i);
-    }
-
-    public void setTextAppearance(Context context, int i)
-    {
-        super.setTextAppearance(context, i);
-        if (a != null)
+        ViewTreeObserver viewtreeobserver = b.a.getViewTreeObserver();
+        if (viewtreeobserver != null)
         {
-            a.a(context, i);
+            viewtreeobserver.removeGlobalOnLayoutListener(a);
         }
     }
 }

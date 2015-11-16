@@ -4,44 +4,41 @@
 
 import android.content.Context;
 
-final class bxc
+public final class bxc
 {
 
-    private boolean a;
-    private final beb b = (new bec()).a("lastseen").b("Module that hosts the last seen feature.").a(true).a();
+    public static final String a = hcb.getName();
+    public static final String b = bxd.getName();
+    public static final String c = bwz.getName();
+    private static bxb d;
 
-    public bxc()
+    public static void a(Context context, hlp hlp1)
     {
-        a = false;
-        a = g.a(g.nS, "babel_enable_last_seen_r2", true);
-    }
-
-    public egv a(Context context)
-    {
-        if (a)
+        if (d == null)
         {
-            return (egv)b.a(context, new bxb());
-        } else
-        {
-            return null;
+            d = new bxb();
         }
-    }
-
-    public beb[] a()
-    {
-        return (new beb[] {
-            b
+        hlp1.a(hcb, new hcb[] {
+            (hcb)hlp.a(context, bxd)
         });
     }
 
-    public cqv[] b(Context context)
+    public static void b(Context context, hlp hlp1)
     {
-        if (a)
+        if (d == null)
         {
-            return (cqv[])b.a(context, cqv, new bxf());
-        } else
-        {
-            return null;
+            d = new bxb();
         }
+        hlp1.a(bxd, new bxd(context));
     }
+
+    public static void c(Context context, hlp hlp1)
+    {
+        if (d == null)
+        {
+            d = new bxb();
+        }
+        hlp1.a(bwz, (bwz)hlp.a(context, bxd));
+    }
+
 }

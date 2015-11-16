@@ -2,16 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.lang.ref.ReferenceQueue;
 
-public interface jou
+final class jou extends jos
 {
 
-    public abstract com.google.common.collect.MapMakerInternalMap.ReferenceEntry a();
+    jou(String s)
+    {
+        super(s, 1);
+    }
 
-    public abstract jou a(ReferenceQueue referencequeue, Object obj, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry);
+    com.google.common.cache.LocalCache.ReferenceEntry a(jpj jpj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry, com.google.common.cache.LocalCache.ReferenceEntry referenceentry1)
+    {
+        jpj = super.a(jpj, referenceentry, referenceentry1);
+        a(referenceentry, ((com.google.common.cache.LocalCache.ReferenceEntry) (jpj)));
+        return jpj;
+    }
 
-    public abstract void b();
-
-    public abstract Object get();
+    com.google.common.cache.LocalCache.ReferenceEntry a(jpj jpj, Object obj, int i, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        return new jpq(obj, i, referenceentry);
+    }
 }

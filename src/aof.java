@@ -2,27 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
 final class aof
+    implements grg
 {
 
-    static final int a[];
+    final aoc a;
 
-    static 
+    aof(aoc aoc)
     {
-        a = new int[dqc.values().length];
-        try
+        a = aoc;
+        super();
+    }
+
+    public String a()
+    {
+        return "is_gplus_user_to_is_google_plus";
+    }
+
+    public void a(Context context, grd grd1)
+    {
+        if (grd1.a("is_gplus_user"))
         {
-            a[dqc.b.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[dqc.c.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
+            grd1.b("is_google_plus", grd1.d("is_gplus_user"));
+            grd1.f("is_gplus_user");
         }
     }
 }

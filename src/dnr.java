@@ -2,45 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import com.google.android.apps.hangouts.views.AvatarView;
 
-public final class dnr extends hfa
+public final class dnr extends dmy
 {
 
-    private String b;
-    private ani c;
+    private static final long serialVersionUID = 1L;
+    public final int a;
 
-    public dnr(Context context)
+    private dnr(String s, cgd cgd, long l, int i)
     {
-        super(context, null);
-        e(g.gW);
+        super(s, cgd, l);
+        a = i;
     }
 
-    public void a(View view)
+    public dnr(jep jep1)
     {
-        super.a(view);
-        view = (AvatarView)view.findViewById(h.E);
-        if (b != null)
-        {
-            view.a(b, c.c(), c);
-            return;
-        } else
-        {
-            view.a(null, null, null);
-            return;
-        }
+        super(jep1.a.a, g.a(jep1.b, null), g.a(jep1.c, 0L));
+        a = g.a(jep1.d, 0);
     }
 
-    public void a(String s, ani ani1)
+    public static dnr a(String s, cgd cgd, long l, int i)
     {
-        if (!TextUtils.equals(s, b))
-        {
-            b = s;
-            c = ani1;
-            z();
-        }
+        return new dnr(s, cgd, l, i);
     }
 }

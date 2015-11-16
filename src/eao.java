@@ -2,30 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.Semaphore;
 
-public final class eao
+final class eao extends dhy
 {
 
-    private static final Object a = new Object();
-    private final hd b = new hd();
+    final int a;
+    final cyi b[];
+    final Semaphore c;
+    final ean d;
 
-    public eao()
+    eao(ean ean, int i, cyi acyi[], Semaphore semaphore)
     {
+        d = ean;
+        a = i;
+        b = acyi;
+        c = semaphore;
+        super();
     }
 
-    public boolean a(long l)
+    public void a(int i, aoa aoa, did did1)
     {
-        return b.b(l) == a;
+        if (a == i)
+        {
+            aoa = (cyi)did1.c();
+            if (aoa != null)
+            {
+                b[0] = aoa;
+            } else
+            {
+                eev.g("Babel_telephony", "TeleHangoutsService.getCallRateResponseBlocking, response could not be decoded");
+            }
+            c.release();
+        }
     }
-
-    public void b(long l)
-    {
-        b.a(l, a);
-    }
-
-    public void c(long l)
-    {
-        b.c(l);
-    }
-
 }

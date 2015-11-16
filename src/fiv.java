@@ -2,11 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
 
-public interface fiv
-    extends IInterface
+public final class fiv extends flj
 {
 
-    public abstract boolean a();
+    final fiy a;
+    final fcp b;
+
+    public fiv(fcp fcp, fiy fiy1)
+    {
+        b = fcp;
+        a = fiy1;
+        super();
+    }
+
+    public void a(fjd fjd)
+    {
+        a.a(new fir(fjd));
+    }
 }

@@ -3,61 +3,31 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ktn extends koj
+public abstract class ktn
+    implements kve
 {
 
     public int a;
+    private boolean b;
 
     public ktn()
     {
-        a = 0x80000000;
-        unknownFieldData = null;
-        cachedSize = -1;
+        b = true;
+        a = -1;
     }
 
-    protected int computeSerializedSize()
+    kvt J_()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != 0x80000000)
-        {
-            i = j + koh.e(1, a);
-        }
-        return i;
+        return new kvt();
     }
 
-    public kop mergeFrom(kog kog1)
+    public kve b()
     {
-_L4:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 2: default 32
-    //                   0: 41
-    //                   8: 43;
-           goto _L1 _L2 _L3
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L4; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
-        {
-        case 0: // '\0'
-        case 1: // '\001'
-            a = j;
-            break;
-        }
-        if (true) goto _L4; else goto _L5
-_L5:
+        throw new UnsupportedOperationException("clone() should be implemented by subclasses.");
     }
 
-    public void writeTo(koh koh1)
+    public Object clone()
     {
-        if (a != 0x80000000)
-        {
-            koh1.a(1, a);
-        }
-        super.writeTo(koh1);
+        return b();
     }
 }

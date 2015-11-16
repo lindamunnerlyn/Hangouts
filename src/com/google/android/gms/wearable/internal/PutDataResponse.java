@@ -6,7 +6,8 @@ package com.google.android.gms.wearable.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fvp;
+import fxv;
+import g;
 
 // Referenced classes of package com.google.android.gms.wearable.internal:
 //            DataItemParcelable
@@ -15,7 +16,7 @@ public class PutDataResponse
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fvp();
+    public static final android.os.Parcelable.Creator CREATOR = new fxv();
     public final int a;
     public final int b;
     public final DataItemParcelable c;
@@ -34,7 +35,11 @@ public class PutDataResponse
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fvp.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, b);
+        g.a(parcel, 3, c, i);
+        g.q(parcel, j);
     }
 
 }

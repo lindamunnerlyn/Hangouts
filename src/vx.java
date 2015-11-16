@@ -2,30 +2,64 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.view.MenuItem;
 import android.view.View;
 
-final class vx
-    implements Runnable
+final class vx extends tn
 {
 
-    final vu a;
-    private wa b;
+    final vw f;
+    private tu g;
 
-    public vx(vu vu1, wa wa1)
+    public vx(vw vw1, Context context, tu tu1)
     {
-        a = vu1;
-        super();
-        b = wa1;
+        boolean flag1 = false;
+        f = vw1;
+        super(context, tu1, null, false, g.q);
+        g = tu1;
+        int i;
+        if (!((te)tu1.getItem()).i())
+        {
+            int j;
+            boolean flag;
+            if (vw1.g == null)
+            {
+                context = (View)vw1.f;
+            } else
+            {
+                context = vw1.g;
+            }
+            a(context);
+        }
+        a(vw1.k);
+        j = tu1.size();
+        i = 0;
+        do
+        {
+label0:
+            {
+                flag = flag1;
+                if (i < j)
+                {
+                    vw1 = tu1.getItem(i);
+                    if (!vw1.isVisible() || vw1.getIcon() == null)
+                    {
+                        break label0;
+                    }
+                    flag = true;
+                }
+                a(flag);
+                return;
+            }
+            i++;
+        } while (true);
     }
 
-    public void run()
+    public void onDismiss()
     {
-        a.c.f();
-        View view = (View)a.f;
-        if (view != null && view.getWindowToken() != null && b.e())
-        {
-            a.h = b;
-        }
-        a.j = null;
+        super.onDismiss();
+        f.i = null;
+        f.l = 0;
     }
 }

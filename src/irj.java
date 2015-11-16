@@ -3,74 +3,32 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class irj extends koj
+public final class irj extends Enum
 {
 
-    public String a;
-    public String b;
+    public static final irj a;
+    private static final irj b[];
 
-    public irj()
+    private irj(String s)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s, 0);
     }
 
-    protected int computeSerializedSize()
+    public static irj valueOf(String s)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.b(2, b);
-        }
-        return j;
+        return (irj)Enum.valueOf(irj, s);
     }
 
-    public kop mergeFrom(kog kog1)
+    public static irj[] values()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-            }
-        } while (true);
+        return (irj[])b.clone();
     }
 
-    public void writeTo(koh koh1)
+    static 
     {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
-        super.writeTo(koh1);
+        a = new irj("I_AM_THE_FRAMEWORK");
+        b = (new irj[] {
+            a
+        });
     }
 }

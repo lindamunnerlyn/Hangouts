@@ -2,58 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
 
-public class gaf
-    implements gac
+final class gaf
+    implements enb
 {
 
-    public gaf()
+    final gae a;
+
+    gaf(gae gae)
     {
+        a = gae;
+        super();
     }
 
-    public gac a()
+    public void a(int i)
     {
-        return this;
+        Log.e("GcoreClearcutLogger", (new StringBuilder(48)).append("ClearcutLogger connection suspended: ").append(i).toString());
     }
 
-    public gac a(int i)
+    public void a_(Bundle bundle)
     {
-        return this;
-    }
-
-    public gac a(String s)
-    {
-        return this;
-    }
-
-    public gac b()
-    {
-        return this;
-    }
-
-    public gac b(int i)
-    {
-        return this;
-    }
-
-    public gac b(String s)
-    {
-        return this;
-    }
-
-    public Intent c()
-    {
-        return null;
-    }
-
-    public gac c(String s)
-    {
-        return this;
-    }
-
-    public gac d(String s)
-    {
-        return this;
     }
 }

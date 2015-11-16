@@ -2,92 +2,182 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentResolver;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import java.io.IOException;
-import java.io.OutputStream;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 final class ayw
-    implements aqb
+    implements ayt, bao, hon, hov, hoy
 {
 
     private final Context a;
+    private final ayu b;
+    private asa c;
+    private aia d;
+    private int e;
+    private String f;
+    private String g;
+    private anr h;
+    private ArrayList i;
+    private ayv j;
+    private bak k;
 
-    public ayw(Context context)
+    public ayw(Context context, ayu ayu1, hof hof1)
     {
+        i = new ArrayList();
         a = context;
+        b = (ayu)g.e(ayu1);
+        hof1.a(this);
     }
 
-    public void a(ebh ebh1, eab eab, boolean flag, apw apw1, boolean flag1)
+    private void i()
     {
-        Uri uri;
-        uri = (Uri)apw1.l();
-        eab = String.valueOf(apw1.n());
-        apw1 = String.valueOf(uri);
-        ebw.e("Conv", (new StringBuilder(String.valueOf(eab).length() + 31 + String.valueOf(apw1).length())).append("Download of ").append(eab).append(" to ").append(apw1).append(" Success: ").append(flag).toString());
-        if (!flag)
+        if (k != null)
         {
-            break MISSING_BLOCK_LABEL_213;
+            k.cancel(true);
+            k = null;
         }
-        apw1 = null;
-        eab = null;
-        OutputStream outputstream = a.getContentResolver().openOutputStream(uri);
-        eab = outputstream;
-        apw1 = outputstream;
-        ebh1.e().compress(android.graphics.Bitmap.CompressFormat.JPEG, 70, outputstream);
-        eab = outputstream;
-        apw1 = outputstream;
-        if (!ebw.a("Conv", 3))
+    }
+
+    public asa a()
+    {
+        return c;
+    }
+
+    public ayw a(hlp hlp1)
+    {
+        hlp1.a(ayt, this);
+        return this;
+    }
+
+    public void a(int i1)
+    {
+        e = i1;
+    }
+
+    public void a(aia aia1)
+    {
+        d = aia1;
+        f = aia1.g;
+        e = aia1.b;
+    }
+
+    public void a(Context context, List list, ayv ayv1)
+    {
+        i = new ArrayList(list);
+        j = ayv1;
+        b.a(ayv1);
+        i();
+        list = list.iterator();
+        do
         {
-            break MISSING_BLOCK_LABEL_203;
-        }
-        eab = outputstream;
-        apw1 = outputstream;
-        ebh1 = String.valueOf(uri);
-        eab = outputstream;
-        apw1 = outputstream;
-        ebw.d("Conv", (new StringBuilder(String.valueOf(ebh1).length() + 24)).append("Saved location image to ").append(ebh1).toString());
-        if (outputstream == null)
+            if (!list.hasNext())
+            {
+                break;
+            }
+            if (!l.b(((ato)list.next()).a))
+            {
+                continue;
+            }
+            k = new bak(context, i, this);
+            k.execute(new Void[0]);
+            break;
+        } while (true);
+    }
+
+    public void a(Bundle bundle)
+    {
+        if (bundle == null)
         {
-            break MISSING_BLOCK_LABEL_213;
-        }
-        outputstream.close();
-_L2:
-        return;
-        ebh1;
-        ebw.e("Conv", "IOException closing output stream", ebh1);
-        return;
-        ebh1;
-        apw1 = eab;
-        ebw.e("Conv", "IOException saving location image", ebh1);
-        if (eab == null) goto _L2; else goto _L1
-_L1:
-        try
+            return;
+        } else
         {
-            eab.close();
+            f = bundle.getString("conversation_state_model_conversation_name");
+            a(a, ((List) (bundle.getParcelableArrayList("conversation_state_model_attachments"))), (ayv)bundle.getSerializable("conversation_state_model_callback"));
             return;
         }
-        // Misplaced declaration of an exception variable
-        catch (ebh ebh1)
+    }
+
+    public void a(anr anr)
+    {
+        h = anr;
+    }
+
+    public void a(asa asa1)
+    {
+        c = asa1;
+    }
+
+    public void a(String s, String s1)
+    {
+        f = s;
+        g = s1;
+    }
+
+    public void a(jsh jsh1)
+    {
+        i = new ArrayList(jsh1);
+    }
+
+    public aia b()
+    {
+        return d;
+    }
+
+    public void b(Bundle bundle)
+    {
+        bundle.putString("conversation_state_model_conversation_name", e());
+        ArrayList arraylist = new ArrayList(i.size());
+        for (Iterator iterator = i.iterator(); iterator.hasNext(); arraylist.add((Parcelable)(ato)iterator.next())) { }
+        bundle.putParcelableArrayList("conversation_state_model_attachments", arraylist);
+        bundle.putSerializable("conversation_state_model_callback", j);
+    }
+
+    public String c()
+    {
+        if (c != null)
         {
-            ebw.e("Conv", "IOException closing output stream", ebh1);
-        }
-        return;
-        ebh1;
-        if (apw1 != null)
+            return c.a;
+        } else
         {
-            try
-            {
-                apw1.close();
-            }
-            // Misplaced declaration of an exception variable
-            catch (eab eab)
-            {
-                ebw.e("Conv", "IOException closing output stream", eab);
-            }
+            return d.a;
         }
-        throw ebh1;
+    }
+
+    public int d()
+    {
+        return e;
+    }
+
+    public String e()
+    {
+        if (!TextUtils.isEmpty(f))
+        {
+            return f;
+        } else
+        {
+            return g;
+        }
+    }
+
+    public anr f()
+    {
+        return h;
+    }
+
+    public jsh g()
+    {
+        return jsh.a(i);
+    }
+
+    public void h()
+    {
+        i = new ArrayList();
+        b.a(null);
+        i();
     }
 }

@@ -2,84 +2,114 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.ViewGroup;
+import android.view.View;
 
-public abstract class yx
+final class yx
+    implements xh
 {
 
-    public final yy a = new yy();
-    boolean b;
+    final yt a;
 
-    public yx()
+    yx(yt yt1)
     {
-        b = false;
+        a = yt1;
+        super();
     }
 
-    public abstract int a();
-
-    public int a(int i)
+    public int a()
     {
-        return 0;
+        return a.getChildCount();
     }
 
-    public abstract zq a(ViewGroup viewgroup, int i);
-
-    public final void a(int i, int j)
+    public int a(View view)
     {
-        a.a(i, j);
+        return a.indexOfChild(view);
     }
 
-    public void a(yz yz)
+    public void a(int i)
     {
-        a.registerObserver(yz);
-    }
-
-    public abstract void a(zq zq1, int i);
-
-    public void a(boolean flag)
-    {
-        if (a.a())
+        View view = a.getChildAt(i);
+        if (view != null)
         {
-            throw new IllegalStateException("Cannot change whether this adapter has stable IDs while the adapter has registered observers.");
-        } else
+            yt.b(a, view);
+        }
+        a.removeViewAt(i);
+    }
+
+    public void a(View view, int i)
+    {
+        a.addView(view, i);
+        yt.a(a, view);
+    }
+
+    public void a(View view, int i, android.view.ViewGroup.LayoutParams layoutparams)
+    {
+        zs zs1 = yt.b(view);
+        if (zs1 != null)
         {
-            b = flag;
-            return;
+            if (!zs1.p() && !zs1.c())
+            {
+                throw new IllegalArgumentException((new StringBuilder("Called attach on a child which is not detached: ")).append(zs1).toString());
+            }
+            zs1.i();
+        }
+        yt.a(a, view, i, layoutparams);
+    }
+
+    public View b(int i)
+    {
+        return a.getChildAt(i);
+    }
+
+    public zs b(View view)
+    {
+        return yt.b(view);
+    }
+
+    public void b()
+    {
+        int j = a();
+        for (int i = 0; i < j; i++)
+        {
+            yt.b(a, b(i));
+        }
+
+        a.removeAllViews();
+    }
+
+    public void c(int i)
+    {
+        Object obj = b(i);
+        if (obj != null)
+        {
+            obj = yt.b(((View) (obj)));
+            if (obj != null)
+            {
+                if (((zs) (obj)).p() && !((zs) (obj)).c())
+                {
+                    throw new IllegalArgumentException((new StringBuilder("called detach on an already detached child ")).append(obj).toString());
+                }
+                ((zs) (obj)).a(256);
+            }
+        }
+        yt.a(a, i);
+    }
+
+    public void c(View view)
+    {
+        view = yt.b(view);
+        if (view != null)
+        {
+            zs.a(view);
         }
     }
 
-    public long b(int i)
+    public void d(View view)
     {
-        return -1L;
-    }
-
-    public final void b(int i, int j)
-    {
-        a.b(i, j);
-    }
-
-    public void b(yz yz)
-    {
-        a.unregisterObserver(yz);
-    }
-
-    public void b(zq zq1, int i)
-    {
-        a(zq1, i);
-    }
-
-    public final void c(zq zq1, int i)
-    {
-        zq1.b = i;
-        if (b)
+        view = yt.b(view);
+        if (view != null)
         {
-            zq1.d = b(i);
+            zs.b(view);
         }
-        zq1.a(1, 519);
-        g.a("RV OnBindView");
-        zq1.s();
-        b(zq1, i);
-        zq1.r();
-        g.a();
     }
 }

@@ -3,43 +3,60 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public abstract class jlg
+public final class jlg extends kwm
 {
 
-    jlg()
+    public Boolean a;
+
+    public jlg()
     {
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    static int a(int i, int j)
+    protected int computeSerializedSize()
     {
-        if (j < 0)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            throw new AssertionError("cannot store more than MAX_VALUE elements");
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
-        int k = (i >> 1) + i + 1;
-        i = k;
-        if (k < j)
-        {
-            i = Integer.highestOneBit(j - 1) << 1;
-        }
-        j = i;
-        if (i < 0)
-        {
-            j = 0x7fffffff;
-        }
-        return j;
+        return i;
     }
 
-    public transient jlg a(Object aobj[])
+    public kws mergeFrom(kwj kwj1)
     {
-        int j = aobj.length;
-        for (int i = 0; i < j; i++)
+        do
         {
-            b(aobj[i]);
-        }
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
 
-        return this;
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
     }
 
-    public abstract jlg b(Object obj);
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
+        }
+        super.writeTo(kwk1);
+    }
 }

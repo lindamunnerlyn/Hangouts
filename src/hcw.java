@@ -2,31 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.os.Bundle;
 
-final class hcw
+final class hcw extends guy
 {
 
-    hcy a;
-    Object b;
+    private final grk a;
 
-    public hcw(hcy hcy, Object obj)
+    public hcw(String s, grk grk1)
     {
-        a = hcy;
-        b = obj;
+        super(s);
+        a = grk1;
     }
 
-    public boolean a(hcy hcy, Object obj)
+    protected gvv a(Context context)
     {
-        if (a != hcy)
+        grh agrh[];
+        gvv gvv1;
+        int i;
+        try
         {
-            return false;
+            agrh = a.a();
+            context = new String[agrh.length];
         }
-        if (b == null)
+        // Misplaced declaration of an exception variable
+        catch (Context context)
         {
-            return true;
-        } else
-        {
-            return b.equals(null);
+            return new gvv(false);
         }
+        i = 0;
+        if (i >= context.length)
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        context[i] = agrh[i].a();
+        i++;
+        if (true) goto _L2; else goto _L1
+_L2:
+        break MISSING_BLOCK_LABEL_18;
+_L1:
+        gvv1 = new gvv(true);
+        gvv1.d().putStringArray("account_name_array", context);
+        return gvv1;
     }
 }

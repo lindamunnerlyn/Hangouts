@@ -2,22 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Set;
+import android.content.Context;
+import android.util.Property;
+import android.util.SparseArray;
+import java.util.Map;
+import org.json.JSONObject;
 
 final class gun
-    implements Runnable
 {
 
-    final gul a;
+    float a;
+    float b;
+    JSONObject c;
+    Map d;
+    final gum e;
 
-    gun(gul gul)
+    public gun(gum gum1, Context context, int i, Map map, float f, float f1)
     {
-        a = gul;
+        e = gum1;
         super();
+        a = -1F;
+        b = -1F;
+        JSONObject jsonobject1 = (JSONObject)gum1.b.get(i);
+        JSONObject jsonobject = jsonobject1;
+        if (jsonobject1 == null)
+        {
+            jsonobject = new JSONObject(gum.a(context, i));
+            gum1.b.put(i, jsonobject);
+        }
+        c = jsonobject;
+        d = map;
     }
 
-    public void run()
+    public boolean a(Property property)
     {
-        gum.b().add(a);
+        return (a != -1F || property != gus.e) && (b != -1F || property != gus.f);
     }
 }

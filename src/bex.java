@@ -2,39 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.ValueAnimator;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
+import android.content.Context;
 
-final class bex extends Animation
+public interface bex
 {
 
-    int a;
-    int b;
-    View c;
-
-    public bex(View view, int i)
-    {
-        c = view;
-        a = view.getLayoutParams().height;
-        b = i - a;
-        setDuration((new ValueAnimator()).getDuration());
-    }
-
-    protected void applyTransformation(float f, Transformation transformation)
-    {
-        c.getLayoutParams().height = (int)((float)a + (float)b * f);
-        c.requestLayout();
-    }
-
-    public void initialize(int i, int j, int k, int l)
-    {
-        super.initialize(i, j, k, l);
-    }
-
-    public boolean willChangeBounds()
-    {
-        return true;
-    }
+    public abstract bev a(Context context);
 }

@@ -2,54 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.util.Log;
+import android.os.Looper;
+import com.google.android.gms.common.ConnectionResult;
+import java.io.PrintWriter;
+import java.util.concurrent.TimeUnit;
 
-public final class emy
-    implements android.content.DialogInterface.OnClickListener
+public interface emy
 {
 
-    private final Activity a;
-    private final ad b;
-    private final Intent c;
-    private final int d;
+    public abstract Looper a();
 
-    public emy(ad ad1, Intent intent, int i)
-    {
-        a = null;
-        b = ad1;
-        c = intent;
-        d = i;
-    }
+    public abstract ConnectionResult a(TimeUnit timeunit);
 
-    public emy(Activity activity, Intent intent, int i)
-    {
-        a = activity;
-        b = null;
-        c = intent;
-        d = i;
-    }
+    public abstract enm a(enm enm);
 
-    public void onClick(DialogInterface dialoginterface, int i)
-    {
-        if (c == null || b == null) goto _L2; else goto _L1
-_L1:
-        b.startActivityForResult(c, d);
-_L4:
-        dialoginterface.dismiss();
-        return;
-_L2:
-        if (c != null)
-        {
-            a.startActivityForResult(c, d);
-        }
-        if (true) goto _L4; else goto _L3
-_L3:
-        dialoginterface;
-        Log.e("SettingsRedirect", "Can't redirect to app settings for Google Play services");
-        return;
-    }
+    public abstract eor a(Object obj);
+
+    public abstract void a(enb enb);
+
+    public abstract void a(end end);
+
+    public abstract void a(String s, PrintWriter printwriter);
+
+    public abstract void b();
+
+    public abstract void b(enb enb);
+
+    public abstract void b(end end);
+
+    public abstract ConnectionResult c();
+
+    public abstract void d();
+
+    public abstract boolean e();
+
+    public abstract boolean f();
 }

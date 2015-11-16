@@ -3,34 +3,79 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ife extends koj
+public final class ife extends kwm
 {
 
-    public Integer a;
-    public Integer b;
+    private static volatile ife f[];
+    public String a;
+    public String b;
+    public Boolean c;
+    public Boolean d;
+    public Boolean e;
 
     public ife()
     {
         a = null;
         b = null;
+        c = null;
+        d = null;
+        e = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public static ife[] a()
     {
-        return super.computeSerializedSize() + koh.e(1, a.intValue()) + koh.e(2, b.intValue());
+        if (f == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (f == null)
+                {
+                    f = new ife[0];
+                }
+            }
+        }
+        return f;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public kop mergeFrom(kog kog1)
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize() + kwk.b(1, a) + kwk.b(2, b);
+        int i = j;
+        if (c != null)
+        {
+            c.booleanValue();
+            i = j + (kwk.f(3) + 1);
+        }
+        j = i;
+        if (d != null)
+        {
+            d.booleanValue();
+            j = i + (kwk.f(4) + 1);
+        }
+        i = j;
+        if (e != null)
+        {
+            e.booleanValue();
+            i = j + (kwk.f(5) + 1);
+        }
+        return i;
+    }
+
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -39,21 +84,45 @@ public final class ife extends koj
             case 0: // '\0'
                 return this;
 
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
+            case 10: // '\n'
+                a = kwj1.j();
                 break;
 
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+
+            case 24: // '\030'
+                c = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 32: // ' '
+                d = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 40: // '('
+                e = Boolean.valueOf(kwj1.i());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.a(1, a.intValue());
-        koh1.a(2, b.intValue());
-        super.writeTo(koh1);
+        kwk1.a(1, a);
+        kwk1.a(2, b);
+        if (c != null)
+        {
+            kwk1.a(3, c.booleanValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.booleanValue());
+        }
+        if (e != null)
+        {
+            kwk1.a(5, e.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

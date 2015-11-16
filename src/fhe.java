@@ -2,226 +2,131 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Parcel;
+import java.lang.reflect.Array;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
 
-final class fhe
-    implements fhc
+abstract class fhe
 {
 
-    private IBinder a;
+    fhg b;
+    fhh c;
+    fhj d;
 
-    fhe(IBinder ibinder)
+    fhe()
     {
-        a = ibinder;
     }
 
-    public fgw a()
+    public static boolean a(Set set, Object obj)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        fgw fgw;
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        fgw = fgx.a(parcel1.readStrongBinder());
-        parcel1.recycle();
-        parcel.recycle();
-        return fgw;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public void a(Bundle bundle)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-        if (bundle == null)
-        {
-            break MISSING_BLOCK_LABEL_56;
-        }
-        parcel.writeInt(1);
-        bundle.writeToParcel(parcel, 0);
+        if (set != obj) goto _L2; else goto _L1
 _L1:
-        a.transact(2, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        bundle;
-        parcel1.recycle();
-        parcel.recycle();
-        throw bundle;
-    }
-
-    public void a(fjq fjq1)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-        if (fjq1 == null)
+        return true;
+_L2:
+        if (!(obj instanceof Set))
         {
-            break MISSING_BLOCK_LABEL_58;
+            break MISSING_BLOCK_LABEL_54;
         }
-        fjq1 = fjq1.asBinder();
-_L1:
-        parcel.writeStrongBinder(fjq1);
-        a.transact(9, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        fjq1 = null;
-          goto _L1
-        fjq1;
-        parcel1.recycle();
-        parcel.recycle();
-        throw fjq1;
-    }
-
-    public IBinder asBinder()
-    {
-        return a;
-    }
-
-    public void b()
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-        a.transact(3, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public void b(Bundle bundle)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-        if (bundle == null)
+        obj = (Set)obj;
+        boolean flag;
+        try
         {
-            break MISSING_BLOCK_LABEL_69;
+            if (set.size() != ((Set) (obj)).size())
+            {
+                break; /* Loop/switch isn't completed */
+            }
+            flag = set.containsAll(((Collection) (obj)));
         }
-        parcel.writeInt(1);
-        bundle.writeToParcel(parcel, 0);
-_L1:
-        a.transact(7, parcel, parcel1, 0);
-        parcel1.readException();
-        if (parcel1.readInt() != 0)
+        // Misplaced declaration of an exception variable
+        catch (Set set)
         {
-            bundle.readFromParcel(parcel1);
+            return false;
         }
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        bundle;
-        parcel1.recycle();
-        parcel.recycle();
-        throw bundle;
+        // Misplaced declaration of an exception variable
+        catch (Set set)
+        {
+            return false;
+        }
+        if (flag) goto _L1; else goto _L3
+_L3:
+        return false;
+        return false;
     }
 
-    public void c()
+    protected abstract int a();
+
+    protected abstract int a(Object obj);
+
+    protected abstract Object a(int i, int j);
+
+    protected abstract Object a(int i, Object obj);
+
+    protected abstract void a(int i);
+
+    protected abstract void a(Object obj, Object obj1);
+
+    public Object[] a(Object aobj[], int i)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-        a.transact(4, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
+        int k = a();
+        if (aobj.length < k)
+        {
+            aobj = (Object[])Array.newInstance(((Object) (aobj)).getClass().getComponentType(), k);
+        }
+        for (int j = 0; j < k; j++)
+        {
+            aobj[j] = a(j, i);
+        }
+
+        if (aobj.length > k)
+        {
+            aobj[k] = null;
+        }
+        return aobj;
     }
 
-    public void d()
+    protected abstract int b(Object obj);
+
+    protected abstract Map b();
+
+    public Object[] b(int i)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-        a.transact(5, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
+        int k = a();
+        Object aobj[] = new Object[k];
+        for (int j = 0; j < k; j++)
+        {
+            aobj[j] = a(j, i);
+        }
+
+        return aobj;
     }
 
-    public void e()
+    protected abstract void c();
+
+    public Set d()
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-        a.transact(6, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
+        if (b == null)
+        {
+            b = new fhg(this);
+        }
+        return b;
     }
 
-    public ezy f()
+    public Set e()
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        ezy ezy;
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate");
-        a.transact(8, parcel, parcel1, 0);
-        parcel1.readException();
-        ezy = ezz.a(parcel1.readStrongBinder());
-        parcel1.recycle();
-        parcel.recycle();
-        return ezy;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
+        if (c == null)
+        {
+            c = new fhh(this);
+        }
+        return c;
+    }
+
+    public Collection f()
+    {
+        if (d == null)
+        {
+            d = new fhj(this);
+        }
+        return d;
     }
 }

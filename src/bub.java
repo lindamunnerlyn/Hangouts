@@ -3,20 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class bub
-    implements Runnable
+public final class bub
 {
 
-    final bua a;
-
-    bub(bua bua1)
+    public bub()
     {
-        a = bua1;
-        super();
     }
 
-    public void run()
+    public btz a()
     {
-        btz.a(a.c, a.a, a.b);
+        return new buc(this);
     }
 }

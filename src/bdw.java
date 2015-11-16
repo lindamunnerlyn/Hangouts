@@ -2,42 +2,51 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import java.util.Map;
 
-public final class bdw extends cqv
+final class bdw
+    implements aqs
 {
 
-    public bdw()
+    final bdy a;
+    final bdv b;
+
+    bdw(bdv bdv1, bdy bdy1)
     {
+        b = bdv1;
+        a = bdy1;
+        super();
     }
 
-    public cqw a()
+    public void a(eef eef1, edf edf, boolean flag, aqn aqn1, boolean flag1)
     {
-        return new bdv();
-    }
-
-    public boolean a(Context context)
-    {
-        ani ani = dbf.e(((gmo)hgx.a(context, gmo)).a());
-        if (ani == null)
+        bds.d(b.b).remove(a.d);
+        if (flag)
         {
-            return false;
+            if (aqn1.o().q() != null)
+            {
+                a.f = aqn1.o().q();
+            }
+            if (a.g != null)
+            {
+                if (eef1 != null)
+                {
+                    eef1.b();
+                    return;
+                }
+            } else
+            {
+                a.g = new bdx(b);
+                a.g.b = eef1;
+                if (edf != null)
+                {
+                    a.g.a = new ehk(null);
+                    a.g.a.d();
+                    a.g.a.a(edf);
+                }
+                b.a(a);
+                return;
+            }
         }
-        if (g.d(ani))
-        {
-            ank.b(context, ani);
-            return false;
-        }
-        return !ank.c(context, ani);
-    }
-
-    public int b()
-    {
-        return crb.g;
-    }
-
-    public int c()
-    {
-        return h.hG;
     }
 }

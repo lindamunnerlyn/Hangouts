@@ -4,12 +4,12 @@
 
 package com.google.api.client.util;
 
-import hmq;
-import hnc;
-import hng;
-import hno;
-import hnq;
-import hnr;
+import hrm;
+import hry;
+import hsc;
+import hsk;
+import hsm;
+import hsn;
 import java.util.AbstractMap;
 import java.util.EnumSet;
 import java.util.Iterator;
@@ -20,18 +20,18 @@ public class GenericData extends AbstractMap
     implements Cloneable
 {
 
-    public final hnc classInfo;
+    public final hry classInfo;
     public Map unknownFields;
 
     public GenericData()
     {
-        this(EnumSet.noneOf(hnr));
+        this(EnumSet.noneOf(hsn));
     }
 
     public GenericData(EnumSet enumset)
     {
-        unknownFields = hmq.a();
-        classInfo = hnc.a(getClass(), enumset.contains(hnr.a));
+        unknownFields = new hrm();
+        classInfo = hry.a(getClass(), enumset.contains(hsn.a));
     }
 
     public GenericData clone()
@@ -40,8 +40,8 @@ public class GenericData extends AbstractMap
         try
         {
             genericdata = (GenericData)super.clone();
-            hng.a(this, genericdata);
-            genericdata.unknownFields = (Map)hng.c(unknownFields);
+            hsc.a(this, genericdata);
+            genericdata.unknownFields = (Map)hsc.c(unknownFields);
         }
         catch (CloneNotSupportedException clonenotsupportedexception)
         {
@@ -57,7 +57,7 @@ public class GenericData extends AbstractMap
 
     public Set entrySet()
     {
-        return new hnq(this);
+        return new hsm(this);
     }
 
     public final Object get(Object obj)
@@ -70,7 +70,7 @@ public class GenericData extends AbstractMap
         obj = classInfo.a(s);
         if (obj != null)
         {
-            return ((hno) (obj)).a(this);
+            return ((hsk) (obj)).a(this);
         }
         obj = s;
         if (classInfo.a)
@@ -80,7 +80,7 @@ public class GenericData extends AbstractMap
         return unknownFields.get(obj);
     }
 
-    public final hnc getClassInfo()
+    public final hry getClassInfo()
     {
         return classInfo;
     }
@@ -100,8 +100,8 @@ public class GenericData extends AbstractMap
         Object obj1 = classInfo.a(s);
         if (obj1 != null)
         {
-            s = ((String) (((hno) (obj1)).a(this)));
-            ((hno) (obj1)).a(this, obj);
+            s = ((String) (((hsk) (obj1)).a(this)));
+            ((hsk) (obj1)).a(this, obj);
             return s;
         }
         obj1 = s;
@@ -146,7 +146,7 @@ public class GenericData extends AbstractMap
         Object obj1 = classInfo.a(s);
         if (obj1 != null)
         {
-            ((hno) (obj1)).a(this, obj);
+            ((hsk) (obj1)).a(this, obj);
             return this;
         }
         obj1 = s;

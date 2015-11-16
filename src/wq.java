@@ -3,83 +3,45 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.widget.EditText;
+import android.widget.CheckedTextView;
 
-public final class wq extends EditText
-    implements jw
+public final class wq extends CheckedTextView
 {
 
-    private vi a;
-    private wl b;
-    private xb c;
+    private static final int a[] = {
+        0x1010108
+    };
+    private vk b;
 
     public wq(Context context, AttributeSet attributeset)
     {
-        this(context, attributeset, g.G);
+        this(context, attributeset, (byte)0);
     }
 
-    private wq(Context context, AttributeSet attributeset, int i)
+    private wq(Context context, AttributeSet attributeset, byte byte0)
     {
-        super(vf.a(context), attributeset, i);
-        a = vi.a(getContext());
-        b = new wl(this, a);
-        b.a(attributeset, i);
-        c = new xb(this);
-        c.a(attributeset, i);
+        super(context, attributeset, 0x10103c8);
+        if (vk.a)
+        {
+            context = vm.a(getContext(), attributeset, a, 0x10103c8);
+            setCheckMarkDrawable(context.a(0));
+            context.b();
+            b = context.c();
+        }
     }
 
-    public void a(ColorStateList colorstatelist)
+    public void setCheckMarkDrawable(int i)
     {
         if (b != null)
         {
-            b.a(colorstatelist);
+            setCheckMarkDrawable(b.a(i));
+            return;
+        } else
+        {
+            super.setCheckMarkDrawable(i);
+            return;
         }
     }
 
-    public void a(android.graphics.PorterDuff.Mode mode)
-    {
-        if (b != null)
-        {
-            b.a(mode);
-        }
-    }
-
-    protected void drawableStateChanged()
-    {
-        super.drawableStateChanged();
-        if (b != null)
-        {
-            b.b();
-        }
-    }
-
-    public void setBackgroundDrawable(Drawable drawable)
-    {
-        super.setBackgroundDrawable(drawable);
-        if (b != null)
-        {
-            b.a();
-        }
-    }
-
-    public void setBackgroundResource(int i)
-    {
-        super.setBackgroundResource(i);
-        if (b != null)
-        {
-            b.a(i);
-        }
-    }
-
-    public void setTextAppearance(Context context, int i)
-    {
-        super.setTextAppearance(context, i);
-        if (c != null)
-        {
-            c.a(context, i);
-        }
-    }
 }

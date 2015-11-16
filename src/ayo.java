@@ -3,20 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class ayo
-    implements Runnable
+public final class ayo
 {
 
-    final aym a;
+    String a;
+    cgd b;
+    boolean c;
+    final avv d;
 
-    ayo(aym aym1)
+    public ayo(avv avv, String s, cgd cgd, boolean flag)
     {
-        a = aym1;
+        d = avv;
         super();
-    }
-
-    public void run()
-    {
-        aym.b(a).a();
+        a = s;
+        b = cgd;
+        c = flag;
     }
 }

@@ -2,285 +2,106 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.text.DateFormatSymbols;
-import java.util.Locale;
-import java.util.TreeMap;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 
-final class lel
+public final class lel extends kwm
 {
 
-    private static ConcurrentMap a = new ConcurrentHashMap();
-    private final String b[];
-    private final String c[];
-    private final String d[];
-    private final String e[];
-    private final String f[];
-    private final String g[];
-    private final TreeMap h;
-    private final TreeMap i;
-    private final TreeMap j;
-    private final int k;
-    private final int l;
-    private final int m;
-    private final int n;
-    private final int o;
-    private final int p;
+    private static volatile lel d[];
+    public String a;
+    public lej b;
+    public Long c;
 
-    private lel(Locale locale)
+    public lel()
     {
-        DateFormatSymbols dateformatsymbols = ldb.a(locale);
-        b = dateformatsymbols.getEras();
-        c = b(dateformatsymbols.getWeekdays());
-        d = b(dateformatsymbols.getShortWeekdays());
-        e = a(dateformatsymbols.getMonths());
-        f = a(dateformatsymbols.getShortMonths());
-        g = dateformatsymbols.getAmPmStrings();
-        Integer ainteger[] = new Integer[13];
-        for (int i1 = 0; i1 < 13; i1++)
-        {
-            ainteger[i1] = Integer.valueOf(i1);
-        }
-
-        h = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-        a(h, b, ainteger);
-        if ("en".equals(locale.getLanguage()))
-        {
-            h.put("BCE", ainteger[0]);
-            h.put("CE", ainteger[1]);
-        }
-        i = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-        a(i, c, ainteger);
-        a(i, d, ainteger);
-        a(i, 7, ainteger);
-        j = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-        a(j, e, ainteger);
-        a(j, f, ainteger);
-        a(j, 12, ainteger);
-        k = c(b);
-        l = c(c);
-        m = c(d);
-        n = c(e);
-        o = c(f);
-        p = c(g);
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    static lel a(Locale locale)
+    public static lel[] a()
     {
-        lel lel1;
-label0:
+        if (d == null)
         {
-            Locale locale1 = locale;
-            if (locale == null)
+            synchronized (kwq.a)
             {
-                locale1 = Locale.getDefault();
-            }
-            lel1 = (lel)a.get(locale1);
-            locale = lel1;
-            if (lel1 == null)
-            {
-                lel1 = new lel(locale1);
-                locale = (lel)a.putIfAbsent(locale1, lel1);
-                if (locale == null)
+                if (d == null)
                 {
-                    break label0;
+                    d = new lel[0];
                 }
             }
-            return locale;
         }
-        return lel1;
+        return d;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    private static void a(TreeMap treemap, int i1, Integer ainteger[])
+    protected int computeSerializedSize()
     {
-        for (int j1 = 1; j1 <= i1; j1++)
+        int j = super.computeSerializedSize() + kwk.b(1, a);
+        int i = j;
+        if (b != null)
         {
-            treemap.put(String.valueOf(j1).intern(), ainteger[j1]);
+            i = j + kwk.d(2, b);
         }
-
+        j = i;
+        if (c != null)
+        {
+            j = i + kwk.e(3, c.longValue());
+        }
+        return j;
     }
 
-    private static void a(TreeMap treemap, String as[], Integer ainteger[])
+    public kws mergeFrom(kwj kwj1)
     {
-        int i1 = as.length;
         do
         {
-            int j1 = i1 - 1;
-            if (j1 < 0)
+            int i = kwj1.a();
+            switch (i)
             {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new lej();
+                }
+                kwj1.a(b);
+                break;
+
+            case 24: // '\030'
+                c = Long.valueOf(kwj1.e());
                 break;
             }
-            String s = as[j1];
-            i1 = j1;
-            if (s != null)
-            {
-                treemap.put(s, ainteger[j1]);
-                i1 = j1;
-            }
         } while (true);
     }
 
-    private static String[] a(String as[])
+    public void writeTo(kwk kwk1)
     {
-        String as1[] = new String[13];
-        for (int i1 = 1; i1 < 13; i1++)
+        kwk1.a(1, a);
+        if (b != null)
         {
-            as1[i1] = as[i1 - 1];
+            kwk1.b(2, b);
         }
-
-        return as1;
-    }
-
-    private static String[] b(String as[])
-    {
-        String as1[] = new String[8];
-        int i1 = 1;
-        while (i1 < 8) 
+        if (c != null)
         {
-            int j1;
-            if (i1 < 7)
-            {
-                j1 = i1 + 1;
-            } else
-            {
-                j1 = 1;
-            }
-            as1[i1] = as[j1];
-            i1++;
+            kwk1.b(3, c.longValue());
         }
-        return as1;
+        super.writeTo(kwk1);
     }
-
-    private static int c(String as[])
-    {
-        int i1 = 0;
-        int j1 = as.length;
-        do
-        {
-            j1--;
-            if (j1 < 0)
-            {
-                break;
-            }
-            String s = as[j1];
-            if (s != null)
-            {
-                int k1 = s.length();
-                if (k1 > i1)
-                {
-                    i1 = k1;
-                }
-            }
-        } while (true);
-        return i1;
-    }
-
-    public int a()
-    {
-        return k;
-    }
-
-    public int a(String s)
-    {
-        Integer integer = (Integer)h.get(s);
-        if (integer != null)
-        {
-            return integer.intValue();
-        } else
-        {
-            throw new ldk(lcz.w(), s);
-        }
-    }
-
-    public String a(int i1)
-    {
-        return b[i1];
-    }
-
-    public int b()
-    {
-        return n;
-    }
-
-    public int b(String s)
-    {
-        Integer integer = (Integer)j.get(s);
-        if (integer != null)
-        {
-            return integer.intValue();
-        } else
-        {
-            throw new ldk(lcz.r(), s);
-        }
-    }
-
-    public String b(int i1)
-    {
-        return e[i1];
-    }
-
-    public int c()
-    {
-        return l;
-    }
-
-    public int c(String s)
-    {
-        Integer integer = (Integer)i.get(s);
-        if (integer != null)
-        {
-            return integer.intValue();
-        } else
-        {
-            throw new ldk(lcz.l(), s);
-        }
-    }
-
-    public String c(int i1)
-    {
-        return f[i1];
-    }
-
-    public int d()
-    {
-        return p;
-    }
-
-    public int d(String s)
-    {
-        String as[] = g;
-        int i1 = as.length;
-        do
-        {
-            int j1 = i1 - 1;
-            if (j1 >= 0)
-            {
-                i1 = j1;
-                if (as[j1].equalsIgnoreCase(s))
-                {
-                    return j1;
-                }
-            } else
-            {
-                throw new ldk(lcz.k(), s);
-            }
-        } while (true);
-    }
-
-    public String d(int i1)
-    {
-        return c[i1];
-    }
-
-    public String e(int i1)
-    {
-        return d[i1];
-    }
-
-    public String f(int i1)
-    {
-        return g[i1];
-    }
-
 }

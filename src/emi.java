@@ -2,9 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.gms.common.api.Status;
 
-public interface emi
+final class emi extends elt
 {
 
-    public abstract Object e();
+    final emh a;
+
+    emi(emh emh1)
+    {
+        a = emh1;
+        super();
+    }
+
+    public void a(Status status)
+    {
+        a.a(status);
+    }
 }

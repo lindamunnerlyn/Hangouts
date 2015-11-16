@@ -2,146 +2,158 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.SurfaceTexture;
-import android.os.Handler;
-import android.view.Surface;
-import android.view.TextureView;
+import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpRequest;
+import com.google.api.client.http.HttpRequestFactory;
+import com.google.api.client.http.HttpTransport;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-public final class gjd extends gjg
-    implements android.view.TextureView.SurfaceTextureListener
+final class gjd
+    implements giv
 {
 
-    private final TextureView c;
-    private final boolean d = true;
-    private Surface e;
-    private gjf f;
-    private boolean g;
-    private boolean h;
-    private final Runnable i = new gje(this);
+    private final giz a;
+    private final List b;
+    private final String c;
+    private final HttpTransport d;
+    private final String e;
+    private final gix f;
 
-    public gjd(gjk gjk, TextureView textureview)
+    gjd(giz giz1, String s, HttpTransport httptransport, String s1, gix gix1)
     {
-        super(gjk);
-        e = null;
-        c = textureview;
-        gjk = textureview.getSurfaceTexture();
-        if (gjk != null)
+        a = giz1;
+        b = new ArrayList(a.c.size());
+        c = s;
+        d = httptransport;
+        e = s1;
+        f = gix1;
+    }
+
+    private boolean a(gjb gjb1, HttpRequestFactory httprequestfactory, hqk hqk1)
+    {
+        Object obj;
+        try
         {
-            a(new gju(a(gjk), textureview.getWidth(), textureview.getHeight(), true));
+            obj = new URL(new URL(e), gjb1.b);
         }
-        textureview.setSurfaceTextureListener(this);
-    }
-
-    private Surface a(SurfaceTexture surfacetexture)
-    {
-        if (e == null)
+        // Misplaced declaration of an exception variable
+        catch (gjb gjb1)
         {
-            e = new Surface(surfacetexture);
+            gne.a(5, "vclib", "Error processing request url", gjb1);
+            return false;
         }
-        return e;
+        obj = new GenericUrl(((URL) (obj)));
+        gjb1 = new giu(gjb1.c);
+        try
+        {
+            gjb1 = httprequestfactory.buildPostRequest(((GenericUrl) (obj)), gjb1);
+            gjb1.setParser(new gjf(this));
+            hqk1.a(gjb1, gjc, gje, new hqj(b));
+        }
+        // Misplaced declaration of an exception variable
+        catch (gjb gjb1)
+        {
+            gne.a(5, "vclib", "Error making apiary request", gjb1);
+            return false;
+        }
+        return true;
     }
 
-    static gjf a(gjd gjd1)
+    private List c()
     {
-        return gjd1.f;
-    }
+        (new hqh()).c(c);
+        Object obj1 = gir.a(c, null, a.b);
+        Object obj = d.createRequestFactory(((com.google.api.client.http.HttpRequestInitializer) (obj1)));
+        obj1 = new hqk(d, ((com.google.api.client.http.HttpRequestInitializer) (obj1)));
+        for (Iterator iterator = a.c.iterator(); iterator.hasNext();)
+        {
+            if (!a((gjb)iterator.next(), ((HttpRequestFactory) (obj)), ((hqk) (obj1))))
+            {
+                return new ArrayList();
+            }
+        }
 
-    static boolean b(gjd gjd1)
-    {
-        gjd1.g = false;
-        return false;
-    }
-
-    static boolean c(gjd gjd1)
-    {
-        gjd1.h = false;
-        return false;
+        try
+        {
+            ((hqk) (obj1)).a();
+            obj = b;
+        }
+        catch (IOException ioexception)
+        {
+            gne.a(5, "vclib", "Error executing batch request ", ioexception);
+            return new ArrayList();
+        }
+        return ((List) (obj));
     }
 
     public void a()
     {
-        c.setSurfaceTextureListener(null);
-        f = null;
-        if (e != null)
+        gjb gjb1;
+        for (Iterator iterator = a.c.iterator(); iterator.hasNext(); f.a(gjb1.a, gjb1.b))
         {
-            e.release();
-            e = null;
+            gjb1 = (gjb)iterator.next();
         }
-        super.a();
+
     }
 
-    public void a(gjf gjf1)
+    public void a(Object obj)
     {
-        f = gjf1;
-    }
-
-    protected void a(boolean flag)
-    {
-label0:
+        int i = 0;
+        if (b.isEmpty())
         {
-            if (f != null)
+            if (!a.c.isEmpty() && f != null)
             {
-                gkc.b("vclib", (new StringBuilder(59)).append("TextureViewVideoRenderer.onCurrentParticipantChanged: ").append(flag).toString());
-                Runnable runnable = i;
-                g.y().removeCallbacks(runnable);
-                if (!flag)
+                gjb gjb1;
+                for (obj = a.c.iterator(); ((Iterator) (obj)).hasNext(); f.a(gjb1.a))
                 {
-                    break label0;
+                    gjb1 = (gjb)((Iterator) (obj)).next();
                 }
-                i.run();
+
             }
-            return;
-        }
-        g.a(i, 100L);
-    }
-
-    protected void b(boolean flag)
-    {
-        if (flag && f != null)
+        } else
         {
-            gkc.b("vclib", (new StringBuilder(50)).append("TextureViewVideoRenderer.onMuteStateChanged: ").append(flag).toString());
-            Runnable runnable = i;
-            g.y().removeCallbacks(runnable);
-            i.run();
-        }
-    }
-
-    public void onSurfaceTextureAvailable(SurfaceTexture surfacetexture, int j, int k)
-    {
-        gkc.b("vclib", "TextureViewVideoRenderer.onSurfaceTextureAvailable");
-        a(new gju(a(surfacetexture), j, k, d));
-    }
-
-    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfacetexture)
-    {
-        gkc.b("vclib", "TextureViewVideoRenderer.onSurfaceTextureDestroyed");
-        e.release();
-        e = null;
-        a(((gju) (null)));
-        return true;
-    }
-
-    public void onSurfaceTextureSizeChanged(SurfaceTexture surfacetexture, int j, int k)
-    {
-        gkc.b("vclib", "TextureViewVideoRenderer.onSurfaceTextureSizeChanged");
-        h = false;
-        a(new gju(a(surfacetexture), j, k, d));
-    }
-
-    public void onSurfaceTextureUpdated(SurfaceTexture surfacetexture)
-    {
-        if (f != null && h)
-        {
-            surfacetexture = i;
-            g.y().removeCallbacks(surfacetexture);
-            if (!g)
+            boolean flag;
+            if (a.c.size() == b.size())
             {
-                gbh.a();
-                f.c();
-                g = true;
+                flag = true;
+            } else
+            {
+                flag = false;
             }
-            g.a(i, 2000L);
+            gdv.a("Expected condition to be true", flag);
+            obj = a.c.iterator();
+            do
+            {
+                if (!((Iterator) (obj)).hasNext())
+                {
+                    break;
+                }
+                gjb gjb2 = (gjb)((Iterator) (obj)).next();
+                Object obj1 = b;
+                int j = i + 1;
+                obj1 = (gjc)((List) (obj1)).get(i);
+                if (f != null)
+                {
+                    if (((gjc) (obj1)).a == null)
+                    {
+                        f.a(gjb2.a);
+                        i = j;
+                        continue;
+                    }
+                    f.a(gjb2.a, ((gjc) (obj1)).a);
+                }
+                i = j;
+            } while (true);
         }
-        h = true;
+    }
+
+    public Object b()
+    {
+        return c();
     }
 }

@@ -5,29 +5,29 @@
 package gen_binder;
 
 import android.content.Context;
-import bzk;
-import hgx;
-import hhe;
+import can;
+import hlp;
+import hlw;
 import java.util.HashMap;
 
 public final class 
-    implements hhe
+    implements hlw
 {
 
     private HashMap a;
 
-    public void a(Context context, Class class1, hgx hgx)
+    public void a(Context context, Class class1, hlp hlp)
     {
         if (a == null)
         {
             a = new HashMap(7);
-            a.put(bzk.a, Integer.valueOf(0));
-            a.put(bzk.b, Integer.valueOf(1));
-            a.put(bzk.c, Integer.valueOf(2));
-            a.put(bzk.d, Integer.valueOf(3));
-            a.put(bzk.e, Integer.valueOf(4));
-            a.put(bzk.f, Integer.valueOf(5));
-            a.put(bzk.g, Integer.valueOf(6));
+            a.put(can.a, Integer.valueOf(0));
+            a.put(can.b, Integer.valueOf(1));
+            a.put(can.c, Integer.valueOf(2));
+            a.put(can.d, Integer.valueOf(3));
+            a.put(can.e, Integer.valueOf(4));
+            a.put(can.f, Integer.valueOf(5));
+            a.put(can.g, Integer.valueOf(6));
         }
         class1 = (Integer)a.get(class1.getName());
         if (class1 == null)
@@ -40,31 +40,31 @@ public final class
             return;
 
         case 0: // '\0'
-            bzk.a(hgx);
+            can.a(hlp);
             return;
 
         case 1: // '\001'
-            bzk.a(context, hgx);
+            can.a(context, hlp);
             return;
 
         case 2: // '\002'
-            bzk.b(context, hgx);
+            can.b(context, hlp);
             return;
 
         case 3: // '\003'
-            bzk.b(hgx);
+            can.b(hlp);
             return;
 
         case 4: // '\004'
-            bzk.c(hgx);
+            can.c(hlp);
             return;
 
         case 5: // '\005'
-            bzk.d(hgx);
+            can.d(hlp);
             return;
 
         case 6: // '\006'
-            bzk.e(hgx);
+            can.e(hlp);
             break;
         }
     }

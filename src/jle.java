@@ -2,141 +2,80 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
-import java.util.AbstractCollection;
-import java.util.Collection;
-import java.util.Iterator;
 
-public abstract class jle extends AbstractCollection
-    implements Serializable
+public final class jle extends kwm
 {
 
-    private transient jlk a;
+    public Boolean a;
+    public Integer b;
 
-    jle()
+    public jle()
     {
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    int a(Object aobj[], int i)
+    protected int computeSerializedSize()
     {
-        for (Iterator iterator1 = iterator(); iterator1.hasNext();)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            aobj[i] = iterator1.next();
-            i++;
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
-
-        return i;
-    }
-
-    public abstract jqy a();
-
-    public final boolean add(Object obj)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public final boolean addAll(Collection collection)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public jlk b()
-    {
-        jlk jlk2 = a;
-        jlk jlk1 = jlk2;
-        if (jlk2 == null)
+        j = i;
+        if (b != null)
         {
-            jlk1 = f();
-            a = jlk1;
+            j = i + kwk.e(2, b.intValue());
         }
-        return jlk1;
+        return j;
     }
 
-    public final void clear()
+    public kws mergeFrom(kwj kwj1)
     {
-        throw new UnsupportedOperationException();
-    }
-
-    public boolean contains(Object obj)
-    {
-        return obj != null && super.contains(obj);
-    }
-
-    abstract boolean e();
-
-    jlk f()
-    {
-        switch (size())
-        {
-        default:
-            return new jpr(this, toArray());
-
-        case 0: // '\0'
-            return jlk.d();
-
-        case 1: // '\001'
-            return jlk.a(a().next());
-        }
-    }
-
-    public Iterator iterator()
-    {
-        return a();
-    }
-
-    public final boolean remove(Object obj)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public final boolean removeAll(Collection collection)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public final boolean retainAll(Collection collection)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public final Object[] toArray()
-    {
-        int i = size();
-        if (i == 0)
-        {
-            return jpo.a;
-        } else
-        {
-            Object aobj[] = new Object[i];
-            a(aobj, 0);
-            return aobj;
-        }
-    }
-
-    public final Object[] toArray(Object aobj[])
-    {
-        int i;
-        n.b(((Object) (aobj)));
-        i = size();
-        if (aobj.length >= i) goto _L2; else goto _L1
+_L5:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   8: 51
+    //                   16: 65;
+           goto _L1 _L2 _L3 _L4
 _L1:
-        Object aobj1[] = jpo.a(aobj, i);
-_L4:
-        a(aobj1, 0);
-        return aobj1;
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
 _L2:
-        aobj1 = aobj;
-        if (aobj.length > i)
-        {
-            aobj[i] = null;
-            aobj1 = aobj;
-        }
-        if (true) goto _L4; else goto _L3
+        return this;
 _L3:
+        a = Boolean.valueOf(kwj1.i());
+          goto _L5
+_L4:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+            b = Integer.valueOf(j);
+            break;
+        }
+        if (true) goto _L5; else goto _L6
+_L6:
     }
 
-    Object writeReplace()
+    public void writeTo(kwk kwk1)
     {
-        return new jlo(toArray());
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

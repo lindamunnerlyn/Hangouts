@@ -6,5 +6,11 @@
 public interface ays
 {
 
-    public abstract void a();
+    public abstract void D();
+
+    public abstract void F();
+
+    public abstract boolean I();
+
+    public abstract void a(CharSequence charsequence);
 }

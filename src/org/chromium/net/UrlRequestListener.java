@@ -5,19 +5,10 @@
 package org.chromium.net;
 
 
-// Referenced classes of package org.chromium.net:
-//            ExtendedResponseInfo, ResponseInfo, UrlRequestException
-
-public interface UrlRequestListener
+public class UrlRequestListener
 {
 
-    public abstract void a(ExtendedResponseInfo extendedresponseinfo);
-
-    public abstract void a(ResponseInfo responseinfo);
-
-    public abstract void a(ResponseInfo responseinfo, String s);
-
-    public abstract void a(ResponseInfo responseinfo, UrlRequestException urlrequestexception);
-
-    public abstract void b(ResponseInfo responseinfo);
+    public UrlRequestListener()
+    {
+    }
 }

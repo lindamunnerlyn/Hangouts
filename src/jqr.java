@@ -2,45 +2,112 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Comparator;
-import java.util.List;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
 
-public abstract class jqr extends Enum
+class jqr extends jwk
 {
 
-    public static final jqr a;
-    public static final jqr b;
-    public static final jqr c;
-    public static final jqr d;
-    public static final jqr e;
-    private static final jqr f[];
+    final transient Map a;
+    final jqq b;
 
-    jqr(String s, int i)
+    jqr(jqq jqq1, Map map)
     {
-        super(s, i);
+        b = jqq1;
+        super();
+        a = map;
     }
 
-    public static jqr valueOf(String s)
+    public Collection a(Object obj)
     {
-        return (jqr)Enum.valueOf(jqr, s);
+        Collection collection = (Collection)jwd.a(a, obj);
+        if (collection == null)
+        {
+            return null;
+        } else
+        {
+            return b.a(obj, collection);
+        }
     }
 
-    public static jqr[] values()
+    java.util.Map.Entry a(java.util.Map.Entry entry)
     {
-        return (jqr[])f.clone();
+        Object obj = entry.getKey();
+        return jwd.a(obj, b.a(obj, (Collection)entry.getValue()));
     }
 
-    public abstract int a(Comparator comparator, Object obj, List list, int i);
-
-    static 
+    protected Set a()
     {
-        a = new jqs("ANY_PRESENT");
-        b = new jqt("LAST_PRESENT");
-        c = new jqu("FIRST_PRESENT");
-        d = new jqv("FIRST_AFTER");
-        e = new jqw("LAST_BEFORE");
-        f = (new jqr[] {
-            a, b, c, d, e
-        });
+        return new jqs(this);
+    }
+
+    public Collection b(Object obj)
+    {
+        obj = (Collection)a.remove(obj);
+        if (obj == null)
+        {
+            return null;
+        } else
+        {
+            Collection collection = b.c();
+            collection.addAll(((Collection) (obj)));
+            b.b = b.b - ((Collection) (obj)).size();
+            ((Collection) (obj)).clear();
+            return collection;
+        }
+    }
+
+    public void clear()
+    {
+        if (a == b.a)
+        {
+            b.g();
+            return;
+        } else
+        {
+            jts.b(new jqt(this));
+            return;
+        }
+    }
+
+    public boolean containsKey(Object obj)
+    {
+        return jwd.b(a, obj);
+    }
+
+    public boolean equals(Object obj)
+    {
+        return this == obj || a.equals(obj);
+    }
+
+    public Object get(Object obj)
+    {
+        return a(obj);
+    }
+
+    public int hashCode()
+    {
+        return a.hashCode();
+    }
+
+    public Set keySet()
+    {
+        return b.k();
+    }
+
+    public Object remove(Object obj)
+    {
+        return b(obj);
+    }
+
+    public int size()
+    {
+        return a.size();
+    }
+
+    public String toString()
+    {
+        return a.toString();
     }
 }

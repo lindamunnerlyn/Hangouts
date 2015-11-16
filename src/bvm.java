@@ -2,30 +2,14 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.libraries.quantum.snackbar.Snackbar;
 
-public final class bvm
+public interface bvm
 {
 
-    public static final String a = bsh.getName();
-    public static final String b = bva.getName();
-    private static bvj c;
+    public abstract bvm a(hlp hlp);
 
-    public static void a(hgx hgx1)
-    {
-        if (c == null)
-        {
-            c = new bvj();
-        }
-        hgx1.a(bsh, c.b());
-    }
+    public abstract void a(bvk bvk);
 
-    public static void b(hgx hgx1)
-    {
-        if (c == null)
-        {
-            c = new bvj();
-        }
-        hgx1.a(bva, c.a());
-    }
-
+    public abstract void a(Snackbar snackbar);
 }

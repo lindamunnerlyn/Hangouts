@@ -2,24 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.HashMap;
 
-public class emg
+public abstract class emg extends enm
 {
 
-    public final String a[];
-    public final ArrayList b = new ArrayList();
-    private final String c;
-    private final HashMap d = new HashMap();
-    private boolean e;
-    private String f;
-
-    emg(String as[], String s)
+    public emg(emx emx, emy emy)
     {
-        a = (String[])h.a(as);
-        c = s;
-        e = false;
-        f = null;
+        super(emx, emy);
+    }
+
+    public emg(emy emy)
+    {
+        super(ell.a, emy);
     }
 }

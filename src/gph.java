@@ -3,10 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gph
+final class gph
+    implements goz
 {
 
-    public gph()
+    final gpg a;
+
+    gph(gpg gpg)
     {
+        a = gpg;
+        super();
+    }
+
+    public boolean a(gpb gpb, gpw gpw, StringBuilder stringbuilder, String as[])
+    {
+        return goy.a(gpb, gpw, stringbuilder, as);
     }
 }

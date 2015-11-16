@@ -3,96 +3,82 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class jhv
-    implements com.google.common.cache.LocalCache.ReferenceEntry
+public final class jhv extends kwm
 {
 
-    jhv()
+    public jif a;
+    public jdl responseHeader;
+
+    public jhv()
     {
+        responseHeader = null;
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public long getAccessTime()
+    protected int computeSerializedSize()
     {
-        throw new UnsupportedOperationException();
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (responseHeader != null)
+        {
+            i = j + kwk.d(1, responseHeader);
+        }
+        j = i;
+        if (a != null)
+        {
+            j = i + kwk.d(2, a);
+        }
+        return j;
     }
 
-    public int getHash()
+    public kws mergeFrom(kwj kwj1)
     {
-        throw new UnsupportedOperationException();
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (responseHeader == null)
+                {
+                    responseHeader = new jdl();
+                }
+                kwj1.a(responseHeader);
+                break;
+
+            case 18: // '\022'
+                if (a == null)
+                {
+                    a = new jif();
+                }
+                kwj1.a(a);
+                break;
+            }
+        } while (true);
     }
 
-    public Object getKey()
+    public void writeTo(kwk kwk1)
     {
-        throw new UnsupportedOperationException();
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry getNext()
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry getNextInAccessQueue()
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry getNextInWriteQueue()
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInAccessQueue()
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInWriteQueue()
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public jja getValueReference()
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public long getWriteTime()
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void setAccessTime(long l)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void setNextInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void setNextInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void setPreviousInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void setPreviousInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void setValueReference(jja jja)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void setWriteTime(long l)
-    {
-        throw new UnsupportedOperationException();
+        if (responseHeader != null)
+        {
+            kwk1.b(1, responseHeader);
+        }
+        if (a != null)
+        {
+            kwk1.b(2, a);
+        }
+        super.writeTo(kwk1);
     }
 }

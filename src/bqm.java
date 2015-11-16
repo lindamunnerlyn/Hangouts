@@ -2,21 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.DialogInterface;
+import com.google.android.apps.hangouts.hangout.IncomingRing;
+import com.google.android.apps.hangouts.hangout.IncomingRingActivity;
 
-final class bqm
-    implements Runnable
+public final class bqm
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final bqf a;
+    final IncomingRingActivity a;
 
-    bqm(bqf bqf1)
+    public bqm(IncomingRingActivity incomingringactivity)
     {
-        a = bqf1;
+        a = incomingringactivity;
         super();
     }
 
-    public void run()
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        bqf.b(a);
+        a.finish();
+        a.j.l();
     }
 }

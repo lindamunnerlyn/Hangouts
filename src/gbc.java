@@ -2,15 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public interface gbc
+public final class gbc
+    implements gas
 {
 
-    public abstract void a();
+    public gbc()
+    {
+    }
 
-    public abstract void a(kop kop);
-
-    public abstract void a(kop kop, kop kop1);
-
-    public abstract void b(kop kop);
+    public gar newBuilder(Context context)
+    {
+        return new gbb(context);
+    }
 }

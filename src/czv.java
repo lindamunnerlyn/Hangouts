@@ -2,19 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
+import android.net.Uri;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class czv
-    implements Serializable
+public final class czv extends cxr
 {
 
     private static final long serialVersionUID = 1L;
-    public final cey a;
-    public final long b;
+    private final String g;
+    private final long h;
+    private final boolean i;
 
-    public czv(izv izv1)
+    public czv(Uri uri, long l, boolean flag)
     {
-        a = g.a(izv1.a, null);
-        b = g.a(izv1.b, 0L);
+        if (uri != null)
+        {
+            uri = uri.toString();
+        } else
+        {
+            uri = null;
+        }
+        g = uri;
+        h = l;
+        i = flag;
+    }
+
+    public void a(aow aow, dgk dgk)
+    {
+        super.a(aow, dgk);
+        if (g != null)
+        {
+            aow = Uri.parse(g);
+        } else
+        {
+            aow = null;
+        }
+        RealTimeChatService.a(aow, h, i);
     }
 }

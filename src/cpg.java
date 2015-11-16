@@ -2,34 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
-import android.text.TextUtils;
-import com.google.android.apps.hangouts.phone.ShowDialerActivity;
+import java.util.Iterator;
 
-public final class cpg
-    implements gmq
+final class cpg
+    implements Iterable
 {
 
-    final ShowDialerActivity a;
+    final CharSequence a;
+    final cpd b;
 
-    public cpg(ShowDialerActivity showdialeractivity)
+    cpg(cpd cpd1, CharSequence charsequence)
     {
-        a = showdialeractivity;
+        b = cpd1;
+        a = charsequence;
         super();
     }
 
-    public void a(boolean flag, gmp gmp1, gmp gmp2, int i, int j)
+    public Iterator iterator()
     {
-        if (gmp2 == gmp.c)
-        {
-            gmp1 = ShowDialerActivity.a(a).a();
-            gmp2 = a.getIntent().getStringExtra("number_to_call");
-            if (!TextUtils.isEmpty(gmp2))
-            {
-                gmp1.putExtra("number_to_call", gmp2);
-            }
-            a.startActivity(gmp1);
-        }
-        a.finish();
+        return b.b.a(b, a);
     }
 }

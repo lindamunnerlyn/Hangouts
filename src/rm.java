@@ -2,64 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.Window;
+import android.content.Context;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
+import android.widget.FrameLayout;
 
-final class rm
-    implements to
+final class rm extends FrameLayout
 {
 
-    final ra a;
+    final rc a;
 
-    rm(ra ra1)
+    public rm(rc rc1, Context context)
     {
-        a = ra1;
-        super();
+        a = rc1;
+        super(context);
     }
 
-    public void a(sy sy1, boolean flag)
+    public boolean dispatchKeyEvent(KeyEvent keyevent)
     {
-label0:
+        return a.a(keyevent) || super.dispatchKeyEvent(keyevent);
+    }
+
+    public boolean onInterceptTouchEvent(MotionEvent motionevent)
+    {
+        if (motionevent.getAction() == 0)
         {
-            sy sy2 = sy1.r();
-            ra ra1;
-            boolean flag1;
-            if (sy2 != sy1)
+            int i = (int)motionevent.getX();
+            int j = (int)motionevent.getY();
+            boolean flag;
+            if (i < -5 || j < -5 || i > getWidth() + 5 || j > getHeight() + 5)
             {
-                flag1 = true;
+                flag = true;
             } else
             {
-                flag1 = false;
+                flag = false;
             }
-            ra1 = a;
-            if (flag1)
+            if (flag)
             {
-                sy1 = sy2;
+                motionevent = a;
+                motionevent.a(motionevent.e(0), true);
+                return true;
             }
-            sy1 = ra1.a(sy1);
-            if (sy1 != null)
-            {
-                if (!flag1)
-                {
-                    break label0;
-                }
-                a.a(((rl) (sy1)).a, sy1, sy2);
-                a.a(sy1, true);
-            }
-            return;
         }
-        a.a(sy1, flag);
+        return super.onInterceptTouchEvent(motionevent);
     }
 
-    public boolean a(sy sy1)
+    public void setBackgroundResource(int i)
     {
-        if (sy1 == null && a.h)
-        {
-            android.view.Window.Callback callback = ((qs) (a)).b.getCallback();
-            if (callback != null && !((qs) (a)).n)
-            {
-                callback.onMenuOpened(108, sy1);
-            }
-        }
-        return true;
+        setBackgroundDrawable(vk.a(getContext(), i));
     }
 }

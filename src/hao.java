@@ -6,23 +6,20 @@
 public final class hao
 {
 
-    private final haz a;
-    private final String b;
-    private final long c;
-    private final String d;
-    private final long e;
-    private final String f;
-    private final String g;
+    public final int a;
+    public final int b;
+    public final int c;
+    public final long d;
+    public final long e;
+    public final boolean f;
 
-    public hao(haz haz, String s, long l, String s1, long l1, 
-            String s2, String s3)
+    hao(hap hap1)
     {
-        a = haz;
-        b = s;
-        c = l;
-        d = s1;
-        e = l1;
-        f = s2;
-        g = s3;
+        a = hap1.a;
+        b = hap1.b;
+        c = hap1.c;
+        d = hap1.d;
+        e = hap1.e;
+        f = hap1.f;
     }
 }

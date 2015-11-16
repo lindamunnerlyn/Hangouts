@@ -2,26 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.res.Resources;
+import android.os.Parcel;
 
 final class anz
-    implements Runnable
+    implements android.os.Parcelable.Creator
 {
 
-    final String a;
-
-    anz(String s)
+    anz()
     {
-        a = s;
-        super();
     }
 
-    public void run()
+    public Object createFromParcel(Parcel parcel)
     {
-        Context context = g.nS;
-        ebr.b(context, context.getResources().getString(l.gs, new Object[] {
-            a
-        }));
+        any any1 = new any();
+        any1.b = parcel.readString();
+        any1.c = parcel.readString();
+        any1.d = parcel.readString();
+        any1.e = parcel.readInt();
+        any1.f = parcel.readString();
+        any1.g = parcel.readString();
+        return any1;
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new any[i];
     }
 }

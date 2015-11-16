@@ -3,22 +3,74 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class jgk extends jgn
+public final class jgk extends kwm
 {
 
-    jgk(String s)
+    public Long a;
+    public Long b;
+
+    public jgk()
     {
-        super(s);
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public jgb a(jgb jgb)
+    protected int computeSerializedSize()
     {
-        n.b(jgb);
-        return this;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.e(1, a.longValue());
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.longValue());
+        }
+        return j;
     }
 
-    public boolean b(char c)
+    public kws mergeFrom(kwj kwj1)
     {
-        return true;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Long.valueOf(kwj1.e());
+                break;
+
+            case 16: // '\020'
+                b = Long.valueOf(kwj1.e());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.b(1, a.longValue());
+        }
+        if (b != null)
+        {
+            kwk1.b(2, b.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

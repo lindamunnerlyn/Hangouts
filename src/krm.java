@@ -3,96 +3,59 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class krm extends koj
+public final class krm extends kwm
 {
 
-    public static final kok a = kok.a(krm, 0xd0c68b2L);
-    private static final krm k[] = new krm[0];
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public kpa j;
+    public kir a;
+    public krl b;
+    public krl c;
+    public krl d;
 
     public krm()
     {
+        a = null;
         b = null;
         c = null;
         d = null;
-        e = null;
-        f = null;
-        g = null;
-        h = null;
-        i = null;
-        j = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int i1 = super.computeSerializedSize();
-        int l = i1;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.d(1, a);
+        }
+        j = i;
         if (b != null)
         {
-            l = i1 + koh.b(1, b);
+            j = i + kwk.d(2, b);
         }
-        i1 = l;
+        i = j;
         if (c != null)
         {
-            i1 = l + koh.b(2, c);
+            i = j + kwk.d(3, c);
         }
-        l = i1;
+        j = i;
         if (d != null)
         {
-            l = i1 + koh.b(3, d);
+            j = i + kwk.d(4, d);
         }
-        i1 = l;
-        if (e != null)
-        {
-            i1 = l + koh.b(4, e);
-        }
-        l = i1;
-        if (f != null)
-        {
-            l = i1 + koh.b(5, f);
-        }
-        i1 = l;
-        if (g != null)
-        {
-            i1 = l + koh.b(6, g);
-        }
-        l = i1;
-        if (h != null)
-        {
-            l = i1 + koh.b(7, h);
-        }
-        i1 = l;
-        if (i != null)
-        {
-            i1 = l + koh.b(8, i);
-        }
-        l = i1;
-        if (j != null)
-        {
-            l = i1 + koh.d(9, j);
-        }
-        return l;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int l = kog1.a();
-            switch (l)
+            int i = kwj1.a();
+            switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, l))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -102,87 +65,58 @@ public final class krm extends koj
                 return this;
 
             case 10: // '\n'
-                b = kog1.j();
+                if (a == null)
+                {
+                    a = new kir();
+                }
+                kwj1.a(a);
                 break;
 
             case 18: // '\022'
-                c = kog1.j();
+                if (b == null)
+                {
+                    b = new krl();
+                }
+                kwj1.a(b);
                 break;
 
             case 26: // '\032'
-                d = kog1.j();
+                if (c == null)
+                {
+                    c = new krl();
+                }
+                kwj1.a(c);
                 break;
 
             case 34: // '"'
-                e = kog1.j();
-                break;
-
-            case 42: // '*'
-                f = kog1.j();
-                break;
-
-            case 50: // '2'
-                g = kog1.j();
-                break;
-
-            case 58: // ':'
-                h = kog1.j();
-                break;
-
-            case 66: // 'B'
-                i = kog1.j();
-                break;
-
-            case 74: // 'J'
-                if (j == null)
+                if (d == null)
                 {
-                    j = new kpa();
+                    d = new krl();
                 }
-                kog1.a(j);
+                kwj1.a(d);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
+        if (a != null)
+        {
+            kwk1.b(1, a);
+        }
         if (b != null)
         {
-            koh1.a(1, b);
+            kwk1.b(2, b);
         }
         if (c != null)
         {
-            koh1.a(2, c);
+            kwk1.b(3, c);
         }
         if (d != null)
         {
-            koh1.a(3, d);
+            kwk1.b(4, d);
         }
-        if (e != null)
-        {
-            koh1.a(4, e);
-        }
-        if (f != null)
-        {
-            koh1.a(5, f);
-        }
-        if (g != null)
-        {
-            koh1.a(6, g);
-        }
-        if (h != null)
-        {
-            koh1.a(7, h);
-        }
-        if (i != null)
-        {
-            koh1.a(8, i);
-        }
-        if (j != null)
-        {
-            koh1.b(9, j);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
-
 }

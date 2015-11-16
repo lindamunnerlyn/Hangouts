@@ -3,20 +3,36 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kze extends koj
+public final class kze extends kwm
 {
 
-    public kya a;
-    public kyo b;
-    public Integer c;
+    private static volatile kze b[];
+    public String a;
 
     public kze()
     {
         a = null;
-        b = null;
-        c = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static kze[] a()
+    {
+        if (b == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (b == null)
+                {
+                    b = new kze[0];
+                }
+            }
+        }
+        return b;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -25,30 +41,20 @@ public final class kze extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.intValue());
+            i = j + kwk.b(1, a);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -58,42 +64,18 @@ public final class kze extends koj
                 return this;
 
             case 10: // '\n'
-                if (a == null)
-                {
-                    a = new kya();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new kyo();
-                }
-                kog1.a(b);
-                break;
-
-            case 24: // '\030'
-                c = Integer.valueOf(kog1.f());
+                a = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.a(1, a);
         }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        if (c != null)
-        {
-            koh1.a(3, c.intValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

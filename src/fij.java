@@ -2,12 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
-import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.common.api.Status;
 
-public interface fij
-    extends IInterface
+public final class fij extends fpm
 {
 
-    public abstract void a(LatLng latlng);
+    final String a;
+    final String b;
+    final long i;
+    final boolean j = false;
+    final boolean k = false;
+    final fpn l;
+
+    public fij(fpn fpn, emy emy, String s, String s1, long l1, boolean flag, 
+            boolean flag1)
+    {
+        l = fpn;
+        a = s;
+        b = s1;
+        i = l1;
+        super(emy);
+    }
+
+    protected void a(emw emw)
+    {
+        ((fsj)emw).a(a, b, i, j, k);
+        a(((enh) (Status.a)));
+    }
 }

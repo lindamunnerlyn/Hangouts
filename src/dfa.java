@@ -2,72 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
 
-public class dfa
+public final class dfa
+    implements dfc
 {
 
-    private static final boolean a = false;
-    public final ani b;
-    public final dfb c = new dfb();
-    private String d;
-
-    public dfa(ani ani)
-    {
-        b = ani;
-    }
-
-    public void a()
+    public dfa()
     {
     }
 
-    public void a(String s)
+    public Runnable a(ddg ddg, aoa aoa, ai ai, ddi ddi)
     {
-        d = s;
-    }
-
-    public boolean a(dbn dbn1)
-    {
-        return a(dbn1, 0, null);
-    }
-
-    public boolean a(dbn dbn1, int i, dkb dkb)
-    {
-        List list = j();
-        if (list.isEmpty())
-        {
-            return false;
-        }
-        for (Iterator iterator = list.iterator(); iterator.hasNext(); ((dko)iterator.next()).b(d)) { }
-        if (a)
-        {
-            int k = list.size();
-            String s = String.valueOf(getClass().getSimpleName());
-            ebw.b("Babel", (new StringBuilder(String.valueOf(s).length() + 76)).append("sendRequestsToServer: sending ").append(k).append(" requests from executing operation ").append(s).toString());
-        }
-        dbn1.a(list, i, dkb);
-        return true;
-    }
-
-    public int b()
-    {
-        return 1;
-    }
-
-    public Object c()
-    {
-        return null;
-    }
-
-    public List j()
-    {
-        return c.c();
-    }
-
-    static 
-    {
-        hik hik = ebw.n;
+        return new dfb(this, aoa, ddi, ddg, ai);
     }
 }

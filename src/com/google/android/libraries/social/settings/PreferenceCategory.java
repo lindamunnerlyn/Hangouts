@@ -7,10 +7,10 @@ package com.google.android.libraries.social.settings;
 import android.content.Context;
 import android.util.AttributeSet;
 import g;
-import hfa;
-import hfm;
+import hjr;
+import hkd;
 
-public final class PreferenceCategory extends hfm
+public final class PreferenceCategory extends hkd
 {
 
     public PreferenceCategory(Context context)
@@ -20,7 +20,7 @@ public final class PreferenceCategory extends hfm
 
     public PreferenceCategory(Context context, AttributeSet attributeset)
     {
-        this(context, attributeset, g.tj);
+        this(context, attributeset, g.tK);
     }
 
     private PreferenceCategory(Context context, AttributeSet attributeset, int i)
@@ -28,24 +28,24 @@ public final class PreferenceCategory extends hfm
         super(context, attributeset, i);
     }
 
-    public boolean D()
+    public boolean B_()
     {
-        return !super.z_();
+        return false;
     }
 
-    protected boolean b(hfa hfa)
+    public boolean D()
     {
-        if (hfa instanceof PreferenceCategory)
+        return !super.B_();
+    }
+
+    protected boolean b(hjr hjr)
+    {
+        if (hjr instanceof PreferenceCategory)
         {
             throw new IllegalArgumentException("Cannot add a PreferenceCategory directly to a PreferenceCategory");
         } else
         {
-            return super.b(hfa);
+            return super.b(hjr);
         }
-    }
-
-    public boolean z_()
-    {
-        return false;
     }
 }

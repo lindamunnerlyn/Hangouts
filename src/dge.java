@@ -2,22 +2,66 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.app.Activity;
+import android.os.Handler;
+import android.os.Looper;
 
-public final class dge
-    implements Runnable
+public final class dge extends ain
 {
 
-    final RealTimeChatService a;
+    private static final boolean a = false;
+    private static dge b = null;
+    private Handler c;
 
-    public dge(RealTimeChatService realtimechatservice)
+    private dge()
     {
-        a = realtimechatservice;
-        super();
     }
 
-    public void run()
+    static Handler a(dge dge1)
     {
-        ebr.b(g.nS, l.jV);
+        return dge1.c;
+    }
+
+    public static dge c()
+    {
+        if (b == null)
+        {
+            b = new dge();
+        }
+        return b;
+    }
+
+    protected void a(Activity activity)
+    {
+        if (g.a(g.nU, "babel_poll_parasite_operations_periodically", false))
+        {
+            if (a)
+            {
+                eev.b("Babel", "Start polling parasite operations when the first activity of Hangout starts.");
+            }
+            if (c == null)
+            {
+                c = new Handler(Looper.getMainLooper());
+            }
+            long l = g.a(g.nU, "babel_poll_parasite_operations_interval_ms", dlb.l);
+            c.postDelayed(new dgf(this, l), l);
+        }
+    }
+
+    protected void b()
+    {
+        if (a)
+        {
+            eev.b("Babel", "Stop polling parasite operations when the last activity of Hangout got stops.");
+        }
+        if (c != null)
+        {
+            c.removeCallbacksAndMessages(null);
+        }
+    }
+
+    static 
+    {
+        hnc hnc = eev.n;
     }
 }

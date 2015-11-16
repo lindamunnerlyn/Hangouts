@@ -13,39 +13,39 @@ import android.text.style.URLSpan;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
-import ani;
-import bka;
-import cnw;
-import cny;
-import cnz;
-import dbf;
+import aoa;
+import bkm;
+import cpn;
+import cpp;
+import cpq;
+import dcn;
 import g;
-import gmo;
-import gng;
+import gqu;
+import grn;
 import h;
 import l;
-import po;
+import pq;
 
-public class GoogleVoiceTermsOfServiceActivity extends bka
+public class GoogleVoiceTermsOfServiceActivity extends bkm
 {
 
-    private static final int s[][];
-    private static final String t[] = {
+    private static final int t[][];
+    private static final String u[] = {
         "voice_android_calling", "voice_rates", "voice_legal"
     };
-    private final gmo m;
-    private Button n;
+    private final gqu n;
     private Button o;
-    private ani r;
+    private Button p;
+    private aoa s;
 
     public GoogleVoiceTermsOfServiceActivity()
     {
-        m = (new gng(this, q)).a(p);
+        n = (new grn(this, r)).a(q);
     }
 
-    public static ani a(GoogleVoiceTermsOfServiceActivity googlevoicetermsofserviceactivity)
+    public static aoa a(GoogleVoiceTermsOfServiceActivity googlevoicetermsofserviceactivity)
     {
-        return googlevoicetermsofserviceactivity.r;
+        return googlevoicetermsofserviceactivity.s;
     }
 
     public static void a(GoogleVoiceTermsOfServiceActivity googlevoicetermsofserviceactivity, int i)
@@ -53,16 +53,16 @@ public class GoogleVoiceTermsOfServiceActivity extends bka
         googlevoicetermsofserviceactivity.d(i);
     }
 
-    public static gmo b(GoogleVoiceTermsOfServiceActivity googlevoicetermsofserviceactivity)
+    public static gqu b(GoogleVoiceTermsOfServiceActivity googlevoicetermsofserviceactivity)
     {
-        return googlevoicetermsofserviceactivity.m;
+        return googlevoicetermsofserviceactivity.n;
     }
 
     private void d(int i)
     {
         if (i != -1) goto _L2; else goto _L1
 _L1:
-        g.a(r, 1098);
+        g.a(s, 1098);
 _L4:
         setResult(i, getIntent());
         finish();
@@ -70,7 +70,7 @@ _L4:
 _L2:
         if (i == 0)
         {
-            g.a(r, 1099);
+            g.a(s, 1099);
         }
         if (true) goto _L4; else goto _L3
 _L3:
@@ -91,19 +91,19 @@ _L3:
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.hp);
-        r = dbf.e(m.a());
-        setTitle(getString(l.fz));
-        n = (Button)findViewById(h.gF);
-        o = (Button)findViewById(h.gD);
-        bundle = s;
+        setContentView(g.hh);
+        s = dcn.e(n.a());
+        setTitle(getString(l.fi));
+        o = (Button)findViewById(h.gn);
+        p = (Button)findViewById(h.gl);
+        bundle = t;
         int k = bundle.length;
         for (int i = 0; i < k; i++)
         {
             Spannable spannable = bundle[i];
             TextView textview = (TextView)findViewById(spannable[0]);
             textview.setText(Html.fromHtml(getString(spannable[1], new Object[] {
-                g.f("https://www.google.com/support/hangouts/?hl=%locale%", t[spannable[2]]).toString()
+                g.f("https://www.google.com/support/hangouts/?hl=%locale%", u[spannable[2]]).toString()
             })));
             textview.setMovementMethod(LinkMovementMethod.getInstance());
             spannable = (Spannable)textview.getText();
@@ -115,39 +115,38 @@ _L3:
                 int j1 = spannable.getSpanStart(urlspan);
                 int k1 = spannable.getSpanEnd(urlspan);
                 spannable.removeSpan(urlspan);
-                spannable.setSpan(new cnz(this, urlspan.getURL()), j1, k1, 0);
+                spannable.setSpan(new cpq(this, urlspan.getURL()), j1, k1, 0);
             }
 
             textview.setText(spannable);
         }
 
-        o.setSelected(true);
-        o.setOnClickListener(new cnw(this));
-        n.setOnClickListener(new cny(this));
+        p.setSelected(true);
+        p.setOnClickListener(new cpn(this));
+        o.setOnClickListener(new cpp(this));
     }
 
     protected void onStart()
     {
         super.onStart();
         g().a(true);
-        g.a(r, 1097);
+        g.a(s, 1097);
     }
 
     static 
     {
-        int i = h.gE;
-        int j = l.tQ;
-        int k = h.gG;
-        int i1 = l.tR;
-        int j1 = h.gH;
-        int k1 = l.tS;
-        s = (new int[][] {
+        int i = h.gm;
+        int j = l.ti;
+        int ai[] = {
+            h.go, l.tj, 1
+        };
+        int k = h.gp;
+        int i1 = l.tk;
+        t = (new int[][] {
             new int[] {
                 i, j, 0
-            }, new int[] {
-                k, i1, 1
-            }, new int[] {
-                j1, k1, 2
+            }, ai, new int[] {
+                k, i1, 2
             }
         });
     }

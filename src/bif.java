@@ -2,31 +2,65 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.DataSetObserver;
-import com.google.android.apps.hangouts.fragments.ConversationInviteListFragment;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.text.Html;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.TextView;
 
-final class bif extends DataSetObserver
+public final class bif extends hmk
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final ConversationInviteListFragment a;
-    final bie b;
+    private CheckBox aj;
+    private CheckBox an;
+    private bih ao;
 
-    bif(bie bie1, ConversationInviteListFragment conversationinvitelistfragment)
+    public bif()
     {
-        b = bie1;
-        a = conversationinvitelistfragment;
-        super();
     }
 
-    public void onChanged()
+    static bih a(bif bif1)
     {
-        b.notifyDataSetChanged();
-        bie.a(b, bie.a(b).a());
+        return bif1.ao;
     }
 
-    public void onInvalidated()
+    static CheckBox b(bif bif1)
     {
-        b.notifyDataSetInvalidated();
-        bie.a(b, bie.a(b).a());
+        return bif1.aj;
+    }
+
+    static CheckBox c(bif bif1)
+    {
+        return bif1.an;
+    }
+
+    public Dialog a(Bundle bundle)
+    {
+        bundle = getActivity().getResources();
+        View view = View.inflate(getActivity(), g.gs, null);
+        an = (CheckBox)view.findViewById(h.cc);
+        aj = (CheckBox)view.findViewById(h.ca);
+        String s = getArguments().getString("dialog_inviter_name");
+        aoa aoa = dcn.e(getArguments().getInt("account_id"));
+        ((TextView)view.findViewById(h.cb)).setText(Html.fromHtml(bundle.getString(l.dt, new Object[] {
+            s
+        })));
+        ((TextView)view.findViewById(h.bZ)).setText(Html.fromHtml(bundle.getString(l.du, new Object[] {
+            s
+        })));
+        return (new android.app.AlertDialog.Builder(getActivity())).setView(view).setPositiveButton(bundle.getString(l.hd), new big(this, aoa)).setNegativeButton(bundle.getString(l.Q), null).create();
+    }
+
+    public void a(bih bih)
+    {
+        ao = bih;
+    }
+
+    public void onClick(DialogInterface dialoginterface, int i)
+    {
     }
 }

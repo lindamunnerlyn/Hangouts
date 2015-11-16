@@ -2,29 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Cursor;
 
-final class dzd extends aqv
+final class dzd
+    implements gfa
 {
 
-    final dza c;
+    private final String a;
+    private final String b;
 
-    dzd(dza dza1, gms gms, int i, String s)
+    dzd(String s, String s1)
     {
-        c = dza1;
-        super(gms, i, s);
+        a = s;
+        b = s1;
     }
 
-    protected void a(Cursor cursor)
+    public String a()
     {
-        synchronized (c.b)
-        {
-            c.a(b, true).a(cursor);
-        }
-        return;
-        cursor;
-        ebb;
-        JVM INSTR monitorexit ;
-        throw cursor;
+        return a;
+    }
+
+    public String b()
+    {
+        return b;
+    }
+
+    public String c()
+    {
+        return null;
+    }
+
+    public String d()
+    {
+        return b();
     }
 }

@@ -3,46 +3,27 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class aqf
-    implements bye
+public abstract class aqf
+    implements aqd
 {
 
-    final boolean a;
-    final String b;
-    final aqd c;
+    private final aqc a;
 
-    aqf(aqd aqd1, boolean flag, String s)
+    protected aqf(aqc aqc)
     {
-        c = aqd1;
-        a = flag;
-        b = s;
-        super();
+        a = aqc;
     }
 
-    public void a()
-    {
-        ani ani = dbf.e(((gmo)aqd.a(c).getBinder().a(gmo)).a());
-        char c1;
-        if (a)
-        {
-            c1 = '\u09D7';
-        } else
-        {
-            c1 = '\u078E';
-        }
-        g.a(ani, c1, b);
-        if (a)
-        {
-            c1 = '\u0A67';
-        } else
-        {
-            c1 = '\u0A66';
-        }
-        aqd.a(c).c(c1);
-    }
+    abstract boolean a(int i);
 
-    public void a(String s)
+    public boolean a(int i, aqc aqc)
     {
-        aqd.a(c).d(s);
+        if (a == aqc)
+        {
+            return a(i);
+        } else
+        {
+            return false;
+        }
     }
 }

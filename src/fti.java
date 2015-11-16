@@ -2,11 +2,13 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.gms.common.data.DataHolder;
 
-public final class fti
+public abstract class fti extends ftj
 {
 
-    public fti()
+    public fti(DataHolder dataholder)
     {
+        super(dataholder);
     }
 }

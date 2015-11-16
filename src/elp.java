@@ -2,17 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import android.content.Context;
+import com.google.android.gms.clearcut.LogEventParcelable;
+import java.util.concurrent.TimeUnit;
 
-public final class elp
+public interface elp
 {
 
-    private static final ExecutorService a = Executors.newFixedThreadPool(2);
+    public abstract ene a(Context context, LogEventParcelable logeventparcelable);
 
-    public static ExecutorService a()
-    {
-        return a;
-    }
+    public abstract ene a(emy emy, LogEventParcelable logeventparcelable);
 
+    public abstract void a(emy emy);
+
+    public abstract boolean a(long l, TimeUnit timeunit);
+
+    public abstract ene b(emy emy, LogEventParcelable logeventparcelable);
 }

@@ -2,177 +2,87 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Arrays;
+import java.util.Comparator;
 
-public final class jtp extends koj
+public final class jtp extends jti
 {
 
-    public Float a;
-    public jtr b;
-    public Float c;
-    public Float d;
-    public jtr e[];
+    private final Comparator c;
 
-    public jtp()
+    public jtp(Comparator comparator)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        e = jtr.a();
-        unknownFieldData = null;
-        cachedSize = -1;
+        c = (Comparator)n.b(comparator);
     }
 
-    protected int computeSerializedSize()
+    public jse a(Object obj)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.floatValue();
-            i = j + (koh.f(1) + 4);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        int k = j;
-        if (c != null)
-        {
-            c.floatValue();
-            k = j + (koh.f(3) + 4);
-        }
-        i = k;
-        if (d != null)
-        {
-            d.floatValue();
-            i = k + (koh.f(4) + 4);
-        }
-        j = i;
-        if (e != null)
-        {
-            j = i;
-            if (e.length > 0)
-            {
-                for (j = 0; j < e.length;)
-                {
-                    jtr jtr1 = e[j];
-                    int l = i;
-                    if (jtr1 != null)
-                    {
-                        l = i + koh.d(5, jtr1);
-                    }
-                    j++;
-                    i = l;
-                }
-
-                j = i;
-            }
-        }
-        return j;
+        super.c(obj);
+        return this;
     }
 
-    public kop mergeFrom(kog kog1)
+    public jsf a(Object aobj[])
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 13: // '\r'
-                a = Float.valueOf(kog1.c());
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new jtr();
-                }
-                kog1.a(b);
-                break;
-
-            case 29: // '\035'
-                c = Float.valueOf(kog1.c());
-                break;
-
-            case 37: // '%'
-                d = Float.valueOf(kog1.c());
-                break;
-
-            case 42: // '*'
-                int k = kou.b(kog1, 42);
-                jtr ajtr[];
-                int j;
-                if (e == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = e.length;
-                }
-                ajtr = new jtr[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(e, 0, ajtr, 0, j);
-                    k = j;
-                }
-                for (; k < ajtr.length - 1; k++)
-                {
-                    ajtr[k] = new jtr();
-                    kog1.a(ajtr[k]);
-                    kog1.a();
-                }
-
-                ajtr[k] = new jtr();
-                kog1.a(ajtr[k]);
-                e = ajtr;
-                break;
-            }
-        } while (true);
+        return c(aobj);
     }
 
-    public void writeTo(koh koh1)
+    public jth a()
     {
-        if (a != null)
+        return b();
+    }
+
+    public jsf b(Object obj)
+    {
+        super.c(obj);
+        return this;
+    }
+
+    public jti b(Object aobj[])
+    {
+        return c(aobj);
+    }
+
+    public jto b()
+    {
+        Object obj = ((Object) (a));
+        Comparator comparator = c;
+        int l = b;
+        if (l == 0)
         {
-            koh1.a(1, a.floatValue());
-        }
-        if (b != null)
+            obj = jto.a(comparator);
+        } else
         {
-            koh1.b(2, b);
-        }
-        if (c != null)
-        {
-            koh1.a(3, c.floatValue());
-        }
-        if (d != null)
-        {
-            koh1.a(4, d.floatValue());
-        }
-        if (e != null && e.length > 0)
-        {
-            for (int i = 0; i < e.length; i++)
+            jxa.b(((Object []) (obj)), l);
+            Arrays.sort(((Object []) (obj)), 0, l, comparator);
+            int j = 1;
+            int i = 1;
+            for (; j < l; j++)
             {
-                jtr jtr1 = e[i];
-                if (jtr1 != null)
+                Object obj1 = obj[j];
+                if (comparator.compare(obj1, obj[i - 1]) != 0)
                 {
-                    koh1.b(5, jtr1);
+                    int k = i + 1;
+                    obj[i] = obj1;
+                    i = k;
                 }
             }
 
+            Arrays.fill(((Object []) (obj)), i, l, null);
+            obj = new jxm(jsh.b(((Object []) (obj)), i), comparator);
         }
-        super.writeTo(koh1);
+        b = ((jto) (obj)).size();
+        return ((jto) (obj));
+    }
+
+    public jti c(Object obj)
+    {
+        super.c(obj);
+        return this;
+    }
+
+    public transient jtp c(Object aobj[])
+    {
+        super.b(aobj);
+        return this;
     }
 }

@@ -2,38 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.util.AttributeSet;
 
-public final class we extends xt
+public interface we
 {
 
-    public boolean a;
-    public int b;
-    public int c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
+    public abstract boolean d();
 
-    public we()
-    {
-        super(-2, -2);
-        a = false;
-    }
-
-    public we(Context context, AttributeSet attributeset)
-    {
-        super(context, attributeset);
-    }
-
-    public we(android.view.ViewGroup.LayoutParams layoutparams)
-    {
-        super(layoutparams);
-    }
-
-    public we(we we1)
-    {
-        super(we1);
-        a = we1.a;
-    }
+    public abstract boolean e();
 }

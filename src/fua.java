@@ -2,12 +2,14 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.IInterface;
+import java.util.List;
 
-public final class fua extends ftp
-    implements fsn
+public interface fua
+    extends IInterface
 {
 
-    public fua()
-    {
-    }
+    public abstract void a(String s, String s1, fuf fuf);
+
+    public abstract void a(String s, List list, fuf fuf);
 }

@@ -2,116 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
+import java.io.InputStream;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.Set;
 
-public final class aev
+public final class aev extends aer
 {
 
-    private String a;
-    private List b;
-    private Map c;
-    private String d;
-    private List e;
-    private byte f[];
+    static final Set a = Collections.unmodifiableSet(new HashSet(Arrays.asList(new String[] {
+        "BEGIN", "END", "LOGO", "PHOTO", "LABEL", "FN", "TITLE", "SOUND", "VERSION", "TEL", 
+        "EMAIL", "TZ", "GEO", "NOTE", "URL", "BDAY", "ROLE", "REV", "UID", "KEY", 
+        "MAILER"
+    })));
+    static final Set b = Collections.unmodifiableSet(new HashSet(Arrays.asList(new String[] {
+        "DOM", "INTL", "POSTAL", "PARCEL", "HOME", "WORK", "PREF", "VOICE", "FAX", "MSG", 
+        "CELL", "PAGER", "BBS", "MODEM", "CAR", "ISDN", "VIDEO", "AOL", "APPLELINK", "ATTMAIL", 
+        "CIS", "EWORLD", "INTERNET", "IBMMAIL", "MCIMAIL", "POWERSHARE", "PRODIGY", "TLX", "X400", "GIF", 
+        "CGM", "WMF", "BMP", "MET", "PMB", "DIB", "PICT", "TIFF", "PDF", "PS", 
+        "JPEG", "QTIME", "MPEG", "MPEG2", "AVI", "WAVE", "AIFF", "PCM", "X509", "PGP"
+    })));
+    static final Set c = Collections.unmodifiableSet(new HashSet(Arrays.asList(new String[] {
+        "INLINE", "URL", "CONTENT-ID", "CID"
+    })));
+    static final Set d = Collections.unmodifiableSet(new HashSet(Arrays.asList(new String[] {
+        "7BIT", "8BIT", "QUOTED-PRINTABLE", "BASE64", "B"
+    })));
+    private final aes e;
 
     public aev()
     {
-        c = new HashMap();
+        e = new aes();
     }
 
-    public String a()
+    public aev(byte byte0)
     {
-        return a;
+        e = new aes((byte)0);
     }
 
-    public void a(String s)
+    public void a(aeq aeq)
     {
-        if (a != null)
-        {
-            String.format("Property name is re-defined (existing: %s, requested: %s", new Object[] {
-                a, s
-            });
-        }
-        a = s;
+        e.a(aeq);
     }
 
-    public void a(String s, String s1)
+    public void a(InputStream inputstream)
     {
-        Object obj;
-        if (!c.containsKey(s))
-        {
-            if (s.equals("TYPE"))
-            {
-                obj = new HashSet();
-            } else
-            {
-                obj = new ArrayList();
-            }
-            c.put(s, obj);
-        } else
-        {
-            obj = (Collection)c.get(s);
-        }
-        ((Collection) (obj)).add(s1);
+        e.a(inputstream);
     }
 
-    public void a(List list)
-    {
-        e = list;
-    }
-
-    public void a(byte abyte0[])
-    {
-        f = abyte0;
-    }
-
-    public transient void a(String as[])
-    {
-        e = Arrays.asList(as);
-    }
-
-    public Map b()
-    {
-        return c;
-    }
-
-    public void b(String s)
-    {
-        if (b == null)
-        {
-            b = new ArrayList();
-        }
-        b.add(s);
-    }
-
-    public String c()
-    {
-        return d;
-    }
-
-    public void c(String s)
-    {
-        d = s;
-    }
-
-    public Collection d(String s)
-    {
-        return (Collection)c.get(s);
-    }
-
-    public List d()
-    {
-        return e;
-    }
-
-    public byte[] e()
-    {
-        return f;
-    }
 }

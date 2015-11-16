@@ -2,52 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
+import java.io.Serializable;
 
-final class dmq
-    implements ekh
+public final class dmq extends dmp
+    implements Serializable
 {
 
-    final dmn a;
+    private static final long serialVersionUID = 1L;
+    public final String i;
 
-    dmq(dmn dmn1)
+    protected dmq(kxc kxc, kxz kxz1)
     {
-        a = dmn1;
-        super();
+        super(kxc, null, null, null, null, "audio/*");
+        i = kxz1.X;
+        if (dmo.e())
+        {
+            kxc = String.valueOf(i);
+            if (kxc.length() != 0)
+            {
+                kxc = "Received audio attachment with media key: ".concat(kxc);
+            } else
+            {
+                kxc = new String("Received audio attachment with media key: ");
+            }
+            eev.b("Babel", kxc);
+        }
     }
 
-    public void a(ekg ekg)
+    public String toString()
     {
-label0:
+        String s = String.valueOf(i);
+        if (s.length() != 0)
         {
-            Object obj = (fmf)ekg;
-            ekg = ((fmf) (obj)).c();
-            obj = ((fmf) (obj)).B_();
-            if (ebw.a("Babel", 3))
-            {
-                String s = String.valueOf(obj);
-                String s1 = String.valueOf(ekg);
-                ebw.c("Babel", (new StringBuilder(String.valueOf(s).length() + 45 + String.valueOf(s1).length())).append("Non aggregated people loaded: status=").append(s).append(" people=").append(s1).toString());
-            }
-            if (dmn.a(a))
-            {
-                break label0;
-            }
-            if (((Status) (obj)).e())
-            {
-                gbh.b(dmn.d(a), ekg);
-            }
-            dmn.a(a, ekg);
-            if (((Status) (obj)).e())
-            {
-                if (dmn.c(a) == null)
-                {
-                    break label0;
-                }
-                dmn.c(a).a(a, null, ekg);
-            }
-            return;
+            return "mediaKey: ".concat(s);
+        } else
+        {
+            return new String("mediaKey: ");
         }
-        ekg.b();
     }
 }

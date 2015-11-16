@@ -19,6 +19,10 @@ public final class an
 
     private final ao a;
 
+    public an()
+    {
+    }
+
     an(ao ao1)
     {
         a = ao1;

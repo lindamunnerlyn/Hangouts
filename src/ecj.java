@@ -2,10 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
 
 public interface ecj
 {
 
-    public abstract ech a(String s, List list);
+    public abstract void b();
 }

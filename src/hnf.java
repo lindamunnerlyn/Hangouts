@@ -3,16 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class hnf
-    implements hne
+public interface hnf
 {
 
-    hnf()
-    {
-    }
-
-    public long a()
-    {
-        return System.currentTimeMillis();
-    }
+    public abstract void b();
 }

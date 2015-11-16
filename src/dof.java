@@ -7,16 +7,20 @@ final class dof
     implements Runnable
 {
 
-    final doc a;
+    final String a;
+    final aoz b;
+    final dod c;
 
-    dof(doc doc1)
+    dof(dod dod1, String s, aoz aoz)
     {
-        a = doc1;
+        c = dod1;
+        a = s;
+        b = aoz;
         super();
     }
 
     public void run()
     {
-        doc.a(a);
+        dod.a(c, a, b);
     }
 }

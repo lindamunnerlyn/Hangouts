@@ -2,27 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import com.google.android.apps.hangouts.phone.ShareIntentActivity;
 
-final class cqq
-    implements android.view.View.OnFocusChangeListener
+public final class cqq
+    implements hlb
 {
 
-    final cqn a;
+    final ShareIntentActivity a;
 
-    cqq(cqn cqn1)
+    public cqq(ShareIntentActivity shareintentactivity)
     {
-        a = cqn1;
+        a = shareintentactivity;
         super();
     }
 
-    public void onFocusChange(View view, boolean flag)
+    public void a()
     {
-        InputMethodManager inputmethodmanager = (InputMethodManager)a.getActivity().getSystemService("input_method");
-        if (inputmethodmanager != null)
-        {
-            inputmethodmanager.showSoftInput(view, 1);
-        }
+        a.finish();
+    }
+
+    public void b()
+    {
+        a.finish();
+    }
+
+    public void c()
+    {
+        a.finish();
+    }
+
+    public void d()
+    {
+        a.finish();
+    }
+
+    public void e()
+    {
+        a.finish();
     }
 }

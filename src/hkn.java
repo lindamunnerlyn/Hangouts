@@ -2,69 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.InputStream;
-import java.nio.ByteBuffer;
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public final class hkn extends InputStream
+public final class hkn extends hjs
 {
 
-    private final ByteBuffer a;
-    private int b;
+    public static final android.os.Parcelable.Creator CREATOR = new hko();
+    public boolean a;
+    public Bundle b;
 
-    public hkn(ByteBuffer bytebuffer)
+    public hkn(Parcel parcel)
     {
-        b = 0;
-        a = bytebuffer;
-    }
-
-    public int available()
-    {
-        return a.remaining();
-    }
-
-    public void mark(int i)
-    {
-        b = a.position();
-    }
-
-    public boolean markSupported()
-    {
-        return true;
-    }
-
-    public int read()
-    {
-        if (!a.hasRemaining())
+        boolean flag = true;
+        super(parcel);
+        if (parcel.readInt() != 1)
         {
-            return -1;
+            flag = false;
+        }
+        a = flag;
+        b = parcel.readBundle();
+    }
+
+    public hkn(Parcelable parcelable)
+    {
+        super(parcelable);
+    }
+
+    public void writeToParcel(Parcel parcel, int i)
+    {
+        super.writeToParcel(parcel, i);
+        if (a)
+        {
+            i = 1;
         } else
         {
-            return a.get() & 0xff;
+            i = 0;
         }
+        parcel.writeInt(i);
+        parcel.writeBundle(b);
     }
 
-    public int read(byte abyte0[], int i, int j)
-    {
-        if (a.hasRemaining())
-        {
-            j = Math.min(a.remaining(), j);
-            a.get(abyte0, i, j);
-            return j;
-        } else
-        {
-            return -1;
-        }
-    }
-
-    public void reset()
-    {
-        a.position(b);
-    }
-
-    public long skip(long l)
-    {
-        int i = (int)Math.min(l, a.remaining());
-        a.position(a.position() + i);
-        return (long)i;
-    }
 }

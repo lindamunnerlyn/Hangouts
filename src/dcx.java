@@ -2,415 +2,166 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import com.google.android.apps.hangouts.realtimechat.GcmIntentService;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.io.IOException;
+import java.io.Serializable;
 
-public final class dcx
+public final class dcx extends IOException
+    implements Serializable
 {
 
-    private static final boolean a = false;
-    private static final String b[] = {
-        "Uninit", "RegSent", "Registered", "RegFailed"
-    };
-    private static volatile dcx h = null;
-    private String c;
-    private volatile int d;
-    private long e;
-    private List f;
-    private volatile int g;
+    public static final dcx a = new dcx(120);
+    public static final dcx b = new dcx(121);
+    private static final long serialVersionUID = 1L;
+    private final boolean c;
+    private final int d;
+    private final String e;
+    private final long f;
+    private final ecm g;
 
-    private dcx()
+    public dcx(int i)
     {
-        f = new ArrayList();
-        SharedPreferences sharedpreferences = g.nS.getSharedPreferences("gcm", 0);
-        c = sharedpreferences.getString("gcm_registration_id", null);
-        d = sharedpreferences.getInt("gcm_registration_state", 100);
-        g = sharedpreferences.getInt("gcm_retry_strategy", 0);
-        e = sharedpreferences.getLong("gcm_android_id", -1L);
+        this(i, null, 0L, false, null);
     }
 
-    public static long a()
+    public dcx(int i, long l, String s)
     {
-        dcx dcx1;
-        dcx1 = h;
-        if (dcx1 == null)
+        this(i, null, l, false, s);
+    }
+
+    public dcx(int i, Exception exception)
+    {
+        this(i, exception, 0L, false, null);
+    }
+
+    public dcx(int i, Exception exception, long l, boolean flag, String s)
+    {
+        if (i < 100 || i > 139)
         {
-            break MISSING_BLOCK_LABEL_24;
+            throw new IllegalArgumentException((new StringBuilder(36)).append("error code out of range: ").append(i).toString());
         }
-        dcx1;
-        JVM INSTR monitorenter ;
-        long l = dcx1.e;
-        dcx1;
-        JVM INSTR monitorexit ;
-        return l;
-        Exception exception;
-        exception;
-        dcx1;
-        JVM INSTR monitorexit ;
-        throw exception;
-        return 0L;
-    }
-
-    private void a(int l)
-    {
-        if (ebw.a("Babel", 3))
+        c = flag;
+        d = i;
+        if (exception != null)
         {
-            ebw.c("Babel", (new StringBuilder(46)).append("GcmRegistration: set retryStrategy=").append(l).toString());
-        }
-        g = l;
-        android.content.SharedPreferences.Editor editor = g.nS.getSharedPreferences("gcm", 0).edit();
-        editor.putInt("gcm_retry_strategy", g);
-        editor.apply();
-    }
-
-    public static void a(PrintWriter printwriter)
-    {
-        if (h == null)
-        {
-            printwriter.println("GCM Registration not inited");
-            return;
-        }
-        synchronized (c())
-        {
-            String s = b(dcx1.d);
-            String s1 = dcx1.c;
-            printwriter.println((new StringBuilder(String.valueOf(s).length() + 31 + String.valueOf(s1).length())).append("GCM Registration state: ").append(s).append(", reg: ").append(s1).toString());
-        }
-        return;
-        printwriter;
-        dcx1;
-        JVM INSTR monitorexit ;
-        throw printwriter;
-    }
-
-    private void a(String s, int l)
-    {
-        c = s;
-        d = l;
-        s = g.nS.getSharedPreferences("gcm", 0).edit();
-        s.putLong("gcm_android_id", e);
-        s.putString("gcm_registration_id", c);
-        s.putInt("gcm_registration_state", d);
-        s.apply();
-    }
-
-    private static String b(int l)
-    {
-        if (l >= 100 && l <= 103)
-        {
-            return b[l - 100];
+            String s3 = String.valueOf(exception.getMessage());
+            String s1;
+            if (c)
+            {
+                s1 = "[INJECTED] -- ";
+            } else
+            {
+                s1 = "";
+            }
+            s = (new StringBuilder(String.valueOf(s3).length() + 4 + String.valueOf(s1).length() + String.valueOf(s).length())).append(s3).append(" -- ").append(s1).append(s).toString();
         } else
         {
-            return Integer.toString(l);
-        }
-    }
-
-    public static void b()
-    {
-        dcx;
-        JVM INSTR monitorenter ;
-        if (a)
-        {
-            ebw.b("Babel", "Initializing GcmRegistration");
-        }
-        if (h == null) goto _L2; else goto _L1
-_L1:
-        ebw.f("Babel", "GcmRegistration.initialize() called twice");
-_L4:
-        dcx;
-        JVM INSTR monitorexit ;
-        return;
-_L2:
-        dcx dcx1 = new dcx();
-        h = dcx1;
-        dcx1;
-        JVM INSTR monitorenter ;
-        h.k();
-        dcx1;
-        JVM INSTR monitorexit ;
-        if (true) goto _L4; else goto _L3
-_L3:
-        Exception exception1;
-        exception1;
-        dcx1;
-        JVM INSTR monitorexit ;
-        throw exception1;
-        Exception exception;
-        exception;
-        dcx;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
-    public static dcx c()
-    {
-        if (h == null)
-        {
-            ebw.g("Babel", "GcmRegistration.initialize() should be called called first");
-        }
-        return h;
-    }
-
-    public static void i()
-    {
-        synchronized (c())
-        {
-            if (dcx1.d == 102)
+            String s2;
+            if (c)
             {
-                ebw.c("Babel", "GcmRegistration: Forcing re-registration");
-                dcx1.a(null, 100);
-                dcx1.k();
-            }
-        }
-        return;
-        exception;
-        dcx1;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
-    public static void j()
-    {
-        synchronized (c())
-        {
-            if (dcx1.d == 102 && dcx1.e != dzk.a())
+                s2 = "[INJECTED] -- ";
+            } else
             {
-                ebw.f("Babel", "Android Id mismatch. Force new GcmRegistration");
-                dcx1.a(null, 100);
-                dcx1.k();
+                s2 = "";
             }
-        }
-        return;
-        exception;
-        dcx1;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
-    private boolean k()
-    {
-        boolean flag = true;
-        byte byte0 = 1;
-        ebw.c("Babel", "GcmRegistration: Checking GCM registration");
-        if (d != 102)
-        {
-            ebw.c("Babel", "GcmRegistration: Requesting GCM registration");
-            dbf.q();
-            if (dbf.s())
-            {
-                byte0 = 2;
-            }
-            a(byte0);
-            e = dzk.a();
-            GcmIntentService.b();
-            d = 101;
-            flag = false;
-        }
-        return flag;
-    }
-
-    public void a(Runnable runnable)
-    {
-        f.add(runnable);
-        this;
-        JVM INSTR monitorenter ;
-        if (d == 102)
-        {
-            runnable.run();
-        }
-        this;
-        JVM INSTR monitorexit ;
-        return;
-        runnable;
-        this;
-        JVM INSTR monitorexit ;
-        throw runnable;
-    }
-
-    public void a(String s)
-    {
-        boolean flag = true;
-        this;
-        JVM INSTR monitorenter ;
-        long l1;
-        if (d != 101)
-        {
-            String s1 = String.valueOf("Setting GCM registration. Expected,Actual state=101,");
-            int l = d;
-            ebw.f("Babel", (new StringBuilder(String.valueOf(s1).length() + 11)).append(s1).append(l).toString());
-        }
-        l1 = dzk.a();
-        if (e != l1) goto _L2; else goto _L1
-_L1:
-        a(s, 102);
-        a(0);
-_L3:
-        this;
-        JVM INSTR monitorexit ;
-        if (!flag)
-        {
-            ebw.f("Babel", "Ignoring GCM registration due to android_id mismatch. Retrying");
-            h();
-        } else
-        {
+            s2 = String.valueOf(s2);
             s = String.valueOf(s);
             if (s.length() != 0)
             {
-                s = "Start registration for accounts on the device with registration string ".concat(s);
+                s = s2.concat(s);
             } else
             {
-                s = new String("Start registration for accounts on the device with registration string ");
-            }
-            ebw.e("Babel", s);
-            dbf.o();
-            s = (new ArrayList(f)).iterator();
-            while (s.hasNext()) 
-            {
-                ((Runnable)s.next()).run();
+                s = new String(s2);
             }
         }
-        return;
-_L2:
-        a(null, 103);
-        flag = false;
-          goto _L3
-        s;
-        this;
-        JVM INSTR monitorexit ;
-        throw s;
-    }
-
-    public void b(Runnable runnable)
-    {
-        f.remove(runnable);
-    }
-
-    public boolean d()
-    {
-        this;
-        JVM INSTR monitorenter ;
-        Exception exception;
-        boolean flag;
-        if (d == 102)
+        e = s;
+        if (i == 100 && (exception instanceof ecm))
         {
-            flag = true;
+            g = (ecm)exception;
         } else
         {
-            flag = false;
+            g = null;
         }
-        this;
-        JVM INSTR monitorexit ;
-        return flag;
-        exception;
-        this;
-        JVM INSTR monitorexit ;
-        throw exception;
+        f = l;
     }
 
-    public boolean e()
+    public dcx(int i, String s)
     {
-        this;
-        JVM INSTR monitorenter ;
-        Exception exception;
-        boolean flag;
-        if (d == 103 || d == 100)
+        this(i, null, 0L, false, s);
+    }
+
+    public static dcx a(int i, Exception exception, String s)
+    {
+        switch (i)
         {
-            flag = true;
+        default:
+            if (i >= 400 && i < 500)
+            {
+                return new dcx(111, exception, 0L, false, s);
+            }
+            break;
+
+        case 400: 
+            return new dcx(111, exception, 0L, false, s);
+
+        case 401: 
+            return new dcx(104, exception, 0L, false, s);
+
+        case 403: 
+            return new dcx(111, exception, 0L, false, s);
+
+        case 404: 
+            return new dcx(113, exception, 0L, false, s);
+
+        case 409: 
+            return new dcx(108, exception, 0L, false, s);
+
+        case 416: 
+            return new dcx(111, exception, 0L, false, s);
+
+        case 418: 
+            return new dcx(111, exception, 0L, false, s);
+
+        case 429: 
+            return new dcx(109, exception, 0L, false, s);
+
+        case 499: 
+            return new dcx(121, exception, 0L, false, s);
+
+        case 501: 
+            return new dcx(111, exception, 0L, false, s);
+
+        case 503: 
+        case 504: 
+            return new dcx(108, exception, 0L, false, s);
+        }
+        if (i >= 500 && i < 600)
+        {
+            return new dcx(108, exception, 0L, false, s);
         } else
         {
-            flag = false;
+            eev.f("Babel_RequestWriter", (new StringBuilder(38)).append("Unknown HTTP response code ").append(i).toString());
+            return new dcx(106, exception, 0L, false, s);
         }
-        this;
-        JVM INSTR monitorexit ;
-        return flag;
-        exception;
-        this;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
-    public String f()
+    public long a()
     {
-        this;
-        JVM INSTR monitorenter ;
-        if (d == 102)
-        {
-            break MISSING_BLOCK_LABEL_60;
-        }
-        String s = String.valueOf("Getting GCM registcd pration. Expected,Actual state=102,");
-        int l = d;
-        ebw.g("Babel", (new StringBuilder(String.valueOf(s).length() + 11)).append(s).append(l).toString());
-        this;
-        JVM INSTR monitorexit ;
-        return null;
-        String s1 = c;
-        this;
-        JVM INSTR monitorexit ;
-        return s1;
-        Exception exception;
-        exception;
-        this;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return f;
     }
 
-    public void g()
+    public ecm b()
     {
-        this;
-        JVM INSTR monitorenter ;
-        if (g == 1)
-        {
-            a(0);
-        }
-        this;
-        JVM INSTR monitorexit ;
-        return;
-        Exception exception;
-        exception;
-        this;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return g;
     }
 
-    public void h()
+    public int c()
     {
-        if (ebw.a("Babel", 3))
-        {
-            String s = String.valueOf(b(d));
-            if (s.length() != 0)
-            {
-                s = "Retry GcmRegistration. Current state: ".concat(s);
-            } else
-            {
-                s = new String("Retry GcmRegistration. Current state: ");
-            }
-            ebw.c("Babel", s);
-        }
-        this;
-        JVM INSTR monitorenter ;
-        if (d != 101)
-        {
-            d = 101;
-            e = dzk.a();
-            GcmIntentService.b();
-        }
-        this;
-        JVM INSTR monitorexit ;
-        return;
-        Exception exception;
-        exception;
-        this;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return d;
     }
 
-    static 
+    public String getMessage()
     {
-        hik hik = ebw.n;
+        return e;
     }
+
 }

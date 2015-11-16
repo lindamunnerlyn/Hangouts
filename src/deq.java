@@ -2,33 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
 
-public final class deq
-    implements deu
+public final class deq extends dgj
 {
 
-    final ArrayList a;
-
-    public deq(ArrayList arraylist)
+    public deq(aoa aoa)
     {
-        a = arraylist;
-        super();
+        super(aoa);
     }
 
-    public void a(daf daf, aim aim)
+    public void a()
     {
-        if (!a.contains(daf))
-        {
-            a.add(daf);
-        }
-    }
-
-    public void a(daf daf, ais ais)
-    {
-        if (!a.contains(daf))
-        {
-            a.add(daf);
-        }
+        a(((dmf) (new cui())));
     }
 }

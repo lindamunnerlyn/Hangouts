@@ -3,18 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iyl extends koj
+public final class iyl extends kwm
 {
 
-    public irg a;
-    public Integer b;
-    public ixf requestHeader;
+    public Boolean a;
+    public Boolean b;
+    public Boolean c;
 
     public iyl()
     {
-        requestHeader = null;
         a = null;
         b = null;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -23,80 +23,72 @@ public final class iyl extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (requestHeader != null)
-        {
-            i = j + koh.d(1, requestHeader);
-        }
-        j = i;
         if (a != null)
         {
-            j = i + koh.d(2, a);
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
-        i = j;
+        j = i;
         if (b != null)
         {
-            i = j + koh.e(3, b.intValue());
+            b.booleanValue();
+            j = i + (kwk.f(2) + 1);
+        }
+        i = j;
+        if (c != null)
+        {
+            c.booleanValue();
+            i = j + (kwk.f(3) + 1);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L6:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 4: default 48
-    //                   0: 57
-    //                   10: 59
-    //                   18: 88
-    //                   24: 117;
-           goto _L1 _L2 _L3 _L4 _L5
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L6; else goto _L2
-_L2:
-        return this;
-_L3:
-        if (requestHeader == null)
+        do
         {
-            requestHeader = new ixf();
-        }
-        kog1.a(requestHeader);
-          goto _L6
-_L4:
-        if (a == null)
-        {
-            a = new irg();
-        }
-        kog1.a(a);
-          goto _L6
-_L5:
-        int j = kog1.f();
-        switch (j)
-        {
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-            b = Integer.valueOf(j);
-            break;
-        }
-        if (true) goto _L6; else goto _L7
-_L7:
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 16: // '\020'
+                b = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 24: // '\030'
+                c = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (requestHeader != null)
-        {
-            koh1.b(1, requestHeader);
-        }
         if (a != null)
         {
-            koh1.b(2, a);
+            kwk1.a(1, a.booleanValue());
         }
         if (b != null)
         {
-            koh1.a(3, b.intValue());
+            kwk1.a(2, b.booleanValue());
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.a(3, c.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

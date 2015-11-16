@@ -2,55 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.google.android.apps.hangouts.realtimechat.wakelock.impl.DebugWakelocksActivity;
-import java.util.List;
 
-public final class dju extends BaseAdapter
+public final class dju extends dgj
 {
 
-    final List a;
-    final List b;
-    final DebugWakelocksActivity c;
+    private final String a;
+    private final String e;
+    private final String f;
+    private final cuy g;
 
-    public dju(DebugWakelocksActivity debugwakelocksactivity, List list, List list1)
+    public dju(aoa aoa, cuy cuy, String s, String s1, String s2)
     {
-        c = debugwakelocksactivity;
-        a = list;
-        b = list1;
-        super();
+        super(aoa);
+        g = cuy;
+        a = s;
+        e = s1;
+        f = s2;
     }
 
-    public int getCount()
+    public void a()
     {
-        return a.size();
-    }
-
-    public Object getItem(int i)
-    {
-        return jhc.a(a.get(i), b.get(i));
-    }
-
-    public long getItemId(int i)
-    {
-        return (long)i;
-    }
-
-    public View getView(int i, View view, ViewGroup viewgroup)
-    {
-        View view1 = view;
-        if (view == null)
-        {
-            view1 = c.getLayoutInflater().inflate(h.jd, viewgroup, false);
-        }
-        view = (TextView)view1.findViewById(g.oO);
-        viewgroup = (TextView)view1.findViewById(g.oP);
-        view.setText((CharSequence)a.get(i));
-        viewgroup.setText((CharSequence)b.get(i));
-        return view1;
+        int i = ard.a(f);
+        a(((dmf) (new cux(g, a, e, i))));
     }
 }

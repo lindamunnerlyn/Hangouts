@@ -2,40 +2,115 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.database.Cursor;
 
-final class abf extends BroadcastReceiver
+public class abf extends abc
 {
 
-    final abe a;
+    public hm g;
+    public final float h;
+    public boolean i;
 
-    abf(abe abe1)
+    public abf(Context context, ap ap, Cursor cursor, float f1, boolean flag)
     {
-        a = abe1;
-        super();
+        super(context, ap, cursor);
+        g = new hm(abm.a.length);
+        h = f1;
+        i = flag;
     }
 
-    public void onReceive(Context context, Intent intent)
+    private String a(Cursor cursor, String s)
     {
-        context = ((ConnectivityManager)context.getSystemService("connectivity")).getActiveNetworkInfo();
-        if (context == null || !context.isConnected())
+        if (g.containsKey(s))
         {
-            a.as = false;
+            return cursor.getString(((Integer)g.get(s)).intValue());
         } else
-        if (!a.as && !a.t())
         {
-            if (!a.ar)
-            {
-                a.getLoaderManager().b(2, null, a);
-            }
-            a.getLoaderManager().b(3, null, a);
-            a.as = true;
-            a.ak.a(0);
-            return;
+            return null;
         }
+    }
+
+    protected abg a(Intent intent, int j, boolean flag)
+    {
+        return abg.a(intent, j, flag);
+    }
+
+    public ad a(Cursor cursor, int j)
+    {
+        String s = b(cursor);
+        String s1 = c(cursor);
+        boolean flag2 = d(cursor);
+        boolean flag1 = false;
+        boolean flag = flag1;
+        if (s == null)
+        {
+            flag = flag1;
+            if (flag2)
+            {
+                flag = true;
+            }
+        }
+        cursor = g.a(a, f());
+        cursor.c(s).d(s1).a(i).a(h);
+        return a(cursor.b(), j, flag);
+    }
+
+    public Cursor a(Cursor cursor)
+    {
+        boolean flag = false;
+        g.clear();
+        if (cursor != null)
+        {
+            String as[] = abm.a;
+            int i1 = as.length;
+            for (int j = 0; j < i1; j++)
+            {
+                String s = as[j];
+                g.put(s, Integer.valueOf(cursor.getColumnIndexOrThrow(s)));
+            }
+
+            as = abm.b;
+            i1 = as.length;
+            for (int k = ((flag) ? 1 : 0); k < i1; k++)
+            {
+                String s1 = as[k];
+                int l = cursor.getColumnIndex(s1);
+                if (l != -1)
+                {
+                    g.put(s1, Integer.valueOf(l));
+                }
+            }
+
+        }
+        return super.a(cursor);
+    }
+
+    public String b(Cursor cursor)
+    {
+        return a(cursor, "contentUri");
+    }
+
+    public String c(Cursor cursor)
+    {
+        return a(cursor, "thumbnailUri");
+    }
+
+    public boolean d(Cursor cursor)
+    {
+        cursor = a(cursor, "loadingIndicator");
+        if (cursor == null)
+        {
+            return false;
+        } else
+        {
+            return Boolean.valueOf(cursor).booleanValue();
+        }
+    }
+
+    protected Class f()
+    {
+        return abg;
     }
 }

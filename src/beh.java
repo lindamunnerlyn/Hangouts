@@ -2,10 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-public interface beh
+final class beh
 {
 
-    public abstract bef a(Context context);
+    public final String a;
+    public final int b;
+    public final String c;
+    public final int d;
+    public final int e;
+    public final String f;
+    public final fik g;
+    final bef h;
+
+    public beh(bef bef, String s, int i, String s1, int j, int k, String s2, 
+            fik fik)
+    {
+        h = bef;
+        super();
+        a = s;
+        b = i;
+        c = s1;
+        d = j;
+        e = k;
+        f = s2;
+        g = fik;
+    }
 }

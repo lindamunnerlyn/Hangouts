@@ -2,158 +2,61 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.InputStream;
 
-final class knh extends InputStream
+public final class knh extends kwm
 {
 
-    final kne a;
-    private knf b;
-    private kmw c;
-    private int d;
-    private int e;
-    private int f;
-    private int g;
+    public Boolean a;
 
-    public knh(kne kne1)
+    public knh()
     {
-        a = kne1;
-        super();
-        a();
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private int a(byte abyte0[], int i, int j)
+    protected int computeSerializedSize()
     {
-        int k = j;
-        int i1 = i;
-        i = k;
-        for (int l = i1; i > 0; l = i1)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            b();
-            if (c == null)
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
+        }
+        return i;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
             {
-                if (i == j)
+            default:
+                if (super.storeUnknownField(kwj1, i))
                 {
-                    return -1;
+                    continue;
                 }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
                 break;
             }
-            int j1 = Math.min(d - e, i);
-            i1 = l;
-            if (abyte0 != null)
-            {
-                c.b(abyte0, e, l, j1);
-                i1 = l + j1;
-            }
-            e = e + j1;
-            i -= j1;
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
         }
-
-        return j - i;
-    }
-
-    private void a()
-    {
-        b = new knf(a);
-        c = b.a();
-        d = c.a();
-        e = 0;
-        f = 0;
-    }
-
-    private void b()
-    {
-label0:
-        {
-            if (c != null && e == d)
-            {
-                f = f + d;
-                e = 0;
-                if (!b.hasNext())
-                {
-                    break label0;
-                }
-                c = b.a();
-                d = c.a();
-            }
-            return;
-        }
-        c = null;
-        d = 0;
-    }
-
-    public int available()
-    {
-        int i = f;
-        int j = e;
-        return a.a() - (i + j);
-    }
-
-    public void mark(int i)
-    {
-        g = f + e;
-    }
-
-    public boolean markSupported()
-    {
-        return true;
-    }
-
-    public int read()
-    {
-        b();
-        if (c == null)
-        {
-            return -1;
-        } else
-        {
-            kmw kmw1 = c;
-            int i = e;
-            e = i + 1;
-            return kmw1.a(i) & 0xff;
-        }
-    }
-
-    public int read(byte abyte0[], int i, int j)
-    {
-        if (abyte0 == null)
-        {
-            throw new NullPointerException();
-        }
-        if (i < 0 || j < 0 || j > abyte0.length - i)
-        {
-            throw new IndexOutOfBoundsException();
-        } else
-        {
-            return a(abyte0, i, j);
-        }
-    }
-
-    public void reset()
-    {
-        this;
-        JVM INSTR monitorenter ;
-        a();
-        a(null, 0, g);
-        this;
-        JVM INSTR monitorexit ;
-        return;
-        Exception exception;
-        exception;
-        throw exception;
-    }
-
-    public long skip(long l)
-    {
-        if (l < 0L)
-        {
-            throw new IndexOutOfBoundsException();
-        }
-        long l1 = l;
-        if (l > 0x7fffffffL)
-        {
-            l1 = 0x7fffffffL;
-        }
-        return (long)a(null, 0, (int)l1);
+        super.writeTo(kwk1);
     }
 }

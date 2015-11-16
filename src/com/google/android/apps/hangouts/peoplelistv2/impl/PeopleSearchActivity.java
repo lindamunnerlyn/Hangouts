@@ -7,38 +7,38 @@ package com.google.android.apps.hangouts.peoplelistv2.impl;
 import android.os.Bundle;
 import ap;
 import bg;
-import bka;
-import chr;
-import dsp;
+import bkm;
+import cix;
+import dvi;
 import g;
-import gng;
+import grn;
 import h;
-import po;
+import pq;
 
-public class PeopleSearchActivity extends bka
+public class PeopleSearchActivity extends bkm
 {
 
     public PeopleSearchActivity()
     {
-        (new gng(this, q)).a(p);
-        (new dsp(this, q)).b(p);
+        (new grn(this, r)).a(q);
+        (new dvi(this, r)).b(q);
     }
 
     public void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.gU);
-        ap ap1 = t_();
-        Object obj = (chr)ap1.a(h.ex);
+        setContentView(g.gM);
+        ap ap1 = u_();
+        Object obj = (cix)ap1.a(h.eg);
         bundle = ((Bundle) (obj));
         if (obj == null)
         {
-            bundle = new chr();
-            ap1.a().a(h.ex, bundle, com/google/android/apps/hangouts/peoplelistv2/impl/PeopleSearchActivity.getName()).b();
+            bundle = new cix();
+            ap1.a().a(h.eg, bundle, com/google/android/apps/hangouts/peoplelistv2/impl/PeopleSearchActivity.getName()).b();
         }
         obj = getLayoutInflater();
-        findViewById(h.ey);
-        bundle.a(((android.view.LayoutInflater) (obj)), l);
+        findViewById(h.eh);
+        bundle.a(((android.view.LayoutInflater) (obj)), m);
         g().a(true);
     }
 }

@@ -6,16 +6,21 @@
 public final class bbo
 {
 
-    public static final String a = bax.getName();
-    private static bbm b;
+    public final String a;
+    public int b;
+    long c;
+    public boolean d;
+    int e;
+    int f;
 
-    public static void a(hgx hgx1)
+    bbo(String s, int i)
     {
-        if (b == null)
-        {
-            b = new bbm();
-        }
-        hgx1.a(bax, b.a());
+        a = s;
+        b = i;
     }
 
+    public boolean a()
+    {
+        return b == bbp.a || b == bbp.c;
+    }
 }

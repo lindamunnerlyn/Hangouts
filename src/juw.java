@@ -2,111 +2,69 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.common.collect.MapMakerInternalMap;
+import java.util.Iterator;
 
-public final class juw extends koj
+public final class juw extends jvh
 {
 
-    private static volatile juw d[];
-    public Long a;
-    public Long b;
-    public Boolean c;
+    final MapMakerInternalMap a;
 
-    public juw()
+    public juw(MapMakerInternalMap mapmakerinternalmap)
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = mapmakerinternalmap;
+        super();
     }
 
-    public static juw[] a()
+    public void clear()
     {
-        if (d == null)
+        a.clear();
+    }
+
+    public boolean contains(Object obj)
+    {
+        if (obj instanceof java.util.Map.Entry)
         {
-            synchronized (kon.a)
+            obj = (java.util.Map.Entry)obj;
+            Object obj1 = ((java.util.Map.Entry) (obj)).getKey();
+            if (obj1 != null)
             {
-                if (d == null)
+                obj1 = a.get(obj1);
+                if (obj1 != null && a.f.a(((java.util.Map.Entry) (obj)).getValue(), obj1))
                 {
-                    d = new juw[0];
+                    return true;
                 }
             }
         }
-        return d;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return false;
     }
 
-    protected int computeSerializedSize()
+    public boolean isEmpty()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.e(1, a.longValue());
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.longValue());
-        }
-        i = j;
-        if (c != null)
-        {
-            c.booleanValue();
-            i = j + (koh.f(3) + 1);
-        }
-        return i;
+        return a.isEmpty();
     }
 
-    public kop mergeFrom(kog kog1)
+    public Iterator iterator()
     {
-        do
+        return new juv(a);
+    }
+
+    public boolean remove(Object obj)
+    {
+        if (obj instanceof java.util.Map.Entry)
         {
-            int i = kog1.a();
-            switch (i)
+            obj = (java.util.Map.Entry)obj;
+            Object obj1 = ((java.util.Map.Entry) (obj)).getKey();
+            if (obj1 != null && a.remove(obj1, ((java.util.Map.Entry) (obj)).getValue()))
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Long.valueOf(kog1.e());
-                break;
-
-            case 16: // '\020'
-                b = Long.valueOf(kog1.e());
-                break;
-
-            case 24: // '\030'
-                c = Boolean.valueOf(kog1.i());
-                break;
+                return true;
             }
-        } while (true);
+        }
+        return false;
     }
 
-    public void writeTo(koh koh1)
+    public int size()
     {
-        if (a != null)
-        {
-            koh1.b(1, a.longValue());
-        }
-        if (b != null)
-        {
-            koh1.b(2, b.longValue());
-        }
-        if (c != null)
-        {
-            koh1.a(3, c.booleanValue());
-        }
-        super.writeTo(koh1);
+        return a.size();
     }
 }

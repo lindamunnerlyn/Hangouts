@@ -3,16 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
+import com.google.android.apps.hangouts.conversation.v2.TransportSpinner;
 
-final class bau
+public final class bau extends csw
 {
 
-    bau()
+    final TransportSpinner a;
+
+    public bau(TransportSpinner transportspinner, Context context, hof hof, int i)
     {
+        a = transportspinner;
+        super(context, hof, i, cvc.a.j);
     }
 
-    public bar a(Context context)
+    public void a(cuz cuz1)
     {
-        return new bav(this, context);
+        TransportSpinner.a(a, cuz1.e());
+    }
+
+    protected void c()
+    {
+        TransportSpinner.a(a, false);
     }
 }

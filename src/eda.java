@@ -2,28 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.widget.Toast;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
-final class eda
-    implements Runnable
+public final class eda
+    implements hor, hoy
 {
 
-    final ecz a;
+    private final ad a;
 
-    eda(ecz ecz1)
+    public eda(ad ad1, hof hof1)
     {
-        a = ecz1;
-        super();
+        a = ad1;
+        hof1.a(this);
     }
 
-    public void run()
+    public void a()
     {
-        if (a.e == 1 || a.e == 2 || a.e == 3)
-        {
-            Toast.makeText(a.c, a.c.getString(l.x), 0).show();
-            a.j();
-            a.d = null;
-        }
+        ((InputMethodManager)a.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(a.getView().getWindowToken(), 0);
     }
 }

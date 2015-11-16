@@ -2,50 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.widget.PopupWindow;
+import android.widget.EdgeEffect;
 
-public final class ox
+final class ox extends ov
 {
 
-    static final pc a;
-
-    public static void a(PopupWindow popupwindow)
+    ox()
     {
-        a.a(popupwindow, 2);
     }
 
-    public static void a(PopupWindow popupwindow, View view, int i, int j, int k)
+    public boolean a(Object obj, float f, float f1)
     {
-        a.a(popupwindow, view, i, j, k);
-    }
-
-    public static void a(PopupWindow popupwindow, boolean flag)
-    {
-        a.a(popupwindow, flag);
-    }
-
-    static 
-    {
-        int i = android.os.Build.VERSION.SDK_INT;
-        if (i >= 23)
-        {
-            a = new oz();
-        } else
-        if (i >= 21)
-        {
-            a = new oy();
-        } else
-        if (i >= 19)
-        {
-            a = new pb();
-        } else
-        if (i >= 9)
-        {
-            a = new pa();
-        } else
-        {
-            a = new pc();
-        }
+        ((EdgeEffect)obj).onPull(f, f1);
+        return true;
     }
 }

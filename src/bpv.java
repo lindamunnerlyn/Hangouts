@@ -2,22 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.hangout.IncomingRing;
 
-public final class bpv
-    implements Runnable
+public final class bpv extends bpt
 {
 
-    final IncomingRing a;
+    private final boolean a;
+    private final int b;
 
-    public bpv(IncomingRing incomingring)
+    public bpv(String s, String s1, boolean flag, int i)
     {
-        a = incomingring;
-        super();
+        super(s, s1);
+        a = flag;
+        b = i;
     }
 
-    public void run()
+    public boolean c()
     {
-        IncomingRing.a(a);
+        return a;
+    }
+
+    public int d()
+    {
+        return b;
     }
 }

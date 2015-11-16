@@ -3,16 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class caa
-    implements bzw
+public final class caa
 {
 
-    caa()
+    public static final String a = ctf.getName();
+    private static bzz b;
+
+    public static void a(hlp hlp1)
     {
+        if (b == null)
+        {
+            b = new bzz();
+        }
+        hlp1.a(ctf, new ctf[] {
+            new bzy()
+        });
     }
 
-    public gqn a(String s, int i, amf amf)
-    {
-        return new cab(s, i, amf);
-    }
 }

@@ -2,55 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.os.Bundle;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+import com.google.android.apps.hangouts.phone.ViewVCardActivity;
 
-public final class ejq extends ac
+final class ejq
+    implements android.view.View.OnClickListener
 {
 
-    private Dialog aj;
-    private android.content.DialogInterface.OnCancelListener ak;
+    final aoa a;
+    final ad b;
+    final ejp c;
 
-    public ejq()
+    ejq(ejp ejp1, aoa aoa1, ad ad1)
     {
-        aj = null;
-        ak = null;
+        c = ejp1;
+        a = aoa1;
+        b = ad1;
+        super();
     }
 
-    public static ejq a(Dialog dialog, android.content.DialogInterface.OnCancelListener oncancellistener)
+    public void onClick(View view)
     {
-        ejq ejq1 = new ejq();
-        dialog = (Dialog)h.a(dialog, "Cannot display null dialog");
-        dialog.setOnCancelListener(null);
-        dialog.setOnDismissListener(null);
-        ejq1.aj = dialog;
-        if (oncancellistener != null)
+        view = a;
+        String s = c.a;
+        Intent intent = new Intent(g.nU, com/google/android/apps/hangouts/phone/ViewVCardActivity);
+        if (view != null)
         {
-            ejq1.ak = oncancellistener;
+            intent.putExtra("account_id", view.h());
         }
-        return ejq1;
-    }
-
-    public Dialog a(Bundle bundle)
-    {
-        if (aj == null)
-        {
-            f();
-        }
-        return aj;
-    }
-
-    public void a(ap ap, String s)
-    {
-        super.a(ap, s);
-    }
-
-    public void onCancel(DialogInterface dialoginterface)
-    {
-        if (ak != null)
-        {
-            ak.onCancel(dialoginterface);
-        }
+        intent.setData(Uri.parse(s));
+        b.startActivity(intent);
     }
 }

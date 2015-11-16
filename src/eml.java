@@ -2,80 +2,57 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.data.DataHolder;
-import java.util.Arrays;
+import android.content.Context;
+import android.content.Intent;
 
-public class eml
+public final class eml
 {
 
-    public final DataHolder a;
-    public int b;
-    private int c;
+    public static final int a;
+    private static final eml b = new eml();
 
-    public eml(DataHolder dataholder, int i)
+    eml()
     {
-        a = (DataHolder)h.a(dataholder);
-        a(i);
     }
 
-    public int a(String s)
+    public static int a(Context context)
     {
-        return a.a(s, b, c);
-    }
-
-    protected void a(int i)
-    {
-        boolean flag;
-        if (i >= 0 && i < a.g())
+        int j = emo.a(context);
+        int i = j;
+        if (emo.b(context, j))
         {
-            flag = true;
-        } else
-        {
-            flag = false;
+            i = 18;
         }
-        h.a(flag);
-        b = i;
-        c = a.a(b);
+        return i;
     }
 
-    public String b(String s)
+    public static Intent a(int i)
     {
-        return a.b(s, b, c);
+        return emo.a(i);
     }
 
-    public byte[] c(String s)
+    public static eml a()
     {
-        return a.c(s, b, c);
+        return b;
     }
 
-    public boolean equals(Object obj)
+    public static boolean a(Context context, int i)
     {
-        boolean flag1 = false;
-        boolean flag = flag1;
-        if (obj instanceof eml)
-        {
-            obj = (eml)obj;
-            flag = flag1;
-            if (g.a(Integer.valueOf(((eml) (obj)).b), Integer.valueOf(b)))
-            {
-                flag = flag1;
-                if (g.a(Integer.valueOf(((eml) (obj)).c), Integer.valueOf(c)))
-                {
-                    flag = flag1;
-                    if (((eml) (obj)).a == a)
-                    {
-                        flag = true;
-                    }
-                }
-            }
-        }
-        return flag;
+        return emo.b(context, i);
     }
 
-    public int hashCode()
+    public static void b(Context context)
     {
-        return Arrays.hashCode(new Object[] {
-            Integer.valueOf(b), Integer.valueOf(c), a
-        });
+        emo.b(context);
+    }
+
+    public static void c(Context context)
+    {
+        emo.c(context);
+    }
+
+    static 
+    {
+        a = emo.a;
     }
 }

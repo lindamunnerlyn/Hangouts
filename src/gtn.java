@@ -2,40 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.InputStream;
-import java.nio.ByteBuffer;
+import android.app.Activity;
 
-final class gtn extends InputStream
+public final class gtn
+    implements hmd
 {
 
-    private ByteBuffer a;
-
-    public gtn(ByteBuffer bytebuffer)
+    public gtn()
     {
-        a = bytebuffer;
     }
 
-    public int read()
+    public Class a()
     {
-        if (!a.hasRemaining())
-        {
-            return -1;
-        } else
-        {
-            return a.get() & 0xff;
-        }
+        return gtl;
     }
 
-    public int read(byte abyte0[], int i, int j)
+    public void a(Activity activity, hof hof, hlp hlp1)
     {
-        if (!a.hasRemaining())
-        {
-            return -1;
-        } else
-        {
-            j = Math.min(j, a.remaining());
-            a.get(abyte0, i, j);
-            return j;
-        }
+        hlp1.a(gtl, new gtl(activity, hof));
     }
 }

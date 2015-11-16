@@ -3,44 +3,66 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class lec extends lfg
+public final class lec extends kwm
 {
 
-    private final ldz b;
+    public String a;
+    public String b;
 
-    lec(ldz ldz1, ldh ldh)
+    public lec()
     {
-        super(lcz.m(), ldh);
-        b = ldz1;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public int a(long l)
+    protected int computeSerializedSize()
     {
-        return b.c(l);
+        int j = super.computeSerializedSize() + kwk.b(1, a);
+        int i = j;
+        if (b != null)
+        {
+            i = j + kwk.b(2, b);
+        }
+        return i;
     }
 
-    public int c(long l)
+    public kws mergeFrom(kwj kwj1)
     {
-        return b.i(l);
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+            }
+        } while (true);
     }
 
-    protected int c(long l, int i)
+    public void writeTo(kwk kwk1)
     {
-        return b.e(l, i);
-    }
-
-    public ldh e()
-    {
-        return ((ldw) (b)).f;
-    }
-
-    public int g()
-    {
-        return 1;
-    }
-
-    public int h()
-    {
-        return b.N();
+        kwk1.a(1, a);
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        super.writeTo(kwk1);
     }
 }

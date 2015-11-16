@@ -2,36 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import java.util.List;
 
-public final class bfj
-    implements cib
+final class bfj
+    implements gqw
 {
 
-    final com.google.android.apps.hangouts.fragments.BabelPhotoViewFragment.StoragePermissionHelperActivity a;
+    final bfd a;
 
-    public bfj(com.google.android.apps.hangouts.fragments.BabelPhotoViewFragment.StoragePermissionHelperActivity storagepermissionhelperactivity)
+    bfj(bfd bfd1)
     {
-        a = storagepermissionhelperactivity;
+        a = bfd1;
         super();
     }
 
-    public void a(List list, Bundle bundle)
+    public void a(boolean flag, gqv gqv1, gqv gqv2, int i, int j)
     {
-        gbh.a(Integer.valueOf(list.size()), Integer.valueOf(1));
-        list = (cic)list.get(0);
-        gbh.a(((cic) (list)).a, "android.permission.WRITE_EXTERNAL_STORAGE");
-        bundle = a;
-        byte byte0;
-        if (((cic) (list)).b)
+        if (flag && gqv2 == gqv.c)
         {
-            byte0 = -1;
-        } else
-        {
-            byte0 = 0;
+            a.h();
         }
-        bundle.setResult(byte0);
-        a.finish();
     }
 }

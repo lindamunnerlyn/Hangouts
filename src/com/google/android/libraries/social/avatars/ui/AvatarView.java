@@ -16,23 +16,23 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import g;
-import grq;
-import hcv;
-import hcy;
-import hgn;
-import hgx;
+import gwb;
+import hhm;
+import hhp;
+import hlf;
+import hlp;
 
 public final class AvatarView extends View
-    implements hcy
+    implements hhp
 {
 
     private static boolean a;
     private static Paint b;
     private static RectF c = new RectF();
-    private static grq d;
+    private static gwb d;
     private int e;
     private String f;
-    private hcv g;
+    private hhm g;
     private int h;
     private Matrix i;
     private Paint j;
@@ -57,122 +57,123 @@ public final class AvatarView extends View
 
     public AvatarView(Context context, AttributeSet attributeset, int i1)
     {
-        boolean flag = true;
+        boolean flag;
+        flag = true;
         super(context, attributeset, i1);
         n = true;
         Resources resources = context.getResources();
         if (!a)
         {
-            d = (grq)hgx.a(context, grq);
+            d = (gwb)hlp.a(context, gwb);
             context = new Paint();
             b = context;
             context.setAntiAlias(true);
             b.setStrokeWidth(4F);
-            b.setColor(resources.getColor(g.sp));
+            b.setColor(resources.getColor(g.sQ));
             b.setStyle(android.graphics.Paint.Style.STROKE);
             a = true;
         }
-        q = resources.getDrawable(g.sr);
+        q = resources.getDrawable(g.sS);
         q.setCallback(this);
         e = 2;
         l = 2;
-        if (attributeset != null)
-        {
-            context = attributeset.getAttributeValue(null, "size");
-            if (context != null)
-            {
-                if ("tiny".equals(context))
-                {
-                    i1 = 0;
-                } else
-                if ("small".equals(context))
-                {
-                    i1 = 1;
-                } else
-                if ("medium".equals(context))
-                {
-                    i1 = 2;
-                } else
-                if ("large".equals(context))
-                {
-                    i1 = 3;
-                } else
-                {
-                    context = String.valueOf(context);
-                    if (context.length() != 0)
-                    {
-                        context = "Invalid avatar size: ".concat(context);
-                    } else
-                    {
-                        context = new String("Invalid avatar size: ");
-                    }
-                    throw new IllegalArgumentException(context);
-                }
-                e = i1;
-            }
-            context = attributeset.getAttributeValue(null, "shape");
-            if (context != null)
-            {
-                if ("normal".equals(context))
-                {
-                    i1 = 0;
-                } else
-                {
-                    i1 = ((flag) ? 1 : 0);
-                    if (!"round".equals(context))
-                    {
-                        if ("rounded_corners".equals(context))
-                        {
-                            i1 = 2;
-                        } else
-                        {
-                            context = String.valueOf(context);
-                            if (context.length() != 0)
-                            {
-                                context = "Invalid avatar shape: ".concat(context);
-                            } else
-                            {
-                                context = new String("Invalid avatar shape: ");
-                            }
-                            throw new IllegalArgumentException(context);
-                        }
-                    }
-                }
-                l = i1;
-            }
-            context = attributeset.getAttributeValue(null, "selectable");
-            if (context != null)
-            {
-                n = Boolean.parseBoolean(context);
-            }
-            k = attributeset.getAttributeBooleanValue(null, "allowNonSquare", false);
-        }
-        e = e;
-        e;
-        JVM INSTR tableswitch 0 3: default 264
-    //                   0 439
-    //                   1 453
-    //                   2 264
-    //                   3 467;
-           goto _L1 _L2 _L3 _L1 _L4
+        if (attributeset == null) goto _L2; else goto _L1
 _L1:
-        h = g.B(getContext());
-_L6:
-        if (android.os.Build.VERSION.SDK_INT >= 17)
+        context = attributeset.getAttributeValue(null, "size");
+        if (context == null) goto _L4; else goto _L3
+_L3:
+        if ("tiny".equals(context))
         {
-            setLayoutDirection(0);
+            i1 = 0;
+        } else
+        if ("small".equals(context))
+        {
+            i1 = 1;
+        } else
+        if ("medium".equals(context))
+        {
+            i1 = 2;
+        } else
+        if ("large".equals(context))
+        {
+            i1 = 3;
+        } else
+        {
+            context = String.valueOf(context);
+            if (context.length() != 0)
+            {
+                context = "Invalid avatar size: ".concat(context);
+            } else
+            {
+                context = new String("Invalid avatar size: ");
+            }
+            throw new IllegalArgumentException(context);
+        }
+_L12:
+        e = i1;
+_L4:
+        context = attributeset.getAttributeValue(null, "shape");
+        if (context == null) goto _L6; else goto _L5
+_L5:
+        if (!"normal".equals(context)) goto _L8; else goto _L7
+_L7:
+        i1 = 0;
+_L10:
+        l = i1;
+_L6:
+        context = attributeset.getAttributeValue(null, "selectable");
+        if (context != null)
+        {
+            n = Boolean.parseBoolean(context);
+        }
+        k = attributeset.getAttributeBooleanValue(null, "allowNonSquare", false);
+          goto _L2
+_L8:
+        i1 = ((flag) ? 1 : 0);
+        if ("round".equals(context))
+        {
+            continue; /* Loop/switch isn't completed */
+        }
+        if (!"rounded_corners".equals(context))
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        i1 = 2;
+        if (true) goto _L10; else goto _L9
+_L9:
+        context = String.valueOf(context);
+        if (context.length() != 0)
+        {
+            context = "Invalid avatar shape: ".concat(context);
+        } else
+        {
+            context = new String("Invalid avatar shape: ");
+        }
+        throw new IllegalArgumentException(context);
+_L2:
+        e = e;
+        switch (e)
+        {
+        case 2: // '\002'
+        default:
+            h = g.B(getContext());
+            return;
+
+        case 0: // '\0'
+            h = g.x(getContext());
+            return;
+
+        case 1: // '\001'
+            h = g.z(getContext());
+            return;
+
+        case 3: // '\003'
+            h = g.D(getContext());
+            break;
         }
         return;
-_L2:
-        h = g.x(getContext());
-        continue; /* Loop/switch isn't completed */
-_L3:
-        h = g.z(getContext());
-        continue; /* Loop/switch isn't completed */
-_L4:
-        h = g.D(getContext());
-        if (true) goto _L6; else goto _L5
-_L5:
+        if (true) goto _L12; else goto _L11
+_L11:
     }
 
     private void a()
@@ -231,11 +232,11 @@ label0:
         }
     }
 
-    public void a(hcv hcv1)
+    public void a(hhm hhm1)
     {
-        if (hcv1.w() == 1)
+        if (hhm1.x() == 1)
         {
-            int i1 = ((Bitmap)hcv1.y()).getWidth();
+            int i1 = ((Bitmap)hhm1.z()).getWidth();
             a(getMeasuredWidth(), i1);
         }
         invalidate();
@@ -271,20 +272,20 @@ label0:
         {
             if (isClickable())
             {
-                return getResources().getString(g.sv, new Object[] {
+                return getResources().getString(g.sW, new Object[] {
                     o
                 });
             } else
             {
-                return getResources().getString(g.su);
+                return getResources().getString(g.sV);
             }
         }
         if (isClickable())
         {
-            return getResources().getString(g.st);
+            return getResources().getString(g.sU);
         } else
         {
-            return getResources().getString(g.ss);
+            return getResources().getString(g.sT);
         }
     }
 
@@ -306,9 +307,9 @@ label0:
         Object obj;
         Bitmap bitmap;
         int i1;
-        if (g != null && g.w() == 1)
+        if (g != null && g.x() == 1)
         {
-            bitmap = (Bitmap)g.y();
+            bitmap = (Bitmap)g.z();
         } else
         {
             bitmap = null;
@@ -361,19 +362,19 @@ _L4:
             break;
 
         case 1: // '\001'
-            if (g.sd == null)
+            if (g.sE == null)
             {
-                g.sd = hgn.a(g.y(((Context) (obj))));
+                g.sE = hlf.a(g.y(((Context) (obj))));
             }
-            obj = g.sd;
+            obj = g.sE;
             break;
 
         case 2: // '\002'
-            if (g.se == null)
+            if (g.sF == null)
             {
-                g.se = hgn.a(g.y(((Context) (obj))), g.F(((Context) (obj))));
+                g.sF = hlf.a(g.y(((Context) (obj))), g.F(((Context) (obj))));
             }
-            obj = g.se;
+            obj = g.sF;
             break;
         }
         if (true) goto _L2; else goto _L13
@@ -387,19 +388,19 @@ _L5:
             break;
 
         case 1: // '\001'
-            if (g.sg == null)
+            if (g.sH == null)
             {
-                g.sg = hgn.a(g.A(((Context) (obj))));
+                g.sH = hlf.a(g.A(((Context) (obj))));
             }
-            obj = g.sg;
+            obj = g.sH;
             break;
 
         case 2: // '\002'
-            if (g.sh == null)
+            if (g.sI == null)
             {
-                g.sh = hgn.a(g.A(((Context) (obj))), g.F(((Context) (obj))));
+                g.sI = hlf.a(g.A(((Context) (obj))), g.F(((Context) (obj))));
             }
-            obj = g.sh;
+            obj = g.sI;
             break;
         }
         if (true) goto _L2; else goto _L14
@@ -413,19 +414,19 @@ _L6:
             break;
 
         case 1: // '\001'
-            if (g.sj == null)
+            if (g.sK == null)
             {
-                g.sj = hgn.a(g.C(((Context) (obj))));
+                g.sK = hlf.a(g.C(((Context) (obj))));
             }
-            obj = g.sj;
+            obj = g.sK;
             break;
 
         case 2: // '\002'
-            if (g.sk == null)
+            if (g.sL == null)
             {
-                g.sk = hgn.a(g.C(((Context) (obj))), g.F(((Context) (obj))));
+                g.sL = hlf.a(g.C(((Context) (obj))), g.F(((Context) (obj))));
             }
-            obj = g.sk;
+            obj = g.sL;
             break;
         }
         if (true) goto _L2; else goto _L15
@@ -439,19 +440,19 @@ _L7:
             break;
 
         case 1: // '\001'
-            if (g.sm == null)
+            if (g.sN == null)
             {
-                g.sm = hgn.a(g.E(((Context) (obj))));
+                g.sN = hlf.a(g.E(((Context) (obj))));
             }
-            obj = g.sm;
+            obj = g.sN;
             break;
 
         case 2: // '\002'
-            if (g.sn == null)
+            if (g.sO == null)
             {
-                g.sn = hgn.a(g.E(((Context) (obj))), g.F(((Context) (obj))));
+                g.sO = hlf.a(g.E(((Context) (obj))), g.F(((Context) (obj))));
             }
-            obj = g.sn;
+            obj = g.sO;
             break;
         }
         continue; /* Loop/switch isn't completed */
@@ -522,9 +523,9 @@ _L16:
             i1 = j1;
             j1 = k1;
         }
-        if (g != null && g.w() == 1)
+        if (g != null && g.x() == 1)
         {
-            k1 = ((Bitmap)g.y()).getWidth();
+            k1 = ((Bitmap)g.z()).getWidth();
         } else
         {
             k1 = h;

@@ -2,42 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.TimerTask;
 
-final class drc extends TimerTask
+final class drc
+    implements hjv
 {
 
-    drc()
+    final drb a;
+
+    drc(drb drb1)
     {
+        a = drb1;
+        super();
     }
 
-    public void run()
+    public boolean a(hjr hjr, Object obj)
     {
-label0:
+        boolean flag = g.a((Boolean)obj, false);
+        if (!flag)
         {
-            synchronized (drb.a())
-            {
-                if (drb.a().a > 0)
-                {
-                    break label0;
-                }
-            }
-            return;
+            g.a(drb.a(a).a(), 0, 0);
         }
-        drb.c(g.nS);
-_L1:
-        dre1;
-        JVM INSTR monitorexit ;
-        return;
-        exception;
-        dre1;
-        JVM INSTR monitorexit ;
-        throw exception;
-        abx abx1;
-        abx1;
-        drb.a().b = false;
-        String s = String.valueOf(abx1);
-        ebw.g("Babel_SMS", (new StringBuilder(String.valueOf(s).length() + 46)).append("MmsSendReceiveManager.MMS_APN_EXTENSION_TASK: ").append(s).toString());
-          goto _L1
+        hjr = drb.a(a);
+        char c;
+        if (flag)
+        {
+            c = '\u059D';
+        } else
+        {
+            c = '\u059B';
+        }
+        g.a(hjr, c);
+        return true;
     }
 }

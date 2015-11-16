@@ -4,13 +4,13 @@
 
 package com.google.api.client.http;
 
-import hof;
+import htb;
 import java.io.OutputStream;
 
 public interface HttpEncoding
 {
 
-    public abstract void encode(hof hof, OutputStream outputstream);
+    public abstract void encode(htb htb, OutputStream outputstream);
 
     public abstract String getName();
 }

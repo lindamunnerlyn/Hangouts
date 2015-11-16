@@ -2,113 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpExecuteInterceptor;
+import com.google.api.client.http.HttpRequestInitializer;
+import com.google.api.client.http.HttpTransport;
+import com.google.api.client.json.JsonFactory;
+import java.util.ArrayList;
+import java.util.Collection;
 
-public final class hpx extends koj
+public class hpx
 {
 
-    public String a;
-    public int b;
-    public hpy c;
-    public String d;
+    final hpw a;
+    HttpTransport b;
+    JsonFactory c;
+    GenericUrl d;
+    hsa e;
+    HttpExecuteInterceptor f;
+    HttpRequestInitializer g;
+    Collection h;
 
-    public hpx()
+    public hpx(hpw hpw1)
     {
-        a = null;
-        b = 0x80000000;
-        c = null;
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        e = hsa.a;
+        h = new ArrayList();
+        a = (hpw)h.a(hpw1);
     }
 
-    protected int computeSerializedSize()
+    public hpx a(String s)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        if (s == null)
         {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != 0x80000000)
+            s = null;
+        } else
         {
-            j = i + koh.e(2, b);
+            s = new GenericUrl(s);
         }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.d(3, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.b(4, d);
-        }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-_L7:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 5: default 56
-    //                   0: 65
-    //                   10: 67
-    //                   16: 78
-    //                   26: 127
-    //                   34: 156;
-           goto _L1 _L2 _L3 _L4 _L5 _L6
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L7; else goto _L2
-_L2:
+        d = s;
         return this;
-_L3:
-        a = kog1.j();
-          goto _L7
-_L4:
-        int j = kog1.f();
-        switch (j)
-        {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-            b = j;
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L5:
-        if (c == null)
-        {
-            c = new hpy();
-        }
-        kog1.a(c);
-        continue; /* Loop/switch isn't completed */
-_L6:
-        d = kog1.j();
-        if (true) goto _L7; else goto _L8
-_L8:
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        if (b != 0x80000000)
-        {
-            koh1.a(2, b);
-        }
-        if (c != null)
-        {
-            koh1.b(3, c);
-        }
-        if (d != null)
-        {
-            koh1.a(4, d);
-        }
-        super.writeTo(koh1);
     }
 }

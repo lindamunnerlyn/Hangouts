@@ -3,21 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class ebv
-    implements Runnable
+public interface ebv
 {
 
-    final ebu a;
-
-    ebv(ebu ebu1)
-    {
-        a = ebu1;
-        super();
-    }
-
-    public void run()
-    {
-        ebw.a("CallMarkReporter", "Delayed reporting");
-        a.b();
-    }
+    public abstract Object g();
 }

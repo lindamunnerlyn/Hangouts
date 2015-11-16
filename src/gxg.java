@@ -3,10 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gxg
+public final class gxg
+    implements gxl
 {
 
-    public abstract ad b();
-
-    public abstract boolean b(gmu gmu);
+    public gxg()
+    {
+    }
 }

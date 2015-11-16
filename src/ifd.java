@@ -3,18 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ifd extends koj
+public final class ifd extends kwm
 {
 
     public String a;
-    public ife b;
-    public Integer c;
+    public ife b[];
 
     public ifd()
     {
         a = null;
-        b = null;
-        c = null;
+        b = ife.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -25,30 +23,41 @@ public final class ifd extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.b(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.d(2, b);
+            j = i;
+            if (b.length > 0)
+            {
+                for (j = 0; j < b.length;)
+                {
+                    ife ife1 = b[j];
+                    int k = i;
+                    if (ife1 != null)
+                    {
+                        k = i + kwk.d(2, ife1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
         }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.intValue());
-        }
-        return i;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -58,38 +67,60 @@ public final class ifd extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                a = kwj1.j();
                 break;
 
             case 18: // '\022'
+                int k = kwx.a(kwj1, 18);
+                ife aife[];
+                int j;
                 if (b == null)
                 {
-                    b = new ife();
+                    j = 0;
+                } else
+                {
+                    j = b.length;
                 }
-                kog1.a(b);
-                break;
+                aife = new ife[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(b, 0, aife, 0, j);
+                    k = j;
+                }
+                for (; k < aife.length - 1; k++)
+                {
+                    aife[k] = new ife();
+                    kwj1.a(aife[k]);
+                    kwj1.a();
+                }
 
-            case 24: // '\030'
-                c = Integer.valueOf(kog1.f());
+                aife[k] = new ife();
+                kwj1.a(aife[k]);
+                b = aife;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(1, a);
         }
-        if (b != null)
+        if (b != null && b.length > 0)
         {
-            koh1.b(2, b);
+            for (int i = 0; i < b.length; i++)
+            {
+                ife ife1 = b[i];
+                if (ife1 != null)
+                {
+                    kwk1.b(2, ife1);
+                }
+            }
+
         }
-        if (c != null)
-        {
-            koh1.a(3, c.intValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

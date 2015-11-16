@@ -2,95 +2,95 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import com.google.android.apps.hangouts.views.EasterEggView;
-import java.util.List;
 
-public final class edt
-    implements android.view.animation.Animation.AnimationListener, aqb
+public abstract class edt
 {
 
-    final EasterEggView a;
-    private apw b;
-    private ImageView c;
-    private Animation d;
-    private eei e;
+    private String a;
+    public String b;
+    public String c;
+    public boolean d;
+    private final String e;
+    private String f;
+    private String g;
 
-    public edt(EasterEggView eastereggview, eam eam, int i)
+    public edt(String s1, String s2)
     {
-        a = eastereggview;
-        super();
-        b = new apw(eam, this, true, null);
-        c = null;
-        d = AnimationUtils.loadAnimation(eastereggview.getContext(), i);
-        d.setAnimationListener(this);
-        ((dmt)hgx.a(eastereggview.getContext(), dmt)).c(b);
+        this(s1, s2, (byte)0);
     }
 
-    public void a()
+    private edt(String s1, String s2, byte byte0)
     {
-        if (b != null)
+        e = s1;
+        if (e == null || e.contains("focus"))
         {
-            b.b();
-            b = null;
+            a = s2;
         }
-        if (d != null)
-        {
-            d.cancel();
-            d = null;
-        }
-        if (c != null)
-        {
-            a.removeView(c);
-            c.clearAnimation();
-            c.setImageDrawable(null);
-            c.setImageBitmap(null);
-            c = null;
-        }
-        if (e != null)
-        {
-            e.c();
-            e = null;
-        }
+        d = false;
     }
 
-    public void a(ebh ebh, eab eab, boolean flag, apw apw1, boolean flag1)
+    public abstract void a();
+
+    public void a(String s1)
     {
-        if (apw1.equals(b))
+        f = s1;
+    }
+
+    public void b(String s1)
+    {
+        g = s1;
+    }
+
+    public String n()
+    {
+        return e;
+    }
+
+    public String o()
+    {
+        return a;
+    }
+
+    public boolean p()
+    {
+        return d;
+    }
+
+    public String q()
+    {
+        return f;
+    }
+
+    public String r()
+    {
+        return g;
+    }
+
+    public String s()
+    {
+        if (c == null)
         {
-            b = null;
-            if (!flag)
-            {
-                ebw.c("Babel", "Failed to download easter egg image.");
-                EasterEggView.a(a).remove(this);
-            }
-            gbh.b(eab);
-            c = new ImageView(a.getContext());
-            c.setScaleType(android.widget.ImageView.ScaleType.FIT_CENTER);
-            e = new eei(eab);
-            c.setImageDrawable(e);
-            e.a();
-            c.startAnimation(d);
-            a.addView(c);
+            a();
         }
+        return c;
     }
 
-    public void onAnimationEnd(Animation animation)
+    public String t()
     {
-        if (c != null)
+        if (b == null)
         {
-            c.setVisibility(8);
+            a();
         }
-        a.post(new edu(this, this));
+        return b;
     }
 
-    public void onAnimationRepeat(Animation animation)
+    public String toString()
     {
-    }
-
-    public void onAnimationStart(Animation animation)
-    {
+        String s1 = e;
+        String s2 = a;
+        String s3 = b;
+        String s4 = c;
+        boolean flag = d;
+        return (new StringBuilder(String.valueOf(s1).length() + 41 + String.valueOf(s2).length() + String.valueOf(s3).length() + String.valueOf(s4).length())).append("Base:").append(s1).append(" Account name=").append(s2).append(" Load:").append(s3).append(" key=").append(s4).append(" save:").append(flag).toString();
     }
 }

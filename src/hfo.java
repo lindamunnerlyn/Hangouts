@@ -2,21 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.ArrayList;
 
-final class hfo
-    implements Runnable
+public final class hfo
 {
 
-    final hfn a;
+    static qd a = null;
+    private static final long b = hpt.a("picasasync.metrics.time");
+    private static final ThreadLocal c = new hfp();
 
-    hfo(hfn hfn1)
+    public static void a()
     {
-        a = hfn1;
-        super();
+        Object obj = (ArrayList)c.get();
+        int i = ((ArrayList) (obj)).size();
+        if (i > 0)
+        {
+            obj = (qd)((ArrayList) (obj)).get(i - 1);
+            obj.C = (int)((long)((qd) (obj)).C + 1L);
+        }
     }
 
-    public void run()
+    public static void a(long l)
     {
-        hfn.a(a);
+        Object obj = (ArrayList)c.get();
+        int i = ((ArrayList) (obj)).size();
+        if (i > 0)
+        {
+            obj = (qd)((ArrayList) (obj)).get(i - 1);
+            obj.B = ((qd) (obj)).B + l;
+        }
     }
+
 }

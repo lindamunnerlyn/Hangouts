@@ -4,8 +4,8 @@
 
 package com.google.android.libraries.hangouts.video;
 
-import inu;
-import inx;
+import itz;
+import iuc;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,31 +35,31 @@ public class m extends Stats
         printwriter.println("  VideoReceiver -- ssrc, rcvd, lost, firs, size, rcvd, dec, rendIn, rendOut");
     }
 
-    public void addTo(inu inu1)
+    public void addTo(itz itz1)
     {
-        inx inx1 = Stats.a(2);
-        inx1.k = Integer.valueOf(1);
-        inx1.l = Integer.valueOf(a);
-        inx1.i = Long.valueOf(b);
-        inx1.j = Integer.valueOf(c);
-        inx1.c = Integer.valueOf(d);
-        inx1.b = Integer.valueOf((int)(e * 100F));
-        inx1.n = Integer.valueOf(f);
-        inx1.o = Integer.valueOf(g);
-        inx1.O = Integer.valueOf(h);
-        inx1.P = Integer.valueOf(i);
-        inx1.q = Integer.valueOf(j);
-        inx1.r = Integer.valueOf(k);
-        inx1.s = Float.valueOf(l);
-        inx1.u = Float.valueOf(m);
-        int i1 = inu1.b.length;
-        inu1.b = (inx[])Arrays.copyOf(inu1.b, i1 + 1);
-        inu1.b[i1] = inx1;
+        iuc iuc1 = Stats.a(2);
+        iuc1.k = Integer.valueOf(1);
+        iuc1.l = Integer.valueOf(a);
+        iuc1.i = Long.valueOf(b);
+        iuc1.j = Integer.valueOf(c);
+        iuc1.c = Integer.valueOf(d);
+        iuc1.b = Integer.valueOf((int)(e * 100F));
+        iuc1.n = Integer.valueOf(f);
+        iuc1.o = Integer.valueOf(g);
+        iuc1.O = Integer.valueOf(h);
+        iuc1.P = Integer.valueOf(i);
+        iuc1.q = Integer.valueOf(j);
+        iuc1.r = Integer.valueOf(k);
+        iuc1.s = Float.valueOf(l);
+        iuc1.u = Float.valueOf(m);
+        int i1 = itz1.b.length;
+        itz1.b = (iuc[])Arrays.copyOf(itz1.b, i1 + 1);
+        itz1.b[i1] = iuc1;
     }
 
     public void print(PrintWriter printwriter,  )
     {
-        com.google.android.libraries.hangouts.video..b().add(Float.valueOf(j));
+        .b.add(Float.valueOf(j));
         int i1 = a;
         int j1 = c;
         int k1 = b;

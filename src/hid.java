@@ -2,28 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
+import java.io.IOException;
 
-final class hid
-    implements hhl, hhy
+public final class hid extends IOException
 {
 
-    hid()
+    private final int a;
+    private final String b = null;
+
+    public hid(int i, String s)
     {
+        super((new StringBuilder(String.valueOf(null).length() + 13)).append(i).append(": ").append(null).toString());
+        a = i;
     }
 
-    public Class a()
+    public int a()
     {
-        return hic;
-    }
-
-    public void a(ad ad, hjm hjm, hgx hgx1)
-    {
-        hgx1.a(hic, new hic(hjm, (byte)0));
-    }
-
-    public void a(Activity activity, hjm hjm, hgx hgx1)
-    {
-        hgx1.a(hic, new hic(hjm));
+        return a;
     }
 }

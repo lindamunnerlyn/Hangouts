@@ -2,48 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.libraries.social.settings.PreferenceScreen;
 
-public class hkp extends Enum
+public interface hkp
 {
 
-    public static final hkp a;
-    public static final hkp b;
-    public static final hkp c;
-    public static final hkp d;
-    public static final hkp e;
-    private static final hkp g[];
-    long f;
-
-    hkp(String s, int i, long l)
-    {
-        super(s, i);
-        f = l;
-    }
-
-    public static hkp valueOf(String s)
-    {
-        return (hkp)Enum.valueOf(hkp, s);
-    }
-
-    public static hkp[] values()
-    {
-        return (hkp[])g.clone();
-    }
-
-    public long a(long l)
-    {
-        return f * l;
-    }
-
-    static 
-    {
-        a = new hkq("TERABYTES");
-        b = new hkr("GIGABYTES");
-        c = new hks("MEGABYTES");
-        d = new hkt("KILOBYTES");
-        e = new hku("BYTES");
-        g = (new hkp[] {
-            a, b, c, d, e
-        });
-    }
+    public abstract PreferenceScreen b();
 }

@@ -10,49 +10,67 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 import ap;
 import bg;
-import cqz;
-import cra;
-import cre;
-import crj;
+import ctj;
+import ctk;
+import cto;
+import ctt;
 import g;
-import hgx;
+import gqu;
+import gqv;
+import gqw;
+import hlp;
 
-public class PromoActivity extends cqz
+public class PromoActivity extends ctj
+    implements gqw
 {
 
-    private static final cre o = new cre();
-    private crj j;
-    private int m;
+    private static final cto p = new cto();
+    private ctt m;
     private int n;
+    private int o;
 
     public PromoActivity()
     {
+        j.a(this);
+    }
+
+    public void a(boolean flag, gqv gqv1, gqv gqv2, int i, int j)
+    {
+        if (gqv2 == gqv.c)
+        {
+            m = (ctt)k.a(ctt);
+            m.a(this);
+            if (m.a() == 0)
+            {
+                finish();
+            }
+        }
     }
 
     public void g()
     {
-        if (m + 1 < j.a())
+        if (n + 1 < m.a())
         {
-            int i = m;
-            int k = m + 1;
-            bg bg1 = t_().a();
+            int i = n;
+            int j = n + 1;
+            bg bg1 = u_().a();
             ObjectAnimator objectanimator;
-            if (i < k)
+            if (i < j)
             {
-                bg1.a(g.ow, g.ox);
+                bg1.a(g.oy, g.oz);
             } else
             {
-                bg1.a(g.ov, g.oy);
+                bg1.a(g.ox, g.oA);
             }
-            objectanimator = ObjectAnimator.ofInt((FrameLayout)findViewById(g.oz), "backgroundColor", new int[] {
-                getResources().getColor(j.a(i).c()), getResources().getColor(j.a(k).c())
+            objectanimator = ObjectAnimator.ofInt((FrameLayout)findViewById(g.oB), "backgroundColor", new int[] {
+                getResources().getColor(m.a(i).c()), getResources().getColor(m.a(j).c())
             });
-            objectanimator.setEvaluator(o);
-            objectanimator.setDuration(getResources().getInteger(g.oA));
+            objectanimator.setEvaluator(p);
+            objectanimator.setDuration(getResources().getInteger(g.oC));
             objectanimator.start();
-            bg1.b(g.oz, j.a(k).a());
+            bg1.b(g.oB, m.a(j).a());
             bg1.b();
-            m = m + 1;
+            n = n + 1;
             return;
         } else
         {
@@ -63,38 +81,34 @@ public class PromoActivity extends cqz
 
     public void onBackPressed()
     {
-        j.b(m);
+        m.b(n);
     }
 
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        j = (crj)k.a(crj);
-        if (j.a() == 0)
-        {
-            finish();
-            return;
-        }
+        m = (ctt)k.a(ctt);
         if (bundle != null)
         {
-            m = bundle.getInt("current_item");
-            n = getResources().getColor(j.a(m).c());
+            n = bundle.getInt("current_item");
+            o = getResources().getColor(m.a(n).c());
         }
-        setContentView(g.oB);
-        if (bundle == null)
+        setContentView(g.oD);
+        bundle = u_();
+        if (bundle.a(g.oB) == null)
         {
-            bundle = t_().a();
-            bundle.b(g.oz, j.a(m).a());
+            bundle = bundle.a();
+            bundle.b(g.oB, m.a(n).a());
             bundle.b();
-            n = getResources().getColor(j.a(m).c());
+            o = getResources().getColor(m.a(n).c());
         }
-        ((FrameLayout)findViewById(g.oz)).setBackgroundColor(n);
+        ((FrameLayout)findViewById(g.oB)).setBackgroundColor(o);
     }
 
     public void onSaveInstanceState(Bundle bundle)
     {
         super.onSaveInstanceState(bundle);
-        bundle.putInt("current_item", m);
+        bundle.putInt("current_item", n);
     }
 
 }

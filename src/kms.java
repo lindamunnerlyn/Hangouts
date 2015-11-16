@@ -3,28 +3,79 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kms extends kmv
+public final class kms extends kwm
 {
 
-    private final kmy b;
+    public Boolean a;
+    public kmt b;
 
-    public kmy a()
+    public kms()
     {
-        return a(b);
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public boolean equals(Object obj)
+    protected int computeSerializedSize()
     {
-        return a().equals(obj);
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(2, b);
+        }
+        return j;
     }
 
-    public int hashCode()
+    public kws mergeFrom(kwj kwj1)
     {
-        return a().hashCode();
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new kmt();
+                }
+                kwj1.a(b);
+                break;
+            }
+        } while (true);
     }
 
-    public String toString()
+    public void writeTo(kwk kwk1)
     {
-        return a().toString();
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
+        }
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        super.writeTo(kwk1);
     }
 }

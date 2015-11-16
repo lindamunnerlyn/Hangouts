@@ -2,31 +2,51 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import com.google.android.apps.hangouts.floatingactionbutton.impl.FloatingActionButton;
+import android.content.Context;
+import java.util.Iterator;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public final class bej extends AnimatorListenerAdapter
+public final class bej
 {
 
-    final FloatingActionButton a;
+    static boolean a = false;
+    private static final Pattern b = Pattern.compile("\\*#\\*#(.*)#\\*#\\*");
+    private static final boolean c = false;
 
-    public bej(FloatingActionButton floatingactionbutton)
+    public static boolean a(Context context, CharSequence charsequence)
     {
-        a = floatingactionbutton;
-        super();
+label0:
+        {
+            if (!c && !a || charsequence == null)
+            {
+                return false;
+            }
+            charsequence = b.matcher(charsequence);
+            if (!charsequence.matches())
+            {
+                break label0;
+            }
+            charsequence = charsequence.group(1);
+            Iterator iterator = hlp.c(context, bei).iterator();
+            bei bei1;
+            do
+            {
+                if (!iterator.hasNext())
+                {
+                    break label0;
+                }
+                bei1 = (bei)iterator.next();
+            } while (!bei1.a(charsequence));
+            bei1.a(context);
+            return true;
+        }
+        return false;
     }
 
-    public void onAnimationEnd(Animator animator)
+    static 
     {
-        if (FloatingActionButton.a(a) == bem.a)
-        {
-            FloatingActionButton.a(a, FloatingActionButton.b(a));
-            FloatingActionButton.a(a, FloatingActionButton.c(a));
-        }
-        FloatingActionButton.d(a);
-        FloatingActionButton.e(a);
-        FloatingActionButton.a(a, 0.0F);
-        a.invalidate();
+        new hnc("debug.chat.debug");
     }
 }

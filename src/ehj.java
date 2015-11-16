@@ -2,28 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.wearable.WearableService;
+import android.view.View;
 
-public final class ehj
-    implements Runnable
+final class ehj
+    implements android.view.View.OnClickListener
 {
 
-    final String a;
+    final ad a;
     final String b;
-    final int c;
-    final WearableService d;
+    final ehi c;
 
-    public ehj(WearableService wearableservice, String s, String s1, int i)
+    ehj(ehi ehi, ad ad1, String s)
     {
-        d = wearableservice;
-        a = s;
-        b = s1;
-        c = i;
+        c = ehi;
+        a = ad1;
+        b = s;
         super();
     }
 
-    public void run()
+    public void onClick(View view)
     {
-        WearableService.a(d, a, b, c);
+        a.startActivity(g.s(b));
     }
 }

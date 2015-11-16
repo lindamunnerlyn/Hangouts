@@ -2,68 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import java.util.concurrent.CopyOnWriteArrayList;
+import android.graphics.Point;
+import android.support.v4.view.ViewPager;
 
-public final class bjs
+final class bjs
+    implements android.view.ViewTreeObserver.OnGlobalLayoutListener
 {
 
-    private static int c = 16;
-    private static final Object d = new Object();
-    private final Context a;
-    private final CopyOnWriteArrayList b = new CopyOnWriteArrayList();
-    private bjv e;
+    final bjq a;
 
-    public bjs(Context context)
+    bjs(bjq bjq1)
     {
-        a = context;
-        (new bju(this)).a(new Void[0]);
+        a = bjq1;
+        super();
     }
 
-    static Context a(bjs bjs1)
+    public void onGlobalLayout()
     {
-        return bjs1.a;
-    }
-
-    static int b()
-    {
-        return c;
-    }
-
-    static CopyOnWriteArrayList b(bjs bjs1)
-    {
-        return bjs1.b;
-    }
-
-    static bjv c(bjs bjs1)
-    {
-        return bjs1.e;
-    }
-
-    static Object c()
-    {
-        return d;
-    }
-
-    public CopyOnWriteArrayList a()
-    {
-        return b;
-    }
-
-    public void a(int i)
-    {
-        while (b.remove(Integer.valueOf(i))) ;
-        b.add(0, Integer.valueOf(i));
-        if (e != null)
+        gng.a(bjq.b(a), this);
+        while (a.getActivity() == null || bjq.c(a) == null) 
         {
-            e.g_();
+            return;
         }
-        gbk.a(new bjt(this));
+        bjq.c(a).a(bjq.d(a).x, bjq.b(a).getHeight());
+        bjq.c(a).d();
+        bjq.a(a, bjq.e(a), true);
     }
-
-    public void a(bjv bjv1)
-    {
-        e = bjv1;
-    }
-
 }

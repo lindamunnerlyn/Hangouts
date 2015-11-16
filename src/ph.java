@@ -4,75 +4,30 @@
 
 import android.content.Context;
 import android.view.animation.Interpolator;
-import android.widget.OverScroller;
 
-class ph
-    implements pf
+interface ph
 {
 
-    ph()
-    {
-    }
+    public abstract Object a(Context context, Interpolator interpolator);
 
-    public Object a(Context context, Interpolator interpolator)
-    {
-        if (interpolator != null)
-        {
-            return new OverScroller(context, interpolator);
-        } else
-        {
-            return new OverScroller(context);
-        }
-    }
+    public abstract void a(Object obj, int i, int j, int k, int l, int i1);
 
-    public void a(Object obj, int i, int j, int k, int l, int i1)
-    {
-        ((OverScroller)obj).startScroll(i, j, k, l, i1);
-    }
+    public abstract void a(Object obj, int i, int j, int k, int l, int i1, int j1, 
+            int k1, int l1);
 
-    public void a(Object obj, int i, int j, int k, int l, int i1, int j1, 
-            int k1, int l1)
-    {
-        ((OverScroller)obj).fling(0, 0, k, l, i1, j1, 0x80000000, 0x7fffffff);
-    }
+    public abstract boolean a(Object obj);
 
-    public boolean a(Object obj)
-    {
-        return ((OverScroller)obj).isFinished();
-    }
+    public abstract int b(Object obj);
 
-    public int b(Object obj)
-    {
-        return ((OverScroller)obj).getCurrX();
-    }
+    public abstract int c(Object obj);
 
-    public int c(Object obj)
-    {
-        return ((OverScroller)obj).getCurrY();
-    }
+    public abstract float d(Object obj);
 
-    public float d(Object obj)
-    {
-        return 0.0F;
-    }
+    public abstract boolean e(Object obj);
 
-    public boolean e(Object obj)
-    {
-        return ((OverScroller)obj).computeScrollOffset();
-    }
+    public abstract void f(Object obj);
 
-    public void f(Object obj)
-    {
-        ((OverScroller)obj).abortAnimation();
-    }
+    public abstract int g(Object obj);
 
-    public int g(Object obj)
-    {
-        return ((OverScroller)obj).getFinalX();
-    }
-
-    public int h(Object obj)
-    {
-        return ((OverScroller)obj).getFinalY();
-    }
+    public abstract int h(Object obj);
 }

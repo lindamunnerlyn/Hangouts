@@ -2,43 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.FragmentManager;
+import android.content.DialogInterface;
+import android.os.Bundle;
 
-public final class emk
-    implements Iterator
+public final class emk extends DialogFragment
 {
 
-    public final eme a;
-    public int b;
+    Dialog a;
+    android.content.DialogInterface.OnCancelListener b;
 
-    public emk(eme eme1)
+    public emk()
     {
-        a = (eme)h.a(eme1);
-        b = -1;
+        a = null;
+        b = null;
     }
 
-    public boolean hasNext()
+    public void onCancel(DialogInterface dialoginterface)
     {
-        return b < a.a() - 1;
-    }
-
-    public Object next()
-    {
-        if (!hasNext())
+        if (b != null)
         {
-            throw new NoSuchElementException((new StringBuilder("Cannot advance the iterator beyond ")).append(b).toString());
-        } else
-        {
-            eme eme1 = a;
-            int i = b + 1;
-            b = i;
-            return eme1.a(i);
+            b.onCancel(dialoginterface);
         }
     }
 
-    public void remove()
+    public Dialog onCreateDialog(Bundle bundle)
     {
-        throw new UnsupportedOperationException("Cannot remove elements from a DataBufferIterator");
+        if (a == null)
+        {
+            setShowsDialog(false);
+        }
+        return a;
+    }
+
+    public void show(FragmentManager fragmentmanager, String s)
+    {
+        super.show(fragmentmanager, s);
     }
 }

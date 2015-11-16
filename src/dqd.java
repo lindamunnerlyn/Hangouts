@@ -2,10 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import com.google.android.apps.hangouts.settings.AccountSettingsActivity;
 
-public interface dqd
+public final class dqd extends hkq
 {
 
-    public abstract void a(Context context, ad ad, String s, String s1, String s2);
+    final AccountSettingsActivity a;
+
+    public dqd(AccountSettingsActivity accountsettingsactivity, pu pu, hof hof)
+    {
+        a = accountsettingsactivity;
+        super(pu, hof);
+    }
+
+    protected hjy a()
+    {
+        return new dqe();
+    }
 }

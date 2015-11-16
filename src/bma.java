@@ -2,76 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.database.MatrixCursor;
+import android.view.View;
+import android.widget.ListView;
 
-public final class bma extends MatrixCursor
-    implements bgz
+final class bma
+    implements android.view.ViewTreeObserver.OnGlobalLayoutListener
 {
 
-    private static final String a[] = {
-        "DisplayName", "PhoneNumber"
-    };
-    private boolean b;
+    final bly a;
+    private int b;
+    private boolean c;
+    private boolean d;
 
-    public bma()
+    bma(bly bly1)
     {
-        super(a);
-        b = false;
+        a = bly1;
+        super();
+        d = true;
     }
 
-    public fqo a()
+    public void onGlobalLayout()
     {
-        return null;
-    }
-
-    public void a(bgl bgl)
-    {
-    }
-
-    public void a(String s, Context context)
-    {
-        if (!b)
+        gdv.b("Expected non-null", a.f.findViewById(h.dM));
+        if (!c)
         {
-            String s1 = ebz.p(s);
-            addRow(new Object[] {
-                context.getResources().getString(l.R, new Object[] {
-                    s1
-                }), s
-            });
-            b = true;
-            return;
+            b = a.f.getMeasuredHeight();
+            c = true;
+        }
+        if (a.b().getMeasuredHeight() > b)
+        {
+            if (!d)
+            {
+                d = true;
+                a.f.findViewById(h.dM).setVisibility(8);
+            }
         } else
+        if (d)
         {
-            ebw.g("Babel", "InputCallContactCursor.setPhone() was called more than once!");
+            d = false;
+            a.f.findViewById(h.dM).setVisibility(0);
             return;
         }
     }
-
-    public bhj b()
-    {
-        return new bhj(new bho(getString(1), ""));
-    }
-
-    public bhb c()
-    {
-        return null;
-    }
-
-    public int d()
-    {
-        return 2;
-    }
-
-    public int e()
-    {
-        return 0;
-    }
-
-    public boolean f()
-    {
-        return true;
-    }
-
 }

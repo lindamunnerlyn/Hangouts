@@ -2,27 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import android.widget.ListView;
-import com.google.android.apps.hangouts.realtimechat.wakelock.impl.DebugWakelocksActivity;
 
 public final class djn
-    implements Runnable
 {
 
-    final DebugWakelocksActivity a;
+    public final long a;
+    final String b;
+    final String c;
+    String d;
+    String e;
+    long f;
+    String g;
+    long h;
 
-    public djn(DebugWakelocksActivity debugwakelocksactivity)
+    public djn(String s, String s1, long l)
     {
-        a = debugwakelocksactivity;
-        super();
+        c = s;
+        b = s1;
+        a = l;
     }
 
-    public void run()
+    public djm a()
     {
-        Runnable runnable = DebugWakelocksActivity.a(a);
-        g.y().removeCallbacks(runnable);
-        DebugWakelocksActivity.c(a).setAdapter(DebugWakelocksActivity.b(a));
-        g.a(this, 100L);
+        return new djm(this);
+    }
+
+    public djn a(long l)
+    {
+        f = l;
+        return this;
+    }
+
+    public djn a(String s)
+    {
+        d = s;
+        return this;
+    }
+
+    public djn b(long l)
+    {
+        h = l;
+        return this;
+    }
+
+    public djn b(String s)
+    {
+        e = s;
+        return this;
+    }
+
+    public djn c(String s)
+    {
+        g = s;
+        return this;
     }
 }

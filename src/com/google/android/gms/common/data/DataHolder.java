@@ -11,10 +11,10 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.util.Log;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import emf;
-import emg;
-import emh;
-import h;
+import epf;
+import epg;
+import eph;
+import g;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -23,8 +23,8 @@ public final class DataHolder
     implements SafeParcelable
 {
 
-    public static final emh CREATOR = new emh();
-    private static final emg l = new emf(new String[0]);
+    public static final eph CREATOR = new eph();
+    private static final epg l = new epf(new String[0]);
     Bundle a;
     int b[];
     int c;
@@ -48,9 +48,9 @@ public final class DataHolder
         i = bundle;
     }
 
-    private DataHolder(emg emg1, int i1, Bundle bundle)
+    private DataHolder(epg epg1, int i1, Bundle bundle)
     {
-        this(emg1.a, a(emg1), i1, null);
+        this(epg1.a, a(epg1), i1, null);
     }
 
     private DataHolder(String as[], CursorWindow acursorwindow[], int i1, Bundle bundle)
@@ -58,8 +58,8 @@ public final class DataHolder
         d = false;
         k = true;
         e = 1;
-        f = (String[])h.a(as);
-        g = (CursorWindow[])h.a(acursorwindow);
+        f = (String[])g.d(as);
+        g = (CursorWindow[])g.d(acursorwindow);
         h = i1;
         i = bundle;
         a();
@@ -71,7 +71,7 @@ public final class DataHolder
         {
             throw new IllegalArgumentException((new StringBuilder("No such column: ")).append(s).toString());
         }
-        if (h())
+        if (e())
         {
             throw new IllegalArgumentException("Buffer is closed.");
         }
@@ -84,7 +84,7 @@ public final class DataHolder
         }
     }
 
-    private static CursorWindow[] a(emg emg1)
+    private static CursorWindow[] a(epg epg1)
     {
         Object obj;
         ArrayList arraylist;
@@ -94,16 +94,16 @@ public final class DataHolder
         boolean flag;
         int l1;
         flag = false;
-        if (emg1.a.length == 0)
+        if (epg1.a.length == 0)
         {
             return new CursorWindow[0];
         }
-        arraylist1 = emg1.b;
+        arraylist1 = epg1.b;
         l1 = arraylist1.size();
         obj = new CursorWindow(false);
         arraylist = new ArrayList();
         arraylist.add(obj);
-        ((CursorWindow) (obj)).setNumColumns(emg1.a.length);
+        ((CursorWindow) (obj)).setNumColumns(epg1.a.length);
         i1 = 0;
         j1 = 0;
 _L4:
@@ -120,7 +120,7 @@ _L4:
         (new StringBuilder("Allocating additional cursor window for large data set (row ")).append(i1).append(")");
         obj = new CursorWindow(false);
         ((CursorWindow) (obj)).setStartPosition(i1);
-        ((CursorWindow) (obj)).setNumColumns(emg1.a.length);
+        ((CursorWindow) (obj)).setNumColumns(epg1.a.length);
         arraylist.add(obj);
         cursorwindow = ((CursorWindow) (obj));
         if (!((CursorWindow) (obj)).allocRow())
@@ -135,12 +135,12 @@ _L4:
         String s;
         Object obj1;
         long l2;
-        for (boolean flag1 = true; k1 >= emg1.a.length || !flag1; k1++)
+        for (boolean flag1 = true; k1 >= epg1.a.length || !flag1; k1++)
         {
             break MISSING_BLOCK_LABEL_527;
         }
 
-        s = emg1.a[k1];
+        s = epg1.a[k1];
         obj1 = ((Map) (obj)).get(s);
         if (obj1 != null)
         {
@@ -196,7 +196,7 @@ _L4:
             throw new IllegalArgumentException((new StringBuilder("Unsupported object for column ")).append(s).append(": ").append(obj1).toString());
         }
         // Misplaced declaration of an exception variable
-        catch (emg emg1)
+        catch (epg epg1)
         {
             j1 = arraylist.size();
         }
@@ -219,7 +219,7 @@ _L4:
         cursorwindow.freeLastRow();
         cursorwindow = new CursorWindow(false);
         cursorwindow.setStartPosition(i1);
-        cursorwindow.setNumColumns(emg1.a.length);
+        cursorwindow.setNumColumns(epg1.a.length);
         arraylist.add(cursorwindow);
         j1 = i1 - 1;
         i1 = 1;
@@ -234,7 +234,7 @@ _L2:
         i1 = k1;
         if (true) goto _L2; else goto _L1
 _L1:
-        throw emg1;
+        throw epg1;
         if (true) goto _L4; else goto _L3
 _L3:
         return (CursorWindow[])arraylist.toArray(new CursorWindow[arraylist.size()]);
@@ -243,6 +243,21 @@ _L3:
     public static DataHolder b(int i1)
     {
         return new DataHolder(l, i1, null);
+    }
+
+    private int g()
+    {
+        return e;
+    }
+
+    private String[] h()
+    {
+        return f;
+    }
+
+    private CursorWindow[] i()
+    {
+        return g;
     }
 
     public int a(int i1)
@@ -256,7 +271,7 @@ _L3:
         {
             flag = false;
         }
-        h.a(flag);
+        g.a(flag);
         do
         {
 label0:
@@ -317,7 +332,7 @@ label0:
 
     public int b()
     {
-        return e;
+        return h;
     }
 
     public String b(String s, int i1, int j1)
@@ -326,20 +341,20 @@ label0:
         return g[j1].getString(i1, a.getInt(s));
     }
 
+    public Bundle c()
+    {
+        return i;
+    }
+
     public byte[] c(String s, int i1, int j1)
     {
         a(s, i1);
         return g[j1].getBlob(i1, a.getInt(s));
     }
 
-    public String[] c()
+    public int d()
     {
-        return f;
-    }
-
-    public CursorWindow[] d()
-    {
-        return g;
+        return c;
     }
 
     public int describeContents()
@@ -347,46 +362,7 @@ label0:
         return 0;
     }
 
-    public int e()
-    {
-        return h;
-    }
-
-    public Bundle f()
-    {
-        return i;
-    }
-
-    protected void finalize()
-    {
-        if (!k || g.length <= 0 || h()) goto _L2; else goto _L1
-_L1:
-        String s;
-        if (j != null)
-        {
-            break MISSING_BLOCK_LABEL_88;
-        }
-        s = (new StringBuilder("internal object: ")).append(toString()).toString();
-_L3:
-        Log.e("DataBuffer", (new StringBuilder("Internal data leak within a DataBuffer object detected!  Be sure to explicitly call release() on all DataBuffer extending objects when you are done with them. (")).append(s).append(")").toString());
-        i();
-_L2:
-        super.finalize();
-        return;
-        s = j.toString();
-          goto _L3
-        Exception exception;
-        exception;
-        super.finalize();
-        throw exception;
-    }
-
-    public int g()
-    {
-        return c;
-    }
-
-    public boolean h()
+    public boolean e()
     {
         this;
         JVM INSTR monitorenter ;
@@ -401,7 +377,7 @@ _L2:
         throw exception;
     }
 
-    public void i()
+    public void f()
     {
         this;
         JVM INSTR monitorenter ;
@@ -428,9 +404,39 @@ _L2:
         throw exception;
     }
 
+    protected void finalize()
+    {
+        if (!k || g.length <= 0 || e()) goto _L2; else goto _L1
+_L1:
+        String s;
+        if (j != null)
+        {
+            break MISSING_BLOCK_LABEL_88;
+        }
+        s = (new StringBuilder("internal object: ")).append(toString()).toString();
+_L3:
+        Log.e("DataBuffer", (new StringBuilder("Internal data leak within a DataBuffer object detected!  Be sure to explicitly call release() on all DataBuffer extending objects when you are done with them. (")).append(s).append(")").toString());
+        f();
+_L2:
+        super.finalize();
+        return;
+        s = j.toString();
+          goto _L3
+        Exception exception;
+        exception;
+        super.finalize();
+        throw exception;
+    }
+
     public void writeToParcel(Parcel parcel, int i1)
     {
-        emh.a(this, parcel, i1);
+        int j1 = g.p(parcel, 20293);
+        g.a(parcel, 1, h());
+        g.b(parcel, 1000, g());
+        g.a(parcel, 2, i(), i1);
+        g.b(parcel, 3, b());
+        g.a(parcel, 4, c());
+        g.q(parcel, j1);
     }
 
 }

@@ -3,113 +3,89 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ldk extends IllegalArgumentException
+public final class ldk extends kwm
 {
 
-    private static final long serialVersionUID = 0x578263712b904f39L;
-    private final lcz a;
-    private final ldi b;
-    private final String c;
-    private final Number d;
-    private final String e;
-    private final Number f;
-    private final Number g;
-    private String h;
+    public String a;
+    public Long b;
+    public String c;
 
-    public ldk(lcz lcz1, Number number, Number number1, Number number2)
+    public ldk()
     {
-        super(a(lcz1.x(), number, number1, number2, null));
-        a = lcz1;
+        a = null;
         b = null;
-        c = lcz1.x();
-        d = number;
-        e = null;
-        f = number1;
-        g = number2;
-        h = super.getMessage();
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public ldk(lcz lcz1, Number number, String s)
+    protected int computeSerializedSize()
     {
-        super(a(lcz1.x(), number, null, null, s));
-        a = lcz1;
-        b = null;
-        c = lcz1.x();
-        d = number;
-        e = null;
-        f = null;
-        g = null;
-        h = super.getMessage();
-    }
-
-    public ldk(lcz lcz1, String s)
-    {
-        String s1 = lcz1.x();
-        StringBuffer stringbuffer = new StringBuffer("Value ");
-        if (s == null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            stringbuffer.append("null");
-        } else
-        {
-            stringbuffer.append('"');
-            stringbuffer.append(s);
-            stringbuffer.append('"');
+            i = j + kwk.b(1, a);
         }
-        stringbuffer.append(" for ").append(s1).append(' ').append("is not supported");
-        super(stringbuffer.toString());
-        a = lcz1;
-        b = null;
-        c = lcz1.x();
-        e = s;
-        d = null;
-        f = null;
-        g = null;
-        h = super.getMessage();
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(2, b.longValue());
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.b(3, c);
+        }
+        return i;
     }
 
-    private static String a(String s, Number number, Number number1, Number number2, String s1)
+    public kws mergeFrom(kwj kwj1)
     {
-        s = (new StringBuilder("Value ")).append(number).append(" for ").append(s).append(' ');
-        if (number1 == null)
+        do
         {
-            if (number2 == null)
+            int i = kwj1.a();
+            switch (i)
             {
-                s.append("is not supported");
-            } else
-            {
-                s.append("must not be larger than ").append(number2);
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 16: // '\020'
+                b = Long.valueOf(kwj1.d());
+                break;
+
+            case 26: // '\032'
+                c = kwj1.j();
+                break;
             }
-        } else
-        if (number2 == null)
-        {
-            s.append("must not be smaller than ").append(number1);
-        } else
-        {
-            s.append("must be in the range [").append(number1).append(',').append(number2).append(']');
-        }
-        if (s1 != null)
-        {
-            s.append(": ").append(s1);
-        }
-        return s.toString();
+        } while (true);
     }
 
-    public void a(String s)
+    public void writeTo(kwk kwk1)
     {
-        if (h == null)
+        if (a != null)
         {
-            h = s;
-        } else
-        if (s != null)
-        {
-            String s1 = h;
-            h = (new StringBuilder(String.valueOf(s).length() + 2 + String.valueOf(s1).length())).append(s).append(": ").append(s1).toString();
-            return;
+            kwk1.a(1, a);
         }
-    }
-
-    public String getMessage()
-    {
-        return h;
+        if (b != null)
+        {
+            kwk1.a(2, b.longValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        super.writeTo(kwk1);
     }
 }

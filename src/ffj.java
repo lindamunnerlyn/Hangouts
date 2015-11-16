@@ -2,18 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import java.util.concurrent.CountDownLatch;
 
-abstract class ffj extends fmr
+final class ffj
+    implements ServiceConnection
 {
 
-    ffj(ejx ejx)
+    final ffi a;
+
+    ffj(ffi ffi1)
     {
-        super(ejx);
+        a = ffi1;
+        super();
     }
 
-    public ekg a(Status status)
+    public void onServiceConnected(ComponentName componentname, IBinder ibinder)
     {
-        return new ffk(this, status);
+        ffi ffi1 = a;
+        if (ibinder == null)
+        {
+            componentname = null;
+        } else
+        {
+            componentname = ibinder.queryLocalInterface("com.google.android.gms.http.IGoogleHttpService");
+            if (componentname != null && (componentname instanceof ffk))
+            {
+                componentname = (ffk)componentname;
+            } else
+            {
+                componentname = new ffm(ibinder);
+            }
+        }
+        ffi.a(ffi1, componentname);
+        ffi.a(a).countDown();
+    }
+
+    public void onServiceDisconnected(ComponentName componentname)
+    {
     }
 }

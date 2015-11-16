@@ -3,22 +3,72 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class diz extends dfa
+public final class diz extends djp
 {
 
-    final String a;
-    final long d;
+    private final cwx b;
 
-    public diz(ani ani1, String s, long l)
+    public diz(cwx cwx1)
     {
-        super(ani1);
-        a = s;
-        d = l;
+        super(cwx1);
+        b = cwx1;
     }
 
-    public void a()
+    protected cvt a(aoa aoa, int i, String s)
     {
-        any.a(new aoe(g.nS, b.h()), a, c, d, true);
-        cej.a(g.nS, b.h(), c.g());
+        b.l();
+        if (b.q())
+        {
+            return new cvs(aoa, i, b, s);
+        } else
+        {
+            return new cvq(aoa, i, b, s);
+        }
+    }
+
+    public String a()
+    {
+        return b.a();
+    }
+
+    public boolean a(cdl cdl)
+    {
+        return false;
+    }
+
+    public boolean a(cdn cdn, dcx dcx)
+    {
+        return b.a(cdn, dcx);
+    }
+
+    public boolean a(String s)
+    {
+        return b.a(s);
+    }
+
+    public long b()
+    {
+        return b.b();
+    }
+
+    protected void b(int i, dcx dcx)
+    {
+        aoa aoa = dcn.e(i);
+        b.a(aoa, dcx);
+    }
+
+    public boolean c()
+    {
+        return b.c();
+    }
+
+    public boolean d()
+    {
+        return b.d();
+    }
+
+    public String e()
+    {
+        return b.e();
     }
 }

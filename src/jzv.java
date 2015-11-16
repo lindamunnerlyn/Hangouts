@@ -3,60 +3,34 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jzv extends koj
+abstract class jzv extends Enum
 {
 
-    public Boolean a;
+    public static final jzv a;
+    private static final jzv b[];
 
-    public jzv()
+    jzv(String s, int i)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s, i);
     }
 
-    protected int computeSerializedSize()
+    public static jzv valueOf(String s)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        return i;
+        return (jzv)Enum.valueOf(jzv, s);
     }
 
-    public kop mergeFrom(kog kog1)
+    public static jzv[] values()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
+        return (jzv[])b.clone();
     }
 
-    public void writeTo(koh koh1)
+    abstract jzn a();
+
+    static 
     {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
-        }
-        super.writeTo(koh1);
+        a = new jzw("DONT_EVEN_TRY_TO_CREATE");
+        b = (new jzv[] {
+            a
+        });
     }
 }

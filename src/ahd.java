@@ -3,11 +3,24 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ahd extends Exception
+public interface ahd
 {
 
-    public ahd(String s)
-    {
-        super(s);
-    }
+    public abstract boolean a(int j);
+
+    public abstract boolean b(int j);
+
+    public abstract boolean c(int j);
+
+    public abstract boolean d(int j);
+
+    public abstract boolean e(int j);
+
+    public abstract boolean f(int j);
+
+    public abstract boolean g(int j);
+
+    public abstract boolean h(int j);
+
+    public abstract boolean i(int j);
 }

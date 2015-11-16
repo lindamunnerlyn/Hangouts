@@ -2,47 +2,77 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.phone.BabelGatewayActivity;
+import android.content.Context;
+import android.widget.SectionIndexer;
+import java.util.ArrayList;
+import java.util.List;
 
-public final class cjd extends dgp
+public abstract class cjd extends arp
+    implements SectionIndexer
 {
 
-    final BabelGatewayActivity a;
-
-    public cjd(BabelGatewayActivity babelgatewayactivity)
+    public cjd(Context context)
     {
-        a = babelgatewayactivity;
-        super();
+        super(context);
     }
 
-    public void a(int i, ani ani, dcg dcg1, dgu dgu1)
+    public int getPositionForSection(int i)
     {
-        if (i != BabelGatewayActivity.a(a))
+        int i1 = c();
+        boolean flag = false;
+        int j = 0;
+        int k = i;
+        for (i = ((flag) ? 1 : 0); i < i1; i++)
         {
-            return;
+            cje cje1 = (cje)c(i);
+            int l = cje1.f();
+            if (k < l)
+            {
+                return cje1.b(k) + j;
+            }
+            k -= l;
+            j += cje1.c();
         }
-        if (BabelGatewayActivity.j())
+
+        gdv.a("section index out of bounds");
+        return 0;
+    }
+
+    public int getSectionForPosition(int i)
+    {
+        int i1 = c();
+        boolean flag = false;
+        int j = 0;
+        int k = i;
+        for (i = ((flag) ? 1 : 0); i < i1; i++)
         {
-            i = dgu1.b();
-            BabelGatewayActivity.a((new StringBuilder(47)).append("onConversationCreated called, error ").append(i).toString());
+            cje cje1 = (cje)c(i);
+            int l = cje1.c();
+            if (k < l)
+            {
+                return cje1.c(k) + j;
+            }
+            k -= l;
+            j += cje1.f();
         }
-        if (dgu1.b() != 1)
+
+        gdv.a("position out of bounds");
+        return 0;
+    }
+
+    public Object[] getSections()
+    {
+        ArrayList arraylist = new ArrayList();
+        int j = c();
+        for (int i = 0; i < j; i++)
         {
-            BabelGatewayActivity.a(a, l.ca);
-            return;
+            anb anb1 = (anb)((cje)c(i)).e();
+            if (anb1 != null)
+            {
+                anb1.a(arraylist);
+            }
         }
-        gbh.a(Boolean.valueOf(dcg1.c), Boolean.valueOf(BabelGatewayActivity.b(a)));
-        if (dcg1.c)
-        {
-            (new cpk(a, BabelGatewayActivity.c(a), dcg1.a, true, BabelGatewayActivity.d(a), BabelGatewayActivity.e(a), BabelGatewayActivity.f(a), BabelGatewayActivity.g(a), BabelGatewayActivity.h(a), BabelGatewayActivity.i(a), BabelGatewayActivity.j(a))).a(new Void[0]);
-            a.setResult(-1);
-            a.finish();
-            return;
-        } else
-        {
-            BabelGatewayActivity.a(a, dcg1.a);
-            BabelGatewayActivity.b(a, dcg1.b);
-            return;
-        }
+
+        return arraylist.toArray();
     }
 }

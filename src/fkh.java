@@ -2,176 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Bitmap;
-import android.os.IBinder;
-import android.os.Parcel;
+import android.os.IInterface;
+import com.google.android.gms.maps.GoogleMapOptions;
+import com.google.android.gms.maps.StreetViewPanoramaOptions;
 
-final class fkh
-    implements fkf
+public interface fkh
+    extends IInterface
 {
 
-    private IBinder a;
+    public abstract fja a();
 
-    fkh(IBinder ibinder)
-    {
-        a = ibinder;
-    }
+    public abstract fjm a(fcw fcw, GoogleMapOptions googlemapoptions);
 
-    public ezy a()
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        ezy ezy;
-        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
-        a.transact(4, parcel, parcel1, 0);
-        parcel1.readException();
-        ezy = ezz.a(parcel1.readStrongBinder());
-        parcel1.recycle();
-        parcel.recycle();
-        return ezy;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
+    public abstract fjy a(fcw fcw, StreetViewPanoramaOptions streetviewpanoramaoptions);
 
-    public ezy a(float f)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        ezy ezy;
-        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
-        parcel.writeFloat(f);
-        a.transact(5, parcel, parcel1, 0);
-        parcel1.readException();
-        ezy = ezz.a(parcel1.readStrongBinder());
-        parcel1.recycle();
-        parcel.recycle();
-        return ezy;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
+    public abstract void a(fcw fcw);
 
-    public ezy a(int i)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        ezy ezy;
-        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
-        parcel.writeInt(i);
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        ezy = ezz.a(parcel1.readStrongBinder());
-        parcel1.recycle();
-        parcel.recycle();
-        return ezy;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
+    public abstract void a(fcw fcw, int i);
 
-    public ezy a(Bitmap bitmap)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
-        if (bitmap == null)
-        {
-            break MISSING_BLOCK_LABEL_66;
-        }
-        parcel.writeInt(1);
-        bitmap.writeToParcel(parcel, 0);
-_L1:
-        a.transact(6, parcel, parcel1, 0);
-        parcel1.readException();
-        bitmap = ezz.a(parcel1.readStrongBinder());
-        parcel1.recycle();
-        parcel.recycle();
-        return bitmap;
-        parcel.writeInt(0);
-          goto _L1
-        bitmap;
-        parcel1.recycle();
-        parcel.recycle();
-        throw bitmap;
-    }
+    public abstract fjj b(fcw fcw);
 
-    public ezy a(String s)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
-        parcel.writeString(s);
-        a.transact(2, parcel, parcel1, 0);
-        parcel1.readException();
-        s = ezz.a(parcel1.readStrongBinder());
-        parcel1.recycle();
-        parcel.recycle();
-        return s;
-        s;
-        parcel1.recycle();
-        parcel.recycle();
-        throw s;
-    }
+    public abstract fnb b();
 
-    public IBinder asBinder()
-    {
-        return a;
-    }
-
-    public ezy b(String s)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
-        parcel.writeString(s);
-        a.transact(3, parcel, parcel1, 0);
-        parcel1.readException();
-        s = ezz.a(parcel1.readStrongBinder());
-        parcel1.recycle();
-        parcel.recycle();
-        return s;
-        s;
-        parcel1.recycle();
-        parcel.recycle();
-        throw s;
-    }
-
-    public ezy c(String s)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
-        parcel.writeString(s);
-        a.transact(7, parcel, parcel1, 0);
-        parcel1.readException();
-        s = ezz.a(parcel1.readStrongBinder());
-        parcel1.recycle();
-        parcel.recycle();
-        return s;
-        s;
-        parcel1.recycle();
-        parcel.recycle();
-        throw s;
-    }
+    public abstract fjv c(fcw fcw);
 }

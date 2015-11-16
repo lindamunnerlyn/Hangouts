@@ -2,32 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
+import java.util.List;
 
-final class gfy extends gbk
+final class gfy
+    implements Runnable
 {
 
-    final gfr a;
-    private final gfv b;
+    final gio a;
+    final gfu b;
 
-    gfy(gfr gfr, gfv gfv1)
+    gfy(gfu gfu1, gio gio1)
     {
-        a = gfr;
-        super(gbk.d);
-        b = gfv1;
+        b = gfu1;
+        a = gio1;
+        super();
     }
 
-    protected Object a()
+    public void run()
     {
-        return b.b();
-    }
-
-    protected void onPostExecute(Object obj)
-    {
-        b.a(obj);
-    }
-
-    protected void onPreExecute()
-    {
-        b.a();
+        if (!b.b.remove(a))
+        {
+            String s = String.valueOf(a.d());
+            gne.a(5, "vclib", (new StringBuilder(String.valueOf(s).length() + 25)).append("VideoSource ").append(s).append(" not in list.").toString());
+        }
+        Iterator iterator = b.a.iterator();
+        do
+        {
+            if (!iterator.hasNext())
+            {
+                break;
+            }
+            ggc ggc1 = (ggc)iterator.next();
+            if (ggc1.b == a)
+            {
+                ggc1.a();
+                iterator.remove();
+            }
+        } while (true);
     }
 }

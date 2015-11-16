@@ -3,346 +3,160 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jfs extends koj
+public final class jfs extends kwm
 {
 
-    private static volatile jfs e[];
     public Integer a;
-    public Integer b;
-    public Integer c;
-    public Long d;
+    public izp b[];
+    public byte c[];
+    public jdl responseHeader;
 
     public jfs()
     {
+        responseHeader = null;
         a = null;
-        b = null;
+        b = izp.a();
         c = null;
-        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    public static jfs[] a()
-    {
-        if (e == null)
-        {
-            synchronized (kon.a)
-            {
-                if (e == null)
-                {
-                    e = new jfs[0];
-                }
-            }
-        }
-        return e;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (b != null)
+        int i = super.computeSerializedSize();
+        int j = i;
+        if (responseHeader != null)
         {
-            i = j + koh.e(1, b.intValue());
-        }
-        j = i;
-        if (c != null)
-        {
-            j = i + koh.e(2, c.intValue());
+            j = i + kwk.d(1, responseHeader);
         }
         i = j;
-        if (d != null)
-        {
-            i = j + koh.e(3, d.longValue());
-        }
-        j = i;
         if (a != null)
         {
-            j = i + koh.e(4, a.intValue());
+            i = j + kwk.e(2, a.intValue());
         }
-        return j;
+        j = i;
+        if (b != null)
+        {
+            j = i;
+            if (b.length > 0)
+            {
+                for (j = 0; j < b.length;)
+                {
+                    izp izp1 = b[j];
+                    int k = i;
+                    if (izp1 != null)
+                    {
+                        k = i + kwk.d(3, izp1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.b(4, c);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
 _L7:
-        int i = kog1.a();
+        int i = kwj1.a();
         i;
         JVM INSTR lookupswitch 5: default 56
     //                   0: 65
-    //                   8: 67
-    //                   16: 722
-    //                   24: 1378
-    //                   32: 1392;
+    //                   10: 67
+    //                   16: 96
+    //                   26: 138
+    //                   34: 262;
            goto _L1 _L2 _L3 _L4 _L5 _L6
 _L1:
-        if (super.storeUnknownField(kog1, i)) goto _L7; else goto _L2
+        if (super.storeUnknownField(kwj1, i)) goto _L7; else goto _L2
 _L2:
         return this;
 _L3:
-        int j = kog1.f();
+        if (responseHeader == null)
+        {
+            responseHeader = new jdl();
+        }
+        kwj1.a(responseHeader);
+          goto _L7
+_L4:
+        int j = kwj1.f();
         switch (j)
         {
         case 0: // '\0'
         case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-        case 4: // '\004'
-        case 5: // '\005'
-        case 6: // '\006'
-        case 7: // '\007'
-        case 8: // '\b'
-        case 9: // '\t'
-        case 100: // 'd'
-        case 101: // 'e'
-        case 102: // 'f'
-        case 103: // 'g'
-        case 104: // 'h'
-        case 105: // 'i'
-        case 106: // 'j'
-        case 107: // 'k'
-        case 108: // 'l'
-        case 109: // 'm'
-        case 110: // 'n'
-        case 111: // 'o'
-        case 112: // 'p'
-        case 113: // 'q'
-        case 114: // 'r'
-        case 200: 
-        case 201: 
-        case 202: 
-        case 203: 
-        case 204: 
-        case 300: 
-        case 301: 
-        case 302: 
-        case 303: 
-        case 304: 
-        case 305: 
-        case 306: 
-        case 307: 
-        case 308: 
-        case 309: 
-        case 310: 
-        case 311: 
-        case 312: 
-        case 313: 
-        case 314: 
-        case 315: 
-        case 316: 
-        case 317: 
-        case 318: 
-        case 319: 
-        case 320: 
-        case 321: 
-        case 322: 
-        case 323: 
-        case 324: 
-        case 325: 
-        case 326: 
-        case 327: 
-        case 328: 
-        case 329: 
-        case 330: 
-        case 331: 
-        case 332: 
-        case 333: 
-        case 334: 
-        case 335: 
-        case 336: 
-        case 337: 
-        case 338: 
-        case 339: 
-        case 340: 
-        case 341: 
-        case 342: 
-        case 343: 
-        case 344: 
-        case 345: 
-        case 346: 
-        case 347: 
-            b = Integer.valueOf(j);
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        int k = kog1.f();
-        switch (k)
-        {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-        case 4: // '\004'
-        case 5: // '\005'
-        case 6: // '\006'
-        case 7: // '\007'
-        case 8: // '\b'
-        case 9: // '\t'
-        case 100: // 'd'
-        case 101: // 'e'
-        case 102: // 'f'
-        case 103: // 'g'
-        case 104: // 'h'
-        case 105: // 'i'
-        case 106: // 'j'
-        case 107: // 'k'
-        case 108: // 'l'
-        case 109: // 'm'
-        case 110: // 'n'
-        case 111: // 'o'
-        case 112: // 'p'
-        case 113: // 'q'
-        case 114: // 'r'
-        case 200: 
-        case 201: 
-        case 202: 
-        case 203: 
-        case 204: 
-        case 300: 
-        case 301: 
-        case 302: 
-        case 303: 
-        case 304: 
-        case 305: 
-        case 306: 
-        case 307: 
-        case 308: 
-        case 309: 
-        case 310: 
-        case 311: 
-        case 312: 
-        case 313: 
-        case 314: 
-        case 315: 
-        case 316: 
-        case 317: 
-        case 318: 
-        case 319: 
-        case 320: 
-        case 321: 
-        case 322: 
-        case 323: 
-        case 324: 
-        case 325: 
-        case 326: 
-        case 327: 
-        case 328: 
-        case 329: 
-        case 330: 
-        case 331: 
-        case 332: 
-        case 333: 
-        case 334: 
-        case 335: 
-        case 336: 
-        case 337: 
-        case 338: 
-        case 339: 
-        case 340: 
-        case 341: 
-        case 342: 
-        case 343: 
-        case 344: 
-        case 345: 
-        case 346: 
-        case 347: 
-            c = Integer.valueOf(k);
+            a = Integer.valueOf(j);
             break;
         }
         continue; /* Loop/switch isn't completed */
 _L5:
-        d = Long.valueOf(kog1.e());
+        int l = kwx.a(kwj1, 26);
+        izp aizp[];
+        int k;
+        if (b == null)
+        {
+            k = 0;
+        } else
+        {
+            k = b.length;
+        }
+        aizp = new izp[l + k];
+        l = k;
+        if (k != 0)
+        {
+            System.arraycopy(b, 0, aizp, 0, k);
+            l = k;
+        }
+        for (; l < aizp.length - 1; l++)
+        {
+            aizp[l] = new izp();
+            kwj1.a(aizp[l]);
+            kwj1.a();
+        }
+
+        aizp[l] = new izp();
+        kwj1.a(aizp[l]);
+        b = aizp;
         continue; /* Loop/switch isn't completed */
 _L6:
-        int l = kog1.f();
-        switch (l)
-        {
-        case 0: // '\0'
-        case 2: // '\002'
-        case 4: // '\004'
-        case 5: // '\005'
-        case 6: // '\006'
-        case 7: // '\007'
-        case 8: // '\b'
-        case 9: // '\t'
-        case 10: // '\n'
-        case 11: // '\013'
-        case 12: // '\f'
-        case 13: // '\r'
-        case 14: // '\016'
-        case 15: // '\017'
-        case 16: // '\020'
-        case 101: // 'e'
-        case 102: // 'f'
-        case 104: // 'h'
-        case 105: // 'i'
-        case 107: // 'k'
-        case 108: // 'l'
-        case 110: // 'n'
-        case 111: // 'o'
-        case 112: // 'p'
-        case 113: // 'q'
-        case 200: 
-        case 201: 
-        case 202: 
-        case 203: 
-        case 300: 
-        case 301: 
-        case 302: 
-        case 303: 
-        case 304: 
-        case 305: 
-        case 306: 
-        case 307: 
-        case 308: 
-        case 309: 
-        case 310: 
-        case 311: 
-        case 312: 
-        case 313: 
-        case 314: 
-        case 315: 
-        case 316: 
-        case 317: 
-        case 318: 
-        case 319: 
-        case 320: 
-        case 321: 
-        case 322: 
-        case 323: 
-        case 324: 
-        case 325: 
-        case 326: 
-            a = Integer.valueOf(l);
-            break;
-        }
+        c = kwj1.k();
         if (true) goto _L7; else goto _L8
 _L8:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (b != null)
+        if (responseHeader != null)
         {
-            koh1.a(1, b.intValue());
-        }
-        if (c != null)
-        {
-            koh1.a(2, c.intValue());
-        }
-        if (d != null)
-        {
-            koh1.b(3, d.longValue());
+            kwk1.b(1, responseHeader);
         }
         if (a != null)
         {
-            koh1.a(4, a.intValue());
+            kwk1.a(2, a.intValue());
         }
-        super.writeTo(koh1);
+        if (b != null && b.length > 0)
+        {
+            for (int i = 0; i < b.length; i++)
+            {
+                izp izp1 = b[i];
+                if (izp1 != null)
+                {
+                    kwk1.b(3, izp1);
+                }
+            }
+
+        }
+        if (c != null)
+        {
+            kwk1.a(4, c);
+        }
+        super.writeTo(kwk1);
     }
 }

@@ -2,22 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-final class aua extends cmu
+public final class aua extends ato
+    implements Parcelable
 {
 
-    final atr a;
+    public static final android.os.Parcelable.Creator CREATOR = new aub();
+    public String e;
+    public String f;
 
-    aua(atr atr1, String s)
+    public aua()
     {
-        a = atr1;
-        super(s);
     }
 
-    public void a()
+    aua(Parcel parcel)
     {
-        int i = g.a(a.a, "babel_stress_message_count", 1000);
-        RealTimeChatService.a(a.b, a.c.a, 0, i);
+        super.b(parcel);
+        e = parcel.readString();
+        f = parcel.readString();
     }
+
+    public int describeContents()
+    {
+        return 0;
+    }
+
+    public void writeToParcel(Parcel parcel, int i)
+    {
+        super.a(parcel);
+        parcel.writeString(e);
+        parcel.writeString(f);
+    }
+
 }

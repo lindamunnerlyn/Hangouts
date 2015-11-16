@@ -3,16 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kgc extends koj
+public final class kgc extends kwm
 {
 
-    public Boolean a;
-    public kgd b;
+    public Long a;
+    public kgd b[];
 
     public kgc()
     {
         a = null;
-        b = null;
+        b = kgd.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -23,26 +23,41 @@ public final class kgc extends koj
         int i = j;
         if (a != null)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            i = j + kwk.e(1, a.longValue());
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.d(2, b);
+            j = i;
+            if (b.length > 0)
+            {
+                for (j = 0; j < b.length;)
+                {
+                    kgd kgd1 = b[j];
+                    int k = i;
+                    if (kgd1 != null)
+                    {
+                        k = i + kwk.d(2, kgd1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -52,30 +67,60 @@ public final class kgc extends koj
                 return this;
 
             case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
+                a = Long.valueOf(kwj1.e());
                 break;
 
             case 18: // '\022'
+                int k = kwx.a(kwj1, 18);
+                kgd akgd[];
+                int j;
                 if (b == null)
                 {
-                    b = new kgd();
+                    j = 0;
+                } else
+                {
+                    j = b.length;
                 }
-                kog1.a(b);
+                akgd = new kgd[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(b, 0, akgd, 0, j);
+                    k = j;
+                }
+                for (; k < akgd.length - 1; k++)
+                {
+                    akgd[k] = new kgd();
+                    kwj1.a(akgd[k]);
+                    kwj1.a();
+                }
+
+                akgd[k] = new kgd();
+                kwj1.a(akgd[k]);
+                b = akgd;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.booleanValue());
+            kwk1.b(1, a.longValue());
         }
-        if (b != null)
+        if (b != null && b.length > 0)
         {
-            koh1.b(2, b);
+            for (int i = 0; i < b.length; i++)
+            {
+                kgd kgd1 = b[i];
+                if (kgd1 != null)
+                {
+                    kwk1.b(2, kgd1);
+                }
+            }
+
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

@@ -2,41 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class dfd extends Enum
+public final class dfd extends dff
 {
 
-    public static final dfd a;
-    public static final dfd b;
-    public static final dfd c;
-    public static final dfd d;
-    public static final dfd e;
-    private static final dfd f[];
-
-    private dfd(String s, int i)
+    public dfd(Context context, int i, dfg dfg)
     {
-        super(s, i);
+        super(context, i, dfg, l.sW);
     }
 
-    public static dfd valueOf(String s)
+    public int b()
     {
-        return (dfd)Enum.valueOf(dfd, s);
+        return RealTimeChatService.f(d);
     }
 
-    public static dfd[] values()
+    public Class e()
     {
-        return (dfd[])f.clone();
+        return cuf;
     }
 
-    static 
+    public Class f()
     {
-        a = new dfd("NONE", 0);
-        b = new dfd("DEFERRED", 1);
-        c = new dfd("SILENT", 2);
-        d = new dfd("DISPLAYONLY", 3);
-        e = new dfd("LOUD", 4);
-        f = (new dfd[] {
-            a, b, c, d, e
-        });
+        return cyb;
     }
 }

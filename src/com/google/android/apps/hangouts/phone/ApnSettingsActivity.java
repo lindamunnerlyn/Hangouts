@@ -4,7 +4,6 @@
 
 package com.google.android.apps.hangouts.phone;
 
-import amp;
 import android.app.ActionBar;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -19,12 +18,13 @@ import android.preference.PreferenceScreen;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
-import ciy;
-import ciz;
-import cja;
-import cjb;
-import dsj;
-import ebz;
+import anh;
+import ckd;
+import cke;
+import ckf;
+import ckg;
+import dvc;
+import eey;
 import g;
 import l;
 
@@ -41,8 +41,8 @@ public class ApnSettingsActivity extends PreferenceActivity
     private static final String j[] = {
         "2"
     };
-    private cjb c;
-    private cja d;
+    private ckg c;
+    private ckf d;
     private HandlerThread e;
     private String f;
     private SQLiteDatabase i;
@@ -100,7 +100,7 @@ public class ApnSettingsActivity extends PreferenceActivity
 
     private void f()
     {
-        (new ciy(this, dsj.a(ebz.l()))).execute(new Void[] {
+        (new ckd(this, dvc.a(eey.l()))).execute(new Void[] {
             null
         });
         ActionBar actionbar = getActionBar();
@@ -113,8 +113,8 @@ public class ApnSettingsActivity extends PreferenceActivity
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        i = amp.a(getApplicationContext());
-        addPreferencesFromResource(g.ip);
+        i = anh.a(getApplicationContext());
+        addPreferencesFromResource(g.ih);
         getListView().setItemsCanFocus(true);
     }
 
@@ -123,7 +123,7 @@ public class ApnSettingsActivity extends PreferenceActivity
         if (k == 1001)
         {
             ProgressDialog progressdialog = new ProgressDialog(this);
-            progressdialog.setMessage(getResources().getString(l.jI));
+            progressdialog.setMessage(getResources().getString(l.jb));
             progressdialog.setCancelable(false);
             return progressdialog;
         } else
@@ -135,8 +135,8 @@ public class ApnSettingsActivity extends PreferenceActivity
     public boolean onCreateOptionsMenu(Menu menu)
     {
         super.onCreateOptionsMenu(menu);
-        menu.add(0, 1, 0, getResources().getString(l.fP)).setIcon(com.google.android.apps.hangouts.R.drawable.bT).setShowAsAction(1);
-        menu.add(0, 2, 0, getResources().getString(l.fR)).setIcon(0x1080055);
+        menu.add(0, 1, 0, getResources().getString(l.fy)).setIcon(com.google.android.apps.hangouts.R.drawable.bL).setShowAsAction(1);
+        menu.add(0, 2, 0, getResources().getString(l.fA)).setIcon(0x1080055);
         return true;
     }
 
@@ -165,13 +165,13 @@ public class ApnSettingsActivity extends PreferenceActivity
             b = true;
             if (c == null)
             {
-                c = new cjb(this);
+                c = new ckg(this);
             }
             if (d == null || e == null)
             {
                 e = new HandlerThread("Restore default APN Handler: Process Thread");
                 e.start();
-                d = new cja(i, e.getLooper(), c);
+                d = new ckf(i, e.getLooper(), c);
             }
             d.sendEmptyMessage(1);
             return true;
@@ -193,7 +193,7 @@ public class ApnSettingsActivity extends PreferenceActivity
         {
             preference = (String)obj;
             f = preference;
-            (new ciz(this, preference)).execute(new Void[] {
+            (new cke(this, preference)).execute(new Void[] {
                 null
             });
         }

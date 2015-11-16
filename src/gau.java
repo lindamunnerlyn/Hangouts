@@ -4,9 +4,7 @@
 
 
 public interface gau
-    extends gba
 {
 
-    public static final gbf a = new gav();
-
+    public abstract void a(gap gap);
 }

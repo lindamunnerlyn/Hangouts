@@ -3,8 +3,27 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gdp
+public class gdp
+    implements gdq
 {
 
-    public abstract void a(Runnable runnable);
+    public gdp()
+    {
+    }
+
+    public void a()
+    {
+    }
+
+    public void a(kws kws)
+    {
+    }
+
+    public void a(kws kws, kws kws1)
+    {
+    }
+
+    public void b(kws kws)
+    {
+    }
 }

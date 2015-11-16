@@ -3,12 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface hmw
+public final class hmw
 {
 
-    public static final hmw a = new hmx();
-    public static final hmw b = new hmy();
-
-    public abstract long a();
-
+    public hmw()
+    {
+    }
 }

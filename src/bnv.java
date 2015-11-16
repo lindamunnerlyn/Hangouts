@@ -2,34 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import com.google.android.apps.hangouts.hangout.DebugOverlayTextView;
 
-public final class bnv
+final class bnv
     implements Runnable
 {
 
-    final DebugOverlayTextView a;
+    final bnu a;
 
-    public bnv(DebugOverlayTextView debugoverlaytextview)
+    bnv(bnu bnu1)
     {
-        a = debugoverlaytextview;
+        a = bnu1;
         super();
     }
 
     public void run()
     {
-        g.y().postDelayed(DebugOverlayTextView.a(a), DebugOverlayTextView.c());
-        if (!ebw.a("hangout_overlay"))
-        {
-            a.setText(null);
-            a.setVisibility(8);
-            return;
-        } else
-        {
-            a.setVisibility(0);
-            a.setText(DebugOverlayTextView.b(a));
-            return;
-        }
+        bnu.a(a);
     }
 }

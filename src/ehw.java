@@ -2,79 +2,76 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.regex.Pattern;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import com.google.android.apps.hangouts.views.AvatarView;
 
-public final class ehw
-    implements Comparable
+public final class ehw extends FrameLayout
+    implements android.view.View.OnClickListener
 {
 
-    public static final ehw e = new ehw();
-    public final String a;
-    public final String b;
-    public final String c;
-    public final boolean d;
+    ehx a;
+    private TextView b;
+    private AvatarView c;
+    private Button d;
+    private String e;
+    private cgd f;
 
-    private ehw()
+    public ehw(Context context)
     {
-        a = "DEFAULT";
-        b = "";
-        c = null;
-        d = false;
+        this(context, (byte)0);
     }
 
-    public ehw(String s, String s1)
+    private ehw(Context context, byte byte0)
     {
-        a = s;
-        String as[] = ehv.a().split(s1);
-        if (as.length == 0)
+        super(context, null);
+        context = LayoutInflater.from(context).inflate(g.gn, this);
+        d = (Button)context.findViewById(h.gx);
+        d.setOnClickListener(this);
+        b = (TextView)context.findViewById(h.dH);
+        c = (AvatarView)context.findViewById(h.D);
+    }
+
+    public cgd a()
+    {
+        return f;
+    }
+
+    public void a(cgd cgd)
+    {
+        f = cgd;
+    }
+
+    public void a(ehx ehx1)
+    {
+        a = ehx1;
+    }
+
+    public void a(String s)
+    {
+        e = s;
+        b.setText(s);
+    }
+
+    public void a(String s, String s1, aoa aoa)
+    {
+        c.a(s, s1, aoa);
+    }
+
+    public String b()
+    {
+        return e;
+    }
+
+    public void onClick(View view)
+    {
+        if (a != null && view == d)
         {
-            throw new ehx("Empty rule");
+            a.a(this);
         }
-        b = as[0];
-        s = null;
-        boolean flag = false;
-        for (int i = 1; i < as.length;)
-        {
-            String s2 = as[i].toLowerCase();
-            if (s2.equals("rewrite") && i + 1 < as.length)
-            {
-                s = as[i + 1];
-                i += 2;
-            } else
-            if (s2.equals("block"))
-            {
-                i++;
-                flag = true;
-            } else
-            {
-                throw new ehx((new StringBuilder("Illegal rule: ")).append(s1).toString());
-            }
-        }
-
-        c = s;
-        d = flag;
     }
-
-    public String a(String s)
-    {
-        String s1;
-        if (d)
-        {
-            s1 = null;
-        } else
-        {
-            s1 = s;
-            if (c != null)
-            {
-                return (new StringBuilder()).append(c).append(s.substring(b.length())).toString();
-            }
-        }
-        return s1;
-    }
-
-    public int compareTo(Object obj)
-    {
-        return ((ehw)obj).b.compareTo(b);
-    }
-
 }

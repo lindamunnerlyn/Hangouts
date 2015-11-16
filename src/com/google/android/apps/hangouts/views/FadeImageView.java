@@ -4,7 +4,7 @@
 
 package com.google.android.apps.hangouts.views;
 
-import ahj;
+import ahb;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -13,15 +13,15 @@ import android.util.AttributeSet;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
-import eee;
+import ehg;
 
 public class FadeImageView extends ImageView
 {
 
-    private Animation a;
-    private Animation b;
-    private android.view.animation.Animation.AnimationListener c;
-    private BitmapDrawable d;
+    public Animation a;
+    public Animation b;
+    public BitmapDrawable c;
+    private android.view.animation.Animation.AnimationListener d;
     private int e;
     private int f;
     private float g;
@@ -29,55 +29,40 @@ public class FadeImageView extends ImageView
     public FadeImageView(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
-        context = context.getTheme().obtainStyledAttributes(attributeset, ahj.p, 0, 0);
-        e = context.getInt(ahj.r, 0);
-        f = context.getInt(ahj.q, 250);
-        g = context.getFloat(ahj.s, 0.25F);
+        context = context.getTheme().obtainStyledAttributes(attributeset, ahb.p, 0, 0);
+        e = context.getInt(ahb.r, 0);
+        f = context.getInt(ahb.q, 250);
+        g = context.getFloat(ahb.s, 0.25F);
         context.recycle();
         a = new AlphaAnimation(g, 1.0F);
         a.setDuration(f);
         b = new AlphaAnimation(1.0F, g);
         b.setDuration(e);
-        c = new eee(this);
+        d = new ehg(this);
         return;
         attributeset;
         context.recycle();
         throw attributeset;
     }
 
-    public static Animation a(FadeImageView fadeimageview)
-    {
-        return fadeimageview.b;
-    }
-
-    public static BitmapDrawable b(FadeImageView fadeimageview)
-    {
-        return fadeimageview.d;
-    }
-
-    public static Animation c(FadeImageView fadeimageview)
-    {
-        return fadeimageview.a;
-    }
-
     public void a(boolean flag, Bitmap bitmap)
     {
         b.setAnimationListener(null);
         clearAnimation();
-        d = new BitmapDrawable(getResources(), bitmap);
+        c = new BitmapDrawable(getResources(), bitmap);
         if (!flag)
         {
-            setBackgroundDrawable(d);
+            setBackgroundDrawable(c);
             return;
         }
         if (e > 0)
         {
-            b.setAnimationListener(c);
+            b.setAnimationListener(d);
             startAnimation(b);
             return;
         } else
         {
-            setBackgroundDrawable(d);
+            setBackgroundDrawable(c);
             startAnimation(a);
             return;
         }

@@ -2,53 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.herrevad.PredictedNetworkQuality;
 
-public final class fby
-    implements fbw
+final class fby
 {
 
-    private IBinder a;
+    static final erv a[] = {
+        new fbz(erv.a("0\202\005a0\202\003K\002\006\001D\236\221\226\3230\013\006\t*\206H\206\367")), new fca(erv.a("0\202\003\2770\202\002\247\240\003\002\001\002\002\t\000\332\230\303\331\025s\323\3570"))
+    };
 
-    public fby(IBinder ibinder)
-    {
-        a = ibinder;
-    }
-
-    public void a(Status status, PredictedNetworkQuality predictednetworkquality)
-    {
-        Parcel parcel = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.herrevad.internal.IActiveNetworkQualityCallbacks");
-        if (status == null) goto _L2; else goto _L1
-_L1:
-        parcel.writeInt(1);
-        status.writeToParcel(parcel, 0);
-_L3:
-        if (predictednetworkquality == null)
-        {
-            break MISSING_BLOCK_LABEL_74;
-        }
-        parcel.writeInt(1);
-        predictednetworkquality.writeToParcel(parcel, 0);
-_L4:
-        a.transact(2, parcel, null, 1);
-        parcel.recycle();
-        return;
-_L2:
-        parcel.writeInt(0);
-          goto _L3
-        status;
-        parcel.recycle();
-        throw status;
-        parcel.writeInt(0);
-          goto _L4
-    }
-
-    public IBinder asBinder()
-    {
-        return a;
-    }
 }

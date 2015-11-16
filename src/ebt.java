@@ -2,56 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
+import android.preference.Preference;
+import android.preference.SwitchPreference;
 
-public final class ebt
+final class ebt
+    implements android.preference.Preference.OnPreferenceClickListener
 {
 
-    private final ConcurrentHashMap a = new ConcurrentHashMap();
+    final SwitchPreference a;
+    final ebp b;
 
-    public ebt()
+    ebt(ebp ebp1, SwitchPreference switchpreference)
     {
+        b = ebp1;
+        a = switchpreference;
+        super();
     }
 
-    public void a(Object obj)
+    public boolean onPreferenceClick(Preference preference)
     {
-        this;
-        JVM INSTR monitorenter ;
-        a.putIfAbsent(obj, new AtomicInteger(0));
-        ((AtomicInteger)a.get(obj)).incrementAndGet();
-        this;
-        JVM INSTR monitorexit ;
-        return;
-        obj;
-        throw obj;
-    }
-
-    public void b(Object obj)
-    {
-        a.putIfAbsent(obj, new AtomicInteger(1));
-    }
-
-    public boolean c(Object obj)
-    {
-        this;
-        JVM INSTR monitorenter ;
-        n.b(a.containsKey(obj), "Tried to decrement nonexistent key %s", new Object[] {
-            obj
-        });
-        if (((AtomicInteger)a.get(obj)).decrementAndGet() != 0) goto _L2; else goto _L1
-_L1:
-        a.remove(obj);
-        boolean flag = true;
-_L4:
-        this;
-        JVM INSTR monitorexit ;
-        return flag;
-_L2:
-        flag = false;
-        if (true) goto _L4; else goto _L3
-_L3:
-        obj;
-        throw obj;
+        eaj.a(b.getActivity()).c(a.isChecked());
+        b.b();
+        return true;
     }
 }

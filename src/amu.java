@@ -2,42 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
-import java.util.Iterator;
-import java.util.List;
+import android.os.AsyncTask;
 
-final class amu extends eam
+final class amu extends AsyncTask
 {
 
-    final List a;
-    private final String e;
+    final amt a;
 
-    public amu(List list, String s, String s1, int i)
+    amu(amt amt1)
     {
-        super(null, s);
-        a(i);
-        a(false);
-        c(false);
-        b();
-        d(true);
-        a = list;
-        e = s1;
+        a = amt1;
+        super();
     }
 
-    public void a()
+    protected Object doInBackground(Object aobj[])
     {
-        StringBuilder stringbuilder = a(d(), e(), f(), true, false);
-        b = null;
-        StringBuilder stringbuilder1 = new StringBuilder();
-        if (!TextUtils.isEmpty(e))
-        {
-            stringbuilder1.append(e).append("|");
-        }
-        for (Iterator iterator = a.iterator(); iterator.hasNext(); stringbuilder1.append("|"))
-        {
-            stringbuilder1.append((String)iterator.next());
-        }
-
-        c = stringbuilder1.append(stringbuilder).toString();
+        a.a.a();
+        return null;
     }
 }

@@ -2,21 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
 
-final class ejh extends eis
+public final class ejh extends ejj
 {
 
-    final ejg a;
+    public final cfz a;
+    public final int b;
+    public final boolean c;
+    public final boolean d;
 
-    ejh(ejg ejg1)
+    public ejh(cfz cfz, int i, boolean flag, boolean flag1)
     {
-        a = ejg1;
-        super();
-    }
-
-    public void a(Status status)
-    {
-        a.a(status);
+        a = cfz;
+        b = i;
+        c = flag;
+        d = flag1;
     }
 }

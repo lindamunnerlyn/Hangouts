@@ -3,10 +3,48 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface axu
+final class axu
 {
 
-    public abstract void a();
+    static final int a[];
+    static final int b[];
 
-    public abstract void a(String s, axo axo);
+    static 
+    {
+        b = new int[atp.values().length];
+        try
+        {
+            b[atp.c.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror5) { }
+        try
+        {
+            b[atp.b.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror4) { }
+        try
+        {
+            b[atp.d.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            b[atp.e.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        a = new int[atu.values().length];
+        try
+        {
+            a[atu.c.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[atu.d.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
+    }
 }

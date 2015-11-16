@@ -3,8 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hah extends bgj
+final class hah
+    implements gzz
 {
 
-    private static final long serialVersionUID = 0x85108150b94d7d1bL;
+    hah()
+    {
+    }
+
+    public int a(gzy gzy1)
+    {
+        long l = gzy1.c;
+        return (int)(l ^ l >>> 32) + 527;
+    }
+
+    public boolean a(gzy gzy1, gzy gzy2)
+    {
+        return gzy1.c == gzy2.c;
+    }
 }

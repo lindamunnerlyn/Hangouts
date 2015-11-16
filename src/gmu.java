@@ -2,32 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Set;
 
-public interface gmu
+public final class gmu
 {
 
-    public abstract float a(String s, float f);
+    private final gmv a;
+    private itu b;
 
-    public abstract int a(String s, int i);
+    public gmu(int i)
+    {
+        switch (i)
+        {
+        default:
+            a = gmv.a;
+            return;
 
-    public abstract long a(String s, long l);
+        case 0: // '\0'
+            a = gmv.b;
+            return;
 
-    public abstract String a(String s, String s1);
+        case 1: // '\001'
+            a = gmv.c;
+            break;
+        }
+    }
 
-    public abstract boolean a();
+    public gmu(itu itu)
+    {
+        b = itu;
+        a = gmv.a;
+    }
 
-    public abstract boolean a(String s);
+    public gmv a()
+    {
+        return a;
+    }
 
-    public abstract boolean a(String s, boolean flag);
-
-    public abstract String b(String s);
-
-    public abstract boolean b();
-
-    public abstract Set c(String s);
-
-    public abstract boolean d(String s);
-
-    public abstract gmu e(String s);
+    public itu b()
+    {
+        return b;
+    }
 }

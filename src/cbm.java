@@ -2,46 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
+import com.google.android.apps.hangouts.mergedcontacts.impl.MergeContactsService;
+import java.util.ArrayList;
 
-public final class cbm extends cbh
+final class cbm
+    implements Runnable
 {
 
-    public cbm()
+    final int a;
+    final ArrayList b;
+    final cbl c;
+
+    cbm(cbl cbl1, int i, ArrayList arraylist)
     {
+        c = cbl1;
+        a = i;
+        b = arraylist;
+        super();
     }
 
-    public int a()
+    public void run()
     {
-        return -1;
-    }
-
-    public void a(Activity activity)
-    {
-    }
-
-    public int b()
-    {
-        return -1;
-    }
-
-    public int c()
-    {
-        return -1;
-    }
-
-    public int d()
-    {
-        return 0;
-    }
-
-    public int e()
-    {
-        return 0;
-    }
-
-    public boolean g()
-    {
-        return false;
+        int i = ((dic)hlp.a(c.b.getApplicationContext(), dic)).a(dcn.e(a), b);
+        c.a(i);
     }
 }

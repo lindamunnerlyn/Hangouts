@@ -2,34 +2,75 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.ContentResolver;
 import android.content.Context;
-import android.content.res.Resources;
-import android.view.View;
-import com.google.android.apps.hangouts.conversation.v2.TransportSpinner;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.widget.Toast;
+import com.google.android.apps.hangouts.conversation.v2.PreviewImageActivity;
 
-public final class bae extends bah
-    implements android.view.View.OnClickListener
+public final class bae extends AsyncTask
 {
 
-    private final TransportSpinner a;
+    final Uri a;
+    final Context b;
+    final int c;
+    final ContentResolver d;
+    final PreviewImageActivity e;
 
-    public bae(TransportSpinner transportspinner)
+    public bae(PreviewImageActivity previewimageactivity, Context context, int i, Uri uri)
     {
-        a = transportspinner;
+        e = previewimageactivity;
+        super();
+        b = context;
+        a = uri;
+        c = i;
+        d = context.getContentResolver();
     }
 
-    public String a()
+    protected Object doInBackground(Object aobj[])
     {
-        return g.nS.getResources().getString(l.gL);
+        aobj = atp.a;
+        if (e.k != null)
+        {
+            if (g.a(e.k, false))
+            {
+                aobj = atp.c;
+            } else
+            {
+                aobj = atp.b;
+            }
+        }
+        aobj = ava.a(b, c, ((atp) (aobj)), a, a.toString(), null);
+        if (aobj == null)
+        {
+            cancel(false);
+        }
+        return ((Object) (aobj));
     }
 
-    public int b()
+    protected void onCancelled(Object obj)
     {
-        return com.google.android.apps.hangouts.R.drawable.bA;
+        obj = String.valueOf(a);
+        eev.f("PreviewImage", (new StringBuilder(String.valueOf(obj).length() + 51)).append("Cancelled preview. Unable to create attachment for ").append(((String) (obj))).toString());
+        obj = e.getString(g.kI);
+        Toast.makeText(e, ((CharSequence) (obj)), 0).show();
+        e.setResult(0, e.getIntent());
+        e.finish();
     }
 
-    public void onClick(View view)
+    protected void onPostExecute(Object obj)
     {
-        TransportSpinner.c(a);
+        boolean flag = false;
+        obj = (atx)obj;
+        Object obj1 = (new edq(((atx) (obj)).a, null)).b(false).a(1024);
+        if (((atx) (obj)).c == atp.c)
+        {
+            flag = true;
+        }
+        obj1 = new aqn(((edq) (obj1)).c(flag), e, true, null);
+        ((aqn) (obj1)).b(true);
+        ((dpn)e.q.a(dpn)).a(((dor) (obj1)));
+        e.j = ((atx) (obj));
     }
 }

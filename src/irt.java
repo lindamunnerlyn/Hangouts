@@ -3,97 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class irt extends koj
+public final class irt
+    implements joj
 {
 
-    private static volatile irt c[];
-    public Long a;
-    public Integer b;
+    private final irs a;
 
-    public irt()
+    public irt(irs irs1)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = irs1;
     }
 
-    public static irt[] a()
+    public Object a()
     {
-        if (c == null)
+        android.app.Activity activity = a.a();
+        if (activity == null)
         {
-            synchronized (kon.a)
-            {
-                if (c == null)
-                {
-                    c = new irt[0];
-                }
-            }
-        }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+            throw new NullPointerException("Cannot return null from a non-@Nullable @Provides method");
+        } else
         {
-            i = j + koh.d(1, a.longValue());
+            return activity;
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.intValue());
-        }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-_L5:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 3: default 40
-    //                   0: 49
-    //                   8: 51
-    //                   16: 65;
-           goto _L1 _L2 _L3 _L4
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L5; else goto _L2
-_L2:
-        return this;
-_L3:
-        a = Long.valueOf(kog1.d());
-          goto _L5
-_L4:
-        int j = kog1.f();
-        switch (j)
-        {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-            b = Integer.valueOf(j);
-            break;
-        }
-        if (true) goto _L5; else goto _L6
-_L6:
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a.longValue());
-        }
-        if (b != null)
-        {
-            koh1.a(2, b.intValue());
-        }
-        super.writeTo(koh1);
     }
 }

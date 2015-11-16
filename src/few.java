@@ -2,107 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
-import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcel;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.herrevad.PredictedNetworkQuality;
 
-public abstract class few extends Binder
-    implements fev
+public final class few
+    implements feu
 {
 
-    public static fev a(IBinder ibinder)
+    private IBinder a;
+
+    public few(IBinder ibinder)
     {
-        if (ibinder == null)
-        {
-            return null;
-        }
-        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.mdm.internal.INetworkQualityService");
-        if (iinterface != null && (iinterface instanceof fev))
-        {
-            return (fev)iinterface;
-        } else
-        {
-            return new fex(ibinder);
-        }
+        a = ibinder;
     }
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    public void a(Status status, PredictedNetworkQuality predictednetworkquality)
     {
-        String s = null;
-        Bundle bundle = null;
-        switch (i)
+        Parcel parcel = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.herrevad.internal.IActiveNetworkQualityCallbacks");
+        if (status == null) goto _L2; else goto _L1
+_L1:
+        parcel.writeInt(1);
+        status.writeToParcel(parcel, 0);
+_L3:
+        if (predictednetworkquality == null)
         {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
-
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.mdm.internal.INetworkQualityService");
-            return true;
-
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.gms.mdm.internal.INetworkQualityService");
-            s = parcel.readString();
-            if (parcel.readInt() != 0)
-            {
-                bundle = (Bundle)Bundle.CREATOR.createFromParcel(parcel);
-            } else
-            {
-                bundle = null;
-            }
-            if (parcel.readInt() != 0)
-            {
-                parcel = (Bundle)Bundle.CREATOR.createFromParcel(parcel);
-            } else
-            {
-                parcel = null;
-            }
-            a(s, bundle, parcel);
-            parcel1.writeNoException();
-            return true;
-
-        case 2: // '\002'
-            parcel.enforceInterface("com.google.android.gms.mdm.internal.INetworkQualityService");
-            parcel = parcel.readStrongBinder();
-            if (parcel == null)
-            {
-                parcel = bundle;
-            } else
-            {
-                android.os.IInterface iinterface = parcel.queryLocalInterface("com.google.android.gms.herrevad.internal.IActiveNetworkQualityCallbacks");
-                if (iinterface != null && (iinterface instanceof fbw))
-                {
-                    parcel = (fbw)iinterface;
-                } else
-                {
-                    parcel = new fby(parcel);
-                }
-            }
-            a(parcel);
-            parcel1.writeNoException();
-            return true;
-
-        case 3: // '\003'
-            parcel.enforceInterface("com.google.android.gms.mdm.internal.INetworkQualityService");
-            parcel = parcel.readStrongBinder();
-            break;
+            break MISSING_BLOCK_LABEL_74;
         }
-        if (parcel == null)
-        {
-            parcel = s;
-        } else
-        {
-            android.os.IInterface iinterface1 = parcel.queryLocalInterface("com.google.android.gms.herrevad.internal.IConnectedNetworksQualityCallbacks");
-            if (iinterface1 != null && (iinterface1 instanceof fbz))
-            {
-                parcel = (fbz)iinterface1;
-            } else
-            {
-                parcel = new fcb(parcel);
-            }
-        }
-        a(parcel);
-        parcel1.writeNoException();
-        return true;
+        parcel.writeInt(1);
+        predictednetworkquality.writeToParcel(parcel, 0);
+_L4:
+        a.transact(2, parcel, null, 1);
+        parcel.recycle();
+        return;
+_L2:
+        parcel.writeInt(0);
+          goto _L3
+        status;
+        parcel.recycle();
+        throw status;
+        parcel.writeInt(0);
+          goto _L4
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
     }
 }

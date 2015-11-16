@@ -3,16 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jfv extends koj
+public final class jfv extends kwm
 {
 
-    public static final kok a = kok.a(jfv, 0x2ebd00eaL);
-    private static final jfv c[] = new jfv[0];
-    public koz b;
+    public jcn a;
 
     public jfv()
     {
-        b = null;
+        a = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,22 +19,22 @@ public final class jfv extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (b != null)
+        if (a != null)
         {
-            i = j + koh.d(1, b);
+            i = j + kwk.d(1, a);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -46,23 +44,22 @@ public final class jfv extends koj
                 return this;
 
             case 10: // '\n'
-                if (b == null)
+                if (a == null)
                 {
-                    b = new koz();
+                    a = new jcn();
                 }
-                kog1.a(b);
+                kwj1.a(a);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (b != null)
+        if (a != null)
         {
-            koh1.b(1, b);
+            kwk1.b(1, a);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
-
 }

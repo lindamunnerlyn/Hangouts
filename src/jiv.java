@@ -2,86 +2,114 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.cache.LocalCache;
 
-public final class jiv extends jiw
+public final class jiv extends kwm
 {
 
-    volatile long a;
-    com.google.common.cache.LocalCache.ReferenceEntry b;
-    com.google.common.cache.LocalCache.ReferenceEntry c;
-    volatile long d;
-    com.google.common.cache.LocalCache.ReferenceEntry e;
-    com.google.common.cache.LocalCache.ReferenceEntry f;
+    private static volatile jiv d[];
+    public Integer a;
+    public String b;
+    public Integer c;
 
-    jiv(Object obj, int i, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    public jiv()
     {
-        super(obj, i, referenceentry);
-        a = 0x7fffffffffffffffL;
-        b = LocalCache.j();
-        c = LocalCache.j();
-        d = 0x7fffffffffffffffL;
-        e = LocalCache.j();
-        f = LocalCache.j();
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public long getAccessTime()
+    public static jiv[] a()
     {
-        return a;
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry getNextInAccessQueue()
-    {
-        return b;
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry getNextInWriteQueue()
-    {
-        return e;
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInAccessQueue()
-    {
-        return c;
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInWriteQueue()
-    {
-        return f;
-    }
-
-    public long getWriteTime()
-    {
+        if (d == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (d == null)
+                {
+                    d = new jiv[0];
+                }
+            }
+        }
         return d;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public void setAccessTime(long l)
+    protected int computeSerializedSize()
     {
-        a = l;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.e(1, a.intValue());
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.b(2, b);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.intValue());
+        }
+        return i;
     }
 
-    public void setNextInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    public kws mergeFrom(kwj kwj1)
     {
-        b = referenceentry;
+_L6:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 4: default 48
+    //                   0: 57
+    //                   8: 59
+    //                   18: 73
+    //                   24: 84;
+           goto _L1 _L2 _L3 _L4 _L5
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L6; else goto _L2
+_L2:
+        return this;
+_L3:
+        a = Integer.valueOf(kwj1.f());
+          goto _L6
+_L4:
+        b = kwj1.j();
+          goto _L6
+_L5:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+            c = Integer.valueOf(j);
+            break;
+        }
+        if (true) goto _L6; else goto _L7
+_L7:
     }
 
-    public void setNextInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    public void writeTo(kwk kwk1)
     {
-        e = referenceentry;
-    }
-
-    public void setPreviousInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
-    {
-        c = referenceentry;
-    }
-
-    public void setPreviousInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
-    {
-        f = referenceentry;
-    }
-
-    public void setWriteTime(long l)
-    {
-        d = l;
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

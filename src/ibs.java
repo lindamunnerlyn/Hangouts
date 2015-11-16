@@ -3,18 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ibs extends koj
+public final class ibs extends kwm
 {
 
-    private static volatile ibs i[];
+    private static volatile ibs k[];
     public String a;
     public String b;
-    public Boolean c;
-    public Boolean d;
-    public String e;
+    public String c;
+    public Integer d;
+    public Integer e;
     public String f;
-    public String g;
-    public ibt h;
+    public Boolean g;
+    public String h;
+    public Integer i;
+    public Integer j;
 
     public ibs()
     {
@@ -26,23 +28,25 @@ public final class ibs extends koj
         f = null;
         g = null;
         h = null;
+        i = null;
+        j = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     public static ibs[] a()
     {
-        if (i == null)
+        if (k == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
-                if (i == null)
+                if (k == null)
                 {
-                    i = new ibs[0];
+                    k = new ibs[0];
                 }
             }
         }
-        return i;
+        return k;
         exception;
         obj;
         JVM INSTR monitorexit ;
@@ -51,45 +55,70 @@ public final class ibs extends koj
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int k = koh.b(1, a);
-        int l = koh.b(2, b);
-        c.booleanValue();
-        int i1 = koh.f(3);
-        d.booleanValue();
-        k = j + k + l + (i1 + 1) + (koh.f(4) + 1);
-        j = k;
+        int i1 = super.computeSerializedSize();
+        int l = i1;
+        if (a != null)
+        {
+            l = i1 + kwk.b(1, a);
+        }
+        i1 = l;
+        if (b != null)
+        {
+            i1 = l + kwk.b(2, b);
+        }
+        l = i1;
+        if (c != null)
+        {
+            l = i1 + kwk.b(3, c);
+        }
+        i1 = l;
+        if (d != null)
+        {
+            i1 = l + kwk.e(4, d.intValue());
+        }
+        l = i1;
         if (e != null)
         {
-            j = k + koh.b(5, e);
+            l = i1 + kwk.e(5, e.intValue());
         }
-        k = j;
+        i1 = l;
         if (f != null)
         {
-            k = j + koh.b(6, f);
+            i1 = l + kwk.b(6, f);
         }
-        j = k;
+        l = i1;
         if (g != null)
         {
-            j = k + koh.b(7, g);
+            g.booleanValue();
+            l = i1 + (kwk.f(7) + 1);
         }
-        k = j;
+        i1 = l;
         if (h != null)
         {
-            k = j + koh.d(8, h);
+            i1 = l + kwk.b(8, h);
         }
-        return k;
+        l = i1;
+        if (i != null)
+        {
+            l = i1 + kwk.e(9, i.intValue());
+        }
+        i1 = l;
+        if (j != null)
+        {
+            i1 = l + kwk.e(10, j.intValue());
+        }
+        return i1;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int j = kog1.a();
-            switch (j)
+            int l = kwj1.a();
+            switch (l)
             {
             default:
-                if (super.storeUnknownField(kog1, j))
+                if (super.storeUnknownField(kwj1, l))
                 {
                     continue;
                 }
@@ -99,66 +128,90 @@ public final class ibs extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                a = kwj1.j();
                 break;
 
             case 18: // '\022'
-                b = kog1.j();
+                b = kwj1.j();
                 break;
 
-            case 24: // '\030'
-                c = Boolean.valueOf(kog1.i());
+            case 26: // '\032'
+                c = kwj1.j();
                 break;
 
             case 32: // ' '
-                d = Boolean.valueOf(kog1.i());
+                d = Integer.valueOf(kwj1.f());
                 break;
 
-            case 42: // '*'
-                e = kog1.j();
+            case 40: // '('
+                e = Integer.valueOf(kwj1.f());
                 break;
 
             case 50: // '2'
-                f = kog1.j();
+                f = kwj1.j();
                 break;
 
-            case 58: // ':'
-                g = kog1.j();
+            case 56: // '8'
+                g = Boolean.valueOf(kwj1.i());
                 break;
 
             case 66: // 'B'
-                if (h == null)
-                {
-                    h = new ibt();
-                }
-                kog1.a(h);
+                h = kwj1.j();
+                break;
+
+            case 72: // 'H'
+                i = Integer.valueOf(kwj1.f());
+                break;
+
+            case 80: // 'P'
+                j = Integer.valueOf(kwj1.f());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.a(1, a);
-        koh1.a(2, b);
-        koh1.a(3, c.booleanValue());
-        koh1.a(4, d.booleanValue());
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.intValue());
+        }
         if (e != null)
         {
-            koh1.a(5, e);
+            kwk1.a(5, e.intValue());
         }
         if (f != null)
         {
-            koh1.a(6, f);
+            kwk1.a(6, f);
         }
         if (g != null)
         {
-            koh1.a(7, g);
+            kwk1.a(7, g.booleanValue());
         }
         if (h != null)
         {
-            koh1.b(8, h);
+            kwk1.a(8, h);
         }
-        super.writeTo(koh1);
+        if (i != null)
+        {
+            kwk1.a(9, i.intValue());
+        }
+        if (j != null)
+        {
+            kwk1.a(10, j.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

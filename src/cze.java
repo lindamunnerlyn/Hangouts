@@ -2,29 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.List;
 
-public final class cze extends cza
+public class cze extends cxr
 {
 
     private static final long serialVersionUID = 1L;
-    public final int a;
-    public final int b;
-    public final List v;
 
-    cze(isv isv, int i, long l, ivl ivl1)
+    private cze(jkt jkt1)
     {
-        super(isv, i, l);
-        a = g.a(ivl1.a, 0);
-        b = g.a(ivl1.c, 0);
-        v = g.a(ivl1.b, null);
+        if (cxr.a)
+        {
+            jkt1 = String.valueOf(jkt1);
+            eev.b("Babel_protos", (new StringBuilder(String.valueOf(jkt1).length() + 37)).append("HangoutInvitationModifyResponse from:").append(jkt1).toString());
+        }
     }
 
-    public List a()
+    public static cxr parseFrom(byte abyte0[])
     {
-        ArrayList arraylist = new ArrayList(v);
-        arraylist.add(d);
-        return arraylist;
+        abyte0 = (jkt)kws.mergeFrom(new jkt(), abyte0);
+        if (a(((jkt) (abyte0)).responseHeader))
+        {
+            return new cyd(((jkt) (abyte0)).responseHeader);
+        } else
+        {
+            return new cze(abyte0);
+        }
     }
 }

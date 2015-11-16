@@ -2,89 +2,55 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class dig extends aiu
+final class dig
+    implements Runnable
 {
 
-    private static final boolean a = false;
-    private static dig b;
-    private static boolean c = false;
+    final dif a;
 
-    private dig()
+    dig(dif dif1)
     {
+        a = dif1;
+        super();
     }
 
-    public static dig c()
+    public void run()
     {
-        if (b == null)
+label0:
         {
-            b = new dig();
-        }
-        return b;
-    }
-
-    public static final boolean d()
-    {
-        return c;
-    }
-
-    protected void b()
-    {
-        if (a)
-        {
-            ebw.b("Babel", "The last activity stopped, set recently active to false.");
-        }
-        c = false;
-        if (g.a(g.nS, "babel_enable_last_seen_r2", true))
-        {
-            int ai[] = dbf.f();
-            int j = ai.length;
-            for (int i = 0; i < j; i++)
+            synchronized (dif.a(a))
             {
-                dii.a(dbf.e(ai[i]), false);
-            }
-
-        }
-    }
-
-    public void onActivityStarted(Activity activity)
-    {
-        boolean flag = false;
-        super.onActivityStarted(activity);
-        int i;
-        if ((new dzu(activity, "com.google.android.apps.hangouts.phone.notify_set_active", "com.google.android.apps.hangouts.phone.force_set_active")).a())
-        {
-            i = 1;
-        } else
-        if (!(new dzu(activity, "com.google.android.apps.hangouts.phone.notify_set_active", "com.google.android.apps.hangouts.phone.block_set_active")).a() && !c && g.a(g.nS, "babel_enable_last_seen_r2", true) && (activity instanceof dih) && !g.u(activity.getApplicationContext()))
-        {
-            i = 1;
-        } else
-        {
-            i = 0;
-        }
-        if (i != 0)
-        {
-            c = true;
-            activity = dbf.f();
-            int j = activity.length;
-            for (i = ((flag) ? 1 : 0); i < j; i++)
-            {
-                ani ani = dbf.e(activity[i]);
-                if (ani != null)
+                if (dif.i())
                 {
-                    dii.a(ani, true);
-                    RealTimeChatService.c(ani);
+                    eev.b("Babel", a.a("Shutdown Runnable"));
+                }
+                if (dif.b(a) <= 0)
+                {
+                    break label0;
                 }
             }
-
+            return;
         }
-    }
-
-    static 
-    {
-        hik hik = ebw.n;
+        if (!a.stopSelfResult(dif.c(a))) goto _L2; else goto _L1
+_L1:
+        if (dif.i())
+        {
+            eev.b("Babel", a.a("StopSelf Succeeded"));
+        }
+        a.d();
+_L4:
+        obj;
+        JVM INSTR monitorexit ;
+        return;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+_L2:
+        if (!dif.i()) goto _L4; else goto _L3
+_L3:
+        eev.b("Babel", a.a("StopSelf Cancelled"));
+          goto _L4
     }
 }

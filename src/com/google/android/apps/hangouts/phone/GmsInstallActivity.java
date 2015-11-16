@@ -9,9 +9,9 @@ import ai;
 import android.content.Intent;
 import android.os.Bundle;
 import ap;
-import bka;
-import cnt;
-import ebw;
+import bkm;
+import cpl;
+import eev;
 import g;
 
 public final class GmsInstallActivity extends ai
@@ -23,9 +23,9 @@ public final class GmsInstallActivity extends ai
 
     private void g()
     {
-        bka.b(false);
+        bkm.k = false;
         boolean flag = getIntent().getExtras().getBoolean("from_main_launcher");
-        Intent intent = g.e(null);
+        Intent intent = g.d(null);
         if (flag)
         {
             intent.setAction("android.intent.action.MAIN");
@@ -44,7 +44,7 @@ public final class GmsInstallActivity extends ai
             return;
 
         case 1001: 
-            ebw.a("Babel", "Received notification from gmsCore installation. Restarting babel");
+            eev.a("Babel", "Received notification from gmsCore installation. Restarting babel");
             break;
         }
         g();
@@ -53,7 +53,7 @@ public final class GmsInstallActivity extends ai
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        ebw.a("Babel", "GmsInstallActivity.onCreate");
+        eev.a("Babel", "GmsInstallActivity.onCreate");
         int i = g.a(false, false, false);
         if (i == 0)
         {
@@ -61,9 +61,9 @@ public final class GmsInstallActivity extends ai
             return;
         } else
         {
-            bundle = t_().a();
-            ebw.a("Babel", "Starting dialog to install GmsCore from Play Service.");
-            cnt.a(i, 1001).a(bundle, "gmscore dialog");
+            bundle = u_().a();
+            eev.a("Babel", "Starting dialog to install GmsCore from Play Service.");
+            cpl.a(i, 1001).a(bundle, "gmscore dialog");
             return;
         }
     }

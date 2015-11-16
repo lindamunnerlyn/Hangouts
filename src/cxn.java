@@ -2,43 +2,70 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
-public class cxn extends cvn
+public class cxn extends cwm
 {
 
     private static final long serialVersionUID = 1L;
+    private byte a[];
+    private Map b;
+    private boolean c;
 
-    private cxn(ixe ixe1)
+    public cxn(byte abyte0[], Map map, boolean flag)
     {
-        super(ixe1.responseHeader, -1L);
-        if (cvn.a)
-        {
-            ixe1 = String.valueOf(ixe1);
-            ebw.b("Babel", (new StringBuilder(String.valueOf(ixe1).length() + 31)).append("ReportAbuseConversationResponse").append(ixe1).toString());
-        }
+        a = abyte0;
+        b = map;
+        c = flag;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public String a()
     {
-        abyte0 = (ixe)kop.mergeFrom(new ixe(), abyte0);
-        if (a(((ixe) (abyte0)).responseHeader))
-        {
-            return new cvz(((ixe) (abyte0)).responseHeader);
-        } else
-        {
-            return new cxn(abyte0);
-        }
+        return "ui_queue";
     }
 
-    public void a(aoe aoe, dfb dfb)
+    public kws a(String s, int i, int j)
     {
-        super.a(aoe, dfb);
-        if (ebw.a("Babel", 3))
+        if (cvv.e)
         {
-            aoe = String.valueOf("processReportAbuseConversationResponse response status: ");
-            int i = c.b;
-            dfb = c.a;
-            ebw.d("Babel", (new StringBuilder(String.valueOf(aoe).length() + 30 + String.valueOf(dfb).length())).append(aoe).append(i).append(" error description ").append(dfb).toString());
+            eev.b("Babel_RequestWriter", "UpdateFavoriteContactRequest()");
         }
+        jfr jfr1 = new jfr();
+        jfr1.requestHeader = cvu.a(null, true, s, i, j, h);
+        jfr1.b = a;
+        jfr1.a = new izq[b.size()];
+        s = b.entrySet().iterator();
+        for (i = 0; s.hasNext(); i++)
+        {
+            java.util.Map.Entry entry = (java.util.Map.Entry)s.next();
+            izq izq1 = new izq();
+            izq1.b = Boolean.valueOf(c);
+            izp izp1 = new izp();
+            izp1.a = new jce();
+            izp1.a.b = (String)entry.getKey();
+            izp1.c = (Integer)entry.getValue();
+            izq1.a = izp1;
+            jfr1.a[i] = izq1;
+        }
+
+        return jfr1;
+    }
+
+    public String f()
+    {
+        return "contacts/updatefavoritecontact";
+    }
+
+    boolean q()
+    {
+        return c;
+    }
+
+    Collection r()
+    {
+        return b.keySet();
     }
 }

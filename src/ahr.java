@@ -2,16 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.view.View;
 
-final class ahr
-    implements ahp
+public final class ahr extends AnimatorListenerAdapter
 {
 
-    final ahq a;
+    final View a;
 
-    ahr(ahq ahq)
+    public ahr(View view)
     {
-        a = ahq;
+        a = view;
         super();
+    }
+
+    public void onAnimationEnd(Animator animator)
+    {
+        if (a.getAlpha() == 0.0F)
+        {
+            a.setVisibility(8);
+        }
+    }
+
+    public void onAnimationStart(Animator animator)
+    {
+        a.setVisibility(0);
     }
 }

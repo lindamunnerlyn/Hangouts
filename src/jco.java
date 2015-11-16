@@ -3,15 +3,13 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jco extends koj
+public final class jco extends kwm
 {
 
-    public jbw a;
-    public ixg responseHeader;
+    public Long a;
 
     public jco()
     {
-        responseHeader = null;
         a = null;
         unknownFieldData = null;
         cachedSize = -1;
@@ -21,27 +19,22 @@ public final class jco extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (responseHeader != null)
-        {
-            i = j + koh.d(1, responseHeader);
-        }
-        j = i;
         if (a != null)
         {
-            j = i + koh.d(2, a);
+            i = j + kwk.d(1, a.longValue());
         }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -50,35 +43,19 @@ public final class jco extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (responseHeader == null)
-                {
-                    responseHeader = new ixg();
-                }
-                kog1.a(responseHeader);
-                break;
-
-            case 18: // '\022'
-                if (a == null)
-                {
-                    a = new jbw();
-                }
-                kog1.a(a);
+            case 8: // '\b'
+                a = Long.valueOf(kwj1.d());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (responseHeader != null)
-        {
-            koh1.b(1, responseHeader);
-        }
         if (a != null)
         {
-            koh1.b(2, a);
+            kwk1.a(1, a.longValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

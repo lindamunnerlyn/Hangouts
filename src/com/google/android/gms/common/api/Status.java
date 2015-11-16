@@ -7,18 +7,18 @@ package com.google.android.gms.common.api;
 import android.app.PendingIntent;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import ekg;
-import elu;
-import eof;
+import enh;
+import eov;
+import erf;
 import g;
 import java.util.Arrays;
 import n;
 
 public final class Status
-    implements SafeParcelable, ekg
+    implements SafeParcelable, enh
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new elu();
+    public static final android.os.Parcelable.Creator CREATOR = new eov();
     public static final Status a = new Status(0);
     public static final Status b = new Status(14);
     public static final Status c = new Status(8);
@@ -52,34 +52,39 @@ public final class Status
         this(1, j, s, pendingintent);
     }
 
-    public Status B_()
-    {
-        return this;
-    }
-
-    public PendingIntent b()
+    private PendingIntent d()
     {
         return i;
     }
 
-    public String c()
+    private String e()
     {
         return h;
     }
 
-    public int d()
+    private int f()
     {
         return f;
+    }
+
+    public Status D_()
+    {
+        return this;
+    }
+
+    public boolean b()
+    {
+        return g <= 0;
+    }
+
+    public int c()
+    {
+        return g;
     }
 
     public int describeContents()
     {
         return 0;
-    }
-
-    public boolean e()
-    {
-        return g <= 0;
     }
 
     public boolean equals(Object obj)
@@ -94,11 +99,6 @@ public final class Status
         return false;
     }
 
-    public int f()
-    {
-        return g;
-    }
-
     public int hashCode()
     {
         return Arrays.hashCode(new Object[] {
@@ -108,7 +108,7 @@ public final class Status
 
     public String toString()
     {
-        eof eof1 = g.c(this);
+        erf erf1 = g.c(this);
         String s;
         if (h != null)
         {
@@ -117,12 +117,17 @@ public final class Status
         {
             s = n.a(g);
         }
-        return eof1.a("statusCode", s).a("resolution", i).toString();
+        return erf1.a("statusCode", s).a("resolution", i).toString();
     }
 
     public void writeToParcel(Parcel parcel, int j)
     {
-        elu.a(this, parcel, j);
+        int k = g.p(parcel, 20293);
+        g.b(parcel, 1, c());
+        g.b(parcel, 1000, f());
+        g.a(parcel, 2, e());
+        g.a(parcel, 3, d(), j);
+        g.q(parcel, k);
     }
 
 }

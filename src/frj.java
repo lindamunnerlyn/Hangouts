@@ -2,52 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import com.google.android.gms.common.ConnectionResult;
+import android.content.res.Resources;
+import java.util.concurrent.ConcurrentHashMap;
 
-public final class frj
-    implements eka, ekc
+abstract class frj
 {
 
-    private final frb a;
-    private frk b;
-    private boolean c;
+    private final ConcurrentHashMap a = new ConcurrentHashMap();
+    private final Resources b;
 
-    public frj(frb frb)
+    public frj(Resources resources)
     {
-        a = frb;
-        b = null;
-        c = true;
+        b = resources;
     }
 
-    public void a()
+    public String a(int i)
     {
-        c = true;
-    }
-
-    public void a(int i)
-    {
-        b.a(true);
-    }
-
-    public void a(ConnectionResult connectionresult)
-    {
-        b.a(true);
-        if (c && a != null && connectionresult.a())
+        String s;
+        if (i == 0)
         {
-            connectionresult.d();
+            s = null;
+        } else
+        {
+            String s2 = (String)a.get(Integer.valueOf(i));
+            s = s2;
+            if (s2 == null)
+            {
+                String s1 = a(b, i);
+                a.put(Integer.valueOf(i), s1);
+                return s1;
+            }
         }
-        c = false;
+        return s;
     }
 
-    public void a(frk frk1)
-    {
-        b = frk1;
-    }
-
-    public void a_(Bundle bundle)
-    {
-        b.a(false);
-        c = false;
-    }
+    protected abstract String a(Resources resources, int i);
 }

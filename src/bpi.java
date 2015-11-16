@@ -2,27 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Parcel;
 
-final class bpi extends gbb
+final class bpi
+    implements android.os.Parcelable.Creator
 {
 
-    final bpd a;
-
-    bpi(bpd bpd1)
+    bpi()
     {
-        a = bpd1;
-        super();
     }
 
-    public void a(kop kop)
+    public Object createFromParcel(Parcel parcel)
     {
-        kop = (izx)kop;
-        a.a(kop);
+        return new bph(parcel);
     }
 
-    public void a(kop kop, kop kop1)
+    public Object[] newArray(int i)
     {
-        kop = (izx)kop1;
-        a.a(kop);
+        return new bph[i];
     }
 }

@@ -3,14 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kic extends koj
+public final class kic extends kwm
 {
 
-    public kid a;
+    public khp a;
+    public kia b;
 
     public kic()
     {
         a = null;
+        b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,20 +23,25 @@ public final class kic extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(2, a);
+            i = j + kwk.d(1, a);
         }
-        return i;
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(2, b);
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -43,23 +50,35 @@ public final class kic extends koj
             case 0: // '\0'
                 return this;
 
-            case 18: // '\022'
+            case 10: // '\n'
                 if (a == null)
                 {
-                    a = new kid();
+                    a = new khp();
                 }
-                kog1.a(a);
+                kwj1.a(a);
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new kia();
+                }
+                kwj1.a(b);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(2, a);
+            kwk1.b(1, a);
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        super.writeTo(kwk1);
     }
 }

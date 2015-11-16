@@ -2,31 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import com.google.android.apps.hangouts.hangout.IncomingRingActivity;
-import com.google.android.apps.hangouts.hangout.multiwaveview.GlowPadView;
 
-public final class bqa
-    implements Runnable
+final class bqa extends bns
 {
 
-    final IncomingRingActivity a;
+    final bpz a;
 
-    public bqa(IncomingRingActivity incomingringactivity)
+    bqa(bpz bpz1)
     {
-        a = incomingringactivity;
+        a = bpz1;
         super();
     }
 
-    public void run()
+    public void a(int i)
     {
-        if (IncomingRingActivity.a(a) != null)
+        a.a();
+    }
+
+    public void b(gmt gmt1)
+    {
+        if (gmt1.a().equals(bpz.a(a).a()))
         {
-            IncomingRingActivity.a(a).ping();
-        }
-        if (IncomingRingActivity.b(a) != null)
-        {
-            IncomingRingActivity.b(a).postDelayed(this, 2000L);
+            a.a();
         }
     }
 }

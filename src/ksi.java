@@ -3,113 +3,151 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ksi extends koj
+public final class ksi extends kwm
 {
 
-    public ksj a[];
+    private static volatile ksi f[];
+    public Integer a;
+    public kjc b;
+    public String c;
+    public String d;
+    public kjc e;
 
     public ksi()
     {
-        a = ksj.a();
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        e = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
+    public static ksi[] a()
+    {
+        if (f == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (f == null)
+                {
+                    f = new ksi[0];
+                }
+            }
+        }
+        return f;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        int k = i;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            k = i;
-            if (a.length > 0)
-            {
-                int j = 0;
-                do
-                {
-                    k = i;
-                    if (j >= a.length)
-                    {
-                        break;
-                    }
-                    ksj ksj1 = a[j];
-                    k = i;
-                    if (ksj1 != null)
-                    {
-                        k = i + koh.d(1, ksj1);
-                    }
-                    j++;
-                    i = k;
-                } while (true);
-            }
+            i = j + kwk.e(1, a.intValue());
         }
-        return k;
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(2, b);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.b(3, c);
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.b(4, d);
+        }
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.d(5, e);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L8:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 6: default 64
+    //                   0: 73
+    //                   8: 75
+    //                   18: 126
+    //                   26: 155
+    //                   34: 166
+    //                   42: 177;
+           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L8; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                ksj aksj[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                aksj = new ksj[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aksj, 0, j);
-                    k = j;
-                }
-                for (; k < aksj.length - 1; k++)
-                {
-                    aksj[k] = new ksj();
-                    kog1.a(aksj[k]);
-                    kog1.a();
-                }
-
-                aksj[k] = new ksj();
-                kog1.a(aksj[k]);
-                a = aksj;
-                break;
-            }
-        } while (true);
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+            a = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        if (b == null)
+        {
+            b = new kjc();
+        }
+        kwj1.a(b);
+        continue; /* Loop/switch isn't completed */
+_L5:
+        c = kwj1.j();
+        continue; /* Loop/switch isn't completed */
+_L6:
+        d = kwj1.j();
+        continue; /* Loop/switch isn't completed */
+_L7:
+        if (e == null)
+        {
+            e = new kjc();
+        }
+        kwj1.a(e);
+        if (true) goto _L8; else goto _L9
+_L9:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null && a.length > 0)
+        if (a != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                ksj ksj1 = a[i];
-                if (ksj1 != null)
-                {
-                    koh1.b(1, ksj1);
-                }
-            }
-
+            kwk1.a(1, a.intValue());
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d);
+        }
+        if (e != null)
+        {
+            kwk1.b(5, e);
+        }
+        super.writeTo(kwk1);
     }
 }

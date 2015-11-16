@@ -3,8 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface azl
+public class azl extends hmm
 {
 
-    public abstract void a();
+    public azl()
+    {
+    }
 }

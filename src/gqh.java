@@ -2,24 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.util.Property;
-import android.view.View;
+import android.animation.Animator;
+import android.animation.AnimatorSet;
 
 public final class gqh
 {
 
-    public static final Property a = Property.of(android/view/View, java/lang/Float, "pivotX");
-    public static final Property b = Property.of(android/view/View, java/lang/Float, "pivotY");
-    public static final Property c;
-    public static final Property d;
-    public static final Property e;
-    public static final Property f;
+    private final gqg a;
+    private Animator b;
 
-    static 
+    public gqh(gqg gqg1)
     {
-        c = new gqi(java/lang/Float, "width");
-        d = new gqj(java/lang/Float, "height");
-        e = new gqk(c, View.X, "anchorPositionX");
-        f = new gqk(d, View.Y, "anchorPositionY");
+        b = new AnimatorSet();
+        a = gqg1;
+    }
+
+    private void a()
+    {
+        if (b.isStarted())
+        {
+            b.end();
+        }
+    }
+
+    public void a(Animator animator)
+    {
+        a();
+        if (!a.c())
+        {
+            return;
+        } else
+        {
+            b = animator;
+            b.start();
+            return;
+        }
+    }
+
+    public void b(Animator animator)
+    {
+        a();
+        if (a.c())
+        {
+            return;
+        } else
+        {
+            b = animator;
+            b.start();
+            return;
+        }
     }
 }

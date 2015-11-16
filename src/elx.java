@@ -2,56 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.ConnectionResult;
-import java.util.List;
+import android.os.IBinder;
+import android.os.Parcel;
+import com.google.android.gms.clearcut.LogEventParcelable;
 
 final class elx
-    implements Runnable
+    implements elv
 {
 
-    final elv a;
-    private final int b;
-    private final ConnectionResult c;
+    private IBinder a;
 
-    public elx(elv elv1, int i, ConnectionResult connectionresult)
+    elx(IBinder ibinder)
     {
-        a = elv1;
-        super();
-        b = i;
-        c = connectionresult;
+        a = ibinder;
     }
 
-    public void run()
+    public void a(els els1, LogEventParcelable logeventparcelable)
     {
-        if (!elv.a(a) || elv.b(a))
+        IBinder ibinder;
+        Parcel parcel;
+        ibinder = null;
+        parcel = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.clearcut.internal.IClearcutLoggerService");
+        if (els1 == null)
         {
-            return;
+            break MISSING_BLOCK_LABEL_25;
         }
-        elv.c(a);
-        elv.a(a, b);
-        elv.a(a, c);
-        if (c.a())
+        ibinder = els1.asBinder();
+        parcel.writeStrongBinder(ibinder);
+        if (logeventparcelable == null)
         {
-            try
-            {
-                int i = a.getActivity().t_().d().indexOf(a);
-                c.a(a.getActivity(), (i + 1 << 16) + 1);
-                return;
-            }
-            catch (android.content.IntentSender.SendIntentException sendintentexception)
-            {
-                elv.d(a);
-            }
-            return;
+            break MISSING_BLOCK_LABEL_69;
         }
-        if (ejn.b(c.c()))
-        {
-            ejn.a(c.c(), a.getActivity(), a, 2, a);
-            return;
-        } else
-        {
-            elv.a(a, b, c);
-            return;
-        }
+        parcel.writeInt(1);
+        logeventparcelable.writeToParcel(parcel, 0);
+_L1:
+        a.transact(1, parcel, null, 1);
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        els1;
+        parcel.recycle();
+        throw els1;
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
     }
 }

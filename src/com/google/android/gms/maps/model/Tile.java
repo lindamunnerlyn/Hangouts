@@ -6,13 +6,14 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import flq;
+import fom;
+import g;
 
 public final class Tile
     implements SafeParcelable
 {
 
-    public static final flq CREATOR = new flq();
+    public static final fom CREATOR = new fom();
     public final int a;
     public final int b;
     public final byte c[];
@@ -31,7 +32,7 @@ public final class Tile
         c = abyte0;
     }
 
-    public int a()
+    private int a()
     {
         return d;
     }
@@ -43,7 +44,12 @@ public final class Tile
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        flq.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a());
+        g.b(parcel, 2, a);
+        g.b(parcel, 3, b);
+        g.a(parcel, 4, c);
+        g.q(parcel, i);
     }
 
 }

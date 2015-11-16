@@ -2,31 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.List;
 
-public final class czg extends cza
+public class czg extends cyc
 {
 
     private static final long serialVersionUID = 1L;
-    public final int a;
-    public final int b;
-    public final int v;
-    public final int w;
+    private final int g;
+    private final cgd j;
 
-    public czg(isv isv, int i, long l, ivy ivy1)
+    private czg(jbv jbv1)
     {
-        super(isv, i, l);
-        a = g.a(ivy1.a, 0);
-        b = g.a(ivy1.b, 0);
-        v = g.a(ivy1.c, 1);
-        w = g.a(ivy1.d, 1);
+        super(jbv1.responseHeader, g.a(jbv1.a.c, 0L), g.a(jbv1.a.n, 0L), jbv1.a.d);
+        if (cxr.a)
+        {
+            String s = String.valueOf(jbv1);
+            eev.b("Babel_protos", (new StringBuilder(String.valueOf(s).length() + 29)).append("ModifyOtrStatusResponse from:").append(s).toString());
+        }
+        j = new cgd(jbv1.a.b.b, jbv1.a.b.a);
+        g = g.a(jbv1.a.k.b, 0);
     }
 
-    public List a()
+    public static cxr parseFrom(jbv jbv1)
     {
-        ArrayList arraylist = new ArrayList();
-        arraylist.add(d);
-        return arraylist;
+        if (a(jbv1.responseHeader))
+        {
+            return new cyd(jbv1.responseHeader);
+        } else
+        {
+            return new czg(jbv1);
+        }
+    }
+
+    public static cxr parseFrom(byte abyte0[])
+    {
+        return parseFrom((jbv)kws.mergeFrom(new jbv(), abyte0));
+    }
+
+    public void a(aow aow, dgk dgk)
+    {
+        super.a(aow, dgk);
+        dgk = ((cwo)b).k;
+        String s = ((cwe)b).j;
+        (new dkt(dgk, j, d, i, h, s, g, dsu.e)).c(aow);
     }
 }

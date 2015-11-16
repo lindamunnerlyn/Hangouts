@@ -3,16 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hvx extends koj
+public final class hvx extends kwm
 {
 
-    public hwc a;
-    public hvy b[];
+    public Boolean a;
+    public hwa b;
+    public Boolean c;
+    public hvy d;
 
     public hvx()
     {
         a = null;
-        b = hvy.a();
+        b = null;
+        c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -23,41 +27,37 @@ public final class hvx extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
         j = i;
         if (b != null)
         {
-            j = i;
-            if (b.length > 0)
-            {
-                for (j = 0; j < b.length;)
-                {
-                    hvy hvy1 = b[j];
-                    int k = i;
-                    if (hvy1 != null)
-                    {
-                        k = i + koh.d(2, hvy1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            j = i + kwk.d(2, b);
+        }
+        i = j;
+        if (c != null)
+        {
+            c.booleanValue();
+            i = j + (kwk.f(3) + 1);
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.d(4, d);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -66,65 +66,51 @@ public final class hvx extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new hwc();
-                }
-                kog1.a(a);
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
                 break;
 
             case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                hvy ahvy[];
-                int j;
                 if (b == null)
                 {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
+                    b = new hwa();
                 }
-                ahvy = new hvy[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, ahvy, 0, j);
-                    k = j;
-                }
-                for (; k < ahvy.length - 1; k++)
-                {
-                    ahvy[k] = new hvy();
-                    kog1.a(ahvy[k]);
-                    kog1.a();
-                }
+                kwj1.a(b);
+                break;
 
-                ahvy[k] = new hvy();
-                kog1.a(ahvy[k]);
-                b = ahvy;
+            case 24: // '\030'
+                c = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 34: // '"'
+                if (d == null)
+                {
+                    d = new hvy();
+                }
+                kwj1.a(d);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.a(1, a.booleanValue());
         }
-        if (b != null && b.length > 0)
+        if (b != null)
         {
-            for (int i = 0; i < b.length; i++)
-            {
-                hvy hvy1 = b[i];
-                if (hvy1 != null)
-                {
-                    koh1.b(2, hvy1);
-                }
-            }
-
+            kwk1.b(2, b);
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.a(3, c.booleanValue());
+        }
+        if (d != null)
+        {
+            kwk1.b(4, d);
+        }
+        super.writeTo(kwk1);
     }
 }

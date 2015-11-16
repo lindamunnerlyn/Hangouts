@@ -2,35 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-final class byw
+public final class byw
 {
 
-    private boolean a;
-    private final beb b = (new bec()).a("locationtos").b("Module that hosts the location terms of service notification.").a(true).a();
+    public static final String a = byr.getName();
+    private static byv b;
 
-    public byw()
+    public static void a(hlp hlp1)
     {
-        a = false;
-        a = g.a(g.nS, "babel_enable_kr_location_tos", true);
-    }
-
-    public beb[] a()
-    {
-        return (new beb[] {
-            b
-        });
-    }
-
-    public cqv[] a(Context context)
-    {
-        if (a)
+        if (b == null)
         {
-            return (cqv[])b.a(context, cqv, new byv());
-        } else
-        {
-            return null;
+            b = new byv();
         }
+        hlp1.a(byr, new byu());
     }
+
 }

@@ -2,96 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.IOException;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import java.util.concurrent.BlockingQueue;
 
-public abstract class fdo
+final class fdo extends Handler
 {
 
-    public volatile int p;
+    final fdn a;
 
-    public fdo()
+    fdo(fdn fdn1, Looper looper)
     {
-        p = -1;
+        a = fdn1;
+        super(looper);
     }
 
-    public static final fdo a(fdo fdo1, byte abyte0[], int i)
+    public void handleMessage(Message message)
     {
-        try
+        Object obj;
+        if (message != null)
         {
-            abyte0 = new fdh(abyte0, 0, i);
-            fdo1.a(((fdh) (abyte0)));
-            abyte0.a(0);
+            obj = message.obj;
         }
-        // Misplaced declaration of an exception variable
-        catch (fdo fdo1)
+        message = (Intent)message.obj;
+        if ("com.google.android.c2dm.intent.REGISTRATION".equals(message.getAction()))
         {
-            throw fdo1;
-        }
-        // Misplaced declaration of an exception variable
-        catch (fdo fdo1)
+            fdn.a(a).add(message);
+        } else
+        if (!fdn.a(a, message))
         {
-            throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).");
+            message.setPackage(fdn.b(a).getPackageName());
+            fdn.b(a).sendBroadcast(message);
+            return;
         }
-        return fdo1;
-    }
-
-    public static final byte[] a(fdo fdo1)
-    {
-        byte abyte0[] = new byte[fdo1.g()];
-        int i = abyte0.length;
-        try
-        {
-            fdi fdi1 = fdi.a(abyte0, 0, i);
-            fdo1.a(fdi1);
-            fdi1.a();
-        }
-        // Misplaced declaration of an exception variable
-        catch (fdo fdo1)
-        {
-            throw new RuntimeException("Serializing to a byte array threw an IOException (should never happen).", fdo1);
-        }
-        return abyte0;
-    }
-
-    protected int a()
-    {
-        return 0;
-    }
-
-    public abstract fdo a(fdh fdh1);
-
-    public void a(fdi fdi1)
-    {
-    }
-
-    public Object clone()
-    {
-        return e();
-    }
-
-    public fdo e()
-    {
-        return (fdo)super.clone();
-    }
-
-    public int f()
-    {
-        if (p < 0)
-        {
-            g();
-        }
-        return p;
-    }
-
-    public int g()
-    {
-        int i = a();
-        p = i;
-        return i;
-    }
-
-    public String toString()
-    {
-        return g.a(this);
     }
 }

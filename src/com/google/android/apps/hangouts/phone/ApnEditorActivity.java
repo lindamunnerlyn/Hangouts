@@ -4,7 +4,6 @@
 
 package com.google.android.apps.hangouts.phone;
 
-import amp;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -21,10 +20,11 @@ import android.preference.PreferenceScreen;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import ciu;
-import civ;
-import ciw;
-import ebz;
+import anh;
+import cjz;
+import cka;
+import ckb;
+import eey;
 import g;
 import l;
 
@@ -82,7 +82,7 @@ public class ApnEditorActivity extends PreferenceActivity
             return false;
         } else
         {
-            (new civ(this, s, s1, s2)).execute(new Void[] {
+            (new cka(this, s, s1, s2)).execute(new Void[] {
                 null
             });
             return true;
@@ -123,7 +123,7 @@ label0:
 _L1:
         d.setText(null);
         e.setText(null);
-        String s1 = ebz.l();
+        String s1 = eey.l();
         if (s1 != null && s1.length() > 4)
         {
             String s = s1.substring(0, 3);
@@ -173,16 +173,16 @@ _L3:
         String s1 = c(e.getText());
         if (s2.length() <= 0)
         {
-            s = m.getString(l.bZ);
+            s = m.getString(l.bT);
         } else
         {
             if (s3.length() != 3)
             {
-                return m.getString(l.cb);
+                return m.getString(l.bV);
             }
             if ((s1.length() & 0xfffe) != 2)
             {
-                return m.getString(l.cc);
+                return m.getString(l.bW);
             }
         }
         return s;
@@ -244,8 +244,8 @@ label0:
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        addPreferencesFromResource(g.io);
-        a = getResources().getString(l.o);
+        addPreferencesFromResource(g.ig);
+        a = getResources().getString(l.m);
         b = (EditTextPreference)findPreference("apn_name");
         f = (EditTextPreference)findPreference("apn_mms_proxy");
         g = (EditTextPreference)findPreference("apn_mms_port");
@@ -272,13 +272,13 @@ label0:
             flag = false;
         }
         k = flag;
-        p = amp.a(getApplicationContext());
+        p = anh.a(getApplicationContext());
         if (k)
         {
             b();
         } else
         {
-            (new ciu(this)).execute(new Void[] {
+            (new cjz(this)).execute(new Void[] {
                 null
             });
         }
@@ -306,10 +306,10 @@ label0:
         super.onCreateOptionsMenu(menu);
         if (!k)
         {
-            menu.add(0, 1, 0, l.fE).setIcon(com.google.android.apps.hangouts.R.drawable.bz);
+            menu.add(0, 1, 0, l.fn).setIcon(com.google.android.apps.hangouts.R.drawable.bv);
         }
-        menu.add(0, 2, 0, l.fS).setIcon(0x108004e);
-        menu.add(0, 3, 0, l.fG).setIcon(0x1080038);
+        menu.add(0, 2, 0, l.fB).setIcon(0x108004e);
+        menu.add(0, 3, 0, l.fp).setIcon(0x1080038);
         return true;
     }
 
@@ -355,7 +355,7 @@ _L1:
 _L7:
         return flag;
 _L2:
-        (new ciw(this)).execute(new Void[] {
+        (new ckb(this)).execute(new Void[] {
             null
         });
         finish();

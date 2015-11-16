@@ -3,142 +3,82 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lgl extends ldd
+public final class lgl extends kwm
 {
 
-    private static final int c;
-    private static final long serialVersionUID = 0x4bf18272d9b4ccbdL;
-    private final ldd d;
-    private final lgm e[];
+    public lgf a;
+    public lgi b;
 
-    private lgl(ldd ldd1)
+    public lgl()
     {
-        super(ldd1.b);
-        e = new lgm[c + 1];
-        d = ldd1;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public static lgl a(ldd ldd1)
+    protected int computeSerializedSize()
     {
-        if (ldd1 instanceof lgl)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            return (lgl)ldd1;
-        } else
-        {
-            return new lgl(ldd1);
+            i = j + kwk.d(1, a);
         }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(2, b);
+        }
+        return j;
     }
 
-    private lgm g(long l)
+    public kws mergeFrom(kwj kwj1)
     {
-        lgm lgm1;
-label0:
+        do
         {
-            int i = (int)(l >> 32);
-            lgm algm[] = e;
-            int j = i & c;
-            lgm lgm2 = algm[j];
-            if (lgm2 != null)
+            int i = kwj1.a();
+            switch (i)
             {
-                lgm1 = lgm2;
-                if ((int)(lgm2.a >> 32) == i)
+            default:
+                if (super.storeUnknownField(kwj1, i))
                 {
-                    break label0;
+                    continue;
                 }
-            }
-            long l1 = l & 0xffffffff00000000L;
-            lgm1 = new lgm(d, l1);
-            lgm2 = lgm1;
-            l = l1;
-            do
-            {
-                long l2 = d.e(l);
-                if (l2 == l || l2 > (l1 | 0xffffffffL))
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
                 {
-                    break;
+                    a = new lgf();
                 }
-                lgm lgm3 = new lgm(d, l2);
-                lgm2.c = lgm3;
-                lgm2 = lgm3;
-                l = l2;
-            } while (true);
-            algm[j] = lgm1;
-        }
-        return lgm1;
-    }
+                kwj1.a(a);
+                break;
 
-    public String a(long l)
-    {
-        return g(l).a(l);
-    }
-
-    public int b(long l)
-    {
-        return g(l).b(l);
-    }
-
-    public boolean c()
-    {
-        return d.c();
-    }
-
-    public long e(long l)
-    {
-        return d.e(l);
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (this == obj)
-        {
-            return true;
-        }
-        if (obj instanceof lgl)
-        {
-            return d.equals(((lgl)obj).d);
-        } else
-        {
-            return false;
-        }
-    }
-
-    public long f(long l)
-    {
-        return d.f(l);
-    }
-
-    public int hashCode()
-    {
-        return d.hashCode();
-    }
-
-    static 
-    {
-        Object obj;
-        int i;
-        try
-        {
-            obj = Integer.getInteger("org.joda.time.tz.CachedDateTimeZone.size");
-        }
-        // Misplaced declaration of an exception variable
-        catch (Object obj)
-        {
-            obj = null;
-        }
-        if (obj == null)
-        {
-            i = 512;
-        } else
-        {
-            i = ((Integer) (obj)).intValue() - 1;
-            int j = 0;
-            for (; i > 0; i >>= 1)
-            {
-                j++;
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new lgi();
+                }
+                kwj1.a(b);
+                break;
             }
+        } while (true);
+    }
 
-            i = 1 << j;
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.b(1, a);
         }
-        c = i - 1;
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        super.writeTo(kwk1);
     }
 }

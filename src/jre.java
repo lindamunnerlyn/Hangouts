@@ -2,83 +2,83 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Comparator;
+import java.util.SortedSet;
 
-final class jre
-    implements jrg
+final class jre extends jqz
+    implements SortedSet
 {
 
-    int a;
-    int b;
-    int c;
-    boolean d;
-    final jgb e;
-    final jrg f;
-    final jrd g;
+    final jqq a;
 
-    jre(jrd jrd1, jrg jrg1)
+    jre(jqq jqq, Object obj, SortedSet sortedset, jqz jqz1)
     {
-        g = jrd1;
-        f = jrg1;
-        super();
-        a = 0;
-        b = 0;
-        c = 0;
-        d = false;
-        e = g.a();
+        a = jqq;
+        super(jqq, obj, sortedset, jqz1);
     }
 
-    public int a()
+    public Comparator comparator()
     {
-        byte byte0 = -1;
-        int i;
-label0:
-        do
+        return ((SortedSet)e()).comparator();
+    }
+
+    public Object first()
+    {
+        a();
+        return ((SortedSet)e()).first();
+    }
+
+    public SortedSet headSet(Object obj)
+    {
+        a();
+        jqq jqq = a;
+        Object obj1 = c();
+        SortedSet sortedset = ((SortedSet)e()).headSet(obj);
+        if (f() == null)
         {
-            char c1;
-            do
-            {
-                i = f.a();
-                if (i == -1)
-                {
-                    i = byte0;
-                    if (!d)
-                    {
-                        i = byte0;
-                        if (!jrd.a(g).a(c))
-                        {
-                            throw new jrc((new StringBuilder("Invalid input length ")).append(c).toString());
-                        }
-                    }
-                    break label0;
-                }
-                c = c + 1;
-                c1 = (char)i;
-                if (!e.b(c1))
-                {
-                    break;
-                }
-                if (!d && (c == 1 || !jrd.a(g).a(c - 1)))
-                {
-                    throw new jrc((new StringBuilder("Padding cannot start at index ")).append(c).toString());
-                }
-                d = true;
-            } while (true);
-            if (d)
-            {
-                throw new jrc((new StringBuilder("Expected padding character but found '")).append(c1).append("' at index ").append(c).toString());
-            }
-            a = a << jrd.a(g).r;
-            i = a;
-            a = jrd.a(g).c(c1) | i;
-            b = b + jrd.a(g).r;
-            if (b < 8)
-            {
-                continue;
-            }
-            b = b - 8;
-            i = a >> b & 0xff;
-            break;
-        } while (true);
-        return i;
+            obj = this;
+        } else
+        {
+            obj = f();
+        }
+        return new jre(jqq, obj1, sortedset, ((jqz) (obj)));
+    }
+
+    public Object last()
+    {
+        a();
+        return ((SortedSet)e()).last();
+    }
+
+    public SortedSet subSet(Object obj, Object obj1)
+    {
+        a();
+        jqq jqq = a;
+        Object obj2 = c();
+        obj1 = ((SortedSet)e()).subSet(obj, obj1);
+        if (f() == null)
+        {
+            obj = this;
+        } else
+        {
+            obj = f();
+        }
+        return new jre(jqq, obj2, ((SortedSet) (obj1)), ((jqz) (obj)));
+    }
+
+    public SortedSet tailSet(Object obj)
+    {
+        a();
+        jqq jqq = a;
+        Object obj1 = c();
+        SortedSet sortedset = ((SortedSet)e()).tailSet(obj);
+        if (f() == null)
+        {
+            obj = this;
+        } else
+        {
+            obj = f();
+        }
+        return new jre(jqq, obj1, sortedset, ((jqz) (obj)));
     }
 }

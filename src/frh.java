@@ -2,19 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.playlog.internal.LogEvent;
-import com.google.android.gms.playlog.internal.PlayLoggerContext;
+import android.content.res.Resources;
 
-public final class frh
+final class frh extends frj
 {
 
-    public final PlayLoggerContext a;
-    public final LogEvent b;
-    public final fdu c = null;
+    final frf a;
 
-    frh(PlayLoggerContext playloggercontext, LogEvent logevent)
+    frh(frf frf, Resources resources)
     {
-        a = (PlayLoggerContext)h.a(playloggercontext);
-        b = (LogEvent)h.a(logevent);
+        a = frf;
+        super(resources);
+    }
+
+    protected String a(Resources resources, int i)
+    {
+        return (String)android.provider.ContactsContract.CommonDataKinds.Phone.getTypeLabel(resources, i, null);
     }
 }

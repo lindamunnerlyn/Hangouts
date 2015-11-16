@@ -4,15 +4,19 @@
 
 
 final class dyv
-    implements apm
+    implements Runnable
 {
 
-    dyv()
+    final dyu a;
+
+    dyv(dyu dyu1)
     {
+        a = dyu1;
+        super();
     }
 
-    public boolean a(ani ani1)
+    public void run()
     {
-        return ani1.i();
+        a.a();
     }
 }

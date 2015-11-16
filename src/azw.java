@@ -3,34 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class azw
-    implements arn
+public interface azw
 {
 
-    final atg a;
-    final azv b;
+    public abstract boolean a();
 
-    azw(azv azv, atg atg1)
-    {
-        b = azv;
-        a = atg1;
-        super();
-    }
-
-    public void a(ark ark1)
-    {
-        if (g.d(ark1.b))
-        {
-            long l = dqv.a().e() - 4096;
-            if (a.i >= l)
-            {
-                g.a(new azx(this));
-            }
-            return;
-        } else
-        {
-            g.a(new azy(this));
-            return;
-        }
-    }
+    public abstract boolean b();
 }

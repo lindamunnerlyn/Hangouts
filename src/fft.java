@@ -2,29 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
+import android.os.Parcel;
+import com.google.android.gms.iid.MessengerCompat;
 
 public final class fft
+    implements android.os.Parcelable.Creator
 {
-
-    private final Intent a = new Intent("com.google.android.gms.location.places.ui.PICK_PLACE");
 
     public fft()
     {
-        a.setPackage("com.google.android.gms");
-        a.putExtra("gmscore_client_jar_version", ejk.a);
     }
 
-    public Intent a(Context context)
+    public Object createFromParcel(Parcel parcel)
     {
-        ejk.a();
-        ejk.b(context);
-        return a;
+        parcel = parcel.readStrongBinder();
+        if (parcel != null)
+        {
+            return new MessengerCompat(parcel);
+        } else
+        {
+            return null;
+        }
     }
 
-    public void a(String s)
+    public Object[] newArray(int i)
     {
-        a.putExtra("account_name", s);
+        return new MessengerCompat[i];
     }
 }

@@ -2,91 +2,188 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Collection;
+import java.util.Iterator;
 
-public final class jts extends koj
+public final class jts
 {
 
-    public Integer a;
-    public Integer b;
-    public Float c;
+    static final jyi a = new jtt();
+    private static final Iterator b = new jtw();
 
-    public jts()
+    public static Object a(Iterator iterator)
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        Object obj = iterator.next();
+        if (!iterator.hasNext())
+        {
+            return obj;
+        }
+        StringBuilder stringbuilder = new StringBuilder();
+        obj = String.valueOf(obj);
+        stringbuilder.append((new StringBuilder(String.valueOf(obj).length() + 31)).append("expected one element but was: <").append(((String) (obj))).toString());
+        for (int i = 0; i < 4 && iterator.hasNext(); i++)
+        {
+            String s = String.valueOf(iterator.next());
+            stringbuilder.append((new StringBuilder(String.valueOf(s).length() + 2)).append(", ").append(s).toString());
+        }
+
+        if (iterator.hasNext())
+        {
+            stringbuilder.append(", ...");
+        }
+        stringbuilder.append('>');
+        throw new IllegalArgumentException(stringbuilder.toString());
     }
 
-    protected int computeSerializedSize()
+    public static Iterator a(Iterator iterator, jnn jnn)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.e(1, a.intValue());
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.intValue());
-        }
-        i = j;
-        if (c != null)
-        {
-            c.floatValue();
-            i = j + (koh.f(4) + 4);
-        }
-        return i;
+        n.b(jnn);
+        return new jtx(iterator, jnn);
     }
 
-    public kop mergeFrom(kog kog1)
+    public static jyh a()
+    {
+        return a;
+    }
+
+    public static jyh a(Object obj)
+    {
+        return new jtv(obj);
+    }
+
+    public static transient jyh a(Object aobj[])
+    {
+        return a(aobj, 0, aobj.length, 0);
+    }
+
+    static jyi a(Object aobj[], int i, int j, int k)
+    {
+        boolean flag;
+        if (j >= 0)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        n.a(flag);
+        n.a(i, i + j, aobj.length);
+        n.b(k, j);
+        if (j == 0)
+        {
+            return a;
+        } else
+        {
+            return new jtu(j, k, aobj, i);
+        }
+    }
+
+    public static boolean a(Collection collection, Iterator iterator)
+    {
+        n.b(collection);
+        n.b(iterator);
+        boolean flag;
+        for (flag = false; iterator.hasNext(); flag |= collection.add(iterator.next())) { }
+        return flag;
+    }
+
+    public static boolean a(Iterator iterator, Object obj)
+    {
+        int i;
+        boolean flag;
+        flag = false;
+        obj = jny.a(obj);
+        n.b(obj, "predicate");
+        i = 0;
+_L3:
+        if (!iterator.hasNext())
+        {
+            break MISSING_BLOCK_LABEL_56;
+        }
+        if (!((jnx) (obj)).a(iterator.next())) goto _L2; else goto _L1
+_L1:
+        if (i != -1)
+        {
+            flag = true;
+        }
+        return flag;
+_L2:
+        i++;
+          goto _L3
+        i = -1;
+          goto _L1
+    }
+
+    public static boolean a(Iterator iterator, Collection collection)
+    {
+        collection = jny.a(collection);
+        n.b(collection);
+        boolean flag = false;
+        do
+        {
+            if (!iterator.hasNext())
+            {
+                break;
+            }
+            if (collection.a(iterator.next()))
+            {
+                iterator.remove();
+                flag = true;
+            }
+        } while (true);
+        return flag;
+    }
+
+    public static boolean a(Iterator iterator, Iterator iterator1)
     {
         do
         {
-            int i = kog1.a();
-            switch (i)
+            if (iterator.hasNext())
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
+                if (iterator1.hasNext())
                 {
                     continue;
                 }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
-                break;
-
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
-                break;
-
-            case 37: // '%'
-                c = Float.valueOf(kog1.c());
-                break;
+            } else
+            if (!iterator1.hasNext())
+            {
+                return true;
             }
-        } while (true);
+            return false;
+        } while (n.a(iterator.next(), iterator1.next()));
+        return false;
     }
 
-    public void writeTo(koh koh1)
+    public static Object b(Iterator iterator, Object obj)
     {
-        if (a != null)
+        if (iterator.hasNext())
         {
-            koh1.a(1, a.intValue());
-        }
-        if (b != null)
+            return iterator.next();
+        } else
         {
-            koh1.a(2, b.intValue());
+            return null;
         }
-        if (c != null)
-        {
-            koh1.a(4, c.floatValue());
-        }
-        super.writeTo(koh1);
     }
+
+    static void b(Iterator iterator)
+    {
+        n.b(iterator);
+        for (; iterator.hasNext(); iterator.remove())
+        {
+            iterator.next();
+        }
+
+    }
+
+    public static jxc c(Iterator iterator)
+    {
+        if (iterator instanceof jty)
+        {
+            return (jty)iterator;
+        } else
+        {
+            return new jty(iterator);
+        }
+    }
+
 }

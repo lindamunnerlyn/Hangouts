@@ -5,7 +5,7 @@
 package com.google.api.client.http;
 
 import h;
-import hog;
+import htc;
 import java.io.IOException;
 import l;
 
@@ -59,7 +59,7 @@ public class message
 
     public content setHeaders(HttpHeaders httpheaders)
     {
-        headers = (HttpHeaders)h.b(httpheaders);
+        headers = (HttpHeaders)h.a(httpheaders);
         return this;
     }
 
@@ -115,7 +115,7 @@ public class message
         httpresponse = HttpResponseException.computeMessageBuffer(httpresponse);
         if (content != null)
         {
-            httpresponse.append(hog.a).append(content);
+            httpresponse.append(htc.a).append(content);
         }
         message = httpresponse.toString();
     }

@@ -3,65 +3,38 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jdj extends koj
+public final class jdj extends kwm
 {
 
-    private static volatile jdj c[];
-    public String a;
-    public Long b;
+    public jdl responseHeader;
 
     public jdj()
     {
-        a = null;
-        b = null;
+        responseHeader = null;
         unknownFieldData = null;
         cachedSize = -1;
-    }
-
-    public static jdj[] a()
-    {
-        if (c == null)
-        {
-            synchronized (kon.a)
-            {
-                if (c == null)
-                {
-                    c = new jdj[0];
-                }
-            }
-        }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
     protected int computeSerializedSize()
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (a != null)
+        if (responseHeader != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.d(1, responseHeader);
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.longValue());
-        }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -71,26 +44,22 @@ public final class jdj extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 16: // '\020'
-                b = Long.valueOf(kog1.e());
+                if (responseHeader == null)
+                {
+                    responseHeader = new jdl();
+                }
+                kwj1.a(responseHeader);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
+        if (responseHeader != null)
         {
-            koh1.a(1, a);
+            kwk1.b(1, responseHeader);
         }
-        if (b != null)
-        {
-            koh1.b(2, b.longValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

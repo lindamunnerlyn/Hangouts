@@ -3,31 +3,46 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cxo extends cvn
+public class cxo extends cvy
 {
 
     private static final long serialVersionUID = 1L;
+    public final long a;
 
-    private cxo(jco jco1)
+    public cxo(String s, long l)
     {
-        if (cvn.a)
-        {
-            jco1 = String.valueOf(jco1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(jco1).length() + 33)).append("ReportCallPerfStatsResponse from:").append(jco1).toString());
-        }
+        super(s);
+        a = l;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public String a()
     {
-        abyte0 = (jco)kop.mergeFrom(new jco(), abyte0);
-        if (a(((jco) (abyte0)).responseHeader))
+        return "background_queue";
+    }
+
+    public kws a(String s, int i, int j)
+    {
+        if (cvv.e)
         {
-            g.b(2017);
-            return new cvz(((jco) (abyte0)).responseHeader);
-        } else
-        {
-            g.b(2016);
-            return new cxo(abyte0);
+            String s1 = c;
+            long l = a;
+            eev.b("Babel_RequestWriter", (new StringBuilder(String.valueOf(s1).length() + 77)).append("updateWatermark build protobuf conversationID=").append(s1).append(" watermark=").append(l).toString());
         }
+        jft jft1 = new jft();
+        jft1.a = cvu.a(c);
+        jft1.b = Long.valueOf(a);
+        jft1.requestHeader = cvu.a(s, i, j, h);
+        return jft1;
+    }
+
+    public boolean a(cdl cdl)
+    {
+        gdv.a(getClass(), cdl.getClass());
+        return ((cxo)cdl).c.equals(c);
+    }
+
+    public String f()
+    {
+        return "conversations/updatewatermark";
     }
 }

@@ -2,29 +2,83 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
 
-public final class kmn
+public final class kmn extends kwm
 {
 
-    public static final Charset a = Charset.forName("UTF-8");
-    public static final Charset b = Charset.forName("ISO-8859-1");
-    public static final byte c[];
-    public static final ByteBuffer d;
-    public static final klr e;
+    private static volatile kmn b[];
+    public Integer a;
 
-    static boolean a()
+    public kmn()
     {
-        return false;
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    static 
+    public static kmn[] a()
     {
-        byte abyte0[] = new byte[0];
-        c = abyte0;
-        d = ByteBuffer.wrap(abyte0);
-        abyte0 = c;
-        e = klr.a(abyte0, 0, abyte0.length);
+        if (b == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (b == null)
+                {
+                    b = new kmn[0];
+                }
+            }
+        }
+        return b;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.e(1, a.intValue());
+        }
+        return i;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+_L4:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 2: default 32
+    //                   0: 41
+    //                   8: 43;
+           goto _L1 _L2 _L3
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L4; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+            a = Integer.valueOf(j);
+            break;
+        }
+        if (true) goto _L4; else goto _L5
+_L5:
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

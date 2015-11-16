@@ -2,48 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 
-final class aje
-    implements dha
+public final class aje
 {
 
-    private final ajf a;
-    private final Context b;
+    public static final String a = ctf.getName();
+    private static ajd b;
 
-    aje(Context context)
+    public static void a(hlp hlp1)
     {
-        a = (ajf)hgx.a(context, ajf);
-        b = context;
+        if (b == null)
+        {
+            b = new ajd();
+        }
+        hlp1.a(ctf, new ctf[] {
+            new ajg()
+        });
     }
 
-    public void a(gmw gmw, cxi cxi1)
-    {
-        boolean flag = true;
-        PackageManager packagemanager;
-        boolean flag1;
-        if (cxi1.n() == 2)
-        {
-            flag1 = true;
-        } else
-        {
-            flag1 = false;
-        }
-        if (cxi1.n() != 1)
-        {
-            flag = false;
-        }
-        if (!flag1 && !flag)
-        {
-            break MISSING_BLOCK_LABEL_67;
-        }
-        cxi1 = cxi1.o();
-        packagemanager = b.getPackageManager();
-        ajf.a(gmw, cxi1, packagemanager.getPackageInfo(b.getPackageName(), 0).versionCode, flag1);
-        return;
-        gmw;
-        throw new AssertionError(gmw);
-    }
 }

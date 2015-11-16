@@ -2,50 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
 
-final class jmb extends jle
+public final class jmb extends kwm
 {
 
-    private final jlr a;
+    public String a;
 
-    jmb(jlr jlr1)
+    public jmb()
     {
-        a = jlr1;
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public jqy a()
+    protected int computeSerializedSize()
     {
-        return jpc.a(a.b().a());
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.b(1, a);
+        }
+        return i;
     }
 
-    public boolean contains(Object obj)
+    public kws mergeFrom(kwj kwj1)
     {
-        return obj != null && jmr.a(a(), obj);
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+            }
+        } while (true);
     }
 
-    boolean e()
+    public void writeTo(kwk kwk1)
     {
-        return true;
-    }
-
-    jlk f()
-    {
-        return new jmc(this, a.b().b());
-    }
-
-    public Iterator iterator()
-    {
-        return a();
-    }
-
-    public int size()
-    {
-        return a.size();
-    }
-
-    Object writeReplace()
-    {
-        return new jmd(a);
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        super.writeTo(kwk1);
     }
 }

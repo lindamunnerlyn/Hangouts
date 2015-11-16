@@ -2,26 +2,95 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.conversation.v2.TransportSpinner;
+import android.support.rastermill.FrameSequence;
+import android.support.rastermill.FrameSequenceDrawable;
+import android.widget.ImageView;
 
-public final class baf extends ebd
+final class baf
+    implements aqs
 {
 
-    final TransportSpinner a;
+    private final android.support.rastermill.FrameSequenceDrawable.OnFinishedListener a;
+    private final aoa b;
+    private final ImageView c;
+    private aqn d;
 
-    public baf(TransportSpinner transportspinner, hjm hjm, int i)
+    public baf(android.support.rastermill.FrameSequenceDrawable.OnFinishedListener onfinishedlistener, aoa aoa, ImageView imageview)
     {
-        a = transportspinner;
-        super(hjm, i, csz.a.j);
+        a = onfinishedlistener;
+        b = aoa;
+        c = imageview;
     }
 
-    public void a(csw csw1)
+    public void a()
     {
-        TransportSpinner.a(a, csw1.e());
+        if (d != null)
+        {
+            d.b();
+        }
     }
 
-    protected void c()
+    public void a(aqn aqn1)
     {
-        TransportSpinner.a(a, false);
+        d = aqn1;
+    }
+
+    public void a(eef eef1, edf edf1, boolean flag, aqn aqn1, boolean flag1)
+    {
+        if (eef1 != null)
+        {
+            eev.g("Babel", "Unexpected refCountedBitmap returned on a STICKER_REQUEST");
+            eef1.b();
+        }
+        if (aqn1 == d) goto _L2; else goto _L1
+_L1:
+        return;
+_L2:
+        d = null;
+        if (!flag || edf1 == null) goto _L1; else goto _L3
+_L3:
+        int i;
+        if (aqn1.m() instanceof Integer)
+        {
+            i = g.a((Integer)aqn1.m(), 0);
+        } else
+        {
+            i = 1;
+        }
+        eef1 = (android.widget.RelativeLayout.LayoutParams)c.getLayoutParams();
+        if (android.os.Build.VERSION.SDK_INT >= 17)
+        {
+            eef1.removeRule(9);
+            eef1.removeRule(11);
+            eef1.removeRule(14);
+        } else
+        {
+            eef1.addRule(9, 0);
+            eef1.addRule(11, 0);
+            eef1.addRule(14, 0);
+        }
+        i;
+        JVM INSTR tableswitch 2 3: default 124
+    //                   2 217
+    //                   3 227;
+           goto _L4 _L5 _L6
+_L4:
+        eef1.addRule(11, -1);
+_L8:
+        c.setLayoutParams(eef1);
+        c.setVisibility(0);
+        eef1 = new FrameSequenceDrawable(FrameSequence.decodeByteArray(edf1.c()));
+        eef1.setOnFinishedListener(a);
+        c.setImageDrawable(eef1);
+        eef1.start();
+        g.a(b, 2019);
+        return;
+_L5:
+        eef1.addRule(9, -1);
+        continue; /* Loop/switch isn't completed */
+_L6:
+        eef1.addRule(14, -1);
+        if (true) goto _L8; else goto _L7
+_L7:
     }
 }

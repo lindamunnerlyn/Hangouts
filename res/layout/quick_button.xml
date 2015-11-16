@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <TextView android:id="@id/quick_button_text" style="@style/quick_button_text" />
     <FrameLayout android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
-        <ImageView android:layout_marginTop="14.0dip" android:layout_marginRight="20.0dip" android:src="@drawable/bt_fab_4dpshadow" android:scaleType="centerInside" android:layout_marginEnd="20.0dip" style="@style/quick_button_avatar" />
-        <ImageView android:id="@id/quick_button_icon" android:background="@drawable/quick_button_background" android:scaleType="center" android:stateListAnimator="@anim/floating_action_button_raise" style="@style/quick_button_avatar" />
+        <ImageView android:layout_marginTop="4.0dip" android:src="@drawable/bt_fab_4dpshadow" android:scaleType="centerInside" style="@style/quick_button_avatar" />
+        <ImageView android:id="@id/quick_button_icon" android:background="@drawable/quick_button_background" android:scaleType="center" style="@style/quick_button_avatar" />
     </FrameLayout>
 </LinearLayout>

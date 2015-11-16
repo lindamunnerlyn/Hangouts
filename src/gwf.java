@@ -3,68 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gwf
+final class gwf extends gzf
 {
 
-    int a;
-    int b;
-    int c;
-    long d;
-    long e;
-    boolean f;
-
-    public gwf()
+    gwf()
     {
+        super(null, null);
     }
 
-    public int a()
+    public String a()
     {
-        return b;
+        throw new UnsupportedOperationException();
     }
 
-    public gwf a(int i)
+    public String b()
     {
-        a = i;
-        return this;
+        throw new UnsupportedOperationException();
     }
 
-    public gwf a(long l)
+    public void c()
     {
-        d = l;
-        return this;
-    }
-
-    public int b()
-    {
-        return c;
-    }
-
-    public gwf b(int i)
-    {
-        b = i;
-        return this;
-    }
-
-    public gwf b(long l)
-    {
-        e = l;
-        return this;
-    }
-
-    public gwf c()
-    {
-        f = true;
-        return this;
-    }
-
-    public gwf c(int i)
-    {
-        c = i;
-        return this;
-    }
-
-    public gwe d()
-    {
-        return new gwe(this);
+        a(3);
     }
 }

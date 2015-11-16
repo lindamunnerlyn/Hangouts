@@ -2,46 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.locks.Lock;
 
-abstract class elc
-    implements Runnable
+public class elc extends Exception
 {
 
-    final ekp b;
-
-    private elc(ekp ekp1)
+    public elc()
     {
-        b = ekp1;
-        super();
     }
 
-    elc(ekp ekp1, byte byte0)
+    public elc(String s)
     {
-        this(ekp1);
-    }
-
-    protected abstract void a();
-
-    public void run()
-    {
-        b.b.lock();
-        boolean flag = Thread.interrupted();
-        if (flag)
-        {
-            b.b.unlock();
-            return;
-        }
-        a();
-        b.b.unlock();
-        return;
-        Object obj;
-        obj;
-        b.a.a(((RuntimeException) (obj)));
-        b.b.unlock();
-        return;
-        obj;
-        b.b.unlock();
-        throw obj;
+        super(s);
     }
 }

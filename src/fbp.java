@@ -3,15 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class fbp
+final class fbp
 {
 
-    public fbp()
-    {
-    }
+    static final erv a[] = {
+        new fbq(erv.a("0\202\003\2730\202\002\243\240\003\002\001\002\002\t\000\305dnM\327\352U&0")), new fbr(erv.a("0\202\003\2730\202\002\243\240\003\002\001\002\002\t\000\365\217\006\354\036\013J\0260"))
+    };
 
-    public ekd a()
-    {
-        throw new UnsupportedOperationException();
-    }
 }

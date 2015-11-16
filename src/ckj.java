@@ -2,80 +2,117 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
-import android.content.res.Resources;
-import android.os.Bundle;
-import android.view.Window;
-import com.google.android.apps.hangouts.fragments.ConversationListFragment;
+import android.text.TextUtils;
+import com.google.android.apps.hangouts.phone.BabelGatewayActivity;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ckj extends bka
-    implements biv, dih
+public final class ckj extends bgs
 {
 
-    public final gmo m;
-    public ConversationListFragment n;
+    final BabelGatewayActivity d;
 
-    public ckj()
+    public ckj(BabelGatewayActivity babelgatewayactivity)
     {
-        m = (new gng(this, q)).a(p);
+        d = babelgatewayactivity;
+        super();
     }
 
-    public void a(aih aih1)
+    public String a()
     {
-        Intent intent = g.a(m.a(), aih1.a, aih1.b);
-        intent.putExtra("conversation_parameters", aih1);
-        intent.putExtra("opened_from_impression", 1634);
-        startActivity(intent);
+        return null;
     }
 
-    public void a(Intent intent)
+    protected void a(did did1)
     {
-        throw new UnsupportedOperationException();
-    }
-
-    public void a(cey cey, String s, int i, long l)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void a(dsn dsn)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void a(dsn dsn, dsn dsn1)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void a(String s, boolean flag, int i, int k)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public boolean a(String s)
-    {
-        return bnd.a(dbf.e(m.a()), s);
-    }
-
-    public void j()
-    {
-    }
-
-    public void l_()
-    {
-    }
-
-    public void onCreate(Bundle bundle)
-    {
-        super.onCreate(bundle);
-        setContentView(g.fv);
-        n = (ConversationListFragment)t_().a(h.az);
-        n.a(this);
-        if (android.os.Build.VERSION.SDK_INT >= 21)
+        super.a(did1);
+        List list = ((cym)did1.c()).k();
+        int i;
+        if (list != null)
         {
-            int i = g.dt;
-            getWindow().setStatusBarColor(getResources().getColor(i));
+            i = list.size();
+        } else
+        {
+            i = 0;
         }
+        if (i != BabelGatewayActivity.k(d).length)
+        {
+            eev.g("Babel", "BabelGatewayActivity: Entity lookup returned wrong number of entities");
+            BabelGatewayActivity.a(d, l.bU);
+            return;
+        }
+        BabelGatewayActivity.a(d, new String[i]);
+        int j = 0;
+        while (j < i) 
+        {
+            did1 = (eeh)list.get(j);
+            Object obj;
+            if (did1 == null)
+            {
+                did1 = null;
+            } else
+            {
+                did1 = (cfz[])((eeh) (did1)).b;
+            }
+            if (did1 != null)
+            {
+                obj = did1[0];
+            } else
+            {
+                obj = null;
+            }
+            if (obj == null)
+            {
+                eev.f("Babel", "BabelGatewayActivity: Could not resolve some gaiaId's");
+                BabelGatewayActivity.a(d, l.bU);
+                return;
+            }
+            gdv.a(Integer.valueOf(1), Integer.valueOf(did1.length));
+            String as[] = BabelGatewayActivity.l(d);
+            if (!TextUtils.isEmpty(((cfz) (obj)).e))
+            {
+                did1 = ((cfz) (obj)).e;
+            } else
+            if (!TextUtils.isEmpty(((cfz) (obj)).f))
+            {
+                did1 = ((cfz) (obj)).f;
+            } else
+            {
+                did1 = null;
+            }
+            as[j] = did1;
+            j++;
+        }
+        BabelGatewayActivity.m(d);
+    }
+
+    protected void a(Exception exception)
+    {
+        super.a(exception);
+        BabelGatewayActivity.a(d, l.bU);
+    }
+
+    public int b()
+    {
+        ArrayList arraylist = new ArrayList();
+        String as[] = BabelGatewayActivity.k(d);
+        int j = as.length;
+        for (int i = 0; i < j; i++)
+        {
+            arraylist.add(dbi.a(as[i]));
+        }
+
+        return RealTimeChatService.a(BabelGatewayActivity.c(d), arraylist, null, true);
+    }
+
+    public Class e()
+    {
+        return cwh;
+    }
+
+    public Class f()
+    {
+        return cym;
     }
 }

@@ -3,13 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lhv extends koj
+public final class lhv extends kwm
 {
 
-    public Float a;
-    public Float b;
-    public Float c;
-    public Float d;
+    private static volatile lhv f[];
+    public String a;
+    public String b;
+    public String c;
+    public Boolean d;
+    public String e;
 
     public lhv()
     {
@@ -17,8 +19,28 @@ public final class lhv extends koj
         b = null;
         c = null;
         d = null;
+        e = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static lhv[] a()
+    {
+        if (f == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (f == null)
+                {
+                    f = new lhv[0];
+                }
+            }
+        }
+        return f;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -27,39 +49,41 @@ public final class lhv extends koj
         int i = j;
         if (a != null)
         {
-            a.floatValue();
-            i = j + (koh.f(1) + 4);
+            i = j + kwk.b(1, a);
         }
         j = i;
         if (b != null)
         {
-            b.floatValue();
-            j = i + (koh.f(2) + 4);
+            j = i + kwk.b(2, b);
         }
         i = j;
         if (c != null)
         {
-            c.floatValue();
-            i = j + (koh.f(3) + 4);
+            i = j + kwk.b(3, c);
         }
         j = i;
         if (d != null)
         {
-            d.floatValue();
-            j = i + (koh.f(4) + 4);
+            d.booleanValue();
+            j = i + (kwk.f(4) + 1);
         }
-        return j;
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.b(5, e);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -68,43 +92,51 @@ public final class lhv extends koj
             case 0: // '\0'
                 return this;
 
-            case 13: // '\r'
-                a = Float.valueOf(kog1.c());
+            case 10: // '\n'
+                a = kwj1.j();
                 break;
 
-            case 21: // '\025'
-                b = Float.valueOf(kog1.c());
+            case 18: // '\022'
+                b = kwj1.j();
                 break;
 
-            case 29: // '\035'
-                c = Float.valueOf(kog1.c());
+            case 26: // '\032'
+                c = kwj1.j();
                 break;
 
-            case 37: // '%'
-                d = Float.valueOf(kog1.c());
+            case 32: // ' '
+                d = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 42: // '*'
+                e = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.floatValue());
+            kwk1.a(1, a);
         }
         if (b != null)
         {
-            koh1.a(2, b.floatValue());
+            kwk1.a(2, b);
         }
         if (c != null)
         {
-            koh1.a(3, c.floatValue());
+            kwk1.a(3, c);
         }
         if (d != null)
         {
-            koh1.a(4, d.floatValue());
+            kwk1.a(4, d.booleanValue());
         }
-        super.writeTo(koh1);
+        if (e != null)
+        {
+            kwk1.a(5, e);
+        }
+        super.writeTo(kwk1);
     }
 }

@@ -2,42 +2,14 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
+import java.util.List;
 
-public final class arv
-    implements Serializable
+public interface arv
 {
 
-    public final ame a;
-    public final aml b;
-    public final amd c;
+    public abstract List a(long l, long l1);
 
-    public arv(amd amd)
-    {
-        a = null;
-        b = null;
-        c = amd;
-    }
+    public abstract void a(dnt dnt);
 
-    public arv(ame ame)
-    {
-        a = ame;
-        b = null;
-        c = null;
-    }
-
-    public arv(aml aml)
-    {
-        a = null;
-        b = aml;
-        c = null;
-    }
-
-    public String toString()
-    {
-        String s = String.valueOf(a);
-        String s1 = String.valueOf(b);
-        String s2 = String.valueOf(c);
-        return (new StringBuilder(String.valueOf(s).length() + 50 + String.valueOf(s1).length() + String.valueOf(s2).length())).append("ContactDetail {gaiaId: ").append(s).append(" | phoneNumber: ").append(s1).append(" | email: ").append(s2).append("}").toString();
-    }
+    public abstract void a(StringBuilder stringbuilder);
 }

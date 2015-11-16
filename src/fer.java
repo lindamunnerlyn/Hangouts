@@ -2,26 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
 
-public final class fer extends ejf
+public final class fer
 {
 
-    final fbt a;
+    public final emx a;
 
-    public fer(fbt fbt, ejw ejw, ejx ejx)
+    public fer(emx emx)
     {
-        a = fbt;
-        super(ejw, ejx);
+        a = emx;
     }
 
-    public ekg a(Status status)
+    public ene a(emy emy1)
     {
-        return new fet(status, null);
-    }
-
-    protected void a(ejv ejv)
-    {
-        ((fev)((fcc)ejv).n()).a(new fes(this, this));
+        return emy1.a(new fhp(this, a, emy1));
     }
 }

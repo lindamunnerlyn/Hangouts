@@ -3,13 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class grr
+final class grr
+    implements Runnable
 {
 
-    private int a;
+    final grq a;
 
-    public int a()
+    grr(grq grq1)
     {
-        return a;
+        a = grq1;
+        super();
+    }
+
+    public void run()
+    {
+        grq.a(a);
     }
 }

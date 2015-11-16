@@ -2,22 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
+import android.widget.TextView;
 
-public final class ajz
-    implements android.content.DialogInterface.OnClickListener
+final class ajz
+    implements hop, hoy
 {
 
-    final ala a;
+    final ai a;
+    final ajo b;
+    final ajy c;
+    private final TextView d;
+    private final int e;
 
-    public ajz(ala ala1)
+    ajz(ajy ajy, hof hof1, ai ai1, TextView textview)
     {
-        a = ala1;
+        c = ajy;
         super();
+        hof1.a(this);
+        a = ai1;
+        d = textview;
+        e = ((gqu)hlp.a(ai1, gqu)).a();
+        b = new aka(this, ajy);
+        a.f().b(1, null, new akc(this)).u();
     }
 
-    public void onClick(DialogInterface dialoginterface, int i)
+    static void a(ajz ajz1, ajl ajl1)
     {
-        a.a(2251);
+        if (ajl1 != null)
+        {
+            ajz1.d.setText(ajz1.a.getString(g.iH, new Object[] {
+                eey.p(ajl1.c())
+            }));
+            ajz1.d.setVisibility(0);
+            return;
+        } else
+        {
+            ajz1.d.setText("");
+            ajz1.d.setVisibility(8);
+            return;
+        }
+    }
+
+    public void f_()
+    {
+        ajn.a(e, b);
     }
 }

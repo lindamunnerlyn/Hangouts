@@ -2,32 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Comparator;
-import java.util.List;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
-final class jqu extends jqr
+class jqu extends jwi
 {
 
-    jqu(String s)
+    final jqq a;
+
+    jqu(jqq jqq1, Map map)
     {
-        super(s, 2);
+        a = jqq1;
+        super(map);
     }
 
-    int a(Comparator comparator, Object obj, List list, int i)
+    public void clear()
     {
-        int j;
-        for (j = 0; j < i;)
-        {
-            int k = j + i >>> 1;
-            if (comparator.compare(list.get(k), obj) < 0)
-            {
-                j = k + 1;
-            } else
-            {
-                i = k;
-            }
-        }
+        jts.b(iterator());
+    }
 
-        return j;
+    public boolean containsAll(Collection collection)
+    {
+        return a().keySet().containsAll(collection);
+    }
+
+    public boolean equals(Object obj)
+    {
+        return this == obj || a().keySet().equals(obj);
+    }
+
+    public int hashCode()
+    {
+        return a().keySet().hashCode();
+    }
+
+    public Iterator iterator()
+    {
+        return new jqv(this, a().entrySet().iterator());
+    }
+
+    public boolean remove(Object obj)
+    {
+        obj = (Collection)a().remove(obj);
+        int i;
+        if (obj != null)
+        {
+            i = ((Collection) (obj)).size();
+            ((Collection) (obj)).clear();
+            a.b = a.b - i;
+        } else
+        {
+            i = 0;
+        }
+        return i > 0;
     }
 }

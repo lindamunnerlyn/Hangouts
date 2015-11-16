@@ -8,7 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
-import gwj;
+import hat;
 import java.util.HashMap;
 
 // Referenced classes of package com.google.android.libraries.social.jni.crashreporter:
@@ -95,21 +95,21 @@ label2:
         }
     }
 
-    private static boolean a(gwj gwj1)
+    private static boolean a(hat hat1)
     {
         boolean flag;
         boolean flag1;
         flag1 = false;
-        gwj1 = gwj1.getStackTrace();
+        hat1 = hat1.getStackTrace();
         flag = flag1;
-        if (gwj1 == null) goto _L2; else goto _L1
+        if (hat1 == null) goto _L2; else goto _L1
 _L1:
         int i = 0;
 _L10:
         flag = flag1;
-        if (i >= gwj1.length) goto _L2; else goto _L3
+        if (i >= hat1.length) goto _L2; else goto _L3
 _L3:
-        String s = gwj1[i].getClassName();
+        String s = hat1[i].getClassName();
         if (s == null) goto _L5; else goto _L4
 _L4:
         int j = 0;
@@ -136,9 +136,9 @@ _L9:
     {
         String s = String.valueOf(Long.toHexString(l));
         s = (new StringBuilder(String.valueOf(s).length() + 62)).append("Native crash signal: ").append(i).append(" code: ").append(j).append(" address: 0x").append(s).toString();
-        gwj gwj1 = new gwj(s);
-        Log.e("NativeCrashHandler", s, gwj1);
-        if (a(gwj1))
+        hat hat1 = new hat(s);
+        Log.e("NativeCrashHandler", s, hat1);
+        if (a(hat1))
         {
             b.putExtra("knownCrash", true);
         }

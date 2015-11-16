@@ -3,22 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class hbz
-    implements gps
+public final class hbz extends Enum
 {
 
-    final hcc a;
-    final hbx b;
+    public static final int a;
+    public static final int b;
+    private static final int c[];
 
-    hbz(hbx hbx1, hcc hcc)
+    static 
     {
-        b = hbx1;
-        a = hcc;
-        super();
-    }
-
-    public void a(int i)
-    {
-        hbx.a(b, i, a);
+        a = 1;
+        b = 2;
+        c = (new int[] {
+            a, b
+        });
     }
 }

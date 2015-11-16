@@ -2,79 +2,74 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.api.client.json.GenericJson;
-import com.google.api.client.util.GenericData;
+import android.content.Context;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
-public final class hmh extends hmj
+public class hmh
 {
 
-    private String a;
-    private String b;
+    private final Context a;
+    private final Class b;
+    private HashMap c;
 
-    public hmh()
+    public hmh(Context context, Class class1)
     {
+        a = context;
+        b = class1;
     }
 
-    private hmh b(String s, Object obj)
+    private void a()
     {
-        return (hmh)super.a(s, obj);
+        this;
+        JVM INSTR monitorenter ;
+        Iterator iterator;
+        if (c != null)
+        {
+            break MISSING_BLOCK_LABEL_121;
+        }
+        c = new HashMap();
+        iterator = hlp.c(a, b).iterator();
+_L1:
+        List list;
+        hmg hmg1;
+        Class class1;
+        if (!iterator.hasNext())
+        {
+            break MISSING_BLOCK_LABEL_121;
+        }
+        hmg1 = (hmg)iterator.next();
+        class1 = hmg1.a();
+        list = (List)c.get(class1);
+        Object obj;
+        obj = list;
+        if (list != null)
+        {
+            break MISSING_BLOCK_LABEL_104;
+        }
+        obj = new ArrayList();
+        c.put(class1, obj);
+        ((List) (obj)).add(hmg1);
+          goto _L1
+        Exception exception;
+        exception;
+        throw exception;
+        this;
+        JVM INSTR monitorexit ;
     }
 
-    public hmh a(String s)
+    public List a(Class class1)
     {
-        super.d(s);
-        return this;
-    }
-
-    public hmj a()
-    {
-        return (hmh)super.a();
-    }
-
-    public hmj a(String s, Object obj)
-    {
-        return b(s, obj);
-    }
-
-    public hmh b(String s)
-    {
-        a = s;
-        return this;
-    }
-
-    public hmh c(String s)
-    {
-        b = s;
-        return this;
-    }
-
-    public GenericJson clone()
-    {
-        return (hmh)super.a();
-    }
-
-    public GenericData clone()
-    {
-        return (hmh)super.a();
-    }
-
-    public Object clone()
-    {
-        return (hmh)super.a();
-    }
-
-    public hmj d(String s)
-    {
-        return a(s);
-    }
-
-    public GenericJson set(String s, Object obj)
-    {
-        return b(s, obj);
-    }
-
-    public GenericData set(String s, Object obj)
-    {
-        return b(s, obj);
+        this;
+        JVM INSTR monitorenter ;
+        a();
+        class1 = (List)c.get(class1);
+        this;
+        JVM INSTR monitorexit ;
+        return class1;
+        class1;
+        throw class1;
     }
 }

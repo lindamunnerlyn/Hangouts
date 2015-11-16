@@ -2,37 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
+import java.util.Calendar;
 
-public final class cyv extends cyq
+public final class cyv
+    implements Serializable
 {
 
     private static final long serialVersionUID = 1L;
-    public final List a = new ArrayList();
-    public final List b = new ArrayList();
-    public final String c;
+    public String a;
+    public String b;
+    public int c;
+    public Calendar d;
+    public Calendar e;
 
-    public cyv(ira ira1, String s)
+    public cyv()
     {
-        boolean flag = false;
-        super();
-        c = s;
-        s = ira1.a;
-        int k = s.length;
-        for (int i = 0; i < k; i++)
-        {
-            Object obj = s[i];
-            a.add(((ivz) (obj)).b);
-        }
+    }
 
-        ira1 = ira1.b;
-        k = ira1.length;
-        for (int j = ((flag) ? 1 : 0); j < k; j++)
+    public static Calendar a(iag iag1)
+    {
+        if (iag1 == null)
         {
-            s = ira1[j];
-            b.add(((ivz) (s)).b);
+            return Calendar.getInstance();
+        } else
+        {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(g.a(iag1.c, 0), g.a(iag1.b, 0), g.a(iag1.a, 0));
+            return calendar;
         }
-
     }
 }

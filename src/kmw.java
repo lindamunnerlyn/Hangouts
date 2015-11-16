@@ -2,161 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.OutputStream;
-import java.util.Iterator;
 
-class kmw extends klp
+public final class kmw extends kwm
 {
 
-    private static final long serialVersionUID = 1L;
-    public final byte b[];
-    private int c;
+    public Integer a;
 
-    kmw(byte abyte0[])
+    public kmw()
     {
-        c = 0;
-        b = abyte0;
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public byte a(int i)
+    protected int computeSerializedSize()
     {
-        return b[i];
-    }
-
-    public int a()
-    {
-        return b.length;
-    }
-
-    protected int a(int i, int j, int k)
-    {
-        byte abyte0[] = b;
-        int l = b() + j;
-        for (j = l; j < l + k; j++)
-        {
-            i = i * 31 + abyte0[j];
-        }
-
-        return i;
-    }
-
-    protected void a(byte abyte0[], int i, int j, int k)
-    {
-        System.arraycopy(b, i, abyte0, j, k);
-    }
-
-    boolean a(kmw kmw1, int i, int j)
-    {
-        if (j > kmw1.a())
-        {
-            i = a();
-            throw new IllegalArgumentException((new StringBuilder(40)).append("Length too large: ").append(j).append(i).toString());
-        }
-        if (i + j > kmw1.a())
-        {
-            int k = kmw1.a();
-            throw new IllegalArgumentException((new StringBuilder(59)).append("Ran off end of other: ").append(i).append(", ").append(j).append(", ").append(k).toString());
-        }
-        byte abyte0[] = b;
-        byte abyte1[] = kmw1.b;
-        int i1 = b();
-        int l = b();
-        for (i = kmw1.b() + i; l < i1 + j; i++)
-        {
-            if (abyte0[l] != abyte1[i])
-            {
-                return false;
-            }
-            l++;
-        }
-
-        return true;
-    }
-
-    protected int b()
-    {
-        return 0;
-    }
-
-    void b(OutputStream outputstream, int i, int j)
-    {
-        outputstream.write(b, b() + i, j);
-    }
-
-    public klq c()
-    {
-        return new kmx(this);
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (obj == this)
-        {
-            return true;
-        }
-        if (!(obj instanceof klp))
-        {
-            return false;
-        }
-        if (a() != ((klp)obj).a())
-        {
-            return false;
-        }
-        if (a() == 0)
-        {
-            return true;
-        }
-        if (obj instanceof kmw)
-        {
-            kmw kmw1 = (kmw)obj;
-            if (c != 0 && kmw1.c != 0 && c != kmw1.c)
-            {
-                return false;
-            } else
-            {
-                return a((kmw)obj, 0, a());
-            }
-        }
-        if (obj instanceof kne)
-        {
-            return obj.equals(this);
-        } else
-        {
-            obj = String.valueOf(obj.getClass());
-            throw new IllegalArgumentException((new StringBuilder(String.valueOf(obj).length() + 49)).append("Has a new type of ByteString been created? Found ").append(((String) (obj))).toString());
-        }
-    }
-
-    public klr f()
-    {
-        return klr.a(this);
-    }
-
-    protected int g()
-    {
-        return c;
-    }
-
-    public int hashCode()
-    {
-        int j = c;
+        int j = super.computeSerializedSize();
         int i = j;
-        if (j == 0)
+        if (a != null)
         {
-            i = a();
-            int k = a(i, 0, i);
-            i = k;
-            if (k == 0)
-            {
-                i = 1;
-            }
-            c = i;
+            i = j + kwk.e(1, a.intValue());
         }
         return i;
     }
 
-    public Iterator iterator()
+    public kws mergeFrom(kwj kwj1)
     {
-        return c();
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

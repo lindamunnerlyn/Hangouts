@@ -2,40 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public final class hdv
-    implements hdo
+public class hdv
 {
 
-    private final hbn a;
+    private final gzl a;
+    private hec b;
 
-    public hdv(hbn hbn1)
+    public hdv(Context context)
     {
-        a = hbn1;
-    }
-
-    public void a(String s, hdq hdq1, int i, String s1)
-    {
-        hbn hbn1 = a;
-        new hbp(hdq1.b(), s, hdq1.f(), hdq1.h(), hdq1.g(), hdq1.i(), hdq1.e(), i, s1, hdq1.j(), hdq1.k());
-        hbn1.a();
-    }
-
-    public boolean a(String s)
-    {
-        return false;
-    }
-
-    public boolean b(String s)
-    {
-        return false;
-    }
-
-    public void c(String s)
-    {
-    }
-
-    public void d(String s)
-    {
+        b = null;
+        a = (gzl)hlp.a(context, gzl);
     }
 }

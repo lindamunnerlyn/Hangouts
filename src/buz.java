@@ -2,14 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.libraries.quantum.snackbar.Snackbar;
 
-public interface buz
+final class buz
+    implements Runnable
 {
 
-    public abstract buz a(hgx hgx);
+    final buw a;
+    private final jhh b;
 
-    public abstract void a(bux bux);
+    buz(buw buw1, jhh jhh)
+    {
+        a = buw1;
+        super();
+        b = jhh;
+    }
 
-    public abstract void a(Snackbar snackbar);
+    public void run()
+    {
+        a.d = bul.a(b);
+        a.d.a(a.a.u_(), null);
+    }
 }

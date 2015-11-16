@@ -3,40 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hzf extends koj
+public final class hzf extends kwm
 {
 
-    private static volatile hzf d[];
-    public Integer a;
-    public String b;
-    public String c;
+    public Float a;
+    public Float b;
+    public Float c;
+    public Float d;
 
     public hzf()
     {
         a = null;
         b = null;
         c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
-    }
-
-    public static hzf[] a()
-    {
-        if (d == null)
-        {
-            synchronized (kon.a)
-            {
-                if (d == null)
-                {
-                    d = new hzf[0];
-                }
-            }
-        }
-        return d;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -45,77 +27,84 @@ public final class hzf extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.e(1, a.intValue());
+            a.floatValue();
+            i = j + (kwk.f(1) + 4);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.b(2, b);
+            b.floatValue();
+            j = i + (kwk.f(2) + 4);
         }
         i = j;
         if (c != null)
         {
-            i = j + koh.b(3, c);
+            c.floatValue();
+            i = j + (kwk.f(3) + 4);
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-_L6:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 4: default 48
-    //                   0: 57
-    //                   8: 59
-    //                   18: 134
-    //                   26: 145;
-           goto _L1 _L2 _L3 _L4 _L5
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L6; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
+        j = i;
+        if (d != null)
         {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-        case 4: // '\004'
-        case 5: // '\005'
-        case 6: // '\006'
-        case 7: // '\007'
-        case 8: // '\b'
-        case 9: // '\t'
-            a = Integer.valueOf(j);
-            break;
+            d.floatValue();
+            j = i + (kwk.f(4) + 4);
         }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        b = kog1.j();
-        continue; /* Loop/switch isn't completed */
-_L5:
-        c = kog1.j();
-        if (true) goto _L6; else goto _L7
-_L7:
+        return j;
     }
 
-    public void writeTo(koh koh1)
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 13: // '\r'
+                a = Float.valueOf(kwj1.c());
+                break;
+
+            case 21: // '\025'
+                b = Float.valueOf(kwj1.c());
+                break;
+
+            case 29: // '\035'
+                c = Float.valueOf(kwj1.c());
+                break;
+
+            case 37: // '%'
+                d = Float.valueOf(kwj1.c());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.intValue());
+            kwk1.a(1, a.floatValue());
         }
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.a(2, b.floatValue());
         }
         if (c != null)
         {
-            koh1.a(3, c);
+            kwk1.a(3, c.floatValue());
         }
-        super.writeTo(koh1);
+        if (d != null)
+        {
+            kwk1.a(4, d.floatValue());
+        }
+        super.writeTo(kwk1);
     }
 }

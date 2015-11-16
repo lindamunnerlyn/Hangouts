@@ -6,16 +6,15 @@ package com.google.android.gms.people.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import eof;
-import fqw;
+import erf;
+import ftn;
 import g;
-import h;
 
 public final class AvatarReference
     implements SafeParcelable
 {
 
-    public static final fqw CREATOR = new fqw();
+    public static final ftn CREATOR = new ftn();
     final int a;
     final String b;
     private final int c;
@@ -30,23 +29,23 @@ public final class AvatarReference
         {
             flag = false;
         }
-        h.a(flag);
+        g.a(flag);
         c = i;
         a = j;
         b = s;
     }
 
-    public int a()
+    private int a()
     {
         return c;
     }
 
-    public int b()
+    private int b()
     {
         return a;
     }
 
-    public String c()
+    private String c()
     {
         return b;
     }
@@ -63,7 +62,11 @@ public final class AvatarReference
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fqw.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, b());
+        g.b(parcel, 1000, a());
+        g.a(parcel, 2, c());
+        g.q(parcel, i);
     }
 
 }

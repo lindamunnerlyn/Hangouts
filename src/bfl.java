@@ -2,62 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import android.animation.ValueAnimator;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
 
-final class bfl
-    implements eka
+final class bfl extends Animation
 {
 
-    final bfk a;
+    int a;
+    int b;
+    View c;
 
-    bfl(bfk bfk1)
+    public bfl(View view, int i)
     {
-        a = bfk1;
-        super();
+        c = view;
+        a = view.getLayoutParams().height;
+        b = i - a;
+        setDuration((new ValueAnimator()).getDuration());
     }
 
-    public void a(int i)
+    protected void applyTransformation(float f, Transformation transformation)
     {
-        if (bfk.a)
-        {
-            ebw.b("Babel", "People client disconnected.");
-        }
-        if (a.c != null)
-        {
-            ebw.a("Babel", "Resetting gmsPeopleLoader after people client disconnect");
-            a.c = null;
-        }
+        c.getLayoutParams().height = (int)((float)a + (float)b * f);
+        c.requestLayout();
     }
 
-    public void a_(Bundle bundle)
+    public void initialize(int i, int j, int k, int l)
     {
-        if (bfk.a)
-        {
-            ebw.b("Babel", "Google API client connected.");
-        }
-        if (a.getActivity() == null)
-        {
-            ebw.c("Babel", "Google API client connected but MakePhoneCallFragment is detached.");
-        } else
-        {
-            bundle = a.b;
-            long l = g.a(g.nS, "babel_gms_sync_allowance", 28800L);
-            int ai[] = dbf.c(true);
-            int j = ai.length;
-            for (int i = 0; i < j; i++)
-            {
-                ani ani1 = dbf.e(ai[i]);
-                if (!ani1.q())
-                {
-                    fmn.h.a(bundle, ani1.a(), ani1.ae(), l);
-                }
-            }
+        super.initialize(i, j, k, l);
+    }
 
-            if (a.h && a.c == null && a.e())
-            {
-                a.c();
-                return;
-            }
-        }
+    public boolean willChangeBounds()
+    {
+        return true;
     }
 }

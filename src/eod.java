@@ -2,50 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
-import com.google.android.gms.common.internal.ResolveAccountResponse;
+import java.util.concurrent.locks.Lock;
 
-public final class eod
-    implements eob
+abstract class eod
+    implements Runnable
 {
 
-    private IBinder a;
+    final enq b;
 
-    public eod(IBinder ibinder)
+    private eod(enq enq1)
     {
-        a = ibinder;
+        b = enq1;
+        super();
     }
 
-    public void a(ResolveAccountResponse resolveaccountresponse)
+    eod(enq enq1, byte byte0)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.common.internal.IResolveAccountCallbacks");
-        if (resolveaccountresponse == null)
+        this(enq1);
+    }
+
+    protected abstract void a();
+
+    public void run()
+    {
+        b.b.lock();
+        boolean flag = Thread.interrupted();
+        if (flag)
         {
-            break MISSING_BLOCK_LABEL_56;
+            b.b.unlock();
+            return;
         }
-        parcel.writeInt(1);
-        resolveaccountresponse.writeToParcel(parcel, 0);
-_L1:
-        a.transact(2, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
+        a();
+        b.b.unlock();
         return;
-        parcel.writeInt(0);
-          goto _L1
-        resolveaccountresponse;
-        parcel1.recycle();
-        parcel.recycle();
-        throw resolveaccountresponse;
-    }
-
-    public IBinder asBinder()
-    {
-        return a;
+        Object obj;
+        obj;
+        b.a.a(((RuntimeException) (obj)));
+        b.b.unlock();
+        return;
+        obj;
+        b.b.unlock();
+        throw obj;
     }
 }

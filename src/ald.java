@@ -4,25 +4,9 @@
 
 
 final class ald
-    implements Runnable
 {
 
-    final dcd a;
-    final int b;
-    final iqq c[];
-    final alc d;
-
-    ald(alc alc, dcd dcd1, int i, iqq aiqq[])
+    ald()
     {
-        d = alc;
-        a = dcd1;
-        b = i;
-        c = aiqq;
-        super();
-    }
-
-    public void run()
-    {
-        a.a(b, c);
     }
 }

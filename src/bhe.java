@@ -2,34 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.telephony.PhoneStateListener;
-import android.telephony.ServiceState;
+import android.view.View;
+import com.google.android.apps.hangouts.fragments.CallContactPickerFragment;
 
-final class bhe extends PhoneStateListener
+public final class bhe
+    implements android.view.View.OnClickListener
 {
 
-    final bhf a;
-    final bhd b;
+    final CallContactPickerFragment a;
 
-    bhe(bhd bhd1, bhf bhf1)
+    public bhe(CallContactPickerFragment callcontactpickerfragment)
     {
-        b = bhd1;
-        a = bhf1;
+        a = callcontactpickerfragment;
         super();
     }
 
-    public void onServiceStateChanged(ServiceState servicestate)
+    public void onClick(View view)
     {
-        bhd bhd1 = b;
-        boolean flag;
-        if (servicestate.getState() == 0)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        bhd1.a = flag;
-        a.a();
+        CallContactPickerFragment.b(a, 1);
     }
 }

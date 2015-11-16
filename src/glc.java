@@ -2,23 +2,76 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import com.google.android.libraries.hangouts.video.CallService;
 
-final class glc extends gkx
+public final class glc
 {
 
-    glc(String s)
+    private static boolean e = false;
+    final Runnable a;
+    gmp b;
+    private final Context c;
+    private final gjj d;
+    private final ServiceConnection f = new gld(this);
+
+    public glc(Context context, Runnable runnable)
     {
-        super(s, 3);
+        c = context;
+        a = runnable;
+        if (!e)
+        {
+            hlp.b(c).a(gjj, new gjj());
+            e = true;
+        }
+        runnable = new Intent();
+        runnable.setComponent(new ComponentName(c, com/google/android/libraries/hangouts/video/CallService.getName()));
+        c.startService(runnable);
+        if (!c.bindService(runnable, f, 1))
+        {
+            gne.a("vclib", "Failed to initialize CallClient.");
+        }
+        d = (gjj)hlp.b(context).a(gjj);
     }
 
-    boolean a(glq glq, String s, gkv gkv1)
+    public gmm a()
     {
-        if (!gkv1.b(glq) || !gks.a(glq, s, gkv1) || gks.a(glq, s) || !gks.a(glq, gkv1))
+        if (b == null)
         {
-            return false;
+            return null;
         } else
         {
-            return gks.a(glq, s, gkv1, new gld(this));
+            return b.b();
         }
     }
+
+    public gmm a(gmn gmn)
+    {
+        if (b == null)
+        {
+            throw new IllegalStateException("CallClient not initialized yet; wait for onReadyRunnable");
+        } else
+        {
+            return b.a(gmn);
+        }
+    }
+
+    public void finalize()
+    {
+        if (b == null)
+        {
+            break MISSING_BLOCK_LABEL_23;
+        }
+        c.unbindService(f);
+        b = null;
+        return;
+        IllegalArgumentException illegalargumentexception;
+        illegalargumentexception;
+        gne.a("vclib", "Error disconnecting CallService", illegalargumentexception);
+        return;
+    }
+
 }

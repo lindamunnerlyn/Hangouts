@@ -2,74 +2,79 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
-final class kno
-    implements Iterator
+public final class kno extends kwm
 {
 
-    final kni a;
-    private int b;
-    private boolean c;
-    private Iterator d;
+    public lcy a;
+    public Long b;
 
-    kno(kni kni1)
+    public kno()
     {
-        a = kni1;
-        super();
-        b = -1;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private Iterator a()
+    protected int computeSerializedSize()
     {
-        if (d == null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            d = kni.c(a).entrySet().iterator();
+            i = j + kwk.d(1, a);
         }
-        return d;
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.longValue());
+        }
+        return j;
     }
 
-    public boolean hasNext()
+    public kws mergeFrom(kwj kwj1)
     {
-        return b + 1 < kni.b(a).size() || a().hasNext();
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new lcy();
+                }
+                kwj1.a(a);
+                break;
+
+            case 16: // '\020'
+                b = Long.valueOf(kwj1.e());
+                break;
+            }
+        } while (true);
     }
 
-    public Object next()
+    public void writeTo(kwk kwk1)
     {
-        c = true;
-        int i = b + 1;
-        b = i;
-        if (i < kni.b(a).size())
+        if (a != null)
         {
-            return (java.util.Map.Entry)kni.b(a).get(b);
-        } else
-        {
-            return (java.util.Map.Entry)a().next();
+            kwk1.b(1, a);
         }
-    }
-
-    public void remove()
-    {
-        if (!c)
+        if (b != null)
         {
-            throw new IllegalStateException("remove() was called before next()");
+            kwk1.b(2, b.longValue());
         }
-        c = false;
-        kni.a(a);
-        if (b < kni.b(a).size())
-        {
-            kni kni1 = a;
-            int i = b;
-            b = i - 1;
-            kni.a(kni1, i);
-            return;
-        } else
-        {
-            a().remove();
-            return;
-        }
+        super.writeTo(kwk1);
     }
 }

@@ -2,54 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.common.cache.LocalCache;
 
-final class jpu extends jlb
+public final class jpu extends jps
 {
 
-    final jps a;
+    volatile long a;
+    com.google.common.cache.LocalCache.ReferenceEntry b;
+    com.google.common.cache.LocalCache.ReferenceEntry c;
 
-    jpu(jps jps1)
+    jpu(Object obj, int i, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        a = jps1;
-        super();
+        super(obj, i, referenceentry);
+        a = 0x7fffffffffffffffL;
+        b = LocalCache.j();
+        c = LocalCache.j();
     }
 
-    public jlb a()
+    public com.google.common.cache.LocalCache.ReferenceEntry getNextInWriteQueue()
+    {
+        return b;
+    }
+
+    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInWriteQueue()
+    {
+        return c;
+    }
+
+    public long getWriteTime()
     {
         return a;
     }
 
-    jmi c()
+    public void setNextInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        return new jpv(this);
+        b = referenceentry;
     }
 
-    public Object get(Object obj)
+    public void setPreviousInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        if (obj != null)
-        {
-            int i = jky.a(obj.hashCode());
-            int j = a.b;
-            jlu jlu1 = a.a[i & j];
-            while (jlu1 != null) 
-            {
-                if (obj.equals(jlu1.getValue()))
-                {
-                    return jlu1.getKey();
-                }
-                jlu1 = jlu1.b();
-            }
-        }
-        return null;
+        c = referenceentry;
     }
 
-    public int size()
+    public void setWriteTime(long l)
     {
-        return a().size();
-    }
-
-    Object writeReplace()
-    {
-        return new jpx(a);
+        a = l;
     }
 }

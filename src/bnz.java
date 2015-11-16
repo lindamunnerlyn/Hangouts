@@ -2,94 +2,98 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.AlertDialog;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
+import android.content.DialogInterface;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 
-public class bnz
+public final class bnz
+    implements android.content.DialogInterface.OnClickListener, android.content.DialogInterface.OnDismissListener, bpb
 {
 
-    private final int a;
-    private final boolean b;
+    bpc a;
+    bpu b;
+    AlertDialog c;
+    private final bnk d = bnk.a();
+    private final boo e = boo.a();
+    private final boa f = new boa(this);
+    private final Context g;
 
-    private bnz(int i, boolean flag)
+    public bnz(Context context)
     {
-        a = i;
-        b = flag;
+        g = context;
     }
 
-    public static void a(Context context, boy boy1)
+    public void a(int i)
     {
-        a(context, boy1, 1004, true);
     }
 
-    public static void a(Context context, boy boy1, int i, boolean flag)
+    public void a(bpc bpc1)
     {
-        gbh.a(i, 1, 1019);
-        context = context.getSharedPreferences(bnz.getName(), 0).edit();
-        context.putBoolean("HISTORY_HAS_EVENT", true);
-        boy1.a(context);
-        context.putInt("HISTORY_ERROR", i);
-        context.putBoolean("HISTORY_EXIT_REPORTED", flag);
-        context.apply();
-    }
-
-    public static void a(Context context, String s)
-    {
-        context = context.getSharedPreferences(bnz.getName(), 0);
-        if (!TextUtils.isEmpty(context.getString("ONGOING_CALL_SESSION", "")))
+        a = bpc1;
+        e.a(f);
+        if (a.c() == 2)
         {
-            g.b(2723);
+            b = d.s().K();
+            if (b != null)
+            {
+                b();
+            }
         }
-        context.edit().putString("ONGOING_CALL_SESSION", s).apply();
     }
 
-    public static boolean a(Context context)
+    void b()
     {
-        context = context.getSharedPreferences(bnz.getName(), 0);
-        if (TextUtils.isEmpty(context.getString("ONGOING_CALL_SESSION", "")))
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(g);
+        Resources resources = g.getResources();
+        builder.setMessage(b.b());
+        builder.setPositiveButton(resources.getString(l.hd), this);
+        builder.setNegativeButton(resources.getString(l.cB), this);
+        builder.setCancelable(false);
+        if (android.os.Build.VERSION.SDK_INT >= 19)
         {
-            return false;
+            builder.setOnDismissListener(this);
+        }
+        c = builder.create();
+        c.show();
+    }
+
+    public void j_()
+    {
+        e.b(f);
+        if (c != null)
+        {
+            c.dismiss();
+            c = null;
+        }
+    }
+
+    public void onClick(DialogInterface dialoginterface, int i)
+    {
+        dialoginterface = d.s();
+        if (i == -1)
+        {
+            dialoginterface.e(b.a());
+            gdv.a("Expected null", c);
+            return;
         } else
         {
-            context.edit().remove("ONGOING_CALL_SESSION").apply();
-            return true;
+            gdv.a(Integer.valueOf(i), Integer.valueOf(-2));
+            dialoginterface.c(1004);
+            return;
         }
     }
 
-    public static bnz b(Context context, boy boy1)
+    public void onConfigurationChanged(Configuration configuration)
     {
-        Object obj = null;
-        context = context.getSharedPreferences(bnz.getName(), 0);
-        if (!context.getBoolean("HISTORY_HAS_EVENT", false) || !boy1.equals(boy.a(context)))
+    }
+
+    public void onDismiss(DialogInterface dialoginterface)
+    {
+        if (dialoginterface == c)
         {
-            context = null;
+            onClick(dialoginterface, -2);
         }
-        boy1 = obj;
-        if (context != null)
-        {
-            boy1 = new bnz(context.getInt("HISTORY_ERROR", 1004), context.getBoolean("HISTORY_EXIT_REPORTED", false));
-        }
-        return boy1;
-    }
-
-    public static void b(Context context, String s)
-    {
-        context = context.getSharedPreferences(bnz.getName(), 0);
-        if (!context.getString("ONGOING_CALL_SESSION", "").equals(s))
-        {
-            g.b(2715);
-        }
-        context.edit().remove("ONGOING_CALL_SESSION").apply();
-    }
-
-    public int a()
-    {
-        return a;
-    }
-
-    public boolean b()
-    {
-        return b;
     }
 }

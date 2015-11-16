@@ -2,23 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
+import android.content.Context;
 
-final class byi
-    implements android.os.Parcelable.Creator
+public final class byi
 {
 
-    byi()
+    public static final String a = byf.getName();
+    private static byh b;
+
+    public static void a(Context context, hlp hlp1)
     {
+        if (b == null)
+        {
+            b = new byh();
+        }
+        hlp1.a(byf, new byk(context));
     }
 
-    public Object createFromParcel(Parcel parcel)
-    {
-        return new byh(parcel);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new byh[i];
-    }
 }

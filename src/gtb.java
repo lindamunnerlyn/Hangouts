@@ -2,107 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
+import android.content.Intent;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class gtb
-    implements fsn, hjv
+public final class gtb
+    implements Parcelable
 {
 
-    private ArrayList a;
-    private boolean b;
+    public static final android.os.Parcelable.Creator CREATOR = new gtc();
+    public final int a;
+    public final int b;
+    public final Intent c;
 
-    public gtb(hjm hjm1)
+    public gtb(int i, int j, Intent intent)
     {
-        a = new ArrayList();
-        b = true;
-        hjm1.a(this);
+        a = i;
+        b = j;
+        c = intent;
     }
 
-    static void a(gtb gtb1, gtd gtd1)
+    gtb(Parcel parcel)
     {
-        gtb1.a(gtd1);
+        a = parcel.readInt();
+        b = parcel.readInt();
+        c = (Intent)parcel.readParcelable(android/content/Intent.getClassLoader());
     }
 
-    private void a(gtd gtd1)
+    public int describeContents()
     {
-        this;
-        JVM INSTR monitorenter ;
-        a.remove(gtd1);
-        this;
-        JVM INSTR monitorexit ;
-        return;
-        gtd1;
-        throw gtd1;
+        return 0;
     }
 
-    static void b(gtb gtb1, gtd gtd1)
+    public void writeToParcel(Parcel parcel, int i)
     {
-        gtb1.b(gtd1);
+        parcel.writeInt(a);
+        parcel.writeInt(b);
+        parcel.writeParcelable(c, i);
     }
 
-    private void b(gtd gtd1)
-    {
-        this;
-        JVM INSTR monitorenter ;
-        a.remove(gtd1);
-        this;
-        JVM INSTR monitorexit ;
-        return;
-        gtd1;
-        throw gtd1;
-    }
-
-    public gtd a(Runnable runnable)
-    {
-        this;
-        JVM INSTR monitorenter ;
-        runnable = b(runnable);
-        this;
-        JVM INSTR monitorexit ;
-        return runnable;
-        runnable;
-        throw runnable;
-    }
-
-    public gtd b(Runnable runnable)
-    {
-        this;
-        JVM INSTR monitorenter ;
-        gte gte1 = null;
-        if (b)
-        {
-            gte1 = new gte(this, runnable, 0L);
-            a.add(gte1);
-            gte1.a();
-        }
-        this;
-        JVM INSTR monitorexit ;
-        return gte1;
-        runnable;
-        throw runnable;
-    }
-
-    public void e_()
-    {
-        this;
-        JVM INSTR monitorenter ;
-        b = false;
-        int i = 0;
-_L2:
-        if (i >= a.size())
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        ((gtd)a.get(i)).b();
-        i++;
-        if (true) goto _L2; else goto _L1
-_L1:
-        a.clear();
-        this;
-        JVM INSTR monitorexit ;
-        return;
-        Exception exception;
-        exception;
-        throw exception;
-    }
 }

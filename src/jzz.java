@@ -2,83 +2,95 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.lang.reflect.UndeclaredThrowableException;
+import java.util.concurrent.CancellationException;
+import java.util.concurrent.ExecutionException;
 
-public final class jzz extends koj
+abstract class jzz extends jzu
+    implements Runnable
 {
 
-    public jzm a;
-    public jzx b;
+    kak a;
+    Object b;
 
-    public jzz()
+    jzz(kak kak1, Object obj)
     {
+        a = (kak)n.b(kak1);
+        b = n.b(obj);
+    }
+
+    static kak a(kak kak1, jnn jnn)
+    {
+        n.b(jnn);
+        jnn = new kaa(kak1, jnn);
+        kak1.a(jnn, kan.a);
+        return jnn;
+    }
+
+    abstract void a(Object obj, Object obj1);
+
+    final void c()
+    {
+        a(a);
         a = null;
         b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public final void run()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        boolean flag1 = true;
+        Object obj;
+        Object obj1;
+        boolean flag2;
+        obj1 = a;
+        obj = b;
+        flag2 = isCancelled();
+        boolean flag;
+        if (obj1 == null)
         {
-            i = j + koh.d(1, a);
+            flag = true;
+        } else
+        {
+            flag = false;
         }
-        j = i;
-        if (b != null)
+        if (obj != null)
         {
-            j = i + koh.d(2, b);
+            flag1 = false;
         }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        if (flag1 | (flag | flag2))
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new jzm();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new jzx();
-                }
-                kog1.a(b);
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.b(1, a);
+            return;
         }
-        if (b != null)
+          goto _L1
+_L3:
+        a = null;
+        b = null;
+        obj1 = g.a(((java.util.concurrent.Future) (obj1)));
+        a(obj, obj1);
+        return;
+        obj;
+        try
         {
-            koh1.b(2, b);
+            cancel(false);
+            return;
         }
-        super.writeTo(koh1);
+        // Misplaced declaration of an exception variable
+        catch (Object obj)
+        {
+            a(((UndeclaredThrowableException) (obj)).getCause());
+            return;
+        }
+        // Misplaced declaration of an exception variable
+        catch (Object obj)
+        {
+            a(((Throwable) (obj)));
+        }
+        return;
+        obj;
+        a(((ExecutionException) (obj)).getCause());
+        return;
+_L1:
+        if (true) goto _L3; else goto _L2
+_L2:
     }
 }

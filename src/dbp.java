@@ -4,13 +4,6 @@
 
 
 public interface dbp
+    extends dbn
 {
-
-    public abstract boolean a();
-
-    public abstract boolean b();
-
-    public abstract long c();
-
-    public abstract float d();
 }

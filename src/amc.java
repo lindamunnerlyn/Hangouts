@@ -2,22 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.AsyncTask;
 
-final class amc extends AsyncTask
+public final class amc extends Enum
 {
 
-    final amb a;
+    public static final int a;
+    public static final int b;
+    private static final int c[];
 
-    amc(amb amb1)
+    public static int[] a()
     {
-        a = amb1;
-        super();
+        return (int[])c.clone();
     }
 
-    protected Object doInBackground(Object aobj[])
+    static 
     {
-        alz.b(a.a);
-        return null;
+        a = 1;
+        b = 2;
+        c = (new int[] {
+            a, b
+        });
     }
 }

@@ -5,10 +5,10 @@
 package com.google.api.client.http;
 
 import g;
-import hnb;
-import hnv;
-import hob;
-import hog;
+import hrx;
+import hsr;
+import hsx;
+import htc;
 import java.io.ByteArrayOutputStream;
 import java.io.EOFException;
 import java.io.InputStream;
@@ -70,7 +70,7 @@ public final class HttpResponse
         if (flag)
         {
             stringbuilder = new StringBuilder();
-            stringbuilder.append("-------------- RESPONSE --------------").append(hog.a);
+            stringbuilder.append("-------------- RESPONSE --------------").append(htc.a);
             Object obj2 = lowlevelhttpresponse.getStatusLine();
             if (obj2 != null)
             {
@@ -83,7 +83,7 @@ public final class HttpResponse
                     stringbuilder.append(' ').append(((String) (obj)));
                 }
             }
-            stringbuilder.append(hog.a);
+            stringbuilder.append(htc.a);
         } else
         {
             stringbuilder = null;
@@ -189,7 +189,7 @@ public final class HttpResponse
         }
         obj2 = obj;
         obj3 = obj;
-        obj1 = new hnv(((InputStream) (obj)), logger, Level.CONFIG, contentLoggingLimit);
+        obj1 = new hsr(((InputStream) (obj)), logger, Level.CONFIG, contentLoggingLimit);
         obj2 = obj1;
         obj3 = obj1;
         Exception exception;
@@ -216,7 +216,7 @@ public final class HttpResponse
     {
         if (mediaType == null || mediaType.getCharsetParameter() == null)
         {
-            return hnb.b;
+            return hrx.b;
         } else
         {
             return mediaType.getCharsetParameter();
@@ -318,7 +318,7 @@ public final class HttpResponse
         } else
         {
             ByteArrayOutputStream bytearrayoutputstream = new ByteArrayOutputStream();
-            g.a(inputstream, bytearrayoutputstream);
+            g.a(inputstream, bytearrayoutputstream, true);
             return bytearrayoutputstream.toString(getContentCharset().name());
         }
     }

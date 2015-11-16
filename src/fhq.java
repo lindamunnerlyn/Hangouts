@@ -2,78 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.herrevad.PredictedNetworkQuality;
 
-final class fhq
-    implements fho
+final class fhq extends fet
 {
 
-    private IBinder a;
+    final fhp b;
 
-    fhq(IBinder ibinder)
+    fhq(fhp fhp, enn enn1)
     {
-        a = ibinder;
+        b = fhp;
+        super(enn1);
     }
 
-    public ezy a(fkr fkr1)
+    public void a(Status status, PredictedNetworkQuality predictednetworkquality)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IInfoWindowAdapter");
-        if (fkr1 == null)
-        {
-            break MISSING_BLOCK_LABEL_66;
-        }
-        fkr1 = fkr1.asBinder();
-_L1:
-        parcel.writeStrongBinder(fkr1);
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        fkr1 = ezz.a(parcel1.readStrongBinder());
-        parcel1.recycle();
-        parcel.recycle();
-        return fkr1;
-        fkr1 = null;
-          goto _L1
-        fkr1;
-        parcel1.recycle();
-        parcel.recycle();
-        throw fkr1;
-    }
-
-    public IBinder asBinder()
-    {
-        return a;
-    }
-
-    public ezy b(fkr fkr1)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IInfoWindowAdapter");
-        if (fkr1 == null)
-        {
-            break MISSING_BLOCK_LABEL_66;
-        }
-        fkr1 = fkr1.asBinder();
-_L1:
-        parcel.writeStrongBinder(fkr1);
-        a.transact(2, parcel, parcel1, 0);
-        parcel1.readException();
-        fkr1 = ezz.a(parcel1.readStrongBinder());
-        parcel1.recycle();
-        parcel.recycle();
-        return fkr1;
-        fkr1 = null;
-          goto _L1
-        fkr1;
-        parcel1.recycle();
-        parcel.recycle();
-        throw fkr1;
+        a.a(new fhr(status, predictednetworkquality));
     }
 }

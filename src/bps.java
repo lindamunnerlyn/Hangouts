@@ -2,24 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.hangout.InCallDialpadActivity;
 
-public final class bps extends boh
+final class bps
+    implements Runnable
 {
 
-    final InCallDialpadActivity a;
+    final bpm a;
 
-    public bps(InCallDialpadActivity incalldialpadactivity)
+    bps(bpm bpm1)
     {
-        a = incalldialpadactivity;
+        a = bpm1;
         super();
     }
 
-    public void b(int i)
+    public void run()
     {
-        if ((i & 1) == 0)
-        {
-            a.finish();
-        }
+        bpm.b(a);
     }
 }

@@ -2,14 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
 
-public interface are
+final class are
 {
 
-    public abstract List a(long l, long l1);
+    static final int a[];
 
-    public abstract void a(czn czn);
-
-    public abstract void a(StringBuilder stringbuilder);
+    static 
+    {
+        a = new int[cuy.values().length];
+        try
+        {
+            a[cuy.c.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[cuy.a.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[cuy.b.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[cuy.d.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
+    }
 }

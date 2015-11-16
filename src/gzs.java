@@ -2,10 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.AsyncTask;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
-final class gzs
+final class gzs extends AsyncTask
 {
 
-    public static final int a = gzr.a(gzr.a());
+    final gzn a;
 
+    gzs(gzn gzn1)
+    {
+        a = gzn1;
+        super();
+    }
+
+    protected Object doInBackground(Object aobj[])
+    {
+        aobj = new StringWriter();
+        a.b(new PrintWriter(((java.io.Writer) (aobj))));
+        g.a(4, "ImageResourceManager", ((StringWriter) (aobj)).toString());
+        return null;
+    }
 }

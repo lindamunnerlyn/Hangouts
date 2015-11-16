@@ -3,76 +3,40 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cwd extends cvn
+public class cwd extends cvy
 {
 
     private static final long serialVersionUID = 1L;
-    private final byte g[];
-    private final byte h[];
+    public final String a;
 
-    private cwd(jam jam1)
+    public cwd(String s, String s1)
     {
-        super(jam1.responseHeader, -1L);
-        if (cvn.a)
-        {
-            String s = String.valueOf(jam1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(s).length() + 30)).append("GetBroadcastInfoResponse from:").append(s).toString());
-        }
-        g = izx.toByteArray(jam1.a);
-        h = jbw.toByteArray(jam1.b);
+        super(s);
+        a = s1;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public String a()
     {
-        abyte0 = (jam)kop.mergeFrom(new jam(), abyte0);
-        if (a(((jam) (abyte0)).responseHeader) || ((jam) (abyte0)).a == null)
-        {
-            return new cvz(((jam) (abyte0)).responseHeader);
-        } else
-        {
-            return new cwd(abyte0);
-        }
+        return "event_queue";
     }
 
-    public String k()
+    public kws a(String s, int i, int j)
     {
-        izx izx1 = l();
-        if (izx1 == null)
-        {
-            return null;
-        } else
-        {
-            return izx1.b;
-        }
+        iyu iyu1 = new iyu();
+        iyu1.requestHeader = cvu.a(s, i, j, h);
+        iyu1.a = cvu.a(c);
+        iyu1.b = new iys();
+        iyu1.b.a = a;
+        return iyu1;
     }
 
-    public izx l()
+    public boolean a(cdn cdn, dcx dcx)
     {
-        izx izx1;
-        try
-        {
-            izx1 = (izx)kop.mergeFrom(new izx(), g);
-        }
-        catch (koo koo1)
-        {
-            ebw.e("Babel", "Broadcast parse failed", koo1);
-            return null;
-        }
-        return izx1;
+        return false;
     }
 
-    public jbw m()
+    public String f()
     {
-        jbw jbw1;
-        try
-        {
-            jbw1 = (jbw)kop.mergeFrom(new jbw(), h);
-        }
-        catch (koo koo1)
-        {
-            ebw.e("Babel", "SyncMetadata parse failed", koo1);
-            return null;
-        }
-        return jbw1;
+        return "conversations/easteregg";
     }
 }

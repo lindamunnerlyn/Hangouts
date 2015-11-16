@@ -2,23 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
-import com.google.android.gms.googlehelp.GoogleHelp;
-import com.google.android.gms.googlehelp.internal.common.TogglingData;
 
-public interface fbb
-    extends IInterface
+final class fbb
 {
 
-    public abstract void a();
+    static final erv a[] = {
+        new fbc(erv.a("0\202\003\3130\202\002\263\240\003\002\001\002\002\t\000\210\243\263#\304P\366]0")), new fbd(erv.a("0\202\003\3130\202\002\263\240\003\002\001\002\002\t\000\266\301\032\204f\207\240\f0"))
+    };
 
-    public abstract void a(GoogleHelp googlehelp);
-
-    public abstract void a(TogglingData togglingdata);
-
-    public abstract void b();
-
-    public abstract void c();
-
-    public abstract void d();
 }

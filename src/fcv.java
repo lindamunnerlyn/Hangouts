@@ -2,31 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.gms.iid.MessengerCompat;
 
-public final class fcv
-    implements android.os.Parcelable.Creator
+interface fcv
 {
 
-    public fcv()
-    {
-    }
+    public abstract int a();
 
-    public Object createFromParcel(Parcel parcel)
-    {
-        parcel = parcel.readStrongBinder();
-        if (parcel != null)
-        {
-            return new MessengerCompat(parcel);
-        } else
-        {
-            return null;
-        }
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new MessengerCompat[i];
-    }
+    public abstract void b();
 }

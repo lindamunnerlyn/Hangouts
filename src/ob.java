@@ -2,47 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Cursor;
-import android.widget.Filter;
+import android.database.ContentObserver;
+import android.os.Handler;
 
-final class ob extends Filter
+final class ob extends ContentObserver
 {
 
-    oc a;
+    final oa a;
 
-    ob(oc oc1)
+    public ob(oa oa1)
     {
-        a = oc1;
+        a = oa1;
+        super(new Handler());
     }
 
-    public CharSequence convertResultToString(Object obj)
+    public boolean deliverSelfNotifications()
     {
-        return a.c((Cursor)obj);
+        return true;
     }
 
-    protected android.widget.Filter.FilterResults performFiltering(CharSequence charsequence)
+    public void onChange(boolean flag)
     {
-        charsequence = a.a(charsequence);
-        android.widget.Filter.FilterResults filterresults = new android.widget.Filter.FilterResults();
-        if (charsequence != null)
-        {
-            filterresults.count = charsequence.getCount();
-            filterresults.values = charsequence;
-            return filterresults;
-        } else
-        {
-            filterresults.count = 0;
-            filterresults.values = null;
-            return filterresults;
-        }
-    }
-
-    protected void publishResults(CharSequence charsequence, android.widget.Filter.FilterResults filterresults)
-    {
-        charsequence = a.a();
-        if (filterresults.values != null && filterresults.values != charsequence)
-        {
-            a.a((Cursor)filterresults.values);
-        }
+        a.b();
     }
 }

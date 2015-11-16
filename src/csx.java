@@ -4,19 +4,22 @@
 
 
 final class csx
+    implements grf
 {
 
-    public long a;
-    public Object b;
+    final csw a;
 
-    public csx(Object obj, long l)
+    csx(csw csw1)
     {
-        b = obj;
-        a = l;
+        a = csw1;
+        super();
     }
 
-    public boolean a(Object obj)
+    public void H_()
     {
-        return obj == b || obj != null && obj.equals(b);
+        if (!a.c.c(a.b))
+        {
+            a.f();
+        }
     }
 }

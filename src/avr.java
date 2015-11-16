@@ -2,26 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
 
-final class avr
-    implements arn
+interface avr
 {
 
-    final Intent a;
-    final avq b;
+    public abstract void a();
 
-    avr(avq avq1, Intent intent)
-    {
-        b = avq1;
-        a = intent;
-        super();
-    }
+    public abstract void a(int i);
 
-    public void a(ark ark)
-    {
-        (new baa(ave.a(b.a))).execute(new Intent[] {
-            a
-        });
-    }
+    public abstract void a(String s);
+
+    public abstract void b();
+
+    public abstract void c();
+
+    public abstract boolean d();
 }

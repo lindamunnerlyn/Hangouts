@@ -4,7 +4,7 @@
 
 package com.google.android.apps.hangouts.service;
 
-import alw;
+import amo;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
@@ -12,10 +12,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
-import ccl;
-import ccm;
-import ebw;
-import hgx;
+import cdq;
+import cdr;
+import eev;
+import hlp;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -39,9 +39,9 @@ public class NetworkConnectionCheckingService extends IntentService
         obj2 = null;
         obj1 = null;
         obj = obj2;
-        context = (alw)hgx.a(context, alw);
+        context = (amo)hlp.a(context, amo);
         obj = obj2;
-        String s = context.a("babel_captive_portal_detection_host_name", "http://clients3.google.com/generate_204");
+        String s = context.a("babel_captive_portal_detection_host_name", "https://clients3.google.com/generate_204");
         obj = obj2;
         int i = context.a("babel_captive_portal_detection_time_out", 5000);
         obj = obj2;
@@ -69,7 +69,7 @@ _L1:
         obj;
         context = null;
 _L5:
-        ebw.d("Babel_NetworkConnectionCheckingService", "unexpected exception ", ((Throwable) (obj)));
+        eev.d("Babel_NetworkConnectionCheckingService", "unexpected exception ", ((Throwable) (obj)));
         if (context != null)
         {
             context.disconnect();
@@ -80,7 +80,7 @@ _L5:
         obj1 = obj;
 _L4:
         obj = context;
-        ebw.d("Babel_NetworkConnectionCheckingService", "IO exceptions, probably not a captive portal ", ((Throwable) (obj1)));
+        eev.d("Babel_NetworkConnectionCheckingService", "IO exceptions, probably not a captive portal ", ((Throwable) (obj1)));
         if (context != null)
         {
             context.disconnect();
@@ -110,17 +110,17 @@ _L2:
 
     protected void onHandleIntent(Intent intent)
     {
-        ccm ccm1;
+        cdr cdr1;
         String s;
-        ccl ccl1;
+        cdq cdq1;
         if (a)
         {
-            ebw.b("Babel_NetworkConnectionCheckingService", "NetworkConnectionCheckingService onHandleIntent");
+            eev.b("Babel_NetworkConnectionCheckingService", "NetworkConnectionCheckingService onHandleIntent");
         }
         intent = intent.getExtras();
         s = intent.getString("update_type", null);
-        ccm1 = (ccm)hgx.a(getApplicationContext(), ccm);
-        ccl1 = ccm1.a();
+        cdr1 = (cdr)hlp.a(getApplicationContext(), cdr);
+        cdq1 = cdr1.a();
         if (!TextUtils.isEmpty(s)) goto _L2; else goto _L1
 _L1:
         return;
@@ -129,40 +129,40 @@ _L2:
         {
             continue; /* Loop/switch isn't completed */
         }
-        if (ccl1 == ccl.a)
+        if (cdq1 == cdq.a)
         {
             break; /* Loop/switch isn't completed */
         }
         if (!a) goto _L1; else goto _L3
 _L3:
-        intent = String.valueOf(ccl1);
-        ebw.b("Babel_NetworkConnectionCheckingService", (new StringBuilder(String.valueOf(intent).length() + 38)).append("connection state already initialized: ").append(intent).toString());
+        intent = String.valueOf(cdq1);
+        eev.b("Babel_NetworkConnectionCheckingService", (new StringBuilder(String.valueOf(intent).length() + 38)).append("connection state already initialized: ").append(intent).toString());
         return;
-        if ("verify_connection_state".equals(s) && ccl1.a() == intent.getBoolean("expected_connectivity")) goto _L1; else goto _L4
+        if ("verify_connection_state".equals(s) && cdq1.a() == intent.getBoolean("expected_connectivity")) goto _L1; else goto _L4
 _L4:
         intent = getApplicationContext();
         NetworkInfo networkinfo = ((ConnectivityManager)intent.getSystemService("connectivity")).getActiveNetworkInfo();
         if (networkinfo == null)
         {
-            intent = ccl.b;
+            intent = cdq.b;
         } else
         if (!networkinfo.isConnected())
         {
-            intent = ccl.b;
+            intent = cdq.b;
         } else
         if (a(intent))
         {
-            intent = ccl.c;
+            intent = cdq.c;
         } else
         {
-            intent = ccl.d;
+            intent = cdq.d;
         }
-        ccm1.a(intent);
+        cdr1.a(intent);
         return;
     }
 
     static 
     {
-        hik hik = ebw.p;
+        hnc hnc = eev.p;
     }
 }

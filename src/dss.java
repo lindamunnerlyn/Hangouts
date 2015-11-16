@@ -2,33 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
 
 final class dss
-    implements android.view.View.OnClickListener
 {
 
-    boolean a;
-    final dsn b;
-    final dsu c;
-    final dsp d;
+    static final int a[];
 
-    dss(dsp dsp1, dsn dsn, dsu dsu1)
+    static 
     {
-        d = dsp1;
-        b = dsn;
-        c = dsu1;
-        super();
-        a = false;
-    }
-
-    public void onClick(View view)
-    {
-        if (!a)
+        a = new int[dst.a().length];
+        try
         {
-            d.b(b);
-            c.onClick(view);
-            a = true;
+            a[dst.b - 1] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[dst.a - 1] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
         }
     }
 }

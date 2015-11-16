@@ -2,26 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.support.v4.widget.DrawerLayout;
-import android.view.View;
+import android.database.Cursor;
 
-public final class oe extends hp
+interface oe
 {
 
-    final DrawerLayout b;
+    public abstract Cursor a();
 
-    public oe(DrawerLayout drawerlayout)
-    {
-        b = drawerlayout;
-        super();
-    }
+    public abstract Cursor a(CharSequence charsequence);
 
-    public void a(View view, mq mq1)
-    {
-        super.a(view, mq1);
-        if (!DrawerLayout.l(view))
-        {
-            mq1.c(null);
-        }
-    }
+    public abstract void a(Cursor cursor);
+
+    public abstract CharSequence c(Cursor cursor);
 }

@@ -2,77 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.widget.SectionIndexer;
-import java.util.ArrayList;
-import java.util.List;
+import android.view.View;
+import android.widget.ImageView;
 
-public abstract class chx extends aqy
-    implements SectionIndexer
+final class chx extends zs
 {
 
-    public chx(Context context)
+    final chn l;
+    private final ImageView m;
+
+    public chx(chn chn1, View view)
     {
-        super(context);
+        l = chn1;
+        super(view);
+        m = (ImageView)view.findViewById(l.tE);
     }
 
-    public int getPositionForSection(int i)
+    public void v()
     {
-        int i1 = c();
-        boolean flag = false;
-        int j = 0;
-        int k = i;
-        for (i = ((flag) ? 1 : 0); i < i1; i++)
+        int i;
+        if (l.g)
         {
-            chy chy1 = (chy)c(i);
-            int l = chy1.f();
-            if (k < l)
-            {
-                return chy1.b(k) + j;
-            }
-            k -= l;
-            j += chy1.c();
-        }
-
-        gbh.a("section index out of bounds");
-        return 0;
-    }
-
-    public int getSectionForPosition(int i)
-    {
-        int i1 = c();
-        boolean flag = false;
-        int j = 0;
-        int k = i;
-        for (i = ((flag) ? 1 : 0); i < i1; i++)
+            i = n.f;
+        } else
         {
-            chy chy1 = (chy)c(i);
-            int l = chy1.c();
-            if (k < l)
-            {
-                return chy1.c(k) + j;
-            }
-            k -= l;
-            j += chy1.f();
+            i = n.g;
         }
-
-        gbh.a("position out of bounds");
-        return 0;
-    }
-
-    public Object[] getSections()
-    {
-        ArrayList arraylist = new ArrayList();
-        int j = c();
-        for (int i = 0; i < j; i++)
-        {
-            amj amj1 = (amj)((chy)c(i)).e();
-            if (amj1 != null)
-            {
-                amj1.a(arraylist);
-            }
-        }
-
-        return arraylist.toArray();
+        m.setImageResource(i);
     }
 }

@@ -2,25 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Comparator;
 
-final class gqt extends grh
+public final class gqt
+    implements Comparator
 {
 
-    public gqt()
+    private final gqz a;
+
+    public gqt(gqz gqz1)
     {
-        super(null, null);
+        a = gqz1;
     }
 
-    public void a(String s)
+    public int compare(Object obj, Object obj1)
     {
-    }
-
-    public void a(String s, String s1, String s2, boolean flag)
-    {
-    }
-
-    public boolean a(grk grk)
-    {
-        return false;
+        obj = (Integer)obj;
+        obj1 = (Integer)obj1;
+        obj = a.a(((Integer) (obj)).intValue());
+        obj1 = a.a(((Integer) (obj1)).intValue());
+        boolean flag = ((grb) (obj)).d("is_managed_account");
+        boolean flag1 = ((grb) (obj1)).d("is_managed_account");
+        if (flag && !flag1)
+        {
+            return 1;
+        }
+        if (!flag && flag1)
+        {
+            return -1;
+        } else
+        {
+            return ((grb) (obj)).b("account_name").compareToIgnoreCase(((grb) (obj1)).b("account_name"));
+        }
     }
 }

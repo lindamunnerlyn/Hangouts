@@ -2,12 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Parcel;
+import com.google.android.gms.common.internal.BinderWrapper;
 
-final class epn
+public final class epn
+    implements android.os.Parcelable.Creator
 {
 
-    static final eox a[] = {
-        new epo(eox.a("0\202\003\2750\202\002\245\240\003\002\001\002\002\t\000\277\201.I\300\032z\f0")), new epp(eox.a("0\202\003\2750\202\002\245\240\003\002\001\002\002\t\000\344\344<\354@\217~\3440"))
-    };
+    public epn()
+    {
+    }
 
+    public Object createFromParcel(Parcel parcel)
+    {
+        return new BinderWrapper(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new BinderWrapper[i];
+    }
 }

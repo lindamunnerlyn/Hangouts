@@ -2,70 +2,80 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.HashMap;
-import java.util.Stack;
-import org.xml.sax.Attributes;
-import org.xml.sax.helpers.DefaultHandler;
 
-final class kxg extends DefaultHandler
+public final class kxg extends kwm
 {
 
-    HashMap a;
-    Stack b;
+    private static volatile kxg b[];
+    public String a;
 
-    kxg()
+    public kxg()
     {
-        a = new HashMap();
-        b = new Stack();
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public void endElement(String s, String s1, String s2)
+    public static kxg[] a()
     {
-        if (b.size() > 0)
+        if (b == null)
         {
-            s = (kxh)b.lastElement();
-            ((kxh) (s)).c.append("</");
-            ((kxh) (s)).c.append(s1);
-            ((kxh) (s)).c.append(">");
-            s.b = ((kxh) (s)).b - 1;
-            if (((kxh) (s)).b == 0)
+            synchronized (kwq.a)
             {
-                s1 = ((kxh) (s)).c.toString();
-                a.put(((kxh) (s)).a, s1);
-                b.pop();
-                if (b.size() > 0)
+                if (b == null)
                 {
-                    ((kxh)b.lastElement()).c.append(s1);
+                    b = new kxg[0];
                 }
             }
         }
+        return b;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public void startElement(String s, String s1, String s2, Attributes attributes)
+    protected int computeSerializedSize()
     {
-        s = attributes.getValue("id");
-        if (s != null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            s = new kxh(this, s);
-            b.push(s);
+            i = j + kwk.b(1, a);
         }
-        if (b.size() > 0)
-        {
-            s = (kxh)b.lastElement();
-            s.b = ((kxh) (s)).b + 1;
-            s = ((kxh) (s)).c;
-            s.append("<");
-            s.append(s1);
-            for (int i = 0; i < attributes.getLength(); i++)
-            {
-                s.append(" ");
-                s.append(attributes.getQName(i));
-                s.append("='");
-                s.append(kxd.a(attributes.getValue(i)));
-                s.append("'");
-            }
+        return i;
+    }
 
-            s.append(">");
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a);
         }
+        super.writeTo(kwk1);
     }
 }

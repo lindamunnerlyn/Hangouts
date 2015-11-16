@@ -2,30 +2,62 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.Spannable;
-import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Iterator;
 
-final class eed
-    implements Comparator
+public final class eed extends HashSet
 {
 
-    Spannable a;
+    private static final long serialVersionUID = 1L;
 
-    eed(Spannable spannable)
+    public eed()
     {
-        a = spannable;
     }
 
-    public int compare(Object obj, Object obj1)
+    public boolean contains(Object obj)
     {
-        obj = (eec)obj;
-        obj1 = (eec)obj1;
-        int i = a.getSpanStart(obj);
-        int j = a.getSpanStart(obj1);
-        if (i < j)
+        if (obj == null || !(obj instanceof cgd))
         {
-            return -1;
+            return false;
         }
-        return i != j ? 1 : 0;
+        obj = (cgd)obj;
+        for (Iterator iterator = iterator(); iterator.hasNext();)
+        {
+            if (((cgd)iterator.next()).a(((cgd) (obj))))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean remove(Object obj)
+    {
+        cgd cgd1;
+        Iterator iterator;
+        if (obj == null || !(obj instanceof cgd))
+        {
+            return false;
+        }
+        cgd1 = (cgd)obj;
+        iterator = iterator();
+_L4:
+        if (!iterator.hasNext()) goto _L2; else goto _L1
+_L1:
+        obj = (cgd)iterator.next();
+        if (!cgd1.a(((cgd) (obj)))) goto _L4; else goto _L3
+_L3:
+        if (obj != null)
+        {
+            return super.remove(obj);
+        } else
+        {
+            return false;
+        }
+_L2:
+        obj = null;
+        if (true) goto _L3; else goto _L5
+_L5:
     }
 }

@@ -3,21 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class eho extends Enum
+public interface eho
 {
 
-    public static final int a;
-    public static final int b;
-    public static final int c;
-    private static final int d[];
-
-    static 
-    {
-        a = 1;
-        b = 2;
-        c = 3;
-        d = (new int[] {
-            a, b, c
-        });
-    }
+    public abstract void a(ehl ehl);
 }

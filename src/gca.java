@@ -2,47 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.libraries.hangouts.video.Libjingle;
 
-final class gca
-    implements gfx
+public final class gca extends gbx
 {
 
-    final gbs a;
-
-    gca(gbs gbs1)
-    {
-        a = gbs1;
-        super();
-    }
-
-    public void a(long l)
-    {
-        if (gbs.l(a))
-        {
-            gbs.e(a).handleApiaryResponse(l, null);
-            return;
-        } else
-        {
-            gkc.d("vclib", "LibjingleRequestListener.onRequestError: not initialized");
-            return;
-        }
-    }
-
-    public void a(long l, String s)
+    public gca()
     {
     }
 
-    public void a(long l, byte abyte0[])
+    public gbq a(gaq gaq)
     {
-        if (gbs.l(a))
-        {
-            gbs.e(a).handleApiaryResponse(l, abyte0);
-            return;
-        } else
-        {
-            gkc.d("vclib", "LibjingleRequestListener.onRequestCompleted: not initialized");
-            return;
-        }
+        return new gbz(gaq, a);
     }
 }

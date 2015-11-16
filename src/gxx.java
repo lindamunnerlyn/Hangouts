@@ -2,33 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import junit.framework.Assert;
 
-class gxx
+public final class gxx extends Enum
 {
 
-    Context a;
+    public static final gxx a;
+    public static final gxx b;
+    public static final gxx c;
+    private static final gxx d[];
 
-    public gxx(Context context)
+    private gxx(String s, int i)
     {
-        a = context;
+        super(s, i);
     }
 
-    public String a()
+    public static gxx valueOf(String s)
     {
-        String s;
-        try
-        {
-            s = a.getPackageManager().getPackageInfo(a.getPackageName(), 0).versionName;
-        }
-        catch (android.content.pm.PackageManager.NameNotFoundException namenotfoundexception)
-        {
-            Assert.fail();
-            return "";
-        }
-        return s;
+        return (gxx)Enum.valueOf(gxx, s);
+    }
+
+    public static gxx[] values()
+    {
+        return (gxx[])d.clone();
+    }
+
+    static 
+    {
+        a = new gxx("LOADING", 0);
+        b = new gxx("LOADED", 1);
+        c = new gxx("EMPTY", 2);
+        d = (new gxx[] {
+            a, b, c
+        });
     }
 }

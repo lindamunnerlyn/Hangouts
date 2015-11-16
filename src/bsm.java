@@ -3,7 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface bsm
-    extends bsk
+final class bsm extends brx
 {
+
+    final bsk b;
+
+    bsm(bsk bsk1)
+    {
+        b = bsk1;
+        super(bsk1);
+    }
+
+    public void d(String s)
+    {
+        if (g.g(b.a.a(), s))
+        {
+            bsk.a(b);
+        }
+    }
 }

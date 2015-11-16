@@ -2,27 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Cursor;
-import com.google.android.apps.hangouts.conversation.v2.gallerypicker.impl.GalleryItemView;
 
 final class bbb
-    implements Runnable
+    implements baz
 {
 
-    final Cursor a;
-    final GalleryItemView b;
-    final bba c;
+    final bba a;
 
-    bbb(bba bba1, Cursor cursor, GalleryItemView galleryitemview)
+    bbb(bba bba)
     {
-        c = bba1;
-        a = cursor;
-        b = galleryitemview;
+        a = bba;
         super();
     }
 
-    public void run()
+    public int a()
     {
-        bba.a(c, a, b);
+        return g.kJ;
+    }
+
+    public boolean a(aoa aoa)
+    {
+        return true;
+    }
+
+    public bab b()
+    {
+        if (android.os.Build.VERSION.SDK_INT >= 16)
+        {
+            return new bab(2658, new String[] {
+                "android.permission.CAMERA", "android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"
+            });
+        } else
+        {
+            return new bab(2658, new String[] {
+                "android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE"
+            });
+        }
+    }
+
+    public Class c()
+    {
+        return bbd;
     }
 }

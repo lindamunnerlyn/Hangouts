@@ -8,26 +8,26 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.widget.EditText;
-import azj;
-import dzk;
+import azw;
+import eco;
 
 public class MessageEditText extends EditText
 {
 
-    private azj a;
+    private azw a;
 
     public MessageEditText(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
         if (android.os.Build.VERSION.SDK_INT >= 21)
         {
-            setShowSoftInputOnFocus(dzk.d(context));
+            setShowSoftInputOnFocus(eco.d(context));
         }
     }
 
-    public void a(azj azj1)
+    public void a(azw azw1)
     {
-        a = azj1;
+        a = azw1;
     }
 
     public boolean onKeyPreIme(int i, KeyEvent keyevent)

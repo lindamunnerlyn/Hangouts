@@ -3,82 +3,73 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iqe extends koj
+public final class iqe extends kwm
 {
 
-    public itb a;
-    public ius b[];
-    public byte c[];
-    public Long d;
-    public ixf requestHeader;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
     public iqe()
     {
-        requestHeader = null;
         a = null;
-        b = ius.a();
+        b = null;
         c = null;
         d = null;
+        e = null;
+        f = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        int j = i;
-        if (requestHeader != null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            j = i + koh.d(1, requestHeader);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.b(2, c);
+            i = j + kwk.b(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i;
-            if (b.length > 0)
-            {
-                for (j = 0; j < b.length;)
-                {
-                    ius ius1 = b[j];
-                    int k = i;
-                    if (ius1 != null)
-                    {
-                        k = i + koh.d(3, ius1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            j = i + kwk.b(2, b);
         }
         i = j;
-        if (d != null)
+        if (c != null)
         {
-            i = j + koh.d(4, d.longValue());
+            i = j + kwk.b(3, c);
         }
         j = i;
-        if (a != null)
+        if (d != null)
         {
-            j = i + koh.d(5, a);
+            j = i + kwk.b(4, d);
+        }
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.b(5, e);
+        }
+        j = i;
+        if (f != null)
+        {
+            j = i + kwk.b(6, f);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -88,92 +79,58 @@ public final class iqe extends koj
                 return this;
 
             case 10: // '\n'
-                if (requestHeader == null)
-                {
-                    requestHeader = new ixf();
-                }
-                kog1.a(requestHeader);
+                a = kwj1.j();
                 break;
 
             case 18: // '\022'
-                c = kog1.k();
+                b = kwj1.j();
                 break;
 
             case 26: // '\032'
-                int k = kou.b(kog1, 26);
-                ius aius[];
-                int j;
-                if (b == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
-                }
-                aius = new ius[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, aius, 0, j);
-                    k = j;
-                }
-                for (; k < aius.length - 1; k++)
-                {
-                    aius[k] = new ius();
-                    kog1.a(aius[k]);
-                    kog1.a();
-                }
-
-                aius[k] = new ius();
-                kog1.a(aius[k]);
-                b = aius;
+                c = kwj1.j();
                 break;
 
-            case 32: // ' '
-                d = Long.valueOf(kog1.d());
+            case 34: // '"'
+                d = kwj1.j();
                 break;
 
             case 42: // '*'
-                if (a == null)
-                {
-                    a = new itb();
-                }
-                kog1.a(a);
+                e = kwj1.j();
+                break;
+
+            case 50: // '2'
+                f = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (requestHeader != null)
+        if (a != null)
         {
-            koh1.b(1, requestHeader);
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b);
         }
         if (c != null)
         {
-            koh1.a(2, c);
-        }
-        if (b != null && b.length > 0)
-        {
-            for (int i = 0; i < b.length; i++)
-            {
-                ius ius1 = b[i];
-                if (ius1 != null)
-                {
-                    koh1.b(3, ius1);
-                }
-            }
-
+            kwk1.a(3, c);
         }
         if (d != null)
         {
-            koh1.a(4, d.longValue());
+            kwk1.a(4, d);
         }
-        if (a != null)
+        if (e != null)
         {
-            koh1.b(5, a);
+            kwk1.a(5, e);
         }
-        super.writeTo(koh1);
+        if (f != null)
+        {
+            kwk1.a(6, f);
+        }
+        super.writeTo(kwk1);
     }
 }

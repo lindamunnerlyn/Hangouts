@@ -3,31 +3,27 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kpo extends koj
+public final class kpo extends kwm
 {
 
-    public static final kok a = kok.a(kpo, 0x1184776aL);
-    public static final kok b = kok.a(kpo, 0x1184776aL);
-    private static final kpo s[] = new kpo[0];
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public kpl h;
-    public String i;
-    public koz j[];
-    public koz k;
-    public koz l[];
-    public String m;
-    public Double n;
-    public Double o;
-    public String p;
-    public koz q;
-    public String r;
+    public Boolean a;
+    public koq b;
+    public kox c;
+    public kfd d;
+    public kpx e;
+    public knr f;
+    public koa g;
+    public knv h;
+    public koi i;
+    public kpu j;
+    public kpb k;
+    public kpj l;
+    public kqf m;
 
     public kpo()
     {
+        a = null;
+        b = null;
         c = null;
         d = null;
         e = null;
@@ -35,153 +31,95 @@ public final class kpo extends koj
         g = null;
         h = null;
         i = null;
-        j = koz.a();
+        j = null;
         k = null;
-        l = koz.a();
+        l = null;
         m = null;
-        n = null;
-        o = null;
-        p = null;
-        q = null;
-        r = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        boolean flag = false;
         int j1 = super.computeSerializedSize();
         int i1 = j1;
-        if (c != null)
+        if (b != null)
         {
-            i1 = j1 + koh.b(1, c);
+            i1 = j1 + kwk.d(1, b);
         }
         j1 = i1;
-        if (d != null)
+        if (a != null)
         {
-            j1 = i1 + koh.b(2, d);
+            a.booleanValue();
+            j1 = i1 + (kwk.f(2) + 1);
         }
         i1 = j1;
         if (e != null)
         {
-            i1 = j1 + koh.b(3, e);
+            i1 = j1 + kwk.d(3, e);
         }
         j1 = i1;
         if (f != null)
         {
-            j1 = i1 + koh.b(4, f);
+            j1 = i1 + kwk.d(4, f);
+        }
+        i1 = j1;
+        if (c != null)
+        {
+            i1 = j1 + kwk.d(5, c);
+        }
+        j1 = i1;
+        if (d != null)
+        {
+            j1 = i1 + kwk.d(6, d);
         }
         i1 = j1;
         if (g != null)
         {
-            i1 = j1 + koh.b(5, g);
+            i1 = j1 + kwk.d(7, g);
         }
         j1 = i1;
         if (h != null)
         {
-            j1 = i1 + koh.d(6, h);
+            j1 = i1 + kwk.d(8, h);
         }
         i1 = j1;
         if (i != null)
         {
-            i1 = j1 + koh.b(7, i);
+            i1 = j1 + kwk.d(9, i);
         }
         j1 = i1;
         if (j != null)
         {
-            j1 = i1;
-            if (j.length > 0)
-            {
-                for (j1 = 0; j1 < j.length;)
-                {
-                    koz koz1 = j[j1];
-                    int k1 = i1;
-                    if (koz1 != null)
-                    {
-                        k1 = i1 + koh.d(8, koz1);
-                    }
-                    j1++;
-                    i1 = k1;
-                }
-
-                j1 = i1;
-            }
+            j1 = i1 + kwk.d(10, j);
         }
         i1 = j1;
         if (k != null)
         {
-            i1 = j1 + koh.d(9, k);
+            i1 = j1 + kwk.d(11, k);
         }
         j1 = i1;
         if (l != null)
         {
-            j1 = i1;
-            if (l.length > 0)
-            {
-                int l1 = ((flag) ? 1 : 0);
-                do
-                {
-                    j1 = i1;
-                    if (l1 >= l.length)
-                    {
-                        break;
-                    }
-                    koz koz2 = l[l1];
-                    j1 = i1;
-                    if (koz2 != null)
-                    {
-                        j1 = i1 + koh.d(11, koz2);
-                    }
-                    l1++;
-                    i1 = j1;
-                } while (true);
-            }
+            j1 = i1 + kwk.d(12, l);
         }
         i1 = j1;
         if (m != null)
         {
-            i1 = j1 + koh.b(12, m);
+            i1 = j1 + kwk.d(13, m);
         }
-        j1 = i1;
-        if (n != null)
-        {
-            n.doubleValue();
-            j1 = i1 + (koh.f(36) + 8);
-        }
-        i1 = j1;
-        if (o != null)
-        {
-            o.doubleValue();
-            i1 = j1 + (koh.f(37) + 8);
-        }
-        j1 = i1;
-        if (p != null)
-        {
-            j1 = i1 + koh.b(75, p);
-        }
-        i1 = j1;
-        if (q != null)
-        {
-            i1 = j1 + koh.d(185, q);
-        }
-        j1 = i1;
-        if (r != null)
-        {
-            j1 = i1 + koh.b(254, r);
-        }
-        return j1;
+        return i1;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i1 = kog1.a();
+            int i1 = kwj1.a();
             switch (i1)
             {
             default:
-                if (super.storeUnknownField(kog1, i1))
+                if (super.storeUnknownField(kwj1, i1))
                 {
                     continue;
                 }
@@ -191,220 +129,162 @@ public final class kpo extends koj
                 return this;
 
             case 10: // '\n'
-                c = kog1.j();
+                if (b == null)
+                {
+                    b = new koq();
+                }
+                kwj1.a(b);
                 break;
 
-            case 18: // '\022'
-                d = kog1.j();
+            case 16: // '\020'
+                a = Boolean.valueOf(kwj1.i());
                 break;
 
             case 26: // '\032'
-                e = kog1.j();
+                if (e == null)
+                {
+                    e = new kpx();
+                }
+                kwj1.a(e);
                 break;
 
             case 34: // '"'
-                f = kog1.j();
+                if (f == null)
+                {
+                    f = new knr();
+                }
+                kwj1.a(f);
                 break;
 
             case 42: // '*'
-                g = kog1.j();
+                if (c == null)
+                {
+                    c = new kox();
+                }
+                kwj1.a(c);
                 break;
 
             case 50: // '2'
-                if (h == null)
+                if (d == null)
                 {
-                    h = new kpl();
+                    d = new kfd();
                 }
-                kog1.a(h);
+                kwj1.a(d);
                 break;
 
             case 58: // ':'
-                i = kog1.j();
+                if (g == null)
+                {
+                    g = new koa();
+                }
+                kwj1.a(g);
                 break;
 
             case 66: // 'B'
-                int l1 = kou.b(kog1, 66);
-                koz akoz[];
-                int j1;
-                if (j == null)
+                if (h == null)
                 {
-                    j1 = 0;
-                } else
-                {
-                    j1 = j.length;
+                    h = new knv();
                 }
-                akoz = new koz[l1 + j1];
-                l1 = j1;
-                if (j1 != 0)
-                {
-                    System.arraycopy(j, 0, akoz, 0, j1);
-                    l1 = j1;
-                }
-                for (; l1 < akoz.length - 1; l1++)
-                {
-                    akoz[l1] = new koz();
-                    kog1.a(akoz[l1]);
-                    kog1.a();
-                }
-
-                akoz[l1] = new koz();
-                kog1.a(akoz[l1]);
-                j = akoz;
+                kwj1.a(h);
                 break;
 
             case 74: // 'J'
-                if (k == null)
+                if (i == null)
                 {
-                    k = new koz();
+                    i = new koi();
                 }
-                kog1.a(k);
+                kwj1.a(i);
+                break;
+
+            case 82: // 'R'
+                if (j == null)
+                {
+                    j = new kpu();
+                }
+                kwj1.a(j);
                 break;
 
             case 90: // 'Z'
-                int i2 = kou.b(kog1, 90);
-                koz akoz1[];
-                int k1;
-                if (l == null)
+                if (k == null)
                 {
-                    k1 = 0;
-                } else
-                {
-                    k1 = l.length;
+                    k = new kpb();
                 }
-                akoz1 = new koz[i2 + k1];
-                i2 = k1;
-                if (k1 != 0)
-                {
-                    System.arraycopy(l, 0, akoz1, 0, k1);
-                    i2 = k1;
-                }
-                for (; i2 < akoz1.length - 1; i2++)
-                {
-                    akoz1[i2] = new koz();
-                    kog1.a(akoz1[i2]);
-                    kog1.a();
-                }
-
-                akoz1[i2] = new koz();
-                kog1.a(akoz1[i2]);
-                l = akoz1;
+                kwj1.a(k);
                 break;
 
             case 98: // 'b'
-                m = kog1.j();
-                break;
-
-            case 289: 
-                n = Double.valueOf(kog1.b());
-                break;
-
-            case 297: 
-                o = Double.valueOf(kog1.b());
-                break;
-
-            case 602: 
-                p = kog1.j();
-                break;
-
-            case 1482: 
-                if (q == null)
+                if (l == null)
                 {
-                    q = new koz();
+                    l = new kpj();
                 }
-                kog1.a(q);
+                kwj1.a(l);
                 break;
 
-            case 2034: 
-                r = kog1.j();
+            case 106: // 'j'
+                if (m == null)
+                {
+                    m = new kqf();
+                }
+                kwj1.a(m);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        boolean flag = false;
-        if (c != null)
+        if (b != null)
         {
-            koh1.a(1, c);
+            kwk1.b(1, b);
         }
-        if (d != null)
+        if (a != null)
         {
-            koh1.a(2, d);
+            kwk1.a(2, a.booleanValue());
         }
         if (e != null)
         {
-            koh1.a(3, e);
+            kwk1.b(3, e);
         }
         if (f != null)
         {
-            koh1.a(4, f);
+            kwk1.b(4, f);
+        }
+        if (c != null)
+        {
+            kwk1.b(5, c);
+        }
+        if (d != null)
+        {
+            kwk1.b(6, d);
         }
         if (g != null)
         {
-            koh1.a(5, g);
+            kwk1.b(7, g);
         }
         if (h != null)
         {
-            koh1.b(6, h);
+            kwk1.b(8, h);
         }
         if (i != null)
         {
-            koh1.a(7, i);
+            kwk1.b(9, i);
         }
-        if (j != null && j.length > 0)
+        if (j != null)
         {
-            for (int i1 = 0; i1 < j.length; i1++)
-            {
-                koz koz1 = j[i1];
-                if (koz1 != null)
-                {
-                    koh1.b(8, koz1);
-                }
-            }
-
+            kwk1.b(10, j);
         }
         if (k != null)
         {
-            koh1.b(9, k);
+            kwk1.b(11, k);
         }
-        if (l != null && l.length > 0)
+        if (l != null)
         {
-            for (int j1 = ((flag) ? 1 : 0); j1 < l.length; j1++)
-            {
-                koz koz2 = l[j1];
-                if (koz2 != null)
-                {
-                    koh1.b(11, koz2);
-                }
-            }
-
+            kwk1.b(12, l);
         }
         if (m != null)
         {
-            koh1.a(12, m);
+            kwk1.b(13, m);
         }
-        if (n != null)
-        {
-            koh1.a(36, n.doubleValue());
-        }
-        if (o != null)
-        {
-            koh1.a(37, o.doubleValue());
-        }
-        if (p != null)
-        {
-            koh1.a(75, p);
-        }
-        if (q != null)
-        {
-            koh1.b(185, q);
-        }
-        if (r != null)
-        {
-            koh1.a(254, r);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
-
 }

@@ -2,23 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
 
-final class hfx
-    implements android.os.Parcelable.Creator
+public interface hfx
 {
 
-    hfx()
-    {
-    }
-
-    public Object createFromParcel(Parcel parcel)
-    {
-        return new hfw(parcel);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new hfw[i];
-    }
+    public abstract void a(long l, long l1);
 }

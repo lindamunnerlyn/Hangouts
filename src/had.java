@@ -3,11 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class had extends bgj
+final class had
+    implements gzz
 {
 
-    had(String s)
+    had()
     {
-        super(s);
+    }
+
+    public int a(gzy gzy1)
+    {
+        return gzy1.b + (gzy1.a + 527) * 31;
+    }
+
+    public boolean a(gzy gzy1, gzy gzy2)
+    {
+        return gzy1.b == gzy2.b && gzy1.a == gzy2.a;
     }
 }

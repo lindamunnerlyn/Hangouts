@@ -3,40 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public abstract class gkx extends Enum
+public final class gkx extends gkq
 {
 
-    public static final gkx a;
-    public static final gkx b;
-    public static final gkx c;
-    public static final gkx d;
-    private static final gkx e[];
+    private final String a;
 
-    gkx(String s, int i)
+    public gkx(String s, String s1, int i, String s2)
     {
-        super(s, i);
+        super(s, s1, null, i, false, false);
+        a = s2;
     }
 
-    public static gkx valueOf(String s)
+    public String w()
     {
-        return (gkx)Enum.valueOf(gkx, s);
-    }
-
-    public static gkx[] values()
-    {
-        return (gkx[])e.clone();
-    }
-
-    abstract boolean a(glq glq, String s, gkv gkv);
-
-    static 
-    {
-        a = new gky("POSSIBLE");
-        b = new gkz("VALID");
-        c = new gla("STRICT_GROUPING");
-        d = new glc("EXACT_GROUPING");
-        e = (new gkx[] {
-            a, b, c, d
-        });
+        return a;
     }
 }

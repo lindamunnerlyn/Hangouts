@@ -2,29 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
-public final class crc
-    implements fsn, hhi
+public interface crc
 {
 
-    private final ai a;
-    private final hjm b;
+    public abstract void a(Menu menu);
 
-    public crc(ai ai, hjm hjm1)
-    {
-        a = ai;
-        b = hjm1;
-        hjm1.a(this);
-    }
+    public abstract void a(MenuInflater menuinflater, Menu menu);
 
-    public void a(Context context, hgx hgx1, Bundle bundle)
-    {
-        context = (crd)hgx1.b(crd);
-        if (context != null)
-        {
-            context.a(a, b);
-        }
-    }
+    public abstract boolean a(Activity activity, MenuItem menuitem);
 }

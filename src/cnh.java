@@ -2,28 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.net.Uri;
 
-public class cnh extends eg
+final class cnh extends coj
 {
 
-    private final ani w;
+    final cna a;
 
-    public cnh(Context context, ani ani)
+    cnh(cna cna1, String s)
     {
-        super(context);
-        w = ani;
+        a = cna1;
+        super(s);
     }
 
-    public cnh(Context context, ani ani, Uri uri, String as[], String s, String as1[], String s1)
+    public void a()
     {
-        super(context, uri, as, s, as1, s1);
-        w = ani;
-    }
-
-    public ani C()
-    {
-        return w;
+        aoc.b(g.nU, a.c, "sms_no_full_sync_till_millis");
+        dur.a(a.b);
+        dur.c(a.b);
     }
 }

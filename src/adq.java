@@ -2,48 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import org.apache.http.conn.ClientConnectionOperator;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.params.HttpParams;
 
-public final class adq
+final class adq extends ado
 {
 
-    private static Method a = null;
-
-    public static String a(String s)
+    public adq(HttpParams httpparams, SchemeRegistry schemeregistry)
     {
-        if (a != null)
-        {
-            break MISSING_BLOCK_LABEL_34;
-        }
-        Class class1 = Class.forName("android.os.SystemProperties");
-        if (class1 != null)
-        {
-            try
-            {
-                a = class1.getMethod("get", new Class[] {
-                    java/lang/String
-                });
-            }
-            catch (ClassNotFoundException classnotfoundexception) { }
-            catch (NoSuchMethodException nosuchmethodexception) { }
-        }
-        if (a == null)
-        {
-            break MISSING_BLOCK_LABEL_62;
-        }
-        s = (String)a.invoke(null, new Object[] {
-            s
-        });
-        return s;
-        s;
-_L2:
-        return null;
-        s;
-        continue; /* Loop/switch isn't completed */
-        s;
-        if (true) goto _L2; else goto _L1
-_L1:
+        super(httpparams, schemeregistry, (byte)0);
     }
 
+    protected ClientConnectionOperator createConnectionOperator(SchemeRegistry schemeregistry)
+    {
+        return new adi(schemeregistry, true);
+    }
 }

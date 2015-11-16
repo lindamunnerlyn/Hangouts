@@ -3,10 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class glp extends glo
+final class glp extends gmo
 {
 
-    public glp()
+    final glo a;
+
+    glp(glo glo1)
     {
+        a = glo1;
+        super();
+    }
+
+    public void a(gms gms)
+    {
+        a.b = false;
+        a.a.b(this);
+        a.a();
     }
 }

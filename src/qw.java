@@ -2,27 +2,85 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.Window;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.View;
 
-class qw extends qv
+class qw extends sr
 {
 
-    private boolean v;
+    final qu a;
 
-    qw(Context context, Window window, qq qq)
+    qw(qu qu1, android.view.Window.Callback callback)
     {
-        super(context, window, qq);
-        v = true;
+        a = qu1;
+        super(callback);
     }
 
-    android.view.Window.Callback a(android.view.Window.Callback callback)
+    public boolean dispatchKeyEvent(KeyEvent keyevent)
     {
-        return new qx(this, callback);
+        return a.a(keyevent) || super.dispatchKeyEvent(keyevent);
     }
 
-    public boolean l()
+    public boolean dispatchKeyShortcutEvent(KeyEvent keyevent)
     {
-        return v;
+        return super.dispatchKeyShortcutEvent(keyevent) || a.a(keyevent.getKeyCode(), keyevent);
+    }
+
+    public void onContentChanged()
+    {
+    }
+
+    public boolean onCreatePanelMenu(int i, Menu menu)
+    {
+        if (i == 0 && !(menu instanceof ta))
+        {
+            return false;
+        } else
+        {
+            return super.onCreatePanelMenu(i, menu);
+        }
+    }
+
+    public boolean onMenuOpened(int i, Menu menu)
+    {
+        return super.onMenuOpened(i, menu) || a.d(i);
+    }
+
+    public void onPanelClosed(int i, Menu menu)
+    {
+        super.onPanelClosed(i, menu);
+        a.c(i);
+    }
+
+    public boolean onPreparePanel(int i, View view, Menu menu)
+    {
+        ta ta1;
+        boolean flag;
+        if (menu instanceof ta)
+        {
+            ta1 = (ta)menu;
+        } else
+        {
+            ta1 = null;
+        }
+        if (i == 0 && ta1 == null)
+        {
+            flag = false;
+        } else
+        {
+            if (ta1 != null)
+            {
+                ta1.c(true);
+            }
+            boolean flag1 = super.onPreparePanel(i, view, menu);
+            flag = flag1;
+            if (ta1 != null)
+            {
+                ta1.c(false);
+                return flag1;
+            }
+        }
+        return flag;
     }
 }

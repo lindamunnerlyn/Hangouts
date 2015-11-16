@@ -3,13 +3,6 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hns
+public interface hns
 {
-
-    public final hml a;
-
-    public hns(hml hml)
-    {
-        a = hml;
-    }
 }

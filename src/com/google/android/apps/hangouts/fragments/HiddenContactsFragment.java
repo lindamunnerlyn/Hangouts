@@ -12,38 +12,39 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import bjy;
-import bkg;
-import bkh;
-import bki;
-import bkj;
+import bkk;
+import bks;
+import bkt;
+import bku;
+import bkv;
 import bq;
 import br;
-import cnh;
 import com.google.android.apps.hangouts.content.EsProvider;
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import dbf;
-import dgp;
-import eev;
+import coz;
+import dcn;
+import dhy;
+import ehx;
 import em;
 import g;
-import gmo;
+import gqu;
 import h;
-import hgx;
+import hlp;
+import hlt;
 
-public class HiddenContactsFragment extends bjy
+public class HiddenContactsFragment extends bkk
     implements br
 {
 
-    private gmo a;
+    private gqu a;
     private ListView b;
-    private bki c;
+    private bku c;
     private boolean d;
     private int e;
     private SparseArray f;
     private SparseArray g;
-    private final eev h = new bkg(this);
-    private final dgp i = new bkh(this);
+    private final ehx h = new bks(this);
+    private final dhy i = new bkt(this);
 
     public HiddenContactsFragment()
     {
@@ -56,10 +57,10 @@ public class HiddenContactsFragment extends bjy
         return hiddencontactsfragment.g;
     }
 
-    public static void a(HiddenContactsFragment hiddencontactsfragment, int j)
+    public static void a(HiddenContactsFragment hiddencontactsfragment, int l)
     {
-        hiddencontactsfragment.f.remove(j);
-        hiddencontactsfragment.g.remove(j);
+        hiddencontactsfragment.f.remove(l);
+        hiddencontactsfragment.g.remove(l);
         if (g.a(hiddencontactsfragment.g))
         {
             hiddencontactsfragment.c();
@@ -103,7 +104,7 @@ public class HiddenContactsFragment extends bjy
         hiddencontactsfragment.b();
     }
 
-    public static gmo c(HiddenContactsFragment hiddencontactsfragment)
+    public static gqu c(HiddenContactsFragment hiddencontactsfragment)
     {
         return hiddencontactsfragment.a;
     }
@@ -122,7 +123,7 @@ public class HiddenContactsFragment extends bjy
         return hiddencontactsfragment.f;
     }
 
-    public static bki e(HiddenContactsFragment hiddencontactsfragment)
+    public static bku e(HiddenContactsFragment hiddencontactsfragment)
     {
         return hiddencontactsfragment.c;
     }
@@ -138,7 +139,22 @@ public class HiddenContactsFragment extends bjy
         hiddencontactsfragment.c();
     }
 
-    public static eev h(HiddenContactsFragment hiddencontactsfragment)
+    public static hlt h(HiddenContactsFragment hiddencontactsfragment)
+    {
+        return hiddencontactsfragment.context;
+    }
+
+    public static hlt i(HiddenContactsFragment hiddencontactsfragment)
+    {
+        return hiddencontactsfragment.context;
+    }
+
+    public static hlt j(HiddenContactsFragment hiddencontactsfragment)
+    {
+        return hiddencontactsfragment.context;
+    }
+
+    public static ehx k(HiddenContactsFragment hiddencontactsfragment)
     {
         return hiddencontactsfragment.h;
     }
@@ -148,8 +164,8 @@ public class HiddenContactsFragment extends bjy
         if (isEmpty())
         {
             view.findViewById(0x1020004).setVisibility(8);
-            view.findViewById(h.dq).setVisibility(0);
-            view.findViewById(h.dv).setVisibility(8);
+            view.findViewById(h.de).setVisibility(0);
+            view.findViewById(h.dj).setVisibility(8);
         }
     }
 
@@ -186,7 +202,7 @@ public class HiddenContactsFragment extends bjy
     protected void onAttachBinder(Bundle bundle)
     {
         super.onAttachBinder(bundle);
-        a = (gmo)binder.a(gmo);
+        a = (gqu)binder.a(gqu);
     }
 
     public void onCreate(Bundle bundle)
@@ -196,26 +212,26 @@ public class HiddenContactsFragment extends bjy
         super.onCreate(bundle);
     }
 
-    public em onCreateLoader(int j, Bundle bundle)
+    public em onCreateLoader(int l, Bundle bundle)
     {
-        switch (j)
+        switch (l)
         {
         default:
             return null;
 
         case 1027: 
-            bundle = dbf.e(a.a());
+            bundle = dcn.e(a.a());
             break;
         }
         android.net.Uri uri = EsProvider.c(bundle);
-        return new cnh(getActivity(), bundle, uri, bkj.a, null, null, "name ASC");
+        return new coz(getActivity(), bundle, uri, bkv.a, null, null, "name ASC");
     }
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
-        layoutinflater = layoutinflater.inflate(g.gq, viewgroup, false);
-        b = (ListView)layoutinflater.findViewById(h.dv);
-        c = new bki(this, getActivity());
+        layoutinflater = layoutinflater.inflate(g.gm, viewgroup, false);
+        b = (ListView)layoutinflater.findViewById(h.dj);
+        c = new bku(this, getActivity());
         b.setAdapter(c);
         getLoaderManager().a(1027, new Bundle(), this).s();
         return layoutinflater;
@@ -272,7 +288,7 @@ public class HiddenContactsFragment extends bjy
     protected void showContent(View view)
     {
         super.showContent(view);
-        view.findViewById(h.dq).setVisibility(8);
-        view.findViewById(h.dv).setVisibility(0);
+        view.findViewById(h.de).setVisibility(8);
+        view.findViewById(h.dj).setVisibility(0);
     }
 }

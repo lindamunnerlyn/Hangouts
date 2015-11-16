@@ -2,10 +2,72 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Rect;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
 
 public interface uv
 {
 
-    public abstract void a(Rect rect);
+    public abstract ViewGroup a();
+
+    public abstract lr a(int i1, long l1);
+
+    public abstract void a(int i1);
+
+    public abstract void a(Drawable drawable);
+
+    public abstract void a(Menu menu, tq tq);
+
+    public abstract void a(View view);
+
+    public abstract void a(android.view.Window.Callback callback);
+
+    public abstract void a(CharSequence charsequence);
+
+    public abstract void a(tq tq, tb tb);
+
+    public abstract void a(vc vc);
+
+    public abstract void a(boolean flag);
+
+    public abstract Context b();
+
+    public abstract void b(int i1);
+
+    public abstract void b(CharSequence charsequence);
+
+    public abstract void c(int i1);
+
+    public abstract void c(CharSequence charsequence);
+
+    public abstract boolean c();
+
+    public abstract void d();
+
+    public abstract void d(int i1);
+
+    public abstract boolean e();
+
+    public abstract boolean f();
+
+    public abstract boolean g();
+
+    public abstract boolean h();
+
+    public abstract boolean i();
+
+    public abstract void j();
+
+    public abstract void k();
+
+    public abstract int l();
+
+    public abstract int m();
+
+    public abstract View n();
+
+    public abstract Menu o();
 }

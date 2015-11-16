@@ -2,44 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
 
 final class bby
-    implements bbu
+    implements gtd
 {
 
     final bbx a;
 
-    bby(bbx bbx)
+    bby(bbx bbx1)
     {
-        a = bbx;
+        a = bbx1;
         super();
     }
 
-    public int a()
+    public void a(int i, Intent intent)
     {
-        return g.lo;
-    }
-
-    public boolean a(ani ani)
-    {
-        if (ani != null)
+        if (i == -1 && intent != null)
         {
-            return g.a(ani, apk.a);
+            intent = g.a(intent);
+            if (intent == null)
+            {
+                return;
+            } else
+            {
+                ((beb)bbx.a(a).a(beb)).a(2326);
+                intent = azt.a(bbx.b(a), intent);
+                bbx.c(a).a(g.kl, intent);
+                return;
+            }
         } else
         {
-            return true;
+            ((beb)bbx.d(a).a(beb)).a(2328);
+            return;
         }
-    }
-
-    public azm b()
-    {
-        return new azm(2661, new String[] {
-            "android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"
-        });
-    }
-
-    public Class c()
-    {
-        return bbv;
     }
 }

@@ -6,8 +6,8 @@ package com.google.android.gms.location.places.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import eof;
-import ffq;
+import erf;
+import fim;
 import g;
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +16,7 @@ public final class PlaceLocalization
     implements SafeParcelable
 {
 
-    public static final ffq CREATOR = new ffq();
+    public static final fim CREATOR = new fim();
     public final int a;
     public final String b;
     public final String c;
@@ -70,7 +70,14 @@ public final class PlaceLocalization
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        ffq.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.a(parcel, 1, b);
+        g.b(parcel, 1000, a);
+        g.a(parcel, 2, c);
+        g.a(parcel, 3, d);
+        g.a(parcel, 4, e);
+        g.b(parcel, 5, f);
+        g.q(parcel, i);
     }
 
 }

@@ -3,34 +3,50 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class idy extends koj
+public final class idy extends kwm
 {
 
-    private static volatile idy c[];
-    public iec a[];
-    public Integer b;
+    private static volatile idy k[];
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public Integer i;
+    public idz j;
 
     public idy()
     {
-        a = iec.a();
+        a = null;
         b = null;
+        c = null;
+        d = null;
+        e = null;
+        f = null;
+        g = null;
+        h = null;
+        i = null;
+        j = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     public static idy[] a()
     {
-        if (c == null)
+        if (k == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
-                if (c == null)
+                if (k == null)
                 {
-                    c = new idy[0];
+                    k = new idy[0];
                 }
             }
         }
-        return c;
+        return k;
         exception;
         obj;
         JVM INSTR monitorexit ;
@@ -39,49 +55,64 @@ public final class idy extends koj
 
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        int j = i;
+        int i1 = super.computeSerializedSize() + kwk.b(1, b);
+        int l = i1;
+        if (c != null)
+        {
+            l = i1 + kwk.b(2, c);
+        }
+        i1 = l;
+        if (d != null)
+        {
+            i1 = l + kwk.b(3, d);
+        }
+        l = i1;
+        if (e != null)
+        {
+            l = i1 + kwk.b(4, e);
+        }
+        i1 = l;
+        if (f != null)
+        {
+            i1 = l + kwk.b(5, f);
+        }
+        l = i1;
+        if (h != null)
+        {
+            l = i1 + kwk.b(6, h);
+        }
+        i1 = l;
+        if (i != null)
+        {
+            i1 = l + kwk.e(7, i.intValue());
+        }
+        l = i1;
+        if (g != null)
+        {
+            l = i1 + kwk.b(8, g);
+        }
+        i1 = l;
         if (a != null)
         {
-            j = i;
-            if (a.length > 0)
-            {
-                int k = 0;
-                do
-                {
-                    j = i;
-                    if (k >= a.length)
-                    {
-                        break;
-                    }
-                    iec iec1 = a[k];
-                    j = i;
-                    if (iec1 != null)
-                    {
-                        j = i + koh.d(1, iec1);
-                    }
-                    k++;
-                    i = j;
-                } while (true);
-            }
+            i1 = l + kwk.b(9, a);
         }
-        i = j;
-        if (b != null)
+        l = i1;
+        if (j != null)
         {
-            i = j + koh.e(2, b.intValue());
+            l = i1 + kwk.d(10, j);
         }
-        return i;
+        return l;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
-            switch (i)
+            int l = kwj1.a();
+            switch (l)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, l))
                 {
                     continue;
                 }
@@ -91,60 +122,91 @@ public final class idy extends koj
                 return this;
 
             case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                iec aiec[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                aiec = new iec[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aiec, 0, j);
-                    k = j;
-                }
-                for (; k < aiec.length - 1; k++)
-                {
-                    aiec[k] = new iec();
-                    kog1.a(aiec[k]);
-                    kog1.a();
-                }
-
-                aiec[k] = new iec();
-                kog1.a(aiec[k]);
-                a = aiec;
+                b = kwj1.j();
                 break;
 
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
+            case 18: // '\022'
+                c = kwj1.j();
+                break;
+
+            case 26: // '\032'
+                d = kwj1.j();
+                break;
+
+            case 34: // '"'
+                e = kwj1.j();
+                break;
+
+            case 42: // '*'
+                f = kwj1.j();
+                break;
+
+            case 50: // '2'
+                h = kwj1.j();
+                break;
+
+            case 56: // '8'
+                i = Integer.valueOf(kwj1.f());
+                break;
+
+            case 66: // 'B'
+                g = kwj1.j();
+                break;
+
+            case 74: // 'J'
+                a = kwj1.j();
+                break;
+
+            case 82: // 'R'
+                if (j == null)
+                {
+                    j = new idz();
+                }
+                kwj1.a(j);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null && a.length > 0)
+        kwk1.a(1, b);
+        if (c != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                iec iec1 = a[i];
-                if (iec1 != null)
-                {
-                    koh1.b(1, iec1);
-                }
-            }
-
+            kwk1.a(2, c);
         }
-        if (b != null)
+        if (d != null)
         {
-            koh1.a(2, b.intValue());
+            kwk1.a(3, d);
         }
-        super.writeTo(koh1);
+        if (e != null)
+        {
+            kwk1.a(4, e);
+        }
+        if (f != null)
+        {
+            kwk1.a(5, f);
+        }
+        if (h != null)
+        {
+            kwk1.a(6, h);
+        }
+        if (i != null)
+        {
+            kwk1.a(7, i.intValue());
+        }
+        if (g != null)
+        {
+            kwk1.a(8, g);
+        }
+        if (a != null)
+        {
+            kwk1.a(9, a);
+        }
+        if (j != null)
+        {
+            kwk1.b(10, j);
+        }
+        super.writeTo(kwk1);
     }
 }

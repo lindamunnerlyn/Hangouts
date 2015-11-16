@@ -3,31 +3,67 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jrf
-    implements jrg
+abstract class jrf
+    implements java.util.Map.Entry
 {
 
-    int a;
-    final CharSequence b;
-
-    public jrf(CharSequence charsequence)
+    jrf()
     {
-        b = charsequence;
-        super();
-        a = 0;
     }
 
-    public int a()
+    public boolean equals(Object obj)
     {
-        if (a < b.length())
+        boolean flag1 = false;
+        boolean flag = flag1;
+        if (obj instanceof java.util.Map.Entry)
         {
-            CharSequence charsequence = b;
-            int i = a;
-            a = i + 1;
-            return charsequence.charAt(i);
+            obj = (java.util.Map.Entry)obj;
+            flag = flag1;
+            if (n.a(getKey(), ((java.util.Map.Entry) (obj)).getKey()))
+            {
+                flag = flag1;
+                if (n.a(getValue(), ((java.util.Map.Entry) (obj)).getValue()))
+                {
+                    flag = true;
+                }
+            }
+        }
+        return flag;
+    }
+
+    public abstract Object getKey();
+
+    public abstract Object getValue();
+
+    public int hashCode()
+    {
+        int j = 0;
+        Object obj = getKey();
+        Object obj1 = getValue();
+        int i;
+        if (obj == null)
+        {
+            i = 0;
         } else
         {
-            return -1;
+            i = obj.hashCode();
         }
+        if (obj1 != null)
+        {
+            j = obj1.hashCode();
+        }
+        return j ^ i;
+    }
+
+    public Object setValue(Object obj)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public String toString()
+    {
+        String s = String.valueOf(getKey());
+        String s1 = String.valueOf(getValue());
+        return (new StringBuilder(String.valueOf(s).length() + 1 + String.valueOf(s1).length())).append(s).append("=").append(s1).toString();
     }
 }

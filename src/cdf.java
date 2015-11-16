@@ -2,27 +2,75 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Map;
 
-public final class cdf extends cec
+final class cdf
 {
 
-    public cdf()
+    public int a;
+    public String b;
+    public String c;
+    public long d;
+    public long e;
+    public long f;
+    public Map g;
+
+    cdf()
     {
     }
 
-    Intent a(Context context, int i)
+    public cdf(String s, afl afl1)
     {
-        Intent intent = new Intent();
-        intent.putExtra("account_id", i);
-        return b(context, intent);
+        b = s;
+        a = afl1.a.length;
+        c = afl1.b;
+        d = afl1.c;
+        e = afl1.e;
+        f = afl1.f;
+        g = afl1.g;
     }
 
-    public void a(Context context, Intent intent)
+    public afl a(byte abyte0[])
     {
-        int i = intent.getIntExtra("account_id", -1);
-        intent = cdc.b;
-        cdg.a(context, i);
+        afl afl1 = new afl();
+        afl1.a = abyte0;
+        afl1.b = c;
+        afl1.c = d;
+        afl1.e = e;
+        afl1.f = f;
+        afl1.g = g;
+        return afl1;
+    }
+
+    public boolean a(OutputStream outputstream)
+    {
+        cde.a(outputstream, 0x20140131);
+        cde.a(outputstream, a);
+        cde.a(outputstream, b);
+        if (c != null)
+        {
+            break MISSING_BLOCK_LABEL_75;
+        }
+        String s = "";
+_L1:
+        try
+        {
+            cde.a(outputstream, s);
+            cde.a(outputstream, d);
+            cde.a(outputstream, e);
+            cde.a(outputstream, f);
+            cde.a(g, outputstream);
+            outputstream.flush();
+        }
+        // Misplaced declaration of an exception variable
+        catch (OutputStream outputstream)
+        {
+            return false;
+        }
+        return true;
+        s = c;
+          goto _L1
     }
 }

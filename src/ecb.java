@@ -3,36 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class ecb extends he
-    implements gbj
+public interface ecb
 {
 
-    public ecb()
-    {
-        super(1000);
-    }
+    public abstract void i();
 
-    public void b(int i)
-    {
-        switch (i)
-        {
-        default:
-            return;
-
-        case 15: // '\017'
-        case 60: // '<'
-        case 80: // 'P'
-            a(-1);
-            return;
-
-        case 10: // '\n'
-            a(b() / 2);
-            return;
-        }
-    }
-
-    public void h()
-    {
-        a(-1);
-    }
+    public abstract void j();
 }

@@ -3,16 +3,40 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kcg extends koj
+public final class kcg extends kwm
 {
 
-    public String a;
+    private static volatile kcg d[];
+    public Long a;
+    public Long b;
+    public Boolean c;
 
     public kcg()
     {
         a = null;
+        b = null;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static kcg[] a()
+    {
+        if (d == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (d == null)
+                {
+                    d = new kcg[0];
+                }
+            }
+        }
+        return d;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -21,20 +45,31 @@ public final class kcg extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.e(1, a.longValue());
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.longValue());
+        }
+        i = j;
+        if (c != null)
+        {
+            c.booleanValue();
+            i = j + (kwk.f(3) + 1);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -43,19 +78,35 @@ public final class kcg extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                a = kog1.j();
+            case 8: // '\b'
+                a = Long.valueOf(kwj1.e());
+                break;
+
+            case 16: // '\020'
+                b = Long.valueOf(kwj1.e());
+                break;
+
+            case 24: // '\030'
+                c = Boolean.valueOf(kwj1.i());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.b(1, a.longValue());
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.b(2, b.longValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

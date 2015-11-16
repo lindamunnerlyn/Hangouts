@@ -2,20 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-final class hiz
-    implements hjr
+public class hiz extends hiy
 {
 
-    final hiv a;
+    private boolean a;
+    public final kws q;
 
-    hiz(hiv hiv)
+    public hiz(Context context, hio hio, String s, kws kws1, kws kws2, String s1, String s2)
     {
-        a = hiv;
-        super();
+        super(context, hio, "POST", s, kws2, s1, s2);
+        q = kws1;
     }
 
-    public void a(fsn fsn)
+    private void e()
     {
+        if (a)
+        {
+            return;
+        } else
+        {
+            b(q);
+            a = true;
+            return;
+        }
+    }
+
+    public void b(kws kws1)
+    {
+    }
+
+    public byte[] b()
+    {
+        e();
+        return kws.toByteArray(q);
+    }
+
+    public String l()
+    {
+        e();
+        return g.a(q);
     }
 }

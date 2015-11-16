@@ -2,41 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Dialog;
+import android.app.Activity;
 import android.content.Context;
-import android.view.View;
-import com.google.android.apps.hangouts.invite.OffnetworkInviteActivity;
-import com.google.android.apps.hangouts.phone.BabelGatewayActivity;
+import android.net.Uri;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
-final class bwu
-    implements android.view.View.OnClickListener
+final class bwu extends guy
 {
 
-    final ani a;
-    final String b;
-    final bws c;
+    final Activity a;
+    final int b;
+    final String c;
+    final Uri d;
+    private bwj g[];
 
-    bwu(bws bws1, ani ani1, String s)
+    bwu(Context context, String s, Activity activity, int i, String s1, Uri uri)
     {
-        c = bws1;
-        a = ani1;
-        b = s;
-        super();
+        a = activity;
+        b = i;
+        c = s1;
+        d = uri;
+        super(context, s);
     }
 
-    public void onClick(View view)
+    protected gvv a(Context context)
     {
-        if (c.c() != null)
+        context = new ArrayList();
+        for (Iterator iterator = hlp.c(a, bwk).iterator(); iterator.hasNext(); Collections.addAll(context, ((bwk)iterator.next()).b(a, b))) { }
+        if (!context.isEmpty())
         {
-            c.c().dismiss();
+            g = (bwj[])context.toArray(new bwj[context.size()]);
         }
-        if (a.r())
-        {
-            view = BabelGatewayActivity.a(a.h(), null, b, "", false, null);
-        } else
-        {
-            view = OffnetworkInviteActivity.a(c.getContext(), "", b);
-        }
-        c.getContext().startActivity(view);
+        return new gvv(true);
+    }
+
+    protected void g_()
+    {
+        bwt.a(a, c, d, g);
     }
 }

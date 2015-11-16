@@ -2,32 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
+import java.io.IOException;
 
-final class cdd
+public final class cdd extends IOException
 {
 
-    static final int a[];
+    private static final long serialVersionUID = 0xdc7cfe543af0a539L;
 
-    static 
+    public cdd(int i, int j)
     {
-        a = new int[dqb.values().length];
-        try
-        {
-            a[dqb.b.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[dqb.c.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[dqb.d.ordinal()] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
+        super((new StringBuilder("CodedOutputStream was writing to a flat byte array and ran out of space (pos ")).append(i).append(" limit ").append(j).append(").").toString());
+    }
+
+    public cdd(Bundle bundle)
+    {
+        super((new StringBuilder("Blocked by rule: ")).append(bundle.getString("name")).toString());
+    }
+
+    public cdd(String s, Throwable throwable)
+    {
+        super(s);
+        initCause(throwable);
     }
 }

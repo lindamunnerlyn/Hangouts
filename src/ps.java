@@ -3,10 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class ps extends qp
+public interface ps
 {
 
-    public ps()
-    {
-    }
+    public abstract void a(boolean flag);
 }

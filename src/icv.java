@@ -3,10 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class icv extends koj
+public final class icv extends kwm
 {
 
-    public Boolean a;
+    public hve a;
 
     public icv()
     {
@@ -17,20 +17,24 @@ public final class icv extends koj
 
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        a.booleanValue();
-        return i + (koh.f(1) + 1);
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.d(1, a);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -39,16 +43,23 @@ public final class icv extends koj
             case 0: // '\0'
                 return this;
 
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new hve();
+                }
+                kwj1.a(a);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.a(1, a.booleanValue());
-        super.writeTo(koh1);
+        if (a != null)
+        {
+            kwk1.b(1, a);
+        }
+        super.writeTo(kwk1);
     }
 }

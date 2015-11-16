@@ -2,18 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.HashMap;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-final class fqb extends HashMap
+final class fqb
+    implements fqe
 {
 
-    fqb()
+    final fqa a;
+
+    fqb(fqa fqa)
     {
-        put("circle", Integer.valueOf(-1));
-        put("extendedCircles", Integer.valueOf(4));
-        put("myCircles", Integer.valueOf(3));
-        put("domain", Integer.valueOf(2));
-        put("public", Integer.valueOf(1));
-        put(null, Integer.valueOf(-2));
+        a = fqa;
+        super();
+    }
+
+    public fqd a(View view)
+    {
+        fqd fqd1 = new fqd();
+        fqd1.e = (ImageView)view.findViewById(g.rK);
+        fqd1.d = (TextView)view.findViewById(g.rC);
+        return fqd1;
     }
 }

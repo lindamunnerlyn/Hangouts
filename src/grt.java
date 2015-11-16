@@ -2,82 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public final class grt extends gzk
+final class grt
+    implements grg
 {
 
-    final grs a;
-    private int k;
-    private int l;
+    final grq a;
 
-    public grt(grs grs)
+    grt(grq grq)
     {
-        a = grs;
+        a = grq;
         super();
     }
 
-    public int a()
+    public String a()
     {
-        return super.g;
+        return "upgrade:active_to_logged_in";
     }
 
-    public void a(int i, gzg gzg, int j, int i1, int j1)
+    public void a(Context context, grd grd1)
     {
-        super.b(0, gzg, j, j, i1);
-        l = j1;
-        k = 0;
-    }
-
-    public int b()
-    {
-        return l;
-    }
-
-    protected String c()
-    {
-        String s = super.c();
-        switch (l)
+        if (grd1.d("active"))
         {
-        default:
-            return s;
-
-        case 0: // '\0'
-            return String.valueOf(s).concat("-normal");
-
-        case 1: // '\001'
-            return String.valueOf(s).concat("-rounded");
-
-        case 2: // '\002'
-            return String.valueOf(s).concat("-roundedcorners");
+            grd1.f("active");
+            grd1.b("logged_in", true);
         }
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (obj == this)
-        {
-            return true;
-        }
-        if (!(obj instanceof grt))
-        {
-            return false;
-        }
-        grt grt1 = (grt)obj;
-        if (l != grt1.l)
-        {
-            return false;
-        } else
-        {
-            return super.equals(obj);
-        }
-    }
-
-    public int hashCode()
-    {
-        if (k == 0)
-        {
-            k = l + super.hashCode() * 31;
-        }
-        return k;
     }
 }

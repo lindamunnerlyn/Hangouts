@@ -2,44 +2,92 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.fragments.InvitationFragment;
-import java.util.Map;
+import android.content.Context;
+import android.database.Cursor;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import com.google.android.apps.hangouts.fragments.HiddenContactsFragment;
 
-public final class bku
-    implements dmd
+public final class bku extends oa
 {
 
-    final InvitationFragment a;
+    final HiddenContactsFragment j;
 
-    public bku(InvitationFragment invitationfragment)
+    public bku(HiddenContactsFragment hiddencontactsfragment, Context context)
     {
-        a = invitationfragment;
-        super();
+        j = hiddencontactsfragment;
+        super(context, null);
+        d = context;
     }
 
-    public void a(fqr fqr1)
+    public View a(Context context, Cursor cursor, ViewGroup viewgroup)
     {
-        gz gz1;
-        int i;
-        gz1 = new gz();
-        i = fqr1.a() - 1;
-_L2:
-        if (i < 0)
+        context = new ehw(context);
+        context.a(HiddenContactsFragment.k(j));
+        return context;
+    }
+
+    public void a(View view, Cursor cursor)
+    {
+        view = (ehw)view;
+        view.a(cursor.getString(3));
+        view.a(cursor.getString(4), cursor.getString(3), dcn.e(HiddenContactsFragment.c(j).a()));
+        view.a(new cgd(cursor.getString(2), cursor.getString(1)));
+    }
+
+    public Cursor b(Cursor cursor)
+    {
+        return super.b(cursor);
+    }
+
+    public View getView(int i, View view, ViewGroup viewgroup)
+    {
+        if (i >= getCount())
         {
-            break; /* Loop/switch isn't completed */
+            View view1 = view;
+            if (view == null)
+            {
+                view1 = a(d, a(), viewgroup);
+            }
+            return view1;
         }
-        fqq fqq1 = fqr1.b(i);
-        gz1.put(fqq1.a(), fqq1.b());
-        i--;
-        if (true) goto _L2; else goto _L1
-_L1:
-        a.myCircles = gz1;
-        InvitationFragment.m(a);
-        fqr1.b();
-        return;
-        Exception exception;
-        exception;
-        fqr1.b();
-        throw exception;
+        view = super.getView(i, view, viewgroup);
+        viewgroup = (Button)view.findViewById(h.gx);
+        String s = ((ehw)view).a().a;
+        boolean flag = g.a(HiddenContactsFragment.a(j), s);
+        if (flag)
+        {
+            i = l.so;
+        } else
+        {
+            i = l.sn;
+        }
+        if (!flag)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        viewgroup.setText(i);
+        viewgroup.setClickable(flag);
+        return view;
+    }
+
+    public boolean isEmpty()
+    {
+        if (a() == null)
+        {
+            return true;
+        } else
+        {
+            return super.isEmpty();
+        }
+    }
+
+    public boolean isEnabled(int i)
+    {
+        return false;
     }
 }

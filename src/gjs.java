@@ -3,31 +3,12 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gjs
+public interface gjs
 {
 
-    private final gjt a;
+    public abstract void a(kws kws, gds gds);
 
-    public gjs(int i)
-    {
-        switch (i)
-        {
-        default:
-            a = gjt.a;
-            return;
+    public abstract void b(kws kws, gds gds);
 
-        case 0: // '\0'
-            a = gjt.b;
-            return;
-
-        case 1: // '\001'
-            a = gjt.c;
-            break;
-        }
-    }
-
-    public gjt a()
-    {
-        return a;
-    }
+    public abstract void c(kws kws, gds gds);
 }

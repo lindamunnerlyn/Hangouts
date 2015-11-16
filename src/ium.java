@@ -3,139 +3,188 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ium extends koj
+public final class ium extends kwm
 {
 
     public Integer a;
-    public Long b;
-    public irv c[];
+    public Integer b;
+    public String c;
+    public String d;
+    public Long e;
 
     public ium()
     {
         a = null;
         b = null;
-        c = irv.a();
+        c = null;
+        d = null;
+        e = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        int j = i;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            j = i + koh.f(1, a.intValue());
-        }
-        i = j;
-        if (b != null)
-        {
-            i = j + koh.d(2, b.longValue());
+            i = j + kwk.e(1, a.intValue());
         }
         j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.intValue());
+        }
+        i = j;
         if (c != null)
         {
-            j = i;
-            if (c.length > 0)
-            {
-                for (j = 0; j < c.length;)
-                {
-                    irv irv1 = c[j];
-                    int k = i;
-                    if (irv1 != null)
-                    {
-                        k = i + koh.d(3, irv1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            i = j + kwk.b(3, c);
         }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        j = i;
+        if (d != null)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.l());
-                break;
-
-            case 16: // '\020'
-                b = Long.valueOf(kog1.d());
-                break;
-
-            case 26: // '\032'
-                int k = kou.b(kog1, 26);
-                irv airv[];
-                int j;
-                if (c == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = c.length;
-                }
-                airv = new irv[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(c, 0, airv, 0, j);
-                    k = j;
-                }
-                for (; k < airv.length - 1; k++)
-                {
-                    airv[k] = new irv();
-                    kog1.a(airv[k]);
-                    kog1.a();
-                }
-
-                airv[k] = new irv();
-                kog1.a(airv[k]);
-                c = airv;
-                break;
-            }
-        } while (true);
+            j = i + kwk.b(4, d);
+        }
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.e(5, e.longValue());
+        }
+        return i;
     }
 
-    public void writeTo(koh koh1)
+    public kws mergeFrom(kwj kwj1)
+    {
+_L8:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 6: default 64
+    //                   0: 73
+    //                   8: 75
+    //                   16: 134
+    //                   26: 630
+    //                   34: 641
+    //                   40: 652;
+           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L8; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+        case 5: // '\005'
+            a = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        int k = kwj1.f();
+        switch (k)
+        {
+        case 0: // '\0'
+        case 100: // 'd'
+        case 101: // 'e'
+        case 102: // 'f'
+        case 103: // 'g'
+        case 200: 
+        case 201: 
+        case 202: 
+        case 203: 
+        case 204: 
+        case 205: 
+        case 206: 
+        case 207: 
+        case 208: 
+        case 209: 
+        case 210: 
+        case 211: 
+        case 212: 
+        case 213: 
+        case 214: 
+        case 215: 
+        case 216: 
+        case 217: 
+        case 218: 
+        case 219: 
+        case 220: 
+        case 221: 
+        case 222: 
+        case 223: 
+        case 224: 
+        case 225: 
+        case 226: 
+        case 227: 
+        case 228: 
+        case 229: 
+        case 230: 
+        case 300: 
+        case 301: 
+        case 302: 
+        case 303: 
+        case 304: 
+        case 305: 
+        case 306: 
+        case 307: 
+        case 308: 
+        case 309: 
+        case 310: 
+        case 311: 
+        case 312: 
+        case 313: 
+        case 314: 
+        case 315: 
+        case 316: 
+        case 317: 
+        case 318: 
+        case 319: 
+        case 320: 
+        case 321: 
+            b = Integer.valueOf(k);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L5:
+        c = kwj1.j();
+        continue; /* Loop/switch isn't completed */
+_L6:
+        d = kwj1.j();
+        continue; /* Loop/switch isn't completed */
+_L7:
+        e = Long.valueOf(kwj1.e());
+        if (true) goto _L8; else goto _L9
+_L9:
+    }
+
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.c(1, a.intValue());
+            kwk1.a(1, a.intValue());
         }
         if (b != null)
         {
-            koh1.a(2, b.longValue());
+            kwk1.a(2, b.intValue());
         }
-        if (c != null && c.length > 0)
+        if (c != null)
         {
-            for (int i = 0; i < c.length; i++)
-            {
-                irv irv1 = c[i];
-                if (irv1 != null)
-                {
-                    koh1.b(3, irv1);
-                }
-            }
-
+            kwk1.a(3, c);
         }
-        super.writeTo(koh1);
+        if (d != null)
+        {
+            kwk1.a(4, d);
+        }
+        if (e != null)
+        {
+            kwk1.b(5, e.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

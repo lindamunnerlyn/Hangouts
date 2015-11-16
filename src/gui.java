@@ -2,23 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.StatFs;
+import android.app.Activity;
 
-final class gui
-    implements guj
+public final class gui
+    implements hmd
 {
 
-    gui()
+    public gui()
     {
     }
 
-    public long a()
+    public Class a()
     {
-        return guh.d().getTotalBytes();
+        return guh;
     }
 
-    public long b()
+    public void a(Activity activity, hof hof, hlp hlp1)
     {
-        return guh.d().getFreeBytes();
+        hlp1.a(guh, new guh(hof));
     }
 }

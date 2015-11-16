@@ -2,46 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
 
-final class her extends hfb
+public final class her
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new hes();
-    boolean a;
-    Bundle b;
-
-    public her(Parcel parcel)
+    public her()
     {
-        boolean flag = true;
-        super(parcel);
-        if (parcel.readInt() != 1)
+    }
+
+    static int a(hfr hfr1)
+    {
+        switch (hes.a[hfr1.ordinal()])
         {
-            flag = false;
+        default:
+            hfr1 = String.valueOf(hfr1);
+            throw new IllegalArgumentException((new StringBuilder(String.valueOf(hfr1).length() + 24)).append("unknown storage policy: ").append(hfr1).toString());
+
+        case 1: // '\001'
+            return 1;
+
+        case 2: // '\002'
+            return 2;
+
+        case 3: // '\003'
+            return 3;
         }
-        a = flag;
-        b = parcel.readBundle();
     }
-
-    public her(Parcelable parcelable)
-    {
-        super(parcelable);
-    }
-
-    public void writeToParcel(Parcel parcel, int i)
-    {
-        super.writeToParcel(parcel, i);
-        if (a)
-        {
-            i = 1;
-        } else
-        {
-            i = 0;
-        }
-        parcel.writeInt(i);
-        parcel.writeBundle(b);
-    }
-
 }

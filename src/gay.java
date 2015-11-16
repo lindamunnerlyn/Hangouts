@@ -3,10 +3,36 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gay
-    extends gba
+public class gay
+    implements gaq, gbo
 {
 
-    public static final gbf a = new gaz();
+    gbn a;
+    emy b;
 
+    protected gay(emy emy1, gbn gbn)
+    {
+        b = emy1;
+        a = gbn;
+    }
+
+    public void a()
+    {
+        b.b();
+    }
+
+    public void b()
+    {
+        b.d();
+    }
+
+    public boolean c()
+    {
+        return b.e();
+    }
+
+    public emy d()
+    {
+        return b;
+    }
 }

@@ -2,61 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
 
-public class gcj
-    implements gci
+public final class gcj
 {
+
+    int a;
+    int b;
 
     public gcj()
     {
     }
 
-    public void a(int i)
+    public gcj a()
     {
+        b = 1;
+        return this;
     }
 
-    public void a(Intent intent)
+    public gcj a(int i)
     {
+        a = i;
+        return this;
     }
 
-    public void a(gcg gcg)
+    public int b()
     {
+        return a;
     }
 
-    public void a(gho gho, fyb fyb)
+    public int c()
     {
-    }
-
-    public void a(gjs gjs)
-    {
-    }
-
-    public void a(String s)
-    {
-    }
-
-    public void a(String s, int i)
-    {
-    }
-
-    public void a(String s, int i, String s1, String s2)
-    {
-    }
-
-    public void a(String s, boolean flag, String s1, boolean flag1, boolean flag2)
-    {
-    }
-
-    public void b(gcg gcg)
-    {
-    }
-
-    public void b(String s)
-    {
-    }
-
-    public void c(String s)
-    {
+        return b;
     }
 }

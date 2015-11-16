@@ -2,36 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
 
 final class gdj
-    implements Runnable
+    implements gdt
 {
 
-    final gfo a;
-    final gdg b;
-
-    gdj(gdg gdg1, gfo gfo1)
+    gdj()
     {
-        b = gdg1;
-        a = gfo1;
-        super();
     }
 
-    public void run()
+    public String a(kws kws)
     {
-        int i = 0;
-        for (int j = b.b.size(); i < j; i++)
-        {
-            if (b.b.get(i) == a)
-            {
-                String s = a.f();
-                gkc.d("vclib", (new StringBuilder(String.valueOf(s).length() + 27)).append("VideoSource ").append(s).append(" already added.").toString());
-                return;
-            }
-        }
-
-        b.b.add(a);
-        b.b();
+        return ((jhc)kws).a;
     }
 }

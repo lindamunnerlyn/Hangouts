@@ -3,113 +3,130 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ipa extends koj
+public final class ipa extends kwm
 {
 
-    public ipb a[];
+    private static volatile ipa d[];
+    public Integer a;
+    public ipb b;
+    public ldc c;
 
     public ipa()
     {
-        a = ipb.a();
+        a = null;
+        b = null;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
+    public static ipa[] a()
+    {
+        if (d == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (d == null)
+                {
+                    d = new ipa[0];
+                }
+            }
+        }
+        return d;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        int k = i;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            k = i;
-            if (a.length > 0)
-            {
-                int j = 0;
-                do
-                {
-                    k = i;
-                    if (j >= a.length)
-                    {
-                        break;
-                    }
-                    ipb ipb1 = a[j];
-                    k = i;
-                    if (ipb1 != null)
-                    {
-                        k = i + koh.d(1, ipb1);
-                    }
-                    j++;
-                    i = k;
-                } while (true);
-            }
+            i = j + kwk.e(1, a.intValue());
         }
-        return k;
+        j = i;
+        if (c != null)
+        {
+            j = i + kwk.d(3, c);
+        }
+        i = j;
+        if (b != null)
+        {
+            i = j + kwk.d(6, b);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L6:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 4: default 48
+    //                   0: 57
+    //                   8: 59
+    //                   26: 194
+    //                   50: 223;
+           goto _L1 _L2 _L3 _L4 _L5
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L6; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                ipb aipb[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                aipb = new ipb[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aipb, 0, j);
-                    k = j;
-                }
-                for (; k < aipb.length - 1; k++)
-                {
-                    aipb[k] = new ipb();
-                    kog1.a(aipb[k]);
-                    kog1.a();
-                }
-
-                aipb[k] = new ipb();
-                kog1.a(aipb[k]);
-                a = aipb;
-                break;
-            }
-        } while (true);
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 5: // '\005'
+        case 6: // '\006'
+        case 7: // '\007'
+        case 8: // '\b'
+        case 9: // '\t'
+        case 1001: 
+        case 1002: 
+        case 1003: 
+        case 1004: 
+            a = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        if (c == null)
+        {
+            c = new ldc();
+        }
+        kwj1.a(c);
+        continue; /* Loop/switch isn't completed */
+_L5:
+        if (b == null)
+        {
+            b = new ipb();
+        }
+        kwj1.a(b);
+        if (true) goto _L6; else goto _L7
+_L7:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null && a.length > 0)
+        if (a != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                ipb ipb1 = a[i];
-                if (ipb1 != null)
-                {
-                    koh1.b(1, ipb1);
-                }
-            }
-
+            kwk1.a(1, a.intValue());
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.b(3, c);
+        }
+        if (b != null)
+        {
+            kwk1.b(6, b);
+        }
+        super.writeTo(kwk1);
     }
 }

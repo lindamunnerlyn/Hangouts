@@ -3,21 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gnz
-    implements gnu
+interface gnz
 {
 
-    gnz()
-    {
-    }
+    public abstract void a(gnq gnq);
 
-    public Object a(Object obj)
-    {
-        return obj;
-    }
-
-    public void a(android.content.SharedPreferences.Editor editor, String s)
-    {
-        editor.remove(s);
-    }
+    public abstract boolean a();
 }

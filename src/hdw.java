@@ -3,12 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface hdw
+public final class hdw
 {
 
-    public abstract String a();
-
-    public abstract String a(String s);
-
-    public abstract String b();
+    public hdw()
+    {
+    }
 }

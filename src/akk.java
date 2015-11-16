@@ -2,23 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.net.NetworkInfo;
+import android.widget.Toast;
 
 final class akk
-    implements Runnable
+    implements hjw
 {
 
-    final ajo a;
-    final akj b;
+    final ajl a;
+    final AlertDialog b;
+    final akf c;
 
-    akk(akj akj1, ajo ajo)
+    akk(akf akf1, ajl ajl1, AlertDialog alertdialog)
     {
-        b = akj1;
-        a = ajo;
+        c = akf1;
+        a = ajl1;
+        b = alertdialog;
         super();
     }
 
-    public void run()
+    public boolean a()
     {
-        aki.a(b.b, a);
+        boolean flag = false;
+        if (c.a == null || c.a.isEmpty() || !c.a.equals(a.c()))
+        {
+            b.show();
+        } else
+        {
+            akf akf1 = c;
+            if (akf1.h == null || !akf1.h.isConnected())
+            {
+                Toast.makeText(akf1.b, akf1.b.getString(g.iN), 0).show();
+            } else
+            {
+                flag = true;
+            }
+            if (flag)
+            {
+                c.a(a.c());
+                return true;
+            }
+        }
+        return true;
     }
 }

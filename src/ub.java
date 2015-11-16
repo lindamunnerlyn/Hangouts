@@ -2,11 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.support.v7.internal.widget.ActionBarContainer;
 import android.support.v7.internal.widget.ActionBarOverlayLayout;
+import android.view.View;
 
-public final class ub
-    implements Runnable
+public final class ub extends mf
 {
 
     final ActionBarOverlayLayout a;
@@ -17,9 +16,15 @@ public final class ub
         super();
     }
 
-    public void run()
+    public void b(View view)
     {
-        ActionBarOverlayLayout.b(a);
-        ActionBarOverlayLayout.a(a, kb.o(ActionBarOverlayLayout.d(a)).c(-ActionBarOverlayLayout.d(a).getHeight()).a(ActionBarOverlayLayout.c(a)));
+        ActionBarOverlayLayout.a(a, null);
+        ActionBarOverlayLayout.a(a);
+    }
+
+    public void c(View view)
+    {
+        ActionBarOverlayLayout.a(a, null);
+        ActionBarOverlayLayout.a(a);
     }
 }

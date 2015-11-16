@@ -2,13 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import java.util.List;
+import android.view.View;
+import android.widget.TextView;
 
-public interface cia
+final class cia extends zs
 {
 
-    public abstract void a(int i, cib cib);
+    final chn l;
+    private final TextView m;
 
-    public abstract void a(int i, List list, int j, Bundle bundle);
+    public cia(chn chn, View view)
+    {
+        l = chn;
+        super(view);
+        m = (TextView)view.findViewById(l.tM);
+    }
+
+    static TextView a(cia cia1)
+    {
+        return cia1.m;
+    }
+
+    public void b(int i)
+    {
+        m.setText(i);
+    }
 }

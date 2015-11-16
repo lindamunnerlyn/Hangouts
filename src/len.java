@@ -3,71 +3,77 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class len extends ley
+public final class len extends kwm
 {
 
-    private final ldz a;
+    private static volatile len c[];
+    public Long a;
+    public Long b;
 
-    len(lcy lcy1, ldz ldz1)
+    public len()
     {
-        super(lcy1, lcz.t());
-        a = ldz1;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public int a(long l)
+    public static len[] a()
     {
-        int k = super.b.a(l);
-        int j = k;
-        if (k <= 0)
+        if (c == null)
         {
-            j = 1 - k;
+            synchronized (kwq.a)
+            {
+                if (c == null)
+                {
+                    c = new len[0];
+                }
+            }
         }
-        return j;
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public long a(long l, int j)
+    protected int computeSerializedSize()
     {
-        return super.b.a(l, j);
+        return super.computeSerializedSize() + kwk.e(1, a.longValue()) + kwk.e(2, b.longValue());
     }
 
-    public long a(long l, long l1)
+    public kws mergeFrom(kwj kwj1)
     {
-        return super.b.a(l, l1);
-    }
-
-    public long b(long l, int j)
-    {
-        h.a(this, j, 1, h());
-        int k = j;
-        if (a.a(l) <= 0)
+        do
         {
-            k = 1 - j;
-        }
-        return super.b(l, k);
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Long.valueOf(kwj1.e());
+                break;
+
+            case 16: // '\020'
+                b = Long.valueOf(kwj1.e());
+                break;
+            }
+        } while (true);
     }
 
-    public long d(long l)
+    public void writeTo(kwk kwk1)
     {
-        return super.b.d(l);
-    }
-
-    public long e(long l)
-    {
-        return super.b.e(l);
-    }
-
-    public int g()
-    {
-        return 1;
-    }
-
-    public int h()
-    {
-        return super.b.h();
-    }
-
-    public long i(long l)
-    {
-        return super.b.i(l);
+        kwk1.b(1, a.longValue());
+        kwk1.b(2, b.longValue());
+        super.writeTo(kwk1);
     }
 }

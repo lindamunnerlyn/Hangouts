@@ -3,27 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class bzh
-    implements gxm
+public interface bzh
 {
 
-    bzh()
-    {
-    }
+    public abstract void a();
 
-    public int a()
-    {
-        return gxp.b;
-    }
-
-    public gxn a(gmu gmu1, boolean flag)
-    {
-        if (flag || gmu1.b("gaia_id") == null || bzl.a(gmu1))
-        {
-            return new gxn();
-        } else
-        {
-            return null;
-        }
-    }
+    public abstract void a(String s);
 }

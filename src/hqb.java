@@ -2,60 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.api.client.http.HttpRequest;
+import com.google.api.client.http.HttpRequestInitializer;
 
-public final class hqb extends koj
+final class hqb
+    implements HttpRequestInitializer
 {
 
-    public String a;
+    final hqa a;
 
-    public hqb()
+    hqb(hqa hqa1)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = hqa1;
+        super();
     }
 
-    protected int computeSerializedSize()
+    public void initialize(HttpRequest httprequest)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        if (a.a != null)
         {
-            i = j + koh.b(1, a);
+            a.a.initialize(httprequest);
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        super.writeTo(koh1);
+        httprequest.setInterceptor(new hqc(this, httprequest.getInterceptor()));
     }
 }

@@ -10,15 +10,15 @@ import android.view.accessibility.AccessibilityManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import g;
-import gza;
+import hdt;
 import mn;
 
 public final class CurrentAccountBannerView extends LinearLayout
 {
 
-    private TextView a;
+    public String a;
     private TextView b;
-    private String c;
+    private TextView c;
     private boolean d;
     private boolean e;
 
@@ -32,17 +32,6 @@ public final class CurrentAccountBannerView extends LinearLayout
         super(context, attributeset, i);
     }
 
-    public static String a(CurrentAccountBannerView currentaccountbannerview)
-    {
-        return currentaccountbannerview.c;
-    }
-
-    public static String b(CurrentAccountBannerView currentaccountbannerview)
-    {
-        currentaccountbannerview.c = null;
-        return null;
-    }
-
     protected void onAttachedToWindow()
     {
         super.onAttachedToWindow();
@@ -50,7 +39,7 @@ public final class CurrentAccountBannerView extends LinearLayout
         if (!e) goto _L2; else goto _L1
 _L1:
         e = false;
-        if (c == null) goto _L2; else goto _L3
+        if (a == null) goto _L2; else goto _L3
 _L3:
         Context context = getContext();
         if (android.os.Build.VERSION.SDK_INT < 16) goto _L5; else goto _L4
@@ -70,7 +59,7 @@ _L6:
 _L8:
         if (!flag)
         {
-            g.a(new gza(this), 2000L);
+            g.a(new hdt(this), 2000L);
         }
 _L2:
         return;
@@ -89,7 +78,7 @@ _L7:
     protected void onFinishInflate()
     {
         super.onFinishInflate();
-        a = (TextView)findViewById(g.te);
-        b = (TextView)findViewById(g.td);
+        b = (TextView)findViewById(g.tF);
+        c = (TextView)findViewById(g.tE);
     }
 }

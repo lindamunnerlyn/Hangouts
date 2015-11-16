@@ -3,111 +3,89 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jim extends Enum
-    implements com.google.common.cache.LocalCache.ReferenceEntry
+public final class jim extends kwm
 {
 
-    public static final jim a;
-    private static final jim b[];
+    public Integer a;
+    public Integer b;
+    public Integer c;
 
-    private jim(String s)
+    public jim()
     {
-        super(s, 0);
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public static jim valueOf(String s)
+    protected int computeSerializedSize()
     {
-        return (jim)Enum.valueOf(jim, s);
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.f(1, a.intValue());
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.f(2, b.intValue());
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.f(3, c.intValue());
+        }
+        return i;
     }
 
-    public static jim[] values()
+    public kws mergeFrom(kwj kwj1)
     {
-        return (jim[])b.clone();
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.l());
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.l());
+                break;
+
+            case 24: // '\030'
+                c = Integer.valueOf(kwj1.l());
+                break;
+            }
+        } while (true);
     }
 
-    public long getAccessTime()
+    public void writeTo(kwk kwk1)
     {
-        return 0L;
-    }
-
-    public int getHash()
-    {
-        return 0;
-    }
-
-    public Object getKey()
-    {
-        return null;
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry getNext()
-    {
-        return null;
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry getNextInAccessQueue()
-    {
-        return this;
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry getNextInWriteQueue()
-    {
-        return this;
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInAccessQueue()
-    {
-        return this;
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInWriteQueue()
-    {
-        return this;
-    }
-
-    public jja getValueReference()
-    {
-        return null;
-    }
-
-    public long getWriteTime()
-    {
-        return 0L;
-    }
-
-    public void setAccessTime(long l)
-    {
-    }
-
-    public void setNextInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
-    {
-    }
-
-    public void setNextInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
-    {
-    }
-
-    public void setPreviousInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
-    {
-    }
-
-    public void setPreviousInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
-    {
-    }
-
-    public void setValueReference(jja jja)
-    {
-    }
-
-    public void setWriteTime(long l)
-    {
-    }
-
-    static 
-    {
-        a = new jim("INSTANCE");
-        b = (new jim[] {
-            a
-        });
+        if (a != null)
+        {
+            kwk1.c(1, a.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.c(2, b.intValue());
+        }
+        if (c != null)
+        {
+            kwk1.c(3, c.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

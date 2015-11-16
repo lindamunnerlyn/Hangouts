@@ -184,6 +184,10 @@ _L2:
     {
     }
 
+    public void c(View view, boolean flag)
+    {
+    }
+
     public boolean c(View view)
     {
         return false;

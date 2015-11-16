@@ -2,12 +2,13 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.SurfaceTexture;
 
-public interface gjx
+public final class gjx extends gkj
+    implements gdg
 {
 
-    public abstract void a(SurfaceTexture surfacetexture);
-
-    public abstract void a(gjy gjy);
+    public gjx(gjw gjw, gjl gjl)
+    {
+        super(gjw, a, new gjz(gjl), new gjy());
+    }
 }

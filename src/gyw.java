@@ -2,23 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.WeakHashMap;
 
-final class gyw
-    implements hff
+public final class gyw
 {
 
-    final gyu a;
+    private static final Set a = Collections.newSetFromMap(new WeakHashMap());
 
-    gyw(gyu gyu1)
+    public static void a()
     {
-        a = gyu1;
-        super();
+        g.v();
+        if (android.os.Build.VERSION.SDK_INT < 14)
+        {
+            a(80);
+        }
     }
 
-    public boolean a()
+    public static void a(int i)
     {
-        android.content.Intent intent = (new gwx(gyu.b(a))).a((new gxe()).a(gwq)).a();
-        gyu.c(a).a(g.sY, intent);
-        return true;
+        g.v();
+        (new StringBuilder(28)).append("Trimming memory: ").append(i);
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((gyv)iterator.next()).a(i)) { }
     }
+
+    static void a(gyv gyv1)
+    {
+        if (g.u())
+        {
+            a.add(gyv1);
+            return;
+        } else
+        {
+            g.a(new gyx(gyv1));
+            return;
+        }
+    }
+
+    static Set b()
+    {
+        return a;
+    }
+
 }

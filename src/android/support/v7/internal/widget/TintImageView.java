@@ -7,8 +7,8 @@ package android.support.v7.internal.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import vi;
 import vk;
+import vm;
 
 public class TintImageView extends ImageView
 {
@@ -16,7 +16,7 @@ public class TintImageView extends ImageView
     private static final int a[] = {
         0x10100d4, 0x1010119
     };
-    private final vi b;
+    private final vk b;
 
     public TintImageView(Context context)
     {
@@ -31,7 +31,7 @@ public class TintImageView extends ImageView
     public TintImageView(Context context, AttributeSet attributeset, int i)
     {
         super(context, attributeset, i);
-        context = vk.a(getContext(), attributeset, a, i);
+        context = vm.a(getContext(), attributeset, a, i);
         if (context.a() > 0)
         {
             if (context.g(0))

@@ -2,59 +2,86 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.net.Uri;
-import java.util.Arrays;
-import java.util.Iterator;
+import android.graphics.Bitmap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
-public final class gzv
+final class gzv
+    implements android.os.MessageQueue.IdleHandler
 {
 
-    private static final Set a;
+    private final hab a;
+    private final List b = new ArrayList(3);
+    private volatile boolean c;
+    private int d;
 
-    public static String a(String s)
+    public gzv(hao hao1, hab hab1, int i, int j)
     {
-        if (android.os.Build.VERSION.SDK_INT >= 11)
+        c = true;
+        d = 0;
+        a = hab1;
+        hab1 = a(hao1, i, (int)((float)i * 1.3F));
+        if (hab1 != null)
         {
-            Uri uri = Uri.parse(s);
-            String s1 = uri.getHost();
-            if (s1 != null && s1.contains("google"))
-            {
-                android.net.Uri.Builder builder = uri.buildUpon();
-                builder.clearQuery();
-                Iterator iterator = uri.getQueryParameterNames().iterator();
-                boolean flag = false;
-                while (iterator.hasNext()) 
-                {
-                    String s2 = (String)iterator.next();
-                    if (a.contains(s2))
-                    {
-                        flag = true;
-                    } else
-                    {
-                        Iterator iterator1 = uri.getQueryParameters(s2).iterator();
-                        while (iterator1.hasNext()) 
-                        {
-                            builder.appendQueryParameter(s2, (String)iterator1.next());
-                        }
-                    }
-                }
-                if (flag)
-                {
-                    return builder.toString();
-                }
-            }
+            b.add(hab1);
         }
-        return s;
+        hao1 = a(hao1, (int)((float)i * 1.3F), i);
+        if (hao1 != null)
+        {
+            b.add(hao1);
+        }
+        b.add(new gzw(j, j, 12));
     }
 
-    static 
+    private static gzw a(hao hao1, int i, int j)
     {
-        fxc fxc1 = new fxc();
-        a = fxc1;
-        fxc1.addAll(Arrays.asList(new String[] {
-            "expire", "signature"
-        }));
+        int k = hao1.c / ((i * j << 2) * 3);
+        hao1 = null;
+        if (k > 0)
+        {
+            hao1 = new gzw(i, j, k);
+        }
+        return hao1;
+    }
+
+    void a()
+    {
+        if (c && a.b() > 0.85F)
+        {
+            c = false;
+        }
+    }
+
+    public boolean queueIdle()
+    {
+        if (c && a.b() < 0.85F)
+        {
+            Object obj;
+            if (d >= b.size())
+            {
+                obj = null;
+            } else
+            {
+                obj = (gzw)b.get(d);
+                if (obj == null)
+                {
+                    obj = null;
+                } else
+                {
+                    int i = ((gzw) (obj)).c - 1;
+                    obj.c = i;
+                    if (i == 0)
+                    {
+                        d = d + 1;
+                    }
+                    obj = Bitmap.createBitmap(((gzw) (obj)).a, ((gzw) (obj)).b, android.graphics.Bitmap.Config.ARGB_8888);
+                }
+            }
+            if (obj != null)
+            {
+                a.a(((Bitmap) (obj)));
+            }
+        }
+        return c;
     }
 }

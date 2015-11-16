@@ -3,27 +3,52 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hzz extends koj
+public final class hzz extends kwm
 {
 
-    public String a;
-    public iaa b[];
+    public idi a[];
+    public idi b[];
+    public Integer c;
+    public String d;
+    public idy e;
+    public ige f[];
 
     public hzz()
     {
-        a = null;
-        b = iaa.a();
+        a = idi.a();
+        b = idi.a();
+        c = null;
+        d = null;
+        e = null;
+        f = ige.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
+        boolean flag = false;
         int j = super.computeSerializedSize();
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j;
+            if (a.length > 0)
+            {
+                i = j;
+                for (j = 0; j < a.length;)
+                {
+                    idi idi1 = a[j];
+                    int l = i;
+                    if (idi1 != null)
+                    {
+                        l = i + kwk.d(1, idi1);
+                    }
+                    j++;
+                    i = l;
+                }
+
+            }
         }
         j = i;
         if (b != null)
@@ -33,31 +58,71 @@ public final class hzz extends koj
             {
                 for (j = 0; j < b.length;)
                 {
-                    iaa iaa1 = b[j];
-                    int k = i;
-                    if (iaa1 != null)
+                    idi idi2 = b[j];
+                    int i1 = i;
+                    if (idi2 != null)
                     {
-                        k = i + koh.d(2, iaa1);
+                        i1 = i + kwk.d(2, idi2);
                     }
                     j++;
-                    i = k;
+                    i = i1;
                 }
 
                 j = i;
             }
         }
-        return j;
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.intValue());
+        }
+        j = i;
+        if (e != null)
+        {
+            j = i + kwk.d(4, e);
+        }
+        i = j;
+        if (d != null)
+        {
+            i = j + kwk.b(5, d);
+        }
+        int j1 = i;
+        if (f != null)
+        {
+            j1 = i;
+            if (f.length > 0)
+            {
+                int k = ((flag) ? 1 : 0);
+                do
+                {
+                    j1 = i;
+                    if (k >= f.length)
+                    {
+                        break;
+                    }
+                    ige ige1 = f[k];
+                    j1 = i;
+                    if (ige1 != null)
+                    {
+                        j1 = i + kwk.d(6, ige1);
+                    }
+                    k++;
+                    i = j1;
+                } while (true);
+            }
+        }
+        return j1;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -67,60 +132,165 @@ public final class hzz extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                iaa aiaa[];
+                int i1 = kwx.a(kwj1, 10);
+                idi aidi[];
                 int j;
-                if (b == null)
+                if (a == null)
                 {
                     j = 0;
                 } else
                 {
-                    j = b.length;
+                    j = a.length;
                 }
-                aiaa = new iaa[k + j];
-                k = j;
+                aidi = new idi[i1 + j];
+                i1 = j;
                 if (j != 0)
                 {
-                    System.arraycopy(b, 0, aiaa, 0, j);
-                    k = j;
+                    System.arraycopy(a, 0, aidi, 0, j);
+                    i1 = j;
                 }
-                for (; k < aiaa.length - 1; k++)
+                for (; i1 < aidi.length - 1; i1++)
                 {
-                    aiaa[k] = new iaa();
-                    kog1.a(aiaa[k]);
-                    kog1.a();
+                    aidi[i1] = new idi();
+                    kwj1.a(aidi[i1]);
+                    kwj1.a();
                 }
 
-                aiaa[k] = new iaa();
-                kog1.a(aiaa[k]);
-                b = aiaa;
+                aidi[i1] = new idi();
+                kwj1.a(aidi[i1]);
+                a = aidi;
+                break;
+
+            case 18: // '\022'
+                int j1 = kwx.a(kwj1, 18);
+                idi aidi1[];
+                int k;
+                if (b == null)
+                {
+                    k = 0;
+                } else
+                {
+                    k = b.length;
+                }
+                aidi1 = new idi[j1 + k];
+                j1 = k;
+                if (k != 0)
+                {
+                    System.arraycopy(b, 0, aidi1, 0, k);
+                    j1 = k;
+                }
+                for (; j1 < aidi1.length - 1; j1++)
+                {
+                    aidi1[j1] = new idi();
+                    kwj1.a(aidi1[j1]);
+                    kwj1.a();
+                }
+
+                aidi1[j1] = new idi();
+                kwj1.a(aidi1[j1]);
+                b = aidi1;
+                break;
+
+            case 24: // '\030'
+                c = Integer.valueOf(kwj1.f());
+                break;
+
+            case 34: // '"'
+                if (e == null)
+                {
+                    e = new idy();
+                }
+                kwj1.a(e);
+                break;
+
+            case 42: // '*'
+                d = kwj1.j();
+                break;
+
+            case 50: // '2'
+                int k1 = kwx.a(kwj1, 50);
+                ige aige[];
+                int l;
+                if (f == null)
+                {
+                    l = 0;
+                } else
+                {
+                    l = f.length;
+                }
+                aige = new ige[k1 + l];
+                k1 = l;
+                if (l != 0)
+                {
+                    System.arraycopy(f, 0, aige, 0, l);
+                    k1 = l;
+                }
+                for (; k1 < aige.length - 1; k1++)
+                {
+                    aige[k1] = new ige();
+                    kwj1.a(aige[k1]);
+                    kwj1.a();
+                }
+
+                aige[k1] = new ige();
+                kwj1.a(aige[k1]);
+                f = aige;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
+        boolean flag = false;
+        if (a != null && a.length > 0)
         {
-            koh1.a(1, a);
-        }
-        if (b != null && b.length > 0)
-        {
-            for (int i = 0; i < b.length; i++)
+            for (int i = 0; i < a.length; i++)
             {
-                iaa iaa1 = b[i];
-                if (iaa1 != null)
+                idi idi1 = a[i];
+                if (idi1 != null)
                 {
-                    koh1.b(2, iaa1);
+                    kwk1.b(1, idi1);
                 }
             }
 
         }
-        super.writeTo(koh1);
+        if (b != null && b.length > 0)
+        {
+            for (int j = 0; j < b.length; j++)
+            {
+                idi idi2 = b[j];
+                if (idi2 != null)
+                {
+                    kwk1.b(2, idi2);
+                }
+            }
+
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.intValue());
+        }
+        if (e != null)
+        {
+            kwk1.b(4, e);
+        }
+        if (d != null)
+        {
+            kwk1.a(5, d);
+        }
+        if (f != null && f.length > 0)
+        {
+            for (int k = ((flag) ? 1 : 0); k < f.length; k++)
+            {
+                ige ige1 = f[k];
+                if (ige1 != null)
+                {
+                    kwk1.b(6, ige1);
+                }
+            }
+
+        }
+        super.writeTo(kwk1);
     }
 }

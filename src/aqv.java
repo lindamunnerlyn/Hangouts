@@ -2,55 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentResolver;
-import android.content.Context;
-import android.database.Cursor;
-import android.os.AsyncTask;
-import com.google.android.apps.hangouts.content.EsProvider;
+import android.view.View;
+import com.google.android.apps.hangouts.views.MessageListItemView;
 
-public abstract class aqv extends AsyncTask
+final class aqv
+    implements android.widget.AbsListView.RecyclerListener
 {
 
-    private static final String c[] = csz.a();
-    public final int a;
-    public final String b;
-    private final gms d;
+    final aqu a;
 
-    public aqv(gms gms1, int i, String s)
+    aqv(aqu aqu)
     {
-        d = gms1;
-        a = i;
-        b = s;
+        a = aqu;
+        super();
     }
 
-    private transient Void a()
+    public void onMovedToScrapHeap(View view)
     {
-        if (d.d(a)) goto _L2; else goto _L1
-_L1:
-        Cursor cursor;
-        return null;
-_L2:
-        if ((cursor = g.nS.getContentResolver().query(EsProvider.b(a), c, "gaia_id=?", new String[] {
-            b
-        }, null)) == null) goto _L1; else goto _L3
-_L3:
-        if (cursor.moveToFirst())
+        if (view instanceof MessageListItemView)
         {
-            a(cursor);
+            ((MessageListItemView)view).j();
         }
-        cursor.close();
-        return null;
-        Exception exception;
-        exception;
-        cursor.close();
-        throw exception;
     }
-
-    public abstract void a(Cursor cursor);
-
-    protected Object doInBackground(Object aobj[])
-    {
-        return a();
-    }
-
 }

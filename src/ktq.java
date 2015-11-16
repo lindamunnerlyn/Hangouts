@@ -2,64 +2,87 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.InvalidObjectException;
+import java.io.ObjectInputStream;
+import java.util.Iterator;
 
-public final class ktq extends koj
+final class ktq extends kuz
 {
 
-    public int a;
+    private static final long serialVersionUID = 1L;
+    private final int c;
+    private final int d;
 
-    public ktq()
+    ktq(byte abyte0[], int i, int j)
     {
-        a = 0x80000000;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(abyte0);
+        if (i < 0)
+        {
+            throw new IllegalArgumentException((new StringBuilder(29)).append("Offset too small: ").append(i).toString());
+        }
+        if (j < 0)
+        {
+            throw new IllegalArgumentException((new StringBuilder(29)).append("Length too small: ").append(i).toString());
+        }
+        if ((long)i + (long)j > (long)abyte0.length)
+        {
+            throw new IllegalArgumentException((new StringBuilder(48)).append("Offset+Length too large: ").append(i).append("+").append(j).toString());
+        } else
+        {
+            c = i;
+            d = j;
+            return;
+        }
     }
 
-    protected int computeSerializedSize()
+    private void readObject(ObjectInputStream objectinputstream)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != 0x80000000)
-        {
-            i = j + koh.e(1, a);
-        }
-        return i;
+        throw new InvalidObjectException("BoundedByteStream instances are not to be serialized directly");
     }
 
-    public kop mergeFrom(kog kog1)
+    public byte a(int i)
     {
-_L4:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 2: default 32
-    //                   0: 41
-    //                   8: 43;
-           goto _L1 _L2 _L3
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L4; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
+        if (i < 0)
         {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-            a = j;
-            break;
+            throw new ArrayIndexOutOfBoundsException((new StringBuilder(28)).append("Index too small: ").append(i).toString());
         }
-        if (true) goto _L4; else goto _L5
-_L5:
+        if (i >= a())
+        {
+            int j = a();
+            throw new ArrayIndexOutOfBoundsException((new StringBuilder(41)).append("Index too large: ").append(i).append(", ").append(j).toString());
+        } else
+        {
+            return b[c + i];
+        }
     }
 
-    public void writeTo(koh koh1)
+    public int a()
     {
-        if (a != 0x80000000)
-        {
-            koh1.a(1, a);
-        }
-        super.writeTo(koh1);
+        return d;
+    }
+
+    protected void a(byte abyte0[], int i, int j, int k)
+    {
+        System.arraycopy(b, b() + i, abyte0, j, k);
+    }
+
+    protected int b()
+    {
+        return c;
+    }
+
+    public ktt c()
+    {
+        return new ktr(this);
+    }
+
+    public Iterator iterator()
+    {
+        return c();
+    }
+
+    Object writeReplace()
+    {
+        return new kuz(e());
     }
 }

@@ -2,10 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.DataSetObserver;
 import android.support.v7.internal.widget.ActivityChooserView;
 
-public final class un extends DataSetObserver
+public final class un
+    implements android.view.ViewTreeObserver.OnGlobalLayoutListener
 {
 
     final ActivityChooserView a;
@@ -16,9 +16,22 @@ public final class un extends DataSetObserver
         super();
     }
 
-    public void onChanged()
+    public void onGlobalLayout()
     {
-        super.onChanged();
-        ActivityChooserView.c(a);
+        if (a.c())
+        {
+            if (!a.isShown())
+            {
+                a.d().k();
+            } else
+            {
+                a.d().c();
+                if (a.g != null)
+                {
+                    a.g.a(true);
+                    return;
+                }
+            }
+        }
     }
 }

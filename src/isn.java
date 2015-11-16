@@ -2,112 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Collections;
 
-public final class isn extends koj
+public final class isn extends Enum
+    implements joj
 {
 
-    public String a;
-    public String b;
-    public Integer c;
-    public iqi d;
+    public static final isn a;
+    private static final isn b[];
 
-    public isn()
+    private isn(String s)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s, 0);
     }
 
-    protected int computeSerializedSize()
+    public static joj b()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.b(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.intValue());
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.d(4, d);
-        }
-        return j;
+        return a;
     }
 
-    public kop mergeFrom(kog kog1)
+    public static isn valueOf(String s)
     {
-_L7:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 5: default 56
-    //                   0: 65
-    //                   10: 67
-    //                   18: 78
-    //                   24: 89
-    //                   34: 134;
-           goto _L1 _L2 _L3 _L4 _L5 _L6
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L7; else goto _L2
-_L2:
-        return this;
-_L3:
-        a = kog1.j();
-          goto _L7
-_L4:
-        b = kog1.j();
-          goto _L7
-_L5:
-        int j = kog1.f();
-        switch (j)
-        {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-            c = Integer.valueOf(j);
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L6:
-        if (d == null)
-        {
-            d = new iqi();
-        }
-        kog1.a(d);
-        if (true) goto _L7; else goto _L8
-_L8:
+        return (isn)Enum.valueOf(isn, s);
     }
 
-    public void writeTo(koh koh1)
+    public static isn[] values()
     {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
-        if (c != null)
-        {
-            koh1.a(3, c.intValue());
-        }
-        if (d != null)
-        {
-            koh1.b(4, d);
-        }
-        super.writeTo(koh1);
+        return (isn[])b.clone();
+    }
+
+    public Object a()
+    {
+        return Collections.singleton(Boolean.valueOf(true));
+    }
+
+    static 
+    {
+        a = new isn("INSTANCE");
+        b = (new isn[] {
+            a
+        });
     }
 }

@@ -3,89 +3,55 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ikr extends koj
+public final class ikr extends kwm
 {
 
-    private static volatile ikr e[];
-    public ika a;
-    public Integer b;
-    public String c;
-    public Boolean d;
+    public Integer a;
+    public int b;
 
     public ikr()
     {
         a = null;
-        b = null;
-        c = null;
-        d = null;
+        b = 0x80000000;
         unknownFieldData = null;
         cachedSize = -1;
-    }
-
-    public static ikr[] a()
-    {
-        if (e == null)
-        {
-            synchronized (kon.a)
-            {
-                if (e == null)
-                {
-                    e = new ikr[0];
-                }
-            }
-        }
-        return e;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
     protected int computeSerializedSize()
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (b != null)
-        {
-            i = j + koh.e(1, b.intValue());
-        }
-        j = i;
-        if (c != null)
-        {
-            j = i + koh.b(2, c);
-        }
-        i = j;
         if (a != null)
         {
-            i = j + koh.d(3, a);
+            i = j + kwk.e(1, a.intValue());
         }
         j = i;
-        if (d != null)
+        if (b != 0x80000000)
         {
-            d.booleanValue();
-            j = i + (koh.f(4) + 1);
+            j = i + kwk.e(2, b);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L7:
-        int i = kog1.a();
+_L5:
+        int i = kwj1.a();
         i;
-        JVM INSTR lookupswitch 5: default 56
-    //                   0: 65
-    //                   8: 67
-    //                   18: 122
-    //                   26: 133
-    //                   32: 162;
-           goto _L1 _L2 _L3 _L4 _L5 _L6
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   8: 51
+    //                   16: 65;
+           goto _L1 _L2 _L3 _L4
 _L1:
-        if (super.storeUnknownField(kog1, i)) goto _L7; else goto _L2
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
 _L2:
         return this;
 _L3:
-        int j = kog1.f();
+        a = Integer.valueOf(kwj1.f());
+          goto _L5
+_L4:
+        int j = kwj1.f();
         switch (j)
         {
         case 1: // '\001'
@@ -93,44 +59,25 @@ _L3:
         case 3: // '\003'
         case 4: // '\004'
         case 5: // '\005'
-            b = Integer.valueOf(j);
+        case 6: // '\006'
+        case 7: // '\007'
+            b = j;
             break;
         }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        c = kog1.j();
-        continue; /* Loop/switch isn't completed */
-_L5:
-        if (a == null)
-        {
-            a = new ika();
-        }
-        kog1.a(a);
-        continue; /* Loop/switch isn't completed */
+        if (true) goto _L5; else goto _L6
 _L6:
-        d = Boolean.valueOf(kog1.i());
-        if (true) goto _L7; else goto _L8
-_L8:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (b != null)
-        {
-            koh1.a(1, b.intValue());
-        }
-        if (c != null)
-        {
-            koh1.a(2, c);
-        }
         if (a != null)
         {
-            koh1.b(3, a);
+            kwk1.a(1, a.intValue());
         }
-        if (d != null)
+        if (b != 0x80000000)
         {
-            koh1.a(4, d.booleanValue());
+            kwk1.a(2, b);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

@@ -7,7 +7,7 @@ package com.google.android.apps.hangouts.sms;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import dbf;
+import dcn;
 
 public class AbortMmsWapPushReceiver extends BroadcastReceiver
 {
@@ -18,7 +18,7 @@ public class AbortMmsWapPushReceiver extends BroadcastReceiver
 
     public void onReceive(Context context, Intent intent)
     {
-        if ("android.provider.Telephony.WAP_PUSH_RECEIVED".equals(intent.getAction()) && "application/vnd.wap.mms-message".equals(intent.getType()) && android.os.Build.VERSION.SDK_INT < 19 && dbf.j())
+        if ("android.provider.Telephony.WAP_PUSH_RECEIVED".equals(intent.getAction()) && "application/vnd.wap.mms-message".equals(intent.getType()) && android.os.Build.VERSION.SDK_INT < 19 && dcn.j())
         {
             abortBroadcast();
         }

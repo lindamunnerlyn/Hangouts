@@ -2,22 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.inputmethod.InputMethodManager;
+import android.text.TextUtils;
+import com.google.android.apps.hangouts.peoplelistv2.impl.DeleteOnEmptyEditText;
+import com.google.android.apps.hangouts.peoplelistv2.impl.EditParticipantsView;
+import com.google.android.apps.hangouts.peoplelistv2.impl.ScrollViewCustom;
 
-final class chj extends zh
+public final class chj
+    implements aik
 {
 
-    final cgw a;
+    final EditParticipantsView a;
 
-    chj(cgw cgw)
+    public chj(EditParticipantsView editparticipantsview)
     {
-        a = cgw;
+        a = editparticipantsview;
         super();
     }
 
-    public void a(yr yr1)
+    public void a()
     {
-        ((InputMethodManager)yr1.getContext().getSystemService("input_method")).hideSoftInputFromWindow(yr1.getWindowToken(), 0);
+        if (EditParticipantsView.d(a))
+        {
+            EditParticipantsView.a(a, null);
+            EditParticipantsView.c(a);
+            g.a(EditParticipantsView.e(a).d);
+        }
+    }
+
+    public void a(String s)
+    {
+        if (!TextUtils.equals(s, EditParticipantsView.f(a).getText().toString()))
+        {
+            EditParticipantsView.f(a).setText(s);
+        }
     }
 }

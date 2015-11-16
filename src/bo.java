@@ -4,28 +4,11 @@
 
 import android.app.Notification;
 import android.os.Binder;
-import android.os.IBinder;
 import android.os.Parcel;
 
 public abstract class bo extends Binder
     implements bn
 {
-
-    public static bn a(IBinder ibinder)
-    {
-        if (ibinder == null)
-        {
-            return null;
-        }
-        android.os.IInterface iinterface = ibinder.queryLocalInterface("android.support.v4.app.INotificationSideChannel");
-        if (iinterface != null && (iinterface instanceof bn))
-        {
-            return (bn)iinterface;
-        } else
-        {
-            return new bp(ibinder);
-        }
-    }
 
     public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
     {

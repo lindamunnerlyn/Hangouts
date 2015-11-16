@@ -2,35 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.AsyncTask;
-import android.view.View;
-import java.lang.ref.WeakReference;
+import android.os.Parcel;
 
-final class eea extends AsyncTask
+final class eea
+    implements android.os.Parcelable.Creator
 {
 
-    eeb a;
-    final edz b;
-
-    eea(edz edz1, eeb eeb1)
+    eea()
     {
-        b = edz1;
-        super();
-        a = eeb1;
     }
 
-    protected Object doInBackground(Object aobj[])
+    public Object createFromParcel(Parcel parcel)
     {
-        edz.a(b, a, eaf.a());
-        return null;
+        return new edz(parcel);
     }
 
-    protected void onPostExecute(Object obj)
+    public Object[] newArray(int i)
     {
-        obj = (View)a.c.get();
-        if (obj != null)
-        {
-            ((View) (obj)).invalidate();
-        }
+        return new edz[i];
     }
 }

@@ -2,9 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Handler;
+import com.google.android.apps.hangouts.wearable.WearableService;
 
-public interface eke
+public final class eke
+    implements eka
 {
 
-    public abstract void a();
+    final WearableService a;
+
+    public eke(WearableService wearableservice)
+    {
+        a = wearableservice;
+        super();
+    }
+
+    public void a(Uri uri, Bitmap bitmap)
+    {
+        a.n.post(new ekf(this, uri, bitmap));
+    }
 }

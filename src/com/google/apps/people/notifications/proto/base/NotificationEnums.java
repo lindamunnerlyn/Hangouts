@@ -4,11 +4,11 @@
 
 package com.google.apps.people.notifications.proto.base;
 
-import kog;
-import koj;
-import kop;
+import kwj;
+import kwm;
+import kws;
 
-public final class NotificationEnums extends koj
+public final class NotificationEnums extends kwm
 {
 
     public NotificationEnums()
@@ -17,16 +17,16 @@ public final class NotificationEnums extends koj
         cachedSize = -1;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
 _L3:
-        int i = kog1.a();
+        int i = kwj1.a();
         i;
         JVM INSTR tableswitch 0 0: default 24
     //                   0 33;
            goto _L1 _L2
 _L1:
-        if (super.storeUnknownField(kog1, i)) goto _L3; else goto _L2
+        if (super.storeUnknownField(kwj1, i)) goto _L3; else goto _L2
 _L2:
         return this;
     }

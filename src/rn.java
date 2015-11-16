@@ -2,100 +2,116 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Dialog;
 import android.content.Context;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
 
-public class rn extends Dialog
-    implements qq
+final class rn
 {
 
-    private qr a;
+    int a;
+    int b;
+    int c;
+    int d;
+    int e;
+    int f;
+    ViewGroup g;
+    View h;
+    View i;
+    ta j;
+    sy k;
+    Context l;
+    boolean m;
+    boolean n;
+    boolean o;
+    public boolean p;
+    boolean q;
+    boolean r;
+    Bundle s;
 
-    public rn(Context context, int i)
+    rn(int i1)
     {
-        int j = i;
-        if (i == 0)
-        {
-            TypedValue typedvalue = new TypedValue();
-            context.getTheme().resolveAttribute(g.D, typedvalue, true);
-            j = typedvalue.resourceId;
-        }
-        super(context, j);
-        b().a(null);
+        a = i1;
+        q = false;
     }
 
-    public void a(vr vr)
+    tr a(tq tq)
     {
+        if (j == null)
+        {
+            return null;
+        }
+        if (k == null)
+        {
+            k = new sy(l, g.by);
+            k.a(tq);
+            j.a(k);
+        }
+        return k.a(g);
+    }
+
+    void a(Context context)
+    {
+        TypedValue typedvalue = new TypedValue();
+        android.content.res.Resources.Theme theme = context.getResources().newTheme();
+        theme.setTo(context.getTheme());
+        theme.resolveAttribute(g.e, typedvalue, true);
+        if (typedvalue.resourceId != 0)
+        {
+            theme.applyStyle(typedvalue.resourceId, true);
+        }
+        theme.resolveAttribute(g.J, typedvalue, true);
+        if (typedvalue.resourceId != 0)
+        {
+            theme.applyStyle(typedvalue.resourceId, true);
+        } else
+        {
+            theme.applyStyle(g.bK, true);
+        }
+        context = new si(context, 0);
+        context.getTheme().setTo(theme);
+        l = context;
+        context = context.obtainStyledAttributes(rq.bK);
+        b = context.getResourceId(rq.bN, 0);
+        f = context.getResourceId(rq.bL, 0);
+        context.recycle();
+    }
+
+    void a(ta ta1)
+    {
+        if (ta1 != j)
+        {
+            if (j != null)
+            {
+                j.b(k);
+            }
+            j = ta1;
+            if (ta1 != null && k != null)
+            {
+                ta1.a(k);
+                return;
+            }
+        }
     }
 
     public boolean a()
     {
-        return b().b(1);
-    }
-
-    public void addContentView(View view, android.view.ViewGroup.LayoutParams layoutparams)
-    {
-        b().b(view, layoutparams);
-    }
-
-    public qr b()
-    {
-        if (a == null)
+        if (h != null)
         {
-            a = qr.a(getContext(), getWindow(), this);
+            if (i != null)
+            {
+                return true;
+            }
+            if (k.a().getCount() > 0)
+            {
+                return true;
+            }
         }
-        return a;
-    }
-
-    public void b(vr vr)
-    {
-    }
-
-    public void invalidateOptionsMenu()
-    {
-        b().f();
-    }
-
-    protected void onCreate(Bundle bundle)
-    {
-        b().i();
-        super.onCreate(bundle);
-        b().a(bundle);
-    }
-
-    protected void onStop()
-    {
-        super.onStop();
-        b().d();
-    }
-
-    public void setContentView(int i)
-    {
-        b().a(i);
-    }
-
-    public void setContentView(View view)
-    {
-        b().a(view);
-    }
-
-    public void setContentView(View view, android.view.ViewGroup.LayoutParams layoutparams)
-    {
-        b().a(view, layoutparams);
-    }
-
-    public void setTitle(int i)
-    {
-        super.setTitle(i);
-        b().a(getContext().getString(i));
-    }
-
-    public void setTitle(CharSequence charsequence)
-    {
-        super.setTitle(charsequence);
-        b().a(charsequence);
+        return false;
     }
 }

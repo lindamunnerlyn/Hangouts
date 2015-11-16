@@ -2,178 +2,266 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.HashSet;
-import java.util.Set;
+import android.app.PendingIntent;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.SparseArray;
+import com.google.android.gms.common.ConnectionResult;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
 
-final class eow
+public final class eow extends ad
+    implements android.content.DialogInterface.OnCancelListener
 {
 
-    static final eox a[];
-    static final eox b[];
-    private static Set c;
-    private static Set d;
+    private boolean a;
+    private boolean b;
+    private int c;
+    private ConnectionResult d;
+    private final Handler e = new Handler(Looper.getMainLooper());
+    private final SparseArray f = new SparseArray();
 
-    static Set a()
+    public eow()
     {
-        if (c == null)
-        {
-            c = a(b);
-        }
-        return c;
+        c = -1;
     }
 
-    private static Set a(eox aeox[])
+    static int a(eow eow1, int i)
     {
-        HashSet hashset = new HashSet(aeox.length);
-        int j = aeox.length;
-        for (int i = 0; i < j; i++)
-        {
-            hashset.add(aeox[i]);
-        }
-
-        return hashset;
+        eow1.c = i;
+        return i;
     }
 
-    static Set b()
+    static ConnectionResult a(eow eow1, ConnectionResult connectionresult)
     {
-        if (d == null)
-        {
-            d = a(a);
-        }
-        return d;
+        eow1.d = connectionresult;
+        return connectionresult;
     }
 
-    static 
+    public static eow a(ai ai1)
     {
-        a = (new eox[] {
-            eug.a[0], euj.a[0], etm.a[0], eza.a[0], eqi.a[0], eyo.a[0], etp.a[0], era.a[0], eyx.a[0], eyr.a[0], 
-            etj.a[0], esi.a[0], ety.a[0], epk.a[0], esf.a[0], eua.a[0], ewv.a[0], eqx.a[0], ewb.a[0], ewe.a[0], 
-            evs.a[0], eqf.a[0], erm.a[0], erg.a[0], erj.a[0], evy.a[0], exm.a[0], epz.a[0], eqc.a[0], esx.a[0], 
-            erv.a[0], exv.a[0], exv.a[1], epn.a[0], eph.a[0], exp.a[0], exe.a[0], ews.a[0], ers.a[0], evd.a[0], 
-            evd.a[1], erd.a[0], erp.a[0], epw.a[0], ezi.a[0], equ.a[0], eoy.a[0], esc.a[0], ewk.a[0], ewp.a[0], 
-            esu.a[0], eud.a[0], ewy.a[0], euu.a[0], etv.a[0], esr.a[0], ezg.a[0], eqo.a[0], eur.a[0], eya.a[0], 
-            ezo.a[0], eqr.a[0], etd.a[0], euy.a[0], eyd.a[0], ept.a[0], erz.a[0], evv.a[0], epb.a[0], exj.a[0], 
-            evq.a[0], exs.a[0], eso.a[0], evh.a[0], eyl.a[0], eyu.a[0], eyi.a[0], ezl.a[0], eta.a[0], ezd.a[0], 
-            euo.a[0], etg.a[0], esl.a[0], eum.a[0], evn.a[0], epq.a[0], ewh.a[0], exb.a[0], epe.a[0], eva.a[0], 
-            eql.a[0], ets.a[0], evk.a[0], ewm.a[0], exh.a[0]
-        });
-        eox aeox[][] = new eox[94][];
-        aeox[0] = eug.a;
-        aeox[1] = euj.a;
-        aeox[2] = eyg.a;
-        aeox[3] = etm.a;
-        aeox[4] = eza.a;
-        aeox[5] = eqi.a;
-        aeox[6] = eyo.a;
-        aeox[7] = etp.a;
-        aeox[8] = era.a;
-        aeox[9] = eyx.a;
-        aeox[10] = eyr.a;
-        aeox[11] = etj.a;
-        aeox[12] = esi.a;
-        aeox[13] = ety.a;
-        aeox[14] = epk.a;
-        aeox[15] = esf.a;
-        aeox[16] = eua.a;
-        aeox[17] = ewv.a;
-        aeox[18] = eqx.a;
-        aeox[19] = ewb.a;
-        aeox[20] = ewe.a;
-        aeox[21] = evs.a;
-        aeox[22] = eqf.a;
-        aeox[23] = erm.a;
-        aeox[24] = erg.a;
-        aeox[25] = erj.a;
-        aeox[26] = evy.a;
-        aeox[27] = exm.a;
-        aeox[28] = epz.a;
-        aeox[29] = eqc.a;
-        aeox[30] = esx.a;
-        aeox[31] = erv.a;
-        aeox[32] = exv.a;
-        aeox[33] = epn.a;
-        aeox[34] = eph.a;
-        aeox[35] = exp.a;
-        aeox[36] = exe.a;
-        aeox[37] = ews.a;
-        aeox[38] = ers.a;
-        aeox[39] = evd.a;
-        aeox[40] = erd.a;
-        aeox[41] = erp.a;
-        aeox[42] = epw.a;
-        aeox[43] = ezi.a;
-        aeox[44] = equ.a;
-        aeox[45] = eoy.a;
-        aeox[46] = esc.a;
-        aeox[47] = ewk.a;
-        aeox[48] = ewp.a;
-        aeox[49] = esu.a;
-        aeox[50] = eud.a;
-        aeox[51] = ewy.a;
-        aeox[52] = euu.a;
-        aeox[53] = etv.a;
-        aeox[54] = esr.a;
-        aeox[55] = ezg.a;
-        aeox[56] = eqo.a;
-        aeox[57] = eur.a;
-        aeox[58] = eya.a;
-        aeox[59] = ezo.a;
-        aeox[60] = eqr.a;
-        aeox[61] = etd.a;
-        aeox[62] = euy.a;
-        aeox[63] = eyd.a;
-        aeox[64] = ept.a;
-        aeox[65] = erz.a;
-        aeox[66] = evv.a;
-        aeox[67] = epb.a;
-        aeox[68] = exj.a;
-        aeox[69] = evq.a;
-        aeox[70] = exs.a;
-        aeox[71] = eso.a;
-        aeox[72] = evh.a;
-        aeox[73] = eyl.a;
-        aeox[74] = eyu.a;
-        aeox[75] = eyi.a;
-        aeox[76] = ezl.a;
-        aeox[77] = eta.a;
-        aeox[78] = ezd.a;
-        aeox[79] = euo.a;
-        aeox[80] = etg.a;
-        aeox[81] = esl.a;
-        aeox[82] = eum.a;
-        aeox[83] = evn.a;
-        aeox[84] = epq.a;
-        aeox[85] = ewh.a;
-        aeox[86] = exb.a;
-        aeox[87] = epe.a;
-        aeox[88] = eva.a;
-        aeox[89] = eql.a;
-        aeox[90] = ets.a;
-        aeox[91] = evk.a;
-        aeox[92] = ewm.a;
-        aeox[93] = exh.a;
-        int i = 0;
-        int j = 0;
-        for (; i < 94; i++)
+label0:
         {
-            j += aeox[i].length;
-        }
-
-        eox aeox1[] = new eox[j];
-        j = 0;
-        i = 0;
-        for (; j < 94; j++)
-        {
-            eox aeox2[] = aeox[j];
-            for (int k = 0; k < aeox2.length;)
+            g.y("Must be called from main thread of process");
+            ai1 = ai1.u_();
+            eow eow1;
+            try
             {
-                aeox1[i] = aeox2[k];
-                k++;
-                i++;
+                eow1 = (eow)ai1.a("GmsSupportLifecycleFragment");
+            }
+            // Misplaced declaration of an exception variable
+            catch (ai ai1)
+            {
+                throw new IllegalStateException("Fragment with tag GmsSupportLifecycleFragment is not a SupportLifecycleFragment", ai1);
+            }
+            if (eow1 != null)
+            {
+                ai1 = eow1;
+                if (!eow1.isRemoving())
+                {
+                    break label0;
+                }
+            }
+            ai1 = null;
+        }
+        return ai1;
+    }
+
+    private void a()
+    {
+        b = false;
+        c = -1;
+        d = null;
+        for (int i = 0; i < f.size(); i++)
+        {
+            ((eox)f.valueAt(i)).b.b();
+        }
+
+    }
+
+    private void a(int i, ConnectionResult connectionresult)
+    {
+        Object obj = (eox)f.get(i);
+        if (obj != null)
+        {
+            eox eox1 = (eox)f.get(i);
+            f.remove(i);
+            if (eox1 != null)
+            {
+                eox1.a();
+            }
+            obj = ((eox) (obj)).c;
+            if (obj != null)
+            {
+                ((end) (obj)).a(connectionresult);
+            }
+        }
+        a();
+    }
+
+    static void a(eow eow1, int i, ConnectionResult connectionresult)
+    {
+        eow1.a(i, connectionresult);
+    }
+
+    static boolean a(eow eow1)
+    {
+        return eow1.a;
+    }
+
+    public static eow b(ai ai1)
+    {
+        eow eow1 = a(ai1);
+        ap ap1 = ai1.u_();
+        ai1 = eow1;
+        if (eow1 == null)
+        {
+            ai1 = new eow();
+            ap1.a().a(ai1, "GmsSupportLifecycleFragment").c();
+            ap1.b();
+        }
+        return ai1;
+    }
+
+    static boolean b(eow eow1)
+    {
+        return eow1.b;
+    }
+
+    static boolean c(eow eow1)
+    {
+        eow1.b = true;
+        return true;
+    }
+
+    static void d(eow eow1)
+    {
+        eow1.a();
+    }
+
+    static Handler e(eow eow1)
+    {
+        return eow1.e;
+    }
+
+    public void a(int i, emy emy1, end end1)
+    {
+        g.b(emy1, "GoogleApiClient instance cannot be null");
+        boolean flag;
+        if (f.indexOfKey(i) < 0)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        g.a(flag, (new StringBuilder("Already managing a GoogleApiClient with id ")).append(i).toString());
+        end1 = new eox(this, i, emy1, end1);
+        f.put(i, end1);
+        if (a && !b)
+        {
+            emy1.b();
+        }
+    }
+
+    public void dump(String s, FileDescriptor filedescriptor, PrintWriter printwriter, String as[])
+    {
+        super.dump(s, filedescriptor, printwriter, as);
+        for (int i = 0; i < f.size(); i++)
+        {
+            ((eox)f.valueAt(i)).a(s, filedescriptor, printwriter, as);
+        }
+
+    }
+
+    public void onActivityResult(int i, int j, Intent intent)
+    {
+        boolean flag = true;
+        i;
+        JVM INSTR tableswitch 1 2: default 28
+    //                   1 55
+    //                   2 39;
+           goto _L1 _L2 _L3
+_L1:
+        i = 0;
+_L5:
+        if (i != 0)
+        {
+            a();
+            return;
+        } else
+        {
+            a(c, d);
+            return;
+        }
+_L3:
+        if (emo.a(getActivity()) != 0) goto _L1; else goto _L4
+_L4:
+        i = ((flag) ? 1 : 0);
+          goto _L5
+_L2:
+        if (j != -1) goto _L1; else goto _L6
+_L6:
+        i = ((flag) ? 1 : 0);
+          goto _L5
+    }
+
+    public void onCancel(DialogInterface dialoginterface)
+    {
+        a(c, new ConnectionResult(13, null));
+    }
+
+    public void onCreate(Bundle bundle)
+    {
+        super.onCreate(bundle);
+        if (bundle != null)
+        {
+            b = bundle.getBoolean("resolving_error", false);
+            c = bundle.getInt("failed_client_id", -1);
+            if (c >= 0)
+            {
+                d = new ConnectionResult(bundle.getInt("failed_status"), (PendingIntent)bundle.getParcelable("failed_resolution"));
+            }
+        }
+    }
+
+    public void onSaveInstanceState(Bundle bundle)
+    {
+        super.onSaveInstanceState(bundle);
+        bundle.putBoolean("resolving_error", b);
+        if (c >= 0)
+        {
+            bundle.putInt("failed_client_id", c);
+            bundle.putInt("failed_status", d.c());
+            bundle.putParcelable("failed_resolution", d.d());
+        }
+    }
+
+    public void onStart()
+    {
+        super.onStart();
+        a = true;
+        if (!b)
+        {
+            for (int i = 0; i < f.size(); i++)
+            {
+                ((eox)f.valueAt(i)).b.b();
             }
 
         }
+    }
 
-        b = aeox1;
+    public void onStop()
+    {
+        super.onStop();
+        a = false;
+        for (int i = 0; i < f.size(); i++)
+        {
+            ((eox)f.valueAt(i)).b.d();
+        }
+
     }
 }

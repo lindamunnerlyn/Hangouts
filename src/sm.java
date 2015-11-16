@@ -2,223 +2,225 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.res.TypedArray;
+import android.content.ContextWrapper;
+import android.content.res.Resources;
+import android.content.res.XmlResourceParser;
 import android.util.AttributeSet;
+import android.util.Xml;
+import android.view.InflateException;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.SubMenu;
-import android.view.View;
-import java.lang.reflect.Constructor;
+import android.view.MenuInflater;
+import java.io.IOException;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 
-final class sm
+public final class sm extends MenuInflater
 {
 
-    hz a;
-    final sk b;
-    private Menu c;
-    private int d;
-    private int e;
-    private int f;
-    private int g;
-    private boolean h;
-    private boolean i;
-    private boolean j;
-    private int k;
-    private int l;
-    private CharSequence m;
-    private CharSequence n;
-    private int o;
-    private char p;
-    private char q;
-    private int r;
-    private boolean s;
-    private boolean t;
-    private boolean u;
-    private int v;
-    private int w;
-    private String x;
-    private String y;
-    private String z;
+    private static final Class a[];
+    private static final Class b[];
+    private final Object c[];
+    private final Object d[];
+    private Context e;
+    private Object f;
 
-    public sm(sk sk1, Menu menu)
+    public sm(Context context)
     {
-        b = sk1;
-        super();
-        c = menu;
-        a();
+        super(context);
+        e = context;
+        c = (new Object[] {
+            context
+        });
+        d = c;
     }
 
-    private static char a(String s1)
+    static Context a(sm sm1)
     {
-        if (s1 == null)
-        {
-            return '\0';
-        } else
-        {
-            return s1.charAt(0);
-        }
+        return sm1.e;
     }
 
-    private Object a(String s1, Class aclass[], Object aobj[])
+    private void a(XmlPullParser xmlpullparser, AttributeSet attributeset, Menu menu)
     {
-        try
+        so so1;
+        int i;
+        so1 = new so(this, menu);
+        i = xmlpullparser.getEventType();
+_L12:
+        if (i != 2) goto _L2; else goto _L1
+_L1:
+        menu = xmlpullparser.getName();
+        if (!menu.equals("menu")) goto _L4; else goto _L3
+_L3:
+        i = xmlpullparser.next();
+_L13:
+        int j;
+        int k;
+        menu = null;
+        boolean flag = false;
+        k = i;
+        j = 0;
+        i = ((flag) ? 1 : 0);
+_L10:
+        if (j != 0)
         {
-            s1 = sk.a(b).getClassLoader().loadClass(s1).getConstructor(aclass);
-            s1.setAccessible(true);
-            s1 = ((String) (s1.newInstance(aobj)));
+            break MISSING_BLOCK_LABEL_372;
         }
-        // Misplaced declaration of an exception variable
-        catch (String s1)
+        k;
+        JVM INSTR tableswitch 1 3: default 100
+    //                   1 362
+    //                   2 160
+    //                   3 244;
+           goto _L5 _L6 _L7 _L8
+_L5:
+        break; /* Loop/switch isn't completed */
+_L7:
+        break; /* Loop/switch isn't completed */
+_L14:
+        k = xmlpullparser.next();
+        if (true) goto _L10; else goto _L9
+_L4:
+        throw new RuntimeException((new StringBuilder("Expecting menu, got ")).append(menu).toString());
+_L2:
+        j = xmlpullparser.next();
+        i = j;
+        if (j != 1) goto _L12; else goto _L11
+_L11:
+        i = j;
+          goto _L13
+_L9:
+        if (i == 0)
         {
-            return null;
-        }
-        return s1;
-    }
-
-    private void a(MenuItem menuitem)
-    {
-        boolean flag = true;
-        MenuItem menuitem1 = menuitem.setChecked(s).setVisible(t).setEnabled(u);
-        boolean flag1;
-        if (r > 0)
-        {
-            flag1 = true;
-        } else
-        {
-            flag1 = false;
-        }
-        menuitem1.setCheckable(flag1).setTitleCondensed(n).setIcon(o).setAlphabeticShortcut(p).setNumericShortcut(q);
-        if (v >= 0)
-        {
-            ja.a(menuitem, v);
-        }
-        if (z != null)
-        {
-            if (sk.a(b).isRestricted())
+            String s = xmlpullparser.getName();
+            if (s.equals("group"))
             {
-                throw new IllegalStateException("The android:onClick attribute cannot be used within a restricted context");
-            }
-            menuitem.setOnMenuItemClickListener(new sl(sk.c(b), z));
-        }
-        if (r >= 2)
-        {
-            if (menuitem instanceof tc)
-            {
-                ((tc)menuitem).a(true);
+                so1.a(attributeset);
             } else
-            if (menuitem instanceof te)
+            if (s.equals("item"))
             {
-                ((te)menuitem).a();
-            }
-        }
-        if (x != null)
-        {
-            ja.a(menuitem, (View)a(x, sk.b(), sk.d(b)));
-        } else
-        {
-            flag = false;
-        }
-        if (w > 0 && !flag)
-        {
-            ja.b(menuitem, w);
-        }
-        if (a != null)
-        {
-            ja.a(menuitem, a);
-        }
-    }
-
-    public void a()
-    {
-        d = 0;
-        e = 0;
-        f = 0;
-        g = 0;
-        h = true;
-        i = true;
-    }
-
-    public void a(AttributeSet attributeset)
-    {
-        attributeset = sk.a(b).obtainStyledAttributes(attributeset, ro.aC);
-        d = attributeset.getResourceId(ro.aF, 0);
-        e = attributeset.getInt(ro.aG, 0);
-        f = attributeset.getInt(ro.aH, 0);
-        g = attributeset.getInt(ro.aD, 0);
-        h = attributeset.getBoolean(ro.aI, true);
-        i = attributeset.getBoolean(ro.aE, true);
-        attributeset.recycle();
-    }
-
-    public void b()
-    {
-        j = true;
-        a(c.add(d, k, l, m));
-    }
-
-    public void b(AttributeSet attributeset)
-    {
-        boolean flag = true;
-        attributeset = sk.a(b).obtainStyledAttributes(attributeset, ro.aJ);
-        k = attributeset.getResourceId(ro.aS, 0);
-        l = attributeset.getInt(ro.aT, e) & 0xffff0000 | attributeset.getInt(ro.aW, f) & 0xffff;
-        m = attributeset.getText(ro.aX);
-        n = attributeset.getText(ro.aY);
-        o = attributeset.getResourceId(ro.aR, 0);
-        p = a(attributeset.getString(ro.aN));
-        q = a(attributeset.getString(ro.aU));
-        int i1;
-        if (attributeset.hasValue(ro.aO))
-        {
-            if (attributeset.getBoolean(ro.aO, false))
+                so1.b(attributeset);
+            } else
+            if (s.equals("menu"))
             {
-                i1 = 1;
+                a(xmlpullparser, attributeset, ((Menu) (so1.c())));
             } else
             {
-                i1 = 0;
+                menu = s;
+                i = 1;
             }
-            r = i1;
-        } else
-        {
-            r = g;
         }
-        s = attributeset.getBoolean(ro.aP, false);
-        t = attributeset.getBoolean(ro.aZ, h);
-        u = attributeset.getBoolean(ro.aQ, i);
-        v = attributeset.getInt(ro.ba, -1);
-        z = attributeset.getString(ro.aV);
-        w = attributeset.getResourceId(ro.aK, 0);
-        x = attributeset.getString(ro.aM);
-        y = attributeset.getString(ro.aL);
-        if (y != null)
+          goto _L14
+_L8:
+        String s1 = xmlpullparser.getName();
+        if (i != 0 && s1.equals(menu))
         {
-            i1 = ((flag) ? 1 : 0);
+            menu = null;
+            i = 0;
         } else
+        if (s1.equals("group"))
         {
-            i1 = 0;
-        }
-        if (i1 != 0 && w == 0 && x == null)
-        {
-            a = (hz)a(y, sk.a(), sk.b(b));
+            so1.a();
         } else
+        if (s1.equals("item"))
         {
-            a = null;
+            if (!so1.d())
+            {
+                if (so1.a != null && so1.a.e())
+                {
+                    so1.c();
+                } else
+                {
+                    so1.b();
+                }
+            }
+        } else
+        if (s1.equals("menu"))
+        {
+            j = 1;
         }
-        attributeset.recycle();
-        j = false;
+          goto _L14
+_L6:
+        throw new RuntimeException("Unexpected end of document");
+          goto _L13
     }
 
-    public SubMenu c()
+    static Class[] a()
     {
-        j = true;
-        SubMenu submenu = c.addSubMenu(d, k, l, m);
-        a(submenu.getItem());
-        return submenu;
+        return b;
     }
 
-    public boolean d()
+    static Class[] b()
     {
-        return j;
+        return a;
+    }
+
+    static Object[] b(sm sm1)
+    {
+        return sm1.d;
+    }
+
+    static Object c(sm sm1)
+    {
+        if (sm1.f == null)
+        {
+            Context context;
+            for (context = sm1.e; !(context instanceof Activity) && (context instanceof ContextWrapper); context = ((ContextWrapper)context).getBaseContext()) { }
+            sm1.f = context;
+        }
+        return sm1.f;
+    }
+
+    static Object[] d(sm sm1)
+    {
+        return sm1.c;
+    }
+
+    public void inflate(int i, Menu menu)
+    {
+        if (menu instanceof fr) goto _L2; else goto _L1
+_L1:
+        super.inflate(i, menu);
+_L4:
+        return;
+_L2:
+        XmlResourceParser xmlresourceparser;
+        XmlResourceParser xmlresourceparser1;
+        XmlResourceParser xmlresourceparser2;
+        xmlresourceparser = null;
+        xmlresourceparser2 = null;
+        xmlresourceparser1 = null;
+        XmlResourceParser xmlresourceparser3 = e.getResources().getLayout(i);
+        xmlresourceparser1 = xmlresourceparser3;
+        xmlresourceparser = xmlresourceparser3;
+        xmlresourceparser2 = xmlresourceparser3;
+        a(xmlresourceparser3, Xml.asAttributeSet(xmlresourceparser3), menu);
+        if (xmlresourceparser3 != null)
+        {
+            xmlresourceparser3.close();
+            return;
+        }
+        if (true) goto _L4; else goto _L3
+_L3:
+        menu;
+        xmlresourceparser = xmlresourceparser1;
+        throw new InflateException("Error inflating menu XML", menu);
+        menu;
+        if (xmlresourceparser != null)
+        {
+            xmlresourceparser.close();
+        }
+        throw menu;
+        menu;
+        xmlresourceparser = xmlresourceparser2;
+        throw new InflateException("Error inflating menu XML", menu);
+    }
+
+    static 
+    {
+        Class aclass[] = new Class[1];
+        aclass[0] = android/content/Context;
+        a = aclass;
+        b = aclass;
     }
 }

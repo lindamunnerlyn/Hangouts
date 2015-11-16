@@ -3,8 +3,39 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface dux
+final class dux extends dtj
 {
 
-    public abstract void a(duw duw);
+    private final int a;
+    private final long b;
+    private final long c;
+    private final long d;
+
+    dux(long l, int i, long l1, long l2)
+    {
+        d = l;
+        a = i;
+        b = l1;
+        c = l2;
+    }
+
+    public int a()
+    {
+        return a;
+    }
+
+    public long b()
+    {
+        return b;
+    }
+
+    public long c()
+    {
+        return c;
+    }
+
+    public long d()
+    {
+        return d;
+    }
 }

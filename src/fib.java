@@ -2,44 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.location.Location;
-import android.os.Binder;
-import android.os.Parcel;
+import com.google.android.gms.common.api.Status;
 
-public abstract class fib extends Binder
-    implements fia
+final class fib
+    implements fov
 {
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    final Status a;
+    final fia b;
+
+    fib(fia fia, Status status)
     {
-        switch (i)
-        {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
+        b = fia;
+        a = status;
+        super();
+    }
 
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.maps.internal.IOnLocationChangeListener");
-            return true;
+    public Status D_()
+    {
+        return a;
+    }
 
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnLocationChangeListener");
-            a(ezz.a(parcel.readStrongBinder()));
-            parcel1.writeNoException();
-            return true;
+    public void b()
+    {
+    }
 
-        case 2: // '\002'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnLocationChangeListener");
-            break;
-        }
-        if (parcel.readInt() != 0)
-        {
-            parcel = (Location)Location.CREATOR.createFromParcel(parcel);
-        } else
-        {
-            parcel = null;
-        }
-        a(parcel);
-        parcel1.writeNoException();
-        return true;
+    public fti c()
+    {
+        return null;
     }
 }

@@ -2,29 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentResolver;
-import android.content.Context;
-import com.google.android.apps.hangouts.mergedcontacts.impl.MergeContactsService;
-import com.google.android.apps.hangouts.mergedcontacts.impl.MergedContactProviderImpl;
 
-public final class caj extends MergeContactsService
+interface caj
 {
 
-    final MergedContactProviderImpl c;
+    public abstract void a();
 
-    public caj(MergedContactProviderImpl mergedcontactproviderimpl)
-    {
-        c = mergedcontactproviderimpl;
-        super();
-    }
-
-    public Context getApplicationContext()
-    {
-        return c.getContext();
-    }
-
-    public ContentResolver getContentResolver()
-    {
-        return c.getContext().getContentResolver();
-    }
+    public abstract void b();
 }

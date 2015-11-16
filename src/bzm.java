@@ -2,24 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.gms.maps.model.LatLng;
 
 final class bzm
-    implements Runnable
+    implements fik
 {
 
-    final int a;
-    final bzl b;
+    final bzk a;
 
-    bzm(bzl bzl1, int i)
+    bzm(bzk bzk1)
     {
-        b = bzl1;
-        a = i;
+        a = bzk1;
         super();
     }
 
-    public void run()
+    public boolean C_()
     {
-        dcx.c().b(this);
-        bzl.b(a);
+        return true;
+    }
+
+    public String a()
+    {
+        return a.a;
+    }
+
+    public CharSequence b()
+    {
+        return a.c;
+    }
+
+    public CharSequence c()
+    {
+        return a.d;
+    }
+
+    public LatLng d()
+    {
+        return a.b;
+    }
+
+    public Object f()
+    {
+        return this;
     }
 }

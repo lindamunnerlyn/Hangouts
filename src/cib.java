@@ -2,11 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import java.util.List;
 
-public interface cib
+final class cib extends Enum
 {
 
-    public abstract void a(List list, Bundle bundle);
+    public static final int a;
+    public static final int b;
+    public static final int c;
+    public static final int d;
+    public static final int e;
+    public static final int f;
+    public static final int g[] = a();
+    private static final int h[];
+
+    public static int[] a()
+    {
+        return (int[])h.clone();
+    }
+
+    static 
+    {
+        a = 1;
+        b = 2;
+        c = 3;
+        d = 4;
+        e = 5;
+        f = 6;
+        h = (new int[] {
+            a, b, c, d, e, f
+        });
+    }
 }

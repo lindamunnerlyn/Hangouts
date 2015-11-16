@@ -3,206 +3,106 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iii extends koj
+public final class iii extends kwm
 {
 
-    public int a[];
+    public int a;
+    public String b;
 
     public iii()
     {
-        a = kou.a;
+        a = 0x80000000;
+        b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int i = 0;
-        int k = super.computeSerializedSize();
-        if (a != null && a.length > 0)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != 0x80000000)
         {
-            int j = 0;
-            for (; i < a.length; i++)
-            {
-                j += koh.e(a[i]);
-            }
-
-            return k + j + a.length * 1;
-        } else
-        {
-            return k;
+            i = j + kwk.e(1, a);
         }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.b(2, b);
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L19:
-        int i = kog1.a();
+_L5:
+        int i = kwj1.a();
         i;
-        JVM INSTR lookupswitch 3: default 44
-    //                   0: 54
-    //                   8: 56
-    //                   10: 272;
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   8: 51
+    //                   18: 211;
            goto _L1 _L2 _L3 _L4
 _L1:
-        if (super.storeUnknownField(kog1, i))
-        {
-            continue; /* Loop/switch isn't completed */
-        }
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
 _L2:
         return this;
 _L3:
-        int ai[];
-        int j;
-        int i1;
-        i1 = kou.b(kog1, 8);
-        ai = new int[i1];
-        j = 0;
-        i = 0;
-_L11:
-        if (j >= i1) goto _L6; else goto _L5
-_L5:
-        int j1;
-        if (j != 0)
+        int j = kwj1.f();
+        switch (j)
         {
-            kog1.a();
-        }
-        j1 = kog1.f();
-        j1;
-        JVM INSTR tableswitch 1 10: default 156
-    //                   1 165
-    //                   2 165
-    //                   3 165
-    //                   4 165
-    //                   5 165
-    //                   6 165
-    //                   7 165
-    //                   8 165
-    //                   9 165
-    //                   10 165;
-           goto _L7 _L8 _L8 _L8 _L8 _L8 _L8 _L8 _L8 _L8 _L8
-_L7:
-        j++;
-          goto _L9
-_L8:
-        int k = i + 1;
-        ai[i] = j1;
-        i = k;
-        if (true) goto _L7; else goto _L9
-_L9:
-        if (true) goto _L11; else goto _L10
-_L10:
-_L6:
-        if (i != 0)
-        {
-            if (a == null)
-            {
-                j = 0;
-            } else
-            {
-                j = a.length;
-            }
-            if (j == 0 && i == ai.length)
-            {
-                a = ai;
-            } else
-            {
-                int ai1[] = new int[j + i];
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, ai1, 0, j);
-                }
-                System.arraycopy(ai, 0, ai1, j, i);
-                a = ai1;
-            }
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+        case 5: // '\005'
+        case 6: // '\006'
+        case 7: // '\007'
+        case 8: // '\b'
+        case 9: // '\t'
+        case 10: // '\n'
+        case 11: // '\013'
+        case 12: // '\f'
+        case 13: // '\r'
+        case 14: // '\016'
+        case 15: // '\017'
+        case 16: // '\020'
+        case 17: // '\021'
+        case 18: // '\022'
+        case 19: // '\023'
+        case 20: // '\024'
+        case 21: // '\025'
+        case 22: // '\026'
+        case 23: // '\027'
+        case 24: // '\030'
+        case 25: // '\031'
+        case 26: // '\032'
+        case 27: // '\033'
+        case 28: // '\034'
+        case 29: // '\035'
+        case 30: // '\036'
+        case 31: // '\037'
+        case 32: // ' '
+            a = j;
+            break;
         }
         continue; /* Loop/switch isn't completed */
 _L4:
-        int l;
-        l = kog1.c(kog1.p());
-        i = kog1.r();
-        j = 0;
-_L17:
-        if (kog1.q() > 0)
-        {
-            switch (kog1.f())
-            {
-            case 1: // '\001'
-            case 2: // '\002'
-            case 3: // '\003'
-            case 4: // '\004'
-            case 5: // '\005'
-            case 6: // '\006'
-            case 7: // '\007'
-            case 8: // '\b'
-            case 9: // '\t'
-            case 10: // '\n'
-                j++;
-                break;
-            }
-            continue; /* Loop/switch isn't completed */
-        }
-        if (j == 0) goto _L13; else goto _L12
-_L12:
-        kog1.e(i);
-        if (a == null)
-        {
-            i = 0;
-        } else
-        {
-            i = a.length;
-        }
-        ai = new int[j + i];
-        j = i;
-        if (i != 0)
-        {
-            System.arraycopy(a, 0, ai, 0, i);
-            j = i;
-        }
-_L15:
-        if (kog1.q() > 0)
-        {
-            i = kog1.f();
-            switch (i)
-            {
-            case 1: // '\001'
-            case 2: // '\002'
-            case 3: // '\003'
-            case 4: // '\004'
-            case 5: // '\005'
-            case 6: // '\006'
-            case 7: // '\007'
-            case 8: // '\b'
-            case 9: // '\t'
-            case 10: // '\n'
-                ai[j] = i;
-                j++;
-                break;
-            }
-            continue; /* Loop/switch isn't completed */
-        }
-        a = ai;
-          goto _L13
-        if (true) goto _L15; else goto _L14
-_L14:
-        if (true) goto _L17; else goto _L16
-_L16:
-_L13:
-        kog1.d(l);
-        if (true) goto _L19; else goto _L18
-_L18:
+        b = kwj1.j();
+        if (true) goto _L5; else goto _L6
+_L6:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null && a.length > 0)
+        if (a != 0x80000000)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                koh1.a(1, a[i]);
-            }
-
+            kwk1.a(1, a);
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        super.writeTo(kwk1);
     }
 }

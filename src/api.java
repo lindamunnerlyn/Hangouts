@@ -2,21 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-public final class api
+interface api
 {
 
-    public static final String a = apj.getName();
-    private static apg b;
-
-    public static void a(Context context, hgx hgx1)
-    {
-        if (b == null)
-        {
-            b = new apg();
-        }
-        hgx1.a(apj, b.a(context));
-    }
+    public static final String a[] = {
+        "merge_key", "min(chat_ringtone_uri)", "min(hangout_ringtone_uri)"
+    };
 
 }

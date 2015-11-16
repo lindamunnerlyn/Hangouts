@@ -2,46 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.nio.ByteBuffer;
-import java.nio.channels.WritableByteChannel;
 
 public final class hbm
-    implements WritableByteChannel
 {
 
-    private final hbh a;
-    private final WritableByteChannel b;
+    private final boolean a;
+    private final long b;
+    private final boolean c;
 
-    public hbm(WritableByteChannel writablebytechannel, hbg hbg)
+    hbm(hbn hbn1)
     {
-        b = writablebytechannel;
-        a = new hbh(hbg);
+        a = hbn1.a;
+        b = hbn1.b;
+        c = hbn1.c;
     }
 
-    public WritableByteChannel a()
+    public boolean a()
+    {
+        return a;
+    }
+
+    public long b()
     {
         return b;
     }
 
-    public void a(long l)
+    public boolean c()
     {
-        a.a(l);
-    }
-
-    public void close()
-    {
-        b.close();
-    }
-
-    public boolean isOpen()
-    {
-        return b.isOpen();
-    }
-
-    public int write(ByteBuffer bytebuffer)
-    {
-        int i = b.write(bytebuffer);
-        a.b(i);
-        return i;
+        return c;
     }
 }

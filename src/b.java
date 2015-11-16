@@ -3,7 +3,7 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class b extends koj
+public final class b extends kwm
 {
 
     private static volatile b i[];
@@ -21,11 +21,11 @@ public final class b extends koj
         a = null;
         b = null;
         c = null;
-        d = kou.f;
+        d = kwx.f;
         e = null;
         f = null;
         g = null;
-        h = kou.b;
+        h = kwx.b;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -34,7 +34,7 @@ public final class b extends koj
     {
         if (i == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
                 if (i == null)
                 {
@@ -52,18 +52,18 @@ public final class b extends koj
     protected int computeSerializedSize()
     {
         boolean flag = false;
-        int j = super.computeSerializedSize() + koh.b(1, a);
+        int j = super.computeSerializedSize() + kwk.b(1, a);
         int k = j;
         if (b != null)
         {
             b.booleanValue();
-            k = j + (koh.f(2) + 1);
+            k = j + (kwk.f(2) + 1);
         }
         j = k;
         if (c != null)
         {
             c.doubleValue();
-            j = k + (koh.f(3) + 8);
+            j = k + (kwk.f(3) + 8);
         }
         k = j;
         if (d != null)
@@ -83,7 +83,7 @@ public final class b extends koj
                     if (s != null)
                     {
                         k1 = j1 + 1;
-                        l1 = l + koh.a(s);
+                        l1 = l + kwk.a(s);
                     }
                     k++;
                     l = l1;
@@ -95,17 +95,17 @@ public final class b extends koj
         j = k;
         if (g != null)
         {
-            j = k + koh.e(5, g.intValue());
+            j = k + kwk.e(5, g.intValue());
         }
         k = j;
         if (e != null)
         {
-            k = j + koh.e(6, e.longValue());
+            k = j + kwk.e(6, e.longValue());
         }
         j = k;
         if (f != null)
         {
-            j = k + koh.e(7, f.longValue());
+            j = k + kwk.e(7, f.longValue());
         }
         k = j;
         if (h != null)
@@ -116,7 +116,7 @@ public final class b extends koj
                 int i1 = 0;
                 for (k = ((flag) ? 1 : 0); k < h.length; k++)
                 {
-                    i1 += koh.b(h[k]);
+                    i1 += kwk.b(h[k]);
                 }
 
                 k = j + i1 + h.length * 1;
@@ -125,15 +125,15 @@ public final class b extends koj
         return k;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int j = kog1.a();
+            int j = kwj1.a();
             switch (j)
             {
             default:
-                if (super.storeUnknownField(kog1, j))
+                if (super.storeUnknownField(kwj1, j))
                 {
                     continue;
                 }
@@ -143,19 +143,19 @@ public final class b extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                a = kwj1.j();
                 break;
 
             case 16: // '\020'
-                b = Boolean.valueOf(kog1.i());
+                b = Boolean.valueOf(kwj1.i());
                 break;
 
             case 25: // '\031'
-                c = Double.valueOf(kog1.b());
+                c = Double.valueOf(kwj1.b());
                 break;
 
             case 34: // '"'
-                int j1 = kou.b(kog1, 34);
+                int j1 = kwx.a(kwj1, 34);
                 String as[];
                 int k;
                 if (d == null)
@@ -174,28 +174,28 @@ public final class b extends koj
                 }
                 for (; j1 < as.length - 1; j1++)
                 {
-                    as[j1] = kog1.j();
-                    kog1.a();
+                    as[j1] = kwj1.j();
+                    kwj1.a();
                 }
 
-                as[j1] = kog1.j();
+                as[j1] = kwj1.j();
                 d = as;
                 break;
 
             case 40: // '('
-                g = Integer.valueOf(kog1.f());
+                g = Integer.valueOf(kwj1.f());
                 break;
 
             case 48: // '0'
-                e = Long.valueOf(kog1.e());
+                e = Long.valueOf(kwj1.e());
                 break;
 
             case 56: // '8'
-                f = Long.valueOf(kog1.e());
+                f = Long.valueOf(kwj1.e());
                 break;
 
             case 64: // '@'
-                int k1 = kou.b(kog1, 64);
+                int k1 = kwx.a(kwj1, 64);
                 long al[];
                 int l;
                 if (h == null)
@@ -214,24 +214,24 @@ public final class b extends koj
                 }
                 for (; k1 < al.length - 1; k1++)
                 {
-                    al[k1] = kog1.e();
-                    kog1.a();
+                    al[k1] = kwj1.e();
+                    kwj1.a();
                 }
 
-                al[k1] = kog1.e();
+                al[k1] = kwj1.e();
                 h = al;
                 break;
 
             case 66: // 'B'
-                int i2 = kog1.c(kog1.p());
-                int i1 = kog1.r();
+                int i2 = kwj1.c(kwj1.p());
+                int i1 = kwj1.r();
                 int l1;
-                for (l1 = 0; kog1.q() > 0; l1++)
+                for (l1 = 0; kwj1.q() > 0; l1++)
                 {
-                    kog1.e();
+                    kwj1.e();
                 }
 
-                kog1.e(i1);
+                kwj1.e(i1);
                 long al1[];
                 if (h == null)
                 {
@@ -249,27 +249,27 @@ public final class b extends koj
                 }
                 for (; l1 < al1.length; l1++)
                 {
-                    al1[l1] = kog1.e();
+                    al1[l1] = kwj1.e();
                 }
 
                 h = al1;
-                kog1.d(i2);
+                kwj1.d(i2);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         boolean flag = false;
-        koh1.a(1, a);
+        kwk1.a(1, a);
         if (b != null)
         {
-            koh1.a(2, b.booleanValue());
+            kwk1.a(2, b.booleanValue());
         }
         if (c != null)
         {
-            koh1.a(3, c.doubleValue());
+            kwk1.a(3, c.doubleValue());
         }
         if (d != null && d.length > 0)
         {
@@ -278,31 +278,31 @@ public final class b extends koj
                 String s = d[j];
                 if (s != null)
                 {
-                    koh1.a(4, s);
+                    kwk1.a(4, s);
                 }
             }
 
         }
         if (g != null)
         {
-            koh1.a(5, g.intValue());
+            kwk1.a(5, g.intValue());
         }
         if (e != null)
         {
-            koh1.b(6, e.longValue());
+            kwk1.b(6, e.longValue());
         }
         if (f != null)
         {
-            koh1.b(7, f.longValue());
+            kwk1.b(7, f.longValue());
         }
         if (h != null && h.length > 0)
         {
             for (int k = ((flag) ? 1 : 0); k < h.length; k++)
             {
-                koh1.b(8, h[k]);
+                kwk1.b(8, h[k]);
             }
 
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

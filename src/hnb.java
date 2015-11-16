@@ -2,12 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.nio.charset.Charset;
 
-public final class hnb
+public final class hnb extends hnd
 {
 
-    public static final Charset a = Charset.forName("UTF-8");
-    public static final Charset b = Charset.forName("ISO-8859-1");
+    private boolean a;
 
+    public hnb(String s)
+    {
+        this(s, true);
+    }
+
+    public hnb(String s, boolean flag)
+    {
+        super(s);
+        a = flag;
+    }
 }

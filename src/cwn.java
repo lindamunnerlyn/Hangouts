@@ -2,51 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
-public class cwn extends cvn
+public final class cwn
+    implements Serializable
 {
 
     private static final long serialVersionUID = 1L;
-    private final List g = new ArrayList();
+    public final String a;
+    public final List b;
 
-    private cwn(jbk jbk1)
+    public cwn(String s, List list)
     {
-        jba ajba[] = jbk1.a;
-        int j = ajba.length;
-        for (int i = 0; i < j; i++)
-        {
-            jba jba1 = ajba[i];
-            g.add(cey.a(jba1.c));
-        }
-
-        if (cvn.a)
-        {
-            jbk1 = String.valueOf(jbk1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(jbk1).length() + 36)).append("GetHangoutParticipantsResponse from:").append(jbk1).toString());
-        }
+        a = s;
+        b = list;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public jbf a()
     {
-        abyte0 = (jbk)kop.mergeFrom(new jbk(), abyte0);
-        if (a(((jbk) (abyte0)).responseHeader))
+        jbf jbf1 = new jbf();
+        jbf1.a = cvu.a(a);
+        if (b != null && b.size() > 0)
         {
-            return new cvz(((jbk) (abyte0)).responseHeader);
-        } else
-        {
-            return new cwn(abyte0);
+            jbf1.b = new String[b.size()];
+            for (int i = 0; i < b.size(); i++)
+            {
+                jbf1.b[i] = (String)b.get(i);
+            }
+
         }
-    }
-
-    public String k()
-    {
-        return ((cti)b).b;
-    }
-
-    public List l()
-    {
-        return g;
+        return jbf1;
     }
 }

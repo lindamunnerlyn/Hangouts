@@ -2,24 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.apps.hangouts.phone.AccountSelectionActivity;
+import android.content.Context;
 
 final class cit
-    implements android.os.Parcelable.Creator
+    implements cgh
 {
 
-    cit()
+    final ciq a;
+
+    cit(ciq ciq1)
     {
+        a = ciq1;
+        super();
     }
 
-    public Object createFromParcel(Parcel parcel)
+    public int a()
     {
-        return new AccountSelectionActivity();
+        return h.iJ;
     }
 
-    public Object[] newArray(int i)
+    public void a(Context context)
     {
-        return new AccountSelectionActivity[i];
+        g.a(ciq.a(context), 2502);
+        ciq.a(context, cov.h, atu.a);
+    }
+
+    public int b()
+    {
+        return n.e;
     }
 }

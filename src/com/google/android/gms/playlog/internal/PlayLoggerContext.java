@@ -6,16 +6,15 @@ package com.google.android.gms.playlog.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import frc;
+import ftr;
 import g;
-import h;
 import java.util.Arrays;
 
 public class PlayLoggerContext
     implements SafeParcelable
 {
 
-    public static final frc CREATOR = new frc();
+    public static final ftr CREATOR = new ftr();
     public final int a;
     public final String b;
     public final int c;
@@ -46,7 +45,7 @@ public class PlayLoggerContext
             int i1)
     {
         a = 1;
-        b = (String)h.a(s);
+        b = (String)g.d(s);
         c = k;
         d = l;
         h = s1;
@@ -63,20 +62,6 @@ public class PlayLoggerContext
         g = flag1;
         i = flag;
         j = i1;
-    }
-
-    public PlayLoggerContext(String s, int k, int l, String s1, String s2, boolean flag)
-    {
-        a = 1;
-        b = (String)h.a(s);
-        c = k;
-        d = l;
-        h = null;
-        e = s1;
-        f = s2;
-        g = true;
-        i = false;
-        j = 0;
     }
 
     public int describeContents()
@@ -129,7 +114,18 @@ public class PlayLoggerContext
 
     public void writeToParcel(Parcel parcel, int k)
     {
-        frc.a(this, parcel);
+        k = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b);
+        g.b(parcel, 3, c);
+        g.b(parcel, 4, d);
+        g.a(parcel, 5, e);
+        g.a(parcel, 6, f);
+        g.a(parcel, 7, g);
+        g.a(parcel, 8, h);
+        g.a(parcel, 9, i);
+        g.b(parcel, 10, j);
+        g.q(parcel, k);
     }
 
 }

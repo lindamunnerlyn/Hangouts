@@ -7,9 +7,9 @@ package com.google.android.apps.hangouts.telephony.rpc;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import dwz;
-import dxd;
-import ebw;
+import eaj;
+import ean;
+import eev;
 
 public class TeleHangoutsService extends Service
 {
@@ -22,17 +22,17 @@ public class TeleHangoutsService extends Service
     {
         if (!"com.google.android.apps.hangouts.telephony.ITeleHangoutsService".equals(intent.getAction()))
         {
-            ebw.g("Babel_telephony", "TeleHangoutService.onBind, unknown action; not binding");
+            eev.g("Babel_telephony", "TeleHangoutService.onBind, unknown action; not binding");
             return null;
         }
-        int i = dwz.a(this).b();
+        int i = eaj.a(this).b();
         if (i == -1)
         {
-            ebw.e("Babel_telephony", "No account; not establishing binding.");
+            eev.e("Babel_telephony", "No account; not establishing binding.");
             return null;
         } else
         {
-            return new dxd(this, i);
+            return new ean(this, i);
         }
     }
 }

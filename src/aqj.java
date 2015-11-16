@@ -3,12 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface aqj
+final class aqj extends aqf
 {
 
-    public abstract ceu a(cey cey);
+    private ahd a;
 
-    public abstract boolean b(cey cey);
+    public aqj(ahd ahd1)
+    {
+        super(aqc.f);
+        a = ahd1;
+    }
 
-    public abstract boolean c(cey cey);
+    public boolean a(int i)
+    {
+        return !a.f(i);
+    }
 }

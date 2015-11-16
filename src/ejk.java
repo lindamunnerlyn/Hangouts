@@ -2,57 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
+import android.text.TextUtils;
+import android.widget.TextView;
 
-public final class ejk
+public class ejk
 {
 
-    public static final int a;
-    private static final ejk b = new ejk();
+    public final TextView a;
+    private CharSequence b;
 
-    ejk()
+    public ejk(TextView textview)
+    {
+        a = textview;
+    }
+
+    public void a()
+    {
+        b = null;
+        b();
+    }
+
+    public void a(String s, String s1)
     {
     }
 
-    public static int a(Context context)
+    public void b()
     {
-        int j = ejn.a(context);
-        int i = j;
-        if (ejn.b(context, j))
+        int i;
+        if (!TextUtils.isEmpty(b))
         {
-            i = 18;
+            i = 0;
+        } else
+        {
+            i = 8;
         }
-        return i;
-    }
-
-    public static Intent a(int i)
-    {
-        return ejn.a(i);
-    }
-
-    public static ejk a()
-    {
-        return b;
-    }
-
-    public static boolean a(Context context, int i)
-    {
-        return ejn.b(context, i);
-    }
-
-    public static void b(Context context)
-    {
-        ejn.b(context);
-    }
-
-    public static void c(Context context)
-    {
-        ejn.c(context);
-    }
-
-    static 
-    {
-        a = ejn.a;
+        a.setVisibility(i);
+        a.setText(b);
     }
 }

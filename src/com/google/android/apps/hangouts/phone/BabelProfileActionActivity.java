@@ -10,20 +10,20 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
-import ani;
+import aoa;
 import bq;
 import br;
-import cnh;
-import dbf;
-import ebw;
+import coz;
+import dcn;
+import eev;
 import em;
-import hhw;
+import hmo;
 import l;
 
 // Referenced classes of package com.google.android.apps.hangouts.phone:
 //            BabelGatewayActivity
 
-public class BabelProfileActionActivity extends hhw
+public class BabelProfileActionActivity extends hmo
     implements br
 {
 
@@ -39,23 +39,23 @@ public class BabelProfileActionActivity extends hhw
     {
         if (cursor == null || !cursor.moveToFirst())
         {
-            Toast.makeText(this, l.it, 0).show();
+            Toast.makeText(this, l.hN, 0).show();
             finish();
             return;
         }
         String s = cursor.getString(1);
         if (TextUtils.isEmpty(s) || !s.startsWith("g:"))
         {
-            Toast.makeText(this, l.it, 0).show();
+            Toast.makeText(this, l.hN, 0).show();
             finish();
             return;
         }
         s = s.substring(2);
-        Object obj = dbf.a(cursor.getString(0), null);
+        Object obj = dcn.a(cursor.getString(0), null);
         int i;
         if (obj != null)
         {
-            i = ((ani) (obj)).h();
+            i = ((aoa) (obj)).h();
         } else
         {
             i = -1;
@@ -83,7 +83,7 @@ public class BabelProfileActionActivity extends hhw
             {
                 cursor = new String("Unrecognized profile command: ");
             }
-            ebw.g("Babel", cursor);
+            eev.g("Babel", cursor);
         }
         finish();
     }
@@ -107,7 +107,7 @@ public class BabelProfileActionActivity extends hhw
 
     public em onCreateLoader(int i, Bundle bundle)
     {
-        return new cnh(this, null, (Uri)bundle.getParcelable("data_uri"), j, null, null, null);
+        return new coz(this, null, (Uri)bundle.getParcelable("data_uri"), j, null, null, null);
     }
 
     public void onLoadFinished(em em, Object obj)

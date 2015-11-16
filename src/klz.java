@@ -3,21 +3,60 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface klz
-    extends Comparable
+public final class klz extends kwm
 {
 
-    public abstract int a();
+    public Boolean a;
 
-    public abstract kmz a(kmz kmz, kmy kmy);
+    public klz()
+    {
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
+    }
 
-    public abstract knb a(knb knb);
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
+        }
+        return i;
+    }
 
-    public abstract knw b();
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
 
-    public abstract kob c();
+            case 0: // '\0'
+                return this;
 
-    public abstract boolean d();
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
+    }
 
-    public abstract boolean e();
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
+        }
+        super.writeTo(kwk1);
+    }
 }

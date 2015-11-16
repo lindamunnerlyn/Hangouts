@@ -2,20 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.HashMap;
-import java.util.Map;
+import android.view.View;
 
-public final class ehm
+final class ehm
+    implements android.view.View.OnClickListener
 {
 
-    public Map a;
-    public Map b;
-    public Map c;
+    final eho a;
+    final ehl b;
 
-    public ehm()
+    ehm(ehl ehl, eho eho1)
     {
-        a = new HashMap();
-        b = new HashMap();
-        c = new HashMap();
+        b = ehl;
+        a = eho1;
+        super();
+    }
+
+    public void onClick(View view)
+    {
+        a.a(b);
     }
 }

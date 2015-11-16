@@ -3,58 +3,146 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kzo extends koj
+public final class kzo extends kwm
 {
 
-    private static volatile kzo b[];
-    public kyo a;
+    public static final kwn a = kwn.a(kzo, 0xcc87312L);
+    private static final kzo r[] = new kzo[0];
+    public String b;
+    public String c;
+    public String d;
+    public kzq e;
+    public kzm f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public kxc l;
+    public kxc m;
+    public String n;
+    public String o;
+    public Boolean p;
+    public String q;
 
     public kzo()
     {
-        a = null;
+        b = null;
+        c = null;
+        d = null;
+        e = null;
+        f = null;
+        g = null;
+        h = null;
+        i = null;
+        j = null;
+        k = null;
+        l = null;
+        m = null;
+        n = null;
+        o = null;
+        p = null;
+        q = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    public static kzo[] a()
-    {
-        if (b == null)
-        {
-            synchronized (kon.a)
-            {
-                if (b == null)
-                {
-                    b = new kzo[0];
-                }
-            }
-        }
-        return b;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        int j1 = super.computeSerializedSize();
+        int i1 = j1;
+        if (b != null)
         {
-            i = j + koh.d(1, a);
+            i1 = j1 + kwk.b(1, b);
         }
-        return i;
+        j1 = i1;
+        if (c != null)
+        {
+            j1 = i1 + kwk.b(2, c);
+        }
+        i1 = j1;
+        if (d != null)
+        {
+            i1 = j1 + kwk.b(3, d);
+        }
+        j1 = i1;
+        if (e != null)
+        {
+            j1 = i1 + kwk.d(4, e);
+        }
+        i1 = j1;
+        if (f != null)
+        {
+            i1 = j1 + kwk.d(5, f);
+        }
+        j1 = i1;
+        if (g != null)
+        {
+            j1 = i1 + kwk.b(6, g);
+        }
+        i1 = j1;
+        if (h != null)
+        {
+            i1 = j1 + kwk.b(7, h);
+        }
+        j1 = i1;
+        if (i != null)
+        {
+            j1 = i1 + kwk.b(8, i);
+        }
+        i1 = j1;
+        if (j != null)
+        {
+            i1 = j1 + kwk.b(9, j);
+        }
+        j1 = i1;
+        if (k != null)
+        {
+            j1 = i1 + kwk.b(10, k);
+        }
+        i1 = j1;
+        if (l != null)
+        {
+            i1 = j1 + kwk.d(11, l);
+        }
+        j1 = i1;
+        if (m != null)
+        {
+            j1 = i1 + kwk.d(12, m);
+        }
+        i1 = j1;
+        if (n != null)
+        {
+            i1 = j1 + kwk.b(13, n);
+        }
+        j1 = i1;
+        if (o != null)
+        {
+            j1 = i1 + kwk.b(14, o);
+        }
+        i1 = j1;
+        if (p != null)
+        {
+            p.booleanValue();
+            i1 = j1 + (kwk.f(15) + 1);
+        }
+        j1 = i1;
+        if (q != null)
+        {
+            j1 = i1 + kwk.b(16, q);
+        }
+        return j1;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
-            switch (i)
+            int i1 = kwj1.a();
+            switch (i1)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i1))
                 {
                     continue;
                 }
@@ -64,22 +152,155 @@ public final class kzo extends koj
                 return this;
 
             case 10: // '\n'
-                if (a == null)
+                b = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                c = kwj1.j();
+                break;
+
+            case 26: // '\032'
+                d = kwj1.j();
+                break;
+
+            case 34: // '"'
+                if (e == null)
                 {
-                    a = new kyo();
+                    e = new kzq();
                 }
-                kog1.a(a);
+                kwj1.a(e);
+                break;
+
+            case 42: // '*'
+                if (f == null)
+                {
+                    f = new kzm();
+                }
+                kwj1.a(f);
+                break;
+
+            case 50: // '2'
+                g = kwj1.j();
+                break;
+
+            case 58: // ':'
+                h = kwj1.j();
+                break;
+
+            case 66: // 'B'
+                i = kwj1.j();
+                break;
+
+            case 74: // 'J'
+                j = kwj1.j();
+                break;
+
+            case 82: // 'R'
+                k = kwj1.j();
+                break;
+
+            case 90: // 'Z'
+                if (l == null)
+                {
+                    l = new kxc();
+                }
+                kwj1.a(l);
+                break;
+
+            case 98: // 'b'
+                if (m == null)
+                {
+                    m = new kxc();
+                }
+                kwj1.a(m);
+                break;
+
+            case 106: // 'j'
+                n = kwj1.j();
+                break;
+
+            case 114: // 'r'
+                o = kwj1.j();
+                break;
+
+            case 120: // 'x'
+                p = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 130: 
+                q = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
+        if (b != null)
         {
-            koh1.b(1, a);
+            kwk1.a(1, b);
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.a(2, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(3, d);
+        }
+        if (e != null)
+        {
+            kwk1.b(4, e);
+        }
+        if (f != null)
+        {
+            kwk1.b(5, f);
+        }
+        if (g != null)
+        {
+            kwk1.a(6, g);
+        }
+        if (h != null)
+        {
+            kwk1.a(7, h);
+        }
+        if (i != null)
+        {
+            kwk1.a(8, i);
+        }
+        if (j != null)
+        {
+            kwk1.a(9, j);
+        }
+        if (k != null)
+        {
+            kwk1.a(10, k);
+        }
+        if (l != null)
+        {
+            kwk1.b(11, l);
+        }
+        if (m != null)
+        {
+            kwk1.b(12, m);
+        }
+        if (n != null)
+        {
+            kwk1.a(13, n);
+        }
+        if (o != null)
+        {
+            kwk1.a(14, o);
+        }
+        if (p != null)
+        {
+            kwk1.a(15, p.booleanValue());
+        }
+        if (q != null)
+        {
+            kwk1.a(16, q);
+        }
+        super.writeTo(kwk1);
     }
+
 }

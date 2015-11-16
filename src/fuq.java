@@ -2,69 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.gms.wearable.ConnectionConfiguration;
-import com.google.android.gms.wearable.internal.GetConfigResponse;
+import android.content.Context;
+import android.os.Looper;
+import java.util.concurrent.Executors;
 
-public final class fuq
-    implements android.os.Parcelable.Creator
+final class fuq extends emu
 {
 
-    public fuq()
+    fuq()
     {
     }
 
-    public static void a(GetConfigResponse getconfigresponse, Parcel parcel, int i)
+    public emw a(Context context, Looper looper, epo epo, Object obj, enb enb, end end)
     {
-        int j = g.p(parcel, 20293);
-        g.b(parcel, 1, getconfigresponse.a);
-        g.b(parcel, 2, getconfigresponse.b);
-        g.a(parcel, 3, getconfigresponse.c, i);
-        g.q(parcel, j);
-    }
-
-    public Object createFromParcel(Parcel parcel)
-    {
-        int j = 0;
-        int k = g.a(parcel);
-        ConnectionConfiguration connectionconfiguration = null;
-        int i = 0;
-        do
-        {
-            if (parcel.dataPosition() < k)
-            {
-                int l = parcel.readInt();
-                switch (0xffff & l)
-                {
-                default:
-                    g.b(parcel, l);
-                    break;
-
-                case 1: // '\001'
-                    i = g.e(parcel, l);
-                    break;
-
-                case 2: // '\002'
-                    j = g.e(parcel, l);
-                    break;
-
-                case 3: // '\003'
-                    connectionconfiguration = (ConnectionConfiguration)g.a(parcel, l, ConnectionConfiguration.CREATOR);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != k)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
-            } else
-            {
-                return new GetConfigResponse(i, j, connectionconfiguration);
-            }
-        } while (true);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new GetConfigResponse[i];
+        obj = ftv.a;
+        return new fuj(context, looper, false, epo, enb, end, Executors.newSingleThreadExecutor());
     }
 }

@@ -2,22 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.content.Intent;
 
-final class dol
-    implements hfe
+public abstract class dol
 {
 
-    final dok a;
-
-    dol(dok dok1)
+    public dol()
     {
-        a = dok1;
-        super();
     }
 
-    public boolean a(hfa hfa, Object obj)
+    public abstract Class a();
+
+    public abstract void a(Context context, Intent intent);
+
+    public Intent b(Context context, Intent intent)
     {
-        dbf.c(dok.a(a));
-        return true;
+        intent.putExtra("ds_processor", getClass().getName());
+        intent.setClass(context, a());
+        return intent;
     }
 }

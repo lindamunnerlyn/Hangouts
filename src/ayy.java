@@ -2,32 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import com.google.android.apps.hangouts.conversation.v2.FauxConversationSnackbar;
-import com.google.android.libraries.quantum.snackbar.Snackbar;
 
-public final class ayy extends AnimatorListenerAdapter
+final class ayy
+    implements bie
 {
 
-    final Snackbar a;
+    final ayx a;
 
-    public ayy(Snackbar snackbar)
+    ayy(ayx ayx)
     {
-        a = snackbar;
+        a = ayx;
         super();
     }
 
-    public void onAnimationEnd(Animator animator)
+    public bib a()
     {
-        if (android.os.Build.VERSION.SDK_INT < 21 && a.d() != 0)
-        {
-            FauxConversationSnackbar.a(a);
-        }
-    }
-
-    public void onAnimationStart(Animator animator)
-    {
-        a.setVisibility(0);
+        return new avv();
     }
 }

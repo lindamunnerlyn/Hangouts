@@ -11,8 +11,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.google.android.gms.wearable.internal.DataItemAssetParcelable;
-import fwy;
-import h;
+import fzc;
+import g;
 import java.security.SecureRandom;
 import java.util.Collections;
 import java.util.HashMap;
@@ -28,9 +28,9 @@ public class PutDataRequest
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fwy();
+    public static final android.os.Parcelable.Creator CREATOR = new fzc();
     private static final Random b = new SecureRandom();
-    public final int a;
+    final int a;
     private final Uri c;
     private final Bundle d;
     private byte e[];
@@ -80,8 +80,8 @@ public class PutDataRequest
 
     public PutDataRequest a(String s, Asset asset)
     {
-        h.a(s);
-        h.a(asset);
+        g.d(s);
+        g.d(asset);
         d.putParcelable(s, asset);
         return this;
     }
@@ -157,7 +157,12 @@ public class PutDataRequest
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fwy.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, a(), i);
+        g.a(parcel, 4, d());
+        g.a(parcel, 5, b());
+        g.q(parcel, j);
     }
 
 }

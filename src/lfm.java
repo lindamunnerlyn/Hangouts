@@ -2,107 +2,93 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import org.xml.sax.Attributes;
 
-public final class lfm extends ley
+final class lfm
 {
 
-    public lfm(lcy lcy1, lcz lcz)
+    lfp a;
+    Attributes b;
+
+    lfm(Attributes attributes)
     {
-        super(lcy1, lcz);
-        if (lcy1.g() != 0)
+        a = null;
+        b = attributes;
+        attributes = lfg.a("style", attributes);
+        if (attributes != null)
         {
-            throw new IllegalArgumentException("Wrapped field's minumum value must be zero");
-        } else
-        {
-            return;
+            a = new lfp(attributes);
         }
     }
 
-    public int a(long l)
+    public String a(String s)
     {
-        int k = super.b.a(l);
-        int j = k;
-        if (k == 0)
+        String s1 = null;
+        if (a != null)
         {
-            j = h();
+            s1 = a.a(s);
         }
-        return j;
-    }
-
-    public long a(long l, int j)
-    {
-        return super.b.a(l, j);
-    }
-
-    public long a(long l, long l1)
-    {
-        return super.b.a(l, l1);
-    }
-
-    public long b(long l, int j)
-    {
-        int i1 = h();
-        h.a(this, j, 1, i1);
-        int k = j;
-        if (j == i1)
+        String s2 = s1;
+        if (s1 == null)
         {
-            k = 0;
+            s2 = lfg.a(s, b);
         }
-        return super.b.b(l, k);
+        return s2;
     }
 
-    public boolean b(long l)
+    public String b(String s)
     {
-        return super.b.b(l);
+        return a(s);
     }
 
-    public int c(long l)
+    public Integer c(String s)
     {
-        return super.b.c(l) + 1;
+        s = a(s);
+        if (s == null)
+        {
+            return null;
+        }
+        if (!s.startsWith("#") || s.length() != 4 && s.length() != 7)
+        {
+            break MISSING_BLOCK_LABEL_111;
+        }
+        int i;
+        int j;
+        try
+        {
+            j = Integer.parseInt(s.substring(1), 16);
+        }
+        // Misplaced declaration of an exception variable
+        catch (String s)
+        {
+            return null;
+        }
+        i = j;
+        if (s.length() == 4)
+        {
+            i = j & 0xf | ((j & 0xf00) << 8 | (j & 0xf00) << 12 | (j & 0xf0) << 4 | (j & 0xf0) << 8 | (j & 0xf) << 4);
+        }
+        return Integer.valueOf(i);
+        return lff.a(s);
     }
 
-    public long d(long l)
+    public Float d(String s)
     {
-        return super.b.d(l);
-    }
-
-    public long e(long l)
-    {
-        return super.b.e(l);
-    }
-
-    public long f(long l)
-    {
-        return super.b.f(l);
-    }
-
-    public ldh f()
-    {
-        return super.b.f();
-    }
-
-    public int g()
-    {
-        return 1;
-    }
-
-    public long g(long l)
-    {
-        return super.b.g(l);
-    }
-
-    public int h()
-    {
-        return super.b.h() + 1;
-    }
-
-    public long h(long l)
-    {
-        return super.b.h(l);
-    }
-
-    public long i(long l)
-    {
-        return super.b.i(l);
+        s = a(s);
+        if (s == null)
+        {
+            return null;
+        }
+        float f;
+        try
+        {
+            f = Float.parseFloat(s);
+        }
+        // Misplaced declaration of an exception variable
+        catch (String s)
+        {
+            return null;
+        }
+        return Float.valueOf(f);
     }
 }

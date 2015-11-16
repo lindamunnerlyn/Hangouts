@@ -2,22 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Rect;
 
 final class rd
-    implements uv
+    implements Runnable
 {
 
-    final ra a;
+    final rc a;
 
-    rd(ra ra1)
+    rd(rc rc1)
     {
-        a = ra1;
+        a = rc1;
         super();
     }
 
-    public void a(Rect rect)
+    public void run()
     {
-        rect.top = ra.b(a, rect.top);
+        if ((a.u & 1) != 0)
+        {
+            rc.a(a, 0);
+        }
+        if ((a.u & 0x1000) != 0)
+        {
+            rc.a(a, 108);
+        }
+        a.t = false;
+        a.u = 0;
     }
 }

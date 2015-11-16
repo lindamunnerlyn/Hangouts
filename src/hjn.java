@@ -2,28 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import android.os.Parcel;
 
 final class hjn
-    implements hjr
+    implements android.os.Parcelable.Creator
 {
 
-    final Bundle a;
-    final hjm b;
-
-    hjn(hjm hjm1, Bundle bundle)
+    hjn()
     {
-        b = hjm1;
-        a = bundle;
-        super();
     }
 
-    public void a(fsn fsn)
+    public Object createFromParcel(Parcel parcel)
     {
-        if (fsn instanceof hjt)
-        {
-            Bundle bundle = b.a(fsn, a);
-            ((hjt)fsn).a(bundle);
-        }
+        return new hjm(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new hjm[i];
     }
 }

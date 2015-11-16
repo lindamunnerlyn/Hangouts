@@ -2,56 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Dialog;
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.os.Bundle;
+import android.content.res.Resources;
+import android.view.View;
+import android.view.ViewGroup;
 
-public final class bgc extends ac
+public final class bgc extends aux
 {
 
-    private android.content.DialogInterface.OnCancelListener aj;
+    dvn d;
 
-    public bgc()
+    public bgc(View view, bge bge1, dvi dvi)
     {
+        super(view, bge1, dvi);
+        d = new bgd(this);
     }
 
-    public Dialog a(Bundle bundle)
+    protected boolean a()
     {
-        bundle = new ProgressDialog(getActivity());
-        bundle.setMessage(getArguments().getString("message"));
-        bundle.setProgressStyle(0);
-        return bundle;
+        return ((bge)c).f() > 0;
     }
 
-    public void a(android.content.DialogInterface.OnCancelListener oncancellistener)
+    protected dvg b()
     {
-        aj = oncancellistener;
-    }
-
-    public void onCancel(DialogInterface dialoginterface)
-    {
-        if (aj != null)
+        g.a(dcn.e(((gqu)hlp.a(b.getContext(), gqu)).a()), 1814);
+        dvh dvh1 = e();
+        Resources resources = b.getResources();
+        if (((bge)c).f() == 1)
         {
-            aj.onCancel(dialoginterface);
-        }
-    }
-
-    public void onCreate(Bundle bundle)
-    {
-        super.onCreate(bundle);
-        if (getParentFragment() == null)
+            dvh1.a(resources.getString(l.G, new Object[] {
+                ((bge)c).q().e
+            }));
+            dvh1.c(resources.getString(l.iP));
+            dvh1.a(d);
+        } else
         {
-            setRetainInstance(true);
+            dvh1.a(resources.getString(l.E, new Object[] {
+                Integer.valueOf(((bge)c).f())
+            }));
         }
-    }
-
-    public void onDestroyView()
-    {
-        if (c() != null && getRetainInstance())
-        {
-            c().setDismissMessage(null);
-        }
-        super.onDestroyView();
+        return dvh1.a();
     }
 }

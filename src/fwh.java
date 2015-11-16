@@ -3,11 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-abstract class fwh extends ekl
+public final class fwh
 {
 
-    public fwh(ejx ejx)
+    public fwh()
     {
-        super(ftl.k, ejx);
     }
 }

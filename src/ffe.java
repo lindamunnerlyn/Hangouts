@@ -2,32 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
+import java.net.HttpURLConnection;
+import org.apache.http.HttpVersion;
+import org.apache.http.StatusLine;
+import org.apache.http.message.BasicHttpResponse;
+import org.apache.http.message.BasicStatusLine;
 
-public final class ffe extends fmr
+final class ffe extends BasicHttpResponse
 {
 
-    final String a;
-    final String b;
-    final fly i;
-    final flx j;
+    private static final StatusLine b;
+    HttpURLConnection a;
 
-    public ffe(flx flx, ejx ejx, String s, String s1, fly fly1)
+    ffe()
     {
-        j = flx;
-        a = s;
-        b = s1;
-        i = fly1;
-        super(ejx);
+        super(b, null, null);
     }
 
-    protected ekg a(Status status)
+    static 
     {
-        return new fff(this, status);
-    }
-
-    protected void a(ejv ejv)
-    {
-        ((fpo)ejv).a(this, a, b, i.a(), i.b(), i.c(), i.e(), i.f(), i.g(), i.h(), i.i());
+        b = new BasicStatusLine(HttpVersion.HTTP_1_1, 500, "Unknown error");
     }
 }

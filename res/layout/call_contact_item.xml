@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:hangouts="http://schemas.android.com/apk/res-auto">
     <com.google.android.apps.hangouts.views.AvatarView android:layout_gravity="center_vertical" android:id="@id/avatar" android:layout_width="@dimen/conversation_avatar_dimension" android:layout_height="@dimen/conversation_avatar_dimension" hangouts:avatarViewSize="medium" />
     <FrameLayout android:id="@id/avatar_placeholder" android:visibility="gone" android:layout_width="@dimen/conversation_avatar_dimension" android:layout_height="1.0dip" />
-    <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:paddingLeft="@dimen/l_space" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:paddingStart="@dimen/l_space">
+    <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:paddingLeft="@dimen/l_space" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
         <TextView android:id="@id/name" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/PeopleListItemViewNameStyle" />
         <com.google.android.apps.hangouts.views.ContactDetailItemView android:id="@id/contact_detail_item" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/PeopleListItemViewDetailStyle" />
     </LinearLayout>

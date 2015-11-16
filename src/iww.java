@@ -3,66 +3,65 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iww extends koj
+public final class iww extends kwm
 {
 
-    public itb a;
-    public ivz b;
-    public byte c[];
-    public Long d;
-    public ixf requestHeader;
+    public jbr a;
+    public izd b[];
 
     public iww()
     {
-        requestHeader = null;
         a = null;
-        b = null;
-        c = null;
-        d = null;
+        b = izd.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (requestHeader != null)
-        {
-            i = j + koh.d(1, requestHeader);
-        }
-        j = i;
-        if (c != null)
-        {
-            j = i + koh.b(2, c);
-        }
-        i = j;
+        int i = super.computeSerializedSize();
+        int j = i;
         if (b != null)
         {
-            i = j + koh.d(3, b);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.d(4, d.longValue());
+            j = i;
+            if (b.length > 0)
+            {
+                int k = 0;
+                do
+                {
+                    j = i;
+                    if (k >= b.length)
+                    {
+                        break;
+                    }
+                    izd izd1 = b[k];
+                    j = i;
+                    if (izd1 != null)
+                    {
+                        j = i + kwk.d(2, izd1);
+                    }
+                    k++;
+                    i = j;
+                } while (true);
+            }
         }
         i = j;
         if (a != null)
         {
-            i = j + koh.d(5, a);
+            i = j + kwk.d(3, a);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -71,63 +70,65 @@ public final class iww extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (requestHeader == null)
-                {
-                    requestHeader = new ixf();
-                }
-                kog1.a(requestHeader);
-                break;
-
             case 18: // '\022'
-                c = kog1.k();
+                int k = kwx.a(kwj1, 18);
+                izd aizd[];
+                int j;
+                if (b == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = b.length;
+                }
+                aizd = new izd[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(b, 0, aizd, 0, j);
+                    k = j;
+                }
+                for (; k < aizd.length - 1; k++)
+                {
+                    aizd[k] = new izd();
+                    kwj1.a(aizd[k]);
+                    kwj1.a();
+                }
+
+                aizd[k] = new izd();
+                kwj1.a(aizd[k]);
+                b = aizd;
                 break;
 
             case 26: // '\032'
-                if (b == null)
-                {
-                    b = new ivz();
-                }
-                kog1.a(b);
-                break;
-
-            case 32: // ' '
-                d = Long.valueOf(kog1.d());
-                break;
-
-            case 42: // '*'
                 if (a == null)
                 {
-                    a = new itb();
+                    a = new jbr();
                 }
-                kog1.a(a);
+                kwj1.a(a);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (requestHeader != null)
+        if (b != null && b.length > 0)
         {
-            koh1.b(1, requestHeader);
-        }
-        if (c != null)
-        {
-            koh1.a(2, c);
-        }
-        if (b != null)
-        {
-            koh1.b(3, b);
-        }
-        if (d != null)
-        {
-            koh1.a(4, d.longValue());
+            for (int i = 0; i < b.length; i++)
+            {
+                izd izd1 = b[i];
+                if (izd1 != null)
+                {
+                    kwk1.b(2, izd1);
+                }
+            }
+
         }
         if (a != null)
         {
-            koh1.b(5, a);
+            kwk1.b(3, a);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

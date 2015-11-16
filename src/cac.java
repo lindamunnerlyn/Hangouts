@@ -3,44 +3,67 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.os.ConditionVariable;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import android.os.SystemClock;
 
-final class cac extends dhh
+public final class cac
+    implements gcz
 {
 
-    cwi a;
-    Exception b;
-    Context c;
-    final cab d;
-    private ConditionVariable e;
+    private static final boolean a = false;
+    private ell b;
+    private long c;
+    private int d;
+    private final Context e;
 
-    cac(cab cab, Context context, ConditionVariable conditionvariable)
+    public cac(Context context, String s, int i)
     {
-        d = cab;
-        super(context);
-        c = context;
-        e = conditionvariable;
+        this(new ell(context.getApplicationContext(), "HANGOUT_LOG_REQUEST", s), i, context);
     }
 
-    protected void a(dgu dgu1)
+    private cac(ell ell1, int i, Context context)
     {
-        a = (cwi)dgu1.c();
-        e.open();
+        b = ell1;
+        d = i;
+        c = SystemClock.elapsedRealtime();
+        e = context;
     }
 
-    protected void a(Exception exception)
+    public gda a(int i)
     {
-        b = exception;
-        e.open();
+        return new cad(this, i);
     }
 
-    void a(Collection collection, int i)
+    public void a()
     {
-        ArrayList arraylist = new ArrayList();
-        for (collection = collection.iterator(); collection.hasNext(); arraylist.add(dac.b(null, (String)collection.next()))) { }
-        g.a(new cad(this, i, arraylist));
+        c = SystemClock.elapsedRealtime();
+    }
+
+    public void a(jlt jlt1)
+    {
+        b.a(jlt.toByteArray(jlt1)).a();
+        if (a)
+        {
+            eev.b("Clearcut", jlt1.toString());
+        }
+    }
+
+    int b()
+    {
+        return d;
+    }
+
+    Context c()
+    {
+        return e;
+    }
+
+    long d()
+    {
+        return c;
+    }
+
+    static 
+    {
+        hnc hnc = eev.c;
     }
 }

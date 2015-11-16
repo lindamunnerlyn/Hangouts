@@ -2,6 +2,7 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.graphics.Matrix;
 import com.android.ex.photo.views.PhotoView;
 
 public final class abt
@@ -11,99 +12,76 @@ public final class abt
     private final PhotoView a;
     private float b;
     private float c;
-    private long d;
-    private boolean e;
+    private float d;
+    private long e;
     private boolean f;
+    private boolean g;
 
     public abt(PhotoView photoview)
     {
-        d = -1L;
         a = photoview;
     }
 
     public void a()
     {
-        e = false;
-        f = true;
-    }
-
-    public boolean a(float f1, float f2)
-    {
-        if (e)
-        {
-            return false;
-        } else
-        {
-            d = -1L;
-            b = f1;
-            c = f2;
-            f = false;
-            e = true;
-            a.postDelayed(this, 250L);
-            return true;
-        }
+        f = false;
+        g = true;
     }
 
     public void run()
     {
-        if (!f) goto _L2; else goto _L1
+        if (!g) goto _L2; else goto _L1
 _L1:
         return;
 _L2:
-        float f1;
-        float f2;
-        float f3;
-        long l = System.currentTimeMillis();
-        if (d != -1L)
+label0:
         {
-            f1 = l - d;
-        } else
-        {
-            f1 = 0.0F;
+            if (c == b)
+            {
+                continue; /* Loop/switch isn't completed */
+            }
+            long l1 = System.currentTimeMillis();
+            float f1;
+            float f2;
+            PhotoView photoview;
+            long l;
+            if (e != -1L)
+            {
+                l = l1 - e;
+            } else
+            {
+                l = 0L;
+            }
+            f1 = d;
+            f2 = (float)l * f1;
+            if (c >= b || c + f2 <= b)
+            {
+                f1 = f2;
+                if (c <= b)
+                {
+                    break label0;
+                }
+                f1 = f2;
+                if (c + f2 >= b)
+                {
+                    break label0;
+                }
+            }
+            f1 = b - c;
         }
-        if (d == -1L)
-        {
-            d = l;
-        }
-        if (f1 < 100F) goto _L4; else goto _L3
-_L3:
-        f2 = b;
-_L6:
-        f1 = c;
-        f3 = f2;
-        f2 = f1;
-_L8:
-        PhotoView.a(a, f3, f2);
-        b = b - f3;
-        c = c - f2;
-        if (b == 0.0F && c == 0.0F)
+        photoview = a;
+        photoview.c = photoview.c + f1;
+        photoview.a.postRotate(f1, photoview.getWidth() / 2, photoview.getHeight() / 2);
+        photoview.invalidate();
+        c = f1 + c;
+        if (c == b)
         {
             a();
         }
-        if (!f)
-        {
-            a.post(this);
-            return;
-        }
-          goto _L1
-_L4:
-        f2 = (b / (100F - f1)) * 10F;
-        f3 = (c / (100F - f1)) * 10F;
-        if (Math.abs(f2) > Math.abs(b) || Float.isNaN(f2))
-        {
-            f1 = b;
-        } else
-        {
-            f1 = f2;
-        }
-        f2 = f1;
-        if (Math.abs(f3) > Math.abs(c)) goto _L6; else goto _L5
-_L5:
-        f2 = f1;
-        if (Float.isNaN(f3)) goto _L6; else goto _L7
-_L7:
-        f2 = f3;
-        f3 = f1;
-          goto _L8
+        e = l1;
+        if (g) goto _L1; else goto _L3
+_L3:
+        a.post(this);
+        return;
     }
 }

@@ -2,56 +2,79 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.util.SparseArray;
+import android.util.SparseIntArray;
+import java.util.ArrayList;
 
-final class zk extends yz
+public final class zk
 {
 
-    final yr a;
+    private SparseArray a;
+    private SparseIntArray b;
+    private int c;
 
-    zk(yr yr1)
+    public zk()
     {
-        a = yr1;
-        super();
+        a = new SparseArray();
+        b = new SparseIntArray();
+        c = 0;
     }
 
-    private void a()
+    public zs a(int i)
     {
-        if (yr.m(a) && yr.n(a) && yr.o(a))
+        ArrayList arraylist = (ArrayList)a.get(i);
+        if (arraylist != null && !arraylist.isEmpty())
         {
-            kb.a(a, yr.p(a));
+            i = arraylist.size() - 1;
+            zs zs1 = (zs)arraylist.get(i);
+            arraylist.remove(i);
+            return zs1;
+        } else
+        {
+            return null;
+        }
+    }
+
+    void a(yz yz, yz yz1, boolean flag)
+    {
+        if (yz != null)
+        {
+            c = c - 1;
+        }
+        if (!flag && c == 0)
+        {
+            a.clear();
+        }
+        if (yz1 != null)
+        {
+            c = c + 1;
+        }
+    }
+
+    public void a(zs zs1)
+    {
+        int i = zs1.e;
+        ArrayList arraylist1 = (ArrayList)a.get(i);
+        ArrayList arraylist = arraylist1;
+        if (arraylist1 == null)
+        {
+            ArrayList arraylist2 = new ArrayList();
+            a.put(i, arraylist2);
+            arraylist = arraylist2;
+            if (b.indexOfKey(i) < 0)
+            {
+                b.put(i, 5);
+                arraylist = arraylist2;
+            }
+        }
+        if (b.get(i) <= arraylist.size())
+        {
             return;
         } else
         {
-            yr.q(a);
-            a.requestLayout();
+            zs1.t();
+            arraylist.add(zs1);
             return;
-        }
-    }
-
-    public void a(int i, int j)
-    {
-        a.a(null);
-        if (a.b.a(i, j))
-        {
-            a();
-        }
-    }
-
-    public void a(int i, int j, Object obj)
-    {
-        a.a(null);
-        if (a.b.a(i, j, null))
-        {
-            a();
-        }
-    }
-
-    public void b(int i, int j)
-    {
-        a.a(null);
-        if (a.b.b(i, j))
-        {
-            a();
         }
     }
 }

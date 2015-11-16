@@ -6,16 +6,14 @@
 public final class art
 {
 
-    public static final String a = aro.getName();
-    private static ars b;
+    public final boolean a;
+    public final String b;
+    public final String c;
 
-    public static void a(hgx hgx1)
+    public art(boolean flag, String s, String s1)
     {
-        if (b == null)
-        {
-            b = new ars();
-        }
-        hgx1.a(aro, new aro());
+        a = flag;
+        b = s;
+        c = s1;
     }
-
 }

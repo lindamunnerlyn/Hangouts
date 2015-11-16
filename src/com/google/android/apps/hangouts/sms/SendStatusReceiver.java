@@ -10,7 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 import com.google.android.apps.hangouts.requestwriter.RequestWriter;
-import ebw;
+import eev;
 
 public class SendStatusReceiver extends BroadcastReceiver
 {
@@ -27,11 +27,11 @@ public class SendStatusReceiver extends BroadcastReceiver
         int i = getResultCode();
         if (a)
         {
-            ebw.b("Babel_SMS", (new StringBuilder(String.valueOf(obj).length() + 28)).append("Action: ").append(((String) (obj))).append(" result: ").append(i).toString());
+            eev.b("Babel_SMS", (new StringBuilder(String.valueOf(obj).length() + 28)).append("Action: ").append(((String) (obj))).append(" result: ").append(i).toString());
             if (i == 1 && intent.hasExtra("errorCode"))
             {
                 int j = intent.getIntExtra("errorCode", 0);
-                ebw.b("Babel_SMS", (new StringBuilder(23)).append("Error code: ").append(j).toString());
+                eev.b("Babel_SMS", (new StringBuilder(23)).append("Error code: ").append(j).toString());
             }
         }
         if ("com.google.android.apps.hangouts.sms.SendStatusReceiver.MESSAGE_SENT".equals(obj))
@@ -39,7 +39,7 @@ public class SendStatusReceiver extends BroadcastReceiver
             long l = ContentUris.parseId(intent.getData());
             if (a)
             {
-                ebw.b("Babel_SMS", (new StringBuilder(32)).append("Request ID: ").append(l).toString());
+                eev.b("Babel_SMS", (new StringBuilder(32)).append("Request ID: ").append(l).toString());
             }
             intent = RequestWriter.k();
             intent.putExtra("sms_request_id", l);
@@ -78,6 +78,6 @@ public class SendStatusReceiver extends BroadcastReceiver
 
     static 
     {
-        hik hik = ebw.r;
+        hnc hnc = eev.r;
     }
 }

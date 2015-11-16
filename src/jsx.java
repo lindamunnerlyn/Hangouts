@@ -2,148 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
 
-public final class jsx extends koj
+final class jsx extends jsv
 {
 
-    private static volatile jsx c[];
-    public String a[];
-    public String b;
+    private final transient jso a;
+    private final transient java.util.Map.Entry b[];
 
-    public jsx()
+    jsx(jso jso, java.util.Map.Entry aentry[])
     {
-        a = kou.f;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = jso;
+        b = aentry;
     }
 
-    public static jsx[] a()
+    public jyh a()
     {
-        if (c == null)
-        {
-            synchronized (kon.a)
-            {
-                if (c == null)
-                {
-                    c = new jsx[0];
-                }
-            }
-        }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return f().a();
     }
 
-    protected int computeSerializedSize()
+    jso b()
     {
-        int i = 0;
-        int k1 = super.computeSerializedSize();
-        int k;
-        if (a != null && a.length > 0)
-        {
-            int j = 0;
-            int l;
-            int i1;
-            for (l = 0; i < a.length; l = i1)
-            {
-                String s = a[i];
-                int j1 = j;
-                i1 = l;
-                if (s != null)
-                {
-                    i1 = l + 1;
-                    j1 = j + koh.a(s);
-                }
-                i++;
-                j = j1;
-            }
-
-            i = k1 + j + l * 1;
-        } else
-        {
-            i = k1;
-        }
-        k = i;
-        if (b != null)
-        {
-            k = i + koh.b(2, b);
-        }
-        return k;
+        return a;
     }
 
-    public kop mergeFrom(kog kog1)
+    jsh g()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                String as[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                as = new String[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, as, 0, j);
-                    k = j;
-                }
-                for (; k < as.length - 1; k++)
-                {
-                    as[k] = kog1.j();
-                    kog1.a();
-                }
-
-                as[k] = kog1.j();
-                a = as;
-                break;
-
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-            }
-        } while (true);
+        return new jxd(this, b);
     }
 
-    public void writeTo(koh koh1)
+    public Iterator iterator()
     {
-        if (a != null && a.length > 0)
-        {
-            for (int i = 0; i < a.length; i++)
-            {
-                String s = a[i];
-                if (s != null)
-                {
-                    koh1.a(1, s);
-                }
-            }
-
-        }
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
-        super.writeTo(koh1);
+        return a();
     }
 }

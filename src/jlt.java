@@ -2,43 +2,159 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
-import java.util.Iterator;
 
-class jlt
-    implements Serializable
+public final class jlt extends kwm
 {
 
-    private static final long serialVersionUID = 0L;
-    private final Object a[];
-    private final Object b[];
+    public jll a;
+    public jlz b;
+    public jkz c;
+    public jls d;
+    public lcj e;
+    public jmd f;
 
-    jlt(jlr jlr1)
+    public jlt()
     {
-        a = new Object[jlr1.size()];
-        b = new Object[jlr1.size()];
-        jlr1 = jlr1.b().iterator();
-        for (int i = 0; jlr1.hasNext(); i++)
-        {
-            java.util.Map.Entry entry = (java.util.Map.Entry)jlr1.next();
-            a[i] = entry.getKey();
-            b[i] = entry.getValue();
-        }
-
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        e = null;
+        f = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    Object a(jls jls1)
+    protected int computeSerializedSize()
     {
-        for (int i = 0; i < a.length; i++)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            jls1.a(a[i], b[i]);
+            i = j + kwk.d(1, a);
         }
-
-        return jls1.a();
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(2, b);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.d(3, c);
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.d(4, d);
+        }
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.d(5, e);
+        }
+        j = i;
+        if (f != null)
+        {
+            j = i + kwk.d(6, f);
+        }
+        return j;
     }
 
-    Object readResolve()
+    public kws mergeFrom(kwj kwj1)
     {
-        return a(new jls());
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new jll();
+                }
+                kwj1.a(a);
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new jlz();
+                }
+                kwj1.a(b);
+                break;
+
+            case 26: // '\032'
+                if (c == null)
+                {
+                    c = new jkz();
+                }
+                kwj1.a(c);
+                break;
+
+            case 34: // '"'
+                if (d == null)
+                {
+                    d = new jls();
+                }
+                kwj1.a(d);
+                break;
+
+            case 42: // '*'
+                if (e == null)
+                {
+                    e = new lcj();
+                }
+                kwj1.a(e);
+                break;
+
+            case 50: // '2'
+                if (f == null)
+                {
+                    f = new jmd();
+                }
+                kwj1.a(f);
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.b(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.b(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.b(4, d);
+        }
+        if (e != null)
+        {
+            kwk1.b(5, e);
+        }
+        if (f != null)
+        {
+            kwk1.b(6, f);
+        }
+        super.writeTo(kwk1);
     }
 }

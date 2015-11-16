@@ -2,9 +2,14 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.List;
 
 public interface asc
 {
 
-    public abstract void a(boolean flag, amf amf);
+    public abstract void a();
+
+    public abstract void a(asa asa);
+
+    public abstract void a(List list, asa asa);
 }

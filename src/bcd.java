@@ -2,40 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.support.v4.view.ViewPager;
-import android.view.View;
-import com.google.android.apps.hangouts.conversation.v2.stickerpicker.impl.SlidingTabLayout;
 
-public final class bcd
-    implements android.view.View.OnClickListener
+final class bcd
+    implements bbn
 {
 
-    final SlidingTabLayout a;
+    final bcc a;
 
-    public bcd(SlidingTabLayout slidingtablayout)
+    bcd(bcc bcc)
     {
-        a = slidingtablayout;
+        a = bcc;
         super();
     }
 
-    public void onClick(View view)
+    public int a()
     {
-        int i = 0;
-        do
+        return g.la;
+    }
+
+    public boolean a(aoa aoa)
+    {
+        return true;
+    }
+
+    public bab b()
+    {
+        if (android.os.Build.VERSION.SDK_INT >= 16)
         {
-label0:
-            {
-                if (i < SlidingTabLayout.a(a).getChildCount())
-                {
-                    if (view != SlidingTabLayout.a(a).getChildAt(i))
-                    {
-                        break label0;
-                    }
-                    SlidingTabLayout.c(a).a(i);
-                }
-                return;
-            }
-            i++;
-        } while (true);
+            return new bab(2659, new String[] {
+                "android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"
+            });
+        } else
+        {
+            return new bab(2659, new String[] {
+                "android.permission.WRITE_EXTERNAL_STORAGE"
+            });
+        }
+    }
+
+    public Class c()
+    {
+        return bbx;
     }
 }

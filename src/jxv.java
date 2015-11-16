@@ -3,79 +3,38 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jxv extends koj
+public abstract class jxv extends Enum
 {
 
-    public Boolean a;
-    public jxw b;
+    public static final jxv a;
+    public static final jxv b;
+    public static final jxv c;
+    private static final jxv d[];
 
-    public jxv()
+    jxv(String s, int i)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s, i);
     }
 
-    protected int computeSerializedSize()
+    public static jxv valueOf(String s)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        return j;
+        return (jxv)Enum.valueOf(jxv, s);
     }
 
-    public kop mergeFrom(kog kog1)
+    public static jxv[] values()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new jxw();
-                }
-                kog1.a(b);
-                break;
-            }
-        } while (true);
+        return (jxv[])d.clone();
     }
 
-    public void writeTo(koh koh1)
+    public abstract int a(int i);
+
+    static 
     {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
-        }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        super.writeTo(koh1);
+        a = new jxw("NEXT_LOWER");
+        b = new jxx("NEXT_HIGHER");
+        c = new jxy("INVERTED_INSERTION_INDEX");
+        d = (new jxv[] {
+            a, b, c
+        });
     }
 }

@@ -10,14 +10,14 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.IBinder;
-import fwz;
-import gbn;
-import gce;
-import gco;
+import fzd;
+import geb;
 import ges;
-import get;
-import gfd;
-import gkc;
+import gfg;
+import ghs;
+import ght;
+import gic;
+import gne;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 
@@ -27,15 +27,15 @@ import java.io.PrintWriter;
 public class CallService extends Service
 {
 
-    private final gco a = new gco();
-    private final gce b = new gce(this);
-    private int c;
-    private Context d;
-    private gbn e;
+    public final gfg a = new gfg();
+    public int b;
+    public Context c;
+    public geb d;
+    private final ges e = new ges(this);
 
     public CallService()
     {
-        c = 0;
+        b = 0;
     }
 
     public static long a(Context context)
@@ -53,48 +53,22 @@ public class CallService extends Service
         return (long)i;
     }
 
-    public static gbn a(CallService callservice, gbn gbn1)
-    {
-        callservice.e = gbn1;
-        return gbn1;
-    }
-
-    public static gco a(CallService callservice)
-    {
-        return callservice.a;
-    }
-
-    public static gbn b(CallService callservice)
-    {
-        return callservice.e;
-    }
-
     public static String b(Context context)
     {
-        return fwz.a(context.getContentResolver(), "babel_hangout_apiary_path", "https://www.googleapis.com/hangouts/v1android/");
+        return fzd.a(context.getContentResolver(), "babel_hangout_apiary_path", "https://www.googleapis.com/hangouts/v1android/");
     }
 
-    public static Context c(CallService callservice)
+    public ges a()
     {
-        return callservice.d;
-    }
-
-    public static int d(CallService callservice)
-    {
-        return callservice.c;
-    }
-
-    public gce a()
-    {
-        c = c + 1;
-        int i = c;
-        gkc.b("vclib", (new StringBuilder(37)).append("CallService clientCount = ").append(i).toString());
-        return b;
+        b = b + 1;
+        int i = b;
+        gne.a(3, "vclib", (new StringBuilder(37)).append("CallService clientCount = ").append(i).toString());
+        return e;
     }
 
     protected void dump(FileDescriptor filedescriptor, PrintWriter printwriter, String as[])
     {
-        gfd.a().a(printwriter);
+        gic.a().a(printwriter);
     }
 
     public IBinder onBind(Intent intent)
@@ -105,50 +79,57 @@ public class CallService extends Service
     public void onCreate()
     {
         super.onCreate();
-        d = getApplicationContext();
-        if (a.a(d))
+        c = getApplicationContext();
+        stopForeground(true);
+        if (a.a(c))
         {
-            long l = a(d);
-            int i = DecoderManager.a(d);
-            int j = EncoderManager.a(d);
-            String s = String.valueOf(d.getCacheDir());
-            ges.a(new get("andr_babel", l, i, j, (new StringBuilder(String.valueOf(s).length() + 14)).append(s).append("/raw_call_logs").toString(), fwz.a(d.getContentResolver(), "babel_hangout_check_connectivity", 1), b(d)));
+            long l = a(c);
+            int i = DecoderManager.a(c);
+            int j = EncoderManager.a(c);
+            String s = String.valueOf(c.getCacheDir());
+            ghs.a(new ght(l, i, j, (new StringBuilder(String.valueOf(s).length() + 14)).append(s).append("/raw_call_logs").toString(), fzd.a(c.getContentResolver(), "babel_hangout_check_connectivity", 1), b(c)));
             return;
         } else
         {
-            gkc.e("vclib", "Hangouts not supported by this device");
+            gne.a(6, "vclib", "Hangouts not supported by this device");
             return;
         }
     }
 
     public void onDestroy()
     {
-        gkc.c("vclib", "CallService onDestroy");
-        if (e != null)
+        gne.a(4, "vclib", "CallService onDestroy");
+        if (d != null)
         {
-            e.a(30);
+            d.a(30);
         }
         super.onDestroy();
     }
 
+    public int onStartCommand(Intent intent, int i, int j)
+    {
+        onStart(intent, j);
+        return 2;
+    }
+
     public boolean onUnbind(Intent intent)
     {
-        c = c - 1;
-        int i = c;
-        gkc.b("vclib", (new StringBuilder(37)).append("CallService clientCount = ").append(i).toString());
-        if (c == 0)
+        b = b - 1;
+        int i = b;
+        gne.a(3, "vclib", (new StringBuilder(37)).append("CallService clientCount = ").append(i).toString());
+        if (b == 0)
         {
-            if (e == null)
+            if (d == null)
             {
                 stopSelf();
             } else
-            if (!e.a())
+            if (!d.c())
             {
-                e.a(30);
+                d.a(30);
                 stopSelf();
             } else
             {
-                gkc.c("vclib", "No clients are connected, but a call is active; not stopping");
+                gne.a(4, "vclib", "No clients are connected, but a call is active; not stopping");
             }
         }
         return false;

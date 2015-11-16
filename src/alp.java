@@ -3,34 +3,50 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import java.util.ArrayList;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
-final class alp
+public final class alp extends ctf
 {
-
-    private final beb a = (new bec()).a("callpromos").b("Module that hosts the call promos.").a(true).a();
 
     public alp()
     {
     }
 
-    public alo a(Context context)
+    public ctg a()
     {
-        return (alo)a.a(context, new alt());
+        return new alo();
     }
 
-    public beb[] a()
+    public boolean a(Context context)
     {
-        return (new beb[] {
-            a
-        });
+        aoa aoa1 = dcn.e(((gqu)hlp.a(context, gqu)).a());
+        if (aoa1 != null)
+        {
+            dbt dbt1 = (dbt)hlp.a(context.getApplicationContext(), dbt);
+            boolean flag;
+            if (g.a(aoa1, aqc.b) && !PreferenceManager.getDefaultSharedPreferences(context).getBoolean("call_promo_shown", false) && (!eey.e() || dbt1.a(context)) && !aoa1.Z() && dbt1.b(aoa1))
+            {
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+            if (flag)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public cqv[] b(Context context)
+    public int b()
     {
-        ArrayList arraylist = new ArrayList();
-        arraylist.add(new als());
-        arraylist.add(new alv());
-        return (cqv[])a.a(context, cqv, arraylist);
+        return ctl.j;
+    }
+
+    public int c()
+    {
+        return g.jh;
     }
 }

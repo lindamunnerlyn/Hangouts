@@ -2,75 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Rect;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
-public final class vp
+final class vp extends mf
 {
 
-    private static Method a;
+    final vn a;
+    private boolean b;
 
-    public static int a(int i, int j)
+    vp(vn vn1)
     {
-        return i | j;
+        a = vn1;
+        super();
+        b = false;
     }
 
-    public static void a(View view, Rect rect, Rect rect1)
+    public void b(View view)
     {
-        if (a == null)
+        if (!b)
         {
-            break MISSING_BLOCK_LABEL_26;
+            a.a.setVisibility(8);
         }
-        a.invoke(view, new Object[] {
-            rect, rect1
-        });
-        return;
-        view;
     }
 
-    public static boolean a(View view)
+    public void c(View view)
     {
-        return kb.h(view) == 1;
-    }
-
-    public static void b(View view)
-    {
-        if (android.os.Build.VERSION.SDK_INT < 16)
-        {
-            break MISSING_BLOCK_LABEL_44;
-        }
-        Method method = view.getClass().getMethod("makeOptionalFitsSystemWindows", new Class[0]);
-        if (!method.isAccessible())
-        {
-            method.setAccessible(true);
-        }
-        method.invoke(view, new Object[0]);
-        return;
-        view;
-        return;
-        view;
-        return;
-        view;
-    }
-
-    static 
-    {
-        if (android.os.Build.VERSION.SDK_INT < 18)
-        {
-            break MISSING_BLOCK_LABEL_48;
-        }
-        Method method = android/view/View.getDeclaredMethod("computeFitSystemWindows", new Class[] {
-            android/graphics/Rect, android/graphics/Rect
-        });
-        a = method;
-        if (!method.isAccessible())
-        {
-            a.setAccessible(true);
-        }
-        return;
-        NoSuchMethodException nosuchmethodexception;
-        nosuchmethodexception;
+        b = true;
     }
 }

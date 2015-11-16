@@ -3,8 +3,28 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface ddu
+public final class ddu extends dgj
 {
 
-    public abstract Runnable a(dbx dbx, ani ani, ai ai, dbz dbz);
+    private final int a;
+
+    public ddu(aoa aoa, int i)
+    {
+        super(aoa);
+        a = i;
+    }
+
+    public void a()
+    {
+        aow aow1 = new aow(g.nU, super.b.a);
+        if (a == 2)
+        {
+            aow1.w();
+        }
+        if (a == 1)
+        {
+            aow1.x();
+        }
+        a(((dmf) (new cwa(a))));
+    }
 }

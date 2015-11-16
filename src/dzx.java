@@ -2,64 +2,113 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import java.util.Locale;
 
-public final class dzx extends HashSet
+final class dzx
 {
 
-    private static final long serialVersionUID = 1L;
+    private static final boolean a = false;
+    private final Context b;
+    private dzy c;
+    private BroadcastReceiver d;
+    private android.net.ConnectivityManager.NetworkCallback e;
+    private eac f;
 
-    public dzx()
+    dzx(Context context)
     {
+        b = context;
     }
 
-    private dzx(Collection collection)
+    static eac a(Context context)
     {
-        super(collection);
-    }
-
-    public static dzx a(String s)
-    {
-        dzx dzx1 = null;
-        if (s != null)
+        if (!g.k(context))
         {
-            dzx1 = new dzx(Arrays.asList(s.split("\\|")));
-        }
-        return dzx1;
-    }
-
-    public static String a(String s, String s1)
-    {
-        if (s == null)
-        {
-            return s1;
-        }
-        if (s1 != null)
-        {
-            String s2 = String.valueOf("|");
-            return (new StringBuilder(String.valueOf(s).length() + 0 + String.valueOf(s2).length() + String.valueOf(s1).length())).append(s).append(s2).append(s1).toString();
+            return new eac(false, 0, 0);
         } else
         {
-            return null;
+            context = ((WifiManager)context.getSystemService("wifi")).getConnectionInfo();
+            return new eac(true, WifiManager.calculateSignalLevel(context.getRssi(), 100), context.getLinkSpeed());
         }
     }
 
-    public String a()
+    static void a(dzx dzx1)
     {
-        if (size() > 0)
+        gdv.a();
+        eac eac1 = a(dzx1.b);
+        if (!eac1.equals(dzx1.f))
         {
-            return (String)iterator().next();
-        } else
-        {
-            return null;
+            eev.e("Babel_telephony", String.format(Locale.US, "TeleWifiMonitor.updateSignalState, (%s) -> (%s)", new Object[] {
+                dzx1.f, eac1
+            }));
+            dzx1.f = eac1;
+            if (dzx1.c != null)
+            {
+                dzx1.c.a(dzx1.f);
+            }
         }
     }
 
-    public String b()
+    static boolean b()
     {
-        return gke.a(this, "|");
+        return a;
+    }
+
+    void a()
+    {
+        c = null;
+        String s1;
+        try
+        {
+            b.unregisterReceiver(d);
+            ((ConnectivityManager)b.getSystemService("connectivity")).unregisterNetworkCallback(e);
+            return;
+        }
+        catch (IllegalArgumentException illegalargumentexception)
+        {
+            String s = String.valueOf(illegalargumentexception);
+            eev.e("Babel_telephony", (new StringBuilder(String.valueOf(s).length() + 27)).append("unregisterReceiver failed, ").append(s).toString());
+            return;
+        }
+        catch (NoSuchMethodError nosuchmethoderror)
+        {
+            s1 = String.valueOf(nosuchmethoderror);
+        }
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(s1).length() + 34)).append("unregisterNetworkCallback failed, ").append(s1).toString());
+    }
+
+    void a(dzy dzy1)
+    {
+        gdv.a();
+        c = dzy1;
+        dzy1 = new IntentFilter();
+        dzy1.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+        dzy1.addAction("android.net.wifi.RSSI_CHANGED");
+        d = new eab(this);
+        b.registerReceiver(d, dzy1);
+        dzy1 = (new android.net.NetworkRequest.Builder()).addTransportType(1).build();
+        e = new dzz(this);
+        ConnectivityManager connectivitymanager = (ConnectivityManager)b.getSystemService("connectivity");
+        try
+        {
+            connectivitymanager.registerNetworkCallback(dzy1, e);
+            return;
+        }
+        // Misplaced declaration of an exception variable
+        catch (dzy dzy1)
+        {
+            dzy1 = String.valueOf(dzy1);
+        }
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(dzy1).length() + 32)).append("registerNetworkCallback failed, ").append(dzy1).toString());
+    }
+
+    static 
+    {
+        hnc hnc = eev.s;
     }
 }

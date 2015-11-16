@@ -2,73 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class dhq extends die
+public final class dhq
+    implements Runnable
 {
 
-    private final cut b;
+    final Intent a;
+    final did b;
+    final Object c;
 
-    public dhq(cut cut1)
+    public dhq(Intent intent, did did, Object obj)
     {
-        super(cut1);
-        b = cut1;
+        a = intent;
+        b = did;
+        c = obj;
+        super();
     }
 
-    protected ctp a(ani ani, int i, String s)
+    public void run()
     {
-        b.m();
-        if (b.r())
-        {
-            return new cto(ani, i, b, s);
-        } else
-        {
-            return new ctn(ani, i, b, s);
-        }
-    }
-
-    public String a()
-    {
-        return b.a();
-    }
-
-    public boolean a(ccg ccg)
-    {
-        return false;
-    }
-
-    public boolean a(cci cci, dbo dbo)
-    {
-        return b.a(cci, dbo);
-    }
-
-    public boolean a(String s)
-    {
-        return b.a(s);
-    }
-
-    public long b()
-    {
-        return b.b();
-    }
-
-    protected void b(int i, dbo dbo)
-    {
-        ani ani = dbf.e(i);
-        b.a(ani, dbo);
-    }
-
-    public boolean c()
-    {
-        return b.c();
-    }
-
-    public boolean d()
-    {
-        return b.d();
-    }
-
-    public String e()
-    {
-        return b.e();
+        RealTimeChatService.a(a, b, c, false);
     }
 }

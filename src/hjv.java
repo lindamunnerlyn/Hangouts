@@ -6,5 +6,5 @@
 public interface hjv
 {
 
-    public abstract void e_();
+    public abstract boolean a(hjr hjr, Object obj);
 }

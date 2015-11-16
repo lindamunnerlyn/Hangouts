@@ -2,22 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import android.content.Context;
+import java.util.Collection;
 
-final class ber
-    implements android.view.View.OnClickListener
+public interface ber
 {
 
-    final ben a;
+    public abstract Object a(Context context, Class class1, Class class2);
 
-    ber(ben ben1)
-    {
-        a = ben1;
-        super();
-    }
+    public abstract Object a(Context context, Object obj);
 
-    public void onClick(View view)
-    {
-        ben.o(a);
-    }
+    public abstract boolean a(Context context);
+
+    public abstract Object[] a(Context context, Class class1, Object obj);
+
+    public abstract Object[] a(Context context, Class class1, Collection collection);
+
+    public transient abstract Object[] a(Context context, Class class1, Object aobj[]);
 }

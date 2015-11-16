@@ -2,115 +2,143 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.gms.playlog.internal.PlayLoggerContext;
+import android.os.Bundle;
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
 
-public final class frc
-    implements android.os.Parcelable.Creator
+public abstract class frc
 {
 
-    public frc()
+    public static fre a;
+    public static frd b;
+    private final char c = '\001';
+    private final char d = '\002';
+    private final String e;
+    private final String f;
+    private final Bundle g;
+
+    frc(Bundle bundle)
     {
+        g = bundle;
+        e = Pattern.quote(String.valueOf(c));
+        f = Pattern.quote(String.valueOf(d));
     }
 
-    public static PlayLoggerContext a(Parcel parcel)
+    private static double a(String s)
     {
-        String s = null;
-        int i = 0;
-        int i1 = g.a(parcel);
-        boolean flag1 = true;
-        boolean flag = false;
-        String s1 = null;
-        String s2 = null;
-        int j = 0;
-        int k = 0;
-        String s3 = null;
-        int l = 0;
-        do
+        if (TextUtils.isEmpty(s))
         {
-            if (parcel.dataPosition() < i1)
+            return 0.0D;
+        }
+        double d1;
+        try
+        {
+            d1 = Double.parseDouble(s);
+        }
+        // Misplaced declaration of an exception variable
+        catch (String s)
+        {
+            g.a("PhoneEmailDecoder", "NumberFormatException", s);
+            return 0.0D;
+        }
+        return d1;
+    }
+
+    private static int a(String s, char c1, int i, int j)
+    {
+        c1 = s.indexOf(c1, i);
+        if (c1 >= 0 && c1 < j)
+        {
+            return c1;
+        } else
+        {
+            return -1;
+        }
+    }
+
+    private final void a(ArrayList arraylist, String s)
+    {
+        int k = s.length();
+        int i = 0;
+        while (i < k) 
+        {
+            int j = s.indexOf(d, i);
+            int l;
+            int i1;
+            if (j < 0)
             {
-                int j1 = parcel.readInt();
-                switch (0xffff & j1)
-                {
-                default:
-                    g.b(parcel, j1);
-                    break;
-
-                case 1: // '\001'
-                    l = g.e(parcel, j1);
-                    break;
-
-                case 2: // '\002'
-                    s3 = g.i(parcel, j1);
-                    break;
-
-                case 3: // '\003'
-                    k = g.e(parcel, j1);
-                    break;
-
-                case 4: // '\004'
-                    j = g.e(parcel, j1);
-                    break;
-
-                case 5: // '\005'
-                    s2 = g.i(parcel, j1);
-                    break;
-
-                case 6: // '\006'
-                    s1 = g.i(parcel, j1);
-                    break;
-
-                case 7: // '\007'
-                    flag1 = g.c(parcel, j1);
-                    break;
-
-                case 8: // '\b'
-                    s = g.i(parcel, j1);
-                    break;
-
-                case 9: // '\t'
-                    flag = g.c(parcel, j1);
-                    break;
-
-                case 10: // '\n'
-                    i = g.e(parcel, j1);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != i1)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(i1).toString(), parcel);
-            } else
-            {
-                return new PlayLoggerContext(l, s3, k, j, s2, s1, flag1, s, flag, i);
+                j = s.length();
             }
-        } while (true);
+            l = a(s, c, i, j);
+            i1 = a(s, c, l + 1, j);
+            if (l >= 0 && i1 >= 0)
+            {
+                a(arraylist, s.substring(i, l), s.substring(l + 1, i1), s.substring(i1 + 1, j), 0.0D, 0.0D, 0.0D, 0.0D, 0.0D, null, null, null, null, null);
+            }
+            i = j + 1;
+        }
     }
 
-    public static void a(PlayLoggerContext playloggercontext, Parcel parcel)
+    private void a(ArrayList arraylist, String s, String s1, String s2, double d1, double d2, double d3, double d4, double d5, 
+            String s3, String s4, String s5, String s6, String s7)
     {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, playloggercontext.a);
-        g.a(parcel, 2, playloggercontext.b);
-        g.b(parcel, 3, playloggercontext.c);
-        g.b(parcel, 4, playloggercontext.d);
-        g.a(parcel, 5, playloggercontext.e);
-        g.a(parcel, 6, playloggercontext.f);
-        g.a(parcel, 7, playloggercontext.g);
-        g.a(parcel, 8, playloggercontext.h);
-        g.a(parcel, 9, playloggercontext.i);
-        g.b(parcel, 10, playloggercontext.j);
-        g.q(parcel, i);
+        if (TextUtils.isEmpty(s2))
+        {
+            return;
+        }
+        String s8 = g.getString(s);
+        s = s8;
+        if (TextUtils.isEmpty(s8))
+        {
+            s = s1;
+        }
+        arraylist.add(a(s2, s, d1, d2, d3, d4, d5, s3, s4, s5, s6, s7));
     }
 
-    public Object createFromParcel(Parcel parcel)
+    private final void b(ArrayList arraylist, String s)
     {
-        return a(parcel);
+        s = TextUtils.split(s, f);
+        int j = s.length;
+        int i = 0;
+        while (i < j) 
+        {
+            String as[] = TextUtils.split(s[i], e);
+            if (as.length < 13)
+            {
+                g.m(5);
+            } else
+            {
+                a(arraylist, as[0], as[1], as[2], a(as[3]), a(as[4]), a(as[5]), a(as[6]), a(as[7]), fst.a(as[8]), fst.a(as[9]), fst.a(as[10]), fst.a(as[11]), fst.a(as[12]));
+            }
+            i++;
+        }
     }
 
-    public Object[] newArray(int i)
+    protected abstract Object a(String s, String s1, double d1, double d2, double d3, double d4, double d5, String s2, String s3, 
+            String s4, String s5, String s6);
+
+    public final ArrayList a(String s, boolean flag)
     {
-        return new PlayLoggerContext[i];
+        ArrayList arraylist = new ArrayList();
+        if (TextUtils.isEmpty(s))
+        {
+            return arraylist;
+        }
+        if (flag)
+        {
+            b(arraylist, s);
+            return arraylist;
+        } else
+        {
+            a(arraylist, s);
+            return arraylist;
+        }
+    }
+
+    static 
+    {
+        a = new fre(Bundle.EMPTY);
+        b = new frd(Bundle.EMPTY);
     }
 }

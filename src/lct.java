@@ -2,48 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.OutputStream;
 
-public abstract class lct
+public final class lct extends kwm
 {
 
-    final String a;
-    final String b;
-    final String c;
+    public String a;
 
-    public lct(String s)
+    public lct()
     {
-        if (s == null)
-        {
-            throw new IllegalArgumentException("MIME type may not be null");
-        }
-        a = s;
-        int i = s.indexOf('/');
-        if (i != -1)
-        {
-            b = s.substring(0, i);
-            c = s.substring(i + 1);
-            return;
-        } else
-        {
-            b = s;
-            c = null;
-            return;
-        }
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public String a()
+    protected int computeSerializedSize()
     {
-        return a;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.b(1, a);
+        }
+        return i;
     }
 
-    public abstract void a(OutputStream outputstream);
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
 
-    public abstract String b();
+            case 0: // '\0'
+                return this;
 
-    public abstract String c();
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+            }
+        } while (true);
+    }
 
-    public abstract long d();
-
-    public abstract String e();
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        super.writeTo(kwk1);
+    }
 }

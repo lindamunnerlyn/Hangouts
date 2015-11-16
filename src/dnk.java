@@ -2,21 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.settings.AccountSettingsActivity;
+import java.util.ArrayList;
+import java.util.List;
 
-public final class dnk extends hfz
+public final class dnk extends dng
 {
 
-    final AccountSettingsActivity a;
+    private static final long serialVersionUID = 1L;
+    public final int a;
+    public final int b;
+    public final List v;
 
-    public dnk(AccountSettingsActivity accountsettingsactivity, ps ps, hjm hjm)
+    dnk(iza iza, int i, long l, jbq jbq1)
     {
-        a = accountsettingsactivity;
-        super(ps, hjm);
+        super(iza, i, l);
+        a = g.a(jbq1.a, 0);
+        b = g.a(jbq1.c, 0);
+        v = g.a(jbq1.b, null);
     }
 
-    protected hfh a()
+    public List a()
     {
-        return new dnl();
+        ArrayList arraylist = new ArrayList(v);
+        arraylist.add(d);
+        return arraylist;
     }
 }

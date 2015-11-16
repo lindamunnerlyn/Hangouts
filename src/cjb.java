@@ -2,37 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.res.Resources;
+import android.animation.Animator;
 import android.os.Handler;
-import android.os.Message;
-import android.preference.PreferenceScreen;
-import android.widget.Toast;
-import com.google.android.apps.hangouts.phone.ApnSettingsActivity;
+import com.google.android.apps.hangouts.peoplelistv2.impl.ScrollViewCustom;
 
-public final class cjb extends Handler
+public final class cjb
+    implements android.animation.Animator.AnimatorListener
 {
 
-    private ApnSettingsActivity a;
+    final ScrollViewCustom a;
 
-    public cjb(ApnSettingsActivity apnsettingsactivity)
+    public cjb(ScrollViewCustom scrollviewcustom)
     {
-        a = apnsettingsactivity;
+        a = scrollviewcustom;
+        super();
     }
 
-    public void handleMessage(Message message)
+    public void onAnimationCancel(Animator animator)
     {
-        switch (message.what)
-        {
-        default:
-            return;
+        a.c = false;
+        a.b.post(a.d);
+    }
 
-        case 2: // '\002'
-            ApnSettingsActivity.c(a);
-            break;
-        }
-        a.getPreferenceScreen().setEnabled(true);
-        ApnSettingsActivity.e();
-        a.dismissDialog(1001);
-        Toast.makeText(a, a.getResources().getString(l.jJ), 1).show();
+    public void onAnimationEnd(Animator animator)
+    {
+        a.c = false;
+        a.b.post(a.d);
+    }
+
+    public void onAnimationRepeat(Animator animator)
+    {
+    }
+
+    public void onAnimationStart(Animator animator)
+    {
+        a.c = true;
     }
 }

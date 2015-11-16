@@ -2,64 +2,98 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
+import java.util.concurrent.TimeUnit;
 
-public final class cvm
-    implements Serializable
+public class cvm extends cvf
 {
 
-    private static final long serialVersionUID = 2L;
-    private final int a;
-    private final int b;
-    private final int c;
-    private final String d;
-    private long e;
+    private static final long serialVersionUID = 1L;
+    private final byte a[];
 
-    public cvm(int i, int j, int k, String s)
+    public cvm(byte abyte0[])
     {
-        a = i;
-        b = j;
-        c = k;
-        d = s;
-        e = 0L;
+        a = abyte0;
     }
 
-    private static jrj a(int i)
+    public kws a(String s, int i, int j)
     {
-        jrj jrj1 = new jrj();
-        jrj1.a = "bbl";
-        jrj1.b = Integer.valueOf(i);
-        return jrj1;
-    }
-
-    public String a()
-    {
-        return d;
-    }
-
-    public void a(long l)
-    {
-        e = l;
+        jkr jkr1 = new jkr();
+        String s1;
+        byte byte0;
+        byte byte1;
+        int k;
+        long l;
+        long l1;
+        long l2;
+        try
+        {
+            jkp jkp1 = (jkp)kws.mergeFrom(new jkp(), a);
+            l = g.a(jkp1.a, 0L);
+            s1 = jkp1.b;
+            k = g.a(jkp1.g, 0);
+            l1 = g.a(jkp1.h.a, 0L);
+            l2 = g.a(jkp1.h.b, 0L);
+        }
+        // Misplaced declaration of an exception variable
+        catch (String s)
+        {
+            eev.e("Babel", "Parse failed", s);
+            return null;
+        }
+        byte1 = 0;
+        byte0 = 0;
+        k;
+        JVM INSTR tableswitch 0 4: default 263
+    //                   0 228
+    //                   1 240
+    //                   2 246
+    //                   3 234
+    //                   4 221;
+           goto _L1 _L2 _L3 _L4 _L5 _L6
+_L1:
+        jkr1.requestHeader = cvu.a(s, i, j, h);
+        s = new jkq();
+        s.a = Long.valueOf(l);
+        s.b = s1;
+        s.c = Long.valueOf(l1);
+        s.d = Long.valueOf(l2);
+        if (byte1 <= 0)
+        {
+            break MISSING_BLOCK_LABEL_198;
+        }
+        s.f = Integer.valueOf(byte1);
+        if (byte0 <= 0)
+        {
+            break MISSING_BLOCK_LABEL_212;
+        }
+        s.e = Integer.valueOf(byte0);
+        jkr1.a = s;
+        return jkr1;
+_L6:
+        byte0 = 6;
+        continue; /* Loop/switch isn't completed */
+_L2:
+        byte0 = 0;
+        continue; /* Loop/switch isn't completed */
+_L5:
+        byte0 = 5;
+        continue; /* Loop/switch isn't completed */
+_L3:
+        byte1 = 1;
+        continue; /* Loop/switch isn't completed */
+_L4:
+        byte1 = 2;
+        if (true) goto _L1; else goto _L7
+_L7:
     }
 
     public long b()
     {
-        return e;
+        return TimeUnit.DAYS.toMillis(2L);
     }
 
-    public iuh c()
+    public String f()
     {
-        iuh iuh1 = new iuh();
-        Object obj = new jrh();
-        obj.e = a(b);
-        obj.f = a(a);
-        iuh1.a = ((jrh) (obj));
-        obj = new iui();
-        iyo iyo1 = new iyo();
-        iyo1.a = Integer.valueOf(c);
-        iyo1.b = Long.valueOf(e);
-        obj.d = iyo1;
-        iuh1.b = ((iui) (obj));
-        return iuh1;
+        return "hangout_invitations/ack";
     }
 }

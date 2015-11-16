@@ -2,22 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.fragments.InvitationFragment;
-import com.google.android.gms.common.ConnectionResult;
+import android.content.DialogInterface;
 
-public final class bkn
-    implements ekc
+final class bkn
+    implements android.content.DialogInterface.OnCancelListener
 {
 
-    final InvitationFragment a;
+    final bkm a;
 
-    public bkn(InvitationFragment invitationfragment)
+    bkn(bkm bkm1)
     {
-        a = invitationfragment;
+        a = bkm1;
         super();
     }
 
-    public void a(ConnectionResult connectionresult)
+    public void onCancel(DialogInterface dialoginterface)
     {
+        a.finish();
     }
 }

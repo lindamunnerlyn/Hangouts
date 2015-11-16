@@ -2,27 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import android.content.Context;
 
-public final class hhn extends hhq
+final class hhn
 {
 
-    private final Activity b;
+    hhp a;
+    Object b;
 
-    public hhn(Activity activity, hjm hjm)
+    public hhn(hhp hhp, Object obj)
     {
-        super(hjm, hhm);
-        b = activity;
+        a = hhp;
+        b = obj;
     }
 
-    protected hhp a(Context context)
+    public boolean a(hhp hhp, Object obj)
     {
-        return new hhm(context);
-    }
-
-    protected void a(hho hho, hjm hjm, hgx hgx)
-    {
-        ((hhl)hho).a(b, hjm, hgx);
+        if (a != hhp)
+        {
+            return false;
+        }
+        if (b == null)
+        {
+            return true;
+        } else
+        {
+            return b.equals(null);
+        }
     }
 }

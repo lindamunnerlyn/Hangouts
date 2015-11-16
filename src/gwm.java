@@ -3,11 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gwm extends IllegalStateException
+public interface gwm
 {
 
-    public gwm(String s)
-    {
-        super(s);
-    }
+    public abstract boolean a();
 }

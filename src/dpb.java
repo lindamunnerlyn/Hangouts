@@ -4,36 +4,26 @@
 
 
 final class dpb
-    implements hfe
+    implements Runnable
 {
 
-    final dpa a;
-
-    dpb(dpa dpa1)
+    dpb()
     {
-        a = dpa1;
-        super();
     }
 
-    public boolean a(hfa hfa, Object obj)
+    public void run()
     {
-        boolean flag = false;
-        boolean flag1 = g.a((Boolean)obj, false);
-        dpa.a(a, new bga(a.getActivity()));
-        byte byte0;
-        if (hfa == dpa.a(a))
+        synchronized (doy.g())
         {
-            byte0 = 2;
-        } else
-        {
-            if (hfa == dpa.b(a))
+            if (doy.f(doy.h()))
             {
-                flag = true;
+                doy.i();
             }
-            g.b(flag);
-            byte0 = 6;
         }
-        bfy.a(new dpc(a, byte0, flag1), dpa.c(a)).a();
-        return true;
+        return;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 }

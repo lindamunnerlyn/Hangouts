@@ -3,35 +3,43 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class dwa
-    implements dxx
+public final class dwa extends Enum
+    implements joj
 {
 
-    final dvy a;
+    public static final dwa a;
+    private static final dwa b[];
 
-    dwa(dvy dvy1)
+    private dwa(String s)
     {
-        a = dvy1;
-        super();
+        super(s, 0);
     }
 
-    public void a()
+    public static joj b()
     {
-        ebw.e("Babel_telephony", "TeleSetupController.onGoogleVoiceEnableCallingSucceeded");
-        if (dvy.d(a) != null)
-        {
-            dvy.e(a);
-            a.k();
-        }
+        return a;
     }
 
-    public void b()
+    public static dwa valueOf(String s)
     {
-        ebw.e("Babel_telephony", "TeleSetupController.onGoogleVoiceEnableCallingFailed");
-        if (dvy.d(a) != null)
-        {
-            dvy.e(a);
-            dvy.a(a, g.px);
-        }
+        return (dwa)Enum.valueOf(dwa, s);
+    }
+
+    public static dwa[] values()
+    {
+        return (dwa[])b.clone();
+    }
+
+    public Object a()
+    {
+        return grn;
+    }
+
+    static 
+    {
+        a = new dwa("INSTANCE");
+        b = (new dwa[] {
+            a
+        });
     }
 }

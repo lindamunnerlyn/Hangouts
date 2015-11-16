@@ -2,129 +2,100 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.common.collect.MapMakerInternalMap;
+import java.lang.ref.ReferenceQueue;
+import java.lang.ref.WeakReference;
 
-public final class jvx extends koj
+public class jvx extends WeakReference
+    implements com.google.common.collect.MapMakerInternalMap.ReferenceEntry
 {
 
-    public jvw a;
-    public jvt b[];
+    final int a;
+    final com.google.common.collect.MapMakerInternalMap.ReferenceEntry b;
+    volatile jvv c;
 
-    public jvx()
+    jvx(ReferenceQueue referencequeue, Object obj, int i, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
     {
-        a = null;
-        b = jvt.a();
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(obj, referencequeue);
+        c = MapMakerInternalMap.g();
+        a = i;
+        b = referenceentry;
     }
 
-    protected int computeSerializedSize()
+    public long getExpirationTime()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(2, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i;
-            if (b.length > 0)
-            {
-                for (j = 0; j < b.length;)
-                {
-                    jvt jvt1 = b[j];
-                    int k = i;
-                    if (jvt1 != null)
-                    {
-                        k = i + koh.d(3, jvt1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
-        }
-        return j;
+        throw new UnsupportedOperationException();
     }
 
-    public kop mergeFrom(kog kog1)
+    public int getHash()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 18: // '\022'
-                if (a == null)
-                {
-                    a = new jvw();
-                }
-                kog1.a(a);
-                break;
-
-            case 26: // '\032'
-                int k = kou.b(kog1, 26);
-                jvt ajvt[];
-                int j;
-                if (b == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
-                }
-                ajvt = new jvt[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, ajvt, 0, j);
-                    k = j;
-                }
-                for (; k < ajvt.length - 1; k++)
-                {
-                    ajvt[k] = new jvt();
-                    kog1.a(ajvt[k]);
-                    kog1.a();
-                }
-
-                ajvt[k] = new jvt();
-                kog1.a(ajvt[k]);
-                b = ajvt;
-                break;
-            }
-        } while (true);
+        return a;
     }
 
-    public void writeTo(koh koh1)
+    public Object getKey()
     {
-        if (a != null)
-        {
-            koh1.b(2, a);
-        }
-        if (b != null && b.length > 0)
-        {
-            for (int i = 0; i < b.length; i++)
-            {
-                jvt jvt1 = b[i];
-                if (jvt1 != null)
-                {
-                    koh1.b(3, jvt1);
-                }
-            }
+        return get();
+    }
 
-        }
-        super.writeTo(koh1);
+    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNext()
+    {
+        return b;
+    }
+
+    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextEvictable()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextExpirable()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousEvictable()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousExpirable()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public jvv getValueReference()
+    {
+        return c;
+    }
+
+    public void setExpirationTime(long l)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setNextEvictable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setNextExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setPreviousEvictable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setPreviousExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setValueReference(jvv jvv1)
+    {
+        jvv jvv2 = c;
+        c = jvv1;
+        jvv2.b();
     }
 }

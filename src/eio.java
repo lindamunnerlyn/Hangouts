@@ -2,12 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.clearcut.LogEventParcelable;
 
-public interface eio
+public final class eio
 {
 
-    public abstract ekd a(ejx ejx, LogEventParcelable logeventparcelable);
+    public static final int a[];
 
-    public abstract void a(ejx ejx);
+    static 
+    {
+        a = new int[dsu.values().length];
+        try
+        {
+            a[dsu.b.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[dsu.c.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[dsu.e.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[dsu.d.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
+    }
 }

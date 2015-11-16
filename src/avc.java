@@ -2,39 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
-import java.util.ArrayList;
-import java.util.List;
 
 final class avc
-    implements atc
+    implements gwm
 {
 
-    private String a;
-    private String b;
-    private final List c = new ArrayList();
+    final avb a;
 
-    avc()
+    avc(avb avb1)
     {
+        a = avb1;
+        super();
     }
 
-    void a(hgx hgx1)
+    public boolean a()
     {
-        hgx1.a(atc, this);
-    }
-
-    void a(String s, String s1)
-    {
-        if (!TextUtils.equals(a, s) || !TextUtils.equals(b, s1))
+        if (avb.a(a) == -1)
         {
-            a = s;
-            b = s1;
-            int i = c.size() - 1;
-            while (i >= 0) 
-            {
-                c.get(i);
-                i--;
-            }
+            return false;
+        } else
+        {
+            a.b(-1);
+            return true;
         }
     }
 }

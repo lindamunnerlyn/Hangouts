@@ -2,17 +2,14 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
 
 public interface bfs
 {
 
-    public abstract ani a();
+    public abstract void a(Bundle bundle, String s);
 
-    public abstract void a(int i);
+    public abstract void a(String s);
 
-    public abstract int f();
-
-    public abstract ceu q();
-
-    public abstract void r();
+    public abstract void b(String s);
 }

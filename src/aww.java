@@ -2,50 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.content.Intent;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import com.google.android.apps.hangouts.requestwriter.RequestWriter;
+import android.widget.ListView;
 
 final class aww
-    implements android.content.DialogInterface.OnClickListener
+    implements Runnable
 {
 
-    final long a;
-    final Long b[];
-    final String c;
-    final Activity d;
-    final ave e;
+    final awv a;
 
-    aww(ave ave1, long l, Long along[], String s, Activity activity)
+    aww(awv awv1)
     {
-        e = ave1;
-        a = l;
-        b = along;
-        c = s;
-        d = activity;
+        a = awv1;
         super();
     }
 
-    static void a(aww aww1)
+    public void run()
     {
-        RealTimeChatService.a(ave.h(aww1.e), aww1.b, aww1.c);
-        Intent intent = RequestWriter.k();
-        intent.putExtra("wake_all", true);
-        aww1.d.startService(intent);
-    }
-
-    public void onClick(DialogInterface dialoginterface, int i)
-    {
-        if (i == 0)
+        if (!a.a && a.c.getActivity() != null && !a.c.getActivity().isFinishing())
         {
-            ave.b(e).a(new awx(this));
-        } else
-        if (i == 1)
-        {
-            ave.a(e, a);
-            return;
+            ((ListView)avv.ar(a.c)).setSelection(((aqu)avv.aq(a.c)).getCount() - 1);
         }
     }
 }

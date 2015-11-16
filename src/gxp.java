@@ -3,19 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gxp extends Enum
+public interface gxp
 {
 
-    public static final int a;
-    public static final int b;
-    private static final int c[];
+    public abstract void a();
 
-    static 
-    {
-        a = 1;
-        b = 2;
-        c = (new int[] {
-            a, b
-        });
-    }
+    public abstract void b();
 }

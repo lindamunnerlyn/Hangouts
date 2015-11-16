@@ -2,27 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
-public final class ecc extends Enum
+public final class ecc extends ad
 {
 
-    public static final int a;
-    public static final int b;
-    public static final int c;
-    private static final int d[];
-
-    public static int[] a()
+    public ecc()
     {
-        return (int[])d.clone();
     }
 
-    static 
+    public static ecc a()
     {
-        a = 1;
-        b = 2;
-        c = 3;
-        d = (new int[] {
-            a, b, c
-        });
+        return new ecc();
+    }
+
+    static ece a(ecc ecc1)
+    {
+        return (ece)((ebv)ecc1.getActivity()).g();
+    }
+
+    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
+    {
+        layoutinflater = layoutinflater.inflate(g.qa, viewgroup, false);
+        viewgroup = getActivity().getString(g.qg);
+        bundle = getActivity().getString(g.qf);
+        ListView listview = (ListView)layoutinflater.findViewById(0x102000a);
+        listview.setAdapter(new ArrayAdapter(getActivity(), 0x1090003, new String[] {
+            viewgroup, bundle
+        }));
+        listview.setOnItemClickListener(new ecd(this));
+        return layoutinflater;
     }
 }

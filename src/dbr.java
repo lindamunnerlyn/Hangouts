@@ -3,10 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class dbr
+public interface dbr
 {
 
-    dbr()
-    {
-    }
+    public abstract dbs a();
 }

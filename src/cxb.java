@@ -3,35 +3,50 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cxb extends cvn
+public class cxb extends cwm
 {
 
     private static final long serialVersionUID = 1L;
+    private final int a;
+    private final boolean b;
 
-    private cxb(jak jak1)
+    public cxb(int i, boolean flag)
     {
-        super(jak1.responseHeader, -1L);
-        if (cvn.a)
-        {
-            jak1 = String.valueOf(jak1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(jak1).length() + 33)).append("ModifyBroadcastInfoResponse from:").append(jak1).toString());
-        }
+        a = i;
+        b = flag;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public kws a(String s, int i, int j)
     {
-        abyte0 = (jak)kop.mergeFrom(new jak(), abyte0);
-        if (g.a(((jak) (abyte0)).responseHeader.a, 0) != 9 && a(((jak) (abyte0)).responseHeader))
-        {
-            return new cvz(((jak) (abyte0)).responseHeader);
-        } else
-        {
-            return new cxb(abyte0);
-        }
+        jea jea1 = new jea();
+        jea1.requestHeader = cvu.a(null, true, s, i, j, h);
+        s = new ixc();
+        s.a = Integer.valueOf(a);
+        s.b = Boolean.valueOf(b);
+        jea1.a = new ixc[1];
+        jea1.a[0] = s;
+        return jea1;
     }
 
-    public boolean k()
+    public void a(aoa aoa, dcx dcx)
     {
-        return c.b == 9;
+        dcn.a(dcx);
+    }
+
+    public boolean a(cdl cdl)
+    {
+        gdv.a(getClass(), cdl.getClass());
+        return equals(cdl);
+    }
+
+    public boolean equals(Object obj)
+    {
+        obj = (cxb)obj;
+        return a == ((cxb) (obj)).a && b == ((cxb) (obj)).b;
+    }
+
+    public String f()
+    {
+        return "contacts/setconfigurationbit";
     }
 }

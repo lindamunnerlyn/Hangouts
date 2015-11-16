@@ -6,9 +6,7 @@
 public interface bmt
 {
 
-    public abstract void a(String s);
+    public abstract void a(int i);
 
-    public abstract void b(String s);
-
-    public abstract void b(boolean flag);
+    public abstract void a(int i, boolean flag);
 }

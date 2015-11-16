@@ -6,10 +6,10 @@ package com.google.api.client.json;
 
 import com.google.api.client.util.GenericData;
 import g;
-import hnc;
-import hng;
-import hnl;
-import hno;
+import hry;
+import hsc;
+import hsh;
+import hsk;
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -36,7 +36,7 @@ public abstract class JsonGenerator
             return;
         }
         Object obj1 = obj.getClass();
-        if (hng.a(obj))
+        if (hsc.a(obj))
         {
             writeNull();
             return;
@@ -104,21 +104,21 @@ public abstract class JsonGenerator
             writeBoolean(((Boolean)obj).booleanValue());
             return;
         }
-        if (obj instanceof hnl)
+        if (obj instanceof hsh)
         {
-            writeString(((hnl)obj).a());
+            writeString(((hsh)obj).a());
             return;
         }
         if ((obj instanceof Iterable) || ((Class) (obj1)).isArray())
         {
             writeStartArray();
-            for (obj = g.e(obj).iterator(); ((Iterator) (obj)).hasNext(); serialize(flag, ((Iterator) (obj)).next())) { }
+            for (obj = g.f(obj).iterator(); ((Iterator) (obj)).hasNext(); serialize(flag, ((Iterator) (obj)).next())) { }
             writeEndArray();
             return;
         }
         if (((Class) (obj1)).isEnum())
         {
-            obj = hno.a((Enum)obj).b();
+            obj = hsk.a((Enum)obj).b();
             if (obj == null)
             {
                 writeNull();
@@ -143,9 +143,9 @@ public abstract class JsonGenerator
             obj1 = null;
         } else
         {
-            obj1 = hnc.a(((Class) (obj1)));
+            obj1 = hry.a(((Class) (obj1)));
         }
-        obj = hng.b(obj).entrySet().iterator();
+        obj = hsc.b(obj).entrySet().iterator();
         do
         {
             if (!((Iterator) (obj)).hasNext())
@@ -163,7 +163,7 @@ public abstract class JsonGenerator
                     flag3 = flag;
                 } else
                 {
-                    Field field = ((hnc) (obj1)).b(((String) (obj3)));
+                    Field field = ((hry) (obj1)).b(((String) (obj3)));
                     if (field != null && field.getAnnotation(com/google/api/client/json/JsonString) != null)
                     {
                         flag3 = true;

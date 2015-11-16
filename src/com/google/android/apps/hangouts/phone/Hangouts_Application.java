@@ -6,43 +6,42 @@ package com.google.android.apps.hangouts.phone;
 
 import android.app.Application;
 import android.content.Context;
-import ckm;
-import ckn;
-import cph;
-import gum;
+import clv;
+import cqx;
+import gyw;
 import i;
-import ilx;
-import ily;
-import ilz;
+import irl;
+import irm;
+import iru;
 import java.util.Iterator;
 import java.util.Set;
 
 public final class Hangouts_Application extends Application
-    implements ily
+    implements irm
 {
 
-    private volatile cph a;
-    private final Object b = new Object();
+    private final Object a = new Object();
+    private volatile cqx b;
 
     public Hangouts_Application()
     {
     }
 
-    private cph b()
+    private cqx b()
     {
         c();
-        return a;
+        return b;
     }
 
     private void c()
     {
-        if (a == null)
+        if (b == null)
         {
-            synchronized (b)
+            synchronized (a)
             {
-                if (a == null)
+                if (b == null)
                 {
-                    a = ckm.a().a(new ilz(this)).a();
+                    b = (new clv()).a(new iru(this)).a();
                 }
             }
             return;
@@ -70,19 +69,19 @@ public final class Hangouts_Application extends Application
     public void onCreate()
     {
         c();
-        for (Iterator iterator = a.c().iterator(); iterator.hasNext(); ((ilx)iterator.next()).a()) { }
+        for (Iterator iterator = b.i().iterator(); iterator.hasNext(); ((irl)iterator.next()).a()) { }
         super.onCreate();
     }
 
     public void onLowMemory()
     {
         super.onLowMemory();
-        gum.a();
+        gyw.a();
     }
 
     public void onTrimMemory(int j)
     {
         super.onTrimMemory(j);
-        gum.a(j);
+        gyw.a(j);
     }
 }

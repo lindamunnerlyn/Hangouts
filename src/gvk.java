@@ -3,55 +3,87 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import com.google.android.libraries.social.async.BackgroundTaskService;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 
 public final class gvk
+    implements guz, gva
 {
 
-    public static final String a = gvb.getName();
-    public static final String b = gsz.getName();
-    public static final String c = gus.getName();
-    public static final String d = hig.getName();
-    private static gvj e;
+    private static final ThreadFactory f;
+    private static final Executor g;
+    private final Context a;
+    private final Intent b;
+    private gvq c;
+    private guy d;
+    private final Runnable e = new gvl(this);
 
-    public static void a(Context context, hgx hgx1)
+    gvk(Context context)
     {
-        if (e == null)
-        {
-            e = new gvj();
-        }
-        hgx1.a(gvb, gvj.a(context));
+        a = context.getApplicationContext();
+        b = new Intent(a, com/google/android/libraries/social/async/BackgroundTaskService);
+        d = new gvp();
     }
 
-    public static void a(hgx hgx1)
+    static gvq a(gvk gvk1)
     {
-        if (e == null)
-        {
-            e = new gvj();
-        }
-        hgx1.a(gsz, new gsz[] {
-            new gva()
-        });
+        return gvk1.c;
     }
 
-    public static void b(hgx hgx1)
+    static guy b(gvk gvk1)
     {
-        if (e == null)
-        {
-            e = new gvj();
-        }
-        hgx1.a(gus, new gus[] {
-            new guq()
-        });
+        return gvk1.d;
     }
 
-    public static void c(hgx hgx1)
+    static Context c(gvk gvk1)
     {
-        if (e == null)
-        {
-            e = new gvj();
-        }
-        hij hij = hig.a;
-        hgx1.a(hig, new hig[0]);
+        return gvk1.a;
     }
 
+    static Intent d(gvk gvk1)
+    {
+        return gvk1.b;
+    }
+
+    static Runnable e(gvk gvk1)
+    {
+        return gvk1.e;
+    }
+
+    public void a()
+    {
+        if (c == null)
+        {
+            c = (gvq)hlp.a(a, gvq);
+        }
+        do
+        {
+            guy guy1 = c.c();
+            if (guy1 != null)
+            {
+                guy1.a(this);
+                g.execute(itp.a(new gvn(this, guy1)));
+            } else
+            {
+                a.startService(b);
+                return;
+            }
+        } while (true);
+    }
+
+    public void a(guy guy1, gvv gvv)
+    {
+        c.d().post(itp.a(new gvo(this, guy1, gvv)));
+    }
+
+    static 
+    {
+        gvm gvm1 = new gvm();
+        f = gvm1;
+        g = Executors.newCachedThreadPool(gvm1);
+    }
 }

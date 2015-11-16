@@ -3,78 +3,175 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.util.DisplayMetrics;
-import android.view.ViewConfiguration;
+import android.support.v7.internal.widget.ActionBarContextView;
+import android.support.v7.internal.widget.ActionBarOverlayLayout;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import java.lang.ref.WeakReference;
 
-public final class sf
+public final class sf extends vt
+    implements tb
 {
 
-    private Context a;
+    final sb a;
+    private final Context b;
+    private final ta c;
+    private vu d;
+    private WeakReference e;
 
-    private sf(Context context)
+    public sf(sb sb1, Context context, vu vu1)
     {
-        a = context;
+        a = sb1;
+        super();
+        b = context;
+        d = vu1;
+        c = (new ta(context)).a();
+        c.a(this);
     }
 
-    public static sf a(Context context)
+    public MenuInflater a()
     {
-        return new sf(context);
+        return new sm(b);
     }
 
-    public int a()
+    public void a(int j)
     {
-        return a.getResources().getInteger(g.bn);
+        b(sb.j(a).getResources().getString(j));
     }
 
-    public boolean b()
+    public void a(View view)
     {
-        while (android.os.Build.VERSION.SDK_INT >= 19 || !ko.b(ViewConfiguration.get(a))) 
+        sb.h(a).a(view);
+        e = new WeakReference(view);
+    }
+
+    public void a(CharSequence charsequence)
+    {
+        sb.h(a).b(charsequence);
+    }
+
+    public void a(ta ta1)
+    {
+        if (d == null)
         {
-            return true;
-        }
-        return false;
-    }
-
-    public int c()
-    {
-        return a.getResources().getDisplayMetrics().widthPixels / 2;
-    }
-
-    public boolean d()
-    {
-        if (a.getApplicationInfo().targetSdkVersion >= 16)
-        {
-            return a.getResources().getBoolean(g.R);
+            return;
         } else
         {
-            return a.getResources().getBoolean(g.S);
+            d();
+            sb.h(a).a();
+            return;
         }
     }
 
-    public int e()
+    public void a(boolean flag)
     {
-        TypedArray typedarray = a.obtainStyledAttributes(null, ro.a, g.g, 0);
-        int j = typedarray.getLayoutDimension(ro.j, 0);
-        Resources resources = a.getResources();
-        int i = j;
-        if (!d())
+        super.a(flag);
+        sb.h(a).a(flag);
+    }
+
+    public boolean a(ta ta1, MenuItem menuitem)
+    {
+        if (d != null)
         {
-            i = Math.min(j, resources.getDimensionPixelSize(g.W));
+            return d.a(this, menuitem);
+        } else
+        {
+            return false;
         }
-        typedarray.recycle();
-        return i;
     }
 
-    public boolean f()
+    public Menu b()
     {
-        return a.getApplicationInfo().targetSdkVersion < 14;
+        return c;
     }
 
-    public int g()
+    public void b(int j)
     {
-        return a.getResources().getDimensionPixelSize(g.X);
+        a(sb.j(a).getResources().getString(j));
+    }
+
+    public void b(CharSequence charsequence)
+    {
+        sb.h(a).a(charsequence);
+    }
+
+    public void c()
+    {
+        if (a.a != this)
+        {
+            return;
+        }
+        if (!sb.a(sb.f(a), sb.g(a)))
+        {
+            a.b = this;
+            a.c = d;
+        } else
+        {
+            d.a(this);
+        }
+        d = null;
+        a.f(false);
+        sb.h(a).d();
+        sb.i(a).a().sendAccessibilityEvent(32);
+        sb.e(a).b(a.d);
+        a.a = null;
+    }
+
+    public void d()
+    {
+        if (a.a != this)
+        {
+            return;
+        }
+        c.g();
+        d.b(this, c);
+        c.h();
+        return;
+        Exception exception;
+        exception;
+        c.h();
+        throw exception;
+    }
+
+    public boolean e()
+    {
+        c.g();
+        boolean flag = d.a(this, c);
+        c.h();
+        return flag;
+        Exception exception;
+        exception;
+        c.h();
+        throw exception;
+    }
+
+    public CharSequence f()
+    {
+        return sb.h(a).b();
+    }
+
+    public CharSequence g()
+    {
+        return sb.h(a).c();
+    }
+
+    public boolean h()
+    {
+        return sb.h(a).f();
+    }
+
+    public View i()
+    {
+        if (e != null)
+        {
+            return (View)e.get();
+        } else
+        {
+            return null;
+        }
     }
 }

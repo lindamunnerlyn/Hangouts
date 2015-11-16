@@ -2,24 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-final class aph
-    implements apj
+public final class aph
 {
 
-    final Context a;
-    final apg b;
+    final ape a;
+    final boolean b;
 
-    aph(apg apg, Context context)
+    aph(ape ape, boolean flag)
     {
-        b = apg;
-        a = context;
-        super();
-    }
-
-    public apa a(int i)
-    {
-        return apa.a(a, i);
+        a = ape;
+        b = flag;
     }
 }

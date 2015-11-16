@@ -2,131 +2,64 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.lang.reflect.Array;
-import java.util.Collection;
-import java.util.Map;
-import java.util.Set;
+import android.os.Parcel;
+import com.google.android.gms.googlehelp.internal.common.TogglingData;
 
-abstract class feg
+public final class feg
+    implements android.os.Parcelable.Creator
 {
 
-    fei b;
-    fej c;
-    fel d;
-
-    feg()
+    public feg()
     {
     }
 
-    public static boolean a(Set set, Object obj)
+    public Object createFromParcel(Parcel parcel)
     {
-        if (set != obj) goto _L2; else goto _L1
-_L1:
-        return true;
-_L2:
-        if (!(obj instanceof Set))
+        String s2 = null;
+        int j = g.a(parcel);
+        String s = null;
+        int i = 0;
+        String s1 = null;
+        do
         {
-            break MISSING_BLOCK_LABEL_54;
-        }
-        obj = (Set)obj;
-        boolean flag;
-        try
-        {
-            if (set.size() != ((Set) (obj)).size())
+            if (parcel.dataPosition() < j)
             {
-                break; /* Loop/switch isn't completed */
+                int k = parcel.readInt();
+                switch (0xffff & k)
+                {
+                default:
+                    g.b(parcel, k);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, k);
+                    break;
+
+                case 2: // '\002'
+                    s = g.i(parcel, k);
+                    break;
+
+                case 3: // '\003'
+                    s1 = g.i(parcel, k);
+                    break;
+
+                case 4: // '\004'
+                    s2 = g.i(parcel, k);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != j)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
+            } else
+            {
+                return new TogglingData(i, s, s1, s2);
             }
-            flag = set.containsAll(((Collection) (obj)));
-        }
-        // Misplaced declaration of an exception variable
-        catch (Set set)
-        {
-            return false;
-        }
-        // Misplaced declaration of an exception variable
-        catch (Set set)
-        {
-            return false;
-        }
-        if (flag) goto _L1; else goto _L3
-_L3:
-        return false;
-        return false;
+        } while (true);
     }
 
-    protected abstract int a();
-
-    protected abstract int a(Object obj);
-
-    protected abstract Object a(int i, int j);
-
-    protected abstract Object a(int i, Object obj);
-
-    protected abstract void a(int i);
-
-    protected abstract void a(Object obj, Object obj1);
-
-    public Object[] a(Object aobj[], int i)
+    public Object[] newArray(int i)
     {
-        int k = a();
-        if (aobj.length < k)
-        {
-            aobj = (Object[])Array.newInstance(((Object) (aobj)).getClass().getComponentType(), k);
-        }
-        for (int j = 0; j < k; j++)
-        {
-            aobj[j] = a(j, i);
-        }
-
-        if (aobj.length > k)
-        {
-            aobj[k] = null;
-        }
-        return aobj;
-    }
-
-    protected abstract int b(Object obj);
-
-    protected abstract Map b();
-
-    public Object[] b(int i)
-    {
-        int k = a();
-        Object aobj[] = new Object[k];
-        for (int j = 0; j < k; j++)
-        {
-            aobj[j] = a(j, i);
-        }
-
-        return aobj;
-    }
-
-    protected abstract void c();
-
-    public Set d()
-    {
-        if (b == null)
-        {
-            b = new fei(this);
-        }
-        return b;
-    }
-
-    public Set e()
-    {
-        if (c == null)
-        {
-            c = new fej(this);
-        }
-        return c;
-    }
-
-    public Collection f()
-    {
-        if (d == null)
-        {
-            d = new fel(this);
-        }
-        return d;
+        return new TogglingData[i];
     }
 }

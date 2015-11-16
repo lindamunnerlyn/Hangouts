@@ -2,21 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Arrays;
 
 final class avg
-    implements Runnable
 {
 
-    final ave a;
+    final bac a;
+    final int b;
 
-    avg(ave ave1)
+    avg(bac bac1, int i)
     {
-        a = ave1;
-        super();
+        g.e(bac1);
+        a = bac1;
+        b = i;
     }
 
-    public void run()
+    String a()
     {
-        ave.s(a);
+        return a.c().getName();
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (obj != this)
+        {
+            if (obj instanceof avg)
+            {
+                if (!((avg) (obj = (avg)obj)).a.equals(a) || ((avg) (obj)).b != b)
+                {
+                    return false;
+                }
+            } else
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public int hashCode()
+    {
+        return Arrays.hashCode(new Object[] {
+            a, Integer.valueOf(b)
+        });
     }
 }

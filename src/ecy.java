@@ -2,32 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.views.AudioAttachmentView;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 
 public final class ecy
-    implements edd
 {
 
-    final ani a;
-    final String b;
-    final String c;
-    final AudioAttachmentView d;
+    boolean a;
+    private final Context b;
+    private final String c;
+    private final String d;
 
-    public ecy(AudioAttachmentView audioattachmentview, ani ani, String s, String s1)
+    public ecy(Context context, String s, String s1)
     {
-        d = audioattachmentview;
-        a = ani;
-        b = s;
-        c = s1;
-        super();
+        b = context;
+        c = s;
+        d = s1;
     }
 
-    public void a()
+    public boolean a()
     {
-        if (a == null || b == null)
-        {
-            ebw.f("Babel", "account or photoid are null in fetchAudioUrl");
-        }
-        any.a(a, null, b, c);
+        ecz ecz1 = new ecz(this);
+        eq eq1 = eq.a(b);
+        eq1.a(ecz1, new IntentFilter(d));
+        eq1.b(new Intent(c));
+        eq1.a(ecz1);
+        return a;
     }
 }

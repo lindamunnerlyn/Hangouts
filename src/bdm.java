@@ -2,27 +2,63 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentResolver;
-import android.content.Context;
-import android.net.Uri;
-import android.os.AsyncTask;
+import android.widget.ImageView;
 
-final class bdm extends AsyncTask
+final class bdm
+    implements aqs
 {
 
-    final bdj a;
-    private final Uri b;
+    final bdk a;
+    final int b;
+    final bdl c;
 
-    public bdm(bdj bdj1, Uri uri)
+    bdm(bdl bdl1, bdk bdk1, int i)
     {
-        a = bdj1;
+        c = bdl1;
+        a = bdk1;
+        b = i;
         super();
-        b = uri;
     }
 
-    protected Object doInBackground(Object aobj[])
+    public void a(eef eef1, edf edf, boolean flag, aqn aqn1, boolean flag1)
     {
-        a.b.getContentResolver().delete(b, null, null);
-        return null;
+        if (!flag)
+        {
+            eev.f("Babel_Stickers", "Load failed.");
+        } else
+        {
+            if (aqn1.o().q() != null)
+            {
+                a.c = aqn1.o().q();
+            }
+            aqn1 = (ImageView)aqn1.m();
+            if (g.a((Integer)aqn1.getTag(), -1) != b || a.d != null)
+            {
+                edf = String.valueOf(a.a);
+                if (edf.length() != 0)
+                {
+                    edf = "Obsolete update: ".concat(edf);
+                } else
+                {
+                    edf = new String("Obsolete update: ");
+                }
+                eev.e("Babel_Stickers", edf);
+                if (eef1 != null)
+                {
+                    eef1.b();
+                    return;
+                }
+            } else
+            {
+                a.d = new bdi(c.a);
+                a.d.b = eef1;
+                if (edf != null)
+                {
+                    a.d.a = new ehk(edf);
+                }
+                bdl.a(aqn1, a);
+                return;
+            }
+        }
     }
 }

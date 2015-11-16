@@ -2,99 +2,226 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.android.ex.photo.views.PhotoView;
+import android.util.Log;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Arrays;
 
 public final class abs
-    implements Runnable
 {
 
-    private final PhotoView a;
-    private float b;
-    private float c;
-    private boolean d;
-    private float e;
-    private float f;
-    private float g;
-    private long h;
-    private boolean i;
-    private boolean j;
+    private InputStream a;
+    private byte b[];
+    private boolean c;
+    private int d;
+    private int e;
 
-    public abs(PhotoView photoview)
+    public abs(InputStream inputstream)
     {
-        a = photoview;
+        d = 0;
+        e = 0;
+        a = inputstream;
+        b = new byte[e(16)];
+        c = false;
     }
 
-    public static boolean a(abs abs1)
+    private boolean d(int i)
     {
-        return abs1.i;
-    }
-
-    public void a()
-    {
-        i = false;
-        j = true;
-    }
-
-    public boolean a(float f1, float f2, float f3, float f4)
-    {
-        if (i)
+        l.a("fill");
+        if (i < d)
         {
+            l.a();
+            throw new IllegalStateException(String.format("Index %d is before buffer %d", new Object[] {
+                Integer.valueOf(i), Integer.valueOf(d)
+            }));
+        }
+        int k = i - d;
+        if (a == null)
+        {
+            l.a();
             return false;
         }
-        b = f3;
-        c = f4;
-        e = f2;
-        h = System.currentTimeMillis();
-        f = f1;
-        boolean flag;
-        if (e > f)
+        int i1 = k + 1;
+        int j = k;
+        if (i1 > b.length)
         {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        d = flag;
-        g = (e - f) / 200F;
-        i = true;
-        j = false;
-        a.post(this);
-        return true;
-    }
-
-    public void run()
-    {
-        if (!j) goto _L2; else goto _L1
-_L1:
-        return;
-_L2:
-        long l = System.currentTimeMillis();
-        long l1 = h;
-        float f1 = f;
-        float f2 = g;
-        f1 = (float)(l - l1) * f2 + f1;
-        PhotoView.a(a, f1, b, c);
-        if (f1 != e)
-        {
-            boolean flag1 = d;
-            boolean flag;
-            if (f1 > e)
+            if (c)
             {
-                flag = true;
+                c(i);
+                j = i - d;
             } else
             {
-                flag = false;
-            }
-            if (flag1 != flag)
-            {
-                continue; /* Loop/switch isn't completed */
+                i = e(i1);
+                String.format("Increasing buffer length from %d to %d. Bad buffer size chosen, or advanceTo() not called.", new Object[] {
+                    Integer.valueOf(b.length), Integer.valueOf(i)
+                });
+                b = Arrays.copyOf(b, i);
+                j = k;
             }
         }
-        PhotoView.a(a, e, b, c);
-        a();
-        if (j) goto _L1; else goto _L3
-_L3:
-        a.post(this);
+        try
+        {
+            i = a.read(b, e, b.length - e);
+        }
+        catch (IOException ioexception)
+        {
+            i = -1;
+        }
+        if (i != -1)
+        {
+            e = i + e;
+        } else
+        {
+            a = null;
+        }
+        if (Log.isLoggable("InputStreamBuffer", 3))
+        {
+            String.format("fill %d      buffer: %s", new Object[] {
+                Integer.valueOf(j), this
+            });
+        }
+        l.a();
+        return j < e;
+    }
+
+    private static int e(int i)
+    {
+        i--;
+        i |= i >> 1;
+        i |= i >> 2;
+        i |= i >> 4;
+        i |= i >> 8;
+        return (i | i >> 16) + 1;
+    }
+
+    public byte a(int i)
+    {
+        l.a("get");
+        if (b(i))
+        {
+            int j = d;
+            l.a();
+            return b[i - j];
+        } else
+        {
+            l.a();
+            throw new IndexOutOfBoundsException(String.format("Index %d beyond length.", new Object[] {
+                Integer.valueOf(i)
+            }));
+        }
+    }
+
+    public boolean b(int i)
+    {
+        l.a("has");
+        if (i < d)
+        {
+            l.a();
+            throw new IllegalStateException(String.format("Index %d is before buffer %d", new Object[] {
+                Integer.valueOf(i), Integer.valueOf(d)
+            }));
+        }
+        int j = i - d;
+        if (j >= e || j >= b.length)
+        {
+            l.a();
+            return d(i);
+        } else
+        {
+            l.a();
+            return true;
+        }
+    }
+
+    public void c(int i)
+    {
+        int l1;
+        l.a("advance to");
+        l1 = i - d;
+        if (l1 <= 0)
+        {
+            l.a();
+            return;
+        }
+        if (l1 >= e) goto _L2; else goto _L1
+_L1:
+        if (l1 >= b.length)
+        {
+            throw new IndexOutOfBoundsException(String.format("Index %d out of bounds. Length %d", new Object[] {
+                Integer.valueOf(l1), Integer.valueOf(b.length)
+            }));
+        }
+        for (int j = 0; j + l1 < e; j++)
+        {
+            b[j] = b[j + l1];
+        }
+
+        d = i;
+        e = e - l1;
+_L11:
+        if (Log.isLoggable("InputStreamBuffer", 3))
+        {
+            String.format("advanceTo %d buffer: %s", new Object[] {
+                Integer.valueOf(l1), this
+            });
+        }
+        l.a();
         return;
+_L2:
+        if (a == null) goto _L4; else goto _L3
+_L3:
+        int k;
+        int j1;
+        k = l1 - e;
+        j1 = 0;
+_L8:
+        if (k <= 0) goto _L6; else goto _L5
+_L5:
+        long l2 = a.skip(k);
+        int i1;
+        int k1;
+        if (l2 <= 0L)
+        {
+            k1 = j1 + 1;
+            i1 = k;
+        } else
+        {
+            i1 = (int)((long)k - l2);
+            k1 = j1;
+        }
+        k = i1;
+        j1 = k1;
+        if (k1 < 5) goto _L8; else goto _L7
+_L7:
+        k = 1;
+_L9:
+        if (k != 0)
+        {
+            a = null;
+        }
+        d = i - i1;
+        e = 0;
+        continue; /* Loop/switch isn't completed */
+_L6:
+        i1 = k;
+        k = 0;
+        continue; /* Loop/switch isn't completed */
+        IOException ioexception;
+        ioexception;
+        i1 = k;
+        k = 1;
+        if (true) goto _L9; else goto _L4
+_L4:
+        d = i;
+        e = 0;
+        if (true) goto _L11; else goto _L10
+_L10:
+    }
+
+    public String toString()
+    {
+        return String.format("+%d+%d [%d]", new Object[] {
+            Integer.valueOf(d), Integer.valueOf(b.length), Integer.valueOf(e)
+        });
     }
 }

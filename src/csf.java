@@ -2,28 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
 
-public class csf extends csa
+final class csf
+    implements android.view.View.OnClickListener
 {
 
-    private static final long serialVersionUID = 1L;
+    final cse a;
 
-    public csf()
+    csf(cse cse1)
     {
+        a = cse1;
+        super();
     }
 
-    public kop a(String s, int j, int k)
+    public void onClick(View view)
     {
-        return new csb();
-    }
-
-    public String g()
-    {
-        return "users/@me/phones";
-    }
-
-    public boolean i()
-    {
-        return false;
+        g.a(dcn.e(cse.a(a).a()), 2408);
+        if (cse.b(a) != null)
+        {
+            cse.b(a).a(cse.c(a), cse.a(a).c().b("account_name"), cse.d(a));
+        }
     }
 }

@@ -2,108 +2,51 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import com.google.android.apps.hangouts.service.NetworkConnectionCheckingService;
 
-class ccn
-    implements android.app.Application.ActivityLifecycleCallbacks, ccm
+public final class ccn
+    implements ftl
 {
 
     private final Context a;
-    private volatile ccl b;
 
     public ccn(Context context)
     {
-        b = ccl.a;
         a = context;
     }
 
-    public ccl a()
+    public String a()
     {
-        if (ccl.a == b)
-        {
-            a(a, true);
-        }
-        return b;
+        return "SMS";
     }
 
-    public void a(Context context, boolean flag)
+    public boolean b()
     {
-        Intent intent = new Intent(context, com/google/android/apps/hangouts/service/NetworkConnectionCheckingService);
-        if (flag)
-        {
-            intent.putExtra("update_type", "initialize_connection_state");
-        } else
-        {
-            intent.putExtra("update_type", "update_connection_state");
-        }
-        context.startService(intent);
+        return false;
     }
 
-    public void a(ccl ccl1)
+    public String c()
     {
-        if (ccl1 != b)
-        {
-            String s = String.valueOf(b);
-            String s1 = String.valueOf(ccl1);
-            ebw.e("Babel", (new StringBuilder(String.valueOf(s).length() + 34 + String.valueOf(s1).length())).append("connection state changed from ").append(s).append(" to ").append(s1).toString());
-            b = ccl1;
-            if (((alw)hgx.a(a, alw)).a("babel_network_change_notification", false))
-            {
-                RealTimeChatService.h();
-            }
-        }
+        return a.getString(l.jF);
     }
 
-    public void a(boolean flag)
+    public String d()
     {
-        if (b.a() == flag)
-        {
-            return;
-        } else
-        {
-            Intent intent = new Intent(a, com/google/android/apps/hangouts/service/NetworkConnectionCheckingService);
-            intent.putExtra("update_type", "verify_connection_state");
-            intent.putExtra("expected_connectivity", flag);
-            a.startService(intent);
-            return;
-        }
+        return null;
     }
 
-    public void onActivityCreated(Activity activity, Bundle bundle)
+    public String e()
     {
+        return null;
     }
 
-    public void onActivityDestroyed(Activity activity)
+    public String f()
     {
+        return null;
     }
 
-    public void onActivityPaused(Activity activity)
+    public String g()
     {
-    }
-
-    public void onActivityResumed(Activity activity)
-    {
-        activity = activity.getApplicationContext();
-        if (a() == ccl.c)
-        {
-            a(activity, false);
-        }
-    }
-
-    public void onActivitySaveInstanceState(Activity activity, Bundle bundle)
-    {
-    }
-
-    public void onActivityStarted(Activity activity)
-    {
-    }
-
-    public void onActivityStopped(Activity activity)
-    {
+        return null;
     }
 }

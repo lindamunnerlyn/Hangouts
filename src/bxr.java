@@ -2,26 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
 final class bxr
-    implements bxo
 {
 
-    bxr()
-    {
-    }
+    static final int a[];
 
-    public can a(Context context, int i, boolean flag, String s)
+    static 
     {
-        if (bxp.b(s))
+        a = new int[bxi.values().length];
+        try
         {
-            context = new bxp(context);
-            context.a(i, flag, s);
-            return context;
-        } else
+            a[bxi.d.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror5) { }
+        try
         {
-            return null;
+            a[bxi.b.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror4) { }
+        try
+        {
+            a[bxi.c.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[bxi.a.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[bxi.f.ordinal()] = 5;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[bxi.e.ordinal()] = 6;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
         }
     }
 }

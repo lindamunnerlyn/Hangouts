@@ -3,137 +3,78 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.support.v7.internal.widget.ActionBarContextView;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import java.lang.ref.WeakReference;
+import android.content.pm.ApplicationInfo;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.util.DisplayMetrics;
+import android.view.ViewConfiguration;
 
-public final class sh extends vr
-    implements sz
+public final class sh
 {
 
     private Context a;
-    private ActionBarContextView b;
-    private vs c;
-    private WeakReference d;
-    private boolean e;
-    private boolean f;
-    private sy g;
 
-    public sh(Context context, ActionBarContextView actionbarcontextview, vs vs1, boolean flag)
+    private sh(Context context)
     {
         a = context;
-        b = actionbarcontextview;
-        c = vs1;
-        g = (new sy(actionbarcontextview.getContext())).a();
-        g.a(this);
-        f = flag;
     }
 
-    public MenuInflater a()
+    public static sh a(Context context)
     {
-        return new MenuInflater(b.getContext());
+        return new sh(context);
     }
 
-    public void a(int j)
+    public int a()
     {
-        b(a.getString(j));
+        return a.getResources().getInteger(g.bn);
     }
 
-    public void a(View view)
+    public boolean b()
     {
-        b.a(view);
-        if (view != null)
+        while (android.os.Build.VERSION.SDK_INT >= 19 || !ko.b(ViewConfiguration.get(a))) 
         {
-            view = new WeakReference(view);
-        } else
-        {
-            view = null;
+            return true;
         }
-        d = view;
+        return false;
     }
 
-    public void a(CharSequence charsequence)
+    public int c()
     {
-        b.b(charsequence);
+        return a.getResources().getDisplayMetrics().widthPixels / 2;
     }
 
-    public void a(sy sy1)
+    public boolean d()
     {
-        d();
-        b.a();
-    }
-
-    public void a(boolean flag)
-    {
-        super.a(flag);
-        b.a(flag);
-    }
-
-    public boolean a(sy sy1, MenuItem menuitem)
-    {
-        return c.a(this, menuitem);
-    }
-
-    public Menu b()
-    {
-        return g;
-    }
-
-    public void b(int j)
-    {
-        a(a.getString(j));
-    }
-
-    public void b(CharSequence charsequence)
-    {
-        b.a(charsequence);
-    }
-
-    public void c()
-    {
-        if (e)
+        if (a.getApplicationInfo().targetSdkVersion >= 16)
         {
-            return;
+            return a.getResources().getBoolean(g.R);
         } else
         {
-            e = true;
-            b.sendAccessibilityEvent(32);
-            c.a(this);
-            return;
+            return a.getResources().getBoolean(g.S);
         }
     }
 
-    public void d()
+    public int e()
     {
-        c.b(this, g);
-    }
-
-    public CharSequence f()
-    {
-        return b.b();
-    }
-
-    public CharSequence g()
-    {
-        return b.c();
-    }
-
-    public boolean h()
-    {
-        return b.f();
-    }
-
-    public View i()
-    {
-        if (d != null)
+        TypedArray typedarray = a.obtainStyledAttributes(null, rq.a, g.g, 0);
+        int j = typedarray.getLayoutDimension(rq.j, 0);
+        Resources resources = a.getResources();
+        int i = j;
+        if (!d())
         {
-            return (View)d.get();
-        } else
-        {
-            return null;
+            i = Math.min(j, resources.getDimensionPixelSize(g.W));
         }
+        typedarray.recycle();
+        return i;
+    }
+
+    public boolean f()
+    {
+        return a.getApplicationInfo().targetSdkVersion < 14;
+    }
+
+    public int g()
+    {
+        return a.getResources().getDimensionPixelSize(g.X);
     }
 }

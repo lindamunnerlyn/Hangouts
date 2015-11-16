@@ -2,20 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
+import com.google.android.apps.hangouts.phone.DebugActivity;
+import java.util.Arrays;
 
-final class cmn extends cmu
+public final class cmn
+    implements android.view.View.OnLongClickListener
 {
 
-    final cls a;
+    final String a[];
+    final DebugActivity b;
 
-    cmn(cls cls, String s)
+    public cmn(DebugActivity debugactivity, String as[])
     {
-        a = cls;
-        super(s);
+        b = debugactivity;
+        a = as;
+        super();
     }
 
-    public void a()
+    public boolean onLongClick(View view)
     {
-        (new cmo(this)).execute(new Void[0]);
+        return DebugActivity.a(b, Arrays.toString(a));
     }
 }

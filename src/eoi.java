@@ -2,25 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
 
-public final class eoi
+final class eoi
+    implements eql
 {
 
-    public static final String a[];
+    final eof a;
 
-    public static Intent a(String s)
+    eoi(eof eof1)
     {
-        Intent intent = new Intent();
-        intent.setPackage("com.google.android.gms");
-        intent.setAction("com.google.android.gms.common.oob.OOB_SIGN_UP");
-        intent.putExtra("com.google.android.gms.common.oob.EXTRA_ACCOUNT_NAME", s);
-        intent.putExtra("com.google.android.gms.common.oob.EXTRA_BACK_BUTTON_NAME", null);
-        return intent;
+        a = eof1;
+        super();
     }
 
-    static 
+    public boolean d()
     {
-        a = ena.d;
+        return a.e();
     }
 }

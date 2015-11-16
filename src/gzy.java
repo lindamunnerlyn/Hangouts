@@ -6,28 +6,45 @@
 public final class gzy
 {
 
-    a a;
-    boolean b;
-    boolean c;
+    final int a;
+    final int b;
+    final long c;
+    private final gzz d;
 
-    gzy()
+    gzy(int i, int j, long l, gzz gzz1)
     {
+        b = i;
+        a = j;
+        c = l;
+        d = gzz1;
     }
 
-    public gzy a()
+    gzy(int i, int j, gzz gzz1)
     {
-        b = true;
-        return this;
+        this(i, j, (long)i * (long)j << 2, gzz1);
     }
 
-    public gzy b()
+    public boolean equals(Object obj)
     {
-        c = true;
-        return this;
+        if (obj instanceof gzy)
+        {
+            obj = (gzy)obj;
+            return d.a(this, ((gzy) (obj)));
+        } else
+        {
+            return false;
+        }
     }
 
-    public gzx c()
+    public int hashCode()
     {
-        return new gzx(this);
+        return d.a(this);
+    }
+
+    public String toString()
+    {
+        int i = b;
+        int j = a;
+        return (new StringBuilder(35)).append("BitmapKey(").append(i).append(", ").append(j).append(")").toString();
     }
 }

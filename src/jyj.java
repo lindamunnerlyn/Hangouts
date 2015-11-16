@@ -3,98 +3,52 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jyj extends koj
+public abstract class jyj
 {
 
-    public Boolean a;
-    public jzm b;
-    public jyg c;
+    private static final jyj a = new jym("base64()", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", Character.valueOf('='));
+    private static final jyj b = new jym("base64Url()", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_", Character.valueOf('='));
+    private static final jyj c = new jyo("base32()", "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567", Character.valueOf('='));
+    private static final jyj d = new jyo("base32Hex()", "0123456789ABCDEFGHIJKLMNOPQRSTUV", Character.valueOf('='));
+    private static final jyj e = new jyl("base16()", "0123456789ABCDEF");
 
-    public jyj()
+    jyj()
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public static jyj b()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (b != null)
-        {
-            i = j + koh.d(1, b);
-        }
-        j = i;
-        if (c != null)
-        {
-            j = i + koh.d(2, c);
-        }
-        i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(3) + 1);
-        }
-        return i;
+        return b;
     }
 
-    public kop mergeFrom(kog kog1)
+    abstract int a(int i);
+
+    abstract int a(byte abyte0[], CharSequence charsequence);
+
+    abstract jmr a();
+
+    public final byte[] a(CharSequence charsequence)
     {
-        do
+        int i;
+        String s = a().a(charsequence);
+        charsequence = new byte[a(s.length())];
+        i = a(((byte []) (charsequence)), ((CharSequence) (s)));
+        if (i == charsequence.length)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (b == null)
-                {
-                    b = new jzm();
-                }
-                kog1.a(b);
-                break;
-
-            case 18: // '\022'
-                if (c == null)
-                {
-                    c = new jyg();
-                }
-                kog1.a(c);
-                break;
-
-            case 24: // '\030'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
+            return charsequence;
+        }
+        byte abyte0[];
+        try
+        {
+            abyte0 = new byte[i];
+            System.arraycopy(charsequence, 0, abyte0, 0, i);
+        }
+        // Misplaced declaration of an exception variable
+        catch (CharSequence charsequence)
+        {
+            throw new IllegalArgumentException(charsequence);
+        }
+        return abyte0;
     }
 
-    public void writeTo(koh koh1)
-    {
-        if (b != null)
-        {
-            koh1.b(1, b);
-        }
-        if (c != null)
-        {
-            koh1.b(2, c);
-        }
-        if (a != null)
-        {
-            koh1.a(3, a.booleanValue());
-        }
-        super.writeTo(koh1);
-    }
 }

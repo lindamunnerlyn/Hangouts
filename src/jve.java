@@ -2,61 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.common.collect.MapMakerInternalMap;
 
-public final class jve extends koj
+public final class jve extends jvd
 {
 
-    public Long a;
+    final MapMakerInternalMap a;
 
-    public jve()
+    jve(MapMakerInternalMap mapmakerinternalmap)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = mapmakerinternalmap;
+        super(mapmakerinternalmap);
     }
 
-    protected int computeSerializedSize()
+    public Object next()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.longValue();
-            i = j + (koh.f(1) + 8);
-        }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 9: // '\t'
-                a = Long.valueOf(kog1.g());
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.c(1, a.longValue());
-        }
-        super.writeTo(koh1);
+        return c().getKey();
     }
 }

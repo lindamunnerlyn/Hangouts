@@ -3,21 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class jon extends jok
+public final class jon extends RuntimeException
 {
 
-    jon(String s)
+    public jon(String s)
     {
-        super(s, 2);
-    }
-
-    jgq a()
-    {
-        return jgs.a;
-    }
-
-    jou a(joh joh1, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry, Object obj)
-    {
-        return new jpa(joh1.h, obj, referenceentry);
+        super(s);
     }
 }

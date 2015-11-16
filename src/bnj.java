@@ -2,33 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
+import com.google.android.apps.hangouts.hangout.BroadcastOverlayView;
 
-final class bnj
-    implements ekh
+final class bnj extends boq
 {
 
-    final bnd a;
+    final bni a;
 
-    bnj(bnd bnd1)
+    bnj(bni bni1)
     {
-        a = bnd1;
+        a = bni1;
         super();
     }
 
-    public void a(ekg ekg)
+    public void a()
     {
-        ekg = (fbu)ekg;
-        if (ekg != null && ekg.B_().e())
-        {
-            a.i = ekg.b();
-            ekg = String.valueOf(a.i);
-            ebw.c("Babel_calls", (new StringBuilder(String.valueOf(ekg).length() + 27)).append("Predicted network quality: ").append(ekg).toString());
-        } else
-        {
-            ekg = String.valueOf(ekg);
-            ebw.c("Babel_calls", (new StringBuilder(String.valueOf(ekg).length() + 50)).append("Getting predicted network quality failed, result: ").append(ekg).toString());
-        }
-        a.e.d();
+        super.a();
+        BroadcastOverlayView.a(a.a);
     }
 }

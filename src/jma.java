@@ -2,22 +2,75 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
 
-final class jma
-    implements Serializable
+public final class jma extends kwm
 {
 
-    private static final long serialVersionUID = 0L;
-    final jlr a;
+    public String a;
+    public Long b;
 
-    jma(jlr jlr1)
+    public jma()
     {
-        a = jlr1;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    Object readResolve()
+    protected int computeSerializedSize()
     {
-        return a.d();
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.b(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(7, b.longValue());
+        }
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 56: // '8'
+                b = Long.valueOf(kwj1.d());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(7, b.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

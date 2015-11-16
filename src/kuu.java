@@ -2,114 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.IOException;
 
-public final class kuu extends koj
+public final class kuu extends IOException
 {
 
-    public kun a[];
+    private static final long serialVersionUID = 0xe9924688c2f20054L;
+    private kvb a;
 
-    public kuu()
+    public kuu(String s)
     {
-        a = kun.a();
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s);
+        a = null;
     }
 
-    protected int computeSerializedSize()
+    static kuu b()
     {
-        int i = super.computeSerializedSize();
-        int k = i;
-        if (a != null)
-        {
-            k = i;
-            if (a.length > 0)
-            {
-                int j = 0;
-                do
-                {
-                    k = i;
-                    if (j >= a.length)
-                    {
-                        break;
-                    }
-                    kun kun1 = a[j];
-                    k = i;
-                    if (kun1 != null)
-                    {
-                        k = i + koh.d(1, kun1);
-                    }
-                    j++;
-                    i = k;
-                } while (true);
-            }
-        }
-        return k;
+        return new kuu("While parsing a protocol message, the input ended unexpectedly in the middle of a field.  This could mean either that the input has been truncated or that an embedded message misreported its own length.");
     }
 
-    public kop mergeFrom(kog kog1)
+    static kuu c()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                kun akun[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                akun = new kun[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, akun, 0, j);
-                    k = j;
-                }
-                for (; k < akun.length - 1; k++)
-                {
-                    akun[k] = new kun();
-                    kog1.a(akun[k]);
-                    kog1.a();
-                }
-
-                akun[k] = new kun();
-                kog1.a(akun[k]);
-                a = akun;
-                break;
-            }
-        } while (true);
+        return new kuu("CodedInputStream encountered an embedded string or message which claimed to have negative size.");
     }
 
-    public void writeTo(koh koh1)
+    static kuu d()
     {
-        if (a != null && a.length > 0)
-        {
-            for (int i = 0; i < a.length; i++)
-            {
-                kun kun1 = a[i];
-                if (kun1 != null)
-                {
-                    koh1.b(1, kun1);
-                }
-            }
+        return new kuu("Protocol message tag had invalid wire type.");
+    }
 
-        }
-        super.writeTo(koh1);
+    static kuu e()
+    {
+        return new kuu("Protocol message had too many levels of nesting.  May be malicious.  Use CodedInputStream.setRecursionLimit() to increase the depth limit.");
+    }
+
+    public kuu a(kvb kvb)
+    {
+        a = kvb;
+        return this;
+    }
+
+    public kvb a()
+    {
+        return a;
     }
 }

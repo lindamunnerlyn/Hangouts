@@ -14,50 +14,45 @@ import android.view.ViewPropertyAnimator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
-import bay;
-import baz;
-import bbd;
-import bbe;
-import bbg;
+import bbo;
+import bbp;
+import bbt;
+import bbu;
+import bbw;
 import g;
 import h;
 import java.io.File;
 
 public class GalleryItemView extends ImageView
-    implements bbe
+    implements bbu
 {
 
-    Runnable a;
-    private int b;
+    public bbt a;
+    Runnable b;
     private int c;
-    private String d;
-    private bbd e;
+    private int d;
+    private String e;
     private View f;
 
     public GalleryItemView(Context context)
     {
         super(context);
-        b = 512;
         c = 512;
+        d = 512;
     }
 
     public GalleryItemView(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
-        b = 512;
         c = 512;
+        d = 512;
     }
 
     public GalleryItemView(Context context, AttributeSet attributeset, int i)
     {
         super(context, attributeset, i);
-        b = 512;
         c = 512;
-    }
-
-    public static bbd a(GalleryItemView galleryitemview)
-    {
-        return galleryitemview.e;
+        d = 512;
     }
 
     public ImageView a()
@@ -65,41 +60,41 @@ public class GalleryItemView extends ImageView
         return this;
     }
 
-    public void a(Cursor cursor, View view, bbd bbd1)
+    public void a(Cursor cursor, View view, bbt bbt1)
     {
-        e = bbd1;
-        if (a != null)
+        a = bbt1;
+        if (b != null)
         {
-            Runnable runnable = a;
-            g.y().removeCallbacks(runnable);
-            a = null;
+            Runnable runnable = b;
+            g.x().removeCallbacks(runnable);
+            b = null;
         }
-        view.findViewById(g.lc).setVisibility(0);
-        d = bbd1.a(cursor).a;
+        view.findViewById(g.kU).setVisibility(0);
+        e = bbt1.a(cursor).a;
         f = view;
-        view.findViewById(g.lb).setVisibility(4);
-        view.findViewById(g.ld).setVisibility(4);
+        view.findViewById(g.kT).setVisibility(4);
+        view.findViewById(g.kV).setVisibility(4);
         setBackgroundColor(0xffffff);
         setAlpha(255);
-        cursor = d;
-        if (a == null)
+        cursor = e;
+        if (b == null)
         {
-            a = new bbg(this, cursor);
-            g.a(a, 33L);
+            b = new bbw(this, cursor);
+            g.a(b, 33L);
         }
     }
 
-    public void a(bay bay1, boolean flag)
+    public void a(bbo bbo1, boolean flag)
     {
         float f1 = 0.88F;
         float f2 = 1.0F;
-        Object obj = f.findViewById(g.lb);
-        f.findViewById(g.lc).setVisibility(8);
+        Object obj = f.findViewById(g.kT);
+        f.findViewById(g.kU).setVisibility(8);
         int i;
-        if (bay1.d)
+        if (bbo1.d)
         {
             ((View) (obj)).setVisibility(0);
-            setBackgroundColor(getResources().getColor(h.hy));
+            setBackgroundColor(getResources().getColor(h.he));
             setAlpha(127);
             if (!flag)
             {
@@ -108,7 +103,7 @@ public class GalleryItemView extends ImageView
         } else
         {
             ((View) (obj)).setVisibility(4);
-            setBackgroundColor(getResources().getColor(h.hz));
+            setBackgroundColor(getResources().getColor(h.hf));
             setAlpha(255);
             if (flag)
             {
@@ -120,28 +115,28 @@ public class GalleryItemView extends ImageView
             }
         }
         obj = getResources();
-        if (bay1.d)
+        if (bbo1.d)
         {
-            i = g.lk;
+            i = g.lc;
         } else
         {
-            i = g.ll;
+            i = g.ld;
         }
         setContentDescription(((Resources) (obj)).getString(i, new Object[] {
-            (new File(bay1.a)).getName()
+            (new File(bbo1.a)).getName()
         }));
         if (f2 != f1)
         {
             setScaleX(f2);
             setScaleY(f2);
-            animate().scaleX(f1).scaleY(f1).setDuration(135L).setStartDelay(51L).setInterpolator(g.c()).start();
+            animate().scaleX(f1).scaleY(f1).setDuration(135L).setStartDelay(51L).setInterpolator(g.b()).start();
         } else
         {
             setScaleX(f2);
             setScaleY(f2);
         }
-        obj = f.findViewById(g.ld);
-        if (bay1.b == baz.b)
+        obj = f.findViewById(g.kV);
+        if (bbo1.b == bbp.b)
         {
             ((View) (obj)).setVisibility(0);
             return;
@@ -152,15 +147,15 @@ public class GalleryItemView extends ImageView
         }
     }
 
-    public boolean a(bay bay1)
+    public boolean a(bbo bbo1)
     {
-        if (d != null && bay1.a.equals(d))
+        if (e != null && bbo1.a.equals(e))
         {
-            a(bay1, false);
-            bay1 = new AlphaAnimation(0.0F, 1.0F);
-            bay1.setDuration(167L);
-            bay1.setFillAfter(true);
-            startAnimation(bay1);
+            a(bbo1, false);
+            bbo1 = new AlphaAnimation(0.0F, 1.0F);
+            bbo1.setDuration(167L);
+            bbo1.setFillAfter(true);
+            startAnimation(bbo1);
             return true;
         } else
         {
@@ -170,21 +165,21 @@ public class GalleryItemView extends ImageView
 
     public String b()
     {
-        return d;
+        return e;
     }
 
     public int c()
     {
-        return Math.max(b, c);
+        return Math.max(c, d);
     }
 
     protected void onDetachedFromWindow()
     {
         super.onDetachedFromWindow();
-        if (d != null)
+        if (e != null)
         {
-            e.a(d);
-            d = null;
+            a.a(e);
+            e = null;
         }
         clearAnimation();
         setImageBitmap(null);
@@ -194,8 +189,8 @@ public class GalleryItemView extends ImageView
     protected void onMeasure(int i, int j)
     {
         super.onMeasure(i, j);
-        b = (getMeasuredWidth() * 60) / 100;
-        c = getMeasuredHeight();
-        setMeasuredDimension(b, c);
+        c = (getMeasuredWidth() * 60) / 100;
+        d = getMeasuredHeight();
+        setMeasuredDimension(c, d);
     }
 }

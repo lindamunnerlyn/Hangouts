@@ -2,23 +2,72 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
 
-final class gcv
-    implements Runnable
+public final class gcv extends gct
+    implements gcq
 {
 
-    final int a;
-    final gcu b;
+    private Intent a;
 
-    gcv(gcu gcu1, int i)
+    public gcv()
     {
-        b = gcu1;
-        a = i;
-        super();
+        a = new Intent();
+        a.setPackage("com.google.android.gms");
+        a.setAction("com.google.android.gms.people.smart_profile.ACTION_SHOW_PROFILE");
     }
 
-    public void run()
+    public gcq a()
     {
-        b.a.a();
+        a.putExtra("com.google.android.gms.people.smart_profile.APPLICATION_ID", 407);
+        return this;
+    }
+
+    public gcq a(int i)
+    {
+        a.putExtra("com.google.android.gms.people.smart_profile.THEME_COLOR_INT", i);
+        return this;
+    }
+
+    public gcq a(String s)
+    {
+        a.putExtra("com.google.android.gms.people.smart_profile.VIEWER_ACCOUNT_NAME", s);
+        return this;
+    }
+
+    public gcq b()
+    {
+        int i = Math.min(Math.max(100, 0), 100);
+        a.putExtra("com.google.android.gms.people.smart_profile.SLIDE_IN_PERCENTAGE", i);
+        return this;
+    }
+
+    public gcq b(int i)
+    {
+        a.putExtra("com.google.android.gms.people.smart_profile.STATUS_BAR_COLOR", i);
+        return this;
+    }
+
+    public gcq b(String s)
+    {
+        a.putExtra("com.google.android.gms.people.smart_profile.QUALIFIED_ID", s);
+        return this;
+    }
+
+    public Intent c()
+    {
+        return a;
+    }
+
+    public gcq c(String s)
+    {
+        a.putExtra("com.google.android.gms.people.smart_profile.DISPLAY_NAME", s);
+        return this;
+    }
+
+    public gcq d(String s)
+    {
+        a.putExtra("com.google.android.gms.people.smart_profile.AVATAR_URL", s);
+        return this;
     }
 }

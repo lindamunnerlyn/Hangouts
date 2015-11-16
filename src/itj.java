@@ -2,99 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentMap;
 
-public final class itj extends koj
+final class itj
+    implements Runnable
 {
 
-    private static volatile itj c[];
-    public Integer a;
-    public String b;
+    final UUID a;
+    final ArrayList b;
+    final kak c;
+    final iti d;
 
-    public itj()
+    itj(iti iti1, UUID uuid, ArrayList arraylist, kak kak1)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        d = iti1;
+        a = uuid;
+        b = arraylist;
+        c = kak1;
+        super();
     }
 
-    public static itj[] a()
+    public void run()
     {
-        if (c == null)
+        java.util.List list;
+        iti.a(d).remove(a);
+        list = Collections.unmodifiableList(b);
+        its.a(ita.a);
+        itg itg1;
+        for (Iterator iterator = ((Set)iti.b(d).a()).iterator(); iterator.hasNext(); c.a(itp.a(new itk(this, itg1, list)), iti.c(d)))
         {
-            synchronized (kon.a)
-            {
-                if (c == null)
-                {
-                    c = new itj[0];
-                }
-            }
+            itg1 = (itg)iterator.next();
         }
-        return c;
+
+        break MISSING_BLOCK_LABEL_110;
+        Exception exception;
         exception;
-        obj;
-        JVM INSTR monitorexit ;
+        its.a(null);
         throw exception;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.e(1, a.intValue());
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.b(2, b);
-        }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-_L5:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 3: default 40
-    //                   0: 49
-    //                   8: 51
-    //                   18: 102;
-           goto _L1 _L2 _L3 _L4
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L5; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
-        {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-            a = Integer.valueOf(j);
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        b = kog1.j();
-        if (true) goto _L5; else goto _L6
-_L6:
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a.intValue());
-        }
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
-        super.writeTo(koh1);
+        its.a(null);
+        return;
     }
 }

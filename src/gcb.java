@@ -2,21 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.graphics.Bitmap;
+import android.os.Bundle;
 
-final class gcb
-    implements ggv
+public class gcb
+    implements gbu
 {
 
-    final gbs a;
+    fdf a;
 
-    gcb(gbs gbs1)
+    public gcb()
     {
-        a = gbs1;
-        super();
+        a = new fdf();
     }
 
-    public void a(jdo jdo)
+    public gbt a()
     {
-        a.a(kop.toByteArray(jdo));
+        return new gbt(a.a());
+    }
+
+    public gbu a(Bitmap bitmap)
+    {
+        a.a(bitmap);
+        return this;
+    }
+
+    public gbu a(Bundle bundle)
+    {
+        a.a(bundle);
+        return this;
+    }
+
+    public gbu a(String s)
+    {
+        a.a(s);
+        return this;
+    }
+
+    public gbu a(String s, String s1)
+    {
+        a.a(s, s1);
+        return this;
+    }
+
+    public gbu b(String s)
+    {
+        a.b(s);
+        return this;
+    }
+
+    public gbu c(String s)
+    {
+        a.c(s);
+        return this;
     }
 }

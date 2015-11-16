@@ -2,11 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
 
-public final class fcs
+final class fcs
+    implements fcv
 {
 
-    fcs()
+    final Bundle a;
+    final fcq b;
+
+    fcs(fcq fcq1, Bundle bundle)
     {
+        b = fcq1;
+        a = bundle;
+        super();
+    }
+
+    public int a()
+    {
+        return 1;
+    }
+
+    public void b()
+    {
+        b.a.a(a);
     }
 }

@@ -3,87 +3,150 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ibt extends koj
+public final class ibt extends kwm
 {
 
-    public int a;
-    public int b;
+    public Integer a;
+    public String b[];
+    public ibv c;
 
     public ibt()
     {
-        a = 0x80000000;
-        b = 0x80000000;
+        a = null;
+        b = kwx.f;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
+        boolean flag = false;
         int j = super.computeSerializedSize();
         int i = j;
-        if (a != 0x80000000)
+        if (a != null)
         {
-            i = j + koh.e(1, a);
+            i = j + kwk.e(1, a.intValue());
         }
         j = i;
-        if (b != 0x80000000)
+        if (b != null)
         {
-            j = i + koh.e(2, b);
+            j = i;
+            if (b.length > 0)
+            {
+                int k = 0;
+                int l = 0;
+                for (j = ((flag) ? 1 : 0); j < b.length;)
+                {
+                    String s = b[j];
+                    int j1 = k;
+                    int i1 = l;
+                    if (s != null)
+                    {
+                        i1 = l + 1;
+                        j1 = k + kwk.a(s);
+                    }
+                    j++;
+                    k = j1;
+                    l = i1;
+                }
+
+                j = i + k + l * 1;
+            }
         }
-        return j;
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.d(3, c);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L5:
-        int i = kog1.a();
+_L6:
+        int i = kwj1.a();
         i;
-        JVM INSTR lookupswitch 3: default 40
-    //                   0: 49
-    //                   8: 51
-    //                   16: 99;
-           goto _L1 _L2 _L3 _L4
+        JVM INSTR lookupswitch 4: default 48
+    //                   0: 57
+    //                   8: 59
+    //                   18: 106
+    //                   26: 208;
+           goto _L1 _L2 _L3 _L4 _L5
 _L1:
-        if (super.storeUnknownField(kog1, i)) goto _L5; else goto _L2
+        if (super.storeUnknownField(kwj1, i)) goto _L6; else goto _L2
 _L2:
         return this;
 _L3:
-        int j = kog1.f();
+        int j = kwj1.f();
         switch (j)
         {
-        case 0: // '\0'
         case 1: // '\001'
         case 2: // '\002'
         case 3: // '\003'
-            a = j;
+            a = Integer.valueOf(j);
             break;
         }
         continue; /* Loop/switch isn't completed */
 _L4:
-        int k = kog1.f();
-        switch (k)
+        int l = kwx.a(kwj1, 18);
+        String as[];
+        int k;
+        if (b == null)
         {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-            b = k;
-            break;
+            k = 0;
+        } else
+        {
+            k = b.length;
         }
-        if (true) goto _L5; else goto _L6
-_L6:
+        as = new String[l + k];
+        l = k;
+        if (k != 0)
+        {
+            System.arraycopy(b, 0, as, 0, k);
+            l = k;
+        }
+        for (; l < as.length - 1; l++)
+        {
+            as[l] = kwj1.j();
+            kwj1.a();
+        }
+
+        as[l] = kwj1.j();
+        b = as;
+        continue; /* Loop/switch isn't completed */
+_L5:
+        if (c == null)
+        {
+            c = new ibv();
+        }
+        kwj1.a(c);
+        if (true) goto _L6; else goto _L7
+_L7:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != 0x80000000)
+        if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(1, a.intValue());
         }
-        if (b != 0x80000000)
+        if (b != null && b.length > 0)
         {
-            koh1.a(2, b);
+            for (int i = 0; i < b.length; i++)
+            {
+                String s = b[i];
+                if (s != null)
+                {
+                    kwk1.a(2, s);
+                }
+            }
+
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.b(3, c);
+        }
+        super.writeTo(kwk1);
     }
 }

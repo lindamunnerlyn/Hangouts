@@ -2,25 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.content.res.Resources;
 
-final class dta extends ebd
+public final class dta
+    implements dsx
 {
 
-    final dsy a;
-
-    public dta(dsy dsy1, hjm hjm, int i)
+    public dta()
     {
-        a = dsy1;
-        super(hjm, i, dsy.c());
     }
 
-    public void a(csw csw1)
+    public void a(Context context, ad ad1, String s, String s1, String s2)
     {
-        dsy.a(a, csw1.a());
-    }
-
-    protected void c()
-    {
-        dsy.a(a, null);
+        if (s == null)
+        {
+            return;
+        } else
+        {
+            aoa aoa1 = dcn.e(((gqu)hlp.a(context, gqu)).a());
+            int i = context.getResources().getColor(g.ds);
+            int j = context.getResources().getColor(g.dr);
+            ad1.startActivityForResult(((gcr)hlp.a(context, gcr)).a().b(s).a(aoa1.a()).a().a(j).c(s1).d(s2).b().b(i).c(), 0);
+            return;
+        }
     }
 }

@@ -2,9 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Handler;
+import java.util.concurrent.Executor;
 
-public interface afo
+final class afo
+    implements Executor
 {
 
-    public abstract afr a(afu afu);
+    final Handler a;
+    final agd b;
+
+    afo(agd agd, Handler handler)
+    {
+        b = agd;
+        a = handler;
+        super();
+    }
+
+    public void execute(Runnable runnable)
+    {
+        a.post(runnable);
+    }
 }

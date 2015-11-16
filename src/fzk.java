@@ -2,20 +2,51 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
 
-public final class fzk
-    implements fze
+final class fzk
+    implements Iterator
 {
 
-    fyr a;
+    final int a = 0;
+    int b;
+    int c;
+    boolean d;
+    final fzj e;
 
-    public fzk()
+    fzk(fzj fzj1)
     {
-        a = new fyr();
+        e = fzj1;
+        super();
+        d = false;
+        b = fzj1.a();
     }
 
-    public fyb a()
+    public boolean hasNext()
     {
-        return a;
+        return c < b;
+    }
+
+    public Object next()
+    {
+        Object obj = e.a(c);
+        c = c + 1;
+        d = true;
+        return obj;
+    }
+
+    public void remove()
+    {
+        if (!d)
+        {
+            throw new IllegalStateException();
+        } else
+        {
+            c = c - 1;
+            b = b - 1;
+            d = false;
+            e.b(c);
+            return;
+        }
     }
 }

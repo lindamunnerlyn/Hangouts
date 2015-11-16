@@ -2,65 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import android.os.Looper;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
-public final class ebo
+public final class ebo extends ad
 {
 
-    public static final ebo a = new ebo();
-    private static final long b;
-    private static final Handler c = new Handler(Looper.getMainLooper());
-    private final List d = new ArrayList();
-    private final Runnable e = new ebp(this);
-
-    private ebo()
+    public ebo()
     {
     }
 
-    static long a()
+    public static ebo a(String s, String s1)
     {
-        return b;
-    }
-
-    static List a(ebo ebo1)
-    {
-        return ebo1.d;
-    }
-
-    static Handler b()
-    {
-        return c;
-    }
-
-    static Runnable b(ebo ebo1)
-    {
-        return ebo1.e;
-    }
-
-    public void a(ebq ebq)
-    {
-        d.add(ebq);
-        if (d.size() == 1)
+        ebo ebo1 = new ebo();
+        ebo1.setArguments(new Bundle());
+        ebo1.getArguments().putString("android.intent.extra.TITLE", s);
+        if (ebo1.getView() != null)
         {
-            c.postDelayed(e, b);
+            ((TextView)ebo1.getView().findViewById(0x1020016)).setText(s);
+        }
+        ebo1.a(s1);
+        return ebo1;
+    }
+
+    public void a(String s)
+    {
+        getArguments().putString("android.intent.extra.TEXT", s);
+        if (getView() != null)
+        {
+            ((TextView)getView().findViewById(0x102000b)).setText(s);
         }
     }
 
-    public void b(ebq ebq)
+    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
-        d.remove(ebq);
-        if (d.isEmpty())
-        {
-            c.removeCallbacks(e);
-        }
-    }
-
-    static 
-    {
-        b = TimeUnit.SECONDS.toMillis(30L);
+        layoutinflater = layoutinflater.inflate(g.pX, viewgroup, false);
+        ((TextView)layoutinflater.findViewById(0x1020016)).setText(getArguments().getString("android.intent.extra.TITLE"));
+        ((TextView)layoutinflater.findViewById(0x102000b)).setText(getArguments().getString("android.intent.extra.TEXT"));
+        return layoutinflater;
     }
 }

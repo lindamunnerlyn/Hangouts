@@ -4,46 +4,74 @@
 
 
 final class axh
+    implements asn
 {
 
-    static final int a[];
-    static final int b[];
+    final avv a;
 
-    static 
+    axh(avv avv1)
     {
-        b = new int[asz.values().length];
-        try
+        a = avv1;
+        super();
+    }
+
+    public void a()
+    {
+        avv.e(a);
+    }
+
+    public void a(String s)
+    {
+        if (s == null) goto _L2; else goto _L1
+_L1:
+        int i;
+        switch (axu.a[avv.f(a).ordinal()])
         {
-            b[asz.c.ordinal()] = 1;
+        default:
+            s = String.valueOf(avv.f(a));
+            throw new IllegalArgumentException((new StringBuilder(String.valueOf(s).length() + 27)).append("Unknown conversation type: ").append(s).toString());
+
+        case 2: // '\002'
+            break MISSING_BLOCK_LABEL_161;
+
+        case 1: // '\001'
+            i = 1;
+            break;
         }
-        catch (NoSuchFieldError nosuchfielderror5) { }
-        try
+_L3:
+        byte byte0;
+        boolean flag;
+        if (!avv.g(a).a())
         {
-            b[asz.b.ordinal()] = 2;
+            flag = true;
+        } else
+        {
+            flag = false;
         }
-        catch (NoSuchFieldError nosuchfielderror4) { }
-        try
+        if (flag)
         {
-            b[asz.d.ordinal()] = 3;
+            byte0 = 63;
+        } else
+        {
+            byte0 = 58;
         }
-        catch (NoSuchFieldError nosuchfielderror3) { }
-        try
+        (new cra(a.getActivity(), avv.h(a), s, flag, i, true, byte0, 0, false, false, false)).a(new Void[0]);
+_L2:
+        avv.e(a);
+        return;
+        i = 2;
+          goto _L3
+    }
+
+    public void a(boolean flag)
+    {
+        if (flag)
         {
-            b[asz.e.ordinal()] = 4;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        a = new int[atd.values().length];
-        try
+            avv.d(a);
+            return;
+        } else
         {
-            a[atd.c.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[atd.d.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
+            avv.e(a);
             return;
         }
     }

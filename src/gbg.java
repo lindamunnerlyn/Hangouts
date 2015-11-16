@@ -2,13 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import java.util.Map;
+import com.google.android.gms.common.ConnectionResult;
 
-public interface gbg
+final class gbg
+    implements gap
 {
 
-    public abstract byte[] a(Context context, String s, Map map, byte abyte0[], int i);
+    private final ConnectionResult a;
 
-    public abstract byte[] a(Context context, String s, Map map, byte abyte0[], int i, int j);
+    public gbg(ConnectionResult connectionresult)
+    {
+        if (connectionresult == null)
+        {
+            throw new IllegalArgumentException("null connectionResult");
+        } else
+        {
+            a = connectionresult;
+            return;
+        }
+    }
+
+    public String toString()
+    {
+        return a.toString();
+    }
 }

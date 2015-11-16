@@ -2,81 +2,97 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.InputStream;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Set;
 
-final class gtz
+public final class gtz
+    implements hma, hon, hov, hoy
 {
 
-    private final gtp a;
+    private guh a;
+    private gue b;
+    private gug c;
 
-    gtz(gtp gtp)
+    public gtz(hof hof1)
     {
-        a = gtp;
+        hof1.a(this);
     }
 
-    protected gtq a(InputStream inputstream)
+    public void a(int i)
     {
-        gtq gtq1;
-        int i;
-        inputstream = gtv.a(inputstream, a);
-        gtq1 = new gtq(inputstream.j());
-        i = inputstream.a();
-_L8:
-        if (i == 5)
+        if (TextUtils.isEmpty(c.a(i)))
         {
-            break MISSING_BLOCK_LABEL_220;
-        }
-        i;
-        JVM INSTR tableswitch 0 4: default 68
-    //                   0 77
-    //                   1 95
-    //                   2 131
-    //                   3 166
-    //                   4 191;
-           goto _L1 _L2 _L3 _L4 _L5 _L6
-_L6:
-        break MISSING_BLOCK_LABEL_191;
-_L1:
-        break; /* Loop/switch isn't completed */
-_L2:
-        break; /* Loop/switch isn't completed */
-_L9:
-        i = inputstream.a();
-        if (true) goto _L8; else goto _L7
-_L7:
-        gtq1.a(new gub(inputstream.d()));
-          goto _L9
-_L3:
-        gua gua1 = inputstream.c();
-        if (!gua1.f())
-        {
-            inputstream.a(gua1);
+            throw new IllegalArgumentException("You must use a resource id as the request code to guarantee overlap does not occur");
         } else
         {
-            gtq1.b(gua1.a()).a(gua1);
+            return;
         }
-          goto _L9
-_L4:
-        gua gua2 = inputstream.c();
-        if (gua2.c() == 7)
+    }
+
+    public void a(Context context, hlp hlp1, Bundle bundle)
+    {
+        a = (guh)hlp1.a(guh);
+        c = (gug)hlp1.a(gug);
+    }
+
+    public void a(Bundle bundle)
+    {
+        if (bundle != null)
         {
-            inputstream.b(gua2);
-        }
-        gtq1.b(gua2.a()).a(gua2);
-          goto _L9
-_L5:
-        byte abyte0[] = new byte[inputstream.g()];
-        if (abyte0.length == inputstream.a(abyte0))
+            b = (gue)bundle.getParcelable("requestcodehelper_pending_requests");
+            return;
+        } else
         {
-            gtq1.a(abyte0);
+            b = new gue();
+            return;
         }
-          goto _L9
-        byte abyte1[] = new byte[inputstream.f()];
-        if (abyte1.length == inputstream.a(abyte1))
+    }
+
+    public void a(gua gua1)
+    {
+        Integer integer;
+        Integer integer1;
+        for (Iterator iterator = (new ArrayList(b.a())).iterator(); iterator.hasNext(); gua1.a(integer.intValue(), integer1.intValue()))
         {
-            gtq1.a(inputstream.e(), abyte1);
+            integer = (Integer)iterator.next();
+            integer1 = b.a(integer);
         }
-          goto _L9
-        return gtq1;
+
+    }
+
+    public boolean a(int i, gud gud1)
+    {
+        for (Iterator iterator = b.a().iterator(); iterator.hasNext();)
+        {
+            Integer integer = (Integer)iterator.next();
+            if (b.a(integer).intValue() == i)
+            {
+                gud1.a(integer.intValue());
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public int b(int i)
+    {
+        Integer integer1 = b.a(Integer.valueOf(i));
+        Integer integer = integer1;
+        if (integer1 == null)
+        {
+            integer = Integer.valueOf(a.a());
+            b.a(Integer.valueOf(i), integer);
+        }
+        return integer.intValue();
+    }
+
+    public void b(Bundle bundle)
+    {
+        bundle.putParcelable("requestcodehelper_pending_requests", b);
     }
 }

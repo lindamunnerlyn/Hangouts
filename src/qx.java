@@ -2,40 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.ActionMode;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.View;
+import android.view.Window;
 
-class qx extends qu
+class qx extends rc
 {
 
-    final qw b;
-
-    qx(qw qw1, android.view.Window.Callback callback)
+    qx(Context context, Window window, qs qs)
     {
-        b = qw1;
-        super(qw1, callback);
+        super(context, window, qs);
     }
 
-    final ActionMode a(android.view.ActionMode.Callback callback)
+    View a(String s, Context context, AttributeSet attributeset)
     {
-        callback = new sj(b.a, callback);
-        vr vr = b.b(callback);
-        if (vr != null)
-        {
-            return callback.b(vr);
-        } else
-        {
-            return null;
-        }
-    }
-
-    public ActionMode onWindowStartingActionMode(android.view.ActionMode.Callback callback)
-    {
-        if (b.l())
-        {
-            return a(callback);
-        } else
-        {
-            return super.onWindowStartingActionMode(callback);
-        }
+        return null;
     }
 }

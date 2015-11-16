@@ -3,14 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jzf extends koj
+public final class jzf extends kwm
 {
 
-    public Boolean a;
+    public String a;
+    public Integer b;
+    public String c;
 
     public jzf()
     {
         a = null;
+        b = null;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,21 +25,30 @@ public final class jzf extends koj
         int i = j;
         if (a != null)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            i = j + kwk.b(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.intValue());
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.b(3, c);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -44,19 +57,35 @@ public final class jzf extends koj
             case 0: // '\0'
                 return this;
 
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
+                break;
+
+            case 26: // '\032'
+                c = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.booleanValue());
+            kwk1.a(1, a);
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        super.writeTo(kwk1);
     }
 }

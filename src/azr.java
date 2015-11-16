@@ -2,79 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.animation.Animator;
 import android.content.Context;
-import java.util.Iterator;
-import java.util.List;
+import android.content.res.Resources;
+import android.view.View;
+import com.google.android.apps.hangouts.conversation.v2.FloatingButtonWithCounter;
+import com.google.android.libraries.quantum.fab.FloatingActionButton;
 
-final class azr
+public final class azr
+    implements android.animation.Animator.AnimatorListener
 {
 
-    private final Context a;
-    private final azs b;
-    private daw c;
-    private ark d;
-    private List e;
+    final FloatingButtonWithCounter a;
 
-    public azr(Context context, azs azs1)
+    public azr(FloatingButtonWithCounter floatingbuttonwithcounter)
     {
-        a = context;
-        b = azs1;
+        a = floatingbuttonwithcounter;
+        super();
     }
 
-    private boolean a()
+    public void onAnimationCancel(Animator animator)
     {
-        return d != null && e != null;
     }
 
-    private void b()
+    public void onAnimationEnd(Animator animator)
     {
-        g.b(a());
-        int i = ((gmo)hgx.a(a, gmo)).a();
-        atd atd1;
-        if (g.e(d.b))
-        {
-            atd1 = atd.b;
-        } else
-        {
-            atd1 = atd.a;
-        }
-        if (atd1 == atd.a)
-        {
-            c = daw.a(a, i, atd1, d.b, d.c);
-        } else
-        {
-            Iterator iterator = e.iterator();
-            do
-            {
-                if (!iterator.hasNext())
-                {
-                    break;
-                }
-                String s = (String)iterator.next();
-                c = daw.a(a, i, atd1, d.b, s);
-            } while (c.a);
-        }
-        if (b != null)
-        {
-            b.a(c);
-        }
+        a.a.b(a.getContext().getResources().getColor(g.jN));
+        a.a.clearColorFilter();
+        a.findViewById(g.kc).setVisibility(0);
     }
 
-    public void a(ark ark1)
+    public void onAnimationRepeat(Animator animator)
     {
-        d = ark1;
-        if (a())
-        {
-            b();
-        }
     }
 
-    public void a(List list)
+    public void onAnimationStart(Animator animator)
     {
-        e = list;
-        if (a())
-        {
-            b();
-        }
     }
 }

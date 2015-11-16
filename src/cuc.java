@@ -2,198 +2,135 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-public class cuc extends ctu
+public final class cuc extends cvt
 {
 
-    private static final long serialVersionUID = 3L;
-    public final boolean a;
-    public final boolean b;
-    public final boolean j;
-    public final byte k[];
-    public final long l;
-    public final String m;
-    public final int n;
-    public final long o;
-    public final cza p;
-    public String q;
-    public final ctv r;
+    static final int a[] = {
+        7
+    };
+    static final int b[] = {
+        1, 2, 3, 4, 6, 8, 11, 12, 13, 15, 
+        18, 20, 17
+    };
+    private final int r;
+    private final aoa s;
 
-    public cuc(ctv ctv1)
+    public cuc(aoa aoa1, int i, det det)
     {
-        super(null);
-        r = ctv1;
-        a = true;
-        b = true;
-        j = false;
-        n = 1;
-        k = null;
-        l = 0L;
-        m = null;
-        p = null;
-        q = null;
-        o = 0L;
+        this(hio.newBuilder().a(aoa1.a()).b(aoa1.ab()).a(new hih()).a(true).a(), i, aoa1, det);
     }
 
-    public cuc(ctv ctv1, String s)
+    private cuc(hio hio1, int i, aoa aoa1, det det)
     {
-        this(ctv1);
-        q = s;
-    }
-
-    public cuc(String s, boolean flag, boolean flag1, boolean flag2, byte abyte0[], long l1, 
-            String s1, long l2, cza cza)
-    {
-        super(s);
-        a = flag;
-        b = flag1;
-        j = flag2;
-        k = abyte0;
-        l = l1;
-        m = s1;
-        n = g.a(g.nS, "babel_smaxevperconv", 20);
-        p = cza;
-        r = null;
-        o = l2;
-        q = null;
-    }
-
-    public kop a(String s, int i, int i1)
-    {
-        if (ebw.a("Babel_RequestWriter", 3))
-        {
-            String s1 = String.valueOf("GetConversationRequest build protobuf:  conversationId=");
-            String s2 = c;
-            boolean flag = a;
-            boolean flag1 = b;
-            String s3 = String.valueOf(Arrays.toString(k));
-            long l1 = l;
-            int j1 = n;
-            ebw.d("Babel_RequestWriter", (new StringBuilder(String.valueOf(s1).length() + 158 + String.valueOf(s2).length() + String.valueOf(s3).length())).append(s1).append(s2).append(" includeConversationMetadata=").append(flag).append(" includeEvents=").append(flag1).append(" continuationToken=").append(s3).append(" continuationEventTimestamp=").append(l1).append(" maxEventsPerConversation=").append(j1).toString());
-        }
-        itq itq1 = new itq();
-        if (c != null)
-        {
-            itq1.a = new irl();
-            itq1.a.a = ctq.a(c);
-        } else
-        if (r != null)
-        {
-            irl irl1 = new irl();
-            irl1.b = new ius[r.d.size()];
-            Iterator iterator = r.d.iterator();
-            for (int k1 = 0; iterator.hasNext(); k1++)
-            {
-                ceu ceu1 = (ceu)iterator.next();
-                irl1.b[k1] = g.a(ceu1, r.b);
-            }
-
-            irl1.c = Integer.valueOf(r.a);
-            itq1.a = irl1;
-        } else
-        {
-            throw new IllegalStateException("must specify either conversationId or participantsQuery");
-        }
-        itq1.b = Boolean.valueOf(a);
-        itq1.c = Boolean.valueOf(b);
-        if (j)
-        {
-            itq1.g = Integer.valueOf(1);
-        }
-        itq1.requestHeader = ctq.a(s, i, i1, h);
-        if (k != null || l != 0L)
-        {
-            s = new isz();
-            if (k != null)
-            {
-                s.b = Arrays.copyOf(k, k.length);
-            }
-            if (l != 0L)
-            {
-                s.a = Long.valueOf(l);
-            }
-            itq1.d = s;
-        }
-        itq1.f = Integer.valueOf(n);
-        return itq1;
-    }
-
-    public void a(ani ani1, dbo dbo1)
-    {
-        super.a(ani1, dbo1);
-        if (m != null)
-        {
-            dhl.b(ani1.h()).e(m);
-        }
-        if (r != null && q == null)
-        {
-            HashSet hashset = new HashSet();
-            hashset.add(r);
-            dbf.h(ani1).a(hashset, dhi.b().a());
-        }
-        if (q != null)
-        {
-            RealTimeChatService.f(ani1, q);
-        }
-        if (dbo1.c() == 111 && c != null)
-        {
-            RealTimeChatService.t(ani1, c);
-        }
-    }
-
-    public boolean a(ccg ccg)
-    {
-        gbh.a(getClass(), ccg.getClass());
-        ccg = (cuc)ccg;
-        return TextUtils.equals(c, ((cuc) (ccg)).c) && a == ((cuc) (ccg)).a && b == ((cuc) (ccg)).b && l == ((cuc) (ccg)).l && r == null && ((cuc) (ccg)).r == null && TextUtils.equals(m, ((cuc) (ccg)).m) && p == null && ((cuc) (ccg)).p == null;
-    }
-
-    public boolean a(cci cci, dbo dbo1)
-    {
+        super(hio1, det, "contacts/getselfinfo", dmi.a, new jae(), new jaf());
+        r = i;
+        s = aoa1;
         boolean flag;
-        if (r != null)
+        if (!"SMS".equals(hio1.b()))
         {
             flag = true;
         } else
         {
             flag = false;
         }
-        return !flag && super.a(cci, dbo1);
+        g.c(flag);
     }
 
-    public long b()
+    public cuc(hio hio1, det det)
     {
-        boolean flag;
-        if (a && b && r == null)
+        this(hio1, 0, null, det);
+    }
+
+    protected cxr a(kws kws)
+    {
+        return cyw.parseFrom((jaf)kws);
+    }
+
+    public void a(int i, Exception exception)
+    {
+        if (m() || exception != null)
         {
-            flag = true;
+            eev.d("Babel_GetSelfInfo", (new StringBuilder(47)).append("Failed to get self info. ErrorCode: ").append(i).toString(), exception);
+        } else
+        if (e() != null && s != null)
+        {
+            i = s.h();
+            exception = (gqz)hlp.a(g, gqz);
+            grd grd1 = exception.b(i);
+            a(grd1);
+            grd1.d();
+            long l = ((drj)hlp.a(g, drj)).d(i);
+            RealTimeChatService.b(s, l);
+            RealTimeChatService.f(s);
+            dcn.a(exception, i);
+            return;
+        }
+    }
+
+    public void a(grd grd1)
+    {
+        cyw cyw1 = (cyw)e();
+        cfz cfz1 = cyw1.k();
+        if (eev.a("Babel_GetSelfInfo", 3))
+        {
+            String s1 = String.valueOf(cfz1.b);
+            eev.c("Babel_GetSelfInfo", (new StringBuilder(String.valueOf(s1).length() + 47)).append("processResponse for GetSelfInfo, participantId=").append(s1).toString());
+        }
+        for (Iterator iterator1 = cyw1.s().iterator(); iterator1.hasNext();)
+        {
+            Object obj = (ctv)iterator1.next();
+            ctv ctv1 = dcz.a(((ctv) (obj)).b());
+            if (ctv1 != null)
+            {
+                ctv1.a(grd1, ((ctv) (obj)));
+                ctv1.a(((ctv) (obj)).c());
+            } else
+            {
+                obj = String.valueOf(((ctv) (obj)).b());
+                if (((String) (obj)).length() != 0)
+                {
+                    obj = "Unknown experiment ".concat(((String) (obj)));
+                } else
+                {
+                    obj = new String("Unknown experiment ");
+                }
+                eev.c("Babel_GetSelfInfo", ((String) (obj)));
+            }
+        }
+
+        aoc.a(grd1, cfz1.b, cfz1.e, cfz1.m, cfz1.x, cfz1.h, cyw1.l(), cyw1.n(), cyw1.r(), cfz1.p);
+        for (Iterator iterator = hlp.c(g, deu).iterator(); iterator.hasNext(); ((deu)iterator.next()).a(grd1, cyw1)) { }
+        if (cyw1.o())
+        {
+            grd1.b("dnd_expiration", cyw1.p());
         } else
         {
-            flag = false;
+            grd1.b("dnd_expiration", 0L);
         }
-        if (flag)
+        if (cyw1.q() != null)
         {
-            return super.b();
-        } else
-        {
-            return TimeUnit.SECONDS.toMillis(60L);
+            RealTimeChatService.a(grd1, cyw1.q());
         }
+        grd1.b("setting_time", System.currentTimeMillis());
     }
 
-    public String g()
+    protected void b(kws kws)
     {
-        return "conversations/getconversation";
+        kws = (jae)kws;
+        super.b(kws);
+        ctx ctx1 = (new ctx()).b(r).a();
+        if (s != null)
+        {
+            ctx1.a(s.h());
+            ctx1.a(dcn.g(s.h()));
+        }
+        kws.requestHeader = a(ctx1.b());
+        kws.a = a;
+        kws.b = b;
     }
 
-    public int o()
-    {
-        return 4;
-    }
 }

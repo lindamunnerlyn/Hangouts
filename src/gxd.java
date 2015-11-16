@@ -3,38 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gxd
+final class gxd extends ThreadLocal
 {
 
-    boolean a;
-    long b;
-    boolean c;
-
-    public gxd()
+    gxd()
     {
-        c = true;
     }
 
-    public gxd a()
+    protected Object initialValue()
     {
-        b = 0L;
-        return this;
-    }
-
-    public gxd a(boolean flag)
-    {
-        a = flag;
-        return this;
-    }
-
-    public gxd b()
-    {
-        c = false;
-        return this;
-    }
-
-    public gxc c()
-    {
-        return new gxc(this);
+        return new String[2];
     }
 }

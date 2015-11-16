@@ -4,12 +4,12 @@
 
 package com.google.android.apps.hangouts.hangout;
 
-import ahk;
 import ai;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -24,52 +24,52 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
-import ani;
-import ank;
-import bnd;
-import bnm;
-import bnr;
+import aoa;
+import aoc;
+import bnk;
+import bnu;
 import bnz;
-import bof;
 import boi;
-import bok;
 import boo;
-import bop;
-import boq;
 import bor;
-import bos;
 import bot;
-import bou;
+import box;
 import boy;
+import boz;
+import bpa;
+import bpb;
+import bpc;
 import bpd;
-import bqf;
-import bqr;
-import brx;
-import buz;
-import ceu;
-import chz;
-import cia;
+import bph;
+import bpm;
+import bqo;
+import bra;
+import bsg;
+import bvm;
+import cfz;
+import cjf;
+import cjg;
 import com.google.android.libraries.quantum.snackbar.Snackbar;
-import dbf;
-import dzj;
-import ebw;
+import dcn;
+import ecn;
+import eev;
+import fzd;
 import g;
-import gal;
-import gap;
-import gbh;
-import gic;
-import gie;
-import gih;
-import gir;
-import giw;
-import gjk;
-import gjr;
-import gkj;
-import gmo;
+import gcz;
+import gdd;
+import gdv;
+import gle;
+import glg;
+import glj;
+import glt;
+import gly;
+import gmm;
+import gmt;
+import gqu;
 import h;
-import hgx;
-import hhu;
-import hjg;
+import hlp;
+import hmm;
+import hny;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -81,15 +81,15 @@ import l;
 //            HangoutActivity, InCallDialpadActivity, ProximityCoverView, DebugOverlayTextView, 
 //            PresentToAllBannerView, ParticipantTrayView, FocusedParticipantView, BroadcastOverlayView
 
-public final class HangoutFragment extends hhu
+public final class HangoutFragment extends hmm
 {
 
     private static final boolean c = false;
     private static final int d;
     private static final int e;
-    public final bnd a = bnd.a();
+    public final bnk a = bnk.a();
     private int aA;
-    private final bot aB = new bot(this);
+    private final bpc aB = new bpc(this);
     private boolean aC;
     private boolean aD;
     private boolean aE;
@@ -98,29 +98,29 @@ public final class HangoutFragment extends hhu
     private Menu aH;
     private int aI;
     private boolean aJ;
-    private boi aK;
+    private bor aK;
     private int aL;
-    private boy aj;
-    private boy ak;
+    private bph aj;
+    private bph ak;
     private boolean al;
-    private final bof am = bof.a();
-    private bou an;
-    private bor ao;
+    private final boo am = boo.a();
+    private bpd an;
+    private bpa ao;
     private final ArrayList ap = new ArrayList();
     private boolean aq;
-    private bqf ar;
+    private bqo ar;
     private ParticipantTrayView as;
     private FocusedParticipantView at;
-    private bnm au;
+    private bnu au;
     private ProximityCoverView av;
     private boolean aw;
     private Button ax;
     private ViewGroup ay;
-    private ani az;
+    private aoa az;
     public AccessibilityManager b;
-    private cia f;
-    private chz g;
-    private gmo h;
+    private cjg f;
+    private cjf g;
+    private gqu h;
     private HangoutActivity i;
 
     public HangoutFragment()
@@ -131,78 +131,91 @@ public final class HangoutFragment extends hhu
     private int a(boolean flag, boolean flag1)
     {
         boolean flag2 = getActivity().getIntent().getBooleanExtra("hangout_auto_join", false);
-        if (!a.n())
+        if (!a.m())
         {
             if (al)
             {
-                bnz bnz1 = bnz.b(i, ak);
-                if (bnz1 == null)
+                Object obj = i;
+                bph bph1 = ak;
+                obj = ((Context) (obj)).getSharedPreferences(boi.getName(), 0);
+                if (!((SharedPreferences) (obj)).getBoolean("HISTORY_HAS_EVENT", false) || !bph1.equals(bph.a(((SharedPreferences) (obj)))))
+                {
+                    obj = null;
+                }
+                if (obj != null)
+                {
+                    obj = new boi(((SharedPreferences) (obj)).getInt("HISTORY_ERROR", 1004), ((SharedPreferences) (obj)).getBoolean("HISTORY_EXIT_REPORTED", false));
+                } else
+                {
+                    obj = null;
+                }
+                if (obj == null)
                 {
                     i.finish();
                     return 4;
                 }
-                int i1 = bnz1.a();
-                if (bnz1.b() || e(i1))
+                int i1 = ((boi) (obj)).a();
+                if (((boi) (obj)).b() || f(i1))
                 {
-                    if (ebw.a("Babel_calls", 3))
+                    if (eev.a("Babel_calls", 3))
                     {
-                        ebw.c("Babel_calls", (new StringBuilder(38)).append("Hangout previously exited: ").append(i1).toString());
+                        eev.c("Babel_calls", (new StringBuilder(38)).append("Hangout previously exited: ").append(i1).toString());
                     }
                     i.n();
                     return 4;
                 } else
                 {
                     a(((String) (null)), i1);
-                    bnz.a(i, ak);
+                    boi.a(i, ak);
                     return 3;
                 }
             }
-            if (az != null && !flag && ank.j(getContext(), az))
+            if (az != null && !flag && aoc.j(getContext(), az))
             {
                 aC = true;
-                (new bqr()).a(getFragmentManager(), null);
+                (new bra()).a(getFragmentManager(), null);
                 return !flag2 ? 1 : 3;
             }
             b(flag1);
-            if (a.t() == null)
+            if (a.s() == null)
             {
                 return 3;
             }
             if (flag2 || flag1)
             {
-                a.x();
-                return a.t() != null ? 2 : 3;
+                a.v();
+                return a.s() != null ? 2 : 3;
             } else
             {
                 return 1;
             }
         }
-        if (a.t().a((HangoutActivity)getActivity()))
+        if (a.s().a((HangoutActivity)getActivity()))
         {
-            ebw.e("Babel_calls", "Continuing call where previous activity left off.");
-            ak = a.t().e();
+            eev.e("Babel_calls", "Continuing call where previous activity left off.");
+            ak = a.s().e();
             al = true;
-            return !flag2 && !a.m() ? 1 : 2;
+            return !flag2 && !a.l() ? 1 : 2;
         }
         if (c)
         {
-            String s1 = String.valueOf(a.t().e());
-            ebw.b("Babel_calls", (new StringBuilder(String.valueOf(s1).length() + 16)).append("Already joined: ").append(s1).toString());
+            String s1 = String.valueOf(a.s().e());
+            eev.b("Babel_calls", (new StringBuilder(String.valueOf(s1).length() + 16)).append("Already joined: ").append(s1).toString());
         }
         aj.s();
-        d(l.dR);
+        e(l.dA);
         return 3;
     }
 
-    public static ani a(HangoutFragment hangoutfragment)
+    public static aoa a(HangoutFragment hangoutfragment)
     {
         return hangoutfragment.az;
     }
 
-    public static boy a(HangoutFragment hangoutfragment, boy boy1)
+    public static bph a(HangoutFragment hangoutfragment, bph bph1)
     {
-        hangoutfragment.ak = boy1;
-        return boy1;
+        hangoutfragment.ak = bph1;
+        return bph1;
     }
 
     public static void a(HangoutFragment hangoutfragment, int i1)
@@ -222,9 +235,9 @@ public final class HangoutFragment extends hhu
 
     private void a(String s1)
     {
-        if (ebw.a("Babel_calls", 3))
+        if (eev.a("Babel_calls", 3))
         {
-            ebw.c("Babel_calls", String.format("Lifecycle HangoutFragment.%s(this=%s) activity=%s hangoutRequest=%s", new Object[] {
+            eev.c("Babel_calls", String.format("Lifecycle HangoutFragment.%s(this=%s) activity=%s hangoutRequest=%s", new Object[] {
                 s1, this, i, aj
             }));
         }
@@ -232,7 +245,7 @@ public final class HangoutFragment extends hhu
 
     private void a(String s1, int i1)
     {
-        bok.a(s1, i1).a(getFragmentManager(), null);
+        bot.a(s1, i1).a(getFragmentManager(), null);
     }
 
     private void a(String s1, boolean flag)
@@ -243,12 +256,12 @@ public final class HangoutFragment extends hhu
         }
         if (flag)
         {
-            Intent intent = new Intent(g.nS, com/google/android/apps/hangouts/hangout/InCallDialpadActivity);
+            Intent intent = new Intent(g.nU, com/google/android/apps/hangouts/hangout/InCallDialpadActivity);
             intent.putExtra("extra_endpoint_jid", s1);
             startActivityForResult(intent, 1);
         }
         aw = flag;
-        x();
+        w();
         char c1;
         if (aw)
         {
@@ -262,7 +275,7 @@ public final class HangoutFragment extends hhu
 
     public static boolean a(int i1)
     {
-        return e(i1);
+        return f(i1);
     }
 
     public static boolean a(HangoutFragment hangoutfragment, boolean flag)
@@ -322,27 +335,23 @@ public final class HangoutFragment extends hhu
         Object obj = (ArrayList)intent.getSerializableExtra("hangout_invitee_users");
         ArrayList arraylist = (ArrayList)intent.getSerializableExtra("hangout_invitee_circles");
         boolean flag1 = intent.getBooleanExtra("hangout_is_joining_non_empty_hangout", false);
-        ceu ceu1 = (ceu)intent.getParcelableExtra("pstn_caller");
+        cfz cfz1 = (cfz)intent.getParcelableExtra("pstn_caller");
         int i1 = intent.getIntExtra("hangout_start_source", 51);
         int j1 = intent.getIntExtra("hangout_pstn_call", 2);
         long l1 = intent.getLongExtra("extra_hangout_start_time", 0L);
-        a.a(aj.r(), flag, ((List) (obj)), arraylist, flag1, ceu1, i1, aL, true, l1, null, null, null);
-        obj = a.t();
-        if (((TelephonyManager)g.nS.getSystemService("phone")).getCallState() == 2)
+        a.a(aj.r(), flag, ((List) (obj)), arraylist, flag1, cfz1, i1, aL, true, l1, null, null, null);
+        obj = a.s();
+        if (((TelephonyManager)g.nU.getSystemService("phone")).getCallState() == 2)
         {
             a(((String) (null)), 1013);
             c(3);
-            ((bpd) (obj)).c(1013);
+            ((bpm) (obj)).c(1013);
             return;
         }
-        a.y();
+        a.w();
         if (aL == 3 && g.a("android.permission.CAMERA"))
         {
-            v();
-        }
-        if (intent.getBooleanExtra("hangout_present_all", false))
-        {
-            a.h();
+            u();
         }
         if (intent.getBooleanExtra("hangout_mute_microphone", false))
         {
@@ -352,8 +361,8 @@ public final class HangoutFragment extends hhu
         {
             a.b(true);
         }
-        ((gap)binder.a(gap)).a(((gmo)binder.a(gmo)).a()).a();
-        ((bpd) (obj)).b(j1);
+        ((gdd)binder.a(gdd)).a(((gqu)binder.a(gqu)).a()).a();
+        ((bpm) (obj)).b(j1);
         if (aF)
         {
             a.a(true);
@@ -369,8 +378,7 @@ public final class HangoutFragment extends hhu
 
     private void c(int i1)
     {
-        char c1;
-        ebw.e("Babel_calls", String.format(Locale.US, "changeUiState: %s->%s", new Object[] {
+        eev.e("Babel_calls", String.format(Locale.US, "changeUiState: %s->%s", new Object[] {
             b(aA), b(i1)
         }));
         if (i1 == aA)
@@ -378,77 +386,63 @@ public final class HangoutFragment extends hhu
             return;
         }
         aA = i1;
-        c1 = '\u0632';
-        i1;
-        JVM INSTR tableswitch 1 5: default 88
-    //                   1 197
-    //                   2 204
-    //                   3 211
-    //                   4 190
-    //                   5 218;
-           goto _L1 _L2 _L3 _L4 _L5 _L6
-_L1:
-        gbh.a((new StringBuilder(37)).append("Call in unknown UI state: ").append(i1).toString());
-_L8:
-        g.b(c1);
+        d(i1);
         if (i1 == 2)
         {
-            gbh.a(Integer.valueOf(aB.c()), Integer.valueOf(2));
+            gdv.a(Integer.valueOf(aB.c()), Integer.valueOf(2));
             i.getWindow().setFlags(128, 128);
         }
-        for (Iterator iterator = ap.iterator(); iterator.hasNext(); ((bos)iterator.next()).a(i1)) { }
-        break; /* Loop/switch isn't completed */
-_L5:
-        c1 = '\u0633';
-        continue; /* Loop/switch isn't completed */
-_L2:
-        c1 = '\u0634';
-        continue; /* Loop/switch isn't completed */
-_L3:
-        c1 = '\u0635';
-        continue; /* Loop/switch isn't completed */
-_L4:
-        c1 = '\u0636';
-        continue; /* Loop/switch isn't completed */
-_L6:
-        c1 = '\u0955';
-        if (true) goto _L8; else goto _L7
-_L7:
+        for (Iterator iterator = ap.iterator(); iterator.hasNext(); ((bpb)iterator.next()).a(i1)) { }
         au.a(i1);
-        return;
     }
 
     private void c(boolean flag)
     {
-        al = false;
-        aC = false;
-        c(a(true, flag));
-    }
-
-    private void d(int i1)
-    {
-        String s1 = getResources().getString(i1);
-        if (ebw.a("Babel_calls", 3))
-        {
-            ebw.c("Babel_calls", String.format(Locale.US, "showError:%s (%s)", new Object[] {
-                s1, i
-            }));
-        }
-        bok.a(s1, 0).a(getFragmentManager(), null);
-    }
-
-    private void d(boolean flag)
-    {
-        gbh.a(a.o());
+        gdv.a("Expected condition to be true", a.n());
         if (flag || !aJ)
         {
             av.a();
         }
         if (!aJ)
         {
-            x();
+            w();
             aJ = true;
         }
+    }
+
+    private static void d(int i1)
+    {
+        char c1 = '\u0632';
+        i1;
+        JVM INSTR tableswitch 1 5: default 40
+    //                   1 79
+    //                   2 86
+    //                   3 93
+    //                   4 72
+    //                   5 100;
+           goto _L1 _L2 _L3 _L4 _L5 _L6
+_L1:
+        gdv.a((new StringBuilder(37)).append("Call in unknown UI state: ").append(i1).toString());
+        i1 = c1;
+_L8:
+        g.b(i1);
+        return;
+_L5:
+        i1 = 1587;
+        continue; /* Loop/switch isn't completed */
+_L2:
+        i1 = 1588;
+        continue; /* Loop/switch isn't completed */
+_L3:
+        i1 = 1589;
+        continue; /* Loop/switch isn't completed */
+_L4:
+        i1 = 1590;
+        continue; /* Loop/switch isn't completed */
+_L6:
+        i1 = 2389;
+        if (true) goto _L8; else goto _L7
+_L7:
     }
 
     public static boolean d(HangoutFragment hangoutfragment)
@@ -461,9 +455,16 @@ _L7:
         return hangoutfragment.ay;
     }
 
-    private static boolean e(int i1)
+    private void e(int i1)
     {
-        return i1 == 1004 || i1 == 30 || i1 == 1005 || i1 == 1011 || i1 == 1010;
+        String s1 = getResources().getString(i1);
+        if (eev.a("Babel_calls", 3))
+        {
+            eev.c("Babel_calls", String.format(Locale.US, "showError:%s (%s)", new Object[] {
+                s1, i
+            }));
+        }
+        bot.a(s1, 0).a(getFragmentManager(), null);
     }
 
     public static Button f(HangoutFragment hangoutfragment)
@@ -471,39 +472,44 @@ _L7:
         return hangoutfragment.ax;
     }
 
-    public static chz g(HangoutFragment hangoutfragment)
+    private static boolean f(int i1)
+    {
+        return i1 == 1004 || i1 == 30 || i1 == 1005 || i1 == 1011 || i1 == 1010;
+    }
+
+    public static cjf g(HangoutFragment hangoutfragment)
     {
         return hangoutfragment.g;
     }
 
     public static void h(HangoutFragment hangoutfragment)
     {
-        hangoutfragment.v();
+        hangoutfragment.u();
     }
 
-    public static cia i(HangoutFragment hangoutfragment)
+    public static cjg i(HangoutFragment hangoutfragment)
     {
         return hangoutfragment.f;
     }
 
-    public static hgx j(HangoutFragment hangoutfragment)
+    public static hlp j(HangoutFragment hangoutfragment)
     {
         return hangoutfragment.binder;
     }
 
-    public static hgx k(HangoutFragment hangoutfragment)
+    public static hlp k(HangoutFragment hangoutfragment)
     {
         return hangoutfragment.binder;
     }
 
     public static void l(HangoutFragment hangoutfragment)
     {
-        hangoutfragment.d(false);
+        hangoutfragment.c(false);
     }
 
     public static void m(HangoutFragment hangoutfragment)
     {
-        hangoutfragment.x();
+        hangoutfragment.w();
     }
 
     public static boolean n(HangoutFragment hangoutfragment)
@@ -523,19 +529,24 @@ _L7:
         return true;
     }
 
-    public static hgx q(HangoutFragment hangoutfragment)
+    public static hlp q(HangoutFragment hangoutfragment)
     {
         return hangoutfragment.binder;
     }
 
-    public static hgx r(HangoutFragment hangoutfragment)
-    {
-        return hangoutfragment.binder;
-    }
-
-    public static boy s(HangoutFragment hangoutfragment)
+    public static bph r(HangoutFragment hangoutfragment)
     {
         return hangoutfragment.ak;
+    }
+
+    public static hlp s(HangoutFragment hangoutfragment)
+    {
+        return hangoutfragment.binder;
+    }
+
+    public static int t()
+    {
+        return e;
     }
 
     public static boolean t(HangoutFragment hangoutfragment)
@@ -544,59 +555,61 @@ _L7:
         return true;
     }
 
-    public static int u()
+    private void u()
     {
-        return e;
+        eev.e("Babel_calls", "Creating camera capturer");
+        Object obj = getActivity();
+        boolean flag;
+        if (android.os.Build.VERSION.SDK_INT > 22)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        if (fzd.a(((Context) (obj)).getContentResolver(), "babel_hangout_enable_camera2", flag) && android.os.Build.VERSION.SDK_INT >= 21)
+        {
+            obj = new glg(((Context) (obj)));
+        } else
+        {
+            obj = new gle(((Context) (obj)));
+        }
+        ((glj) (obj)).j();
+        ((glj) (obj)).a(true);
+        if (a.f() == null)
+        {
+            eev.g("Babel_calls", "Call was not created before initiating capturer");
+        } else
+        {
+            a.f().a(((gmx) (obj)));
+        }
+        a(true);
     }
 
     public static void u(HangoutFragment hangoutfragment)
     {
-        hangoutfragment.w();
+        hangoutfragment.v();
     }
 
     private void v()
-    {
-        ebw.e("Babel_calls", "Creating camera capturer");
-        Object obj = getActivity();
-        if (android.os.Build.VERSION.SDK_INT < 21)
-        {
-            obj = new gic(((Context) (obj)));
-        } else
-        if (android.os.Build.VERSION.SDK_INT > 21)
-        {
-            obj = new gie(((Context) (obj)));
-        } else
-        if (gie.a(((Context) (obj))))
-        {
-            obj = new gie(((Context) (obj)));
-        } else
-        {
-            obj = new gic(((Context) (obj)));
-        }
-        ((gih) (obj)).a(true);
-        a.f().a(((gjv) (obj)));
-        a(true);
-    }
-
-    private void w()
     {
         if (!aE || !aD)
         {
             boolean flag = aE;
             boolean flag1 = aD;
-            ebw.c("Babel_calls", (new StringBuilder(101)).append("maybeDoStartup: HangoutFragment not ready to start mOnStartComplete=").append(flag).append(" mPermissionsRequested=").append(flag1).toString());
+            eev.c("Babel_calls", (new StringBuilder(101)).append("maybeDoStartup: HangoutFragment not ready to start mOnStartComplete=").append(flag).append(" mPermissionsRequested=").append(flag1).toString());
             return;
         }
         a("maybeDoStartup.enter");
         if (g.a("android.permission.RECORD_AUDIO")) goto _L2; else goto _L1
 _L1:
-        d(l.ep);
+        e(l.dY);
         c(3);
 _L4:
-        for (Iterator iterator = ap.iterator(); iterator.hasNext(); ((bos)iterator.next()).a(aB)) { }
+        for (Iterator iterator = ap.iterator(); iterator.hasNext(); ((bpb)iterator.next()).a(aB)) { }
         break; /* Loop/switch isn't completed */
 _L2:
-        if (a.o())
+        if (a.n())
         {
             break; /* Loop/switch isn't completed */
         }
@@ -604,9 +617,9 @@ _L2:
         a(((String) (null)), 1016);
         if (true) goto _L4; else goto _L3
 _L3:
-        an = new bou(this);
+        an = new bpd(this);
         am.a(an);
-        ao = new bor(this);
+        ao = new bpa(this);
         a.a(ao);
         int i1;
         if (aC)
@@ -616,10 +629,11 @@ _L3:
         {
             i1 = a(false, false);
         }
-        ebw.e("Babel_calls", String.format(Locale.US, "maybeDoStartup.changeUiState: %s->%s", new Object[] {
+        eev.e("Babel_calls", String.format(Locale.US, "maybeDoStartup.changeUiState: %s->%s", new Object[] {
             b(aA), b(i1)
         }));
         aA = i1;
+        d(i1);
         if (aA == 4)
         {
             a("maybeDoStartup.finish");
@@ -634,29 +648,29 @@ _L5:
         return;
     }
 
-    private void x()
+    private void w()
     {
         boolean flag2 = false;
-        if (dzj.c())
+        if (ecn.c())
         {
             return;
         }
-        gir gir1;
+        glt glt1;
         boolean flag;
         boolean flag1;
-        if (t() == 1)
+        if (s() == 1)
         {
             flag = true;
         } else
         {
             flag = false;
         }
-        gir1 = a.k();
+        glt1 = a.j();
         flag1 = flag2;
-        if (gir1 != null)
+        if (glt1 != null)
         {
             flag1 = flag2;
-            if (gir1.b().equals(giw.b))
+            if (glt1.b().equals(gly.b))
             {
                 flag1 = true;
             }
@@ -674,69 +688,45 @@ _L5:
 
     public void a()
     {
-label0:
+        boolean flag1 = true;
+        if (aH != null)
         {
-label1:
+            MenuItem menuitem = aH.findItem(h.cT);
+            int i1 = aB.h();
+            boolean flag;
+            if (i1 != 0)
             {
-                boolean flag2 = false;
-                if (aH == null)
-                {
-                    break label0;
-                }
-                Object obj = aH.findItem(h.de);
-                int i1 = aB.h();
-                boolean flag;
-                boolean flag1;
-                if (i1 != 0)
-                {
-                    flag1 = true;
-                } else
-                {
-                    flag1 = false;
-                }
-                ((MenuItem) (obj)).setVisible(flag1);
-                if (i1 != 0)
-                {
-                    boolean flag3;
-                    if (i1 == 2)
-                    {
-                        flag1 = true;
-                    } else
-                    {
-                        flag1 = false;
-                    }
-                    ((MenuItem) (obj)).setEnabled(flag1);
-                }
-                obj = (ahk)hgx.b(getActivity().getApplicationContext(), ahk);
-                flag3 = a.w();
-                if (a.s() != null)
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+            menuitem.setVisible(flag);
+            if (i1 != 0)
+            {
+                if (i1 == 2)
                 {
                     flag = true;
                 } else
                 {
                     flag = false;
                 }
-                if (obj == null)
-                {
-                    flag1 = flag2;
-                    if (!flag3)
-                    {
-                        break label1;
-                    }
-                }
-                flag1 = flag2;
-                if (flag)
-                {
-                    flag1 = true;
-                }
+                menuitem.setEnabled(flag);
             }
-            aH.findItem(h.cP).setVisible(flag1);
+            if (a.r() != null)
+            {
+                flag = flag1;
+            } else
+            {
+                flag = false;
+            }
+            aH.findItem(h.cF).setVisible(flag);
             c();
             b();
         }
     }
 
-    public void a(giw giw1, Set set)
+    public void a(gly gly1, Set set)
     {
         int i1;
         boolean flag;
@@ -744,7 +734,7 @@ label1:
         i1 = 0;
         if (aH == null || set == null) goto _L2; else goto _L1
 _L1:
-        MenuItem menuitem = aH.findItem(h.C);
+        MenuItem menuitem = aH.findItem(h.B);
         if (menuitem == null) goto _L2; else goto _L3
 _L3:
         int j1;
@@ -753,8 +743,8 @@ _L3:
             flag = false;
         }
         menuitem.setVisible(flag);
-        j1 = l.fN;
-        boq.b[giw1.ordinal()];
+        j1 = l.fw;
+        boz.b[gly1.ordinal()];
         JVM INSTR tableswitch 1 6: default 104
     //                   1 169
     //                   2 169
@@ -772,7 +762,7 @@ _L9:
         {
             menuitem.setIcon(i1);
             set = menuitem.getIcon();
-            if (giw1 == giw.e || giw1 == giw.f)
+            if (gly1 == gly.e || gly1 == gly.f)
             {
                 i1 = 127;
             } else
@@ -785,27 +775,27 @@ _L9:
 _L2:
         return;
 _L5:
-        i1 = com.google.android.apps.hangouts.R.drawable.bW;
-        j1 = l.fK;
+        i1 = com.google.android.apps.hangouts.R.drawable.bO;
+        j1 = l.ft;
           goto _L9
 _L6:
-        i1 = com.google.android.apps.hangouts.R.drawable.cw;
-        j1 = l.fM;
+        i1 = com.google.android.apps.hangouts.R.drawable.co;
+        j1 = l.fv;
           goto _L9
 _L7:
-        i1 = com.google.android.apps.hangouts.R.drawable.cr;
-        j1 = l.fL;
+        i1 = com.google.android.apps.hangouts.R.drawable.cj;
+        j1 = l.fu;
           goto _L9
-        i1 = com.google.android.apps.hangouts.R.drawable.cl;
-        j1 = l.fN;
+        i1 = com.google.android.apps.hangouts.R.drawable.cd;
+        j1 = l.fw;
           goto _L9
     }
 
     public void a(boolean flag)
     {
-        if (a.t() != null)
+        if (a.s() != null)
         {
-            a.t().a(flag);
+            a.s().a(flag);
         }
     }
 
@@ -813,11 +803,11 @@ _L7:
     {
         if (aH == null) goto _L2; else goto _L1
 _L1:
-        gih gih2;
+        glj glj2;
         int i1;
         int j1;
-        gih gih1 = bnd.l();
-        MenuItem menuitem = aH.findItem(h.co);
+        glj glj1 = bnk.k();
+        MenuItem menuitem = aH.findItem(h.ce);
         boolean flag;
         if (aI == 0)
         {
@@ -831,31 +821,31 @@ _L1:
 _L3:
         if (!menuitem.isEnabled()) goto _L5; else goto _L4
 _L4:
-        j1 = l.ek;
-        gih2 = bnd.l();
+        j1 = l.dT;
+        glj2 = bnk.k();
         i1 = j1;
-        if (gih2 == null) goto _L7; else goto _L6
+        if (glj2 == null) goto _L7; else goto _L6
 _L6:
-        gih2.i();
+        glj2.i();
         JVM INSTR tableswitch 1 2: default 104
     //                   1 201
     //                   2 220;
            goto _L8 _L9 _L10
 _L8:
-        i1 = gih2.i();
-        ebw.f("Babel_calls", (new StringBuilder(32)).append("Unknown camera type: ").append(i1).toString());
+        i1 = glj2.i();
+        eev.f("Babel_calls", (new StringBuilder(32)).append("Unknown camera type: ").append(i1).toString());
         i1 = j1;
 _L7:
         menuitem.setTitle(getString(i1));
 _L5:
-        j1 = com.google.android.apps.hangouts.R.drawable.ca;
+        j1 = com.google.android.apps.hangouts.R.drawable.bS;
         i1 = j1;
-        if (gih1 != null)
+        if (glj1 != null)
         {
             i1 = j1;
-            if (gih1.i() == 2)
+            if (glj1.i() == 2)
             {
-                i1 = com.google.android.apps.hangouts.R.drawable.cb;
+                i1 = com.google.android.apps.hangouts.R.drawable.bT;
             }
         }
         menuitem.setIcon(i1);
@@ -863,16 +853,16 @@ _L2:
         return;
 _L9:
         i1 = j1;
-        if (gih2.b())
+        if (glj2.b())
         {
-            i1 = l.el;
+            i1 = l.dU;
         }
         continue; /* Loop/switch isn't completed */
 _L10:
         i1 = j1;
-        if (gih2.a())
+        if (glj2.a())
         {
-            i1 = l.em;
+            i1 = l.dV;
         }
         if (true) goto _L7; else goto _L11
 _L11:
@@ -880,10 +870,10 @@ _L11:
 
     public void c()
     {
-        gir gir1 = a.k();
-        if (gir1 != null)
+        glt glt1 = a.j();
+        if (glt1 != null)
         {
-            a(gir1.b(), gir1.c());
+            a(glt1.b(), glt1.c());
         }
     }
 
@@ -912,7 +902,9 @@ _L11:
 
     public void f()
     {
-        c(true);
+        al = false;
+        aC = false;
+        c(a(true, true));
     }
 
     public void onActivityCreated(Bundle bundle)
@@ -953,23 +945,23 @@ _L5:
     protected void onAttachBinder(Bundle bundle)
     {
         super.onAttachBinder(bundle);
-        h = (gmo)binder.a(gmo);
-        f = (cia)binder.a(cia);
-        g = (chz)binder.a(chz);
+        h = (gqu)binder.a(gqu);
+        f = (cjg)binder.a(cjg);
+        g = (cjf)binder.a(cjf);
     }
 
     public void onConfigurationChanged(Configuration configuration)
     {
-        for (Iterator iterator = ap.iterator(); iterator.hasNext(); ((bos)iterator.next()).onConfigurationChanged(configuration)) { }
+        for (Iterator iterator = ap.iterator(); iterator.hasNext(); ((bpb)iterator.next()).onConfigurationChanged(configuration)) { }
     }
 
     public void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
         aj = i.m();
-        if (ebw.a("Babel_calls", 3))
+        if (eev.a("Babel_calls", 3))
         {
-            ebw.c("Babel_calls", String.format(Locale.US, "HangoutFragment.onCreate: this=%s activity=%s hangoutRequest=%s", new Object[] {
+            eev.c("Babel_calls", String.format(Locale.US, "HangoutFragment.onCreate: this=%s activity=%s hangoutRequest=%s", new Object[] {
                 this, i, aj
             }));
         }
@@ -979,12 +971,12 @@ _L5:
             ak = aj.r();
         } else
         {
-            ak = (boy)bundle.getParcelable("HangoutFragment_current_request");
+            ak = (bph)bundle.getParcelable("HangoutFragment_current_request");
             aC = bundle.getBoolean("HangoutFragment_waiting_for_result");
             al = bundle.getBoolean("HangoutFragment_hangout_initiated", false);
             aF = bundle.getBoolean("HangoutFragment_audio_muted_awaiting_result");
         }
-        az = dbf.e(h.a());
+        az = dcn.e(h.a());
         setHasOptionsMenu(true);
         b = (AccessibilityManager)i.getSystemService("accessibility");
         if (aj.l() != 2)
@@ -1016,7 +1008,7 @@ _L5:
         }
         if (bundle.size() > 0)
         {
-            f.a(d, new boo(this));
+            f.a(d, new box(this));
             f.a(d, bundle, 2656, null);
         } else
         {
@@ -1024,59 +1016,70 @@ _L5:
         }
         if (!g.a("android.permission.CAMERA"))
         {
-            f.a(e, new bop(this));
+            f.a(e, new boy(this));
         }
     }
 
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuinflater)
     {
-        menuinflater.inflate(g.hv, menu);
-        aH = menu;
-        b();
-        menu = aH.findItem(h.C);
-        menuinflater = (TelephonyManager)i.getSystemService("phone");
-        BluetoothAdapter bluetoothadapter = BluetoothAdapter.getDefaultAdapter();
-        boolean flag;
-        boolean flag1;
-        if (bluetoothadapter != null && bluetoothadapter.getProfileConnectionState(1) == 2)
+label0:
         {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        if (flag || gkj.a(menuinflater))
-        {
+            boolean flag2 = false;
+            menuinflater.inflate(g.hn, menu);
+            aH = menu;
+            b();
+            menu = aH.findItem(h.B);
+            menuinflater = BluetoothAdapter.getDefaultAdapter();
+            boolean flag;
+            boolean flag1;
+            if (menuinflater != null && menuinflater.getProfileConnectionState(1) == 2)
+            {
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+            menuinflater = a.j();
+            if (!flag)
+            {
+                flag1 = flag2;
+                if (menuinflater == null)
+                {
+                    break label0;
+                }
+                flag1 = flag2;
+                if (!menuinflater.j())
+                {
+                    break label0;
+                }
+            }
             flag1 = true;
-        } else
-        {
-            flag1 = false;
         }
         menu.setVisible(flag1);
     }
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
-        viewgroup = (ViewGroup)layoutinflater.inflate(g.ga, null);
-        ar = new bqf(this, viewgroup);
-        ((buz)hgx.a(i, buz)).a((Snackbar)viewgroup.findViewById(h.cy));
-        au = new bnm(i, lifecycle);
-        lifecycle.a((DebugOverlayTextView)viewgroup.findViewById(h.ca));
-        bundle = (PresentToAllBannerView)viewgroup.findViewById(h.eI);
-        as = (ParticipantTrayView)viewgroup.findViewById(h.cw);
+        viewgroup = (ViewGroup)layoutinflater.inflate(g.fW, null);
+        ar = new bqo(this, viewgroup);
+        ((bvm)hlp.a(i, bvm)).a((Snackbar)viewgroup.findViewById(h.co));
+        au = new bnu(i, lifecycle);
+        lifecycle.a((DebugOverlayTextView)viewgroup.findViewById(h.bQ));
+        bundle = (PresentToAllBannerView)viewgroup.findViewById(h.eq);
+        as = (ParticipantTrayView)viewgroup.findViewById(h.cm);
         as.a(ar);
-        at = (FocusedParticipantView)viewgroup.findViewById(h.cd);
+        at = (FocusedParticipantView)viewgroup.findViewById(h.bT);
         at.a(ar, as);
         as.a(at);
-        av = (ProximityCoverView)viewgroup.findViewById(h.eN);
+        av = (ProximityCoverView)viewgroup.findViewById(h.ev);
         aw = false;
-        BroadcastOverlayView broadcastoverlayview = (BroadcastOverlayView)viewgroup.findViewById(h.bX);
-        ax = (Button)viewgroup.findViewById(h.dk);
-        ay = (ViewGroup)viewgroup.findViewById(h.dl);
+        BroadcastOverlayView broadcastoverlayview = (BroadcastOverlayView)viewgroup.findViewById(h.bN);
+        ax = (Button)viewgroup.findViewById(h.cY);
+        ay = (ViewGroup)viewgroup.findViewById(h.cZ);
         HangoutActivity hangoutactivity = i;
-        ani ani = az;
+        aoa aoa = az;
         String s1 = aj.e();
-        layoutinflater = a.t();
+        layoutinflater = a.s();
         if (layoutinflater == null)
         {
             layoutinflater = aj;
@@ -1091,13 +1094,13 @@ _L5:
         {
             layoutinflater = null;
         }
-        aK = new boi(hangoutactivity, ani, s1, layoutinflater);
+        aK = new bor(hangoutactivity, aoa, s1, layoutinflater);
         ap.add(bundle);
         ap.add(broadcastoverlayview);
         ap.add(at);
         ap.add(as);
         ap.add(ar);
-        ap.add(new bnr(getActivity()));
+        ap.add(new bnz(getActivity()));
         ap.add(aK);
         return viewgroup;
     }
@@ -1114,28 +1117,36 @@ _L5:
         super.onDestroyOptionsMenu();
     }
 
+    public void onDestroyView()
+    {
+        a("onDestroyView.enter");
+        as.b();
+        super.onDestroyView();
+        a("onDestroyView.done");
+    }
+
     public boolean onOptionsItemSelected(MenuItem menuitem)
     {
-        if (menuitem.getItemId() != h.de) goto _L2; else goto _L1
+        if (menuitem.getItemId() != h.cT) goto _L2; else goto _L1
 _L1:
         g.b(889);
         ar.d();
 _L4:
         return false;
 _L2:
-        if (menuitem.getItemId() == h.cP)
+        if (menuitem.getItemId() == h.cF)
         {
-            menuitem = a.s();
+            menuitem = a.r();
             if (menuitem != null)
             {
                 ar.a(menuitem.a());
             }
         } else
-        if (menuitem.getItemId() == h.C)
+        if (menuitem.getItemId() == h.B)
         {
             ar.f();
         } else
-        if (menuitem.getItemId() == h.co)
+        if (menuitem.getItemId() == h.ce)
         {
             ar.e();
         }
@@ -1147,11 +1158,11 @@ _L3:
     {
         a("onPause.enter");
         super.onPause();
-        gih gih1 = bnd.l();
-        if (gih1 != null)
+        glj glj1 = bnk.k();
+        if (glj1 != null)
         {
-            a(gih1.h());
-            gih1.a(false);
+            a(glj1.h());
+            glj1.a(false);
         }
         av.b();
         av.d();
@@ -1168,32 +1179,32 @@ _L3:
     {
         a("onResume.enter");
         super.onResume();
-        gih gih1 = bnd.l();
-        if (gih1 != null)
+        glj glj1 = bnk.k();
+        if (glj1 != null)
         {
             boolean flag;
-            if (a.t() != null)
+            if (a.s() != null)
             {
-                flag = a.t().h();
+                flag = a.s().h();
             } else
             {
                 flag = false;
             }
-            gih1.a(flag);
+            glj1.a(flag);
         }
-        if (!brx.a(getContext()))
+        if (!bsg.a(getContext()))
         {
-            ebw.e("Babel_calls", "Using legacy proximity.");
+            eev.e("Babel_calls", "Using legacy proximity.");
             av.a(ar);
             av.a(ar);
         } else
         {
-            ebw.e("Babel_calls", "Using service proximity.");
+            eev.e("Babel_calls", "Using service proximity.");
             a.b();
         }
-        if (a.o())
+        if (a.n())
         {
-            d(true);
+            c(true);
         }
         a("onResume.done");
     }
@@ -1211,7 +1222,7 @@ _L3:
         super.onStart();
         a("onStart.enter");
         aE = true;
-        w();
+        v();
         a("onStart.done");
     }
 
@@ -1235,32 +1246,27 @@ _L3:
         }
         if (aq)
         {
-            for (Iterator iterator = ap.iterator(); iterator.hasNext(); ((bos)iterator.next()).i_()) { }
+            for (Iterator iterator = ap.iterator(); iterator.hasNext(); ((bpb)iterator.next()).j_()) { }
             a("onStop.stopped");
         }
         a("onStop.done");
     }
 
-    public void q()
-    {
-        c(false);
-    }
-
-    boy r()
+    bph q()
     {
         return ak;
     }
 
-    String s()
+    String r()
     {
-        return r().e();
+        return q().e();
     }
 
-    public int t()
+    public int s()
     {
-        if (aA == 2 && a.t() != null)
+        if (aA == 2 && a.s() != null)
         {
-            return a.t().M();
+            return a.s().L();
         } else
         {
             return i.getIntent().getIntExtra("hangout_pstn_call", 2);
@@ -1269,8 +1275,8 @@ _L3:
 
     static 
     {
-        hik hik = ebw.f;
-        d = h.gU;
-        e = h.gV;
+        hnc hnc = eev.f;
+        d = h.gA;
+        e = h.gB;
     }
 }

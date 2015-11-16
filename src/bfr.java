@@ -2,38 +2,148 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.widget.EditText;
+import android.widget.TextView;
 
-final class bfr
-    implements dsu
+public class bfr extends hmk
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final bfq a;
+    public EditText aj;
+    private bfs an;
 
-    bfr(bfq bfq1)
-    {
-        a = bfq1;
-        super();
-    }
-
-    public void a()
+    public bfr()
     {
     }
 
-    public void onClick(View view)
+    public static bfr a(String s, String s1, String s2, String s3)
     {
-        view = ((bfs)a.c).q();
-        RealTimeChatService.a(((bfs)a.c).a(), ((ceu) (view)).b.a, ((ceu) (view)).b.b, ((ceu) (view)).e, false, true);
-        view = a.b.getContext().getString(l.jz, new Object[] {
-            ((ceu) (view)).e
-        });
-        Toast.makeText(a.b.getContext(), view, 0).show();
-        ((bfs)a.c).r();
-        ((bfs)a.c).a(((bfs)a.c).f() - 1);
-        g.a(dbf.e(((gmo)hgx.a(a.b.getContext(), gmo)).a()), 1816);
+        Bundle bundle = new Bundle();
+        if (s != null)
+        {
+            bundle.putString("title", s);
+        }
+        bundle.putString("message", s1);
+        if (s2 != null)
+        {
+            bundle.putString("positive", s2);
+        }
+        if (s3 != null)
+        {
+            bundle.putString("negative", s3);
+        }
+        s = new bfr();
+        s.setArguments(bundle);
+        return s;
+    }
+
+    private bfs q()
+    {
+        if (an != null)
+        {
+            return an;
+        }
+        Object obj = getTargetFragment();
+        if (obj != null && (obj instanceof bfs))
+        {
+            return (bfs)obj;
+        }
+        obj = getActivity();
+        if (obj != null && (obj instanceof bfs))
+        {
+            return (bfs)obj;
+        } else
+        {
+            return null;
+        }
+    }
+
+    public Dialog a(Bundle bundle)
+    {
+        bundle = getArguments();
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getActivity());
+        if (bundle.containsKey("title"))
+        {
+            builder.setTitle(bundle.getString("title"));
+        }
+        builder.setMessage(Html.fromHtml(bundle.getString("message")));
+        if (bundle.containsKey("positive"))
+        {
+            builder.setPositiveButton(bundle.getString("positive"), this);
+        }
+        if (bundle.containsKey("negative"))
+        {
+            builder.setNegativeButton(bundle.getString("negative"), this);
+        }
+        if (bundle.containsKey("neutral"))
+        {
+            builder.setNeutralButton(bundle.getString("neutral"), this);
+        }
+        if (bundle.containsKey("edit_text"))
+        {
+            aj = new EditText(getActivity());
+            aj.setText(bundle.getString("edit_text"));
+            builder.setView(aj);
+        }
+        return builder.create();
+    }
+
+    public void a(bfs bfs1)
+    {
+        an = bfs1;
+    }
+
+    public void onCancel(DialogInterface dialoginterface)
+    {
+        dialoginterface = q();
+        if (dialoginterface != null)
+        {
+            getArguments();
+            dialoginterface.b(getTag());
+        }
+    }
+
+    public void onClick(DialogInterface dialoginterface, int i)
+    {
+        dialoginterface = q();
+        if (dialoginterface == null)
+        {
+            return;
+        }
+        Bundle bundle = getArguments();
+        if (bundle.containsKey("edit_text") && aj != null)
+        {
+            bundle.putString("edit_text", aj.getText().toString());
+        }
+        switch (i)
+        {
+        default:
+            return;
+
+        case -3: 
+            getArguments();
+            getTag();
+            return;
+
+        case -1: 
+            dialoginterface.a(getArguments(), getTag());
+            return;
+
+        case -2: 
+            getArguments();
+            dialoginterface.a(getTag());
+            return;
+        }
+    }
+
+    public void onStart()
+    {
+        super.onStart();
+        ((TextView)c().findViewById(0x102000b)).setMovementMethod(LinkMovementMethod.getInstance());
     }
 }

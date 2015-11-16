@@ -9,7 +9,7 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.view.MenuItem;
-import dyf;
+import ebp;
 
 public class TeleSettingsActivity extends PreferenceActivity
 {
@@ -21,7 +21,7 @@ public class TeleSettingsActivity extends PreferenceActivity
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        getFragmentManager().beginTransaction().setTransition(0).replace(0x1020002, new dyf()).commit();
+        getFragmentManager().beginTransaction().setTransition(0).replace(0x1020002, new ebp()).commit();
     }
 
     public boolean onOptionsItemSelected(MenuItem menuitem)

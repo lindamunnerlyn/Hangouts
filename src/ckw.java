@@ -2,36 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Cursor;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import com.google.android.apps.hangouts.phone.DebugActivity;
+import com.google.android.apps.hangouts.phone.BabelHomeActivity;
 
 public final class ckw
-    implements android.widget.AdapterView.OnItemClickListener
+    implements Runnable
 {
 
-    final Cursor a;
-    final DebugActivity b;
+    final BabelHomeActivity a;
 
-    public ckw(DebugActivity debugactivity, Cursor cursor)
+    public ckw(BabelHomeActivity babelhomeactivity)
     {
-        b = debugactivity;
-        a = cursor;
+        a = babelhomeactivity;
         super();
     }
 
-    public void onItemClick(AdapterView adapterview, View view, int i, long l)
+    public void run()
     {
-        a.moveToPosition(i);
-        adapterview = a.getString(a.getColumnIndex("message_id"));
-        adapterview = DebugActivity.e(b).e().a("messages", null, "message_id=?", new String[] {
-            adapterview
-        }, "timestamp DESC");
-        view = b.getLayoutInflater().inflate(g.fM, null);
-        ((ListView)view.findViewById(0x102000a)).setAdapter(DebugActivity.c(b, adapterview));
-        DebugActivity.a(b, view, adapterview, null);
+        if (BabelHomeActivity.e(a) == this && BabelHomeActivity.f(a).b() && dcz.f(BabelHomeActivity.f(a).a()))
+        {
+            (new ckx(this, BabelHomeActivity.f(a).a())).execute(new Void[0]);
+        }
     }
 }

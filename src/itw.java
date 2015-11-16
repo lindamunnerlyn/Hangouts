@@ -3,18 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class itw extends koj
+public final class itw extends kwm
 {
 
-    public itk a[];
-    public byte b[];
-    public ixg responseHeader;
+    public String a;
+    public Integer b;
+    public Integer c;
+    public Integer d;
 
     public itw()
     {
-        responseHeader = null;
-        a = itk.a();
+        a = null;
         b = null;
+        c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -23,123 +25,83 @@ public final class itw extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (responseHeader != null)
-        {
-            i = j + koh.d(1, responseHeader);
-        }
-        j = i;
         if (a != null)
         {
-            j = i;
-            if (a.length > 0)
-            {
-                for (j = 0; j < a.length;)
-                {
-                    itk itk1 = a[j];
-                    int k = i;
-                    if (itk1 != null)
-                    {
-                        k = i + koh.d(2, itk1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            i = j + kwk.b(1, a);
         }
-        i = j;
-        if (b != null)
-        {
-            i = j + koh.b(3, b);
-        }
-        return i;
+        return i + kwk.e(2, b.intValue()) + kwk.e(3, c.intValue()) + kwk.e(4, d.intValue());
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L7:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 5: default 56
+    //                   0: 65
+    //                   10: 67
+    //                   16: 78
+    //                   24: 142
+    //                   32: 194;
+           goto _L1 _L2 _L3 _L4 _L5 _L6
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L7; else goto _L2
+_L2:
+        return this;
+_L3:
+        a = kwj1.j();
+          goto _L7
+_L4:
+        int j = kwj1.f();
+        switch (j)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (responseHeader == null)
-                {
-                    responseHeader = new ixg();
-                }
-                kog1.a(responseHeader);
-                break;
-
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                itk aitk[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                aitk = new itk[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aitk, 0, j);
-                    k = j;
-                }
-                for (; k < aitk.length - 1; k++)
-                {
-                    aitk[k] = new itk();
-                    kog1.a(aitk[k]);
-                    kog1.a();
-                }
-
-                aitk[k] = new itk();
-                kog1.a(aitk[k]);
-                a = aitk;
-                break;
-
-            case 26: // '\032'
-                b = kog1.k();
-                break;
-            }
-        } while (true);
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+        case 5: // '\005'
+        case 6: // '\006'
+            b = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L5:
+        int k = kwj1.f();
+        switch (k)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+            c = Integer.valueOf(k);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L6:
+        int l = kwj1.f();
+        switch (l)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+            d = Integer.valueOf(l);
+            break;
+        }
+        if (true) goto _L7; else goto _L8
+_L8:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (responseHeader != null)
+        if (a != null)
         {
-            koh1.b(1, responseHeader);
+            kwk1.a(1, a);
         }
-        if (a != null && a.length > 0)
-        {
-            for (int i = 0; i < a.length; i++)
-            {
-                itk itk1 = a[i];
-                if (itk1 != null)
-                {
-                    koh1.b(2, itk1);
-                }
-            }
-
-        }
-        if (b != null)
-        {
-            koh1.a(3, b);
-        }
-        super.writeTo(koh1);
+        kwk1.a(2, b.intValue());
+        kwk1.a(3, c.intValue());
+        kwk1.a(4, d.intValue());
+        super.writeTo(kwk1);
     }
 }

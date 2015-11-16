@@ -2,51 +2,70 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 
-public final class tv
-    implements me
+public final class tv extends tt
+    implements SubMenu
 {
 
-    int a;
-    final tu b;
-    private boolean c;
-
-    protected tv(tu tu1)
+    public tv(Context context, ft ft1)
     {
-        b = tu1;
-        super();
-        c = false;
+        super(context, ft1);
     }
 
-    public tv a(lr lr, int i)
+    public void clearHeader()
     {
-        b.f = lr;
-        a = i;
+        ((ft)d).clearHeader();
+    }
+
+    public MenuItem getItem()
+    {
+        return a(((ft)d).getItem());
+    }
+
+    public SubMenu setHeaderIcon(int i)
+    {
+        ((ft)d).setHeaderIcon(i);
         return this;
     }
 
-    public void a(View view)
+    public SubMenu setHeaderIcon(Drawable drawable)
     {
-        tu.a(b);
-        c = false;
+        ((ft)d).setHeaderIcon(drawable);
+        return this;
     }
 
-    public void b(View view)
+    public SubMenu setHeaderTitle(int i)
     {
-        if (c)
-        {
-            return;
-        } else
-        {
-            b.f = null;
-            tu.a(b, a);
-            return;
-        }
+        ((ft)d).setHeaderTitle(i);
+        return this;
     }
 
-    public void c(View view)
+    public SubMenu setHeaderTitle(CharSequence charsequence)
     {
-        c = true;
+        ((ft)d).setHeaderTitle(charsequence);
+        return this;
+    }
+
+    public SubMenu setHeaderView(View view)
+    {
+        ((ft)d).setHeaderView(view);
+        return this;
+    }
+
+    public SubMenu setIcon(int i)
+    {
+        ((ft)d).setIcon(i);
+        return this;
+    }
+
+    public SubMenu setIcon(Drawable drawable)
+    {
+        ((ft)d).setIcon(drawable);
+        return this;
     }
 }

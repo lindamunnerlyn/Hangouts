@@ -2,21 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.TimeUnit;
+import android.content.Context;
 
 public final class akx
 {
 
-    public final long a;
-    public final byte b[];
-    final ajo c;
+    private final gcz a;
 
-    public akx(ajo ajo, long l, String s, jfu jfu1)
+    akx(Context context, int i)
     {
-        c = ajo;
-        super();
-        g.b(jfu1.a.a.equals(s), "CallerIdPhone number does not match token data");
-        b = kop.toByteArray(jfu1);
-        a = (TimeUnit.MICROSECONDS.toMillis(g.a(jfu1.c, 0L)) + l) - ajv.a;
+        a = ((gdd)hlp.a(context, gdd)).a(i);
+    }
+
+    void a(int i)
+    {
+        a.a(i).d();
     }
 }

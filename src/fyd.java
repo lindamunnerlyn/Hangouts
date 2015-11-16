@@ -2,15 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.gms.common.api.Status;
 
-public interface fyd
+final class fyd extends fwi
 {
 
-    public abstract fyc a();
+    fyd()
+    {
+    }
 
-    public abstract fyd a(fyb fyb);
-
-    public abstract fyd a(fyf fyf);
-
-    public abstract fyd a(fyg fyg);
+    public void a(Status status)
+    {
+    }
 }

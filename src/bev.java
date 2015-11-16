@@ -2,64 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.MenuItem;
+import android.view.Menu;
+import android.view.ViewGroup;
 
-final class bev
-    implements android.view.MenuItem.OnMenuItemClickListener
+public interface bev
 {
 
-    final ben a;
+    public abstract void a();
 
-    bev(ben ben1)
-    {
-        a = ben1;
-        super();
-    }
+    public abstract void a(float f1, boolean flag);
 
-    public boolean onMenuItemClick(MenuItem menuitem)
-    {
-        if (menuitem == ben.b(a))
-        {
-            ben.s(a).onClick(ben.a(a));
-            return true;
-        }
-        if (menuitem == ben.d(a))
-        {
-            ben.s(a).onClick(ben.c(a));
-            return true;
-        }
-        if (menuitem == ben.f(a))
-        {
-            ben.s(a).onClick(ben.e(a));
-            return true;
-        }
-        if (menuitem == ben.t(a))
-        {
-            ben.u(a).a(ben.r(a));
-            return true;
-        }
-        if (menuitem == ben.v(a))
-        {
-            ben.w(a).a(ben.r(a));
-            return true;
-        }
-        if (menuitem == ben.x(a))
-        {
-            ben.y(a).a(ben.r(a));
-            return true;
-        }
-        if (menuitem == ben.z(a))
-        {
-            ben.A(a).a(ben.r(a));
-            return true;
-        }
-        if (menuitem == ben.B(a))
-        {
-            ben.C(a).a(ben.r(a));
-            return true;
-        } else
-        {
-            return false;
-        }
-    }
+    public abstract void a(int i);
+
+    public abstract void a(ai ai, ViewGroup viewgroup, Menu menu);
+
+    public abstract void a(android.view.View.OnClickListener onclicklistener);
+
+    public abstract void a(bew bew);
+
+    public abstract void a(boolean flag);
+
+    public abstract lg b();
+
+    public abstract void b(android.view.View.OnClickListener onclicklistener);
+
+    public abstract void c();
+
+    public abstract void c(android.view.View.OnClickListener onclicklistener);
+
+    public abstract void d();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract boolean g();
 }

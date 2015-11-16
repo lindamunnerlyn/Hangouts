@@ -2,12 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.IBinder;
+import android.os.Parcel;
+import com.google.android.gms.common.internal.ResolveAccountResponse;
 
-final class erd
+public final class erd
+    implements erb
 {
 
-    static final eox a[] = {
-        new ere(eox.a("0\202\003\3150\202\002\265\240\003\002\001\002\002\t\000\342\221\311\312\r\262\004/0")), new erf(eox.a("0\202\003\3150\202\002\265\240\003\002\001\002\002\t\000\263+\034\3570O\f\2710"))
-    };
+    private IBinder a;
 
+    public erd(IBinder ibinder)
+    {
+        a = ibinder;
+    }
+
+    public void a(ResolveAccountResponse resolveaccountresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.common.internal.IResolveAccountCallbacks");
+        if (resolveaccountresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_56;
+        }
+        parcel.writeInt(1);
+        resolveaccountresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(2, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        resolveaccountresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw resolveaccountresponse;
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
+    }
 }

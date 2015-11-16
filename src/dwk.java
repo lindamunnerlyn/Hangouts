@@ -3,10 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface dwk
+public interface dwk
 {
 
-    public abstract void b();
-
-    public abstract void c();
+    public abstract dwe a();
 }

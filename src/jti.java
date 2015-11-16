@@ -3,74 +3,50 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jti extends koj
+public class jti extends jse
 {
-
-    public String a;
-    public Integer b;
 
     public jti()
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        this((byte)0);
     }
 
-    protected int computeSerializedSize()
+    private jti(byte byte0)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.intValue());
-        }
-        return j;
+        super(4);
     }
 
-    public kop mergeFrom(kog kog1)
+    public jse a(Object obj)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
-                break;
-            }
-        } while (true);
+        return c(obj);
     }
 
-    public void writeTo(koh koh1)
+    public jsf a(Object aobj[])
     {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b.intValue());
-        }
-        super.writeTo(koh1);
+        return b(aobj);
+    }
+
+    public jth a()
+    {
+        jth jth1 = jth.a(b, a);
+        b = jth1.size();
+        return jth1;
+    }
+
+    public jsf b(Object obj)
+    {
+        return c(obj);
+    }
+
+    public transient jti b(Object aobj[])
+    {
+        super.a(aobj);
+        return this;
+    }
+
+    public jti c(Object obj)
+    {
+        super.a(obj);
+        return this;
     }
 }

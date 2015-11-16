@@ -2,71 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicLong;
 
-public final class jss
+class jss extends jsg
 {
 
-    private String a;
-    private Boolean b;
-    private Integer c;
-    private Thread.UncaughtExceptionHandler d;
-    private ThreadFactory e;
-
-    public jss()
+    jss(Object obj, Object obj1)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        e = null;
+        super(obj, obj1);
+        g.f(obj, obj1);
     }
 
-    public jss a()
+    jss a()
     {
-        b = Boolean.valueOf(true);
-        return this;
+        return null;
     }
 
-    public jss a(String s)
+    jss b()
     {
-        String.format(s, new Object[] {
-            Integer.valueOf(0)
-        });
-        a = s;
-        return this;
+        return null;
     }
 
-    public jss a(ThreadFactory threadfactory)
+    boolean c()
     {
-        e = (ThreadFactory)n.b(threadfactory);
-        return this;
-    }
-
-    public ThreadFactory b()
-    {
-        String s = a;
-        Boolean boolean1 = b;
-        Integer integer = c;
-        Thread.UncaughtExceptionHandler uncaughtexceptionhandler = d;
-        ThreadFactory threadfactory;
-        AtomicLong atomiclong;
-        if (e != null)
-        {
-            threadfactory = e;
-        } else
-        {
-            threadfactory = Executors.defaultThreadFactory();
-        }
-        if (s != null)
-        {
-            atomiclong = new AtomicLong(0L);
-        } else
-        {
-            atomiclong = null;
-        }
-        return new jst(threadfactory, s, atomiclong, boolean1, integer, uncaughtexceptionhandler);
+        return true;
     }
 }

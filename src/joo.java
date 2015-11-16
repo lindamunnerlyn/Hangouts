@@ -2,99 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.collect.MapMakerInternalMap;
+import java.lang.ref.ReferenceQueue;
 
-public class joo
-    implements com.google.common.collect.MapMakerInternalMap.ReferenceEntry
+public final class joo
+    implements jpw
 {
 
-    final Object a;
-    final int b;
-    final com.google.common.collect.MapMakerInternalMap.ReferenceEntry c;
-    volatile jou d;
-
-    joo(Object obj, int i, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    public joo()
     {
-        d = MapMakerInternalMap.g();
-        a = obj;
-        b = i;
-        c = referenceentry;
     }
 
-    public long getExpirationTime()
+    public int a()
     {
-        throw new UnsupportedOperationException();
+        return 0;
     }
 
-    public int getHash()
+    public jpw a(ReferenceQueue referencequeue, Object obj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        return b;
+        return this;
     }
 
-    public Object getKey()
+    public void a(Object obj)
     {
-        return a;
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNext()
+    public com.google.common.cache.LocalCache.ReferenceEntry b()
     {
-        return c;
+        return null;
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextEvictable()
+    public boolean c()
     {
-        throw new UnsupportedOperationException();
+        return false;
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextExpirable()
+    public boolean d()
     {
-        throw new UnsupportedOperationException();
+        return false;
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousEvictable()
+    public Object get()
     {
-        throw new UnsupportedOperationException();
-    }
-
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousExpirable()
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public jou getValueReference()
-    {
-        return d;
-    }
-
-    public void setExpirationTime(long l)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void setNextEvictable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void setNextExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void setPreviousEvictable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void setPreviousExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void setValueReference(jou jou1)
-    {
-        jou jou2 = d;
-        d = jou1;
-        jou2.b();
+        return null;
     }
 }

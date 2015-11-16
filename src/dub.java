@@ -2,34 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.telecom.DisconnectCause;
 
-final class dub
+public final class dub extends abz
 {
 
-    dvj a;
+    private static final long serialVersionUID = 1L;
 
-    dub(dvj dvj1)
+    public dub()
     {
-        a = dvj1;
     }
 
-    public void a()
+    public dub(String s)
     {
-        ebw.e("Babel_telephony", "TeleOutgoingCallRequest.DisconnectCallListener.onDisconnect");
-        if (a != null)
-        {
-            dvj dvj1 = a;
-            if (!dvj1.d)
-            {
-                dvj1.b.setDisconnected(new DisconnectCause(2));
-                dvj1.c();
-            }
-        }
+        super(s);
     }
 
-    void b()
+    public dub(String s, Throwable throwable)
     {
-        a = null;
+        super(s, throwable);
+    }
+
+    public dub(Throwable throwable)
+    {
+        super(throwable);
     }
 }

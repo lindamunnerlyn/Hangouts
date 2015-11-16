@@ -2,20 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
 
-public final class dhx extends dfa
+public interface dhx
 {
 
-    private final String a;
-
-    public dhx(ani ani, String s)
-    {
-        super(ani);
-        a = s;
-    }
-
-    public void a()
-    {
-        c.a(new cuu(a));
-    }
+    public abstract void a(Intent intent);
 }

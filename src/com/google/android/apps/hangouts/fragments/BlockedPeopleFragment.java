@@ -10,40 +10,41 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import ani;
-import bft;
-import bfu;
-import bfv;
-import bfw;
-import bjy;
+import aoa;
+import bgf;
+import bgg;
+import bgh;
+import bgi;
+import bkk;
 import bq;
 import br;
-import cnh;
 import com.google.android.apps.hangouts.content.EsProvider;
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import dbf;
-import dgp;
-import edj;
+import coz;
+import dcn;
+import dhy;
+import egl;
 import em;
 import g;
-import gmo;
+import gqu;
 import h;
-import hgx;
+import hlp;
+import hlt;
 import hm;
 
-public class BlockedPeopleFragment extends bjy
+public class BlockedPeopleFragment extends bkk
     implements br
 {
 
-    private ani a;
+    private aoa a;
     private ListView b;
-    private bfv c;
+    private bgh c;
     private boolean d;
     private int e;
-    private gmo f;
+    private gqu f;
     private hm g;
-    private final edj h = new bft(this);
-    private final dgp i = new bfu(this);
+    private final egl h = new bgf(this);
+    private final dhy i = new bgg(this);
 
     public BlockedPeopleFragment()
     {
@@ -56,9 +57,9 @@ public class BlockedPeopleFragment extends bjy
         blockedpeoplefragment.b();
     }
 
-    public static void a(BlockedPeopleFragment blockedpeoplefragment, int j)
+    public static void a(BlockedPeopleFragment blockedpeoplefragment, int l)
     {
-        blockedpeoplefragment.g.remove(Integer.valueOf(j));
+        blockedpeoplefragment.g.remove(Integer.valueOf(l));
         if (blockedpeoplefragment.g.size() == 0)
         {
             blockedpeoplefragment.c();
@@ -70,9 +71,9 @@ public class BlockedPeopleFragment extends bjy
         blockedpeoplefragment.b(view);
     }
 
-    public static ani b(BlockedPeopleFragment blockedpeoplefragment)
+    public static hlt b(BlockedPeopleFragment blockedpeoplefragment)
     {
-        return blockedpeoplefragment.a;
+        return blockedpeoplefragment.context;
     }
 
     private void b()
@@ -102,9 +103,9 @@ public class BlockedPeopleFragment extends bjy
         }
     }
 
-    public static hm c(BlockedPeopleFragment blockedpeoplefragment)
+    public static aoa c(BlockedPeopleFragment blockedpeoplefragment)
     {
-        return blockedpeoplefragment.g;
+        return blockedpeoplefragment.a;
     }
 
     private void c()
@@ -116,23 +117,43 @@ public class BlockedPeopleFragment extends bjy
         }
     }
 
-    public static bfv d(BlockedPeopleFragment blockedpeoplefragment)
+    public static hm d(BlockedPeopleFragment blockedpeoplefragment)
+    {
+        return blockedpeoplefragment.g;
+    }
+
+    public static bgh e(BlockedPeopleFragment blockedpeoplefragment)
     {
         return blockedpeoplefragment.c;
     }
 
-    public static int e(BlockedPeopleFragment blockedpeoplefragment)
+    public static int f(BlockedPeopleFragment blockedpeoplefragment)
     {
         return blockedpeoplefragment.e;
     }
 
-    public static void f(BlockedPeopleFragment blockedpeoplefragment)
+    public static void g(BlockedPeopleFragment blockedpeoplefragment)
     {
         blockedpeoplefragment.e = -1;
         blockedpeoplefragment.c();
     }
 
-    public static edj g(BlockedPeopleFragment blockedpeoplefragment)
+    public static hlt h(BlockedPeopleFragment blockedpeoplefragment)
+    {
+        return blockedpeoplefragment.context;
+    }
+
+    public static hlt i(BlockedPeopleFragment blockedpeoplefragment)
+    {
+        return blockedpeoplefragment.context;
+    }
+
+    public static hlt j(BlockedPeopleFragment blockedpeoplefragment)
+    {
+        return blockedpeoplefragment.context;
+    }
+
+    public static egl k(BlockedPeopleFragment blockedpeoplefragment)
     {
         return blockedpeoplefragment.h;
     }
@@ -142,8 +163,8 @@ public class BlockedPeopleFragment extends bjy
         if (isEmpty())
         {
             view.findViewById(0x1020004).setVisibility(8);
-            view.findViewById(h.dq).setVisibility(0);
-            view.findViewById(h.dv).setVisibility(8);
+            view.findViewById(h.de).setVisibility(0);
+            view.findViewById(h.dj).setVisibility(8);
         }
     }
 
@@ -174,19 +195,19 @@ public class BlockedPeopleFragment extends bjy
     protected void onAttachBinder(Bundle bundle)
     {
         super.onAttachBinder(bundle);
-        f = (gmo)binder.a(gmo);
+        f = (gqu)binder.a(gqu);
     }
 
     public void onCreate(Bundle bundle)
     {
         g = new hm();
         super.onCreate(bundle);
-        a = dbf.e(f.a());
+        a = dcn.e(f.a());
     }
 
-    public em onCreateLoader(int j, Bundle bundle)
+    public em onCreateLoader(int l, Bundle bundle)
     {
-        switch (j)
+        switch (l)
         {
         default:
             return null;
@@ -195,14 +216,14 @@ public class BlockedPeopleFragment extends bjy
             bundle = EsProvider.b(a);
             break;
         }
-        return new cnh(getActivity(), a, bundle, bfw.a, null, null, "name ASC");
+        return new coz(getActivity(), a, bundle, bgi.a, null, null, "name ASC");
     }
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
-        layoutinflater = layoutinflater.inflate(g.fi, viewgroup, false);
-        b = (ListView)layoutinflater.findViewById(h.dv);
-        c = new bfv(this, getActivity());
+        layoutinflater = layoutinflater.inflate(g.fg, viewgroup, false);
+        b = (ListView)layoutinflater.findViewById(h.dj);
+        c = new bgh(this, getActivity());
         b.setAdapter(c);
         getLoaderManager().a(1026, new Bundle(), this).s();
         return layoutinflater;
@@ -242,7 +263,7 @@ public class BlockedPeopleFragment extends bjy
     public void onStart()
     {
         super.onStart();
-        if (!a.q())
+        if (!a.o())
         {
             b();
             e = RealTimeChatService.d(a);
@@ -260,7 +281,7 @@ public class BlockedPeopleFragment extends bjy
     protected void showContent(View view)
     {
         super.showContent(view);
-        view.findViewById(h.dq).setVisibility(8);
-        view.findViewById(h.dv).setVisibility(0);
+        view.findViewById(h.de).setVisibility(8);
+        view.findViewById(h.dj).setVisibility(0);
     }
 }

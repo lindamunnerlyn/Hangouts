@@ -3,15 +3,9 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.graphics.SurfaceTexture;
-import android.hardware.camera2.CameraAccessException;
-import android.hardware.camera2.CameraCharacteristics;
-import android.hardware.camera2.CameraDevice;
-import android.hardware.camera2.CameraManager;
-import android.view.Surface;
-import java.util.ArrayList;
-import java.util.List;
 
-final class gif extends android.hardware.camera2.CameraDevice.StateCallback
+final class gif
+    implements Runnable
 {
 
     final gie a;
@@ -22,46 +16,41 @@ final class gif extends android.hardware.camera2.CameraDevice.StateCallback
         super();
     }
 
-    public void onDisconnected(CameraDevice cameradevice)
+    public void run()
     {
-        gbh.e();
-        gkc.b("vclib", "Camera disconnected");
-        a.j();
-    }
-
-    public void onError(CameraDevice cameradevice, int i)
-    {
-        gbh.e();
-        gkc.d("vclib", (new StringBuilder(26)).append("Camera error - ").append(i).toString());
-        a.j();
-        g.a(((gih) (a)).h);
-    }
-
-    public void onOpened(CameraDevice cameradevice)
-    {
-        gbh.e();
-        gkc.b("vclib", "Camera opened");
-        Object obj = a.n;
+        gie gie1 = a;
+        Object obj = gie1.a;
         obj;
         JVM INSTR monitorenter ;
-        a.c = cameradevice;
-        int i = ((Integer)a.a.getCameraCharacteristics(cameradevice.getId()).get(CameraCharacteristics.SENSOR_ORIENTATION)).intValue();
-        a.a(i, 0);
-        a.f = a.f();
-        a.r.setDefaultBufferSize(a.f.a, a.f.b);
-        a.e = new Surface(a.r);
-        cameradevice = new ArrayList();
-        cameradevice.add(a.e);
-        a.c.createCaptureSession(cameradevice, a.b, a.j);
-_L1:
-        return;
-        cameradevice;
-        gkc.b("vclib", "Failed to create camera capture session", cameradevice);
-        g.a(((gih) (a)).h);
-          goto _L1
-        cameradevice;
+        gie1.d = g.p();
+        gie1.g = new SurfaceTexture(gie1.d);
+        gie1.g.setOnFrameAvailableListener(new gih(gie1));
+        if (gie1.o != null)
+        {
+            g.a(new gii(gie1));
+        }
+        gie1.c = new gft(gie1.g, gie1.d);
+        gie1.c.a(gie1.l);
+        gie1.c.a(gie1.n);
+        gie1.o();
+        gie1.e = gie1.c.c();
+        gie1.f = gie1.e;
+        Exception exception;
+        boolean flag;
+        if (gie1.f == 0)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        gdv.b("Expected condition to be false", flag);
         obj;
         JVM INSTR monitorexit ;
-        throw cameradevice;
+        return;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 }

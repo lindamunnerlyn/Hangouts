@@ -2,81 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-import com.google.android.apps.hangouts.views.AvatarView;
+import java.util.concurrent.TimeUnit;
 
-public final class eeu extends FrameLayout
-    implements android.view.View.OnClickListener
+final class eeu
+    implements android.view.Choreographer.FrameCallback
 {
 
-    eev a;
-    private TextView b;
-    private AvatarView c;
-    private Button d;
-    private String e;
-    private cey f;
+    final eet a;
 
-    private eeu(Context context)
+    eeu(eet eet1)
     {
-        this(context, (byte)0);
+        a = eet1;
+        super();
     }
 
-    private eeu(Context context, byte byte0)
+    public void doFrame(long l)
     {
-        super(context, null);
-        context = LayoutInflater.from(context).inflate(g.gr, this);
-        d = (Button)context.findViewById(h.gP);
-        d.setOnClickListener(this);
-        b = (TextView)context.findViewById(h.dQ);
-        c = (AvatarView)context.findViewById(h.E);
-    }
-
-    public static eeu a(Context context)
-    {
-        return new eeu(context);
-    }
-
-    public cey a()
-    {
-        return f;
-    }
-
-    public void a(cey cey)
-    {
-        f = cey;
-    }
-
-    public void a(eev eev1)
-    {
-        a = eev1;
-    }
-
-    public void a(String s)
-    {
-        e = s;
-        b.setText(s);
-    }
-
-    public void a(String s, String s1, ani ani)
-    {
-        c.a(s, s1, ani);
-    }
-
-    public String b()
-    {
-        return e;
-    }
-
-    public void onClick(View view)
-    {
-        if (a != null && view == d)
+        l = TimeUnit.NANOSECONDS.toSeconds(l);
+        if (l != eet.a(a))
         {
-            a.a(this);
+            if (eet.a(a) != 0L)
+            {
+                String s = eet.b(a);
+                int i = eet.c(a);
+                eev.b("Babel", (new StringBuilder(String.valueOf(s).length() + 16)).append(s).append(" FPS ").append(i).toString());
+            }
+            eet.d(a);
+            eet.a(a, l);
         }
+        eet.e(a);
+        eet.f(a);
     }
 }

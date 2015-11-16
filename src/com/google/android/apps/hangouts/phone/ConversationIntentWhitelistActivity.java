@@ -4,8 +4,8 @@
 
 package com.google.android.apps.hangouts.phone;
 
-import ebk;
-import ebw;
+import eei;
+import eev;
 
 // Referenced classes of package com.google.android.apps.hangouts.phone:
 //            ConversationIntentSecureActivity
@@ -22,12 +22,12 @@ public class ConversationIntentWhitelistActivity extends ConversationIntentSecur
         String s = getCallingPackage();
         if (s == null)
         {
-            ebw.g("Babel", "must use startActivityForResult");
+            eev.g("Babel", "must use startActivityForResult");
             return false;
         }
-        if (!ebk.a(this, s))
+        if (!eei.a(this, s))
         {
-            ebw.g("Babel", "Bad signature");
+            eev.g("Babel", "Bad signature");
             return false;
         } else
         {

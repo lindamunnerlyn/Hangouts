@@ -2,35 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
-import android.view.View;
-import com.google.android.apps.hangouts.permissions.impl.RationaleActivity;
-import java.util.ArrayList;
+import android.content.Context;
+import android.util.SparseArray;
+import android.widget.Toast;
 
-public final class cio
-    implements android.view.View.OnClickListener
+final class cio extends dhy
 {
 
-    final RationaleActivity a;
+    final cic a;
 
-    public cio(RationaleActivity rationaleactivity)
+    cio(cic cic1)
     {
-        a = rationaleactivity;
+        a = cic1;
         super();
     }
 
-    public void onClick(View view)
+    public void a(int i, aoa aoa, did did1)
     {
-        if (view.getId() == g.nO)
+        if ((did1.c() instanceof cxz) && g.a(cic.r(a), i))
         {
-            a.setResult(0, RationaleActivity.a(a));
-            a.finish();
-            return;
-        } else
+            cic.a(a, i);
+        }
+    }
+
+    public void a(int i, aoa aoa, dmf dmf, dcx dcx)
+    {
+        if (g.a(cic.r(a), i) && (dmf instanceof cwc))
         {
-            view = (ArrayList)a.getIntent().getSerializableExtra("permissions");
-            RationaleActivity.b(a).a(g.nL, view, 0, null);
-            return;
+            aoa = a.getActivity();
+            dmf = (String)cic.r(a).get(i);
+            cic.a(a, i);
+            if (bgs.j())
+            {
+                i = h.iG;
+            } else
+            {
+                i = h.iF;
+            }
+            Toast.makeText(aoa, aoa.getString(i, new Object[] {
+                dmf
+            }), 0).show();
         }
     }
 }

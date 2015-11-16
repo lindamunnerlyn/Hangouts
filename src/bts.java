@@ -3,18 +3,29 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface bts
+final class bts
+    implements bpf
 {
 
-    public abstract jba a();
+    final bpe a;
+    final btp b;
 
-    public abstract void a(btr btr);
+    bts(btp btp1, bpe bpe)
+    {
+        b = btp1;
+        a = bpe;
+        super();
+    }
 
-    public abstract void a(jba jba);
+    public void a(bpm bpm)
+    {
+    }
 
-    public abstract void b(btr btr);
-
-    public abstract void b(jba jba);
-
-    public abstract boolean b();
+    public void a(gmt gmt1)
+    {
+        if (gmt1.g())
+        {
+            btp.a(b, a);
+        }
+    }
 }

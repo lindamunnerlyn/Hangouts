@@ -3,11 +3,32 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface anx
+public final class anx extends dor
 {
 
-    public static final String a[] = {
-        "_id", "phone_number", "contact_id", "call_timestamp", "call_type", "contact_type", "call_rate", "is_free_call"
-    };
+    private final aoa a;
+    private final String b;
 
+    public anx(String s, aoa aoa)
+    {
+        a = aoa;
+        b = s;
+    }
+
+    public String a()
+    {
+        return b;
+    }
+
+    public String c()
+    {
+        String s = String.valueOf(b);
+        if (s.length() != 0)
+        {
+            return "###".concat(s);
+        } else
+        {
+            return new String("###");
+        }
+    }
 }

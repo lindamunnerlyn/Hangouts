@@ -2,38 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
-import android.os.Handler;
-import android.os.Message;
-import java.lang.ref.WeakReference;
+import android.view.View;
+import android.widget.AdapterView;
 
-final class ql extends Handler
+final class ql
+    implements android.widget.AdapterView.OnItemClickListener
 {
 
-    private WeakReference a;
+    final qg a;
+    final qi b;
 
-    public ql(DialogInterface dialoginterface)
+    ql(qi qi1, qg qg1)
     {
-        a = new WeakReference(dialoginterface);
+        b = qi1;
+        a = qg1;
+        super();
     }
 
-    public void handleMessage(Message message)
+    public void onItemClick(AdapterView adapterview, View view, int i, long l)
     {
-        switch (message.what)
+        b.u.onClick(a.a, i);
+        if (!b.E)
         {
-        case 0: // '\0'
-        default:
-            return;
-
-        case -3: 
-        case -2: 
-        case -1: 
-            ((android.content.DialogInterface.OnClickListener)message.obj).onClick((DialogInterface)a.get(), message.what);
-            return;
-
-        case 1: // '\001'
-            ((DialogInterface)message.obj).dismiss();
-            break;
+            a.a.dismiss();
         }
     }
 }

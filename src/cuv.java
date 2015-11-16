@@ -2,71 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.TimeUnit;
+import android.text.TextUtils;
 
-public class cuv extends cui
+public class cuv extends cup
 {
 
     private static final long serialVersionUID = 1L;
     public final String a;
-    public final boolean b = true;
-    public final int c;
-    public final boolean d = true;
+    public final String b;
+    public final String c;
+    public final boolean d;
+    private final boolean j;
 
-    public cuv(String s, int i)
+    public cuv(String s, String s1, String s2, boolean flag, boolean flag1)
     {
+        gdv.b("Expected condition to be false", TextUtils.isEmpty(s));
         a = s;
-        c = i;
+        b = s1;
+        c = s2;
+        d = flag;
+        j = flag1;
     }
 
-    public String a()
+    public kws a(String s, int i, int k)
     {
-        return "background_queue";
-    }
-
-    public kop a(String s, int i, int j)
-    {
-        if (ctr.e)
+        Object obj = new ipg();
+        obj.c = a;
+        s = new ipt();
+        s.a = ((ipg) (obj));
+        s.b = c;
+        obj = new ipu();
+        obj.a = (new ipt[] {
+            s
+        });
+        obj.b = Boolean.valueOf(d);
+        s = new iqf();
+        s.a = ((ipu) (obj));
+        if (!d)
         {
-            ebw.b("Babel_RequestWriter", "setActiveClient build protobuf");
+            s.d = Boolean.valueOf(true);
         }
-        ixr ixr1 = new ixr();
-        ixr1.requestHeader = ctq.a(s, i, j, h);
-        ixr1.b = a;
-        ixr1.a = Boolean.valueOf(b);
-        ixr1.c = Integer.valueOf(c);
-        ixr1.d = Boolean.valueOf(d);
-        return ixr1;
+        obj = new hya();
+        obj.a = s;
+        return ((kws) (obj));
     }
 
-    public void a(ani ani1, dbo dbo)
+    public boolean a(cdn cdn, dcx dcx)
     {
-        dbo = dii.a(ani1);
-        ani1 = String.valueOf(ebw.b(ani1.a()));
-        if (ani1.length() != 0)
-        {
-            ani1 = "SetActiveClientOperation failed: ".concat(ani1);
-        } else
-        {
-            ani1 = new String("SetActiveClientOperation failed: ");
-        }
-        ebw.f("Babel_RequestWriter", ani1);
-        dbo.a(0);
+        return j && super.a(cdn, dcx);
     }
 
-    public boolean a(ccg ccg)
+    public String f()
     {
-        gbh.a(getClass(), ccg.getClass());
-        return true;
-    }
-
-    public long b()
-    {
-        return TimeUnit.SECONDS.toMillis(120L);
-    }
-
-    public String g()
-    {
-        return "clients/setactiveclient";
+        return "blockuser";
     }
 }

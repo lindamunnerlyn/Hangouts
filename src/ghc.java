@@ -2,27 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Map;
+import android.media.MediaCodec;
+import android.os.Handler;
 
-public final class ghc extends ghi
-    implements gaw
+final class ghc
+    implements Runnable
 {
 
-    private volatile String e;
+    final ghb a;
 
-    public ghc(ggv ggv, ggl ggl)
+    ghc(ghb ghb1)
     {
-        super(ggv, a, new ghe(ggl), new ghd());
+        a = ghb1;
+        super();
     }
 
-    public jba a()
+    public void run()
     {
-        gbh.a(d);
-        return (jba)b().get(e);
-    }
-
-    public void a(String s)
-    {
-        e = s;
+        Object obj;
+        int i;
+        long l = System.currentTimeMillis();
+        obj = a.c();
+        if (obj == null)
+        {
+            return;
+        }
+        android.media.MediaCodec.BufferInfo bufferinfo = new android.media.MediaCodec.BufferInfo();
+        try
+        {
+            i = ((MediaCodec) (obj)).dequeueOutputBuffer(bufferinfo, 0L);
+        }
+        // Misplaced declaration of an exception variable
+        catch (Object obj)
+        {
+            a.a(((IllegalStateException) (obj)), true);
+            return;
+        }
+        if (i < 0) goto _L2; else goto _L1
+_L1:
+        a.a(i, bufferinfo);
+_L5:
+        l = Math.max(0L, 10L - (System.currentTimeMillis() - l));
+        a.b.postDelayed(a.a, l);
+        return;
+_L2:
+        if (i != -2) goto _L4; else goto _L3
+_L3:
+        a.a(((MediaCodec) (obj)).getOutputFormat());
+          goto _L5
+_L4:
+        if (i != -3) goto _L5; else goto _L6
+_L6:
+        a.c = ((MediaCodec) (obj)).getOutputBuffers();
+          goto _L5
     }
 }

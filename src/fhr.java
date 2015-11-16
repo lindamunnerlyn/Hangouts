@@ -2,12 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
-import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.herrevad.PredictedNetworkQuality;
 
-public interface fhr
-    extends IInterface
+final class fhr extends fhs
+    implements fes
 {
 
-    public abstract void a(CameraPosition cameraposition);
+    public fhr(Status status, PredictedNetworkQuality predictednetworkquality)
+    {
+        super(status, predictednetworkquality);
+    }
+
+    public PredictedNetworkQuality b()
+    {
+        return (PredictedNetworkQuality)a;
+    }
 }

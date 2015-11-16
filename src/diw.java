@@ -2,38 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.text.TextUtils;
-import java.util.ArrayList;
-import java.util.Iterator;
 
-public final class diw extends dfa
+public final class diw extends dgj
 {
 
-    private final ArrayList a;
+    public static final boolean a = false;
+    private final String e;
+    private final byte f[];
+    private final long g;
+    private final boolean h;
 
-    public diw(ani ani, ArrayList arraylist)
+    public diw(aoa aoa, String s, byte abyte0[], long l, boolean flag)
     {
-        super(ani);
-        a = arraylist;
+        super(aoa);
+        e = s;
+        f = abyte0;
+        g = l;
+        h = flag;
     }
 
     public void a()
     {
-        long l = dzk.a();
-        String s = dcx.c().f();
-        if (TextUtils.isEmpty(s))
+        aow aow1 = new aow(g.nU, super.b.a);
+        if (!h && g > 0L)
         {
-            ebw.f("Babel", "Unregister removed account with invalid gcm registration id");
-        } else
-        {
-            Iterator iterator = a.iterator();
-            while (iterator.hasNext()) 
+            apk apk1 = aow1.b(g);
+            if (apk1 != null && apk1.f == dsu.c)
             {
-                Object obj = (String)iterator.next();
-                obj = cun.a(s, l, g.nS.getPackageName(), ((String) (obj)));
-                c.a(((dko) (obj)));
+                if (a)
+                {
+                    eev.b("Babel", "RetrieveMmsOperation: ignore repeated download");
+                }
+                return;
             }
+            aow1.b(g, dsu.c, System.currentTimeMillis());
+            aoq.b(aow1, g);
         }
+        a(((dmf) (new dix(e, f, g, h))));
+    }
+
+    static 
+    {
+        hnc hnc = eev.n;
     }
 }

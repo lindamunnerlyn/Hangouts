@@ -3,40 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class bwh extends Enum
+final class bwh extends goh
 {
 
-    public static final bwh a;
-    public static final bwh b;
-    public static final bwh c;
-    private static final bwh f[];
-    public final int d;
-    public final int e;
+    final boolean a;
+    final bwf b;
 
-    private bwh(String s, int i, int j, int k)
+    bwh(bwf bwf, boolean flag)
     {
-        super(s, i);
-        d = j;
-        e = k;
+        b = bwf;
+        a = flag;
+        super();
     }
 
-    public static bwh valueOf(String s)
+    public boolean a()
     {
-        return (bwh)Enum.valueOf(bwh, s);
-    }
-
-    public static bwh[] values()
-    {
-        return (bwh[])f.clone();
-    }
-
-    static 
-    {
-        a = new bwh("CALL_JOINED", 0, 2594, 2598);
-        b = new bwh("MESSAGE_RECEIVED", 1, 2593, 2597);
-        c = new bwh("MESSAGE_SENT", 2, 2592, 2596);
-        f = (new bwh[] {
-            a, b, c
-        });
+        return a;
     }
 }

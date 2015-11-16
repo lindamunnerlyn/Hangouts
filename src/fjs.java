@@ -2,49 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
+import android.os.IInterface;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.StreetViewPanoramaCamera;
+import com.google.android.gms.maps.model.StreetViewPanoramaLocation;
+import com.google.android.gms.maps.model.StreetViewPanoramaOrientation;
 
-final class fjs
-    implements fjq
+public interface fjs
+    extends IInterface
 {
 
-    private IBinder a;
+    public abstract StreetViewPanoramaOrientation a(fcw fcw);
 
-    fjs(IBinder ibinder)
-    {
-        a = ibinder;
-    }
+    public abstract fcw a(StreetViewPanoramaOrientation streetviewpanoramaorientation);
 
-    public void a(fgw fgw1)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnStreetViewPanoramaReadyCallback");
-        if (fgw1 == null)
-        {
-            break MISSING_BLOCK_LABEL_57;
-        }
-        fgw1 = fgw1.asBinder();
-_L1:
-        parcel.writeStrongBinder(fgw1);
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        fgw1 = null;
-          goto _L1
-        fgw1;
-        parcel1.recycle();
-        parcel.recycle();
-        throw fgw1;
-    }
+    public abstract void a(LatLng latlng);
 
-    public IBinder asBinder()
-    {
-        return a;
-    }
+    public abstract void a(LatLng latlng, int i);
+
+    public abstract void a(StreetViewPanoramaCamera streetviewpanoramacamera, long l);
+
+    public abstract void a(fma fma);
+
+    public abstract void a(fmd fmd);
+
+    public abstract void a(fmg fmg);
+
+    public abstract void a(fmj fmj);
+
+    public abstract void a(String s);
+
+    public abstract void a(boolean flag);
+
+    public abstract boolean a();
+
+    public abstract void b(boolean flag);
+
+    public abstract boolean b();
+
+    public abstract void c(boolean flag);
+
+    public abstract boolean c();
+
+    public abstract void d(boolean flag);
+
+    public abstract boolean d();
+
+    public abstract StreetViewPanoramaCamera e();
+
+    public abstract StreetViewPanoramaLocation f();
 }

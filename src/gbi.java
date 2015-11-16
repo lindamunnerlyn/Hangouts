@@ -2,65 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import android.os.Bundle;
 
-public final class gbi
+final class gbi
+    implements enb
 {
 
-    public static final gbi a = new gbi();
-    private Set b;
-    private final Object c = new Object();
+    final gat a;
+    final gbh b;
 
-    public gbi()
+    gbi(gbh gbh, gat gat1)
     {
-        b = new HashSet();
-    }
-
-    public void a()
-    {
-        Object obj = c;
-        obj;
-        JVM INSTR monitorenter ;
-        for (Iterator iterator = b.iterator(); iterator.hasNext(); ((gbj)iterator.next()).h()) { }
-        break MISSING_BLOCK_LABEL_48;
-        Exception exception;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-        obj;
-        JVM INSTR monitorexit ;
+        b = gbh;
+        a = gat1;
+        super();
     }
 
     public void a(int i)
     {
-        Object obj = c;
-        obj;
-        JVM INSTR monitorenter ;
-        for (Iterator iterator = b.iterator(); iterator.hasNext(); ((gbj)iterator.next()).b(i)) { }
-        break MISSING_BLOCK_LABEL_49;
-        Exception exception;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-        obj;
-        JVM INSTR monitorexit ;
+        a.a(i);
     }
 
-    public void a(gbj gbj1)
+    public void a_(Bundle bundle)
     {
-        synchronized (c)
-        {
-            b.add(gbj1);
-        }
-        return;
-        gbj1;
-        obj;
-        JVM INSTR monitorexit ;
-        throw gbj1;
+        a.a();
     }
-
 }

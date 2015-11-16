@@ -2,33 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
 import android.widget.PopupWindow;
-import java.lang.reflect.Field;
 
-final class pd
+class pd extends pc
 {
 
-    private static Field a;
-
-    static void a(PopupWindow popupwindow, boolean flag)
+    pd()
     {
-        if (a == null)
-        {
-            break MISSING_BLOCK_LABEL_17;
-        }
-        a.set(popupwindow, Boolean.valueOf(flag));
-        return;
-        popupwindow;
     }
 
-    static 
+    public void a(PopupWindow popupwindow, View view, int i, int j, int k)
     {
-        try
-        {
-            Field field = android/widget/PopupWindow.getDeclaredField("mOverlapAnchor");
-            a = field;
-            field.setAccessible(true);
-        }
-        catch (NoSuchFieldException nosuchfieldexception) { }
+        popupwindow.showAsDropDown(view, i, j, k);
     }
 }

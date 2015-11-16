@@ -2,46 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Cursor;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ListView;
-import com.google.android.apps.hangouts.phone.DebugActivity;
+import com.google.android.apps.hangouts.phone.BabelHomeActivity;
 
 public final class ckr
-    implements android.view.View.OnClickListener
+    implements Runnable
 {
 
-    final String a;
-    final View b;
-    final View c;
-    final View d;
-    final DebugActivity e;
+    final BabelHomeActivity a;
 
-    public ckr(DebugActivity debugactivity, String s, View view, View view1, View view2)
+    public ckr(BabelHomeActivity babelhomeactivity)
     {
-        e = debugactivity;
-        a = s;
-        b = view;
-        c = view1;
-        d = view2;
+        a = babelhomeactivity;
         super();
     }
 
-    public void onClick(View view)
+    public void run()
     {
-        view = DebugActivity.e(e).e().a("messages", null, "conversation_id=?", new String[] {
-            a
-        }, "timestamp ASC");
-        Object obj = e.getLayoutInflater().inflate(g.fM, null);
-        DebugActivity.a(e, ((View) (obj)), view, new cks(this));
-        b.setVisibility(8);
-        c.setVisibility(8);
-        d.setVisibility(8);
-        obj = (ListView)((View) (obj)).findViewById(0x102000a);
-        ((ListView) (obj)).setAdapter(DebugActivity.a(e, view, new int[] {
-            view.getColumnIndex("text")
-        }));
-        ((ListView) (obj)).setOnItemClickListener(DebugActivity.a(e, view));
+        hbo hbo1 = (new hbo()).b().a(cae);
+        BabelHomeActivity.i(a);
+        BabelHomeActivity.f(a).a(hbo1);
     }
 }

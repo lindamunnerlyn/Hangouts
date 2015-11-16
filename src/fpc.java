@@ -2,34 +2,15 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import android.os.ParcelFileDescriptor;
 
-public final class fpc
-    implements Iterable, Iterator
+public interface fpc
+    extends eng, enh
 {
 
-    public fpc()
-    {
-    }
+    public abstract ParcelFileDescriptor c();
 
-    public boolean hasNext()
-    {
-        return false;
-    }
+    public abstract int d();
 
-    public Iterator iterator()
-    {
-        return this;
-    }
-
-    public Object next()
-    {
-        throw new NoSuchElementException();
-    }
-
-    public void remove()
-    {
-        throw new UnsupportedOperationException();
-    }
+    public abstract int e();
 }

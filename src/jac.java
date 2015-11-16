@@ -3,26 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jac extends koj
+public final class jac extends kwm
 {
 
-    public Long a;
-    public jaf b;
-    public String c;
-    public jae d;
-    public izz e;
-    public izy f;
-    public jap g;
+    public kbm a;
+    public kbm b;
+    public jdk requestHeader;
 
     public jac()
     {
+        requestHeader = null;
         a = null;
         b = null;
-        c = null;
-        d = null;
-        e = null;
-        f = null;
-        g = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -31,52 +23,32 @@ public final class jac extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
+        if (requestHeader != null)
+        {
+            i = j + kwk.d(1, requestHeader);
+        }
+        j = i;
         if (a != null)
         {
-            i = j + koh.e(1, a.longValue());
+            j = i + kwk.d(2, a);
         }
-        j = i;
+        i = j;
         if (b != null)
         {
-            j = i + koh.d(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.b(3, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.d(4, d);
-        }
-        i = j;
-        if (e != null)
-        {
-            i = j + koh.d(5, e);
-        }
-        j = i;
-        if (f != null)
-        {
-            j = i + koh.d(6, f);
-        }
-        i = j;
-        if (g != null)
-        {
-            i = j + koh.d(7, g);
+            i = j + kwk.d(3, b);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -85,87 +57,47 @@ public final class jac extends koj
             case 0: // '\0'
                 return this;
 
-            case 8: // '\b'
-                a = Long.valueOf(kog1.e());
+            case 10: // '\n'
+                if (requestHeader == null)
+                {
+                    requestHeader = new jdk();
+                }
+                kwj1.a(requestHeader);
                 break;
 
             case 18: // '\022'
-                if (b == null)
+                if (a == null)
                 {
-                    b = new jaf();
+                    a = new kbm();
                 }
-                kog1.a(b);
+                kwj1.a(a);
                 break;
 
             case 26: // '\032'
-                c = kog1.j();
-                break;
-
-            case 34: // '"'
-                if (d == null)
+                if (b == null)
                 {
-                    d = new jae();
+                    b = new kbm();
                 }
-                kog1.a(d);
-                break;
-
-            case 42: // '*'
-                if (e == null)
-                {
-                    e = new izz();
-                }
-                kog1.a(e);
-                break;
-
-            case 50: // '2'
-                if (f == null)
-                {
-                    f = new izy();
-                }
-                kog1.a(f);
-                break;
-
-            case 58: // ':'
-                if (g == null)
-                {
-                    g = new jap();
-                }
-                kog1.a(g);
+                kwj1.a(b);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
+        if (requestHeader != null)
+        {
+            kwk1.b(1, requestHeader);
+        }
         if (a != null)
         {
-            koh1.b(1, a.longValue());
+            kwk1.b(2, a);
         }
         if (b != null)
         {
-            koh1.b(2, b);
+            kwk1.b(3, b);
         }
-        if (c != null)
-        {
-            koh1.a(3, c);
-        }
-        if (d != null)
-        {
-            koh1.b(4, d);
-        }
-        if (e != null)
-        {
-            koh1.b(5, e);
-        }
-        if (f != null)
-        {
-            koh1.b(6, f);
-        }
-        if (g != null)
-        {
-            koh1.b(7, g);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

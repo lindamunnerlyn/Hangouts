@@ -2,135 +2,74 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.Executor;
 
-public final class iti extends koj
+final class iti
+    implements ith
 {
 
-    public String a;
-    public Integer b;
-    public Integer c;
-    public String d;
-    public String e;
-    public String f;
+    private static final UUID a = UUID.randomUUID();
+    private final ire b;
+    private final gwu c;
+    private final Executor d;
+    private final joj e;
+    private final ConcurrentMap f = new ConcurrentHashMap(2, 0.75F, 1);
 
-    public iti()
+    iti(ire ire1, gwu gwu1, Executor executor, joj joj)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        e = null;
-        f = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        b = ire1;
+        c = gwu1;
+        d = executor;
+        e = joj;
     }
 
-    protected int computeSerializedSize()
+    static ConcurrentMap a(iti iti1)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.intValue());
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.intValue());
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.b(4, d);
-        }
-        i = j;
-        if (e != null)
-        {
-            i = j + koh.b(5, e);
-        }
-        j = i;
-        if (f != null)
-        {
-            j = i + koh.b(6, f);
-        }
-        return j;
+        return iti1.f;
     }
 
-    public kop mergeFrom(kog kog1)
+    static joj b(iti iti1)
     {
-        do
+        return iti1.e;
+    }
+
+    static Executor c(iti iti1)
+    {
+        return iti1.d;
+    }
+
+    public void a(String s)
+    {
+        itc itc1 = its.b();
+        if (itc1 != null)
         {
-            int i = kog1.a();
-            switch (i)
+            s = String.valueOf(itc1.b());
+            if (s.length() != 0)
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
-                break;
-
-            case 24: // '\030'
-                c = Integer.valueOf(kog1.f());
-                break;
-
-            case 34: // '"'
-                d = kog1.j();
-                break;
-
-            case 42: // '*'
-                e = kog1.j();
-                break;
-
-            case 50: // '2'
-                f = kog1.j();
-                break;
+                s = "Already associated with a trace: ".concat(s);
+            } else
+            {
+                s = new String("Already associated with a trace: ");
             }
-        } while (true);
+            throw new IllegalStateException(s);
+        } else
+        {
+            UUID uuid = UUID.randomUUID();
+            Object obj = ldp.newBuilder().a(its.a()).j().b(uuid.getLeastSignificantBits()).a(c.a()).a(s);
+            itb itb1 = new itb(uuid, this, c, ((ldq) (obj)), true);
+            s = new ArrayList();
+            s.add(((ldq) (obj)).e());
+            f.put(uuid, Collections.synchronizedList(s));
+            its.a(itb1);
+            obj = b.a(itb1);
+            ((kak) (obj)).a(new itj(this, uuid, s, ((kak) (obj))), d);
+            return;
+        }
     }
 
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b.intValue());
-        }
-        if (c != null)
-        {
-            koh1.a(3, c.intValue());
-        }
-        if (d != null)
-        {
-            koh1.a(4, d);
-        }
-        if (e != null)
-        {
-            koh1.a(5, e);
-        }
-        if (f != null)
-        {
-            koh1.a(6, f);
-        }
-        super.writeTo(koh1);
-    }
 }

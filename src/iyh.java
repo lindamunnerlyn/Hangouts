@@ -3,14 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iyh extends koj
+public final class iyh extends kwm
 {
 
-    public ixg responseHeader;
+    public Boolean a;
+    public Long b;
 
     public iyh()
     {
-        responseHeader = null;
+        a = null;
+        b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -19,22 +21,28 @@ public final class iyh extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (responseHeader != null)
+        if (a != null)
         {
-            i = j + koh.d(1, responseHeader);
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
-        return i;
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.longValue());
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -43,23 +51,27 @@ public final class iyh extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (responseHeader == null)
-                {
-                    responseHeader = new ixg();
-                }
-                kog1.a(responseHeader);
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 16: // '\020'
+                b = Long.valueOf(kwj1.e());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (responseHeader != null)
+        if (a != null)
         {
-            koh1.b(1, responseHeader);
+            kwk1.a(1, a.booleanValue());
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.b(2, b.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

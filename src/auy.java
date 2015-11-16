@@ -2,31 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
+import android.view.View;
+import android.view.ViewGroup;
 
-final class auy
-    implements arm
+public abstract class auy
 {
 
-    final aut a;
+    public ViewGroup b;
+    public Object c;
 
-    auy(aut aut1)
+    public auy(View view, int i, Object obj)
     {
-        a = aut1;
-        super();
+        b = (ViewGroup)view.findViewById(i);
+        c = obj;
+        c();
     }
 
-    public void a()
+    public void a(boolean flag)
     {
+        if (flag)
+        {
+            d();
+        }
+        int i;
+        if (flag)
+        {
+            i = 0;
+        } else
+        {
+            i = 8;
+        }
+        b.setVisibility(i);
     }
 
-    public void a(ark ark)
-    {
-        aut.a(a, ark);
-    }
+    public abstract boolean a();
 
-    public void a(List list, ark ark)
-    {
-        aut.a(a, ark);
-    }
+    public abstract void c();
+
+    public abstract void d();
 }

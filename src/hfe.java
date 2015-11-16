@@ -3,8 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface hfe
+public final class hfe
 {
 
-    public abstract boolean a(hfa hfa, Object obj);
+    public static final String a = her.getName();
+    private static hfd b;
+
+    public static void a(hlp hlp1)
+    {
+        if (b == null)
+        {
+            b = new hfd();
+        }
+        hlp1.a(her, new her());
+    }
+
 }

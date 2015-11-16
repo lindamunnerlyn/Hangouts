@@ -2,106 +2,89 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
-public class gjg
+public final class gjg extends gjh
 {
 
-    String a;
-    boolean b;
-    private final gjk c;
-    private gjh d;
-    private gju e;
-    private String f;
-    private boolean g;
+    private final gdu i;
+    private final Context j;
 
-    public gjg(gjk gjk1)
+    gjg(long l, String s, byte abyte0[], int k, gdu gdu1, String s1, 
+            long l1, String s2, gix gix, Context context)
     {
-        g = false;
-        c = gjk1;
+        super(l, s, abyte0, k, s1, l1, null, s2, gix);
+        gdv.b("Expected non-null", gdu1);
+        j = context;
+        i = gdu1;
     }
 
-    public void a()
+    public volatile void a()
     {
-        c(false);
-        if (d != null)
-        {
-            c.b(d);
-            d = null;
-        }
+        super.a();
     }
 
-    public void a(gju gju)
+    public volatile void a(Object obj)
     {
-        if (e != null)
-        {
-            c.a(e);
-        }
-        e = gju;
-        b();
+        a((byte[])obj);
     }
 
-    public void a(String s)
+    public void a(byte abyte0[])
     {
-        if (!s.equals(f))
+        super.a(abyte0);
+    }
+
+    public Object b()
+    {
+        return c();
+    }
+
+    public byte[] c()
+    {
+        Object obj;
+        try
         {
-            if ("focusedParticipant".equals(s))
+            gdu gdu1 = i;
+            Context context = j;
+            String s = String.valueOf(f);
+            obj = String.valueOf(b);
+            HashMap hashmap;
+            if (((String) (obj)).length() != 0)
             {
-                d = new gjh(this);
-                c.a(d);
-                f = "focusedParticipant";
-                if (a == null)
-                {
-                    s = "localParticipant";
-                } else
-                {
-                    s = a;
-                }
-                a = s;
+                s = s.concat(((String) (obj)));
             } else
             {
-                if (d != null)
-                {
-                    c.b(d);
-                    d = null;
-                }
-                f = s;
-                a = s;
+                s = new String(s);
             }
+            hashmap = new HashMap();
+            hashmap.put("Accept-Encoding", "gzip");
+            obj = String.valueOf(e);
         }
-        b();
-    }
-
-    protected void a(boolean flag)
-    {
-    }
-
-    void b()
-    {
-        if (e == null)
+        catch (IOException ioexception)
         {
-            return;
+            obj = f;
+            String s1 = b;
+            gne.a(5, "vclib", (new StringBuilder(String.valueOf(obj).length() + 29 + String.valueOf(s1).length())).append("Error sending cronet request ").append(((String) (obj))).append(s1).toString(), ioexception);
+            return null;
         }
-        if (g && a != null)
+        if (((String) (obj)).length() == 0)
         {
-            c.a(a, e);
-            return;
-        } else
-        {
-            c.a(e);
-            return;
+            break MISSING_BLOCK_LABEL_246;
         }
-    }
-
-    protected void b(boolean flag)
-    {
-    }
-
-    public void c(boolean flag)
-    {
-        if (flag != g)
-        {
-            g = flag;
-            b();
-        }
+        obj = "Bearer ".concat(((String) (obj)));
+_L1:
+        hashmap.put("Authorization", obj);
+        hashmap.put("X-Auth-Time", h);
+        obj = new StringBuilder("HangoutsApiaryClient");
+        ((StringBuilder) (obj)).append("; G+ SDK/");
+        ((StringBuilder) (obj)).append("1.0.0");
+        ((StringBuilder) (obj)).append(";");
+        hashmap.put("User-Agent", ((StringBuilder) (obj)).toString());
+        return gdu1.a(context, s, hashmap, c, d);
+        obj = new String("Bearer ");
+          goto _L1
     }
 }

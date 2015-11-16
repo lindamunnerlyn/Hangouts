@@ -2,12 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.widget.ImageView;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Environment;
+import java.io.File;
 
-public interface bbe
+final class bbe
+    implements gtd
 {
 
-    public abstract ImageView a();
+    final bbd a;
 
-    public abstract boolean a(bay bay);
+    bbe(bbd bbd1)
+    {
+        a = bbd1;
+        super();
+    }
+
+    public void a(int i, Intent intent)
+    {
+        if (i == -1)
+        {
+            intent = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), ava.a(1)));
+            intent = azt.a(bbd.a(a), intent.toString());
+            bbd.b(a).a(g.kh, intent);
+            return;
+        } else
+        {
+            bbd.c(a);
+            return;
+        }
+    }
 }

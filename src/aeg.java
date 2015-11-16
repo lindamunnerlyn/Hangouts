@@ -3,28 +3,72 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.text.TextUtils;
-import java.util.Arrays;
 
 public final class aeg
-    implements adx
+    implements adz
 {
 
-    private final String a;
-    private final boolean b;
-    private final byte c[];
-    private Integer d;
+    String a;
+    String b;
+    String c;
+    boolean d;
+    private final String e;
+    private final int f;
 
-    public aeg(String s, byte abyte0[], boolean flag)
+    public aeg(String s, String s1, String s2, String s3, int i, boolean flag)
     {
-        d = null;
+        f = i;
         a = s;
-        c = abyte0;
-        b = flag;
+        b = s1;
+        c = s2;
+        e = s3;
+        d = flag;
     }
 
-    public final adz a()
+    public final aeb a()
     {
-        return adz.g;
+        return aeb.e;
+    }
+
+    public String b()
+    {
+        StringBuilder stringbuilder = new StringBuilder();
+        if (!TextUtils.isEmpty(a))
+        {
+            stringbuilder.append(a);
+        }
+        if (!TextUtils.isEmpty(b))
+        {
+            if (stringbuilder.length() > 0)
+            {
+                stringbuilder.append(", ");
+            }
+            stringbuilder.append(b);
+        }
+        if (!TextUtils.isEmpty(c))
+        {
+            if (stringbuilder.length() > 0)
+            {
+                stringbuilder.append(", ");
+            }
+            stringbuilder.append(c);
+        }
+        return stringbuilder.toString();
+    }
+
+    public String c()
+    {
+        return a;
+    }
+
+    public String d()
+    {
+        return c;
+    }
+
+    public int e()
+    {
+        return f;
     }
 
     public boolean equals(Object obj)
@@ -36,7 +80,7 @@ public final class aeg
                 return false;
             }
             obj = (aeg)obj;
-            if (!TextUtils.equals(a, ((aeg) (obj)).a) || !Arrays.equals(c, ((aeg) (obj)).c) || b != ((aeg) (obj)).b)
+            if (f != ((aeg) (obj)).f || !TextUtils.equals(a, ((aeg) (obj)).a) || !TextUtils.equals(b, ((aeg) (obj)).b) || !TextUtils.equals(c, ((aeg) (obj)).c) || d != ((aeg) (obj)).d)
             {
                 return false;
             }
@@ -47,12 +91,10 @@ public final class aeg
     public int hashCode()
     {
         int k = 0;
-        if (d != null)
-        {
-            return d.intValue();
-        }
+        int l = f;
         int i;
         int j;
+        char c1;
         if (a != null)
         {
             i = a.hashCode();
@@ -60,39 +102,31 @@ public final class aeg
         {
             i = 0;
         }
-        i *= 31;
-        j = i;
-        if (c != null)
+        if (b != null)
         {
-            byte abyte0[] = c;
-            int l = abyte0.length;
-            do
-            {
-                j = i;
-                if (k >= l)
-                {
-                    break;
-                }
-                i += abyte0[k];
-                k++;
-            } while (true);
-        }
-        if (b)
-        {
-            i = 1231;
+            j = b.hashCode();
         } else
         {
-            i = 1237;
+            j = 0;
         }
-        i += j * 31;
-        d = Integer.valueOf(i);
-        return i;
+        if (c != null)
+        {
+            k = c.hashCode();
+        }
+        if (d)
+        {
+            c1 = '\u04CF';
+        } else
+        {
+            c1 = '\u04D5';
+        }
+        return c1 + ((j + (i + l * 31) * 31) * 31 + k) * 31;
     }
 
     public String toString()
     {
-        return String.format("format: %s: size: %d, isPrimary: %s", new Object[] {
-            a, Integer.valueOf(c.length), Boolean.valueOf(b)
+        return String.format("type: %d, organization: %s, department: %s, title: %s, isPrimary: %s", new Object[] {
+            Integer.valueOf(f), a, b, c, Boolean.valueOf(d)
         });
     }
 }

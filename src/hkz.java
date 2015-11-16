@@ -2,16 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.regex.Pattern;
+import java.util.Locale;
 
 public final class hkz
 {
 
-    static final Pattern a = Pattern.compile("\\s*error\\s*=\\s*\"?invalid_token\"?");
+    private final int a = 26;
+    private final int b = -1;
+    private String c;
 
-    public static hlb a()
+    public hkz(String s)
     {
-        return new hlb();
+        c = s;
     }
 
+    public String toString()
+    {
+        return String.format(Locale.US, "GmsFailureEvent gmsApi=%d, statusCode=%d", new Object[] {
+            Integer.valueOf(a), Integer.valueOf(b)
+        });
+    }
 }

@@ -2,17 +2,273 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import android.app.PendingIntent;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.SparseArray;
+import com.google.android.gms.common.ConnectionResult;
 
-final class eoz extends eux
+public final class eoz extends ad
+    implements android.content.DialogInterface.OnCancelListener, br
 {
 
-    eoz(byte abyte0[])
+    private boolean a;
+    private int b;
+    private ConnectionResult c;
+    private final Handler d = new Handler(Looper.getMainLooper());
+    private final SparseArray e = new SparseArray();
+
+    public eoz()
     {
-        super(abyte0);
+        b = -1;
     }
 
-    protected byte[] b()
+    public static eoz a(ai ai1)
     {
-        return eox.a("0\202\003\3550\202\002\325\240\003\002\001\002\002\t\000\247\313\222\306\006\225N\f0\r\006\t*\206H\206\367\r\001\001\005\005\0000\201\2141\0130\t\006\003U\004\006\023\002US1\0230\021\006\003U\004\b\f\nCalifornia1\0260\024\006\003U\004\007\f\rMountain View1\0240\022\006\003U\004\n\f\013Google Inc.1\0200\016\006\003U\004\013\f\007Android1(0&\006\003U\004\003\f\037enterprise_topaz_mobile_android0\036\027\r141211183222Z\027\r420428183222Z0\201\2141\0130\t\006\003U\004\006\023\002US1\0230\021\006\003U\004\b\f\nCalifornia1\0260\024\006\003U\004\007\f\rMountain View1\0240\022\006\003U\004\n\f\013Google Inc.1\0200\016\006\003U\004\013\f\007Android1(0&\006\003U\004\003\f\037enterprise_topaz_mobile_android0\202\001\"0\r\006\t*\206H\206\367\r\001\001\001\005\000\003\202\001\017\0000\202\001\n\002\202\001\001\000\304\336-v\331\346\243j\231\\\004\225\244\321=>YI`\344\344\364\264>\316#/\346\355\336TZ\022\324\300\225\223\025\232<\037r\345\216\2625\307W\316\376\022\361&\337\310\005\027\306\264\367\343\330@\363\323\322h?\024AX=4\273\211\304\222\203Q\327\270\377|\332QVu=dB\324\211\264;5\036\311m\211~\325\327M\027\020\024\222\207a,\\+ \223$JG\221\035Nt+m\351\324\230|\023Q\3049\026\030*M\036]Pkr\257\313\237O\2654\000\340\352M^\240|\305r\215`\356\025\277d\0224^\230\327\201\367\322\326\246:\033\251\350C\213\276Z\332\202HT\267O'G\002[\023\331\237P\356\355\203\373\375\324\347\360b]\266w\013\244\272-y\321=\231\331'N\317\242\377R{\330\0168\2337\211\267\266\002\200\213)^\303G}i\212\232\205VsM3.\f]\002Cob\37557\303\002\003\001\000\001\243P0N0\035\006\003U\035\016\004\026\004\0242\251I\365\201_\305\345\203Y\246\205]\214F\266-\207\324\2020\037\006\003U\035#\004\0300\026\200\0242\251I\365\201_\305\345\203Y\246\205]\214F\266-\207\324\2020\f\006\003U\035\023\004\0050\003\001\001\3770\r\006\t*\206H\206\367\r\001\001\005\005\000\003\202\001\001\0004\216\327\236\237\245\255\0356\234\314\266\341\266\204\363\341\233/\037\233\361\307\210i\272;\221\205e\\\273\337\376n`,9\270f9\263f&{\345Y\207PO\3075\213\217\033\371\177\312J\324J>bz\325\030\263\222\013P\320\323.\343\303rC\222\023\240lfy\375&1\365\224\225\322x\376\203\3354\351\341\353\213\312o\307g\231\223\220\374\230\001\003\222\315\331\250\210[.h\037\252\306\\\006\372\321\316j\021\353mu\262\031\3544\315\036\021\216\313\2271\326\202\337\331J\263\361\tf\253\300\250\220\216\204\303\245\t\027\220\000Tr\371_\240\206d_\200s\303\361\000\177\326%\262Y\346\371\353\252|r`y\000\357\216*\265\361\250\277|\200\226\244\312Sv\230\210 \217r\253B\201\261\364bd\217\354d7\320\310^\245\377\250_\311Q\360\350\216N\336\271nPW\323\272JMT\250vS%\347\362\371\277>\\\0343N");
+label0:
+        {
+            g.y("Must be called from main thread of process");
+            ap ap1 = ai1.u_();
+            eoz eoz1;
+            try
+            {
+                eoz1 = (eoz)ap1.a("GmsSupportLoaderLifecycleFragment");
+            }
+            // Misplaced declaration of an exception variable
+            catch (ai ai1)
+            {
+                throw new IllegalStateException("Fragment with tag GmsSupportLoaderLifecycleFragment is not a SupportLoaderLifecycleFragment", ai1);
+            }
+            if (eoz1 != null)
+            {
+                ai1 = eoz1;
+                if (!eoz1.isRemoving())
+                {
+                    break label0;
+                }
+            }
+            ai1 = new eoz();
+            ap1.a().a(ai1, "GmsSupportLoaderLifecycleFragment").b();
+            ap1.b();
+        }
+        return ai1;
+    }
+
+    private void a()
+    {
+        int i = 0;
+        a = false;
+        b = -1;
+        c = null;
+        bq bq1 = getLoaderManager();
+        for (; i < e.size(); i++)
+        {
+            int j = e.keyAt(i);
+            epa epa1 = b(j);
+            if (epa1 != null && epa1.c())
+            {
+                bq1.a(j);
+                bq1.a(j, null, this);
+            }
+        }
+
+    }
+
+    private void a(int i, ConnectionResult connectionresult)
+    {
+        Object obj = (epb)e.get(i);
+        if (obj != null)
+        {
+            e.remove(i);
+            getLoaderManager().a(i);
+            obj = ((epb) (obj)).b;
+            if (obj != null)
+            {
+                ((end) (obj)).a(connectionresult);
+            }
+        }
+        a();
+    }
+
+    static void a(eoz eoz1)
+    {
+        eoz1.a();
+    }
+
+    static void a(eoz eoz1, int i, ConnectionResult connectionresult)
+    {
+        eoz1.a(i, connectionresult);
+    }
+
+    private epa b(int i)
+    {
+        epa epa1;
+        try
+        {
+            epa1 = (epa)getLoaderManager().b(i);
+        }
+        catch (ClassCastException classcastexception)
+        {
+            throw new IllegalStateException("Unknown loader in SupportLoaderLifecycleFragment", classcastexception);
+        }
+        return epa1;
+    }
+
+    public emy a(int i)
+    {
+        if (getActivity() != null)
+        {
+            epa epa1 = b(i);
+            if (epa1 != null)
+            {
+                return epa1.a;
+            }
+        }
+        return null;
+    }
+
+    public void a(int i, emy emy, end end1)
+    {
+        g.b(emy, "GoogleApiClient instance cannot be null");
+        boolean flag;
+        if (e.indexOfKey(i) < 0)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        g.a(flag, (new StringBuilder("Already managing a GoogleApiClient with id ")).append(i).toString());
+        emy = new epb(emy, end1);
+        e.put(i, emy);
+        if (getActivity() != null)
+        {
+            bs.a = false;
+            getLoaderManager().a(i, null, this);
+        }
+    }
+
+    public void onActivityResult(int i, int j, Intent intent)
+    {
+        boolean flag = true;
+        i;
+        JVM INSTR tableswitch 1 2: default 28
+    //                   1 55
+    //                   2 39;
+           goto _L1 _L2 _L3
+_L1:
+        i = 0;
+_L5:
+        if (i != 0)
+        {
+            a();
+            return;
+        } else
+        {
+            a(b, c);
+            return;
+        }
+_L3:
+        if (emo.a(getActivity()) != 0) goto _L1; else goto _L4
+_L4:
+        i = ((flag) ? 1 : 0);
+          goto _L5
+_L2:
+        if (j != -1) goto _L1; else goto _L6
+_L6:
+        i = ((flag) ? 1 : 0);
+          goto _L5
+    }
+
+    public void onAttach(Activity activity)
+    {
+        super.onAttach(activity);
+        int i = 0;
+        while (i < e.size()) 
+        {
+            int j = e.keyAt(i);
+            activity = b(j);
+            if (activity != null && ((epb)e.valueAt(i)).a != ((epa) (activity)).a)
+            {
+                getLoaderManager().b(j, null, this);
+            } else
+            {
+                getLoaderManager().a(j, null, this);
+            }
+            i++;
+        }
+    }
+
+    public void onCancel(DialogInterface dialoginterface)
+    {
+        a(b, new ConnectionResult(13, null));
+    }
+
+    public void onCreate(Bundle bundle)
+    {
+        super.onCreate(bundle);
+        if (bundle != null)
+        {
+            a = bundle.getBoolean("resolving_error", false);
+            b = bundle.getInt("failed_client_id", -1);
+            if (b >= 0)
+            {
+                c = new ConnectionResult(bundle.getInt("failed_status"), (PendingIntent)bundle.getParcelable("failed_resolution"));
+            }
+        }
+    }
+
+    public em onCreateLoader(int i, Bundle bundle)
+    {
+        return new epa(getActivity(), ((epb)e.get(i)).a);
+    }
+
+    public void onLoadFinished(em em1, Object obj)
+    {
+        obj = (ConnectionResult)obj;
+        if (!((ConnectionResult) (obj)).b())
+        {
+            int i = em1.o();
+            if (!a)
+            {
+                a = true;
+                b = i;
+                c = ((ConnectionResult) (obj));
+                d.post(new epc(this, i, ((ConnectionResult) (obj))));
+            }
+        }
+    }
+
+    public void onLoaderReset(em em1)
+    {
+    }
+
+    public void onSaveInstanceState(Bundle bundle)
+    {
+        super.onSaveInstanceState(bundle);
+        bundle.putBoolean("resolving_error", a);
+        if (b >= 0)
+        {
+            bundle.putInt("failed_client_id", b);
+            bundle.putInt("failed_status", c.c());
+            bundle.putParcelable("failed_resolution", c.d());
+        }
+    }
+
+    public void onStart()
+    {
+        super.onStart();
+        if (!a)
+        {
+            for (int i = 0; i < e.size(); i++)
+            {
+                getLoaderManager().a(e.keyAt(i), null, this);
+            }
+
+        }
     }
 }

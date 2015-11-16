@@ -3,32 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gxc
+final class gxc extends ThreadLocal
 {
 
-    private final boolean a;
-    private final long b;
-    private final boolean c;
-
-    gxc(gxd gxd1)
+    gxc()
     {
-        a = gxd1.a;
-        b = gxd1.b;
-        c = gxd1.c;
     }
 
-    public boolean a()
+    protected Object initialValue()
     {
-        return a;
-    }
-
-    public long b()
-    {
-        return b;
-    }
-
-    public boolean c()
-    {
-        return c;
+        return new String[1];
     }
 }

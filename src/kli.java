@@ -2,38 +2,118 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.IOException;
 
-public abstract class kli
-    implements kmy
+public final class kli extends kwm
 {
 
-    public int a;
+    public Boolean a;
+    public kml b;
+    public kmx c;
+    public kfy d;
 
     public kli()
     {
-        a = 0;
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public byte[] a()
+    protected int computeSerializedSize()
     {
-        byte abyte0[];
-        try
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            abyte0 = new byte[m()];
-            kls kls1 = kls.a(abyte0);
-            a(kls1);
-            kls1.h();
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
-        catch (IOException ioexception)
+        j = i;
+        if (b != null)
         {
-            throw new RuntimeException("Serializing to a byte array threw an IOException (should never happen).", ioexception);
+            j = i + kwk.d(2, b);
         }
-        return abyte0;
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.d(3, c);
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.d(4, d);
+        }
+        return j;
     }
 
-    knq b()
+    public kws mergeFrom(kwj kwj1)
     {
-        return new knq();
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new kml();
+                }
+                kwj1.a(b);
+                break;
+
+            case 26: // '\032'
+                if (c == null)
+                {
+                    c = new kmx();
+                }
+                kwj1.a(c);
+                break;
+
+            case 34: // '"'
+                if (d == null)
+                {
+                    d = new kfy();
+                }
+                kwj1.a(d);
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
+        }
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.b(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.b(4, d);
+        }
+        super.writeTo(kwk1);
     }
 }

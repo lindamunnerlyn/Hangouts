@@ -2,40 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import java.util.ArrayList;
-import java.util.List;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 public final class duf
-    implements dha
+    implements Parcelable
 {
 
-    private final List a = new ArrayList();
-    private final Handler b = new Handler();
+    public static final android.os.Parcelable.Creator CREATOR = new dug();
+    public String a;
+    public String b;
+    public int c;
+    public int d;
 
     public duf()
     {
     }
 
-    static List a(duf duf1)
+    public int describeContents()
     {
-        return duf1.a;
+        return 0;
     }
 
-    public void a(dha dha1)
+    public void writeToParcel(Parcel parcel, int i)
     {
-        g.w();
-        a.add(dha1);
+        parcel.writeString(a);
+        parcel.writeString(b);
+        parcel.writeInt(c);
+        parcel.writeInt(d);
     }
 
-    public void a(gmw gmw, cxi cxi)
-    {
-        b.post(new dug(this, gmw, cxi));
-    }
-
-    public void b(dha dha1)
-    {
-        g.w();
-        a.remove(dha1);
-    }
 }

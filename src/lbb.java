@@ -3,218 +3,191 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lbb extends koj
+public final class lbb extends kwm
 {
 
-    public lcb a;
-    public lba b[];
-    public kyo c[];
-    public kyo d;
+    public int a[];
 
     public lbb()
     {
-        a = null;
-        b = lba.a();
-        c = kyo.a();
-        d = null;
+        a = kwx.a;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        boolean flag = false;
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        int i = 0;
+        int k = super.computeSerializedSize();
+        if (a != null && a.length > 0)
         {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i;
-            if (b.length > 0)
+            int j = 0;
+            for (; i < a.length; i++)
             {
-                for (j = 0; j < b.length;)
-                {
-                    lba lba1 = b[j];
-                    int l = i;
-                    if (lba1 != null)
-                    {
-                        l = i + koh.d(2, lba1);
-                    }
-                    j++;
-                    i = l;
-                }
+                j += kwk.e(a[i]);
+            }
 
-                j = i;
-            }
-        }
-        i = j;
-        if (d != null)
+            return k + j + a.length * 1;
+        } else
         {
-            i = j + koh.d(3, d);
+            return k;
         }
-        int i1 = i;
-        if (c != null)
-        {
-            i1 = i;
-            if (c.length > 0)
-            {
-                int k = ((flag) ? 1 : 0);
-                do
-                {
-                    i1 = i;
-                    if (k >= c.length)
-                    {
-                        break;
-                    }
-                    kyo kyo1 = c[k];
-                    i1 = i;
-                    if (kyo1 != null)
-                    {
-                        i1 = i + koh.d(4, kyo1);
-                    }
-                    k++;
-                    i = i1;
-                } while (true);
-            }
-        }
-        return i1;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L19:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 3: default 44
+    //                   0: 54
+    //                   8: 56
+    //                   10: 252;
+           goto _L1 _L2 _L3 _L4
+_L1:
+        if (super.storeUnknownField(kwj1, i))
         {
-            int i = kog1.a();
-            switch (i)
+            continue; /* Loop/switch isn't completed */
+        }
+_L2:
+        return this;
+_L3:
+        int ai[];
+        int j;
+        int i1;
+        i1 = kwx.a(kwj1, 8);
+        ai = new int[i1];
+        j = 0;
+        i = 0;
+_L11:
+        if (j >= i1) goto _L6; else goto _L5
+_L5:
+        int j1;
+        if (j != 0)
+        {
+            kwj1.a();
+        }
+        j1 = kwj1.f();
+        j1;
+        JVM INSTR tableswitch 0 4: default 136
+    //                   0 145
+    //                   1 145
+    //                   2 145
+    //                   3 145
+    //                   4 145;
+           goto _L7 _L8 _L8 _L8 _L8 _L8
+_L7:
+        j++;
+          goto _L9
+_L8:
+        int k = i + 1;
+        ai[i] = j1;
+        i = k;
+        if (true) goto _L7; else goto _L9
+_L9:
+        if (true) goto _L11; else goto _L10
+_L10:
+_L6:
+        if (i != 0)
+        {
+            if (a == null)
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new lcb();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                int l = kou.b(kog1, 18);
-                lba alba[];
-                int j;
-                if (b == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
-                }
-                alba = new lba[l + j];
-                l = j;
+                j = 0;
+            } else
+            {
+                j = a.length;
+            }
+            if (j == 0 && i == ai.length)
+            {
+                a = ai;
+            } else
+            {
+                int ai1[] = new int[j + i];
                 if (j != 0)
                 {
-                    System.arraycopy(b, 0, alba, 0, j);
-                    l = j;
+                    System.arraycopy(a, 0, ai1, 0, j);
                 }
-                for (; l < alba.length - 1; l++)
-                {
-                    alba[l] = new lba();
-                    kog1.a(alba[l]);
-                    kog1.a();
-                }
-
-                alba[l] = new lba();
-                kog1.a(alba[l]);
-                b = alba;
-                break;
-
-            case 26: // '\032'
-                if (d == null)
-                {
-                    d = new kyo();
-                }
-                kog1.a(d);
-                break;
-
-            case 34: // '"'
-                int i1 = kou.b(kog1, 34);
-                kyo akyo[];
-                int k;
-                if (c == null)
-                {
-                    k = 0;
-                } else
-                {
-                    k = c.length;
-                }
-                akyo = new kyo[i1 + k];
-                i1 = k;
-                if (k != 0)
-                {
-                    System.arraycopy(c, 0, akyo, 0, k);
-                    i1 = k;
-                }
-                for (; i1 < akyo.length - 1; i1++)
-                {
-                    akyo[i1] = new kyo();
-                    kog1.a(akyo[i1]);
-                    kog1.a();
-                }
-
-                akyo[i1] = new kyo();
-                kog1.a(akyo[i1]);
-                c = akyo;
+                System.arraycopy(ai, 0, ai1, j, i);
+                a = ai1;
+            }
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        int l;
+        l = kwj1.c(kwj1.p());
+        i = kwj1.r();
+        j = 0;
+_L17:
+        if (kwj1.q() > 0)
+        {
+            switch (kwj1.f())
+            {
+            case 0: // '\0'
+            case 1: // '\001'
+            case 2: // '\002'
+            case 3: // '\003'
+            case 4: // '\004'
+                j++;
                 break;
             }
-        } while (true);
+            continue; /* Loop/switch isn't completed */
+        }
+        if (j == 0) goto _L13; else goto _L12
+_L12:
+        kwj1.e(i);
+        if (a == null)
+        {
+            i = 0;
+        } else
+        {
+            i = a.length;
+        }
+        ai = new int[j + i];
+        j = i;
+        if (i != 0)
+        {
+            System.arraycopy(a, 0, ai, 0, i);
+            j = i;
+        }
+_L15:
+        if (kwj1.q() > 0)
+        {
+            i = kwj1.f();
+            switch (i)
+            {
+            case 0: // '\0'
+            case 1: // '\001'
+            case 2: // '\002'
+            case 3: // '\003'
+            case 4: // '\004'
+                ai[j] = i;
+                j++;
+                break;
+            }
+            continue; /* Loop/switch isn't completed */
+        }
+        a = ai;
+          goto _L13
+        if (true) goto _L15; else goto _L14
+_L14:
+        if (true) goto _L17; else goto _L16
+_L16:
+_L13:
+        kwj1.d(l);
+        if (true) goto _L19; else goto _L18
+_L18:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        boolean flag = false;
-        if (a != null)
+        if (a != null && a.length > 0)
         {
-            koh1.b(1, a);
-        }
-        if (b != null && b.length > 0)
-        {
-            for (int i = 0; i < b.length; i++)
+            for (int i = 0; i < a.length; i++)
             {
-                lba lba1 = b[i];
-                if (lba1 != null)
-                {
-                    koh1.b(2, lba1);
-                }
+                kwk1.a(1, a[i]);
             }
 
         }
-        if (d != null)
-        {
-            koh1.b(3, d);
-        }
-        if (c != null && c.length > 0)
-        {
-            for (int j = ((flag) ? 1 : 0); j < c.length; j++)
-            {
-                kyo kyo1 = c[j];
-                if (kyo1 != null)
-                {
-                    koh1.b(4, kyo1);
-                }
-            }
-
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

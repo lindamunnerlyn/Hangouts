@@ -2,46 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
+import java.lang.ref.ReferenceQueue;
 
-final class jqf extends jpp
-    implements Serializable
+public final class jqf extends jqb
 {
 
-    static final jqf a = new jqf();
-    private static final long serialVersionUID = 0L;
+    final int b;
 
-    private jqf()
+    jqf(ReferenceQueue referencequeue, Object obj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry, int i)
     {
+        super(referencequeue, obj, referenceentry);
+        b = i;
     }
 
-    private Object readResolve()
+    public int a()
     {
-        return a;
+        return b;
     }
 
-    public jpp a()
+    public jpw a(ReferenceQueue referencequeue, Object obj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        return jpn.a;
+        return new jqf(referencequeue, obj, referenceentry, b);
     }
-
-    public int compare(Object obj, Object obj1)
-    {
-        obj = (Comparable)obj;
-        obj1 = (Comparable)obj1;
-        n.b(obj);
-        if (obj == obj1)
-        {
-            return 0;
-        } else
-        {
-            return ((Comparable) (obj1)).compareTo(obj);
-        }
-    }
-
-    public String toString()
-    {
-        return "Ordering.natural().reverse()";
-    }
-
 }

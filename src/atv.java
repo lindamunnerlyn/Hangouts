@@ -2,21 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-final class atv extends cmu
+public final class atv extends ato
+    implements Parcelable
 {
 
-    final atr a;
+    public static final android.os.Parcelable.Creator CREATOR = new atw();
+    public fik e;
 
-    atv(atr atr1, String s)
+    public atv()
     {
-        a = atr1;
-        super(s);
     }
 
-    public void a()
+    atv(Parcel parcel)
     {
-        a.a.startActivity(g.b(a.b.h(), a.c.a));
+        super.b(parcel);
+        parcel = (bzk)parcel.readParcelable(bzk.getClassLoader());
+        n.b(parcel, "Null place not allowed!");
+        if (parcel == null)
+        {
+            parcel = null;
+        } else
+        {
+            parcel = parcel.a();
+        }
+        e = parcel;
     }
+
+    public int describeContents()
+    {
+        return 0;
+    }
+
+    public void writeToParcel(Parcel parcel, int i)
+    {
+        n.b(e, "Location can not be null!");
+        super.a(parcel);
+        parcel.writeParcelable(bzk.a(e), 0);
+    }
+
 }

@@ -2,22 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.database.Cursor;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ListView;
+import com.google.android.apps.hangouts.phone.DebugActivity;
 
-final class clz extends cmu
+public final class clz
+    implements android.view.View.OnClickListener
 {
 
-    final cls a;
+    final String a;
+    final View b;
+    final View c;
+    final View d;
+    final DebugActivity e;
 
-    clz(cls cls1, String s)
+    public clz(DebugActivity debugactivity, String s, View view, View view1, View view2)
     {
-        a = cls1;
-        super(s);
+        e = debugactivity;
+        a = s;
+        b = view;
+        c = view1;
+        d = view2;
+        super();
     }
 
-    public void a()
+    public void onClick(View view)
     {
-        ank.b(g.nS, a.c, "sms_no_full_sync_till_millis");
-        dry.a(a.b);
-        dry.c(a.b);
+        view = DebugActivity.j(e).e().a("messages", null, "conversation_id=?", new String[] {
+            a
+        }, "timestamp ASC");
+        Object obj = e.getLayoutInflater().inflate(g.fK, null);
+        DebugActivity.a(e, ((View) (obj)), view, new cma(this));
+        b.setVisibility(8);
+        c.setVisibility(8);
+        d.setVisibility(8);
+        obj = (ListView)((View) (obj)).findViewById(0x102000a);
+        ((ListView) (obj)).setAdapter(DebugActivity.a(e, view, new int[] {
+            view.getColumnIndex("text")
+        }));
+        ((ListView) (obj)).setOnItemClickListener(DebugActivity.a(e, view));
     }
 }

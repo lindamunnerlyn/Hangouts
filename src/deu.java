@@ -6,7 +6,5 @@
 public interface deu
 {
 
-    public abstract void a(daf daf, aim aim);
-
-    public abstract void a(daf daf, ais ais);
+    public abstract void a(grd grd, cyw cyw);
 }

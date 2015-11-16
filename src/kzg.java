@@ -3,38 +3,32 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kzg extends koj
+public final class kzg extends kwm
 {
 
-    private static volatile kzg e[];
+    private static volatile kzg b[];
     public String a;
-    public Integer b;
-    public Integer c;
-    public Boolean d;
 
     public kzg()
     {
         a = null;
-        b = null;
-        c = null;
-        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     public static kzg[] a()
     {
-        if (e == null)
+        if (b == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
-                if (e == null)
+                if (b == null)
                 {
-                    e = new kzg[0];
+                    b = new kzg[0];
                 }
             }
         }
-        return e;
+        return b;
         exception;
         obj;
         JVM INSTR monitorexit ;
@@ -43,25 +37,24 @@ public final class kzg extends koj
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize() + koh.b(1, a) + koh.f(2, b.intValue()) + koh.f(3, c.intValue());
+        int j = super.computeSerializedSize();
         int i = j;
-        if (d != null)
+        if (a != null)
         {
-            d.booleanValue();
-            i = j + (koh.f(4) + 1);
+            i = j + kwk.b(1, a);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -71,33 +64,18 @@ public final class kzg extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.l());
-                break;
-
-            case 24: // '\030'
-                c = Integer.valueOf(kog1.l());
-                break;
-
-            case 32: // ' '
-                d = Boolean.valueOf(kog1.i());
+                a = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.a(1, a);
-        koh1.c(2, b.intValue());
-        koh1.c(3, c.intValue());
-        if (d != null)
+        if (a != null)
         {
-            koh1.a(4, d.booleanValue());
+            kwk1.a(1, a);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

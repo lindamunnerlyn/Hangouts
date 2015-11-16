@@ -2,125 +2,88 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.Closeable;
+import java.io.IOException;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
-public final class jyu extends koj
+public final class jyu
+    implements Closeable
 {
 
-    public Integer a;
-    public kaz b[];
+    private static final jyx b;
+    final jyx a;
+    private final Deque c = new ArrayDeque(4);
+    private Throwable d;
 
-    public jyu()
+    private jyu(jyx jyx1)
     {
-        a = null;
-        b = kaz.a();
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = (jyx)n.b(jyx1);
     }
 
-    protected int computeSerializedSize()
+    public static jyu a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.e(1, a.intValue());
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i;
-            if (b.length > 0)
-            {
-                for (j = 0; j < b.length;)
-                {
-                    kaz kaz1 = b[j];
-                    int k = i;
-                    if (kaz1 != null)
-                    {
-                        k = i + koh.d(2, kaz1);
-                    }
-                    j++;
-                    i = k;
-                }
+        return new jyu(b);
+    }
 
-                j = i;
+    public Closeable a(Closeable closeable)
+    {
+        if (closeable != null)
+        {
+            c.addFirst(closeable);
+        }
+        return closeable;
+    }
+
+    public RuntimeException a(Throwable throwable)
+    {
+        n.b(throwable);
+        d = throwable;
+        jok.a(throwable, java/io/IOException);
+        throw new RuntimeException(throwable);
+    }
+
+    public void close()
+    {
+        Throwable throwable = d;
+        while (!c.isEmpty()) 
+        {
+            Closeable closeable = (Closeable)c.removeFirst();
+            try
+            {
+                closeable.close();
             }
-        }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
+            catch (Throwable throwable1)
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
+                if (throwable == null)
                 {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
-                break;
-
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                kaz akaz[];
-                int j;
-                if (b == null)
-                {
-                    j = 0;
+                    throwable = throwable1;
                 } else
                 {
-                    j = b.length;
+                    a.a(closeable, throwable, throwable1);
                 }
-                akaz = new kaz[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, akaz, 0, j);
-                    k = j;
-                }
-                for (; k < akaz.length - 1; k++)
-                {
-                    akaz[k] = new kaz();
-                    kog1.a(akaz[k]);
-                    kog1.a();
-                }
-
-                akaz[k] = new kaz();
-                kog1.a(akaz[k]);
-                b = akaz;
-                break;
             }
-        } while (true);
+        }
+        if (d == null && throwable != null)
+        {
+            jok.a(throwable, java/io/IOException);
+            throw new AssertionError(throwable);
+        } else
+        {
+            return;
+        }
     }
 
-    public void writeTo(koh koh1)
+    static 
     {
-        if (a != null)
+        Object obj;
+        if (jyw.a())
         {
-            koh1.a(1, a.intValue());
-        }
-        if (b != null && b.length > 0)
+            obj = jyw.a;
+        } else
         {
-            for (int i = 0; i < b.length; i++)
-            {
-                kaz kaz1 = b[i];
-                if (kaz1 != null)
-                {
-                    koh1.b(2, kaz1);
-                }
-            }
-
+            obj = jyv.a;
         }
-        super.writeTo(koh1);
+        b = ((jyx) (obj));
     }
 }

@@ -2,11 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Map;
 
-public final class gze
+public interface gze
 {
 
-    public gze()
-    {
-    }
+    public abstract Map a();
 }

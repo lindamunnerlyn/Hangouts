@@ -3,16 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hyp extends koj
+public final class hyp extends kwm
 {
 
-    public hyo a;
-    public hyo b;
+    public hyz a;
+    public hxz apiHeader;
 
     public hyp()
     {
+        apiHeader = null;
         a = null;
-        b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,27 +21,27 @@ public final class hyp extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (a != null)
+        if (apiHeader != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.d(1, apiHeader);
         }
         j = i;
-        if (b != null)
+        if (a != null)
         {
-            j = i + koh.d(2, b);
+            j = i + kwk.d(2, a);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -51,34 +51,34 @@ public final class hyp extends koj
                 return this;
 
             case 10: // '\n'
-                if (a == null)
+                if (apiHeader == null)
                 {
-                    a = new hyo();
+                    apiHeader = new hxz();
                 }
-                kog1.a(a);
+                kwj1.a(apiHeader);
                 break;
 
             case 18: // '\022'
-                if (b == null)
+                if (a == null)
                 {
-                    b = new hyo();
+                    a = new hyz();
                 }
-                kog1.a(b);
+                kwj1.a(a);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
+        if (apiHeader != null)
+        {
+            kwk1.b(1, apiHeader);
+        }
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.b(2, a);
         }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

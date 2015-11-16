@@ -3,51 +3,132 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class lgm
+public final class lgm extends kwm
 {
 
-    public final long a;
-    public final ldd b;
-    lgm c;
-    private String d;
-    private int e;
-    private int f;
+    public lgk a;
+    public Long b;
+    public String c;
+    public lgn d;
+    public lgg e;
 
-    lgm(ldd ldd1, long l)
+    public lgm()
     {
-        e = 0x80000000;
-        f = 0x80000000;
-        a = l;
-        b = ldd1;
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        e = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public String a(long l)
+    protected int computeSerializedSize()
     {
-        if (c == null || l < c.a)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            if (d == null)
-            {
-                d = b.a(a);
-            }
-            return d;
-        } else
-        {
-            return c.a(l);
+            i = j + kwk.d(1, a);
         }
+        j = i;
+        if (b != null)
+        {
+            b.longValue();
+            j = i + (kwk.f(2) + 8);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.b(3, c);
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.d(4, d);
+        }
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.d(5, e);
+        }
+        return i;
     }
 
-    public int b(long l)
+    public kws mergeFrom(kwj kwj1)
     {
-        if (c == null || l < c.a)
+        do
         {
-            if (e == 0x80000000)
+            int i = kwj1.a();
+            switch (i)
             {
-                e = b.b(a);
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new lgk();
+                }
+                kwj1.a(a);
+                break;
+
+            case 17: // '\021'
+                b = Long.valueOf(kwj1.g());
+                break;
+
+            case 26: // '\032'
+                c = kwj1.j();
+                break;
+
+            case 34: // '"'
+                if (d == null)
+                {
+                    d = new lgn();
+                }
+                kwj1.a(d);
+                break;
+
+            case 42: // '*'
+                if (e == null)
+                {
+                    e = new lgg();
+                }
+                kwj1.a(e);
+                break;
             }
-            return e;
-        } else
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
         {
-            return c.b(l);
+            kwk1.b(1, a);
         }
+        if (b != null)
+        {
+            kwk1.c(2, b.longValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.b(4, d);
+        }
+        if (e != null)
+        {
+            kwk1.b(5, e);
+        }
+        super.writeTo(kwk1);
     }
 }

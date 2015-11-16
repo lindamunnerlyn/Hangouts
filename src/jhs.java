@@ -2,47 +2,98 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.lang.ref.ReferenceQueue;
 
-public final class jhs
-    implements jja
+public final class jhs extends kwm
 {
+
+    public String a;
+    public jif b;
+    public jdk requestHeader;
 
     public jhs()
     {
+        requestHeader = null;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public int a()
+    protected int computeSerializedSize()
     {
-        return 0;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (requestHeader != null)
+        {
+            i = j + kwk.d(1, requestHeader);
+        }
+        j = i;
+        if (a != null)
+        {
+            j = i + kwk.b(2, a);
+        }
+        i = j;
+        if (b != null)
+        {
+            i = j + kwk.d(3, b);
+        }
+        return i;
     }
 
-    public jja a(ReferenceQueue referencequeue, Object obj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    public kws mergeFrom(kwj kwj1)
     {
-        return this;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (requestHeader == null)
+                {
+                    requestHeader = new jdk();
+                }
+                kwj1.a(requestHeader);
+                break;
+
+            case 18: // '\022'
+                a = kwj1.j();
+                break;
+
+            case 26: // '\032'
+                if (b == null)
+                {
+                    b = new jif();
+                }
+                kwj1.a(b);
+                break;
+            }
+        } while (true);
     }
 
-    public void a(Object obj)
+    public void writeTo(kwk kwk1)
     {
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry b()
-    {
-        return null;
-    }
-
-    public boolean c()
-    {
-        return false;
-    }
-
-    public boolean d()
-    {
-        return false;
-    }
-
-    public Object get()
-    {
-        return null;
+        if (requestHeader != null)
+        {
+            kwk1.b(1, requestHeader);
+        }
+        if (a != null)
+        {
+            kwk1.a(2, a);
+        }
+        if (b != null)
+        {
+            kwk1.b(3, b);
+        }
+        super.writeTo(kwk1);
     }
 }

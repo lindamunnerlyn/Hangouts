@@ -6,13 +6,14 @@ package com.google.android.gms.wearable.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fup;
+import fwv;
+import g;
 
 public class GetCloudSyncSettingResponse
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fup();
+    public static final android.os.Parcelable.Creator CREATOR = new fwv();
     public final int a;
     public final int b;
     public final boolean c;
@@ -31,7 +32,11 @@ public class GetCloudSyncSettingResponse
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fup.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, b);
+        g.a(parcel, 3, c);
+        g.q(parcel, i);
     }
 
 }

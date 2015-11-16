@@ -3,84 +3,151 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hzg extends koj
+public final class hzg extends kwm
 {
 
-    public Integer a;
-    public hzh b;
+    public hzk a[];
+    public hzv b;
+    public hzj c;
 
     public hzg()
     {
-        a = null;
+        a = hzk.a();
         b = null;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
+        int i = super.computeSerializedSize();
+        int j = i;
         if (a != null)
         {
-            i = j + koh.e(1, a.intValue());
+            j = i;
+            if (a.length > 0)
+            {
+                int k = 0;
+                do
+                {
+                    j = i;
+                    if (k >= a.length)
+                    {
+                        break;
+                    }
+                    hzk hzk1 = a[k];
+                    j = i;
+                    if (hzk1 != null)
+                    {
+                        j = i + kwk.d(1, hzk1);
+                    }
+                    k++;
+                    i = j;
+                } while (true);
+            }
         }
-        j = i;
+        i = j;
         if (b != null)
         {
-            j = i + koh.d(2, b);
+            i = j + kwk.d(2, b);
+        }
+        j = i;
+        if (c != null)
+        {
+            j = i + kwk.d(3, c);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L5:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 3: default 40
-    //                   0: 49
-    //                   8: 51
-    //                   18: 110;
-           goto _L1 _L2 _L3 _L4
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L5; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
+        do
         {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-        case 4: // '\004'
-        case 5: // '\005'
-            a = Integer.valueOf(j);
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        if (b == null)
-        {
-            b = new hzh();
-        }
-        kog1.a(b);
-        if (true) goto _L5; else goto _L6
-_L6:
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                int k = kwx.a(kwj1, 10);
+                hzk ahzk[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                ahzk = new hzk[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, ahzk, 0, j);
+                    k = j;
+                }
+                for (; k < ahzk.length - 1; k++)
+                {
+                    ahzk[k] = new hzk();
+                    kwj1.a(ahzk[k]);
+                    kwj1.a();
+                }
+
+                ahzk[k] = new hzk();
+                kwj1.a(ahzk[k]);
+                a = ahzk;
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new hzv();
+                }
+                kwj1.a(b);
+                break;
+
+            case 26: // '\032'
+                if (c == null)
+                {
+                    c = new hzj();
+                }
+                kwj1.a(c);
+                break;
+            }
+        } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
+        if (a != null && a.length > 0)
         {
-            koh1.a(1, a.intValue());
+            for (int i = 0; i < a.length; i++)
+            {
+                hzk hzk1 = a[i];
+                if (hzk1 != null)
+                {
+                    kwk1.b(1, hzk1);
+                }
+            }
+
         }
         if (b != null)
         {
-            koh1.b(2, b);
+            kwk1.b(2, b);
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.b(3, c);
+        }
+        super.writeTo(kwk1);
     }
 }

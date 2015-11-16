@@ -2,226 +2,381 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
+import android.content.Context;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.support.v4.widget.ContentLoadingProgressBar;
 import android.text.TextUtils;
-import android.util.Base64;
-import com.google.android.gms.common.data.DataHolder;
-import java.lang.reflect.Array;
-import java.security.SecureRandom;
+import android.util.TypedValue;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.regex.Pattern;
+import java.util.List;
 
-public final class fqa
+public final class fqa extends BaseAdapter
+    implements fpp
 {
 
-    public static final Map a = new fqb();
-    public static Iterable b = new fpc();
-    public static final Handler c = new Handler(Looper.getMainLooper());
-    public static final String d[] = new String[0];
-    public static final Pattern e = Pattern.compile("\\,");
-    public static final Pattern f = Pattern.compile("[\u2028\u2029 \240\u1680\u180E\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\t\013\f\034\035\036\037\n\r]+");
-    public static final Pattern g = Pattern.compile(Pattern.quote("\001"));
-    public static final Pattern h = Pattern.compile(Pattern.quote("\002"));
-    public static final String i = "\001";
-    public static final String j = "\002";
-    public static final SecureRandom k = new SecureRandom();
-    private static final ThreadLocal l = new fqc();
-    private static final ThreadLocal m = new fqd();
-    private static final ThreadLocal n = new fqe();
-    private static final ThreadLocal o = new fqf();
-    private static final ThreadLocal p = new fqg();
-    private static final ThreadLocal q = new fqh();
+    private static final int a;
+    private fpr b;
+    private String c;
+    private fqe d;
+    private fqc e;
+    private int f;
+    private LayoutInflater g;
+    private int h;
+    private Context i;
+    private ArrayList j;
+    private boolean k;
+    private boolean l;
+    private boolean m;
+    private fpo n;
+    private boolean o;
 
-    public static String a(Bundle bundle)
+    public fqa(Context context, int i1, fqe fqe1, fqc fqc1)
     {
-        return a(bundle, "", new StringBuilder()).toString();
+        o = false;
+        j = new ArrayList();
+        k = true;
+        l = true;
+        i = context;
+        if (i1 == -1)
+        {
+            i1 = a;
+        }
+        f = i1;
+        g = LayoutInflater.from(context);
+        if (fqe1 == null)
+        {
+            fqe1 = new fqb(this);
+        }
+        d = fqe1;
+        e = fqc1;
+        i1 = g.ru;
+        fqe1 = context.obtainStyledAttributes((new TypedValue()).data, new int[] {
+            i1
+        });
+        h = fqe1.getColor(0, context.getResources().getColor(g.rw));
+        fqe1.recycle();
+        n = new fpo(context, this);
     }
 
-    public static String a(String s)
+    public static List a(List list, ftl ftl1, ftl ftl2)
     {
-        String s1;
-label0:
+        String s = null;
+        int j1;
+        int l1;
+        if (g.a(ftl2))
         {
-            if (s != null)
+            ftl2 = ftl2.a();
+        } else
+        {
+            ftl2 = null;
+        }
+        if (g.a(ftl1))
+        {
+            s = ftl1.a();
+        }
+        l1 = -1;
+        j1 = -1;
+        for (int i1 = 0; i1 < list.size();)
+        {
+            ftl ftl3 = (ftl)list.get(i1);
+            int j2 = l1;
+            int i2 = j1;
+            if (g.a(ftl3))
             {
-                s1 = s;
-                if (s.length() != 0)
+                int k1 = j1;
+                if (j1 < 0)
                 {
-                    break label0;
+                    k1 = j1;
+                    if (ftl3.a().equals(ftl2))
+                    {
+                        k1 = i1;
+                    }
+                }
+                j2 = l1;
+                i2 = k1;
+                if (l1 < 0)
+                {
+                    j2 = l1;
+                    i2 = k1;
+                    if (ftl3.a().equals(s))
+                    {
+                        j2 = i1;
+                        i2 = k1;
+                    }
                 }
             }
-            s1 = null;
+            i1++;
+            l1 = j2;
+            j1 = i2;
         }
-        return s1;
+
+        if (j1 >= 0)
+        {
+            list.remove(j1);
+        }
+        if (l1 < 0 && s != null && !s.equals(ftl2))
+        {
+            list.add(ftl1);
+        }
+        return list;
     }
 
-    public static StringBuilder a()
+    private boolean b(int i1)
     {
-        StringBuilder stringbuilder = (StringBuilder)l.get();
-        stringbuilder.setLength(0);
-        return stringbuilder;
-    }
-
-    private static StringBuilder a(Object obj, String s, StringBuilder stringbuilder)
-    {
-        if (obj == null)
+        byte byte0;
+        if (k)
         {
-            stringbuilder.append("[null]\n");
-            return stringbuilder;
-        }
-        String s1 = (new StringBuilder()).append(s).append("  ").toString();
-        stringbuilder.append("(").append(obj.getClass().getSimpleName()).append(") ");
-        if (obj instanceof Bundle)
-        {
-            obj = (Bundle)obj;
-            if (((Bundle) (obj)).isEmpty())
-            {
-                stringbuilder.append("{ }\n");
-                return stringbuilder;
-            }
-            stringbuilder.append("{\n");
-            String s2;
-            for (Iterator iterator = ((Bundle) (obj)).keySet().iterator(); iterator.hasNext(); a(((Bundle) (obj)).get(s2), s1, stringbuilder))
-            {
-                s2 = (String)iterator.next();
-                stringbuilder.append(s1).append(s2).append(" : ");
-            }
-
-            stringbuilder.append(s).append("}\n");
-            return stringbuilder;
-        }
-        if (obj instanceof DataHolder)
-        {
-            s = (DataHolder)obj;
-            stringbuilder.append(" [");
-            if (s.h())
-            {
-                stringbuilder.append("CLOSED");
-            } else
-            {
-                stringbuilder.append(s.g());
-            }
-            stringbuilder.append("] ").append(obj).append("\n");
-            return stringbuilder;
-        }
-        if (obj instanceof ArrayList)
-        {
-            obj = (ArrayList)obj;
-            if (((ArrayList) (obj)).isEmpty())
-            {
-                stringbuilder.append("[ ]\n");
-                return stringbuilder;
-            }
-            stringbuilder.append("[\n");
-            for (int i1 = 0; i1 < ((ArrayList) (obj)).size(); i1++)
-            {
-                stringbuilder.append(s1).append(i1).append(" : ");
-                a(((ArrayList) (obj)).get(i1), s1, stringbuilder);
-            }
-
-            stringbuilder.append(s).append("]\n");
-            return stringbuilder;
-        }
-        if (obj instanceof byte[])
-        {
-            int j1 = ((byte[])obj).length;
-            stringbuilder.append(" [").append(j1).append("] ");
-            s = new byte[Math.min(j1, 56)];
-            System.arraycopy(obj, 0, s, 0, s.length);
-            stringbuilder.append(Base64.encodeToString(s, 0));
-            return stringbuilder;
-        }
-        if (obj instanceof char[])
-        {
-            stringbuilder.append("\"").append(new String((char[])obj)).append("\"\n");
-            return stringbuilder;
-        }
-        if (obj.getClass().isArray())
-        {
-            if (Array.getLength(obj) == 0)
-            {
-                stringbuilder.append("[ ]\n");
-                return stringbuilder;
-            }
-            stringbuilder.append("[ ");
-            stringbuilder.append(Array.get(obj, 0));
-            for (int k1 = 1; k1 < Array.getLength(obj); k1++)
-            {
-                stringbuilder.append(", ").append(Array.get(obj, k1));
-            }
-
-            stringbuilder.append(" ]\n");
-            return stringbuilder;
-        }
-        if (obj instanceof String)
-        {
-            stringbuilder.append("\"").append(obj).append("\"\n");
-            return stringbuilder;
+            byte0 = -2;
         } else
         {
-            stringbuilder.append(obj).append("\n");
-            return stringbuilder;
+            byte0 = -1;
         }
+        return l && i1 == byte0 + getCount();
     }
 
-    public static void a(String s, String s1)
+    private boolean c(int i1)
     {
-        h.a(s, s1);
-        boolean flag;
-        if (s.startsWith("g:") || s.startsWith("e:"))
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        h.b(flag, (new StringBuilder()).append(s1).append(": Expecting qualified-id, not gaia-id").toString());
+        return k && i1 == getCount() - 1;
     }
 
-    public static String[] b(String s)
+    public ftl a(int i1)
     {
-        if (TextUtils.isEmpty(s))
-        {
-            return d;
-        } else
-        {
-            return e.split(s, 0);
-        }
-    }
-
-    public static String[] b(String s, String s1)
-    {
-        String as[] = (String[])n.get();
-        as[0] = s;
-        as[1] = s1;
-        return as;
-    }
-
-    public static String c(String s)
-    {
-        h.a(s);
-        return (new StringBuilder("g:")).append(s).toString();
-    }
-
-    public static String d(String s)
-    {
-        if (s == null || !s.startsWith("e:"))
+        while (b(i1) || c(i1) || j == null) 
         {
             return null;
-        } else
+        }
+        return (ftl)j.get(i1);
+    }
+
+    public void a()
+    {
+        if (!k)
         {
-            return s.substring(2);
+            k = true;
+            notifyDataSetChanged();
         }
     }
 
-    public static boolean e(String s)
+    public void a(fpr fpr1)
     {
-        return s != null && s.startsWith("e:");
+        b = fpr1;
     }
 
+    public void a(ArrayList arraylist)
+    {
+        o = false;
+        j = arraylist;
+        notifyDataSetChanged();
+    }
+
+    public void a(List list)
+    {
+        if (m || list != null && list.size() <= 1)
+        {
+            if (j == null)
+            {
+                j = new ArrayList();
+            }
+            j.clear();
+            if (list != null)
+            {
+                ftl ftl1;
+                for (list = list.iterator(); list.hasNext(); j.add(ftl1))
+                {
+                    ftl1 = (ftl)list.next();
+                }
+
+            }
+            notifyDataSetChanged();
+            return;
+        } else
+        {
+            o = true;
+            n.a(list);
+            notifyDataSetChanged();
+            return;
+        }
+    }
+
+    public void b()
+    {
+        m = true;
+    }
+
+    public int getCount()
+    {
+        int j1 = 1;
+        int k1 = 0;
+        if (o)
+        {
+            return 1;
+        }
+        int i1;
+        if (k)
+        {
+            i1 = 1;
+        } else
+        {
+            i1 = 0;
+        }
+        if (!l)
+        {
+            j1 = 0;
+        }
+        if (j != null)
+        {
+            k1 = j.size();
+        }
+        return i1 + j1 + k1;
+    }
+
+    public Object getItem(int i1)
+    {
+        return a(i1);
+    }
+
+    public long getItemId(int i1)
+    {
+        if (c(i1))
+        {
+            return -2L;
+        }
+        if (b(i1))
+        {
+            return -1L;
+        }
+        if (j != null)
+        {
+            ftl ftl1 = (ftl)j.get(i1);
+            if (g.a(ftl1))
+            {
+                return (long)ftl1.a().hashCode();
+            } else
+            {
+                return -1L;
+            }
+        } else
+        {
+            return -1L;
+        }
+    }
+
+    public int getItemViewType(int i1)
+    {
+        if (o)
+        {
+            return 3;
+        }
+        if (c(i1))
+        {
+            return 2;
+        }
+        return !b(i1) ? 0 : 1;
+    }
+
+    public View getView(int i1, View view, ViewGroup viewgroup)
+    {
+        if (getItemViewType(i1) == 3)
+        {
+            view = g.inflate(h.jh, null);
+            ((ContentLoadingProgressBar)view).a();
+            kb.d(view);
+            return view;
+        }
+        if (getItemViewType(i1) != 2) goto _L2; else goto _L1
+_L1:
+        viewgroup = view;
+        if (view == null)
+        {
+            viewgroup = g.inflate(h.jg, null);
+        }
+_L4:
+        return viewgroup;
+_L2:
+        if (getItemViewType(i1) == 1)
+        {
+            viewgroup = view;
+            if (view == null)
+            {
+                viewgroup = g.inflate(h.jf, null);
+            }
+        } else
+        {
+            View view1 = view;
+            if (view == null)
+            {
+                view1 = g.inflate(f, null);
+            }
+            ftl ftl1 = a(i1);
+            if (c != null && g.a(ftl1))
+            {
+                c.equals(ftl1.a());
+            }
+            viewgroup = b;
+            view = d;
+            fqc fqc1 = e;
+            i1 = h;
+            if (view1.getTag() == null)
+            {
+                view = view.a(view1);
+                view1.setTag(view);
+            } else
+            {
+                view = (fqd)view1.getTag();
+            }
+            if (((fqd) (view)).e != null && viewgroup != null && g.a(ftl1))
+            {
+                ((fqd) (view)).e.setImageDrawable(null);
+                if (!TextUtils.isEmpty(ftl1.f()))
+                {
+                    viewgroup.a(((fqd) (view)).e);
+                    viewgroup.a(((fqd) (view)).e, ftl1, 1);
+                } else
+                {
+                    viewgroup.a(((fqd) (view)).e);
+                    ((fqd) (view)).e.setImageBitmap(fpr.a(view1.getContext()));
+                }
+            }
+            if (((fqd) (view)).d != null && g.a(ftl1))
+            {
+                ((fqd) (view)).d.setTextColor(i1);
+                ((fqd) (view)).d.setVisibility(0);
+                ((fqd) (view)).d.setText(ftl1.a());
+                ((fqd) (view)).d.setContentDescription(i.getResources().getString(n.s, new Object[] {
+                    ftl1.a()
+                }));
+            }
+            viewgroup = view1;
+            if (fqc1 != null)
+            {
+                fqc1.a(view, ftl1);
+                viewgroup = view1;
+            }
+        }
+        if (true) goto _L4; else goto _L3
+_L3:
+    }
+
+    public int getViewTypeCount()
+    {
+        return 4;
+    }
+
+    public boolean isEnabled(int i1)
+    {
+        return !o;
+    }
+
+    static 
+    {
+        a = h.jd;
+    }
 }

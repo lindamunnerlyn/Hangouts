@@ -2,33 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
 
-public final class cdw extends cec
+public final class cdw
 {
 
-    public cdw()
-    {
-    }
+    public static final String a = dmg.getName();
+    private static cdv b;
 
-    Intent a(Context context, int i, String s)
+    public static void a(hlp hlp1)
     {
-        Intent intent = new Intent();
-        intent.putExtra("account_id", i);
-        intent.putExtra("conversationIdSetString", s);
-        return super.b(context, intent);
-    }
-
-    public void a(Context context, Intent intent)
-    {
-        int i = intent.getIntExtra("account_id", -1);
-        intent = intent.getStringExtra("conversationIdSetString");
-        cdy cdy1 = cdu.l;
-        intent = dzx.a(intent);
-        if (any.a(new aoe(context, i), intent) > 0 && cej.f(context, i))
+        if (b == null)
         {
-            cdy.a(context, i, true, false, false);
+            b = new cdv();
         }
+        hlp1.a(dmg, new cdx());
     }
+
 }

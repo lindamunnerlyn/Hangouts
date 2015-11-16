@@ -4,17 +4,11 @@
 
 package org.chromium.net;
 
-import java.nio.ByteBuffer;
 
-// Referenced classes of package org.chromium.net:
-//            UploadDataSink
-
-public interface UploadDataProvider
+public class UploadDataProvider
 {
 
-    public abstract long a();
-
-    public abstract void a(UploadDataSink uploaddatasink);
-
-    public abstract void a(UploadDataSink uploaddatasink, ByteBuffer bytebuffer);
+    public UploadDataProvider()
+    {
+    }
 }

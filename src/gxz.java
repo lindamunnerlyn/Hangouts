@@ -2,21 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.InputStream;
+import java.nio.ByteBuffer;
 
-final class gxz
-    implements Runnable
+final class gxz extends InputStream
 {
 
-    final gxy a;
+    private ByteBuffer a;
 
-    gxz(gxy gxy1)
+    public gxz(ByteBuffer bytebuffer)
     {
-        a = gxy1;
-        super();
+        a = bytebuffer;
     }
 
-    public void run()
+    public int read()
     {
-        a.e();
+        if (!a.hasRemaining())
+        {
+            return -1;
+        } else
+        {
+            return a.get() & 0xff;
+        }
+    }
+
+    public int read(byte abyte0[], int i, int j)
+    {
+        if (!a.hasRemaining())
+        {
+            return -1;
+        } else
+        {
+            j = Math.min(j, a.remaining());
+            a.get(abyte0, i, j);
+            return j;
+        }
     }
 }

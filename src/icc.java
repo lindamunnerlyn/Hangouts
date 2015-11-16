@@ -3,18 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class icc extends koj
+public final class icc extends kwm
 {
 
-    public icg a;
-    public icm b;
-    public icl c;
-    public icj d;
-    public ice e;
-    public icd f;
-    public icj g;
-    public ici h;
-    public ick i;
+    private static volatile icc e[];
+    public ibg a;
+    public ial b;
+    public String c;
+    public iax d;
 
     public icc()
     {
@@ -22,75 +18,64 @@ public final class icc extends koj
         b = null;
         c = null;
         d = null;
-        e = null;
-        f = null;
-        g = null;
-        h = null;
-        i = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
+    public static icc[] a()
+    {
+        if (e == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (e == null)
+                {
+                    e = new icc[0];
+                }
+            }
+        }
+        return e;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
     protected int computeSerializedSize()
     {
-        int k = super.computeSerializedSize();
-        int j = k;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            j = k + koh.d(1, a);
+            i = j + kwk.d(1, a);
         }
-        k = j;
+        j = i;
         if (b != null)
         {
-            k = j + koh.d(2, b);
+            j = i + kwk.d(2, b);
         }
-        j = k;
+        i = j;
         if (c != null)
         {
-            j = k + koh.d(3, c);
+            i = j + kwk.b(3, c);
         }
-        k = j;
+        j = i;
         if (d != null)
         {
-            k = j + koh.d(4, d);
-        }
-        j = k;
-        if (e != null)
-        {
-            j = k + koh.d(5, e);
-        }
-        k = j;
-        if (g != null)
-        {
-            k = j + koh.d(6, g);
-        }
-        j = k;
-        if (h != null)
-        {
-            j = k + koh.d(7, h);
-        }
-        k = j;
-        if (i != null)
-        {
-            k = j + koh.d(9, i);
-        }
-        j = k;
-        if (f != null)
-        {
-            j = k + koh.d(10, f);
+            j = i + kwk.d(4, d);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int j = kog1.a();
-            switch (j)
+            int i = kwj1.a();
+            switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, j))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -102,116 +87,52 @@ public final class icc extends koj
             case 10: // '\n'
                 if (a == null)
                 {
-                    a = new icg();
+                    a = new ibg();
                 }
-                kog1.a(a);
+                kwj1.a(a);
                 break;
 
             case 18: // '\022'
                 if (b == null)
                 {
-                    b = new icm();
+                    b = new ial();
                 }
-                kog1.a(b);
+                kwj1.a(b);
                 break;
 
             case 26: // '\032'
-                if (c == null)
-                {
-                    c = new icl();
-                }
-                kog1.a(c);
+                c = kwj1.j();
                 break;
 
             case 34: // '"'
                 if (d == null)
                 {
-                    d = new icj();
+                    d = new iax();
                 }
-                kog1.a(d);
-                break;
-
-            case 42: // '*'
-                if (e == null)
-                {
-                    e = new ice();
-                }
-                kog1.a(e);
-                break;
-
-            case 50: // '2'
-                if (g == null)
-                {
-                    g = new icj();
-                }
-                kog1.a(g);
-                break;
-
-            case 58: // ':'
-                if (h == null)
-                {
-                    h = new ici();
-                }
-                kog1.a(h);
-                break;
-
-            case 74: // 'J'
-                if (i == null)
-                {
-                    i = new ick();
-                }
-                kog1.a(i);
-                break;
-
-            case 82: // 'R'
-                if (f == null)
-                {
-                    f = new icd();
-                }
-                kog1.a(f);
+                kwj1.a(d);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.b(1, a);
         }
         if (b != null)
         {
-            koh1.b(2, b);
+            kwk1.b(2, b);
         }
         if (c != null)
         {
-            koh1.b(3, c);
+            kwk1.a(3, c);
         }
         if (d != null)
         {
-            koh1.b(4, d);
+            kwk1.b(4, d);
         }
-        if (e != null)
-        {
-            koh1.b(5, e);
-        }
-        if (g != null)
-        {
-            koh1.b(6, g);
-        }
-        if (h != null)
-        {
-            koh1.b(7, h);
-        }
-        if (i != null)
-        {
-            koh1.b(9, i);
-        }
-        if (f != null)
-        {
-            koh1.b(10, f);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

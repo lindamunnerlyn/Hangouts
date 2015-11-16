@@ -2,24 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
-final class qm extends ArrayAdapter
+final class qm
+    implements android.widget.AdapterView.OnItemClickListener
 {
 
-    public qm(Context context, int i, CharSequence acharsequence[])
+    final ListView a;
+    final qg b;
+    final qi c;
+
+    qm(qi qi1, ListView listview, qg qg1)
     {
-        super(context, i, 0x1020014, acharsequence);
+        c = qi1;
+        a = listview;
+        b = qg1;
+        super();
     }
 
-    public long getItemId(int i)
+    public void onItemClick(AdapterView adapterview, View view, int i, long l)
     {
-        return (long)i;
-    }
-
-    public boolean hasStableIds()
-    {
-        return true;
+        if (c.C != null)
+        {
+            c.C[i] = a.isItemChecked(i);
+        }
+        c.G.onClick(b.a, i, a.isItemChecked(i));
     }
 }

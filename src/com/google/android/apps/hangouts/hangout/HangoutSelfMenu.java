@@ -9,18 +9,18 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import bnd;
-import bof;
-import bot;
-import bov;
-import bpb;
+import bnk;
+import boo;
 import bpc;
-import bpd;
-import brc;
+import bpe;
+import bpk;
+import bpl;
+import bpm;
+import brl;
 import g;
-import gbh;
-import gjr;
-import hgx;
+import gdv;
+import gmt;
+import hlp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -29,29 +29,24 @@ import java.util.List;
 public final class HangoutSelfMenu extends LinearLayout
 {
 
-    public List a;
-    private boolean b;
-    private final bof c = bof.a();
-    private final bpb d = new bpb(this);
-    private final bnd e = bnd.a();
-    private final bpc f = new bpc(this);
+    public final bnk a = bnk.a();
+    public List b;
+    private boolean c;
+    private final boo d = boo.a();
+    private final bpk e = new bpk(this);
+    private final bpl f = new bpl(this);
 
     public HangoutSelfMenu(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
     }
 
-    public static bnd a(HangoutSelfMenu hangoutselfmenu)
-    {
-        return hangoutselfmenu.e;
-    }
-
-    public void a(bot bot, gjr gjr, bpd bpd)
+    public void a(bpc bpc, gmt gmt, bpm bpm)
     {
         removeAllViews();
-        Object obj = hgx.c(getContext(), brc);
+        Object obj = hlp.c(getContext(), brl);
         Collections.sort(((List) (obj)));
-        a = new ArrayList();
+        b = new ArrayList();
         obj = ((List) (obj)).iterator();
         do
         {
@@ -59,34 +54,34 @@ public final class HangoutSelfMenu extends LinearLayout
             {
                 break;
             }
-            List list = ((brc)((Iterator) (obj)).next()).a(getContext(), bot, gjr, bpd);
+            List list = ((brl)((Iterator) (obj)).next()).a(getContext(), bpc, gmt, bpm);
             if (list != null)
             {
-                a.addAll(list);
+                b.addAll(list);
             }
         } while (true);
-        for (bot = a.iterator(); bot.hasNext(); addView(((bov)bot.next()).a(LayoutInflater.from(getContext()), g.gk, (ViewGroup)getParent()))) { }
-        gbh.b(b);
-        c.a(f);
-        e.a(d);
+        for (bpc = b.iterator(); bpc.hasNext(); addView(((bpe)bpc.next()).a(LayoutInflater.from(getContext()), g.gg, (ViewGroup)getParent()))) { }
+        gdv.b("Expected condition to be false", c);
+        d.a(f);
+        a.a(e);
         setVisibility(0);
-        b = true;
+        c = true;
     }
 
     public boolean a()
     {
-        return b;
+        return c;
     }
 
     public void b()
     {
-        if (b)
+        if (c)
         {
             setVisibility(8);
-            c.b(f);
-            e.b(d);
-            b = false;
-            a = null;
+            d.b(f);
+            a.b(e);
+            c = false;
+            b = null;
         }
     }
 }

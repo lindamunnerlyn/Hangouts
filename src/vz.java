@@ -4,45 +4,28 @@
 
 import android.view.View;
 
-final class vz extends ye
+final class vz
+    implements Runnable
 {
 
-    final vu a;
-    final vy b;
+    final vw a;
+    private wc b;
 
-    vz(vy vy1, View view, vu vu1)
+    public vz(vw vw1, wc wc1)
     {
-        b = vy1;
-        a = vu1;
-        super(view);
+        a = vw1;
+        super();
+        b = wc1;
     }
 
-    public ya a()
+    public void run()
     {
-        if (b.a.h == null)
+        a.c.f();
+        View view = (View)a.f;
+        if (view != null && view.getWindowToken() != null && b.e())
         {
-            return null;
-        } else
-        {
-            return b.a.h.d();
+            a.h = b;
         }
-    }
-
-    public boolean b()
-    {
-        b.a.e();
-        return true;
-    }
-
-    public boolean c()
-    {
-        if (b.a.j != null)
-        {
-            return false;
-        } else
-        {
-            b.a.f();
-            return true;
-        }
+        a.j = null;
     }
 }

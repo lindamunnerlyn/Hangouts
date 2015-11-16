@@ -3,21 +3,6 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class att extends cmu
+public interface att
 {
-
-    final int a;
-    final atr b;
-
-    att(atr atr1, String s, int i)
-    {
-        b = atr1;
-        a = i;
-        super(s);
-    }
-
-    public void a()
-    {
-        atr.a(new atu(this));
-    }
 }

@@ -3,17 +3,23 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ddp extends dfa
+public final class ddp extends dgj
 {
 
-    public ddp(ani ani)
+    private final int a;
+    private final String e;
+    private final int f;
+
+    public ddp(aoa aoa, int i, String s, int j)
     {
-        super(ani);
+        super(aoa);
+        a = i;
+        e = s;
+        f = j;
     }
 
     public void a()
     {
-        csg csg1 = new csg();
-        c.a(csg1);
+        a(((dmf) (new cvh(a, e, f))));
     }
 }

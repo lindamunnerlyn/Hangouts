@@ -3,35 +3,93 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class lfc extends lex
+public final class lfc extends kwm
 {
 
-    private static final long serialVersionUID = 0xfd2be8b98605f64aL;
-    final lfb a;
+    public Integer a;
+    public Integer b;
+    public leq c;
 
-    lfc(lfb lfb1, ldi ldi)
+    public lfc()
     {
-        a = lfb1;
-        super(ldi);
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public long a(long l, int i)
+    protected int computeSerializedSize()
     {
-        return a.a(l, i);
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.e(1, a.intValue());
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.intValue());
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.d(3, c);
+        }
+        return i;
     }
 
-    public long a(long l, long l1)
+    public kws mergeFrom(kwj kwj1)
     {
-        return a.a(l, l1);
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
+                break;
+
+            case 26: // '\032'
+                if (c == null)
+                {
+                    c = new leq();
+                }
+                kwj1.a(c);
+                break;
+            }
+        } while (true);
     }
 
-    public boolean c()
+    public void writeTo(kwk kwk1)
     {
-        return false;
-    }
-
-    public long d()
-    {
-        return a.b;
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        if (c != null)
+        {
+            kwk1.b(3, c);
+        }
+        super.writeTo(kwk1);
     }
 }

@@ -2,24 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.view.inputmethod.InputMethodManager;
+import com.google.android.apps.hangouts.phone.BabelHomeActivity;
+import com.google.android.apps.hangouts.views.MainViewPager;
 
-final class ckv
-    implements Runnable
+public final class ckv extends lk
 {
 
-    final cku a;
+    final BabelHomeActivity a;
 
-    ckv(cku cku1)
+    public ckv(BabelHomeActivity babelhomeactivity)
     {
-        a = cku1;
+        a = babelhomeactivity;
         super();
     }
 
-    public void run()
+    public void a(int i)
     {
-        a.b.setVisibility(0);
-        a.c.setVisibility(0);
-        a.d.setVisibility(0);
+        BabelHomeActivity.c(a);
+        a.q_();
+        ((InputMethodManager)a.getSystemService("input_method")).hideSoftInputFromWindow(BabelHomeActivity.d(a).getWindowToken(), 0);
+        ehu ehu1 = BabelHomeActivity.d(a).j();
+        PreferenceManager.getDefaultSharedPreferences(a).edit().putString("last_selected_tab", ehu1.d).apply();
     }
 }

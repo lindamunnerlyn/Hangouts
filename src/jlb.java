@@ -2,49 +2,77 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
-import java.util.Map;
 
-public abstract class jlb extends jlr
-    implements Map
+public final class jlb extends kwm
 {
 
-    private static final java.util.Map.Entry a[] = new java.util.Map.Entry[0];
+    public Boolean a;
+    public Boolean b;
 
-    jlb()
+    public jlb()
     {
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public static jlb a(Object obj, Object obj1)
+    protected int computeSerializedSize()
     {
-        return new jqj(obj, obj1);
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
+        }
+        j = i;
+        if (b != null)
+        {
+            b.booleanValue();
+            j = i + (kwk.f(2) + 1);
+        }
+        return j;
     }
 
-    public static jlb e()
+    public kws mergeFrom(kwj kwj1)
     {
-        return jkp.a;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 16: // '\020'
+                b = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
     }
 
-    public abstract jlb a();
-
-    public jmi f()
+    public void writeTo(kwk kwk1)
     {
-        return a().d();
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
-
-    public jle g()
-    {
-        return f();
-    }
-
-    public Collection values()
-    {
-        return f();
-    }
-
-    Object writeReplace()
-    {
-        return new jld(this);
-    }
-
 }

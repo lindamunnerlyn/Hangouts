@@ -3,21 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gpr
-    implements hhy
+public final class gpr extends gpq
 {
 
-    gpr()
+    public gpr()
     {
-    }
-
-    public Class a()
-    {
-        return gpo;
-    }
-
-    public void a(ad ad, hjm hjm, hgx hgx1)
-    {
-        hgx1.a(gpo, new gpo(hjm));
     }
 }

@@ -3,38 +3,72 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class izp extends koj
+public final class izp extends kwm
 {
 
-    public ixg responseHeader;
+    private static volatile izp d[];
+    public jce a;
+    public ixl b;
+    public Integer c;
 
     public izp()
     {
-        responseHeader = null;
+        a = null;
+        b = null;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static izp[] a()
+    {
+        if (d == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (d == null)
+                {
+                    d = new izp[0];
+                }
+            }
+        }
+        return d;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (responseHeader != null)
+        if (a != null)
         {
-            i = j + koh.d(1, responseHeader);
+            i = j + kwk.d(1, a);
+        }
+        j = i;
+        if (c != null)
+        {
+            j = i + kwk.e(2, c.intValue());
+        }
+        i = j;
+        if (b != null)
+        {
+            i = j + kwk.d(3, b);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -44,22 +78,42 @@ public final class izp extends koj
                 return this;
 
             case 10: // '\n'
-                if (responseHeader == null)
+                if (a == null)
                 {
-                    responseHeader = new ixg();
+                    a = new jce();
                 }
-                kog1.a(responseHeader);
+                kwj1.a(a);
+                break;
+
+            case 16: // '\020'
+                c = Integer.valueOf(kwj1.f());
+                break;
+
+            case 26: // '\032'
+                if (b == null)
+                {
+                    b = new ixl();
+                }
+                kwj1.a(b);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (responseHeader != null)
+        if (a != null)
         {
-            koh1.b(1, responseHeader);
+            kwk1.b(1, a);
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.a(2, c.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.b(3, b);
+        }
+        super.writeTo(kwk1);
     }
 }

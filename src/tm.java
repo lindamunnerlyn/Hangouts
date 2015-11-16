@@ -2,124 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.support.v7.internal.view.menu.ListMenuItemView;
-import android.view.LayoutInflater;
+import android.content.Context;
+import android.view.ActionProvider;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import java.util.ArrayList;
 
-final class tm extends BaseAdapter
+final class tm extends th
+    implements android.view.ActionProvider.VisibilityListener
 {
 
-    final tl a;
-    private sy b;
-    private int c;
+    ib c;
+    final tl d;
 
-    public tm(tl tl1, sy sy1)
+    public tm(tl tl, Context context, ActionProvider actionprovider)
     {
-        a = tl1;
-        super();
-        c = -1;
-        b = sy1;
-        a();
+        d = tl;
+        super(tl, context, actionprovider);
     }
 
-    static sy a(tm tm1)
+    public View a(MenuItem menuitem)
     {
-        return tm1.b;
+        return a.onCreateActionView(menuitem);
     }
 
-    private void a()
+    public void a(ib ib1)
     {
-        tc tc1 = tl.c(a).t();
-        if (tc1 != null)
+        c = ib1;
+        a.setVisibilityListener(this);
+    }
+
+    public boolean b()
+    {
+        return a.overridesItemVisibility();
+    }
+
+    public boolean c()
+    {
+        return a.isVisible();
+    }
+
+    public void onActionProviderVisibilityChanged(boolean flag)
+    {
+        if (c != null)
         {
-            ArrayList arraylist = tl.c(a).n();
-            int j = arraylist.size();
-            for (int i = 0; i < j; i++)
-            {
-                if ((tc)arraylist.get(i) == tc1)
-                {
-                    c = i;
-                    return;
-                }
-            }
-
+            c.a();
         }
-        c = -1;
-    }
-
-    public tc a(int i)
-    {
-        ArrayList arraylist;
-        int j;
-        if (tl.a(a))
-        {
-            arraylist = b.n();
-        } else
-        {
-            arraylist = b.k();
-        }
-        j = i;
-        if (c >= 0)
-        {
-            j = i;
-            if (i >= c)
-            {
-                j = i + 1;
-            }
-        }
-        return (tc)arraylist.get(j);
-    }
-
-    public int getCount()
-    {
-        ArrayList arraylist;
-        if (tl.a(a))
-        {
-            arraylist = b.n();
-        } else
-        {
-            arraylist = b.k();
-        }
-        if (c < 0)
-        {
-            return arraylist.size();
-        } else
-        {
-            return arraylist.size() - 1;
-        }
-    }
-
-    public Object getItem(int i)
-    {
-        return a(i);
-    }
-
-    public long getItemId(int i)
-    {
-        return (long)i;
-    }
-
-    public View getView(int i, View view, ViewGroup viewgroup)
-    {
-        if (view == null)
-        {
-            view = tl.b(a).inflate(tl.a, viewgroup, false);
-        }
-        viewgroup = (tq)view;
-        if (a.b)
-        {
-            ((ListMenuItemView)view).c();
-        }
-        viewgroup.a(a(i));
-        return view;
-    }
-
-    public void notifyDataSetChanged()
-    {
-        a();
-        super.notifyDataSetChanged();
     }
 }

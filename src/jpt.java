@@ -2,46 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
+import java.lang.ref.ReferenceQueue;
 
-final class jpt extends jlw
+public class jpt
+    implements jpw
 {
 
-    final jps a;
+    final Object a;
 
-    jpt(jps jps1)
+    jpt(Object obj)
     {
-        a = jps1;
-        super();
+        a = obj;
     }
 
-    boolean H_()
+    public int a()
+    {
+        return 1;
+    }
+
+    public jpw a(ReferenceQueue referencequeue, Object obj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        return this;
+    }
+
+    public void a(Object obj)
+    {
+    }
+
+    public com.google.common.cache.LocalCache.ReferenceEntry b()
+    {
+        return null;
+    }
+
+    public boolean c()
+    {
+        return false;
+    }
+
+    public boolean d()
     {
         return true;
     }
 
-    public jqy a()
-    {
-        return b().a();
-    }
-
-    jlr d()
+    public Object get()
     {
         return a;
-    }
-
-    jlk f()
-    {
-        return new jpr(this, jps.a(a));
-    }
-
-    public int hashCode()
-    {
-        return jps.b(a);
-    }
-
-    public Iterator iterator()
-    {
-        return a();
     }
 }

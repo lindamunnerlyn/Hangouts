@@ -2,17 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-final class cak
+public final class cak
+    implements hbx
 {
 
     cak()
     {
     }
 
-    public bzt a(Context context)
+    public int a()
     {
-        return new cal(this, context);
+        return hca.b;
+    }
+
+    public hby a(grb grb1, boolean flag)
+    {
+        if (flag || grb1.b("gaia_id") == null || cao.d(grb1))
+        {
+            return new hby();
+        } else
+        {
+            return null;
+        }
     }
 }

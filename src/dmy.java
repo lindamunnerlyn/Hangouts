@@ -3,25 +3,34 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class dmy
-    implements Runnable
+public class dmy extends dmw
 {
 
-    final dnc a;
-    final dnb b;
-    final dmt c;
+    private static final long serialVersionUID = 1L;
+    public String c;
+    public cgd d;
+    public long e;
 
-    dmy(dmt dmt, dnc dnc1, dnb dnb1)
+    public dmy()
     {
-        c = dmt;
-        a = dnc1;
-        b = dnb1;
-        super();
     }
 
-    public void run()
+    public dmy(ixl ixl1, cgd cgd)
     {
-        a.a(b);
-        b.b();
+        if (ixl1 != null)
+        {
+            ixl1 = ixl1.a;
+        } else
+        {
+            ixl1 = null;
+        }
+        this(((String) (ixl1)), cgd, -1L);
+    }
+
+    public dmy(String s, cgd cgd, long l)
+    {
+        c = s;
+        d = cgd;
+        e = l;
     }
 }

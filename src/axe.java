@@ -2,18 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.text.TextUtils;
 
 final class axe
-    implements axu
+    implements ayi
 {
 
-    final long a;
-    final ave b;
+    final int a;
+    final axc b;
 
-    axe(ave ave1, long l)
+    axe(axc axc1, int i)
     {
-        b = ave1;
-        a = l;
+        b = axc1;
+        a = i;
         super();
     }
 
@@ -21,11 +22,17 @@ final class axe
     {
     }
 
-    public void a(String s, axo axo1)
+    public void a(String s, ayc ayc1)
     {
-        if (!aoe.a(s) && (axo1.c == 0L || a <= axo1.c) && !axo1.d && axo1.e == -1)
+        if (!TextUtils.isEmpty(s) && !aow.a(s))
         {
-            axo1.a(ave.h(b));
+            avv.b(b.a, a);
+            avv.ad(b.a).b(bar.a(ayc1.a));
+            avv.ad(b.a).a(new bar(avv.aU(b.a), avv.h(b.a), ayc1.a, a));
+            if (avv.h(b.a) != null && dcz.t(avv.h(b.a).h()))
+            {
+                avv.ad(b.a).a(new azv(avv.aV(b.a), ayc1.a, avv.h(b.a).h()));
+            }
         }
     }
 }

@@ -2,28 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.os.AsyncTask;
-import java.io.File;
 
-public final class cnf extends AsyncTask
+final class cnf extends coj
 {
 
-    final Context a;
+    final cna a;
 
-    public cnf(Context context)
+    cnf(cna cna, String s)
     {
-        a = context;
-        super();
+        a = cna;
+        super(s);
     }
 
-    protected Object doInBackground(Object aobj[])
+    public void a()
     {
-        aobj = a;
-        dns.a(((Context) (aobj)));
-        aobj = ((Context) (aobj)).getCacheDir();
-        (new File(((File) (aobj)), "telephony_brief_call_log")).delete();
-        (new File(((File) (aobj)), "telephony_brief_call_log_v2")).delete();
-        return null;
+        (new cng(this)).execute(new Void[0]);
     }
 }

@@ -2,97 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
 
-public final class aeb
-    implements adx
+public final class aeb extends Enum
 {
 
-    String a;
-    String b;
-    String c;
-    String d;
-    String e;
-    String f;
-    String g;
-    String h;
-    String i;
-    String j;
-    public String k;
+    public static final aeb a;
+    public static final aeb b;
+    public static final aeb c;
+    public static final aeb d;
+    public static final aeb e;
+    public static final aeb f;
+    public static final aeb g;
+    public static final aeb h;
+    public static final aeb i;
+    public static final aeb j;
+    public static final aeb k;
+    public static final aeb l;
+    public static final aeb m;
+    public static final aeb n;
+    private static final aeb o[];
 
-    public aeb()
+    private aeb(String s, int i1)
     {
+        super(s, i1);
     }
 
-    public final adz a()
+    public static aeb valueOf(String s)
     {
-        return adz.a;
+        return (aeb)Enum.valueOf(aeb, s);
     }
 
-    public boolean b()
+    public static aeb[] values()
     {
-        return TextUtils.isEmpty(a) && TextUtils.isEmpty(b) && TextUtils.isEmpty(c) && TextUtils.isEmpty(d) && TextUtils.isEmpty(e);
+        return (aeb[])o.clone();
     }
 
-    public boolean c()
+    static 
     {
-        return TextUtils.isEmpty(g) && TextUtils.isEmpty(h) && TextUtils.isEmpty(i);
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (this != obj)
-        {
-            if (!(obj instanceof aeb))
-            {
-                return false;
-            }
-            obj = (aeb)obj;
-            if (!TextUtils.equals(a, ((aeb) (obj)).a) || !TextUtils.equals(c, ((aeb) (obj)).c) || !TextUtils.equals(b, ((aeb) (obj)).b) || !TextUtils.equals(d, ((aeb) (obj)).d) || !TextUtils.equals(e, ((aeb) (obj)).e) || !TextUtils.equals(f, ((aeb) (obj)).f) || !TextUtils.equals(g, ((aeb) (obj)).g) || !TextUtils.equals(i, ((aeb) (obj)).i) || !TextUtils.equals(h, ((aeb) (obj)).h) || !TextUtils.equals(j, ((aeb) (obj)).j))
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public int hashCode()
-    {
-        String s = a;
-        String s1 = c;
-        String s2 = b;
-        String s3 = d;
-        String s4 = e;
-        String s5 = f;
-        String s6 = g;
-        String s7 = i;
-        String s8 = h;
-        String s9 = j;
-        int i1 = 0;
-        int l = 0;
-        while (i1 < 10) 
-        {
-            String s10 = (new String[] {
-                s, s1, s2, s3, s4, s5, s6, s7, s8, s9
-            })[i1];
-            int j1;
-            if (s10 != null)
-            {
-                j1 = s10.hashCode();
-            } else
-            {
-                j1 = 0;
-            }
-            i1++;
-            l = l * 31 + j1;
-        }
-        return l;
-    }
-
-    public String toString()
-    {
-        return String.format("family: %s, given: %s, middle: %s, prefix: %s, suffix: %s", new Object[] {
-            a, b, c, d, e
+        a = new aeb("NAME", 0);
+        b = new aeb("PHONE", 1);
+        c = new aeb("EMAIL", 2);
+        d = new aeb("POSTAL_ADDRESS", 3);
+        e = new aeb("ORGANIZATION", 4);
+        f = new aeb("IM", 5);
+        g = new aeb("PHOTO", 6);
+        h = new aeb("WEBSITE", 7);
+        i = new aeb("SIP", 8);
+        j = new aeb("NICKNAME", 9);
+        k = new aeb("NOTE", 10);
+        l = new aeb("BIRTHDAY", 11);
+        m = new aeb("ANNIVERSARY", 12);
+        n = new aeb("ANDROID_CUSTOM", 13);
+        o = (new aeb[] {
+            a, b, c, d, e, f, g, h, i, j, 
+            k, l, m, n
         });
     }
 }

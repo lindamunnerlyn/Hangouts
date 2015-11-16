@@ -2,29 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
 
-public final class cdm extends cec
+public final class cdm extends Enum
 {
 
-    public cdm()
-    {
-    }
+    public static final int a;
+    public static final int b;
+    public static final int c;
+    public static final int d;
+    private static final int e[];
 
-    void a(Context context, int i, boolean flag, jhb jhb)
+    static 
     {
-        Intent intent = new Intent();
-        intent.putExtra("account_id", i);
-        intent.putExtra("silent", flag);
-        ((djm)hgx.a(context, djm)).a(context, b(context, intent), jhb);
-    }
-
-    public void a(Context context, Intent intent)
-    {
-        int i = intent.getIntExtra("account_id", -1);
-        boolean flag = intent.getBooleanExtra("silent", false);
-        intent = cdk.g;
-        cdo.a(context, i, flag);
+        a = 1;
+        b = 2;
+        c = 3;
+        d = 4;
+        e = (new int[] {
+            a, b, c, d
+        });
     }
 }

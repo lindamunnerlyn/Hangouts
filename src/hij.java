@@ -3,19 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hij extends hil
+public interface hij
 {
 
-    private boolean a;
-
-    public hij(String s)
-    {
-        this(s, true);
-    }
-
-    public hij(String s, boolean flag)
-    {
-        super(s);
-        a = flag;
-    }
+    public abstract hig a();
 }

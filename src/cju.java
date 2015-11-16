@@ -3,51 +3,33 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Intent;
-import com.google.android.apps.hangouts.phone.BabelHomeActivity;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.view.View;
+import com.google.android.apps.hangouts.permissions.impl.RationaleActivity;
+import java.util.ArrayList;
 
-public final class cju extends dgp
+public final class cju
+    implements android.view.View.OnClickListener
 {
 
-    final dhi a;
-    final String b;
-    final ang c;
-    final int d;
-    final BabelHomeActivity e;
+    final RationaleActivity a;
 
-    public cju(BabelHomeActivity babelhomeactivity, dhi dhi1, String s, ang ang1, int i)
+    public cju(RationaleActivity rationaleactivity)
     {
-        e = babelhomeactivity;
-        a = dhi1;
-        b = s;
-        c = ang1;
-        d = i;
+        a = rationaleactivity;
         super();
     }
 
-    public void a(int i, ani ani1, dcg dcg1, dgu dgu)
+    public void onClick(View view)
     {
-        if (i != a.a())
+        if (view.getId() == g.nQ)
         {
-            return;
-        }
-        RealTimeChatService.b(this);
-        if (dcg1 == null)
-        {
-            ani1 = b;
-            ebw.g("Babel", (new StringBuilder(String.valueOf(ani1).length() + 64)).append("creating conversation with ").append(ani1).append(" resulting in null ConversationResult").toString());
+            a.setResult(0, RationaleActivity.a(a));
+            a.finish();
             return;
         } else
         {
-            dcg1 = new aih(dcg1.a, 0);
-            dcg1.d = true;
-            dcg1.f = c;
-            dcg1.k = d;
-            dgu = new Intent();
-            dgu.putExtra("conversation_id", ((aih) (dcg1)).a);
-            dgu.putExtra("android.intent.extra.TEXT", c.b);
-            dgu.putExtra("draft_subject", c.c);
-            BabelHomeActivity.a(e, dcg1, dgu, ani1.h());
+            view = (ArrayList)a.getIntent().getSerializableExtra("permissions");
+            a.j.a(g.nN, view, 0, null);
             return;
         }
     }

@@ -3,8 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface ahk
+final class ahk
+    implements ahi
 {
 
-    public abstract String a();
+    final ahj a;
+
+    ahk(ahj ahj)
+    {
+        a = ahj;
+        super();
+    }
 }

@@ -2,33 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
+import android.view.View;
+import android.view.accessibility.AccessibilityEvent;
+import android.widget.ListView;
 
-public final class eck
-    implements Serializable
+public final class eck extends android.view.View.AccessibilityDelegate
 {
 
-    public final String a;
-    public final String b;
-    public final String c;
-    public final boolean d;
-    public final int e;
-
-    public eck(String s, String s1, int i)
+    public eck()
     {
-        a = s;
-        b = s1;
-        c = null;
-        d = false;
-        e = i;
     }
 
-    public eck(String s, String s1, String s2)
+    public void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityevent)
     {
-        a = s;
-        b = s1;
-        c = s2;
-        d = true;
-        e = 0;
+        super.onInitializeAccessibilityEvent(view, accessibilityevent);
+        if (view instanceof ListView)
+        {
+            view = (ListView)view;
+            if ((accessibilityevent.getEventType() == 4096 || accessibilityevent.getEventType() == 2048) && (accessibilityevent.getEventType() == 4096 || accessibilityevent.getEventType() == 2048))
+            {
+                int i = view.getHeaderViewsCount();
+                int j = view.getFooterViewsCount();
+                int k = accessibilityevent.getItemCount();
+                int i1 = accessibilityevent.getFromIndex();
+                int l = accessibilityevent.getToIndex();
+                if (i + j >= k || l < i || i1 >= k - j)
+                {
+                    accessibilityevent.setItemCount(0);
+                    return;
+                } else
+                {
+                    accessibilityevent.setItemCount(k - i - j);
+                    i1 = Math.max(0, i1 - i);
+                    i = Math.min(k - i - j - 1, l - i);
+                    accessibilityevent.setFromIndex(i1);
+                    accessibilityevent.setToIndex(i);
+                    return;
+                }
+            }
+        }
     }
 }

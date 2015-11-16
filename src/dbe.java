@@ -2,57 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.Set;
+import android.content.ContentValues;
+import android.database.Cursor;
 
-public final class dbe extends djb
+final class dbe extends dbc
 {
 
-    final String a;
-    final int b;
-
-    public dbe(czm czm1)
+    dbe(String s)
     {
-        a = czm1.a;
-        b = czm1.b;
+        super(s, 1);
     }
 
-    public dbe(String s)
+    public Object a(Cursor cursor, int i)
     {
-        a = s;
-        b = 1;
+        return Integer.valueOf(cursor.getInt(i));
     }
 
-    public void a(aoe aoe1)
+    public void a(String s, Object obj, ContentValues contentvalues)
     {
-label0:
-        {
-            aoe1.c(a, b);
-            if (aoe.a(a))
-            {
-                if (b != 2)
-                {
-                    break label0;
-                }
-                aoe1.m(a, 4L);
-            }
-            return;
-        }
-        aoe1.l(a, 4L);
-    }
-
-    public void b(aoe aoe1)
-    {
-        aoe1.a();
-        aoe1.c(a, b);
-        for (Iterator iterator = aoe1.ai(a).iterator(); iterator.hasNext(); aoe1.c((String)iterator.next(), b)) { }
-        break MISSING_BLOCK_LABEL_66;
-        Exception exception;
-        exception;
-        aoe1.c();
-        throw exception;
-        aoe1.b();
-        aoe1.c();
-        return;
+        contentvalues.put(s, (Integer)obj);
     }
 }

@@ -2,24 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.ConnectionResult;
+import android.net.Uri;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.common.data.DataHolder;
 
-final class fyv
-    implements ekc
+public final class fyv extends fym
 {
 
-    final fyg a;
-    final fyt b;
+    final Uri a;
+    final int b = 0;
+    final fuz i;
 
-    fyv(fyt fyt1, fyg fyg1)
+    public fyv(fuz fuz, emy emy, Uri uri, int j)
     {
-        b = fyt1;
-        a = fyg1;
-        super();
+        i = fuz;
+        a = uri;
+        super(emy);
     }
 
-    public void a(ConnectionResult connectionresult)
+    protected enh a(Status status)
     {
-        a.a(b.a(connectionresult));
+        return new fvh(DataHolder.b(status.c()));
+    }
+
+    protected void a(emw emw)
+    {
+        ((fyg)emw).a(this, a, b);
     }
 }

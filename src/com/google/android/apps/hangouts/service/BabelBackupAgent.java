@@ -9,7 +9,7 @@ import android.app.backup.FullBackupDataOutput;
 import android.app.backup.SharedPreferencesBackupHelper;
 import android.content.pm.ApplicationInfo;
 import android.os.ParcelFileDescriptor;
-import ebw;
+import eev;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -52,18 +52,18 @@ label0:
 
     public void onCreate()
     {
-        ebw.a("Babel", "BabelBackupAgent.onCreate");
+        eev.a("Babel", "BabelBackupAgent.onCreate");
         ArrayList arraylist = new ArrayList();
         arraylist.add(String.valueOf(getPackageName()).concat("_preferences"));
         Collections.addAll(arraylist, a);
         String as[] = (String[])arraylist.toArray(new String[arraylist.size()]);
-        ebw.a("Babel", "Adding shared pref helper.");
+        eev.a("Babel", "Adding shared pref helper.");
         addHelper("shared_prefs", new SharedPreferencesBackupHelper(this, as));
     }
 
     public void onFullBackup(FullBackupDataOutput fullbackupdataoutput)
     {
-        ebw.a("Babel", "BabelBackupAgent.onFullBackup");
+        eev.a("Babel", "BabelBackupAgent.onFullBackup");
         File afile[] = (new File((new File(getApplicationInfo().dataDir)).getAbsolutePath(), "shared_prefs")).listFiles();
         int j = afile.length;
         int i = 0;
@@ -73,7 +73,7 @@ label0:
             String s = file.getName();
             if (!a(s))
             {
-                if (ebw.a("Babel", 3))
+                if (eev.a("Babel", 3))
                 {
                     s = String.valueOf(s);
                     if (s.length() != 0)
@@ -83,11 +83,11 @@ label0:
                     {
                         s = new String("Skip backing up file: ");
                     }
-                    ebw.c("Babel", s);
+                    eev.c("Babel", s);
                 }
             } else
             {
-                if (ebw.a("Babel", 3))
+                if (eev.a("Babel", 3))
                 {
                     s = String.valueOf(s);
                     if (s.length() != 0)
@@ -97,7 +97,7 @@ label0:
                     {
                         s = new String("Backing up file: ");
                     }
-                    ebw.c("Babel", s);
+                    eev.c("Babel", s);
                 }
                 fullBackupFile(file, fullbackupdataoutput);
             }
@@ -111,7 +111,7 @@ label0:
         String s;
 label0:
         {
-            ebw.a("Babel", "BabelBackupAgent.onRestoreFile");
+            eev.a("Babel", "BabelBackupAgent.onRestoreFile");
             if (i == 1)
             {
                 s = file.getName();
@@ -119,7 +119,7 @@ label0:
                 {
                     break label0;
                 }
-                if (ebw.a("Babel", 3))
+                if (eev.a("Babel", 3))
                 {
                     parcelfiledescriptor = String.valueOf(s);
                     if (parcelfiledescriptor.length() != 0)
@@ -129,12 +129,12 @@ label0:
                     {
                         parcelfiledescriptor = new String("Skip restoring file: ");
                     }
-                    ebw.c("Babel", parcelfiledescriptor);
+                    eev.c("Babel", parcelfiledescriptor);
                 }
             }
             return;
         }
-        if (ebw.a("Babel", 3))
+        if (eev.a("Babel", 3))
         {
             s = String.valueOf(s);
             if (s.length() != 0)
@@ -144,7 +144,7 @@ label0:
             {
                 s = new String("Restoring file: ");
             }
-            ebw.c("Babel", s);
+            eev.c("Babel", s);
         }
         super.onRestoreFile(parcelfiledescriptor, l, file, i, l1, l2);
     }

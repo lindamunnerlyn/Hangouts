@@ -2,30 +2,14 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-final class gyd extends gqn
+public final class gyd extends Exception
 {
 
-    private final gyf a;
+    private static final long serialVersionUID = 0xcbde2c049b0c84d3L;
 
-    gyd(String s, gyf gyf1)
+    public gyd(String s)
     {
         super(s);
-        a = gyf1;
-    }
-
-    protected grk a(Context context)
-    {
-        try
-        {
-            context = gxy.a(a.b());
-        }
-        // Misplaced declaration of an exception variable
-        catch (Context context)
-        {
-            return new grk(0, context, null);
-        }
-        return context;
     }
 }

@@ -2,397 +2,646 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.AnimatorInflater;
-import android.animation.ObjectAnimator;
-import android.app.Activity;
-import android.content.res.Configuration;
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import android.os.SystemClock;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.ImageView;
-import com.google.android.apps.hangouts.peoplelistv2.impl.EditParticipantsView;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.text.style.ForegroundColorSpan;
+import com.google.android.apps.hangouts.content.EsProvider;
+import com.google.android.apps.hangouts.phone.BabelGatewayActivity;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-public final class cfs extends bjc
+public class cfs extends cez
 {
 
-    private gmo a;
-    private dgp aj;
-    private arx ak;
-    private ObjectAnimator al;
-    private ObjectAnimator am;
-    private atd an;
-    private String ao;
-    private cnd ap;
-    private int aq;
-    private int ar;
-    private final ary as = new cft(this);
-    private final eep at = new cfu(this);
-    private bjd b;
-    private aip c;
-    private cgw d;
-    private ViewGroup e;
-    private ViewGroup f;
-    private ImageView g;
-    private air h;
-    private android.view.View.OnClickListener i;
+    private static final String x;
+    private static final String y;
+    private static final Object z = new Object();
+    private final boolean A;
+    private final boolean B;
+    public long a;
 
-    public cfs()
+    cfs(Context context, int i1, ced ced1, boolean flag, boolean flag1)
     {
-        h = new cfw(this);
-        i = new cfy(this);
-        aj = new cfx(this);
-    }
-
-    public static bjc a(atd atd1, String s, cnd cnd1, aik aik1)
-    {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("EditParticipantsFragmentImpl.conversation_type", atd1);
-        bundle.putString("EditParticipantsFragmentImpl.conversation_id", s);
-        bundle.putSerializable("EditParticipantsFragmentImpl.mode", cnd1);
-        bundle.putSerializable("EditParticipantsFragmentImpl.audience", aik1);
-        atd1 = new cfs();
-        atd1.setArguments(bundle);
-        return atd1;
-    }
-
-    private boolean a()
-    {
-        return (int)f.getTranslationX() == 0;
-    }
-
-    static boolean a(cfs cfs1)
-    {
-        return cfs1.b();
-    }
-
-    static aip b(cfs cfs1)
-    {
-        return cfs1.c;
-    }
-
-    private boolean b()
-    {
-        while (ap == cnd.h || an == atd.b && !c()) 
+        super(context, i1, ced1);
+        A = flag;
+        B = flag1;
+        if (b)
         {
-            return false;
+            eev.b("Babel", "[Notifications] Single Conversation");
         }
-        return true;
-    }
-
-    static void c(cfs cfs1)
-    {
-        boolean flag1 = false;
-        switch (cfv.b[cfs1.ap.ordinal()])
+        ced1 = (cef)ced1.b.get(0);
+        b(((cef) (ced1)).a);
+        c(((cef) (ced1)).a);
+        if (b)
         {
-        default:
-            cfs1 = String.valueOf(cfs1.ap);
-            ebw.g("Babel", (new StringBuilder(String.valueOf(cfs1).length() + 14)).append("Audience mode ").append(cfs1).toString());
-            gbh.a("Unknown audience mode");
-            return;
-
-        case 1: // '\001'
-        case 2: // '\002'
-            ArrayList arraylist = new ArrayList(cfs1.c.e());
-            for (Iterator iterator = cfs1.c.c().iterator(); iterator.hasNext(); arraylist.add(((ais)iterator.next()).h())) { }
-            List list = Collections.emptyList();
-            bnd.a().b(arraylist, list);
-            cfs1.b.a();
-            return;
-
-        case 3: // '\003'
-        case 4: // '\004'
-        case 5: // '\005'
-        case 6: // '\006'
-            ebw.a("Babel", "createConversation");
-            aob aob1;
-            boolean flag;
-            if (cfs1.an == atd.d || cfs1.an == atd.c)
+            eev.b("Babel", "single message needs notification");
+        }
+        cew cew1 = (cew)((cef) (ced1)).h.get(0);
+        h = cew1.c;
+        i = cew1.d;
+        if (h != null && TextUtils.isEmpty(cew1.b))
+        {
+            int j1 = l.ix;
+            if (i == 2)
             {
-                flag = true;
+                j1 = l.iv;
+            } else
+            if (i == 3)
+            {
+                j1 = l.iF;
+            } else
+            if (i == 4)
+            {
+                j1 = l.iy;
+            } else
+            if (i == 6)
+            {
+                j1 = l.iE;
+            } else
+            if (i == 7)
+            {
+                j1 = l.iz;
+            }
+            f = context.getString(j1);
+        } else
+        {
+            f = cew1.b;
+        }
+        if (((cef) (ced1)).c)
+        {
+            d = f;
+            c = cew1.r;
+            if (aoc.f(context, i1))
+            {
+                e = context.getString(l.K, new Object[] {
+                    ((cef) (ced1)).f
+                });
             } else
             {
-                flag = false;
+                f = cfo.a(context, cew1.q, cew1.b, h, i);
+                e = ((cef) (ced1)).f;
             }
-            if (cfs1.ap == cnd.b || flag)
-            {
-                flag1 = true;
-            }
-            if (flag1)
-            {
-                aob1 = aob.a;
-            } else
-            {
-                aob1 = aob.c;
-            }
-            cfs1.ak.a(aob1, 1635);
-            return;
+        } else
+        {
+            e = ((cew)((cef) (ced1)).h.get(0)).r;
+        }
+        g = g.a(i1, ((cef) (ced1)).a, ((cef) (ced1)).e);
+        g.putExtra("reset_chat_notifications", true);
+        g.putExtra("opened_from_impression", 1637);
+        a = ((cef) (ced1)).m;
+    }
 
-        case 7: // '\007'
-            String s = cfs1.ao;
-            ani ani1 = dbf.e(cfs1.a.a());
-            RealTimeChatService.a(cfs1.aj);
-            cfs1.aq = RealTimeChatService.a(ani1, cfs1.c.a(), s);
-            return;
+    private Notification a(int i1, boolean flag)
+    {
+        Object obj;
+        Object obj1;
+        ArrayList arraylist;
+        obj = null;
+        obj1 = q.a();
+        Uri uri = EsProvider.a(EsProvider.j, p).buildUpon().appendQueryParameter("limit", "21").build();
+        arraylist = new ArrayList();
+        obj1 = o.getContentResolver().query(uri, cey.a, x, new String[] {
+            obj1
+        }, "timestamp DESC");
+        if (obj1 == null)
+        {
+            break MISSING_BLOCK_LABEL_205;
+        }
+        boolean flag1 = ((Cursor) (obj1)).moveToFirst();
+        if (!flag1)
+        {
+            ((Cursor) (obj1)).close();
+            return null;
+        }
+        boolean flag2;
+        do
+        {
+            cew cew1 = new cew(((Cursor) (obj1)), p);
+            if (cew1.q != null && (!TextUtils.isEmpty(cew1.b) || cew1.c != null))
+            {
+                arraylist.add(cfo.a(o, cew1.q, cew1.b, cew1.c, cew1.d));
+            }
+            flag2 = ((Cursor) (obj1)).moveToNext();
+        } while (flag2);
+        ((Cursor) (obj1)).close();
+        if (arraylist.size() <= 1)
+        {
+            return null;
+        }
+        break MISSING_BLOCK_LABEL_228;
+        obj;
+        ((Cursor) (obj1)).close();
+        throw obj;
+        int j1;
+        obj1 = new SpannableStringBuilder();
+        int k1 = arraylist.size() - 1;
+        j1 = k1;
+        if (arraylist.size() == 21)
+        {
+            ((SpannableStringBuilder) (obj1)).append(o.getString(l.bD)).append("\n\n");
+            j1 = k1 - 1;
+        }
+        for (; j1 >= 0; j1--)
+        {
+            ((SpannableStringBuilder) (obj1)).append((CharSequence)arraylist.get(j1));
+            if (j1 > 0)
+            {
+                ((SpannableStringBuilder) (obj1)).append("\n\n");
+            }
+        }
 
-        case 8: // '\b'
-            RealTimeChatService.a(dbf.e(cfs1.a.a()), cfs1.ao, cfs1.c.a());
-            cfs1.b.a();
+        j1 = i1 + 1;
+        if (j1 <= 2) goto _L2; else goto _L1
+_L1:
+        obj = o.getResources();
+        if (flag)
+        {
+            i1 = g.hJ;
+        } else
+        {
+            i1 = g.hI;
+        }
+        obj = new SpannableString(((Resources) (obj)).getQuantityString(i1, j1, new Object[] {
+            Integer.valueOf(j1)
+        }));
+_L4:
+        if (obj != null)
+        {
+            ((SpannableString) (obj)).setSpan(new ForegroundColorSpan(o.getResources().getColor(g.dT)), 0, ((SpannableString) (obj)).length(), 33);
+            ((SpannableStringBuilder) (obj1)).append("\n\n").append(((CharSequence) (obj)));
+        }
+        obj = new cf(o);
+        ((cf) (obj)).a((new ce(((cf) (obj)))).b(((CharSequence) (obj1))));
+        obj1 = new cs();
+        ((cs) (obj1)).a();
+        ((cf) (obj)).a(((ch) (obj1)));
+        return ((cf) (obj)).g();
+_L2:
+        if (flag)
+        {
+            obj = new SpannableString(o.getResources().getString(l.kg));
+        }
+        if (true) goto _L4; else goto _L3
+_L3:
+    }
+
+    private void a(int i1, int j1, int k1)
+    {
+        cef cef1 = (cef)k.b.get(0);
+        if (A)
+        {
+            cew cew1 = (cew)cef1.h.get(0);
+            k1 = p;
+            long l1 = SystemClock.elapsedRealtime();
+            cab cab1 = new cab();
+            if (!B)
+            {
+                j1 = i1;
+            }
+            h.a(k1, l1, 10, cab1.a(j1).c(cew1.k).a(cef1.a).b(true));
+            return;
+        } else
+        {
+            cew.a(p, k.b, 0, 0, k1, false, false, null);
             return;
         }
     }
 
-    private boolean c()
+    static void a(Context context, int i1, edb edb1)
     {
-        ani ani1 = dbf.e(a.a());
-        drw drw1 = (drw)hgx.a(context, drw);
-        return !g.g(ani1.T()) && drw1.n() || !g.d(ani1.T()) && dbq.C(ani1.h());
+        edb edb2;
+        edb2 = edb1;
+        if (edb1 != null)
+        {
+            edb2 = edb1;
+            if (edb1.size() > 1)
+            {
+                edb2 = edb1;
+                if (!cec.c(context))
+                {
+                    edb2 = null;
+                }
+            }
+        }
+        edb1 = ((edb) (z));
+        edb1;
+        JVM INSTR monitorenter ;
+        edb edb3 = b(context, i1);
+        if (edb3 == null)
+        {
+            break MISSING_BLOCK_LABEL_173;
+        }
+        Iterator iterator = edb3.iterator();
+_L3:
+        String s;
+        if (!iterator.hasNext())
+        {
+            break MISSING_BLOCK_LABEL_173;
+        }
+        s = (String)iterator.next();
+        if (edb2 == null) goto _L2; else goto _L1
+_L1:
+        if (edb2.contains(s)) goto _L3; else goto _L2
+_L2:
+        s = a(context, i1, s);
+        db db1 = db.a(context);
+        cfi.a(s, 0);
+        db1.a(s, 0);
+        if (b)
+        {
+            eev.b("Babel", (new StringBuilder(String.valueOf(s).length() + 57)).append("SingleConversationNotifier.cancel [tag=]").append(s).append(" [id=]0").toString());
+        }
+          goto _L3
+        context;
+        edb1;
+        JVM INSTR monitorexit ;
+        throw context;
+        context = ((gqz)hlp.a(context, gqz)).b(i1);
+        if (edb2 != null) goto _L5; else goto _L4
+_L4:
+        if (edb3 == null) goto _L7; else goto _L6
+_L6:
+        context.c("notifications_group_children_key", null).d();
+        if (!b) goto _L7; else goto _L8
+_L8:
+        context = "Writing to prefstore: no notified conversations";
+_L11:
+        eev.b("Babel", context);
+_L7:
+        edb1;
+        JVM INSTR monitorexit ;
+        return;
+_L5:
+        if (edb2.equals(edb3)) goto _L7; else goto _L9
+_L9:
+        context.c("notifications_group_children_key", edb2.b()).d();
+        if (!b) goto _L7; else goto _L10
+_L10:
+        context = String.valueOf(edb2.b());
+        if (context.length() == 0)
+        {
+            break MISSING_BLOCK_LABEL_294;
+        }
+        context = "Writing to prefstore: notified conversations ".concat(context);
+          goto _L11
+        context = new String("Writing to prefstore: notified conversations ");
+          goto _L11
+        context;
+          goto _L7
     }
 
-    static atd d(cfs cfs1)
-    {
-        return cfs1.an;
-    }
-
-    static bjd e(cfs cfs1)
-    {
-        return cfs1.b;
-    }
-
-    static arx f(cfs cfs1)
-    {
-        return cfs1.ak;
-    }
-
-    static gmo g(cfs cfs1)
-    {
-        return cfs1.a;
-    }
-
-    static hgx h(cfs cfs1)
-    {
-        return cfs1.binder;
-    }
-
-    static void i(cfs cfs1)
+    private PendingIntent b(boolean flag)
     {
         boolean flag2 = true;
-        boolean flag;
-        if (TextUtils.isEmpty(cfs1.c.g()) && cfs1.c.b() > 0 && cfs1.b())
+        Object obj;
+        String s;
+        int i1;
+        long l1;
+        boolean flag1;
+        if (((cef)k.b.get(0)).c && q() && due.d())
         {
-            flag = true;
+            flag1 = true;
         } else
         {
-            flag = false;
+            flag1 = false;
         }
-        if (flag && !cfs1.a())
+        obj = o;
+        i1 = p;
+        s = q.a();
+        l1 = a;
+        if (w())
         {
-            if (cfs1.al.isRunning())
-            {
-                cfs1.al.cancel();
-            }
-            if (!cfs1.am.isRunning())
-            {
-                cfs1.am.start();
-            }
+            flag2 = false;
+        }
+        obj = BabelGatewayActivity.a(((Context) (obj)), i1, s, l1, flag1, flag2);
+        ((Intent) (obj)).setFlags(0x10008000);
+        if (flag)
+        {
+            ((Intent) (obj)).putExtra("opened_from_impression", 2257);
+            i1 = u();
         } else
-        if (!flag)
         {
-            boolean flag1;
-            if ((int)cfs1.f.getTranslationX() == cfs1.ar)
+            i1 = super.t();
+        }
+        return PendingIntent.getActivity(o, i1, ((Intent) (obj)), 0x8000000);
+    }
+
+    private static edb b(Context context, int i1)
+    {
+        try
+        {
+            context = ((gqz)hlp.a(context, gqz)).a(i1).a("notifications_group_children_key", "");
+        }
+        // Misplaced declaration of an exception variable
+        catch (Context context)
+        {
+            context = "";
+        }
+        if (context != null && context.length() > 0)
+        {
+            if (b)
             {
-                flag1 = flag2;
+                String s = String.valueOf(context);
+                if (s.length() != 0)
+                {
+                    s = "Reading from prefstore: notified conversations ".concat(s);
+                } else
+                {
+                    s = new String("Reading from prefstore: notified conversations ");
+                }
+                eev.b("Babel", s);
+            }
+            return edb.a(context);
+        }
+        if (b)
+        {
+            eev.b("Babel", "Reading from prefstore: no notified conversations");
+        }
+        return null;
+    }
+
+    private h v()
+    {
+        Object obj;
+        Object obj1;
+        obj1 = q.a();
+        Uri uri = EsProvider.a(EsProvider.j, p);
+        obj = null;
+        obj1 = o.getContentResolver().query(uri, cey.a, y, new String[] {
+            obj1
+        }, "timestamp ASC");
+        if (obj1 == null) goto _L2; else goto _L1
+_L1:
+        if (!((Cursor) (obj1)).moveToFirst()) goto _L4; else goto _L3
+_L3:
+        cew cew1 = new cew(((Cursor) (obj1)), p);
+        if (TextUtils.isEmpty(cew1.b)) goto _L6; else goto _L5
+_L5:
+        if (obj != null)
+        {
+            break MISSING_BLOCK_LABEL_102;
+        }
+        obj = new h(cew1.r);
+        ((h) (obj)).a(cew1.o.g / 1000L);
+        ((h) (obj)).a(cew1.b.toString());
+_L6:
+        boolean flag = ((Cursor) (obj1)).moveToNext();
+        if (flag) goto _L3; else goto _L7
+_L7:
+        ((Cursor) (obj1)).close();
+        return ((h) (obj));
+        obj;
+        ((Cursor) (obj1)).close();
+        throw obj;
+_L4:
+        obj = null;
+        if (true) goto _L7; else goto _L2
+_L2:
+        return null;
+    }
+
+    private boolean w()
+    {
+        return ((cef)k.b.get(0)).b();
+    }
+
+    protected void a(boolean flag)
+    {
+        Resources resources = o.getResources();
+        cef cef1 = (cef)k.b.get(0);
+        Object obj1 = cef1.h;
+        int i1 = ((List) (obj1)).size();
+        t.a(e).c(m()).b(f);
+        if (k.a > 1)
+        {
+            t.b(k.a);
+        }
+        if (i1 == 1 && h != null && i != 2)
+        {
+            if (b)
+            {
+                eev.b("Babel", "SINGLE ATTACHMENT MESSAGE");
+            }
+            String s;
+            boolean flag1;
+            if (h.startsWith("//"))
+            {
+                s = String.valueOf(h);
+                if (s.length() != 0)
+                {
+                    s = "http:".concat(s);
+                } else
+                {
+                    s = new String("http:");
+                }
+                h = s;
+            }
+            s = ((cew)((List) (obj1)).get(0)).q;
+            this.s = (new cd(t)).a(a(o, s, null, null, 0));
+            if (i == 3)
+            {
+                flag1 = true;
             } else
             {
                 flag1 = false;
             }
-            if (!flag1)
+            obj1 = new aqn((new edq(h, ((gqz)hlp.a(o, gqz)).a(p).b("account_name"))).a(resources.getDimensionPixelSize(g.eE), resources.getDimensionPixelSize(g.eD)).c(flag1).d(true), new cft(this), false, this);
+            if (b)
             {
-                if (cfs1.am.isRunning())
+                s = String.valueOf(h);
+                if (s.length() != 0)
                 {
-                    cfs1.am.cancel();
-                }
-                if (!cfs1.al.isRunning())
+                    s = "postNotification created ImageRequest on: ".concat(s);
+                } else
                 {
-                    cfs1.al.start();
-                    return;
+                    s = new String("postNotification created ImageRequest on: ");
                 }
+                eev.b("Babel", s);
+            }
+            ((dpn)hlp.a(o, dpn)).c(((dor) (obj1)));
+        } else
+        {
+            ce ce1 = new ce(t);
+            this.s = ce1;
+            if (i1 == 1)
+            {
+                if (b)
+                {
+                    eev.b("Babel", "SINGLE TEXT MESSAGE");
+                }
+                ce1.b(f);
+            } else
+            {
+                if (b)
+                {
+                    eev.b("Babel", "MULTIPLE MESSAGE for the same conversation");
+                }
+                SpannableStringBuilder spannablestringbuilder = new SpannableStringBuilder();
+                int j1 = ((List) (obj1)).size() - 1;
+                while (j1 >= 0) 
+                {
+                    Object obj = (cew)(cfg)((List) (obj1)).get(j1);
+                    h = ((cew) (obj)).c;
+                    i = ((cew) (obj)).d;
+                    CharSequence charsequence = ((cew) (obj)).b;
+                    if (TextUtils.isEmpty(charsequence) && TextUtils.isEmpty(h))
+                    {
+                        continue;
+                    }
+                    if (cef1.c && !aoc.f(o, p))
+                    {
+                        obj = cfo.a(o, ((cew) (obj)).q, charsequence, h, i);
+                    } else
+                    {
+                        obj = cfo.a(o, null, charsequence, h, i);
+                    }
+                    spannablestringbuilder.append(((CharSequence) (obj)));
+                    if (j1 > 0)
+                    {
+                        spannablestringbuilder.append('\n');
+                    }
+                    j1--;
+                }
+                ce1.b(spannablestringbuilder);
             }
         }
+        t.a(cef1.g / 1000L);
+        super.a(flag);
     }
 
-    static boolean j(cfs cfs1)
+    protected void h()
     {
-        return cfs1.a();
-    }
-
-    static int k(cfs cfs1)
-    {
-        return cfs1.aq;
-    }
-
-    static cnd l(cfs cfs1)
-    {
-        return cfs1.ap;
-    }
-
-    static dgp m(cfs cfs1)
-    {
-        return cfs1.aj;
-    }
-
-    public void a(bjd bjd1)
-    {
-        b = bjd1;
-        if (d != null)
+        if (cec.b(o) && !q() && !((cef)k.b.get(0)).c)
         {
-            d.a(c);
-            d.a(b());
-        }
-    }
-
-    protected boolean isEmpty()
-    {
-        return false;
-    }
-
-    public void onAttach(Activity activity)
-    {
-        super.onAttach(activity);
-        setHasOptionsMenu(true);
-        binder.a(eep, at);
-        if (android.os.Build.VERSION.SDK_INT >= 21)
-        {
-            activity.getWindow().setStatusBarColor(getResources().getColor(g.no));
-        }
-    }
-
-    protected void onAttachBinder(Bundle bundle)
-    {
-        super.onAttachBinder(bundle);
-        binder.a(ary, as);
-        a = (gmo)binder.a(gmo);
-    }
-
-    public void onCreate(Bundle bundle)
-    {
-        super.onCreate(bundle);
-        bundle = getArguments();
-        an = (atd)bundle.getSerializable("EditParticipantsFragmentImpl.conversation_type");
-        ao = bundle.getString("EditParticipantsFragmentImpl.conversation_id");
-        ap = (cnd)bundle.getSerializable("EditParticipantsFragmentImpl.mode");
-        bundle = (aik)bundle.getSerializable("EditParticipantsFragmentImpl.audience");
-        boolean flag;
-        if (ap == cnd.c || ap == cnd.d || ap == cnd.e || ap == cnd.f)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        c = new aip(bundle, flag);
-        c.a(h);
-        ak = ((asa)binder.a(asa)).a(context, lifecycle, 0, this, c, an);
-    }
-
-    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
-    {
-        viewgroup = layoutinflater.inflate(g.nz, viewgroup, false);
-        bundle = ((bmk)getActivity()).l();
-        bundle.b("");
-        bundle.setPadding(bundle.getPaddingLeft(), 0, bundle.getPaddingRight(), 0);
-        ai ai1 = getActivity();
-        bundle.setBackgroundColor(ai1.getResources().getColor(g.np));
-        EditParticipantsView editparticipantsview = (EditParticipantsView)layoutinflater.inflate(g.nA, bundle, false);
-        editparticipantsview.a(c);
-        editparticipantsview.a(b());
-        editparticipantsview.a(dbf.e(a.a()));
-        bundle.addView(editparticipantsview);
-        f = (ViewGroup)ai1.findViewById(h.eL);
-        int i1;
-        if (an != atd.b || c())
-        {
-            i1 = 1;
-        } else
-        {
-            i1 = 0;
-        }
-        if (i1 != 0)
-        {
-            f.setVisibility(0);
-            f.bringToFront();
-        }
-        e = (ViewGroup)ai1.findViewById(h.eK);
-        if (android.os.Build.VERSION.SDK_INT >= 21)
-        {
-            e.setTranslationZ(e.getResources().getDimensionPixelSize(g.nu));
-            e.setStateListAnimator(AnimatorInflater.loadStateListAnimator(e.getContext(), g.nl));
-        }
-        e.setBackgroundDrawable(e.getResources().getDrawable(n.d));
-        layoutinflater.inflate(g.nJ, e, true);
-        g = (ImageView)e.findViewById(l.uA);
-        e.setOnClickListener(i);
-        d = (cgw)getChildFragmentManager().a(cgw.getName());
-        if (d == null)
-        {
-            d = new cgw();
-            if (b != null)
+            Object obj = v();
+            if (obj != null)
             {
-                d.a(c);
-                d.a(b());
+                PendingIntent pendingintent = b(false);
+                dl dl = a(o);
+                Intent intent = BabelGatewayActivity.a(p, q.a());
+                int i1 = super.t();
+                obj = ((h) (obj)).a(PendingIntent.getActivity(o, i1 + 1, intent, 0x8000000)).a(pendingintent, dl).a();
+                t.a((new e()).a(((g) (obj))).a(o.getResources().getColor(g.da)));
             }
-            getChildFragmentManager().a().a(l.uy, d, cgw.getName()).b();
         }
-        ar = getActivity().getResources().getDimensionPixelSize(g.nv);
-        if (android.os.Build.VERSION.SDK_INT >= 17 && getActivity().getResources().getConfiguration().getLayoutDirection() == 1)
+        if (!cec.a(o)) goto _L2; else goto _L1
+_L1:
+        int k1 = o.getSharedPreferences("wearablePrefs", 0).getInt("api_level", 22);
+        u.a();
+        boolean flag = q();
+        Object obj1;
+        Object obj3;
+        Bundle bundle;
+        int j1;
+        if (((cef)k.b.get(0)).c && flag && due.d())
         {
-            ar = -ar;
-        }
-        if (c.b() <= 0)
-        {
-            f.setTranslationX(ar);
-        }
-        if (ap == cnd.d)
-        {
-            layoutinflater = (new dso(context)).a(getString(h.iE)).a(TimeUnit.SECONDS.toMillis(10L)).a();
-            ((dsp)binder.a(dsp)).a(layoutinflater);
-        }
-        i1 = getActivity().getResources().getInteger(g.nx);
-        am = ObjectAnimator.ofFloat(f, View.TRANSLATION_X, new float[] {
-            0.0F
-        });
-        am.setInterpolator(new aic(aig.a));
-        am.setDuration(i1);
-        al = ObjectAnimator.ofFloat(f, View.TRANSLATION_X, new float[] {
-            (float)ar
-        });
-        al.setInterpolator(new aic(aig.b));
-        al.setDuration(i1);
-        if (ap == cnd.g || ap == cnd.e || ap == cnd.f)
-        {
-            g.setImageDrawable(getResources().getDrawable(n.n));
-            g.setContentDescription(getString(h.iV));
-            return viewgroup;
+            j1 = 1;
         } else
         {
-            g.setContentDescription(getString(h.iU));
-            return viewgroup;
+            j1 = 0;
         }
+        if (j1 != 0)
+        {
+            j1 = l.gQ;
+        } else
+        if (flag)
+        {
+            j1 = l.gR;
+        } else
+        {
+            j1 = l.gP;
+        }
+        obj1 = a(o);
+        obj3 = b(true);
+        obj3 = new cc(com.google.android.apps.hangouts.R.drawable.bk, o.getString(j1), ((PendingIntent) (obj3)));
+        ((cc) (obj3)).a(((dl) (obj1)));
+        u.a(((cc) (obj3)).b());
+        if (k1 <= 21) goto _L4; else goto _L3
+_L3:
+        obj1 = new cc(com.google.android.apps.hangouts.R.drawable.br, o.getString(l.gZ), s());
+        obj3 = new Bundle();
+        ((Bundle) (obj3)).putInt("type", 2);
+        ((Bundle) (obj3)).putString("action", "android.intent.action.VIEW");
+        ((Bundle) (obj3)).putString("packageName", "com.google.android.talk");
+        ((Bundle) (obj3)).putInt("flags", 32768);
+        bundle = new Bundle();
+        bundle.putString("accountGaia", aoc.d(o, p));
+        bundle.putString("conversationId", q.a());
+        ((Bundle) (obj3)).putBundle("extras", bundle);
+        ((cc) (obj1)).a().putBundle("com.google.android.wearable.preview.extra.REMOTE_INTENT", ((Bundle) (obj3)));
+        u.a(((cc) (obj1)).b());
+_L2:
+        super.h();
+        return;
+_L4:
+        Object obj2 = q.a();
+        obj2 = a(anr.b(dcn.e(p), ((String) (obj2))), w());
+        if (obj2 != null)
+        {
+            u.a(((Notification) (obj2)));
+        }
+        if (true) goto _L2; else goto _L5
+_L5:
     }
 
-    public void onPrepareOptionsMenu(Menu menu)
+    protected void i()
     {
-        menu.clear();
+        super.i();
+        cef cef1 = (cef)k.b.get(0);
+        aoa aoa = dcn.e(p);
+        char c;
+        if (cef1.h.size() == 1)
+        {
+            c = '\u0786';
+        } else
+        {
+            c = '\u0787';
+        }
+        g.a(aoa, c);
+        a(405, 457, 463);
+    }
+
+    protected String j()
+    {
+        return a(o, p, q.a());
+    }
+
+    protected void k()
+    {
+        a(406, 458, 464);
+    }
+
+    protected int p()
+    {
+        return super.p() + 2;
+    }
+
+    static 
+    {
+        String s = String.valueOf("conversation_id IN (SELECT + conversation_id FROM merge_keys WHERE merge_key=( SELECT merge_key FROM merge_keys WHERE conversation_id=?)) AND type IN (");
+        int i1 = dsv.c.ordinal();
+        int j1 = dsv.b.ordinal();
+        x = (new StringBuilder(String.valueOf(s).length() + 25)).append(s).append(i1).append(", ").append(j1).append(")").toString();
+        s = String.valueOf("conversation_id IN (SELECT + conversation_id FROM merge_keys WHERE merge_key=( SELECT merge_key FROM merge_keys WHERE conversation_id=?)) AND type IN (");
+        i1 = dsv.c.ordinal();
+        j1 = dsv.b.ordinal();
+        String s1 = String.valueOf("timestamp");
+        String s2 = String.valueOf("chat_watermark");
+        String s3 = String.valueOf("timestamp");
+        String s4 = String.valueOf("1355097600000000");
+        y = (new StringBuilder(String.valueOf(s).length() + 39 + String.valueOf(s1).length() + String.valueOf(s2).length() + String.valueOf(s3).length() + String.valueOf(s4).length())).append(s).append(i1).append(", ").append(j1).append(") AND ").append(s1).append(">").append(s2).append(" AND ").append(s3).append(" > ").append(s4).toString();
     }
 }

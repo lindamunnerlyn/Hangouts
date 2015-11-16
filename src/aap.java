@@ -4,19 +4,22 @@
 
 
 final class aap
-    implements Runnable
+    implements android.view.View.OnSystemUiVisibilityChangeListener
 {
 
-    final aam a;
+    final aao a;
 
-    aap(aam aam1)
+    aap(aao aao1)
     {
-        a = aam1;
+        a = aao1;
         super();
     }
 
-    public void run()
+    public void onSystemUiVisibilityChange(int i)
     {
-        a.m();
+        if (android.os.Build.VERSION.SDK_INT >= 19 && i == 0 && a.d == 3846)
+        {
+            a.a(false, true);
+        }
     }
 }

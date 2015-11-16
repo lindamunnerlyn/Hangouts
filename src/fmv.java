@@ -2,46 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.ParcelFileDescriptor;
-import android.widget.ImageView;
-import com.google.android.gms.common.api.Status;
+import com.google.android.gms.maps.model.StreetViewPanoramaOrientation;
 
-public final class fmv extends fnb
+public final class fmv
 {
 
-    public fmv(Context context, ejx ejx)
+    public float a;
+    public float b;
+
+    public fmv()
     {
-        super(context, ejx, true);
     }
 
-    public static Bitmap a(Context context)
+    public StreetViewPanoramaOrientation a()
     {
-        return g.b(BitmapFactory.decodeResource(context.getResources(), g.rz));
+        return new StreetViewPanoramaOrientation(b, a);
     }
 
-    static void a(fmv fmv1, Status status, ParcelFileDescriptor parcelfiledescriptor, fnc fnc1)
+    public fmv a(float f)
     {
-        fmv1.fnb.a(status, parcelfiledescriptor, fnc1, 0);
+        b = f;
+        return this;
     }
 
-    public void a(ImageView imageview, fqu fqu, int i)
+    public fmv b(float f)
     {
-        a(((fnc) (new fmw(this, imageview, fqu, i))));
-    }
-
-    protected void a(fnc fnc1, Bitmap bitmap)
-    {
-        if (bitmap == null)
-        {
-            fnc1.f.setImageBitmap(a(b));
-            return;
-        } else
-        {
-            super.a(fnc1, bitmap);
-            return;
-        }
+        a = f;
+        return this;
     }
 }

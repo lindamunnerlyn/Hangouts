@@ -3,46 +3,75 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class kng
-    implements klq
+public final class kng extends kwm
 {
 
-    int a;
-    final kne b;
-    private final knf c;
-    private klq d;
+    public String a;
+    public Float b;
 
-    kng(kne kne1)
+    public kng()
     {
-        b = kne1;
-        super();
-        c = new knf(kne1);
-        d = c.a().c();
-        a = kne1.a();
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public byte a()
+    protected int computeSerializedSize()
     {
-        if (!d.hasNext())
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            d = c.a().c();
+            i = j + kwk.b(1, a);
         }
-        a = a - 1;
-        return d.a();
+        j = i;
+        if (b != null)
+        {
+            b.floatValue();
+            j = i + (kwk.f(2) + 4);
+        }
+        return j;
     }
 
-    public boolean hasNext()
+    public kws mergeFrom(kwj kwj1)
     {
-        return a > 0;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 21: // '\025'
+                b = Float.valueOf(kwj1.c());
+                break;
+            }
+        } while (true);
     }
 
-    public Object next()
+    public void writeTo(kwk kwk1)
     {
-        return Byte.valueOf(a());
-    }
-
-    public void remove()
-    {
-        throw new UnsupportedOperationException();
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.floatValue());
+        }
+        super.writeTo(kwk1);
     }
 }

@@ -4,19 +4,29 @@
 
 import android.content.Context;
 
-final class bwi
-    implements bwf
+public final class bwi
 {
 
-    private final gap a;
+    public static final String a = goh.getName();
+    public static final String b = gog.getName();
+    private static bwf c;
 
-    bwi(Context context)
+    public static void a(Context context, hlp hlp1)
     {
-        a = (gap)hgx.a(context, gap);
+        if (c == null)
+        {
+            c = new bwf();
+        }
+        hlp1.a(goh, c.b(context));
     }
 
-    public gam a(int i, int j)
+    public static void b(Context context, hlp hlp1)
     {
-        return a.a(i).a(j);
+        if (c == null)
+        {
+            c = new bwf();
+        }
+        hlp1.a(gog, c.a(context));
     }
+
 }

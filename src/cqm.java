@@ -2,26 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.view.View;
 
-final class cqm extends BroadcastReceiver
+final class cqm extends cqn
 {
 
-    final cql a;
+    final cqf a;
 
-    cqm(cql cql1)
+    cqm(cqf cqf1)
     {
-        a = cql1;
-        super();
+        a = cqf1;
+        super(cqf1, (byte)0);
     }
 
-    public void onReceive(Context context, Intent intent)
+    boolean a()
     {
-        cql.a(a, intent.getStringExtra("phone_verification_result"));
-        cql.a(a);
-        cql.b(a).requestFocus();
+        if (g.a(cqf.f(a), "babel_network_change_notification", false))
+        {
+            return !((cdr)hlp.a(cqf.f(a), cdr)).a().a();
+        } else
+        {
+            return false;
+        }
+    }
+
+    dvg b()
+    {
+        return (new dvh(cqf.f(a))).a(cqf.f(a).getString(l.gA)).a();
+    }
+
+    void c()
+    {
+        super.c();
+        cqf.e(a).a(2100).d();
+    }
+
+    void d()
+    {
+        super.d();
+        cqf.e(a).a(2101).d();
     }
 }

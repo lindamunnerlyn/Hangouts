@@ -2,11 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 
-public interface egd
+final class egd extends BroadcastReceiver
 {
 
-    public abstract void a();
+    final egb a;
 
-    public abstract void a(boolean flag);
+    egd(egb egb1)
+    {
+        a = egb1;
+        super();
+    }
+
+    public void onReceive(Context context, Intent intent)
+    {
+        a.a(intent);
+    }
 }

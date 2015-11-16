@@ -3,8 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface dyk
+interface dyk
 {
 
-    public abstract Object g();
+    public abstract void a(dyh dyh);
 }

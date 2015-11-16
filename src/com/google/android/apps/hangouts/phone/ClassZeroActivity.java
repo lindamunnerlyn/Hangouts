@@ -12,44 +12,44 @@ import android.os.SystemClock;
 import android.telephony.SmsMessage;
 import android.text.TextUtils;
 import android.view.Window;
-import ani;
-import ckf;
-import ckg;
-import ckh;
+import aoa;
+import clk;
+import cll;
+import clm;
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import dbf;
-import ebw;
-import gbh;
-import gmo;
-import gng;
-import hhg;
+import dcn;
+import eev;
+import gdv;
+import gqu;
+import grn;
+import hly;
 import java.util.ArrayList;
 import l;
 
-public class ClassZeroActivity extends hhg
+public class ClassZeroActivity extends hly
 {
 
     private static final boolean c = false;
-    private final gmo d;
+    private final gqu d;
     private SmsMessage e;
     private boolean f;
     private long g;
     private AlertDialog h;
     private ArrayList i;
-    private ani j;
+    private aoa j;
     private Handler k;
-    private final android.content.DialogInterface.OnClickListener l = new ckf(this);
-    private final android.content.DialogInterface.OnClickListener m = new ckg(this);
+    private final android.content.DialogInterface.OnClickListener l = new clk(this);
+    private final android.content.DialogInterface.OnClickListener m = new cll(this);
 
     public ClassZeroActivity()
     {
-        d = (new gng(this, b)).a(a);
+        d = (new grn(this, b)).a(a);
         e = null;
         f = false;
         g = 0L;
         h = null;
         i = null;
-        k = new ckh(this);
+        k = new clm(this);
     }
 
     public static AlertDialog a(ClassZeroActivity classzeroactivity)
@@ -62,7 +62,7 @@ public class ClassZeroActivity extends hhg
         String s = smsmessage.getMessageBody();
         e = smsmessage;
         smsmessage = s.toString();
-        h = (new android.app.AlertDialog.Builder(this, 2)).setMessage(smsmessage).setPositiveButton(l.jR, m).setNegativeButton(0x1040000, l).setCancelable(false).show();
+        h = (new android.app.AlertDialog.Builder(this, 2)).setMessage(smsmessage).setPositiveButton(l.jk, m).setNegativeButton(0x1040000, l).setCancelable(false).show();
         g = SystemClock.uptimeMillis() + 0x493e0L;
     }
 
@@ -117,8 +117,8 @@ public class ClassZeroActivity extends hhg
     {
         super.onCreate(bundle);
         requestWindowFeature(1);
-        getWindow().setBackgroundDrawableResource(com.google.android.apps.hangouts.R.drawable.d);
-        j = dbf.e(d.a());
+        getWindow().setBackgroundDrawableResource(com.google.android.apps.hangouts.R.drawable.c);
+        j = dcn.e(d.a());
         if (i == null)
         {
             i = new ArrayList();
@@ -133,7 +133,7 @@ public class ClassZeroActivity extends hhg
             {
                 flag = false;
             }
-            gbh.a(flag);
+            gdv.a("Expected condition to be true", flag);
             if (i.size() == 1)
             {
                 a((SmsMessage)i.get(0));
@@ -197,6 +197,6 @@ public class ClassZeroActivity extends hhg
 
     static 
     {
-        hik hik = ebw.j;
+        hnc hnc = eev.j;
     }
 }

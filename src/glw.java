@@ -2,26 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public class glw
+final class glw
 {
 
-    final gls a = new gls(100);
+    static final int a[];
+    static final int b[];
 
-    public glw()
+    static 
     {
-    }
-
-    public boolean a(String s, glo glo1)
-    {
-        return a.a(glo1.b()).matcher(s).matches();
-    }
-
-    public boolean a(String s, glo glo1, boolean flag)
-    {
-        s = a.a(glo1.a()).matcher(s);
-        return s.matches() || flag && s.lookingAt();
+        b = new int[gly.values().length];
+        try
+        {
+            b[gly.e.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror5) { }
+        try
+        {
+            b[gly.f.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror4) { }
+        a = new int[glx.values().length];
+        try
+        {
+            a[glx.c.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[glx.a.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[glx.d.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[glx.b.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

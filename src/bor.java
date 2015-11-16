@@ -2,83 +2,183 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.widget.Toast;
-import com.google.android.apps.hangouts.hangout.HangoutFragment;
-import java.util.Set;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.google.android.apps.hangouts.content.EsProvider;
+import java.util.List;
 
-public final class bor extends bnk
+public final class bor
+    implements bpb, br
 {
 
-    final HangoutFragment a;
+    String a;
+    private final bnk b = bnk.a();
+    private final boo c = boo.a();
+    private bos d;
+    private Context e;
+    private bpw f;
+    private aoa g;
+    private bpc h;
+    private String i;
 
-    public bor(HangoutFragment hangoutfragment)
+    public bor(Context context, aoa aoa1, String s, String s1)
     {
-        a = hangoutfragment;
-        super();
+        e = context;
+        g = aoa1;
+        a = s;
+        i = s1;
     }
 
-    public void a()
+    private void a(String s, String s1)
     {
-        HangoutFragment.l(a);
-    }
-
-    public void a(giw giw, Set set)
-    {
-        HangoutFragment.m(a);
-        a.a(giw, set);
-    }
-
-    public void a(gjq gjq)
-    {
-        HangoutFragment.a(a, a.a.t().e());
-        int i = ((gmo)HangoutFragment.j(a).a(gmo)).a();
-        ((bwg)HangoutFragment.k(a).a(bwg)).a(i, bwh.a);
-    }
-
-    public void a(gjs gjs1)
-    {
-        boq.a[gjs1.a().ordinal()];
-        JVM INSTR tableswitch 1 2: default 32
-    //                   1 75
-    //                   2 182;
-           goto _L1 _L2 _L3
-_L1:
-        gjs1 = String.valueOf(gjs1.a());
-        ebw.g("Babel_calls", (new StringBuilder(String.valueOf(gjs1).length() + 39)).append("Error: invalid quality event reported: ").append(gjs1).toString());
-        return;
-_L2:
-        char c;
-        char c1 = '\u09AD';
-        gjs1 = g.h();
-        Object obj = a.a;
-        obj = bnd.l();
-        c = c1;
-        if (!HangoutFragment.n(a))
+        if (f != null)
         {
-            c = c1;
-            if (obj != null)
+            bpw bpw1 = f;
+            String s2 = s;
+            if (TextUtils.isEmpty(s))
             {
-                c = c1;
-                if (gjs1 != null)
+                s2 = e.getResources().getString(l.cq);
+            }
+            bpw1.a(s2);
+            f.b(s1);
+        }
+    }
+
+    public void a(int j)
+    {
+    }
+
+    public void a(bpc bpc1)
+    {
+        h = bpc1;
+        d = new bos(this);
+        c.a(d);
+        if (a != null)
+        {
+            bpc1.f().a(0, null, this);
+        }
+        d.f();
+    }
+
+    public void a(pq pq1)
+    {
+        f = (bpw)pq1.c();
+        f.a(e.getResources().getString(l.cq));
+        c();
+    }
+
+    void b()
+    {
+        if (a != null)
+        {
+            h.f().b(0, null, this);
+        }
+    }
+
+    void c()
+    {
+        String s = null;
+        Object obj = b.s();
+        if (i != null)
+        {
+            a(i, null);
+            return;
+        }
+        if (obj != null && ((bpm) (obj)).L() == 1)
+        {
+            gdv.b("Expected non-null", obj);
+            obj = ((bpm) (obj)).V();
+            if (((List) (obj)).size() == 1)
+            {
+                obj = (bpt)((List) (obj)).get(0);
+                if (((bpt) (obj)).b() != null)
                 {
-                    c = c1;
-                    if (dbq.A(gjs1.h()))
+                    s = eey.p(((bpt) (obj)).a());
+                    obj = eey.q(((bpt) (obj)).a());
+                } else
+                {
+                    s = eey.p(((bpt) (obj)).a());
+                    obj = null;
+                }
+            } else
+            {
+                obj = null;
+            }
+            if (s != null)
+            {
+                a(s, ((String) (obj)));
+                return;
+            } else
+            {
+                b();
+                return;
+            }
+        } else
+        {
+            b();
+            return;
+        }
+    }
+
+    public void j_()
+    {
+        if (d != null)
+        {
+            c.b(d);
+            d = null;
+        }
+    }
+
+    public void onConfigurationChanged(Configuration configuration)
+    {
+    }
+
+    public em onCreateLoader(int j, Bundle bundle)
+    {
+        while (j != 0 || a == null) 
+        {
+            return null;
+        }
+        return new coz(e, g, EsProvider.a(EsProvider.g, h.a().h()), anv.a, "conversation_id=?", new String[] {
+            a
+        }, null);
+    }
+
+    public void onLoadFinished(em em1, Object obj)
+    {
+        Cursor cursor = (Cursor)obj;
+        if (em1.o() == 0)
+        {
+            em1 = b.s();
+            if (em1 == null || em1.L() != 1)
+            {
+                if (i != null)
+                {
+                    a(i, null);
+                } else
+                if (cursor != null && cursor.moveToFirst())
+                {
+                    obj = cursor.getString(3);
+                    em1 = ((em) (obj));
+                    if (TextUtils.isEmpty(((CharSequence) (obj))))
                     {
-                        HangoutFragment.o(a);
-                        a.a(false);
-                        Toast.makeText(a.getActivity(), l.tt, 1).show();
-                        ((gih) (obj)).a(false);
-                        c = c1;
+                        em1 = cursor.getString(4);
+                    }
+                    if (!TextUtils.isEmpty(em1))
+                    {
+                        a(em1, null);
+                        return;
                     }
                 }
             }
         }
-_L5:
-        g.b(c);
-        return;
-_L3:
-        c = '\u09AE';
-        if (true) goto _L5; else goto _L4
-_L4:
+    }
+
+    public void onLoaderReset(em em1)
+    {
     }
 }

@@ -2,50 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
-import java.util.Comparator;
 
 final class ayq
-    implements Comparator
+    implements asd
 {
 
-    final aym a;
+    final String a;
+    final String b;
+    final ayp c;
 
-    ayq(aym aym)
+    ayq(ayp ayp1, String s, String s1)
     {
-        a = aym;
+        c = ayp1;
+        a = s;
+        b = s1;
         super();
     }
 
-    public int compare(Object obj, Object obj1)
+    public void a(asa asa)
     {
-        obj = (ark)obj;
-        obj1 = (ark)obj1;
-        ceu ceu1 = ((ark) (obj)).h;
-        ceu ceu2 = ((ark) (obj1)).h;
-        if (TextUtils.isEmpty(ceu1.b()) || !TextUtils.isEmpty(ceu2.b()))
+        if (c.a.getActivity() != null && c.a.O() != null)
         {
-            if (TextUtils.isEmpty(ceu1.b()) && !TextUtils.isEmpty(ceu2.b()))
+            avv.b(c.a).a(a, b);
+            avv.a(c.a, avv.H(c.a));
+            c.a.getLoaderManager().b(0, null, c.a);
+            if (avv.I(c.a) == null)
             {
-                return 1;
-            }
-            if (!TextUtils.isEmpty(((ark) (obj)).e) && !TextUtils.isEmpty(((ark) (obj1)).e))
-            {
-                aoh aoh = ((ark) (obj)).i;
-                aoh aoh1 = ((ark) (obj1)).i;
-                if (aoh == null && aoh1 != null)
-                {
-                    return 1;
-                }
-                if (aoh == null || aoh1 != null)
-                {
-                    return ((ark) (obj)).e.compareTo(((ark) (obj1)).e);
-                }
-            } else
-            {
-                return 0;
+                c.a.getLoaderManager().b(2, null, c.a);
+                return;
             }
         }
-        return -1;
     }
 }

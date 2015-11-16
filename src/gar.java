@@ -3,16 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gar
-    implements gbf
+public interface gar
 {
 
-    gar()
-    {
-    }
+    public abstract gaq a();
 
-    public String a(kop kop)
-    {
-        return ((izx)kop).b;
-    }
+    public abstract gar a(gap gap);
+
+    public abstract gar a(gat gat);
+
+    public abstract gar a(gau gau);
 }

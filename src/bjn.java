@@ -2,29 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Rect;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.accessibility.AccessibilityEvent;
+import android.widget.Toast;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-final class bjn extends android.view.View.AccessibilityDelegate
+final class bjn
+    implements android.view.View.OnClickListener
 {
 
-    bjn()
+    final String a;
+    final bjm b;
+
+    bjn(bjm bjm1, String s)
     {
+        b = bjm1;
+        a = s;
+        super();
     }
 
-    public boolean onRequestSendAccessibilityEvent(ViewGroup viewgroup, View view, AccessibilityEvent accessibilityevent)
+    public void onClick(View view)
     {
-        if (accessibilityevent.getEventType() == 4096 || accessibilityevent.getEventType() == 2048)
+        view = view.getContext();
+        if (!((cjf)hlp.a(view, cjf)).a("android.permission.WRITE_EXTERNAL_STORAGE"))
         {
-            Rect rect = new Rect();
-            viewgroup.getHitRect(rect);
-            if (!view.getLocalVisibleRect(rect))
+            Toast.makeText(view, "Can't access file, please go to Settings to turn on the Storage permission.", 0).show();
+        } else
+        {
+            b.a.a();
+            if ("load".equals(bjl.a(b.a)))
             {
-                return false;
+                RealTimeChatService.d(a);
+                return;
+            }
+            if ("email".equals(bjl.a(b.a)))
+            {
+                bjl.a(b.a, a);
+                return;
             }
         }
-        return super.onRequestSendAccessibilityEvent(viewgroup, view, accessibilityevent);
     }
 }

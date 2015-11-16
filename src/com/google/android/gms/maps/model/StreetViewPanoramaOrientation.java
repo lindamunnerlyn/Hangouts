@@ -6,17 +6,16 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import eof;
-import flp;
+import erf;
+import fol;
 import g;
-import h;
 import java.util.Arrays;
 
 public class StreetViewPanoramaOrientation
     implements SafeParcelable
 {
 
-    public static final flp CREATOR = new flp();
+    public static final fol CREATOR = new fol();
     public final float a;
     public final float b;
     private final int c;
@@ -36,7 +35,7 @@ public class StreetViewPanoramaOrientation
         {
             flag = false;
         }
-        h.b(flag, "Tilt needs to be between -90 and 90 inclusive");
+        g.b(flag, "Tilt needs to be between -90 and 90 inclusive");
         c = i;
         a = 0.0F + f;
         f = f1;
@@ -47,7 +46,7 @@ public class StreetViewPanoramaOrientation
         b = f % 360F;
     }
 
-    public int a()
+    int a()
     {
         return c;
     }
@@ -88,7 +87,11 @@ public class StreetViewPanoramaOrientation
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        flp.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a());
+        g.a(parcel, 2, a);
+        g.a(parcel, 3, b);
+        g.q(parcel, i);
     }
 
 }

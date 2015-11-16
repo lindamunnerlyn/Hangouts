@@ -2,25 +2,67 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
-import java.util.Comparator;
 
-final class jmp
-    implements Serializable
+public final class jmp extends kwm
 {
 
-    private static final long serialVersionUID = 0L;
-    final Comparator a;
-    final Object b[];
+    public static final kwn a = kwn.a(jmp, 0x2ebd032aL);
+    private static final jmp c[] = new jmp[0];
+    public kxc b;
 
-    public jmp(Comparator comparator, Object aobj[])
+    public jmp()
     {
-        a = comparator;
-        b = aobj;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    Object readResolve()
+    protected int computeSerializedSize()
     {
-        return (new jmo(a)).c((Object[])b).b();
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (b != null)
+        {
+            i = j + kwk.d(1, b);
+        }
+        return i;
     }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (b == null)
+                {
+                    b = new kxc();
+                }
+                kwj1.a(b);
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (b != null)
+        {
+            kwk1.b(1, b);
+        }
+        super.writeTo(kwk1);
+    }
+
 }

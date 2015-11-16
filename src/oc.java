@@ -2,16 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Cursor;
+import android.database.DataSetObserver;
 
-interface oc
+final class oc extends DataSetObserver
 {
 
-    public abstract Cursor a();
+    final oa a;
 
-    public abstract Cursor a(CharSequence charsequence);
+    oc(oa oa1)
+    {
+        a = oa1;
+        super();
+    }
 
-    public abstract void a(Cursor cursor);
+    public void onChanged()
+    {
+        a.a = true;
+        a.notifyDataSetChanged();
+    }
 
-    public abstract CharSequence c(Cursor cursor);
+    public void onInvalidated()
+    {
+        a.a = false;
+        a.notifyDataSetInvalidated();
+    }
 }

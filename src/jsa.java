@@ -2,30 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Collection;
+import java.util.Map;
 
-public final class jsa
+public abstract class jsa extends jso
+    implements Map
 {
 
-    private static final jru a = new jsc();
-    private static final jpp b = jpp.b().a(new jsd()).a();
-
-    public static jsj a(Object obj)
+    jsa()
     {
-        return new jsi(obj);
     }
 
-    public static jsj a(Throwable throwable)
+    public static jsa a(Object obj, Object obj1)
     {
-        n.b(throwable);
-        return new jsg(throwable);
+        return new jxr(obj, obj1);
     }
 
-    public static jsj a(jsj jsj1, jgt jgt)
+    public abstract jsa a();
+
+    public jth b()
     {
-        n.b(jgt);
-        jgt = new jse(new jsb(jgt), jsj1);
-        jsj1.a(jgt, g.A());
-        return jgt;
+        return a().f();
     }
 
+    public jsd c()
+    {
+        return b();
+    }
+
+    public Collection values()
+    {
+        return b();
+    }
+
+    Object writeReplace()
+    {
+        return new jsc(this);
+    }
 }

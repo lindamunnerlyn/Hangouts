@@ -2,23 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
-import com.google.android.apps.hangouts.phone.ConversationUrlHandlerActivity;
+import com.google.android.apps.hangouts.phone.BabelHomeActivity;
+import com.google.android.libraries.quantum.snackbar.Snackbar;
 
 public final class ckk
-    implements android.content.DialogInterface.OnClickListener
+    implements dvo
 {
 
-    final ConversationUrlHandlerActivity a;
+    final BabelHomeActivity a;
 
-    public ckk(ConversationUrlHandlerActivity conversationurlhandleractivity)
+    public ckk(BabelHomeActivity babelhomeactivity)
     {
-        a = conversationurlhandleractivity;
+        a = babelhomeactivity;
         super();
     }
 
-    public void onClick(DialogInterface dialoginterface, int i)
+    public void a()
     {
-        a.finish();
+        if (BabelHomeActivity.b(a) != null)
+        {
+            BabelHomeActivity.b(a).a(0.0F, BabelHomeActivity.a(a));
+        }
+    }
+
+    public void a(Snackbar snackbar)
+    {
+        BabelHomeActivity.b(a).a(snackbar.getMeasuredHeight(), BabelHomeActivity.a(a));
     }
 }

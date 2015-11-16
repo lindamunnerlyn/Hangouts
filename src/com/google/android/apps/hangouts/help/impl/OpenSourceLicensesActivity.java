@@ -20,8 +20,8 @@ public class OpenSourceLicensesActivity extends Activity
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.my);
-        bundle = (WebView)findViewById(g.mx);
+        setContentView(g.mm);
+        bundle = (WebView)findViewById(g.ml);
         bundle.loadUrl("file:///android_asset/licenses.html");
         bundle.getSettings().setJavaScriptEnabled(true);
     }

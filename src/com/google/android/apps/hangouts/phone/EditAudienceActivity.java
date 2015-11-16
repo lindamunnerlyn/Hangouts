@@ -4,48 +4,48 @@
 
 package com.google.android.apps.hangouts.phone;
 
-import aih;
-import aik;
+import aia;
+import aid;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.MenuItem;
-import ani;
+import aoa;
 import ap;
-import atd;
+import atu;
 import bg;
-import bjc;
-import bjd;
-import bka;
-import blh;
-import bpa;
-import cnd;
-import dbf;
-import dbx;
-import dbz;
-import dsp;
+import bjo;
+import bjp;
+import bkm;
+import blq;
+import bpj;
+import cov;
+import dcn;
+import ddg;
+import ddi;
+import dvi;
 import g;
-import gbh;
-import gmo;
-import gng;
+import gdv;
+import gqu;
+import grn;
 import h;
-import hgx;
-import po;
+import hlp;
+import pq;
 
 // Referenced classes of package com.google.android.apps.hangouts.phone:
 //            CallContactPickerActivity
 
-public class EditAudienceActivity extends bka
-    implements bjd, dbz
+public class EditAudienceActivity extends bkm
+    implements bjp, ddi
 {
 
-    private final gmo m;
-    private ani n;
+    private final gqu n;
+    private aoa o;
 
     public EditAudienceActivity()
     {
-        m = (new gng(this, q)).a(p);
-        (new dsp(this, q)).b(p);
+        n = (new grn(this, r)).a(q);
+        (new dvi(this, r)).b(q);
     }
 
     public void a()
@@ -54,28 +54,28 @@ public class EditAudienceActivity extends bka
         finish();
     }
 
-    public void a(String s, int i, boolean flag, aik aik1)
+    public void a(String s, int i, boolean flag, aid aid1)
     {
         if (flag)
         {
-            startActivity(g.a((new bpa(n.a(), 1)).a("conversation").b(s).a(), g.a(this, aik1), g.a(aik1), true, 61, SystemClock.elapsedRealtime()));
+            startActivity(g.a((new bpj(o.a(), 1)).a("conversation").b(s).a(), g.a(this, aid1), g.a(aid1), true, 61, SystemClock.elapsedRealtime()));
             s = new Intent();
             s.putExtra("new_conversation_created", true);
             setResult(-1, s);
         } else
         {
-            aik1 = g.a(n.h(), s, i);
-            Object obj = new aih(s, i);
+            aid1 = g.a(o.h(), s, i);
+            Object obj = new aia(s, i);
             obj.d = true;
             obj.k = getIntent().getIntExtra("opened_from_impression", 0);
-            aik1.putExtra("conversation_parameters", ((android.os.Parcelable) (obj)));
+            aid1.putExtra("conversation_parameters", ((android.os.Parcelable) (obj)));
             obj = (Intent)getIntent().getParcelableExtra("share_intent");
             if (obj != null)
             {
                 ((Intent) (obj)).putExtra("conversation_id", s);
-                aik1.putExtra("share_intent", ((android.os.Parcelable) (obj)));
+                aid1.putExtra("share_intent", ((android.os.Parcelable) (obj)));
             }
-            startActivity(aik1);
+            startActivity(aid1);
         }
         s = new Intent();
         s.putExtra("new_conversation_created", true);
@@ -95,21 +95,21 @@ public class EditAudienceActivity extends bka
         }
     }
 
-    public void b(dbx dbx1)
+    public void b(ddg ddg1)
     {
         boolean flag = true;
         Intent intent;
-        if (dbx1.b() != 1)
+        if (ddg1.b() != 1)
         {
             flag = false;
         }
-        gbh.a(flag);
-        dbx1 = n;
-        intent = new Intent(g.nS, com/google/android/apps/hangouts/phone/CallContactPickerActivity);
+        gdv.a("Expected condition to be true", flag);
+        ddg1 = o;
+        intent = new Intent(g.nU, com/google/android/apps/hangouts/phone/CallContactPickerActivity);
         intent.putExtra("com.google.android.apps.hangouts.voiceCallActionMode", 2);
-        if (dbx1 != null)
+        if (ddg1 != null)
         {
-            intent.putExtra("account_id", dbx1.h());
+            intent.putExtra("account_id", ddg1.h());
         }
         startActivityForResult(intent, 1001);
     }
@@ -119,7 +119,7 @@ public class EditAudienceActivity extends bka
         super.onActivityResult(i, j, intent);
         if (i == 5100 && j == -1)
         {
-            b((dbx)intent.getParcelableExtra("com.google.android.apps.hangouts.voiceCallActionInfo"));
+            b((ddg)intent.getParcelableExtra("com.google.android.apps.hangouts.voiceCallActionInfo"));
         } else
         if (i == 1001 && j == -1)
         {
@@ -131,19 +131,19 @@ public class EditAudienceActivity extends bka
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        n = dbf.e(m.a());
-        setContentView(g.fP);
-        ap ap1 = t_();
-        bjc bjc1 = (bjc)ap1.a(h.be);
-        bundle = bjc1;
-        if (bjc1 == null)
+        o = dcn.e(n.a());
+        setContentView(g.fN);
+        ap ap1 = u_();
+        bjo bjo1 = (bjo)ap1.a(h.aY);
+        bundle = bjo1;
+        if (bjo1 == null)
         {
-            bundle = (atd)getIntent().getSerializableExtra("conversation_type");
+            bundle = (atu)getIntent().getSerializableExtra("conversation_type");
             String s = getIntent().getStringExtra("conversation_id");
-            cnd cnd1 = (cnd)getIntent().getSerializableExtra("edit_audience_mode");
-            aik aik1 = (aik)getIntent().getSerializableExtra("audience");
-            bundle = ((blh)hgx.a(this, blh)).a(bundle, s, cnd1, aik1);
-            ap1.a().a(h.be, bundle, bjc.getName()).b();
+            cov cov1 = (cov)getIntent().getSerializableExtra("edit_audience_mode");
+            aid aid1 = (aid)getIntent().getSerializableExtra("audience");
+            bundle = ((blq)hlp.a(this, blq)).a(bundle, s, cov1, aid1);
+            ap1.a().a(h.aY, bundle, bjo.getName()).b();
         }
         bundle.a(this);
         setTitle(null);
@@ -152,10 +152,10 @@ public class EditAudienceActivity extends bka
     protected void onStart()
     {
         super.onStart();
-        po po1 = g();
-        if (po1 != null)
+        pq pq1 = g();
+        if (pq1 != null)
         {
-            po1.a(true);
+            pq1.a(true);
         }
     }
 }

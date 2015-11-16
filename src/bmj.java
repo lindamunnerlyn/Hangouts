@@ -3,46 +3,75 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import java.util.ArrayList;
-import java.util.List;
+import android.content.res.Resources;
+import android.database.MatrixCursor;
 
-public final class bmj
+public final class bmj extends MatrixCursor
+    implements bhl
 {
 
-    private Context a;
-    private ani b;
-    private String c[];
-    private String d;
-    private int e;
-    private String f;
-    private List g;
+    private static final String a[] = {
+        "DisplayName", "PhoneNumber"
+    };
+    private boolean b;
 
-    bmj(Context context, ani ani, String as[])
+    public bmj()
     {
-        d = "_id";
-        e = -1;
-        f = null;
-        g = new ArrayList();
-        a = context;
-        b = ani;
-        c = as;
+        super(a);
+        b = false;
     }
 
-    public bmj a()
+    public fth a()
     {
-        e = 3;
-        return this;
+        return null;
     }
 
-    public bmj b()
+    public void a(bgx bgx)
     {
-        g.clear();
-        g.add(Integer.valueOf(0));
-        return this;
     }
 
-    public bmi c()
+    public void a(String s, Context context)
     {
-        return new bmi(a, b, c, d, e, f, (Integer[])g.toArray(new Integer[g.size()]));
+        if (!b)
+        {
+            String s1 = eey.p(s);
+            addRow(new Object[] {
+                context.getResources().getString(l.O, new Object[] {
+                    s1
+                }), s
+            });
+            b = true;
+            return;
+        } else
+        {
+            eev.g("Babel", "InputCallContactCursor.setPhone() was called more than once!");
+            return;
+        }
     }
+
+    public bhv b()
+    {
+        return new bhv(new bia(getString(1), ""));
+    }
+
+    public bhn c()
+    {
+        return null;
+    }
+
+    public int d()
+    {
+        return 2;
+    }
+
+    public int e()
+    {
+        return 0;
+    }
+
+    public boolean f()
+    {
+        return true;
+    }
+
 }

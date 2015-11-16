@@ -3,47 +3,68 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class igy extends koj
+public final class igy extends kwm
 {
 
     public String a;
     public String b;
     public String c;
+    public Boolean d;
+    public Boolean e;
 
     public igy()
     {
         a = null;
         b = null;
         c = null;
+        d = null;
+        e = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize() + koh.b(1, a);
+        int j = super.computeSerializedSize();
         int i = j;
-        if (b != null)
+        if (a != null)
         {
-            i = j + koh.b(2, b);
+            i = j + kwk.b(1, a);
         }
         j = i;
+        if (b != null)
+        {
+            j = i + kwk.b(2, b);
+        }
+        i = j;
         if (c != null)
         {
-            j = i + koh.b(3, c);
+            i = j + kwk.b(3, c);
         }
-        return j;
+        j = i;
+        if (d != null)
+        {
+            d.booleanValue();
+            j = i + (kwk.f(5) + 1);
+        }
+        i = j;
+        if (e != null)
+        {
+            e.booleanValue();
+            i = j + (kwk.f(6) + 1);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -53,31 +74,50 @@ public final class igy extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                a = kwj1.j();
                 break;
 
             case 18: // '\022'
-                b = kog1.j();
+                b = kwj1.j();
                 break;
 
             case 26: // '\032'
-                c = kog1.j();
+                c = kwj1.j();
+                break;
+
+            case 40: // '('
+                d = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 48: // '0'
+                e = Boolean.valueOf(kwj1.i());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.a(1, a);
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.a(2, b);
         }
         if (c != null)
         {
-            koh1.a(3, c);
+            kwk1.a(3, c);
         }
-        super.writeTo(koh1);
+        if (d != null)
+        {
+            kwk1.a(5, d.booleanValue());
+        }
+        if (e != null)
+        {
+            kwk1.a(6, e.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

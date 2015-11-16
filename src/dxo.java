@@ -2,26 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.accounts.Account;
-import android.os.IInterface;
+import java.util.Iterator;
+import java.util.List;
 
-public interface dxo
-    extends IInterface
+final class dxo
+    implements Runnable
 {
 
-    public abstract int a();
+    final grd a;
+    final czm b;
+    final dxn c;
 
-    public abstract void a(long l);
+    dxo(dxn dxn1, grd grd, czm czm)
+    {
+        c = dxn1;
+        a = grd;
+        b = czm;
+        super();
+    }
 
-    public abstract void a(Account account);
-
-    public abstract void a(String s);
-
-    public abstract String b();
-
-    public abstract Account c();
-
-    public abstract void d();
-
-    public abstract Account e();
+    public void run()
+    {
+        for (Iterator iterator = c.a.iterator(); iterator.hasNext(); ((dij)iterator.next()).a(a, b)) { }
+    }
 }

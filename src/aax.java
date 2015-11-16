@@ -2,38 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Resources;
 import android.view.View;
-import com.android.ex.photo.PhotoViewPager;
 
-public final class aax
-    implements lh
+public interface aax
 {
 
-    final PhotoViewPager a;
+    public abstract bq f();
 
-    public aax(PhotoViewPager photoviewpager)
-    {
-        a = photoviewpager;
-        super();
-    }
+    public abstract View findViewById(int k);
 
-    public void a(View view, float f)
-    {
-        if (f < 0.0F || f >= 1.0F)
-        {
-            view.setTranslationX(0.0F);
-            view.setAlpha(1.0F);
-            view.setScaleX(1.0F);
-            view.setScaleY(1.0F);
-            return;
-        } else
-        {
-            view.setTranslationX(-f * (float)view.getWidth());
-            view.setAlpha(Math.max(0.0F, 1.0F - f));
-            f = Math.max(0.0F, 1.0F - 0.3F * f);
-            view.setScaleX(f);
-            view.setScaleY(f);
-            return;
-        }
-    }
+    public abstract void finish();
+
+    public abstract Context getApplicationContext();
+
+    public abstract Intent getIntent();
+
+    public abstract Resources getResources();
+
+    public abstract aao h();
+
+    public abstract Context i();
+
+    public abstract aah j();
+
+    public abstract void overridePendingTransition(int k, int l);
+
+    public abstract void setContentView(int k);
+
+    public abstract ap u_();
 }

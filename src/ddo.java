@@ -3,21 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ddo extends dfa
+public final class ddo
 {
 
-    private final String a;
-    private final String d;
+    public final String a;
+    public final int b;
+    public final boolean c;
+    public final aoa d;
 
-    public ddo(ani ani, String s, String s1)
+    ddo(String s, aoa aoa, int i, boolean flag)
     {
-        super(ani);
         a = s;
-        d = s1;
-    }
-
-    public void a()
-    {
-        c.a(new csr(a, d));
+        b = i;
+        c = flag;
+        d = aoa;
     }
 }

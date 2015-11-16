@@ -7,16 +7,22 @@ final class gik
     implements Runnable
 {
 
-    final gih a;
+    final boolean a;
+    final gie b;
 
-    gik(gih gih1)
+    gik(gie gie1, boolean flag)
     {
-        a = gih1;
+        b = gie1;
+        a = flag;
         super();
     }
 
     public void run()
     {
-        gih.a(a);
+        b.l = a;
+        if (b.c != null)
+        {
+            b.c.a(a);
+        }
     }
 }

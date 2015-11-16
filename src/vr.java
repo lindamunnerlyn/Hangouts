@@ -2,66 +2,75 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.Menu;
-import android.view.MenuInflater;
+import android.graphics.Rect;
 import android.view.View;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
-public abstract class vr
+public final class vr
 {
 
-    private Object a;
-    private boolean b;
+    private static Method a;
 
-    public vr()
+    public static int a(int i, int j)
     {
+        return i | j;
     }
 
-    public abstract MenuInflater a();
-
-    public abstract void a(int l);
-
-    public abstract void a(View view);
-
-    public abstract void a(CharSequence charsequence);
-
-    public void a(Object obj)
+    public static void a(View view, Rect rect, Rect rect1)
     {
-        a = obj;
+        if (a == null)
+        {
+            break MISSING_BLOCK_LABEL_26;
+        }
+        a.invoke(view, new Object[] {
+            rect, rect1
+        });
+        return;
+        view;
     }
 
-    public void a(boolean flag)
+    public static boolean a(View view)
     {
-        b = flag;
+        return kb.i(view) == 1;
     }
 
-    public abstract Menu b();
-
-    public abstract void b(int l);
-
-    public abstract void b(CharSequence charsequence);
-
-    public abstract void c();
-
-    public abstract void d();
-
-    public abstract CharSequence f();
-
-    public abstract CharSequence g();
-
-    public boolean h()
+    public static void b(View view)
     {
-        return false;
+        if (android.os.Build.VERSION.SDK_INT < 16)
+        {
+            break MISSING_BLOCK_LABEL_44;
+        }
+        Method method = view.getClass().getMethod("makeOptionalFitsSystemWindows", new Class[0]);
+        if (!method.isAccessible())
+        {
+            method.setAccessible(true);
+        }
+        method.invoke(view, new Object[0]);
+        return;
+        view;
+        return;
+        view;
+        return;
+        view;
     }
 
-    public abstract View i();
-
-    public Object j()
+    static 
     {
-        return a;
-    }
-
-    public boolean k()
-    {
-        return b;
+        if (android.os.Build.VERSION.SDK_INT < 18)
+        {
+            break MISSING_BLOCK_LABEL_48;
+        }
+        Method method = android/view/View.getDeclaredMethod("computeFitSystemWindows", new Class[] {
+            android/graphics/Rect, android/graphics/Rect
+        });
+        a = method;
+        if (!method.isAccessible())
+        {
+            a.setAccessible(true);
+        }
+        return;
+        NoSuchMethodException nosuchmethodexception;
+        nosuchmethodexception;
     }
 }

@@ -2,21 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.DialogInterface;
 
 final class bqt
-    implements Runnable
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final bqs a;
+    final String a;
+    final bqo b;
 
-    bqt(bqs bqs1)
+    bqt(bqo bqo1, String s)
     {
-        a = bqs1;
+        b = bqo1;
+        a = s;
         super();
     }
 
-    public void run()
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        bqs.a(a);
+        bpz.a(a).a(bqo.g(b).e(), null);
     }
 }

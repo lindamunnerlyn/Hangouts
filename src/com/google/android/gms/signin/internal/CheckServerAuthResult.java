@@ -6,7 +6,8 @@ package com.google.android.gms.signin.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import frs;
+import ftz;
+import g;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,10 +17,10 @@ public class CheckServerAuthResult
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new frs();
-    public final int a;
-    public final boolean b;
-    public final List c;
+    public static final android.os.Parcelable.Creator CREATOR = new ftz();
+    final int a;
+    final boolean b;
+    final List c;
 
     public CheckServerAuthResult(int i, boolean flag, List list)
     {
@@ -47,7 +48,11 @@ public class CheckServerAuthResult
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        frs.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b);
+        g.c(parcel, 3, c);
+        g.q(parcel, i);
     }
 
 }

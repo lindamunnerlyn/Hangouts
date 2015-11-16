@@ -2,18 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Parcel;
 
 final class djw
+    implements android.os.Parcelable.Creator
 {
 
     djw()
     {
     }
 
-    public cmv[] a()
+    public Object createFromParcel(Parcel parcel)
     {
-        return (new cmv[] {
-            new djx(this)
-        });
+        return new djv(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new djv[i];
     }
 }

@@ -9,15 +9,15 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import bnd;
-import bot;
-import bov;
-import bpd;
-import brc;
-import bsa;
+import bnk;
+import bpc;
+import bpe;
+import bpm;
+import brl;
+import bsj;
 import g;
-import gjr;
-import hgx;
+import gmt;
+import hlp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -26,48 +26,43 @@ import java.util.List;
 public class RemoteParticipantPopupMenu extends LinearLayout
 {
 
-    public final bnd a = bnd.a();
-    private boolean b;
-    private final bsa c = new bsa(this);
-    private List d;
+    public final bnk a = bnk.a();
+    public List b;
+    private boolean c;
+    private final bsj d = new bsj(this);
 
     public RemoteParticipantPopupMenu(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
     }
 
-    public static List a(RemoteParticipantPopupMenu remoteparticipantpopupmenu)
-    {
-        return remoteparticipantpopupmenu.d;
-    }
-
-    public void a(bot bot, gjr gjr, bpd bpd)
+    public void a(bpc bpc, gmt gmt, bpm bpm)
     {
         removeAllViews();
-        Object obj = hgx.c(getContext(), brc);
+        Object obj = hlp.c(getContext(), brl);
         Collections.sort(((List) (obj)));
-        d = new ArrayList();
-        brc brc1;
-        for (obj = ((List) (obj)).iterator(); ((Iterator) (obj)).hasNext(); d.addAll(brc1.a(getContext(), bot, gjr, bpd)))
+        b = new ArrayList();
+        brl brl1;
+        for (obj = ((List) (obj)).iterator(); ((Iterator) (obj)).hasNext(); b.addAll(brl1.a(getContext(), bpc, gmt, bpm)))
         {
-            brc1 = (brc)((Iterator) (obj)).next();
+            brl1 = (brl)((Iterator) (obj)).next();
         }
 
-        for (bot = d.iterator(); bot.hasNext(); addView(((bov)bot.next()).a(LayoutInflater.from(getContext()), g.gi, (ViewGroup)getParent()))) { }
-        b = true;
-        a.a(c);
+        for (bpc = b.iterator(); bpc.hasNext(); addView(((bpe)bpc.next()).a(LayoutInflater.from(getContext()), g.ge, (ViewGroup)getParent()))) { }
+        c = true;
+        a.a(d);
     }
 
     public boolean a()
     {
-        return b;
+        return c;
     }
 
     public void b()
     {
-        a.b(c);
+        a.b(d);
         removeAllViews();
-        d = null;
-        b = false;
+        b = null;
+        c = false;
     }
 }

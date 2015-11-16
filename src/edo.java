@@ -2,47 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.style.ClickableSpan;
+import android.text.style.URLSpan;
+import android.view.View;
 
-final class edo
-    implements aqb
+public final class edo extends ClickableSpan
 {
 
-    final edn a;
+    final URLSpan a;
+    final Context b;
 
-    edo(edn edn1)
+    public edo(URLSpan urlspan, Context context)
     {
-        a = edn1;
+        a = urlspan;
+        b = context;
         super();
     }
 
-    public void a(ebh ebh1, eab eab, boolean flag, apw apw, boolean flag1)
+    public void onClick(View view)
     {
-        if (edn.a(a) != apw)
-        {
-            if (ebh1 != null)
-            {
-                ebh1.b();
-            }
-        } else
-        {
-            edn.b(a);
-            if (flag)
-            {
-                if (eab != null)
-                {
-                    a.b(new eei(eab));
-                    return;
-                } else
-                {
-                    gbh.b(ebh1);
-                    gbh.b(ebh1.e());
-                    gbh.a(edn.c(a));
-                    edn.a(a, ebh1);
-                    a.a(edn.c(a).e());
-                    a.d(0);
-                    return;
-                }
-            }
-        }
+        view = new Intent("android.intent.action.VIEW");
+        view.setData(Uri.parse(a.getURL()));
+        b.startActivity(view);
     }
 }

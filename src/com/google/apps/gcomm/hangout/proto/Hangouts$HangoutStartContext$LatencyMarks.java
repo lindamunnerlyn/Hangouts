@@ -4,13 +4,13 @@
 
 package com.google.apps.gcomm.hangout.proto;
 
-import kog;
-import koh;
-import koj;
-import kon;
-import kop;
+import kwj;
+import kwk;
+import kwm;
+import kwq;
+import kws;
 
-public final class clear extends koj
+public final class clear extends kwm
 {
 
     private static volatile serverCreateRedirectEnd _emptyArray[];
@@ -23,7 +23,7 @@ public final class clear extends koj
     {
         if (_emptyArray == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
                 if (_emptyArray == null)
                 {
@@ -38,14 +38,14 @@ public final class clear extends koj
         throw exception;
     }
 
-    public static _emptyArray parseFrom(kog kog1)
+    public static _emptyArray parseFrom(kwj kwj1)
     {
-        return (new <init>()).mergeFrom(kog1);
+        return (new <init>()).mergeFrom(kwj1);
     }
 
     public static mergeFrom parseFrom(byte abyte0[])
     {
-        return (mergeFrom)kop.mergeFrom(new <init>(), abyte0);
+        return (mergeFrom)kws.mergeFrom(new <init>(), abyte0);
     }
 
     public <init> clear()
@@ -65,35 +65,35 @@ public final class clear extends koj
         int i = j;
         if (clientLaunch != null)
         {
-            i = j + koh.e(1, clientLaunch.longValue());
+            i = j + kwk.e(1, clientLaunch.longValue());
         }
         j = i;
         if (serverCreateRoomStart != null)
         {
-            j = i + koh.e(2, serverCreateRoomStart.longValue());
+            j = i + kwk.e(2, serverCreateRoomStart.longValue());
         }
         i = j;
         if (serverCreateRoomEnd != null)
         {
-            i = j + koh.e(3, serverCreateRoomEnd.longValue());
+            i = j + kwk.e(3, serverCreateRoomEnd.longValue());
         }
         j = i;
         if (serverCreateRedirectEnd != null)
         {
-            j = i + koh.e(4, serverCreateRedirectEnd.longValue());
+            j = i + kwk.e(4, serverCreateRedirectEnd.longValue());
         }
         return j;
     }
 
-    public serverCreateRedirectEnd mergeFrom(kog kog1)
+    public serverCreateRedirectEnd mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -103,48 +103,48 @@ public final class clear extends koj
                 return this;
 
             case 8: // '\b'
-                clientLaunch = Long.valueOf(kog1.e());
+                clientLaunch = Long.valueOf(kwj1.e());
                 break;
 
             case 16: // '\020'
-                serverCreateRoomStart = Long.valueOf(kog1.e());
+                serverCreateRoomStart = Long.valueOf(kwj1.e());
                 break;
 
             case 24: // '\030'
-                serverCreateRoomEnd = Long.valueOf(kog1.e());
+                serverCreateRoomEnd = Long.valueOf(kwj1.e());
                 break;
 
             case 32: // ' '
-                serverCreateRedirectEnd = Long.valueOf(kog1.e());
+                serverCreateRedirectEnd = Long.valueOf(kwj1.e());
                 break;
             }
         } while (true);
     }
 
-    public volatile kop mergeFrom(kog kog1)
+    public volatile kws mergeFrom(kwj kwj1)
     {
-        return mergeFrom(kog1);
+        return mergeFrom(kwj1);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (clientLaunch != null)
         {
-            koh1.b(1, clientLaunch.longValue());
+            kwk1.b(1, clientLaunch.longValue());
         }
         if (serverCreateRoomStart != null)
         {
-            koh1.b(2, serverCreateRoomStart.longValue());
+            kwk1.b(2, serverCreateRoomStart.longValue());
         }
         if (serverCreateRoomEnd != null)
         {
-            koh1.b(3, serverCreateRoomEnd.longValue());
+            kwk1.b(3, serverCreateRoomEnd.longValue());
         }
         if (serverCreateRedirectEnd != null)
         {
-            koh1.b(4, serverCreateRedirectEnd.longValue());
+            kwk1.b(4, serverCreateRedirectEnd.longValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 
     public ()

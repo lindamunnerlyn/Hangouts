@@ -19,7 +19,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import g;
-import gmj;
+import gqp;
 import java.lang.reflect.Constructor;
 
 public class FloatingActionButton extends ImageView
@@ -42,13 +42,13 @@ public class FloatingActionButton extends ImageView
     public FloatingActionButton(Context context, AttributeSet attributeset, int i)
     {
         super(context, attributeset, i);
-        context = context.obtainStyledAttributes(attributeset, gmj.E, i, g.rR);
-        i = context.getColor(gmj.G, 0);
-        int j = context.getColor(gmj.H, 0);
-        int k = context.getInt(gmj.I, 0);
+        context = context.obtainStyledAttributes(attributeset, gqp.E, i, g.ss);
+        i = context.getColor(gqp.G, 0);
+        int j = context.getColor(gqp.H, 0);
+        int k = context.getInt(gqp.I, 0);
         if (android.os.Build.VERSION.SDK_INT >= 21)
         {
-            setElevation(context.getDimension(gmj.F, 0.0F));
+            setElevation(context.getDimension(gqp.F, 0.0F));
         }
         a(i, j);
         a(k);
@@ -99,16 +99,16 @@ public class FloatingActionButton extends ImageView
     //                   1 63;
            goto _L1 _L2
 _L1:
-        a = resources.getDimensionPixelSize(g.rN);
-        i = resources.getDimensionPixelSize(g.rP);
+        a = resources.getDimensionPixelSize(g.so);
+        i = resources.getDimensionPixelSize(g.sq);
 _L4:
         setScaleType(android.widget.ImageView.ScaleType.CENTER_INSIDE);
         setPadding(i, i, i, i);
         requestLayout();
         return;
 _L2:
-        a = resources.getDimensionPixelSize(g.rO);
-        i = resources.getDimensionPixelSize(g.rQ);
+        a = resources.getDimensionPixelSize(g.sp);
+        i = resources.getDimensionPixelSize(g.sr);
         if (true) goto _L4; else goto _L3
 _L3:
     }

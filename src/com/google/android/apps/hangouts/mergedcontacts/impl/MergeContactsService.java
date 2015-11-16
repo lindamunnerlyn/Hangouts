@@ -13,153 +13,345 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.ConditionVariable;
 import android.text.TextUtils;
-import ani;
-import apa;
-import apc;
-import apd;
-import apj;
-import bwf;
-import bzx;
-import cae;
-import caf;
-import cag;
-import cah;
-import ceu;
-import cey;
-import chz;
+import aoa;
+import aps;
+import apu;
+import apv;
+import aqb;
+import cba;
+import cbi;
+import cbj;
+import cbk;
+import cbl;
+import cbn;
+import cfz;
+import cgd;
+import cjf;
 import com.google.android.apps.hangouts.content.EsProvider;
-import csl;
-import cwi;
-import dac;
-import dbf;
-import dbq;
-import den;
-import deo;
-import ebj;
-import ebr;
-import ebw;
-import ebx;
-import ebz;
+import cuo;
+import cym;
+import dbi;
+import dcn;
+import dcz;
+import dfw;
+import dfx;
+import eeh;
+import eev;
+import eew;
+import eey;
 import g;
-import gam;
-import gms;
-import gmw;
+import gcz;
+import gda;
+import gdd;
+import gqz;
+import grd;
 import gz;
-import hgx;
+import hlp;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import jrw;
+import jso;
+import jsq;
+import jwl;
+import jwn;
+import jwr;
+import jws;
 
 public class MergeContactsService extends IntentService
 {
 
-    static final Map a = new cae();
-    static final String b[] = {
-        "name", "gaia_id", "profile_photo_url"
-    };
-    private static final String c[] = {
+    static final String a[] = {
         "lookup", "contact_id", "display_name", "raw_contact_id", "photo_uri", "mimetype", "data1", "data2", "data3", "data4"
     };
-    private static final long d;
+    static final jso b = (new jsq()).a("data1", Integer.valueOf(6)).a("data2", Integer.valueOf(7)).a("data3", Integer.valueOf(8)).a("data4", Integer.valueOf(9)).a();
+    static final String c[] = {
+        "name", "gaia_id", "profile_photo_url"
+    };
+    private static final String d = String.format(" contact_id in default_directory AND %s IN ('%s','%s','%s') AND %s is null", new Object[] {
+        "mimetype", "vnd.android.cursor.item/phone_v2", "vnd.android.cursor.item/email_v2", "vnd.android.cursor.item/photo", "data_set"
+    });
     private static final long e;
-    private int f;
+    private static final long f;
     private int g;
     private int h;
     private int i;
     private int j;
+    private int k;
 
     public MergeContactsService()
     {
         super("MergeContactsService");
     }
 
-    private String a(Cursor cursor, String s)
+    private List a(Collection collection, int l)
     {
-        int k = cursor.getInt(g.a((Integer)a.get("data2"), 0));
-        if (k == 0)
+        Object obj1;
+        ArrayList arraylist;
+        obj1 = new jrw();
+        for (collection = collection.iterator(); collection.hasNext();)
         {
-            return cursor.getString(g.a((Integer)a.get("data3"), 0));
+            cbi cbi1 = (cbi)collection.next();
+            Iterator iterator = cbi1.h.values().iterator();
+            do
+            {
+                if (!iterator.hasNext())
+                {
+                    break;
+                }
+                cbj cbj1 = (cbj)iterator.next();
+                if (!TextUtils.isEmpty(cbj1.g))
+                {
+                    ((jwl) (obj1)).a(cbj1.g, cbi1);
+                }
+            } while (true);
+            iterator = cbi1.i.values().iterator();
+            while (iterator.hasNext()) 
+            {
+                cbj cbj2 = (cbj)iterator.next();
+                if (!TextUtils.isEmpty(cbj2.g))
+                {
+                    ((jwl) (obj1)).a(cbj2.g, cbi1);
+                }
+            }
         }
-        if (s.equals("vnd.android.cursor.item/phone_v2"))
+
+        arraylist = new ArrayList();
+        collection = EsProvider.b(EsProvider.a(EsProvider.i, l), 1);
+        collection = getContentResolver().query(collection, c, "name != '' AND chat_id != ?", new String[] {
+            dcn.e(l).b().b
+        }, null);
+        break MISSING_BLOCK_LABEL_220;
+        obj1;
+        Object obj;
+        obj = collection;
+        collection = ((Collection) (obj1));
+_L6:
+        if (obj != null)
         {
-            return (String)android.provider.ContactsContract.CommonDataKinds.Phone.getTypeLabel(getApplicationContext().getResources(), k, null);
+            ((Cursor) (obj)).close();
         }
-        if (s.equals("vnd.android.cursor.item/email_v2"))
+        throw collection;
+        do
         {
-            return (String)android.provider.ContactsContract.CommonDataKinds.Email.getTypeLabel(getApplicationContext().getResources(), k, null);
-        } else
+            if (!collection.moveToNext())
+            {
+                break;
+            }
+            String s = collection.getString(1);
+            if (!((jwl) (obj1)).c(s))
+            {
+                String s1 = collection.getString(0);
+                String s2 = collection.getString(2);
+                cbi cbi2 = new cbi();
+                cbi2.f = s2;
+                cbi2.e = s1;
+                cbi2.a = s;
+                arraylist.add(cbi2);
+                ((jwl) (obj1)).a(cbi2.a, cbi2);
+            }
+        } while (true);
+        if (collection != null)
         {
-            return "";
+            collection.close();
         }
+        obj = EsProvider.b(EsProvider.a(EsProvider.i, l), 0);
+        obj = getContentResolver().query(((Uri) (obj)), c, "name != '' AND chat_id != ?", new String[] {
+            dcn.e(l).b().b
+        }, null);
+_L4:
+        collection = ((Collection) (obj));
+        if (!((Cursor) (obj)).moveToNext())
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        collection = ((Collection) (obj));
+        Object obj2 = ((Cursor) (obj)).getString(1);
+        collection = ((Collection) (obj));
+        if (!((jwl) (obj1)).c(obj2))
+        {
+            break MISSING_BLOCK_LABEL_494;
+        }
+        collection = ((Collection) (obj));
+        obj2 = ((jwl) (obj1)).b(obj2).iterator();
+_L2:
+        collection = ((Collection) (obj));
+        if (!((Iterator) (obj2)).hasNext())
+        {
+            continue; /* Loop/switch isn't completed */
+        }
+        collection = ((Collection) (obj));
+        ((cbi)((Iterator) (obj2)).next()).g = true;
+        if (true) goto _L2; else goto _L1
+_L1:
+        obj;
+        if (collection != null)
+        {
+            collection.close();
+        }
+        throw obj;
+        collection = ((Collection) (obj));
+        String s3 = ((Cursor) (obj)).getString(0);
+        collection = ((Collection) (obj));
+        String s4 = ((Cursor) (obj)).getString(2);
+        collection = ((Collection) (obj));
+        cbi cbi3 = new cbi();
+        collection = ((Collection) (obj));
+        cbi3.f = s4;
+        collection = ((Collection) (obj));
+        cbi3.e = s3;
+        collection = ((Collection) (obj));
+        cbi3.a = ((String) (obj2));
+        collection = ((Collection) (obj));
+        cbi3.g = true;
+        collection = ((Collection) (obj));
+        arraylist.add(cbi3);
+        collection = ((Collection) (obj));
+        ((jwl) (obj1)).a(cbi3.a, cbi3);
+        if (true) goto _L4; else goto _L3
+_L3:
+        if (obj != null)
+        {
+            ((Cursor) (obj)).close();
+        }
+        return arraylist;
+        collection;
+        obj = null;
+        if (true) goto _L6; else goto _L5
+_L5:
     }
 
-    private void a(apd apd1, Collection collection)
+    private static List a(jwl jwl1)
+    {
+        ArrayList arraylist = new ArrayList();
+        long l1 = System.currentTimeMillis();
+        Iterator iterator = jwl1.k().iterator();
+        do
+        {
+            if (!iterator.hasNext())
+            {
+                break;
+            }
+            String s3 = (String)iterator.next();
+            Object obj = jwl1.b(s3);
+            Iterator iterator1 = ((Collection) (obj)).iterator();
+            boolean flag = false;
+            String s2 = null;
+            long l = 0L;
+            String s = null;
+            String s1 = null;
+            while (iterator1.hasNext()) 
+            {
+                cbj cbj2 = (cbj)iterator1.next();
+                if (cbj2.f)
+                {
+                    flag = true;
+                }
+                if (!TextUtils.isEmpty(cbj2.g))
+                {
+                    s2 = cbj2.g;
+                }
+                if (!TextUtils.isEmpty(cbj2.h))
+                {
+                    s1 = cbj2.h;
+                }
+                if (!TextUtils.isEmpty(cbj2.i))
+                {
+                    s = cbj2.i;
+                }
+                l = Math.max(l, cbj2.j);
+            }
+            boolean flag1 = TextUtils.isEmpty(s2);
+            if (((Collection) (obj)).size() > 1)
+            {
+                for (obj = ((Collection) (obj)).iterator(); ((Iterator) (obj)).hasNext();)
+                {
+                    cbj cbj1 = (cbj)((Iterator) (obj)).next();
+                    cbj1.f = flag;
+                    cbj1.g = s2;
+                    cbj1.h = s1;
+                    cbj1.i = s;
+                    cbj1.j = l;
+                    cbj1.e = flag1;
+                }
+
+            }
+            if (!flag && l1 - l > e)
+            {
+                arraylist.add(s3);
+            }
+        } while (true);
+        return arraylist;
+    }
+
+    private void a(apv apv1, Collection collection)
     {
         ContentValues contentvalues = new ContentValues();
         ContentValues contentvalues1 = new ContentValues();
-        for (collection = collection.iterator(); collection.hasNext(); apd1.d())
+        for (collection = collection.iterator(); collection.hasNext(); apv1.d())
         {
-            caf caf1 = (caf)collection.next();
+            cbi cbi1 = (cbi)collection.next();
             contentvalues.clear();
-            contentvalues.put("contact_lookup_key", caf1.b);
-            contentvalues.put("contact_id", caf1.c);
-            contentvalues.put("raw_contact_id", caf1.d);
-            contentvalues.put("display_name", ebz.p(caf1.e));
-            contentvalues.put("avatar_url", caf1.f);
-            contentvalues.put("is_frequent", Boolean.valueOf(caf1.g));
-            long l = apd1.a("merged_contacts", contentvalues);
-            f = f + 1;
-            Iterator iterator = caf1.h.values().iterator();
-            cag cag1;
+            contentvalues.put("contact_lookup_key", cbi1.b);
+            contentvalues.put("contact_id", cbi1.c);
+            contentvalues.put("raw_contact_id", cbi1.d);
+            contentvalues.put("display_name", eey.p(cbi1.e));
+            contentvalues.put("avatar_url", cbi1.f);
+            contentvalues.put("is_frequent", Boolean.valueOf(cbi1.g));
+            long l = apv1.a("merged_contacts", contentvalues);
+            g = g + 1;
+            Iterator iterator = cbi1.h.values().iterator();
+            cbn cbn1;
             boolean flag;
-            for (flag = false; iterator.hasNext(); flag = cag1.f | flag)
+            for (flag = false; iterator.hasNext(); flag = cbn1.f | flag)
             {
-                cag1 = (cag)iterator.next();
+                cbn1 = (cbn)iterator.next();
                 contentvalues1.clear();
-                contentvalues1.put("merged_contact_id", Long.valueOf(l));
                 contentvalues1.put("lookup_data_type", Integer.valueOf(0));
-                contentvalues1.put("lookup_data", cag1.a);
-                contentvalues1.put("lookup_data_display", ebz.p(cag1.a));
-                contentvalues1.put("lookup_data_standardized", cag1.b);
-                contentvalues1.put("lookup_data_search", cag1.c);
-                contentvalues1.put("lookup_data_label", cag1.d);
-                contentvalues1.put("is_hangouts_user", Boolean.valueOf(cag1.f));
-                contentvalues1.put("gaia_id", cag1.g);
-                contentvalues1.put("needs_gaia_ids_resolved", Boolean.valueOf(cag1.e));
-                contentvalues1.put("avatar_url", cag1.h);
-                contentvalues1.put("display_name", cag1.i);
-                contentvalues1.put("last_checked_ts", Long.valueOf(cag1.j));
-                apd1.a("merged_contact_details", contentvalues1);
-                g = g + 1;
+                contentvalues1.put("lookup_data", cbn1.a);
+                contentvalues1.put("lookup_data_display", eey.p(cbn1.a));
+                contentvalues1.put("lookup_data_standardized", cbn1.b);
+                contentvalues1.put("lookup_data_search", cbn1.c);
+                contentvalues1.put("lookup_data_label", cbn1.d);
+                contentvalues1.put("is_hangouts_user", Boolean.valueOf(cbn1.f));
+                contentvalues1.put("gaia_id", cbn1.g);
+                contentvalues1.put("needs_gaia_ids_resolved", Boolean.valueOf(cbn1.e));
+                contentvalues1.put("avatar_url", cbn1.h);
+                contentvalues1.put("display_name", cbn1.i);
+                contentvalues1.put("last_checked_ts", Long.valueOf(cbn1.j));
+                contentvalues1.put("merged_contact_id", Long.valueOf(l));
+                apv1.a("merged_contact_details", contentvalues1);
+                h = h + 1;
             }
 
-            for (Iterator iterator1 = caf1.i.values().iterator(); iterator1.hasNext();)
+            for (Iterator iterator1 = cbi1.i.values().iterator(); iterator1.hasNext();)
             {
-                cag cag2 = (cag)iterator1.next();
+                cbk cbk1 = (cbk)iterator1.next();
                 contentvalues1.clear();
-                contentvalues1.put("merged_contact_id", Long.valueOf(l));
                 contentvalues1.put("lookup_data_type", Integer.valueOf(1));
-                contentvalues1.put("lookup_data", cag2.a);
+                contentvalues1.put("lookup_data", cbk1.a);
                 contentvalues1.putNull("lookup_data_display");
                 contentvalues1.putNull("lookup_data_standardized");
                 contentvalues1.putNull("lookup_data_search");
-                contentvalues1.put("lookup_data_label", cag2.d);
-                contentvalues1.put("is_hangouts_user", Boolean.valueOf(cag2.f));
-                contentvalues1.put("gaia_id", cag2.g);
-                contentvalues1.put("needs_gaia_ids_resolved", Boolean.valueOf(cag2.e));
-                contentvalues1.put("avatar_url", cag2.h);
-                contentvalues1.put("display_name", cag2.i);
-                contentvalues1.put("last_checked_ts", Long.valueOf(cag2.j));
-                apd1.a("merged_contact_details", contentvalues1);
-                h = h + 1;
-                flag |= cag2.f;
+                contentvalues1.put("lookup_data_label", cbk1.d);
+                contentvalues1.put("is_hangouts_user", Boolean.valueOf(cbk1.f));
+                contentvalues1.put("gaia_id", cbk1.g);
+                contentvalues1.put("needs_gaia_ids_resolved", Boolean.valueOf(cbk1.e));
+                contentvalues1.put("avatar_url", cbk1.h);
+                contentvalues1.put("display_name", cbk1.i);
+                contentvalues1.put("last_checked_ts", Long.valueOf(cbk1.j));
+                contentvalues1.put("merged_contact_id", Long.valueOf(l));
+                apv1.a("merged_contact_details", contentvalues1);
+                i = i + 1;
+                flag |= cbk1.f;
             }
 
-            if (!TextUtils.isEmpty(caf1.a))
+            if (!TextUtils.isEmpty(cbi1.a))
             {
                 contentvalues1.clear();
                 contentvalues1.put("merged_contact_id", Long.valueOf(l));
@@ -170,561 +362,170 @@ public class MergeContactsService extends IntentService
                 contentvalues1.putNull("lookup_data_label");
                 contentvalues1.put("is_hangouts_user", Boolean.valueOf(true));
                 contentvalues1.put("needs_gaia_ids_resolved", Boolean.valueOf(false));
-                contentvalues1.put("gaia_id", caf1.a);
+                contentvalues1.put("gaia_id", cbi1.a);
                 contentvalues1.putNull("avatar_url");
                 contentvalues1.putNull("display_name");
                 contentvalues1.put("last_checked_ts", Integer.valueOf(0));
-                apd1.a("merged_contact_details", contentvalues1);
-                i = i + 1;
+                apv1.a("merged_contact_details", contentvalues1);
+                j = j + 1;
                 flag = true;
             }
             if (flag)
             {
-                j = j + 1;
+                k = k + 1;
             }
         }
 
     }
 
-    private void a(Map map, int k)
+    private void a(jwl jwl1, int l)
     {
-        Object obj = new ArrayList();
-        long l = System.currentTimeMillis();
-        a(map, ((List) (obj)));
+        Object obj = a(jwl1);
+        long l1 = System.currentTimeMillis();
         if (!((List) (obj)).isEmpty())
         {
-            boolean flag;
-            if (dbq.y(k))
+            if (dcz.A(l))
             {
-                flag = a(map, ((List) (obj)), k);
+                Object obj1 = cuo.a(l, 2, null, ((Collection) (obj)));
+                if (((cuo) (obj1)).m())
+                {
+                    l = 0;
+                } else
+                {
+                    for (obj1 = ((dfw)((cuo) (obj1)).e()).g.entrySet().iterator(); ((Iterator) (obj1)).hasNext();)
+                    {
+                        Object obj3 = (java.util.Map.Entry)((Iterator) (obj1)).next();
+                        Object obj4 = jwl1.b(((java.util.Map.Entry) (obj3)).getKey());
+                        obj3 = (dfx)((java.util.Map.Entry) (obj3)).getValue();
+                        obj4 = ((Collection) (obj4)).iterator();
+                        while (((Iterator) (obj4)).hasNext()) 
+                        {
+                            cbj cbj1 = (cbj)((Iterator) (obj4)).next();
+                            cbj1.h = ((dfx) (obj3)).c;
+                            cbj1.g = ((dfx) (obj3)).b;
+                            cbj1.i = ((dfx) (obj3)).d;
+                            cbj1.f = ((dfx) (obj3)).a;
+                            cbj1.e = TextUtils.isEmpty(((dfx) (obj3)).b);
+                        }
+                    }
+
+                    l = 1;
+                }
             } else
             {
-                flag = b(map, ((List) (obj)), k);
+                Object obj2 = new ConditionVariable();
+                cbl cbl1 = new cbl(this, ((ConditionVariable) (obj2)));
+                cbl1.a(((Collection) (obj)), l);
+                ((ConditionVariable) (obj2)).block();
+                obj2 = cbl1.a;
+                if (obj2 == null)
+                {
+                    l = 0;
+                } else
+                {
+                    for (obj2 = ((cym) (obj2)).k().iterator(); ((Iterator) (obj2)).hasNext();)
+                    {
+                        eeh eeh1 = (eeh)((Iterator) (obj2)).next();
+                        cfz acfz[] = (cfz[])eeh1.b;
+                        int i1 = acfz.length;
+                        l = 0;
+                        while (l < i1) 
+                        {
+                            cfz cfz1 = acfz[l];
+                            if (cfz1 != null)
+                            {
+                                for (Iterator iterator = jwl1.b(((dbi)eeh1.a).c).iterator(); iterator.hasNext();)
+                                {
+                                    cbj cbj2 = (cbj)iterator.next();
+                                    cbj2.h = cfz1.h;
+                                    cbj2.g = cfz1.b();
+                                    cbj2.i = cfz1.e;
+                                    cbj2.f = cfz1.z;
+                                    cbj2.e = TextUtils.isEmpty(cfz1.b());
+                                }
+
+                            }
+                            l++;
+                        }
+                    }
+
+                    l = 1;
+                }
             }
-            if (flag)
+            if (l != 0)
             {
                 for (obj = ((List) (obj)).iterator(); ((Iterator) (obj)).hasNext();)
                 {
-                    Iterator iterator = ((List)map.get((String)((Iterator) (obj)).next())).iterator();
-                    while (iterator.hasNext()) 
-                    {
-                        ((cag)iterator.next()).j = l;
-                    }
-                }
-
-            }
-        }
-    }
-
-    private static void a(Map map, List list)
-    {
-        long l1 = System.currentTimeMillis();
-        Iterator iterator = map.entrySet().iterator();
-        do
-        {
-            if (!iterator.hasNext())
-            {
-                break;
-            }
-            java.util.Map.Entry entry = (java.util.Map.Entry)iterator.next();
-            boolean flag = false;
-            String s1 = null;
-            Iterator iterator1 = ((List)entry.getValue()).iterator();
-            map = null;
-            String s = null;
-            cag cag1;
-            long l;
-            for (l = 0L; iterator1.hasNext(); l = Math.max(l, cag1.j))
-            {
-                cag1 = (cag)iterator1.next();
-                if (cag1.f)
-                {
-                    flag = true;
-                }
-                if (!TextUtils.isEmpty(cag1.g))
-                {
-                    s1 = cag1.g;
-                }
-                if (!TextUtils.isEmpty(cag1.h))
-                {
-                    s = cag1.h;
-                }
-                if (!TextUtils.isEmpty(cag1.i))
-                {
-                    map = cag1.i;
-                }
-            }
-
-            boolean flag1 = TextUtils.isEmpty(s1);
-            if (((List)entry.getValue()).size() > 1)
-            {
-                for (Iterator iterator2 = ((List)entry.getValue()).iterator(); iterator2.hasNext();)
-                {
-                    cag cag2 = (cag)iterator2.next();
-                    cag2.f = flag;
-                    cag2.g = s1;
-                    cag2.h = s;
-                    cag2.i = map;
-                    cag2.j = l;
-                    cag2.e = flag1;
-                }
-
-            }
-            if (!flag && l1 - l > d)
-            {
-                list.add(entry.getKey());
-            }
-        } while (true);
-    }
-
-    private void a(Map map, Map map1, Map map2)
-    {
-        Cursor cursor = getContentResolver().query(android.provider.ContactsContract.Data.CONTENT_URI, c, " contact_id in default_directory AND mimetype IN ('vnd.android.cursor.item/phone_v2','vnd.android.cursor.item/email_v2','vnd.android.cursor.item/photo') AND data_set is null", null, null);
-        if (cursor != null) goto _L2; else goto _L1
-_L1:
-        if (cursor != null)
-        {
-            cursor.close();
-        }
-_L11:
-        return;
-_L2:
-        if (!cursor.moveToNext()) goto _L4; else goto _L3
-_L3:
-        Object obj;
-        Object obj1;
-        obj = cursor.getString(0);
-        obj1 = (caf)map2.get(obj);
-        if (obj1 != null)
-        {
-            break MISSING_BLOCK_LABEL_149;
-        }
-        obj1 = new caf(this);
-        obj1.b = ((String) (obj));
-        map2.put(obj, obj1);
-        obj1.c = Long.valueOf(cursor.getLong(1));
-        obj1.d = Long.valueOf(cursor.getLong(3));
-        obj1.e = cursor.getString(2);
-        Object obj3 = cursor.getString(5);
-        if (!"vnd.android.cursor.item/photo".equals(obj3)) goto _L6; else goto _L5
-_L5:
-        obj1.f = cursor.getString(4);
-          goto _L2
-        map;
-_L12:
-        if (cursor != null)
-        {
-            cursor.close();
-        }
-        throw map;
-_L6:
-        Object obj2;
-        if (!"vnd.android.cursor.item/phone_v2".equals(obj3))
-        {
-            break MISSING_BLOCK_LABEL_467;
-        }
-        obj2 = cursor.getString(g.a((Integer)a.get("data1"), 0));
-        if (android.os.Build.VERSION.SDK_INT < 16)
-        {
-            break MISSING_BLOCK_LABEL_435;
-        }
-        obj = cursor.getString(g.a((Integer)a.get("data4"), 0));
-_L8:
-        String s = a(cursor, ((String) (obj3)));
-        String s1 = ebz.h(((String) (obj2)));
-        obj3 = new cag(this);
-        obj3.a = ((String) (obj2));
-        obj3.b = ((String) (obj));
-        obj3.c = s1;
-        obj3.d = s;
-        Object obj4;
-        boolean flag;
-        if (!TextUtils.isEmpty(((CharSequence) (obj))))
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        obj3.e = flag;
-        obj4 = ((caf) (obj1)).h;
-        if (obj != null)
-        {
-            obj1 = obj;
-        } else
-        {
-            obj1 = obj2;
-        }
-        ((Map) (obj4)).put(obj1, obj3);
-        if (TextUtils.isEmpty(((CharSequence) (obj)))) goto _L2; else goto _L7
-_L7:
-        obj2 = (List)map1.get(obj);
-        obj1 = obj2;
-        if (obj2 != null)
-        {
-            break MISSING_BLOCK_LABEL_422;
-        }
-        obj1 = new ArrayList();
-        map1.put(obj, obj1);
-        ((List) (obj1)).add(obj3);
-          goto _L2
-        obj = ebz.k(cursor.getString(g.a((Integer)a.get("data1"), 0)));
-          goto _L8
-        if (!"vnd.android.cursor.item/email_v2".equals(obj3))
-        {
-            break MISSING_BLOCK_LABEL_613;
-        }
-        obj4 = cursor.getString(g.a((Integer)a.get("data1"), 0));
-        obj2 = (List)map.get(obj4);
-        obj = obj2;
-        if (obj2 != null)
-        {
-            break MISSING_BLOCK_LABEL_545;
-        }
-        obj = new ArrayList();
-        map.put(obj4, obj);
-        obj2 = a(cursor, ((String) (obj3)));
-        obj3 = new cag(this);
-        obj3.a = ((String) (obj4));
-        obj3.d = ((String) (obj2));
-        obj3.e = false;
-        ((List) (obj)).add(obj3);
-        ((caf) (obj1)).i.put(obj4, obj3);
-          goto _L2
-        obj = String.valueOf(obj3);
-        if (((String) (obj)).length() == 0)
-        {
-            break MISSING_BLOCK_LABEL_649;
-        }
-        obj = "unexpected mime-type: ".concat(((String) (obj)));
-_L9:
-        ebw.f("Babel_db", ((String) (obj)));
-          goto _L2
-        obj = new String("unexpected mime-type: ");
-          goto _L9
-_L4:
-        map = map2.values().iterator();
-        do
-        {
-            if (!map.hasNext())
-            {
-                break;
-            }
-            map1 = (caf)map.next();
-            if (((caf) (map1)).h.isEmpty() && ((caf) (map1)).i.isEmpty())
-            {
-                map.remove();
-            }
-        } while (true);
-        if (cursor == null) goto _L11; else goto _L10
-_L10:
-        cursor.close();
-        return;
-        map;
-        cursor = null;
-          goto _L12
-    }
-
-    private static boolean a(Map map, List list, int k)
-    {
-        list = csl.a(k, 2, null, list);
-        if (!list.m())
-        {
-            list = ((den)list.e()).g.entrySet().iterator();
-            do
-            {
-                if (!list.hasNext())
-                {
-                    break;
-                }
-                Object obj = (java.util.Map.Entry)list.next();
-                Object obj1 = (List)map.get(((java.util.Map.Entry) (obj)).getKey());
-                if (obj1 != null)
-                {
-                    obj = (deo)((java.util.Map.Entry) (obj)).getValue();
-                    obj1 = ((List) (obj1)).iterator();
+                    obj1 = jwl1.b((String)((Iterator) (obj)).next()).iterator();
                     while (((Iterator) (obj1)).hasNext()) 
                     {
-                        cag cag1 = (cag)((Iterator) (obj1)).next();
-                        cag1.h = ((deo) (obj)).c;
-                        cag1.g = ((deo) (obj)).b;
-                        cag1.i = ((deo) (obj)).d;
-                        cag1.f = ((deo) (obj)).a;
+                        ((cbj)((Iterator) (obj1)).next()).j = l1;
                     }
                 }
-            } while (true);
-            return true;
-        } else
-        {
-            return false;
+
+            }
         }
     }
 
-    private static void b(Map map, int k)
+    private static void b(jwl jwl1, int l)
     {
-        long l = System.currentTimeMillis();
-        Object obj = new ArrayList();
-        a(map, ((List) (obj)));
-        if (!((List) (obj)).isEmpty() && dbq.y(k))
+        long l1 = System.currentTimeMillis();
+        Object obj = a(jwl1);
+        if (!((List) (obj)).isEmpty() && dcz.A(l))
         {
-            Object obj1 = csl.a(k, 3, Integer.valueOf(2), ((Collection) (obj)));
-            if (!((csl) (obj1)).m())
+            Object obj1 = cuo.a(l, 3, Integer.valueOf(2), ((Collection) (obj)));
+            if (!((cuo) (obj1)).m())
             {
-                obj1 = ((den)((csl) (obj1)).e()).g.entrySet().iterator();
-                do
+                for (obj1 = ((dfw)((cuo) (obj1)).e()).g.entrySet().iterator(); ((Iterator) (obj1)).hasNext();)
                 {
-                    if (!((Iterator) (obj1)).hasNext())
-                    {
-                        break;
-                    }
                     Object obj2 = (java.util.Map.Entry)((Iterator) (obj1)).next();
-                    Object obj3 = (List)map.get(((java.util.Map.Entry) (obj2)).getKey());
-                    if (obj3 != null)
+                    Object obj3 = jwl1.b(((java.util.Map.Entry) (obj2)).getKey());
+                    obj2 = (dfx)((java.util.Map.Entry) (obj2)).getValue();
+                    obj3 = ((Collection) (obj3)).iterator();
+                    while (((Iterator) (obj3)).hasNext()) 
                     {
-                        obj2 = (deo)((java.util.Map.Entry) (obj2)).getValue();
-                        obj3 = ((List) (obj3)).iterator();
-                        while (((Iterator) (obj3)).hasNext()) 
-                        {
-                            cag cag1 = (cag)((Iterator) (obj3)).next();
-                            cag1.h = ((deo) (obj2)).c;
-                            cag1.i = ((deo) (obj2)).d;
-                            cag1.f = ((deo) (obj2)).a;
-                        }
+                        cbj cbj1 = (cbj)((Iterator) (obj3)).next();
+                        cbj1.h = ((dfx) (obj2)).c;
+                        cbj1.i = ((dfx) (obj2)).d;
+                        cbj1.f = ((dfx) (obj2)).a;
                     }
-                } while (true);
+                }
+
                 for (obj = ((List) (obj)).iterator(); ((Iterator) (obj)).hasNext();)
                 {
-                    Iterator iterator = ((List)map.get((String)((Iterator) (obj)).next())).iterator();
+                    Iterator iterator = jwl1.b((String)((Iterator) (obj)).next()).iterator();
                     while (iterator.hasNext()) 
                     {
-                        ((cag)iterator.next()).j = l;
+                        ((cbj)iterator.next()).j = l1;
                     }
                 }
 
             }
         }
-    }
-
-    private boolean b(Map map, List list, int k)
-    {
-        ConditionVariable conditionvariable = new ConditionVariable();
-        cah cah1 = new cah(this, conditionvariable);
-        cah1.a(list, k);
-        conditionvariable.block();
-        list = cah1.a;
-        if (list == null)
-        {
-            return false;
-        }
-        for (list = list.k().iterator(); list.hasNext();)
-        {
-            ebj ebj1 = (ebj)list.next();
-            ceu aceu[] = (ceu[])ebj1.b;
-            int l = aceu.length;
-            k = 0;
-            while (k < l) 
-            {
-                ceu ceu1 = aceu[k];
-                if (ceu1 != null)
-                {
-                    Object obj = (List)map.get(((dac)ebj1.a).c);
-                    if (obj != null)
-                    {
-                        for (obj = ((List) (obj)).iterator(); ((Iterator) (obj)).hasNext();)
-                        {
-                            cag cag1 = (cag)((Iterator) (obj)).next();
-                            cag1.h = ceu1.h;
-                            cag1.g = ceu1.b();
-                            cag1.i = ceu1.e;
-                            cag1.f = ceu1.z;
-                        }
-
-                    }
-                }
-                k++;
-            }
-        }
-
-        return true;
-    }
-
-    private List c(Map map, int k)
-    {
-        Object obj1;
-        ArrayList arraylist;
-        obj1 = new gz();
-        for (map = map.values().iterator(); map.hasNext();)
-        {
-            caf caf1 = (caf)map.next();
-            Iterator iterator = caf1.h.values().iterator();
-            do
-            {
-                if (!iterator.hasNext())
-                {
-                    break;
-                }
-                cag cag1 = (cag)iterator.next();
-                if (!TextUtils.isEmpty(cag1.g))
-                {
-                    if (!((Map) (obj1)).containsKey(cag1.g))
-                    {
-                        ((Map) (obj1)).put(cag1.g, new ArrayList());
-                    }
-                    ((List)((Map) (obj1)).get(cag1.g)).add(caf1);
-                }
-            } while (true);
-            iterator = caf1.i.values().iterator();
-            while (iterator.hasNext()) 
-            {
-                cag cag2 = (cag)iterator.next();
-                if (!TextUtils.isEmpty(cag2.g))
-                {
-                    if (!((Map) (obj1)).containsKey(cag2.g))
-                    {
-                        ((Map) (obj1)).put(cag2.g, new ArrayList());
-                    }
-                    ((List)((Map) (obj1)).get(cag2.g)).add(caf1);
-                }
-            }
-        }
-
-        arraylist = new ArrayList();
-        map = EsProvider.b(EsProvider.a(EsProvider.i, k), 1);
-        map = getContentResolver().query(map, b, "name != '' AND chat_id != ?", new String[] {
-            dbf.e(k).b().b
-        }, null);
-        break MISSING_BLOCK_LABEL_312;
-        obj1;
-        Object obj;
-        obj = map;
-        map = ((Map) (obj1));
-_L6:
-        if (obj != null)
-        {
-            ((Cursor) (obj)).close();
-        }
-        throw map;
-        do
-        {
-            if (!map.moveToNext())
-            {
-                break;
-            }
-            String s = map.getString(1);
-            if (!((Map) (obj1)).containsKey(s))
-            {
-                String s1 = map.getString(0);
-                String s2 = map.getString(2);
-                caf caf2 = new caf(this);
-                caf2.f = s2;
-                caf2.e = s1;
-                caf2.a = s;
-                arraylist.add(caf2);
-                ((Map) (obj1)).put(caf2.a, new ArrayList());
-                ((List)((Map) (obj1)).get(caf2.a)).add(caf2);
-            }
-        } while (true);
-        if (map != null)
-        {
-            map.close();
-        }
-        obj = EsProvider.b(EsProvider.a(EsProvider.i, k), 0);
-        obj = getContentResolver().query(((Uri) (obj)), b, "name != '' AND chat_id != ?", new String[] {
-            dbf.e(k).b().b
-        }, null);
-_L4:
-        map = ((Map) (obj));
-        if (!((Cursor) (obj)).moveToNext())
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        map = ((Map) (obj));
-        Object obj2 = ((Cursor) (obj)).getString(1);
-        map = ((Map) (obj));
-        if (!((Map) (obj1)).containsKey(obj2))
-        {
-            break MISSING_BLOCK_LABEL_619;
-        }
-        map = ((Map) (obj));
-        obj2 = ((List)((Map) (obj1)).get(obj2)).iterator();
-_L2:
-        map = ((Map) (obj));
-        if (!((Iterator) (obj2)).hasNext())
-        {
-            continue; /* Loop/switch isn't completed */
-        }
-        map = ((Map) (obj));
-        ((caf)((Iterator) (obj2)).next()).g = true;
-        if (true) goto _L2; else goto _L1
-_L1:
-        obj;
-        if (map != null)
-        {
-            map.close();
-        }
-        throw obj;
-        map = ((Map) (obj));
-        String s3 = ((Cursor) (obj)).getString(0);
-        map = ((Map) (obj));
-        String s4 = ((Cursor) (obj)).getString(2);
-        map = ((Map) (obj));
-        caf caf3 = new caf(this);
-        map = ((Map) (obj));
-        caf3.f = s4;
-        map = ((Map) (obj));
-        caf3.e = s3;
-        map = ((Map) (obj));
-        caf3.a = ((String) (obj2));
-        map = ((Map) (obj));
-        caf3.g = true;
-        map = ((Map) (obj));
-        arraylist.add(caf3);
-        map = ((Map) (obj));
-        ((Map) (obj1)).put(caf3.a, new ArrayList());
-        map = ((Map) (obj));
-        ((List)((Map) (obj1)).get(caf3.a)).add(caf3);
-        if (true) goto _L4; else goto _L3
-_L3:
-        if (obj != null)
-        {
-            ((Cursor) (obj)).close();
-        }
-        return arraylist;
-        map;
-        obj = null;
-        if (true) goto _L6; else goto _L5
-_L5:
     }
 
     protected void onHandleIntent(Intent intent)
     {
-        Object obj3;
-        int l;
-        obj3 = null;
-        l = intent.getIntExtra("account_id", -1);
-        if (l != -1) goto _L2; else goto _L1
+        int i1 = intent.getIntExtra("account_id", -1);
+        if (i1 != -1) goto _L2; else goto _L1
 _L1:
-        ebw.f("Babel_db", "Invalid account id passed to MergeContactsService");
+        eev.f("Babel_db", "Invalid account id passed to MergeContactsService");
 _L4:
         return;
 _L2:
         Object obj;
-        Object obj1;
-        gz gz1;
-        gz gz2;
-        String s;
-        gmw gmw1;
-        ebx ebx1;
-        int k;
+        grd grd1;
+        eew eew1;
+        jwl jwl1;
+        jwl jwl2;
+        int l;
         boolean flag;
-        obj = (chz)hgx.a(getApplicationContext(), chz);
-        Object obj2;
-        String s1;
-        List list;
-        long l1;
-        long l3;
+        obj = (cjf)hlp.a(getApplicationContext(), cjf);
+        Exception exception;
+        long l2;
+        long l4;
         boolean flag1;
-        if (((chz) (obj)).a("android.permission.READ_CONTACTS") || ((chz) (obj)).a("android.permission.WRITE_CONTACTS"))
+        if (((cjf) (obj)).a("android.permission.READ_CONTACTS") || ((cjf) (obj)).a("android.permission.WRITE_CONTACTS"))
         {
             flag = true;
         } else
@@ -732,181 +533,335 @@ _L2:
             flag = false;
         }
         flag1 = intent.getBooleanExtra("force_merge", false);
-        gmw1 = ((gms)hgx.a(getApplicationContext(), gms)).b(l);
-        l1 = System.currentTimeMillis();
-        l3 = gmw1.a("last_merged_ts", 0L);
-        if (flag == gmw1.d("last_merged_read_local_contacts") && l1 - l3 < e && !flag1) goto _L4; else goto _L3
+        grd1 = ((gqz)hlp.a(getApplicationContext(), gqz)).b(i1);
+        l2 = System.currentTimeMillis();
+        l4 = grd1.a("last_merged_ts", 0L);
+        if (flag == grd1.d("last_merged_read_local_contacts") && l2 - l4 < f && !flag1) goto _L4; else goto _L3
 _L3:
         try
         {
-            gz1 = new gz();
-            gz2 = new gz();
-            ebx1 = new ebx("MergeContactsService");
+            g.c(8, "expectedKeys");
+            jwl1 = (new jwn(8)).d().a();
+            g.c(8, "expectedKeys");
+            jwl2 = (new jwn(8)).d().a();
+            eew1 = new eew("MergeContactsService");
         }
         // Misplaced declaration of an exception variable
         catch (Intent intent)
         {
-            ebw.d("Babel", "Account was logged out while MergeContactsService was running", intent);
+            eev.d("Babel", "Account was logged out while MergeContactsService was running", intent);
             return;
         }
-        intent = bzx.d.buildUpon();
-        intent.appendQueryParameter("account_id", Integer.toString(l));
-        intent = getContentResolver().query(intent.build(), bzx.g, null, null, null);
-_L8:
+        intent = cba.d.buildUpon();
+        intent.appendQueryParameter("account_id", Integer.toString(i1));
+        intent = getContentResolver().query(intent.build(), cba.g, null, null, null);
+_L9:
         if (!intent.moveToNext()) goto _L6; else goto _L5
 _L5:
-        s = intent.getString(3);
-        s1 = intent.getString(4);
-        k = intent.getInt(2);
-        if (k != 0)
-        {
-            continue; /* Loop/switch isn't completed */
-        }
-        if (TextUtils.isEmpty(s1)) goto _L8; else goto _L7
+        l = intent.getInt(2);
+        if (l != 0) goto _L8; else goto _L7
 _L7:
-        obj = gz2;
-        obj1 = s1;
-_L10:
-        list = (List)((Map) (obj)).get(obj1);
-        obj2 = list;
-        if (list != null)
+        obj = cbn.a(intent);
+        if (!TextUtils.isEmpty(((cbn) (obj)).b) && !((cbn) (obj)).a())
         {
-            break MISSING_BLOCK_LABEL_314;
+            jwl2.a(((cbn) (obj)).b, obj);
         }
-        obj2 = new ArrayList();
-        ((Map) (obj)).put(obj1, obj2);
-        obj = new cag(this);
-        obj.a = s;
-        obj.b = s1;
-        obj.c = intent.getString(5);
-        obj.d = intent.getString(6);
-        obj.f = ebr.d(intent.getInt(7));
-        obj.e = ebr.d(intent.getInt(8));
-        obj.g = intent.getString(9);
-        obj.h = intent.getString(10);
-        obj.i = intent.getString(11);
-        obj.j = intent.getLong(12);
-        ((List) (obj2)).add(obj);
-          goto _L8
-        obj1;
+          goto _L9
+        exception;
         obj = intent;
-        intent = ((Intent) (obj1));
-_L14:
+        intent = exception;
+_L53:
         if (obj == null)
         {
-            break MISSING_BLOCK_LABEL_463;
+            break MISSING_BLOCK_LABEL_326;
         }
         ((Cursor) (obj)).close();
         throw intent;
-        if (k != 1) goto _L8; else goto _L9
-_L9:
-        obj = gz1;
-        obj1 = s;
-          goto _L10
+_L8:
+        if (l != 1) goto _L9; else goto _L10
+_L10:
+        obj = cbk.a(intent);
+        if (!((cbk) (obj)).a())
+        {
+            jwl1.a(((cbk) (obj)).a, obj);
+        }
+          goto _L9
 _L6:
         if (intent == null)
         {
-            break MISSING_BLOCK_LABEL_508;
+            break MISSING_BLOCK_LABEL_390;
         }
         intent.close();
-        ebx1.a("getOldDetails()");
-        obj = new gz();
-        if (!flag)
+        gz gz1;
+        eew1.a("retrieveOldDetails()");
+        gz1 = new gz();
+        if (!flag) goto _L12; else goto _L11
+_L11:
+        obj = getContentResolver().query(android.provider.ContactsContract.Data.CONTENT_URI, a, d, null, null);
+        if (obj != null) goto _L14; else goto _L13
+_L13:
+        if (obj == null)
         {
-            break MISSING_BLOCK_LABEL_546;
+            break MISSING_BLOCK_LABEL_445;
         }
-        a(gz1, gz2, ((Map) (obj)));
-        ebx1.a("getLocalContacts()");
-        intent = obj3;
-        if (!dbf.d(l))
-        {
-            a(gz1, l);
-            ebx1.a("getEmailOnHangouts()");
-            b(gz2, l);
-            ebx1.a("getPhonesOnHangouts()");
-            intent = c(((Map) (obj)), l);
-            ebx1.a("getSuggestedContacts()");
-        }
-        obj1 = ((apj)hgx.a(getApplicationContext(), apj)).a(l).b();
-        ((apd) (obj1)).a();
-        ((apd) (obj1)).a("merged_contacts", null, null);
-        f = 0;
+        ((Cursor) (obj)).close();
+_L44:
+        eew1.a("retrieveLocalContacts()");
+_L12:
+        if (dcn.d(i1)) goto _L16; else goto _L15
+_L15:
+        a(jwl1, i1);
+        eew1.a("findEmailOnHangouts()");
+        b(jwl2, i1);
+        eew1.a("findPhonesOnHangouts()");
+        intent = a(gz1.values(), i1);
+        eew1.a("getSuggestedContacts()");
+_L45:
+        Collection collection = gz1.values();
+        obj = ((aqb)hlp.a(getApplicationContext(), aqb)).a(i1).b();
+        ((apv) (obj)).a();
+        ((apv) (obj)).a("merged_contacts", null, null);
         g = 0;
         h = 0;
         i = 0;
         j = 0;
-        a(((apd) (obj1)), ((Map) (obj)).values());
-        ebx1.a("writeMergedContacts(contactMap)");
-        if (intent == null)
-        {
-            break MISSING_BLOCK_LABEL_703;
-        }
-        a(((apd) (obj1)), intent);
-        ebx1.a("writeMergedContacts(suggestedContacts)");
-        k = f;
-        int i1 = g;
+        k = 0;
+        a(((apv) (obj)), collection);
+        eew1.a("writeMergedContacts(contactMap)");
+        a(((apv) (obj)), intent);
+        eew1.a("writeMergedContacts(suggestedContacts)");
+        l = g;
         int j1 = h;
         int k1 = i;
-        ebw.e("Babel", (new StringBuilder(108)).append("Persisted ").append(k).append(" mergedContacts, ").append(i1).append(" phone numbers, ").append(j1).append(" emails, and ").append(k1).append(" gaiaIds").toString());
-        intent = (bwf)hgx.a(getApplicationContext(), bwf);
-        if (f != 0) goto _L12; else goto _L11
-_L11:
-        intent.a(l, 2568).a(TimeUnit.DAYS);
-_L13:
-        ((apd) (obj1)).b();
-        ((apd) (obj1)).c();
-        long l2 = System.currentTimeMillis();
-        gmw1.c("last_merged_ts", l2);
-        gmw1.c("last_merged_read_local_contacts", flag);
-        gmw1.d();
+        int l1 = j;
+        eev.e("Babel", (new StringBuilder(108)).append("Persisted ").append(l).append(" mergedContacts, ").append(j1).append(" phone numbers, ").append(k1).append(" emails, and ").append(l1).append(" gaiaIds").toString());
+        intent = (gdd)hlp.a(getApplicationContext(), gdd);
+        if (g != 0) goto _L18; else goto _L17
+_L17:
+        intent.a(i1).a(2568).a(TimeUnit.DAYS);
+_L50:
+        ((apv) (obj)).b();
+        ((apv) (obj)).c();
+        long l3 = System.currentTimeMillis();
+        grd1.c("last_merged_ts", l3);
+        grd1.c("last_merged_read_local_contacts", flag);
+        grd1.d();
         intent = String.valueOf("last_merged_ts");
-        ebw.e("Babel", (new StringBuilder(String.valueOf(intent).length() + 46)).append("wrote ").append(l2).append(" as ").append(intent).append(" to accountStore").toString());
-        getContentResolver().notifyChange(bzx.c, null);
+        eev.e("Babel", (new StringBuilder(String.valueOf(intent).length() + 46)).append("wrote ").append(l3).append(" as ").append(intent).append(" to accountStore").toString());
+        getContentResolver().notifyChange(cba.c, null);
         return;
-_L12:
-        intent.a(l, 2549).a(Integer.valueOf(f)).a(TimeUnit.DAYS);
-        if (f > 20)
+_L14:
+        if (!((Cursor) (obj)).moveToNext()) goto _L20; else goto _L19
+_L19:
+        Object obj1;
+        intent = ((Cursor) (obj)).getString(0);
+        obj1 = (cbi)gz1.get(intent);
+        if (obj1 != null)
         {
-            break MISSING_BLOCK_LABEL_1039;
+            break MISSING_BLOCK_LABEL_964;
         }
-        if (j == 0)
+        obj1 = new cbi();
+        obj1.b = intent;
+        gz1.put(intent, obj1);
+        obj1.c = Long.valueOf(((Cursor) (obj)).getLong(1));
+        obj1.d = Long.valueOf(((Cursor) (obj)).getLong(3));
+        obj1.e = ((Cursor) (obj)).getString(2);
+        intent = ((Cursor) (obj)).getString(5);
+        if (!"vnd.android.cursor.item/photo".equals(intent)) goto _L22; else goto _L21
+_L21:
+        obj1.f = ((Cursor) (obj)).getString(4);
+          goto _L14
+        intent;
+_L52:
+        if (obj == null)
         {
-            k = 2569;
+            break MISSING_BLOCK_LABEL_1006;
+        }
+        ((Cursor) (obj)).close();
+        throw intent;
+_L22:
+        if (!"vnd.android.cursor.item/phone_v2".equals(intent)) goto _L24; else goto _L23
+_L23:
+        String s;
+        intent = getApplicationContext();
+        s = ((Cursor) (obj)).getString(g.a((Integer)b.get("data1"), 0));
+        if (android.os.Build.VERSION.SDK_INT < 16) goto _L26; else goto _L25
+_L25:
+        Object obj2 = ((Cursor) (obj)).getString(g.a((Integer)b.get("data4"), 0));
+_L32:
+        l = ((Cursor) (obj)).getInt(g.a((Integer)b.get("data2"), 0));
+        if (l != 0) goto _L28; else goto _L27
+_L27:
+        intent = ((Cursor) (obj)).getString(g.a((Integer)b.get("data3"), 0));
+_L33:
+        cbn cbn1;
+        String s1 = eey.h(s);
+        cbn1 = new cbn();
+        cbn1.a = s;
+        cbn1.b = ((String) (obj2));
+        cbn1.c = s1;
+        cbn1.d = intent;
+        boolean flag2;
+        if (!TextUtils.isEmpty(((CharSequence) (obj2))))
+        {
+            flag2 = true;
         } else
         {
-            k = 2550;
+            flag2 = false;
         }
-        intent.a(l, k).a(Integer.valueOf(j)).a(TimeUnit.DAYS);
-          goto _L13
-        if (f > 100)
+        cbn1.e = flag2;
+        if (cbn1.a()) goto _L14; else goto _L29
+_L29:
+        obj1 = ((cbi) (obj1)).h;
+        if (cbn1.b == null) goto _L31; else goto _L30
+_L30:
+        intent = cbn1.b;
+_L36:
+        ((Map) (obj1)).put(intent, cbn1);
+        if (!TextUtils.isEmpty(cbn1.b))
         {
-            break MISSING_BLOCK_LABEL_1063;
+            jwl2.a(cbn1.b, cbn1);
         }
-        if (j == 0)
+          goto _L14
+_L26:
+        obj2 = eey.k(((Cursor) (obj)).getString(g.a((Integer)b.get("data1"), 0)));
+          goto _L32
+_L28:
+label0:
         {
-            k = 2743;
+            if (!"vnd.android.cursor.item/phone_v2".equals("vnd.android.cursor.item/phone_v2"))
+            {
+                break label0;
+            }
+            intent = (String)android.provider.ContactsContract.CommonDataKinds.Phone.getTypeLabel(intent.getResources(), l, null);
+        }
+          goto _L33
+        if (!"vnd.android.cursor.item/phone_v2".equals("vnd.android.cursor.item/email_v2")) goto _L35; else goto _L34
+_L34:
+        intent = (String)android.provider.ContactsContract.CommonDataKinds.Email.getTypeLabel(intent.getResources(), l, null);
+          goto _L33
+_L31:
+        intent = cbn1.a;
+          goto _L36
+_L24:
+        if (!"vnd.android.cursor.item/email_v2".equals(intent)) goto _L38; else goto _L37
+_L37:
+        intent = getApplicationContext();
+        obj2 = new cbk();
+        obj2.a = ((Cursor) (obj)).getString(g.a((Integer)b.get("data1"), 0));
+        l = ((Cursor) (obj)).getInt(g.a((Integer)b.get("data2"), 0));
+        if (l != 0) goto _L40; else goto _L39
+_L39:
+        intent = ((Cursor) (obj)).getString(g.a((Integer)b.get("data3"), 0));
+_L41:
+        obj2.d = intent;
+        obj2.e = true;
+        if (!((cbk) (obj2)).a())
+        {
+            jwl1.a(((cbk) (obj2)).a, obj2);
+            ((cbi) (obj1)).i.put(((cbk) (obj2)).a, obj2);
+        }
+          goto _L14
+_L40:
+label1:
+        {
+            if (!"vnd.android.cursor.item/email_v2".equals("vnd.android.cursor.item/phone_v2"))
+            {
+                break label1;
+            }
+            intent = (String)android.provider.ContactsContract.CommonDataKinds.Phone.getTypeLabel(intent.getResources(), l, null);
+        }
+          goto _L41
+        if (!"vnd.android.cursor.item/email_v2".equals("vnd.android.cursor.item/email_v2"))
+        {
+            break MISSING_BLOCK_LABEL_1868;
+        }
+        intent = (String)android.provider.ContactsContract.CommonDataKinds.Email.getTypeLabel(intent.getResources(), l, null);
+          goto _L41
+_L38:
+        intent = String.valueOf(intent);
+        if (intent.length() == 0)
+        {
+            break MISSING_BLOCK_LABEL_1583;
+        }
+        intent = "unexpected mime-type: ".concat(intent);
+_L42:
+        eev.f("Babel_db", intent);
+          goto _L14
+        intent = new String("unexpected mime-type: ");
+          goto _L42
+_L20:
+        intent = gz1.values().iterator();
+        do
+        {
+            if (!intent.hasNext())
+            {
+                break;
+            }
+            cbi cbi1 = (cbi)intent.next();
+            if (cbi1.h.isEmpty() && cbi1.i.isEmpty())
+            {
+                intent.remove();
+            }
+        } while (true);
+        if (obj == null) goto _L44; else goto _L43
+_L43:
+        ((Cursor) (obj)).close();
+          goto _L44
+_L16:
+        intent = Collections.EMPTY_LIST;
+          goto _L45
+_L18:
+        intent.a(i1).a(2549).a(Integer.valueOf(g)).a(TimeUnit.DAYS);
+        if (k != 0) goto _L47; else goto _L46
+_L46:
+        if (g > 20) goto _L49; else goto _L48
+_L48:
+        l = 2569;
+_L51:
+        intent.a(i1).a(l).a(Integer.valueOf(k)).a(TimeUnit.DAYS);
+          goto _L50
+_L49:
+        if (g <= 100)
+        {
+            l = 2743;
         } else
         {
-            k = 2742;
+            l = 2745;
         }
-        break MISSING_BLOCK_LABEL_1006;
-        k = j;
-        if (k == 0)
+          goto _L51
+_L47:
+        if (g > 20)
         {
-            k = 2745;
+            break MISSING_BLOCK_LABEL_1811;
+        }
+        l = 2550;
+          goto _L51
+        l = g;
+        if (l <= 100)
+        {
+            l = 2742;
         } else
         {
-            k = 2744;
+            l = 2744;
         }
-        break MISSING_BLOCK_LABEL_1006;
+          goto _L51
         intent;
         obj = null;
-          goto _L14
+          goto _L52
+        intent;
+        obj = null;
+          goto _L53
+_L35:
+        intent = "";
+          goto _L33
+        intent = "";
+          goto _L41
     }
 
     static 
     {
-        d = TimeUnit.DAYS.toMillis(1L);
-        e = TimeUnit.SECONDS.toMillis(10L);
+        e = TimeUnit.DAYS.toMillis(1L);
+        f = TimeUnit.SECONDS.toMillis(10L);
     }
 }

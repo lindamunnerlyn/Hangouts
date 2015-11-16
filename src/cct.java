@@ -2,38 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import java.util.Locale;
+import android.app.Activity;
+import android.content.Intent;
+import com.google.android.apps.hangouts.settings.SettingsActivity;
 
-final class cct extends cen
+public final class cct extends ccm
 {
 
-    private final String x;
-
-    cct(Context context, int j, ccy ccy, int k)
+    public cct()
     {
-        super(context, j, ccy, false, false);
-        x = String.format(Locale.US, "%02d", new Object[] {
-            Integer.valueOf(k)
-        });
     }
 
-    protected boolean c()
+    public int a()
     {
-        return false;
+        return l.iM;
     }
 
-    protected void h()
+    public void a(Activity activity)
     {
-        t.b(Integer.toString(p)).c(x);
-        super.h();
+        g.a(a, 1606);
+        aoa aoa1 = a;
+        Intent intent = new Intent(g.nU, com/google/android/apps/hangouts/settings/SettingsActivity);
+        intent.setAction("android.intent.action.VIEW");
+        intent.putExtra("account_id", aoa1.h());
+        activity.startActivity(intent);
     }
 
-    protected void i()
+    public int b()
     {
-        if (ccx.b(o))
-        {
-            g.a(dbf.e(p), 1929);
-        }
+        return com.google.android.apps.hangouts.R.drawable.cm;
+    }
+
+    public int c()
+    {
+        return 7;
+    }
+
+    public int d()
+    {
+        return 2;
+    }
+
+    public int e()
+    {
+        return 7;
     }
 }

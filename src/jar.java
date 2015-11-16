@@ -3,41 +3,34 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jar extends koj
+public final class jar extends kwm
 {
 
-    public jaq a;
-    public jbw b;
-    public jaq c[];
-    public ixf requestHeader;
+    public Integer a;
+    public Long b;
+    public iya c[];
 
     public jar()
     {
-        requestHeader = null;
         a = null;
         b = null;
-        c = jaq.a();
+        c = iya.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (requestHeader != null)
-        {
-            i = j + koh.d(1, requestHeader);
-        }
-        j = i;
+        int i = super.computeSerializedSize();
+        int j = i;
         if (a != null)
         {
-            j = i + koh.d(2, a);
+            j = i + kwk.f(1, a.intValue());
         }
         i = j;
         if (b != null)
         {
-            i = j + koh.d(3, b);
+            i = j + kwk.d(2, b.longValue());
         }
         j = i;
         if (c != null)
@@ -47,11 +40,11 @@ public final class jar extends koj
             {
                 for (j = 0; j < c.length;)
                 {
-                    jaq jaq1 = c[j];
+                    iya iya1 = c[j];
                     int k = i;
-                    if (jaq1 != null)
+                    if (iya1 != null)
                     {
-                        k = i + koh.d(4, jaq1);
+                        k = i + kwk.d(3, iya1);
                     }
                     j++;
                     i = k;
@@ -63,15 +56,15 @@ public final class jar extends koj
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -80,33 +73,17 @@ public final class jar extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (requestHeader == null)
-                {
-                    requestHeader = new ixf();
-                }
-                kog1.a(requestHeader);
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.l());
                 break;
 
-            case 18: // '\022'
-                if (a == null)
-                {
-                    a = new jaq();
-                }
-                kog1.a(a);
+            case 16: // '\020'
+                b = Long.valueOf(kwj1.d());
                 break;
 
             case 26: // '\032'
-                if (b == null)
-                {
-                    b = new jbw();
-                }
-                kog1.a(b);
-                break;
-
-            case 34: // '"'
-                int k = kou.b(kog1, 34);
-                jaq ajaq[];
+                int k = kwx.a(kwj1, 26);
+                iya aiya[];
                 int j;
                 if (c == null)
                 {
@@ -115,54 +92,50 @@ public final class jar extends koj
                 {
                     j = c.length;
                 }
-                ajaq = new jaq[k + j];
+                aiya = new iya[k + j];
                 k = j;
                 if (j != 0)
                 {
-                    System.arraycopy(c, 0, ajaq, 0, j);
+                    System.arraycopy(c, 0, aiya, 0, j);
                     k = j;
                 }
-                for (; k < ajaq.length - 1; k++)
+                for (; k < aiya.length - 1; k++)
                 {
-                    ajaq[k] = new jaq();
-                    kog1.a(ajaq[k]);
-                    kog1.a();
+                    aiya[k] = new iya();
+                    kwj1.a(aiya[k]);
+                    kwj1.a();
                 }
 
-                ajaq[k] = new jaq();
-                kog1.a(ajaq[k]);
-                c = ajaq;
+                aiya[k] = new iya();
+                kwj1.a(aiya[k]);
+                c = aiya;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (requestHeader != null)
-        {
-            koh1.b(1, requestHeader);
-        }
         if (a != null)
         {
-            koh1.b(2, a);
+            kwk1.c(1, a.intValue());
         }
         if (b != null)
         {
-            koh1.b(3, b);
+            kwk1.a(2, b.longValue());
         }
         if (c != null && c.length > 0)
         {
             for (int i = 0; i < c.length; i++)
             {
-                jaq jaq1 = c[i];
-                if (jaq1 != null)
+                iya iya1 = c[i];
+                if (iya1 != null)
                 {
-                    koh1.b(4, jaq1);
+                    kwk1.b(3, iya1);
                 }
             }
 
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

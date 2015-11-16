@@ -2,38 +2,55 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.locks.Lock;
+import android.os.Parcel;
+import com.google.android.gms.auth.AccountChangeEvent;
+import com.google.android.gms.auth.AccountChangeEventsResponse;
 
-abstract class elk
+public final class elk
+    implements android.os.Parcelable.Creator
 {
 
-    private final elo a;
-
-    protected elk(elo elo)
+    public elk()
     {
-        a = elo;
     }
 
-    protected abstract void a();
-
-    public final void a(ele ele1)
+    public Object createFromParcel(Parcel parcel)
     {
-        ele1.a.lock();
-        elo elo;
-        elo elo1;
-        elo = ele1.k;
-        elo1 = a;
-        if (elo != elo1)
+        int j = g.a(parcel);
+        int i = 0;
+        java.util.ArrayList arraylist = null;
+        do
         {
-            ele1.a.unlock();
-            return;
-        }
-        a();
-        ele1.a.unlock();
-        return;
-        Exception exception;
-        exception;
-        ele1.a.unlock();
-        throw exception;
+            if (parcel.dataPosition() < j)
+            {
+                int k = parcel.readInt();
+                switch (0xffff & k)
+                {
+                default:
+                    g.b(parcel, k);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, k);
+                    break;
+
+                case 2: // '\002'
+                    arraylist = g.c(parcel, k, AccountChangeEvent.CREATOR);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != j)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
+            } else
+            {
+                return new AccountChangeEventsResponse(i, arraylist);
+            }
+        } while (true);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new AccountChangeEventsResponse[i];
     }
 }

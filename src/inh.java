@@ -2,27 +2,61 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.Executor;
 
-public final class inh
-    implements kxx
+public final class inh extends kwm
 {
 
-    private final kxx a;
-    private final kxx b;
-    private final kxx c;
-    private final kxx d;
+    public Boolean a;
 
-    public inh(kxx kxx1, kxx kxx2, kxx kxx3, kxx kxx4)
+    public inh()
     {
-        a = kxx1;
-        b = kxx2;
-        c = kxx3;
-        d = kxx4;
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public Object a()
+    protected int computeSerializedSize()
     {
-        return new ine((ilr)a.a(), (gsi)b.a(), (Executor)c.a(), d);
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
+        }
+        return i;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

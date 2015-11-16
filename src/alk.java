@@ -3,29 +3,60 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
+import android.content.Intent;
 
-final class alk
-    implements gmz
+public final class alk extends cfi
 {
 
-    final ali a;
-
-    alk(ali ali1)
+    private alk(Context context, int i)
     {
-        a = ali1;
-        super();
+        super(context, i, null);
     }
 
-    public String a()
+    static void a(Context context, int i)
     {
-        return "cmm-signed-out2";
+        (new alk(context, i)).a(true);
     }
 
-    public void a(Context context, gmw gmw1)
+    protected void a(boolean flag)
     {
-        if (gmw1.b("effective_gaia_id") != null && gmw1.d("is_business_features_enabled") && gmw1.b("full_jid") == null && gmw1.d("logged_in"))
-        {
-            dbf.f(ali.a(a).b(gmw1.b("account_name"), gmw1.b("effective_gaia_id")));
-        }
+        CharSequence charsequence = cfo.a(o, aoc.b(o, p).b("display_name"), o.getString(g.je), null, 0);
+        t.a(o.getString(l.n)).b(charsequence);
+        super.a(flag);
+    }
+
+    protected boolean a()
+    {
+        return false;
+    }
+
+    protected Intent b()
+    {
+        return null;
+    }
+
+    protected boolean c()
+    {
+        return true;
+    }
+
+    protected int d()
+    {
+        return com.google.android.apps.hangouts.R.drawable.cb;
+    }
+
+    protected int e()
+    {
+        return 15;
+    }
+
+    protected int f()
+    {
+        return -1;
+    }
+
+    protected Intent g()
+    {
+        return g.d(dcn.e(p));
     }
 }

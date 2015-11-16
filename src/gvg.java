@@ -2,22 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.PrintWriter;
-import java.io.Writer;
+import android.os.Parcel;
 
-final class gvg extends PrintWriter
+final class gvg
+    implements android.os.Parcelable.Creator
 {
 
-    final gvc a;
-
-    gvg(gvc gvc, Writer writer)
+    gvg()
     {
-        a = gvc;
-        super(writer);
     }
 
-    public String toString()
+    public Object createFromParcel(Parcel parcel)
     {
-        return out.toString();
+        return new gvf(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new gvf[i];
     }
 }

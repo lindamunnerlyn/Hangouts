@@ -2,25 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.IntentService;
+import android.content.Intent;
 
-final class dlc
-    implements Runnable
+public abstract class dlc extends IntentService
 {
 
-    final dac a;
-    final ceu b;
-    final dlb c;
-
-    dlc(dlb dlb1, dac dac, ceu ceu)
+    public dlc(String s)
     {
-        c = dlb1;
-        a = dac;
-        b = ceu;
-        super();
+        super(s);
     }
 
-    public void run()
+    public abstract void a(Intent intent, jnv jnv);
+
+    protected final void onHandleIntent(Intent intent)
     {
-        dlb.a(c, a, b);
+        ((dld)hlp.a(getApplicationContext(), dld)).a(this, intent);
     }
 }

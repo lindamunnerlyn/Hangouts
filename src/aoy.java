@@ -6,10 +6,17 @@
 public final class aoy
 {
 
-    public long a;
-    public long b;
-    public long c;
-    public long d;
+    public dgm a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public int f;
+    public int g;
+    public boolean h;
+    public long i;
+    public long j;
+    public long k;
 
     public aoy()
     {

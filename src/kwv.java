@@ -2,64 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Arrays;
 
-public final class kwv extends koj
+final class kwv
 {
 
-    public kwr a;
+    final int a;
+    final byte b[];
 
-    public kwv()
+    kwv(int i, byte abyte0[])
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = i;
+        b = abyte0;
     }
 
-    protected int computeSerializedSize()
+    int a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        return i;
+        return kwk.h(a) + 0 + b.length;
     }
 
-    public kop mergeFrom(kog kog1)
+    void a(kwk kwk1)
     {
-        do
+        kwk1.g(a);
+        kwk1.b(b);
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (obj != this)
         {
-            int i = kog1.a();
-            switch (i)
+            if (!(obj instanceof kwv))
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new kwr();
-                }
-                kog1.a(a);
-                break;
+                return false;
             }
-        } while (true);
+            obj = (kwv)obj;
+            if (a != ((kwv) (obj)).a || !Arrays.equals(b, ((kwv) (obj)).b))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
-    public void writeTo(koh koh1)
+    public int hashCode()
     {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        super.writeTo(koh1);
+        return (a + 527) * 31 + Arrays.hashCode(b);
     }
 }

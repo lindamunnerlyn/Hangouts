@@ -2,49 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.widget.TextView;
+import android.os.Bundle;
 
 final class akc
-    implements fsn, hjv
+    implements br
 {
 
-    final ai a;
-    final ajr b;
-    final akb c;
-    private final TextView d;
-    private final int e;
+    final ajz a;
 
-    akc(akb akb, hjm hjm1, ai ai1, TextView textview)
+    akc(ajz ajz1)
     {
-        c = akb;
+        a = ajz1;
         super();
-        hjm1.a(this);
-        a = ai1;
-        d = textview;
-        e = ((gmo)hgx.a(ai1, gmo)).a();
-        b = new akd(this, akb);
-        a.f().b(1, null, new akf(this)).u();
     }
 
-    static void a(akc akc1, ajo ajo1)
+    public em onCreateLoader(int i, Bundle bundle)
     {
-        if (ajo1 != null)
-        {
-            akc1.d.setText(akc1.a.getString(g.iP, new Object[] {
-                ebz.p(ajo1.c())
-            }));
-            akc1.d.setVisibility(0);
-            return;
-        } else
-        {
-            akc1.d.setText("");
-            akc1.d.setVisibility(8);
-            return;
-        }
+        return new akw(a.a, a.b);
     }
 
-    public void e_()
+    public void onLoadFinished(em em, Object obj)
     {
-        ajq.a(e, b);
+        em = (ajl)obj;
+        ajz.a(a, em);
+    }
+
+    public void onLoaderReset(em em)
+    {
     }
 }

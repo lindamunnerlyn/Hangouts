@@ -2,113 +2,56 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.text.TextUtils;
 
-public final class dwt extends kop
+final class dwt
+    implements dij, hcb
 {
 
-    public dwu a[];
+    private final gqz a;
+    private final efu b;
+    private final dic c;
 
-    public dwt()
+    dwt(Context context)
     {
-        a = dwu.a();
-        cachedSize = -1;
+        a = (gqz)hlp.a(context, gqz);
+        b = (efu)hlp.a(context, efu);
+        c = (dic)hlp.a(context, dic);
     }
 
-    protected int computeSerializedSize()
+    public void a(int i)
     {
-        int i = super.computeSerializedSize();
-        int k = i;
-        if (a != null)
+        if (a.a(i).d("logged_out"))
         {
-            k = i;
-            if (a.length > 0)
-            {
-                int j = 0;
-                do
-                {
-                    k = i;
-                    if (j >= a.length)
-                    {
-                        break;
-                    }
-                    dwu dwu1 = a[j];
-                    k = i;
-                    if (dwu1 != null)
-                    {
-                        k = i + koh.d(1, dwu1);
-                    }
-                    j++;
-                    i = k;
-                } while (true);
-            }
+            a.b(i).h("SyncManager.reg_build_version").d();
         }
-        return k;
     }
 
-    public kop mergeFrom(kog kog1)
+    public void a(grd grd1, czm czm1)
     {
-        do
+        if (czm1.k() == 1)
         {
-            int i = kog1.a();
-            switch (i)
+            czm1 = grd1.b("SyncManager.reg_build_version");
+            String s = b.c();
+            if (!TextUtils.equals(czm1, s))
             {
-            default:
-                if (kou.a(kog1, i))
+                czm1 = grd1.b("account_name");
+                String s1 = grd1.b("effective_gaia_id");
+                int i = a.b(czm1, s1);
+                s1 = String.valueOf("Perform warm sync in case there are messages missed before the device is registered for account ");
+                czm1 = String.valueOf(eev.b(czm1));
+                if (czm1.length() != 0)
                 {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                dwu adwu[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
+                    czm1 = s1.concat(czm1);
                 } else
                 {
-                    j = a.length;
+                    czm1 = new String(s1);
                 }
-                adwu = new dwu[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, adwu, 0, j);
-                    k = j;
-                }
-                for (; k < adwu.length - 1; k++)
-                {
-                    adwu[k] = new dwu();
-                    kog1.a(adwu[k]);
-                    kog1.a();
-                }
-
-                adwu[k] = new dwu();
-                kog1.a(adwu[k]);
-                a = adwu;
-                break;
+                eev.e("Babel_SyncManager", czm1);
+                c.a(i);
             }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null && a.length > 0)
-        {
-            for (int i = 0; i < a.length; i++)
-            {
-                dwu dwu1 = a[i];
-                if (dwu1 != null)
-                {
-                    koh1.b(1, dwu1);
-                }
-            }
-
+            grd1.b("SyncManager.reg_build_version", s);
         }
-        super.writeTo(koh1);
     }
 }

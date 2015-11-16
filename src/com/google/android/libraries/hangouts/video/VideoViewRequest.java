@@ -24,7 +24,12 @@ public class VideoViewRequest
         width = j;
         height = k;
         frameRate = l;
-        rendererManagerNativeContext = renderer.mRendererManager.b();
+        rendererManagerNativeContext = renderer.mRendererManager.c();
         rendererId = renderer.mRendererID;
+    }
+
+    public String toString()
+    {
+        return (new StringBuilder("VideoViewRequest: ssrc=")).append(ssrc).append(",w=").append(width).append(",h=").append(height).append(",fps=").append(frameRate).append(")").toString();
     }
 }

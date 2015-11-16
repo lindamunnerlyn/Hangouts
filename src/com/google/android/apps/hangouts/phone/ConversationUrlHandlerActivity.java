@@ -8,19 +8,19 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import ani;
-import cey;
-import ckk;
-import ckl;
-import dbf;
-import ebw;
+import aoa;
+import cgd;
+import clp;
+import clq;
+import dcn;
+import eev;
 import g;
-import gmp;
-import gmq;
-import gwt;
-import gxe;
-import gxj;
-import hhw;
+import gqv;
+import gqw;
+import hbd;
+import hbo;
+import hbu;
+import hmo;
 import java.util.Iterator;
 import java.util.List;
 import l;
@@ -28,8 +28,8 @@ import l;
 // Referenced classes of package com.google.android.apps.hangouts.phone:
 //            BabelGatewayActivity
 
-public class ConversationUrlHandlerActivity extends hhw
-    implements gmq
+public class ConversationUrlHandlerActivity extends hmo
+    implements gqw
 {
 
     private String j;
@@ -38,79 +38,92 @@ public class ConversationUrlHandlerActivity extends hhw
     private boolean o;
     private String p;
     private String q;
-    private gwt r;
+    private hbd r;
 
     public ConversationUrlHandlerActivity()
     {
-        r = (new gwt(this, l)).a("active-hangouts-account").a(k).b(this);
+        r = (new hbd(this, l)).a("active-hangouts-account").a(k).b(this);
     }
 
     private void a(Uri uri)
     {
-        j = uri.getQueryParameter("rpi");
-        m = uri.getQueryParameter("id");
-        q = uri.getQueryParameter("draft");
-        n = null;
-        o = false;
-        Iterator iterator = uri.getQueryParameters("pi").iterator();
-        boolean flag = false;
-        while (iterator.hasNext()) 
+        boolean flag2 = false;
+        Object obj = uri.getQueryParameter("rpi");
+        String s = uri.getQueryParameter("id");
+        String s2 = uri.getQueryParameter("draft");
+        if (s != null)
         {
-            String s = (String)iterator.next();
-            if (n != null)
-            {
-                String s1 = n;
-                n = (new StringBuilder(String.valueOf(s1).length() + 1 + String.valueOf(s).length())).append(s1).append("|").append(s).toString();
-                flag = true;
-            } else
-            {
-                n = s;
-            }
+            m = s;
         }
-        if (flag)
+        if (obj != null)
         {
-            o = true;
-            return;
+            j = ((String) (obj));
+        }
+        if (s2 != null)
+        {
+            q = s2;
+        }
+        obj = uri.getQueryParameters("pi");
+        boolean flag1;
+        if (!((List) (obj)).isEmpty())
+        {
+            obj = ((List) (obj)).iterator();
+            boolean flag = false;
+            do
+            {
+                flag1 = flag;
+                if (!((Iterator) (obj)).hasNext())
+                {
+                    break;
+                }
+                String s1 = (String)((Iterator) (obj)).next();
+                if (n != null)
+                {
+                    String s3 = n;
+                    n = (new StringBuilder(String.valueOf(s3).length() + 1 + String.valueOf(s1).length())).append(s3).append("|").append(s1).toString();
+                    flag = true;
+                } else
+                {
+                    n = s1;
+                }
+            } while (true);
         } else
         {
-            o = TextUtils.equals(uri.getQueryParameter("group"), "1");
-            return;
+            flag1 = false;
         }
+        if (flag1 || TextUtils.equals(uri.getQueryParameter("group"), "1"))
+        {
+            flag2 = true;
+        }
+        o = flag2;
     }
 
     private void b(int i)
     {
         android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
         builder.setMessage(i);
-        builder.setPositiveButton(l.hJ, new ckk(this));
-        builder.setOnCancelListener(new ckl(this));
+        builder.setPositiveButton(l.hd, new clp(this));
+        builder.setOnCancelListener(new clq(this));
         builder.show();
     }
 
-    private static boolean b(Uri uri)
+    public void a(boolean flag, gqv gqv1, gqv gqv2, int i, int k)
     {
-        if (uri == null)
-        {
-            return false;
-        }
-        uri = uri.getPathSegments();
-        return uri.size() == 3 && ((String)uri.get(0)).equalsIgnoreCase("hangouts") && ((String)uri.get(1)).equalsIgnoreCase("app") && ((String)uri.get(2)).equalsIgnoreCase("conversation");
-    }
-
-    public void a(boolean flag, gmp gmp1, gmp gmp2, int i, int k)
-    {
-        if (gmp2 == gmp.c)
+        if (gqv2 == gqv.c)
         {
             if (!TextUtils.isEmpty(m))
             {
-                gmp1 = BabelGatewayActivity.a(k, m, null);
+                gqv1 = BabelGatewayActivity.a(k, m, null);
             } else
             {
-                g.a(dbf.e(k), 1868);
-                gmp1 = BabelGatewayActivity.a(k, n, null, q, o, p);
+                if (p != null && p.contains("key"))
+                {
+                    g.a(dcn.e(k), 1868);
+                }
+                gqv1 = BabelGatewayActivity.a(k, n, null, q, o, p);
             }
-            gmp1.putExtra("account_id", k);
-            startActivity(gmp1);
+            gqv1.putExtra("account_id", k);
+            startActivity(gqv1);
             finish();
             return;
         } else
@@ -122,116 +135,123 @@ public class ConversationUrlHandlerActivity extends hhw
 
     protected void onCreate(Bundle bundle)
     {
-        boolean flag;
+        Object obj;
         super.onCreate(bundle);
-        bundle = getIntent().getData();
-        List list;
-        if (bundle == null)
+        obj = getIntent().getData();
+        if (obj != null) goto _L2; else goto _L1
+_L1:
+        eev.f("Babel", "Invalid uri for conversation Url");
+_L7:
+        boolean flag = false;
+_L8:
+        if (!flag)
         {
-            ebw.f("Babel", "Invalid uri for conversation Url");
-            flag = false;
-        } else
+            b(l.ap);
+            return;
+        }
+        break MISSING_BLOCK_LABEL_615;
+_L2:
+        String s = ((Uri) (obj)).getQueryParameter("path");
+        if (obj == null) goto _L4; else goto _L3
+_L3:
+        bundle = ((Uri) (obj)).getPathSegments();
+        if (!((Uri) (obj)).getHost().equalsIgnoreCase("plus.google.com") || bundle.size() != 3 || !((String)bundle.get(0)).equalsIgnoreCase("hangouts") || !((String)bundle.get(1)).equalsIgnoreCase("app") || !((String)bundle.get(2)).equalsIgnoreCase("emlink")) goto _L4; else goto _L5
+_L5:
+        flag = true;
+_L9:
+        bundle = ((Bundle) (obj));
+        if (flag)
         {
-            String s = bundle.getQueryParameter("path");
-            if (TextUtils.isEmpty(s))
-            {
-                ebw.f("Babel", "Path is empty for conversation Url");
-                flag = false;
-            } else
+            bundle = ((Bundle) (obj));
+            if (!s.isEmpty())
             {
                 bundle = String.valueOf("https://plus.google.com");
-                s = String.valueOf(s);
-                if (s.length() != 0)
+                obj = String.valueOf(s);
+                if (((String) (obj)).length() != 0)
                 {
-                    bundle = bundle.concat(s);
+                    bundle = bundle.concat(((String) (obj)));
                 } else
                 {
                     bundle = new String(bundle);
                 }
                 bundle = Uri.parse(bundle);
-                if (!b(bundle))
-                {
-                    ebw.f("Babel", String.format("Invalid path for conversation Url: %s", new Object[] {
-                        bundle.getPath()
-                    }));
-                    flag = false;
-                } else
-                {
-                    a(bundle);
-                    if (TextUtils.isEmpty(m) == TextUtils.isEmpty(n))
-                    {
-                        ebw.f("Babel", "Exactly one of conversationId and inviteeGaiaIds should be provided.");
-                        flag = false;
-                    } else
-                    {
-                        flag = true;
-                    }
-                }
             }
         }
-        if (flag) goto _L2; else goto _L1
-_L1:
-        bundle = getIntent().getData();
-        if (bundle == null) goto _L4; else goto _L3
-_L3:
-        if (!bundle.getHost().equalsIgnoreCase("hangouts.google.com")) goto _L6; else goto _L5
-_L5:
-        list = bundle.getPathSegments();
-        if (list.size() != 1 || !((String)list.get(0)).equalsIgnoreCase("chat")) goto _L4; else goto _L7
-_L7:
+        if (bundle == null)
+        {
+            break MISSING_BLOCK_LABEL_609;
+        }
+        obj = bundle.getPathSegments();
+        s = bundle.getHost();
+        if (s.equalsIgnoreCase("plus.google.com") && ((List) (obj)).size() == 3 && ((String)((List) (obj)).get(0)).equalsIgnoreCase("hangouts") && ((String)((List) (obj)).get(1)).equalsIgnoreCase("app") && ((String)((List) (obj)).get(2)).equalsIgnoreCase("conversation"))
+        {
+            flag = true;
+        } else
+        if (s.equalsIgnoreCase("hangouts.google.com") && ((List) (obj)).size() == 1 && ((String)((List) (obj)).get(0)).equalsIgnoreCase("chat"))
+        {
+            flag = true;
+        } else
+        if (s.equalsIgnoreCase("hangouts.google.com") && ((List) (obj)).size() == 2 && ((String)((List) (obj)).get(0)).equalsIgnoreCase("chat"))
+        {
+            flag = true;
+        } else
+        {
+            if (!s.equalsIgnoreCase("hangouts.google.com") || ((List) (obj)).size() != 3 || !((String)((List) (obj)).get(0)).equalsIgnoreCase("chat") || !((String)((List) (obj)).get(1)).equalsIgnoreCase("person"))
+            {
+                break MISSING_BLOCK_LABEL_609;
+            }
+            flag = true;
+        }
+_L10:
+        if (!flag) goto _L7; else goto _L6
+_L6:
         a(bundle);
+        obj = bundle.getPathSegments();
+        if (bundle.getHost().equalsIgnoreCase("hangouts.google.com") && ((List) (obj)).size() == 2 && ((String)((List) (obj)).get(0)).equalsIgnoreCase("chat"))
+        {
+            m = (String)((List) (obj)).get(1);
+        }
+        if (bundle.getHost().equalsIgnoreCase("hangouts.google.com") && ((List) (obj)).size() == 3 && ((String)((List) (obj)).get(0)).equalsIgnoreCase("chat") && ((String)((List) (obj)).get(1)).equalsIgnoreCase("person"))
+        {
+            n = (String)((List) (obj)).get(2);
+        }
         p = bundle.toString();
         flag = true;
-_L8:
-        if (!flag)
-        {
-            b(l.au);
-            return;
-        }
-        break; /* Loop/switch isn't completed */
-_L6:
-        if (bundle.getHost().equalsIgnoreCase("plus.google.com") && b(bundle))
-        {
-            a(bundle);
-            p = bundle.toString();
-            flag = true;
-            continue; /* Loop/switch isn't completed */
-        }
+          goto _L8
 _L4:
-        ebw.f("Babel", "Invalid uri for conversation Url");
         flag = false;
-        if (true) goto _L8; else goto _L2
-_L2:
+          goto _L9
+        flag = false;
+          goto _L10
         if (!TextUtils.isEmpty(j))
         {
-            bundle = dbf.a(cey.a(j));
+            bundle = dcn.a(cgd.a(j));
             if (bundle == null)
             {
-                b(l.at);
+                b(l.ao);
                 return;
             }
             bundle = bundle.a();
         } else
         {
-            bundle = dbf.c(false);
+            bundle = dcn.c(false);
             if (bundle.length == 0)
             {
-                bundle = g.e(null);
-                bundle.setAction("com.google.android.apps.hangouts.phone.addgoogleaccount");
-                startActivity(bundle);
+                startActivity(g.d(null));
                 finish();
                 bundle = null;
             } else
             if (bundle.length == 1)
             {
-                bundle = dbf.e(bundle[0]).a();
+                bundle = dcn.e(bundle[0]).a();
             } else
             {
                 bundle = null;
             }
         }
-        bundle = (new gxe()).b().a(bundle).a(gxj);
+        bundle = (new hbo()).b().a(bundle).a(hbu);
         r.a(bundle);
         return;
+          goto _L8
     }
 }

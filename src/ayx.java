@@ -3,10 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class ayx extends hhu
+final class ayx
 {
 
-    public ayx()
+    ayx()
     {
+    }
+
+    public bie a()
+    {
+        return new ayy(this);
     }
 }

@@ -2,28 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 
 final class hht
-    implements hjr
+    implements ThreadFactory
 {
 
-    final Bundle a;
-    final hhs b;
+    final hhr a;
+    private final AtomicInteger b = new AtomicInteger(0);
 
-    hht(hhs hhs1, Bundle bundle)
+    hht(hhr hhr)
     {
-        b = hhs1;
-        a = bundle;
+        a = hhr;
         super();
     }
 
-    public void a(fsn fsn)
+    public Thread newThread(Runnable runnable)
     {
-        if (fsn instanceof hhi)
-        {
-            Bundle bundle = hhs.a(b).a(fsn, a);
-            ((hhi)fsn).a(b.ak, b.al, bundle);
-        }
+        runnable = Executors.defaultThreadFactory().newThread(runnable);
+        int i = b.incrementAndGet();
+        runnable.setName((new StringBuilder(36)).append("Resource Decoder Thread #").append(i).toString());
+        return runnable;
     }
 }

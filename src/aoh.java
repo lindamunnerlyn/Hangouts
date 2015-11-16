@@ -2,43 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
+import android.content.Context;
 
-public final class aoh
+final class aoh
+    implements grg
 {
 
-    public boolean a;
-    public int b;
-    public int c;
-    public String d;
-    public boolean e;
-    public byte f[];
-    public long g;
-    public List h;
-    public int i;
-    public cey j;
-    public int k;
-    public int l;
-    public int m;
-    public long n;
-    public String o;
-    public boolean p;
-    public long q;
-    public int r;
-    public String s;
-    public String t;
-    public long u;
+    final aoc a;
 
-    public aoh()
+    aoh(aoc aoc)
     {
+        a = aoc;
+        super();
     }
 
-    public String toString()
+    public String a()
     {
-        String s1 = s;
-        int i1 = b;
-        int j1 = c;
-        long l1 = q;
-        return (new StringBuilder(String.valueOf(s1).length() + 94)).append("[ConversationInfo: ").append(s1).append(";type=").append(i1).append(";transType=").append(j1).append(";sortTimestamp=").append(l1).append("]").toString();
+        return "logged_off_to_logged_in";
+    }
+
+    public void a(Context context, grd grd1)
+    {
+        boolean flag1 = true;
+        boolean flag = grd1.a("logged_off", false);
+        context = String.valueOf(eev.b(grd1.b("account_name")));
+        eev.e("Babel", (new StringBuilder(String.valueOf(context).length() + 35)).append("Account ").append(context).append(" logged off: ").append(flag).append(" migrated").toString());
+        if ("SMS".equals(grd1.b("account_name")))
+        {
+            if (!grd1.d("is_sms_account") || !dcn.j())
+            {
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+        }
+        if (flag)
+        {
+            flag1 = false;
+        }
+        grd1.b("logged_in", flag1);
+        grd1.b("logged_out", flag);
+        grd1.f("logged_off");
     }
 }

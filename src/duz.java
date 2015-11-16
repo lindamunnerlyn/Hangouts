@@ -3,162 +3,115 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.SystemClock;
-import android.telecom.ConnectionRequest;
-import android.telecom.DisconnectCause;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import com.google.android.apps.hangouts.telephony.TeleConnectionService;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
 
 final class duz
-    implements dwk
+    implements duv
 {
 
-    final Handler a = new Handler();
-    private final Context b;
-    private final dvc c;
-    private final due d;
-    private final dtz e;
-    private final duy f;
-    private final long g = System.currentTimeMillis();
-    private dwh h;
-    private bnk i;
+    private Cursor a;
+    private Cursor b;
+    private dtj c;
+    private dtj d;
 
-    duz(Context context, dvc dvc1, TeleConnectionService teleconnectionservice, ConnectionRequest connectionrequest, due due1)
+    public duz(long l, long l1)
     {
-        b = context;
-        c = dvc1;
-        d = due1;
-        e = new dtz(new dvk(teleconnectionservice, connectionrequest, new dvh(teleconnectionservice, dvx.a(teleconnectionservice)), true));
-        e.c();
-        f = duy.a(connectionrequest.getExtras());
-        e.a(f.e);
-        e.b(f.g);
-    }
-
-    private void a(int j)
-    {
-        ebw.e("Babel_telephony", (new StringBuilder(82)).append("TeleIncomingWifiCallRequest.sendIncomingHangoutInviteResponse, status: ").append(j).toString());
-        jed jed1 = new jed();
-        jed1.a = Long.valueOf(f.c);
-        jed1.b = f.a.g();
-        jed1.g = Integer.valueOf(j);
-        jeg jeg1 = new jeg();
-        jeg1.a = Long.valueOf(g * 1000L);
-        jeg1.b = Long.valueOf(System.currentTimeMillis() - g);
-        jed1.h = jeg1;
-        RealTimeChatService.a(dbf.e(f.f), jed1);
-    }
-
-    private void e()
-    {
-        ceu ceu = g.a(e.f().f(), g.p(), false, null, null, 0);
-        bnd.a().a(f.a, false, null, null, true, ceu, 86, 1, false, SystemClock.elapsedRealtime(), g.a(e), null, e.i());
-        h.a(bnd.a().t(), bof.a());
-    }
-
-    private void f()
-    {
-        ebw.e("Babel_telephony", "TeleIncomingWifiCallRequest.cleanupRequest");
-        if (i != null)
+        a = null;
+        b = null;
+        String as[];
+        Context context;
+        android.content.ContentResolver contentresolver;
+        android.net.Uri uri;
+        context = g.nU;
+        contentresolver = context.getContentResolver();
+        uri = dur.d();
+        if (!due.g())
         {
-            bnd.a().b(i);
-            i = null;
+            break MISSING_BLOCK_LABEL_128;
         }
-        a.removeCallbacksAndMessages(null);
-        h = null;
-        c.a(this);
-    }
-
-    dtz a()
-    {
-        ebw.e("Babel_telephony", "TeleIncomingWifiCallRequest.startRequest");
-        boolean flag = g.a(b, f.f, f.a);
-        if (d != null && d.a(e.e(), true))
+        as = dtn.a;
+_L1:
+        a = g.a(contentresolver, uri, as, dur.a(dur.a(), "date", l, l1), null, "date DESC");
+        b = g.a(context.getContentResolver(), dur.e(), dtl.a, dur.a(dur.b(), "date", l / 1000L, (999L + l1) / 1000L), null, "date DESC");
+        c = c();
+        d = d();
+        return;
+        try
         {
-            ebw.e("Babel_telephony", "TeleIncomingWifiCallRequest.startRequest, call is duplicate");
-            e.setDisconnected(new DisconnectCause(4));
-            g.a(b, f.f, f.b, 2337);
-            f();
-        } else
-        if (!flag)
-        {
-            ebw.e("Babel_telephony", "TeleIncomingWifiCallRequest.startRequest, pending invite was cancelled");
-            e.setDisconnected(new DisconnectCause(5));
-            g.a(b, f.f, f.b, 2336);
-            f();
-        } else
-        {
-            h = new dwh(b, this, null, true);
-            e.a(h);
-            e.setRinging();
-            e.b(f.a.a());
-            if (!bnd.a().n())
-            {
-                e();
-            }
-            g.a(b, e);
-            g.a(b, f.f, f.b, 2336);
+            as = dtn.b;
         }
-        return e;
+        catch (SQLiteException sqliteexception)
+        {
+            String s = String.valueOf(sqliteexception);
+            eev.e("Babel_SMS", (new StringBuilder(String.valueOf(s).length() + 45)).append("SmsSyncManager.queryMms: failed to query mms ").append(s).toString(), sqliteexception);
+            throw sqliteexception;
+        }
+          goto _L1
     }
 
-    boolean a(boy boy1, int j)
+    private dtj c()
     {
-        if (f.a.equals(boy1))
+        if (a != null && a.moveToNext())
         {
-            if (h != null)
-            {
-                h.b(j);
-            }
-            f();
-            return true;
+            return dtn.a(a);
         } else
         {
-            return false;
+            return null;
+        }
+    }
+
+    private dtj d()
+    {
+        if (b != null && b.moveToNext())
+        {
+            return dtl.a(b);
+        } else
+        {
+            return null;
+        }
+    }
+
+    public dtj a()
+    {
+        if (c != null && d != null)
+        {
+            if (c.c() >= d.c())
+            {
+                dtj dtj1 = c;
+                c = c();
+                return dtj1;
+            } else
+            {
+                dtj dtj2 = d;
+                d = d();
+                return dtj2;
+            }
+        }
+        if (c != null)
+        {
+            dtj dtj3 = c;
+            c = c();
+            return dtj3;
+        } else
+        {
+            dtj dtj4 = d;
+            d = d();
+            return dtj4;
         }
     }
 
     public void b()
     {
-        ebw.e("Babel_telephony", "TeleIncomingWifiCallRequest.onAnswer");
-        if (h.n() == null && bnd.a().n())
+        if (a != null)
         {
-            ebw.e("Babel_telephony", "TeleIncomingWifiCallRequest.onAnswer, exiting existing hangout");
-            gbh.a(i);
-            i = new dva(this);
-            bnd.a().a(i);
-            bnd.a().t().c(1006);
-            return;
-        } else
-        {
-            d();
-            return;
+            a.close();
+            a = null;
         }
-    }
-
-    public void c()
-    {
-        ebw.e("Babel_telephony", "TeleIncomingWifiCallRequest.onReject");
-        a(2);
-        f();
-        if (bnd.a().t() != null)
+        if (b != null)
         {
-            bnd.a().t().c(1011);
+            b.close();
+            b = null;
         }
-    }
-
-    void d()
-    {
-        ebw.e("Babel_telephony", "TeleIncomingWifiCallRequest.performAnswer, answering call");
-        a(1);
-        if (h.n() == null)
-        {
-            e();
-        }
-        bnd.a().x();
-        e.setActive();
-        e.v();
-        f();
     }
 }

@@ -3,48 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cvf extends cui
+public abstract class cvf extends cwm
 {
 
     private static final long serialVersionUID = 1L;
-    public final String a;
 
-    public cvf(String s)
+    public cvf()
     {
-        a = s;
     }
 
-    public kop a(String s, int i, int j)
+    protected dmi g()
     {
-        if (ctr.e)
-        {
-            ebw.b("Babel_RequestWriter", "StartPhoneVerificationRequest build protobuf ");
-        }
-        s = new jtj();
-        s.a = a;
-        iyp iyp1 = new iyp();
-        iyp1.b = Integer.valueOf(2);
-        iyp1.a = s;
-        return iyp1;
+        return dmi.c;
     }
 
-    public void a(ani ani, dbo dbo)
+    protected String i()
     {
-        g.a(ani, 2049);
-        ani = (cpt)hgx.b(g.nS, cpt);
-        if (ani != null)
-        {
-            ani.a(105, false);
-        }
-    }
-
-    public boolean a(cci cci, dbo dbo)
-    {
-        return false;
-    }
-
-    public String g()
-    {
-        return "devices/startphonenumberverification";
+        return g.a(g.nU, "babel_room_server_apiary_trace_token", dlb.b);
     }
 }

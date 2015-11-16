@@ -2,26 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-public final class hia extends hhq
+public abstract class hia
+    implements hin
 {
 
-    private final ad b;
+    private static final hpg a = new hpg("debug.plus.apiary_token", "");
+    private static final hpg b = new hpg("debug.plus.backend.url", "");
+    private static final hnb c = new hnb("debug.plus.tracing_enabled");
+    private static final hpg d = new hpg("debug.plus.tracing_token", "");
+    private static final hpg e = new hpg("debug.plus.tracing_path", "");
+    private static final hpg f = new hpg("debug.plus.tracing_level", "");
+    private static final hpg g = new hpg("debug.plus.experiment_override", "");
 
-    public hia(ad ad, hjm hjm)
+    public hia()
     {
-        super(hjm, hhz);
-        b = ad;
     }
 
-    protected hhp a(Context context)
+    public String a()
     {
-        return new hhz(context);
+        return a.a();
     }
 
-    protected void a(hho hho, hjm hjm, hgx hgx)
+    public String b()
     {
-        ((hhy)hho).a(b, hjm, hgx);
+        return g.a();
     }
+
 }

@@ -2,114 +2,78 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.Serializable;
 
-public final class jwz extends koj
+final class jwz extends jxb
+    implements Serializable
 {
 
-    public kis a[];
+    private static final long serialVersionUID = 0L;
+    final jxb a;
 
-    public jwz()
+    jwz(jxb jxb1)
     {
-        a = kis.a();
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = jxb1;
     }
 
-    protected int computeSerializedSize()
+    public jxb a()
     {
-        int i = super.computeSerializedSize();
-        int k = i;
-        if (a != null)
+        return a.a();
+    }
+
+    public jxb b()
+    {
+        return this;
+    }
+
+    public jxb c()
+    {
+        return a.c().a();
+    }
+
+    public int compare(Object obj, Object obj1)
+    {
+        if (obj == obj1)
         {
-            k = i;
-            if (a.length > 0)
-            {
-                int j = 0;
-                do
-                {
-                    k = i;
-                    if (j >= a.length)
-                    {
-                        break;
-                    }
-                    kis kis1 = a[j];
-                    k = i;
-                    if (kis1 != null)
-                    {
-                        k = i + koh.d(1, kis1);
-                    }
-                    j++;
-                    i = k;
-                } while (true);
-            }
+            return 0;
         }
-        return k;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        if (obj == null)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                kis akis[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                akis = new kis[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, akis, 0, j);
-                    k = j;
-                }
-                for (; k < akis.length - 1; k++)
-                {
-                    akis[k] = new kis();
-                    kog1.a(akis[k]);
-                    kog1.a();
-                }
-
-                akis[k] = new kis();
-                kog1.a(akis[k]);
-                a = akis;
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null && a.length > 0)
-        {
-            for (int i = 0; i < a.length; i++)
-            {
-                kis kis1 = a[i];
-                if (kis1 != null)
-                {
-                    koh1.b(1, kis1);
-                }
-            }
-
+            return 1;
         }
-        super.writeTo(koh1);
+        if (obj1 == null)
+        {
+            return -1;
+        } else
+        {
+            return a.compare(obj, obj1);
+        }
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (obj == this)
+        {
+            return true;
+        }
+        if (obj instanceof jwz)
+        {
+            obj = (jwz)obj;
+            return a.equals(((jwz) (obj)).a);
+        } else
+        {
+            return false;
+        }
+    }
+
+    public int hashCode()
+    {
+        return a.hashCode() ^ 0xc9177248;
+    }
+
+    public String toString()
+    {
+        String s = String.valueOf(a);
+        return (new StringBuilder(String.valueOf(s).length() + 12)).append(s).append(".nullsLast()").toString();
     }
 }

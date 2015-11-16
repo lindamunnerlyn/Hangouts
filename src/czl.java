@@ -2,27 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class czl extends cys
+public class czl extends cxr
 {
 
     private static final long serialVersionUID = 1L;
-    public final int a;
 
-    public czl(iyk iyk1)
+    private czl()
     {
-        super(iyk1.a.a, g.a(iyk1.b, null), g.a(iyk1.c, 0L));
-        a = g.a(iyk1.d, 0);
     }
 
-    private czl(String s, cey cey, long l, int i)
+    public static cxr parseFrom(byte abyte0[])
     {
-        super(s, cey, l);
-        a = i;
+        return new czl();
     }
 
-    public static czl a(String s, cey cey, long l, int i)
+    public void a(aow aow, dgk dgk)
     {
-        return new czl(s, cey, l, i);
+        super.a(aow, dgk);
+        dgk = (cwq)b;
+        RealTimeChatService.a(aow, ((cwq) (dgk)).c, ((cwq) (dgk)).a);
     }
 }

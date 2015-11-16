@@ -3,10 +3,13 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ari
+final class ari
 {
 
-    public ari()
+    public final cfz a;
+
+    public ari(cfz cfz)
     {
+        a = cfz;
     }
 }

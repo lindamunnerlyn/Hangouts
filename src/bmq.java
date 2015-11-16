@@ -2,35 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import com.google.android.apps.hangouts.fragments.dialpad.DigitsEditText;
+import android.content.DialogInterface;
 
-public final class bmq
-    implements TextWatcher
+final class bmq
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final DigitsEditText a;
+    final bmo a;
 
-    public bmq(DigitsEditText digitsedittext)
+    bmq(bmo bmo1)
     {
-        a = digitsedittext;
+        a = bmo1;
         super();
     }
 
-    public void afterTextChanged(Editable editable)
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        if (android.os.Build.VERSION.SDK_INT >= 21)
-        {
-            g.a(editable);
-        }
-    }
-
-    public void beforeTextChanged(CharSequence charsequence, int i, int j, int k)
-    {
-    }
-
-    public void onTextChanged(CharSequence charsequence, int i, int j, int k)
-    {
+        a.a();
+        bmk.a((bmk)a.getTargetFragment());
     }
 }

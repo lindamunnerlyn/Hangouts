@@ -3,20 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface arl
+public final class arl
 {
 
-    public abstract int a();
+    public static final String a = arj.getName();
+    private static ark b;
 
-    public abstract void a(ark ark);
+    public static void a(hlp hlp1)
+    {
+        if (b == null)
+        {
+            b = new ark();
+        }
+        hlp1.a(arj, new arj());
+    }
 
-    public abstract void a(arm arm);
-
-    public abstract void a(arn arn);
-
-    public abstract String b();
-
-    public abstract void c();
-
-    public abstract ark d();
 }

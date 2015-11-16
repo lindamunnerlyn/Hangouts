@@ -3,57 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ior extends koj
+public final class ior extends kwm
 {
-
-    public Integer a;
-    public Integer b;
 
     public ior()
     {
-        a = null;
-        b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public kws mergeFrom(kwj kwj1)
     {
-        return super.computeSerializedSize() + koh.e(1, a.intValue()) + koh.e(2, b.intValue());
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
-                break;
-
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        koh1.a(1, a.intValue());
-        koh1.a(2, b.intValue());
-        super.writeTo(koh1);
+_L3:
+        int i = kwj1.a();
+        i;
+        JVM INSTR tableswitch 0 0: default 24
+    //                   0 33;
+           goto _L1 _L2
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L3; else goto _L2
+_L2:
+        return this;
     }
 }

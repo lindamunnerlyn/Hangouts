@@ -2,52 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.ConcurrentHashMap;
 
-public final class dis extends dep
+public final class dis extends dgj
 {
 
-    private static final ConcurrentHashMap a = new ConcurrentHashMap();
+    private final int a;
 
-    private dis(ani ani1, long l, long l1)
+    public dis(aoa aoa, int i)
     {
-        super(ani1, l, l1);
-    }
-
-    public static dis a(ani ani1)
-    {
-        String s = ani1.a();
-        dis dis2 = (dis)a.get(s);
-        dis dis1 = dis2;
-        if (dis2 == null)
-        {
-            ani1 = new dis(ani1, g.a(g.nS, "babel_sms_background_sync_lowmark_millis", 0x5265c00L), g.a(g.nS, "babel_sms_background_sync_highmark_millis", 0xa4cb800L));
-            a.putIfAbsent(s, ani1);
-            dis1 = (dis)a.get(s);
-        }
-        return dis1;
+        super(aoa);
+        a = i;
     }
 
     public void a()
     {
-        if (dbf.j() && b != null && b.s())
-        {
-            dry.c(b);
-        }
+        aoq.a(new aow(g.nU, super.b.a), super.c, a);
     }
-
-    protected void a(long l)
-    {
-    }
-
-    protected long i()
-    {
-        long l = -1L;
-        if (b != null)
-        {
-            l = ank.a(g.nS, b.h(), "sms_last_full_sync_time_millis", -1L);
-        }
-        return l;
-    }
-
 }

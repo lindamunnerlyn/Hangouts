@@ -3,29 +3,48 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cxa extends cvn
+public class cxa extends cwm
 {
 
     private static final long serialVersionUID = 1L;
+    public final boolean a;
+    public final String b;
 
-    private cxa(jeh jeh1)
+    cxa(boolean flag, String s)
     {
-        if (cvn.a)
-        {
-            jeh1 = String.valueOf(jeh1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(jeh1).length() + 37)).append("HangoutInvitationModifyResponse from:").append(jeh1).toString());
-        }
+        a = flag;
+        b = s;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public kws a(String s, int i, int j)
     {
-        abyte0 = (jeh)kop.mergeFrom(new jeh(), abyte0);
-        if (a(((jeh) (abyte0)).responseHeader))
+        boolean flag = true;
+        if (cvv.e)
         {
-            return new cvz(((jeh) (abyte0)).responseHeader);
+            boolean flag1 = a;
+            String s1 = b;
+            eev.b("Babel_RequestWriter", (new StringBuilder(String.valueOf(s1).length() + 48)).append("SetCallerIdRequest: enable=").append(flag1).append("e164PhoneNumber=").append(s1).toString());
+        }
+        jdy jdy1 = new jdy();
+        jdy1.requestHeader = cvu.a(null, true, s, i, j, h);
+        jdy1.a = new iwt[1];
+        jdy1.a[0] = new iwt();
+        jdy1.a[0].a = new kbm();
+        jdy1.a[0].a.a = b;
+        s = jdy1.a[0];
+        if (a)
+        {
+            i = ((flag) ? 1 : 0);
         } else
         {
-            return new cxa(abyte0);
+            i = 2;
         }
+        s.b = Integer.valueOf(i);
+        return jdy1;
+    }
+
+    public String f()
+    {
+        return "contacts/setcalleridconfig";
     }
 }

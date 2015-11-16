@@ -3,59 +3,87 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jbj extends koj
+public final class jbj extends kwm
 {
 
-    public String a;
-    public jbw b;
-    public jbq c;
-    public ixf requestHeader;
+    private static volatile jbj c[];
+    public ixl a;
+    public String b[];
 
     public jbj()
     {
-        requestHeader = null;
         a = null;
-        b = null;
-        c = null;
+        b = kwx.f;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
+    public static jbj[] a()
+    {
+        if (c == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (c == null)
+                {
+                    c = new jbj[0];
+                }
+            }
+        }
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
     protected int computeSerializedSize()
     {
+        boolean flag = false;
         int j = super.computeSerializedSize();
         int i = j;
-        if (requestHeader != null)
-        {
-            i = j + koh.d(1, requestHeader);
-        }
-        j = i;
         if (a != null)
         {
-            j = i + koh.b(2, a);
-        }
-        i = j;
-        if (b != null)
-        {
-            i = j + koh.d(3, b);
+            i = j + kwk.d(1, a);
         }
         j = i;
-        if (c != null)
+        if (b != null)
         {
-            j = i + koh.d(4, c);
+            j = i;
+            if (b.length > 0)
+            {
+                int k = 0;
+                int l = 0;
+                for (j = ((flag) ? 1 : 0); j < b.length;)
+                {
+                    String s = b[j];
+                    int j1 = k;
+                    int i1 = l;
+                    if (s != null)
+                    {
+                        i1 = l + 1;
+                        j1 = k + kwk.a(s);
+                    }
+                    j++;
+                    k = j1;
+                    l = i1;
+                }
+
+                j = i + k + l * 1;
+            }
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -65,54 +93,62 @@ public final class jbj extends koj
                 return this;
 
             case 10: // '\n'
-                if (requestHeader == null)
+                if (a == null)
                 {
-                    requestHeader = new ixf();
+                    a = new ixl();
                 }
-                kog1.a(requestHeader);
+                kwj1.a(a);
                 break;
 
             case 18: // '\022'
-                a = kog1.j();
-                break;
-
-            case 26: // '\032'
+                int k = kwx.a(kwj1, 18);
+                String as[];
+                int j;
                 if (b == null)
                 {
-                    b = new jbw();
-                }
-                kog1.a(b);
-                break;
-
-            case 34: // '"'
-                if (c == null)
+                    j = 0;
+                } else
                 {
-                    c = new jbq();
+                    j = b.length;
                 }
-                kog1.a(c);
+                as = new String[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(b, 0, as, 0, j);
+                    k = j;
+                }
+                for (; k < as.length - 1; k++)
+                {
+                    as[k] = kwj1.j();
+                    kwj1.a();
+                }
+
+                as[k] = kwj1.j();
+                b = as;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (requestHeader != null)
-        {
-            koh1.b(1, requestHeader);
-        }
         if (a != null)
         {
-            koh1.a(2, a);
+            kwk1.b(1, a);
         }
-        if (b != null)
+        if (b != null && b.length > 0)
         {
-            koh1.b(3, b);
+            for (int i = 0; i < b.length; i++)
+            {
+                String s = b[i];
+                if (s != null)
+                {
+                    kwk1.a(2, s);
+                }
+            }
+
         }
-        if (c != null)
-        {
-            koh1.b(4, c);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

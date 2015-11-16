@@ -2,16 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.net.Uri;
-import java.util.Map;
 
-public interface fsz
-    extends emi
+final class fsz extends ThreadLocal
 {
 
-    public abstract Uri a();
+    fsz()
+    {
+    }
 
-    public abstract byte[] b();
-
-    public abstract Map c();
+    protected Object initialValue()
+    {
+        return new String[4];
+    }
 }

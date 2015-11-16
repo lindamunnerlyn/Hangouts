@@ -7,13 +7,14 @@ package com.google.api.client.http;
 import com.google.api.client.util.GenericData;
 import g;
 import h;
-import hmo;
-import hmu;
-import hnc;
-import hng;
-import hno;
-import hnr;
-import hog;
+import hrj;
+import hrk;
+import hrq;
+import hry;
+import hsc;
+import hsk;
+import hsn;
+import htc;
 import java.io.IOException;
 import java.io.Writer;
 import java.lang.reflect.Type;
@@ -64,13 +65,13 @@ public class HttpHeaders extends GenericData
 
     public HttpHeaders()
     {
-        super(EnumSet.of(hnr.a));
+        super(EnumSet.of(hsn.a));
         acceptEncoding = new ArrayList(Collections.singleton("gzip"));
     }
 
     private static void addHeader(Logger logger, StringBuilder stringbuilder, StringBuilder stringbuilder1, LowLevelHttpRequest lowlevelhttprequest, String s, Object obj, Writer writer)
     {
-        if (obj != null && !hng.a(obj))
+        if (obj != null && !hsc.a(obj))
         {
             obj = toStringValue(obj);
             if (("Authorization".equalsIgnoreCase(s) || "Cookie".equalsIgnoreCase(s)) && (logger == null || !logger.isLoggable(Level.ALL)))
@@ -84,7 +85,7 @@ public class HttpHeaders extends GenericData
             {
                 stringbuilder.append(s).append(": ");
                 stringbuilder.append(logger);
-                stringbuilder.append(hog.a);
+                stringbuilder.append(htc.a);
             }
             if (stringbuilder1 != null)
             {
@@ -131,7 +132,7 @@ public class HttpHeaders extends GenericData
 
     private static Object parseValue(Type type, List list, String s)
     {
-        return hng.a(hng.a(list, type), s);
+        return hsc.a(hsc.a(list, type), s);
     }
 
     static void serializeHeaders(HttpHeaders httpheaders, StringBuilder stringbuilder, StringBuilder stringbuilder1, Logger logger, LowLevelHttpRequest lowlevelhttprequest)
@@ -160,12 +161,12 @@ public class HttpHeaders extends GenericData
                 Object obj1 = httpheaders.getClassInfo().a(s);
                 if (obj1 != null)
                 {
-                    s = ((hno) (obj1)).b();
+                    s = ((hsk) (obj1)).b();
                 }
                 obj1 = obj.getClass();
                 if ((obj instanceof Iterable) || ((Class) (obj1)).isArray())
                 {
-                    obj = g.e(obj).iterator();
+                    obj = g.f(obj).iterator();
                     while (((Iterator) (obj)).hasNext()) 
                     {
                         addHeader(logger, stringbuilder, stringbuilder1, lowlevelhttprequest, s, ((Iterator) (obj)).next(), writer);
@@ -191,7 +192,7 @@ public class HttpHeaders extends GenericData
     {
         if (obj instanceof Enum)
         {
-            return hno.a((Enum)obj).b();
+            return hsk.a((Enum)obj).b();
         } else
         {
             return obj.toString();
@@ -225,7 +226,7 @@ public class HttpHeaders extends GenericData
         // Misplaced declaration of an exception variable
         catch (HttpHeaders httpheaders)
         {
-            throw h.a(httpheaders);
+            throw hrj.a(httpheaders);
         }
     }
 
@@ -337,7 +338,7 @@ public class HttpHeaders extends GenericData
         Class class1 = s.getClass();
         if ((s instanceof Iterable) || class1.isArray())
         {
-            Iterator iterator = g.e(s).iterator();
+            Iterator iterator = g.f(s).iterator();
             if (iterator.hasNext())
             {
                 return toStringValue(iterator.next());
@@ -357,7 +358,7 @@ public class HttpHeaders extends GenericData
         if ((s instanceof Iterable) || class1.isArray())
         {
             ArrayList arraylist = new ArrayList();
-            for (s = g.e(s).iterator(); s.hasNext(); arraylist.add(toStringValue(s.next()))) { }
+            for (s = g.f(s).iterator(); s.hasNext(); arraylist.add(toStringValue(s.next()))) { }
             return Collections.unmodifiableList(arraylist);
         } else
         {
@@ -424,30 +425,30 @@ public class HttpHeaders extends GenericData
     {
         Object obj = parseheaderstate.context;
         Object obj1 = parseheaderstate.classInfo;
-        hmu hmu1 = parseheaderstate.arrayValueMap;
+        hrq hrq1 = parseheaderstate.arrayValueMap;
         parseheaderstate = parseheaderstate.logger;
         if (parseheaderstate != null)
         {
-            parseheaderstate.append((new StringBuilder(String.valueOf(s).length() + 2 + String.valueOf(s1).length())).append(s).append(": ").append(s1).toString()).append(hog.a);
+            parseheaderstate.append((new StringBuilder(String.valueOf(s).length() + 2 + String.valueOf(s1).length())).append(s).append(": ").append(s1).toString()).append(htc.a);
         }
-        obj1 = ((hnc) (obj1)).a(s);
+        obj1 = ((hry) (obj1)).a(s);
         if (obj1 != null)
         {
-            Type type = hng.a(((List) (obj)), ((hno) (obj1)).c());
+            Type type = hsc.a(((List) (obj)), ((hsk) (obj1)).c());
             if (g.a(type))
             {
                 s = g.a(((List) (obj)), g.b(type));
-                hmu1.a(((hno) (obj1)).a(), s, parseValue(s, ((List) (obj)), s1));
+                hrq1.a(((hsk) (obj1)).a(), s, parseValue(s, ((List) (obj)), s1));
                 return;
             }
             if (g.a(g.a(((List) (obj)), type), java/lang/Iterable))
             {
-                parseheaderstate = (Collection)((hno) (obj1)).a(this);
+                parseheaderstate = (Collection)((hsk) (obj1)).a(this);
                 s = parseheaderstate;
                 if (parseheaderstate == null)
                 {
-                    s = hng.b(type);
-                    ((hno) (obj1)).a(this, s);
+                    s = hsc.b(type);
+                    ((hsk) (obj1)).a(this, s);
                 }
                 if (type == java/lang/Object)
                 {
@@ -460,7 +461,7 @@ public class HttpHeaders extends GenericData
                 return;
             } else
             {
-                ((hno) (obj1)).a(this, parseValue(type, ((List) (obj)), s1));
+                ((hsk) (obj1)).a(this, parseValue(type, ((List) (obj)), s1));
                 return;
             }
         }
@@ -521,9 +522,9 @@ public class HttpHeaders extends GenericData
 
     public HttpHeaders setBasicAuthentication(String s, String s1)
     {
-        s = (String)h.b(s);
-        s1 = (String)h.b(s1);
-        s = String.valueOf(hmo.a(hog.a((new StringBuilder(String.valueOf(s).length() + 1 + String.valueOf(s1).length())).append(s).append(":").append(s1).toString())));
+        s = (String)h.a(s);
+        s1 = (String)h.a(s1);
+        s = String.valueOf(hrk.a(htc.a((new StringBuilder(String.valueOf(s).length() + 1 + String.valueOf(s1).length())).append(s).append(":").append(s1).toString())));
         if (s.length() != 0)
         {
             s = "Basic ".concat(s);
@@ -663,8 +664,8 @@ public class HttpHeaders extends GenericData
     private class ParseHeaderState
     {
 
-        final hmu arrayValueMap;
-        final hnc classInfo;
+        final hrq arrayValueMap;
+        final hry classInfo;
         final List context;
         final StringBuilder logger;
 
@@ -679,9 +680,9 @@ public class HttpHeaders extends GenericData
             context = Arrays.asList(new Type[] {
                 class1
             });
-            classInfo = hnc.a(class1, true);
+            classInfo = hry.a(class1, true);
             logger = stringbuilder;
-            arrayValueMap = new hmu(HttpHeaders.this);
+            arrayValueMap = new hrq(HttpHeaders.this);
         }
     }
 

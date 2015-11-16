@@ -2,11 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.lang.annotation.Annotation;
+import android.app.Activity;
 
 public interface hnt
-    extends Annotation
 {
 
-    public abstract String a();
+    public abstract void a(Activity activity);
 }

@@ -2,27 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.atomic.AtomicInteger;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public final class dhi
+    implements Runnable
 {
 
-    private static final AtomicInteger a = new AtomicInteger(1);
-    private final int b;
+    final cxw a;
 
-    private dhi(int i)
+    public dhi(cxw cxw1)
     {
-        b = i;
+        a = cxw1;
+        super();
     }
 
-    public static dhi b()
+    public void run()
     {
-        return new dhi(a.getAndIncrement());
+        for (Iterator iterator = RealTimeChatService.o().iterator(); iterator.hasNext(); ((dhy)iterator.next()).d(a.k())) { }
     }
-
-    public int a()
-    {
-        return b;
-    }
-
 }

@@ -2,52 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
 
 final class bth
-    implements android.view.View.OnClickListener
+    implements bpf
 {
 
-    final bot a;
-    final bov b;
-    final btc c;
+    final boolean a;
+    final bpe b;
+    final btf c;
 
-    bth(btc btc1, bot bot1, bov bov)
+    bth(btf btf, boolean flag, bpe bpe1)
     {
-        c = btc1;
-        a = bot1;
-        b = bov;
+        c = btf;
+        a = flag;
+        b = bpe1;
         super();
     }
 
-    public void onClick(View view)
+    public void a(bpm bpm)
     {
-        int i = 0;
-        g.b(1579);
-        view = bnd.l();
-        bot bot1;
-        if (view == null)
+    }
+
+    public void a(gmt gmt1)
+    {
+        boolean flag;
+        if (!gmt1.n() && a)
         {
-            a.m();
+            flag = true;
         } else
         {
-            boolean flag;
-            if (!view.h())
-            {
-                flag = true;
-            } else
-            {
-                flag = false;
-            }
-            view.a(flag);
+            flag = false;
         }
-        btc.b(c, b);
-        bot1 = a;
-        if (view == null || !view.h())
+        if (b.a() != flag)
         {
-            i = 8;
+            b.a(flag);
         }
-        bot1.b(i);
-        a.j();
     }
 }

@@ -2,61 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.PendingIntent;
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.Parcel;
+import android.view.View;
+import com.google.android.apps.hangouts.views.MessageListItemView;
 
-public abstract class ehz extends Binder
-    implements ehy
+final class ehz
+    implements android.view.View.OnClickListener
 {
 
-    public static ehy a(IBinder ibinder)
+    final ehy a;
+
+    ehz(ehy ehy1)
     {
-        if (ibinder == null)
-        {
-            return null;
-        }
-        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.dialer.incallui.IInCallUiControllerService");
-        if (iinterface != null && (iinterface instanceof ehy))
-        {
-            return (ehy)iinterface;
-        } else
-        {
-            return new eia(ibinder);
-        }
+        a = ehy1;
+        super();
     }
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    public void onClick(View view)
     {
-        switch (i)
+        if (ehy.a(a).c())
         {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
-
-        case 1598968902: 
-            parcel1.writeString("com.google.android.dialer.incallui.IInCallUiControllerService");
-            return true;
-
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.dialer.incallui.IInCallUiControllerService");
-            i = a();
-            parcel1.writeNoException();
-            parcel1.writeInt(i);
-            return true;
-
-        case 2: // '\002'
-            parcel.enforceInterface("com.google.android.dialer.incallui.IInCallUiControllerService");
-            break;
+            return;
         }
-        if (parcel.readInt() != 0)
+        if (ehy.a(a).g())
         {
-            parcel = (PendingIntent)PendingIntent.CREATOR.createFromParcel(parcel);
+            ehy.b(a).b(ehy.a(a).s());
+            return;
         } else
         {
-            parcel = null;
+            ehy.b(a).a((ehy)view, ehy.c(a), a.b);
+            return;
         }
-        a(parcel);
-        return true;
     }
 }

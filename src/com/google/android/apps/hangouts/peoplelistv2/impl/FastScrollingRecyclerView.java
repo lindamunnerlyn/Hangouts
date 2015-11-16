@@ -8,11 +8,11 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.view.accessibility.AccessibilityNodeInfo;
-import cgg;
+import chm;
 import g;
-import yr;
+import yt;
 
-public class FastScrollingRecyclerView extends yr
+public class FastScrollingRecyclerView extends yt
 {
 
     private int h;
@@ -22,22 +22,22 @@ public class FastScrollingRecyclerView extends yr
     public FastScrollingRecyclerView(Context context)
     {
         super(context);
-        a(new cgg(this));
-        h = getResources().getDimensionPixelSize(g.nt);
+        a(new chm(this));
+        h = getResources().getDimensionPixelSize(g.nu);
     }
 
     public FastScrollingRecyclerView(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
-        a(new cgg(this));
-        h = getResources().getDimensionPixelSize(g.nt);
+        a(new chm(this));
+        h = getResources().getDimensionPixelSize(g.nu);
     }
 
     public FastScrollingRecyclerView(Context context, AttributeSet attributeset, int k)
     {
         super(context, attributeset, k);
-        a(new cgg(this));
-        h = getResources().getDimensionPixelSize(g.nt);
+        a(new chm(this));
+        h = getResources().getDimensionPixelSize(g.nu);
     }
 
     public static int a(FastScrollingRecyclerView fastscrollingrecyclerview)

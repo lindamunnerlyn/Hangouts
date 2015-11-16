@@ -4,7 +4,6 @@
 
 
 public final class gsu
-    implements gsz
 {
 
     public gsu()

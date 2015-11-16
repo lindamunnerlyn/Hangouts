@@ -3,14 +3,13 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hxy extends koj
+public final class hxy extends kwm
 {
 
-    public Long a;
-    public Long b;
-    public Long c;
+    public Boolean a;
+    public lrj b;
+    public String c;
     public String d;
-    public String e;
 
     public hxy()
     {
@@ -18,7 +17,6 @@ public final class hxy extends koj
         b = null;
         c = null;
         d = null;
-        e = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -29,40 +27,36 @@ public final class hxy extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.e(1, a.longValue());
+            a.booleanValue();
+            i = j + (kwk.f(2) + 1);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.e(2, b.longValue());
+            j = i + kwk.d(3, b);
         }
         i = j;
         if (c != null)
         {
-            i = j + koh.e(3, c.longValue());
+            i = j + kwk.b(4, c);
         }
         j = i;
         if (d != null)
         {
-            j = i + koh.b(4, d);
+            j = i + kwk.b(5, d);
         }
-        i = j;
-        if (e != null)
-        {
-            i = j + koh.b(5, e);
-        }
-        return i;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -71,51 +65,47 @@ public final class hxy extends koj
             case 0: // '\0'
                 return this;
 
-            case 8: // '\b'
-                a = Long.valueOf(kog1.e());
-                break;
-
             case 16: // '\020'
-                b = Long.valueOf(kog1.e());
+                a = Boolean.valueOf(kwj1.i());
                 break;
 
-            case 24: // '\030'
-                c = Long.valueOf(kog1.e());
+            case 26: // '\032'
+                if (b == null)
+                {
+                    b = new lrj();
+                }
+                kwj1.a(b);
                 break;
 
             case 34: // '"'
-                d = kog1.j();
+                c = kwj1.j();
                 break;
 
             case 42: // '*'
-                e = kog1.j();
+                d = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a.longValue());
+            kwk1.a(2, a.booleanValue());
         }
         if (b != null)
         {
-            koh1.b(2, b.longValue());
+            kwk1.b(3, b);
         }
         if (c != null)
         {
-            koh1.b(3, c.longValue());
+            kwk1.a(4, c);
         }
         if (d != null)
         {
-            koh1.a(4, d);
+            kwk1.a(5, d);
         }
-        if (e != null)
-        {
-            koh1.a(5, e);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

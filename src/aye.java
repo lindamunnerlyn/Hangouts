@@ -6,11 +6,8 @@
 public interface aye
 {
 
-    public abstract void C();
+    public static final String a[] = {
+        "conversation_id", "event_id", "timestamp", "type", "gem_asset_url", "gem_horizontal_alignment"
+    };
 
-    public abstract void E();
-
-    public abstract boolean H();
-
-    public abstract void a(CharSequence charsequence);
 }

@@ -2,104 +2,412 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.RemoteException;
-import android.util.Log;
-import com.google.android.gms.wearable.internal.AddListenerRequest;
-import com.google.android.gms.wearable.internal.RemoveListenerRequest;
+import android.text.TextUtils;
+import com.google.android.gms.wearable.Asset;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
 
-final class fvi
+public final class fvi
 {
 
-    private final Map a = new HashMap();
+    private final HashMap a = new HashMap();
 
-    fvi()
+    public fvi()
     {
     }
 
-    public void a(IBinder ibinder)
+    public static fvi a(byte abyte0[])
     {
-        Map map = a;
-        map;
-        JVM INSTR monitorenter ;
-        fvy fvy1;
-        Iterator iterator;
-        ibinder = fvg.a(ibinder);
-        fvy1 = new fvy();
-        iterator = a.entrySet().iterator();
-_L1:
-        java.util.Map.Entry entry;
-        fwd fwd1;
-        if (!iterator.hasNext())
+        try
         {
-            break MISSING_BLOCK_LABEL_168;
+            abyte0 = g.a(new fga(fgb.a(abyte0), new ArrayList()));
         }
-        entry = (java.util.Map.Entry)iterator.next();
-        fwd1 = (fwd)entry.getValue();
-        ibinder.a(fvy1, new AddListenerRequest(fwd1));
-        if (Log.isLoggable("WearableClient", 2))
+        // Misplaced declaration of an exception variable
+        catch (byte abyte0[])
         {
-            (new StringBuilder("onPostInitHandler: added: ")).append(entry.getKey()).append("/").append(fwd1);
+            throw new IllegalArgumentException("Unable to convert data", abyte0);
         }
-          goto _L1
-        RemoteException remoteexception;
-        remoteexception;
-        (new StringBuilder("onPostInitHandler: Didn't add: ")).append(entry.getKey()).append("/").append(fwd1);
-          goto _L1
-        ibinder;
-        map;
-        JVM INSTR monitorexit ;
-        throw ibinder;
-        map;
-        JVM INSTR monitorexit ;
+        return abyte0;
     }
 
-    public void a(fwb fwb1)
+    private static void a(String s, Object obj, String s1, ClassCastException classcastexception)
     {
-        Map map = a;
-        map;
-        JVM INSTR monitorenter ;
-        fvy fvy1;
-        Iterator iterator;
-        fvy1 = new fvy();
-        iterator = a.entrySet().iterator();
-_L2:
-        java.util.Map.Entry entry;
-        fwd fwd1;
+        a(s, obj, s1, "<null>");
+    }
+
+    private static void a(String s, Object obj, String s1, Object obj1)
+    {
+        StringBuilder stringbuilder = new StringBuilder();
+        stringbuilder.append("Key ");
+        stringbuilder.append(s);
+        stringbuilder.append(" expected ");
+        stringbuilder.append(s1);
+        stringbuilder.append(" but value was a ");
+        stringbuilder.append(obj.getClass().getName());
+        stringbuilder.append(".  The default value ");
+        stringbuilder.append(obj1);
+        stringbuilder.append(" was returned.");
+    }
+
+    private boolean h(String s)
+    {
+        Object obj = a.get(s);
+        if (obj == null)
+        {
+            return false;
+        }
+        boolean flag;
+        try
+        {
+            flag = ((Boolean)obj).booleanValue();
+        }
+        catch (ClassCastException classcastexception)
+        {
+            a(s, obj, "Boolean", Boolean.valueOf(false));
+            return false;
+        }
+        return flag;
+    }
+
+    private long i(String s)
+    {
+        Object obj = a.get(s);
+        if (obj == null)
+        {
+            return 0L;
+        }
+        long l;
+        try
+        {
+            l = ((Long)obj).longValue();
+        }
+        catch (ClassCastException classcastexception)
+        {
+            a(s, obj, "long", classcastexception);
+            return 0L;
+        }
+        return l;
+    }
+
+    public Object a(String s)
+    {
+        return a.get(s);
+    }
+
+    public void a(fvi fvi1)
+    {
+        String s;
+        for (Iterator iterator = fvi1.b().iterator(); iterator.hasNext(); a.put(s, fvi1.a(s)))
+        {
+            s = (String)iterator.next();
+        }
+
+    }
+
+    public void a(String s, byte byte0)
+    {
+        a.put(s, Byte.valueOf(byte0));
+    }
+
+    public void a(String s, double d1)
+    {
+        a.put(s, Double.valueOf(d1));
+    }
+
+    public void a(String s, float f1)
+    {
+        a.put(s, Float.valueOf(f1));
+    }
+
+    public void a(String s, int j)
+    {
+        a.put(s, Integer.valueOf(j));
+    }
+
+    public void a(String s, long l)
+    {
+        a.put(s, Long.valueOf(l));
+    }
+
+    public void a(String s, Asset asset)
+    {
+        a.put(s, asset);
+    }
+
+    public void a(String s, fvi fvi1)
+    {
+        a.put(s, fvi1);
+    }
+
+    public void a(String s, String s1)
+    {
+        a.put(s, s1);
+    }
+
+    public void a(String s, ArrayList arraylist)
+    {
+        a.put(s, arraylist);
+    }
+
+    public void a(String s, boolean flag)
+    {
+        a.put(s, Boolean.valueOf(flag));
+    }
+
+    public void a(String s, byte abyte0[])
+    {
+        a.put(s, abyte0);
+    }
+
+    public void a(String s, float af[])
+    {
+        a.put(s, af);
+    }
+
+    public void a(String s, long al[])
+    {
+        a.put(s, al);
+    }
+
+    public void a(String s, String as[])
+    {
+        a.put(s, as);
+    }
+
+    public byte[] a()
+    {
+        return fgm.a(g.a(this).a);
+    }
+
+    public String b(String s, String s1)
+    {
+        s = f(s);
+        if (s == null)
+        {
+            return s1;
+        } else
+        {
+            return s;
+        }
+    }
+
+    public Set b()
+    {
+        return a.keySet();
+    }
+
+    public void b(String s, ArrayList arraylist)
+    {
+        a.put(s, arraylist);
+    }
+
+    public boolean b(String s)
+    {
+        return h(s);
+    }
+
+    public int c(String s)
+    {
+        return d(s);
+    }
+
+    public void c(String s, ArrayList arraylist)
+    {
+        a.put(s, arraylist);
+    }
+
+    public int d(String s)
+    {
+        Object obj = a.get(s);
+        if (obj == null)
+        {
+            return 0;
+        }
+        int j;
+        try
+        {
+            j = ((Integer)obj).intValue();
+        }
+        catch (ClassCastException classcastexception)
+        {
+            a(s, obj, "Integer", classcastexception);
+            return 0;
+        }
+        return j;
+    }
+
+    public long e(String s)
+    {
+        return i(s);
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (!(obj instanceof fvi))
+        {
+            return false;
+        }
+        obj = (fvi)obj;
+        if (a.size() != ((fvi) (obj)).a.size())
+        {
+            return false;
+        }
+        Iterator iterator = b().iterator();
         do
         {
             if (!iterator.hasNext())
             {
-                break MISSING_BLOCK_LABEL_190;
+                break;
             }
-            entry = (java.util.Map.Entry)iterator.next();
-            fwd1 = (fwd)entry.getValue();
-        } while (fwd1 == null);
-        boolean flag;
-        fwd1.a();
-        flag = fwb1.d();
-        if (!flag) goto _L2; else goto _L1
-_L1:
-        ((fvf)fwb1.n()).a(fvy1, new RemoveListenerRequest(fwd1));
-        if (Log.isLoggable("WearableClient", 2))
+            Object obj2 = (String)iterator.next();
+            Object obj1 = a(((String) (obj2)));
+            obj2 = ((fvi) (obj)).a(((String) (obj2)));
+            if (obj1 instanceof Asset)
+            {
+                if (!(obj2 instanceof Asset))
+                {
+                    return false;
+                }
+                obj1 = (Asset)obj1;
+                obj2 = (Asset)obj2;
+                boolean flag;
+                if (obj1 == null || obj2 == null)
+                {
+                    if (obj1 == obj2)
+                    {
+                        flag = true;
+                    } else
+                    {
+                        flag = false;
+                    }
+                } else
+                if (!TextUtils.isEmpty(((Asset) (obj1)).b()))
+                {
+                    flag = ((Asset) (obj1)).b().equals(((Asset) (obj2)).b());
+                } else
+                {
+                    flag = Arrays.equals(((Asset) (obj1)).a(), ((Asset) (obj2)).a());
+                }
+                if (!flag)
+                {
+                    return false;
+                }
+                continue;
+            }
+            if (obj1 instanceof String[])
+            {
+                if (!(obj2 instanceof String[]))
+                {
+                    return false;
+                }
+                if (!Arrays.equals((String[])obj1, (String[])obj2))
+                {
+                    return false;
+                }
+                continue;
+            }
+            if (obj1 instanceof long[])
+            {
+                if (!(obj2 instanceof long[]))
+                {
+                    return false;
+                }
+                if (!Arrays.equals((long[])obj1, (long[])obj2))
+                {
+                    return false;
+                }
+                continue;
+            }
+            if (obj1 instanceof float[])
+            {
+                if (!(obj2 instanceof float[]))
+                {
+                    return false;
+                }
+                if (!Arrays.equals((float[])obj1, (float[])obj2))
+                {
+                    return false;
+                }
+                continue;
+            }
+            if (obj1 instanceof byte[])
+            {
+                if (!(obj2 instanceof byte[]))
+                {
+                    return false;
+                }
+                if (!Arrays.equals((byte[])obj1, (byte[])obj2))
+                {
+                    return false;
+                }
+                continue;
+            }
+            if (obj1 == null || obj2 == null)
+            {
+                if (obj1 != obj2)
+                {
+                    return false;
+                }
+                break;
+            }
+            if (!obj1.equals(obj2))
+            {
+                return false;
+            }
+        } while (true);
+        return true;
+    }
+
+    public String f(String s)
+    {
+        Object obj = a.get(s);
+        if (obj == null)
         {
-            (new StringBuilder("disconnect: removed: ")).append(entry.getKey()).append("/").append(fwd1);
+            return null;
         }
-          goto _L2
-        RemoteException remoteexception;
-        remoteexception;
-        (new StringBuilder("disconnect: Didn't remove: ")).append(entry.getKey()).append("/").append(fwd1);
-          goto _L2
-        fwb1;
-        map;
-        JVM INSTR monitorexit ;
-        throw fwb1;
-        a.clear();
-        map;
-        JVM INSTR monitorexit ;
+        String s1;
+        try
+        {
+            s1 = (String)obj;
+        }
+        catch (ClassCastException classcastexception)
+        {
+            a(s, obj, "String", classcastexception);
+            return null;
+        }
+        return s1;
+    }
+
+    public Asset g(String s)
+    {
+        Object obj = a.get(s);
+        if (obj == null)
+        {
+            return null;
+        }
+        Asset asset;
+        try
+        {
+            asset = (Asset)obj;
+        }
+        catch (ClassCastException classcastexception)
+        {
+            a(s, obj, "Asset", classcastexception);
+            return null;
+        }
+        return asset;
+    }
+
+    public int hashCode()
+    {
+        return a.hashCode() * 29;
+    }
+
+    public String toString()
+    {
+        return a.toString();
     }
 }

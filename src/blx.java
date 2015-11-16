@@ -2,28 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.MotionEvent;
-import android.view.View;
+import android.content.res.Resources;
+import android.os.Bundle;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-final class blx
-    implements android.view.View.OnTouchListener
+public final class blx extends bfr
+    implements bfs
 {
 
-    final blw a;
-
-    blx(blw blw1)
+    public blx()
     {
-        a = blw1;
-        super();
     }
 
-    public boolean onTouch(View view, MotionEvent motionevent)
+    public static blx a(Resources resources)
     {
-        blw.a(a).q();
-        if (motionevent.getAction() == 1)
+        blx blx1 = new blx();
+        Bundle bundle = new Bundle();
+        bundle.putString("title", resources.getString(l.iX));
+        bundle.putString("message", resources.getString(l.iW));
+        bundle.putString("positive", resources.getString(l.ah));
+        bundle.putString("negative", resources.getString(l.Q));
+        blx1.setArguments(bundle);
+        blx1.setTargetFragment(blx1, 0);
+        return blx1;
+    }
+
+    public void a(Bundle bundle, String s)
+    {
+        if (s.equals("clear_recent_calls"))
         {
-            view.performClick();
+            RealTimeChatService.c(((gqu)al.a(gqu)).a());
         }
-        return false;
+    }
+
+    public void a(ap ap)
+    {
+        a(ap, "clear_recent_calls");
+    }
+
+    public void a(String s)
+    {
+    }
+
+    public void b(String s)
+    {
     }
 }

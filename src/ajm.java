@@ -2,10 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.widget.TextView;
+import android.content.Context;
 
-public interface ajm
+public final class ajm
+    implements ajh
 {
 
-    public abstract void a(ai ai, hjm hjm, TextView textview);
+    public ajm()
+    {
+    }
+
+    public boolean a(Context context, int i)
+    {
+        return g.a(context, i);
+    }
 }

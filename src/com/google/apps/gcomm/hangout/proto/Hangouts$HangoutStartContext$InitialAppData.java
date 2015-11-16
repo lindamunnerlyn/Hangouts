@@ -4,13 +4,13 @@
 
 package com.google.apps.gcomm.hangout.proto;
 
-import kog;
-import koh;
-import koj;
-import kon;
-import kop;
+import kwj;
+import kwk;
+import kwm;
+import kwq;
+import kws;
 
-public final class clear extends koj
+public final class clear extends kwm
 {
 
     private static volatile startType _emptyArray[];
@@ -22,7 +22,7 @@ public final class clear extends koj
     {
         if (_emptyArray == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
                 if (_emptyArray == null)
                 {
@@ -37,14 +37,14 @@ public final class clear extends koj
         throw exception;
     }
 
-    public static _emptyArray parseFrom(kog kog1)
+    public static _emptyArray parseFrom(kwj kwj1)
     {
-        return (new <init>()).mergeFrom(kog1);
+        return (new <init>()).mergeFrom(kwj1);
     }
 
     public static mergeFrom parseFrom(byte abyte0[])
     {
-        return (mergeFrom)kop.mergeFrom(new <init>(), abyte0);
+        return (mergeFrom)kws.mergeFrom(new <init>(), abyte0);
     }
 
     public <init> clear()
@@ -63,25 +63,25 @@ public final class clear extends koj
         int i = j;
         if (appId != null)
         {
-            i = j + koh.b(1, appId);
+            i = j + kwk.b(1, appId);
         }
         j = i;
         if (startData != null)
         {
-            j = i + koh.b(2, startData);
+            j = i + kwk.b(2, startData);
         }
         i = j;
         if (startType != null)
         {
-            i = j + koh.e(3, startType.intValue());
+            i = j + kwk.e(3, startType.intValue());
         }
         return i;
     }
 
-    public startType mergeFrom(kog kog1)
+    public startType mergeFrom(kwj kwj1)
     {
 _L6:
-        int i = kog1.a();
+        int i = kwj1.a();
         i;
         JVM INSTR lookupswitch 4: default 48
     //                   0: 57
@@ -90,17 +90,17 @@ _L6:
     //                   24: 81;
            goto _L1 _L2 _L3 _L4 _L5
 _L1:
-        if (super.storeUnknownField(kog1, i)) goto _L6; else goto _L2
+        if (super.storeUnknownField(kwj1, i)) goto _L6; else goto _L2
 _L2:
         return this;
 _L3:
-        appId = kog1.j();
+        appId = kwj1.j();
           goto _L6
 _L4:
-        startData = kog1.j();
+        startData = kwj1.j();
           goto _L6
 _L5:
-        int j = kog1.f();
+        int j = kwj1.f();
         switch (j)
         {
         case 1: // '\001'
@@ -113,26 +113,26 @@ _L5:
 _L7:
     }
 
-    public volatile kop mergeFrom(kog kog1)
+    public volatile kws mergeFrom(kwj kwj1)
     {
-        return mergeFrom(kog1);
+        return mergeFrom(kwj1);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (appId != null)
         {
-            koh1.a(1, appId);
+            kwk1.a(1, appId);
         }
         if (startData != null)
         {
-            koh1.a(2, startData);
+            kwk1.a(2, startData);
         }
         if (startType != null)
         {
-            koh1.a(3, startType.intValue());
+            kwk1.a(3, startType.intValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 
     public ()

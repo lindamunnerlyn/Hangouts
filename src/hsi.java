@@ -3,74 +3,108 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hsi extends koj
+public final class hsi
+    implements hrs
 {
 
-    public Long a;
-    public Long b;
+    public int c;
+    public final int d;
+    public final double e;
+    public final double f;
+    public final int g;
+    long h;
+    public final int i;
+    private final hsu j;
 
     public hsi()
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        this(new hsj());
     }
 
-    protected int computeSerializedSize()
+    protected hsi(hsj hsj1)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        boolean flag1 = true;
+        super();
+        d = hsj1.a;
+        e = hsj1.b;
+        f = hsj1.c;
+        g = hsj1.d;
+        i = hsj1.e;
+        j = hsj1.f;
+        boolean flag;
+        if (d > 0)
         {
-            i = j + koh.e(1, a.longValue());
-        }
-        j = i;
-        if (b != null)
+            flag = true;
+        } else
         {
-            j = i + koh.e(2, b.longValue());
+            flag = false;
         }
-        return j;
+        l.a(flag);
+        if (0.0D <= e && e < 1.0D)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        l.a(flag);
+        if (f >= 1.0D)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        l.a(flag);
+        if (g >= d)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        l.a(flag);
+        if (i > 0)
+        {
+            flag = flag1;
+        } else
+        {
+            flag = false;
+        }
+        l.a(flag);
+        b();
     }
 
-    public kop mergeFrom(kog kog1)
+    public long a()
     {
-        do
+        if (c() > (long)i)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Long.valueOf(kog1.e());
-                break;
-
-            case 16: // '\020'
-                b = Long.valueOf(kog1.e());
-                break;
-            }
-        } while (true);
+            return -1L;
+        }
+        double d2 = e;
+        double d1 = Math.random();
+        int k = c;
+        d2 *= k;
+        double d3 = (double)k - d2;
+        k = (int)((((d2 + (double)k) - d3) + 1.0D) * d1 + d3);
+        if ((double)c >= (double)g / f)
+        {
+            c = g;
+        } else
+        {
+            c = (int)((double)c * f);
+        }
+        return (long)k;
     }
 
-    public void writeTo(koh koh1)
+    public final void b()
     {
-        if (a != null)
-        {
-            koh1.b(1, a.longValue());
-        }
-        if (b != null)
-        {
-            koh1.b(2, b.longValue());
-        }
-        super.writeTo(koh1);
+        c = d;
+        h = j.a();
+    }
+
+    public final long c()
+    {
+        return (j.a() - h) / 0xf4240L;
     }
 }

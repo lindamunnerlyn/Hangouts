@@ -2,11 +2,13 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.PrintWriter;
 
 public interface gxm
 {
 
-    public abstract int a();
+    public static final hnb a = new hnb("android_dump");
 
-    public abstract gxn a(gmu gmu, boolean flag);
+    public abstract void a(PrintWriter printwriter);
+
 }

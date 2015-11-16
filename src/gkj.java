@@ -2,199 +2,128 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.telephony.TelephonyManager;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-public final class gkj
+public class gkj
+    implements gdo
 {
 
-    private static int a = -1;
-    private static int b = -1;
+    final gjw a_;
+    final gjr b;
+    public final Map c = new ConcurrentHashMap();
+    final List d = new CopyOnWriteArrayList();
+    public volatile boolean e;
+    private final gdt f;
+    private final gjs g;
 
-    public static int a()
+    public gkj(gjw gjw, gdt gdt1, gjs gjs1, gjr gjr)
     {
-        if (a == -1)
-        {
-            if (android.os.Build.VERSION.SDK_INT >= 19)
-            {
-                a = Runtime.getRuntime().availableProcessors();
-            } else
-            {
-                a = a("present");
-            }
-        }
-        return a;
+        a_ = gjw;
+        f = gdt1;
+        g = gjs1;
+        b = gjr;
+        e = false;
     }
 
-    private static int a(String s)
+    static jka a(jko jko)
     {
-        boolean flag = true;
-        s = String.valueOf(s);
-        int i;
-        if (s.length() != 0)
-        {
-            s = "/sys/devices/system/cpu/".concat(s);
-        } else
-        {
-            s = new String("/sys/devices/system/cpu/");
-        }
-        s = c(s);
-        i = ((flag) ? 1 : 0);
-        if (s != null)
-        {
-            s = s.split("\\-");
-            i = ((flag) ? 1 : 0);
-            if (s.length == 2)
-            {
-                int j;
-                try
-                {
-                    i = Integer.parseInt(s[0]);
-                    j = Integer.parseInt(s[1]);
-                }
-                // Misplaced declaration of an exception variable
-                catch (String s)
-                {
-                    return 1;
-                }
-                j = (j - i) + 1;
-                i = j;
-                if (j <= 0)
-                {
-                    i = 1;
-                }
-            }
-        }
-        return i;
+        jkb jkb1 = new jkb();
+        jkb1.b = jko;
+        jko = new jka();
+        jko.a = (new jkb[] {
+            jkb1
+        });
+        return jko;
     }
 
-    public static boolean a(TelephonyManager telephonymanager)
+    public void a(int i, kws kws1)
     {
-        if (android.os.Build.VERSION.SDK_INT >= 22)
-        {
-            return b(telephonymanager);
-        }
-        return telephonymanager.getPhoneType() != 0;
-    }
-
-    public static int b()
-    {
-        return a("online");
-    }
-
-    private static int b(String s)
-    {
-        s = String.valueOf(s);
-        int i;
-        if (s.length() != 0)
-        {
-            s = "/sys/devices/system/cpu/cpu0/cpufreq/".concat(s);
-        } else
-        {
-            s = new String("/sys/devices/system/cpu/cpu0/cpufreq/");
-        }
-        s = c(s);
-        try
-        {
-            i = Integer.parseInt(s);
-        }
-        // Misplaced declaration of an exception variable
-        catch (String s)
-        {
-            return -1;
-        }
-        return i;
-    }
-
-    private static boolean b(TelephonyManager telephonymanager)
-    {
-        try
-        {
-            telephonymanager = (Boolean)Class.forName(telephonymanager.getClass().getName()).getDeclaredMethod("isVoiceCapable", new Class[0]).invoke(telephonymanager, new Object[0]);
-        }
-        // Misplaced declaration of an exception variable
-        catch (TelephonyManager telephonymanager)
-        {
-            gbh.a(telephonymanager.toString());
-            telephonymanager = null;
-        }
-        // Misplaced declaration of an exception variable
-        catch (TelephonyManager telephonymanager)
-        {
-            gbh.a(telephonymanager.toString());
-            telephonymanager = null;
-        }
-        // Misplaced declaration of an exception variable
-        catch (TelephonyManager telephonymanager)
-        {
-            gbh.a(telephonymanager.toString());
-            telephonymanager = null;
-        }
-        // Misplaced declaration of an exception variable
-        catch (TelephonyManager telephonymanager)
-        {
-            gbh.a(telephonymanager.toString());
-            telephonymanager = null;
-        }
-        return telephonymanager != null && telephonymanager.booleanValue();
-    }
-
-    public static int c()
-    {
-        if (b == -1)
-        {
-            b = b("cpuinfo_max_freq");
-        }
-        return b;
-    }
-
-    private static String c(String s)
-    {
-        String s2 = null;
-        Object obj1 = null;
-        Object obj = null;
-        String s1 = obj1;
-        BufferedReader bufferedreader;
-        try
-        {
-            bufferedreader = new BufferedReader(new FileReader(s));
-        }
-        // Misplaced declaration of an exception variable
-        catch (String s)
-        {
-            return s1;
-        }
-        // Misplaced declaration of an exception variable
-        catch (String s)
-        {
-            return s2;
-        }
-        s1 = obj1;
-        s = bufferedreader.readLine();
-_L2:
-        s2 = s;
-        s1 = s;
-        bufferedreader.close();
-        return s;
-        s;
-        s = obj;
-        if (true) goto _L2; else goto _L1
+        gdv.a();
+        i;
+        JVM INSTR tableswitch 0 3: default 36
+    //                   0 68
+    //                   1 202
+    //                   2 130
+    //                   3 264;
+           goto _L1 _L2 _L3 _L4 _L5
 _L1:
+        gne.a("vclib", (new StringBuilder(35)).append("Operation ").append(i).append(" is not found.").toString());
+_L6:
+        return;
+_L2:
+        gdv.a("Expected null", c.put(f.a(kws1), kws1));
+        Iterator iterator = d.iterator();
+        while (iterator.hasNext()) 
+        {
+            ((gdq)iterator.next()).a(kws1);
+        }
+        if (true)
+        {
+            continue; /* Loop/switch isn't completed */
+        }
+_L4:
+        kws kws2 = (kws)c.put(f.a(kws1), kws1);
+        gdv.b("Expected non-null", kws2);
+        Iterator iterator2 = d.iterator();
+        while (iterator2.hasNext()) 
+        {
+            ((gdq)iterator2.next()).a(kws2, kws1);
+        }
+        if (true) goto _L6; else goto _L3
+_L3:
+        gdv.b("Expected non-null", c.remove(f.a(kws1)));
+        Iterator iterator1 = d.iterator();
+        while (iterator1.hasNext()) 
+        {
+            ((gdq)iterator1.next()).b(kws1);
+        }
+        if (true)
+        {
+            continue; /* Loop/switch isn't completed */
+        }
+_L5:
+        e = true;
+        kws1 = d.iterator();
+        while (kws1.hasNext()) 
+        {
+            ((gdq)kws1.next()).a();
+        }
+        if (true) goto _L6; else goto _L7
+_L7:
     }
 
-    public static int d()
+    public void a(gdq gdq1)
     {
-        return b("scaling_cur_freq");
+        g.a(new gkk(this, gdq1));
     }
 
-    public static int e()
+    public void a(kws kws1, gds gds)
     {
-        return b("cpu_utilization");
+        g.a(kws1, new gkl(this, gds));
     }
 
+    public Map b()
+    {
+        return Collections.unmodifiableMap(c);
+    }
+
+    public void b(gdq gdq1)
+    {
+        d.remove(gdq1);
+    }
+
+    public void b(kws kws1, gds gds)
+    {
+        g.b(kws1, new gkm(this, gds));
+    }
+
+    public void c(kws kws1, gds gds)
+    {
+        g.c(kws1, new gkn(this, kws1, gds));
+    }
 }

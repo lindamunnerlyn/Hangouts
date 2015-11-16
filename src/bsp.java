@@ -2,41 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.view.MotionEvent;
+import android.view.View;
 
-public final class bsp
+final class bsp
+    implements android.view.View.OnTouchListener
 {
 
-    public static final String a = bsk.getName();
-    public static final String b = bsl.getName();
-    public static final String c = beb.getName();
-    private static bsn d;
+    final bso a;
 
-    public static void a(Context context, hgx hgx1)
+    bsp(bso bso)
     {
-        if (d == null)
-        {
-            d = new bsn();
-        }
-        hgx1.a(bsk, d.a(context));
+        a = bso;
+        super();
     }
 
-    public static void a(hgx hgx1)
+    public boolean onTouch(View view, MotionEvent motionevent)
     {
-        if (d == null)
+        if (motionevent.getAction() == 0)
         {
-            d = new bsn();
-        }
-        hgx1.a(bsl, d.b());
-    }
-
-    public static void b(hgx hgx1)
-    {
-        if (d == null)
+            view.setAlpha(0.2F);
+        } else
+        if (motionevent.getAction() == 1)
         {
-            d = new bsn();
+            view.setAlpha(1.0F);
+            view.performClick();
+            return true;
         }
-        hgx1.a(beb, d.a());
+        return false;
     }
-
 }

@@ -3,40 +3,112 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public abstract class jgq
+public final class jgq extends kwm
 {
 
-    protected jgq()
+    public String a;
+    public String b;
+    public jif c;
+    public jdk requestHeader;
+
+    public jgq()
     {
+        requestHeader = null;
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public final int a(Object obj)
+    protected int computeSerializedSize()
     {
-        if (obj == null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (requestHeader != null)
         {
-            return 0;
-        } else
-        {
-            return b(obj);
+            i = j + kwk.d(1, requestHeader);
         }
+        j = i;
+        if (a != null)
+        {
+            j = i + kwk.b(2, a);
+        }
+        i = j;
+        if (b != null)
+        {
+            i = j + kwk.b(3, b);
+        }
+        j = i;
+        if (c != null)
+        {
+            j = i + kwk.d(4, c);
+        }
+        return j;
     }
 
-    public final boolean a(Object obj, Object obj1)
+    public kws mergeFrom(kwj kwj1)
     {
-        if (obj == obj1)
+        do
         {
-            return true;
-        }
-        if (obj == null || obj1 == null)
-        {
-            return false;
-        } else
-        {
-            return b(obj, obj1);
-        }
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (requestHeader == null)
+                {
+                    requestHeader = new jdk();
+                }
+                kwj1.a(requestHeader);
+                break;
+
+            case 18: // '\022'
+                a = kwj1.j();
+                break;
+
+            case 26: // '\032'
+                b = kwj1.j();
+                break;
+
+            case 34: // '"'
+                if (c == null)
+                {
+                    c = new jif();
+                }
+                kwj1.a(c);
+                break;
+            }
+        } while (true);
     }
 
-    protected abstract int b(Object obj);
-
-    protected abstract boolean b(Object obj, Object obj1);
+    public void writeTo(kwk kwk1)
+    {
+        if (requestHeader != null)
+        {
+            kwk1.b(1, requestHeader);
+        }
+        if (a != null)
+        {
+            kwk1.a(2, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(3, b);
+        }
+        if (c != null)
+        {
+            kwk1.b(4, c);
+        }
+        super.writeTo(kwk1);
+    }
 }

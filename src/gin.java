@@ -3,21 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gin extends gjm
+final class gin
+    implements Runnable
 {
 
-    final gim a;
+    final int a;
+    final int b;
+    final gie c;
 
-    gin(gim gim1)
+    gin(gie gie1, int i, int j)
     {
-        a = gim1;
+        c = gie1;
+        a = i;
+        b = j;
         super();
     }
 
-    public void a(gjq gjq)
+    public void run()
     {
-        a.b = false;
-        a.a.b(this);
-        a.b();
+        giq giq1 = gfg.a(a * b);
+        c.k = giq1.d();
+        c.a(c.j);
     }
 }

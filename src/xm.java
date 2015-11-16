@@ -5,22 +5,18 @@
 import android.view.View;
 import java.util.ArrayList;
 
-final class xm extends xr
+final class xm extends xt
 {
 
-    final zq a;
-    final int b;
-    final int c;
-    final lr d;
-    final xg e;
+    final zs a;
+    final lr b;
+    final xi c;
 
-    xm(xg xg1, zq zq, int i, int j, lr lr1)
+    xm(xi xi1, zs zs, lr lr1)
     {
-        e = xg1;
-        a = zq;
-        b = i;
-        c = j;
-        d = lr1;
+        c = xi1;
+        a = zs;
+        b = lr1;
         super();
     }
 
@@ -30,21 +26,10 @@ final class xm extends xr
 
     public void b(View view)
     {
-        d.a(null);
-        e.e(a);
-        e.e.remove(a);
-        e.c();
-    }
-
-    public void c(View view)
-    {
-        if (b != 0)
-        {
-            kb.a(view, 0.0F);
-        }
-        if (c != 0)
-        {
-            kb.b(view, 0.0F);
-        }
+        b.a(null);
+        kb.c(view, 1.0F);
+        c.d(a);
+        c.f.remove(a);
+        c.c();
     }
 }

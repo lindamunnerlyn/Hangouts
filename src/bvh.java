@@ -5,94 +5,142 @@
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
-final class bvh extends boh
-    implements fsn, hhi, hkc, hkd
+final class bvh
+    implements hma, hoo, hoq, hos, how, hox, hoy
 {
 
-    final Context a;
-    buz b;
-    gaw c;
-    private final bof d = bof.a();
-    private bvi e;
+    final pu a;
+    buh b;
+    bvm c;
+    private buf d;
+    private final bvj e = new bvj(this);
+    private bpw f;
 
-    bvh(Context context, hjm hjm1)
+    bvh(pu pu1, hof hof1)
     {
-        a = context;
-        hjm1.a(this);
+        a = pu1;
+        hof1.a(this);
     }
 
-    public void a(Context context, hgx hgx1, Bundle bundle)
+    private boolean d()
     {
-        b = (buz)hgx1.a(buz);
+        bui bui1 = b.a();
+        return b.b() && (bui1 == bui.b || bui1 == bui.c || bui1 == bui.d) && d.b();
     }
 
-    public void a(gho gho, fyb fyb)
+    public void a(Context context, hlp hlp1, Bundle bundle)
     {
-        if (fyb instanceof ghm)
+        b = (buh)hlp1.a(buh);
+        d = (buf)hlp1.a(buf);
+        c = (bvm)hlp1.a(bvm);
+    }
+
+    boolean a(int i)
+    {
+        if (!d()) goto _L2; else goto _L1
+_L1:
+        g.b(i);
+        bvi.a[b.a().ordinal()];
+        JVM INSTR tableswitch 1 3: default 52
+    //                   1 54
+    //                   2 74
+    //                   3 74;
+           goto _L2 _L3 _L4 _L4
+_L2:
+        return false;
+_L3:
+        (new buj()).a(a.u_(), null);
+        return true;
+_L4:
+        (new bva()).a(a.u_(), null);
+        return true;
+    }
+
+    public boolean a(Menu menu)
+    {
+        (new MenuInflater(a)).inflate(g.mh, menu);
+        return b(menu);
+    }
+
+    public boolean a(MenuItem menuitem)
+    {
+        if (menuitem.getItemId() == g.mf)
         {
-            fyb = (ghm)fyb;
-            if (fyb.c())
-            {
-                b.a(g.a(a, 2, gho, fyb.d(), l.eM, l.eN, l.eL));
-            }
+            return a(2243);
         } else
-        if (fyb instanceof ght)
         {
-            fyb = (ght)fyb;
-            b.a(g.a(a, 1, gho, fyb.b(), l.ed, l.ee, l.ec));
+            return false;
+        }
+    }
+
+    public boolean b(Menu menu)
+    {
+        menu = menu.findItem(g.mf);
+        boolean flag = d();
+        menu.setVisible(flag);
+        return flag;
+    }
+
+    void c()
+    {
+        Object obj1;
+        boolean flag;
+        obj1 = null;
+        a.q_();
+        if (f == null)
+        {
             return;
         }
-    }
-
-    public void a(ghs ghs)
-    {
-        c = (gaw)bnd.a().p().a(gaw);
-        e = new bvi(this);
-        c.a(e);
-    }
-
-    public void a(String s, int i, String s1, String s2)
-    {
-        if (i == 0)
+        flag = d();
+        if (!flag) goto _L2; else goto _L1
+_L1:
+        Object obj = a.getResources();
+        bvi.a[b.a().ordinal()];
+        JVM INSTR tableswitch 1 3: default 80
+    //                   1 122
+    //                   2 133
+    //                   3 144;
+           goto _L2 _L3 _L4 _L5
+_L2:
+        obj = null;
+_L7:
+        f.a(((android.graphics.drawable.Drawable) (obj)));
+        bpw bpw1 = f;
+        obj = obj1;
+        if (flag)
         {
-            b.a((new buy()).a(s2).b());
+            obj = e;
         }
-    }
-
-    public void e()
-    {
-        buz buz1 = b;
-        Context context = a;
-        buz1.a((new buy()).a(context.getResources().getString(l.cR)).a(0).b());
-        if (c != null)
-        {
-            c.b(e);
-            e = null;
-        }
-    }
-
-    public void j()
-    {
-        buz buz1 = b;
-        Context context = a;
-        buz1.a((new buy()).a(0).a(context.getResources().getString(l.cD)).b());
-    }
-
-    public void j_()
-    {
-        d.a(this);
-    }
-
-    public void k()
-    {
-        buz buz1 = b;
-        Context context = a;
-        buz1.a((new buy()).a(0).a(context.getResources().getString(l.cC)).b());
+        bpw1.setOnClickListener(((android.view.View.OnClickListener) (obj)));
+        f.setClickable(flag);
+        return;
+_L3:
+        obj = ((Resources) (obj)).getDrawable(g.lU);
+        continue; /* Loop/switch isn't completed */
+_L4:
+        obj = ((Resources) (obj)).getDrawable(g.lX);
+        continue; /* Loop/switch isn't completed */
+_L5:
+        obj = ((Resources) (obj)).getDrawable(g.ma);
+        if (true) goto _L7; else goto _L6
+_L6:
     }
 
     public void k_()
     {
-        d.b(this);
+        b.a(e);
+        d.a(e);
+        f = (bpw)a.g().c();
+        c();
+    }
+
+    public void l_()
+    {
+        b.b(e);
+        d.b(e);
     }
 }

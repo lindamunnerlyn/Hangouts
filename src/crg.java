@@ -2,41 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import com.google.android.apps.hangouts.phone.ViewVCardActivity;
 
-public final class crg
+final class crg
+    implements Runnable
 {
 
-    public static final String a = crd.getName();
-    public static final String b = beb.getName();
-    public static final String c = crj.getName();
-    private static crf d;
+    final crf a;
 
-    public static void a(Context context, hgx hgx1)
+    crg(crf crf1)
     {
-        if (d == null)
-        {
-            d = new crf();
-        }
-        hgx1.a(crd, d.a(context));
+        a = crf1;
+        super();
     }
 
-    public static void a(hgx hgx1)
+    public void run()
     {
-        if (d == null)
-        {
-            d = new crf();
-        }
-        hgx1.a(beb, d.a());
+        ViewVCardActivity.d(a.b);
     }
-
-    public static void b(hgx hgx1)
-    {
-        if (d == null)
-        {
-            d = new crf();
-        }
-        hgx1.a(crj, d.b());
-    }
-
 }

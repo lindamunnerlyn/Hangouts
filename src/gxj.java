@@ -3,7 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gxj
-    extends gwr
+public final class gxj
 {
+
+    public gxj()
+    {
+    }
 }

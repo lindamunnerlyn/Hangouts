@@ -2,11 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Dialog;
+import android.view.View;
 
-public final class dca
+final class dca
+    implements android.view.View.OnClickListener
 {
 
-    public dca()
+    final Dialog a;
+
+    dca(Dialog dialog)
     {
+        a = dialog;
+        super();
+    }
+
+    public void onClick(View view)
+    {
+        a.cancel();
     }
 }

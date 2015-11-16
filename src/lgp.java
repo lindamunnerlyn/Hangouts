@@ -2,258 +2,223 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.DataInput;
-import java.io.IOException;
-import java.util.Arrays;
 
-public final class lgp extends ldd
+public final class lgp extends kwm
 {
 
-    private static final long serialVersionUID = 0x6c69b735442cb4f9L;
-    private final long c[];
-    private final int d[];
-    private final int e[];
-    private final String f[];
-    private final lgn g;
+    private static volatile lgp k[];
+    public String a;
+    public String b;
+    public lgq c;
+    public String d;
+    public String e;
+    public String f;
+    public lhc g;
+    public String h;
+    public String i;
+    public String j;
 
-    private lgp(String s, long al[], int ai[], int ai1[], String as[], lgn lgn1)
+    public lgp()
     {
-        super(s);
-        c = al;
-        d = ai;
-        e = ai1;
-        f = as;
-        g = lgn1;
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        e = null;
+        f = null;
+        g = null;
+        h = null;
+        i = null;
+        j = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public static lgp a(DataInput datainput, String s)
+    public static lgp[] a()
     {
-        Object obj;
-        long al[];
-        int ai[];
-        int ai1[];
-        String as[];
-        int j;
-        int l;
-        int i1;
-        l = datainput.readUnsignedShort();
-        obj = new String[l];
-        for (int i = 0; i < l; i++)
+        if (k == null)
         {
-            obj[i] = datainput.readUTF();
-        }
-
-        i1 = datainput.readInt();
-        al = new long[i1];
-        ai = new int[i1];
-        ai1 = new int[i1];
-        as = new String[i1];
-        j = 0;
-_L2:
-        int k;
-        if (j >= i1)
-        {
-            break MISSING_BLOCK_LABEL_154;
-        }
-        al[j] = g.a(datainput);
-        ai[j] = (int)g.a(datainput);
-        ai1[j] = (int)g.a(datainput);
-        if (l < 256)
-        {
-            try
+            synchronized (kwq.a)
             {
-                k = datainput.readUnsignedByte();
-            }
-            // Misplaced declaration of an exception variable
-            catch (DataInput datainput)
-            {
-                throw new IOException("Invalid encoding");
-            }
-            break MISSING_BLOCK_LABEL_204;
-        }
-        k = datainput.readUnsignedShort();
-        break MISSING_BLOCK_LABEL_204;
-        obj = null;
-        if (datainput.readBoolean())
-        {
-            obj = new lgn(s, (int)g.a(datainput), lgq.a(datainput), lgq.a(datainput));
-        }
-        return new lgp(s, al, ai, ai1, as, ((lgn) (obj)));
-        as[j] = obj[k];
-        j++;
-        if (true) goto _L2; else goto _L1
-_L1:
-    }
-
-    public String a(long l)
-    {
-        long al[] = c;
-        int i = Arrays.binarySearch(al, l);
-        if (i >= 0)
-        {
-            return f[i];
-        }
-        i = ~i;
-        if (i < al.length)
-        {
-            if (i > 0)
-            {
-                return f[i - 1];
-            } else
-            {
-                return "UTC";
-            }
-        }
-        if (g == null)
-        {
-            return f[i - 1];
-        } else
-        {
-            return g.a(l);
-        }
-    }
-
-    public int b(long l)
-    {
-        long al[] = c;
-        int i = Arrays.binarySearch(al, l);
-        if (i >= 0)
-        {
-            return d[i];
-        }
-        i = ~i;
-        if (i < al.length)
-        {
-            if (i > 0)
-            {
-                return d[i - 1];
-            } else
-            {
-                return 0;
-            }
-        }
-        if (g == null)
-        {
-            return d[i - 1];
-        } else
-        {
-            return g.b(l);
-        }
-    }
-
-    public boolean c()
-    {
-        return false;
-    }
-
-    public long e(long l)
-    {
-        long al[] = c;
-        int i = Arrays.binarySearch(al, l);
-        long l1;
-        if (i >= 0)
-        {
-            i++;
-        } else
-        {
-            i = ~i;
-        }
-        if (i < al.length)
-        {
-            l1 = al[i];
-        } else
-        {
-            l1 = l;
-            if (g != null)
-            {
-                long l3 = al[al.length - 1];
-                long l2 = l;
-                if (l < l3)
+                if (k == null)
                 {
-                    l2 = l3;
+                    k = new lgp[0];
                 }
-                return g.e(l2);
             }
         }
-        return l1;
+        return k;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public boolean equals(Object obj)
+    protected int computeSerializedSize()
     {
-        if (this != obj) goto _L2; else goto _L1
-_L1:
-        return true;
-_L2:
-        if (!(obj instanceof lgp))
+        int i1 = super.computeSerializedSize();
+        int l = i1;
+        if (a != null)
         {
-            break MISSING_BLOCK_LABEL_121;
+            l = i1 + kwk.b(1, a);
         }
-        obj = (lgp)obj;
-        if (!super.b.equals(((ldd) (obj)).b) || !Arrays.equals(c, ((lgp) (obj)).c) || !Arrays.equals(f, ((lgp) (obj)).f) || !Arrays.equals(d, ((lgp) (obj)).d) || !Arrays.equals(e, ((lgp) (obj)).e))
+        i1 = l;
+        if (b != null)
         {
-            break; /* Loop/switch isn't completed */
+            i1 = l + kwk.b(2, b);
         }
-        if (g != null) goto _L4; else goto _L3
-_L3:
-        if (((lgp) (obj)).g == null) goto _L1; else goto _L5
-_L5:
-        return false;
-_L4:
-        if (!g.equals(((lgp) (obj)).g)) goto _L5; else goto _L6
-_L6:
-        return true;
-        return false;
-    }
-
-    public long f(long l)
-    {
-        long al[];
-        int i;
-        al = c;
-        i = Arrays.binarySearch(al, l);
-        if (i < 0) goto _L2; else goto _L1
-_L1:
-        long l1;
-        l1 = l;
-        if (l > 0x8000000000000000L)
+        l = i1;
+        if (c != null)
         {
-            l1 = l - 1L;
+            l = i1 + kwk.d(3, c);
         }
-_L4:
-        return l1;
-_L2:
-        i = ~i;
-        if (i >= al.length)
+        i1 = l;
+        if (d != null)
         {
-            break; /* Loop/switch isn't completed */
+            i1 = l + kwk.b(4, d);
         }
-        l1 = l;
-        if (i > 0)
+        l = i1;
+        if (e != null)
         {
-            long l2 = al[i - 1];
-            l1 = l;
-            if (l2 > 0x8000000000000000L)
-            {
-                return l2 - 1L;
-            }
+            l = i1 + kwk.b(5, e);
         }
-        if (true) goto _L4; else goto _L3
-_L3:
+        i1 = l;
         if (g != null)
         {
-            l1 = g.f(l);
-            if (l1 < l)
-            {
-                return l1;
-            }
+            i1 = l + kwk.d(6, g);
         }
-        long l3 = al[i - 1];
-        l1 = l;
-        if (l3 > 0x8000000000000000L)
+        l = i1;
+        if (h != null)
         {
-            return l3 - 1L;
+            l = i1 + kwk.b(7, h);
         }
-        if (true) goto _L4; else goto _L5
-_L5:
+        i1 = l;
+        if (i != null)
+        {
+            i1 = l + kwk.b(8, i);
+        }
+        l = i1;
+        if (f != null)
+        {
+            l = i1 + kwk.b(9, f);
+        }
+        i1 = l;
+        if (j != null)
+        {
+            i1 = l + kwk.b(10, j);
+        }
+        return i1;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int l = kwj1.a();
+            switch (l)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, l))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+
+            case 26: // '\032'
+                if (c == null)
+                {
+                    c = new lgq();
+                }
+                kwj1.a(c);
+                break;
+
+            case 34: // '"'
+                d = kwj1.j();
+                break;
+
+            case 42: // '*'
+                e = kwj1.j();
+                break;
+
+            case 50: // '2'
+                if (g == null)
+                {
+                    g = new lhc();
+                }
+                kwj1.a(g);
+                break;
+
+            case 58: // ':'
+                h = kwj1.j();
+                break;
+
+            case 66: // 'B'
+                i = kwj1.j();
+                break;
+
+            case 74: // 'J'
+                f = kwj1.j();
+                break;
+
+            case 82: // 'R'
+                j = kwj1.j();
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.b(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d);
+        }
+        if (e != null)
+        {
+            kwk1.a(5, e);
+        }
+        if (g != null)
+        {
+            kwk1.b(6, g);
+        }
+        if (h != null)
+        {
+            kwk1.a(7, h);
+        }
+        if (i != null)
+        {
+            kwk1.a(8, i);
+        }
+        if (f != null)
+        {
+            kwk1.a(9, f);
+        }
+        if (j != null)
+        {
+            kwk1.a(10, j);
+        }
+        super.writeTo(kwk1);
     }
 }

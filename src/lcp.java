@@ -3,24 +3,59 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lcp extends Enum
+public final class lcp extends kwm
 {
 
-    public static final int a;
-    public static final int b;
-    private static final int c[];
+    public String a;
 
-    public static final int[] a()
+    public lcp()
     {
-        return (int[])c.clone();
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    static 
+    protected int computeSerializedSize()
     {
-        a = 1;
-        b = 2;
-        c = (new int[] {
-            a, b
-        });
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.b(1, a);
+        }
+        return i;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        super.writeTo(kwk1);
     }
 }

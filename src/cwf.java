@@ -2,74 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.List;
+import android.text.TextUtils;
 
-public class cwf extends cvn
+public class cwf extends cwm
 {
 
     private static final long serialVersionUID = 1L;
-    private int g;
-    private int h;
-    private int i;
-    private final List j;
+    public final String a;
+    public final String b;
+    public final boolean c;
 
-    private cwf(hsz hsz1)
+    public cwf(String s, String s1, boolean flag)
     {
-        super(hsz1.apiHeader);
-        htq htq1 = hsz1.a.a;
-        if (cvn.a)
-        {
-            hsz1 = String.valueOf(hsz1.a.a);
-            ebw.b("Babel", (new StringBuilder(String.valueOf(hsz1).length() + 64)).append("GetChatAclSettingsResponse.processResponse: retrieved chat ACLs ").append(hsz1).toString());
-        }
-        if (htq1 != null)
-        {
-            g = g.a(htq1.a, 0);
-            h = g.a(htq1.f, 0);
-            i = g.a(htq1.e, 0);
-            if (htq1.c.length > 0)
-            {
-                j = new ArrayList();
-                hsz1 = htq1.c;
-                int l = hsz1.length;
-                for (int k = 0; k < l; k++)
-                {
-                    Object obj = hsz1[k];
-                    cwg cwg1 = new cwg();
-                    cwg1.b = ((htr) (obj)).b;
-                    cwg1.a = ((htr) (obj)).a;
-                    cwg1.c = g.a(((htr) (obj)).c, 0);
-                    j.add(cwg1);
-                }
+        a = s;
+        b = s1;
+        c = flag;
+    }
 
-            } else
-            {
-                j = null;
-            }
-            return;
-        } else
+    public kws a(String s, int i, int j)
+    {
+        if (cvv.e)
         {
-            j = null;
-            return;
+            eev.b("Babel_RequestWriter", "FinishPhoneVerificationRequest build protobuf ");
+        }
+        s = new izs();
+        s.c = Boolean.valueOf(c);
+        if (!TextUtils.isEmpty(b))
+        {
+            kbm kbm1 = new kbm();
+            kbm1.a = a;
+            s.a = kbm1;
+            s.b = b;
+        }
+        return s;
+    }
+
+    public void a(aoa aoa, dcx dcx)
+    {
+        g.a(aoa, 2050);
+        aoa = (crk)hlp.b(g.nU, crk);
+        if (aoa != null)
+        {
+            aoa.a(105, false);
         }
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public boolean a(cdn cdn, dcx dcx)
     {
-        abyte0 = (hsz)kop.mergeFrom(new hsz(), abyte0);
-        if (a(((hsz) (abyte0)).apiHeader))
-        {
-            return new cvz(((hsz) (abyte0)).apiHeader);
-        } else
-        {
-            return new cwf(abyte0);
-        }
+        return false;
     }
 
-    public void a(aoe aoe1, dfb dfb)
+    public String f()
     {
-        super.a(aoe1, dfb);
-        aqm.a(aoe1.f().h(), g, h, i, j);
+        return "devices/finishphonenumberverification";
     }
 }

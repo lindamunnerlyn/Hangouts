@@ -2,103 +2,141 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.api.client.http.LowLevelHttpResponse;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
-public final class hqy extends koj
+final class hqy extends LowLevelHttpResponse
 {
 
-    private static volatile hqy c[];
-    public Integer a;
-    public hqz b;
+    private final HttpURLConnection a;
+    private final int b;
+    private final String c;
+    private final ArrayList d = new ArrayList();
+    private final ArrayList e = new ArrayList();
 
-    public hqy()
+    hqy(HttpURLConnection httpurlconnection)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
-    }
-
-    public static hqy[] a()
-    {
-        if (c == null)
+        a = httpurlconnection;
+        int j = httpurlconnection.getResponseCode();
+        int i = j;
+        if (j == -1)
         {
-            synchronized (kon.a)
+            i = 0;
+        }
+        b = i;
+        c = httpurlconnection.getResponseMessage();
+        ArrayList arraylist = d;
+        ArrayList arraylist1 = e;
+        for (httpurlconnection = httpurlconnection.getHeaderFields().entrySet().iterator(); httpurlconnection.hasNext();)
+        {
+            Object obj = (java.util.Map.Entry)httpurlconnection.next();
+            String s = (String)((java.util.Map.Entry) (obj)).getKey();
+            if (s != null)
             {
-                if (c == null)
+                obj = ((List)((java.util.Map.Entry) (obj)).getValue()).iterator();
+                while (((Iterator) (obj)).hasNext()) 
                 {
-                    c = new hqy[0];
+                    String s1 = (String)((Iterator) (obj)).next();
+                    if (s1 != null)
+                    {
+                        arraylist.add(s);
+                        arraylist1.add(s1);
+                    }
                 }
             }
         }
+
+    }
+
+    public void disconnect()
+    {
+        a.disconnect();
+    }
+
+    public InputStream getContent()
+    {
+        Object obj;
+        try
+        {
+            obj = a.getInputStream();
+        }
+        // Misplaced declaration of an exception variable
+        catch (Object obj)
+        {
+            obj = a.getErrorStream();
+        }
+        if (obj == null)
+        {
+            return null;
+        } else
+        {
+            return new hqz(this, ((InputStream) (obj)));
+        }
+    }
+
+    public String getContentEncoding()
+    {
+        return a.getContentEncoding();
+    }
+
+    public long getContentLength()
+    {
+        String s = a.getHeaderField("Content-Length");
+        if (s == null)
+        {
+            return -1L;
+        } else
+        {
+            return Long.parseLong(s);
+        }
+    }
+
+    public String getContentType()
+    {
+        return a.getHeaderField("Content-Type");
+    }
+
+    public int getHeaderCount()
+    {
+        return d.size();
+    }
+
+    public String getHeaderName(int i)
+    {
+        return (String)d.get(i);
+    }
+
+    public String getHeaderValue(int i)
+    {
+        return (String)e.get(i);
+    }
+
+    public String getReasonPhrase()
+    {
         return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
-    protected int computeSerializedSize()
+    public int getStatusCode()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.e(1, a.intValue());
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        return j;
+        return b;
     }
 
-    public kop mergeFrom(kog kog1)
+    public String getStatusLine()
     {
-_L5:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 3: default 40
-    //                   0: 49
-    //                   8: 51
-    //                   18: 102;
-           goto _L1 _L2 _L3 _L4
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L5; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
+        String s = a.getHeaderField(0);
+        if (s != null && s.startsWith("HTTP/1."))
         {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-            a = Integer.valueOf(j);
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        if (b == null)
+            return s;
+        } else
         {
-            b = new hqz();
+            return null;
         }
-        kog1.a(b);
-        if (true) goto _L5; else goto _L6
-_L6:
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a.intValue());
-        }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        super.writeTo(koh1);
     }
 }

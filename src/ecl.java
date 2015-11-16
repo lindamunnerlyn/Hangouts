@@ -2,18 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
 
-final class ecl
-    implements ecj
+public final class ecl extends Exception
 {
 
-    ecl()
+    public ecl()
     {
-    }
-
-    public ech a(String s, List list)
-    {
-        return ecm.a(s, list);
     }
 }

@@ -2,24 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.gms.common.internal.BinderWrapper;
+import android.content.Intent;
 
-public final class emn
-    implements android.os.Parcelable.Creator
+public final class emn extends ems
 {
 
-    public emn()
+    private final int a;
+
+    emn(int i, String s, Intent intent)
     {
+        super(s, intent);
+        a = i;
     }
 
-    public Object createFromParcel(Parcel parcel)
+    public int a()
     {
-        return new BinderWrapper(parcel);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new BinderWrapper[i];
+        return a;
     }
 }

@@ -2,51 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import java.util.Map;
 
 public final class cbi
-    implements fqu
 {
 
-    private final Context a;
+    public String a;
+    public String b;
+    public Long c;
+    public Long d;
+    public String e;
+    public String f;
+    public boolean g;
+    public final Map h = new gz();
+    public final Map i = new gz();
 
-    public cbi(Context context)
+    public cbi()
     {
-        a = context;
-    }
-
-    public String a()
-    {
-        return "SMS";
-    }
-
-    public boolean b()
-    {
-        return false;
-    }
-
-    public String c()
-    {
-        return a.getString(l.km);
-    }
-
-    public String d()
-    {
-        return null;
-    }
-
-    public String e()
-    {
-        return null;
-    }
-
-    public String f()
-    {
-        return null;
-    }
-
-    public String g()
-    {
-        return null;
     }
 }

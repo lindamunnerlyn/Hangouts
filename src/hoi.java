@@ -2,47 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.lang.reflect.Array;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
 
 final class hoi
-    implements Iterator
+    implements hok
 {
 
-    final int a;
-    int b;
-    final hoh c;
+    final hof a;
 
-    hoi(hoh hoh1)
+    hoi(hof hof)
     {
-        c = hoh1;
+        a = hof;
         super();
-        a = Array.getLength(c.a);
-        b = 0;
     }
 
-    public boolean hasNext()
+    public void a(hoy hoy)
     {
-        return b < a;
-    }
-
-    public Object next()
-    {
-        if (!hasNext())
+        if (hoy instanceof hou)
         {
-            throw new NoSuchElementException();
-        } else
-        {
-            Object obj = c.a;
-            int i = b;
-            b = i + 1;
-            return Array.get(obj, i);
+            ((hou)hoy).G_();
         }
-    }
-
-    public void remove()
-    {
-        throw new UnsupportedOperationException();
     }
 }

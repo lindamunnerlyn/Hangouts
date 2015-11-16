@@ -6,16 +6,16 @@
 public final class bcp
 {
 
-    public static final String a = bca.getName();
+    public static final String a = bck.getName();
     private static bcn b;
 
-    public static void a(hgx hgx1)
+    public static void a(hlp hlp1)
     {
         if (b == null)
         {
             b = new bcn();
         }
-        hgx1.a(bca, b.a());
+        hlp1.a(bck, b.a());
     }
 
 }

@@ -2,75 +2,70 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.ByteArrayOutputStream;
 
-public final class agr extends koj
+public final class agr extends ByteArrayOutputStream
 {
 
-    public Integer a;
-    public Integer b;
+    private final agm a;
 
-    public agr()
+    public agr(agm agm1, int i)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = agm1;
+        buf = a.a(Math.max(i, 256));
     }
 
-    protected int computeSerializedSize()
+    private void a(int i)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        if (count + i <= buf.length)
         {
-            i = j + koh.e(1, a.intValue());
-        }
-        j = i;
-        if (b != null)
+            return;
+        } else
         {
-            j = i + koh.e(2, b.intValue());
+            byte abyte0[] = a.a(count + i << 1);
+            System.arraycopy(buf, 0, abyte0, 0, count);
+            a.a(buf);
+            buf = abyte0;
+            return;
         }
-        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public void close()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
-                break;
-
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
-                break;
-            }
-        } while (true);
+        a.a(buf);
+        buf = null;
+        super.close();
     }
 
-    public void writeTo(koh koh1)
+    public void finalize()
     {
-        if (a != null)
-        {
-            koh1.a(1, a.intValue());
-        }
-        if (b != null)
-        {
-            koh1.a(2, b.intValue());
-        }
-        super.writeTo(koh1);
+        a.a(buf);
+    }
+
+    public void write(int i)
+    {
+        this;
+        JVM INSTR monitorenter ;
+        a(1);
+        super.write(i);
+        this;
+        JVM INSTR monitorexit ;
+        return;
+        Exception exception;
+        exception;
+        throw exception;
+    }
+
+    public void write(byte abyte0[], int i, int j)
+    {
+        this;
+        JVM INSTR monitorenter ;
+        a(j);
+        super.write(abyte0, i, j);
+        this;
+        JVM INSTR monitorexit ;
+        return;
+        abyte0;
+        throw abyte0;
     }
 }

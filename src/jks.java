@@ -2,128 +2,98 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.Set;
 
-final class jks extends jmn
+public final class jks extends kwm
 {
 
-    jks(Comparator comparator)
+    public Long a;
+    public Long b;
+    public Integer c;
+
+    public jks()
     {
-        super(comparator);
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    int a(Object obj)
+    protected int computeSerializedSize()
     {
-        return -1;
-    }
-
-    int a(Object aobj[], int i)
-    {
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.e(1, a.longValue());
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.longValue());
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.intValue());
+        }
         return i;
     }
 
-    jmn a(Object obj, boolean flag)
+    public kws mergeFrom(kwj kwj1)
     {
+_L6:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 4: default 48
+    //                   0: 57
+    //                   8: 59
+    //                   16: 73
+    //                   24: 87;
+           goto _L1 _L2 _L3 _L4 _L5
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L6; else goto _L2
+_L2:
         return this;
-    }
-
-    jmn a(Object obj, boolean flag, Object obj1, boolean flag1)
-    {
-        return this;
-    }
-
-    public jqy a()
-    {
-        return jmr.a();
-    }
-
-    public jlk b()
-    {
-        return jlk.d();
-    }
-
-    jmn b(Object obj, boolean flag)
-    {
-        return this;
-    }
-
-    public jqy c()
-    {
-        return jmr.a();
-    }
-
-    public boolean contains(Object obj)
-    {
-        return false;
-    }
-
-    public boolean containsAll(Collection collection)
-    {
-        return collection.isEmpty();
-    }
-
-    jmn d()
-    {
-        return new jks(jpp.a(a).a());
-    }
-
-    public Iterator descendingIterator()
-    {
-        return c();
-    }
-
-    boolean e()
-    {
-        return false;
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (obj instanceof Set)
+_L3:
+        a = Long.valueOf(kwj1.e());
+          goto _L6
+_L4:
+        b = Long.valueOf(kwj1.e());
+          goto _L6
+_L5:
+        int j = kwj1.f();
+        switch (j)
         {
-            return ((Set)obj).isEmpty();
-        } else
-        {
-            return false;
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+        case 5: // '\005'
+        case 6: // '\006'
+        case 7: // '\007'
+            c = Integer.valueOf(j);
+            break;
         }
+        if (true) goto _L6; else goto _L7
+_L7:
     }
 
-    public Object first()
+    public void writeTo(kwk kwk1)
     {
-        throw new NoSuchElementException();
-    }
-
-    public int hashCode()
-    {
-        return 0;
-    }
-
-    public boolean isEmpty()
-    {
-        return true;
-    }
-
-    public Iterator iterator()
-    {
-        return a();
-    }
-
-    public Object last()
-    {
-        throw new NoSuchElementException();
-    }
-
-    public int size()
-    {
-        return 0;
-    }
-
-    public String toString()
-    {
-        return "[]";
+        if (a != null)
+        {
+            kwk1.b(1, a.longValue());
+        }
+        if (b != null)
+        {
+            kwk1.b(2, b.longValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

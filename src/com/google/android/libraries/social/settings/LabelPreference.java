@@ -13,14 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import g;
-import hfa;
-import hga;
+import hjr;
+import hkr;
 import o;
 
-public class LabelPreference extends hfa
+public class LabelPreference extends hjr
 {
 
-    private CharSequence b;
+    private CharSequence a;
     private boolean c;
     private boolean d;
     private int e;
@@ -30,20 +30,25 @@ public class LabelPreference extends hfa
     {
         super(context, attributeset);
         f = -1;
-        d(g.tp);
+        d(g.tQ);
         if (attributeset != null)
         {
-            context = context.obtainStyledAttributes(attributeset, hga.r);
-            f = context.getDimensionPixelSize(hga.t, -1);
-            e = context.getInt(hga.s, 1);
+            context = context.obtainStyledAttributes(attributeset, hkr.r);
+            f = context.getDimensionPixelSize(hkr.t, -1);
+            e = context.getInt(hkr.s, 1);
             context.recycle();
         }
+    }
+
+    public boolean B_()
+    {
+        return true;
     }
 
     protected View a(ViewGroup viewgroup)
     {
         viewgroup = super.a(viewgroup);
-        ((TextView)viewgroup.findViewById(o.I)).setAutoLinkMask(e);
+        ((TextView)viewgroup.findViewById(o.k)).setAutoLinkMask(e);
         return viewgroup;
     }
 
@@ -54,20 +59,20 @@ public class LabelPreference extends hfa
         {
             view.setMinimumHeight(f);
         }
-        TextView textview = (TextView)view.findViewById(o.F);
-        View view1 = view.findViewById(o.H);
+        TextView textview = (TextView)view.findViewById(o.g);
+        View view1 = view.findViewById(o.j);
         if (textview != null)
         {
-            if (TextUtils.isEmpty(b) || c)
+            if (TextUtils.isEmpty(a) || c)
             {
                 textview.setVisibility(8);
             } else
             {
                 textview.setVisibility(0);
-                textview.setText(b);
+                textview.setText(a);
             }
         }
-        view = (TextView)view.findViewById(o.I);
+        view = (TextView)view.findViewById(o.k);
         if (d)
         {
             view.setMovementMethod(LinkMovementMethod.getInstance());
@@ -84,10 +89,5 @@ public class LabelPreference extends hfa
             }
             view1.setVisibility(i);
         }
-    }
-
-    public boolean z_()
-    {
-        return true;
     }
 }

@@ -4,9 +4,9 @@
 
 package com.google.android.libraries.hangouts.video;
 
-import inu;
-import inx;
-import iny;
+import itz;
+import iuc;
+import iud;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,25 +39,25 @@ public class p extends Stats
         printwriter.println("  VideoSender -- ssrc, codec, sent, lost, rcvd, rtt, size, in, sent, rate");
     }
 
-    public void addTo(inu inu1)
+    public void addTo(itz itz1)
     {
-        inx inx1 = Stats.a(2);
-        inx1.k = Integer.valueOf(0);
-        inx1.l = Integer.valueOf(a);
-        inx1.F = c;
-        inx1.g = Long.valueOf(d);
-        inx1.h = Integer.valueOf(e);
-        inx1.c = Integer.valueOf(f);
-        inx1.b = Integer.valueOf((int)(g * 100F));
-        inx1.n = Integer.valueOf(h);
-        inx1.o = Integer.valueOf(i);
-        inx1.f = Integer.valueOf(j);
-        inx1.O = Integer.valueOf(k);
-        inx1.P = Integer.valueOf(l);
-        inx1.p = Integer.valueOf(m);
-        inx1.q = Integer.valueOf(n);
-        inx1.z = Integer.valueOf(p);
-        inx1.B = Integer.valueOf(o);
+        iuc iuc1 = Stats.a(2);
+        iuc1.k = Integer.valueOf(0);
+        iuc1.l = Integer.valueOf(a);
+        iuc1.F = c;
+        iuc1.g = Long.valueOf(d);
+        iuc1.h = Integer.valueOf(e);
+        iuc1.c = Integer.valueOf(f);
+        iuc1.b = Integer.valueOf((int)(g * 100F));
+        iuc1.n = Integer.valueOf(h);
+        iuc1.o = Integer.valueOf(i);
+        iuc1.f = Integer.valueOf(j);
+        iuc1.O = Integer.valueOf(k);
+        iuc1.P = Integer.valueOf(l);
+        iuc1.p = Integer.valueOf(m);
+        iuc1.q = Integer.valueOf(n);
+        iuc1.z = Integer.valueOf(p);
+        iuc1.B = Integer.valueOf(o);
         if (b != null)
         {
             ArrayList arraylist = new ArrayList(b.length);
@@ -66,7 +66,7 @@ public class p extends Stats
             for (int i1 = 0; i1 < k1; i1++)
             {
                 SsrcGroup ssrcgroup = assrcgroup[i1];
-                iny iny1 = new iny();
+                iud iud1 = new iud();
                 class SsrcGroup
                 {
 
@@ -80,21 +80,21 @@ public class p extends Stats
             }
                 }
 
-                iny1.a = ssrcgroup.a;
-                iny1.b = (int[])ssrcgroup.b.clone();
-                arraylist.add(iny1);
+                iud1.a = ssrcgroup.a;
+                iud1.b = (int[])ssrcgroup.b.clone();
+                arraylist.add(iud1);
             }
 
-            inx1.N = (iny[])arraylist.toArray(new iny[arraylist.size()]);
+            iuc1.N = (iud[])arraylist.toArray(new iud[arraylist.size()]);
         }
-        int j1 = inu1.b.length;
-        inu1.b = (inx[])Arrays.copyOf(inu1.b, j1 + 1);
-        inu1.b[j1] = inx1;
+        int j1 = itz1.b.length;
+        itz1.b = (iuc[])Arrays.copyOf(itz1.b, j1 + 1);
+        itz1.b[j1] = iuc1;
     }
 
     public void print(PrintWriter printwriter, ts ts)
     {
-        com.google.android.libraries.hangouts.video.ts.a(ts).add(Float.valueOf(n));
+        ts.a.add(Float.valueOf(n));
         int i1 = a;
         ts = c;
         int j1 = e;

@@ -4,9 +4,11 @@
 
 package com.google.common.collect;
 
-import fsn;
+import fuu;
+import g;
 import java.io.Serializable;
 import java.util.AbstractMap;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
@@ -16,74 +18,74 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 import java.util.logging.Logger;
-import jgq;
-import jhp;
-import jkx;
-import jmz;
-import jnh;
-import jni;
-import jnj;
-import jnm;
-import jnw;
-import jof;
-import jog;
-import joh;
-import joi;
-import jok;
-import jou;
-import jov;
-import jrq;
+import jnk;
+import jol;
+import jrv;
+import jts;
+import jtz;
+import juh;
+import jui;
+import juj;
+import jum;
+import juw;
+import jvf;
+import jvg;
+import jvi;
+import jvj;
+import jvl;
+import jvv;
+import jvw;
 import n;
 
 public class MapMakerInternalMap extends AbstractMap
     implements Serializable, ConcurrentMap
 {
 
-    static final jou p = new jni();
-    public static final Queue q = new jnj();
+    static final jvv p = new jui();
+    public static final Queue q = new juj();
     private static final long serialVersionUID = 5L;
     private static final Logger u = Logger.getLogger(com/google/common/collect/MapMakerInternalMap.getName());
     final transient int a;
     final transient int b;
-    public final transient joh c[];
+    public final transient jvi c[];
     final int d;
-    public final jgq e;
-    public final jgq f;
-    final jok g;
-    public final jok h;
+    public final jnk e;
+    public final jnk f;
+    final jvl g;
+    public final jvl h;
     final int i;
     public final long j;
     public final long k;
     public final Queue l;
-    final fsn m;
-    public final transient jnm n;
-    public final jhp o;
+    final fuu m;
+    public final transient jum n;
+    public final jol o;
     transient Set r;
     transient Collection s;
     transient Set t;
 
-    public MapMakerInternalMap(jmz jmz1)
+    public MapMakerInternalMap(jtz jtz1)
     {
         int j2 = 1;
         boolean flag1 = false;
         boolean flag = false;
         super();
-        d = Math.min(jmz1.d(), 0x10000);
-        g = jmz1.e();
-        h = jmz1.f();
-        e = jmz1.b();
+        d = Math.min(jtz1.d(), 0x10000);
+        g = jtz1.e();
+        h = jtz1.f();
+        e = jtz1.b();
         f = h.a();
-        i = jmz1.e;
-        j = jmz1.h();
-        k = jmz1.g();
-        n = jnm.a(g, b(), a());
-        o = jmz1.i();
-        m = jmz1.a();
+        i = jtz1.e;
+        j = jtz1.h();
+        k = jtz1.g();
+        n = jum.a(g, b(), a());
+        o = jtz1.i();
+        m = jtz1.a();
         Object obj;
         int i1;
         int j1;
         int k1;
-        if (m == jkx.a)
+        if (m == jrv.a)
         {
             obj = q;
         } else
@@ -91,7 +93,7 @@ public class MapMakerInternalMap extends AbstractMap
             obj = new ConcurrentLinkedQueue();
         }
         l = ((Queue) (obj));
-        i1 = Math.min(jmz1.c(), 0x40000000);
+        i1 = Math.min(jtz1.c(), 0x40000000);
         j1 = i1;
         if (a())
         {
@@ -106,7 +108,7 @@ public class MapMakerInternalMap extends AbstractMap
 
         b = 32 - k1;
         a = i1 - 1;
-        c = new joh[i1];
+        c = new jvi[i1];
         k1 = j1 / i1;
         if (k1 * i1 < j1)
         {
@@ -144,6 +146,13 @@ public class MapMakerInternalMap extends AbstractMap
         }
     }
 
+    public static ArrayList a(Collection collection)
+    {
+        ArrayList arraylist = new ArrayList(collection.size());
+        jts.a(arraylist, collection.iterator());
+        return arraylist;
+    }
+
     public static void a(ReferenceEntry referenceentry, ReferenceEntry referenceentry1)
     {
         referenceentry.setNextExpirable(referenceentry1);
@@ -158,26 +167,26 @@ public class MapMakerInternalMap extends AbstractMap
 
     public static void d(ReferenceEntry referenceentry)
     {
-        jog jog1 = jog.a;
-        referenceentry.setNextExpirable(jog1);
-        referenceentry.setPreviousExpirable(jog1);
+        jvg jvg1 = jvg.a;
+        referenceentry.setNextExpirable(jvg1);
+        referenceentry.setPreviousExpirable(jvg1);
     }
 
     public static void e(ReferenceEntry referenceentry)
     {
-        jog jog1 = jog.a;
-        referenceentry.setNextEvictable(jog1);
-        referenceentry.setPreviousEvictable(jog1);
+        jvg jvg1 = jvg.a;
+        referenceentry.setNextEvictable(jvg1);
+        referenceentry.setPreviousEvictable(jvg1);
     }
 
-    public static jou g()
+    public static jvv g()
     {
         return p;
     }
 
     public static ReferenceEntry h()
     {
-        return jog.a;
+        return jvg.a;
     }
 
     public static Queue i()
@@ -196,14 +205,14 @@ public class MapMakerInternalMap extends AbstractMap
         return i1 ^ i1 >>> 16;
     }
 
-    joh a(int i1)
+    jvi a(int i1)
     {
         return c[i1 >>> b & a];
     }
 
-    joh a(int i1, int j1)
+    jvi a(int i1, int j1)
     {
-        return new joh(this, i1, j1);
+        return new jvi(this, i1, j1);
     }
 
     public void a(ReferenceEntry referenceentry)
@@ -212,11 +221,11 @@ public class MapMakerInternalMap extends AbstractMap
         a(i1).a(referenceentry, i1);
     }
 
-    public void a(jou jou1)
+    public void a(jvv jvv1)
     {
-        ReferenceEntry referenceentry = jou1.a();
+        ReferenceEntry referenceentry = jvv1.a();
         int i1 = referenceentry.getHash();
-        a(i1).a(referenceentry.getKey(), i1, jou1);
+        a(i1).a(referenceentry.getKey(), i1, jvv1);
     }
 
     public boolean a()
@@ -259,11 +268,11 @@ public class MapMakerInternalMap extends AbstractMap
 
     public void clear()
     {
-        joh ajoh[] = c;
-        int j1 = ajoh.length;
+        jvi ajvi[] = c;
+        int j1 = ajvi.length;
         for (int i1 = 0; i1 < j1; i1++)
         {
-            ajoh[i1].a();
+            ajvi[i1].a();
         }
 
     }
@@ -286,7 +295,7 @@ public class MapMakerInternalMap extends AbstractMap
         {
             return false;
         }
-        joh ajoh[] = c;
+        jvi ajvi[] = c;
         int i1 = 0;
         long l3 = -1L;
         do
@@ -295,18 +304,18 @@ public class MapMakerInternalMap extends AbstractMap
             {
                 break;
             }
-            int i2 = ajoh.length;
+            int i2 = ajvi.length;
             long l2 = 0L;
             for (int j1 = 0; j1 < i2; j1++)
             {
-                joh joh1 = ajoh[j1];
-                int k1 = joh1.b;
-                AtomicReferenceArray atomicreferencearray = joh1.e;
+                jvi jvi1 = ajvi[j1];
+                int k1 = jvi1.b;
+                AtomicReferenceArray atomicreferencearray = jvi1.e;
                 for (int l1 = 0; l1 < atomicreferencearray.length(); l1++)
                 {
                     for (ReferenceEntry referenceentry = (ReferenceEntry)atomicreferencearray.get(l1); referenceentry != null; referenceentry = referenceentry.getNext())
                     {
-                        Object obj1 = joh1.a(referenceentry);
+                        Object obj1 = jvi1.a(referenceentry);
                         if (obj1 != null && f.a(obj, obj1))
                         {
                             return true;
@@ -315,7 +324,7 @@ public class MapMakerInternalMap extends AbstractMap
 
                 }
 
-                l2 += joh1.c;
+                l2 += jvi1.c;
             }
 
             if (l2 == l3)
@@ -335,7 +344,7 @@ public class MapMakerInternalMap extends AbstractMap
 
     public boolean e()
     {
-        return g != jok.a;
+        return g != jvl.a;
     }
 
     public Set entrySet()
@@ -346,15 +355,15 @@ public class MapMakerInternalMap extends AbstractMap
             return set;
         } else
         {
-            jnw jnw1 = new jnw(this);
-            t = jnw1;
-            return jnw1;
+            juw juw1 = new juw(this);
+            t = juw1;
+            return juw1;
         }
     }
 
     public boolean f()
     {
-        return h != jok.a;
+        return h != jvl.a;
     }
 
     public Object get(Object obj)
@@ -371,20 +380,20 @@ public class MapMakerInternalMap extends AbstractMap
 
     public boolean isEmpty()
     {
-        joh ajoh[];
+        jvi ajvi[];
         int i1;
         long l1;
-        ajoh = c;
+        ajvi = c;
         i1 = 0;
         l1 = 0L;
 _L9:
-        if (i1 >= ajoh.length) goto _L2; else goto _L1
+        if (i1 >= ajvi.length) goto _L2; else goto _L1
 _L1:
-        if (ajoh[i1].b == 0) goto _L4; else goto _L3
+        if (ajvi[i1].b == 0) goto _L4; else goto _L3
 _L3:
         return false;
 _L4:
-        l1 += ajoh[i1].c;
+        l1 += ajvi[i1].c;
         i1++;
         continue; /* Loop/switch isn't completed */
 _L2:
@@ -394,13 +403,13 @@ _L2:
         }
         i1 = 0;
 _L6:
-        if (i1 >= ajoh.length)
+        if (i1 >= ajvi.length)
         {
             continue; /* Loop/switch isn't completed */
         }
-        if (ajoh[i1].b != 0) goto _L3; else goto _L5
+        if (ajvi[i1].b != 0) goto _L3; else goto _L5
 _L5:
-        l1 -= ajoh[i1].c;
+        l1 -= ajvi[i1].c;
         i1++;
           goto _L6
         if (l1 != 0L) goto _L3; else goto _L7
@@ -412,7 +421,7 @@ _L8:
 
     public void j()
     {
-        while ((jnh)l.poll() != null) ;
+        while ((juh)l.poll() != null) ;
     }
 
     public Set keySet()
@@ -423,9 +432,9 @@ _L8:
             return set;
         } else
         {
-            jof jof1 = new jof(this);
-            r = jof1;
-            return jof1;
+            jvf jvf1 = new jvf(this);
+            r = jvf1;
+            return jvf1;
         }
     }
 
@@ -503,14 +512,14 @@ _L8:
 
     public int size()
     {
-        joh ajoh[] = c;
+        jvi ajvi[] = c;
         long l1 = 0L;
-        for (int i1 = 0; i1 < ajoh.length; i1++)
+        for (int i1 = 0; i1 < ajvi.length; i1++)
         {
-            l1 += ajoh[i1].b;
+            l1 += ajvi[i1].b;
         }
 
-        return jrq.a(l1);
+        return g.e(l1);
     }
 
     public Collection values()
@@ -521,15 +530,15 @@ _L8:
             return collection;
         } else
         {
-            jov jov1 = new jov(this);
-            s = jov1;
-            return jov1;
+            jvw jvw1 = new jvw(this);
+            s = jvw1;
+            return jvw1;
         }
     }
 
     Object writeReplace()
     {
-        return new joi(g, h, e, f, k, j, i, d, m, this);
+        return new jvj(g, h, e, f, k, j, i, d, m, this);
     }
 
 
@@ -552,7 +561,7 @@ _L8:
 
         public abstract ReferenceEntry getPreviousExpirable();
 
-        public abstract jou getValueReference();
+        public abstract jvv getValueReference();
 
         public abstract void setExpirationTime(long l1);
 
@@ -564,7 +573,7 @@ _L8:
 
         public abstract void setPreviousExpirable(ReferenceEntry referenceentry);
 
-        public abstract void setValueReference(jou jou1);
+        public abstract void setValueReference(jvv jvv1);
     }
 
 }

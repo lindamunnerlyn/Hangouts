@@ -3,82 +3,116 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jax extends koj
+public final class jax extends kwm
 {
 
-    public jav a;
+    private static volatile jax h[];
+    public String a;
     public String b;
-    public jbw c;
-    public jav d[];
-    public ixg responseHeader;
+    public String c;
+    public kbm d;
+    public String e;
+    public jay f[];
+    public byte g[];
 
     public jax()
     {
-        responseHeader = null;
         a = null;
         b = null;
         c = null;
-        d = jav.a();
+        d = null;
+        e = null;
+        f = jay.a();
+        g = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static jax[] a()
+    {
+        if (h == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (h == null)
+                {
+                    h = new jax[0];
+                }
+            }
+        }
+        return h;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (responseHeader != null)
-        {
-            i = j + koh.d(1, responseHeader);
-        }
-        j = i;
         if (a != null)
         {
-            j = i + koh.d(2, a);
-        }
-        int k = j;
-        if (c != null)
-        {
-            k = j + koh.d(3, c);
-        }
-        i = k;
-        if (b != null)
-        {
-            i = k + koh.b(4, b);
+            i = j + kwk.b(1, a);
         }
         j = i;
-        if (d != null)
+        if (b != null)
+        {
+            j = i + kwk.b(2, b);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.b(3, c);
+        }
+        j = i;
+        if (e != null)
+        {
+            j = i + kwk.b(4, e);
+        }
+        i = j;
+        if (g != null)
+        {
+            i = j + kwk.b(5, g);
+        }
+        j = i;
+        if (f != null)
         {
             j = i;
-            if (d.length > 0)
+            if (f.length > 0)
             {
-                for (j = 0; j < d.length;)
+                for (j = 0; j < f.length;)
                 {
-                    jav jav1 = d[j];
-                    int l = i;
-                    if (jav1 != null)
+                    jay jay1 = f[j];
+                    int k = i;
+                    if (jay1 != null)
                     {
-                        l = i + koh.d(5, jav1);
+                        k = i + kwk.d(6, jay1);
                     }
                     j++;
-                    i = l;
+                    i = k;
                 }
 
                 j = i;
             }
         }
-        return j;
+        i = j;
+        if (d != null)
+        {
+            i = j + kwk.d(7, d);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -88,96 +122,104 @@ public final class jax extends koj
                 return this;
 
             case 10: // '\n'
-                if (responseHeader == null)
-                {
-                    responseHeader = new ixg();
-                }
-                kog1.a(responseHeader);
+                a = kwj1.j();
                 break;
 
             case 18: // '\022'
-                if (a == null)
-                {
-                    a = new jav();
-                }
-                kog1.a(a);
+                b = kwj1.j();
                 break;
 
             case 26: // '\032'
-                if (c == null)
-                {
-                    c = new jbw();
-                }
-                kog1.a(c);
+                c = kwj1.j();
                 break;
 
             case 34: // '"'
-                b = kog1.j();
+                e = kwj1.j();
                 break;
 
             case 42: // '*'
-                int k = kou.b(kog1, 42);
-                jav ajav[];
+                g = kwj1.k();
+                break;
+
+            case 50: // '2'
+                int k = kwx.a(kwj1, 50);
+                jay ajay[];
                 int j;
-                if (d == null)
+                if (f == null)
                 {
                     j = 0;
                 } else
                 {
-                    j = d.length;
+                    j = f.length;
                 }
-                ajav = new jav[k + j];
+                ajay = new jay[k + j];
                 k = j;
                 if (j != 0)
                 {
-                    System.arraycopy(d, 0, ajav, 0, j);
+                    System.arraycopy(f, 0, ajay, 0, j);
                     k = j;
                 }
-                for (; k < ajav.length - 1; k++)
+                for (; k < ajay.length - 1; k++)
                 {
-                    ajav[k] = new jav();
-                    kog1.a(ajav[k]);
-                    kog1.a();
+                    ajay[k] = new jay();
+                    kwj1.a(ajay[k]);
+                    kwj1.a();
                 }
 
-                ajav[k] = new jav();
-                kog1.a(ajav[k]);
-                d = ajav;
+                ajay[k] = new jay();
+                kwj1.a(ajay[k]);
+                f = ajay;
+                break;
+
+            case 58: // ':'
+                if (d == null)
+                {
+                    d = new kbm();
+                }
+                kwj1.a(d);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (responseHeader != null)
-        {
-            koh1.b(1, responseHeader);
-        }
         if (a != null)
         {
-            koh1.b(2, a);
-        }
-        if (c != null)
-        {
-            koh1.b(3, c);
+            kwk1.a(1, a);
         }
         if (b != null)
         {
-            koh1.a(4, b);
+            kwk1.a(2, b);
         }
-        if (d != null && d.length > 0)
+        if (c != null)
         {
-            for (int i = 0; i < d.length; i++)
+            kwk1.a(3, c);
+        }
+        if (e != null)
+        {
+            kwk1.a(4, e);
+        }
+        if (g != null)
+        {
+            kwk1.a(5, g);
+        }
+        if (f != null && f.length > 0)
+        {
+            for (int i = 0; i < f.length; i++)
             {
-                jav jav1 = d[i];
-                if (jav1 != null)
+                jay jay1 = f[i];
+                if (jay1 != null)
                 {
-                    koh1.b(5, jav1);
+                    kwk1.b(6, jay1);
                 }
             }
 
         }
-        super.writeTo(koh1);
+        if (d != null)
+        {
+            kwk1.b(7, d);
+        }
+        super.writeTo(kwk1);
     }
 }

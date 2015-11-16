@@ -10,7 +10,8 @@ import android.os.Bundle;
 import android.os.Parcel;
 import com.google.android.gms.common.data.BitmapTeleporter;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fak;
+import fdi;
+import g;
 import java.util.ArrayList;
 
 // Referenced classes of package com.google.android.gms.feedback:
@@ -20,7 +21,7 @@ public class FeedbackOptions
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fak();
+    public static final android.os.Parcelable.Creator CREATOR = new fdi();
     public final int a;
     public String b;
     public Bundle c;
@@ -193,7 +194,20 @@ public class FeedbackOptions
 
     public void writeToParcel(Parcel parcel, int i1)
     {
-        fak.a(this, parcel, i1);
+        int j1 = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b);
+        g.a(parcel, 3, c);
+        g.a(parcel, 5, d);
+        g.a(parcel, 6, e, i1);
+        g.a(parcel, 7, f);
+        g.a(parcel, 8, g, i1);
+        g.a(parcel, 9, h);
+        g.c(parcel, 10, i);
+        g.a(parcel, 11, j);
+        g.a(parcel, 12, k, i1);
+        g.a(parcel, 13, l, i1);
+        g.q(parcel, j1);
     }
 
 }

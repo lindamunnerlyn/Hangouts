@@ -2,37 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import java.util.Collections;
 
-public final class cqb extends cqv
+public final class cqb
+    implements joj
 {
 
-    private boolean a;
+    private final joj a;
 
-    public cqb(boolean flag)
+    public cqb(joj joj1)
     {
-        a = flag;
+        a = joj1;
     }
 
-    public cqw a()
+    public Object a()
     {
-        return cqa.a(a);
-    }
-
-    public boolean a(Context context)
-    {
-        ani ani = dbf.e(((gmo)hgx.a(context, gmo)).a());
-        context = (cpt)hgx.b(context, cpt);
-        return context != null && context.b(ani);
-    }
-
-    public int b()
-    {
-        return crb.e;
-    }
-
-    public int c()
-    {
-        return h.ja;
+        return Collections.singleton((cpt)a.a());
     }
 }

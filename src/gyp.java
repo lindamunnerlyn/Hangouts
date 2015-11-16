@@ -2,73 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Dialog;
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.os.Bundle;
-import android.view.ContextThemeWrapper;
+import java.io.FilterOutputStream;
+import java.io.OutputStream;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 
-public final class gyp extends hhs
+final class gyp extends FilterOutputStream
 {
 
-    private gwy aj;
+    private final ByteBuffer a = ByteBuffer.allocate(4);
 
-    public gyp()
+    public gyp(OutputStream outputstream)
     {
+        super(outputstream);
     }
 
-    public static void a(ap ap1)
+    public gyp a(int i)
     {
-        ap1 = (ac)ap1.a("login.progress");
-        if (ap1 == null)
-        {
-            break MISSING_BLOCK_LABEL_18;
-        }
-        ap1.a();
-        return;
-        ap1;
+        a.rewind();
+        a.putInt(i);
+        out.write(a.array());
+        return this;
     }
 
-    public static void a(ap ap1, String s, boolean flag)
+    public gyp a(gyq gyq1)
     {
-        if (b(ap1))
-        {
-            throw new IllegalStateException("Progress dialog is already showing");
-        } else
-        {
-            Bundle bundle = new Bundle();
-            bundle.putString("message", s);
-            bundle.putBoolean("cancelable", flag);
-            s = new gyp();
-            s.setArguments(bundle);
-            s.a(ap1, "login.progress");
-            return;
-        }
+        a((int)gyq1.a());
+        a((int)gyq1.b());
+        return this;
     }
 
-    public static boolean b(ap ap1)
+    public gyp a(ByteOrder byteorder)
     {
-        return ap1.a("login.progress") != null;
+        a.order(byteorder);
+        return this;
     }
 
-    public Dialog a(Bundle bundle)
+    public gyp a(short word0)
     {
-        bundle = new ProgressDialog(new ContextThemeWrapper(getActivity(), h.jr));
-        bundle.setMessage(getArguments().getString("message"));
-        bundle.setProgressStyle(0);
-        bundle.setCancelable(getArguments().getBoolean("cancelable"));
-        return bundle;
-    }
-
-    protected void e(Bundle bundle)
-    {
-        super.e(bundle);
-        aj = (gwy)al.a(gwy);
-    }
-
-    public void onCancel(DialogInterface dialoginterface)
-    {
-        super.onCancel(dialoginterface);
-        aj.c();
+        a.rewind();
+        a.putShort(word0);
+        out.write(a.array(), 0, 2);
+        return this;
     }
 }

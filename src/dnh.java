@@ -2,50 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import com.google.android.apps.hangouts.service.NoConfirmationSmsSendService;
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.List;
 
-public final class dnh extends dgp
+public final class dnh extends dng
 {
 
-    final Context a;
-    final int b;
-    final String c;
-    final String d;
-    final NoConfirmationSmsSendService e;
+    private static final long serialVersionUID = 1L;
+    public final int a;
+    public final int b;
+    public final List v;
+    public final long w;
+    public final String x;
 
-    public dnh(NoConfirmationSmsSendService noconfirmationsmssendservice, Context context, int i, String s, String s1)
+    public dnh(iza iza, int i, long l, jal jal1)
     {
-        e = noconfirmationsmssendservice;
-        super();
-        a = context;
-        b = i;
-        c = s;
-        d = s1;
+        super(iza, i, l);
+        a = g.a(jal1.a, 0) - 1;
+        b = g.a(jal1.g, 0);
+        v = g.a(jal1.b, null);
+        w = g.a(jal1.c, 0L);
+        if (jal1.d != null && !TextUtils.isEmpty(jal1.d.a))
+        {
+            x = jal1.d.a;
+            return;
+        } else
+        {
+            x = null;
+            return;
+        }
     }
 
-    public void a(int i, ani ani, dcg dcg1, dgu dgu1)
+    public List a()
     {
-        if (i == b)
+        ArrayList arraylist = new ArrayList(v);
+        if (a != 1)
         {
-            if (dgu1.b() == 1)
-            {
-                ((dkt)hgx.a(a, dkt)).a(ani, dcg1.a, d, null, 0, null, 0, 0, null, c, false, null, 0);
-            } else
-            {
-                i = dgu1.b();
-                dgu1 = String.valueOf(dcg1);
-                if (dcg1 != null)
-                {
-                    ani = dcg1.a;
-                } else
-                {
-                    ani = "NULL";
-                }
-                ebw.g("Babel", (new StringBuilder(String.valueOf(dgu1).length() + 55 + String.valueOf(ani).length())).append("couldn't create conversation; error code: ").append(i).append(" ").append(dgu1).append(" ").append(ani).toString());
-            }
-            RealTimeChatService.b(this);
+            arraylist.add(d);
         }
+        return arraylist;
     }
 }

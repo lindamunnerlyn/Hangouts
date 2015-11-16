@@ -2,87 +2,56 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.net.Uri;
-import android.os.Parcel;
-import com.google.android.gms.signin.GoogleSignInAccount;
+import android.text.TextUtils;
+import com.google.android.gms.common.data.DataHolder;
 
-public final class fsg
-    implements android.os.Parcelable.Creator
+public final class fsg extends epl
+    implements ftl
 {
 
-    public fsg()
+    public fsg(DataHolder dataholder, int i)
     {
+        super(dataholder, i);
     }
 
-    public static void a(GoogleSignInAccount googlesigninaccount, Parcel parcel, int i)
+    public String a()
     {
-        int j = g.p(parcel, 20293);
-        g.b(parcel, 1, googlesigninaccount.a);
-        g.a(parcel, 2, googlesigninaccount.a());
-        g.a(parcel, 3, googlesigninaccount.b());
-        g.a(parcel, 4, googlesigninaccount.c());
-        g.a(parcel, 5, googlesigninaccount.d());
-        g.a(parcel, 6, googlesigninaccount.e(), i);
-        g.q(parcel, j);
+        return b("account_name");
     }
 
-    public Object createFromParcel(Parcel parcel)
+    public boolean b()
     {
-        Uri uri = null;
-        int j = g.a(parcel);
-        int i = 0;
-        String s = null;
-        String s1 = null;
-        String s2 = null;
-        String s3 = null;
-        do
+        return d() != null;
+    }
+
+    public String c()
+    {
+        String s1 = b("display_name");
+        String s = s1;
+        if (TextUtils.isEmpty(s1))
         {
-            if (parcel.dataPosition() < j)
-            {
-                int k = parcel.readInt();
-                switch (0xffff & k)
-                {
-                default:
-                    g.b(parcel, k);
-                    break;
-
-                case 1: // '\001'
-                    i = g.e(parcel, k);
-                    break;
-
-                case 2: // '\002'
-                    s3 = g.i(parcel, k);
-                    break;
-
-                case 3: // '\003'
-                    s2 = g.i(parcel, k);
-                    break;
-
-                case 4: // '\004'
-                    s1 = g.i(parcel, k);
-                    break;
-
-                case 5: // '\005'
-                    s = g.i(parcel, k);
-                    break;
-
-                case 6: // '\006'
-                    uri = (Uri)g.a(parcel, k, Uri.CREATOR);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != j)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
-            } else
-            {
-                return new GoogleSignInAccount(i, s3, s2, s1, s, uri);
-            }
-        } while (true);
+            s = a();
+        }
+        return s;
     }
 
-    public Object[] newArray(int i)
+    public String d()
     {
-        return new GoogleSignInAccount[i];
+        return b("page_gaia_id");
+    }
+
+    public String e()
+    {
+        return d();
+    }
+
+    public String f()
+    {
+        return fsi.a.a(b("avatar"));
+    }
+
+    public String g()
+    {
+        return fsi.a.a(b("cover_photo_url"));
     }
 }

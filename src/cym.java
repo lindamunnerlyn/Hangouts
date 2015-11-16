@@ -2,117 +2,165 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
-import java.util.HashMap;
+import android.text.TextUtils;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
-public class cym extends cvn
+public class cym extends cxr
 {
 
     private static final long serialVersionUID = 1L;
-    public int g;
-    public byte h[];
-    public Map i;
+    private final List g;
 
-    private cym(izn izn1)
+    private cym(izy izy1)
     {
-        int j;
-        j = 0;
-        super(izn1.responseHeader, -1L);
-        if (izn1.a == null) goto _L2; else goto _L1
-_L1:
-        g.a(izn1.a, 0);
-        JVM INSTR tableswitch 0 1: default 52
-    //                   0 168
-    //                   1 178;
-           goto _L3 _L4 _L5
-_L3:
-        String s = String.valueOf(izn1.a);
-        ebw.g("Babel", (new StringBuilder(String.valueOf(s).length() + 57)).append("Unexpected error code for UpdateFavoriteContactResponse: ").append(s).toString());
-_L2:
-        h = izn1.c;
-        i = new HashMap();
-        itk aitk[] = izn1.b;
-        for (int k = aitk.length; j < k; j++)
+        Object obj = null;
+        super(izy1.responseHeader, -1L);
+        izz aizz[] = izy1.b;
+        if (aizz == null)
         {
-            itk itk1 = aitk[j];
-            String s2 = itk1.a.b;
-            i.put(s2, itk1.c);
-        }
+            izy1 = obj;
+        } else
+        {
+            obj1 = new ArrayList();
+            int k1 = aizz.length;
+            int j = 0;
+            while (j < k1) 
+            {
+                izy1 = aizz[j];
+                Object obj2 = dbi.a(((izz) (izy1)).a);
+                Object obj3 = g.a(((izz) (izy1)).b, ((dbi) (obj2)));
+                if (obj3 != null)
+                {
+                    String s;
+                    String s1;
+                    String s2;
+                    int j1;
+                    if (!TextUtils.isEmpty(((dbi) (obj2)).c))
+                    {
+                        izy1 = ((dbi) (obj2)).c;
+                    } else
+                    if (!TextUtils.isEmpty(((dbi) (obj2)).d))
+                    {
+                        izy1 = ((dbi) (obj2)).d;
+                    } else
+                    {
+                        izy1 = null;
+                    }
+                    if (!TextUtils.isEmpty(izy1))
+                    {
+                        for (int i1 = 0; i1 < obj3.length; i1++)
+                        {
+                            if (obj3[i1] != null)
+                            {
+                                obj3[i1].c(izy1);
+                            }
+                        }
 
-        break; /* Loop/switch isn't completed */
-_L4:
-        g = cyn.a;
-        continue; /* Loop/switch isn't completed */
-_L5:
-        g = cyn.b;
-        if (true) goto _L2; else goto _L6
-_L6:
-        if (ebw.a("Babel", 3))
-        {
-            String s1 = String.valueOf("UpdateFavoriteContactResponse debugUrl: ");
-            izn1 = String.valueOf(izn1.responseHeader.c);
-            if (izn1.length() != 0)
-            {
-                izn1 = s1.concat(izn1);
-            } else
-            {
-                izn1 = new String(s1);
+                    }
+                }
+                ((List) (obj1)).add(new eeh(((java.io.Serializable) (obj2)), ((java.io.Serializable) (obj3))));
+                j++;
             }
-            ebw.d("Babel", izn1);
+            izy1 = ((izy) (obj1));
         }
-        return;
+        g = izy1;
+        if (cxr.a)
+        {
+            int i = g.size();
+            eev.b("Babel", (new StringBuilder(50)).append("GetEntityByIdResponse: Number of specs=").append(i).toString());
+            for (izy1 = g.iterator(); izy1.hasNext();)
+            {
+                Object obj1 = (eeh)izy1.next();
+                if (obj1 == null || ((eeh) (obj1)).b == null)
+                {
+                    eev.b("Babel", "- GetEntityByIdResponse: Invalid Entry.");
+                } else
+                {
+                    if (((eeh) (obj1)).b == null)
+                    {
+                        j = 0;
+                    } else
+                    {
+                        j = ((cfz[])((eeh) (obj1)).b).length;
+                    }
+                    eev.b("Babel", (new StringBuilder(55)).append("- GetEntityByIdResponse: Number of entities=").append(j).toString());
+                    obj1 = (cfz[])((eeh) (obj1)).b;
+                    j1 = obj1.length;
+                    j = 0;
+                    while (j < j1) 
+                    {
+                        s2 = obj1[j];
+                        if (s2 == null)
+                        {
+                            eev.b("Babel", "-- entity: null");
+                        } else
+                        {
+                            s = String.valueOf(((cfz) (s2)).e);
+                            obj2 = String.valueOf(((cfz) (s2)).f);
+                            obj3 = String.valueOf(((cfz) (s2)).h);
+                            s1 = String.valueOf(((cfz) (s2)).b);
+                            s2 = String.valueOf(((cfz) (s2)).d);
+                            eev.b("Babel", (new StringBuilder(String.valueOf(s).length() + 70 + String.valueOf(obj2).length() + String.valueOf(obj3).length() + String.valueOf(s1).length() + String.valueOf(s2).length())).append("-- entity: displayName ").append(s).append(",firstName ").append(((String) (obj2))).append(",avatarUrl ").append(((String) (obj3))).append(",participantId ").append(s1).append(",circleId ").append(s2).toString());
+                        }
+                        j++;
+                    }
+                }
+            }
+
+        }
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public static cxr parseFrom(byte abyte0[])
     {
-        abyte0 = (izn)kop.mergeFrom(new izn(), abyte0);
-        if (a(((izn) (abyte0)).responseHeader))
+        abyte0 = (izy)kws.mergeFrom(new izy(), abyte0);
+        if (a(((izy) (abyte0)).responseHeader))
         {
-            return new cvz(((izn) (abyte0)).responseHeader);
+            return new cyd(((izy) (abyte0)).responseHeader);
         } else
         {
             return new cym(abyte0);
         }
     }
 
-    public void a(aoe aoe1, dfb dfb)
+    public void a(aow aow1, dgk dgk)
     {
-        super.a(aoe1, dfb);
-        aoe1.a();
-        cvj cvj1;
-        Iterator iterator;
-        dfb = aoe1.q();
-        cvj1 = (cvj)b;
-        iterator = cvj1.s().iterator();
-_L3:
-        ceu ceu;
-        do
+        super.a(aow1, dgk);
+        if (eev.a("Babel", 3))
         {
-            if (!iterator.hasNext())
+            if (b != null)
             {
-                break MISSING_BLOCK_LABEL_114;
+                dgk = String.valueOf(l());
+                eev.d("Babel", (new StringBuilder(String.valueOf(dgk).length() + 24)).append("GEBI Response for: ").append(dgk).append(" tag.").toString());
+            } else
+            {
+                eev.d("Babel", "GEBI Response with null request!");
             }
-            ceu = aoe1.N((String)iterator.next());
-        } while (ceu == null);
-        if (!cvj1.r()) goto _L2; else goto _L1
-_L1:
-        dfb.remove(ceu);
-          goto _L3
-        dfb;
-        aoe1.c();
-        throw dfb;
-_L2:
-        if (dfb.contains(ceu)) goto _L3; else goto _L4
-_L4:
-        dfb.add(0, ceu);
-          goto _L3
-        aoe1.b(dfb, 3);
-        aoe1.b();
-        aoe1.c();
-        ank.b(g.nS, aoe1.f().h(), "hash_pinned");
-        return;
+        }
+        if (!m() && g != null)
+        {
+            dny.a(aow1.f(), this);
+        }
+    }
+
+    public List k()
+    {
+        return g;
+    }
+
+    public String l()
+    {
+        return ((cwh)b).b;
+    }
+
+    public boolean m()
+    {
+        return ((cwh)b).d;
+    }
+
+    public boolean n()
+    {
+        return ((cwh)b).c;
     }
 }

@@ -4,16 +4,16 @@
 
 package com.google.android.apps.hangouts.callerid.impl;
 
-import akq;
+import akn;
 import android.content.Intent;
 import android.os.Bundle;
 import ap;
 import bg;
-import cqz;
+import ctj;
 import g;
 import h;
 
-public class CallerIdPromoActivity extends cqz
+public class CallerIdPromoActivity extends ctj
 {
 
     public CallerIdPromoActivity()
@@ -23,9 +23,9 @@ public class CallerIdPromoActivity extends cqz
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.iI);
-        bundle = t_().a();
-        bundle.a(h.hj, akq.a(getIntent().getBooleanExtra("callerid_from_promo_flow", false), getIntent().getStringExtra("callerid_current_sim_number")));
+        setContentView(g.iA);
+        bundle = u_().a();
+        bundle.a(h.gP, akn.a(getIntent().getBooleanExtra("callerid_from_promo_flow", false), getIntent().getStringExtra("callerid_current_sim_number")));
         bundle.b();
     }
 }

@@ -2,121 +2,78 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.util.Pair;
+import android.util.SparseArray;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.ListView;
+import android.widget.AdapterView;
 
-public abstract class bkd extends bjy
-    implements android.widget.AbsListView.OnScrollListener
+final class bkd
+    implements android.widget.AdapterView.OnItemClickListener
 {
 
-    private int a;
-    private int b;
-    private int c;
-    private int d;
-    public AbsListView h;
+    final bkb a;
+    private final int b;
+    private final SparseArray c;
 
-    public bkd()
+    public bkd(bkb bkb1, int i)
     {
-        c = -1;
-        d = -1;
-    }
-
-    protected void aa()
-    {
-        if (h != null)
+        a = bkb1;
+        super();
+        b = i;
+        if (b == 0 || b == 4 || b == 5)
         {
-            a = h.getFirstVisiblePosition();
-            View view = h.getChildAt(0);
-            if (view != null)
-            {
-                b = view.getTop();
-            } else
-            {
-                b = 0;
-            }
-            if (g.a(g.nS, "babel_extra_log_scrolling", false))
-            {
-                int i = a;
-                int j = b;
-                ebw.e("Babel_Scroll", (new StringBuilder(45)).append("saveScrollPosition: ").append(i).append(" : ").append(j).toString());
-                return;
-            }
-        }
-    }
-
-    public void ab()
-    {
-        while (h == null || !(h instanceof ListView) || b == 0 && a == 0) 
-        {
-            return;
-        }
-        ((ListView)h).setSelectionFromTop(a, b);
-        if (g.a(g.nS, "babel_extra_log_scrolling", false))
-        {
-            int i = a;
-            int j = b;
-            ebw.e("Babel_Scroll", (new StringBuilder(48)).append("restoreScrollPosition: ").append(i).append(" : ").append(j).toString());
-        }
-        a = 0;
-        b = 0;
-    }
-
-    public void onCreate(Bundle bundle)
-    {
-        super.onCreate(bundle);
-        if (bundle != null)
-        {
-            a = bundle.getInt("scroll_pos");
-            b = bundle.getInt("scroll_off");
-            return;
+            c = new SparseArray();
         } else
         {
-            a = 0;
-            b = 0;
-            return;
+            c = null;
         }
-    }
-
-    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle, int i)
-    {
-        layoutinflater = super.onCreateView(layoutinflater, viewgroup, bundle, i);
-        h = (AbsListView)layoutinflater.findViewById(0x102000a);
-        h.setOnScrollListener(this);
-        return layoutinflater;
-    }
-
-    public void onDestroyView()
-    {
-        super.onDestroyView();
-        h.setOnScrollListener(null);
-        h = null;
-    }
-
-    public void onSaveInstanceState(Bundle bundle)
-    {
-        super.onSaveInstanceState(bundle);
-        if (!getActivity().isFinishing() && h != null)
+        if (b == 0 || b == 4)
         {
-            aa();
-            bundle.putInt("scroll_pos", a);
-            bundle.putInt("scroll_off", b);
+            c.put(0xfe4e5, new Pair(Integer.valueOf(0x1f1ef), Integer.valueOf(0x1f1f5)));
+            c.put(0xfe4e6, new Pair(Integer.valueOf(0x1f1fa), Integer.valueOf(0x1f1f8)));
+            c.put(0xfe4e7, new Pair(Integer.valueOf(0x1f1eb), Integer.valueOf(0x1f1f7)));
+            c.put(0xfe4e8, new Pair(Integer.valueOf(0x1f1e9), Integer.valueOf(0x1f1ea)));
+            c.put(0xfe4e9, new Pair(Integer.valueOf(0x1f1ee), Integer.valueOf(0x1f1f9)));
+            c.put(0xfe4ea, new Pair(Integer.valueOf(0x1f1ec), Integer.valueOf(0x1f1e7)));
+            c.put(0xfe4eb, new Pair(Integer.valueOf(0x1f1ea), Integer.valueOf(0x1f1f8)));
+            c.put(0xfe4ec, new Pair(Integer.valueOf(0x1f1f7), Integer.valueOf(0x1f1fa)));
+            c.put(0xfe4ed, new Pair(Integer.valueOf(0x1f1e8), Integer.valueOf(0x1f1f3)));
+            c.put(0xfe4ee, new Pair(Integer.valueOf(0x1f1f0), Integer.valueOf(0x1f1f7)));
         }
-    }
-
-    public void onScroll(AbsListView abslistview, int i, int j, int k)
-    {
-        if (k > 0)
+        if (b == 0 || b == 5)
         {
-            c = i + j;
-            d = k;
+            c.put(0xfe82e, new Pair(Integer.valueOf(49), Integer.valueOf(8419)));
+            c.put(0xfe82f, new Pair(Integer.valueOf(50), Integer.valueOf(8419)));
+            c.put(0xfe830, new Pair(Integer.valueOf(51), Integer.valueOf(8419)));
+            c.put(0xfe831, new Pair(Integer.valueOf(52), Integer.valueOf(8419)));
+            c.put(0xfe832, new Pair(Integer.valueOf(53), Integer.valueOf(8419)));
+            c.put(0xfe833, new Pair(Integer.valueOf(54), Integer.valueOf(8419)));
+            c.put(0xfe834, new Pair(Integer.valueOf(55), Integer.valueOf(8419)));
+            c.put(0xfe835, new Pair(Integer.valueOf(56), Integer.valueOf(8419)));
+            c.put(0xfe836, new Pair(Integer.valueOf(57), Integer.valueOf(8419)));
+            c.put(0xfe837, new Pair(Integer.valueOf(48), Integer.valueOf(8419)));
+            c.put(0xfe82c, new Pair(Integer.valueOf(35), Integer.valueOf(8419)));
         }
     }
 
-    public void onScrollStateChanged(AbsListView abslistview, int i)
+    public void onItemClick(AdapterView adapterview, View view, int i, long l)
     {
+        i = (int)l;
+        if (b > 0)
+        {
+            bkb.b(a).a(i);
+        }
+        adapterview = new StringBuilder();
+        if (c != null)
+        {
+            view = (Pair)c.get(i);
+            if (view != null)
+            {
+                adapterview.appendCodePoint(g.a((Integer)((Pair) (view)).first, 0));
+                i = g.a((Integer)((Pair) (view)).second, 0);
+            }
+        }
+        adapterview.appendCodePoint(i);
+        bkb.d(a).a(adapterview);
     }
 }

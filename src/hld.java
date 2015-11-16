@@ -2,66 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpExecuteInterceptor;
-import com.google.api.client.http.HttpRequestInitializer;
-import com.google.api.client.http.HttpTransport;
-import com.google.api.client.json.JsonFactory;
-import com.google.api.client.util.GenericData;
+import android.animation.Animator;
 
-public final class hld extends hlf
+final class hld
+    implements android.animation.Animator.AnimatorListener
 {
 
-    private String c;
+    public boolean a;
+    final hlc b;
 
-    public hld(HttpTransport httptransport, JsonFactory jsonfactory, GenericUrl genericurl, String s)
+    hld(hlc hlc1)
     {
-        super(httptransport, jsonfactory, genericurl, "refresh_token");
-        c = (String)h.b(s);
+        b = hlc1;
+        super();
     }
 
-    private hld b(String s, Object obj)
+    public void onAnimationCancel(Animator animator)
     {
-        return (hld)super.a(s, obj);
+        a = true;
     }
 
-    public hld a(HttpExecuteInterceptor httpexecuteinterceptor)
+    public void onAnimationEnd(Animator animator)
     {
-        return (hld)super.b(httpexecuteinterceptor);
+        if (!a && !b.al)
+        {
+            animator.start();
+        }
     }
 
-    public hld a(HttpRequestInitializer httprequestinitializer)
+    public void onAnimationRepeat(Animator animator)
     {
-        return (hld)super.b(httprequestinitializer);
     }
 
-    public hlf a(GenericUrl genericurl)
+    public void onAnimationStart(Animator animator)
     {
-        return (hld)super.a(genericurl);
-    }
-
-    public hlf a(String s)
-    {
-        return (hld)super.a(s);
-    }
-
-    public hlf a(String s, Object obj)
-    {
-        return b(s, obj);
-    }
-
-    public hlf b(HttpExecuteInterceptor httpexecuteinterceptor)
-    {
-        return a(httpexecuteinterceptor);
-    }
-
-    public hlf b(HttpRequestInitializer httprequestinitializer)
-    {
-        return a(httprequestinitializer);
-    }
-
-    public GenericData set(String s, Object obj)
-    {
-        return b(s, obj);
+        a = false;
     }
 }

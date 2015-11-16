@@ -2,37 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import java.io.IOException;
 
-public interface gjk
+final class gjk
+    implements Runnable
 {
 
-    public abstract void a(int i);
+    final Context a;
+    final String b;
+    final gji c;
 
-    public abstract void a(gji gji);
+    gjk(gji gji, Context context, String s)
+    {
+        c = gji;
+        a = context;
+        b = s;
+        super();
+    }
 
-    public abstract void a(gjj gjj);
-
-    public abstract void a(gjl gjl);
-
-    public abstract void a(gjm gjm);
-
-    public abstract void a(gju gju);
-
-    public abstract void a(gjv gjv);
-
-    public abstract void a(String s, gju gju);
-
-    public abstract boolean a();
-
-    public abstract gjo b();
-
-    public abstract void b(gjm gjm);
-
-    public abstract gjv c();
-
-    public abstract gji d();
-
-    public abstract gjj e();
-
-    public abstract gbd g();
+    public void run()
+    {
+        eld.b(a, b);
+        return;
+        Object obj;
+        obj;
+_L2:
+        gne.a(5, "vclib", "Failed to invalidate access token", ((Throwable) (obj)));
+        return;
+        obj;
+        if (true) goto _L2; else goto _L1
+_L1:
+    }
 }

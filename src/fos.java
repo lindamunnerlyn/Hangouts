@@ -3,28 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class fos extends Thread
+public final class fos
 {
 
-    final for a;
-
-    public fos(for for1)
+    public fos()
     {
-        a = for1;
-        super("PeopleAggregator-aggregator");
-    }
-
-    public final void run()
-    {
-        try
-        {
-            for.a(a);
-            return;
-        }
-        catch (Exception exception)
-        {
-            g.a("PeopleAggregator", "Unknown exception during aggregation", exception);
-        }
-        for.b(a);
     }
 }

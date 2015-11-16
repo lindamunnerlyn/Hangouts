@@ -3,6 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gab
+public final class gab
 {
+
+    public gab()
+    {
+    }
 }

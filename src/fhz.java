@@ -2,49 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
+import com.google.android.gms.common.api.Status;
 
 final class fhz
-    implements fhx
+    implements foz
 {
 
-    private IBinder a;
+    final Status a;
+    final fhy b;
 
-    fhz(IBinder ibinder)
+    fhz(fhy fhy, Status status)
     {
-        a = ibinder;
+        b = fhy;
+        a = status;
+        super();
     }
 
-    public void a(fkr fkr1)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnInfoWindowClickListener");
-        if (fkr1 == null)
-        {
-            break MISSING_BLOCK_LABEL_57;
-        }
-        fkr1 = fkr1.asBinder();
-_L1:
-        parcel.writeStrongBinder(fkr1);
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        fkr1 = null;
-          goto _L1
-        fkr1;
-        parcel1.recycle();
-        parcel.recycle();
-        throw fkr1;
-    }
-
-    public IBinder asBinder()
+    public Status D_()
     {
         return a;
+    }
+
+    public void b()
+    {
+    }
+
+    public ftp c()
+    {
+        return null;
     }
 }

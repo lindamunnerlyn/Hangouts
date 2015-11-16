@@ -8,14 +8,14 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import uu;
-import uv;
+import uw;
+import ux;
 
 public class FitWindowsFrameLayout extends FrameLayout
-    implements uu
+    implements uw
 {
 
-    private uv a;
+    private ux a;
 
     public FitWindowsFrameLayout(Context context)
     {
@@ -27,9 +27,9 @@ public class FitWindowsFrameLayout extends FrameLayout
         super(context, attributeset);
     }
 
-    public void a(uv uv1)
+    public void a(ux ux1)
     {
-        a = uv1;
+        a = ux1;
     }
 
     protected boolean fitSystemWindows(Rect rect)

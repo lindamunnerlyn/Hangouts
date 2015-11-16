@@ -4,11 +4,11 @@
 
 package com.google.android.apps.hangouts.views;
 
-import aia;
+import aht;
 import android.animation.ObjectAnimator;
 import android.view.View;
-import efc;
-import efr;
+import eie;
+import eit;
 
 // Referenced classes of package com.google.android.apps.hangouts.views:
 //            MessageListItemWrapperView, MessageListAnimationManager, MessageListView
@@ -17,8 +17,8 @@ public class e
     implements Runnable
 {
 
-    public final MessageListItemWrapperView a;
-    private final int b;
+    public final int a;
+    public final MessageListItemWrapperView b;
     private MessageListView c;
     private ObjectAnimator d;
     private final View e;
@@ -29,40 +29,35 @@ public class e
     private int j;
     private int k;
 
-    public static int a(e e1)
-    {
-        return e1.b;
-    }
-
     public void run()
     {
-        efc efc1;
-        if (b == 1)
+        eie eie1;
+        if (a == 1)
         {
             j = 0;
-            k = MessageListItemWrapperView.a(a.getResources());
+            k = MessageListItemWrapperView.a(b.getResources());
         } else
         {
-            j = MessageListItemWrapperView.a(a.getResources());
+            j = MessageListItemWrapperView.a(b.getResources());
             k = 0;
         }
         d = ObjectAnimator.ofInt(this, "watermarkGalleryMeasuredHeightReduction", new int[] {
             j, k
         });
         d.setDuration(MessageListItemWrapperView.i());
-        d.setInterpolator(new aia());
-        d.addListener(new efr(this));
-        efc1 = MessageListItemWrapperView.d(a).a();
-        if (efc1 != null)
+        d.setInterpolator(new aht());
+        d.addListener(new eit(this));
+        eie1 = MessageListItemWrapperView.d(b).a();
+        if (eie1 != null)
         {
-            efc1.a();
+            eie1.a();
         }
         d.start();
     }
 
     public void setWatermarkGalleryMeasuredHeightReduction(int l)
     {
-        MessageListItemWrapperView.b(a, l);
+        MessageListItemWrapperView.b(b, l);
         if (c == null)
         {
             c = (MessageListView)e.getParent();
@@ -93,16 +88,16 @@ public class e
             int k1 = g;
             int l1 = c.getHeight();
             c.a(f, j1 - (i1 - l) - (k1 - l1));
-            a.requestLayout();
+            b.requestLayout();
             return;
         }
     }
 
     public (MessageListItemWrapperView messagelistitemwrapperview, View view, int l)
     {
-        a = messagelistitemwrapperview;
+        b = messagelistitemwrapperview;
         super();
-        b = l;
+        a = l;
         e = view;
     }
 }

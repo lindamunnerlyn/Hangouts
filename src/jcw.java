@@ -3,20 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jcw extends koj
+public final class jcw extends kwm
 {
 
-    public jcp a;
-    public jbw b;
-    public jcp c[];
-    public ixg responseHeader;
+    public jcs a[];
+    public jdl responseHeader;
 
     public jcw()
     {
         responseHeader = null;
-        a = null;
-        b = null;
-        c = jcp.a();
+        a = jcs.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -27,31 +23,21 @@ public final class jcw extends koj
         int i = j;
         if (responseHeader != null)
         {
-            i = j + koh.d(1, responseHeader);
+            i = j + kwk.d(1, responseHeader);
         }
         j = i;
         if (a != null)
         {
-            j = i + koh.d(2, a);
-        }
-        i = j;
-        if (b != null)
-        {
-            i = j + koh.d(3, b);
-        }
-        j = i;
-        if (c != null)
-        {
             j = i;
-            if (c.length > 0)
+            if (a.length > 0)
             {
-                for (j = 0; j < c.length;)
+                for (j = 0; j < a.length;)
                 {
-                    jcp jcp1 = c[j];
+                    jcs jcs1 = a[j];
                     int k = i;
-                    if (jcp1 != null)
+                    if (jcs1 != null)
                     {
-                        k = i + koh.d(4, jcp1);
+                        k = i + kwk.d(2, jcs1);
                     }
                     j++;
                     i = k;
@@ -63,15 +49,15 @@ public final class jcw extends koj
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -83,86 +69,62 @@ public final class jcw extends koj
             case 10: // '\n'
                 if (responseHeader == null)
                 {
-                    responseHeader = new ixg();
+                    responseHeader = new jdl();
                 }
-                kog1.a(responseHeader);
+                kwj1.a(responseHeader);
                 break;
 
             case 18: // '\022'
-                if (a == null)
-                {
-                    a = new jcp();
-                }
-                kog1.a(a);
-                break;
-
-            case 26: // '\032'
-                if (b == null)
-                {
-                    b = new jbw();
-                }
-                kog1.a(b);
-                break;
-
-            case 34: // '"'
-                int k = kou.b(kog1, 34);
-                jcp ajcp[];
+                int k = kwx.a(kwj1, 18);
+                jcs ajcs[];
                 int j;
-                if (c == null)
+                if (a == null)
                 {
                     j = 0;
                 } else
                 {
-                    j = c.length;
+                    j = a.length;
                 }
-                ajcp = new jcp[k + j];
+                ajcs = new jcs[k + j];
                 k = j;
                 if (j != 0)
                 {
-                    System.arraycopy(c, 0, ajcp, 0, j);
+                    System.arraycopy(a, 0, ajcs, 0, j);
                     k = j;
                 }
-                for (; k < ajcp.length - 1; k++)
+                for (; k < ajcs.length - 1; k++)
                 {
-                    ajcp[k] = new jcp();
-                    kog1.a(ajcp[k]);
-                    kog1.a();
+                    ajcs[k] = new jcs();
+                    kwj1.a(ajcs[k]);
+                    kwj1.a();
                 }
 
-                ajcp[k] = new jcp();
-                kog1.a(ajcp[k]);
-                c = ajcp;
+                ajcs[k] = new jcs();
+                kwj1.a(ajcs[k]);
+                a = ajcs;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (responseHeader != null)
         {
-            koh1.b(1, responseHeader);
+            kwk1.b(1, responseHeader);
         }
-        if (a != null)
+        if (a != null && a.length > 0)
         {
-            koh1.b(2, a);
-        }
-        if (b != null)
-        {
-            koh1.b(3, b);
-        }
-        if (c != null && c.length > 0)
-        {
-            for (int i = 0; i < c.length; i++)
+            for (int i = 0; i < a.length; i++)
             {
-                jcp jcp1 = c[i];
-                if (jcp1 != null)
+                jcs jcs1 = a[i];
+                if (jcs1 != null)
                 {
-                    koh1.b(4, jcp1);
+                    kwk1.b(2, jcs1);
                 }
             }
 
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

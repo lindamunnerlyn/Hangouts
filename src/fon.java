@@ -2,39 +2,74 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.res.Resources;
-import java.util.concurrent.ConcurrentHashMap;
+import android.os.Parcel;
+import com.google.android.gms.maps.model.TileOverlayOptions;
 
-abstract class fon
+public final class fon
+    implements android.os.Parcelable.Creator
 {
 
-    private final ConcurrentHashMap a = new ConcurrentHashMap();
-    private final Resources b;
-
-    public fon(Resources resources)
+    public fon()
     {
-        b = resources;
     }
 
-    public String a(int i)
+    public static TileOverlayOptions a(Parcel parcel)
     {
-        String s;
-        if (i == 0)
+        boolean flag1 = false;
+        int j = g.a(parcel);
+        android.os.IBinder ibinder = null;
+        float f = 0.0F;
+        boolean flag = true;
+        int i = 0;
+        do
         {
-            s = null;
-        } else
-        {
-            String s2 = (String)a.get(Integer.valueOf(i));
-            s = s2;
-            if (s2 == null)
+            if (parcel.dataPosition() < j)
             {
-                String s1 = a(b, i);
-                a.put(Integer.valueOf(i), s1);
-                return s1;
+                int k = parcel.readInt();
+                switch (0xffff & k)
+                {
+                default:
+                    g.b(parcel, k);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, k);
+                    break;
+
+                case 2: // '\002'
+                    ibinder = g.j(parcel, k);
+                    break;
+
+                case 3: // '\003'
+                    flag1 = g.c(parcel, k);
+                    break;
+
+                case 4: // '\004'
+                    f = g.g(parcel, k);
+                    break;
+
+                case 5: // '\005'
+                    flag = g.c(parcel, k);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != j)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
+            } else
+            {
+                return new TileOverlayOptions(i, ibinder, flag1, f, flag);
             }
-        }
-        return s;
+        } while (true);
     }
 
-    protected abstract String a(Resources resources, int i);
+    public Object createFromParcel(Parcel parcel)
+    {
+        return a(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new TileOverlayOptions[i];
+    }
 }

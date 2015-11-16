@@ -2,34 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 import android.content.Intent;
-import android.view.View;
-import com.google.android.apps.hangouts.phone.GooglePlusUpgradeActivity;
+import com.google.android.apps.hangouts.realtimechat.DebugOzGetMergedPersonActivity;
 
-public final class cnv
-    implements android.view.View.OnClickListener
+final class cnv extends coj
 {
 
-    final GooglePlusUpgradeActivity a;
+    final cna a;
 
-    public cnv(GooglePlusUpgradeActivity googleplusupgradeactivity)
+    cnv(cna cna1, String s)
     {
-        a = googleplusupgradeactivity;
-        super();
+        a = cna1;
+        super(s);
     }
 
-    public void onClick(View view)
+    public void a()
     {
-        if (view == GooglePlusUpgradeActivity.a(a))
-        {
-            GooglePlusUpgradeActivity.b(a);
-        } else
-        if (view == GooglePlusUpgradeActivity.c(a))
-        {
-            view = new Intent();
-            a.setResult(0, view);
-            a.finish();
-            return;
-        }
+        Intent intent = new Intent(a.a, com/google/android/apps/hangouts/realtimechat/DebugOzGetMergedPersonActivity);
+        intent.putExtra("account_id", a.c);
+        a.a.startActivity(intent);
     }
 }

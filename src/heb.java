@@ -3,12 +3,12 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public abstract class heb
+public interface heb
 {
 
-    heb()
-    {
-    }
+    public abstract int a();
 
-    public abstract hec a(String s);
+    public abstract int b();
+
+    public abstract int c();
 }

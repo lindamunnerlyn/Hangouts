@@ -2,122 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.graphics.RectF;
-import android.net.Uri;
+import java.io.PrintWriter;
+import java.io.Writer;
 
-public final class gzr
+final class gzr extends PrintWriter
 {
 
-    public static final Uri a = Uri.parse("https://lh3.googleusercontent.com");
-    public static int b = -1;
-    private static gzt c = new gzt();
-    private static Context d;
+    final gzn a;
 
-    static int a(Context context)
+    gzr(gzn gzn, Writer writer)
     {
-        if (context != null)
-        {
-            context = android.provider.Settings.Secure.getString(d.getContentResolver(), "android_id");
-            if (context != null)
-            {
-                int j = Math.abs(context.hashCode());
-                int i = j;
-                if (j == 0)
-                {
-                    i = 1;
-                }
-                return i;
-            }
-        }
-        return 0;
+        a = gzn;
+        super(writer);
     }
 
-    static Context a()
+    public String toString()
     {
-        return d;
+        return out.toString();
     }
-
-    private static String a(float f)
-    {
-        float f1;
-label0:
-        {
-            if ((double)f >= 0.0D)
-            {
-                f1 = f;
-                if ((double)f <= 1.0D)
-                {
-                    break label0;
-                }
-            }
-            f1 = Math.max(0.0F, Math.min(1.0F, f));
-        }
-        String s1 = Integer.toString((int)(65535F * f1), 16);
-        String s = String.valueOf("0000".substring(0, 4 - s1.length()));
-        s1 = String.valueOf(s1);
-        if (s1.length() != 0)
-        {
-            return s.concat(s1);
-        } else
-        {
-            return new String(s);
-        }
-    }
-
-    public static String a(RectF rectf)
-    {
-        new RectF();
-        String s = a(rectf.left);
-        String s1 = a(rectf.top);
-        String s2 = a(rectf.right);
-        rectf = a(rectf.bottom);
-        return (new StringBuilder(String.valueOf(s).length() + 11 + String.valueOf(s1).length() + String.valueOf(s2).length() + String.valueOf(rectf).length())).append("-fcrop64=1,").append(s).append(s1).append(s2).append(rectf).toString();
-    }
-
-    private static String a(String s, int i, int j, int k, int l, int i1, int j1, RectF rectf, 
-            int k1)
-    {
-        return c.a(s, i, j, k, l, i1, j1, rectf, k1, -1);
-    }
-
-    public static String a(String s, int i, int j, int k, int l, int i1, RectF rectf)
-    {
-        rectf = a(s, i, 0, j, k, l, i1, rectf, gzs.a);
-        if (rectf == null) goto _L2; else goto _L1
-_L1:
-        return rectf;
-_L2:
-        if (j != 0)
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        rectf = s;
-        if (k == 0) goto _L1; else goto _L3
-_L3:
-        return gzu.a(j, k, s);
-    }
-
-    public static String a(String s, int i, int j, RectF rectf)
-    {
-        String s1 = a(s, i, j, 0, 0, -1, -1, rectf, gzs.a);
-        rectf = s1;
-        if (s1 == null)
-        {
-            rectf = gzu.a(j, s);
-        }
-        return rectf;
-    }
-
-    public static String a(String s, int i, RectF rectf)
-    {
-        String s1 = a(s, i, 0, 0, 0, -1, -1, rectf, gzs.a);
-        rectf = s1;
-        if (s1 == null)
-        {
-            rectf = gzu.a(-1, s);
-        }
-        return rectf;
-    }
-
 }

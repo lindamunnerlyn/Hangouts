@@ -2,17 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.res.ColorStateList;
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.content.res.Resources;
 
-public final class vh
+public final class vh extends ContextWrapper
 {
 
-    public ColorStateList a;
-    public android.graphics.PorterDuff.Mode b;
-    public boolean c;
-    public boolean d;
+    private Resources a;
 
-    public vh()
+    private vh(Context context)
     {
+        super(context);
+    }
+
+    public static Context a(Context context)
+    {
+        Object obj = context;
+        if (!(context instanceof vh))
+        {
+            obj = new vh(context);
+        }
+        return ((Context) (obj));
+    }
+
+    public Resources getResources()
+    {
+        if (a == null)
+        {
+            a = new vi(super.getResources(), vk.a(this));
+        }
+        return a;
     }
 }

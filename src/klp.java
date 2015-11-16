@@ -2,118 +2,114 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.OutputStream;
-import java.io.Serializable;
-import java.util.Iterator;
 
-public abstract class klp
-    implements Serializable, Iterable
+public final class klp extends kwm
 {
 
-    public static final klp a = new kmw(new byte[0]);
+    public ksf a[];
 
-    klp()
+    public klp()
     {
+        a = ksf.a();
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public static klp a(byte abyte0[], int i, int j)
+    protected int computeSerializedSize()
     {
-        byte abyte1[] = new byte[j];
-        System.arraycopy(abyte0, i, abyte1, 0, j);
-        return new kmw(abyte1);
+        int i = super.computeSerializedSize();
+        int k = i;
+        if (a != null)
+        {
+            k = i;
+            if (a.length > 0)
+            {
+                int j = 0;
+                do
+                {
+                    k = i;
+                    if (j >= a.length)
+                    {
+                        break;
+                    }
+                    ksf ksf1 = a[j];
+                    k = i;
+                    if (ksf1 != null)
+                    {
+                        k = i + kwk.d(1, ksf1);
+                    }
+                    j++;
+                    i = k;
+                } while (true);
+            }
+        }
+        return k;
     }
 
-    public abstract int a();
-
-    protected abstract int a(int i, int j, int k);
-
-    void a(OutputStream outputstream, int i, int j)
+    public kws mergeFrom(kwj kwj1)
     {
-        if (i < 0)
+        do
         {
-            throw new IndexOutOfBoundsException((new StringBuilder(30)).append("Source offset < 0: ").append(i).toString());
-        }
-        if (j < 0)
-        {
-            throw new IndexOutOfBoundsException((new StringBuilder(23)).append("Length < 0: ").append(j).toString());
-        }
-        if (i + j > a())
-        {
-            throw new IndexOutOfBoundsException((new StringBuilder(39)).append("Source end offset exceeded: ").append(i + j).toString());
-        }
-        if (j > 0)
-        {
-            b(outputstream, i, j);
-        }
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                int k = kwx.a(kwj1, 10);
+                ksf aksf[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                aksf = new ksf[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, aksf, 0, j);
+                    k = j;
+                }
+                for (; k < aksf.length - 1; k++)
+                {
+                    aksf[k] = new ksf();
+                    kwj1.a(aksf[k]);
+                    kwj1.a();
+                }
+
+                aksf[k] = new ksf();
+                kwj1.a(aksf[k]);
+                a = aksf;
+                break;
+            }
+        } while (true);
     }
 
-    protected abstract void a(byte abyte0[], int i, int j, int k);
-
-    abstract void b(OutputStream outputstream, int i, int j);
-
-    public void b(byte abyte0[], int i, int j, int k)
+    public void writeTo(kwk kwk1)
     {
-        if (i < 0)
+        if (a != null && a.length > 0)
         {
-            throw new IndexOutOfBoundsException((new StringBuilder(30)).append("Source offset < 0: ").append(i).toString());
+            for (int i = 0; i < a.length; i++)
+            {
+                ksf ksf1 = a[i];
+                if (ksf1 != null)
+                {
+                    kwk1.b(1, ksf1);
+                }
+            }
+
         }
-        if (j < 0)
-        {
-            throw new IndexOutOfBoundsException((new StringBuilder(30)).append("Target offset < 0: ").append(j).toString());
-        }
-        if (k < 0)
-        {
-            throw new IndexOutOfBoundsException((new StringBuilder(23)).append("Length < 0: ").append(k).toString());
-        }
-        if (i + k > a())
-        {
-            throw new IndexOutOfBoundsException((new StringBuilder(34)).append("Source end offset < 0: ").append(i + k).toString());
-        }
-        if (j + k > abyte0.length)
-        {
-            throw new IndexOutOfBoundsException((new StringBuilder(34)).append("Target end offset < 0: ").append(j + k).toString());
-        }
-        if (k > 0)
-        {
-            a(abyte0, i, j, k);
-        }
+        super.writeTo(kwk1);
     }
-
-    public abstract klq c();
-
-    public boolean d()
-    {
-        return a() == 0;
-    }
-
-    public byte[] e()
-    {
-        int i = a();
-        if (i == 0)
-        {
-            return kmn.c;
-        } else
-        {
-            byte abyte0[] = new byte[i];
-            a(abyte0, 0, 0, i);
-            return abyte0;
-        }
-    }
-
-    public abstract klr f();
-
-    protected abstract int g();
-
-    public Iterator iterator()
-    {
-        return c();
-    }
-
-    public String toString()
-    {
-        return String.format("<ByteString@%s size=%d>", new Object[] {
-            Integer.toHexString(System.identityHashCode(this)), Integer.valueOf(a())
-        });
-    }
-
 }

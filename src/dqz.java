@@ -2,66 +2,74 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.net.Uri;
+import android.content.Context;
+import android.content.res.Resources;
+import android.widget.Toast;
 
-final class dqz
+final class dqz extends bgs
 {
 
-    final Uri a;
-    boolean b;
-    int c;
-    private int d;
+    final cuy d;
+    private final Context e;
+    private final int f;
+    private final hjk g;
+    private final arf h;
+    private final String i;
 
-    public dqz(Uri uri)
+    protected dqz(Context context, int j, hjk hjk1, arf arf, cuy cuy, String s)
     {
-        b = false;
-        a = uri;
+        e = context;
+        f = j;
+        g = hjk1;
+        h = arf;
+        i = s;
+        d = cuy;
     }
 
-    public int a()
+    public String a()
     {
-        c;
-        JVM INSTR tableswitch -1 8: default 60
-    //                   -1 62
-    //                   0 60
-    //                   1 60
-    //                   2 60
-    //                   3 64
-    //                   4 66
-    //                   5 60
-    //                   6 60
-    //                   7 60
-    //                   8 60;
-           goto _L1 _L2 _L1 _L1 _L1 _L3 _L4 _L1 _L1 _L1 _L1
-_L1:
-        return 2;
-_L2:
-        return 0;
-_L3:
-        return 1;
-_L4:
-        if (d != 404)
+        return e.getResources().getString(l.X);
+    }
+
+    protected void a(did did)
+    {
+        super.a(did);
+        ard.b(f, h, d);
+    }
+
+    protected void a(Exception exception)
+    {
+        super.a(exception);
+        g.a(i);
+        g.b(g.f()[g.b(i)]);
+    }
+
+    public int b()
+    {
+        g.a(dcn.e(f), 1594);
+        return ard.a(f, h, d);
+    }
+
+    public void c()
+    {
+        if (!j())
         {
-            return 1;
+            Toast.makeText(e, l.Z, 0).show();
+            return;
+        } else
+        {
+            Toast.makeText(e, l.Y, 0).show();
+            return;
         }
-        if (true) goto _L1; else goto _L5
-_L5:
     }
 
-    public void a(int i, int j)
+    public Class e()
     {
-        c = i;
-        d = j;
-        b = true;
+        return cux;
     }
 
-    public String toString()
+    public Class f()
     {
-        StringBuilder stringbuilder = new StringBuilder();
-        stringbuilder.append("DownloadResult:");
-        stringbuilder.append(" destinationUri=").append(a);
-        stringbuilder.append(" resultCode=").append(c);
-        stringbuilder.append(" httpStatusCode=").append(d);
-        return stringbuilder.toString();
+        return dad;
     }
 }

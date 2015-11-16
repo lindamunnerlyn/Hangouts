@@ -2,46 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
-import com.google.android.gms.common.api.Status;
-import java.util.List;
 
-public final class fcb
-    implements fbz
+final class fcb
 {
 
-    private IBinder a;
+    static final erv a[] = {
+        new fcc(erv.a("0\202\003\2730\202\002\243\240\003\002\001\002\002\t\000\233\342q\264\2555Fb0")), new fcd(erv.a("0\202\003\2730\202\002\243\240\003\002\001\002\002\t\000\214\260~\300O\b\302\3760"))
+    };
 
-    public fcb(IBinder ibinder)
-    {
-        a = ibinder;
-    }
-
-    public void a(Status status, List list)
-    {
-        Parcel parcel = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.herrevad.internal.IConnectedNetworksQualityCallbacks");
-        if (status == null)
-        {
-            break MISSING_BLOCK_LABEL_49;
-        }
-        parcel.writeInt(1);
-        status.writeToParcel(parcel, 0);
-_L1:
-        parcel.writeTypedList(list);
-        a.transact(2, parcel, null, 1);
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        status;
-        parcel.recycle();
-        throw status;
-    }
-
-    public IBinder asBinder()
-    {
-        return a;
-    }
 }

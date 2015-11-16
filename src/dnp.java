@@ -3,21 +3,32 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class dnp
-    implements hff
+public final class dnp extends dmw
 {
 
-    final dnm a;
+    private static final long serialVersionUID = 2L;
+    public final long a;
+    public final boolean b;
 
-    dnp(dnm dnm1)
+    public dnp(jdr jdr1)
     {
-        a = dnm1;
-        super();
-    }
-
-    public boolean a()
-    {
-        dnm.f(a);
-        return true;
+        boolean flag;
+        if (jdr1.c != null)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        b = g.a(Boolean.valueOf(flag), false);
+        if (b)
+        {
+            a = g.a(jdr1.c.b, 0L);
+            return;
+        } else
+        {
+            a = 0L;
+            return;
+        }
     }
 }

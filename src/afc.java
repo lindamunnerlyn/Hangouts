@@ -3,10 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class afc extends afd
+public final class afc extends afh
 {
 
     public afc()
     {
+    }
+
+    public afc(String s)
+    {
+        super(s);
     }
 }

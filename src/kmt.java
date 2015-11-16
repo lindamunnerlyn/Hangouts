@@ -3,42 +3,60 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class kmt
-    implements java.util.Map.Entry
+public final class kmt extends kwm
 {
 
-    private java.util.Map.Entry a;
+    public Boolean a;
 
-    kmt(java.util.Map.Entry entry)
+    public kmt()
     {
-        a = entry;
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public Object getKey()
+    protected int computeSerializedSize()
     {
-        return a.getKey();
-    }
-
-    public Object getValue()
-    {
-        kms kms1 = (kms)a.getValue();
-        if (kms1 == null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            return null;
-        } else
-        {
-            return kms1.a();
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
+        return i;
     }
 
-    public Object setValue(Object obj)
+    public kws mergeFrom(kwj kwj1)
     {
-        if (!(obj instanceof kmy))
+        do
         {
-            throw new IllegalArgumentException("LazyField now only used for MessageSet, and the value of MessageSet must be an instance of MessageLite");
-        } else
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
         {
-            return ((kms)a.getValue()).b((kmy)obj);
+            kwk1.a(1, a.booleanValue());
         }
+        super.writeTo(kwk1);
     }
 }

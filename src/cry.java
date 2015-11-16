@@ -2,52 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.List;
+import android.view.View;
 
-public final class cry
+final class cry
+    implements android.view.View.OnClickListener
 {
 
-    public static final cry c = new cry();
-    public int a;
-    public String b;
+    final crw a;
 
-    public cry()
+    cry(crw crw1)
     {
-        a = 1;
-        b = null;
+        a = crw1;
+        super();
     }
 
-    public cry(isa isa1)
+    public void onClick(View view)
     {
-        a = 1;
-        b = null;
-        if (isa1 != null)
-        {
-            a = g.a(isa1.a, 1);
-            if (isa1.b != null)
-            {
-                b = isa1.b.a;
-            }
-        }
+        g.a(crw.b(a), 1981);
     }
-
-    public static String a(List list)
-    {
-        if (list == null || list.size() == 0)
-        {
-            return "Empty deliveryMediumList. ";
-        }
-        StringBuilder stringbuilder = new StringBuilder();
-        for (list = list.iterator(); list.hasNext(); stringbuilder.append((cry)list.next())) { }
-        return stringbuilder.toString();
-    }
-
-    public String toString()
-    {
-        int i = a;
-        String s = b;
-        return (new StringBuilder(String.valueOf(s).length() + 33)).append("Medium (type=").append(i).append(" phone=").append(s).append(") ").toString();
-    }
-
 }

@@ -2,69 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
 import android.content.Context;
-import com.google.android.apps.hangouts.realtimechat.BackgroundGcmTickleService;
-import java.util.Iterator;
-import java.util.List;
 
-public final class dbt extends aiu
+public interface dbt
 {
 
-    private static final boolean a = false;
-    private static dbt b = null;
-    private final Context c;
+    public abstract boolean a(Context context);
 
-    private dbt(Context context)
-    {
-        c = context;
-    }
+    public abstract boolean a(Context context, aoa aoa);
 
-    public static dbt a(Context context)
-    {
-        if (b == null)
-        {
-            b = new dbt(context);
-        }
-        return b;
-    }
+    public abstract boolean a(Context context, String s);
 
-    protected void a(Activity activity)
-    {
-        if (BackgroundGcmTickleService.a(c))
-        {
-            if (a)
-            {
-                ebw.b("Babel", "Turn off service alarm for BackgroundGcmTicklerService when the first activity starts");
-            }
-            BackgroundGcmTickleService.a(c, false);
-        }
-    }
+    public abstract boolean a(aoa aoa);
 
-    protected void b()
-    {
-        Iterator iterator = ((gms)hgx.a(c, gms)).a().iterator();
-        do
-        {
-            if (!iterator.hasNext())
-            {
-                break;
-            }
-            if (!dbq.e(g.a((Integer)iterator.next(), 0)) || BackgroundGcmTickleService.a(c))
-            {
-                continue;
-            }
-            if (a)
-            {
-                ebw.b("Babel", "Set service alarm for BackgroundGcmTicklerServicewhen the last activity stops.");
-            }
-            BackgroundGcmTickleService.a(c, true);
-            break;
-        } while (true);
-    }
+    public abstract boolean b(Context context);
 
-    static 
-    {
-        hik hik = ebw.n;
-    }
+    public abstract boolean b(Context context, aoa aoa);
+
+    public abstract boolean b(aoa aoa);
+
+    public abstract boolean c(Context context, aoa aoa);
 }

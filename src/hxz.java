@@ -3,119 +3,154 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hxz extends koj
+public final class hxz extends kwm
 {
 
-    private static volatile hxz d[];
-    public int a;
-    public String b;
+    public lfv a;
+    public lfw b;
     public String c;
+    public lrm d;
+    public htm e;
+    public htp f;
 
     public hxz()
     {
-        a = 0x80000000;
+        a = null;
         b = null;
         c = null;
+        d = null;
+        e = null;
+        f = null;
         unknownFieldData = null;
         cachedSize = -1;
-    }
-
-    public static hxz[] a()
-    {
-        if (d == null)
-        {
-            synchronized (kon.a)
-            {
-                if (d == null)
-                {
-                    d = new hxz[0];
-                }
-            }
-        }
-        return d;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
     protected int computeSerializedSize()
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (a != 0x80000000)
+        if (a != null)
         {
-            i = j + koh.e(1, a);
+            i = j + kwk.d(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.b(2, b);
+            j = i + kwk.d(2, b);
         }
         i = j;
         if (c != null)
         {
-            i = j + koh.b(3, c);
+            i = j + kwk.b(3, c);
         }
-        return i;
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.d(4, d);
+        }
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.d(5, e);
+        }
+        j = i;
+        if (f != null)
+        {
+            j = i + kwk.d(6, f);
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L6:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 4: default 48
-    //                   0: 57
-    //                   8: 59
-    //                   18: 131
-    //                   26: 142;
-           goto _L1 _L2 _L3 _L4 _L5
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L6; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
+        do
         {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-        case 4: // '\004'
-        case 5: // '\005'
-        case 6: // '\006'
-        case 7: // '\007'
-        case 8: // '\b'
-        case 9: // '\t'
-            a = j;
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        b = kog1.j();
-        continue; /* Loop/switch isn't completed */
-_L5:
-        c = kog1.j();
-        if (true) goto _L6; else goto _L7
-_L7:
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new lfv();
+                }
+                kwj1.a(a);
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new lfw();
+                }
+                kwj1.a(b);
+                break;
+
+            case 26: // '\032'
+                c = kwj1.j();
+                break;
+
+            case 34: // '"'
+                if (d == null)
+                {
+                    d = new lrm();
+                }
+                kwj1.a(d);
+                break;
+
+            case 42: // '*'
+                if (e == null)
+                {
+                    e = new htm();
+                }
+                kwj1.a(e);
+                break;
+
+            case 50: // '2'
+                if (f == null)
+                {
+                    f = new htp();
+                }
+                kwj1.a(f);
+                break;
+            }
+        } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != 0x80000000)
+        if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.b(1, a);
         }
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.b(2, b);
         }
         if (c != null)
         {
-            koh1.a(3, c);
+            kwk1.a(3, c);
         }
-        super.writeTo(koh1);
+        if (d != null)
+        {
+            kwk1.b(4, d);
+        }
+        if (e != null)
+        {
+            kwk1.b(5, e);
+        }
+        if (f != null)
+        {
+            kwk1.b(6, f);
+        }
+        super.writeTo(kwk1);
     }
 }

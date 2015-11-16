@@ -2,20 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.libraries.hangouts.video.RemoteRenderer;
 
-public final class ghv extends gho
+final class ghv
+    implements Runnable
 {
 
-    private final String a;
+    final int a;
+    final ghu b;
 
-    public ghv(String s, String s1, int i, String s2)
+    ghv(ghu ghu1, int i)
     {
-        super(s, s1, null, i, false, false);
-        a = s2;
+        b = ghu1;
+        a = i;
+        super();
     }
 
-    public String x()
+    public void run()
     {
-        return a;
+        b.v = false;
+        b.r.f();
+        b.c = a;
+        b.n();
+        b.b.a(b.c);
     }
 }

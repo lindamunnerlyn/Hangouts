@@ -2,27 +2,98 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.AbstractList;
+import java.util.Collection;
 
-public final class ktp extends koj
+abstract class ktp extends AbstractList
+    implements kut
 {
 
-    public ktp()
+    boolean a;
+
+    ktp()
     {
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = true;
     }
 
-    public kop mergeFrom(kog kog1)
+    public boolean a()
     {
-_L3:
-        int i = kog1.a();
-        i;
-        JVM INSTR tableswitch 0 0: default 24
-    //                   0 33;
-           goto _L1 _L2
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L3; else goto _L2
-_L2:
-        return this;
+        return a;
+    }
+
+    public void add(int i, Object obj)
+    {
+        c();
+        super.add(i, obj);
+    }
+
+    public boolean add(Object obj)
+    {
+        c();
+        return super.add(obj);
+    }
+
+    public boolean addAll(int i, Collection collection)
+    {
+        c();
+        return super.addAll(i, collection);
+    }
+
+    public boolean addAll(Collection collection)
+    {
+        c();
+        return super.addAll(collection);
+    }
+
+    public final void b()
+    {
+        a = false;
+    }
+
+    protected void c()
+    {
+        if (!a)
+        {
+            throw new UnsupportedOperationException();
+        } else
+        {
+            return;
+        }
+    }
+
+    public void clear()
+    {
+        c();
+        super.clear();
+    }
+
+    public Object remove(int i)
+    {
+        c();
+        return super.remove(i);
+    }
+
+    public boolean remove(Object obj)
+    {
+        c();
+        return super.remove(obj);
+    }
+
+    public boolean removeAll(Collection collection)
+    {
+        c();
+        return super.removeAll(collection);
+    }
+
+    public boolean retainAll(Collection collection)
+    {
+        c();
+        return super.retainAll(collection);
+    }
+
+    public Object set(int i, Object obj)
+    {
+        c();
+        return super.set(i, obj);
     }
 }

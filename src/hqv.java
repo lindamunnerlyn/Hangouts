@@ -2,129 +2,81 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.api.client.http.HttpIOExceptionHandler;
+import com.google.api.client.http.HttpRequest;
+import com.google.api.client.http.HttpResponse;
+import com.google.api.client.http.HttpUnsuccessfulResponseHandler;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public final class hqv extends koj
+class hqv
+    implements HttpIOExceptionHandler, HttpUnsuccessfulResponseHandler
 {
 
-    private static volatile hqv e[];
-    public hru a;
-    public Long b;
-    public String c;
-    public String d;
+    static final Logger a = Logger.getLogger(hqv.getName());
+    private final hqt b;
+    private final HttpIOExceptionHandler c;
+    private final HttpUnsuccessfulResponseHandler d;
 
-    public hqv()
+    public hqv(hqt hqt1, HttpRequest httprequest)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        b = (hqt)h.a(hqt1);
+        c = httprequest.getIOExceptionHandler();
+        d = httprequest.getUnsuccessfulResponseHandler();
+        httprequest.setIOExceptionHandler(this);
+        httprequest.setUnsuccessfulResponseHandler(this);
     }
 
-    public static hqv[] a()
+    public boolean handleIOException(HttpRequest httprequest, boolean flag)
     {
-        if (e == null)
+        if (c != null && c.handleIOException(httprequest, flag))
         {
-            synchronized (kon.a)
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        if (flag)
+        {
+            try
             {
-                if (e == null)
-                {
-                    e = new hqv[0];
-                }
+                b.a();
+            }
+            // Misplaced declaration of an exception variable
+            catch (HttpRequest httprequest)
+            {
+                a.log(Level.WARNING, "exception thrown while calling server callback", httprequest);
+                return flag;
             }
         }
-        return e;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return flag;
     }
 
-    protected int computeSerializedSize()
+    public boolean handleResponse(HttpRequest httprequest, HttpResponse httpresponse, boolean flag)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        boolean flag1;
+        if (d != null && d.handleResponse(httprequest, httpresponse, flag))
         {
-            i = j + koh.d(1, a);
+            flag1 = true;
+        } else
+        {
+            flag1 = false;
         }
-        j = i;
-        if (b != null)
+        if (flag1 && flag && httpresponse.getStatusCode() / 100 == 5)
         {
-            j = i + koh.e(2, b.longValue());
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.b(3, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.b(4, d);
-        }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
+            try
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new hru();
-                }
-                kog1.a(a);
-                break;
-
-            case 16: // '\020'
-                b = Long.valueOf(kog1.e());
-                break;
-
-            case 26: // '\032'
-                c = kog1.j();
-                break;
-
-            case 34: // '"'
-                d = kog1.j();
-                break;
+                b.a();
             }
-        } while (true);
+            // Misplaced declaration of an exception variable
+            catch (HttpRequest httprequest)
+            {
+                a.log(Level.WARNING, "exception thrown while calling server callback", httprequest);
+                return flag1;
+            }
+        }
+        return flag1;
     }
 
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        if (b != null)
-        {
-            koh1.b(2, b.longValue());
-        }
-        if (c != null)
-        {
-            koh1.a(3, c);
-        }
-        if (d != null)
-        {
-            koh1.a(4, d);
-        }
-        super.writeTo(koh1);
-    }
 }

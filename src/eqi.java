@@ -2,12 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.gms.common.ConnectionResult;
 
-final class eqi
+public final class eqi extends eqb
 {
 
-    static final eox a[] = {
-        new eqj(eox.a("0\202\003w0\202\002a\002\006\001A`\215\007v0\013\006\t*\206H\206\367")), new eqk(eox.a("0\202\003\3150\202\002\265\240\003\002\001\002\002\t\000\213\334\034\366Rc?]0"))
-    };
+    final eqa e;
 
+    public eqi(eqa eqa1)
+    {
+        e = eqa1;
+        super(eqa1, 0, null);
+    }
+
+    protected void a(ConnectionResult connectionresult)
+    {
+        eqa.a(e).a(connectionresult);
+        e.g();
+    }
+
+    protected boolean a()
+    {
+        eqa.a(e).a(ConnectionResult.a);
+        return true;
+    }
 }

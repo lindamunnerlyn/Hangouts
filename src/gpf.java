@@ -2,23 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
 
-public final class gpf
-    implements hhl
+final class gpf extends gpd
 {
 
-    public gpf()
+    gpf(String s)
     {
+        super(s, 1);
     }
 
-    public Class a()
+    boolean a(gpw gpw, String s, gpb gpb1)
     {
-        return gpd;
-    }
-
-    public void a(Activity activity, hjm hjm, hgx hgx1)
-    {
-        hgx1.a(gpd, new gpd(activity, hjm));
+        if (!gpb1.b(gpw) || !goy.a(gpw, s, gpb1))
+        {
+            return false;
+        } else
+        {
+            return goy.a(gpw, gpb1);
+        }
     }
 }

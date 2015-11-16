@@ -2,30 +2,61 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import com.google.android.libraries.hangouts.video.MediaSources;
+import com.google.android.libraries.hangouts.video.Stats;
 
-public final class ggi
+public interface ggi
 {
 
-    final String a;
+    public abstract void a(int i, int j, byte abyte0[]);
 
-    public ggi(String s)
-    {
-        a = s;
-    }
+    public abstract void a(int i, String s);
 
-    public String a()
-    {
-        return a;
-    }
+    public abstract void a(long l);
 
-    public String a(Context context, String s)
-    {
-        return eic.a(context, a, s);
-    }
+    public abstract void a(long l, String s, byte abyte0[], int i);
 
-    public void b(Context context, String s)
-    {
-        gbk.a(new ggk(this, context, s));
-    }
+    public abstract void a(long l, String s, byte abyte0[], long l1);
+
+    public abstract void a(Stats stats);
+
+    public abstract void a(String s, int i);
+
+    public abstract void a(String s, int i, int j);
+
+    public abstract void a(String s, int i, int j, String s1, String s2, String s3, byte abyte0[]);
+
+    public abstract void a(String s, int i, String s1, String s2);
+
+    public abstract void a(String s, MediaSources mediasources);
+
+    public abstract void a(String s, boolean flag, String s1, boolean flag1, String s2);
+
+    public abstract void a(com.google.android.libraries.hangouts.video.ConnectivityReporter.NicInfo anicinfo[]);
+
+    public abstract void b(int i);
+
+    public abstract void b(int i, String s);
+
+    public abstract void b(long l, String s, byte abyte0[], int i);
+
+    public abstract void b(Stats stats);
+
+    public abstract void b(byte abyte0[]);
+
+    public abstract void c(int i);
+
+    public abstract void c(boolean flag);
+
+    public abstract void c(byte abyte0[]);
+
+    public abstract void d(int i);
+
+    public abstract void d(byte abyte0[]);
+
+    public abstract void e(String s);
+
+    public abstract void e(byte abyte0[]);
+
+    public abstract void f(String s);
 }

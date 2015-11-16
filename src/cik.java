@@ -2,36 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-final class cik
-    implements Parcelable
+class cik extends diq
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new cil();
-    final int a;
-    final Bundle b;
-    final int c;
+    final cic a;
+    private final String b;
 
-    cik(int i, int j, Bundle bundle)
+    cik(cic cic1)
     {
-        c = i;
-        a = j;
-        b = bundle;
+        a = cic1;
+        super(cic.g(cic1));
+        cic1 = String.valueOf(cik.getName());
+        int i = hashCode();
+        b = (new StringBuilder(String.valueOf(cic1).length() + 11)).append(cic1).append(i).toString();
     }
 
-    public int describeContents()
+    protected void a(did did1)
     {
-        return 0;
+        Object obj1 = (czw)did1.c();
+        Object obj = new ArrayList();
+        did1 = new ArrayList();
+        for (obj1 = ((czw) (obj1)).k().iterator(); ((Iterator) (obj1)).hasNext();)
+        {
+            cfz cfz1 = (cfz)((Iterator) (obj1)).next();
+            amz amz1 = amz.a(cfz1, null, false);
+            if (cfz1.y)
+            {
+                ((List) (obj)).add(amz1);
+            } else
+            {
+                did1.add(amz1);
+            }
+        }
+
+        obj = new anc(((List) (obj)));
+        cic.e(a).c(((anb) (obj)));
+        did1 = new anc(did1);
+        cic.e(a).d(did1);
+        cic.a(a, a.getView());
     }
 
-    public void writeToParcel(Parcel parcel, int i)
+    public void a(String s)
     {
-        parcel.writeInt(c);
-        parcel.writeInt(a);
-        parcel.writeBundle(b);
+        a(RealTimeChatService.b(cic.b(a), s, b));
     }
-
 }

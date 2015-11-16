@@ -2,29 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.view.ViewGroup;
+import com.google.android.apps.hangouts.fragments.InvitationFragment;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class ble extends auh
+public final class ble
+    implements bih
 {
 
-    public ble(View view, blg blg1)
+    final InvitationFragment a;
+
+    public ble(InvitationFragment invitationfragment)
     {
-        super(view, h.em, blg1);
+        a = invitationfragment;
+        super();
     }
 
-    protected boolean a()
+    public void a(boolean flag, boolean flag1)
     {
-        return ((blg)c).B() && ((blg)c).v();
-    }
-
-    protected void c()
-    {
-        b.setOnClickListener(new blf(this));
-    }
-
-    protected void d()
-    {
-        ((blg)c).b(((blg)c).s());
+        RealTimeChatService.a(InvitationFragment.i(a), InvitationFragment.e(a), false, flag1, flag);
+        if (flag)
+        {
+            RealTimeChatService.a(InvitationFragment.i(a), InvitationFragment.a(a).a, null, InvitationFragment.j(a), true, true);
+        }
+        blf blf1 = InvitationFragment.k(a);
+        InvitationFragment.e(a);
+        blf1.b();
     }
 }

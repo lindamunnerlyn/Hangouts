@@ -2,23 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextPaint;
-import android.text.style.SuperscriptSpan;
 
-public final class hgq extends SuperscriptSpan
+final class hgq
+    implements gud
 {
 
-    public hgq()
+    final hgt a;
+    final hgo b;
+
+    hgq(hgo hgo1, hgt hgt)
     {
+        b = hgo1;
+        a = hgt;
+        super();
     }
 
-    public void updateDrawState(TextPaint textpaint)
+    public void a(int i)
     {
-        textpaint.baselineShift = textpaint.baselineShift + (int)(textpaint.ascent() / 4F);
-    }
-
-    public void updateMeasureState(TextPaint textpaint)
-    {
-        textpaint.baselineShift = textpaint.baselineShift + (int)(textpaint.ascent() / 4F);
+        hgo.a(b, i, a);
     }
 }

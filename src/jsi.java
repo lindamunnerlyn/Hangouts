@@ -3,18 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class jsi extends jsh
+final class jsi extends jqo
 {
 
-    private final Object a;
+    final jsh a;
 
-    jsi(Object obj)
+    jsi(jsh jsh1, int i, int j)
     {
-        a = obj;
+        a = jsh1;
+        super(i, j);
     }
 
-    public Object get()
+    protected Object a(int i)
     {
-        return a;
+        return a.get(i);
     }
 }

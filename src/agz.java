@@ -2,100 +2,129 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.LinkedHashMap;
-import java.util.Map;
 
-public final class agz
+public final class agz extends kwm
 {
 
-    private final String a;
-    private final String b;
-    private int c;
-    private String d;
-    private String e;
-    private int f;
-    private int g;
-    private int h;
-    private int i;
-    private Map j;
-    private ahc k;
-    private String l;
-    private String m;
+    public iwf a[];
+    public Integer b;
 
     public agz()
     {
-        a = String.format("Android %s", new Object[] {
-            android.os.Build.VERSION.RELEASE
-        });
-        b = android.os.Build.VERSION.SDK;
-        c = 3;
-        d = "_s";
-        e = "https://csi.gstatic.com/csi";
-        f = 16;
-        g = 3;
-        h = 1;
-        i = 1;
-        j = new LinkedHashMap();
+        a = iwf.a();
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public int a()
+    protected int computeSerializedSize()
     {
-        return c;
-    }
-
-    public agz a(String s)
-    {
-        d = s;
-        return this;
-    }
-
-    public agz b(String s)
-    {
-        e = s;
-        return this;
-    }
-
-    public String b()
-    {
-        return d;
-    }
-
-    public String c()
-    {
-        return e;
-    }
-
-    public int d()
-    {
-        return f;
-    }
-
-    public int e()
-    {
-        return g;
-    }
-
-    public int f()
-    {
-        return h;
-    }
-
-    public int g()
-    {
+        int i = super.computeSerializedSize();
+        int j = i;
+        if (a != null)
+        {
+            j = i;
+            if (a.length > 0)
+            {
+                int k = 0;
+                do
+                {
+                    j = i;
+                    if (k >= a.length)
+                    {
+                        break;
+                    }
+                    iwf iwf1 = a[k];
+                    j = i;
+                    if (iwf1 != null)
+                    {
+                        j = i + kwk.d(1, iwf1);
+                    }
+                    k++;
+                    i = j;
+                } while (true);
+            }
+        }
+        i = j;
+        if (b != null)
+        {
+            i = j + kwk.e(2, b.intValue());
+        }
         return i;
     }
 
-    public Map h()
+    public kws mergeFrom(kwj kwj1)
     {
-        return j;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                int k = kwx.a(kwj1, 10);
+                iwf aiwf[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                aiwf = new iwf[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, aiwf, 0, j);
+                    k = j;
+                }
+                for (; k < aiwf.length - 1; k++)
+                {
+                    aiwf[k] = new iwf();
+                    kwj1.a(aiwf[k]);
+                    kwj1.a();
+                }
+
+                aiwf[k] = new iwf();
+                kwj1.a(aiwf[k]);
+                a = aiwf;
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
+                break;
+            }
+        } while (true);
     }
 
-    public ahc i()
+    public void writeTo(kwk kwk1)
     {
-        if (k == null)
+        if (a != null && a.length > 0)
         {
-            k = new ahc(l, m);
+            for (int i = 0; i < a.length; i++)
+            {
+                iwf iwf1 = a[i];
+                if (iwf1 != null)
+                {
+                    kwk1.b(1, iwf1);
+                }
+            }
+
         }
-        return k;
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

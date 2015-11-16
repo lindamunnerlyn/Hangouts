@@ -126,6 +126,12 @@ public final class cs
         return this;
     }
 
+    public cs c()
+    {
+        l = -1;
+        return this;
+    }
+
     public Object clone()
     {
         cs cs1 = new cs();

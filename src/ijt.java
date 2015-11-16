@@ -3,45 +3,47 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ijt extends koj
+public final class ijt extends kwm
 {
 
-    public ijp a;
+    public String a;
     public String b;
+    public String c;
 
     public ijt()
     {
         a = null;
         b = null;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
+        int j = super.computeSerializedSize() + kwk.b(1, a);
         int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        j = i;
         if (b != null)
         {
-            j = i + koh.b(2, b);
+            i = j + kwk.b(2, b);
+        }
+        j = i;
+        if (c != null)
+        {
+            j = i + kwk.b(3, c);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -51,30 +53,31 @@ public final class ijt extends koj
                 return this;
 
             case 10: // '\n'
-                if (a == null)
-                {
-                    a = new ijp();
-                }
-                kog1.a(a);
+                a = kwj1.j();
                 break;
 
             case 18: // '\022'
-                b = kog1.j();
+                b = kwj1.j();
+                break;
+
+            case 26: // '\032'
+                c = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
+        kwk1.a(1, a);
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.a(2, b);
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        super.writeTo(kwk1);
     }
 }

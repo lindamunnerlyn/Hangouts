@@ -2,17 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-final class dla
-    implements Runnable
+public final class dla
 {
 
-    dla()
+    public static final String a = ber.getName();
+    public static final String b = dkx.getName();
+    public static final String c = amb.getName();
+    private static dky d;
+
+    public static void a(Context context, hlp hlp1)
     {
+        if (d == null)
+        {
+            d = new dky();
+        }
+        hlp1.a(dkx, d.a(context));
     }
 
-    public void run()
+    public static void a(hlp hlp1)
     {
-        dkz.a(dkz.f());
+        if (d == null)
+        {
+            d = new dky();
+        }
+        hlp1.a(ber, d.a());
     }
+
+    public static void b(Context context, hlp hlp1)
+    {
+        if (d == null)
+        {
+            d = new dky();
+        }
+        hlp1.a(amb, d.b(context));
+    }
+
 }

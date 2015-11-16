@@ -2,39 +2,74 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
-import android.os.Parcel;
+import android.content.Context;
+import android.os.RemoteException;
+import android.view.ViewGroup;
+import com.google.android.gms.maps.GoogleMapOptions;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-public abstract class fiw extends Binder
-    implements fiv
+public final class fiw extends fcq
 {
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    public fda d;
+    private final ViewGroup e;
+    private final Context f;
+    private final GoogleMapOptions g;
+    private final List h = new ArrayList();
+
+    fiw(ViewGroup viewgroup, Context context, GoogleMapOptions googlemapoptions)
     {
-        boolean flag;
-        switch (i)
+        e = viewgroup;
+        f = context;
+        g = googlemapoptions;
+    }
+
+    protected void a(fda fda1)
+    {
+        d = fda1;
+        if (d == null || a() != null)
         {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
-
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.maps.internal.IOnMyLocationButtonClickListener");
-            return true;
-
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnMyLocationButtonClickListener");
-            flag = a();
-            parcel1.writeNoException();
-            break;
+            break MISSING_BLOCK_LABEL_141;
         }
-        if (flag)
+        fix.a(f);
+        fda1 = fms.a(f).a(fcz.a(f), g);
+        if (fda1 == null)
         {
-            i = 1;
+            return;
+        }
+        d.a(new fcp(e, fda1));
+        fiy fiy1;
+        for (fda1 = h.iterator(); fda1.hasNext(); ((fcp)a()).a(fiy1))
+        {
+            fiy1 = (fiy)fda1.next();
+        }
+
+        try
+        {
+            h.clear();
+            return;
+        }
+        // Misplaced declaration of an exception variable
+        catch (fda fda1)
+        {
+            throw new af(fda1);
+        }
+        // Misplaced declaration of an exception variable
+        catch (fda fda1) { }
+    }
+
+    public void a(fiy fiy1)
+    {
+        if (a() != null)
+        {
+            ((fcp)a()).a(fiy1);
+            return;
         } else
         {
-            i = 0;
+            h.add(fiy1);
+            return;
         }
-        parcel1.writeInt(i);
-        return true;
     }
 }

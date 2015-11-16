@@ -2,62 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 
 final class bvw
-    implements bvu, cpl
 {
-
-    private int a;
 
     bvw()
     {
     }
 
-    static int a(bvw bvw1)
+    public bvn a()
     {
-        int i = bvw1.a + 1;
-        bvw1.a = i;
-        return i;
+        return new bvx(this);
     }
 
-    static int b(bvw bvw1)
+    public bsq[] b()
     {
-        int i = bvw1.a - 1;
-        bvw1.a = i;
-        return i;
-    }
-
-    public void a(Menu menu)
-    {
-        if (a > 0)
-        {
-            menu.removeItem(g.mw);
-        }
-    }
-
-    public void a(MenuInflater menuinflater, Menu menu)
-    {
-        menuinflater.inflate(g.mz, menu);
-    }
-
-    public void a(hjm hjm1)
-    {
-        hjm1.a(new bvx(this));
-    }
-
-    public boolean a(Activity activity, MenuItem menuitem)
-    {
-        if (menuitem.getItemId() == g.mw)
-        {
-            bwa.a(activity);
-            return true;
-        } else
-        {
-            return false;
-        }
+        return (new bsq[] {
+            new bvy(this)
+        });
     }
 }

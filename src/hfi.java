@@ -2,30 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import android.os.Message;
+import android.content.Context;
 
-final class hfi extends Handler
+public final class hfi
 {
 
-    final hfh a;
+    final Context a;
+    String b;
+    String c;
+    String d;
+    hfk e;
+    boolean f;
+    hfr g;
+    hen h;
 
-    hfi(hfh hfh1)
+    public hfi(Context context)
     {
-        a = hfh1;
-        super();
+        e = hfg.c();
+        g = hfr.d;
+        h = hen.a;
+        g.d(context, "context must be non-null");
+        a = context;
     }
 
-    public void handleMessage(Message message)
+    public hfg a()
     {
-        switch (message.what)
-        {
-        default:
-            return;
+        g.a(b, "must specify an accountName");
+        g.a(c, "must specify an accountGaiaId");
+        return new hfg(this);
+    }
 
-        case 1: // '\001'
-            hfh.a(a);
-            break;
-        }
+    public hfi a(hfk hfk)
+    {
+        g.d(hfk, "progressListener must be non-null");
+        e = hfk;
+        return this;
+    }
+
+    public hfi a(String s)
+    {
+        b = s;
+        return this;
+    }
+
+    public hfi b(String s)
+    {
+        c = s;
+        return this;
+    }
+
+    public hfi c(String s)
+    {
+        d = s;
+        return this;
     }
 }

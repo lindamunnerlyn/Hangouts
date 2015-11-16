@@ -2,20 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import org.apache.http.conn.ClientConnectionOperator;
 import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.params.HttpParams;
 
-final class ado extends adm
+public class ado extends ThreadSafeClientConnManager
 {
 
-    public ado(HttpParams httpparams, SchemeRegistry schemeregistry)
+    private ado(HttpParams httpparams, SchemeRegistry schemeregistry)
     {
-        super(httpparams, schemeregistry, (byte)0);
+        super(httpparams, schemeregistry);
     }
 
-    protected ClientConnectionOperator createConnectionOperator(SchemeRegistry schemeregistry)
+    ado(HttpParams httpparams, SchemeRegistry schemeregistry, byte byte0)
     {
-        return new adg(schemeregistry, true);
+        this(httpparams, schemeregistry);
     }
 }

@@ -2,32 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.database.Cursor;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
+import android.view.ViewGroup;
+import android.widget.CheckedTextView;
+import android.widget.CursorAdapter;
 import android.widget.ListView;
 
-final class qk
-    implements android.widget.AdapterView.OnItemClickListener
+final class qk extends CursorAdapter
 {
 
     final ListView a;
-    final qe b;
-    final qg c;
+    final qg b;
+    final qi c;
+    private final int d;
+    private final int e;
 
-    qk(qg qg1, ListView listview, qe qe1)
+    qk(qi qi1, Context context, Cursor cursor, ListView listview, qg qg1)
     {
-        c = qg1;
+        c = qi1;
         a = listview;
-        b = qe1;
-        super();
+        b = qg1;
+        super(context, cursor, false);
+        qi1 = getCursor();
+        d = qi1.getColumnIndexOrThrow(c.I);
+        e = qi1.getColumnIndexOrThrow(c.J);
     }
 
-    public void onItemClick(AdapterView adapterview, View view, int i, long l)
+    public void bindView(View view, Context context, Cursor cursor)
     {
-        if (c.C != null)
+        ((CheckedTextView)view.findViewById(0x1020014)).setText(cursor.getString(d));
+        view = a;
+        int i = cursor.getPosition();
+        boolean flag;
+        if (cursor.getInt(e) == 1)
         {
-            c.C[i] = a.isItemChecked(i);
+            flag = true;
+        } else
+        {
+            flag = false;
         }
-        c.G.onClick(b.a, i, a.isItemChecked(i));
+        view.setItemChecked(i, flag);
+    }
+
+    public View newView(Context context, Cursor cursor, ViewGroup viewgroup)
+    {
+        return c.b.inflate(b.l, viewgroup, false);
     }
 }

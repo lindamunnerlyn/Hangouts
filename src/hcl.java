@@ -3,8 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface hcl
+public interface hcl
 {
 
-    public abstract boolean a(hcc hcc);
+    public abstract hda b();
+
+    public abstract hbk c();
+
+    public abstract hbu d();
+
+    public abstract hba e();
+
+    public abstract hci f();
+
+    public abstract gqx[] g();
+
+    public abstract hbt h();
 }

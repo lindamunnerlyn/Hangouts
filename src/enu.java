@@ -2,35 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
+import com.google.android.gms.common.internal.ResolveAccountResponse;
+import java.lang.ref.WeakReference;
 
-final class enu
-    implements ens
+final class enu extends erc
 {
 
-    private IBinder a;
+    private final WeakReference a;
 
-    enu(IBinder ibinder)
+    enu(enq enq1)
     {
-        a = ibinder;
+        a = new WeakReference(enq1);
     }
 
-    public void a()
+    public void a(ResolveAccountResponse resolveaccountresponse)
     {
-        Parcel parcel = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.common.internal.ICancelToken");
-        a.transact(2, parcel, null, 1);
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel.recycle();
-        throw exception;
-    }
-
-    public IBinder asBinder()
-    {
-        return a;
+        enq enq1 = (enq)a.get();
+        if (enq1 == null)
+        {
+            return;
+        } else
+        {
+            enq1.a.a(new env(this, enq1, enq1, resolveaccountresponse));
+            return;
+        }
     }
 }

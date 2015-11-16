@@ -2,39 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import java.util.HashMap;
+import android.database.DataSetObserver;
+import com.google.android.apps.hangouts.fragments.ConversationInviteListFragment;
 
-final class bir
-    implements dsu
+final class bir extends DataSetObserver
 {
 
-    final biq a;
-    private boolean b;
+    final ConversationInviteListFragment a;
+    final biq b;
 
-    bir(biq biq1)
+    bir(biq biq1, ConversationInviteListFragment conversationinvitelistfragment)
     {
-        a = biq1;
+        b = biq1;
+        a = conversationinvitelistfragment;
         super();
     }
 
-    public void a()
+    public void onChanged()
     {
-        if (!b)
-        {
-            a.a(a.a, true, false);
-        }
-        b = false;
+        b.notifyDataSetChanged();
+        b.a(b.a.a());
     }
 
-    public void onClick(View view)
+    public void onInvalidated()
     {
-        view = a;
-        if (((biq) (view)).a != null && ((biq) (view)).a.size() > 0)
-        {
-            view.a(((biq) (view)).a, false, false);
-            view.a = null;
-        }
-        b = true;
+        b.notifyDataSetInvalidated();
+        b.a(b.a.a());
     }
 }

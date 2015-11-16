@@ -2,36 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.animation.Animation;
+import java.util.List;
 
 final class avp
-    implements android.view.animation.Animation.AnimationListener
+    implements asc
 {
 
-    final boolean a;
-    final ave b;
+    final avk a;
 
-    avp(ave ave1, boolean flag)
+    avp(avk avk1)
     {
-        b = ave1;
-        a = flag;
+        a = avk1;
         super();
     }
 
-    public void onAnimationEnd(Animation animation)
-    {
-        if (a && ave.W(b) != null)
-        {
-            ave.W(b).run();
-            ave.X(b);
-        }
-    }
-
-    public void onAnimationRepeat(Animation animation)
+    public void a()
     {
     }
 
-    public void onAnimationStart(Animation animation)
+    public void a(asa asa)
     {
+        avk.a(a, asa);
+    }
+
+    public void a(List list, asa asa)
+    {
+        avk.a(a, asa);
     }
 }

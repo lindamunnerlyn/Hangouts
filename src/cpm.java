@@ -2,24 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.widget.ExpandableListView;
-import com.google.android.apps.hangouts.phone.ViewVCardActivity;
 
 public final class cpm
-    implements android.widget.ExpandableListView.OnChildClickListener
+    implements gaw
 {
 
-    final ViewVCardActivity a;
+    final gaq a;
 
-    public cpm(ViewVCardActivity viewvcardactivity)
+    public cpm(gaq gaq1)
     {
-        a = viewvcardactivity;
+        a = gaq1;
         super();
     }
 
-    public boolean onChildClick(ExpandableListView expandablelistview, View view, int i, int j, long l)
+    public void a(fuu fuu)
     {
-        return !ViewVCardActivity.a(a);
+        a.b();
     }
 }

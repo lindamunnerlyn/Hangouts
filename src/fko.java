@@ -2,22 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
-import java.util.List;
+import android.os.Binder;
+import android.os.Parcel;
+import com.google.android.gms.maps.model.CameraPosition;
 
-public interface fko
-    extends IInterface
+public abstract class fko extends Binder
+    implements fkn
 {
 
-    public abstract int a();
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    {
+        switch (i)
+        {
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
 
-    public abstract boolean a(fko fko1);
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.maps.internal.IOnCameraChangeListener");
+            return true;
 
-    public abstract int b();
-
-    public abstract List c();
-
-    public abstract boolean d();
-
-    public abstract int e();
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnCameraChangeListener");
+            break;
+        }
+        if (parcel.readInt() != 0)
+        {
+            fnz fnz1 = CameraPosition.CREATOR;
+            parcel = fnz.a(parcel);
+        } else
+        {
+            parcel = null;
+        }
+        a(parcel);
+        parcel1.writeNoException();
+        return true;
+    }
 }

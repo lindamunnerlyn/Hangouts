@@ -3,8 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gbf
+public final class gbf
+    implements gap
 {
 
-    public abstract String a(kop kop);
+    public gbf()
+    {
+    }
 }

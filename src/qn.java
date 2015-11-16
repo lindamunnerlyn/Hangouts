@@ -2,73 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 import android.content.DialogInterface;
-import android.os.Bundle;
-import android.util.TypedValue;
-import android.view.KeyEvent;
+import android.os.Handler;
+import android.os.Message;
+import java.lang.ref.WeakReference;
 
-public final class qn extends rn
-    implements DialogInterface
+final class qn extends Handler
 {
 
-    private qe a;
+    private WeakReference a;
 
-    qn(Context context, int i)
+    public qn(DialogInterface dialoginterface)
     {
-        super(context, a(context, i));
-        a = new qe(getContext(), this, getWindow());
+        a = new WeakReference(dialoginterface);
     }
 
-    static int a(Context context, int i)
+    public void handleMessage(Message message)
     {
-        if (i >= 0x1000000)
+        switch (message.what)
         {
-            return i;
-        } else
-        {
-            TypedValue typedvalue = new TypedValue();
-            context.getTheme().resolveAttribute(g.t, typedvalue, true);
-            return typedvalue.resourceId;
+        case 0: // '\0'
+        default:
+            return;
+
+        case -3: 
+        case -2: 
+        case -1: 
+            ((android.content.DialogInterface.OnClickListener)message.obj).onClick((DialogInterface)a.get(), message.what);
+            return;
+
+        case 1: // '\001'
+            ((DialogInterface)message.obj).dismiss();
+            break;
         }
-    }
-
-    static qe a(qn qn1)
-    {
-        return qn1.a;
-    }
-
-    protected void onCreate(Bundle bundle)
-    {
-        super.onCreate(bundle);
-        a.a();
-    }
-
-    public boolean onKeyDown(int i, KeyEvent keyevent)
-    {
-        if (a.a(keyevent))
-        {
-            return true;
-        } else
-        {
-            return super.onKeyDown(i, keyevent);
-        }
-    }
-
-    public boolean onKeyUp(int i, KeyEvent keyevent)
-    {
-        if (a.b(keyevent))
-        {
-            return true;
-        } else
-        {
-            return super.onKeyUp(i, keyevent);
-        }
-    }
-
-    public void setTitle(CharSequence charsequence)
-    {
-        super.setTitle(charsequence);
-        a.a(charsequence);
     }
 }

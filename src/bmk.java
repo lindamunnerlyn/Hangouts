@@ -2,63 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.os.Bundle;
 
-public class bmk extends hhj
+public final class bmk extends ad
 {
 
-    private int j;
-    public Toolbar l;
+    static String a;
+    private static dum b;
 
     public bmk()
     {
-        j = com.google.android.apps.hangouts.R.drawable.bV;
-        p.a(hiv, q);
     }
 
-    private void j()
+    public static bmk a()
     {
-        l = (Toolbar)findViewById(h.cH);
-        gbh.b("Toolbar needs to be in the layout with id hangouts_toolbar", l);
-        l.e(com.google.android.apps.hangouts.R.drawable.aY);
-        a(l);
-        g().b(j);
+        return new bmk();
     }
 
-    public void a(int i, int k)
+    static void a(bmk bmk1)
     {
-        super.setContentView(i);
-        j = k;
-        j();
+        bmk1.getActivity().finish();
     }
 
-    public void addContentView(View view, android.view.ViewGroup.LayoutParams layoutparams)
+    static void a(bmk bmk1, int i)
     {
-        super.addContentView(view, layoutparams);
-        j();
+        bg bg = bmk1.getFragmentManager().a();
+        bmo bmo1 = new bmo();
+        Bundle bundle = new Bundle();
+        bundle.putInt("action_index", i);
+        bmo1.setArguments(bundle);
+        bmo1.setTargetFragment(bmk1, 0);
+        bmo1.a(bg, null);
     }
 
-    public Toolbar l()
+    static dum b()
     {
-        return l;
+        return b;
     }
 
-    public void setContentView(int i)
+    public void onCreate(Bundle bundle)
     {
-        super.setContentView(i);
-        j();
-    }
-
-    public void setContentView(View view)
-    {
-        super.setContentView(view);
-        j();
-    }
-
-    public void setContentView(View view, android.view.ViewGroup.LayoutParams layoutparams)
-    {
-        super.setContentView(view, layoutparams);
-        j();
+        super.onCreate(bundle);
+        bundle = dul.b();
+        b = bundle;
+        a = dul.a(bundle);
+        bundle = getFragmentManager().a();
+        bml bml1 = new bml();
+        bml1.setTargetFragment(this, 0);
+        bml1.a(bundle, null);
     }
 }

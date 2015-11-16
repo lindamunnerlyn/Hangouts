@@ -3,10 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.content.Intent;
 
-public interface cpx
+public final class cpx
+    implements joj
 {
 
-    public abstract Intent a(Context context, int i);
+    private final joj a;
+    private final joj b;
+
+    public cpx(joj joj1, joj joj2)
+    {
+        a = joj1;
+        b = joj2;
+    }
+
+    public Object a()
+    {
+        return new cpt((Context)a.a(), (byf)b.a());
+    }
 }

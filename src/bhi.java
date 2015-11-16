@@ -2,72 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.res.Resources;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.view.accessibility.AccessibilityEvent;
+import com.google.android.apps.hangouts.fragments.CallContactPickerFragment;
+import java.util.List;
 
-public class bhi
+public final class bhi extends android.view.View.AccessibilityDelegate
 {
 
-    boolean a;
-    boolean b;
-    BaseAdapter c;
-    final bhg d;
+    final CallContactPickerFragment a;
 
-    public bhi(bhg bhg, boolean flag, BaseAdapter baseadapter)
+    public bhi(CallContactPickerFragment callcontactpickerfragment)
     {
-        d = bhg;
+        a = callcontactpickerfragment;
         super();
-        a = false;
-        b = flag;
-        c = baseadapter;
     }
 
-    public View a(View view, ViewGroup viewgroup)
+    public boolean dispatchPopulateAccessibilityEvent(View view, AccessibilityEvent accessibilityevent)
     {
-        return null;
-    }
-
-    public boolean a()
-    {
-        return a;
-    }
-
-    public boolean b()
-    {
-        return b;
-    }
-
-    public int c()
-    {
-        int i;
-label0:
+        if (accessibilityevent.getEventType() == 32)
         {
-            int j = c.getCount();
-            i = j;
-            if (!b)
-            {
-                break label0;
-            }
-            if (j == 0)
-            {
-                i = j;
-                if (!a)
-                {
-                    break label0;
-                }
-            }
-            i = j + 1;
+            accessibilityevent.getText().add(view.getResources().getString(l.bn));
+            return true;
+        } else
+        {
+            return super.dispatchPopulateAccessibilityEvent(view, accessibilityevent);
         }
-        return i;
-    }
-
-    public BaseAdapter d()
-    {
-        return c;
-    }
-
-    public void e()
-    {
     }
 }

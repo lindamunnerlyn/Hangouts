@@ -2,27 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-final class gru extends guu
+final class gru
+    implements grg
 {
 
-    gru()
+    final grq a;
+
+    gru(grq grq)
     {
-        super(null, null);
+        a = grq;
+        super();
     }
 
     public String a()
     {
-        throw new UnsupportedOperationException();
+        return "upgrade_direct_login_to_managed_login";
     }
 
-    public String b()
+    public void a(Context context, grd grd1)
     {
-        throw new UnsupportedOperationException();
-    }
-
-    public void c()
-    {
-        a(3);
+        boolean flag;
+        if (grd1.a("is_direct_login"))
+        {
+            boolean flag1 = grd1.a("is_direct_login", false);
+            if (!flag1)
+            {
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+            grd1.b("is_managed_account", flag);
+            grd1.f("is_direct_login");
+            flag = flag1;
+        } else
+        {
+            flag = false;
+        }
+        if (grd1.a("is_plus_page", false) && !flag)
+        {
+            grd1.b("is_managed_account", true);
+        }
     }
 }

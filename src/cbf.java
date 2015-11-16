@@ -2,28 +2,52 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.view.WindowInsets;
-import com.google.android.apps.hangouts.navigation.NavigationDrawerFragment;
-import com.google.android.gms.people.accountswitcherview.SelectedAccountNavigationView;
+import android.content.Context;
+import android.os.ConditionVariable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 
-public final class cbf
-    implements android.view.View.OnApplyWindowInsetsListener
+final class cbf extends diq
 {
 
-    final NavigationDrawerFragment a;
+    cym a;
+    Exception b;
+    Context c;
+    final cbe d;
+    private ConditionVariable e;
 
-    public cbf(NavigationDrawerFragment navigationdrawerfragment)
+    cbf(cbe cbe, Context context, ConditionVariable conditionvariable)
     {
-        a = navigationdrawerfragment;
-        super();
+        d = cbe;
+        super(context);
+        c = context;
+        e = conditionvariable;
     }
 
-    public WindowInsets onApplyWindowInsets(View view, WindowInsets windowinsets)
+    protected void a(did did1)
     {
-        int i = windowinsets.getSystemWindowInsetTop();
-        NavigationDrawerFragment.p(a).a(i);
-        NavigationDrawerFragment.f(a).a(i);
-        return windowinsets;
+        a = (cym)did1.c();
+        e.open();
+    }
+
+    protected void a(Exception exception)
+    {
+        b = exception;
+        e.open();
+    }
+
+    void a(Collection collection, int i)
+    {
+        ArrayList arraylist = new ArrayList();
+        for (collection = collection.iterator(); collection.hasNext(); arraylist.add(dbi.b(null, (String)collection.next()))) { }
+        g.a(new cbg(this, i, arraylist));
+    }
+
+    void b(Collection collection, int i)
+    {
+        ArrayList arraylist = new ArrayList();
+        for (collection = collection.iterator(); collection.hasNext(); arraylist.add(dbi.b((String)collection.next(), null))) { }
+        g.a(new cbh(this, i, arraylist));
     }
 }

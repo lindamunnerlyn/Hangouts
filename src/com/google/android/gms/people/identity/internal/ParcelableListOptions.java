@@ -7,20 +7,20 @@ package com.google.android.gms.people.identity.internal;
 import android.os.Bundle;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import eof;
-import fof;
+import erf;
+import frb;
 import g;
 
 public final class ParcelableListOptions
     implements SafeParcelable
 {
 
-    public static final fof CREATOR = new fof();
-    public final boolean a;
-    public final boolean b;
-    public final String c;
-    public final boolean d;
-    public final Bundle e;
+    public static final frb CREATOR = new frb();
+    final boolean a;
+    final boolean b;
+    final String c;
+    final boolean d;
+    final Bundle e;
     private final int f;
 
     public ParcelableListOptions(int i, boolean flag, boolean flag1, boolean flag2, String s, Bundle bundle)
@@ -38,7 +38,7 @@ public final class ParcelableListOptions
         e = s;
     }
 
-    public int a()
+    private int a()
     {
         return f;
     }
@@ -55,7 +55,14 @@ public final class ParcelableListOptions
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fof.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.a(parcel, 1, a);
+        g.b(parcel, 1000, a());
+        g.a(parcel, 2, b);
+        g.a(parcel, 3, c);
+        g.a(parcel, 4, d);
+        g.a(parcel, 5, e);
+        g.q(parcel, i);
     }
 
 }

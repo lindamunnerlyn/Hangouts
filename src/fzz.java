@@ -3,29 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class fzz
+final class fzz extends fzx
 {
 
-    public static final String a = fzs.getName();
-    public static final String b = fzu.getName();
-    private static fzy c;
-
-    public static void a(hgx hgx1)
+    fzz()
     {
-        if (c == null)
-        {
-            c = new fzy();
-        }
-        hgx1.a(fzs, new fzw());
     }
-
-    public static void b(hgx hgx1)
-    {
-        if (c == null)
-        {
-            c = new fzy();
-        }
-        hgx1.a(fzu, new fzx());
-    }
-
 }

@@ -4,12 +4,21 @@
 
 
 final class aqr
+    implements Runnable
 {
 
-    public final ceu a;
+    final eef a;
+    final aqn b;
 
-    public aqr(ceu ceu)
+    aqr(aqn aqn, eef eef)
     {
-        a = ceu;
+        b = aqn;
+        a = eef;
+        super();
+    }
+
+    public void run()
+    {
+        ((dpn)hlp.a(g.nU, dpn)).a(b, a);
     }
 }

@@ -2,40 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.Animator;
-import android.os.Handler;
-import com.google.android.apps.hangouts.peoplelistv2.impl.ScrollViewCustom;
 
-public final class chv
-    implements android.animation.Animator.AnimatorListener
+final class chv
 {
 
-    final ScrollViewCustom a;
+    static final int a[];
 
-    public chv(ScrollViewCustom scrollviewcustom)
+    static 
     {
-        a = scrollviewcustom;
-        super();
-    }
-
-    public void onAnimationCancel(Animator animator)
-    {
-        ScrollViewCustom.a(a, false);
-        ScrollViewCustom.a(a).post(a.a);
-    }
-
-    public void onAnimationEnd(Animator animator)
-    {
-        ScrollViewCustom.a(a, false);
-        ScrollViewCustom.a(a).post(a.a);
-    }
-
-    public void onAnimationRepeat(Animator animator)
-    {
-    }
-
-    public void onAnimationStart(Animator animator)
-    {
-        ScrollViewCustom.a(a, true);
+        a = new int[cib.a().length];
+        try
+        {
+            a[cib.a - 1] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror5) { }
+        try
+        {
+            a[cib.b - 1] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror4) { }
+        try
+        {
+            a[cib.c - 1] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[cib.d - 1] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[cib.e - 1] = 5;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[cib.f - 1] = 6;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

@@ -6,33 +6,16 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 
-public final class oh
-    implements of
+public interface oh
 {
 
-    public oh()
-    {
-    }
+    public abstract int a(Object obj);
 
-    public int a(Object obj)
-    {
-        return 0;
-    }
+    public abstract Drawable a(Context context);
 
-    public Drawable a(Context context)
-    {
-        return null;
-    }
+    public abstract void a(View view);
 
-    public void a(View view)
-    {
-    }
+    public abstract void a(View view, Object obj, int i);
 
-    public void a(View view, Object obj, int i)
-    {
-    }
-
-    public void a(android.view.ViewGroup.MarginLayoutParams marginlayoutparams, Object obj, int i)
-    {
-    }
+    public abstract void a(android.view.ViewGroup.MarginLayoutParams marginlayoutparams, Object obj, int i);
 }

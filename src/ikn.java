@@ -3,47 +3,45 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ikn extends koj
+public final class ikn extends kwm
 {
 
     public String a;
-    public Integer b;
-    public Integer c;
+    public String b;
 
     public ikn()
     {
         a = null;
         b = null;
-        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize() + koh.b(1, a);
+        int j = super.computeSerializedSize();
         int i = j;
-        if (b != null)
+        if (a != null)
         {
-            i = j + koh.e(2, b.intValue());
+            i = j + kwk.b(1, a);
         }
         j = i;
-        if (c != null)
+        if (b != null)
         {
-            j = i + koh.e(3, c.intValue());
+            j = i + kwk.b(2, b);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -53,31 +51,26 @@ public final class ikn extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                a = kwj1.j();
                 break;
 
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
-                break;
-
-            case 24: // '\030'
-                c = Integer.valueOf(kog1.f());
+            case 18: // '\022'
+                b = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.a(1, a);
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
         if (b != null)
         {
-            koh1.a(2, b.intValue());
+            kwk1.a(2, b);
         }
-        if (c != null)
-        {
-            koh1.a(3, c.intValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

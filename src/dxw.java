@@ -17,6 +17,8 @@ final class dxw
 
     public void run()
     {
-        a.a(false);
+        eev.g("Babel_telephony", "TeleHandoffController, handoff timed out");
+        a.a = true;
+        a.h();
     }
 }

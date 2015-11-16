@@ -4,26 +4,27 @@
 
 
 final class axy
+    implements Runnable
 {
 
-    long a;
-    cey b;
-    String c;
-    String d;
-    boolean e;
+    final avv a;
 
-    private axy()
+    axy(avv avv1)
     {
+        a = avv1;
+        super();
     }
 
-    public String toString()
+    public void run()
     {
-        StringBuilder stringbuilder = new StringBuilder();
-        stringbuilder.append("OneOnOneRecipient[");
-        stringbuilder.append("attemptedLookup=").append(e).append("|");
-        stringbuilder.append("contactId=").append(a).append("|");
-        stringbuilder.append("participantId=").append(b).append("|");
-        stringbuilder.append("dataId=").append(c).append("]");
-        return stringbuilder.toString();
+        gdv.a("Expected condition to be true", avv.p(a));
+        if (a.isAdded() && !avv.q(a))
+        {
+            android.view.View view = a.getView();
+            if (view != null)
+            {
+                avv.a(a, view);
+            }
+        }
     }
 }

@@ -2,50 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.Callable;
+import android.view.View;
 
-final class cbt
-    implements Callable
+public interface cbt
 {
 
-    final cbs a;
+    public abstract long a();
 
-    cbt(cbs cbs1)
-    {
-        a = cbs1;
-        super();
-    }
-
-    private Void a()
-    {
-label0:
-        {
-            synchronized (a)
-            {
-                if (cbs.a(a) != null)
-                {
-                    break label0;
-                }
-            }
-            return null;
-        }
-        cbs.b(a);
-        if (cbs.c(a))
-        {
-            cbs.d(a);
-            cbs.e(a);
-        }
-        cbs1;
-        JVM INSTR monitorexit ;
-        return null;
-        exception;
-        cbs1;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
-    public Object call()
-    {
-        return a();
-    }
+    public abstract View b();
 }

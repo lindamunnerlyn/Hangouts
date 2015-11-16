@@ -6,7 +6,8 @@ package com.google.android.gms.wearable.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fvn;
+import fxt;
+import g;
 
 // Referenced classes of package com.google.android.gms.wearable.internal:
 //            ChannelImpl
@@ -15,7 +16,7 @@ public class OpenChannelResponse
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fvn();
+    public static final android.os.Parcelable.Creator CREATOR = new fxt();
     public final int a;
     public final int b;
     public final ChannelImpl c;
@@ -34,7 +35,11 @@ public class OpenChannelResponse
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fvn.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, b);
+        g.a(parcel, 3, c, i);
+        g.q(parcel, j);
     }
 
 }

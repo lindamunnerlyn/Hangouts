@@ -2,41 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
 
-final class cnk
+final class cnk extends coj
 {
 
-    private final String a;
+    final cna a;
 
-    cnk(String s)
+    cnk(cna cna1, String s)
     {
-        a = s;
+        a = cna1;
+        super(s);
     }
 
-    private static CharSequence a(Object obj)
+    public void a()
     {
-        if (obj instanceof CharSequence)
+        if (cna.a(a))
         {
-            return (CharSequence)obj;
-        } else
-        {
-            return obj.toString();
+            (new col(a, "email")).execute(new Void[0]);
         }
-    }
-
-    public final StringBuilder a(StringBuilder stringbuilder, Iterable iterable)
-    {
-        iterable = iterable.iterator();
-        if (iterable.hasNext())
-        {
-            stringbuilder.append(a(iterable.next()));
-            for (; iterable.hasNext(); stringbuilder.append(a(iterable.next())))
-            {
-                stringbuilder.append(a);
-            }
-
-        }
-        return stringbuilder;
     }
 }

@@ -2,33 +2,51 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
+import org.apache.http.params.AbstractHttpParams;
+import org.apache.http.params.HttpParams;
 
-final class ffd
-    implements fmf
+final class ffd extends AbstractHttpParams
 {
 
-    final Status a;
-    final ffc b;
+    final ffc a;
 
-    ffd(ffc ffc, Status status)
+    ffd(ffc ffc1)
     {
-        b = ffc;
-        a = status;
+        a = ffc1;
         super();
     }
 
-    public Status B_()
+    public HttpParams copy()
     {
-        return a;
+        throw new UnsupportedOperationException();
     }
 
-    public void b()
-    {
-    }
-
-    public fqy c()
+    public Object getParameter(String s)
     {
         return null;
+    }
+
+    public boolean removeParameter(String s)
+    {
+        return true;
+    }
+
+    public HttpParams setParameter(String s, Object obj)
+    {
+        if (!s.equals("http.conn-manager.timeout"))
+        {
+            if (s.equals("http.socket.timeout"))
+            {
+                s = (Integer)obj;
+                a.a.a = s.intValue();
+            } else
+            if (s.equals("http.connection.timeout"))
+            {
+                s = (Integer)obj;
+                a.a.b = s.intValue();
+                return this;
+            }
+        }
+        return this;
     }
 }

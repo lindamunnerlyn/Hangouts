@@ -2,80 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
-public final class kac extends koj
+public abstract class kac extends jrt
+    implements Future
 {
 
-    public Boolean a;
-    public kad b;
-
-    public kac()
+    protected kac()
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    protected abstract Future a();
+
+    protected Object c()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        return j;
+        return a();
     }
 
-    public kop mergeFrom(kog kog1)
+    public boolean cancel(boolean flag)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new kad();
-                }
-                kog1.a(b);
-                break;
-            }
-        } while (true);
+        return a().cancel(flag);
     }
 
-    public void writeTo(koh koh1)
+    public Object get()
     {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
-        }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        super.writeTo(koh1);
+        return a().get();
+    }
+
+    public Object get(long l, TimeUnit timeunit)
+    {
+        return a().get(l, timeunit);
+    }
+
+    public boolean isCancelled()
+    {
+        return a().isCancelled();
+    }
+
+    public boolean isDone()
+    {
+        return a().isDone();
     }
 }

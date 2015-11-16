@@ -2,51 +2,82 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.text.TextUtils;
 
-public class cux extends cui
+public class cux extends cup
 {
 
     private static final long serialVersionUID = 1L;
-    private final int a;
-    private final boolean b;
+    private final String a;
+    private final String b;
+    private final int c;
+    private final cuy d;
 
-    public cux(int i, boolean flag)
+    public cux(cuy cuy1, String s, String s1, int i)
     {
-        a = i;
-        b = flag;
+        d = cuy1;
+        a = s;
+        b = s1;
+        c = i;
     }
 
-    public kop a(String s, int i, int j)
+    public String a()
     {
-        ixv ixv1 = new ixv();
-        ixv1.requestHeader = ctq.a(null, true, s, i, j, h);
-        s = new iqx();
-        s.a = Integer.valueOf(a);
-        s.b = Boolean.valueOf(b);
-        ixv1.a = new iqx[1];
-        ixv1.a[0] = s;
-        return ixv1;
+        return "ui_queue";
     }
 
-    public void a(ani ani, dbo dbo)
+    public kws a(String s, int i, int j)
     {
-        dbf.a(dbo);
+        s = new hyx();
+        Object obj = new hyu();
+        if (d == cuy.c)
+        {
+            obj.a = Integer.valueOf(c);
+        } else
+        if (d == cuy.b)
+        {
+            obj.e = Integer.valueOf(c);
+        } else
+        if (d == cuy.a)
+        {
+            obj.f = Integer.valueOf(c);
+        } else
+        {
+            gdv.b("Expected condition to be false", TextUtils.isEmpty(a));
+            hyv hyv1 = new hyv();
+            hyv1.a = a;
+            hyv1.b = b;
+            hyv1.c = Integer.valueOf(c);
+            obj.c = (new hyv[] {
+                hyv1
+            });
+        }
+        s.a = ((hyu) (obj));
+        obj = new hyo();
+        obj.a = s;
+        return ((kws) (obj));
     }
 
-    public boolean a(ccg ccg)
+    public void a(aoa aoa1, dcx dcx)
     {
-        gbh.a(getClass(), ccg.getClass());
-        return equals(ccg);
+        aoa1 = String.valueOf(eev.b(aoa1.c()));
+        if (aoa1.length() != 0)
+        {
+            aoa1 = "SetChatAclSettingRequest failed for ".concat(aoa1);
+        } else
+        {
+            aoa1 = new String("SetChatAclSettingRequest failed for ");
+        }
+        eev.e("Babel", aoa1, dcx);
     }
 
-    public boolean equals(Object obj)
+    public boolean a(cdn cdn, dcx dcx)
     {
-        obj = (cux)obj;
-        return a == ((cux) (obj)).a && b == ((cux) (obj)).b;
+        return false;
     }
 
-    public String g()
+    public String f()
     {
-        return "contacts/setconfigurationbit";
+        return "setchatacls";
     }
 }

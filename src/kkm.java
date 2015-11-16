@@ -3,14 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kkm extends koj
+public final class kkm extends kwm
 {
 
-    public Boolean a;
+    public String a;
+    public Long b;
 
     public kkm()
     {
         a = null;
+        b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,21 +23,26 @@ public final class kkm extends koj
         int i = j;
         if (a != null)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            i = j + kwk.b(1, a);
         }
-        return i;
+        j = i;
+        if (b != null)
+        {
+            b.longValue();
+            j = i + (kwk.f(2) + 8);
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -44,19 +51,27 @@ public final class kkm extends koj
             case 0: // '\0'
                 return this;
 
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 17: // '\021'
+                b = Long.valueOf(kwj1.g());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.booleanValue());
+            kwk1.a(1, a);
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.c(2, b.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

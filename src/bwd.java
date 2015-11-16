@@ -2,26 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
 final class bwd
+    implements brk
 {
 
-    private final beb a = (new bec()).a("http").b("Module containing code for performing cronet HTTP operations.").a(true).a();
+    final brj a;
+    final bwc b;
 
-    public bwd()
+    bwd(bwc bwc, brj brj1)
     {
+        b = bwc;
+        a = brj1;
+        super();
     }
 
-    public gbg a(Context context)
+    public void a(gmt gmt1)
     {
-        return (gbg)a.a(context, new bwb());
-    }
-
-    public beb[] a()
-    {
-        return (new beb[] {
-            a
-        });
+        int i = 0;
+        boolean flag;
+        if (a.getVisibility() == 0)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        if (gmt1.d() != flag)
+        {
+            brj brj1 = a;
+            if (!gmt1.d())
+            {
+                i = 8;
+            }
+            brj1.setVisibility(i);
+        }
     }
 }

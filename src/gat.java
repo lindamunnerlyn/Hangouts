@@ -3,16 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gat
-    implements gbf
+public interface gat
 {
 
-    gat()
-    {
-    }
+    public abstract void a();
 
-    public String a(kop kop)
-    {
-        return ((jaq)kop).b;
-    }
+    public abstract void a(int i);
 }

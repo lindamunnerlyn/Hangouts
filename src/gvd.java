@@ -2,22 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Comparator;
+import android.app.Activity;
 
-final class gvd
-    implements Comparator
+public final class gvd
+    implements hmd, hmq
 {
 
-    final gvc a;
-
-    gvd(gvc gvc)
+    public gvd()
     {
-        a = gvc;
-        super();
     }
 
-    public int compare(Object obj, Object obj1)
+    public Class a()
     {
-        return 0;
+        return gvc;
+    }
+
+    public void a(ad ad, hof hof, hlp hlp1)
+    {
+        hlp1.a(gvc, new gvc(ad, hof));
+    }
+
+    public void a(Activity activity, hof hof, hlp hlp1)
+    {
+        hlp1.a(gvc, new gvc(activity, hof));
     }
 }

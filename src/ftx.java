@@ -2,25 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.wearable.internal.AncsNotificationParcelable;
+import android.os.Parcel;
+import com.google.android.gms.signin.internal.AuthAccountResult;
 
-final class ftx
-    implements Runnable
+public final class ftx
+    implements android.os.Parcelable.Creator
 {
 
-    final fua a;
-    final AncsNotificationParcelable b;
-    final ftq c;
-
-    ftx(ftq ftq, fua fua, AncsNotificationParcelable ancsnotificationparcelable)
+    public ftx()
     {
-        c = ftq;
-        a = fua;
-        b = ancsnotificationparcelable;
-        super();
     }
 
-    public void run()
+    public Object createFromParcel(Parcel parcel)
     {
+        int j = g.a(parcel);
+        int i = 0;
+        do
+        {
+            if (parcel.dataPosition() < j)
+            {
+                int k = parcel.readInt();
+                switch (0xffff & k)
+                {
+                default:
+                    g.b(parcel, k);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, k);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != j)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
+            } else
+            {
+                return new AuthAccountResult(i);
+            }
+        } while (true);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new AuthAccountResult[i];
     }
 }

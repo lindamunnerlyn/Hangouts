@@ -2,70 +2,87 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.text.TextUtils;
+import java.util.Locale;
 
-public class cvu extends cvn
+public final class cvu
 {
 
-    private static final long serialVersionUID = 1L;
-    private final long g;
-    private final String h[];
+    private static final boolean a = false;
 
-    public cvu(irz irz1)
+    public static ixl a(String s)
     {
-        super(irz1.responseHeader, 0L);
-        if (cvn.a)
+        if (TextUtils.isEmpty(s))
         {
-            String s = String.valueOf(irz1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(s).length() + 32)).append("DeleteConversationResponse from:").append(s).toString());
-        }
-        String as[] = null;
-        long l;
-        if (irz1.a != null)
-        {
-            if (g.a(irz1.a.a, 0) == 2)
-            {
-                as = irz1.a.d;
-            }
-            if (irz1.a.c != null)
-            {
-                l = g.a(irz1.a.c, 0L);
-                irz1 = as;
-            } else
-            {
-                irz1 = as;
-                l = -1L;
-            }
+            return null;
         } else
         {
-            irz1 = null;
-            l = -1L;
-        }
-        g = l;
-        h = irz1;
-    }
-
-    public static cvn parseFrom(byte abyte0[])
-    {
-        abyte0 = (irz)kop.mergeFrom(new irz(), abyte0);
-        if (a(((irz) (abyte0)).responseHeader))
-        {
-            return new cvz(((irz) (abyte0)).responseHeader);
-        } else
-        {
-            return new cvu(abyte0);
+            ixl ixl1 = new ixl();
+            ixl1.a = s;
+            return ixl1;
         }
     }
 
-    public void a(aoe aoe1, dfb dfb)
+    static jdk a(iwz iwz, boolean flag, String s, int i, int j, efu efu1)
     {
-        super.a(aoe1, dfb);
-        aoe1.a();
-        (new dco(((ctx)b).c, g, h)).a(aoe1);
-        aoe1.b();
-        aoe1.c();
-        return;
-        dfb;
-        aoe1.c();
-        throw dfb;
+        return a(a(iwz, flag, s, i, efu1), j);
+    }
+
+    static jdk a(iwz iwz, boolean flag, String s, int i, efu efu1)
+    {
+        jdk jdk1 = new jdk();
+        jdk1.a = efu1.e();
+        long l = def.a();
+        if (l != 0L || !TextUtils.isEmpty(s))
+        {
+            jdk1.b = new iwy();
+            if (l != 0L)
+            {
+                jdk1.b.b = Long.toString(l);
+                jdk1.b.c = Long.toString(l);
+            }
+            if (!TextUtils.isEmpty(s))
+            {
+                jdk1.b.a = s;
+            }
+        }
+        if (iwz != null)
+        {
+            jdk1.c = iwz;
+        }
+        if (flag)
+        {
+            jdk1.d = Locale.getDefault().toString();
+        }
+        jdk1.f = Integer.valueOf(i);
+        return jdk1;
+    }
+
+    static jdk a(String s, int i, int j, efu efu1)
+    {
+        return a(null, false, s, i, j, efu1);
+    }
+
+    static jdk a(jdk jdk1, int i)
+    {
+        if (i != -1 && dcz.m(i))
+        {
+            dcf dcf1 = new dcf(g.nU);
+            long l = dcf1.a(i);
+            long l1 = dcf1.b(i);
+            if (l != -1L && l1 != -1L)
+            {
+                jdk1.i = new iwr();
+                jdk1.i.c = Long.valueOf(l);
+                jdk1.i.d = Long.valueOf(l1);
+                return jdk1;
+            }
+        }
+        return jdk1;
+    }
+
+    static 
+    {
+        hnc hnc = eev.k;
     }
 }

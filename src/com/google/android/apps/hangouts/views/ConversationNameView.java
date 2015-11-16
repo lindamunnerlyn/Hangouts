@@ -40,7 +40,7 @@ public class ConversationNameView extends View
         b = "";
         c = new String[0];
         context = context.obtainStyledAttributes(attributeset, new int[] {
-            g.cY, g.cX, g.cZ, g.cV
+            g.cX, g.cW, g.cY, g.cU
         });
         d = context.getDimensionPixelSize(0, 36);
         e = context.getDimensionPixelSize(1, 28);
@@ -76,19 +76,6 @@ public class ConversationNameView extends View
     public static String b(String s)
     {
         String s1 = String.valueOf("T");
-        s = String.valueOf(s);
-        if (s.length() != 0)
-        {
-            return s1.concat(s);
-        } else
-        {
-            return new String(s1);
-        }
-    }
-
-    public static String c(String s)
-    {
-        String s1 = String.valueOf("L");
         s = String.valueOf(s);
         if (s.length() != 0)
         {
@@ -370,7 +357,7 @@ label1:
         }
           goto _L11
         i = c.length - i;
-        s1 = getResources().getQuantityString(g.hG, i, new Object[] {
+        s1 = getResources().getQuantityString(g.hy, i, new Object[] {
             Integer.valueOf(i)
         });
         if (!flag3) goto _L13; else goto _L12

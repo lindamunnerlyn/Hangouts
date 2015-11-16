@@ -2,42 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import java.nio.ByteBuffer;
+import java.nio.channels.WritableByteChannel;
 
-final class hgd extends hfb
+public final class hgd
+    implements WritableByteChannel
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new hge();
-    boolean a;
+    private final hfy a;
+    private final WritableByteChannel b;
 
-    public hgd(Parcel parcel)
+    public hgd(WritableByteChannel writablebytechannel, hfx hfx)
     {
-        boolean flag = true;
-        super(parcel);
-        if (parcel.readInt() != 1)
-        {
-            flag = false;
-        }
-        a = flag;
+        b = writablebytechannel;
+        a = new hfy(hfx);
     }
 
-    public hgd(Parcelable parcelable)
+    public WritableByteChannel a()
     {
-        super(parcelable);
+        return b;
     }
 
-    public void writeToParcel(Parcel parcel, int i)
+    public void a(long l)
     {
-        super.writeToParcel(parcel, i);
-        if (a)
-        {
-            i = 1;
-        } else
-        {
-            i = 0;
-        }
-        parcel.writeInt(i);
+        a.a(l);
     }
 
+    public void close()
+    {
+        b.close();
+    }
+
+    public boolean isOpen()
+    {
+        return b.isOpen();
+    }
+
+    public int write(ByteBuffer bytebuffer)
+    {
+        int i = b.write(bytebuffer);
+        a.b(i);
+        return i;
+    }
 }

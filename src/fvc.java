@@ -2,35 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
-import com.google.android.gms.common.data.DataHolder;
-import com.google.android.gms.wearable.internal.AmsEntityUpdateParcelable;
-import com.google.android.gms.wearable.internal.AncsNotificationParcelable;
-import com.google.android.gms.wearable.internal.CapabilityInfoParcelable;
-import com.google.android.gms.wearable.internal.ChannelEventParcelable;
-import com.google.android.gms.wearable.internal.MessageEventParcelable;
-import com.google.android.gms.wearable.internal.NodeParcelable;
-import java.util.List;
+import com.google.android.gms.common.api.Status;
 
-public interface fvc
-    extends IInterface
+public final class fvc
+    implements enh
 {
 
-    public abstract void a(DataHolder dataholder);
+    public final Status a;
+    public final int b;
 
-    public abstract void a(AmsEntityUpdateParcelable amsentityupdateparcelable);
+    public fvc(Status status, int i)
+    {
+        a = status;
+        b = i;
+    }
 
-    public abstract void a(AncsNotificationParcelable ancsnotificationparcelable);
-
-    public abstract void a(CapabilityInfoParcelable capabilityinfoparcelable);
-
-    public abstract void a(ChannelEventParcelable channeleventparcelable);
-
-    public abstract void a(MessageEventParcelable messageeventparcelable);
-
-    public abstract void a(NodeParcelable nodeparcelable);
-
-    public abstract void a(List list);
-
-    public abstract void b(NodeParcelable nodeparcelable);
+    public Status D_()
+    {
+        return a;
+    }
 }

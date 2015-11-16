@@ -2,23 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
+import android.os.Looper;
+import android.os.MessageQueue;
 
 final class gzq
-    implements android.os.Parcelable.Creator
+    implements Runnable
 {
 
-    gzq()
+    final gzn a;
+
+    gzq(gzn gzn1)
     {
+        a = gzn1;
+        super();
     }
 
-    public Object createFromParcel(Parcel parcel)
+    public void run()
     {
-        return new gzp(parcel);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new gzp[i];
+        Looper.myQueue().addIdleHandler(gzn.a(a));
     }
 }

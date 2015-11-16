@@ -2,30 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
+import android.os.Looper;
 
-final class dor
-    implements android.content.DialogInterface.OnClickListener
+public abstract class dor
 {
 
-    final int a;
-    final Runnable b;
-    final doq c;
+    don c;
 
-    dor(doq doq1, int i, Runnable runnable)
+    public dor()
     {
-        c = doq1;
-        a = i;
-        b = runnable;
-        super();
     }
 
-    public void onClick(DialogInterface dialoginterface, int i)
+    public void b()
     {
-        doq.a(a, i);
-        if (b != null)
+label0:
         {
-            b.run();
+            if (c != null)
+            {
+                if (Looper.myLooper() == Looper.getMainLooper())
+                {
+                    break label0;
+                }
+                c.d(this);
+            }
+            return;
         }
+        c.b(this);
+    }
+
+    public abstract String c();
+
+    public boolean l()
+    {
+        return c == null;
     }
 }

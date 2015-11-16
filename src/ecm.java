@@ -2,66 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.os.Bundle;
-import java.util.ArrayList;
-import java.util.List;
+import android.content.Intent;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-public final class ecm extends ech
-    implements android.content.DialogInterface.OnClickListener
+public final class ecm extends Exception
+    implements Serializable
 {
 
-    private eci aj;
-    private ArrayList an;
+    private static final long serialVersionUID = 1L;
+    public Intent a;
+    public int b;
 
-    public ecm()
+    public ecm(int i)
     {
-        an = new ArrayList();
+        a = null;
+        b = i;
     }
 
-    public static ech a(String s, List list)
+    public ecm(Intent intent)
     {
-        Bundle bundle = new Bundle();
-        bundle.putString("title", s);
-        bundle.putSerializable("list", new ArrayList(list));
-        s = new ecm();
-        s.setArguments(bundle);
-        return s;
+        a = intent;
+        b = 0;
     }
 
-    static hgx a(ecm ecm1)
+    private void readObject(ObjectInputStream objectinputstream)
     {
-        return ecm1.al;
+        b = objectinputstream.readInt();
     }
 
-    public Dialog a(Bundle bundle)
+    private void writeObject(ObjectOutputStream objectoutputstream)
     {
-        bundle = getArguments();
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(ak);
-        builder.setTitle(bundle.getString("title"));
-        builder.setAdapter(new ecn(this, ak, (List)bundle.getSerializable("list")), this);
-        return builder.create();
-    }
-
-    public void a(eci eci1)
-    {
-        gbh.a("Listener should be set only once", aj);
-        aj = eci1;
-    }
-
-    public void onCancel(DialogInterface dialoginterface)
-    {
-        aj.a();
-    }
-
-    public void onClick(DialogInterface dialoginterface, int i)
-    {
-        aj.a(i);
-    }
-
-    public void onDestroyView()
-    {
-        super.onDestroyView();
+        objectoutputstream.writeInt(b);
     }
 }

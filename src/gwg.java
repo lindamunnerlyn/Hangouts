@@ -2,63 +2,68 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.util.DisplayMetrics;
+import android.graphics.Bitmap;
 
 final class gwg
+    implements gzh
 {
 
-    private int a;
+    final gwd a;
 
-    gwg()
+    gwg(gwd gwd1)
     {
+        a = gwd1;
+        super();
     }
 
-    private static gwf a(Context context, int i, int j)
+    public Object a(gzi gzi, Object obj)
     {
-        gwf gwf1 = (new gwf()).a(b(context, g.sF, i)).c(b(context, g.sI, j)).b(b(context, g.sE, j));
-        i = context.getApplicationContext().getResources().getInteger(j);
-        if (gwf1.b() > i)
+        Bitmap bitmap = null;
+        if (!(obj instanceof Bitmap)) goto _L2; else goto _L1
+_L1:
+        bitmap = (Bitmap)obj;
+_L4:
+        if (bitmap == null)
         {
-            gwf1.b(Math.round(((float)i / (float)gwf1.b()) * (float)gwf1.a()));
+            return obj;
         }
-        context = context.getApplicationContext().getResources();
-        return gwf1.b(context.getInteger(g.sH)).a(context.getInteger(g.sG));
-    }
-
-    private static int b(Context context, int i, int j)
-    {
-        Resources resources = context.getApplicationContext().getResources();
-        context = g.K(context);
-        int k = ((DisplayMetrics) (context)).widthPixels;
-        k = ((DisplayMetrics) (context)).heightPixels * k << 2;
-        j = resources.getInteger(j);
-        if (k == 0)
+        break; /* Loop/switch isn't completed */
+_L2:
+        if (obj instanceof gyz)
         {
-            return j;
-        } else
-        {
-            long l = resources.getInteger(i);
-            return Math.min((int)(((long)k * l) / 100L), j);
+            gyz gyz1 = (gyz)obj;
+            bitmap = ((gyz)obj).a;
+            if (gyz1.b < bitmap.getWidth() || gyz1.c < bitmap.getHeight())
+            {
+                bitmap = Bitmap.createBitmap(bitmap, 0, 0, gyz1.b, gyz1.c);
+            }
         }
-    }
-
-    public gwe a(Context context)
-    {
-        a = g.M(context);
-        if (a < 48)
+        if (true) goto _L4; else goto _L3
+_L3:
+label0:
         {
-            context = context.getApplicationContext().getResources();
-            context = (new gwf()).a(context.getInteger(g.sL)).c(context.getInteger(g.sJ)).b(context.getInteger(g.sK)).b(context.getInteger(g.sM)).a(context.getInteger(g.sM));
-        } else
-        if (a < 64)
-        {
-            context = a(context, g.sB, g.sA);
-        } else
-        {
-            context = a(context, g.sD, g.sC);
+            int i = ((gwe)gzi).a();
+            if (bitmap.getWidth() >= i)
+            {
+                gzi = bitmap;
+                if (bitmap.getHeight() >= i)
+                {
+                    break label0;
+                }
+            }
+            gzi = a.b.a(i, i);
+            obj = hph.a(bitmap, i, i, gzi);
+            if (obj != gzi)
+            {
+                a.b.a(gzi);
+            }
+            gzi = bitmap;
+            if (obj != bitmap)
+            {
+                a.b.a(bitmap);
+                gzi = ((gzi) (obj));
+            }
         }
-        return context.c().d();
+        return hlf.a(gzi);
     }
 }

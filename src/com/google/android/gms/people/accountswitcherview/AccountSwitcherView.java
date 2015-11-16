@@ -21,32 +21,31 @@ import android.view.animation.Interpolator;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
-import fne;
-import fnj;
-import fnr;
-import fnt;
-import fqu;
+import fqa;
+import fqf;
+import fqn;
+import fqp;
+import ftl;
 import g;
 import h;
 import java.util.List;
-import o;
 
 // Referenced classes of package com.google.android.gms.people.accountswitcherview:
 //            ExpanderView, SelectedAccountNavigationView, ShrinkingItem
 
 public class AccountSwitcherView extends FrameLayout
-    implements android.view.View.OnClickListener, android.widget.AdapterView.OnItemClickListener, fnr, fnt
+    implements android.view.View.OnClickListener, android.widget.AdapterView.OnItemClickListener, fqn, fqp
 {
 
-    public fnj a;
+    public fqf a;
     private a b;
     private a c;
-    private fqu d;
+    private ftl d;
     private List e;
     private ListView f;
     private FrameLayout g;
     private SelectedAccountNavigationView h;
-    private fne i;
+    private fqa i;
     private int j;
     private ShrinkingItem k;
     private boolean l;
@@ -75,24 +74,24 @@ public class AccountSwitcherView extends FrameLayout
         v = false;
         new TypedValue();
         attributeset = context.obtainStyledAttributes(attributeset, new int[] {
-            g.rt
+            g.rv
         });
         u = attributeset.getBoolean(0, a(21));
         attributeset.recycle();
-        LayoutInflater.from(context).inflate(h.jg, this);
-        m = (ViewGroup)findViewById(o.C);
+        LayoutInflater.from(context).inflate(h.je, this);
+        m = (ViewGroup)findViewById(g.sa);
         m.setOnClickListener(this);
-        n = (ExpanderView)findViewById(o.g);
+        n = (ExpanderView)findViewById(g.rE);
         n.setOnClickListener(this);
-        h = (SelectedAccountNavigationView)findViewById(o.B);
+        h = (SelectedAccountNavigationView)findViewById(g.rZ);
         h.a(u);
         h.a(this);
         h.a(this);
-        f = (ListView)findViewById(o.k);
+        f = (ListView)findViewById(g.rI);
         f.setOnItemClickListener(this);
-        k = (ShrinkingItem)findViewById(o.l);
+        k = (ShrinkingItem)findViewById(g.rJ);
         j = -1;
-        g = (FrameLayout)findViewById(o.u);
+        g = (FrameLayout)findViewById(g.rS);
         a();
     }
 
@@ -102,13 +101,13 @@ public class AccountSwitcherView extends FrameLayout
         s = view.getTop();
     }
 
-    private void a(fqu fqu, boolean flag)
+    private void a(ftl ftl, boolean flag)
     {
-        fqu fqu1 = d;
-        d = fqu;
+        ftl ftl1 = d;
+        d = ftl;
         if (e != null)
         {
-            e = fne.a(e, fqu1, d);
+            e = fqa.a(e, ftl1, d);
             if (!flag)
             {
                 h.a(d);
@@ -201,11 +200,6 @@ public class AccountSwitcherView extends FrameLayout
         t = g.getTop();
     }
 
-    public static boolean b()
-    {
-        return a(21);
-    }
-
     private void c(int i1)
     {
         h.b(i1);
@@ -236,9 +230,9 @@ public class AccountSwitcherView extends FrameLayout
         a(true);
     }
 
-    public void a(fqu fqu)
+    public void a(ftl ftl)
     {
-        a(fqu, true);
+        a(ftl, true);
     }
 
     public int getNestedScrollAxes()

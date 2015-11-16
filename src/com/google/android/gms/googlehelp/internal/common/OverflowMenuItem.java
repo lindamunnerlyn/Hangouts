@@ -7,17 +7,18 @@ package com.google.android.gms.googlehelp.internal.common;
 import android.content.Intent;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fbh;
+import fef;
+import g;
 
 public final class OverflowMenuItem
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fbh();
-    public final int a;
-    public final int b;
-    public final String c;
-    public final Intent d;
+    public static final android.os.Parcelable.Creator CREATOR = new fef();
+    final int a;
+    final int b;
+    final String c;
+    final Intent d;
 
     public OverflowMenuItem(int i, int j, String s, Intent intent)
     {
@@ -39,7 +40,12 @@ public final class OverflowMenuItem
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fbh.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, b);
+        g.a(parcel, 3, c);
+        g.a(parcel, 4, d, i);
+        g.q(parcel, j);
     }
 
 }

@@ -2,64 +2,120 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
-final class jlp extends jlk
+public final class jlp extends kwm
 {
 
-    final transient int b;
-    final transient int c;
-    final jlk d;
+    public Integer a;
+    public Integer b;
+    public Integer c;
+    public Integer d;
+    public Integer e;
 
-    jlp(jlk jlk1, int i, int j)
+    public jlp()
     {
-        d = jlk1;
-        super();
-        b = i;
-        c = j;
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        e = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public jlk a(int i, int j)
+    protected int computeSerializedSize()
     {
-        n.a(i, j, c);
-        return d.a(b + i, b + j);
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.e(1, a.intValue());
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.intValue());
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.intValue());
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.e(4, d.intValue());
+        }
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.e(5, e.intValue());
+        }
+        return i;
     }
 
-    boolean e()
+    public kws mergeFrom(kwj kwj1)
     {
-        return true;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
+                break;
+
+            case 24: // '\030'
+                c = Integer.valueOf(kwj1.f());
+                break;
+
+            case 32: // ' '
+                d = Integer.valueOf(kwj1.f());
+                break;
+
+            case 40: // '('
+                e = Integer.valueOf(kwj1.f());
+                break;
+            }
+        } while (true);
     }
 
-    public Object get(int i)
+    public void writeTo(kwk kwk1)
     {
-        n.a(i, c);
-        return d.get(b + i);
-    }
-
-    public Iterator iterator()
-    {
-        return super.a();
-    }
-
-    public ListIterator listIterator()
-    {
-        return super.g();
-    }
-
-    public ListIterator listIterator(int i)
-    {
-        return super.a(i);
-    }
-
-    public int size()
-    {
-        return c;
-    }
-
-    public List subList(int i, int j)
-    {
-        return a(i, j);
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.intValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.intValue());
+        }
+        if (e != null)
+        {
+            kwk1.a(5, e.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

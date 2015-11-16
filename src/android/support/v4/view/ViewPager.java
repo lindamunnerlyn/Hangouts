@@ -48,7 +48,7 @@ import lh;
 import li;
 import lj;
 import ll;
-import or;
+import ot;
 
 public class ViewPager extends ViewGroup
 {
@@ -75,8 +75,8 @@ public class ViewPager extends ViewGroup
     private int N;
     private int O;
     private boolean P;
-    private or Q;
-    private or R;
+    private ot Q;
+    private ot R;
     private boolean S;
     private boolean T;
     private boolean U;
@@ -811,13 +811,13 @@ label1:
         E = ko.a(viewconfiguration);
         L = (int)(400F * f1);
         M = viewconfiguration.getScaledMaximumFlingVelocity();
-        Q = new or(context);
-        R = new or(context);
+        Q = new ot(context);
+        R = new ot(context);
         N = (int)(25F * f1);
         O = (int)(2.0F * f1);
         C = (int)(16F * f1);
         kb.a(this, new lf(this));
-        if (kb.e(this) == 0)
+        if (kb.f(this) == 0)
         {
             kb.c(this, 1);
         }
@@ -995,7 +995,7 @@ _L2:
         }
         i1 = Math.min(i1, 600);
         m.startScroll(k1, l1, i2, j2, i1);
-        kb.d(this);
+        kb.e(this);
     }
 
     public void a(int i1, boolean flag)
@@ -1449,7 +1449,7 @@ _L4:
                     scrollTo(0, l1);
                 }
             }
-            kb.d(this);
+            kb.e(this);
             return;
         } else
         {
@@ -1978,7 +1978,7 @@ _L3:
         }
         if (j1 != 0)
         {
-            kb.d(this);
+            kb.e(this);
         }
     }
 
@@ -2307,7 +2307,7 @@ _L9:
 _L11:
         if (A && b(f3))
         {
-            kb.d(this);
+            kb.e(this);
         }
         continue; /* Loop/switch isn't completed */
 _L10:
@@ -2769,7 +2769,7 @@ _L1:
 _L10:
         if (i1 != 0)
         {
-            kb.d(this);
+            kb.e(this);
         }
         return true;
 _L2:

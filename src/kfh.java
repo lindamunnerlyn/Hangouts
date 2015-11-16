@@ -3,18 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kfh extends koj
+public final class kfh extends kwm
 {
 
-    public String a;
-    public int b;
-    public String c;
+    public kni a;
 
     public kfh()
     {
         a = null;
-        b = 0x80000000;
-        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -25,70 +21,45 @@ public final class kfh extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != 0x80000000)
-        {
-            j = i + koh.e(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.b(3, c);
+            i = j + kwk.d(1, a);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L6:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 4: default 48
-    //                   0: 57
-    //                   10: 59
-    //                   16: 70
-    //                   26: 123;
-           goto _L1 _L2 _L3 _L4 _L5
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L6; else goto _L2
-_L2:
-        return this;
-_L3:
-        a = kog1.j();
-          goto _L6
-_L4:
-        int j = kog1.f();
-        switch (j)
+        do
         {
-        case 0: // '\0'
-        case 6: // '\006'
-        case 10: // '\n'
-            b = j;
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L5:
-        c = kog1.j();
-        if (true) goto _L6; else goto _L7
-_L7:
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new kni();
+                }
+                kwj1.a(a);
+                break;
+            }
+        } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.b(1, a);
         }
-        if (b != 0x80000000)
-        {
-            koh1.a(2, b);
-        }
-        if (c != null)
-        {
-            koh1.a(3, c);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

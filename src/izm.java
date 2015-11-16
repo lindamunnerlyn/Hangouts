@@ -3,68 +3,58 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class izm extends koj
+public final class izm extends kwm
 {
 
-    public itl a[];
-    public byte b[];
-    public ixf requestHeader;
+    public izo a[];
 
     public izm()
     {
-        requestHeader = null;
-        a = itl.a();
-        b = null;
+        a = izo.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (requestHeader != null)
-        {
-            i = j + koh.d(1, requestHeader);
-        }
-        j = i;
+        int i = super.computeSerializedSize();
+        int k = i;
         if (a != null)
         {
-            j = i;
+            k = i;
             if (a.length > 0)
             {
-                for (j = 0; j < a.length;)
+                int j = 0;
+                do
                 {
-                    itl itl1 = a[j];
-                    int k = i;
-                    if (itl1 != null)
+                    k = i;
+                    if (j >= a.length)
                     {
-                        k = i + koh.d(2, itl1);
+                        break;
+                    }
+                    izo izo1 = a[j];
+                    k = i;
+                    if (izo1 != null)
+                    {
+                        k = i + kwk.d(1, izo1);
                     }
                     j++;
                     i = k;
-                }
-
-                j = i;
+                } while (true);
             }
         }
-        i = j;
-        if (b != null)
-        {
-            i = j + koh.b(3, b);
-        }
-        return i;
+        return k;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -74,16 +64,8 @@ public final class izm extends koj
                 return this;
 
             case 10: // '\n'
-                if (requestHeader == null)
-                {
-                    requestHeader = new ixf();
-                }
-                kog1.a(requestHeader);
-                break;
-
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                itl aitl[];
+                int k = kwx.a(kwj1, 10);
+                izo aizo[];
                 int j;
                 if (a == null)
                 {
@@ -92,54 +74,42 @@ public final class izm extends koj
                 {
                     j = a.length;
                 }
-                aitl = new itl[k + j];
+                aizo = new izo[k + j];
                 k = j;
                 if (j != 0)
                 {
-                    System.arraycopy(a, 0, aitl, 0, j);
+                    System.arraycopy(a, 0, aizo, 0, j);
                     k = j;
                 }
-                for (; k < aitl.length - 1; k++)
+                for (; k < aizo.length - 1; k++)
                 {
-                    aitl[k] = new itl();
-                    kog1.a(aitl[k]);
-                    kog1.a();
+                    aizo[k] = new izo();
+                    kwj1.a(aizo[k]);
+                    kwj1.a();
                 }
 
-                aitl[k] = new itl();
-                kog1.a(aitl[k]);
-                a = aitl;
-                break;
-
-            case 26: // '\032'
-                b = kog1.k();
+                aizo[k] = new izo();
+                kwj1.a(aizo[k]);
+                a = aizo;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (requestHeader != null)
-        {
-            koh1.b(1, requestHeader);
-        }
         if (a != null && a.length > 0)
         {
             for (int i = 0; i < a.length; i++)
             {
-                itl itl1 = a[i];
-                if (itl1 != null)
+                izo izo1 = a[i];
+                if (izo1 != null)
                 {
-                    koh1.b(2, itl1);
+                    kwk1.b(1, izo1);
                 }
             }
 
         }
-        if (b != null)
-        {
-            koh1.a(3, b);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

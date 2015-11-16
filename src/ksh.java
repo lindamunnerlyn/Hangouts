@@ -3,11 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ksh extends koj
+public final class ksh extends kwm
 {
 
     public String a;
-    public String b;
+    public Long b;
     public Long c;
 
     public ksh()
@@ -21,24 +21,36 @@ public final class ksh extends koj
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize() + koh.b(1, a) + koh.b(2, b);
+        int j = super.computeSerializedSize();
         int i = j;
+        if (a != null)
+        {
+            i = j + kwk.b(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            b.longValue();
+            j = i + (kwk.f(2) + 8);
+        }
+        i = j;
         if (c != null)
         {
-            i = j + koh.e(7, c.longValue());
+            c.longValue();
+            i = j + (kwk.f(3) + 8);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -48,28 +60,34 @@ public final class ksh extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                a = kwj1.j();
                 break;
 
-            case 18: // '\022'
-                b = kog1.j();
+            case 17: // '\021'
+                b = Long.valueOf(kwj1.g());
                 break;
 
-            case 56: // '8'
-                c = Long.valueOf(kog1.e());
+            case 25: // '\031'
+                c = Long.valueOf(kwj1.g());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.a(1, a);
-        koh1.a(2, b);
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.c(2, b.longValue());
+        }
         if (c != null)
         {
-            koh1.b(7, c.longValue());
+            kwk1.c(3, c.longValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

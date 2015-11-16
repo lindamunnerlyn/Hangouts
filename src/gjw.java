@@ -6,17 +6,5 @@
 public interface gjw
 {
 
-    public abstract void a(int i);
-
-    public abstract void a(int i, int j, int k, int l, boolean flag);
-
-    public abstract void a(gjx gjx);
-
-    public abstract void a(boolean flag);
-
-    public abstract gjy b();
-
-    public abstract void b(int i);
-
-    public abstract void b(boolean flag);
+    public abstract void a(jka jka);
 }

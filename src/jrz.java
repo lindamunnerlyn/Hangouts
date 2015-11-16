@@ -2,30 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.Future;
+import java.io.Serializable;
 
-public class jrz extends jry
+final class jrz
+    implements Serializable
 {
 
-    private final jsj a;
+    private static final long serialVersionUID = 0L;
+    final jsd a;
 
-    protected jrz(jsj jsj1)
+    jrz(jsd jsd1)
     {
-        a = (jsj)n.b(jsj1);
+        a = jsd1;
     }
 
-    protected Future a()
+    Object readResolve()
     {
-        return a;
-    }
-
-    protected final jsj b()
-    {
-        return a;
-    }
-
-    protected Object c()
-    {
-        return a;
+        return a.f();
     }
 }

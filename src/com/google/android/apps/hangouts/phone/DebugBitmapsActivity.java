@@ -7,7 +7,7 @@ package com.google.android.apps.hangouts.phone;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
-import clq;
+import cmy;
 import g;
 import h;
 
@@ -21,7 +21,7 @@ public class DebugBitmapsActivity extends Activity
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.fF);
-        ((ExpandableListView)findViewById(h.Q)).setAdapter(new clq(this));
+        setContentView(g.fD);
+        ((ExpandableListView)findViewById(h.Q)).setAdapter(new cmy(this));
     }
 }

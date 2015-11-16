@@ -2,66 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.net.Uri;
-import android.text.TextUtils;
 
-public final class cxu extends cvn
+public class cxu extends cxr
 {
 
     private static final long serialVersionUID = 1L;
-    private final String g;
-    private final long h;
-    private final long i;
-    private final long j;
 
-    public cxu(Uri uri, long l, long l1, long l2)
+    private cxu()
     {
-        if (uri != null)
-        {
-            uri = uri.toString();
-        } else
-        {
-            uri = null;
-        }
-        g = uri;
-        h = l;
-        i = l1;
-        j = l2;
     }
 
-    public void a(aoe aoe1, dfb dfb)
+    private cxu(jbt jbt1)
     {
-        super.a(aoe1, dfb);
-        dhv dhv1 = (dhv)b;
-        String s = dhv1.c();
-        String s1 = dhv1.b();
-        long l;
-        long l1;
-        boolean flag;
-        if (g != null)
+        super(jbt1.responseHeader, 0L);
+        if (cxr.a)
         {
-            dfb = Uri.parse(g);
+            jbt1 = String.valueOf(jbt1);
+            eev.b("Babel_protos", (new StringBuilder(String.valueOf(jbt1).length() + 33)).append("ArchiveConversationResponse from:").append(jbt1).toString());
+        }
+    }
+
+    public static cxu k()
+    {
+        return new cxu();
+    }
+
+    public static cxr parseFrom(byte abyte0[])
+    {
+        abyte0 = (jbt)kws.mergeFrom(new jbt(), abyte0);
+        if (a(((jbt) (abyte0)).responseHeader))
+        {
+            return new cyd(((jbt) (abyte0)).responseHeader);
         } else
         {
-            dfb = null;
+            return new cxu(abyte0);
         }
-        l = h;
-        l1 = i;
-        if (((dhv)b).m() != null)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        any.a(aoe1, s, s1, dfb, l, l1, flag, ((dhv)b).o(), j);
-        ank.a(g.nS, aoe1.f().h(), "sent_mms_count_since_last_upload");
-        dfb = dhv1.d();
-        if (dfb.length == 1 && !TextUtils.isEmpty(dfb[0]))
-        {
-            bzu bzu1 = (bzu)hgx.a(g.nS, bzu);
-            aoe1.f().h();
-            bzu1.a(dfb[0]);
-        }
+    }
+
+    public void a(aow aow, dgk dgk)
+    {
+        super.a(aow, dgk);
     }
 }

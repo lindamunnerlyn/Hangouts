@@ -2,57 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
 import android.os.IBinder;
 import android.os.Parcel;
-import com.google.android.gms.maps.model.Tile;
+import com.google.android.gms.maps.model.LatLng;
 
-public abstract class flb extends Binder
-    implements fla
+final class flb
+    implements fkz
 {
 
-    public static fla a(IBinder ibinder)
+    private IBinder a;
+
+    flb(IBinder ibinder)
     {
-        if (ibinder == null)
-        {
-            return null;
-        }
-        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.maps.model.internal.ITileProviderDelegate");
-        if (iinterface != null && (iinterface instanceof fla))
-        {
-            return (fla)iinterface;
-        } else
-        {
-            return new flc(ibinder);
-        }
+        a = ibinder;
     }
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    public void a(LatLng latlng)
     {
-        switch (i)
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnMapClickListener");
+        if (latlng == null)
         {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
-
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.maps.model.internal.ITileProviderDelegate");
-            return true;
-
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ITileProviderDelegate");
-            parcel = a(parcel.readInt(), parcel.readInt(), parcel.readInt());
-            parcel1.writeNoException();
-            break;
+            break MISSING_BLOCK_LABEL_56;
         }
-        if (parcel != null)
-        {
-            parcel1.writeInt(1);
-            parcel.writeToParcel(parcel1, 1);
-            return true;
-        } else
-        {
-            parcel1.writeInt(0);
-            return true;
-        }
+        parcel.writeInt(1);
+        latlng.writeToParcel(parcel, 0);
+_L1:
+        a.transact(1, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        latlng;
+        parcel1.recycle();
+        parcel.recycle();
+        throw latlng;
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
     }
 }

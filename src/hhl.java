@@ -2,11 +2,7 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
 
 public interface hhl
-    extends hho
 {
-
-    public abstract void a(Activity activity, hjm hjm, hgx hgx);
 }

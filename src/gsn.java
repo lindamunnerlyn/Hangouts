@@ -2,18 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.sqlite.SQLiteDatabase;
+import android.accounts.AccountManagerCallback;
+import android.accounts.AccountManagerFuture;
+import android.content.Intent;
+import android.os.Bundle;
 
-public interface gsn
+final class gsn
+    implements AccountManagerCallback
 {
 
-    public abstract String a();
+    final ad a;
+    final gsm b;
 
-    public abstract void a(SQLiteDatabase sqlitedatabase);
+    gsn(gsm gsm, ad ad1)
+    {
+        b = gsm;
+        a = ad1;
+        super();
+    }
 
-    public abstract boolean a(int i, int j);
-
-    public abstract String[] b();
-
-    public abstract String[] c();
+    public void run(AccountManagerFuture accountmanagerfuture)
+    {
+        gsp gsp1;
+        Intent intent;
+        gsm gsm;
+        ap ap1;
+        try
+        {
+            if (!a.isAdded())
+            {
+                break MISSING_BLOCK_LABEL_97;
+            }
+            intent = (Intent)((Bundle)accountmanagerfuture.getResult()).getParcelable("intent");
+            gsm = b;
+            ap1 = a.getChildFragmentManager();
+            gsp1 = (gsp)ap1.a("new.account.launcher");
+        }
+        // Misplaced declaration of an exception variable
+        catch (AccountManagerFuture accountmanagerfuture)
+        {
+            throw new IllegalStateException(accountmanagerfuture);
+        }
+        accountmanagerfuture = gsp1;
+        if (gsp1 != null)
+        {
+            break MISSING_BLOCK_LABEL_83;
+        }
+        accountmanagerfuture = new gsp();
+        ap1.a().a(accountmanagerfuture, "new.account.launcher").c();
+        g.a(new gso(gsm, accountmanagerfuture, intent));
+    }
 }

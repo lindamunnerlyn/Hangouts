@@ -3,10 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gpg
+final class gpg extends gpd
 {
 
-    public gpg()
+    gpg(String s)
     {
+        super(s, 2);
+    }
+
+    boolean a(gpw gpw, String s, gpb gpb1)
+    {
+        if (!gpb1.b(gpw) || !goy.a(gpw, s, gpb1) || goy.a(gpw, s) || !goy.a(gpw, gpb1))
+        {
+            return false;
+        } else
+        {
+            return goy.a(gpw, s, gpb1, new gph(this));
+        }
     }
 }

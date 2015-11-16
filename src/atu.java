@@ -3,31 +3,38 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class atu
-    implements Runnable
+public final class atu extends Enum
 {
 
-    final att a;
+    public static final atu a;
+    public static final atu b;
+    public static final atu c;
+    public static final atu d;
+    private static final atu e[];
 
-    atu(att att1)
+    private atu(String s, int i)
     {
-        a = att1;
-        super();
+        super(s, i);
     }
 
-    public void run()
+    public static atu valueOf(String s)
     {
-        aoe aoe1;
-        aoe1 = new aoe(a.b.a, a.a);
-        aoe1.a();
-        aoe1.C(a.b.c.a);
-        aoe1.b();
-        aoe1.c();
-        any.a(a.a);
-        return;
-        Exception exception;
-        exception;
-        aoe1.c();
-        throw exception;
+        return (atu)Enum.valueOf(atu, s);
+    }
+
+    public static atu[] values()
+    {
+        return (atu[])e.clone();
+    }
+
+    static 
+    {
+        a = new atu("HANGOUTS_MESSAGE", 0);
+        b = new atu("SMS_MESSAGE", 1);
+        c = new atu("AUDIO_CALL", 2);
+        d = new atu("VIDEO_CALL", 3);
+        e = (new atu[] {
+            a, b, c, d
+        });
     }
 }

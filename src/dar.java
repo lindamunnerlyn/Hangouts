@@ -3,21 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class dar
-    implements dha
+public final class dar extends Enum
 {
 
-    dar()
-    {
-    }
+    public static final int a;
+    public static final int b;
+    private static final int c[];
 
-    public void a(gmw gmw, cxi cxi1)
+    static 
     {
-        boolean flag = false;
-        if (cxi1.k() == 1)
-        {
-            flag = cxi1.p();
-        }
-        das.a(gmw, flag);
+        a = 1;
+        b = 2;
+        c = (new int[] {
+            a, b
+        });
     }
 }

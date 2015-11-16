@@ -2,62 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.gms.wearable.internal.RemoveLocalCapabilityResponse;
 
 public final class fvr
-    implements android.os.Parcelable.Creator
 {
 
-    public fvr()
+    public static final fuz a = new fuz();
+    public static final fuw b = new fuw();
+    public static final fvk c = new fvk();
+    public static final fvo d = new fvo();
+    public static final fux e = new fux();
+    public static final fuv f = new fuv();
+    public static final fut g = new fut();
+    public static final fuy h = new fuy();
+    public static final fvq i = new fvq();
+    public static final fwh j = new fwh();
+    public static final emx k;
+    public static final emt l;
+    private static final emu m;
+
+    static 
     {
-    }
-
-    public static void a(RemoveLocalCapabilityResponse removelocalcapabilityresponse, Parcel parcel)
-    {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, removelocalcapabilityresponse.a);
-        g.b(parcel, 2, removelocalcapabilityresponse.b);
-        g.q(parcel, i);
-    }
-
-    public Object createFromParcel(Parcel parcel)
-    {
-        int j = 0;
-        int k = g.a(parcel);
-        int i = 0;
-        do
-        {
-            if (parcel.dataPosition() < k)
-            {
-                int l = parcel.readInt();
-                switch (0xffff & l)
-                {
-                default:
-                    g.b(parcel, l);
-                    break;
-
-                case 1: // '\001'
-                    i = g.e(parcel, l);
-                    break;
-
-                case 2: // '\002'
-                    j = g.e(parcel, l);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != k)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
-            } else
-            {
-                return new RemoveLocalCapabilityResponse(i, j);
-            }
-        } while (true);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new RemoveLocalCapabilityResponse[i];
+        k = new emx();
+        m = new fvs();
+        l = new emt("Wearable.API", m, k);
     }
 }

@@ -3,15 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class apc extends IllegalStateException
+public final class apc
 {
 
-    public apc()
-    {
-    }
+    public final long a;
+    public final long b;
 
-    public apc(Throwable throwable)
+    public apc(long l, long l1)
     {
-        super(throwable);
+        a = l;
+        b = l1;
     }
 }

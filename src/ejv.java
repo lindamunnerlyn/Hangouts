@@ -2,23 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.PrintWriter;
-import java.util.Set;
+import android.view.View;
 
-public interface ejv
+final class ejv
+    implements android.view.View.OnClickListener
 {
 
-    public abstract void a(ekb ekb);
+    final String a;
+    final String b;
+    final ad c;
+    final eju d;
 
-    public abstract void a(emq emq);
+    ejv(eju eju1, String s, String s1, ad ad1)
+    {
+        d = eju1;
+        a = s;
+        b = s1;
+        c = ad1;
+        super();
+    }
 
-    public abstract void a(emq emq, Set set);
-
-    public abstract void a(String s, PrintWriter printwriter);
-
-    public abstract void c();
-
-    public abstract boolean d();
-
-    public abstract boolean e();
+    public void onClick(View view)
+    {
+        if (eev.a("Babel", 3))
+        {
+            view = a;
+            String s = b;
+            eev.d("Babel", (new StringBuilder(String.valueOf(view).length() + 48 + String.valueOf(s).length())).append("VideoSmSAttachmentView urlString: ").append(view).append(" contentType: ").append(s).toString());
+        }
+        c.startActivity(g.c(eju.a(d), b));
+    }
 }

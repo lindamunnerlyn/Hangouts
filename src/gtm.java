@@ -3,8 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gtm
+interface gtm
 {
 
-    public abstract boolean a();
+    public abstract boolean a(gtb gtb);
 }

@@ -2,31 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.os.Parcel;
+import com.google.android.gms.wearable.internal.RemoveLocalCapabilityResponse;
 
 public final class fxx
+    implements android.os.Parcelable.Creator
 {
 
-    public static final String a = fxo.getName();
-    public static final String b = fxq.getName();
-    private static fxw c;
-
-    public static void a(Context context, hgx hgx1)
+    public fxx()
     {
-        if (c == null)
-        {
-            c = new fxw();
-        }
-        hgx1.a(fxq, new fxv(context));
     }
 
-    public static void a(hgx hgx1)
+    public Object createFromParcel(Parcel parcel)
     {
-        if (c == null)
+        int j = 0;
+        int k = g.a(parcel);
+        int i = 0;
+        do
         {
-            c = new fxw();
-        }
-        hgx1.a(fxo, new fxu());
+            if (parcel.dataPosition() < k)
+            {
+                int l = parcel.readInt();
+                switch (0xffff & l)
+                {
+                default:
+                    g.b(parcel, l);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, l);
+                    break;
+
+                case 2: // '\002'
+                    j = g.e(parcel, l);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != k)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
+            } else
+            {
+                return new RemoveLocalCapabilityResponse(i, j);
+            }
+        } while (true);
     }
 
+    public Object[] newArray(int i)
+    {
+        return new RemoveLocalCapabilityResponse[i];
+    }
 }

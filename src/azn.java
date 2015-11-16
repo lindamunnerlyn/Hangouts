@@ -2,15 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.view.View;
 
-public interface azn
+public final class azn extends AnimatorListenerAdapter
 {
 
-    public abstract int a();
+    final View a;
 
-    public abstract boolean a(ani ani);
+    public azn(View view)
+    {
+        a = view;
+        super();
+    }
 
-    public abstract azm b();
-
-    public abstract Class c();
+    public void onAnimationEnd(Animator animator)
+    {
+        a.setVisibility(8);
+    }
 }

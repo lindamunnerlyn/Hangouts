@@ -2,23 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
+import android.content.Context;
+import android.util.AttributeSet;
 
-final class aab
-    implements android.os.Parcelable.Creator
+public final class aab extends pr
 {
 
-    aab()
+    public int b;
+
+    public aab()
     {
+        super(-2, -2);
+        b = 0;
+        a = 0x800013;
     }
 
-    public Object createFromParcel(Parcel parcel)
+    public aab(aab aab1)
     {
-        return new aaa(parcel);
+        super(aab1);
+        b = 0;
+        b = aab1.b;
     }
 
-    public Object[] newArray(int i)
+    public aab(Context context, AttributeSet attributeset)
     {
-        return new aaa[i];
+        super(context, attributeset);
+        b = 0;
+    }
+
+    public aab(android.view.ViewGroup.LayoutParams layoutparams)
+    {
+        super(layoutparams);
+        b = 0;
+    }
+
+    public aab(android.view.ViewGroup.MarginLayoutParams marginlayoutparams)
+    {
+        super(marginlayoutparams);
+        b = 0;
+        leftMargin = marginlayoutparams.leftMargin;
+        topMargin = marginlayoutparams.topMargin;
+        rightMargin = marginlayoutparams.rightMargin;
+        bottomMargin = marginlayoutparams.bottomMargin;
+    }
+
+    public aab(pr pr1)
+    {
+        super(pr1);
+        b = 0;
     }
 }

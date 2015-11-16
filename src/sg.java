@@ -3,85 +3,36 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.content.ContextWrapper;
+import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.view.LayoutInflater;
+import android.graphics.Rect;
+import android.text.method.TransformationMethod;
+import android.view.View;
+import java.util.Locale;
 
-public final class sg extends ContextWrapper
+public final class sg
+    implements TransformationMethod
 {
 
-    private int a;
-    private android.content.res.Resources.Theme b;
-    private LayoutInflater c;
+    private Locale a;
 
-    public sg(Context context, int i)
+    public sg(Context context)
     {
-        super(context);
-        a = i;
+        a = context.getResources().getConfiguration().locale;
     }
 
-    private void b()
+    public CharSequence getTransformation(CharSequence charsequence, View view)
     {
-        boolean flag;
-        if (b == null)
+        if (charsequence != null)
         {
-            flag = true;
+            return charsequence.toString().toUpperCase(a);
         } else
         {
-            flag = false;
-        }
-        if (flag)
-        {
-            b = getResources().newTheme();
-            android.content.res.Resources.Theme theme = getBaseContext().getTheme();
-            if (theme != null)
-            {
-                b.setTo(theme);
-            }
-        }
-        b.applyStyle(a, true);
-    }
-
-    public int a()
-    {
-        return a;
-    }
-
-    public Object getSystemService(String s)
-    {
-        if ("layout_inflater".equals(s))
-        {
-            if (c == null)
-            {
-                c = LayoutInflater.from(getBaseContext()).cloneInContext(this);
-            }
-            return c;
-        } else
-        {
-            return getBaseContext().getSystemService(s);
+            return null;
         }
     }
 
-    public android.content.res.Resources.Theme getTheme()
+    public void onFocusChanged(View view, CharSequence charsequence, boolean flag, int i, Rect rect)
     {
-        if (b != null)
-        {
-            return b;
-        }
-        if (a == 0)
-        {
-            a = g.bL;
-        }
-        b();
-        return b;
-    }
-
-    public void setTheme(int i)
-    {
-        if (a != i)
-        {
-            a = i;
-            b();
-        }
     }
 }

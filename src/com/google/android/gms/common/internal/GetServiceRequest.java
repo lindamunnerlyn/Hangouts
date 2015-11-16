@@ -10,31 +10,32 @@ import android.os.IBinder;
 import android.os.Parcel;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import ejk;
-import emq;
-import emr;
-import emt;
-import emz;
+import eml;
+import epq;
+import epr;
+import ept;
+import epz;
+import g;
 import java.util.Collection;
 
 public class GetServiceRequest
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new emz();
-    public final int a;
-    public final int b;
-    public int c;
-    public String d;
-    public IBinder e;
-    public Scope f[];
-    public Bundle g;
-    public Account h;
+    public static final android.os.Parcelable.Creator CREATOR = new epz();
+    final int a;
+    final int b;
+    int c;
+    String d;
+    IBinder e;
+    Scope f[];
+    Bundle g;
+    Account h;
 
     public GetServiceRequest(int i)
     {
         a = 2;
-        c = ejk.a;
+        c = eml.a;
         b = i;
     }
 
@@ -50,7 +51,7 @@ public class GetServiceRequest
             s = null;
             if (ibinder != null)
             {
-                s = emt.a(emr.a(ibinder));
+                s = ept.a(epr.a(ibinder));
             }
             h = s;
         } else
@@ -74,11 +75,11 @@ public class GetServiceRequest
         return this;
     }
 
-    public GetServiceRequest a(emq emq1)
+    public GetServiceRequest a(epq epq1)
     {
-        if (emq1 != null)
+        if (epq1 != null)
         {
-            e = emq1.asBinder();
+            e = epq1.asBinder();
         }
         return this;
     }
@@ -102,7 +103,16 @@ public class GetServiceRequest
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        emz.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, b);
+        g.b(parcel, 3, c);
+        g.a(parcel, 4, d);
+        g.a(parcel, 5, e);
+        g.a(parcel, 6, f, i);
+        g.a(parcel, 7, g);
+        g.a(parcel, 8, h, i);
+        g.q(parcel, j);
     }
 
 }

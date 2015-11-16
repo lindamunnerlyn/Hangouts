@@ -2,22 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public final class gwa
+final class gwa
+    implements gvt
 {
 
-    public final String a;
-    public final long b;
-    public final long c;
-    public final float d;
-    public final float e;
-
-    gwa(gwb gwb1)
+    gwa()
     {
-        a = gwb1.a;
-        b = gwb1.b;
-        c = gwb1.c;
-        d = gwb1.d;
-        e = gwb1.e;
+    }
+
+    public gvs a(Context context, ap ap)
+    {
+        return new gvz(context, ap);
     }
 }

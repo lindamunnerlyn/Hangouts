@@ -2,27 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.google.android.apps.hangouts.views.AvatarView;
+import com.google.android.apps.hangouts.notifications.NotificationService;
 
-final class cfh
+public abstract class cfh extends dol
 {
 
-    TextView a;
-    TextView b;
-    ViewGroup c;
-    AvatarView d;
-    ImageView e;
-
-    public cfh(View view)
+    cfh()
     {
-        a = (TextView)view.findViewById(l.up);
-        b = (TextView)view.findViewById(l.uq);
-        c = (ViewGroup)view.findViewById(l.ur);
-        d = (AvatarView)view.findViewById(l.um);
-        e = (ImageView)view.findViewById(l.uo);
+    }
+
+    public Class a()
+    {
+        return com/google/android/apps/hangouts/notifications/NotificationService;
     }
 }

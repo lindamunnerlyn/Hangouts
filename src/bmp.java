@@ -2,12 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import android.content.DialogInterface;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public interface bmp
+final class bmp
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    public abstract void a(View view);
+    final int a;
+    final bmo b;
 
-    public abstract void a(View view, boolean flag);
+    bmp(bmo bmo1, int i)
+    {
+        b = bmo1;
+        a = i;
+        super();
+    }
+
+    public void onClick(DialogInterface dialoginterface, int i)
+    {
+        b.a();
+        RealTimeChatService.b(a, dul.b(bmk.b()));
+        b.getActivity().finish();
+        g.m();
+    }
 }

@@ -2,13 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.data.DataHolder;
+import android.view.View;
 
-public abstract class fqs extends emd
+public interface fqs
 {
 
-    protected fqs(DataHolder dataholder)
-    {
-        super(dataholder);
-    }
+    public abstract fqr a(View view);
 }

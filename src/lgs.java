@@ -2,140 +2,146 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.text.DateFormatSymbols;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
 
-public final class lgs
+public final class lgs extends kwm
 {
 
-    HashMap a;
+    private static volatile lgs f[];
+    public lhc a;
+    public String b;
+    public String c;
+    public String d;
+    public Integer e;
 
     public lgs()
     {
-        a = a();
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        e = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private static HashMap a()
+    public static lgs[] a()
     {
-        return new HashMap(7);
-    }
-
-    private String[] c(Locale locale, String s, String s1)
-    {
-        Object obj2 = null;
-        this;
-        JVM INSTR monitorenter ;
-        if (locale != null && s != null && s1 != null) goto _L2; else goto _L1
-_L1:
-        locale = null;
-_L14:
-        this;
+        if (f == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (f == null)
+                {
+                    f = new lgs[0];
+                }
+            }
+        }
+        return f;
+        exception;
+        obj;
         JVM INSTR monitorexit ;
-        return locale;
-_L2:
-        Object obj = (Map)a.get(locale);
-        if (obj != null)
+        throw exception;
+    }
+
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            break MISSING_BLOCK_LABEL_61;
+            i = j + kwk.d(1, a);
         }
-        HashMap hashmap = a;
-        obj = a();
-        hashmap.put(locale, obj);
-        Object obj3 = (Map)((Map) (obj)).get(s);
-        Object obj1 = obj3;
-        if (obj3 != null) goto _L4; else goto _L3
-_L3:
-        int j;
-        obj3 = a();
-        ((Map) (obj)).put(s, obj3);
-        obj1 = ldb.a(Locale.ENGLISH).getZoneStrings();
-        j = obj1.length;
-        int i = 0;
-_L15:
-        if (i >= j) goto _L6; else goto _L5
-_L5:
-        obj = obj1[i];
-        if (obj == null) goto _L8; else goto _L7
-_L7:
-        if (obj.length != 5 || !s.equals(obj[0])) goto _L8; else goto _L9
-_L9:
-        obj1 = ldb.a(locale).getZoneStrings();
-        j = obj1.length;
-        i = 0;
-_L16:
-        locale = obj2;
-        if (i >= j)
+        j = i;
+        if (b != null)
         {
-            break MISSING_BLOCK_LABEL_208;
+            j = i + kwk.b(2, b);
         }
-        locale = obj1[i];
-        if (locale == null)
+        i = j;
+        if (c != null)
         {
-            break MISSING_BLOCK_LABEL_380;
+            i = j + kwk.b(3, c);
         }
-        if (locale.length != 5 || !s.equals(locale[0]))
+        j = i;
+        if (d != null)
         {
-            break MISSING_BLOCK_LABEL_380;
+            j = i + kwk.b(4, d);
         }
-        obj1 = obj3;
-        if (obj == null) goto _L4; else goto _L10
-_L10:
-        obj1 = obj3;
-        if (locale == null) goto _L4; else goto _L11
-_L11:
-        ((Map) (obj3)).put(obj[2], new String[] {
-            locale[2], locale[1]
-        });
-        if (!obj[2].equals(obj[4])) goto _L13; else goto _L12
-_L12:
-        ((Map) (obj3)).put(String.valueOf(obj[4]).concat("-Summer"), new String[] {
-            locale[4], locale[3]
-        });
-        obj1 = obj3;
-_L4:
-        locale = (String[])((Map) (obj1)).get(s1);
-          goto _L14
-_L13:
-        ((Map) (obj3)).put(obj[4], new String[] {
-            locale[4], locale[3]
-        });
-        obj1 = obj3;
-          goto _L4
-        locale;
-        throw locale;
-_L6:
-        obj = null;
-          goto _L9
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.e(5, e.intValue());
+        }
+        return i;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
 _L8:
-        i++;
-          goto _L15
-        i++;
-          goto _L16
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 6: default 64
+    //                   0: 73
+    //                   10: 75
+    //                   18: 104
+    //                   26: 115
+    //                   34: 126
+    //                   40: 137;
+           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L8; else goto _L2
+_L2:
+        return this;
+_L3:
+        if (a == null)
+        {
+            a = new lhc();
+        }
+        kwj1.a(a);
+          goto _L8
+_L4:
+        b = kwj1.j();
+          goto _L8
+_L5:
+        c = kwj1.j();
+          goto _L8
+_L6:
+        d = kwj1.j();
+          goto _L8
+_L7:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 1: // '\001'
+        case 2: // '\002'
+            e = Integer.valueOf(j);
+            break;
+        }
+        if (true) goto _L8; else goto _L9
+_L9:
     }
 
-    public String a(Locale locale, String s, String s1)
+    public void writeTo(kwk kwk1)
     {
-        locale = c(locale, s, s1);
-        if (locale == null)
+        if (a != null)
         {
-            return null;
-        } else
-        {
-            return locale[0];
+            kwk1.b(1, a);
         }
-    }
-
-    public String b(Locale locale, String s, String s1)
-    {
-        locale = c(locale, s, s1);
-        if (locale == null)
+        if (b != null)
         {
-            return null;
-        } else
-        {
-            return locale[1];
+            kwk1.a(2, b);
         }
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d);
+        }
+        if (e != null)
+        {
+            kwk1.a(5, e.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

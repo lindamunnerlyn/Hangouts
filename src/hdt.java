@@ -2,12 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Map;
+import com.google.android.libraries.social.login.ui.CurrentAccountBannerView;
 
-public interface hdt
+public final class hdt
+    implements Runnable
 {
 
-    public abstract Map a(String s);
+    final CurrentAccountBannerView a;
 
-    public abstract void a();
+    public hdt(CurrentAccountBannerView currentaccountbannerview)
+    {
+        a = currentaccountbannerview;
+        super();
+    }
+
+    public void run()
+    {
+        if (a.a != null)
+        {
+            a.announceForAccessibility(a.a);
+            a.a = null;
+        }
+    }
 }

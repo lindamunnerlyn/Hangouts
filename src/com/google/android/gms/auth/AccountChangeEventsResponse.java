@@ -6,22 +6,22 @@ package com.google.android.gms.auth;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import eij;
-import h;
+import elk;
+import g;
 import java.util.List;
 
 public class AccountChangeEventsResponse
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new eij();
-    public final int a;
-    public final List b;
+    public static final android.os.Parcelable.Creator CREATOR = new elk();
+    final int a;
+    final List b;
 
     public AccountChangeEventsResponse(int i, List list)
     {
         a = i;
-        b = (List)h.a(list);
+        b = (List)g.d(list);
     }
 
     public int describeContents()
@@ -31,7 +31,10 @@ public class AccountChangeEventsResponse
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        eij.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.c(parcel, 2, b);
+        g.q(parcel, i);
     }
 
 }

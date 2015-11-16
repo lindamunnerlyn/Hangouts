@@ -2,9 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.ContentResolver;
+import android.os.Handler;
+import android.os.Looper;
 
-public interface fze
+final class fze extends Thread
 {
 
-    public abstract fyb a();
+    final ContentResolver a;
+
+    fze(String s, ContentResolver contentresolver)
+    {
+        a = contentresolver;
+        super(s);
+    }
+
+    public void run()
+    {
+        Looper.prepare();
+        a.registerContentObserver(fzd.a, true, new fzf(this, new Handler(Looper.myLooper())));
+        Looper.loop();
+    }
 }

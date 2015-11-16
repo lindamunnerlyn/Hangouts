@@ -2,23 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.wearable.internal.CapabilityInfoParcelable;
 
-final class ftw
-    implements Runnable
+public final class ftw
 {
 
-    final CapabilityInfoParcelable a;
-    final ftq b;
+    private boolean a;
+    private boolean b;
+    private String c;
+    private a d;
 
-    ftw(ftq ftq, CapabilityInfoParcelable capabilityinfoparcelable)
+    public ftw()
     {
-        b = ftq;
-        a = capabilityinfoparcelable;
-        super();
     }
 
-    public void run()
+    public ftv a()
     {
+        return new ftv(a, b, c, d);
     }
 }

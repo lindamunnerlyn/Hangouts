@@ -2,68 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import java.util.Iterator;
-import java.util.List;
 
-public class heo extends hez
-    implements hha
+public final class heo
 {
 
-    public final hhb a = new hhb();
-    public final hgx b;
-    private hjr e;
+    a a;
+    boolean b;
+    boolean c;
 
-    public heo()
+    heo()
     {
-        b = a.getBinder();
     }
 
-    public void a(Bundle bundle)
+    public heo a()
     {
-        b.a(new hia(this, c));
+        b = true;
+        return this;
     }
 
-    public hgx getBinder()
+    public heo b()
     {
-        return b;
+        c = true;
+        return this;
     }
 
-    public Context getContext()
+    public hen c()
     {
-        return a;
-    }
-
-    public LayoutInflater getLayoutInflater(Bundle bundle)
-    {
-        super.getLayoutInflater(bundle);
-        return LayoutInflater.from(a);
-    }
-
-    public void onAttach(Activity activity)
-    {
-        hgx hgx1 = hgx.a(activity, getParentFragment());
-        a.a(activity);
-        a.a(hgx1);
-        c.a(activity);
-        super.onAttach(activity);
-    }
-
-    public void onCreate(Bundle bundle)
-    {
-        a(bundle);
-        for (Iterator iterator = b.c(hib).iterator(); iterator.hasNext(); iterator.next()) { }
-        b.a();
-        e = c.a(new hep(this, bundle));
-        super.onCreate(bundle);
-    }
-
-    public void onDestroy()
-    {
-        c.b(e);
-        super.onDestroy();
+        return new hen(this);
     }
 }

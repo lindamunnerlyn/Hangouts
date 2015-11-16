@@ -2,145 +2,749 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import android.os.IBinder;
+import android.os.Parcel;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.common.data.DataHolder;
+import com.google.android.gms.wearable.internal.AddLocalCapabilityResponse;
+import com.google.android.gms.wearable.internal.ChannelReceiveFileResponse;
+import com.google.android.gms.wearable.internal.ChannelSendFileResponse;
+import com.google.android.gms.wearable.internal.CloseChannelResponse;
+import com.google.android.gms.wearable.internal.DeleteDataItemsResponse;
+import com.google.android.gms.wearable.internal.GetAllCapabilitiesResponse;
+import com.google.android.gms.wearable.internal.GetCapabilityResponse;
+import com.google.android.gms.wearable.internal.GetChannelInputStreamResponse;
+import com.google.android.gms.wearable.internal.GetChannelOutputStreamResponse;
+import com.google.android.gms.wearable.internal.GetCloudSyncOptInOutDoneResponse;
+import com.google.android.gms.wearable.internal.GetCloudSyncOptInStatusResponse;
+import com.google.android.gms.wearable.internal.GetCloudSyncSettingResponse;
+import com.google.android.gms.wearable.internal.GetConfigResponse;
+import com.google.android.gms.wearable.internal.GetConfigsResponse;
+import com.google.android.gms.wearable.internal.GetConnectedNodesResponse;
+import com.google.android.gms.wearable.internal.GetDataItemResponse;
+import com.google.android.gms.wearable.internal.GetFdForAssetResponse;
+import com.google.android.gms.wearable.internal.GetLocalNodeResponse;
+import com.google.android.gms.wearable.internal.OpenChannelResponse;
+import com.google.android.gms.wearable.internal.PutDataResponse;
+import com.google.android.gms.wearable.internal.RemoveLocalCapabilityResponse;
+import com.google.android.gms.wearable.internal.SendMessageResponse;
+import com.google.android.gms.wearable.internal.StorageInfoResponse;
 
 final class fxh
-    implements Set
+    implements fxf
 {
 
-    final fxf a;
+    private IBinder a;
 
-    fxh(fxf fxf1)
+    fxh(IBinder ibinder)
     {
-        a = fxf1;
-        super();
+        a = ibinder;
     }
 
-    public boolean add(Object obj)
+    public void a(Status status)
     {
-        throw new UnsupportedOperationException();
-    }
-
-    public boolean addAll(Collection collection)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public void clear()
-    {
-        a.c();
-    }
-
-    public boolean contains(Object obj)
-    {
-        return a.a(obj) >= 0;
-    }
-
-    public boolean containsAll(Collection collection)
-    {
-        Map map = a.b();
-        for (collection = collection.iterator(); collection.hasNext();)
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (status == null)
         {
-            if (!map.containsKey(collection.next()))
-            {
-                return false;
-            }
+            break MISSING_BLOCK_LABEL_57;
         }
-
-        return true;
+        parcel.writeInt(1);
+        status.writeToParcel(parcel, 0);
+_L1:
+        a.transact(11, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        status;
+        parcel1.recycle();
+        parcel.recycle();
+        throw status;
     }
 
-    public boolean equals(Object obj)
+    public void a(DataHolder dataholder)
     {
-        return fxf.a(this, obj);
-    }
-
-    public int hashCode()
-    {
-        int i = a.a() - 1;
-        int j = 0;
-        while (i >= 0) 
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (dataholder == null)
         {
-            Object obj = a.a(i);
-            int k;
-            if (obj == null)
-            {
-                k = 0;
-            } else
-            {
-                k = obj.hashCode();
-            }
-            j += k;
-            i--;
+            break MISSING_BLOCK_LABEL_56;
         }
-        return j;
+        parcel.writeInt(1);
+        dataholder.writeToParcel(parcel, 0);
+_L1:
+        a.transact(5, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        dataholder;
+        parcel1.recycle();
+        parcel.recycle();
+        throw dataholder;
     }
 
-    public boolean isEmpty()
+    public void a(AddLocalCapabilityResponse addlocalcapabilityresponse)
     {
-        return a.a() == 0;
-    }
-
-    public Iterator iterator()
-    {
-        return new fxg(a);
-    }
-
-    public boolean remove(Object obj)
-    {
-        int i = a.a(obj);
-        if (i >= 0)
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (addlocalcapabilityresponse == null)
         {
-            a.b(i);
-            return true;
-        } else
-        {
-            return false;
+            break MISSING_BLOCK_LABEL_57;
         }
+        parcel.writeInt(1);
+        addlocalcapabilityresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(26, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        addlocalcapabilityresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw addlocalcapabilityresponse;
     }
 
-    public boolean removeAll(Collection collection)
+    public void a(ChannelReceiveFileResponse channelreceivefileresponse)
     {
-        Map map = a.b();
-        int i = map.size();
-        for (collection = collection.iterator(); collection.hasNext(); map.remove(collection.next())) { }
-        return i != map.size();
-    }
-
-    public boolean retainAll(Collection collection)
-    {
-        Map map = a.b();
-        int i = map.size();
-        Iterator iterator1 = map.keySet().iterator();
-        do
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (channelreceivefileresponse == null)
         {
-            if (!iterator1.hasNext())
-            {
-                break;
-            }
-            if (!collection.contains(iterator1.next()))
-            {
-                iterator1.remove();
-            }
-        } while (true);
-        return i != map.size();
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        channelreceivefileresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(19, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        channelreceivefileresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw channelreceivefileresponse;
     }
 
-    public int size()
+    public void a(ChannelSendFileResponse channelsendfileresponse)
     {
-        return a.a();
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (channelsendfileresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        channelsendfileresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(20, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        channelsendfileresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw channelsendfileresponse;
     }
 
-    public Object[] toArray()
+    public void a(CloseChannelResponse closechannelresponse)
     {
-        return a.d();
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (closechannelresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        closechannelresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(15, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        closechannelresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw closechannelresponse;
     }
 
-    public Object[] toArray(Object aobj[])
+    public void a(DeleteDataItemsResponse deletedataitemsresponse)
     {
-        return a.a(aobj);
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (deletedataitemsresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        deletedataitemsresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(6, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        deletedataitemsresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw deletedataitemsresponse;
+    }
+
+    public void a(GetAllCapabilitiesResponse getallcapabilitiesresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (getallcapabilitiesresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        getallcapabilitiesresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(23, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        getallcapabilitiesresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw getallcapabilitiesresponse;
+    }
+
+    public void a(GetCapabilityResponse getcapabilityresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (getcapabilityresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        getcapabilityresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(22, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        getcapabilityresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw getcapabilityresponse;
+    }
+
+    public void a(GetChannelInputStreamResponse getchannelinputstreamresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (getchannelinputstreamresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        getchannelinputstreamresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(17, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        getchannelinputstreamresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw getchannelinputstreamresponse;
+    }
+
+    public void a(GetChannelOutputStreamResponse getchanneloutputstreamresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (getchanneloutputstreamresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        getchanneloutputstreamresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(18, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        getchanneloutputstreamresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw getchanneloutputstreamresponse;
+    }
+
+    public void a(GetCloudSyncOptInOutDoneResponse getcloudsyncoptinoutdoneresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (getcloudsyncoptinoutdoneresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        getcloudsyncoptinoutdoneresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(28, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        getcloudsyncoptinoutdoneresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw getcloudsyncoptinoutdoneresponse;
+    }
+
+    public void a(GetCloudSyncOptInStatusResponse getcloudsyncoptinstatusresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (getcloudsyncoptinstatusresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        getcloudsyncoptinstatusresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(30, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        getcloudsyncoptinstatusresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw getcloudsyncoptinstatusresponse;
+    }
+
+    public void a(GetCloudSyncSettingResponse getcloudsyncsettingresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (getcloudsyncsettingresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        getcloudsyncsettingresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(29, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        getcloudsyncsettingresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw getcloudsyncsettingresponse;
+    }
+
+    public void a(GetConfigResponse getconfigresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (getconfigresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_56;
+        }
+        parcel.writeInt(1);
+        getconfigresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(2, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        getconfigresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw getconfigresponse;
+    }
+
+    public void a(GetConfigsResponse getconfigsresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (getconfigsresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        getconfigsresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(13, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        getconfigsresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw getconfigsresponse;
+    }
+
+    public void a(GetConnectedNodesResponse getconnectednodesresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (getconnectednodesresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        getconnectednodesresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(10, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        getconnectednodesresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw getconnectednodesresponse;
+    }
+
+    public void a(GetDataItemResponse getdataitemresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (getdataitemresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_56;
+        }
+        parcel.writeInt(1);
+        getdataitemresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(4, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        getdataitemresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw getdataitemresponse;
+    }
+
+    public void a(GetFdForAssetResponse getfdforassetresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (getfdforassetresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        getfdforassetresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(8, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        getfdforassetresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw getfdforassetresponse;
+    }
+
+    public void a(GetLocalNodeResponse getlocalnoderesponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (getlocalnoderesponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        getlocalnoderesponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(9, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        getlocalnoderesponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw getlocalnoderesponse;
+    }
+
+    public void a(OpenChannelResponse openchannelresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (openchannelresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        openchannelresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(14, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        openchannelresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw openchannelresponse;
+    }
+
+    public void a(PutDataResponse putdataresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (putdataresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_56;
+        }
+        parcel.writeInt(1);
+        putdataresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(3, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        putdataresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw putdataresponse;
+    }
+
+    public void a(RemoveLocalCapabilityResponse removelocalcapabilityresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (removelocalcapabilityresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        removelocalcapabilityresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(27, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        removelocalcapabilityresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw removelocalcapabilityresponse;
+    }
+
+    public void a(SendMessageResponse sendmessageresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (sendmessageresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        sendmessageresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(7, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        sendmessageresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw sendmessageresponse;
+    }
+
+    public void a(StorageInfoResponse storageinforesponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (storageinforesponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        storageinforesponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(12, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        storageinforesponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw storageinforesponse;
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
+    }
+
+    public void b(CloseChannelResponse closechannelresponse)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableCallbacks");
+        if (closechannelresponse == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        parcel.writeInt(1);
+        closechannelresponse.writeToParcel(parcel, 0);
+_L1:
+        a.transact(16, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        closechannelresponse;
+        parcel1.recycle();
+        parcel.recycle();
+        throw closechannelresponse;
     }
 }

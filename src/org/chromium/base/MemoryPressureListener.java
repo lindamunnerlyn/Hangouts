@@ -5,6 +5,7 @@
 package org.chromium.base;
 
 import android.content.Context;
+import llo;
 
 public class MemoryPressureListener
 {
@@ -13,7 +14,7 @@ public class MemoryPressureListener
     {
     }
 
-    static void a()
+    public static void a()
     {
         nativeOnMemoryPressure(2);
     }
@@ -35,30 +36,6 @@ public class MemoryPressureListener
 
     private static void registerSystemCallback(Context context)
     {
-        context.registerComponentCallbacks(new _cls1());
+        context.registerComponentCallbacks(new llo());
     }
-
-    private class _cls1
-        implements ComponentCallbacks2
-    {
-
-        public void onConfigurationChanged(Configuration configuration)
-        {
-        }
-
-        public void onLowMemory()
-        {
-            MemoryPressureListener.a();
-        }
-
-        public void onTrimMemory(int i)
-        {
-            MemoryPressureListener.a(i);
-        }
-
-        _cls1()
-        {
-        }
-    }
-
 }

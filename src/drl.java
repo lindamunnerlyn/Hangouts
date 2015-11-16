@@ -2,34 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import android.content.DialogInterface;
 
-public final class drl
-    implements Parcelable
+final class drl
+    implements android.content.DialogInterface.OnCancelListener
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new drm();
-    public String a;
-    public String b;
-    public int c;
-    public int d;
+    final Runnable a;
+    final drj b;
 
-    public drl()
+    drl(drj drj, Runnable runnable)
     {
+        b = drj;
+        a = runnable;
+        super();
     }
 
-    public int describeContents()
+    public void onCancel(DialogInterface dialoginterface)
     {
-        return 0;
+        if (a != null)
+        {
+            a.run();
+        }
     }
-
-    public void writeToParcel(Parcel parcel, int i)
-    {
-        parcel.writeString(a);
-        parcel.writeString(b);
-        parcel.writeInt(c);
-        parcel.writeInt(d);
-    }
-
 }

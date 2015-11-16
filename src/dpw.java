@@ -2,32 +2,96 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
+import android.os.Environment;
+import java.io.File;
 
-final class dpw extends ArrayAdapter
+public abstract class dpw extends dor
 {
 
-    final dpv a;
-    private CharSequence b[];
+    final boolean a;
+    public edt b;
+    final String d;
+    dpx e;
+    private final Object f;
 
-    public dpw(dpv dpv1, Context context, int i, CharSequence acharsequence[], CharSequence acharsequence1[])
+    public dpw(boolean flag, edt edt1, String s, Object obj)
     {
-        a = dpv1;
-        super(context, i, acharsequence);
-        b = null;
-        b = acharsequence1;
+        f = obj;
+        a = flag;
+        b = edt1;
+        d = s;
     }
 
-    public View getView(int i, View view, ViewGroup viewgroup)
+    public abstract dpv a(byte abyte0[]);
+
+    public abstract void a(dpv dpv);
+
+    public void a(String s)
     {
-        view = LayoutInflater.from(getContext()).inflate(g.hk, viewgroup, false);
-        ((TextView)view.findViewById(h.bt)).setText(a.f()[i]);
-        ((TextView)view.findViewById(h.bs)).setText(b[i]);
-        return view;
+    }
+
+    public boolean a()
+    {
+        return true;
+    }
+
+    public String c()
+    {
+        return b.s();
+    }
+
+    public abstract dpm d_();
+
+    public abstract boolean e();
+
+    public abstract boolean f();
+
+    public abstract void g();
+
+    public abstract void h();
+
+    public File k()
+    {
+        return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+    }
+
+    public Object m()
+    {
+        return f;
+    }
+
+    public String n()
+    {
+        return b.o();
+    }
+
+    public edt o()
+    {
+        return b;
+    }
+
+    public boolean p()
+    {
+        return a;
+    }
+
+    public String toString()
+    {
+        String s1 = String.valueOf(super.toString());
+        String s;
+        boolean flag;
+        boolean flag1;
+        boolean flag2;
+        if (b == null)
+        {
+            s = " None";
+        } else
+        {
+            s = b.toString();
+        }
+        flag = f();
+        flag1 = l();
+        flag2 = a();
+        return (new StringBuilder(String.valueOf(s1).length() + 69 + String.valueOf(s).length())).append(s1).append(" MediaUrl:").append(s).append(" cacheable=").append(flag).append(" cancelled=").append(flag1).append(" shouldUseLoaderQueue=").append(flag2).toString();
     }
 }

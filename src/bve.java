@@ -4,20 +4,31 @@
 
 
 final class bve
-    implements Runnable
+    implements gds
 {
 
-    final bvc a;
+    final boolean a;
+    final bvd b;
 
-    bve(bvc bvc1)
+    bve(bvd bvd1, boolean flag)
     {
-        a = bvc1;
+        b = bvd1;
+        a = flag;
         super();
     }
 
-    public void run()
+    public void a(kws kws)
     {
-        bvc.b(a);
-        bvc.c(a);
+        if (bvd.d())
+        {
+            boolean flag = a;
+            eev.a("Babel", (new StringBuilder(45)).append("Successfully changed knockable state to ").append(flag).toString());
+        }
+    }
+
+    public void b(kws kws)
+    {
+        boolean flag = a;
+        eev.g("Babel", (new StringBuilder(41)).append("Failed to change knockable state to ").append(flag).toString());
     }
 }

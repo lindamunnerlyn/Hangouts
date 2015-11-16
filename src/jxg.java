@@ -2,64 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
 
-public final class jxg extends koj
+final class jxg extends jsv
 {
 
-    public kff a;
+    final jxf a;
 
-    public jxg()
+    jxg(jxf jxf1)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = jxf1;
+        super();
     }
 
-    protected int computeSerializedSize()
+    boolean I_()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        return i;
+        return true;
     }
 
-    public kop mergeFrom(kog kog1)
+    public jyh a()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new kff();
-                }
-                kog1.a(a);
-                break;
-            }
-        } while (true);
+        return f().a();
     }
 
-    public void writeTo(koh koh1)
+    jso b()
     {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        super.writeTo(koh1);
+        return a;
+    }
+
+    jsh g()
+    {
+        return new jxh(this);
+    }
+
+    public int hashCode()
+    {
+        return jxe.c(a.b);
+    }
+
+    public Iterator iterator()
+    {
+        return a();
     }
 }

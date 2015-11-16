@@ -3,26 +3,68 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kuh extends koj
+public class kuh extends kuf
+    implements kvd
 {
 
-    public kuh()
+    public kuh(kui kui1)
     {
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(kui1);
+        ((kui)a).d = ((kui)a).d.d();
     }
 
-    public kop mergeFrom(kog kog1)
+    public ktm a()
     {
-_L3:
-        int i = kog1.a();
-        i;
-        JVM INSTR tableswitch 0 0: default 24
-    //                   0 33;
-           goto _L1 _L2
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L3; else goto _L2
-_L2:
-        return this;
+        return k();
+    }
+
+    protected void b()
+    {
+        if (!b)
+        {
+            return;
+        } else
+        {
+            super.b();
+            ((kui)a).d = ((kui)a).d.d();
+            return;
+        }
+    }
+
+    public kuf c()
+    {
+        return k();
+    }
+
+    public Object clone()
+    {
+        return k();
+    }
+
+    public kud d()
+    {
+        return j();
+    }
+
+    public kvb h()
+    {
+        return j();
+    }
+
+    public final kui j()
+    {
+        if (b)
+        {
+            return (kui)a;
+        } else
+        {
+            ((kui)a).d.b();
+            return (kui)super.d();
+        }
+    }
+
+    public kuh k()
+    {
+        return (kuh)super.c();
     }
 }

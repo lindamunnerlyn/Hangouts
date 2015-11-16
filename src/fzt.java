@@ -2,21 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import android.content.Intent;
 
-public final class fzt
+public class fzt extends Exception
 {
 
-    public final far a;
-
-    public fzt(Activity activity)
+    public fzt()
     {
-        a = new far(activity);
     }
 
-    public void a(Intent intent)
+    public fzt(String s)
     {
-        a.a(intent);
+        super(s);
+    }
+
+    public fzt(String s, Throwable throwable)
+    {
+        super(s, throwable);
+    }
+
+    public fzt(Throwable throwable)
+    {
+        super(throwable);
     }
 }

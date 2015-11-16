@@ -3,8 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface fsv
+final class fsv extends ThreadLocal
 {
 
-    public abstract void a(fsy fsy);
+    fsv()
+    {
+    }
+
+    protected Object initialValue()
+    {
+        return new StringBuilder();
+    }
 }

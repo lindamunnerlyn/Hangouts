@@ -4,11 +4,20 @@
 
 
 public interface fth
+    extends fto
 {
 
     public abstract String a();
 
-    public abstract byte[] b();
+    public abstract Iterable b();
 
-    public abstract String c();
+    public abstract String e();
+
+    public abstract boolean f();
+
+    public abstract String g();
+
+    public abstract String h();
+
+    public abstract String j();
 }

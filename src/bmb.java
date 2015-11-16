@@ -2,50 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.Window;
+import android.widget.EditText;
 
-public final class bmb extends ad
+public final class bmb extends ac
 {
-
-    static String a;
-    private static drt b;
 
     public bmb()
     {
     }
 
-    public static bmb a()
+    public Dialog a(Bundle bundle)
     {
-        return new bmb();
-    }
-
-    static void a(bmb bmb1)
-    {
-        bmb1.getActivity().finish();
-    }
-
-    static void a(bmb bmb1, int i)
-    {
-        bg bg = bmb1.getFragmentManager().a();
-        bmf bmf1 = bmf.b(i);
-        bmf1.setTargetFragment(bmb1, 0);
-        bmf1.a(bg, null);
-    }
-
-    static drt b()
-    {
-        return b;
-    }
-
-    public void onCreate(Bundle bundle)
-    {
-        super.onCreate(bundle);
-        bundle = drs.b();
-        b = bundle;
-        a = drs.a(bundle);
-        bundle = getFragmentManager().a();
-        bmc bmc1 = bmc.q();
-        bmc1.setTargetFragment(this, 0);
-        bmc1.a(bundle, null);
+        Object obj = getArguments().getString("name");
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getActivity());
+        View view = getActivity().getLayoutInflater().inflate(g.fB, null);
+        bundle = (EditText)view.findViewById(h.ay);
+        bundle.setText(((CharSequence) (obj)));
+        bundle.setSelection(0, bundle.getText().toString().length());
+        builder.setTitle(l.ih).setView(view).setPositiveButton(getString(l.ii), new bmd(this, bundle)).setNegativeButton(getString(l.ig), new bmc(this));
+        obj = builder.create();
+        bundle.addTextChangedListener(new bme(this, ((AlertDialog) (obj))));
+        ((AlertDialog) (obj)).getWindow().setSoftInputMode(5);
+        return ((Dialog) (obj));
     }
 }

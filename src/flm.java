@@ -2,79 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Binder;
 import android.os.Parcel;
-import com.google.android.gms.maps.model.StreetViewPanoramaCamera;
 
-public final class flm
-    implements android.os.Parcelable.Creator
+public abstract class flm extends Binder
+    implements fll
 {
 
-    public flm()
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
     {
-    }
-
-    public static StreetViewPanoramaCamera a(Parcel parcel)
-    {
-        float f2 = 0.0F;
-        int j = g.a(parcel);
-        float f = 0.0F;
-        int i = 0;
-        float f1 = 0.0F;
-        do
+        boolean flag;
+        switch (i)
         {
-            if (parcel.dataPosition() < j)
-            {
-                int k = parcel.readInt();
-                switch (0xffff & k)
-                {
-                default:
-                    g.b(parcel, k);
-                    break;
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
 
-                case 1: // '\001'
-                    i = g.e(parcel, k);
-                    break;
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.maps.internal.IOnMarkerClickListener");
+            return true;
 
-                case 2: // '\002'
-                    f = g.g(parcel, k);
-                    break;
-
-                case 3: // '\003'
-                    f1 = g.g(parcel, k);
-                    break;
-
-                case 4: // '\004'
-                    f2 = g.g(parcel, k);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != j)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
-            } else
-            {
-                return new StreetViewPanoramaCamera(i, f, f1, f2);
-            }
-        } while (true);
-    }
-
-    public static void a(StreetViewPanoramaCamera streetviewpanoramacamera, Parcel parcel)
-    {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, streetviewpanoramacamera.a());
-        g.a(parcel, 2, streetviewpanoramacamera.a);
-        g.a(parcel, 3, streetviewpanoramacamera.b);
-        g.a(parcel, 4, streetviewpanoramacamera.c);
-        g.q(parcel, i);
-    }
-
-    public Object createFromParcel(Parcel parcel)
-    {
-        return a(parcel);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new StreetViewPanoramaCamera[i];
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnMarkerClickListener");
+            flag = a(fno.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            break;
+        }
+        if (flag)
+        {
+            i = 1;
+        } else
+        {
+            i = 0;
+        }
+        parcel1.writeInt(i);
+        return true;
     }
 }

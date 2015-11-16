@@ -2,113 +2,95 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Random;
 
-public final class hpq extends koj
+public final class hpq
 {
 
-    public String a;
-    public Integer b;
-    public hpr c;
-    public String d;
+    private static final Random a = new Random();
+    private static final char b[] = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+    private static final ThreadLocal c = new hpr();
 
-    public hpq()
+    public static String a(long l)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        if (l < 1024L)
+        {
+            return (new StringBuilder(22)).append(l).append(" B").toString();
+        } else
+        {
+            int i = (int)(Math.log(l) / Math.log(1024D));
+            return String.format("%.1f %sB", new Object[] {
+                Double.valueOf((double)l / Math.pow(1024D, i)), Character.valueOf("KMGTPE".charAt(i - 1))
+            });
+        }
     }
 
-    protected int computeSerializedSize()
+    private static String a(InputStream inputstream)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        String s = (new BufferedReader(new InputStreamReader(inputstream))).readLine();
+        if (s == null)
         {
-            i = j + koh.b(1, a);
+            s = "";
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.intValue());
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.d(3, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.b(4, d);
-        }
-        return j;
+        inputstream.close();
+        return s;
+        Exception exception;
+        exception;
+        inputstream.close();
+        throw exception;
     }
 
-    public kop mergeFrom(kog kog1)
+    public static String a(String s)
     {
-_L7:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 5: default 56
-    //                   0: 65
-    //                   10: 67
-    //                   16: 78
-    //                   26: 130
-    //                   34: 159;
-           goto _L1 _L2 _L3 _L4 _L5 _L6
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L7; else goto _L2
+        return a(((InputStream) (new FileInputStream(s))));
+    }
+
+    public static String a(StringBuilder stringbuilder)
+    {
+        String s = stringbuilder.toString();
+        ((hps)c.get()).a(stringbuilder);
+        return s;
+    }
+
+    public static StringBuilder a()
+    {
+        return ((hps)c.get()).a();
+    }
+
+    public static void a(String s, String s1)
+    {
+        FileOutputStream fileoutputstream = new FileOutputStream(s);
+        s = fileoutputstream;
 _L2:
-        return this;
-_L3:
-        a = kog1.j();
-          goto _L7
-_L4:
-        int j = kog1.f();
-        switch (j)
+        s = new BufferedWriter(new OutputStreamWriter(s));
+        s.write(s1);
+        s.close();
+        return;
+        FileNotFoundException filenotfoundexception;
+        filenotfoundexception;
+        File file = (new File(s)).getParentFile();
+        if (file != null && !file.exists())
         {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-            b = Integer.valueOf(j);
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L5:
-        if (c == null)
+            file.mkdirs();
+            s = new FileOutputStream(s);
+        } else
         {
-            c = new hpr();
+            throw filenotfoundexception;
         }
-        kog1.a(c);
-        continue; /* Loop/switch isn't completed */
-_L6:
-        d = kog1.j();
-        if (true) goto _L7; else goto _L8
-_L8:
+        if (true) goto _L2; else goto _L1
+_L1:
+        s1;
+        s.close();
+        throw s1;
     }
 
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b.intValue());
-        }
-        if (c != null)
-        {
-            koh1.b(3, c);
-        }
-        if (d != null)
-        {
-            koh1.a(4, d);
-        }
-        super.writeTo(koh1);
-    }
 }

@@ -2,16 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
+import com.google.android.gms.wearable.internal.MessageEventParcelable;
 
-final class fvy extends fuc
+final class fvy
+    implements Runnable
 {
 
-    fvy()
+    final MessageEventParcelable a;
+    final fvw b;
+
+    fvy(fvw fvw1, MessageEventParcelable messageeventparcelable)
     {
+        b = fvw1;
+        a = messageeventparcelable;
+        super();
     }
 
-    public void a(Status status)
+    public void run()
     {
+        b.b.a(a);
     }
 }

@@ -2,129 +2,92 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.CancellationException;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeoutException;
-import java.util.concurrent.locks.AbstractQueuedSynchronizer;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
 
-final class jrs extends AbstractQueuedSynchronizer
+public abstract class jrs extends jrt
+    implements Map
 {
 
-    private static final long serialVersionUID = 0L;
-    private Object a;
-    private Throwable b;
-
-    jrs()
+    protected jrs()
     {
     }
 
-    private boolean a(Object obj, Throwable throwable, int i)
+    protected abstract Map b();
+
+    protected Object c()
     {
-        boolean flag = compareAndSetState(0, 1);
-        if (flag)
-        {
-            a = obj;
-            if ((i & 0xc) != 0)
-            {
-                throwable = new CancellationException("Future.cancel() was called.");
-            }
-            b = throwable;
-            releaseShared(i);
-        } else
-        if (getState() == 1)
-        {
-            acquireShared(-1);
-            return flag;
-        }
-        return flag;
+        return b();
     }
 
-    private Object e()
+    public void clear()
     {
-        int i = getState();
-        switch (i)
-        {
-        default:
-            throw new IllegalStateException((new StringBuilder("Error, synchronizer in invalid state: ")).append(i).toString());
-
-        case 2: // '\002'
-            if (b != null)
-            {
-                throw new ExecutionException(b);
-            } else
-            {
-                return a;
-            }
-
-        case 4: // '\004'
-        case 8: // '\b'
-            throw jrr.a("Task was cancelled.", b);
-        }
+        b().clear();
     }
 
-    Object a()
+    public boolean containsKey(Object obj)
     {
-        acquireSharedInterruptibly(-1);
-        return e();
+        return b().containsKey(obj);
     }
 
-    Object a(long l)
+    public boolean containsValue(Object obj)
     {
-        if (!tryAcquireSharedNanos(-1, l))
-        {
-            throw new TimeoutException("Timeout waiting for task.");
-        } else
-        {
-            return e();
-        }
+        return b().containsValue(obj);
     }
 
-    boolean a(Object obj)
+    public Set entrySet()
     {
-        return a(obj, null, 2);
+        return b().entrySet();
     }
 
-    boolean a(Throwable throwable)
+    public boolean equals(Object obj)
     {
-        return a(null, throwable, 2);
+        return obj == this || b().equals(obj);
     }
 
-    boolean a(boolean flag)
+    public Object get(Object obj)
     {
-        byte byte0;
-        if (flag)
-        {
-            byte0 = 8;
-        } else
-        {
-            byte0 = 4;
-        }
-        return a(null, null, byte0);
+        return b().get(obj);
     }
 
-    boolean b()
+    public int hashCode()
     {
-        return (getState() & 0xe) != 0;
+        return b().hashCode();
     }
 
-    boolean c()
+    public boolean isEmpty()
     {
-        return (getState() & 0xc) != 0;
+        return b().isEmpty();
     }
 
-    boolean d()
+    public Set keySet()
     {
-        return getState() == 8;
+        return b().keySet();
     }
 
-    protected int tryAcquireShared(int i)
+    public Object put(Object obj, Object obj1)
     {
-        return !b() ? -1 : 1;
+        return b().put(obj, obj1);
     }
 
-    protected boolean tryReleaseShared(int i)
+    public void putAll(Map map)
     {
-        setState(i);
-        return true;
+        b().putAll(map);
+    }
+
+    public Object remove(Object obj)
+    {
+        return b().remove(obj);
+    }
+
+    public int size()
+    {
+        return b().size();
+    }
+
+    public Collection values()
+    {
+        return b().values();
     }
 }

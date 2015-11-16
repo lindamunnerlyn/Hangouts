@@ -2,133 +2,194 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.util.AttributeSet;
-import android.view.View;
-import java.lang.reflect.Constructor;
-import java.util.Map;
+import android.content.res.ColorStateList;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Rect;
+import android.graphics.Region;
+import android.graphics.drawable.Drawable;
 
-public final class rr
+public class rr extends Drawable
+    implements android.graphics.drawable.Drawable.Callback
 {
 
-    static final Class a[] = {
-        android/content/Context, android/util/AttributeSet
-    };
-    private static final Map b = new gz();
-    private final Object c[] = new Object[2];
+    private Drawable a;
 
-    public rr()
+    public rr(Drawable drawable)
     {
+        a(drawable);
     }
 
-    public static Context a(Context context, AttributeSet attributeset, boolean flag, boolean flag1)
+    public void a(Drawable drawable)
     {
-label0:
+        if (a != null)
         {
-            attributeset = context.obtainStyledAttributes(attributeset, ro.cA, 0, 0);
-            int i;
-            if (flag)
-            {
-                i = attributeset.getResourceId(ro.cB, 0);
-            } else
-            {
-                i = 0;
-            }
-            if (i == 0)
-            {
-                i = attributeset.getResourceId(ro.cC, 0);
-            }
-            attributeset.recycle();
-            attributeset = context;
-            if (i == 0)
-            {
-                break label0;
-            }
-            if (context instanceof sg)
-            {
-                attributeset = context;
-                if (((sg)context).a() == i)
-                {
-                    break label0;
-                }
-            }
-            attributeset = new sg(context, i);
+            a.setCallback(null);
         }
-        return attributeset;
+        a = drawable;
+        if (drawable != null)
+        {
+            drawable.setCallback(this);
+        }
     }
 
-    private View a(Context context, String s, String s1)
+    public void draw(Canvas canvas)
     {
-        Object obj;
-        Constructor constructor;
-        constructor = (Constructor)b.get(s);
-        obj = constructor;
-        if (constructor != null) goto _L2; else goto _L1
-_L1:
-        try
-        {
-            obj = context.getClassLoader();
-        }
-        // Misplaced declaration of an exception variable
-        catch (Context context)
-        {
-            return null;
-        }
-        if (s1 == null)
-        {
-            break MISSING_BLOCK_LABEL_104;
-        }
-        context = (new StringBuilder()).append(s1).append(s).toString();
-_L3:
-        obj = ((ClassLoader) (obj)).loadClass(context).asSubclass(android/view/View).getConstructor(a);
-        b.put(s, obj);
-_L2:
-        ((Constructor) (obj)).setAccessible(true);
-        context = (View)((Constructor) (obj)).newInstance(c);
-        return context;
-        context = s;
-          goto _L3
+        a.draw(canvas);
     }
 
-    public View a(Context context, String s, AttributeSet attributeset)
+    public int getChangingConfigurations()
     {
-        String s1;
-        s1 = s;
-        if (s.equals("view"))
-        {
-            s1 = attributeset.getAttributeValue(null, "class");
-        }
-        c[0] = context;
-        c[1] = attributeset;
-        if (-1 != s1.indexOf('.'))
-        {
-            break MISSING_BLOCK_LABEL_74;
-        }
-        context = a(context, s1, "android.widget.");
-        c[0] = null;
-        c[1] = null;
-        return context;
-        try
-        {
-            context = a(context, s1, ((String) (null)));
-        }
-        // Misplaced declaration of an exception variable
-        catch (Context context)
-        {
-            c[0] = null;
-            c[1] = null;
-            return null;
-        }
-        finally
-        {
-            c[0] = null;
-        }
-        c[0] = null;
-        c[1] = null;
-        return context;
-        c[1] = null;
-        throw context;
+        return a.getChangingConfigurations();
     }
 
+    public Drawable getCurrent()
+    {
+        return a.getCurrent();
+    }
+
+    public int getIntrinsicHeight()
+    {
+        return a.getIntrinsicHeight();
+    }
+
+    public int getIntrinsicWidth()
+    {
+        return a.getIntrinsicWidth();
+    }
+
+    public int getMinimumHeight()
+    {
+        return a.getMinimumHeight();
+    }
+
+    public int getMinimumWidth()
+    {
+        return a.getMinimumWidth();
+    }
+
+    public int getOpacity()
+    {
+        return a.getOpacity();
+    }
+
+    public boolean getPadding(Rect rect)
+    {
+        return a.getPadding(rect);
+    }
+
+    public int[] getState()
+    {
+        return a.getState();
+    }
+
+    public Region getTransparentRegion()
+    {
+        return a.getTransparentRegion();
+    }
+
+    public void invalidateDrawable(Drawable drawable)
+    {
+        invalidateSelf();
+    }
+
+    public boolean isAutoMirrored()
+    {
+        return fe.b(a);
+    }
+
+    public boolean isStateful()
+    {
+        return a.isStateful();
+    }
+
+    public void jumpToCurrentState()
+    {
+        fe.a(a);
+    }
+
+    protected void onBoundsChange(Rect rect)
+    {
+        a.setBounds(rect);
+    }
+
+    protected boolean onLevelChange(int i)
+    {
+        return a.setLevel(i);
+    }
+
+    public void scheduleDrawable(Drawable drawable, Runnable runnable, long l)
+    {
+        scheduleSelf(runnable, l);
+    }
+
+    public void setAlpha(int i)
+    {
+        a.setAlpha(i);
+    }
+
+    public void setAutoMirrored(boolean flag)
+    {
+        fe.a(a, flag);
+    }
+
+    public void setChangingConfigurations(int i)
+    {
+        a.setChangingConfigurations(i);
+    }
+
+    public void setColorFilter(ColorFilter colorfilter)
+    {
+        a.setColorFilter(colorfilter);
+    }
+
+    public void setDither(boolean flag)
+    {
+        a.setDither(flag);
+    }
+
+    public void setFilterBitmap(boolean flag)
+    {
+        a.setFilterBitmap(flag);
+    }
+
+    public void setHotspot(float f, float f1)
+    {
+        fe.a(a, f, f1);
+    }
+
+    public void setHotspotBounds(int i, int j, int k, int l)
+    {
+        fe.a(a, i, j, k, l);
+    }
+
+    public boolean setState(int ai[])
+    {
+        return a.setState(ai);
+    }
+
+    public void setTint(int i)
+    {
+        fe.a(a, i);
+    }
+
+    public void setTintList(ColorStateList colorstatelist)
+    {
+        fe.a(a, colorstatelist);
+    }
+
+    public void setTintMode(android.graphics.PorterDuff.Mode mode)
+    {
+        fe.a(a, mode);
+    }
+
+    public boolean setVisible(boolean flag, boolean flag1)
+    {
+        return super.setVisible(flag, flag1) || a.setVisible(flag, flag1);
+    }
+
+    public void unscheduleDrawable(Drawable drawable, Runnable runnable)
+    {
+        unscheduleSelf(runnable);
+    }
 }

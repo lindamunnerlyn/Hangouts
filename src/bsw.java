@@ -2,38 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
 final class bsw
-    implements bow
 {
 
-    final bov a;
-    final bss b;
+    private final ber a = (new bes()).a("HangoutActivity").b("Main video call UI").a(false).a();
 
-    bsw(bss bss, bov bov1)
-    {
-        b = bss;
-        a = bov1;
-        super();
-    }
-
-    public void a(bpd bpd)
+    public bsw()
     {
     }
 
-    public void a(gjr gjr1)
+    public bst a(Context context)
     {
-        boolean flag;
-        if (!gjr1.d())
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        if (a.a() != flag)
-        {
-            a.a(flag);
-        }
+        return (bst)a.a(context, bsu, bsv);
+    }
+
+    public ber[] a()
+    {
+        return (new ber[] {
+            a
+        });
+    }
+
+    public bsu b()
+    {
+        return new bsx(this);
     }
 }

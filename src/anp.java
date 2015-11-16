@@ -2,47 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import java.io.Serializable;
 
-final class anp
-    implements gmz
+public final class anp
+    implements Serializable
 {
 
-    final ank a;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
 
-    anp(ank ank)
+    public anp(String s, String s1, String s2)
     {
-        a = ank;
-        super();
-    }
-
-    public String a()
-    {
-        return "logged_off_to_logged_in";
-    }
-
-    public void a(Context context, gmw gmw1)
-    {
-        boolean flag1 = true;
-        boolean flag = gmw1.a("logged_off", false);
-        context = String.valueOf(ebw.b(gmw1.b("account_name")));
-        ebw.e("Babel", (new StringBuilder(String.valueOf(context).length() + 35)).append("Account ").append(context).append(" logged off: ").append(flag).append(" migrated").toString());
-        if ("SMS".equals(gmw1.b("account_name")))
-        {
-            if (!gmw1.d("is_sms_account") || !dbf.j())
-            {
-                flag = true;
-            } else
-            {
-                flag = false;
-            }
-        }
-        if (flag)
-        {
-            flag1 = false;
-        }
-        gmw1.b("logged_in", flag1);
-        gmw1.b("logged_out", flag);
-        gmw1.f("logged_off");
+        a = s;
+        c = s1;
+        d = s2;
     }
 }

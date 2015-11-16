@@ -4,22 +4,21 @@
 
 
 final class dpu
-    implements hfe
+    implements Runnable
 {
 
-    final String a;
-    final dpo b;
+    final dpw a;
+    final dpn b;
 
-    dpu(dpo dpo1, String s)
+    dpu(dpn dpn1, dpw dpw)
     {
-        b = dpo1;
-        a = s;
+        b = dpn1;
+        a = dpw;
         super();
     }
 
-    public boolean a(hfa hfa, Object obj)
+    public void run()
     {
-        dpo.b(b).a(a, g.a((Boolean)obj, false));
-        return true;
+        b.a(a);
     }
 }

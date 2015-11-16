@@ -2,118 +2,71 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.util.Log;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
-public final class itk extends koj
+final class itk
+    implements Runnable
 {
 
-    private static volatile itk d[];
-    public ivz a;
-    public irg b;
-    public Integer c;
+    final itg a;
+    final List b;
+    final itj c;
 
-    public itk()
+    itk(itj itj, itg itg, List list)
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        c = itj;
+        a = itg;
+        b = list;
+        super();
     }
 
-    public static itk[] a()
+    public void run()
     {
-        if (d == null)
+        List list;
+        list = b;
+        if (!Log.isLoggable("trace_manager", 2))
         {
-            synchronized (kon.a)
-            {
-                if (d == null)
-                {
-                    d = new itk[0];
-                }
-            }
+            break MISSING_BLOCK_LABEL_274;
         }
-        return d;
-        exception;
-        obj;
+        Object obj1 = new hd();
+        list;
+        JVM INSTR monitorenter ;
+        ldp ldp1;
+        for (Iterator iterator1 = list.iterator(); iterator1.hasNext(); ((hd) (obj1)).a(ldp1.k(), ldp1))
+        {
+            ldp1 = (ldp)iterator1.next();
+        }
+
+        break MISSING_BLOCK_LABEL_70;
+        obj1;
+        list;
         JVM INSTR monitorexit ;
-        throw exception;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        throw obj1;
+        list;
+        JVM INSTR monitorexit ;
+        ArrayList arraylist = new ArrayList();
+        for (int i = 0; i < ((hd) (obj1)).a(); i++)
         {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (c != null)
-        {
-            j = i + koh.e(2, c.intValue());
-        }
-        i = j;
-        if (b != null)
-        {
-            i = j + koh.d(3, b);
-        }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
+            Object obj = (ldp)((hd) (obj1)).a(i);
+            long l = ((ldp) (obj)).k();
+            long l1 = (long)((ldp) (obj)).o();
+            long l2 = Math.max(l1, (long)((ldp) (obj)).p());
+            obj = (new StringBuilder(23)).append(l2 - l1).append(" ms").toString();
+            do
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new ivz();
-                }
-                kog1.a(a);
-                break;
-
-            case 16: // '\020'
-                c = Integer.valueOf(kog1.f());
-                break;
-
-            case 26: // '\032'
-                if (b == null)
-                {
-                    b = new irg();
-                }
-                kog1.a(b);
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.b(1, a);
+                Object obj2 = (ldp)((hd) (obj1)).a(l);
+                l = ((ldp) (obj2)).l();
+                obj2 = String.valueOf(((ldp) (obj2)).m());
+                obj = (new StringBuilder(String.valueOf(obj2).length() + 3 + String.valueOf(obj).length())).append(((String) (obj2))).append(" > ").append(((String) (obj))).toString();
+            } while (l != 0L);
+            arraylist.add(obj);
         }
-        if (c != null)
-        {
-            koh1.a(2, c.intValue());
-        }
-        if (b != null)
-        {
-            koh1.b(3, b);
-        }
-        super.writeTo(koh1);
+
+        Collections.sort(arraylist);
+        for (Iterator iterator = arraylist.iterator(); iterator.hasNext(); iterator.next()) { }
     }
 }

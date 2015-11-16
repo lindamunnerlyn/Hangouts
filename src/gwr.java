@@ -2,10 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
 
-public interface gwr
+public final class gwr
 {
 
-    public abstract ad a(Bundle bundle);
+    public gwr()
+    {
+    }
 }

@@ -2,19 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.animation.Interpolator;
+import android.content.res.ColorStateList;
 
-final class pl
-    implements Interpolator
+public interface pl
 {
 
-    pl()
-    {
-    }
+    public abstract void a(ColorStateList colorstatelist);
 
-    public float getInterpolation(float f)
-    {
-        f--;
-        return f * (f * f * f * f) + 1.0F;
-    }
+    public abstract void a(android.graphics.PorterDuff.Mode mode);
 }

@@ -2,65 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewStub;
-import android.widget.Button;
-import com.google.android.apps.hangouts.promo.AnnouncingRelativeLayout;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.google.android.apps.hangouts.phone.ShowDialerActivity;
 
-public abstract class cqw extends hhu
+public final class cqw
+    implements gqw
 {
 
-    private int a;
-    private int b[];
-    private android.view.View.OnClickListener c;
+    final ShowDialerActivity a;
 
-    public cqw(int i, int ai[])
+    public cqw(ShowDialerActivity showdialeractivity)
     {
-        c = new cqy(this);
-        a = i;
-        b = ai;
+        a = showdialeractivity;
+        super();
     }
 
-    public abstract String a();
-
-    public void a(int i)
+    public void a(boolean flag, gqv gqv1, gqv gqv2, int i, int j)
     {
-        ((cqz)getActivity()).g();
-    }
-
-    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
-    {
-        int i = 0;
-        layoutinflater = layoutinflater.inflate(g.os, viewgroup, false);
-        ((AnnouncingRelativeLayout)layoutinflater.findViewById(g.or)).a(a());
-        viewgroup = (ViewStub)layoutinflater.findViewById(g.oq);
-        viewgroup.setLayoutResource(a);
-        viewgroup.inflate();
-        if (b != null)
+        if (gqv2 == gqv.c)
         {
-            viewgroup = (ViewStub)layoutinflater.findViewById(g.op);
-            if (b.length == 1)
+            gqv1 = a.j.a();
+            gqv2 = a.getIntent().getStringExtra("number_to_call");
+            if (!TextUtils.isEmpty(gqv2))
             {
-                viewgroup.setLayoutResource(g.ot);
-            } else
-            {
-                viewgroup.setLayoutResource(g.ou);
+                gqv1.putExtra("number_to_call", gqv2);
             }
-            viewgroup = viewgroup.inflate();
-            bundle = b;
-            for (int j = bundle.length; i < j; i++)
-            {
-                Button button = (Button)viewgroup.findViewById(bundle[i]);
-                button.setOnClickListener(c);
-                button.setAllCaps(true);
-            }
-
+            a.startActivity(gqv1);
         }
-        kb.c(layoutinflater, 1);
-        layoutinflater.addOnAttachStateChangeListener(new cqx(this));
-        return layoutinflater;
+        a.finish();
     }
 }

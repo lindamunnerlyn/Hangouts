@@ -2,48 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.collect.MapMakerInternalMap;
-import java.util.AbstractSet;
-import java.util.Iterator;
 
-public final class jof extends AbstractSet
+final class jof extends job
 {
 
-    final MapMakerInternalMap a;
-
-    public jof(MapMakerInternalMap mapmakerinternalmap)
+    jof(String s)
     {
-        a = mapmakerinternalmap;
-        super();
+        super(s, 3);
     }
 
-    public void clear()
+    public boolean a(Object obj)
     {
-        a.clear();
+        return obj != null;
     }
 
-    public boolean contains(Object obj)
+    public String toString()
     {
-        return a.containsKey(obj);
-    }
-
-    public boolean isEmpty()
-    {
-        return a.isEmpty();
-    }
-
-    public Iterator iterator()
-    {
-        return new joe(a);
-    }
-
-    public boolean remove(Object obj)
-    {
-        return a.remove(obj) != null;
-    }
-
-    public int size()
-    {
-        return a.size();
+        return "Predicates.notNull()";
     }
 }

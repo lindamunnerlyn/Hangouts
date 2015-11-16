@@ -3,22 +3,44 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ifl extends koj
+public final class ifl extends kwm
 {
 
-    public ifi a;
-    public String b;
+    private static volatile ifl f[];
+    public Double a;
+    public Double b;
     public String c;
-    public ien d[];
+    public String d;
+    public String e;
 
     public ifl()
     {
         a = null;
         b = null;
         c = null;
-        d = ien.a();
+        d = null;
+        e = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static ifl[] a()
+    {
+        if (f == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (f == null)
+                {
+                    f = new ifl[0];
+                }
+            }
+        }
+        return f;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -27,51 +49,42 @@ public final class ifl extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            a.doubleValue();
+            i = j + (kwk.f(1) + 8);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.b(2, b);
+            b.doubleValue();
+            j = i + (kwk.f(2) + 8);
         }
         i = j;
         if (c != null)
         {
-            i = j + koh.b(3, c);
+            i = j + kwk.b(3, c);
         }
         j = i;
         if (d != null)
         {
-            j = i;
-            if (d.length > 0)
-            {
-                for (j = 0; j < d.length;)
-                {
-                    ien ien1 = d[j];
-                    int k = i;
-                    if (ien1 != null)
-                    {
-                        k = i + koh.d(4, ien1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            j = i + kwk.b(4, d);
         }
-        return j;
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.b(5, e);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -80,81 +93,51 @@ public final class ifl extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new ifi();
-                }
-                kog1.a(a);
+            case 9: // '\t'
+                a = Double.valueOf(kwj1.b());
                 break;
 
-            case 18: // '\022'
-                b = kog1.j();
+            case 17: // '\021'
+                b = Double.valueOf(kwj1.b());
                 break;
 
             case 26: // '\032'
-                c = kog1.j();
+                c = kwj1.j();
                 break;
 
             case 34: // '"'
-                int k = kou.b(kog1, 34);
-                ien aien[];
-                int j;
-                if (d == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = d.length;
-                }
-                aien = new ien[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(d, 0, aien, 0, j);
-                    k = j;
-                }
-                for (; k < aien.length - 1; k++)
-                {
-                    aien[k] = new ien();
-                    kog1.a(aien[k]);
-                    kog1.a();
-                }
+                d = kwj1.j();
+                break;
 
-                aien[k] = new ien();
-                kog1.a(aien[k]);
-                d = aien;
+            case 42: // '*'
+                e = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.a(1, a.doubleValue());
         }
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.a(2, b.doubleValue());
         }
         if (c != null)
         {
-            koh1.a(3, c);
+            kwk1.a(3, c);
         }
-        if (d != null && d.length > 0)
+        if (d != null)
         {
-            for (int i = 0; i < d.length; i++)
-            {
-                ien ien1 = d[i];
-                if (ien1 != null)
-                {
-                    koh1.b(4, ien1);
-                }
-            }
-
+            kwk1.a(4, d);
         }
-        super.writeTo(koh1);
+        if (e != null)
+        {
+            kwk1.a(5, e);
+        }
+        super.writeTo(kwk1);
     }
 }

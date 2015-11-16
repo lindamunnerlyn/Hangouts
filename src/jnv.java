@@ -2,21 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.collect.MapMakerInternalMap;
+import java.io.Serializable;
 
-public final class jnv extends jod
+public abstract class jnv
+    implements Serializable
 {
 
-    final MapMakerInternalMap a;
+    private static final long serialVersionUID = 0L;
 
-    jnv(MapMakerInternalMap mapmakerinternalmap)
+    jnv()
     {
-        a = mapmakerinternalmap;
-        super(mapmakerinternalmap);
     }
 
-    public Object next()
+    public static jnv b(Object obj)
     {
-        return c();
+        return new jog(n.b(obj));
     }
+
+    public static jnv c(Object obj)
+    {
+        if (obj == null)
+        {
+            return jmq.a();
+        } else
+        {
+            return new jog(obj);
+        }
+    }
+
+    public static jnv d()
+    {
+        return jmq.a();
+    }
+
+    public abstract Object a(Object obj);
+
+    public abstract boolean b();
+
+    public abstract Object c();
 }

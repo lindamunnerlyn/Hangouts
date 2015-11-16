@@ -3,58 +3,24 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class cfm
+final class cfm extends cfk
 {
 
-    static final int a[];
-    static final int b[];
+    final cfi b;
 
-    static 
+    cfm(cfi cfi1)
     {
-        b = new int[cfn.a().length];
-        try
+        b = cfi1;
+        super(cfi1);
+    }
+
+    public void a(eef eef1, edf edf, boolean flag, aqn aqn, boolean flag1)
+    {
+        gdv.a("Expected null", edf);
+        if (flag)
         {
-            b[cfn.a - 1] = 1;
+            b.u.a(eef1.d());
         }
-        catch (NoSuchFieldError nosuchfielderror7) { }
-        try
-        {
-            b[cfn.b - 1] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror6) { }
-        try
-        {
-            b[cfn.c - 1] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror5) { }
-        try
-        {
-            b[cfn.d - 1] = 4;
-        }
-        catch (NoSuchFieldError nosuchfielderror4) { }
-        a = new int[atd.values().length];
-        try
-        {
-            a[atd.a.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror3) { }
-        try
-        {
-            a[atd.b.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[atd.c.ordinal()] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[atd.d.ordinal()] = 4;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
+        super.a(eef1, edf, flag, aqn, flag1);
     }
 }

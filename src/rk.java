@@ -2,53 +2,57 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
-import android.widget.FrameLayout;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
 
-final class rk extends FrameLayout
+final class rk
+    implements vu
 {
 
-    final ra a;
+    final rc a;
+    private vu b;
 
-    public rk(ra ra1, Context context)
+    public rk(rc rc1, vu vu1)
     {
-        a = ra1;
-        super(context);
+        a = rc1;
+        super();
+        b = vu1;
     }
 
-    public boolean dispatchKeyEvent(KeyEvent keyevent)
+    public void a(vt vt)
     {
-        return a.a(keyevent) || super.dispatchKeyEvent(keyevent);
-    }
-
-    public boolean onInterceptTouchEvent(MotionEvent motionevent)
-    {
-        if (motionevent.getAction() == 0)
+        b.a(vt);
+        if (a.q != null)
         {
-            int i = (int)motionevent.getX();
-            int j = (int)motionevent.getY();
-            boolean flag;
-            if (i < -5 || j < -5 || i > getWidth() + 5 || j > getHeight() + 5)
-            {
-                flag = true;
-            } else
-            {
-                flag = false;
-            }
-            if (flag)
-            {
-                motionevent = a;
-                motionevent.a(motionevent.e(0), true);
-                return true;
-            }
+            a.b.getDecorView().removeCallbacks(a.r);
         }
-        return super.onInterceptTouchEvent(motionevent);
+        if (a.p != null)
+        {
+            a.m();
+            a.s = kb.p(a.p).a(0.0F);
+            a.s.a(new rl(this));
+        }
+        if (a.e != null)
+        {
+            a.e.b(a.o);
+        }
+        a.o = null;
     }
 
-    public void setBackgroundResource(int i)
+    public boolean a(vt vt, Menu menu)
     {
-        setBackgroundDrawable(vi.a(getContext(), i));
+        return b.a(vt, menu);
+    }
+
+    public boolean a(vt vt, MenuItem menuitem)
+    {
+        return b.a(vt, menuitem);
+    }
+
+    public boolean b(vt vt, Menu menu)
+    {
+        return b.b(vt, menu);
     }
 }

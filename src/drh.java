@@ -2,28 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
+import com.google.android.apps.hangouts.settings.NotificationSettingsActivity;
+import com.google.android.libraries.social.settings.PreferenceCategory;
 
-public final class drh extends abx
+public final class drh extends hmm
+    implements hjp
 {
-
-    private static final long serialVersionUID = 1L;
 
     public drh()
     {
+        new hjo(this, lifecycle);
     }
 
-    public drh(String s)
+    public void a()
     {
-        super(s);
+        hjx hjx1 = new hjx(context);
+        PreferenceCategory preferencecategory = hjx1.a(l.af);
+        preferencecategory.c(NotificationSettingsActivity.a(context, lifecycle, hjx1, l.ad, "chat_notification_enabled_key", "chat_notification_sound_key", 2, "chat_notification_vibrate_bool_key"));
+        preferencecategory.c(NotificationSettingsActivity.a(context, lifecycle, hjx1, l.sM, "hangouts_notification_enabled_key", "hangout_sound_key", 1, "hangout_vibrate_boolean_key"));
     }
 
-    public drh(String s, Throwable throwable)
+    protected void onAttachBinder(Bundle bundle)
     {
-        super(s, throwable);
-    }
-
-    public drh(Throwable throwable)
-    {
-        super(throwable);
+        super.onAttachBinder(bundle);
     }
 }

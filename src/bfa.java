@@ -2,26 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.view.View;
+import com.google.android.apps.hangouts.floatingactionbutton.impl.FloatingActionButton;
 
-final class bfa
+public final class bfa
+    implements android.view.View.OnClickListener
 {
 
-    private final beb a = (new bec()).a("floatingactionbutton").b("Add a floating action button.").a(true).a();
+    final FloatingActionButton a;
 
-    public bfa()
+    public bfa(FloatingActionButton floatingactionbutton)
     {
+        a = floatingactionbutton;
+        super();
     }
 
-    public beh a(Context context)
+    public void onClick(View view)
     {
-        return (beh)a.a(context, new bfc());
-    }
-
-    public beb[] a()
-    {
-        return (new beb[] {
-            a
-        });
+        if (a.a != null)
+        {
+            view = a.a;
+            int i;
+            if (a.d != -1)
+            {
+                i = a.d;
+            } else
+            {
+                i = a.b;
+            }
+            view.a(i);
+        }
     }
 }

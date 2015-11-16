@@ -2,42 +2,80 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.os.Bundle;
+import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.widget.EditText;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.TextView;
+import java.util.List;
 
-public final class bls extends ac
+public final class bls extends BaseAdapter
 {
 
-    public bls()
+    private final List a;
+    private final android.view.View.OnClickListener b;
+    private final Context c;
+
+    public bls(Context context, List list, android.view.View.OnClickListener onclicklistener)
     {
+        c = context;
+        a = list;
+        b = onclicklistener;
     }
 
-    public static bls a(String s)
+    public int getCount()
     {
-        bls bls1 = new bls();
-        Bundle bundle = new Bundle();
-        bundle.putString("name", s);
-        bls1.setArguments(bundle);
-        return bls1;
+        return a.size();
     }
 
-    public Dialog a(Bundle bundle)
+    public Object getItem(int i)
     {
-        Object obj = getArguments().getString("name");
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getActivity());
-        View view = getActivity().getLayoutInflater().inflate(g.fD, null);
-        bundle = (EditText)view.findViewById(h.aD);
-        bundle.setText(((CharSequence) (obj)));
-        bundle.setSelection(0, bundle.getText().toString().length());
-        builder.setTitle(l.iN).setView(view).setPositiveButton(getString(l.iO), new blu(this, bundle)).setNegativeButton(getString(l.iM), new blt(this));
-        obj = builder.create();
-        bundle.addTextChangedListener(new blv(this, ((AlertDialog) (obj))));
-        ((AlertDialog) (obj)).getWindow().setSoftInputMode(5);
-        return ((Dialog) (obj));
+        return a;
+    }
+
+    public long getItemId(int i)
+    {
+        return (long)(-i);
+    }
+
+    public View getView(int i, View view, ViewGroup viewgroup)
+    {
+        blt blt1 = (blt)a.get(i);
+        TextView textview;
+        CheckBox checkbox;
+        if (view == null || view.getId() != h.ax)
+        {
+            view = LayoutInflater.from(c).inflate(g.fx, viewgroup, false);
+            eep.a(view, true);
+        }
+        blt1.g = view;
+        viewgroup = (TextView)view.findViewById(h.gh);
+        textview = (TextView)view.findViewById(h.fU);
+        checkbox = (CheckBox)view.findViewById(h.Z);
+        viewgroup.setText(blt1.a);
+        if (TextUtils.isEmpty(blt1.b))
+        {
+            textview.setText("");
+            textview.setVisibility(8);
+        } else
+        {
+            textview.setText(blt1.b);
+            textview.setVisibility(0);
+        }
+        if (blt1.c)
+        {
+            checkbox.setVisibility(0);
+            checkbox.setChecked(blt1.d);
+        } else
+        {
+            checkbox.setVisibility(8);
+        }
+        blt1.a();
+        view.setTag(Integer.valueOf(blt1.f));
+        view.setOnClickListener(b);
+        return view;
     }
 }

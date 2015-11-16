@@ -2,129 +2,56 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.api.client.json.GenericJson;
+import com.google.api.client.util.GenericData;
 
-public final class hre extends koj
+public class hre extends GenericJson
 {
 
-    private static volatile hre e[];
-    public hru a;
-    public String b;
-    public String c;
-    public String d;
+    private String a;
 
     public hre()
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    public static hre[] a()
+    public hre a()
     {
-        if (e == null)
-        {
-            synchronized (kon.a)
-            {
-                if (e == null)
-                {
-                    e = new hre[0];
-                }
-            }
-        }
-        return e;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return (hre)super.clone();
     }
 
-    protected int computeSerializedSize()
+    public hre a(String s, Object obj)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.b(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.b(3, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.b(4, d);
-        }
-        return j;
+        return (hre)super.set(s, obj);
     }
 
-    public kop mergeFrom(kog kog1)
+    public GenericJson clone()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new hru();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-
-            case 26: // '\032'
-                c = kog1.j();
-                break;
-
-            case 34: // '"'
-                d = kog1.j();
-                break;
-            }
-        } while (true);
+        return a();
     }
 
-    public void writeTo(koh koh1)
+    public GenericData clone()
     {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
-        if (c != null)
-        {
-            koh1.a(3, c);
-        }
-        if (d != null)
-        {
-            koh1.a(4, d);
-        }
-        super.writeTo(koh1);
+        return a();
+    }
+
+    public Object clone()
+    {
+        return a();
+    }
+
+    public hre d(String s)
+    {
+        a = s;
+        return this;
+    }
+
+    public GenericJson set(String s, Object obj)
+    {
+        return a(s, obj);
+    }
+
+    public GenericData set(String s, Object obj)
+    {
+        return a(s, obj);
     }
 }

@@ -2,25 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Handler;
-import com.google.android.apps.hangouts.wearable.WearableService;
+import android.os.AsyncTask;
+import android.view.View;
+import java.lang.ref.WeakReference;
 
-public final class ehc
-    implements egy
+final class ehc extends AsyncTask
 {
 
-    final WearableService a;
+    ehd a;
+    final ehb b;
 
-    public ehc(WearableService wearableservice)
+    ehc(ehb ehb1, ehd ehd1)
     {
-        a = wearableservice;
+        b = ehb1;
         super();
+        a = ehd1;
     }
 
-    public void a(Uri uri, Bitmap bitmap)
+    protected Object doInBackground(Object aobj[])
     {
-        a.n.post(new ehd(this, uri, bitmap));
+        ehb.a(b, a, edj.a());
+        return null;
+    }
+
+    protected void onPostExecute(Object obj)
+    {
+        obj = (View)a.c.get();
+        if (obj != null)
+        {
+            ((View) (obj)).invalidate();
+        }
     }
 }

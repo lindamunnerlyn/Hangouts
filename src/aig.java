@@ -3,24 +3,47 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class aig extends Enum
+public final class aig
 {
 
-    public static final int a;
-    public static final int b;
-    private static final int c[];
+    String a;
+    String b;
+    int c;
+    aih d;
 
-    public static int[] a()
+    aig()
     {
-        return (int[])c.clone();
     }
 
-    static 
+    public aif a()
     {
-        a = 1;
-        b = 2;
-        c = (new int[] {
-            a, b
-        });
+        return new aif(this);
+    }
+
+    public aig a(aif aif1)
+    {
+        if (aif1.a())
+        {
+            a(aif1.b());
+        }
+        if (aif1.c())
+        {
+            b = aif1.d();
+        }
+        if (aif1.e() > 0)
+        {
+            c = aif1.e();
+        }
+        if (aif1.f())
+        {
+            d = aif1.g();
+        }
+        return this;
+    }
+
+    public aig a(String s)
+    {
+        a = s;
+        return this;
     }
 }

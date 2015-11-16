@@ -2,79 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import android.content.Context;
+import android.content.Intent;
 
-public final class cep extends cqw
+public abstract class cep extends cfi
 {
 
-    public static final List a = new ArrayList(Arrays.asList(new String[] {
-        "android.permission.READ_CONTACTS", "android.permission.WRITE_CONTACTS"
-    }));
-    private int b;
+    static final boolean a = false;
+    static cet g = new cet();
+    public String b;
+    public CharSequence c;
+    public final long d;
+    public int e;
+    public String f;
 
-    public cep()
+    cep(Context context, int i, int j, edb edb1, long l)
     {
-        super(g.ng, new int[] {
-            o.c, o.d
-        });
-    }
-
-    static int a(cep cep1)
-    {
-        return cep1.b;
-    }
-
-    static void a(cep cep1, int i)
-    {
-        cep1.cqw.a(i);
-    }
-
-    protected String a()
-    {
-        return getString(g.nj);
-    }
-
-    protected void a(int i)
-    {
-        b = i;
-        PreferenceManager.getDefaultSharedPreferences(context).edit().putBoolean("contacts_rationale_shown", true).apply();
-        if (i == o.d)
+        super(context, i, edb1);
+        c = null;
+        e = j;
+        if (l <= 0L)
         {
-            ((cia)binder.a(cia)).a(o.a, a, 2654, null);
-            return;
-        } else
-        {
-            super.a(i);
-            return;
+            l = System.currentTimeMillis();
         }
+        d = l;
     }
 
-    public void onCreate(Bundle bundle)
+    static void a(Context context, int i)
     {
-        super.onCreate(bundle);
-        ((cia)binder.a(cia)).a(o.a, new ceq(this));
+        cfn.a(context, i, null);
+        cfe.b(context, i);
     }
 
-    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
+    protected Intent b()
     {
-        layoutinflater = super.onCreateView(layoutinflater, viewgroup, bundle);
-        ((Button)layoutinflater.findViewById(o.c)).setText(g.nk);
-        viewgroup = (Button)layoutinflater.findViewById(o.d);
-        viewgroup.setTextColor(layoutinflater.getResources().getColor(g.nf));
-        viewgroup.setText(g.ni);
-        g.a((ImageView)layoutinflater.findViewById(o.b), context.getResources(), g.nh);
-        return layoutinflater;
+        return (new ceq()).a(o, p, q.b());
     }
 
+    static 
+    {
+        hnc hnc = eev.n;
+    }
 }

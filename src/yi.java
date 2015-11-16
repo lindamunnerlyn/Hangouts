@@ -2,29 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.DataSetObserver;
+import android.os.SystemClock;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewParent;
 
-final class yi extends DataSetObserver
+final class yi
+    implements Runnable
 {
 
-    final ya a;
+    final yg a;
 
-    yi(ya ya1)
+    yi(yg yg1)
     {
-        a = ya1;
+        a = yg1;
         super();
     }
 
-    public void onChanged()
+    public void run()
     {
-        if (a.n())
+        yg yg1 = a;
+        yg1.d();
+        View view;
+        for (view = yg1.c; !view.isEnabled() || view.isLongClickable() || !yg1.b();)
         {
-            a.c();
+            return;
         }
-    }
 
-    public void onInvalidated()
-    {
-        a.k();
+        view.getParent().requestDisallowInterceptTouchEvent(true);
+        long l = SystemClock.uptimeMillis();
+        MotionEvent motionevent = MotionEvent.obtain(l, l, 3, 0.0F, 0.0F, 0);
+        view.onTouchEvent(motionevent);
+        motionevent.recycle();
+        yg1.d = true;
+        yg1.e = true;
     }
 }

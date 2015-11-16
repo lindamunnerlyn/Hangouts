@@ -2,73 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import java.util.Iterator;
-import java.util.List;
 
-public class hhu extends hki
-    implements hha
+final class hhu
+    implements Runnable
 {
 
-    private hjr a;
-    public final hgx binder;
-    public final hhb context = new hhb();
+    final hhm a;
+    final Object b;
+    final hhr c;
 
-    public hhu()
+    hhu(hhr hhr, hhm hhm1, Object obj)
     {
-        binder = context.getBinder();
+        c = hhr;
+        a = hhm1;
+        b = obj;
+        super();
     }
 
-    static hjg a(hhu hhu1)
+    public void run()
     {
-        return hhu1.lifecycle;
-    }
-
-    public hgx getBinder()
-    {
-        return binder;
-    }
-
-    public Context getContext()
-    {
-        return context;
-    }
-
-    public LayoutInflater getLayoutInflater(Bundle bundle)
-    {
-        super.getLayoutInflater(bundle);
-        return LayoutInflater.from(context);
-    }
-
-    public void onAttach(Activity activity)
-    {
-        hgx hgx1 = hgx.a(activity, getParentFragment());
-        context.a(activity);
-        context.a(hgx1);
-        binder.b(getClass().getName());
-        super.onAttach(activity);
-    }
-
-    public void onAttachBinder(Bundle bundle)
-    {
-        binder.a(new hia(this, lifecycle));
-    }
-
-    public void onCreate(Bundle bundle)
-    {
-        onAttachBinder(bundle);
-        for (Iterator iterator = binder.c(hib).iterator(); iterator.hasNext(); iterator.next()) { }
-        binder.a();
-        a = lifecycle.a(new hhv(this, bundle));
-        super.onCreate(bundle);
-    }
-
-    public void onDestroy()
-    {
-        lifecycle.b(a);
-        super.onDestroy();
+        a.a(b);
     }
 }

@@ -2,35 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import java.util.concurrent.TimeUnit;
 
-final class aku
-    implements br
+public final class aku
 {
 
-    private final akq a;
+    public final long a;
+    public final byte b[];
+    final ajl c;
 
-    aku(akq akq1)
+    public aku(ajl ajl, long l, String s, jmk jmk1)
     {
-        a = akq1;
-    }
-
-    public em onCreateLoader(int i, Bundle bundle)
-    {
-        return new aky(a.getActivity());
-    }
-
-    public void onLoadFinished(em em, Object obj)
-    {
-        em = (ajo)obj;
-        a.b();
-        if (em != null)
-        {
-            a.a(h.hn);
-        }
-    }
-
-    public void onLoaderReset(em em)
-    {
+        c = ajl;
+        super();
+        g.d(jmk1.a.a.equals(s), "CallerIdPhone number does not match token data");
+        b = kws.toByteArray(jmk1);
+        a = (TimeUnit.MICROSECONDS.toMillis(g.a(jmk1.c, 0L)) + l) - ajs.a;
     }
 }

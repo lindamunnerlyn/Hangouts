@@ -2,33 +2,52 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.widget.CompoundButton;
-import com.google.android.apps.hangouts.phone.DebugActivity;
+import android.os.Handler;
+import java.util.List;
 
-public final class clh
-    implements android.widget.CompoundButton.OnCheckedChangeListener
+final class clh
 {
 
-    final DebugActivity a;
+    private static Handler a;
+    private static List b;
+    private static final Runnable c = new cli();
 
-    public clh(DebugActivity debugactivity)
+    public static void a()
     {
-        a = debugactivity;
-        super();
-    }
-
-    public void onCheckedChanged(CompoundButton compoundbutton, boolean flag)
-    {
-        compoundbutton = DebugActivity.e(a);
-        long l;
-        if (flag)
+        if (a != null)
         {
-            l = 1L;
-        } else
-        {
-            l = 0L;
+            a.removeCallbacks(c);
+            a = null;
+            b = null;
         }
-        compoundbutton.g("DEBUG_RTCS", l);
-        DebugActivity.a(a, flag);
     }
+
+    public static void a(Handler handler, List list)
+    {
+        if (a == null)
+        {
+            gdv.a("Expected null", b);
+            a = handler;
+            b = list;
+            handler.postDelayed(c, 1000L);
+        }
+    }
+
+    static List b()
+    {
+        return b;
+    }
+
+    static List c()
+    {
+        b = null;
+        return null;
+    }
+
+    static Handler d()
+    {
+        a = null;
+        return null;
+    }
+
 }

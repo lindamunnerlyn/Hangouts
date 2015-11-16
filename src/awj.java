@@ -2,22 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
 
 final class awj
-    implements android.view.View.OnClickListener
+    implements Runnable
 {
 
-    final ave a;
+    final asa a;
+    final avv b;
 
-    awj(ave ave1)
+    awj(avv avv1, asa asa)
     {
-        a = ave1;
+        b = avv1;
+        a = asa;
         super();
     }
 
-    public void onClick(View view)
+    public void run()
     {
-        ave.aG(a);
+        avv.B(b).a();
     }
 }

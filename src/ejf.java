@@ -3,16 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public abstract class ejf extends ekl
+public interface ejf
 {
 
-    public ejf(ejw ejw, ejx ejx)
-    {
-        super(ejw, ejx);
-    }
+    public abstract void a();
 
-    public ejf(ejx ejx)
-    {
-        super(eik.a, ejx);
-    }
+    public abstract void a(boolean flag);
 }

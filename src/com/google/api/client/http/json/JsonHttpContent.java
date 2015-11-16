@@ -21,8 +21,8 @@ public class JsonHttpContent extends AbstractHttpContent
     public JsonHttpContent(JsonFactory jsonfactory, Object obj)
     {
         super("application/json; charset=UTF-8");
-        jsonFactory = (JsonFactory)h.b(jsonfactory);
-        data = h.b(obj);
+        jsonFactory = (JsonFactory)h.a(jsonfactory);
+        data = h.a(obj);
     }
 
     public final Object getData()

@@ -2,27 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.media.MediaCodec;
+import android.media.MediaFormat;
 
-final class ghe
-    implements ggr
+final class ghe extends android.media.MediaCodec.Callback
 {
 
-    private final ggl a;
+    final ghd a;
 
-    ghe(ggl ggl1)
+    ghe(ghd ghd1)
     {
-        a = ggl1;
+        a = ghd1;
+        super();
     }
 
-    public void a(kop kop, gbe gbe)
+    public void onError(MediaCodec mediacodec, android.media.MediaCodec.CodecException codecexception)
     {
-        kop = (jbd)kop;
-        a.a("hangout_participants/add", kop, jbe, gbe);
+        boolean flag;
+        if (codecexception.isRecoverable() || codecexception.isTransient())
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        a.a(codecexception, flag);
     }
 
-    public void b(kop kop, gbe gbe)
+    public void onInputBufferAvailable(MediaCodec mediacodec, int i)
     {
-        kop = (jbf)kop;
-        a.a("hangout_participants/modify", kop, jbg, gbe);
+        gne.a(5, "vclib", "Ignoring unexpected onInputBufferAvailable from encoder MediaCodec.");
+    }
+
+    public void onOutputBufferAvailable(MediaCodec mediacodec, int i, android.media.MediaCodec.BufferInfo bufferinfo)
+    {
+        a.a(i, bufferinfo);
+    }
+
+    public void onOutputFormatChanged(MediaCodec mediacodec, MediaFormat mediaformat)
+    {
+        a.a(mediaformat);
     }
 }

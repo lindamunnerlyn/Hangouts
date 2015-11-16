@@ -2,37 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.hangout.HangoutSelfMenu;
+import java.util.Iterator;
+import java.util.List;
 
-final class bpl
+public final class bpl extends boq
 {
 
-    private final String a;
-    private final int b;
-    private final String c;
+    final HangoutSelfMenu a;
 
-    bpl(String s, int i, String s1)
+    public bpl(HangoutSelfMenu hangoutselfmenu)
     {
-        boolean flag;
-        if (i == 0)
+        a = hangoutselfmenu;
+        super();
+    }
+
+    public void a(gkq gkq)
+    {
+        if (gkq instanceof gkx)
         {
-            flag = true;
-        } else
-        {
-            flag = false;
+            for (gkq = a.b.iterator(); gkq.hasNext(); ((bpe)gkq.next()).a(a.a.s())) { }
         }
-        gbh.b(flag);
-        a = s;
-        b = i;
-        c = s1;
     }
 
-    String a()
+    public void b(int i)
     {
-        return a;
+        for (Iterator iterator = a.b.iterator(); iterator.hasNext(); ((bpe)iterator.next()).a(a.a.s())) { }
     }
 
-    String b()
+    public void c()
     {
-        return c;
+        for (Iterator iterator = a.b.iterator(); iterator.hasNext(); ((bpe)iterator.next()).a(a.a.s())) { }
     }
 }

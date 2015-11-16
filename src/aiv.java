@@ -2,29 +2,117 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
-public final class aiv
-    implements fsn, hhi
+final class aiv
+    implements hma, hor, hou, hoy
 {
 
-    private final ai a;
-    private final hjm b;
+    ai a;
+    Dialog b;
+    private gqu c;
+    private gqz d;
+    private ajc e;
+    private boolean f;
 
-    public aiv(ai ai, hjm hjm1)
+    aiv(ai ai1, hof hof1)
     {
-        a = ai;
-        b = hjm1;
-        hjm1.a(this);
+        a = ai1;
+        hof1.a(this);
     }
 
-    public void a(Context context, hgx hgx1, Bundle bundle)
+    public void G_()
     {
-        context = (aiw)hgx1.b(aiw);
-        if (context != null)
+        f = true;
+        c();
+    }
+
+    public void a()
+    {
+        f = false;
+        if (b != null)
         {
-            context.a(a, b);
+            b.dismiss();
+            b = null;
+        }
+    }
+
+    public void a(Context context, hlp hlp1, Bundle bundle)
+    {
+        c = (gqu)hlp1.a(gqu);
+        d = (gqz)hlp1.a(gqz);
+        e = (ajc)hlp1.a(ajc);
+        c.a(new aiw(this));
+    }
+
+    void c()
+    {
+        int j;
+        if (f)
+        {
+            if ((j = c.a()) != -1 && d.c(j))
+            {
+                Object obj = a.getPackageManager();
+                ai ai1;
+                int i;
+                try
+                {
+                    obj = ((PackageManager) (obj)).getPackageInfo(a.getPackageName(), 0);
+                }
+                // Misplaced declaration of an exception variable
+                catch (Object obj)
+                {
+                    throw new AssertionError(obj);
+                }
+                ai1 = a;
+                i = ((PackageInfo) (obj)).versionCode;
+                obj = ((gqz)hlp.a(ai1, gqz)).a(j);
+                if (((grb) (obj)).a("app_upgrade_version_code", 0) < i)
+                {
+                    i = 0;
+                } else
+                {
+                    i = ((grb) (obj)).a("app_upgrade_type", 0);
+                }
+                if (i != 0)
+                {
+                    aiy aiy1;
+                    android.app.AlertDialog.Builder builder;
+                    boolean flag;
+                    if (i == 2)
+                    {
+                        flag = true;
+                    } else
+                    {
+                        flag = false;
+                    }
+                    obj = new aix(this, j);
+                    aiy1 = new aiy(this, flag);
+                    builder = new android.app.AlertDialog.Builder(a);
+                    if (flag)
+                    {
+                        i = g.il;
+                    } else
+                    {
+                        i = g.io;
+                    }
+                    builder = builder.setTitle(i);
+                    if (flag)
+                    {
+                        i = g.im;
+                    } else
+                    {
+                        i = g.in;
+                    }
+                    b = builder.setMessage(i).setOnCancelListener(aiy1).setPositiveButton(g.ik, ((android.content.DialogInterface.OnClickListener) (obj))).create();
+                    b.show();
+                    return;
+                }
+            }
         }
     }
 }

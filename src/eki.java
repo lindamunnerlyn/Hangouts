@@ -2,14 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Looper;
+import com.google.android.apps.hangouts.wearable.WearableService;
+import com.google.android.gms.common.api.Status;
+import java.util.Iterator;
 
-public abstract class eki extends ekj
-    implements ekd
+final class eki
+    implements eni
 {
 
-    protected eki(Looper looper)
+    final ekh a;
+
+    eki(ekh ekh1)
     {
-        super(looper);
+        a = ekh1;
+        super();
+    }
+
+    public void a(enh enh)
+    {
+        enh = (fvh)enh;
+        if (enh.D_().b())
+        {
+            enh = enh.iterator();
+            int i = 0;
+            do
+            {
+                if (!enh.hasNext())
+                {
+                    break;
+                }
+                fvf fvf1 = (fvf)enh.next();
+                int j = WearableService.a(a.a, fvf1);
+                if (j > i)
+                {
+                    i = j;
+                }
+            } while (true);
+            if (i > 0)
+            {
+                WearableService.a(a.a, i);
+            }
+        }
     }
 }

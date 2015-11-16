@@ -2,234 +2,89 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import java.util.ArrayList;
-import java.util.List;
+import android.content.Context;
+import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
+import android.util.AttributeSet;
+import android.widget.TextView;
 
 final class xd
 {
 
-    final xf a;
-    final xe b = new xe();
-    final List c = new ArrayList();
+    private static final int a[] = {
+        0x1010034
+    };
+    private static final int b[];
+    private final TextView c;
 
-    xd(xf xf1)
+    xd(TextView textview)
     {
-        a = xf1;
+        c = textview;
     }
 
-    private int e(int i)
+    private void a(boolean flag)
     {
-        if (i >= 0)
+        TextView textview = c;
+        sg sg1;
+        if (flag)
         {
-            break MISSING_BLOCK_LABEL_8;
-        }
-        i = -1;
-        return i;
-        int j;
-        int k;
-        int l;
-        k = a.a();
-        j = i;
-          goto _L1
-        continue; /* Loop/switch isn't completed */
-        j += l;
-    }
-
-    private void g(View view)
-    {
-        c.add(view);
-        a.c(view);
-    }
-
-    private boolean h(View view)
-    {
-        if (c.remove(view))
-        {
-            a.d(view);
-            return true;
+            sg1 = new sg(c.getContext());
         } else
         {
-            return false;
+            sg1 = null;
         }
+        textview.setTransformationMethod(sg1);
     }
 
-    View a(int i, int j)
+    void a(Context context, int i)
     {
-        int k = c.size();
-        for (j = 0; j < k; j++)
+        context = context.obtainStyledAttributes(i, b);
+        if (context.hasValue(0))
         {
-            View view = (View)c.get(j);
-            zq zq1 = a.b(view);
-            if (zq1.d() == i && !zq1.j())
+            a(context.getBoolean(0, false));
+        }
+        context.recycle();
+    }
+
+    void a(AttributeSet attributeset, int i)
+    {
+        Context context = c.getContext();
+        TypedArray typedarray = context.obtainStyledAttributes(attributeset, a, i, 0);
+        int j = typedarray.getResourceId(0, -1);
+        typedarray.recycle();
+        if (j != -1)
+        {
+            TypedArray typedarray1 = context.obtainStyledAttributes(j, rq.bH);
+            if (typedarray1.hasValue(rq.bJ))
             {
-                return view;
+                a(typedarray1.getBoolean(rq.bJ, false));
             }
+            typedarray1.recycle();
         }
-
-        return null;
-    }
-
-    void a()
-    {
-        b.a();
-        for (int i = c.size() - 1; i >= 0; i--)
+        attributeset = context.obtainStyledAttributes(attributeset, b, i, 0);
+        if (attributeset.hasValue(0))
         {
-            a.d((View)c.get(i));
-            c.remove(i);
+            a(attributeset.getBoolean(0, false));
         }
-
-        a.b();
-    }
-
-    void a(int i)
-    {
-        i = e(i);
-        View view = a.b(i);
-        if (view == null)
+        attributeset.recycle();
+        attributeset = c.getTextColors();
+        if (attributeset != null && !attributeset.isStateful())
         {
-            return;
-        }
-        if (b.c(i))
-        {
-            h(view);
-        }
-        a.a(i);
-    }
-
-    void a(View view)
-    {
-        a(view, -1, true);
-    }
-
-    void a(View view, int i, android.view.ViewGroup.LayoutParams layoutparams, boolean flag)
-    {
-        if (i < 0)
-        {
-            i = a.a();
-        } else
-        {
-            i = e(i);
-        }
-        b.a(i, flag);
-        if (flag)
-        {
-            g(view);
-        }
-        a.a(view, i, layoutparams);
-    }
-
-    void a(View view, int i, boolean flag)
-    {
-        if (i < 0)
-        {
-            i = a.a();
-        } else
-        {
-            i = e(i);
-        }
-        b.a(i, flag);
-        if (flag)
-        {
-            g(view);
-        }
-        a.a(view, i);
-    }
-
-    int b()
-    {
-        return a.a() - c.size();
-    }
-
-    View b(int i)
-    {
-        i = e(i);
-        return a.b(i);
-    }
-
-    void b(View view)
-    {
-        int i = a.a(view);
-        if (i < 0)
-        {
-            return;
-        }
-        if (b.c(i))
-        {
-            h(view);
-        }
-        a.a(i);
-    }
-
-    int c()
-    {
-        return a.a();
-    }
-
-    int c(View view)
-    {
-        int i;
-        for (i = a.a(view); i == -1 || b.b(i);)
-        {
-            return -1;
-        }
-
-        return i - b.d(i);
-    }
-
-    View c(int i)
-    {
-        return a.b(i);
-    }
-
-    void d(int i)
-    {
-        i = e(i);
-        b.c(i);
-        a.c(i);
-    }
-
-    boolean d(View view)
-    {
-        return c.contains(view);
-    }
-
-    void e(View view)
-    {
-        int i = a.a(view);
-        if (i < 0)
-        {
-            throw new IllegalArgumentException((new StringBuilder("view is not a child, cannot hide ")).append(view).toString());
-        } else
-        {
-            b.a(i);
-            g(view);
-            return;
+            if (android.os.Build.VERSION.SDK_INT < 21)
+            {
+                i = vg.c(context, 0x1010038);
+            } else
+            {
+                i = vg.a(context, 0x1010038);
+            }
+            c.setTextColor(vg.a(attributeset.getDefaultColor(), i));
         }
     }
 
-    boolean f(View view)
+    static 
     {
-        int i = a.a(view);
-        if (i == -1)
-        {
-            h(view);
-            return true;
-        }
-        if (b.b(i))
-        {
-            b.c(i);
-            h(view);
-            a.a(i);
-            return true;
-        } else
-        {
-            return false;
-        }
-    }
-
-    public String toString()
-    {
-        return (new StringBuilder()).append(b.toString()).append(", hidden list:").append(c.size()).toString();
+        b = (new int[] {
+            g.O
+        });
     }
 }

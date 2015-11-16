@@ -2,124 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.AbstractCollection;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import com.google.common.cache.LocalCache;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-final class jpk extends AbstractCollection
+final class jpk
+    implements Runnable
 {
 
-    final Map a;
+    final Object a;
+    final int b;
+    final jpg c;
+    final kak d;
+    final jpj e;
 
-    jpk(Map map)
+    jpk(jpj jpj1, Object obj, int i, jpg jpg1, kak kak)
     {
-        a = (Map)n.b(map);
+        e = jpj1;
+        a = obj;
+        b = i;
+        c = jpg1;
+        d = kak;
+        super();
     }
 
-    public void clear()
+    public void run()
     {
-        a.clear();
-    }
-
-    public boolean contains(Object obj)
-    {
-        return a.containsValue(obj);
-    }
-
-    public boolean isEmpty()
-    {
-        return a.isEmpty();
-    }
-
-    public Iterator iterator()
-    {
-        return jpc.b(a.entrySet().iterator());
-    }
-
-    public boolean remove(Object obj)
-    {
-        boolean flag;
         try
         {
-            flag = super.remove(obj);
+            e.a(a, b, c, d);
+            return;
         }
-        catch (UnsupportedOperationException unsupportedoperationexception)
+        catch (Throwable throwable)
         {
-            for (Iterator iterator1 = a.entrySet().iterator(); iterator1.hasNext();)
-            {
-                java.util.Map.Entry entry = (java.util.Map.Entry)iterator1.next();
-                if (n.a(obj, entry.getValue()))
-                {
-                    a.remove(entry.getKey());
-                    return true;
-                }
-            }
-
-            return false;
+            LocalCache.a.log(Level.WARNING, "Exception thrown during refresh", throwable);
+            c.a(throwable);
+            return;
         }
-        return flag;
-    }
-
-    public boolean removeAll(Collection collection)
-    {
-        boolean flag;
-        try
-        {
-            flag = super.removeAll((Collection)n.b(collection));
-        }
-        catch (UnsupportedOperationException unsupportedoperationexception)
-        {
-            java.util.HashSet hashset = h.c();
-            Iterator iterator1 = a.entrySet().iterator();
-            do
-            {
-                if (!iterator1.hasNext())
-                {
-                    break;
-                }
-                java.util.Map.Entry entry = (java.util.Map.Entry)iterator1.next();
-                if (collection.contains(entry.getValue()))
-                {
-                    hashset.add(entry.getKey());
-                }
-            } while (true);
-            return a.keySet().removeAll(hashset);
-        }
-        return flag;
-    }
-
-    public boolean retainAll(Collection collection)
-    {
-        boolean flag;
-        try
-        {
-            flag = super.retainAll((Collection)n.b(collection));
-        }
-        catch (UnsupportedOperationException unsupportedoperationexception)
-        {
-            java.util.HashSet hashset = h.c();
-            Iterator iterator1 = a.entrySet().iterator();
-            do
-            {
-                if (!iterator1.hasNext())
-                {
-                    break;
-                }
-                java.util.Map.Entry entry = (java.util.Map.Entry)iterator1.next();
-                if (collection.contains(entry.getValue()))
-                {
-                    hashset.add(entry.getKey());
-                }
-            } while (true);
-            return a.keySet().retainAll(hashset);
-        }
-        return flag;
-    }
-
-    public int size()
-    {
-        return a.size();
     }
 }

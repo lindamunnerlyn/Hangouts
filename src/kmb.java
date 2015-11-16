@@ -3,26 +3,59 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kmb
+public final class kmb extends kwm
 {
 
-    public static final int a[];
+    public String a;
 
-    static 
+    public kmb()
     {
-        a = new int[kob.values().length];
-        try
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
+    }
+
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            a[kob.i.ordinal()] = 1;
+            i = j + kwk.b(1, a);
         }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
+        return i;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
         {
-            a[kob.h.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
         {
-            return;
+            kwk1.a(1, a);
         }
+        super.writeTo(kwk1);
     }
 }

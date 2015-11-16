@@ -6,7 +6,7 @@ package com.google.android.gms.wearable;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fwx;
+import fzb;
 import g;
 import java.util.Arrays;
 
@@ -14,8 +14,8 @@ public class ConnectionConfiguration
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fwx();
-    public final int a;
+    public static final android.os.Parcelable.Creator CREATOR = new fzb();
+    final int a;
     private final String b;
     private final String c;
     private final int d;
@@ -128,7 +128,18 @@ public class ConnectionConfiguration
 
     public void writeToParcel(Parcel parcel, int k)
     {
-        fwx.a(this, parcel);
+        k = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, a());
+        g.a(parcel, 3, b());
+        g.b(parcel, 4, c());
+        g.b(parcel, 5, d());
+        g.a(parcel, 6, i());
+        g.a(parcel, 7, e());
+        g.a(parcel, 8, f());
+        g.a(parcel, 9, g());
+        g.a(parcel, 10, h());
+        g.q(parcel, k);
     }
 
 }

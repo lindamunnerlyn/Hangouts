@@ -2,25 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import com.google.android.apps.hangouts.phone.GoogleVoiceTermsOfServiceActivity;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class cnw
-    implements android.view.View.OnClickListener
+final class cnw extends coj
 {
 
-    final GoogleVoiceTermsOfServiceActivity a;
+    final cna a;
 
-    public cnw(GoogleVoiceTermsOfServiceActivity googlevoicetermsofserviceactivity)
+    cnw(cna cna1, String s)
     {
-        a = googlevoicetermsofserviceactivity;
-        super();
+        a = cna1;
+        super(s);
     }
 
-    public void onClick(View view)
+    public void a()
     {
-        int i = GoogleVoiceTermsOfServiceActivity.a(a).h();
-        view = a;
-        bfy.a(new ddv(view, i, new cnx(this)), new bgb(view.t_())).a();
+        RealTimeChatService.a(a.c, false, false, 0, false);
     }
 }

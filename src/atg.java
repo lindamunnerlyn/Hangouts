@@ -2,47 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import android.os.Parcelable;
 
-public final class atg extends asy
-    implements Parcelable
+public final class atg
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new ath();
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public long i;
+    public static final String a = asp.getName();
+    private static atf b;
 
-    public atg()
+    public static void a(hlp hlp1)
     {
-    }
-
-    atg(Parcel parcel)
-    {
-        super.b(parcel);
-        e = parcel.readInt();
-        f = parcel.readInt();
-        g = parcel.readInt();
-        h = parcel.readInt();
-        i = parcel.readLong();
-    }
-
-    public int describeContents()
-    {
-        return 0;
-    }
-
-    public void writeToParcel(Parcel parcel, int j)
-    {
-        super.a(parcel);
-        parcel.writeInt(e);
-        parcel.writeInt(f);
-        parcel.writeInt(g);
-        parcel.writeInt(h);
-        parcel.writeLong(i);
+        if (b == null)
+        {
+            b = new atf();
+        }
+        hlp1.a(asp, new ath());
     }
 
 }

@@ -2,45 +2,82 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-final class dmc
-    implements ekh
+public final class dmc
 {
 
-    final dma a;
+    private static final boolean a = false;
 
-    dmc(dma dma1)
+    public static cdl a(byte abyte0[])
     {
-        a = dma1;
-        super();
+        return (cdl)c(abyte0);
     }
 
-    public void a(ekg ekg)
+    public static byte[] a(cdl cdl1)
     {
-        Object obj;
-label0:
+        return a(((Serializable) (cdl1)));
+    }
+
+    public static byte[] a(cxr cxr1)
+    {
+        return a(((Serializable) (cxr1)));
+    }
+
+    private static byte[] a(Serializable serializable)
+    {
+        byte abyte0[];
+        try
         {
-            obj = (fmb)ekg;
-            ekg = ((fmb) (obj)).B_();
-            obj = ((fmb) (obj)).c();
-            if (ebw.a("Babel", 3))
+            ByteArrayOutputStream bytearrayoutputstream = new ByteArrayOutputStream();
+            ObjectOutputStream objectoutputstream = new ObjectOutputStream(bytearrayoutputstream);
+            objectoutputstream.writeObject(serializable);
+            objectoutputstream.close();
+            abyte0 = bytearrayoutputstream.toByteArray();
+            if (a)
             {
-                String s = String.valueOf(ekg);
-                String s1 = String.valueOf(obj);
-                ebw.c("Babel", (new StringBuilder(String.valueOf(s).length() + 31 + String.valueOf(s1).length())).append("Circle loaded: status=").append(s).append(" circles=").append(s1).toString());
+                Object obj = c(abyte0);
+                String s = String.valueOf(serializable);
+                obj = String.valueOf(obj);
+                eev.a("Babel_RequestWriter", (new StringBuilder(String.valueOf(s).length() + 37 + String.valueOf(obj).length())).append("encoded ").append(s).append(" ==> ...;  testing decode... ").append(((String) (obj))).toString());
             }
-            dma.a(a, ((fqr) (obj)));
-            if (ekg.e())
-            {
-                if (a.b == null)
-                {
-                    break label0;
-                }
-                a.b.a(((fqr) (obj)));
-            }
-            return;
         }
-        ((fqr) (obj)).b();
+        catch (IOException ioexception)
+        {
+            serializable = String.valueOf(serializable);
+            eev.e("Babel_RequestWriter", (new StringBuilder(String.valueOf(serializable).length() + 33)).append("got exception serializing object ").append(serializable).toString(), ioexception);
+            return null;
+        }
+        return abyte0;
+    }
+
+    public static cxr b(byte abyte0[])
+    {
+        return (cxr)c(abyte0);
+    }
+
+    private static Serializable c(byte abyte0[])
+    {
+        try
+        {
+            abyte0 = (Serializable)(new ObjectInputStream(new ByteArrayInputStream(abyte0))).readObject();
+        }
+        // Misplaced declaration of an exception variable
+        catch (byte abyte0[])
+        {
+            eev.e("Babel_RequestWriter", "error decoding serialized stream", abyte0);
+            return null;
+        }
+        return abyte0;
+    }
+
+    static 
+    {
+        hnc hnc = eev.o;
     }
 }

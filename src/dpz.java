@@ -3,26 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class dpz
+public final class dpz
 {
 
-    static final int a[];
+    public static final String a = dpn.getName();
+    private static dpy b;
 
-    static 
+    public static void a(hlp hlp1)
     {
-        a = new int[dqa.a().length];
-        try
+        if (b == null)
         {
-            a[dqa.b - 1] = 1;
+            b = new dpy();
         }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[dqa.a - 1] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
+        hlp1.a(dpn, new dpn());
     }
+
 }

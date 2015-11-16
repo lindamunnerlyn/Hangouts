@@ -2,13 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public interface gal
+public final class gal
 {
 
-    public abstract gam a(int i);
+    public static final String a = gad.getName();
+    private static gak b;
 
-    public abstract void a();
+    public static void a(Context context, hlp hlp1)
+    {
+        if (b == null)
+        {
+            b = new gak();
+        }
+        hlp1.a(gad, new gaj(context));
+    }
 
-    public abstract void b(jfe jfe);
 }

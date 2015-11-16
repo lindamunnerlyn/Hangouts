@@ -4,30 +4,9 @@
 
 
 final class dvu
-    implements gcm
 {
 
-    private final String a;
-    private final String b;
-
-    dvu(String s, String s1)
+    dvu()
     {
-        a = s;
-        b = s1;
-    }
-
-    public String a()
-    {
-        return a;
-    }
-
-    public String b()
-    {
-        return b;
-    }
-
-    public String c()
-    {
-        return null;
     }
 }

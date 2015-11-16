@@ -3,20 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class dik extends dfa
+public final class dik extends dgj
 {
 
-    private final long a;
+    private final String a;
+    private final String e;
 
-    public dik(ani ani, long l)
+    public dik(aoa aoa, String s, String s1)
     {
-        super(ani);
-        a = l;
+        super(aoa);
+        a = s;
+        e = s1;
     }
 
     public void a()
     {
-        cuy cuy1 = new cuy(a);
-        c.a(cuy1);
+        a(((dmf) (new cvo(a, e))));
     }
 }

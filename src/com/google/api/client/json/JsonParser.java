@@ -6,9 +6,9 @@ package com.google.api.client.json;
 
 import com.google.api.client.util.GenericData;
 import g;
-import hnc;
-import hng;
-import hno;
+import hry;
+import hsc;
+import hsk;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -55,14 +55,14 @@ public abstract class JsonParser
         class1 = (Field)cachedTypemapFields.get(class1);
         lock.unlock();
         return class1;
-        Iterator iterator = hnc.a(class1).b().iterator();
+        Iterator iterator = hry.a(class1).b().iterator();
         Field field = null;
 _L6:
         if (!iterator.hasNext()) goto _L2; else goto _L1
 _L1:
         Field field1;
         Object obj;
-        field1 = ((hno)iterator.next()).a();
+        field1 = ((hsk)iterator.next()).a();
         obj = (JsonPolymorphicTypeMap)field1.getAnnotation(com/google/api/client/json/JsonPolymorphicTypeMap);
         boolean flag;
         if (obj == null)
@@ -82,7 +82,7 @@ _L1:
         l.a(flag, "Class contains more than one field with @JsonPolymorphicTypeMap annotation: %s", new Object[] {
             class1
         });
-        l.a(hng.a(field1.getType()), "Field which has the @JsonPolymorphicTypeMap, %s, is not a supported type: %s", new Object[] {
+        l.a(hsc.a(field1.getType()), "Field which has the @JsonPolymorphicTypeMap, %s, is not a supported type: %s", new Object[] {
             class1, field1.getType()
         });
         field = ((JsonPolymorphicTypeMap) (obj)).typeDefinitions();
@@ -125,7 +125,7 @@ _L5:
     {
         Object obj1;
         Object obj2;
-        hnc hnc1;
+        hry hry1;
         Class class1;
         boolean flag;
         if (obj instanceof GenericJson)
@@ -134,7 +134,7 @@ _L5:
         }
         obj2 = startParsingObjectOrArray();
         class1 = obj.getClass();
-        hnc1 = hnc.a(class1);
+        hry1 = hry.a(class1);
         flag = com/google/api/client/util/GenericData.isAssignableFrom(class1);
         obj1 = obj2;
         if (flag) goto _L2; else goto _L1
@@ -148,22 +148,22 @@ _L5:
 _L6:
 label0:
         {
-            obj1 = hnc1.a(((String) (obj2)));
+            obj1 = hry1.a(((String) (obj2)));
             if (obj1 == null)
             {
                 break label0;
             }
-            if (((hno) (obj1)).d() && !((hno) (obj1)).e())
+            if (((hsk) (obj1)).d() && !((hsk) (obj1)).e())
             {
                 throw new IllegalArgumentException("final array/object fields are not supported");
             }
         }
-        obj2 = ((hno) (obj1)).a();
+        obj2 = ((hsk) (obj1)).a();
         i = arraylist.size();
         arraylist.add(((Field) (obj2)).getGenericType());
-        obj2 = parseValue(((Field) (obj2)), ((hno) (obj1)).c(), arraylist, obj, customizejsonparser, true);
+        obj2 = parseValue(((Field) (obj2)), ((hsk) (obj1)).c(), arraylist, obj, customizejsonparser, true);
         arraylist.remove(i);
-        ((hno) (obj1)).a(obj, obj2);
+        ((hsk) (obj1)).a(obj, obj2);
 _L7:
         obj1 = nextToken();
 _L2:
@@ -222,7 +222,7 @@ label0:
     {
         Object obj3;
         Type type1;
-        type1 = hng.a(arraylist, type);
+        type1 = hsc.a(arraylist, type);
         if (type1 instanceof Class)
         {
             type = (Class)type1;
@@ -309,13 +309,13 @@ _L93:
         obj = type;
         if (type != null) goto _L15; else goto _L14
 _L14:
-        obj = hng.b(type1);
+        obj = hsc.b(type1);
 _L15:
         if (!flag1) goto _L17; else goto _L16
 _L16:
         type = g.b(type1);
 _L23:
-        type = hng.a(arraylist, type);
+        type = hsc.a(arraylist, type);
         parseArray(field, ((Collection) (obj)), type, arraylist, customizejsonparser);
         if (!flag1) goto _L19; else goto _L18
 _L18:
@@ -386,7 +386,7 @@ _L38:
         parseMap(field, (Map)type, ((Type) (obj)), arraylist, customizejsonparser);
         return type;
 _L97:
-        type = hng.b(((Class) (obj3)));
+        type = hsc.b(((Class) (obj3)));
           goto _L39
 _L98:
         type = ((Type) (g.a(((Class) (obj3)))));
@@ -529,7 +529,7 @@ _L86:
 _L104:
         l.a(flag, "number field formatted as a JSON string must use the @JsonString annotation");
 _L82:
-        return hng.a(type1, getText());
+        return hsc.a(type1, getText());
 _L9:
         if (obj3 == null) goto _L89; else goto _L88
 _L88:
@@ -542,15 +542,15 @@ _L91:
         {
             if (g.a(((Class) (obj3)), java/util/Collection))
             {
-                return hng.a(hng.b(type1).getClass());
+                return hsc.a(hsc.b(type1).getClass());
             }
             if (g.a(((Class) (obj3)), java/util/Map))
             {
-                return hng.a(hng.b(((Class) (obj3))).getClass());
+                return hsc.a(hsc.b(((Class) (obj3))).getClass());
             }
         }
 _L92:
-        type = ((Type) (hng.a(g.a(arraylist, type1))));
+        type = ((Type) (hsc.a(g.a(arraylist, type1))));
         return type;
 _L21:
         type = null;
@@ -772,7 +772,7 @@ _L90:
 
     public final Collection parseArray(Class class1, Class class2, CustomizeJsonParser customizejsonparser)
     {
-        class1 = hng.b(class1);
+        class1 = hsc.b(class1);
         parseArray(((Collection) (class1)), class2, customizejsonparser);
         return class1;
     }

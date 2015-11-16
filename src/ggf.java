@@ -2,49 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.lang.reflect.Type;
-import java.nio.charset.Charset;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 
-final class ggf
-    implements hob
+final class ggf extends BroadcastReceiver
 {
 
-    final ggd a;
+    final gge a;
+    private boolean b;
+    private int c;
 
-    ggf(ggd ggd)
+    public ggf(gge gge)
     {
-        a = ggd;
+        a = gge;
         super();
+        b = true;
+        c = -1;
     }
 
-    public Object parseAndClose(InputStream inputstream, Charset charset, Class class1)
+    public boolean a()
+    {
+        return b;
+    }
+
+    public int b()
+    {
+        return c;
+    }
+
+    public void onReceive(Context context, Intent intent)
     {
         int i;
-        class1 = new BufferedInputStream(inputstream);
-        charset = new ByteArrayOutputStream();
-        i = class1.read();
-_L1:
-        if (i == -1)
+        int j;
+        boolean flag;
+        if (intent.getIntExtra("plugged", 0) == 0)
         {
-            break MISSING_BLOCK_LABEL_45;
+            flag = true;
+        } else
+        {
+            flag = false;
         }
-        charset.write((byte)i);
-        i = class1.read();
-          goto _L1
-        class1 = new ggc();
-        class1.a = charset.toByteArray();
-        inputstream.close();
-        return class1;
-        charset;
-        inputstream.close();
-        throw charset;
-    }
-
-    public Object parseAndClose(InputStream inputstream, Charset charset, Type type)
-    {
-        return parseAndClose(inputstream, charset, type);
+        b = flag;
+        i = intent.getIntExtra("scale", 0);
+        j = intent.getIntExtra("level", 0);
+        if (i != 0)
+        {
+            c = (j * 100) / i;
+            return;
+        } else
+        {
+            c = -1;
+            return;
+        }
     }
 }

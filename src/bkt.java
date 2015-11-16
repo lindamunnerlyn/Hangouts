@@ -2,41 +2,69 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
-import com.google.android.apps.hangouts.fragments.InvitationFragment;
-import java.util.Arrays;
-import java.util.HashSet;
+import android.util.SparseArray;
+import android.widget.Toast;
+import com.google.android.apps.hangouts.fragments.HiddenContactsFragment;
 
-public final class bkt
-    implements ekh
+public final class bkt extends dhy
 {
 
-    final InvitationFragment a;
+    final HiddenContactsFragment a;
 
-    public bkt(InvitationFragment invitationfragment)
+    public bkt(HiddenContactsFragment hiddencontactsfragment)
     {
-        a = invitationfragment;
+        a = hiddencontactsfragment;
         super();
     }
 
-    public void a(ekg ekg)
+    public void a(int i, aoa aoa, did did1)
     {
-        ekg = ((fmf)ekg).c();
-        a.inviterCircleIds = new HashSet();
-        if (ekg.a() == 1)
+        aoa = did1.c();
+        if (HiddenContactsFragment.f(a) == i && (aoa instanceof cyx))
         {
-            fqx fqx1 = ekg.b(0);
-            if (TextUtils.equals(fqx1.e(), InvitationFragment.b(a).a))
-            {
-                a.inviterCircleIds.addAll(Arrays.asList(fqx1.i()));
-            }
+            HiddenContactsFragment.g(a);
+            HiddenContactsFragment.a(a, a.getView());
+        } else
+        if ((aoa instanceof dap) && (String)HiddenContactsFragment.a(a).get(i) != null)
+        {
+            HiddenContactsFragment.a(a, i);
+            HiddenContactsFragment.e(a).notifyDataSetChanged();
+            HiddenContactsFragment.a(a, a.getView());
+            return;
         }
-        InvitationFragment.m(a);
-        ekg.b();
-        return;
-        Exception exception;
-        exception;
-        ekg.b();
-        throw exception;
+    }
+
+    public void a(int i, aoa aoa, dmf dmf, dcx dcx)
+    {
+        if (HiddenContactsFragment.f(a) == i && (dmf instanceof cwl))
+        {
+            HiddenContactsFragment.g(a);
+            if (bgs.j())
+            {
+                i = l.it;
+            } else
+            {
+                i = l.iu;
+            }
+            Toast.makeText(HiddenContactsFragment.h(a), i, 0).show();
+            HiddenContactsFragment.a(a, a.getView());
+        } else
+        if (g.a(HiddenContactsFragment.a(a), i) && (dmf instanceof cxm))
+        {
+            aoa = (String)HiddenContactsFragment.d(a).get(i);
+            HiddenContactsFragment.a(a, i);
+            HiddenContactsFragment.e(a).notifyDataSetChanged();
+            if (bgs.j())
+            {
+                i = l.iT;
+            } else
+            {
+                i = l.iU;
+            }
+            Toast.makeText(HiddenContactsFragment.i(a), HiddenContactsFragment.j(a).getString(i, new Object[] {
+                aoa
+            }), 0).show();
+            return;
+        }
     }
 }

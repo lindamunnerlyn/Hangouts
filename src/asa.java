@@ -2,19 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-public interface asa
+public final class asa
 {
 
-    public abstract aru a(Context context, hjm hjm, int i, ap ap);
+    public final String a;
+    public final int b;
+    public final String c;
+    public final String d;
+    public final String e;
+    public final String f;
+    public final boolean g;
+    public final cfz h;
+    public final aoz i;
+    public final bhv j;
 
-    public abstract arx a(Context context, hjm hjm, int i, ad ad, aip aip, atd atd);
+    public asa(String s, int k, cfz cfz1, String s1, String s2, String s3, String s4, 
+            aoz aoz, bhv bhv, boolean flag)
+    {
+        a = s;
+        b = k;
+        c = s1;
+        d = s2;
+        e = s3;
+        f = s4;
+        h = cfz1;
+        i = aoz;
+        j = bhv;
+        g = flag;
+    }
 
-    public abstract asb a(Context context, hjm hjm, int i);
-
-    public abstract asd a(Context context, hjm hjm, ap ap);
-
-    public abstract gqn a(String s, int i, aik aik, aob aob, atd atd, int j, boolean flag, 
-            String s1, int k);
+    public String a()
+    {
+        if (h != null)
+        {
+            return h.b();
+        } else
+        {
+            return null;
+        }
+    }
 }

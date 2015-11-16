@@ -3,78 +3,86 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class juk extends koj
+public class juk
+    implements com.google.common.collect.MapMakerInternalMap.ReferenceEntry
 {
 
-    public int a;
-    public Integer b;
-
-    public juk()
+    juk()
     {
-        a = 0x80000000;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public long getExpirationTime()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != 0x80000000)
-        {
-            i = j + koh.e(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.intValue());
-        }
-        return j;
+        throw new UnsupportedOperationException();
     }
 
-    public kop mergeFrom(kog kog1)
+    public int getHash()
     {
-_L5:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 3: default 40
-    //                   0: 49
-    //                   8: 51
-    //                   16: 99;
-           goto _L1 _L2 _L3 _L4
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L5; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
-        {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-            a = j;
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        b = Integer.valueOf(kog1.f());
-        if (true) goto _L5; else goto _L6
-_L6:
+        throw new UnsupportedOperationException();
     }
 
-    public void writeTo(koh koh1)
+    public Object getKey()
     {
-        if (a != 0x80000000)
-        {
-            koh1.a(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b.intValue());
-        }
-        super.writeTo(koh1);
+        throw new UnsupportedOperationException();
+    }
+
+    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNext()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextEvictable()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextExpirable()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousEvictable()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousExpirable()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public jvv getValueReference()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setExpirationTime(long l)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setNextEvictable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setNextExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setPreviousEvictable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setPreviousExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setValueReference(jvv jvv)
+    {
+        throw new UnsupportedOperationException();
     }
 }

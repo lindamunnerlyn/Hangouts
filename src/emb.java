@@ -2,48 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.ConnectionResult;
-import java.util.List;
+import com.google.android.gms.common.api.Status;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
-final class emb
-    implements Runnable
+final class emb extends emg
 {
 
-    final ely a;
-    private final int b;
-    private final ConnectionResult c;
+    final emy a;
+    final ely b;
+    private int i;
 
-    public emb(ely ely1, int i, ConnectionResult connectionresult)
+    emb(ely ely1, emy emy1, emy emy2)
     {
-        a = ely1;
-        super();
-        b = i;
-        c = connectionresult;
+        b = ely1;
+        a = emy2;
+        super(emy1);
+        i = 5;
     }
 
-    public void run()
+    protected enh a(Status status)
     {
-        if (c.a())
+        return status;
+    }
+
+    protected void a(emw emw)
+    {
+        if (ely.a().c() || i <= 0)
         {
             try
             {
-                int i = a.getActivity().t_().d().indexOf(a);
-                c.a(a.getActivity(), (i + 1 << 16) + 1);
-                return;
+                Thread.sleep(100L);
             }
-            catch (android.content.IntentSender.SendIntentException sendintentexception)
+            // Misplaced declaration of an exception variable
+            catch (emw emw)
             {
-                ely.a(a);
+                Thread.currentThread().interrupt();
             }
-            return;
-        }
-        if (ejn.b(c.c()))
-        {
-            ejn.a(c.c(), a.getActivity(), a, 2, a);
+            a.d();
             return;
         } else
         {
-            ely.a(a, b, c);
+            i = i - 1;
+            ely.b().schedule(new emc(this, this), 100L, TimeUnit.MILLISECONDS);
             return;
         }
     }

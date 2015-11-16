@@ -2,12 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.KeyEvent;
 
 public interface hne
 {
 
-    public static final hne a = new hnf();
-
-    public abstract long a();
-
+    public abstract boolean a(KeyEvent keyevent);
 }

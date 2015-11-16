@@ -3,18 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jfy extends koj
+public final class jfy extends kwm
 {
 
-    public static final kok a = kok.a(jfy, 0x2e58344aL);
-    private static final jfy d[] = new jfy[0];
-    public koz b;
-    public String c;
+    public jfx a[];
+    public jdk requestHeader;
 
     public jfy()
     {
-        b = null;
-        c = null;
+        requestHeader = null;
+        a = jfx.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -23,27 +21,43 @@ public final class jfy extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (b != null)
+        if (requestHeader != null)
         {
-            i = j + koh.d(1, b);
+            i = j + kwk.d(1, requestHeader);
         }
         j = i;
-        if (c != null)
+        if (a != null)
         {
-            j = i + koh.b(2, c);
+            j = i;
+            if (a.length > 0)
+            {
+                for (j = 0; j < a.length;)
+                {
+                    jfx jfx1 = a[j];
+                    int k = i;
+                    if (jfx1 != null)
+                    {
+                        k = i + kwk.d(2, jfx1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -53,31 +67,64 @@ public final class jfy extends koj
                 return this;
 
             case 10: // '\n'
-                if (b == null)
+                if (requestHeader == null)
                 {
-                    b = new koz();
+                    requestHeader = new jdk();
                 }
-                kog1.a(b);
+                kwj1.a(requestHeader);
                 break;
 
             case 18: // '\022'
-                c = kog1.j();
+                int k = kwx.a(kwj1, 18);
+                jfx ajfx[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                ajfx = new jfx[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, ajfx, 0, j);
+                    k = j;
+                }
+                for (; k < ajfx.length - 1; k++)
+                {
+                    ajfx[k] = new jfx();
+                    kwj1.a(ajfx[k]);
+                    kwj1.a();
+                }
+
+                ajfx[k] = new jfx();
+                kwj1.a(ajfx[k]);
+                a = ajfx;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (b != null)
+        if (requestHeader != null)
         {
-            koh1.b(1, b);
+            kwk1.b(1, requestHeader);
         }
-        if (c != null)
+        if (a != null && a.length > 0)
         {
-            koh1.a(2, c);
-        }
-        super.writeTo(koh1);
-    }
+            for (int i = 0; i < a.length; i++)
+            {
+                jfx jfx1 = a[i];
+                if (jfx1 != null)
+                {
+                    kwk1.b(2, jfx1);
+                }
+            }
 
+        }
+        super.writeTo(kwk1);
+    }
 }

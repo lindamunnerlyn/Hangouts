@@ -3,8 +3,17 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface apl
+public final class apl
 {
 
-    public abstract boolean a(ani ani, apk apk);
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public int f;
+
+    public apl()
+    {
+    }
 }

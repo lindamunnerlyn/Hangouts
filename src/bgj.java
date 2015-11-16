@@ -3,22 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class bgj extends Exception
+public final class bgj
 {
 
-    private static final long serialVersionUID = 1L;
+    public final cgd a;
+    public final String b;
 
-    public bgj()
+    public bgj(cgd cgd, String s)
     {
-    }
-
-    public bgj(String s)
-    {
-        super(s);
-    }
-
-    public bgj(Throwable throwable)
-    {
-        super(throwable);
+        a = cgd;
+        b = s;
     }
 }

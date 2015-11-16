@@ -3,14 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface zb
+public class zb
 {
 
-    public abstract void a(zq zq);
+    public zb()
+    {
+    }
 
-    public abstract void b(zq zq);
+    public void a(int i, int j)
+    {
+    }
 
-    public abstract void c(zq zq);
+    public void a(int i, int j, Object obj)
+    {
+    }
 
-    public abstract void d(zq zq);
+    public void b(int i, int j)
+    {
+    }
 }

@@ -2,30 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import android.os.Parcelable;
 
-final class hev extends hfb
+public final class hev extends bgv
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new hew();
-    String a;
+    private static final long serialVersionUID = 0x7db2efa319c55ac7L;
+    private final boolean a;
+    private final String b;
 
-    public hev(Parcel parcel)
+    public hev(String s, boolean flag)
     {
-        super(parcel);
-        a = parcel.readString();
+        super((new StringBuilder(String.valueOf(s).length() + 40)).append("Invalid content-type: ").append(s).append(", permanent: ").append(flag).toString());
+        a = flag;
+        b = s;
     }
-
-    public hev(Parcelable parcelable)
-    {
-        super(parcelable);
-    }
-
-    public void writeToParcel(Parcel parcel, int i)
-    {
-        super.writeToParcel(parcel, i);
-        parcel.writeString(a);
-    }
-
 }

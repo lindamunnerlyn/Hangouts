@@ -3,18 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class bid
+public interface bid
 {
 
-    final int a;
-    final int b;
-    final int c;
-    final Runnable d = null;
+    public abstract void a();
 
-    public bid(int i, int j, int k)
-    {
-        a = k;
-        b = i;
-        c = j;
-    }
+    public abstract void a(aia aia);
+
+    public abstract void a(ehy ehy, String s, String s1);
+
+    public abstract void a(Runnable runnable);
+
+    public abstract void a(String s);
+
+    public abstract void a(String s, String s1);
+
+    public abstract void b_(boolean flag);
 }

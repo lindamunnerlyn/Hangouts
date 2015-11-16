@@ -2,88 +2,59 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.CursorWindow;
-import android.os.Parcel;
-import com.google.android.gms.common.data.DataHolder;
+import android.util.Log;
+import com.google.android.gms.clearcut.LogEventParcelable;
+import com.google.android.gms.common.api.Status;
 
-public final class emh
-    implements android.os.Parcelable.Creator
+final class emh extends emg
 {
 
-    public emh()
+    final ely a;
+    private final LogEventParcelable b;
+
+    emh(ely ely1, LogEventParcelable logeventparcelable, emy emy)
     {
+        a = ely1;
+        super(emy);
+        b = logeventparcelable;
     }
 
-    public static DataHolder a(Parcel parcel)
+    protected enh a(Status status)
     {
-        int i = 0;
-        android.os.Bundle bundle = null;
-        int k = g.a(parcel);
-        CursorWindow acursorwindow[] = null;
-        String as[] = null;
-        int j = 0;
-        do
+        return status;
+    }
+
+    protected void a(emw emw)
+    {
+        emw = (elr)emw;
+        emi emi1 = new emi(this);
+        try
         {
-            if (parcel.dataPosition() < k)
-            {
-                int l = parcel.readInt();
-                switch (0xffff & l)
-                {
-                default:
-                    g.b(parcel, l);
-                    break;
-
-                case 1: // '\001'
-                    as = g.m(parcel, l);
-                    break;
-
-                case 1000: 
-                    j = g.e(parcel, l);
-                    break;
-
-                case 2: // '\002'
-                    acursorwindow = (CursorWindow[])g.b(parcel, l, CursorWindow.CREATOR);
-                    break;
-
-                case 3: // '\003'
-                    i = g.e(parcel, l);
-                    break;
-
-                case 4: // '\004'
-                    bundle = g.k(parcel, l);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != k)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
-            } else
-            {
-                parcel = new DataHolder(j, as, acursorwindow, i, bundle);
-                parcel.a();
-                return parcel;
-            }
-        } while (true);
+            ely.a(b);
+        }
+        // Misplaced declaration of an exception variable
+        catch (emw emw)
+        {
+            Log.e("ClearcutLoggerApiImpl", (new StringBuilder("MessageNanoProducer ")).append(b.f.toString()).append(" threw: ").append(emw.toString()).toString());
+            return;
+        }
+        emw.a(emi1, b);
     }
 
-    public static void a(DataHolder dataholder, Parcel parcel, int i)
+    public boolean equals(Object obj)
     {
-        int j = g.p(parcel, 20293);
-        g.a(parcel, 1, dataholder.c());
-        g.b(parcel, 1000, dataholder.b());
-        g.a(parcel, 2, dataholder.d(), i);
-        g.b(parcel, 3, dataholder.e());
-        g.a(parcel, 4, dataholder.f());
-        g.q(parcel, j);
+        if (!(obj instanceof emh))
+        {
+            return false;
+        } else
+        {
+            obj = (emh)obj;
+            return b.equals(((emh) (obj)).b);
+        }
     }
 
-    public Object createFromParcel(Parcel parcel)
+    public String toString()
     {
-        return a(parcel);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new DataHolder[i];
+        return (new StringBuilder("MethodImpl(")).append(b).append(")").toString();
     }
 }

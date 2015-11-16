@@ -2,115 +2,85 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import android.util.Log;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public final class adt
-    implements adx
 {
 
-    private final String a;
-    private final List b;
+    static String a;
+    public static int b = 0xc0000000;
+    private static final Map c;
+    private static final Set d;
 
-    public adt(String s, List list)
+    public static int a(String s)
     {
-        a = s;
-        b = list;
-    }
-
-    public adz a()
-    {
-        return adz.n;
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (this == obj)
+        String s1 = s.toLowerCase();
+        if (c.containsKey(s1))
         {
-            return true;
+            return ((Integer)c.get(s1)).intValue();
         }
-        if (!(obj instanceof adt))
+        if ("default".equalsIgnoreCase(s))
         {
-            return false;
-        }
-        obj = (adt)obj;
-        if (!TextUtils.equals(a, ((adt) (obj)).a))
-        {
-            return false;
-        }
-        if (b == null)
-        {
-            return ((adt) (obj)).b == null;
-        }
-        int j = b.size();
-        if (j != ((adt) (obj)).b.size())
-        {
-            return false;
-        }
-        for (int i = 0; i < j; i++)
-        {
-            if (!TextUtils.equals((CharSequence)b.get(i), (CharSequence)((adt) (obj)).b.get(i)))
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    public int hashCode()
-    {
-        int i;
-        int j;
-        if (a != null)
-        {
-            i = a.hashCode();
+            return b;
         } else
         {
-            i = 0;
+            Log.e("vCard", (new StringBuilder(String.valueOf(s).length() + 29)).append("Unknown vCard type String: \"").append(s).append("\"").toString());
+            return b;
         }
-        if (b != null)
-        {
-            Iterator iterator = b.iterator();
-            do
-            {
-                j = i;
-                if (!iterator.hasNext())
-                {
-                    break;
-                }
-                String s = (String)iterator.next();
-                if (s != null)
-                {
-                    j = s.hashCode();
-                } else
-                {
-                    j = 0;
-                }
-                i = j + i * 31;
-            } while (true);
-        } else
-        {
-            j = i;
-        }
-        return j;
     }
 
-    public String toString()
+    public static boolean a(int i)
     {
-        StringBuilder stringbuilder = new StringBuilder();
-        String s = a;
-        stringbuilder.append((new StringBuilder(String.valueOf(s).length() + 24)).append("android-custom: ").append(s).append(", data: ").toString());
-        if (b == null)
-        {
-            s = "null";
-        } else
-        {
-            s = Arrays.toString(b.toArray());
-        }
-        stringbuilder.append(s);
-        return stringbuilder.toString();
+        return (i & 3) == 0;
+    }
+
+    public static boolean b(int i)
+    {
+        return (i & 3) == 1;
+    }
+
+    public static boolean c(int i)
+    {
+        return (i & 3) == 2;
+    }
+
+    public static int d(int i)
+    {
+        return i & 0xc;
+    }
+
+    public static boolean e(int i)
+    {
+        return d.contains(Integer.valueOf(i));
+    }
+
+    static boolean f(int i)
+    {
+        return (0x2000000 & i) != 0;
+    }
+
+    static 
+    {
+        a = "v21_generic";
+        Object obj = new HashMap();
+        c = ((Map) (obj));
+        ((Map) (obj)).put(a, Integer.valueOf(0xc0000000));
+        c.put("v30_generic", Integer.valueOf(0xc0000001));
+        c.put("v21_europe", Integer.valueOf(0xc0000004));
+        c.put("v30_europe", Integer.valueOf(0xc0000005));
+        c.put("v21_japanese_utf8", Integer.valueOf(0xc0000008));
+        c.put("v30_japanese_utf8", Integer.valueOf(0xc0000009));
+        c.put("v21_japanese_mobile", Integer.valueOf(0x18000008));
+        c.put("docomo", Integer.valueOf(0x38000008));
+        obj = new HashSet();
+        d = ((Set) (obj));
+        ((Set) (obj)).add(Integer.valueOf(0xc0000008));
+        d.add(Integer.valueOf(0xc0000009));
+        d.add(Integer.valueOf(0x18000008));
+        d.add(Integer.valueOf(0x38000008));
     }
 }

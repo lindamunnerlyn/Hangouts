@@ -3,101 +3,73 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jym extends koj
+final class jym extends jyo
 {
 
-    public kat a;
-    public jzy b;
-    public kam c;
-
-    public jym()
+    jym(String s, String s1, Character character)
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        this(new jyk(s, s1.toCharArray()), character);
     }
 
-    protected int computeSerializedSize()
+    private jym(jyk jyk1, Character character)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        super(jyk1, character);
+        boolean flag;
+        if (jyk.a(jyk1).length == 64)
         {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
+            flag = true;
+        } else
         {
-            j = i + koh.d(2, b);
+            flag = false;
         }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.d(3, c);
-        }
-        return i;
+        n.a(flag);
     }
 
-    public kop mergeFrom(kog kog1)
+    int a(byte abyte0[], CharSequence charsequence)
     {
-        do
+        int k = 0;
+        n.b(abyte0);
+        charsequence = a().a(charsequence);
+        if (!b.b(charsequence.length()))
         {
-            int i = kog1.a();
-            switch (i)
+            int i = charsequence.length();
+            throw new jyn((new StringBuilder(32)).append("Invalid input length ").append(i).toString());
+        }
+        int j = 0;
+        while (k < charsequence.length()) 
+        {
+            jyk jyk1 = b;
+            int l = k + 1;
+            int i1 = jyk1.c(charsequence.charAt(k));
+            jyk1 = b;
+            k = l + 1;
+            int k1 = i1 << 18 | jyk1.c(charsequence.charAt(l)) << 12;
+            l = j + 1;
+            abyte0[j] = (byte)(k1 >>> 16);
+            if (k < charsequence.length())
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
+                jyk jyk2 = b;
+                int j1 = k + 1;
+                k1 |= jyk2.c(charsequence.charAt(k)) << 6;
+                j = l + 1;
+                abyte0[l] = (byte)(k1 >>> 8);
+                if (j1 < charsequence.length())
                 {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
+                    jyk jyk3 = b;
+                    k = j1 + 1;
+                    j1 = jyk3.c(charsequence.charAt(j1));
+                    l = j + 1;
+                    abyte0[j] = (byte)(k1 | j1);
+                    j = l;
+                } else
                 {
-                    a = new kat();
+                    k = j1;
                 }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new jzy();
-                }
-                kog1.a(b);
-                break;
-
-            case 26: // '\032'
-                if (c == null)
-                {
-                    c = new kam();
-                }
-                kog1.a(c);
-                break;
+            } else
+            {
+                j = l;
             }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.b(1, a);
         }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        if (c != null)
-        {
-            koh1.b(3, c);
-        }
-        super.writeTo(koh1);
+        return j;
     }
 }

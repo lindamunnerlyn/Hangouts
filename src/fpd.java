@@ -2,22 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.os.IInterface;
-import android.os.ParcelFileDescriptor;
-import com.google.android.gms.common.data.DataHolder;
 
-public interface fpd
-    extends IInterface
+public final class fpd
 {
 
-    public abstract void a(int i, Bundle bundle, Bundle bundle1);
-
-    public abstract void a(int i, Bundle bundle, ParcelFileDescriptor parcelfiledescriptor);
-
-    public abstract void a(int i, Bundle bundle, ParcelFileDescriptor parcelfiledescriptor, Bundle bundle1);
-
-    public abstract void a(int i, Bundle bundle, DataHolder dataholder);
-
-    public abstract void a(int i, Bundle bundle, DataHolder adataholder[]);
+    public fpd()
+    {
+    }
 }

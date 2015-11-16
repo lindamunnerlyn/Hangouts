@@ -2,21 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Handler;
+import com.google.android.apps.hangouts.views.ParticipantsGalleryView;
 
-final class ejd
-    implements eke
+public final class ejd
 {
 
-    final eix a;
+    private int a;
+    private boolean b;
+    private final ParticipantsGalleryView c;
 
-    ejd(eix eix1)
+    public ejd(ParticipantsGalleryView participantsgalleryview, int i)
     {
-        a = eix1;
-        super();
+        a = 0;
+        b = false;
+        c = participantsgalleryview;
+        a = i;
     }
 
-    public void a()
+    public void a(boolean flag)
     {
-        eix.a().b();
+        if (flag)
+        {
+            b = true;
+        }
+        int i = a - 1;
+        a = i;
+        if (i == 0)
+        {
+            flag = b;
+            ParticipantsGalleryView.a(c);
+            Handler handler = ParticipantsGalleryView.c(c);
+            long l;
+            if (flag)
+            {
+                l = ParticipantsGalleryView.b(c);
+            } else
+            {
+                l = 0L;
+            }
+            handler.sendEmptyMessageDelayed(0, l);
+        }
     }
 }

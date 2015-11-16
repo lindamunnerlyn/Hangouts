@@ -5,4 +5,6 @@
 
 public interface eft
 {
+
+    public abstract int a();
 }

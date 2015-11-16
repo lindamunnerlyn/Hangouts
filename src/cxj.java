@@ -3,30 +3,48 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cxj extends cvn
+public class cxj extends cwm
 {
 
     private static final long serialVersionUID = 1L;
+    public final String a;
 
-    private cxj(jao jao1)
+    public cxj(String s)
     {
-        super(jao1.responseHeader, -1L);
-        if (cvn.a)
+        a = s;
+    }
+
+    public kws a(String s, int i, int j)
+    {
+        if (cvv.e)
         {
-            jao1 = String.valueOf(jao1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(jao1).length() + 29)).append("RemoveBroadcastResponse from:").append(jao1).toString());
+            eev.b("Babel_RequestWriter", "StartPhoneVerificationRequest build protobuf ");
+        }
+        s = new kbm();
+        s.a = a;
+        jeu jeu1 = new jeu();
+        jeu1.b = Integer.valueOf(2);
+        jeu1.a = s;
+        return jeu1;
+    }
+
+    public void a(aoa aoa, dcx dcx)
+    {
+        g.a(aoa, 2049);
+        aoa = (crk)hlp.b(g.nU, crk);
+        if (aoa != null)
+        {
+            aoa.a(105, false);
         }
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public boolean a(cdn cdn, dcx dcx)
     {
-        abyte0 = (jao)kop.mergeFrom(new jao(), abyte0);
-        if (a(((jao) (abyte0)).responseHeader))
-        {
-            return new cvz(((jao) (abyte0)).responseHeader);
-        } else
-        {
-            return new cxj(abyte0);
-        }
+        return false;
+    }
+
+    public String f()
+    {
+        return "devices/startphonenumberverification";
     }
 }

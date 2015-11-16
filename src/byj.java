@@ -2,42 +2,83 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.maps.model.LatLng;
+import android.content.SharedPreferences;
+import android.os.SystemClock;
 
 final class byj
-    implements ffo
+    implements bye
 {
 
-    final byh a;
+    private static final boolean a = false;
+    private final SharedPreferences b;
+    private final int c;
 
-    byj(byh byh1)
+    public byj(SharedPreferences sharedpreferences, int i)
     {
-        a = byh1;
-        super();
+        b = sharedpreferences;
+        c = i;
     }
 
-    public String a()
+    private String b(String s)
     {
-        return a.a;
+        int i;
+        boolean flag;
+        if (s != null)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        g.c(flag);
+        i = c;
+        return (new StringBuilder(String.valueOf(s).length() + 12)).append(i).append(":").append(s).toString();
     }
 
-    public CharSequence b()
+    public void a(int i, String s, long l, int j)
     {
-        return a.c;
+        long l1 = b.getLong(b(s), 0L);
+        if (l1 > 0L && l > l1)
+        {
+            h.a(i, System.currentTimeMillis(), c, (new cab()).a(j).c(l - l1));
+            b.edit().remove(b(s)).apply();
+            if (a)
+            {
+                s = String.valueOf(b(s));
+                eev.d("Babel_LatencyTracker", (new StringBuilder(String.valueOf(s).length() + 95)).append("Latency tracking ends for event ").append(s).append(" with event detail ").append(j).append(", duration ").append(l - l1).append("ms").toString());
+            }
+        }
     }
 
-    public CharSequence c()
+    public void a(String s)
     {
-        return a.d;
+        long l = SystemClock.elapsedRealtime();
+        boolean flag;
+        if (l > 0L)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        g.c(flag);
+        b.edit().putLong(b(s), l).apply();
+        if (a)
+        {
+            s = String.valueOf(b(s));
+            if (s.length() != 0)
+            {
+                s = "Latency tracking started for event ".concat(s);
+            } else
+            {
+                s = new String("Latency tracking started for event ");
+            }
+            eev.d("Babel_LatencyTracker", s);
+        }
     }
 
-    public LatLng d()
+    static 
     {
-        return a.b;
-    }
-
-    public Object e()
-    {
-        return this;
+        hnc hnc = eev.g;
     }
 }

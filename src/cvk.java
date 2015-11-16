@@ -3,46 +3,32 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cvk extends ctu
+public class cvk extends cvf
 {
 
     private static final long serialVersionUID = 1L;
-    public final long a;
+    public final String a;
 
-    public cvk(String s, long l)
+    public cvk(String s)
     {
-        super(s);
-        a = l;
+        a = s;
     }
 
-    public String a()
+    public kws a(String s, int i, int j)
     {
-        return "background_queue";
+        jhs jhs1 = new jhs();
+        jhs1.requestHeader = cvu.a(s, i, j, h);
+        jhs1.a = a;
+        return jhs1;
     }
 
-    public kop a(String s, int i, int j)
+    public boolean a(cdn cdn, dcx dcx)
     {
-        if (ctr.e)
-        {
-            String s1 = c;
-            long l = a;
-            ebw.b("Babel_RequestWriter", (new StringBuilder(String.valueOf(s1).length() + 77)).append("updateWatermark build protobuf conversationID=").append(s1).append(" watermark=").append(l).toString());
-        }
-        izo izo1 = new izo();
-        izo1.a = ctq.a(c);
-        izo1.b = Long.valueOf(a);
-        izo1.requestHeader = ctq.a(s, i, j, h);
-        return izo1;
+        return false;
     }
 
-    public boolean a(ccg ccg)
+    public String f()
     {
-        gbh.a(getClass(), ccg.getClass());
-        return ((cvk)ccg).c.equals(c);
-    }
-
-    public String g()
-    {
-        return "conversations/updatewatermark";
+        return "hangouts/query";
     }
 }

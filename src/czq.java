@@ -3,31 +3,37 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class czq extends ctp
+public class czq extends cxr
 {
 
-    private final int a;
-    private final String b;
-    private final int r;
+    private static final long serialVersionUID = 1L;
 
-    public czq(ani ani1, String s, int i)
+    private czq(jdh jdh1)
     {
-        super(hdx.newBuilder().a(ani1.a()).b(ani1.ae()).a().b(), null, "conversations/settyping", "hangouts", new iyl(), new iym());
-        b = s;
-        r = i;
-        a = ani1.h();
+        super(jdh1.responseHeader, -1L);
     }
 
-    protected cvn a(kop kop)
+    public static cxr parseFrom(byte abyte0[])
     {
-        return cyh.parseFrom((iym)kop);
+        abyte0 = (jdh)kws.mergeFrom(new jdh(), abyte0);
+        if (a(((jdh) (abyte0)).responseHeader))
+        {
+            return new cyd(((jdh) (abyte0)).responseHeader);
+        } else
+        {
+            return new czq(abyte0);
+        }
     }
 
-    protected void b(kop kop)
+    public void a(aow aow1, dgk dgk)
     {
-        kop = (iyl)kop;
-        kop.requestHeader = a((new cru()).a(a).b());
-        kop.a = ctq.a(b);
-        kop.b = Integer.valueOf(r);
+        super.a(aow1, dgk);
+        String s = ((cwu)b).c;
+        if (((cwu)b).b == 1)
+        {
+            aow1.U(s);
+            aoq.a(dgk, aow1, s);
+        }
+        aoq.d(aow1);
     }
 }

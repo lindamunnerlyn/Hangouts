@@ -3,10 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class apo
+interface apo
 {
 
-    apo()
-    {
-    }
+    public static final String a[] = {
+        "gaia_id", "chat_id"
+    };
+
 }

@@ -2,46 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Bitmap;
-import java.util.Iterator;
-import java.util.SortedSet;
+import android.content.Context;
 
-final class gvs
-    implements gvn
+public abstract class gvs
 {
 
-    private static final gvp a = new gvt();
+    public final Context a;
+    public final ap b;
+    public boolean c;
 
-    gvs()
+    public gvs(Context context, ap ap)
     {
+        a = context;
+        b = ap;
     }
 
-    public gvo a(int i, int j)
+    public void a(guy guy1)
     {
-        return new gvo(i, j, a);
+        b(guy1);
     }
 
-    public gvo a(Bitmap bitmap)
+    public abstract void a(String s);
+
+    public abstract void a(String s, String s1, String s2, boolean flag);
+
+    public void a(boolean flag)
     {
-        return a(bitmap.getWidth(), bitmap.getHeight());
+        c = flag;
     }
 
-    public gvo a(gvo gvo1, SortedSet sortedset, gvq gvq1)
+    public boolean a()
     {
-        for (sortedset = sortedset.iterator(); sortedset.hasNext();)
+        return c;
+    }
+
+    public abstract boolean a(gvv gvv);
+
+    public void b(guy guy1)
+    {
+        String s1 = guy1.b(a);
+        String s = s1;
+        if (s1 == null)
         {
-            gvo gvo2 = (gvo)sortedset.next();
-            if (gvo2.b >= gvo1.b && gvo2.a >= gvo1.a && (gvq1 == gvq.b || gvo2.b == gvo1.b && gvo2.a == gvo1.a))
-            {
-                return gvo2;
-            }
+            s = null;
         }
-
-        return null;
+        a(s, null, guy1.h(), false);
     }
-
-    public void a(gvo gvo1, Bitmap bitmap)
-    {
-    }
-
 }

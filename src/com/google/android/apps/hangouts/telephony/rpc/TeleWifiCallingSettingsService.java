@@ -7,14 +7,14 @@ package com.google.android.apps.hangouts.telephony.rpc;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import dxn;
-import dxp;
-import ebw;
+import eax;
+import eaz;
+import eev;
 
 public class TeleWifiCallingSettingsService extends Service
 {
 
-    private dxp a;
+    private eaz a;
 
     public TeleWifiCallingSettingsService()
     {
@@ -24,7 +24,7 @@ public class TeleWifiCallingSettingsService extends Service
     {
         if (!"com.google.android.apps.hangouts.telephony.ui.ITeleWifiCallingSettingsService".equals(intent.getAction()))
         {
-            ebw.g("Babel_telephony", "Unknown binding action; ignoring");
+            eev.g("Babel_telephony", "Unknown binding action; ignoring");
             return null;
         } else
         {
@@ -35,6 +35,6 @@ public class TeleWifiCallingSettingsService extends Service
     public void onCreate()
     {
         super.onCreate();
-        a = new dxn(this);
+        a = new eax(this);
     }
 }

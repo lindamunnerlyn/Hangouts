@@ -3,10 +3,17 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class bwj
+public final class bwj
 {
 
-    bwj()
+    public final String a;
+    public final String b;
+    public final byte c[];
+
+    public bwj(String s, String s1, byte abyte0[])
     {
+        a = s;
+        b = s1;
+        c = abyte0;
     }
 }

@@ -2,17 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 
 final class aix
-    implements aiw
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    aix()
+    final int a;
+    final aiv b;
+
+    aix(aiv aiv1, int i)
     {
+        b = aiv1;
+        a = i;
+        super();
     }
 
-    public void a(ai ai, hjm hjm)
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        new aiy(ai, hjm);
+        dialoginterface = new Intent("android.intent.action.VIEW");
+        ai ai1 = b.a;
+        i = a;
+        dialoginterface.setData(Uri.parse(((gqz)hlp.a(ai1, gqz)).a(i).a("app_upgrade_url", "")));
+        b.a.startActivity(dialoginterface);
+        b.a.finish();
     }
 }

@@ -5,11 +5,7 @@
 package com.google.android.apps.hangouts.fragments;
 
 import ai;
-import aih;
-import amz;
-import anb;
-import android.content.Intent;
-import android.content.res.Resources;
+import aia;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -19,193 +15,116 @@ import android.text.style.URLSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import ani;
+import anr;
+import ant;
+import aoa;
 import ap;
 import bg;
-import bhp;
-import bhr;
-import bhs;
-import bht;
-import bjy;
-import bkm;
-import bkn;
-import bko;
-import bkq;
-import bkr;
-import bks;
-import bkt;
-import bku;
-import bkv;
-import bkw;
+import bib;
+import bid;
+import bie;
+import bif;
+import bkk;
+import bky;
+import bkz;
+import bla;
+import blc;
+import bld;
+import ble;
+import blf;
 import bq;
 import br;
-import ceu;
-import cey;
+import cfz;
+import cgd;
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 import com.google.android.apps.hangouts.views.AvatarView;
 import com.google.android.apps.hangouts.views.FixedParticipantsGalleryView;
-import com.google.android.gms.common.people.data.AudienceMember;
-import dbf;
-import dgp;
-import dma;
-import dmd;
-import ebw;
-import ejx;
-import ejy;
-import ekd;
-import ekh;
+import dcn;
+import dhy;
+import eev;
 import em;
-import flx;
-import fme;
-import fmn;
-import fmq;
+import emy;
+import emz;
+import fph;
+import fpk;
 import g;
-import gmo;
-import gz;
+import gqu;
 import h;
-import hgx;
-import hhb;
+import hlp;
+import hlt;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
 import l;
 
-public class InvitationFragment extends bjy
+public class InvitationFragment extends bkk
     implements android.view.View.OnClickListener, br
 {
 
-    private static String au = "inviter_circle_ids";
-    private static String av = "my_circles_keys";
-    private static String aw = "my_circles_vals";
     private final String a = "Babel";
     private AvatarView aj;
     private ImageView ak;
     private TextView al;
     private final ArrayList am = new ArrayList();
-    private bhp an;
-    private Button ao;
-    private final ejx ap;
-    private dma aq;
-    private FixedParticipantsGalleryView ar;
-    private List as;
-    private final dgp at = new bko(this);
-    private final ekh ax = new bkt(this);
-    private final dmd ay = new bku(this);
-    private final android.view.View.OnClickListener az = new bkv(this);
-    private bkw b;
-    private bhr c;
-    private gmo d;
+    private bib an;
+    private final emy ao;
+    private FixedParticipantsGalleryView ap;
+    private List aq;
+    private final dhy ar = new bla(this);
+    private blf b;
+    private bid c;
+    private gqu d;
     private String e;
-    private cey f;
+    private cgd f;
     private String g;
-    private ani h;
+    private aoa h;
     private int i;
-    public HashSet inviterCircleIds;
-    public Map myCircles;
 
     public InvitationFragment()
     {
-        ejy ejy1 = new ejy(g.nS);
-        ejy1.a(fmn.c, (new fmq()).a(117).a());
-        ejy1.a(new bkm(this));
-        ejy1.a(new bkn(this));
-        ap = ejy1.a();
+        emz emz1 = new emz(g.nU);
+        emz1.a(fph.c, (new fpk()).a(117).a());
+        emz1.a(new bky(this));
+        emz1.a(new bkz(this));
+        ao = emz1.a();
+    }
+
+    public static cgd a(InvitationFragment invitationfragment)
+    {
+        return invitationfragment.f;
     }
 
     private void a()
     {
-        if (f == null)
+        if (aq != null && i == 2)
         {
+            ap.setVisibility(0);
+            ap.a(h, aq, f);
             return;
-        }
-        myCircles = null;
-        inviterCircleIds = null;
-        b();
-        fme fme1 = new fme();
-        HashSet hashset = new HashSet();
-        String s = String.valueOf(f.a);
-        if (s.length() != 0)
-        {
-            s = "g:".concat(s);
         } else
         {
-            s = new String("g:");
+            ap.setVisibility(8);
+            ap.a();
+            return;
         }
-        hashset.add(s);
-        fme1.a(hashset);
-        fmn.e.a(ap, h.a(), h.ae(), fme1).a(ax);
-        aq = new dma(ap, h, ay);
-        aq.a();
     }
 
-    private void a(bhr bhr)
+    private void a(bid bid)
     {
-        c = bhr;
+        c = bid;
         if (an != null)
         {
             an.a(c);
         }
     }
 
-    public static void a(InvitationFragment invitationfragment)
+    public static ArrayList b(InvitationFragment invitationfragment)
     {
-        invitationfragment.a();
-    }
-
-    public static cey b(InvitationFragment invitationfragment)
-    {
-        return invitationfragment.f;
-    }
-
-    private void b()
-    {
-        if (ao == null)
-        {
-            return;
-        }
-        ao.setText(l.m);
-        if (myCircles == null || inviterCircleIds == null || myCircles.size() == 0)
-        {
-            ao.setEnabled(false);
-            ao.setVisibility(8);
-            return;
-        }
-        ao.setEnabled(true);
-        ao.setVisibility(0);
-        if (inviterCircleIds.size() > 0)
-        {
-            ao.setBackgroundResource(com.google.android.apps.hangouts.R.drawable.aF);
-            ao.setTextColor(getResources().getColor(g.dP));
-            ao.setCompoundDrawablesWithIntrinsicBounds(com.google.android.apps.hangouts.R.drawable.aK, 0, 0, 0);
-            if (inviterCircleIds.size() == 1)
-            {
-                String s = (String)inviterCircleIds.iterator().next();
-                ao.setText(((String)myCircles.get(s)).toUpperCase(Locale.getDefault()));
-                return;
-            } else
-            {
-                ao.setText(getResources().getString(l.ak, new Object[] {
-                    Integer.valueOf(inviterCircleIds.size())
-                }));
-                return;
-            }
-        } else
-        {
-            ao.setBackgroundResource(com.google.android.apps.hangouts.R.drawable.c);
-            ao.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-            ao.setTextColor(getResources().getColor(g.dT));
-            return;
-        }
+        return invitationfragment.am;
     }
 
     private void b(View view)
@@ -215,7 +134,7 @@ public class InvitationFragment extends bjy
             return;
         }
         boolean flag = TextUtils.isEmpty(e);
-        view = view.findViewById(h.br);
+        view = view.findViewById(h.bl);
         int i1;
         if (flag)
         {
@@ -227,74 +146,49 @@ public class InvitationFragment extends bjy
         view.setVisibility(i1);
     }
 
-    public static ArrayList c(InvitationFragment invitationfragment)
-    {
-        return invitationfragment.am;
-    }
-
-    private void c()
-    {
-        if (as != null && i == 2)
-        {
-            ar.setVisibility(0);
-            ar.a(h, as, f);
-            return;
-        } else
-        {
-            ar.setVisibility(8);
-            ar.a();
-            return;
-        }
-    }
-
-    public static ImageView d(InvitationFragment invitationfragment)
+    public static ImageView c(InvitationFragment invitationfragment)
     {
         return invitationfragment.ak;
     }
 
-    public static hgx e(InvitationFragment invitationfragment)
+    public static hlp d(InvitationFragment invitationfragment)
     {
         return invitationfragment.binder;
     }
 
-    public static String f(InvitationFragment invitationfragment)
+    public static String e(InvitationFragment invitationfragment)
     {
         return invitationfragment.e;
     }
 
-    public static bhp g(InvitationFragment invitationfragment)
+    public static bib f(InvitationFragment invitationfragment)
     {
         return invitationfragment.an;
     }
 
-    public static int h(InvitationFragment invitationfragment)
+    public static int g(InvitationFragment invitationfragment)
     {
         return invitationfragment.i;
     }
 
-    public static hhb i(InvitationFragment invitationfragment)
+    public static hlt h(InvitationFragment invitationfragment)
     {
         return invitationfragment.context;
     }
 
-    public static ani j(InvitationFragment invitationfragment)
+    public static aoa i(InvitationFragment invitationfragment)
     {
         return invitationfragment.h;
     }
 
-    public static String k(InvitationFragment invitationfragment)
+    public static String j(InvitationFragment invitationfragment)
     {
         return invitationfragment.g;
     }
 
-    public static bkw l(InvitationFragment invitationfragment)
+    public static blf k(InvitationFragment invitationfragment)
     {
         return invitationfragment.b;
-    }
-
-    public static void m(InvitationFragment invitationfragment)
-    {
-        invitationfragment.b();
     }
 
     public String getConversationId()
@@ -307,7 +201,7 @@ public class InvitationFragment extends bjy
         return i;
     }
 
-    public cey getInviterId()
+    public cgd getInviterId()
     {
         return f;
     }
@@ -320,7 +214,7 @@ public class InvitationFragment extends bjy
         {
             throw new InvalidParameterException("InvitationFragment requires a valid inviter id");
         }
-        h = dbf.e(d.a());
+        h = dcn.e(d.a());
         i = bundle.getInt("client_conversation_type", 0);
         Object obj = getLoaderManager();
         ((bq) (obj)).a(1001);
@@ -338,7 +232,6 @@ public class InvitationFragment extends bjy
         {
             g.a(context, h.h(), bundle.getLong("invite_timestamp", 0L));
         }
-        b();
         if (ak != null)
         {
             ak.setImageBitmap(null);
@@ -352,26 +245,18 @@ public class InvitationFragment extends bjy
             al.setText("");
         }
         for (bundle = am.iterator(); bundle.hasNext(); ((TextView)bundle.next()).setVisibility(8)) { }
-        if (!ap.e()) goto _L2; else goto _L1
-_L1:
-        a();
-_L4:
+        if (!ao.e())
+        {
+            ao.b();
+        }
         if (h != null)
         {
             if (an != null)
             {
-                restartFragment(new aih(e, i));
+                restartFragment(new aia(e, i));
             }
-            (new bkq(this)).execute(new Void[0]);
+            (new blc(this)).execute(new Void[0]);
         }
-        return;
-_L2:
-        if (f != null)
-        {
-            ap.b();
-        }
-        if (true) goto _L4; else goto _L3
-_L3:
     }
 
     public boolean isEmpty()
@@ -379,52 +264,11 @@ _L3:
         return false;
     }
 
-    public void onActivityResult(int i1, int j1, Intent intent)
-    {
-        if (i1 == 101 && j1 == -1)
-        {
-            ArrayList arraylist = new ArrayList();
-            Object obj;
-            if (intent.hasExtra("com.google.android.gms.common.acl.EXTRA_INITIAL_AUDIENCE"))
-            {
-                obj = intent.getParcelableArrayListExtra("com.google.android.gms.common.acl.EXTRA_INITIAL_AUDIENCE");
-            } else
-            {
-                obj = Collections.emptyList();
-            }
-            if (obj != null && !((List) (obj)).isEmpty())
-            {
-                arraylist.addAll(((Collection) (obj)));
-            }
-            obj = intent.getParcelableArrayListExtra("com.google.android.gms.common.acl.EXTRA_REMOVED_AUDIENCE");
-            if (obj != null)
-            {
-                arraylist.removeAll(((Collection) (obj)));
-            }
-            intent = intent.getParcelableArrayListExtra("com.google.android.gms.common.acl.EXTRA_ADDED_AUDIENCE");
-            if (intent != null)
-            {
-                arraylist.addAll(intent);
-            }
-            inviterCircleIds.clear();
-            for (intent = arraylist.iterator(); intent.hasNext(); inviterCircleIds.add(((AudienceMember) (obj)).d()))
-            {
-                obj = (AudienceMember)intent.next();
-            }
-
-            ao.setEnabled(false);
-            if (ap.e())
-            {
-                a();
-            }
-        }
-    }
-
     protected void onAttachBinder(Bundle bundle)
     {
         super.onAttachBinder(bundle);
-        d = (gmo)binder.a(gmo);
-        h = dbf.e(d.a());
+        d = (gqu)binder.a(gqu);
+        h = dcn.e(d.a());
     }
 
     public boolean onBackPressed()
@@ -436,49 +280,30 @@ _L3:
     {
         if (h != null && e != null)
         {
-            if (view.getId() == h.eV)
+            if (view.getId() == h.eD)
             {
                 RealTimeChatService.a(h, e, true, false, false);
                 b.b(e);
                 g.a(h, 1551);
                 return;
             }
-            if (view.getId() == h.fl)
+            if (view.getId() == h.eT)
             {
-                view = bht.a(d.a(), g);
-                view.a(new bks(this));
-                view.a(getFragmentManager(), null);
+                int i1 = d.a();
+                view = g;
+                bif bif1 = new bif();
+                Bundle bundle = new Bundle();
+                bundle.putInt("account_id", i1);
+                bundle.putString("dialog_inviter_name", view);
+                bif1.setArguments(bundle);
+                bif1.a(new ble(this));
+                bif1.a(getFragmentManager(), null);
                 return;
             }
             if (view == aj && f != null)
             {
                 startActivity(g.o(f.a));
                 return;
-            }
-        }
-    }
-
-    public void onCreate(Bundle bundle)
-    {
-        super.onCreate(bundle);
-        if (bundle != null)
-        {
-            String as1[] = bundle.getStringArray(au);
-            if (as1 != null)
-            {
-                inviterCircleIds = new HashSet();
-                Collections.addAll(inviterCircleIds, as1);
-            }
-            as1 = bundle.getStringArray(av);
-            bundle = bundle.getStringArray(aw);
-            if (as1 != null && bundle != null && as1.length == bundle.length)
-            {
-                myCircles = new gz();
-                for (int i1 = 0; i1 < as1.length; i1++)
-                {
-                    myCircles.put(as1[i1], bundle[i1]);
-                }
-
             }
         }
     }
@@ -494,7 +319,7 @@ _L1:
 _L2:
         if (h != null && e != null && f != null)
         {
-            return amz.a(h, e, anb.b);
+            return anr.a(h, e, ant.b);
         }
         if (true) goto _L1; else goto _L3
 _L3:
@@ -502,29 +327,26 @@ _L3:
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
-        layoutinflater = layoutinflater.inflate(g.gv, viewgroup, false);
-        an = (bhp)getChildFragmentManager().a(bhp.getName());
+        layoutinflater = layoutinflater.inflate(g.gr, viewgroup, false);
+        an = (bib)getChildFragmentManager().a(bib.getName());
         if (an == null)
         {
-            an = ((bhs)binder.a(bhs)).a();
+            an = ((bie)binder.a(bie)).a();
         }
         a(c);
-        ak = (ImageView)layoutinflater.findViewById(h.aG);
-        aj = (AvatarView)layoutinflater.findViewById(h.eM);
+        ak = (ImageView)layoutinflater.findViewById(h.aB);
+        aj = (AvatarView)layoutinflater.findViewById(h.eu);
         aj.setOnClickListener(this);
-        al = (TextView)layoutinflater.findViewById(h.dQ);
-        am.add((TextView)layoutinflater.findViewById(h.en));
-        am.add((TextView)layoutinflater.findViewById(h.eo));
-        am.add((TextView)layoutinflater.findViewById(h.ep));
-        layoutinflater.findViewById(h.fl).setOnClickListener(this);
-        layoutinflater.findViewById(h.eV).setOnClickListener(this);
-        ao = (Button)layoutinflater.findViewById(h.ae);
-        b();
-        ao.setOnClickListener(az);
-        ar = (FixedParticipantsGalleryView)layoutinflater.findViewById(h.bN);
-        c();
+        al = (TextView)layoutinflater.findViewById(h.dH);
+        am.add((TextView)layoutinflater.findViewById(h.dV));
+        am.add((TextView)layoutinflater.findViewById(h.dW));
+        am.add((TextView)layoutinflater.findViewById(h.dX));
+        layoutinflater.findViewById(h.eT).setOnClickListener(this);
+        layoutinflater.findViewById(h.eD).setOnClickListener(this);
+        ap = (FixedParticipantsGalleryView)layoutinflater.findViewById(h.bG);
+        a();
         b(layoutinflater);
-        RealTimeChatService.a(at);
+        RealTimeChatService.a(ar);
         g.a(h, 1550);
         return layoutinflater;
     }
@@ -532,32 +354,27 @@ _L3:
     public void onDestroyView()
     {
         super.onDestroyView();
-        RealTimeChatService.b(at);
-        if (aq != null)
+        RealTimeChatService.b(ar);
+        if (ao.e() || ao.f())
         {
-            aq.b();
-            aq = null;
-        }
-        if (ap.e() || ap.f())
-        {
-            ap.d();
+            ao.d();
         }
     }
 
     public void onHiddenChanged(boolean flag)
     {
-        ebw.a("Babel", (new StringBuilder(22)).append("onHiddenChanged: ").append(flag).toString());
+        eev.a("Babel", (new StringBuilder(22)).append("onHiddenChanged: ").append(flag).toString());
         super.onHiddenChanged(flag);
         if (getView() == null || getActivity() == null)
         {
-            ebw.a("Babel", "onHiddenChanged: Too early. Bailing");
+            eev.a("Babel", "onHiddenChanged: Too early. Bailing");
         } else
         if (flag)
         {
             e = null;
             f = null;
             ak.setImageBitmap(null);
-            ar.a();
+            ap.a();
             if (getLoaderManager().b(1001) != null)
             {
                 getLoaderManager().a(1001);
@@ -579,8 +396,8 @@ _L2:
         {
             Object obj = h;
             String s = e;
-            em1 = new amz();
-            em1.d(((ani) (obj)), s);
+            em1 = new anr();
+            em1.d(((aoa) (obj)), s);
             em1.a(cursor);
             cursor = new ArrayList();
             obj = em1.b().iterator();
@@ -590,25 +407,25 @@ _L2:
                 {
                     break;
                 }
-                Object obj1 = (ceu)((Iterator) (obj)).next();
-                if (!em1.c(((ceu) (obj1)).b))
+                Object obj1 = (cfz)((Iterator) (obj)).next();
+                if (!em1.c(((cfz) (obj1)).b))
                 {
-                    if (!f.a(((ceu) (obj1)).b))
+                    if (!f.a(((cfz) (obj1)).b))
                     {
-                        cursor.add(((ceu) (obj1)).b);
+                        cursor.add(((cfz) (obj1)).b);
                     } else
                     {
-                        g = ((ceu) (obj1)).e;
+                        g = ((cfz) (obj1)).e;
                         if (TextUtils.isEmpty(g))
                         {
-                            g = getActivity().getString(l.cK);
+                            g = getActivity().getString(l.ct);
                         }
-                        aj.a(((ceu) (obj1)).h, ((ceu) (obj1)).e, h);
-                        aj.setContentDescription(getActivity().getString(l.js, new Object[] {
+                        aj.a(((cfz) (obj1)).h, ((cfz) (obj1)).e, h);
+                        aj.setContentDescription(getActivity().getString(l.iK, new Object[] {
                             g
                         }));
                         al.setText(g);
-                        Object obj2 = getActivity().getText(l.iS);
+                        Object obj2 = getActivity().getText(l.ik);
                         obj1 = SpannableString.valueOf(TextUtils.expandTemplate(((CharSequence) (obj2)), new CharSequence[] {
                             g
                         }));
@@ -622,13 +439,13 @@ _L2:
                             URLSpan urlspan = aurlspan[0];
                             int i1 = ((SpannableString) (obj1)).getSpanStart(urlspan);
                             int j1 = ((SpannableString) (obj1)).getSpanEnd(urlspan);
-                            ((SpannableStringBuilder) (obj2)).setSpan(new bkr(this), i1, j1, 33);
+                            ((SpannableStringBuilder) (obj2)).setSpan(new bld(this), i1, j1, 33);
                         }
                     }
                 }
             } while (true);
-            as = cursor;
-            c();
+            aq = cursor;
+            a();
             getLoaderManager().a(1001);
             return;
         }
@@ -648,59 +465,39 @@ _L3:
     public void onSaveInstanceState(Bundle bundle)
     {
         super.onSaveInstanceState(bundle);
-        if (inviterCircleIds != null)
-        {
-            bundle.putStringArray(au, (String[])inviterCircleIds.toArray(new String[inviterCircleIds.size()]));
-        }
-        if (myCircles != null)
-        {
-            String as1[] = new String[myCircles.size()];
-            String as2[] = new String[myCircles.size()];
-            Iterator iterator = myCircles.entrySet().iterator();
-            for (int i1 = 0; iterator.hasNext(); i1++)
-            {
-                java.util.Map.Entry entry = (java.util.Map.Entry)iterator.next();
-                as1[i1] = (String)entry.getKey();
-                as2[i1] = (String)entry.getValue();
-            }
-
-            bundle.putStringArray(av, as1);
-            bundle.putStringArray(aw, as2);
-        }
     }
 
     public void onStart()
     {
         super.onStart();
-        if (!ap.e() && !ap.f())
+        if (!ao.e() && !ao.f())
         {
-            ebw.a("Babel", "Reconnecting people client for InvitationFragment.");
-            ap.b();
+            eev.a("Babel", "Reconnecting people client for InvitationFragment.");
+            ao.b();
         }
     }
 
-    public void restartFragment(aih aih1)
+    public void restartFragment(aia aia1)
     {
         if (getActivity() == null)
         {
             return;
         } else
         {
-            an = ((bhs)binder.a(bhs)).a();
+            an = ((bie)binder.a(bie)).a();
             an.a(c);
             Bundle bundle = new Bundle();
-            bundle.putParcelable("conversation_parameters", aih1);
+            bundle.putParcelable("conversation_parameters", aia1);
             an.setArguments(bundle);
-            an.G();
-            getChildFragmentManager().a().b(h.cX, an, bhp.getName()).b();
+            an.H();
+            getChildFragmentManager().a().b(h.cM, an, bib.getName()).b();
             return;
         }
     }
 
-    public void setHostInterface(bkw bkw1, bhr bhr)
+    public void setHostInterface(blf blf1, bid bid)
     {
-        b = bkw1;
-        a(bhr);
+        b = blf1;
+        a(bid);
     }
-
 }

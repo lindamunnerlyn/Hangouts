@@ -2,83 +2,71 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Cursor;
-import android.text.TextUtils;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.FilterOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 
-public final class cda
+final class cda extends FilterOutputStream
 {
 
-    public final String a;
-    public final String b;
-    public final boolean c;
-    public final int d;
-    public final int e;
-    public final String f;
-    public final long g;
-    public final List h = new ArrayList();
-    public int i;
-    public final boolean j;
-    public final String k;
-    public final int l;
-    public final long m;
+    final ccz a;
 
-    public cda(String s, String s1, int i1, String s2, long l1, boolean flag, 
-            int j1, String s3, int k1, long l2)
+    cda(ccz ccz1, OutputStream outputstream)
     {
-        a = s;
-        b = s1;
-        e = i1;
-        boolean flag1;
-        if (e == 2)
+        a = ccz1;
+        super(outputstream);
+    }
+
+    public void close()
+    {
+        try
         {
-            flag1 = true;
-        } else
-        {
-            flag1 = false;
+            out.close();
+            return;
         }
-        c = flag1;
-        d = j1;
-        f = s2;
-        g = l1;
-        i = 0;
-        j = flag;
-        k = s3;
-        l = k1;
-        m = l2;
-        if (cdu.b)
+        catch (IOException ioexception)
         {
-            s = a;
-            s1 = f;
-            ebw.b("Babel", (new StringBuilder(String.valueOf(s).length() + 20 + String.valueOf(s1).length())).append("Conversation Line: ").append(s).append(" ").append(s1).toString());
+            a.b = true;
         }
     }
 
-    static String a(Cursor cursor, int i1, int j1)
+    public void flush()
     {
-        String s1 = cursor.getString(i1);
-        String s = s1;
-        if (TextUtils.isEmpty(s1))
+        try
         {
-            s = cursor.getString(j1);
+            out.flush();
+            return;
         }
-        return s;
-    }
-
-    cel a()
-    {
-        if (h.size() > 0)
+        catch (IOException ioexception)
         {
-            return ((ceb)h.get(0)).p;
-        } else
-        {
-            return cel.b;
+            a.b = true;
         }
     }
 
-    boolean b()
+    public void write(int i)
     {
-        return l == 1;
+        try
+        {
+            out.write(i);
+            return;
+        }
+        catch (IOException ioexception)
+        {
+            a.b = true;
+        }
+    }
+
+    public void write(byte abyte0[], int i, int j)
+    {
+        try
+        {
+            out.write(abyte0, i, j);
+            return;
+        }
+        // Misplaced declaration of an exception variable
+        catch (byte abyte0[])
+        {
+            a.b = true;
+        }
     }
 }

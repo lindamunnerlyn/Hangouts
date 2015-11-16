@@ -2,53 +2,93 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import android.graphics.Bitmap;
+import android.os.Binder;
+import android.os.Parcel;
+import com.google.android.gms.googlehelp.GoogleHelp;
 
-public class fed extends fem
-    implements Map
+public abstract class fed extends Binder
+    implements fec
 {
 
-    feg a;
-
-    public fed()
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
     {
-    }
-
-    private feg b()
-    {
-        if (a == null)
+        switch (i)
         {
-            a = new fee(this);
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
+
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.googlehelp.internal.common.IGoogleHelpService");
+            return true;
+
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.gms.googlehelp.internal.common.IGoogleHelpService");
+            GoogleHelp googlehelp;
+            if (parcel.readInt() != 0)
+            {
+                googlehelp = (GoogleHelp)GoogleHelp.CREATOR.createFromParcel(parcel);
+            } else
+            {
+                googlehelp = null;
+            }
+            a(googlehelp, fea.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            return true;
+
+        case 2: // '\002'
+            parcel.enforceInterface("com.google.android.gms.googlehelp.internal.common.IGoogleHelpService");
+            GoogleHelp googlehelp1;
+            Bitmap bitmap1;
+            if (parcel.readInt() != 0)
+            {
+                googlehelp1 = (GoogleHelp)GoogleHelp.CREATOR.createFromParcel(parcel);
+            } else
+            {
+                googlehelp1 = null;
+            }
+            if (parcel.readInt() != 0)
+            {
+                bitmap1 = (Bitmap)Bitmap.CREATOR.createFromParcel(parcel);
+            } else
+            {
+                bitmap1 = null;
+            }
+            a(googlehelp1, bitmap1, fea.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            return true;
+
+        case 3: // '\003'
+            parcel.enforceInterface("com.google.android.gms.googlehelp.internal.common.IGoogleHelpService");
+            Bitmap bitmap;
+            if (parcel.readInt() != 0)
+            {
+                bitmap = (Bitmap)Bitmap.CREATOR.createFromParcel(parcel);
+            } else
+            {
+                bitmap = null;
+            }
+            a(bitmap, fea.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            return true;
+
+        case 4: // '\004'
+            parcel.enforceInterface("com.google.android.gms.googlehelp.internal.common.IGoogleHelpService");
+            a(fea.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            return true;
+
+        case 5: // '\005'
+            parcel.enforceInterface("com.google.android.gms.googlehelp.internal.common.IGoogleHelpService");
+            b(fea.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            return true;
+
+        case 6: // '\006'
+            parcel.enforceInterface("com.google.android.gms.googlehelp.internal.common.IGoogleHelpService");
+            c(fea.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            return true;
         }
-        return a;
-    }
-
-    public Set entrySet()
-    {
-        return b().d();
-    }
-
-    public Set keySet()
-    {
-        return b().e();
-    }
-
-    public void putAll(Map map)
-    {
-        a(h + map.size());
-        java.util.Map.Entry entry;
-        for (map = map.entrySet().iterator(); map.hasNext(); put(entry.getKey(), entry.getValue()))
-        {
-            entry = (java.util.Map.Entry)map.next();
-        }
-
-    }
-
-    public Collection values()
-    {
-        return b().f();
     }
 }

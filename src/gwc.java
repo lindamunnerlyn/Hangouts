@@ -3,32 +3,13 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class gwc
+public final class gwc
 {
 
-    private final gwe a;
-    private final gwa b;
-    private final gwa c;
+    private int a;
 
-    gwc(gwe gwe, gwa gwa, gwa gwa1)
-    {
-        a = gwe;
-        b = gwa;
-        c = gwa1;
-    }
-
-    public gwe a()
+    public int a()
     {
         return a;
-    }
-
-    public gwa b()
-    {
-        return b;
-    }
-
-    public gwa c()
-    {
-        return c;
     }
 }

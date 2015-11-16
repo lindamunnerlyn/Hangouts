@@ -2,85 +2,70 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.util.Log;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import android.content.Context;
+import android.content.Intent;
+import java.io.OutputStream;
+import org.apache.http.entity.ByteArrayEntity;
 
-public final class adr
+public final class adr extends ByteArrayEntity
 {
 
-    static String a;
-    public static int b = 0xc0000000;
-    private static final Map c;
-    private static final Set d;
+    private final Context a;
+    private final byte b[];
+    private final long c = -1L;
 
-    public static int a(String s)
+    public adr(Context context, long l, byte abyte0[])
     {
-        String s1 = s.toLowerCase();
-        if (c.containsKey(s1))
+        super(abyte0);
+        a = context;
+        b = abyte0;
+    }
+
+    private void a(int i)
+    {
+        if (c > 0L)
         {
-            return ((Integer)c.get(s1)).intValue();
+            Intent intent = new Intent("com.android.mms.PROGRESS_STATUS");
+            intent.putExtra("progress", i);
+            intent.putExtra("token", c);
+            a.sendBroadcast(intent);
         }
-        if ("default".equalsIgnoreCase(s))
+    }
+
+    public void writeTo(OutputStream outputstream)
+    {
+        if (outputstream == null)
         {
-            return b;
-        } else
-        {
-            Log.e("vCard", (new StringBuilder(String.valueOf(s).length() + 29)).append("Unknown vCard type String: \"").append(s).append("\"").toString());
-            return b;
+            throw new IllegalArgumentException("Output stream may not be null");
         }
-    }
-
-    public static boolean a(int i)
-    {
-        return (i & 3) == 0;
-    }
-
-    public static boolean b(int i)
-    {
-        return (i & 3) == 1;
-    }
-
-    public static boolean c(int i)
-    {
-        return (i & 3) == 2;
-    }
-
-    public static int d(int i)
-    {
-        return i & 0xc;
-    }
-
-    public static boolean e(int i)
-    {
-        return d.contains(Integer.valueOf(i));
-    }
-
-    static boolean f(int i)
-    {
-        return (0x2000000 & i) != 0;
-    }
-
-    static 
-    {
-        a = "v21_generic";
-        Object obj = new HashMap();
-        c = ((Map) (obj));
-        ((Map) (obj)).put(a, Integer.valueOf(0xc0000000));
-        c.put("v30_generic", Integer.valueOf(0xc0000001));
-        c.put("v21_europe", Integer.valueOf(0xc0000004));
-        c.put("v30_europe", Integer.valueOf(0xc0000005));
-        c.put("v21_japanese_utf8", Integer.valueOf(0xc0000008));
-        c.put("v30_japanese_utf8", Integer.valueOf(0xc0000009));
-        c.put("v21_japanese_mobile", Integer.valueOf(0x18000008));
-        c.put("docomo", Integer.valueOf(0x38000008));
-        obj = new HashSet();
-        d = ((Set) (obj));
-        ((Set) (obj)).add(Integer.valueOf(0xc0000008));
-        d.add(Integer.valueOf(0xc0000009));
-        d.add(Integer.valueOf(0x18000008));
-        d.add(Integer.valueOf(0x38000008));
+        int l;
+        a(-1);
+        l = b.length;
+        int i = 0;
+          goto _L1
+_L5:
+        int j;
+        outputstream.write(b, i, j);
+        outputstream.flush();
+        i = j + i;
+        a((i * 100) / l);
+          goto _L1
+_L3:
+        a(100);
+        return;
+        outputstream;
+        a(-2);
+        throw outputstream;
+_L1:
+        if (i >= l) goto _L3; else goto _L2
+_L2:
+        int k = l - i;
+        j = k;
+        if (k > 4096)
+        {
+            j = 4096;
+        }
+        if (true) goto _L5; else goto _L4
+_L4:
     }
 }

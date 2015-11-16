@@ -2,33 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
+import com.google.android.gms.people.accountswitcherview.SelectedAccountNavigationView;
 
 public final class fqm
+    implements android.view.View.OnClickListener
 {
 
-    private final fqn a = new fqn();
+    final SelectedAccountNavigationView a;
 
-    public fqm()
+    public fqm(SelectedAccountNavigationView selectedaccountnavigationview)
     {
+        a = selectedaccountnavigationview;
+        super();
     }
 
-    public int a(String s)
+    public void onClick(View view)
     {
-        return a.a(s);
-    }
-
-    public void a(String s, int i)
-    {
-        a.a(s, Integer.valueOf(i));
-    }
-
-    public int b(String s, int i)
-    {
-        return ((Integer)a.a(s, i)).intValue();
-    }
-
-    public String toString()
-    {
-        return a.toString();
+        a.c();
     }
 }

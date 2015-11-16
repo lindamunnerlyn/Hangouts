@@ -2,47 +2,69 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.accounts.AuthenticatorException;
-import android.content.Context;
+import android.os.Parcel;
+import com.google.android.gms.wearable.internal.NodeParcelable;
 
-class fxs
-    implements fxo
+public final class fxs
+    implements android.os.Parcelable.Creator
 {
 
-    fxs()
+    public fxs()
     {
     }
 
-    public String a(Context context, String s, String s1)
+    public Object createFromParcel(Parcel parcel)
     {
-        try
+        String s = null;
+        boolean flag = false;
+        int k = g.a(parcel);
+        int i = 0;
+        String s1 = null;
+        int j = 0;
+        do
         {
-            context = eic.c(context, s, s1);
-        }
-        // Misplaced declaration of an exception variable
-        catch (Context context)
-        {
-            throw new AuthenticatorException("Cannot get Oauth2 token from GMS", context);
-        }
-        return context;
+            if (parcel.dataPosition() < k)
+            {
+                int l = parcel.readInt();
+                switch (0xffff & l)
+                {
+                default:
+                    g.b(parcel, l);
+                    break;
+
+                case 1: // '\001'
+                    j = g.e(parcel, l);
+                    break;
+
+                case 2: // '\002'
+                    s1 = g.i(parcel, l);
+                    break;
+
+                case 3: // '\003'
+                    s = g.i(parcel, l);
+                    break;
+
+                case 4: // '\004'
+                    i = g.e(parcel, l);
+                    break;
+
+                case 5: // '\005'
+                    flag = g.c(parcel, l);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != k)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
+            } else
+            {
+                return new NodeParcelable(j, s1, s, i, flag);
+            }
+        } while (true);
     }
 
-    public void a(Context context, String s)
+    public Object[] newArray(int i)
     {
-        try
-        {
-            eic.b(context, s);
-            return;
-        }
-        // Misplaced declaration of an exception variable
-        catch (Context context)
-        {
-            throw new AuthenticatorException("Cannot invalidate token", context);
-        }
-        // Misplaced declaration of an exception variable
-        catch (Context context)
-        {
-            throw new AuthenticatorException("Cannot invalidate token", context);
-        }
+        return new NodeParcelable[i];
     }
 }

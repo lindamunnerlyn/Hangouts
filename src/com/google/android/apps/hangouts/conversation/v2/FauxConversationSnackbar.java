@@ -8,11 +8,11 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.util.AttributeSet;
-import ayy;
-import ayz;
+import azm;
+import azn;
 import com.google.android.libraries.quantum.snackbar.Snackbar;
 import g;
-import gmb;
+import gqh;
 
 public class FauxConversationSnackbar extends Snackbar
 {
@@ -24,7 +24,7 @@ public class FauxConversationSnackbar extends Snackbar
 
     public FauxConversationSnackbar(Context context, AttributeSet attributeset)
     {
-        this(context, attributeset, g.rS);
+        this(context, attributeset, g.st);
     }
 
     public FauxConversationSnackbar(Context context, AttributeSet attributeset, int i)
@@ -32,33 +32,28 @@ public class FauxConversationSnackbar extends Snackbar
         super(context, attributeset, i);
     }
 
-    public static void a(Snackbar snackbar)
-    {
-        b(snackbar);
-    }
-
     public void a()
     {
-        gmb gmb1 = a;
+        gqh gqh1 = a;
         ObjectAnimator objectanimator = ObjectAnimator.ofPropertyValuesHolder(this, new PropertyValuesHolder[] {
             PropertyValuesHolder.ofFloat("alpha", new float[] {
                 0.0F, 1.0F
             })
         });
-        objectanimator.addListener(new ayy(this));
-        gmb1.a(objectanimator);
+        objectanimator.addListener(new azm(this));
+        gqh1.a(objectanimator);
     }
 
     public void b()
     {
-        gmb gmb1 = a;
+        gqh gqh1 = a;
         ObjectAnimator objectanimator = ObjectAnimator.ofPropertyValuesHolder(this, new PropertyValuesHolder[] {
             PropertyValuesHolder.ofFloat("alpha", new float[] {
                 1.0F, 0.0F
             })
         });
         objectanimator.setStartDelay(700L);
-        objectanimator.addListener(new ayz(this));
-        gmb1.b(objectanimator);
+        objectanimator.addListener(new azn(this));
+        gqh1.b(objectanimator);
     }
 }

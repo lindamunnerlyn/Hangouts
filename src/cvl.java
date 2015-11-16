@@ -3,66 +3,29 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cvl extends cui
+public class cvl extends cvf
 {
 
-    private static final long serialVersionUID = 2L;
-    public final cvm a[];
-    public final int b;
+    private static final long serialVersionUID = 1L;
+    public final String a;
+    public final String b;
 
-    public cvl(cvm acvm[], int i)
+    public cvl(String s, String s1)
     {
-        a = acvm;
-        b = i;
+        a = s;
+        b = s1;
     }
 
-    public String a()
+    public kws a(String s, int i, int j)
     {
-        return "background_queue";
+        jhq jhq1 = new jhq();
+        jhq1.requestHeader = cvu.a(s, i, j, h);
+        jhq1.a = a;
+        return jhq1;
     }
 
-    public kop a(String s, int i, int j)
+    public String f()
     {
-        int k = 0;
-        if (ctr.e)
-        {
-            ebw.b("Babel_RequestWriter", "Build proto for UploadAnalyticsRequest");
-        }
-        iws iws1 = new iws();
-        iws1.requestHeader = ctq.a(null, true, s, i, j, h);
-        if (a != null && b > 0)
-        {
-            iws1.b = new iuh[b];
-            j = 0;
-            for (i = k; i < a.length && j < b; j = k)
-            {
-                k = j;
-                if (a[i].b() > 0L)
-                {
-                    iws1.b[j] = a[i].c();
-                    k = j + 1;
-                }
-                i++;
-            }
-
-        }
-        return iws1;
-    }
-
-    public void a(ani ani1, dbo dbo)
-    {
-        dbo = djh.b(ani1.h());
-        if (dbo.g())
-        {
-            String s = String.valueOf(getClass().getSimpleName());
-            ani1 = String.valueOf(ebw.b(ani1.a()));
-            ebw.f("Babel_RequestWriter", (new StringBuilder(String.valueOf(s).length() + 9 + String.valueOf(ani1).length())).append(s).append(" failed: ").append(ani1).toString());
-            dbo.a(0);
-        }
-    }
-
-    public String g()
-    {
-        return "analytics/recordanalyticsevents";
+        return "hangout_participants/search";
     }
 }

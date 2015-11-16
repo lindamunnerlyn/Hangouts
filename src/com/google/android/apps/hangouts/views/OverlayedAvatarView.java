@@ -11,21 +11,21 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
-import ani;
-import cey;
-import csw;
-import csz;
-import dyy;
-import ebw;
-import efy;
-import efz;
-import fwz;
+import aoa;
+import cgd;
+import cuz;
+import cvc;
+import ecj;
+import eev;
+import eja;
+import ejb;
+import fzd;
 import g;
-import gmo;
+import gqu;
 import h;
-import hgx;
-import hiv;
-import hjm;
+import hlp;
+import hnn;
+import hof;
 
 // Referenced classes of package com.google.android.apps.hangouts.views:
 //            AvatarView, RichStatusView
@@ -42,12 +42,12 @@ public class OverlayedAvatarView extends RelativeLayout
     private int g;
     private int h;
     private AvatarView i;
-    private cey j;
+    private cgd j;
     private RichStatusView k;
     private int l;
     private String m;
-    private efz n;
-    private dyy o;
+    private ejb n;
+    private ecj o;
     private Runnable p;
 
     public OverlayedAvatarView(Context context)
@@ -74,10 +74,10 @@ public class OverlayedAvatarView extends RelativeLayout
         l = -1;
     }
 
-    public static OverlayedAvatarView a(LayoutInflater layoutinflater, String s, cey cey1, int i1, dyy dyy1)
+    public static OverlayedAvatarView a(LayoutInflater layoutinflater, String s, cgd cgd1, int i1, ecj ecj1)
     {
-        layoutinflater = (OverlayedAvatarView)layoutinflater.inflate(g.gR, null, false);
-        layoutinflater.a(s, cey1, i1, dyy1);
+        layoutinflater = (OverlayedAvatarView)layoutinflater.inflate(g.gJ, null, false);
+        layoutinflater.a(s, cgd1, i1, ecj1);
         return layoutinflater;
     }
 
@@ -178,14 +178,14 @@ public class OverlayedAvatarView extends RelativeLayout
         return b(g);
     }
 
-    public void a(csw csw)
+    public void a(cuz cuz)
     {
-        k.a(csw);
+        k.a(cuz);
         if (f && k.b())
         {
             if (p == null)
             {
-                p = new efy(this);
+                p = new eja(this);
             }
             c.removeCallbacks(p);
             c.postDelayed(p, 10000L);
@@ -193,21 +193,21 @@ public class OverlayedAvatarView extends RelativeLayout
         i();
     }
 
-    public void a(String s, cey cey1, int i1, dyy dyy1)
+    public void a(String s, cgd cgd1, int i1, ecj ecj1)
     {
         m = s;
-        j = cey1;
+        j = cgd1;
         k.a(j);
-        o = dyy1;
+        o = ecj1;
         g(i1);
-        d = fwz.a(getContext().getContentResolver(), "babel_richstatus", true);
+        d = fzd.a(getContext().getContentResolver(), "babel_richstatus", true);
         e = true;
         i();
     }
 
-    public void a(String s, String s1, ani ani)
+    public void a(String s, String s1, aoa aoa)
     {
-        i.a(s, s1, ani);
+        i.a(s, s1, aoa);
     }
 
     public void a(boolean flag)
@@ -237,9 +237,10 @@ label0:
                 {
                     break label0;
                 }
-                hgx hgx1 = hgx.b(getContext());
-                int i1 = ((gmo)hgx1.a(gmo)).a();
-                n = new efz(this, (hjm)hgx1.a(hiv), i1);
+                Object obj = hlp.b(getContext());
+                int i1 = ((gqu)((hlp) (obj)).a(gqu)).a();
+                obj = (hof)((hlp) (obj)).a(hnn);
+                n = new ejb(this, getContext(), ((hof) (obj)), i1);
             }
             n.a(s);
         }
@@ -279,18 +280,18 @@ label0:
         g = i1;
         if (a)
         {
-            String s = a(k1);
+            String s = String.valueOf(a(k1));
             String s1 = String.valueOf(j);
-            ebw.b("Babel", (new StringBuilder(String.valueOf(s).length() + 29 + String.valueOf(s1).length())).append("[AvatarView] new state  ").append(s).append(" for ").append(s1).toString());
+            eev.b("Babel", (new StringBuilder(String.valueOf(s).length() + 29 + String.valueOf(s1).length())).append("[AvatarView] new state  ").append(s).append(" for ").append(s1).toString());
         }
         if (k1 == j1) goto _L2; else goto _L1
 _L1:
         k1;
-        JVM INSTR tableswitch 1 4: default 132
-    //                   1 155
-    //                   2 133
-    //                   3 132
-    //                   4 144;
+        JVM INSTR tableswitch 1 4: default 136
+    //                   1 159
+    //                   2 137
+    //                   3 136
+    //                   4 148;
            goto _L2 _L3 _L4 _L2 _L5
 _L2:
         return;
@@ -323,7 +324,7 @@ _L3:
         h = i1;
     }
 
-    public cey g()
+    public cgd g()
     {
         return j;
     }
@@ -342,12 +343,12 @@ _L3:
         super.onFinishInflate();
         i = (AvatarView)findViewById(h.H);
         i.a(true);
-        k = (RichStatusView)findViewById(h.fy);
+        k = (RichStatusView)findViewById(h.fg);
     }
 
     static 
     {
-        hik hik = ebw.w;
-        b = csz.d.j | csz.e.j;
+        hnc hnc = eev.w;
+        b = cvc.d.j | cvc.e.j;
     }
 }

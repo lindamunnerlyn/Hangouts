@@ -2,24 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.libraries.hangouts.video.Decoder;
+import android.content.Intent;
 
-public final class gcq
-    implements Runnable
+public interface gcq
 {
 
-    final int a;
-    final Decoder b;
+    public abstract gcq a();
 
-    public gcq(Decoder decoder, int i)
-    {
-        b = decoder;
-        a = i;
-        super();
-    }
+    public abstract gcq a(int i);
 
-    public void run()
-    {
-        Decoder.i(b).a();
-    }
+    public abstract gcq a(String s);
+
+    public abstract gcq b();
+
+    public abstract gcq b(int i);
+
+    public abstract gcq b(String s);
+
+    public abstract Intent c();
+
+    public abstract gcq c(String s);
+
+    public abstract gcq d(String s);
 }

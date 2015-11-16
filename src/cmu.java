@@ -2,21 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.phone.DebugActivity;
 
-public abstract class cmu
+public final class cmu
 {
 
-    String d;
+    public final String a;
+    public final Object b;
+    final DebugActivity c;
 
-    public cmu(String s)
+    public cmu(DebugActivity debugactivity, String s, Object obj)
     {
-        d = s;
-    }
-
-    public abstract void a();
-
-    public String toString()
-    {
-        return d;
+        c = debugactivity;
+        super();
+        a = s;
+        b = obj;
     }
 }

@@ -3,7 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.os.Parcel;
-import com.google.android.gms.people.identity.internal.ParcelableGetOptions;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public final class foe
     implements android.os.Parcelable.Creator
@@ -13,15 +14,23 @@ public final class foe
     {
     }
 
-    public static ParcelableGetOptions a(Parcel parcel)
+    public static MarkerOptions a(Parcel parcel)
     {
-        android.os.Bundle bundle = null;
-        boolean flag = false;
         int j = g.a(parcel);
-        String s = null;
-        boolean flag1 = false;
-        boolean flag2 = false;
         int i = 0;
+        LatLng latlng = null;
+        String s1 = null;
+        String s = null;
+        android.os.IBinder ibinder = null;
+        float f5 = 0.0F;
+        float f4 = 0.0F;
+        boolean flag2 = false;
+        boolean flag1 = false;
+        boolean flag = false;
+        float f3 = 0.0F;
+        float f2 = 0.5F;
+        float f1 = 0.0F;
+        float f = 1.0F;
         do
         {
             if (parcel.dataPosition() < j)
@@ -34,27 +43,59 @@ public final class foe
                     break;
 
                 case 1: // '\001'
-                    flag2 = g.c(parcel, k);
-                    break;
-
-                case 1000: 
                     i = g.e(parcel, k);
                     break;
 
                 case 2: // '\002'
-                    flag1 = g.c(parcel, k);
+                    latlng = (LatLng)g.a(parcel, k, LatLng.CREATOR);
                     break;
 
                 case 3: // '\003'
-                    s = g.i(parcel, k);
+                    s1 = g.i(parcel, k);
                     break;
 
                 case 4: // '\004'
-                    flag = g.c(parcel, k);
+                    s = g.i(parcel, k);
                     break;
 
                 case 5: // '\005'
-                    bundle = g.k(parcel, k);
+                    ibinder = g.j(parcel, k);
+                    break;
+
+                case 6: // '\006'
+                    f5 = g.g(parcel, k);
+                    break;
+
+                case 7: // '\007'
+                    f4 = g.g(parcel, k);
+                    break;
+
+                case 8: // '\b'
+                    flag2 = g.c(parcel, k);
+                    break;
+
+                case 9: // '\t'
+                    flag1 = g.c(parcel, k);
+                    break;
+
+                case 10: // '\n'
+                    flag = g.c(parcel, k);
+                    break;
+
+                case 11: // '\013'
+                    f3 = g.g(parcel, k);
+                    break;
+
+                case 12: // '\f'
+                    f2 = g.g(parcel, k);
+                    break;
+
+                case 13: // '\r'
+                    f1 = g.g(parcel, k);
+                    break;
+
+                case 14: // '\016'
+                    f = g.g(parcel, k);
                     break;
                 }
             } else
@@ -63,21 +104,9 @@ public final class foe
                 throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
             } else
             {
-                return new ParcelableGetOptions(i, flag2, flag1, flag, s, bundle);
+                return new MarkerOptions(i, latlng, s1, s, ibinder, f5, f4, flag2, flag1, flag, f3, f2, f1, f);
             }
         } while (true);
-    }
-
-    public static void a(ParcelableGetOptions parcelablegetoptions, Parcel parcel)
-    {
-        int i = g.p(parcel, 20293);
-        g.a(parcel, 1, parcelablegetoptions.a);
-        g.b(parcel, 1000, parcelablegetoptions.a());
-        g.a(parcel, 2, parcelablegetoptions.b);
-        g.a(parcel, 3, parcelablegetoptions.c);
-        g.a(parcel, 4, parcelablegetoptions.d);
-        g.a(parcel, 5, parcelablegetoptions.e);
-        g.q(parcel, i);
     }
 
     public Object createFromParcel(Parcel parcel)
@@ -87,6 +116,6 @@ public final class foe
 
     public Object[] newArray(int i)
     {
-        return new ParcelableGetOptions[i];
+        return new MarkerOptions[i];
     }
 }

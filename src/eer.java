@@ -2,33 +2,56 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
-final class eer
-    implements lg
+public final class eer
 {
 
-    List a;
+    private final ConcurrentHashMap a = new ConcurrentHashMap();
 
-    eer()
+    public eer()
     {
-        a = new ArrayList();
     }
 
-    public void a(int i)
+    public void a(Object obj)
     {
-        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((lg)iterator.next()).a(i)) { }
+        this;
+        JVM INSTR monitorenter ;
+        a.putIfAbsent(obj, new AtomicInteger(0));
+        ((AtomicInteger)a.get(obj)).incrementAndGet();
+        this;
+        JVM INSTR monitorexit ;
+        return;
+        obj;
+        throw obj;
     }
 
-    public void a(int i, float f, int j)
+    public void b(Object obj)
     {
-        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((lg)iterator.next()).a(i, f, j)) { }
+        a.putIfAbsent(obj, new AtomicInteger(1));
     }
 
-    public void b(int i)
+    public boolean c(Object obj)
     {
-        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((lg)iterator.next()).b(i)) { }
+        this;
+        JVM INSTR monitorenter ;
+        n.b(a.containsKey(obj), "Tried to decrement nonexistent key %s", new Object[] {
+            obj
+        });
+        if (((AtomicInteger)a.get(obj)).decrementAndGet() != 0) goto _L2; else goto _L1
+_L1:
+        a.remove(obj);
+        boolean flag = true;
+_L4:
+        this;
+        JVM INSTR monitorexit ;
+        return flag;
+_L2:
+        flag = false;
+        if (true) goto _L4; else goto _L3
+_L3:
+        obj;
+        throw obj;
     }
 }

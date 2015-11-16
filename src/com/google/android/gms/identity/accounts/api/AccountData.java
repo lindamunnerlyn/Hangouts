@@ -6,37 +6,37 @@ package com.google.android.gms.identity.accounts.api;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fcq;
-import h;
+import ffo;
+import g;
 
 public final class AccountData
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fcq();
+    public static final android.os.Parcelable.Creator CREATOR = new ffo();
     private final int a;
     private final String b;
     private final String c;
 
     public AccountData(int i, String s, String s1)
     {
-        h.a(s, "Account name must not be empty.");
+        g.a(s, "Account name must not be empty.");
         a = i;
         b = s;
         c = s1;
     }
 
-    public int a()
+    private int c()
     {
         return a;
     }
 
-    public String b()
+    public String a()
     {
         return b;
     }
 
-    public String c()
+    public String b()
     {
         return c;
     }
@@ -48,7 +48,11 @@ public final class AccountData
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fcq.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.a(parcel, 1, a());
+        g.b(parcel, 1000, c());
+        g.a(parcel, 2, b());
+        g.q(parcel, i);
     }
 
 }

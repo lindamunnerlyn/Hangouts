@@ -3,26 +3,98 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ima
-    implements kxx
+public final class ima extends kwm
 {
 
-    private final ilz a;
+    private static volatile ima c[];
+    public imb a;
+    public String b;
 
-    public ima(ilz ilz1)
+    public ima()
     {
-        a = ilz1;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public Object a()
+    public static ima[] a()
     {
-        android.content.Context context = a.a();
-        if (context == null)
+        if (c == null)
         {
-            throw new NullPointerException("Cannot return null from a non-@Nullable @Provides method");
-        } else
-        {
-            return context;
+            synchronized (kwq.a)
+            {
+                if (c == null)
+                {
+                    c = new ima[0];
+                }
+            }
         }
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.d(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.b(2, b);
+        }
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new imb();
+                }
+                kwj1.a(a);
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.b(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        super.writeTo(kwk1);
     }
 }

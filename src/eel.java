@@ -2,25 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import com.google.android.apps.hangouts.util.TabHostEx;
+import com.google.android.apps.hangouts.views.MainViewPager;
 
-final class eel
-    implements android.view.View.OnLongClickListener
+public final class eel
+    implements android.widget.TabHost.OnTabChangeListener
 {
 
-    final eem a;
-    final eej b;
+    final TabHostEx a;
 
-    eel(eej eej, eem eem1)
+    public eel(TabHostEx tabhostex)
     {
-        b = eej;
-        a = eem1;
+        a = tabhostex;
         super();
     }
 
-    public boolean onLongClick(View view)
+    public void onTabChanged(String s)
     {
-        a.a(b);
-        return true;
+        ehv ehv1 = a.a.i();
+        int i = ehv1.a(s);
+        a.a.a(i);
+        a.a(i);
+        g.a(dcn.e(a.b.a()), ehv1.d(i).c);
     }
 }

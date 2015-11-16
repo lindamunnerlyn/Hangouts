@@ -3,96 +3,61 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jeb extends koj
+public final class jeb extends kwm
 {
 
-    public jbw a;
-    public jcz b[];
-    public jea c[];
-    public jea d;
+    public ixd a[];
+    public jdl responseHeader;
 
     public jeb()
     {
-        a = null;
-        b = jcz.a();
-        c = jea.a();
-        d = null;
+        responseHeader = null;
+        a = ixd.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        boolean flag = false;
-        int i = super.computeSerializedSize();
-        int j = i;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (responseHeader != null)
+        {
+            i = j + kwk.d(1, responseHeader);
+        }
+        j = i;
         if (a != null)
         {
-            j = i + koh.d(1, a);
-        }
-        i = j;
-        if (b != null)
-        {
-            i = j;
-            if (b.length > 0)
+            j = i;
+            if (a.length > 0)
             {
-                i = j;
-                for (j = 0; j < b.length;)
+                for (j = 0; j < a.length;)
                 {
-                    jcz jcz1 = b[j];
+                    ixd ixd1 = a[j];
                     int k = i;
-                    if (jcz1 != null)
+                    if (ixd1 != null)
                     {
-                        k = i + koh.d(2, jcz1);
+                        k = i + kwk.d(2, ixd1);
                     }
                     j++;
                     i = k;
                 }
 
+                j = i;
             }
         }
-        j = i;
-        if (c != null)
-        {
-            j = i;
-            if (c.length > 0)
-            {
-                int l = ((flag) ? 1 : 0);
-                do
-                {
-                    j = i;
-                    if (l >= c.length)
-                    {
-                        break;
-                    }
-                    jea jea1 = c[l];
-                    j = i;
-                    if (jea1 != null)
-                    {
-                        j = i + koh.d(3, jea1);
-                    }
-                    l++;
-                    i = j;
-                } while (true);
-            }
-        }
-        i = j;
-        if (d != null)
-        {
-            i = j + koh.d(4, d);
-        }
-        return i;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -102,119 +67,64 @@ public final class jeb extends koj
                 return this;
 
             case 10: // '\n'
-                if (a == null)
+                if (responseHeader == null)
                 {
-                    a = new jbw();
+                    responseHeader = new jdl();
                 }
-                kog1.a(a);
+                kwj1.a(responseHeader);
                 break;
 
             case 18: // '\022'
-                int l = kou.b(kog1, 18);
-                jcz ajcz[];
+                int k = kwx.a(kwj1, 18);
+                ixd aixd[];
                 int j;
-                if (b == null)
+                if (a == null)
                 {
                     j = 0;
                 } else
                 {
-                    j = b.length;
+                    j = a.length;
                 }
-                ajcz = new jcz[l + j];
-                l = j;
+                aixd = new ixd[k + j];
+                k = j;
                 if (j != 0)
                 {
-                    System.arraycopy(b, 0, ajcz, 0, j);
-                    l = j;
+                    System.arraycopy(a, 0, aixd, 0, j);
+                    k = j;
                 }
-                for (; l < ajcz.length - 1; l++)
+                for (; k < aixd.length - 1; k++)
                 {
-                    ajcz[l] = new jcz();
-                    kog1.a(ajcz[l]);
-                    kog1.a();
-                }
-
-                ajcz[l] = new jcz();
-                kog1.a(ajcz[l]);
-                b = ajcz;
-                break;
-
-            case 26: // '\032'
-                int i1 = kou.b(kog1, 26);
-                jea ajea[];
-                int k;
-                if (c == null)
-                {
-                    k = 0;
-                } else
-                {
-                    k = c.length;
-                }
-                ajea = new jea[i1 + k];
-                i1 = k;
-                if (k != 0)
-                {
-                    System.arraycopy(c, 0, ajea, 0, k);
-                    i1 = k;
-                }
-                for (; i1 < ajea.length - 1; i1++)
-                {
-                    ajea[i1] = new jea();
-                    kog1.a(ajea[i1]);
-                    kog1.a();
+                    aixd[k] = new ixd();
+                    kwj1.a(aixd[k]);
+                    kwj1.a();
                 }
 
-                ajea[i1] = new jea();
-                kog1.a(ajea[i1]);
-                c = ajea;
-                break;
-
-            case 34: // '"'
-                if (d == null)
-                {
-                    d = new jea();
-                }
-                kog1.a(d);
+                aixd[k] = new ixd();
+                kwj1.a(aixd[k]);
+                a = aixd;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        boolean flag = false;
-        if (a != null)
+        if (responseHeader != null)
         {
-            koh1.b(1, a);
+            kwk1.b(1, responseHeader);
         }
-        if (b != null && b.length > 0)
+        if (a != null && a.length > 0)
         {
-            for (int i = 0; i < b.length; i++)
+            for (int i = 0; i < a.length; i++)
             {
-                jcz jcz1 = b[i];
-                if (jcz1 != null)
+                ixd ixd1 = a[i];
+                if (ixd1 != null)
                 {
-                    koh1.b(2, jcz1);
+                    kwk1.b(2, ixd1);
                 }
             }
 
         }
-        if (c != null && c.length > 0)
-        {
-            for (int j = ((flag) ? 1 : 0); j < c.length; j++)
-            {
-                jea jea1 = c[j];
-                if (jea1 != null)
-                {
-                    koh1.b(3, jea1);
-                }
-            }
-
-        }
-        if (d != null)
-        {
-            koh1.b(4, d);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

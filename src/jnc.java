@@ -3,11 +3,28 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class jnc extends jnb
+final class jnc extends jmr
 {
 
-    jnc(String s)
+    static final jnc o = new jnc();
+
+    private jnc()
     {
-        super(s, 0);
     }
+
+    public volatile boolean a(Object obj)
+    {
+        return super.a((Character)obj);
+    }
+
+    public boolean b(char c)
+    {
+        return Character.isLetterOrDigit(c);
+    }
+
+    public String toString()
+    {
+        return "CharMatcher.javaLetterOrDigit()";
+    }
+
 }

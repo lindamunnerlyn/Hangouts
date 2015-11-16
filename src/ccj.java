@@ -2,46 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.widget.ImageView;
 
-public final class ccj
+public final class ccj extends fqr
 {
 
-    private int a;
-    private long b;
-    private dbo c;
+    public ImageView a;
+    public ImageView b;
+    public ImageView c;
+    public ImageView d;
+    public ImageView e;
+    public ImageView f;
+    public ImageView g;
+    public ImageView h;
+    public ImageView i;
+    public ImageView j;
 
-    public ccj()
+    ccj()
     {
-    }
-
-    public int a()
-    {
-        return a;
-    }
-
-    public void a(int i)
-    {
-        a = i;
-    }
-
-    public void a(long l)
-    {
-        b = l;
-    }
-
-    public void a(dbo dbo1)
-    {
-        a = dbo1.c();
-        c = dbo1;
-    }
-
-    public long b()
-    {
-        return b;
-    }
-
-    public dbo c()
-    {
-        return c;
     }
 }

@@ -2,53 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
 public final class cru
 {
 
-    int a;
-    iqu b;
-    boolean c;
-    String d;
-    int e;
-    boolean f;
+    public static final String a = cro.getName();
+    public static final String b = ctf.getName();
+    public static final String c = ber.getName();
+    private static crt d;
 
-    public cru()
+    public static void a(Context context, hlp hlp1)
     {
-        a = -1;
-        b = null;
-        c = false;
-        d = null;
-        e = 0;
-        f = true;
+        if (d == null)
+        {
+            d = new crt();
+        }
+        hlp1.a(cro, d.a(context));
     }
 
-    public cru a()
+    public static void a(hlp hlp1)
     {
-        c = true;
-        return this;
+        if (d == null)
+        {
+            d = new crt();
+        }
+        hlp1.a(ber, d.a());
     }
 
-    public cru a(int i)
+    public static void b(Context context, hlp hlp1)
     {
-        a = i;
-        return this;
+        if (d == null)
+        {
+            d = new crt();
+        }
+        hlp1.a(ctf, d.b(context));
     }
 
-    public cru a(String s)
-    {
-        d = s;
-        return this;
-    }
-
-    public crt b()
-    {
-        return new crt(this);
-    }
-
-    public cru b(int i)
-    {
-        e = i;
-        return this;
-    }
 }

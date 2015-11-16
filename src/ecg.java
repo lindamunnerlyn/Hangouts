@@ -3,19 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class ecg extends ece
+final class ecg
+    implements aqe
 {
 
-    ecg()
+    private final ahd a;
+
+    ecg(ahd ahd1)
     {
-        super((byte)0);
+        a = ahd1;
     }
 
-    void a()
+    public boolean a(int i)
     {
-    }
-
-    void a(String s)
-    {
+        return a.g(i);
     }
 }

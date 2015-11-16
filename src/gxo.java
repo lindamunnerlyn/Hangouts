@@ -2,20 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
 
-public final class gxo extends Enum
+final class gxo
+    implements hmd, hmq
 {
 
-    public static final int a;
-    public static final int b;
-    private static final int c[];
-
-    static 
+    gxo()
     {
-        a = 1;
-        b = 2;
-        c = (new int[] {
-            a, b
-        });
+    }
+
+    public Class a()
+    {
+        return gxn;
+    }
+
+    public void a(ad ad, hof hof, hlp hlp1)
+    {
+        hlp1.a(gxn, new gxn(hof));
+    }
+
+    public void a(Activity activity, hof hof, hlp hlp1)
+    {
+        hlp1.a(gxn, new gxn(hof));
     }
 }

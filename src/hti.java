@@ -3,82 +3,178 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hti extends koj
+public final class hti extends htl
 {
 
-    public ken a;
-    public hsu apiHeader;
+    private static final char a[] = {
+        '+'
+    };
+    private static final char b[] = "0123456789ABCDEF".toCharArray();
+    private final boolean c;
+    private final boolean d[];
 
-    public hti()
+    public hti(String s, boolean flag)
     {
-        apiHeader = null;
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        if (s.matches(".*[0-9A-Za-z].*"))
+        {
+            throw new IllegalArgumentException("Alphanumeric characters are always 'safe' and should not be explicitly specified");
+        }
+        if (flag && s.contains(" "))
+        {
+            throw new IllegalArgumentException("plusForSpace cannot be specified when space is a 'safe' character");
+        }
+        if (s.contains("%"))
+        {
+            throw new IllegalArgumentException("The '%' character cannot be specified as 'safe'");
+        } else
+        {
+            c = flag;
+            d = b(s);
+            return;
+        }
     }
 
-    protected int computeSerializedSize()
+    private static boolean[] b(String s)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (apiHeader != null)
+        boolean flag = false;
+        s = s.toCharArray();
+        int k1 = s.length;
+        int i = 0;
+        int j1 = 122;
+        for (; i < k1; i++)
         {
-            i = j + koh.d(1, apiHeader);
+            j1 = Math.max(s[i], j1);
         }
-        j = i;
-        if (a != null)
+
+        boolean aflag[] = new boolean[j1 + 1];
+        for (int j = 48; j <= 57; j++)
         {
-            j = i + koh.d(2, a);
+            aflag[j] = true;
         }
-        return j;
+
+        for (int k = 65; k <= 90; k++)
+        {
+            aflag[k] = true;
+        }
+
+        for (int l = 97; l <= 122; l++)
+        {
+            aflag[l] = true;
+        }
+
+        j1 = s.length;
+        for (int i1 = ((flag) ? 1 : 0); i1 < j1; i1++)
+        {
+            aflag[s[i1]] = true;
+        }
+
+        return aflag;
     }
 
-    public kop mergeFrom(kog kog1)
+    protected int a(CharSequence charsequence, int i, int j)
     {
         do
         {
-            int i = kog1.a();
-            switch (i)
+            if (i >= j)
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (apiHeader == null)
-                {
-                    apiHeader = new hsu();
-                }
-                kog1.a(apiHeader);
-                break;
-
-            case 18: // '\022'
-                if (a == null)
-                {
-                    a = new ken();
-                }
-                kog1.a(a);
                 break;
             }
+            char c1 = charsequence.charAt(i);
+            if (c1 >= d.length || !d[c1])
+            {
+                break;
+            }
+            i++;
+        } while (true);
+        return i;
+    }
+
+    public String a(String s)
+    {
+        int j = s.length();
+        int i = 0;
+        do
+        {
+label0:
+            {
+                String s1 = s;
+                if (i < j)
+                {
+                    char c1 = s.charAt(i);
+                    if (c1 < d.length && d[c1])
+                    {
+                        break label0;
+                    }
+                    s1 = a(s, i);
+                }
+                return s1;
+            }
+            i++;
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    protected char[] a(int i)
     {
-        if (apiHeader != null)
+        if (i < d.length && d[i])
         {
-            koh1.b(1, apiHeader);
+            return null;
         }
-        if (a != null)
+        if (i == 32 && c)
         {
-            koh1.b(2, a);
+            return a;
         }
-        super.writeTo(koh1);
+        if (i <= 127)
+        {
+            char c1 = b[i & 0xf];
+            return (new char[] {
+                '%', b[i >>> 4], c1
+            });
+        }
+        if (i <= 2047)
+        {
+            char c2 = b[i & 0xf];
+            i >>>= 4;
+            char c5 = b[i & 3 | 8];
+            i >>>= 2;
+            char c8 = b[i & 0xf];
+            return (new char[] {
+                '%', b[i >>> 4 | 0xc], c8, '%', c5, c2
+            });
+        }
+        if (i <= 65535)
+        {
+            char c3 = b[i & 0xf];
+            i >>>= 4;
+            char c6 = b[i & 3 | 8];
+            i >>>= 2;
+            char c9 = b[i & 0xf];
+            i >>>= 4;
+            char c11 = b[i & 3 | 8];
+            return (new char[] {
+                '%', 'E', b[i >>> 2], '%', c11, c9, '%', c6, c3
+            });
+        }
+        if (i <= 0x10ffff)
+        {
+            char c4 = b[i & 0xf];
+            i >>>= 4;
+            char c7 = b[i & 3 | 8];
+            i >>>= 2;
+            char c10 = b[i & 0xf];
+            i >>>= 4;
+            char c12 = b[i & 3 | 8];
+            i >>>= 2;
+            char c13 = b[i & 0xf];
+            i >>>= 4;
+            char c14 = b[i & 3 | 8];
+            return (new char[] {
+                '%', 'F', b[i >>> 2 & 7], '%', c14, c13, '%', c12, c10, '%', 
+                c7, c4
+            });
+        } else
+        {
+            throw new IllegalArgumentException((new StringBuilder(43)).append("Invalid unicode character value ").append(i).toString());
+        }
     }
+
 }

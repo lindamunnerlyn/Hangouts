@@ -4,13 +4,13 @@
 
 package com.google.apps.gcomm.hangout.proto;
 
-import kog;
-import koh;
-import koj;
-import kon;
-import kop;
+import kwj;
+import kwk;
+import kwm;
+import kwq;
+import kws;
 
-public final class clear extends koj
+public final class clear extends kwm
 {
 
     private static volatile isInviterTrusted _emptyArray[];
@@ -29,7 +29,7 @@ public final class clear extends koj
     {
         if (_emptyArray == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
                 if (_emptyArray == null)
                 {
@@ -44,14 +44,14 @@ public final class clear extends koj
         throw exception;
     }
 
-    public static _emptyArray parseFrom(kog kog1)
+    public static _emptyArray parseFrom(kwj kwj1)
     {
-        return (new <init>()).mergeFrom(kog1);
+        return (new <init>()).mergeFrom(kwj1);
     }
 
     public static mergeFrom parseFrom(byte abyte0[])
     {
-        return (mergeFrom)kop.mergeFrom(new <init>(), abyte0);
+        return (mergeFrom)kws.mergeFrom(new <init>(), abyte0);
     }
 
     public <init> clear()
@@ -73,58 +73,58 @@ public final class clear extends koj
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize() + koh.e(1, timestamp.longValue()) + koh.b(2, inviterGaiaId);
+        int j = super.computeSerializedSize() + kwk.e(1, timestamp.longValue()) + kwk.b(2, inviterGaiaId);
         int i = j;
         if (invitationType != null)
         {
-            i = j + koh.e(3, invitationType.intValue());
+            i = j + kwk.e(3, invitationType.intValue());
         }
         j = i;
         if (inviterProfileName != null)
         {
-            j = i + koh.b(4, inviterProfileName);
+            j = i + kwk.b(4, inviterProfileName);
         }
         i = j;
         if (shouldAutoAccept != null)
         {
             shouldAutoAccept.booleanValue();
-            i = j + (koh.f(5) + 1);
+            i = j + (kwk.f(5) + 1);
         }
         j = i;
         if (phoneNumber != null)
         {
-            j = i + koh.b(6, phoneNumber);
+            j = i + kwk.b(6, phoneNumber);
         }
         i = j;
         if (inviterPhoneNumber != null)
         {
-            i = j + koh.b(7, inviterPhoneNumber);
+            i = j + kwk.b(7, inviterPhoneNumber);
         }
         j = i;
         if (isInviterPstnParticipant != null)
         {
             isInviterPstnParticipant.booleanValue();
-            j = i + (koh.f(8) + 1);
+            j = i + (kwk.f(8) + 1);
         }
         i = j;
         if (isGroupInvitation != null)
         {
             isGroupInvitation.booleanValue();
-            i = j + (koh.f(9) + 1);
+            i = j + (kwk.f(9) + 1);
         }
         j = i;
         if (isInviterTrusted != null)
         {
             isInviterTrusted.booleanValue();
-            j = i + (koh.f(10) + 1);
+            j = i + (kwk.f(10) + 1);
         }
         return j;
     }
 
-    public isInviterTrusted mergeFrom(kog kog1)
+    public isInviterTrusted mergeFrom(kwj kwj1)
     {
 _L13:
-        int i = kog1.a();
+        int i = kwj1.a();
         i;
         JVM INSTR lookupswitch 11: default 104
     //                   0: 113
@@ -140,17 +140,17 @@ _L13:
     //                   80: 261;
            goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12
 _L1:
-        if (super.storeUnknownField(kog1, i)) goto _L13; else goto _L2
+        if (super.storeUnknownField(kwj1, i)) goto _L13; else goto _L2
 _L2:
         return this;
 _L3:
-        timestamp = Long.valueOf(kog1.e());
+        timestamp = Long.valueOf(kwj1.e());
           goto _L13
 _L4:
-        inviterGaiaId = kog1.j();
+        inviterGaiaId = kwj1.j();
           goto _L13
 _L5:
-        int j = kog1.f();
+        int j = kwj1.f();
         switch (j)
         {
         case 0: // '\0'
@@ -161,71 +161,71 @@ _L5:
         }
         continue; /* Loop/switch isn't completed */
 _L6:
-        inviterProfileName = kog1.j();
+        inviterProfileName = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L7:
-        shouldAutoAccept = Boolean.valueOf(kog1.i());
+        shouldAutoAccept = Boolean.valueOf(kwj1.i());
         continue; /* Loop/switch isn't completed */
 _L8:
-        phoneNumber = kog1.j();
+        phoneNumber = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L9:
-        inviterPhoneNumber = kog1.j();
+        inviterPhoneNumber = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L10:
-        isInviterPstnParticipant = Boolean.valueOf(kog1.i());
+        isInviterPstnParticipant = Boolean.valueOf(kwj1.i());
         continue; /* Loop/switch isn't completed */
 _L11:
-        isGroupInvitation = Boolean.valueOf(kog1.i());
+        isGroupInvitation = Boolean.valueOf(kwj1.i());
         continue; /* Loop/switch isn't completed */
 _L12:
-        isInviterTrusted = Boolean.valueOf(kog1.i());
+        isInviterTrusted = Boolean.valueOf(kwj1.i());
         if (true) goto _L13; else goto _L14
 _L14:
     }
 
-    public volatile kop mergeFrom(kog kog1)
+    public volatile kws mergeFrom(kwj kwj1)
     {
-        return mergeFrom(kog1);
+        return mergeFrom(kwj1);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.b(1, timestamp.longValue());
-        koh1.a(2, inviterGaiaId);
+        kwk1.b(1, timestamp.longValue());
+        kwk1.a(2, inviterGaiaId);
         if (invitationType != null)
         {
-            koh1.a(3, invitationType.intValue());
+            kwk1.a(3, invitationType.intValue());
         }
         if (inviterProfileName != null)
         {
-            koh1.a(4, inviterProfileName);
+            kwk1.a(4, inviterProfileName);
         }
         if (shouldAutoAccept != null)
         {
-            koh1.a(5, shouldAutoAccept.booleanValue());
+            kwk1.a(5, shouldAutoAccept.booleanValue());
         }
         if (phoneNumber != null)
         {
-            koh1.a(6, phoneNumber);
+            kwk1.a(6, phoneNumber);
         }
         if (inviterPhoneNumber != null)
         {
-            koh1.a(7, inviterPhoneNumber);
+            kwk1.a(7, inviterPhoneNumber);
         }
         if (isInviterPstnParticipant != null)
         {
-            koh1.a(8, isInviterPstnParticipant.booleanValue());
+            kwk1.a(8, isInviterPstnParticipant.booleanValue());
         }
         if (isGroupInvitation != null)
         {
-            koh1.a(9, isGroupInvitation.booleanValue());
+            kwk1.a(9, isGroupInvitation.booleanValue());
         }
         if (isInviterTrusted != null)
         {
-            koh1.a(10, isInviterTrusted.booleanValue());
+            kwk1.a(10, isInviterTrusted.booleanValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 
     public Q()

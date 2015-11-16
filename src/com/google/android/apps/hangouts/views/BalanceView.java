@@ -10,103 +10,88 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import ani;
-import dbf;
-import ede;
-import edf;
-import edg;
-import gmo;
-import gms;
-import gmy;
+import aoa;
+import dcn;
+import egg;
+import egh;
+import egi;
+import gqu;
+import gqz;
+import grf;
 import h;
-import hgx;
+import hlp;
 import l;
 
 public class BalanceView extends LinearLayout
 {
 
-    private final gmy a;
-    private TextView b;
-    private boolean c;
-    private final gmo d;
-    private final gms e;
+    public boolean a;
+    public final gqu b;
+    private final grf c;
+    private TextView d;
+    private final gqz e;
 
     public BalanceView(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
-        a = new ede(this);
-        e = (gms)hgx.a(getContext(), gms);
-        d = (gmo)hgx.a(getContext(), gmo);
+        c = new egg(this);
+        e = (gqz)hlp.a(getContext(), gqz);
+        b = (gqu)hlp.a(getContext(), gqu);
         a(false);
-        setOnClickListener(new edf(this));
-        post(new edg(this));
+        setOnClickListener(new egh(this));
+        post(new egi(this));
     }
 
     public BalanceView(Context context, AttributeSet attributeset, int i)
     {
         super(context, attributeset, i);
-        a = new ede(this);
-        e = (gms)hgx.a(getContext(), gms);
-        d = (gmo)hgx.a(getContext(), gmo);
+        c = new egg(this);
+        e = (gqz)hlp.a(getContext(), gqz);
+        b = (gqu)hlp.a(getContext(), gqu);
         a(false);
-        setOnClickListener(new edf(this));
-        post(new edg(this));
+        setOnClickListener(new egh(this));
+        post(new egi(this));
     }
 
     public BalanceView(Context context, AttributeSet attributeset, int i, int j)
     {
         super(context, attributeset, i, j);
-        a = new ede(this);
-        e = (gms)hgx.a(getContext(), gms);
-        d = (gmo)hgx.a(getContext(), gmo);
+        c = new egg(this);
+        e = (gqz)hlp.a(getContext(), gqz);
+        b = (gqu)hlp.a(getContext(), gqu);
         a(false);
-        setOnClickListener(new edf(this));
-        post(new edg(this));
-    }
-
-    private void a()
-    {
-        if (d.b() && e.c(d.a()))
-        {
-            a(dbf.e(d.a()).Z());
-            return;
-        } else
-        {
-            a("");
-            return;
-        }
-    }
-
-    public static void a(BalanceView balanceview)
-    {
-        balanceview.a();
+        setOnClickListener(new egh(this));
+        post(new egi(this));
     }
 
     private void a(String s)
     {
         if (TextUtils.isEmpty(s))
         {
-            b.setText("");
-            b.setContentDescription(getResources().getString(l.ds));
+            d.setText("");
+            d.setContentDescription(getResources().getString(l.db));
             return;
         } else
         {
-            b.setText(s);
-            b.setContentDescription(getResources().getString(l.dx, new Object[] {
+            d.setText(s);
+            d.setContentDescription(getResources().getString(l.dg, new Object[] {
                 s
             }));
             return;
         }
     }
 
-    public static gmo b(BalanceView balanceview)
+    public void a()
     {
-        return balanceview.d;
-    }
-
-    public static boolean c(BalanceView balanceview)
-    {
-        return balanceview.c;
+        if (b.b() && e.c(b.a()))
+        {
+            a(dcn.e(b.a()).W());
+            return;
+        } else
+        {
+            a("");
+            return;
+        }
     }
 
     public void a(boolean flag)
@@ -125,21 +110,21 @@ public class BalanceView extends LinearLayout
     protected void onAttachedToWindow()
     {
         super.onAttachedToWindow();
-        c = true;
-        e.a(a);
+        a = true;
+        e.a(c);
     }
 
     protected void onDetachedFromWindow()
     {
         super.onDetachedFromWindow();
-        c = false;
-        e.b(a);
+        a = false;
+        e.b(c);
     }
 
     protected void onFinishInflate()
     {
         super.onFinishInflate();
-        b = (TextView)findViewById(h.gA);
+        d = (TextView)findViewById(h.gi);
         a();
     }
 }

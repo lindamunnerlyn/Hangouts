@@ -2,422 +2,329 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.ApplicationErrorReport;
+import android.os.Parcel;
+import com.google.android.gms.common.data.BitmapTeleporter;
+import com.google.android.gms.feedback.ErrorReport;
+import com.google.android.gms.feedback.FileTeleporter;
+import com.google.android.gms.feedback.LogOptions;
+import com.google.android.gms.feedback.ThemeSettings;
 
 public final class fdh
+    implements android.os.Parcelable.Creator
 {
 
-    private final byte a[];
-    private int b;
-    private int c;
-    private int d;
-    private int e;
-    private int f;
-    private int g;
-    private int h;
-    private int i;
-    private int j;
-
-    fdh(byte abyte0[], int i1, int j1)
+    public fdh()
     {
-        g = 0x7fffffff;
-        i = 64;
-        j = 0x4000000;
-        a = abyte0;
-        b = 0;
-        c = j1 + 0;
-        e = 0;
     }
 
-    private byte[] f(int i1)
+    public Object createFromParcel(Parcel parcel)
     {
-        if (i1 < 0)
-        {
-            throw fdn.b();
-        }
-        if (e + i1 > g)
-        {
-            g(g - e);
-            throw fdn.a();
-        }
-        if (i1 <= c - e)
-        {
-            byte abyte0[] = new byte[i1];
-            System.arraycopy(a, e, abyte0, 0, i1);
-            e = e + i1;
-            return abyte0;
-        } else
-        {
-            throw fdn.a();
-        }
-    }
-
-    private void g(int i1)
-    {
-        if (i1 < 0)
-        {
-            throw fdn.b();
-        }
-        if (e + i1 > g)
-        {
-            g(g - e);
-            throw fdn.a();
-        }
-        if (i1 <= c - e)
-        {
-            e = e + i1;
-            return;
-        } else
-        {
-            throw fdn.a();
-        }
-    }
-
-    private long n()
-    {
+        int k2 = g.a(parcel);
+        int j2 = 0;
+        ApplicationErrorReport applicationerrorreport = null;
+        String s29 = null;
+        int i2 = 0;
+        String s28 = null;
+        String s27 = null;
+        String s26 = null;
+        String s25 = null;
+        String s24 = null;
+        String s23 = null;
+        String s22 = null;
+        int l1 = 0;
+        String s21 = null;
+        String s20 = null;
+        String s19 = null;
+        String s18 = null;
+        String s17 = null;
+        String as3[] = null;
+        String as2[] = null;
+        String as1[] = null;
+        String s16 = null;
+        String s15 = null;
+        byte abyte0[] = null;
+        int k1 = 0;
+        int j1 = 0;
         int i1 = 0;
-        long l1 = 0L;
-        for (; i1 < 64; i1 += 7)
+        int l = 0;
+        String s14 = null;
+        String s13 = null;
+        String s12 = null;
+        android.os.Bundle bundle1 = null;
+        boolean flag3 = false;
+        int k = 0;
+        int j = 0;
+        boolean flag2 = false;
+        String s11 = null;
+        String s10 = null;
+        int i = 0;
+        String s9 = null;
+        String s8 = null;
+        String s7 = null;
+        String s6 = null;
+        String s5 = null;
+        String s4 = null;
+        String s3 = null;
+        BitmapTeleporter bitmapteleporter = null;
+        String s2 = null;
+        FileTeleporter afileteleporter[] = null;
+        String as[] = null;
+        boolean flag1 = false;
+        String s1 = null;
+        ThemeSettings themesettings = null;
+        LogOptions logoptions = null;
+        String s = null;
+        boolean flag = false;
+        android.os.Bundle bundle = null;
+        do
         {
-            byte byte0 = r();
-            l1 |= (long)(byte0 & 0x7f) << i1;
-            if ((byte0 & 0x80) == 0)
+            if (parcel.dataPosition() < k2)
             {
-                return l1;
-            }
-        }
-
-        throw fdn.c();
-    }
-
-    private int o()
-    {
-        return r() & 0xff | (r() & 0xff) << 8 | (r() & 0xff) << 16 | (r() & 0xff) << 24;
-    }
-
-    private long p()
-    {
-        int i1 = r();
-        int j1 = r();
-        int k1 = r();
-        int l1 = r();
-        int i2 = r();
-        int j2 = r();
-        int k2 = r();
-        int l2 = r();
-        long l3 = i1;
-        return ((long)j1 & 255L) << 8 | l3 & 255L | ((long)k1 & 255L) << 16 | ((long)l1 & 255L) << 24 | ((long)i2 & 255L) << 32 | ((long)j2 & 255L) << 40 | ((long)k2 & 255L) << 48 | ((long)l2 & 255L) << 56;
-    }
-
-    private void q()
-    {
-        c = c + d;
-        int i1 = c;
-        if (i1 > g)
-        {
-            d = i1 - g;
-            c = c - d;
-            return;
-        } else
-        {
-            d = 0;
-            return;
-        }
-    }
-
-    private byte r()
-    {
-        if (e == c)
-        {
-            throw fdn.a();
-        } else
-        {
-            byte abyte0[] = a;
-            int i1 = e;
-            e = i1 + 1;
-            return abyte0[i1];
-        }
-    }
-
-    public int a()
-    {
-        boolean flag;
-        if (e == c)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        if (flag)
-        {
-            f = 0;
-            return 0;
-        }
-        f = k();
-        if (f == 0)
-        {
-            throw fdn.d();
-        } else
-        {
-            return f;
-        }
-    }
-
-    public void a(int i1)
-    {
-        if (f != i1)
-        {
-            throw fdn.e();
-        } else
-        {
-            return;
-        }
-    }
-
-    public void a(fdo fdo1)
-    {
-        int i1 = k();
-        if (h >= i)
-        {
-            throw fdn.g();
-        } else
-        {
-            i1 = c(i1);
-            h = h + 1;
-            fdo1.a(this);
-            a(0);
-            h = h - 1;
-            d(i1);
-            return;
-        }
-    }
-
-    public byte[] a(int i1, int j1)
-    {
-        if (j1 == 0)
-        {
-            return fdq.h;
-        } else
-        {
-            byte abyte0[] = new byte[j1];
-            int k1 = b;
-            System.arraycopy(a, k1 + i1, abyte0, 0, j1);
-            return abyte0;
-        }
-    }
-
-    public double b()
-    {
-        return Double.longBitsToDouble(p());
-    }
-
-    public boolean b(int i1)
-    {
-        switch (fdq.a(i1))
-        {
-        default:
-            throw fdn.f();
-
-        case 0: // '\0'
-            e();
-            return true;
-
-        case 1: // '\001'
-            p();
-            return true;
-
-        case 2: // '\002'
-            g(k());
-            return true;
-
-        case 3: // '\003'
-            int j1;
-            do
-            {
-                j1 = a();
-            } while (j1 != 0 && b(j1));
-            a(fdq.a(fdq.b(i1), 4));
-            return true;
-
-        case 4: // '\004'
-            return false;
-
-        case 5: // '\005'
-            o();
-            return true;
-        }
-    }
-
-    public float c()
-    {
-        return Float.intBitsToFloat(o());
-    }
-
-    public int c(int i1)
-    {
-        if (i1 < 0)
-        {
-            throw fdn.b();
-        }
-        i1 = e + i1;
-        int j1 = g;
-        if (i1 > j1)
-        {
-            throw fdn.a();
-        } else
-        {
-            g = i1;
-            q();
-            return j1;
-        }
-    }
-
-    public long d()
-    {
-        return n();
-    }
-
-    public void d(int i1)
-    {
-        g = i1;
-        q();
-    }
-
-    public int e()
-    {
-        return k();
-    }
-
-    public void e(int i1)
-    {
-        if (i1 > e - b)
-        {
-            throw new IllegalArgumentException((new StringBuilder("Position ")).append(i1).append(" is beyond current ").append(e - b).toString());
-        }
-        if (i1 < 0)
-        {
-            throw new IllegalArgumentException((new StringBuilder("Bad position ")).append(i1).toString());
-        } else
-        {
-            e = b + i1;
-            return;
-        }
-    }
-
-    public boolean f()
-    {
-        return k() != 0;
-    }
-
-    public String g()
-    {
-        int i1 = k();
-        if (i1 <= c - e && i1 > 0)
-        {
-            String s = new String(a, e, i1, "UTF-8");
-            e = i1 + e;
-            return s;
-        } else
-        {
-            return new String(f(i1), "UTF-8");
-        }
-    }
-
-    public byte[] h()
-    {
-        int i1 = k();
-        if (i1 <= c - e && i1 > 0)
-        {
-            byte abyte0[] = new byte[i1];
-            System.arraycopy(a, e, abyte0, 0, i1);
-            e = i1 + e;
-            return abyte0;
-        } else
-        {
-            return f(i1);
-        }
-    }
-
-    public int i()
-    {
-        int i1 = k();
-        return -(i1 & 1) ^ i1 >>> 1;
-    }
-
-    public long j()
-    {
-        long l1 = n();
-        return -(l1 & 1L) ^ l1 >>> 1;
-    }
-
-    public int k()
-    {
-        int i1 = r();
-        if (i1 < 0) goto _L2; else goto _L1
-_L1:
-        return i1;
-_L2:
-        i1 &= 0x7f;
-        byte byte0 = r();
-        if (byte0 >= 0)
-        {
-            return i1 | byte0 << 7;
-        }
-        i1 |= (byte0 & 0x7f) << 7;
-        byte0 = r();
-        if (byte0 >= 0)
-        {
-            return i1 | byte0 << 14;
-        }
-        i1 |= (byte0 & 0x7f) << 14;
-        int k1 = r();
-        if (k1 >= 0)
-        {
-            return i1 | k1 << 21;
-        }
-        byte0 = r();
-        k1 = i1 | (k1 & 0x7f) << 21 | byte0 << 28;
-        i1 = k1;
-        if (byte0 < 0)
-        {
-            int j1 = 0;
-label0:
-            do
-            {
-label1:
+                int l2 = parcel.readInt();
+                switch (0xffff & l2)
                 {
-                    if (j1 >= 5)
-                    {
-                        break label1;
-                    }
-                    i1 = k1;
-                    if (r() >= 0)
-                    {
-                        break label0;
-                    }
-                    j1++;
+                default:
+                    g.b(parcel, l2);
+                    break;
+
+                case 1: // '\001'
+                    j2 = g.e(parcel, l2);
+                    break;
+
+                case 2: // '\002'
+                    applicationerrorreport = (ApplicationErrorReport)g.a(parcel, l2, ApplicationErrorReport.CREATOR);
+                    break;
+
+                case 3: // '\003'
+                    s29 = g.i(parcel, l2);
+                    break;
+
+                case 4: // '\004'
+                    i2 = g.e(parcel, l2);
+                    break;
+
+                case 5: // '\005'
+                    s28 = g.i(parcel, l2);
+                    break;
+
+                case 6: // '\006'
+                    s27 = g.i(parcel, l2);
+                    break;
+
+                case 7: // '\007'
+                    s26 = g.i(parcel, l2);
+                    break;
+
+                case 8: // '\b'
+                    s25 = g.i(parcel, l2);
+                    break;
+
+                case 9: // '\t'
+                    s24 = g.i(parcel, l2);
+                    break;
+
+                case 10: // '\n'
+                    s23 = g.i(parcel, l2);
+                    break;
+
+                case 11: // '\013'
+                    s22 = g.i(parcel, l2);
+                    break;
+
+                case 12: // '\f'
+                    l1 = g.e(parcel, l2);
+                    break;
+
+                case 13: // '\r'
+                    s21 = g.i(parcel, l2);
+                    break;
+
+                case 14: // '\016'
+                    s20 = g.i(parcel, l2);
+                    break;
+
+                case 15: // '\017'
+                    s19 = g.i(parcel, l2);
+                    break;
+
+                case 17: // '\021'
+                    s17 = g.i(parcel, l2);
+                    break;
+
+                case 16: // '\020'
+                    s18 = g.i(parcel, l2);
+                    break;
+
+                case 19: // '\023'
+                    as2 = g.m(parcel, l2);
+                    break;
+
+                case 18: // '\022'
+                    as3 = g.m(parcel, l2);
+                    break;
+
+                case 21: // '\025'
+                    s16 = g.i(parcel, l2);
+                    break;
+
+                case 20: // '\024'
+                    as1 = g.m(parcel, l2);
+                    break;
+
+                case 23: // '\027'
+                    abyte0 = g.l(parcel, l2);
+                    break;
+
+                case 22: // '\026'
+                    s15 = g.i(parcel, l2);
+                    break;
+
+                case 25: // '\031'
+                    j1 = g.e(parcel, l2);
+                    break;
+
+                case 24: // '\030'
+                    k1 = g.e(parcel, l2);
+                    break;
+
+                case 27: // '\033'
+                    l = g.e(parcel, l2);
+                    break;
+
+                case 26: // '\032'
+                    i1 = g.e(parcel, l2);
+                    break;
+
+                case 29: // '\035'
+                    s13 = g.i(parcel, l2);
+                    break;
+
+                case 28: // '\034'
+                    s14 = g.i(parcel, l2);
+                    break;
+
+                case 31: // '\037'
+                    bundle1 = g.k(parcel, l2);
+                    break;
+
+                case 30: // '\036'
+                    s12 = g.i(parcel, l2);
+                    break;
+
+                case 34: // '"'
+                    j = g.e(parcel, l2);
+                    break;
+
+                case 35: // '#'
+                    flag2 = g.c(parcel, l2);
+                    break;
+
+                case 32: // ' '
+                    flag3 = g.c(parcel, l2);
+                    break;
+
+                case 33: // '!'
+                    k = g.e(parcel, l2);
+                    break;
+
+                case 38: // '&'
+                    i = g.e(parcel, l2);
+                    break;
+
+                case 39: // '\''
+                    s9 = g.i(parcel, l2);
+                    break;
+
+                case 36: // '$'
+                    s11 = g.i(parcel, l2);
+                    break;
+
+                case 37: // '%'
+                    s10 = g.i(parcel, l2);
+                    break;
+
+                case 42: // '*'
+                    s6 = g.i(parcel, l2);
+                    break;
+
+                case 43: // '+'
+                    s5 = g.i(parcel, l2);
+                    break;
+
+                case 40: // '('
+                    s8 = g.i(parcel, l2);
+                    break;
+
+                case 41: // ')'
+                    s7 = g.i(parcel, l2);
+                    break;
+
+                case 46: // '.'
+                    bitmapteleporter = (BitmapTeleporter)g.a(parcel, l2, BitmapTeleporter.CREATOR);
+                    break;
+
+                case 47: // '/'
+                    s2 = g.i(parcel, l2);
+                    break;
+
+                case 44: // ','
+                    s4 = g.i(parcel, l2);
+                    break;
+
+                case 45: // '-'
+                    s3 = g.i(parcel, l2);
+                    break;
+
+                case 51: // '3'
+                    s1 = g.i(parcel, l2);
+                    break;
+
+                case 50: // '2'
+                    flag1 = g.c(parcel, l2);
+                    break;
+
+                case 49: // '1'
+                    as = g.m(parcel, l2);
+                    break;
+
+                case 48: // '0'
+                    afileteleporter = (FileTeleporter[])g.b(parcel, l2, FileTeleporter.CREATOR);
+                    break;
+
+                case 55: // '7'
+                    flag = g.c(parcel, l2);
+                    break;
+
+                case 54: // '6'
+                    s = g.i(parcel, l2);
+                    break;
+
+                case 53: // '5'
+                    logoptions = (LogOptions)g.a(parcel, l2, LogOptions.CREATOR);
+                    break;
+
+                case 52: // '4'
+                    themesettings = (ThemeSettings)g.a(parcel, l2, ThemeSettings.CREATOR);
+                    break;
+
+                case 56: // '8'
+                    bundle = g.k(parcel, l2);
+                    break;
                 }
-            } while (true);
-        }
-        if (true) goto _L1; else goto _L3
-_L3:
-        throw fdn.c();
+            } else
+            if (parcel.dataPosition() != k2)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(k2).toString(), parcel);
+            } else
+            {
+                return new ErrorReport(j2, applicationerrorreport, s29, i2, s28, s27, s26, s25, s24, s23, s22, l1, s21, s20, s19, s18, s17, as3, as2, as1, s16, s15, abyte0, k1, j1, i1, l, s14, s13, s12, bundle1, flag3, k, j, flag2, s11, s10, i, s9, s8, s7, s6, s5, s4, s3, bitmapteleporter, s2, afileteleporter, as, flag1, s1, themesettings, logoptions, s, flag, bundle);
+            }
+        } while (true);
     }
 
-    public int l()
+    public Object[] newArray(int i)
     {
-        if (g == 0x7fffffff)
-        {
-            return -1;
-        } else
-        {
-            int i1 = e;
-            return g - i1;
-        }
-    }
-
-    public int m()
-    {
-        return e - b;
+        return new ErrorReport[i];
     }
 }

@@ -2,28 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
 
-final class hiw
-    implements hjr
+public final class hiw
 {
 
-    final Bundle a;
-    final hiv b;
-
-    hiw(hiv hiv1, Bundle bundle)
+    public hiw()
     {
-        b = hiv1;
-        a = bundle;
-        super();
-    }
-
-    public void a(fsn fsn)
-    {
-        if (fsn instanceof his)
-        {
-            Bundle bundle = b.a(fsn, a);
-            ((his)fsn).a(bundle);
-        }
     }
 }

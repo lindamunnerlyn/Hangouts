@@ -3,22 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class bsc extends brn
+public interface bsc
 {
 
-    final bsb b;
-
-    bsc(bsb bsb1)
-    {
-        b = bsb1;
-        super(bsb1);
-    }
-
-    public void b(gjr gjr1)
-    {
-        if (b.a != null && b.a.a().equals(gjr1.a()))
-        {
-            b.m();
-        }
-    }
+    public abstract boolean a();
 }

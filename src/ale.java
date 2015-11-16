@@ -2,91 +2,67 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.text.TextUtils;
 
-final class ale
-    implements coz
+public final class ale
 {
 
-    private dbx a;
-    private ai b;
-    private int c;
-    private String d;
-    private ala e;
+    public static final String a = alj.getName();
+    public static final String b = hcb.getName();
+    public static final String c = deu.getName();
+    public static final String d = alf.getName();
+    public static final String e = gre.getName();
+    private static ald f;
 
-    ale()
+    public static void a(Context context, hlp hlp1)
     {
-    }
-
-    static ai a(ale ale1)
-    {
-        return ale1.b;
-    }
-
-    static void a(ale ale1, dbx dbx1, jhb jhb1)
-    {
-        boolean flag;
-        if (!ebz.c(dbx1.c()))
+        if (f == null)
         {
-            flag = true;
-        } else
-        {
-            flag = false;
+            f = new ald();
         }
-        g.b(flag, "If CallerId is blocked, CallerId settings should never be loaded");
-        if (jhb1.b() && !((ajo)jhb1.c()).a())
-        {
-            Object obj = (ajo)jhb1.c();
-            dbx1 = ale1.b;
-            jhb1 = ale1.e;
-            dbx dbx2 = ale1.a;
-            int i = ale1.c;
-            ale1 = ale1.d;
-            String s = ebz.g();
-            obj = ((ajo) (obj)).c();
-            if (!TextUtils.isEmpty(s))
-            {
-                flag = ((String) (obj)).equals(s);
-            } else
-            {
-                flag = false;
-            }
-            ale1 = (new android.app.AlertDialog.Builder(dbx1)).setTitle(g.iN).setNegativeButton(g.iK, new ajw(dbx2, i, ale1, jhb1, dbx1));
-            if (flag)
-            {
-                ale1.setMessage(g.iL).setPositiveButton(g.iO, new ajx(dbx1, i));
-            } else
-            {
-                ale1.setMessage(dbx1.getString(g.iM, new Object[] {
-                    ebz.o(((String) (obj)))
-                }));
-            }
-            ale1.create().show();
-            return;
-        }
-        dbx1.a(jhb1);
-        if (jhb1.b())
-        {
-            ale1.e.a(2249);
-        }
-        ale1.b.startActivity(dbx1.a(ale1.c, ale1.d));
-        ale1.b.finish();
+        hlp1.a(alj, new alj(context, hlp1));
     }
 
-    static dbx b(ale ale1)
+    public static void a(hlp hlp1)
     {
-        return ale1.a;
+        if (f == null)
+        {
+            f = new ald();
+        }
+        hlp1.a(hcb, new hcb[] {
+            (hcb)hlp1.b(alj)
+        });
     }
 
-    public void a(ai ai1, dbx dbx1, int i, String s)
+    public static void b(Context context, hlp hlp1)
     {
-        e = new ala(ai1, i);
-        b = ai1;
-        a = dbx1;
-        c = i;
-        d = s;
-        b.f().b(1, null, new alf(this)).u();
+        if (f == null)
+        {
+            f = new ald();
+        }
+        hlp1.a(deu, new deu[] {
+            (deu)hlp.b(context, alf)
+        });
     }
+
+    public static void c(Context context, hlp hlp1)
+    {
+        if (f == null)
+        {
+            f = new ald();
+        }
+        hlp1.a(alf, new alf(context));
+    }
+
+    public static void d(Context context, hlp hlp1)
+    {
+        if (f == null)
+        {
+            f = new ald();
+        }
+        hlp1.a(gre, new gre[] {
+            (gre)hlp.b(context, alf)
+        });
+    }
+
 }

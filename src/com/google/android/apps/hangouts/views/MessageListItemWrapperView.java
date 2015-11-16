@@ -15,17 +15,17 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Space;
-import aqj;
-import are;
-import cao;
-import ceu;
-import cey;
-import czn;
-import dyy;
-import ebr;
-import ebw;
-import efq;
-import egd;
+import ara;
+import arv;
+import cbt;
+import cfz;
+import cgd;
+import dnt;
+import ecj;
+import eep;
+import eev;
+import eis;
+import ejf;
 import g;
 import h;
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ import java.util.List;
 //            ParticipantsGalleryView, MessageListAnimationManager
 
 public class MessageListItemWrapperView extends LinearLayout
-    implements dyy, egd
+    implements ecj, ejf
 {
 
     private static final boolean a = false;
@@ -45,8 +45,8 @@ public class MessageListItemWrapperView extends LinearLayout
     private static int d;
     private static boolean z = false;
     private boolean A;
-    private cao e;
-    private efq f;
+    private cbt e;
+    private eis f;
     private int g;
     private int h;
     private int i;
@@ -76,7 +76,7 @@ public class MessageListItemWrapperView extends LinearLayout
         A = false;
         b(0);
         setClipToPadding(false);
-        d = getResources().getInteger(g.fc);
+        d = getResources().getInteger(g.fa);
     }
 
     static int a(Resources resources)
@@ -95,23 +95,23 @@ public class MessageListItemWrapperView extends LinearLayout
         return i1;
     }
 
-    private boolean a(long l1, long l2, aqj aqj1, are are1)
+    private boolean a(long l1, long l2, ara ara1, arv arv1)
     {
         if (v)
         {
             return false;
         }
-        for (are1 = are1.a(l1, l2).iterator(); are1.hasNext();)
+        for (arv1 = arv1.a(l1, l2).iterator(); arv1.hasNext();)
         {
-            cey cey1 = ((czn)are1.next()).d;
-            if (!aqj1.b(cey1))
+            cgd cgd1 = ((dnt)arv1.next()).d;
+            if (!ara1.b(cgd1))
             {
-                ceu ceu1 = aqj1.a(cey1);
-                if (ceu1 == null)
+                cfz cfz1 = ara1.a(cgd1);
+                if (cfz1 == null)
                 {
                     return true;
                 }
-                if (ceu1 != null && !aqj1.c(cey1))
+                if (cfz1 != null && !ara1.c(cgd1))
                 {
                     return true;
                 }
@@ -137,7 +137,7 @@ label1:
                 {
                     break label1;
                 }
-                if (!((ceu)list.get(i1)).b.a(((ceu)list1.get(i1)).b))
+                if (!((cfz)list.get(i1)).b.a(((cfz)list1.get(i1)).b))
                 {
                     break label0;
                 }
@@ -153,7 +153,7 @@ _L3:
     {
         if (c == -1)
         {
-            c = resources.getDimensionPixelSize(g.ex);
+            c = resources.getDimensionPixelSize(g.ev);
         }
         return c;
     }
@@ -173,12 +173,12 @@ _L3:
     {
         if (b == -1)
         {
-            b = resources.getDimensionPixelSize(g.eB);
+            b = resources.getDimensionPixelSize(g.ez);
         }
         return b;
     }
 
-    public static efq c(MessageListItemWrapperView messagelistitemwrapperview)
+    public static eis c(MessageListItemWrapperView messagelistitemwrapperview)
     {
         return messagelistitemwrapperview.f;
     }
@@ -246,7 +246,7 @@ _L3:
     {
         if (a)
         {
-            ebw.b("Babel", (new StringBuilder(44)).append("setRevealAnimationPercentage ").append(f1).toString());
+            eev.b("Babel", (new StringBuilder(44)).append("setRevealAnimationPercentage ").append(f1).toString());
         }
         int i1 = b(getResources());
         int j1 = g;
@@ -271,7 +271,7 @@ _L3:
         q.b(i1);
     }
 
-    public void a(Cursor cursor, aqj aqj1, int i1, are are1)
+    public void a(Cursor cursor, ara ara1, int i1, arv arv1)
     {
         long l6;
         boolean flag2;
@@ -310,51 +310,51 @@ _L3:
         flag = false;
         if (!A)
         {
-            flag = a(l6, l1, aqj1, are1);
+            flag = a(l6, l1, ara1, arv1);
             ArrayList arraylist = new ArrayList();
             if (flag)
             {
-                for (Iterator iterator = are1.a(l6, l1).iterator(); iterator.hasNext();)
+                for (Iterator iterator = arv1.a(l6, l1).iterator(); iterator.hasNext();)
                 {
-                    czn czn1 = (czn)iterator.next();
+                    dnt dnt1 = (dnt)iterator.next();
                     if (a)
                     {
                         String s1 = String.valueOf("[MessageListItem#bind] Associated watermark found for messageId ");
                         String s2 = t;
-                        ebw.b("Babel", (new StringBuilder(String.valueOf(s1).length() + 36 + String.valueOf(s2).length())).append(s1).append(s2).append(" with timestamp ").append(l6).toString());
-                        s1 = String.valueOf(czn1.d);
-                        long l2 = czn1.e;
-                        ebw.b("Babel", (new StringBuilder(String.valueOf(s1).length() + 43)).append("  gaiaId: ").append(s1).append("  timestamp: ").append(l2).toString());
+                        eev.b("Babel", (new StringBuilder(String.valueOf(s1).length() + 36 + String.valueOf(s2).length())).append(s1).append(s2).append(" with timestamp ").append(l6).toString());
+                        s1 = String.valueOf(dnt1.d);
+                        long l2 = dnt1.e;
+                        eev.b("Babel", (new StringBuilder(String.valueOf(s1).length() + 43)).append("  gaiaId: ").append(s1).append("  timestamp: ").append(l2).toString());
                     }
-                    Object obj = czn1.d;
-                    if (!aqj1.b(((cey) (obj))))
+                    Object obj = dnt1.d;
+                    if (!ara1.b(((cgd) (obj))))
                     {
-                        ceu ceu1 = aqj1.a(((cey) (obj)));
-                        boolean flag3 = aqj1.c(((cey) (obj)));
+                        cfz cfz1 = ara1.a(((cgd) (obj)));
+                        boolean flag3 = ara1.c(((cgd) (obj)));
                         if (a)
                         {
                             String s3 = String.valueOf(obj);
                             String s6 = t;
-                            ebw.b("Babel", (new StringBuilder(String.valueOf(s3).length() + 31 + String.valueOf(s6).length())).append("Have watermark for ").append(s3).append(" on message ").append(s6).toString());
+                            eev.b("Babel", (new StringBuilder(String.valueOf(s3).length() + 31 + String.valueOf(s6).length())).append("Have watermark for ").append(s3).append(" on message ").append(s6).toString());
                             if (flag3)
                             {
                                 String s4 = String.valueOf(obj);
-                                ebw.b("Babel", (new StringBuilder(String.valueOf(s4).length() + 30)).append("  ").append(s4).append(" is focused; Hide watermark.").toString());
+                                eev.b("Babel", (new StringBuilder(String.valueOf(s4).length() + 30)).append("  ").append(s4).append(" is focused; Hide watermark.").toString());
                             }
-                            if (ceu1 == null)
+                            if (cfz1 == null)
                             {
                                 String s5 = String.valueOf(obj);
-                                ebw.b("Babel", (new StringBuilder(String.valueOf(s5).length() + 42)).append("  ").append(s5).append(" not in participant map; Hide watermark.").toString());
+                                eev.b("Babel", (new StringBuilder(String.valueOf(s5).length() + 42)).append("  ").append(s5).append(" not in participant map; Hide watermark.").toString());
                             }
                             if (v)
                             {
                                 obj = String.valueOf(obj);
-                                ebw.b("Babel", (new StringBuilder(String.valueOf(obj).length() + 38)).append("  ").append(((String) (obj))).append(" is on last message; Hide watermark.").toString());
+                                eev.b("Babel", (new StringBuilder(String.valueOf(obj).length() + 38)).append("  ").append(((String) (obj))).append(" is on last message; Hide watermark.").toString());
                             }
                         }
-                        if (ceu1 != null && !flag3)
+                        if (cfz1 != null && !flag3)
                         {
-                            arraylist.add(ceu1);
+                            arraylist.add(cfz1);
                         }
                     }
                 }
@@ -437,14 +437,14 @@ _L3:
                     cursor.moveToNext();
                 }
             }
-            if (!a(l3, l6, aqj1, are1) && z)
+            if (!a(l3, l6, ara1, arv1) && z)
             {
                 i = i + c(getResources());
             }
             m = i;
             h = i;
             j = h;
-            ebr.a(this, null, e.b().getContentDescription());
+            eep.a(this, null, e.b().getContentDescription());
         }
           goto _L6
 _L2:
@@ -456,9 +456,9 @@ _L4:
           goto _L6
     }
 
-    public void a(cao cao1)
+    public void a(cbt cbt1)
     {
-        e = cao1;
+        e = cbt1;
         r.removeAllViews();
         r.addView(e.b());
     }
@@ -468,9 +468,9 @@ _L4:
         w = messagelistanimationmanager;
     }
 
-    public void a(efq efq1)
+    public void a(eis eis1)
     {
-        f = efq1;
+        f = eis1;
     }
 
     public void a(boolean flag)
@@ -494,14 +494,14 @@ _L4:
         A = flag;
     }
 
-    public cao c()
+    public cbt c()
     {
         return e;
     }
 
     public void d()
     {
-        ebw.a("Babel", "onNewMessageAnimationEnded");
+        eev.a("Babel", "onNewMessageAnimationEnded");
         p = 4;
     }
 
@@ -579,7 +579,7 @@ _L4:
             return;
         }
         boolean flag;
-        if (efq.a(i1) && efq.a(j1))
+        if (eis.a(i1) && eis.a(j1))
         {
             flag = true;
         } else
@@ -605,11 +605,11 @@ _L4:
 
     public void onFinishInflate()
     {
-        r = (FrameLayout)findViewById(h.dL);
-        q = (ParticipantsGalleryView)findViewById(h.gZ);
+        r = (FrameLayout)findViewById(h.dz);
+        q = (ParticipantsGalleryView)findViewById(h.gF);
         q.a(this);
         q.a(this);
-        s = (Space)findViewById(h.Z);
+        s = (Space)findViewById(h.Y);
     }
 
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilitynodeinfo)
@@ -653,15 +653,15 @@ _L4:
 
     static 
     {
-        hik hik = ebw.w;
+        hnc hnc = eev.w;
     }
 
     private class WatermarkGalleryStateTransition
         implements Runnable
     {
 
-        public final MessageListItemWrapperView a;
-        private final int b;
+        public final int a;
+        public final MessageListItemWrapperView b;
         private MessageListView c;
         private ObjectAnimator d;
         private final View e;
@@ -672,40 +672,35 @@ _L4:
         private int j;
         private int k;
 
-        public static int a(WatermarkGalleryStateTransition watermarkgallerystatetransition)
-        {
-            return watermarkgallerystatetransition.b;
-        }
-
         public void run()
         {
-            efc efc1;
-            if (b == 1)
+            eie eie1;
+            if (a == 1)
             {
                 j = 0;
-                k = MessageListItemWrapperView.a(a.getResources());
+                k = MessageListItemWrapperView.a(b.getResources());
             } else
             {
-                j = MessageListItemWrapperView.a(a.getResources());
+                j = MessageListItemWrapperView.a(b.getResources());
                 k = 0;
             }
             d = ObjectAnimator.ofInt(this, "watermarkGalleryMeasuredHeightReduction", new int[] {
                 j, k
             });
             d.setDuration(MessageListItemWrapperView.i());
-            d.setInterpolator(new aia());
-            d.addListener(new efr(this));
-            efc1 = MessageListItemWrapperView.d(a).a();
-            if (efc1 != null)
+            d.setInterpolator(new aht());
+            d.addListener(new eit(this));
+            eie1 = MessageListItemWrapperView.d(b).a();
+            if (eie1 != null)
             {
-                efc1.a();
+                eie1.a();
             }
             d.start();
         }
 
         public void setWatermarkGalleryMeasuredHeightReduction(int i1)
         {
-            MessageListItemWrapperView.b(a, i1);
+            MessageListItemWrapperView.b(b, i1);
             if (c == null)
             {
                 c = (MessageListView)e.getParent();
@@ -736,16 +731,16 @@ _L4:
                 int l1 = g;
                 int i2 = c.getHeight();
                 c.a(f, k1 - (j1 - i1) - (l1 - i2));
-                a.requestLayout();
+                b.requestLayout();
                 return;
             }
         }
 
         public WatermarkGalleryStateTransition(View view, int i1)
         {
-            a = MessageListItemWrapperView.this;
+            b = MessageListItemWrapperView.this;
             super();
-            b = i1;
+            a = i1;
             e = view;
         }
     }

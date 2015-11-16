@@ -2,29 +2,81 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.view.View;
+import android.content.Context;
+import android.content.res.Resources;
 
-final class bxv extends AnimatorListenerAdapter
+public final class bxv
+    implements eia
 {
 
-    final View a;
-    final bya b;
-    final bxu c;
+    private static final eem a;
+    private long b;
+    private final Context c;
+    private final bid d;
+    private final Resources e;
+    private final csw f;
 
-    bxv(bxu bxu1, View view, bya bya)
+    public bxv(Context context, int i, bid bid1, Resources resources)
     {
-        c = bxu1;
-        a = view;
-        b = bya;
-        super();
+        c = context;
+        d = bid1;
+        e = resources;
+        f = new bxw(this, context, (hof)hlp.b(context).a(hnn), i);
     }
 
-    public void onAnimationEnd(Animator animator)
+    static eem a()
     {
-        a.setAlpha(1.0F);
-        bxu.a(c).b(b);
-        a.setLayerType(0, null);
+        return a;
+    }
+
+    static void a(bxv bxv1)
+    {
+        bxv1.b();
+    }
+
+    static void a(bxv bxv1, long l)
+    {
+        if (bxv1.b != l)
+        {
+            bxv1.b = l;
+            bxv1.b();
+        }
+    }
+
+    private void b()
+    {
+        Object obj = null;
+        if (b <= 0L) goto _L2; else goto _L1
+_L1:
+        Object obj1;
+        long l;
+        l = System.currentTimeMillis();
+        obj1 = g.a(c, b, l, 0x40000);
+        if (obj1 == null) goto _L2; else goto _L3
+_L3:
+        obj1 = e.getString(g.mK, new Object[] {
+            obj1
+        });
+        obj = g.a(c, b, l, 0);
+        obj = e.getString(g.mK, new Object[] {
+            obj
+        });
+_L5:
+        d.a(((String) (obj1)), ((String) (obj)));
+        return;
+_L2:
+        obj1 = null;
+        if (true) goto _L5; else goto _L4
+_L4:
+    }
+
+    public void a(String s)
+    {
+        f.a(s);
+    }
+
+    static 
+    {
+        a = eem.a;
     }
 }

@@ -3,8 +3,31 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface beg
+final class beg
 {
 
-    public abstract int a();
+    static final int a[];
+
+    static 
+    {
+        a = new int[atp.values().length];
+        try
+        {
+            a[atp.e.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[atp.b.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[atp.d.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
+    }
 }

@@ -3,26 +3,6 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gje
-    implements Runnable
+public class gje
 {
-
-    final gjd a;
-
-    gje(gjd gjd1)
-    {
-        a = gjd1;
-        super();
-    }
-
-    public void run()
-    {
-        if (gjd.a(a) != null)
-        {
-            gbh.a();
-            gjd.a(a).d();
-            gjd.b(a);
-            gjd.c(a);
-        }
-    }
 }

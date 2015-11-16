@@ -3,51 +3,43 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cwo extends cvn
+public class cwo extends cwe
 {
 
     private static final long serialVersionUID = 1L;
-    public final String g;
+    public final int a;
+    public final int b;
+    public final String k;
 
-    private cwo(ity ity1)
+    public cwo(String s, String s1, int i, int j)
     {
-        super(ity1.responseHeader, -1L);
-        g = ity1.a;
-        if (cvn.a)
-        {
-            ity1 = String.valueOf(g);
-            if (ity1.length() != 0)
-            {
-                ity1 = "GetOffnetworkInviteUrlResponse: Invite Url=".concat(ity1);
-            } else
-            {
-                ity1 = new String("GetOffnetworkInviteUrlResponse: Invite Url=");
-            }
-            ebw.b("Babel", ity1);
-        }
+        super(s1, s);
+        a = i;
+        b = j;
+        k = s1;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public kws a(String s, int i, int j)
     {
-        abyte0 = (ity)kop.mergeFrom(new ity(), abyte0);
-        if (a(((ity) (abyte0)).responseHeader))
-        {
-            return new cvz(((ity) (abyte0)).responseHeader);
-        } else
-        {
-            return new cwo(abyte0);
-        }
+        s = new jbu();
+        izg izg1 = new izg();
+        izg1.b = aow.c(this.j);
+        izg1.a = cvu.a(k);
+        izg1.e = Integer.valueOf(9);
+        s.b = Integer.valueOf(a);
+        s.a = izg1;
+        s.requestHeader = new jdk();
+        ((jbu) (s)).requestHeader.a = h.e();
+        return s;
     }
 
-    public void a(aoe aoe, dfb dfb)
+    public String f()
     {
-        super.a(aoe, dfb);
-        if (ebw.a("Babel", 3))
-        {
-            aoe = String.valueOf("processGetOffnetworkInviteUrlResponse response status: ");
-            int i = c.b;
-            dfb = c.a;
-            ebw.d("Babel", (new StringBuilder(String.valueOf(aoe).length() + 30 + String.valueOf(dfb).length())).append(aoe).append(i).append(" error description ").append(dfb).toString());
-        }
+        return "conversations/modifyotrstatus";
+    }
+
+    public cdl m()
+    {
+        return new dfs(this);
     }
 }

@@ -2,25 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.ValueAnimator;
-import com.google.android.apps.hangouts.floatingactionbutton.impl.FloatingActionButton;
+import android.content.Context;
 
-public final class bei
-    implements android.animation.ValueAnimator.AnimatorUpdateListener
+public interface bei
 {
 
-    final FloatingActionButton a;
+    public abstract void a(Context context);
 
-    public bei(FloatingActionButton floatingactionbutton)
-    {
-        a = floatingactionbutton;
-        super();
-    }
-
-    public void onAnimationUpdate(ValueAnimator valueanimator)
-    {
-        valueanimator = (Float)valueanimator.getAnimatedValue();
-        FloatingActionButton.a(a, g.a(valueanimator));
-        a.invalidate();
-    }
+    public abstract boolean a(String s);
 }

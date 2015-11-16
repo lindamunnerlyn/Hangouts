@@ -3,26 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class cnj
+final class cnj extends coj
 {
 
-    static final int a[];
+    final cna a;
 
-    static 
+    cnj(cna cna1, String s)
     {
-        a = new int[cnq.a().length];
-        try
+        a = cna1;
+        super(s);
+    }
+
+    public void a()
+    {
+        if (cna.a(a))
         {
-            a[cnq.c - 1] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[cnq.a - 1] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
+            (new col(a, "load")).execute(new Void[0]);
         }
     }
 }

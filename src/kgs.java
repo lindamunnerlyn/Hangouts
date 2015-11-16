@@ -3,7 +3,7 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kgs extends koj
+public final class kgs extends kwm
 {
 
     public Boolean a;
@@ -22,20 +22,20 @@ public final class kgs extends koj
         if (a != null)
         {
             a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            i = j + (kwk.f(1) + 1);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -45,18 +45,18 @@ public final class kgs extends koj
                 return this;
 
             case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
+                a = Boolean.valueOf(kwj1.i());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.booleanValue());
+            kwk1.a(1, a.booleanValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

@@ -3,23 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class gep
-    implements ger
+final class gep
+    implements gjw
 {
 
-    public gep()
+    final geg a;
+
+    gep(geg geg1)
     {
+        a = geg1;
+        super();
     }
 
-    public void a(gem gem)
+    public void a(jka jka)
     {
-    }
-
-    public void b(gem gem)
-    {
-    }
-
-    public void c(gem gem)
-    {
+        a.a(kws.toByteArray(jka));
     }
 }

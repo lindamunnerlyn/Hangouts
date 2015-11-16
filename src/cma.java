@@ -2,21 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
 
-final class cma extends cmu
+final class cma
+    implements Runnable
 {
 
-    final cls a;
+    final clz a;
 
-    cma(cls cls1, String s)
+    cma(clz clz1)
     {
-        a = cls1;
-        super(s);
+        a = clz1;
+        super();
     }
 
-    public void a()
+    public void run()
     {
-        ank.b(g.nS, a.c, "sms_no_full_sync_till_millis");
-        dry.c(a.b);
+        a.b.setVisibility(0);
+        a.c.setVisibility(0);
+        a.d.setVisibility(0);
     }
 }

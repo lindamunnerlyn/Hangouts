@@ -2,49 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
+import android.content.Context;
+import android.content.Intent;
 
 final class fio
-    implements fim
+    implements Runnable
 {
 
-    private IBinder a;
+    final fin a;
 
-    fio(IBinder ibinder)
+    fio(fin fin1)
     {
-        a = ibinder;
+        a = fin1;
+        super();
     }
 
-    public void a(fgh fgh1)
+    public void run()
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnMapReadyCallback");
-        if (fgh1 == null)
+        synchronized (fin.a(a))
         {
-            break MISSING_BLOCK_LABEL_57;
+            Intent intent = new Intent("com.google.android.location.places.METHOD_CALL");
+            intent.setPackage("com.google.android.gms");
+            intent.putStringArrayListExtra("PLACE_IDS", fin.b(a));
+            intent.putStringArrayListExtra("METHOD_NAMES", fin.c(a));
+            intent.putExtra("PACKAGE_NAME", fin.d(a).getPackageName());
+            intent.putExtra("CLIENT_VERSION", eml.a);
+            fin.d(a).sendBroadcast(intent);
+            fin.e(a);
+            fin.f(a);
         }
-        fgh1 = fgh1.asBinder();
-_L1:
-        parcel.writeStrongBinder(fgh1);
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
         return;
-        fgh1 = null;
-          goto _L1
-        fgh1;
-        parcel1.recycle();
-        parcel.recycle();
-        throw fgh1;
-    }
-
-    public IBinder asBinder()
-    {
-        return a;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 }

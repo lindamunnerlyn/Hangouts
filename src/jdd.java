@@ -3,16 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jdd extends koj
+public final class jdd extends kwm
 {
 
-    public String a;
+    public izg a;
     public String b;
+    public byte c[];
+    public Long d;
+    public jdk requestHeader;
 
     public jdd()
     {
+        requestHeader = null;
         a = null;
         b = null;
+        c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,27 +27,42 @@ public final class jdd extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (a != null)
+        if (requestHeader != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.d(1, requestHeader);
         }
         j = i;
+        if (c != null)
+        {
+            j = i + kwk.b(2, c);
+        }
+        i = j;
         if (b != null)
         {
-            j = i + koh.b(2, b);
+            i = j + kwk.b(3, b);
         }
-        return j;
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.d(4, d.longValue());
+        }
+        i = j;
+        if (a != null)
+        {
+            i = j + kwk.d(5, a);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -51,26 +72,58 @@ public final class jdd extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                if (requestHeader == null)
+                {
+                    requestHeader = new jdk();
+                }
+                kwj1.a(requestHeader);
                 break;
 
             case 18: // '\022'
-                b = kog1.j();
+                c = kwj1.k();
+                break;
+
+            case 26: // '\032'
+                b = kwj1.j();
+                break;
+
+            case 32: // ' '
+                d = Long.valueOf(kwj1.d());
+                break;
+
+            case 42: // '*'
+                if (a == null)
+                {
+                    a = new izg();
+                }
+                kwj1.a(a);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
+        if (requestHeader != null)
         {
-            koh1.a(1, a);
+            kwk1.b(1, requestHeader);
+        }
+        if (c != null)
+        {
+            kwk1.a(2, c);
         }
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.a(3, b);
         }
-        super.writeTo(koh1);
+        if (d != null)
+        {
+            kwk1.a(4, d.longValue());
+        }
+        if (a != null)
+        {
+            kwk1.b(5, a);
+        }
+        super.writeTo(kwk1);
     }
 }

@@ -2,66 +2,78 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
-public class cxf extends cvn
+public class cxf extends cwm
 {
 
     private static final long serialVersionUID = 1L;
-    private final Map g = new HashMap();
+    public final int a;
+    public final boolean b;
 
-    private cxf(htf htf1)
+    public String a()
     {
-        super(htf1.apiHeader);
-        htf1 = htf1.a.a;
-        int j = htf1.length;
-        for (int i = 0; i < j; i++)
-        {
-            String s = htf1[i];
-            Object obj = ((ikg) (s)).c;
-            s = ((ikg) (s)).a.c;
-            obj = new amx(s, ((ikd) (obj)).a, ((ikd) (obj)).e);
-            g.put(s, obj);
-        }
-
+        return "ui_queue";
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public kws a(String s, int i, int j)
     {
-        abyte0 = (htf)kop.mergeFrom(new htf(), abyte0);
-        if (a(((htf) (abyte0)).apiHeader))
+        jap jap1;
+        if (cvv.e)
         {
-            return new cvz(((htf) (abyte0)).apiHeader);
+            int k = a;
+            Object obj;
+            if (b)
+            {
+                obj = " in a call.";
+            } else
+            {
+                obj = " NOT in a call.";
+            }
+            eev.b("Babel_RequestWriter", (new StringBuilder(String.valueOf(obj).length() + 51)).append("SetInCallPresenceRequest build protobuf ").append(k).append(((String) (obj))).toString());
+        }
+        obj = new jel();
+        jap1 = new jap();
+        if (b)
+        {
+            boolean flag;
+            if (a > 0)
+            {
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+            gdv.a("Expected condition to be true", flag);
+            jap1.a = Integer.valueOf(100);
+            jap1.b = Long.valueOf(a);
         } else
         {
-            return new cxf(abyte0);
+            jap1.a = Integer.valueOf(0);
         }
+        obj.e = jap1;
+        obj.requestHeader = cvu.a(s, i, j, h);
+        return ((kws) (obj));
     }
 
-    public void a(aoe aoe1, dfb dfb)
+    public boolean a(cdl cdl)
     {
-        super.a(aoe1, dfb);
-        if (!g.isEmpty())
-        {
-            aoe1.a(g);
-        }
-        aoe1.a();
-        aoe1.n();
-        amx amx1;
-        for (dfb = g.values().iterator(); dfb.hasNext(); aoe1.c(amx1.a, amx1.b, amx1.c, amx1.d))
-        {
-            amx1 = (amx)dfb.next();
-        }
+        gdv.a(getClass(), cdl.getClass());
+        return true;
+    }
 
-        break MISSING_BLOCK_LABEL_98;
-        dfb;
-        aoe1.c();
-        throw dfb;
-        aoe1.b();
-        aoe1.c();
-        return;
+    public boolean a(cdn cdn, dcx dcx)
+    {
+        return false;
+    }
+
+    public long b()
+    {
+        return TimeUnit.SECONDS.toMillis(a);
+    }
+
+    public String f()
+    {
+        return "presence/setpresence";
     }
 }

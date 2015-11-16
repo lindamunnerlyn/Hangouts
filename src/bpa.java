@@ -2,96 +2,93 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.PendingIntent;
-import android.net.Uri;
+import android.widget.Toast;
+import com.google.android.apps.hangouts.hangout.HangoutFragment;
+import java.util.Map;
+import java.util.Set;
 
-public final class bpa
+public final class bpa extends bns
 {
 
-    private final String a;
-    private final int b;
-    private int c;
-    private String d;
-    private String e;
-    private String f;
-    private String g;
-    private String h;
-    private String i;
-    private String j;
-    private String k;
-    private String l;
-    private PendingIntent m;
-    private Uri n;
+    final HangoutFragment a;
 
-    public bpa(String s, int i1)
+    public bpa(HangoutFragment hangoutfragment)
     {
-        c = 1;
-        a = s;
-        b = i1;
+        a = hangoutfragment;
+        super();
     }
 
-    public boy a()
+    public void a()
     {
-        return new boy(a, b, c, d, e, f, g, h, i, j, k, l, m, n);
+        HangoutFragment.l(a);
     }
 
-    public bpa a(int i1)
+    public void a(bnf bnf)
     {
-        c = i1;
-        return this;
+        int i = g.a((Integer)bne.a.get(bnf), -1);
+        if (i != -1)
+        {
+            g.b(i);
+        }
     }
 
-    public bpa a(String s)
+    public void a(gly gly, Set set)
     {
-        d = s;
-        return this;
+        HangoutFragment.m(a);
+        a.a(gly, set);
     }
 
-    public bpa b(String s)
+    public void a(gms gms)
     {
-        e = s;
-        return this;
+        HangoutFragment.a(a, a.a.s().e());
+        int i = ((gqu)HangoutFragment.j(a).a(gqu)).a();
+        ((bwz)HangoutFragment.k(a).a(bwz)).a(i, bxa.a);
     }
 
-    public bpa c(String s)
+    public void a(gmu gmu1)
     {
-        f = s;
-        return this;
-    }
-
-    public bpa d(String s)
-    {
-        g = s;
-        return this;
-    }
-
-    public bpa e(String s)
-    {
-        h = s;
-        return this;
-    }
-
-    public bpa f(String s)
-    {
-        i = s;
-        return this;
-    }
-
-    public bpa g(String s)
-    {
-        j = s;
-        return this;
-    }
-
-    public bpa h(String s)
-    {
-        k = s;
-        return this;
-    }
-
-    public bpa i(String s)
-    {
-        l = s;
-        return this;
+        boz.a[gmu1.a().ordinal()];
+        JVM INSTR tableswitch 1 2: default 32
+    //                   1 75
+    //                   2 182;
+           goto _L1 _L2 _L3
+_L1:
+        gmu1 = String.valueOf(gmu1.a());
+        eev.g("Babel_calls", (new StringBuilder(String.valueOf(gmu1).length() + 39)).append("Error: invalid quality event reported: ").append(gmu1).toString());
+        return;
+_L2:
+        char c;
+        char c1 = '\u09AD';
+        gmu1 = g.g();
+        Object obj = a.a;
+        obj = bnk.k();
+        c = c1;
+        if (!HangoutFragment.n(a))
+        {
+            c = c1;
+            if (obj != null)
+            {
+                c = c1;
+                if (gmu1 != null)
+                {
+                    c = c1;
+                    if (dcz.C(gmu1.h()))
+                    {
+                        HangoutFragment.o(a);
+                        a.a(false);
+                        Toast.makeText(a.getActivity(), l.sL, 0).show();
+                        ((glj) (obj)).a(false);
+                        c = c1;
+                    }
+                }
+            }
+        }
+_L5:
+        g.b(c);
+        return;
+_L3:
+        c = '\u09AE';
+        if (true) goto _L5; else goto _L4
+_L4:
     }
 }

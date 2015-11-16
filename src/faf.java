@@ -2,23 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.feedback.FeedbackOptions;
 
-final class faf extends fag
+final class faf
 {
 
-    final FeedbackOptions a;
+    static final erv a[] = {
+        new fag(erv.a("0\202\003&0\202\002\344\240\003\002\001\002\002\004L\320\26560\013\006\007*\206"))
+    };
 
-    faf(ejx ejx, FeedbackOptions feedbackoptions)
-    {
-        a = feedbackoptions;
-        super(ejx);
-    }
-
-    protected void a(ejv ejv)
-    {
-        ((fen)ejv).a(a);
-        a(((ekg) (Status.a)));
-    }
 }

@@ -3,11 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ehx extends Exception
+public interface ehx
 {
 
-    public ehx(String s)
-    {
-        super(s);
-    }
+    public abstract void a(ehw ehw);
 }

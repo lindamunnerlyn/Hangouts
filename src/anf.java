@@ -2,33 +2,57 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public final class anf extends dlt
+public final class anf
 {
 
-    private final ani a;
-    private final String b;
+    public static final String a = ang.getName();
+    public static final String b = hcb.getName();
+    public static final String c = aoc.getName();
+    public static final String d = gre.getName();
+    private static ane e;
 
-    public anf(String s, ani ani)
+    public static void a(Context context, hlp hlp1)
     {
-        a = ani;
-        b = s;
-    }
-
-    public String a()
-    {
-        return b;
-    }
-
-    public String c()
-    {
-        String s = String.valueOf(b);
-        if (s.length() != 0)
+        if (e == null)
         {
-            return "###".concat(s);
-        } else
-        {
-            return new String("###");
+            e = new ane();
         }
+        hlp1.a(aoc, new aoc(context));
     }
+
+    public static void a(hlp hlp1)
+    {
+        if (e == null)
+        {
+            e = new ane();
+        }
+        hlp1.a(ang, new ang[] {
+            new ard()
+        });
+    }
+
+    public static void b(Context context, hlp hlp1)
+    {
+        if (e == null)
+        {
+            e = new ane();
+        }
+        hlp1.a(gre, new gre[] {
+            (gre)hlp.a(context, aoc)
+        });
+    }
+
+    public static void b(hlp hlp1)
+    {
+        if (e == null)
+        {
+            e = new ane();
+        }
+        hlp1.a(hcb, new hcb[] {
+            (hcb)hlp1.a(aoc)
+        });
+    }
+
 }

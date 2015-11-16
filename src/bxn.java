@@ -2,22 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.view.View;
 
 final class bxn
-    implements bxj
+    implements android.view.View.OnClickListener
 {
 
-    private final SharedPreferences a;
+    final boolean a;
+    final bxi b;
+    final String c;
+    final String d;
+    final int e;
+    final bxm f;
 
-    public bxn(Context context)
+    bxn(bxm bxm1, boolean flag, bxi bxi, String s, String s1, int i)
     {
-        a = context.getSharedPreferences("latency_preferences", 0);
+        f = bxm1;
+        a = flag;
+        b = bxi;
+        c = s;
+        d = s1;
+        e = i;
+        super();
     }
 
-    public bxi a(int i)
+    public void onClick(View view)
     {
-        return new bxm(a, i);
+        bxm.a(f, a, b, c, d, e);
     }
 }

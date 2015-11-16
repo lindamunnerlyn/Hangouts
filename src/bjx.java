@@ -2,46 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Handler;
+import android.view.MotionEvent;
+import android.view.View;
 
-public class bjx extends bkd
-    implements android.widget.AbsListView.OnScrollListener
+final class bjx
+    implements android.view.View.OnTouchListener
 {
 
-    public cng g;
+    final bjq a;
 
-    public bjx()
+    bjx(bjq bjq1)
     {
+        a = bjq1;
+        super();
     }
 
-    public boolean isEmpty()
+    public boolean onTouch(View view, MotionEvent motionevent)
     {
-        return g == null || g.a() == null || g.getCount() == 0;
-    }
-
-    public void onDetach()
-    {
-        if (g != null)
+        int i = motionevent.getAction();
+        if (i != 0) goto _L2; else goto _L1
+_L1:
+        bjq.h(a).removeCallbacks(bjq.g(a));
+        if (bjq.a(a) != null)
         {
-            g.b(null);
+            bjq.a(a).a();
         }
-        super.onDetach();
-    }
-
-    public void onPause()
-    {
-        super.onPause();
-        if (g != null && g.a() != null)
+        bjq.h(a).postDelayed(bjq.g(a), 400L);
+_L4:
+        return false;
+_L2:
+        if (i == 1)
         {
-            g.c();
+            bjq.h(a).removeCallbacks(bjq.g(a));
+            view.performClick();
         }
-    }
-
-    public void onResume()
-    {
-        super.onResume();
-        if (g != null && g.a() != null)
-        {
-            g.d();
-        }
+        if (true) goto _L4; else goto _L3
+_L3:
     }
 }

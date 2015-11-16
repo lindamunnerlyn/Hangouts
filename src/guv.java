@@ -2,29 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.StringWriter;
+import android.util.Property;
+import android.view.View;
 
-final class guv
-    implements Runnable
+final class guv extends Property
 {
 
-    final guu a;
+    private Property a;
+    private Property b;
+    private float c;
 
-    guv(guu guu1)
+    public guv(Property property, Property property1, String s)
     {
-        a = guu1;
-        super();
+        super(java/lang/Float, s);
+        a = property;
+        b = property1;
+        c = 0.5F;
     }
 
-    public void run()
+    public Object get(Object obj)
     {
-        String s = String.valueOf(guu.a(a));
-        (new StringBuilder(String.valueOf(s).length() + 36)).append("Out of memory while decoding image: ").append(s);
-        if (a.a instanceof gta)
-        {
-            guw guw1 = new guw(this, new StringWriter());
-            ((gta)a.a).a(guw1);
-            g.a(4, "ImageResource", guw1.toString());
-        }
+        obj = (View)obj;
+        float f = ((Float)b.get(obj)).floatValue();
+        return Float.valueOf(((Float)a.get(obj)).floatValue() * c + f);
+    }
+
+    public void set(Object obj, Object obj1)
+    {
+        obj = (View)obj;
+        obj1 = (Float)obj1;
+        b.set(obj, Float.valueOf(((Float) (obj1)).floatValue() - ((Float)a.get(obj)).floatValue() * c));
     }
 }

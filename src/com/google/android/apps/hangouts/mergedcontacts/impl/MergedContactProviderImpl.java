@@ -13,21 +13,21 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import apa;
-import apd;
-import atd;
-import bzx;
-import caj;
-import ebw;
-import gms;
-import gmw;
-import hgx;
+import aps;
+import apv;
+import atu;
+import cba;
+import cbo;
+import eev;
+import gqz;
+import grd;
+import hlp;
 import java.util.Locale;
 
 // Referenced classes of package com.google.android.apps.hangouts.mergedcontacts.impl:
 //            MergeContactsService
 
-public class MergedContactProviderImpl extends bzx
+public class MergedContactProviderImpl extends cba
 {
 
     private static final UriMatcher h;
@@ -114,10 +114,10 @@ public class MergedContactProviderImpl extends bzx
            goto _L1 _L2 _L3
 _L1:
         long l = SystemClock.elapsedRealtime();
-        as = apa.a(getContext(), j).a().a(sqlitequerybuilder, as, s, as1, s1, null);
+        as = aps.a(getContext(), j).a().a(sqlitequerybuilder, as, s, as1, s1, null);
         long l1 = SystemClock.elapsedRealtime();
         s = String.valueOf(sqlitequerybuilder.getTables());
-        ebw.e("Babel_db", (new StringBuilder(String.valueOf(s).length() + 38)).append("querying ").append(s).append(" took ").append(l1 - l).append(" ms").toString());
+        eev.e("Babel_db", (new StringBuilder(String.valueOf(s).length() + 38)).append("querying ").append(s).append(" took ").append(l1 - l).append(" ms").toString());
         as.setNotificationUri(getContext().getContentResolver(), uri);
         return as;
 _L2:
@@ -180,7 +180,7 @@ _L2:
         if (!TextUtils.isEmpty(s3))
         {
             flag = flag1;
-            if (Integer.parseInt(s3) == atd.b.ordinal())
+            if (Integer.parseInt(s3) == atu.b.ordinal())
             {
                 if (flag1)
                 {
@@ -217,14 +217,14 @@ _L2:
         }
         obj1 = new Intent(getContext(), com/google/android/apps/hangouts/mergedcontacts/impl/MergeContactsService);
         ((Intent) (obj1)).putExtra("account_id", j);
-        if (((gms)hgx.a(getContext(), gms)).b(j).a("last_merged_ts", -1L) == -1L)
+        if (((gqz)hlp.a(getContext(), gqz)).b(j).a("last_merged_ts", -1L) == -1L)
         {
             synchronized (i)
             {
-                if (((gms)hgx.a(getContext(), gms)).b(j).a("last_merged_ts", -1L) == -1L)
+                if (((gqz)hlp.a(getContext(), gqz)).b(j).a("last_merged_ts", -1L) == -1L)
                 {
-                    ebw.e("Babel_db", "MergedContactProviderImpl calling MergeContactsService synchronously");
-                    (new caj(this)).onHandleIntent(((Intent) (obj1)));
+                    eev.e("Babel_db", "MergedContactProviderImpl calling MergeContactsService synchronously");
+                    (new cbo(this)).onHandleIntent(((Intent) (obj1)));
                 }
             }
         } else

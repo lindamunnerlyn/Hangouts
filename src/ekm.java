@@ -3,8 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface ekm
+public final class ekm
 {
 
-    public abstract void a(Object obj);
+    public ekm()
+    {
+    }
 }

@@ -2,27 +2,7 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.AbstractSet;
-import java.util.Iterator;
 
-final class hmt extends AbstractSet
+public interface hmt
 {
-
-    final hmq a;
-
-    hmt(hmq hmq1)
-    {
-        a = hmq1;
-        super();
-    }
-
-    public Iterator iterator()
-    {
-        return new hms(a);
-    }
-
-    public int size()
-    {
-        return a.a;
-    }
 }

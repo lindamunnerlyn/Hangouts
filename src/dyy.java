@@ -6,5 +6,7 @@
 public interface dyy
 {
 
-    public abstract void b();
+    public abstract void a();
+
+    public abstract void a(String s);
 }

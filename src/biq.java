@@ -2,142 +2,171 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.res.Resources;
+import android.content.Context;
 import android.database.Cursor;
-import android.os.Bundle;
-import com.google.android.apps.hangouts.fragments.ConversationListFragment;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import android.widget.WrapperListAdapter;
+import com.google.android.apps.hangouts.fragments.ConversationInviteListFragment;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
-public final class biq
+public final class biq extends BaseAdapter
+    implements WrapperListAdapter
 {
 
-    public HashMap a;
-    final ConversationListFragment b;
-    private final ani c;
-    private long d;
-    private final bis e = new bis(this);
-    private dsn f;
+    final bim a;
+    final ConversationInviteListFragment b;
+    private final ArrayList c = new ArrayList();
 
-    public biq(ConversationListFragment conversationlistfragment, ani ani)
+    public biq(ConversationInviteListFragment conversationinvitelistfragment, bim bim1)
     {
-        b = conversationlistfragment;
+        b = conversationinvitelistfragment;
         super();
-        c = ani;
+        a = bim1;
+        a(bim1.a());
+        a.registerDataSetObserver(new bir(this, conversationinvitelistfragment));
     }
 
-    private void a(String s, long l1, boolean flag, boolean flag1)
+    void a(Cursor cursor)
     {
-        ArrayList arraylist = new ArrayList();
-        for (s = g.g(s).iterator(); s.hasNext(); arraylist.add((String)s.next())) { }
-        s = new long[arraylist.size()];
-        for (int i = 0; i < s.length; i++)
-        {
-            s[i] = l1;
-        }
-
-        RealTimeChatService.a(c, (String[])arraylist.toArray(new String[arraylist.size()]), s, flag, flag1);
-    }
-
-    public void a()
-    {
-        e.a();
-    }
-
-    public void a(Cursor cursor)
-    {
-        if (a != null)
-        {
-            while (!a.isEmpty() && cursor.moveToNext()) 
-            {
-                String s = cursor.getString(1);
-                a.remove(s);
-            }
-        }
-    }
-
-    public void a(Bundle bundle)
-    {
-        if (a != null && !a.isEmpty())
-        {
-            bundle.putSerializable("last_archived", a);
-        }
-    }
-
-    public void a(String s)
-    {
-        e.a(s);
-    }
-
-    public void a(String s, long l1)
-    {
-        int i;
-        if (!e.a(s, l1))
-        {
-            a(s, l1, true, true);
-        }
-        long l2 = System.currentTimeMillis();
-        if (a != null)
-        {
-            if (l2 - d > 1000L)
-            {
-                a.clear();
-            }
-        } else
-        {
-            a = new HashMap();
-        }
-        d = l2;
-        a.put(s, Long.valueOf(l1));
-        i = a.size();
-        s = new dso(ConversationListFragment.p(b));
-        if (i <= 1) goto _L2; else goto _L1
+        c.clear();
+        if (cursor == null || cursor.getCount() <= 0) goto _L2; else goto _L1
 _L1:
-        s.a(b.getResources().getString(l.gN, new Object[] {
-            Integer.valueOf(i)
-        }));
-_L5:
-        s.c(b.getString(l.q));
-        s.a(new bir(this));
-        s = s.a();
-        if (f == null || f.equals(s))
-        {
-            ConversationListFragment.g(b).a(s);
-        } else
-        {
-            ConversationListFragment.g(b).a(f, s);
-        }
-        f = s;
-_L4:
-        return;
-_L2:
-        if (i != 1) goto _L4; else goto _L3
+        c.add(new bip(l.eI, g.gv, 0));
+        if (!cursor.moveToFirst()) goto _L2; else goto _L3
 _L3:
-        s.a(b.getResources().getString(l.ar));
-          goto _L5
-    }
-
-    void a(Map map, boolean flag, boolean flag1)
-    {
-        if (map != null)
+        if (cursor.getInt(27) != 2)
         {
-            map = map.entrySet().iterator();
-            while (map.hasNext()) 
-            {
-                java.util.Map.Entry entry = (java.util.Map.Entry)map.next();
-                long l1 = g.a((Long)entry.getValue(), 0L);
-                a((String)entry.getKey(), l1, flag, flag1);
-            }
+            continue; /* Loop/switch isn't completed */
         }
+        if (cursor.getPosition() == 0)
+        {
+            c.remove(0);
+        }
+        c.add(new bip(l.fh, g.gv, cursor.getPosition()));
+_L2:
+        return;
+        if (cursor.moveToNext()) goto _L3; else goto _L4
+_L4:
     }
 
-    public void b(String s, long l1)
+    public int getCount()
     {
-        a(s, l1, false, false);
+        return a.getCount() + c.size();
+    }
+
+    public Object getItem(int i)
+    {
+        Iterator iterator = c.iterator();
+        do
+        {
+            if (!iterator.hasNext())
+            {
+                break;
+            }
+            bip bip1 = (bip)iterator.next();
+            if (bip1.a == i)
+            {
+                return bip1;
+            }
+            if (bip1.a < i)
+            {
+                i--;
+            }
+        } while (true);
+        return a.getItem(i);
+    }
+
+    public long getItemId(int i)
+    {
+        Iterator iterator = c.iterator();
+        do
+        {
+            if (!iterator.hasNext())
+            {
+                break;
+            }
+            bip bip1 = (bip)iterator.next();
+            if (bip1.a == i)
+            {
+                return -1L;
+            }
+            if (bip1.a < i)
+            {
+                i--;
+            }
+        } while (true);
+        return a.getItemId(i);
+    }
+
+    public int getItemViewType(int i)
+    {
+        Iterator iterator = c.iterator();
+        do
+        {
+            if (!iterator.hasNext())
+            {
+                break;
+            }
+            bip bip1 = (bip)iterator.next();
+            if (bip1.a == i)
+            {
+                return a.getViewTypeCount();
+            }
+            if (bip1.a < i)
+            {
+                i--;
+            }
+        } while (true);
+        return a.getItemViewType(i);
+    }
+
+    public View getView(int i, View view, ViewGroup viewgroup)
+    {
+        Iterator iterator = c.iterator();
+        do
+        {
+            if (!iterator.hasNext())
+            {
+                break;
+            }
+            bip bip1 = (bip)iterator.next();
+            if (bip1.a == i)
+            {
+                view = ((LayoutInflater)viewgroup.getContext().getSystemService("layout_inflater")).inflate(bip1.c, viewgroup, false);
+                ((TextView)view.findViewById(h.fo)).setText(bip1.b);
+                viewgroup = view.findViewById(h.aT);
+                if (viewgroup != null)
+                {
+                    viewgroup.setVisibility(8);
+                }
+                return view;
+            }
+            if (bip1.a < i)
+            {
+                i--;
+            }
+        } while (true);
+        return a.getView(i, view, viewgroup);
+    }
+
+    public int getViewTypeCount()
+    {
+        return a.getViewTypeCount() + 1;
+    }
+
+    public ListAdapter getWrappedAdapter()
+    {
+        return a;
+    }
+
+    public boolean hasStableIds()
+    {
+        return true;
     }
 }

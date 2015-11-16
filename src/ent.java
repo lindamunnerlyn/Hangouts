@@ -2,45 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.Parcel;
+import com.google.android.gms.common.ConnectionResult;
 
-public abstract class ent extends Binder
-    implements ens
+final class ent extends eol
 {
 
-    public static ens a(IBinder ibinder)
+    final enq a;
+    final ConnectionResult b;
+    final ens c;
+
+    ent(ens ens, eop eop, enq enq1, ConnectionResult connectionresult)
     {
-        if (ibinder == null)
-        {
-            return null;
-        }
-        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.common.internal.ICancelToken");
-        if (iinterface != null && (iinterface instanceof ens))
-        {
-            return (ens)iinterface;
-        } else
-        {
-            return new enu(ibinder);
-        }
+        c = ens;
+        a = enq1;
+        b = connectionresult;
+        super(eop);
     }
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    public void a()
     {
-        switch (i)
+        enq enq1;
+        ConnectionResult connectionresult;
+label0:
         {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
-
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.common.internal.ICancelToken");
-            return true;
-
-        case 2: // '\002'
-            parcel.enforceInterface("com.google.android.gms.common.internal.ICancelToken");
-            a();
-            return true;
+            enq1 = a;
+            connectionresult = b;
+            if (enq1.b(2))
+            {
+                if (!connectionresult.b())
+                {
+                    break label0;
+                }
+                enq1.h();
+            }
+            return;
+        }
+        if (enq1.a(connectionresult))
+        {
+            enq1.i();
+            enq1.h();
+            return;
+        } else
+        {
+            enq1.b(connectionresult);
+            return;
         }
     }
 }

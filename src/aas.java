@@ -8,17 +8,17 @@ final class aas
     implements android.view.animation.Animation.AnimationListener
 {
 
-    final aam a;
+    final aao a;
 
-    aas(aam aam1)
+    aas(aao aao1)
     {
-        a = aam1;
+        a = aao1;
         super();
     }
 
     public void onAnimationEnd(Animation animation)
     {
-        aam.a(a);
+        a.m();
     }
 
     public void onAnimationRepeat(Animation animation)

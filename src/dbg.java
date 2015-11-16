@@ -2,11 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.ContentValues;
+import android.database.Cursor;
 
-public final class dbg
+final class dbg extends dbc
 {
 
-    public dbg()
+    dbg(String s)
     {
+        super(s, 3);
+    }
+
+    public Object a(Cursor cursor, int i)
+    {
+        return cursor.getString(i);
+    }
+
+    public void a(String s, Object obj, ContentValues contentvalues)
+    {
+        contentvalues.put(s, (String)obj);
     }
 }

@@ -2,13 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
 
-public abstract class hol
+public interface hol
 {
 
-    public hol()
-    {
-    }
-
-    public abstract String a(String s);
+    public abstract void a(int i, int j, Intent intent);
 }

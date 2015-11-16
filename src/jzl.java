@@ -2,61 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.math.RoundingMode;
 
-public final class jzl extends koj
+final class jzl
 {
 
-    public Boolean a;
+    static final int a[];
 
-    public jzl()
+    static 
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        a = new int[RoundingMode.values().length];
+        try
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            a[RoundingMode.UNNECESSARY.ordinal()] = 1;
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        catch (NoSuchFieldError nosuchfielderror7) { }
+        try
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
+            a[RoundingMode.DOWN.ordinal()] = 2;
         }
-        super.writeTo(koh1);
+        catch (NoSuchFieldError nosuchfielderror6) { }
+        try
+        {
+            a[RoundingMode.FLOOR.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror5) { }
+        try
+        {
+            a[RoundingMode.UP.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror4) { }
+        try
+        {
+            a[RoundingMode.CEILING.ordinal()] = 5;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[RoundingMode.HALF_DOWN.ordinal()] = 6;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[RoundingMode.HALF_UP.ordinal()] = 7;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[RoundingMode.HALF_EVEN.ordinal()] = 8;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

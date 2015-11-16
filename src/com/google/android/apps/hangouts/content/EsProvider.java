@@ -14,21 +14,21 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
-import ani;
-import apa;
-import apc;
-import apd;
-import apt;
+import aoa;
+import aps;
 import apu;
 import apv;
-import aqc;
-import cfa;
-import dbf;
-import dqb;
-import ean;
-import ebw;
-import ecd;
-import gbh;
+import aqk;
+import aql;
+import aqm;
+import aqt;
+import cgf;
+import dcn;
+import dsu;
+import edr;
+import eev;
+import efh;
+import gdv;
 import gz;
 import java.io.File;
 import java.util.ArrayList;
@@ -67,8 +67,8 @@ public class EsProvider extends ContentProvider
     public static final Uri p;
     public static final Uri q;
     public static final Uri r;
-    public static final Uri s;
-    private static final boolean t;
+    private static final boolean s;
+    private static final efh t;
     private static final String u;
     private static final String v;
     private static final String w;
@@ -106,14 +106,6 @@ public class EsProvider extends ContentProvider
         return builder.appendQueryParameter("account_id", Integer.toString(i1));
     }
 
-    public static Uri a(int i1, int j1)
-    {
-        android.net.Uri.Builder builder = i.buildUpon();
-        builder.appendQueryParameter("limit", String.valueOf(j1));
-        a(builder, i1);
-        return builder.build();
-    }
-
     public static Uri a(int i1, long l1)
     {
         android.net.Uri.Builder builder = A.buildUpon();
@@ -124,35 +116,9 @@ public class EsProvider extends ContentProvider
 
     public static Uri a(int i1, String s1)
     {
-        gbh.b("Query should not be null", s1);
-        if (TextUtils.isEmpty(s1))
-        {
-            ebw.f("Babel_db", "buildSuggestedPeopleQueryUri: query is empty");
-            return null;
-        } else
-        {
-            android.net.Uri.Builder builder = r.buildUpon();
-            builder.appendPath(s1);
-            a(builder, i1);
-            return builder.build();
-        }
-    }
-
-    public static Uri a(int i1, String s1, int j1)
-    {
-        gbh.b("Query should not be null", s1);
-        if (TextUtils.isEmpty(s1))
-        {
-            ebw.f("Babel_db", "buildSuggestedPeopleQueryUri: query is empty");
-            return null;
-        } else
-        {
-            android.net.Uri.Builder builder = r.buildUpon();
-            builder.appendPath(s1);
-            builder.appendQueryParameter("limit", String.valueOf(j1));
-            a(builder, i1);
-            return builder.build();
-        }
+        android.net.Uri.Builder builder = m.buildUpon();
+        builder.appendPath(s1);
+        return a(builder, i1).build();
     }
 
     public static Uri a(Uri uri, int i1)
@@ -160,17 +126,17 @@ public class EsProvider extends ContentProvider
         return a(uri.buildUpon(), i1).build();
     }
 
-    public static Uri a(ani ani1)
+    public static Uri a(aoa aoa1)
     {
         android.net.Uri.Builder builder = B.buildUpon();
-        builder.appendQueryParameter("account_id", Integer.toString(ani1.h()));
+        builder.appendQueryParameter("account_id", Integer.toString(aoa1.h()));
         return builder.build();
     }
 
-    public static Uri a(ani ani1, int i1)
+    public static Uri a(aoa aoa1, int i1)
     {
         android.net.Uri.Builder builder = n.buildUpon();
-        builder.appendQueryParameter("account_id", Integer.toString(ani1.h()));
+        builder.appendQueryParameter("account_id", Integer.toString(aoa1.h()));
         if (i1 > 0)
         {
             builder.appendQueryParameter("limit", String.valueOf(i1));
@@ -178,15 +144,15 @@ public class EsProvider extends ContentProvider
         return builder.build();
     }
 
-    public static Uri a(ani ani1, String s1)
+    public static Uri a(aoa aoa1, String s1)
     {
         android.net.Uri.Builder builder = o.buildUpon();
         builder.appendPath(s1);
-        builder.appendQueryParameter("account_id", Integer.toString(ani1.h()));
+        builder.appendQueryParameter("account_id", Integer.toString(aoa1.h()));
         return builder.build();
     }
 
-    public static Uri a(ani ani1, ArrayList arraylist)
+    public static Uri a(aoa aoa1, ArrayList arraylist)
     {
         StringBuilder stringbuilder = new StringBuilder();
         String s1;
@@ -199,7 +165,7 @@ public class EsProvider extends ContentProvider
             }
         }
 
-        return d(ani1, stringbuilder.toString());
+        return c(aoa1, stringbuilder.toString());
     }
 
     public static String a(int i1)
@@ -226,16 +192,16 @@ public class EsProvider extends ContentProvider
 
     public static void a(Context context)
     {
-        int ai[] = dbf.e();
+        int ai[] = dcn.e();
         int j1 = ai.length;
         for (int i1 = 0; i1 < j1; i1++)
         {
-            apa.a(context, ai[i1]).b().a(Locale.getDefault());
+            aps.a(context, ai[i1]).b().a(Locale.getDefault());
         }
 
     }
 
-    private static void a(String s1, apv apv1)
+    private static void a(String s1, aqm aqm1)
     {
         if (s1 == null)
         {
@@ -287,7 +253,7 @@ _L1:
         {
             H.setLength(0);
         }
-        apv1.a(j1, H);
+        aqm1.a(j1, H);
         if (k1 != l1)
         {
             i1 = k1 + 1;
@@ -303,7 +269,7 @@ _L1:
         {
             break MISSING_BLOCK_LABEL_201;
         }
-        apv1.a(j1, H);
+        aqm1.a(j1, H);
         stringbuilder;
         JVM INSTR monitorexit ;
         return;
@@ -318,8 +284,8 @@ _L1:
         H.append(c1);
         i1 = k1 + 1;
         continue; /* Loop/switch isn't completed */
-        gbh.a(Character.valueOf(s1.charAt(k1)), Character.valueOf('|'));
-        apv1.a(j1, H);
+        gdv.a(Character.valueOf(s1.charAt(k1)), Character.valueOf('|'));
+        aqm1.a(j1, H);
         i1 = k1 + 1;
         flag = true;
         continue; /* Loop/switch isn't completed */
@@ -331,11 +297,11 @@ _L1:
         {
             break MISSING_BLOCK_LABEL_361;
         }
-        if (t)
+        if (s)
         {
-            ebw.c("Babel_db", (new StringBuilder(String.valueOf(s1).length() + 75)).append("[EsProvider] splitQuotedString called with: ").append(s1).append(", which does not escape quotes.").toString());
+            eev.c("Babel_db", (new StringBuilder(String.valueOf(s1).length() + 75)).append("[EsProvider] splitQuotedString called with: ").append(s1).append(", which does not escape quotes.").toString());
         }
-        apv1.a(j1, H);
+        aqm1.a(j1, H);
         flag1 = flag;
         i1 = j1;
 _L6:
@@ -355,7 +321,7 @@ _L7:
     public static String[] a()
     {
         return (new String[] {
-            "CREATE TABLE conversations (_id INTEGER PRIMARY KEY, conversation_id TEXT, conversation_type INT, latest_message_timestamp INT DEFAULT(0), latest_message_expiration_timestamp INT, metadata_present INT,notification_level INT, name TEXT, generated_name TEXT, snippet_type INT, snippet_text TEXT, snippet_image_url TEXT, snippet_author_gaia_id TEXT, snippet_author_chat_id TEXT, snippet_message_row_id INT, snippet_selector INT, snippet_status INT, snippet_new_conversation_name TEXT, snippet_participant_keys TEXT, snippet_sms_type TEXT, previous_latest_timestamp INT, status INT, view INT, inviter_gaia_id TEXT, inviter_chat_id TEXT, inviter_affinity INT, is_pending_leave INT, account_id INT, is_otr INT, packed_avatar_urls TEXT, self_avatar_url TEXT, self_watermark INT DEFAULT(0), chat_watermark INT DEFAULT(0), hangout_watermark INT DEFAULT(0), is_draft INT, sequence_number INT, call_media_type INT DEFAULT(0), has_joined_hangout INT, has_chat_notifications DEFAULT(0),has_video_notifications DEFAULT(0),last_hangout_event_time INT, draft TEXT, draft_subject TEXT, draft_attachment_url TEXT, draft_photo_rotation INT, draft_picasa_id TEXT, draft_content_type TEXT, otr_status INT, otr_toggle INT, last_otr_modification_time INT, continuation_token BLOB, continuation_event_timestamp INT, has_oldest_message INT DEFAULT(0), sort_timestamp INT, first_peak_scroll_time INT, first_peak_scroll_to_message_timestamp INT, second_peak_scroll_time INT, second_peak_scroll_to_message_timestamp INT, conversation_hash BLOB, disposition INT DEFAULT(0), has_persistent_events INT DEFAULT(-1), transport_type INT DEFAULT(1), default_transport_phone TEXT, sms_service_center TEXT, is_temporary INT DEFAULT (0), sms_thread_id INT DEFAULT (-1), chat_ringtone_uri TEXT, hangout_ringtone_uri TEXT, snippet_voicemail_duration INT DEFAULT (0), UNIQUE (conversation_id ));", "CREATE TABLE conversation_participants (_id INTEGER PRIMARY KEY, participant_row_id INT, participant_type INT, conversation_id TEXT, sequence INT, active INT, invitation_status INT DEFAULT(0), UNIQUE (conversation_id,participant_row_id) ON CONFLICT REPLACE, FOREIGN KEY (conversation_id) REFERENCES conversations(conversation_id) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (participant_row_id) REFERENCES participants(_id));", b, "CREATE TABLE presence (_id INTEGER PRIMARY KEY, gaia_id TEXT NOT NULL, reachable INT DEFAULT(0), reachable_time INT DEFAULT(0), available INT DEFAULT(0), available_time INT DEFAULT(0), status_message TEXT, status_message_time INT DEFAULT(0), call_type INT DEFAULT(0), call_type_time INT DEFAULT(0), device_status INT DEFAULT(0), device_status_time INT DEFAULT(0), last_seen INT DEFAULT(0), last_seen_time INT DEFAULT(0), UNIQUE (gaia_id) ON CONFLICT REPLACE);", "CREATE TABLE suggested_contacts (_id INTEGER PRIMARY KEY, gaia_id TEXT, chat_id TEXT, name TEXT, first_name TEXT, packed_circle_ids TEXT, profile_photo_url TEXT, sequence INT, suggestion_type INT);", "CREATE TABLE messages (_id INTEGER PRIMARY KEY, message_id TEXT, message_type INT, conversation_id TEXT, author_chat_id TEXT, author_gaia_id TEXT, text TEXT, timestamp INT, delete_after_read_timetamp INT, status INT, type INT, local_url TEXT, remote_url TEXT, attachment_content_type TEXT, width_pixels INT, height_pixels INT, stream_id TEXT, image_id TEXT, album_id TEXT, latitude DOUBLE, longitude DOUBLE, address ADDRESS, notification_level INT, expiration_timestamp INT, notified_for_failure INT DEFAULT(0), alert_status INT DEfAULT(0), off_the_record INT DEFAULT(0), transport_type INT NOT NULL DEFAULT(1), transport_phone TEXT, external_ids TEXT, sms_timestamp_sent INT DEFAULT(0), sms_priority INT DEFAULT(0), sms_message_size INT DEFAULT(0), mms_subject TEXT, sms_raw_sender TEXT, sms_raw_recipients TEXT, persisted INT DEFAULT(1), sms_message_status INT DEFAULT(-1), sms_type INT DEFAULT(-1), stream_url TEXT, attachment_target_url TEXT, attachment_name TEXT, image_rotation INT DEFAULT (0), new_conversation_name TEXT, participant_keys TEXT, forwarded_mms_url TEXT, forwarded_mms_count INT DEFAULT(0), attachment_description TEXT, attachment_target_url_description TEXT, attachment_target_url_name TEXT, sending_error INT DEFAULT(0), stream_expiration INT, voicemail_length INT DEFAULT (0), call_media_type INT DEFAULT(0), last_seen_timestamp INT DEFAULT(0), FOREIGN KEY (conversation_id) REFERENCES conversations(conversation_id) ON DELETE CASCADE ON UPDATE CASCADE,UNIQUE (conversation_id,message_id) ON CONFLICT REPLACE);", "CREATE TABLE event_suggestions (_id INTEGER PRIMARY KEY, conversation_id TEXT, event_id TEXT, suggestion_id TEXT, timestamp INT, expiration_time_usec INT, type INT, gem_asset_url STRING, gem_horizontal_alignment INT, matched_message_substring TEXT, FOREIGN KEY (conversation_id) REFERENCES conversations(conversation_id) ON DELETE CASCADE ON UPDATE CASCADE, UNIQUE (conversation_id,suggestion_id) ON CONFLICT REPLACE);", "CREATE TABLE multipart_attachments (_id INTEGER PRIMARY KEY, message_id TEXT, conversation_id TEXT, url TEXT, content_type TEXT, width INT, height INT, FOREIGN KEY (message_id, conversation_id) REFERENCES messages(message_id, conversation_id) ON DELETE CASCADE ON UPDATE CASCADE);", "CREATE TABLE blocked_people (_id INTEGER PRIMARY KEY, gaia_id TEXT, chat_id TEXT, name TEXT, profile_photo_url TEXT, UNIQUE (chat_id) ON CONFLICT REPLACE, UNIQUE (gaia_id) ON CONFLICT REPLACE);", "CREATE TABLE dismissed_contacts (_id INTEGER PRIMARY KEY, gaia_id TEXT, chat_id TEXT, name TEXT, profile_photo_url TEXT, UNIQUE (chat_id) ON CONFLICT REPLACE, UNIQUE (gaia_id) ON CONFLICT REPLACE);", 
+            "CREATE TABLE conversations (_id INTEGER PRIMARY KEY, conversation_id TEXT, conversation_type INT, latest_message_timestamp INT DEFAULT(0), latest_message_expiration_timestamp INT, metadata_present INT,notification_level INT, name TEXT, generated_name TEXT, snippet_type INT, snippet_text TEXT, snippet_image_url TEXT, snippet_author_gaia_id TEXT, snippet_author_chat_id TEXT, snippet_message_row_id INT, snippet_selector INT, snippet_status INT, snippet_new_conversation_name TEXT, snippet_participant_keys TEXT, snippet_sms_type TEXT, previous_latest_timestamp INT, status INT, view INT, inviter_gaia_id TEXT, inviter_chat_id TEXT, inviter_affinity INT, is_pending_leave INT, account_id INT, is_otr INT, packed_avatar_urls TEXT, self_avatar_url TEXT, self_watermark INT DEFAULT(0), chat_watermark INT DEFAULT(0), hangout_watermark INT DEFAULT(0), is_draft INT, sequence_number INT, call_media_type INT DEFAULT(0), has_joined_hangout INT, has_chat_notifications DEFAULT(0),has_video_notifications DEFAULT(0),last_hangout_event_time INT, draft TEXT, draft_subject TEXT, draft_attachment_url TEXT, draft_photo_rotation INT, draft_picasa_id TEXT, draft_content_type TEXT, otr_status INT, otr_toggle INT, last_otr_modification_time INT, continuation_token BLOB, continuation_event_timestamp INT, has_oldest_message INT DEFAULT(0), sort_timestamp INT, first_peak_scroll_time INT, first_peak_scroll_to_message_timestamp INT, second_peak_scroll_time INT, second_peak_scroll_to_message_timestamp INT, conversation_hash BLOB, disposition INT DEFAULT(0), has_persistent_events INT DEFAULT(-1), transport_type INT DEFAULT(1), default_transport_phone TEXT, sms_service_center TEXT, is_temporary INT DEFAULT (0), sms_thread_id INT DEFAULT (-1), chat_ringtone_uri TEXT, hangout_ringtone_uri TEXT, snippet_voicemail_duration INT DEFAULT (0), UNIQUE (conversation_id ));", "CREATE TABLE conversation_participants (_id INTEGER PRIMARY KEY, participant_row_id INT, participant_type INT, conversation_id TEXT, sequence INT, active INT, invitation_status INT DEFAULT(0), UNIQUE (conversation_id,participant_row_id) ON CONFLICT REPLACE, FOREIGN KEY (conversation_id) REFERENCES conversations(conversation_id) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (participant_row_id) REFERENCES participants(_id));", b, "CREATE TABLE presence (_id INTEGER PRIMARY KEY, gaia_id TEXT NOT NULL, reachable INT DEFAULT(0), reachable_time INT DEFAULT(0), available INT DEFAULT(0), available_time INT DEFAULT(0), status_message TEXT, status_message_time INT DEFAULT(0), call_type INT DEFAULT(0), call_type_time INT DEFAULT(0), device_status INT DEFAULT(0), device_status_time INT DEFAULT(0), last_seen INT DEFAULT(0), last_seen_time INT DEFAULT(0), UNIQUE (gaia_id) ON CONFLICT REPLACE);", "CREATE TABLE suggested_contacts (_id INTEGER PRIMARY KEY, gaia_id TEXT, chat_id TEXT, name TEXT, first_name TEXT, packed_circle_ids TEXT, profile_photo_url TEXT, sequence INT, suggestion_type INT);", "CREATE TABLE messages (_id INTEGER PRIMARY KEY, message_id TEXT, message_type INT, conversation_id TEXT, author_chat_id TEXT, author_gaia_id TEXT, text TEXT, timestamp INT, delete_after_read_timetamp INT, status INT, type INT, local_url TEXT, remote_url TEXT, attachment_content_type TEXT, width_pixels INT, height_pixels INT, stream_id TEXT, image_id TEXT, album_id TEXT, latitude DOUBLE, longitude DOUBLE, address ADDRESS, notification_level INT, expiration_timestamp INT, notified_for_failure INT DEFAULT(0), alert_status INT DEfAULT(0), off_the_record INT DEFAULT(0), transport_type INT NOT NULL DEFAULT(1), transport_phone TEXT, external_ids TEXT, sms_timestamp_sent INT DEFAULT(0), sms_priority INT DEFAULT(0), sms_message_size INT DEFAULT(0), mms_subject TEXT, sms_raw_sender TEXT, sms_raw_recipients TEXT, persisted INT DEFAULT(1), sms_message_status INT DEFAULT(-1), sms_type INT DEFAULT(-1), stream_url TEXT, attachment_target_url TEXT, attachment_name TEXT, image_rotation INT DEFAULT (0), new_conversation_name TEXT, participant_keys TEXT, forwarded_mms_url TEXT, forwarded_mms_count INT DEFAULT(0), attachment_description TEXT, attachment_target_url_description TEXT, attachment_target_url_name TEXT, sending_error INT DEFAULT(0), stream_expiration INT, voicemail_length INT DEFAULT (0), call_media_type INT DEFAULT(0), last_seen_timestamp INT DEFAULT(0), observed_status INT DEFAULT(2), FOREIGN KEY (conversation_id) REFERENCES conversations(conversation_id) ON DELETE CASCADE ON UPDATE CASCADE,UNIQUE (conversation_id,message_id) ON CONFLICT REPLACE);", "CREATE TABLE event_suggestions (_id INTEGER PRIMARY KEY, conversation_id TEXT, event_id TEXT, suggestion_id TEXT, timestamp INT, expiration_time_usec INT, type INT, gem_asset_url STRING, gem_horizontal_alignment INT, matched_message_substring TEXT, FOREIGN KEY (conversation_id) REFERENCES conversations(conversation_id) ON DELETE CASCADE ON UPDATE CASCADE, UNIQUE (conversation_id,suggestion_id) ON CONFLICT REPLACE);", "CREATE TABLE multipart_attachments (_id INTEGER PRIMARY KEY, message_id TEXT, conversation_id TEXT, url TEXT, content_type TEXT, width INT, height INT, FOREIGN KEY (message_id, conversation_id) REFERENCES messages(message_id, conversation_id) ON DELETE CASCADE ON UPDATE CASCADE);", "CREATE TABLE blocked_people (_id INTEGER PRIMARY KEY, gaia_id TEXT, chat_id TEXT, name TEXT, profile_photo_url TEXT, UNIQUE (chat_id) ON CONFLICT REPLACE, UNIQUE (gaia_id) ON CONFLICT REPLACE);", "CREATE TABLE dismissed_contacts (_id INTEGER PRIMARY KEY, gaia_id TEXT, chat_id TEXT, name TEXT, profile_photo_url TEXT, UNIQUE (chat_id) ON CONFLICT REPLACE, UNIQUE (gaia_id) ON CONFLICT REPLACE);", 
             "CREATE TABLE search (search_key TEXT NOT NULL,continuation_token TEXT,PRIMARY KEY (search_key));", "CREATE TABLE mms_notification_inds (_id INTEGER PRIMARY KEY, content_location TEXT, transaction_id TEXT, from_address TEXT, message_size INT DEFAULT(0), expiry INT);", "CREATE TABLE merge_keys (_id INTEGER PRIMARY KEY, conversation_id TEXT, merge_key TEXT, UNIQUE (conversation_id) ON CONFLICT REPLACE, FOREIGN KEY (conversation_id) REFERENCES conversations(conversation_id) ON DELETE CASCADE ON UPDATE CASCADE  );", "CREATE TABLE recent_calls (_id INTEGER PRIMARY KEY, normalized_number TEXT NOT NULL, phone_number TEXT, contact_id TEXT, call_timestamp INT, call_type INT, contact_type INT, call_rate TEXT, is_free_call BOOLEAN);", "CREATE TABLE sticker_albums (album_id TEXT NOT NULL, title TEXT, cover_photo_id TEXT, last_used INT DEFAULT(0), PRIMARY KEY (album_id));", "CREATE TABLE sticker_photos (photo_id TEXT NOT NULL, album_id TEXT NOT NULL, url TEXT NOT NULL, file_name TEXT, last_used INT DEFAULT(0), PRIMARY KEY (photo_id), FOREIGN KEY (album_id) REFERENCES sticker_albums(album_id) ON DELETE CASCADE)"
         });
     }
@@ -426,16 +392,9 @@ _L7:
 
     public static Uri b(int i1)
     {
-        android.net.Uri.Builder builder = s.buildUpon();
+        android.net.Uri.Builder builder = r.buildUpon();
         builder.appendQueryParameter("account_id", (new StringBuilder(11)).append(i1).toString());
         return builder.build();
-    }
-
-    public static Uri b(int i1, String s1)
-    {
-        android.net.Uri.Builder builder = m.buildUpon();
-        builder.appendPath(s1);
-        return a(builder, i1).build();
     }
 
     public static Uri b(Uri uri, int i1)
@@ -443,18 +402,18 @@ _L7:
         return uri.buildUpon().appendQueryParameter("suggestion_type", Integer.toString(i1)).build();
     }
 
-    public static Uri b(ani ani1)
+    public static Uri b(aoa aoa1)
     {
         android.net.Uri.Builder builder = k.buildUpon();
-        builder.appendQueryParameter("account_id", Integer.toString(ani1.h()));
+        builder.appendQueryParameter("account_id", Integer.toString(aoa1.h()));
         return builder.build();
     }
 
-    public static Uri b(ani ani1, String s1)
+    public static Uri b(aoa aoa1, String s1)
     {
-        android.net.Uri.Builder builder = p.buildUpon();
+        android.net.Uri.Builder builder = z.buildUpon();
         builder.appendPath(s1);
-        builder.appendQueryParameter("account_id", Integer.toString(ani1.h()));
+        builder.appendQueryParameter("account_id", Integer.toString(aoa1.h()));
         return builder.build();
     }
 
@@ -502,18 +461,18 @@ _L7:
         });
     }
 
-    public static Uri c(ani ani1)
+    public static Uri c(aoa aoa1)
     {
         android.net.Uri.Builder builder = l.buildUpon();
-        builder.appendQueryParameter("account_id", Integer.toString(ani1.h()));
+        builder.appendQueryParameter("account_id", Integer.toString(aoa1.h()));
         return builder.build();
     }
 
-    public static Uri c(ani ani1, String s1)
+    public static Uri c(aoa aoa1, String s1)
     {
-        android.net.Uri.Builder builder = z.buildUpon();
-        builder.appendPath(s1);
-        builder.appendQueryParameter("account_id", Integer.toString(ani1.h()));
+        android.net.Uri.Builder builder = B.buildUpon();
+        builder.appendPath("conversation").appendPath(s1);
+        builder.appendQueryParameter("account_id", Integer.toString(aoa1.h()));
         return builder.build();
     }
 
@@ -527,7 +486,7 @@ _L7:
             break MISSING_BLOCK_LABEL_93;
         }
         s1 = String.valueOf(file.getPath());
-        ebw.g("Babel_db", (new StringBuilder(String.valueOf(s1).length() + 47)).append("[TempFileProvider] tempStoreFd: ").append(s1).append("does not exist!").toString());
+        eev.g("Babel_db", (new StringBuilder(String.valueOf(s1).length() + 47)).append("[TempFileProvider] tempStoreFd: ").append(s1).append("does not exist!").toString());
         return null;
         int i1;
         if (s2.equals("r"))
@@ -552,7 +511,7 @@ _L7:
             {
                 s1 = new String("getTempStoreFd: error creating pfd for ");
             }
-            ebw.e("Babel_db", s1, s2);
+            eev.e("Babel_db", s1, s2);
             s1 = null;
         }
         return s1;
@@ -572,9 +531,9 @@ _L7:
 
     private static String c(String s1, int i1)
     {
-        apu apu1 = new apu(i1);
-        a(s1, apu1);
-        return apu1.a;
+        aql aql1 = new aql(i1);
+        a(s1, aql1);
+        return aql1.a;
     }
 
     public static List c(String s1)
@@ -589,7 +548,7 @@ label0:
                 {
                     break label0;
                 }
-                a(s1, new apt(arraylist));
+                a(s1, new aqk(arraylist));
             }
             return arraylist;
         }
@@ -604,14 +563,6 @@ label0:
         });
     }
 
-    public static Uri d(ani ani1, String s1)
-    {
-        android.net.Uri.Builder builder = B.buildUpon();
-        builder.appendPath("conversation").appendPath(s1);
-        builder.appendQueryParameter("account_id", Integer.toString(ani1.h()));
-        return builder.build();
-    }
-
     private static String d(String s1)
     {
         return b(s1, "\"\"");
@@ -620,7 +571,7 @@ label0:
     public static String[] d()
     {
         return (new String[] {
-            "CREATE VIEW conversation_participants_view AS SELECT participants._id as _id, conversation_participants.conversation_id as conversation_id, conversation_participants.sequence as sequence, conversation_participants.active as active, conversation_participants.invitation_status as invitation_status, participants.circle_id as circle_id, participants.gaia_id as gaia_id, participants.chat_id as chat_id, participants.phone_id as phone_id, participants.fallback_name as fallback_name,  IFNULL(participants.full_name, participants.fallback_name)  as full_name,  IFNULL(IFNULL(participants.first_name, participants.full_name), participants.fallback_name)  as first_name, participants.profile_photo_url as profile_photo_url, participants.batch_gebi_tag as batch_gebi_tag, participants.participant_type as participant_type, participants.blocked as blocked, participants.in_users_domain as in_users_domain  FROM conversation_participants LEFT JOIN participants ON (conversation_participants.participant_row_id=participants._id)", "CREATE VIEW participants_view AS SELECT participants._id, participants.circle_id, participants.gaia_id, participants.chat_id, participants.phone_id,  IFNULL(participants.full_name, participants.fallback_name)  as full_name,  IFNULL(participants.first_name, participants.fallback_name)  as first_name, participants.fallback_name, participants.profile_photo_url, participants.batch_gebi_tag, participants.participant_type, participants.blocked  FROM participants", c, d, "CREATE VIEW messages_view AS SELECT messages._id as _id, messages.message_id as message_id, messages.conversation_id as conversation_id, messages.author_chat_id as author_chat_id, messages.author_gaia_id as author_gaia_id, messages.text as text, messages.timestamp as timestamp, messages.status as status, messages.type as type, messages.local_url as local_url, messages.remote_url as remote_url, messages.attachment_content_type as attachment_content_type, messages.width_pixels as width_pixels, messages.height_pixels as height_pixels, messages.stream_id as stream_id, messages.image_id as image_id, messages.album_id as album_id,messages.attachment_name as attachment_name, messages.attachment_description as attachment_description, messages.latitude as latitude, messages.longitude as longitude,messages.address as address,messages.attachment_target_url as attachment_target_url,messages.attachment_target_url_name as attachment_target_url_name,messages.attachment_target_url_description as attachment_target_url_description,messages.expiration_timestamp as expiration_timestamp, messages.alert_status as alert_status, messages.off_the_record as off_the_record, messages.external_ids as external_ids, messages.sms_message_size as sms_message_size, messages.sms_priority as sms_priority, messages.sms_timestamp_sent as sms_timestamp_sent, messages.mms_subject as mms_subject, messages.sms_raw_sender as sms_raw_sender, messages.sms_raw_recipients as sms_raw_recipients, messages.persisted as persisted, messages.transport_type as transport_type, messages.transport_phone as transport_phone, messages.sms_message_status as sms_message_status, messages.sms_type as sms_type, messages.stream_url as stream_url, messages.stream_expiration as stream_expiration, messages.voicemail_length as voicemail_length, messages.image_rotation as image_rotation, messages.new_conversation_name as new_conversation_name, messages.participant_keys as participant_keys, messages.forwarded_mms_url as forwarded_mms_url, messages.forwarded_mms_count as forwarded_mms_count, messages.sending_error as sending_error, messages.call_media_type as call_media_type, messages.last_seen_timestamp as last_seen_timestamp FROM messages WHERE expiration_timestamp IS NULL OR expiration_timestamp >= (julianday('now') - 2440587.5) * 86400000000", "CREATE VIEW message_notifications_view AS SELECT messages._id as _id, messages.message_id as message_id, messages.conversation_id as conversation_id, messages.author_chat_id as author_chat_id, messages.author_gaia_id as author_gaia_id, messages.text as text, messages.local_url as local_url, messages.remote_url as remote_url, messages.attachment_content_type as attachment_content_type, messages.width_pixels as width_pixels, messages.height_pixels as height_pixels, messages.stream_id as stream_id, messages.image_id as image_id, messages.album_id as album_id, messages.attachment_name as attachment_name, messages.latitude as latitude, messages.longitude as longitude,messages.address as address,messages.attachment_target_url as attachment_target_url,messages.timestamp as timestamp, messages.status as status, messages.type as type, messages.transport_type as transport_type, messages.transport_phone as transport_phone, messages.notification_level as notification_level, messages.notified_for_failure as notified_for_failure, messages.new_conversation_name as new_conversation_name, messages.participant_keys as participant_keys, messages.sms_type as sms_type, messages.last_seen_timestamp as last_seen_timestamp, (select merge_key from merge_keys where merge_keys.conversation_id=messages.conversation_id)  as merge_key, author_alias.full_name as author_full_name, author_alias.first_name as author_first_name, author_alias.profile_photo_url as author_profile_photo_url, conversations.notification_level as conversation_notification_level, conversations.status as conversation_status, conversations.view as conversation_view, conversations.is_pending_leave as conversation_pending_leave, conversations.has_chat_notifications as conversation_has_chat_notifications, conversations.has_video_notifications as conversation_has_video_notifications, conversations.name as conversation_name, conversations.generated_name as generated_name, conversations.conversation_type as conversation_type, conversations.chat_watermark as chat_watermark, conversations.hangout_watermark as hangout_watermark, conversations.self_watermark as self_watermark ,conversations.chat_ringtone_uri as chat_ringtone_uri, conversations.hangout_ringtone_uri as hangout_ringtone_uri, conversations.otr_status as otr_status, conversations.call_media_type as call_media_type FROM messages LEFT JOIN conversation_participants_view author_alias ON ((messages.author_chat_id=author_alias.chat_id OR author_chat_id=author_alias.gaia_id) AND messages.conversation_id=author_alias.conversation_id) LEFT JOIN conversations ON messages.conversation_id=conversations.conversation_id", "CREATE VIEW conversation_images_view AS SELECT  CASE WHEN multipart_attachments.url NOT NULL THEN multipart_attachments.url WHEN messages.remote_url NOT NULL THEN messages.remote_url ELSE messages.local_url END  as uri, messages.text as _display_name,  CASE WHEN multipart_attachments.url NOT NULL THEN multipart_attachments.url WHEN messages.remote_url NOT NULL THEN messages.remote_url ELSE messages.local_url END  as contentUri,  CASE WHEN messages.remote_url NOT NULL THEN messages.remote_url ELSE messages.local_url END  as thumbnailUri, 'image/jpeg' as contentType, messages.attachment_content_type as realContentType, messages.conversation_id as conversation_id, messages.timestamp as date, conversation_participants_view.full_name as author, conversation_participants_view.profile_photo_url as iconUri, messages.attachment_target_url as sourceUrl, messages.attachment_target_url_name as sourceName, messages.attachment_target_url_description as sourceDescription, messages.attachment_description as hashtag  FROM messages LEFT JOIN conversation_participants_view ON ((messages.author_chat_id=conversation_participants_view.chat_id OR messages.author_gaia_id=conversation_participants_view.gaia_id) AND messages.conversation_id=conversation_participants_view.conversation_id) LEFT OUTER JOIN multipart_attachments USING (conversation_id, message_id)  WHERE (expiration_timestamp IS NULL OR expiration_timestamp >= (julianday('now') - 2440587.5) * 86400000000) AND (remote_url NOT NULL OR local_url NOT NULL OR multipart_attachments.url NOT NULL) AND (attachment_content_type LIKE 'image/%' OR attachment_content_type='multipart/mixed') AND (local_url IS NULL OR (local_url NOT LIKE '%/sticker_cache/%' AND local_url NOT LIKE 'sticker://%'))"
+            "CREATE VIEW conversation_participants_view AS SELECT participants._id as _id, conversation_participants.conversation_id as conversation_id, conversation_participants.sequence as sequence, conversation_participants.active as active, conversation_participants.invitation_status as invitation_status, participants.circle_id as circle_id, participants.gaia_id as gaia_id, participants.chat_id as chat_id, participants.phone_id as phone_id, participants.fallback_name as fallback_name,  IFNULL(participants.full_name, participants.fallback_name)  as full_name,  IFNULL(IFNULL(participants.first_name, participants.full_name), participants.fallback_name)  as first_name, participants.profile_photo_url as profile_photo_url, participants.batch_gebi_tag as batch_gebi_tag, participants.participant_type as participant_type, participants.blocked as blocked, participants.in_users_domain as in_users_domain  FROM conversation_participants LEFT JOIN participants ON (conversation_participants.participant_row_id=participants._id)", "CREATE VIEW participants_view AS SELECT participants._id, participants.circle_id, participants.gaia_id, participants.chat_id, participants.phone_id,  IFNULL(participants.full_name, participants.fallback_name)  as full_name,  IFNULL(participants.first_name, participants.fallback_name)  as first_name, participants.fallback_name, participants.profile_photo_url, participants.batch_gebi_tag, participants.participant_type, participants.blocked  FROM participants", c, d, "CREATE VIEW messages_view AS SELECT messages._id as _id, messages.message_id as message_id, messages.conversation_id as conversation_id, messages.author_chat_id as author_chat_id, messages.author_gaia_id as author_gaia_id, messages.text as text, messages.timestamp as timestamp, messages.status as status, messages.type as type, messages.local_url as local_url, messages.remote_url as remote_url, messages.attachment_content_type as attachment_content_type, messages.width_pixels as width_pixels, messages.height_pixels as height_pixels, messages.stream_id as stream_id, messages.image_id as image_id, messages.album_id as album_id,messages.attachment_name as attachment_name, messages.attachment_description as attachment_description, messages.latitude as latitude, messages.longitude as longitude,messages.address as address,messages.attachment_target_url as attachment_target_url,messages.attachment_target_url_name as attachment_target_url_name,messages.attachment_target_url_description as attachment_target_url_description,messages.expiration_timestamp as expiration_timestamp, messages.alert_status as alert_status, messages.off_the_record as off_the_record, messages.external_ids as external_ids, messages.sms_message_size as sms_message_size, messages.sms_priority as sms_priority, messages.sms_timestamp_sent as sms_timestamp_sent, messages.mms_subject as mms_subject, messages.sms_raw_sender as sms_raw_sender, messages.sms_raw_recipients as sms_raw_recipients, messages.persisted as persisted, messages.transport_type as transport_type, messages.transport_phone as transport_phone, messages.sms_message_status as sms_message_status, messages.sms_type as sms_type, messages.stream_url as stream_url, messages.stream_expiration as stream_expiration, messages.voicemail_length as voicemail_length, messages.image_rotation as image_rotation, messages.new_conversation_name as new_conversation_name, messages.participant_keys as participant_keys, messages.forwarded_mms_url as forwarded_mms_url, messages.forwarded_mms_count as forwarded_mms_count, messages.sending_error as sending_error, messages.call_media_type as call_media_type, messages.last_seen_timestamp as last_seen_timestamp, messages.observed_status as observed_status FROM messages WHERE expiration_timestamp IS NULL OR expiration_timestamp >= (julianday('now') - 2440587.5) * 86400000000", "CREATE VIEW message_notifications_view AS SELECT messages._id as _id, messages.message_id as message_id, messages.conversation_id as conversation_id, messages.author_chat_id as author_chat_id, messages.author_gaia_id as author_gaia_id, messages.text as text, messages.local_url as local_url, messages.remote_url as remote_url, messages.attachment_content_type as attachment_content_type, messages.width_pixels as width_pixels, messages.height_pixels as height_pixels, messages.stream_id as stream_id, messages.image_id as image_id, messages.album_id as album_id, messages.attachment_name as attachment_name, messages.latitude as latitude, messages.longitude as longitude,messages.address as address,messages.attachment_target_url as attachment_target_url,messages.timestamp as timestamp, messages.status as status, messages.type as type, messages.transport_type as transport_type, messages.transport_phone as transport_phone, messages.notification_level as notification_level, messages.notified_for_failure as notified_for_failure, messages.new_conversation_name as new_conversation_name, messages.participant_keys as participant_keys, messages.sms_type as sms_type, messages.last_seen_timestamp as last_seen_timestamp, messages.observed_status as observed_status, (select merge_key from merge_keys where merge_keys.conversation_id=messages.conversation_id)  as merge_key, author_alias.full_name as author_full_name, author_alias.first_name as author_first_name, author_alias.profile_photo_url as author_profile_photo_url, conversations.notification_level as conversation_notification_level, conversations.status as conversation_status, conversations.view as conversation_view, conversations.is_pending_leave as conversation_pending_leave, conversations.has_chat_notifications as conversation_has_chat_notifications, conversations.has_video_notifications as conversation_has_video_notifications, conversations.name as conversation_name, conversations.generated_name as generated_name, conversations.conversation_type as conversation_type, conversations.chat_watermark as chat_watermark, conversations.hangout_watermark as hangout_watermark, conversations.self_watermark as self_watermark ,conversations.chat_ringtone_uri as chat_ringtone_uri, conversations.hangout_ringtone_uri as hangout_ringtone_uri, conversations.otr_status as otr_status, conversations.call_media_type as call_media_type FROM messages LEFT JOIN conversation_participants_view author_alias ON ((messages.author_chat_id=author_alias.chat_id OR author_chat_id=author_alias.gaia_id) AND messages.conversation_id=author_alias.conversation_id) LEFT JOIN conversations ON messages.conversation_id=conversations.conversation_id", "CREATE VIEW conversation_images_view AS SELECT  CASE WHEN multipart_attachments.url NOT NULL THEN multipart_attachments.url WHEN messages.remote_url NOT NULL THEN messages.remote_url ELSE messages.local_url END  as uri, messages.text as _display_name,  CASE WHEN multipart_attachments.url NOT NULL THEN multipart_attachments.url WHEN messages.remote_url NOT NULL THEN messages.remote_url ELSE messages.local_url END  as contentUri,  CASE WHEN messages.remote_url NOT NULL THEN messages.remote_url ELSE messages.local_url END  as thumbnailUri, 'image/jpeg' as contentType, messages.attachment_content_type as realContentType, messages.conversation_id as conversation_id, messages.timestamp as date, conversation_participants_view.full_name as author, conversation_participants_view.profile_photo_url as iconUri, messages.attachment_target_url as sourceUrl, messages.attachment_target_url_name as sourceName, messages.attachment_target_url_description as sourceDescription, messages.attachment_description as hashtag  FROM messages LEFT JOIN conversation_participants_view ON ((messages.author_chat_id=conversation_participants_view.chat_id OR messages.author_gaia_id=conversation_participants_view.gaia_id) AND messages.conversation_id=conversation_participants_view.conversation_id) LEFT OUTER JOIN multipart_attachments USING (conversation_id, message_id)  WHERE (expiration_timestamp IS NULL OR expiration_timestamp >= (julianday('now') - 2440587.5) * 86400000000) AND (remote_url NOT NULL OR local_url NOT NULL OR multipart_attachments.url NOT NULL) AND (attachment_content_type LIKE 'image/%' OR attachment_content_type='multipart/mixed') AND (local_url IS NULL OR (local_url NOT LIKE '%/sticker_cache/%' AND local_url NOT LIKE 'sticker://%'))"
         });
     }
 
@@ -640,10 +591,10 @@ label0:
 
     public int delete(Uri uri, String s1, String as[])
     {
-        if (t)
+        if (s)
         {
             s1 = String.valueOf(uri);
-            ebw.b("Babel_db", (new StringBuilder(String.valueOf(s1).length() + 7)).append("delete ").append(s1).toString());
+            eev.b("Babel_db", (new StringBuilder(String.valueOf(s1).length() + 7)).append("delete ").append(s1).toString());
         }
         switch (C.match(uri))
         {
@@ -666,7 +617,7 @@ label0:
         }
         uri = "delete: error deleting ".concat(uri);
 _L1:
-        ebw.f("Babel_db", uri);
+        eev.f("Babel_db", uri);
         return 0;
         try
         {
@@ -683,7 +634,7 @@ _L1:
             {
                 uri = new String("delete: error deleting ");
             }
-            ebw.e("Babel_db", uri, as);
+            eev.e("Babel_db", uri, as);
             return 0;
         }
           goto _L1
@@ -731,10 +682,10 @@ _L1:
 
     public ParcelFileDescriptor openFile(Uri uri, String s1)
     {
-        if (ebw.a("Babel_db", 3))
+        if (eev.a("Babel_db", 3))
         {
             String s2 = String.valueOf(uri);
-            ebw.c("Babel_db", (new StringBuilder(String.valueOf(s2).length() + 9)).append("openFile ").append(s2).toString());
+            eev.c("Babel_db", (new StringBuilder(String.valueOf(s2).length() + 9)).append("openFile ").append(s2).toString());
         }
         switch (C.match(uri))
         {
@@ -764,23 +715,23 @@ _L1:
         sqlitequerybuilder = new SQLiteQueryBuilder();
         C.match(uri);
         JVM INSTR lookupswitch 17: default 248
-    //                   100: 849
-    //                   101: 886
-    //                   102: 868
-    //                   110: 1022
-    //                   120: 1234
-    //                   121: 1431
-    //                   130: 1574
-    //                   140: 1705
-    //                   160: 1215
-    //                   180: 806
+    //                   100: 859
+    //                   101: 896
+    //                   102: 878
+    //                   110: 1032
+    //                   120: 1244
+    //                   121: 1441
+    //                   130: 1584
+    //                   140: 1715
+    //                   160: 1225
+    //                   180: 816
     //                   181: 291
-    //                   190: 1161
-    //                   200: 1341
-    //                   210: 1659
-    //                   220: 905
-    //                   230: 1188
-    //                   240: 1686;
+    //                   190: 1171
+    //                   200: 1351
+    //                   210: 1669
+    //                   220: 915
+    //                   230: 1198
+    //                   240: 1696;
            goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L13 _L14 _L15 _L16 _L17 _L18
 _L1:
         uri = String.valueOf(uri);
@@ -798,7 +749,7 @@ _L12:
         }
         if (TextUtils.isEmpty(((CharSequence) (obj))))
         {
-            ebw.f("Babel_db", "prepareSuggestedPeopleSearchQuery: query is empty");
+            eev.f("Babel_db", "prepareSuggestedPeopleSearchQuery: query is empty");
         } else
         {
             sqlitequerybuilder.setTables("suggested_contacts");
@@ -840,34 +791,34 @@ _L19:
         {
             as1 = s2;
         }
-        ecd.a("EsProvider query");
-        if (t)
+        t.b("query");
+        if (s)
         {
             obj1 = String.valueOf(uri);
             i1 = C.match(uri);
             s2 = String.valueOf(sqlitequerybuilder.buildQuery(as, s1, null, null, s2, s4));
-            ebw.c("Babel_db", (new StringBuilder(String.valueOf(obj1).length() + 46 + String.valueOf(s2).length())).append("[EsProvider] URI:").append(((String) (obj1))).append(", match: ").append(i1).append(", QUERY: ").append(s2).toString());
+            eev.c("Babel_db", (new StringBuilder(String.valueOf(obj1).length() + 46 + String.valueOf(s2).length())).append("[EsProvider] URI:").append(((String) (obj1))).append(", match: ").append(i1).append(", QUERY: ").append(s2).toString());
         }
         int j1;
         boolean flag;
         int k1;
         try
         {
-            as = apa.a(getContext(), Integer.parseInt(s3)).a().a(sqlitequerybuilder, as, s1, ((String []) (obj)), as1, s4);
-            if (t)
+            as = aps.a(getContext(), Integer.parseInt(s3)).a().a(sqlitequerybuilder, as, s1, ((String []) (obj)), as1, s4);
+            if (s)
             {
                 i1 = as.getCount();
-                ebw.c("Babel_db", (new StringBuilder(39)).append("[EsProvider] QUERY results: ").append(i1).toString());
+                eev.c("Babel_db", (new StringBuilder(39)).append("[EsProvider] QUERY results: ").append(i1).toString());
             }
             as.setNotificationUri(getContext().getContentResolver(), uri);
         }
         // Misplaced declaration of an exception variable
         catch (Uri uri)
         {
-            ecd.a();
+            t.c("query");
             return null;
         }
-        ecd.a();
+        t.c("query");
         return as;
 _L11:
         sqlitequerybuilder.setTables("suggested_contacts");
@@ -899,7 +850,7 @@ _L16:
         sqlitequerybuilder.appendWhere("=1");
         sqlitequerybuilder.appendWhere(" AND ");
         sqlitequerybuilder.appendWhere("participant_type");
-        j1 = cfa.d.ordinal();
+        j1 = cgf.d.ordinal();
         sqlitequerybuilder.appendWhere((new StringBuilder(12)).append("=").append(j1).toString());
         sqlitequerybuilder.appendWhere(" AND ");
         sqlitequerybuilder.appendWhere("latest_message_timestamp");
@@ -955,7 +906,7 @@ _L10:
 _L6:
         sqlitequerybuilder.setTables("messages_view");
         sqlitequerybuilder.appendWhere("status");
-        j1 = dqb.f.ordinal();
+        j1 = dsu.f.ordinal();
         sqlitequerybuilder.appendWhere((new StringBuilder(20)).append(" != ").append(j1).append(" AND ").toString());
         sqlitequerybuilder.appendWhere("conversation_id");
         sqlitequerybuilder.appendWhere("=?");
@@ -980,7 +931,7 @@ _L14:
 _L7:
         sqlitequerybuilder.setTables("messages_view");
         obj = String.valueOf("status != ");
-        j1 = dqb.f.ordinal();
+        j1 = dsu.f.ordinal();
         obj1 = String.valueOf("conversation_id");
         sqlitequerybuilder.appendWhere((new StringBuilder(String.valueOf(obj).length() + 228 + String.valueOf(obj1).length())).append(((String) (obj))).append(j1).append(" AND ").append(((String) (obj1))).append(" IN (SELECT conversation_id FROM conversations WHERE conversation_id=? OR conversation_id IN").append(" (SELECT conversation_id FROM merge_keys WHERE merge_key IN (SELECT merge_key FROM merge_keys WHERE conversation_id=?)))").toString());
         obj = (String)uri.getPathSegments().get(2);
@@ -992,7 +943,7 @@ _L7:
 _L8:
         sqlitequerybuilder.setTables("conversation_images_view");
         sqlitequerybuilder.appendWhere("conversation_id IN (SELECT conversation_id FROM merge_keys WHERE merge_key=(SELECT merge_key FROM merge_keys WHERE conversation_id=?))");
-        if (!ean.a(getContext()))
+        if (!edr.a(getContext()))
         {
             sqlitequerybuilder.appendWhere(" AND ");
             sqlitequerybuilder.appendWhere("realContentType");
@@ -1017,7 +968,7 @@ _L18:
 _L9:
         return null;
         uri;
-        ecd.a();
+        t.c("query");
         throw uri;
     }
 
@@ -1029,15 +980,16 @@ _L9:
 
     static 
     {
-        hik hik = ebw.d;
-        t = false;
+        hnc hnc = eev.d;
+        s = false;
+        t = efh.a("EsProvider");
         Class.forName("com.google.android.apps.hangouts.defaultbuild.EsProvider");
         Object obj = "com.google.android.apps.hangouts.content.EsProvider";
 _L1:
         a = ((String) (obj));
         u = (new StringBuilder(String.valueOf(obj).length() + 11)).append("content://").append(((String) (obj))).append("/").toString();
         obj = String.valueOf("CREATE TABLE participants (_id INTEGER PRIMARY KEY, participant_type INT DEFAULT ");
-        int i1 = cfa.b.ordinal();
+        int i1 = cgf.b.ordinal();
         Object obj1 = String.valueOf("gaia_id");
         String s1 = String.valueOf("chat_id");
         String s2 = String.valueOf("phone_id");
@@ -1054,7 +1006,7 @@ _L1:
         String s13 = String.valueOf("gaia_id");
         b = (new StringBuilder(String.valueOf(obj).length() + 212 + String.valueOf(obj1).length() + String.valueOf(s1).length() + String.valueOf(s2).length() + String.valueOf(s3).length() + String.valueOf(s4).length() + String.valueOf(s5).length() + String.valueOf(s6).length() + String.valueOf(s7).length() + String.valueOf(s8).length() + String.valueOf(s9).length() + String.valueOf(s10).length() + String.valueOf(s11).length() + String.valueOf(s12).length() + String.valueOf(s13).length())).append(((String) (obj))).append(i1).append(", ").append(((String) (obj1))).append(" TEXT, ").append(s1).append(" TEXT, ").append(s2).append(" TEXT, ").append(s3).append(" TEXT, ").append(s4).append(" TEXT, ").append(s5).append(" TEXT, ").append(s6).append(" TEXT, ").append(s7).append(" TEXT, ").append(s8).append(" STRING DEFAULT('-1'), ").append(s9).append(" INT DEFAULT(0), ").append(s10).append(" BOOLEAN, UNIQUE (").append(s11).append(") ON CONFLICT REPLACE, UNIQUE (").append(s12).append(") ON CONFLICT REPLACE, UNIQUE (").append(s13).append(") ON CONFLICT REPLACE);").toString();
         obj = String.valueOf(" SELECT conversations._id as _id, ");
-        obj1 = b("conversations.conversation_id");
+        obj1 = String.valueOf(b("conversations.conversation_id"));
         s1 = String.valueOf(" as ");
         s2 = String.valueOf("conversation_id");
         s3 = String.valueOf("conversations");
@@ -1076,14 +1028,14 @@ _L1:
         String s19 = String.valueOf("name");
         String s20 = String.valueOf(" as ");
         String s21 = String.valueOf("name");
-        String s22 = b(a("conversations.generated_name"));
+        String s22 = String.valueOf(b(a("conversations.generated_name")));
         String s23 = String.valueOf(" as ");
         String s24 = String.valueOf("generated_name");
         String s25 = String.valueOf("conversations");
         String s26 = String.valueOf("conversation_type");
         String s27 = String.valueOf(" as ");
         String s28 = String.valueOf("conversation_type");
-        String s29 = b("conversations.transport_type");
+        String s29 = String.valueOf(b("conversations.transport_type"));
         String s30 = String.valueOf(" as ");
         String s31 = String.valueOf("transport_type");
         String s32 = String.valueOf("conversations");
@@ -1105,52 +1057,52 @@ _L1:
         String s48 = String.valueOf("conversation_id");
         String s49 = String.valueOf(" as ");
         String s50 = String.valueOf("merge_key");
-        String s51 = b("conversations.snippet_type", "7");
+        String s51 = String.valueOf(b("conversations.snippet_type", "7"));
         String s52 = String.valueOf(" as ");
         String s53 = String.valueOf("snippet_type");
-        String s54 = d(a("conversations.snippet_text"));
+        String s54 = String.valueOf(d(a("conversations.snippet_text")));
         String s55 = String.valueOf(" as ");
         String s56 = String.valueOf("snippet_text");
-        String s57 = d(a("conversations.snippet_voicemail_duration"));
+        String s57 = String.valueOf(d(a("conversations.snippet_voicemail_duration")));
         String s58 = String.valueOf(" as ");
         String s59 = String.valueOf("snippet_voicemail_duration");
-        String s60 = d(a("conversations.snippet_image_url"));
+        String s60 = String.valueOf(d(a("conversations.snippet_image_url")));
         String s61 = String.valueOf(" as ");
         String s62 = String.valueOf("snippet_image_url");
-        String s63 = d("conversations.snippet_author_gaia_id");
+        String s63 = String.valueOf(d("conversations.snippet_author_gaia_id"));
         String s64 = String.valueOf(" as ");
         String s65 = String.valueOf("snippet_author_gaia_id");
-        String s66 = d("conversations.snippet_author_chat_id");
+        String s66 = String.valueOf(d("conversations.snippet_author_chat_id"));
         String s67 = String.valueOf(" as ");
         String s68 = String.valueOf("snippet_author_chat_id");
-        String s69 = d("conversations.snippet_status");
+        String s69 = String.valueOf(d("conversations.snippet_status"));
         String s70 = String.valueOf(" as ");
         String s71 = String.valueOf("snippet_status");
-        String s72 = d(a("IFNULL(author_alias.full_name, author_alias.fallback_name)"));
+        String s72 = String.valueOf(d(a("IFNULL(author_alias.full_name, author_alias.fallback_name)")));
         String s73 = String.valueOf(" as ");
         String s74 = String.valueOf("latest_message_author_full_name");
-        String s75 = d(a("IFNULL(IFNULL(author_alias.first_name, author_alias.full_name), author_alias.fallback_name)"));
+        String s75 = String.valueOf(d(a("IFNULL(IFNULL(author_alias.first_name, author_alias.full_name), author_alias.fallback_name)")));
         String s76 = String.valueOf(" as ");
         String s77 = String.valueOf("latest_message_author_first_name");
-        String s78 = d(a("author_alias.profile_photo_url"));
+        String s78 = String.valueOf(d(a("author_alias.profile_photo_url")));
         String s79 = String.valueOf(" as ");
         String s80 = String.valueOf("latest_message_author_profile_photo_url");
-        String s81 = d("conversations.latest_message_timestamp");
+        String s81 = String.valueOf(d("conversations.latest_message_timestamp"));
         String s82 = String.valueOf(" as ");
         String s83 = String.valueOf("snippet_selector");
-        String s84 = d("conversations.snippet_participant_keys");
+        String s84 = String.valueOf(d("conversations.snippet_participant_keys"));
         String s85 = String.valueOf(" as ");
         String s86 = String.valueOf("snippet_participant_keys");
-        String s87 = d("conversations.snippet_sms_type");
+        String s87 = String.valueOf(d("conversations.snippet_sms_type"));
         String s88 = String.valueOf(" as ");
         String s89 = String.valueOf("snippet_sms_type");
-        String s90 = d("conversations.latest_message_expiration_timestamp");
+        String s90 = String.valueOf(d("conversations.latest_message_expiration_timestamp"));
         String s91 = String.valueOf(" as ");
         String s92 = String.valueOf("latest_message_expiration_timestamp");
-        String s93 = d("conversations.previous_latest_timestamp");
+        String s93 = String.valueOf(d("conversations.previous_latest_timestamp"));
         String s94 = String.valueOf(" as ");
         String s95 = String.valueOf("previous_latest_timestamp");
-        String s96 = d(a("conversations.snippet_new_conversation_name"));
+        String s96 = String.valueOf(d(a("conversations.snippet_new_conversation_name")));
         String s97 = String.valueOf(" as ");
         String s98 = String.valueOf("snippet_new_conversation_name");
         String s99 = String.valueOf("conversations");
@@ -1181,7 +1133,7 @@ _L1:
         String s124 = String.valueOf("is_pending_leave");
         String s125 = String.valueOf(" as ");
         String s126 = String.valueOf("is_pending_leave");
-        String s127 = b(a("conversations.packed_avatar_urls"));
+        String s127 = String.valueOf(b(a("conversations.packed_avatar_urls")));
         String s128 = String.valueOf(" as ");
         String s129 = String.valueOf("packed_avatar_urls");
         String s130 = String.valueOf("conversations");
@@ -1208,7 +1160,7 @@ _L1:
         String s151 = String.valueOf("sequence_number");
         String s152 = String.valueOf(" as ");
         String s153 = String.valueOf("sequence_number");
-        String s154 = e("conversations.call_media_type");
+        String s154 = String.valueOf(e("conversations.call_media_type"));
         String s155 = String.valueOf(" as ");
         String s156 = String.valueOf("call_media_type");
         String s157 = String.valueOf("conversations");
@@ -1305,19 +1257,19 @@ _L1:
         String s248 = String.valueOf("participant_type");
         String s249 = String.valueOf(" as ");
         String s250 = String.valueOf("inviter_type");
-        String s251 = b("conversations.self_watermark < conversations.latest_message_timestamp");
+        String s251 = String.valueOf(b("conversations.self_watermark < conversations.latest_message_timestamp"));
         String s252 = String.valueOf(" as ");
         String s253 = String.valueOf("has_unread");
-        String s254 = d(a("IFNULL(inviter_alias.full_name, inviter_alias.fallback_name) "));
+        String s254 = String.valueOf(d(a("IFNULL(inviter_alias.full_name, inviter_alias.fallback_name) ")));
         String s255 = String.valueOf(" as ");
         String s256 = String.valueOf("inviter_full_name");
-        String s257 = d(a("IFNULL(inviter_alias.first_name, inviter_alias.fallback_name) "));
+        String s257 = String.valueOf(d(a("IFNULL(inviter_alias.first_name, inviter_alias.fallback_name) ")));
         String s258 = String.valueOf(" as ");
         String s259 = String.valueOf("inviter_first_name");
-        String s260 = d(a("inviter_alias.profile_photo_url"));
+        String s260 = String.valueOf(d(a("inviter_alias.profile_photo_url")));
         String s261 = String.valueOf(" as ");
         String s262 = String.valueOf("inviter_profile_photo_url");
-        String s263 = d(a("inviter_alias.participant_type"));
+        String s263 = String.valueOf(d(a("inviter_alias.participant_type")));
         String s264 = String.valueOf(" as ");
         String s265 = String.valueOf("inviter_type");
         String s266 = String.valueOf("row_count");
@@ -1378,15 +1330,15 @@ _L1:
         s6 = String.valueOf("conversation_id");
         d = (new StringBuilder(String.valueOf(obj).length() + 49 + String.valueOf(obj1).length() + String.valueOf(s1).length() + String.valueOf(s2).length() + String.valueOf(s3).length() + String.valueOf(s4).length() + String.valueOf(s5).length() + String.valueOf(s6).length())).append(((String) (obj))).append(((String) (obj1))).append(" WHERE ").append(s1).append(".").append(s2).append("=1 AND ").append(s3).append(".").append(s4).append("=1 GROUP BY ").append(s5).append(".").append(s6).toString();
         obj = String.valueOf("CREATE TRIGGER MESSAGE_ERROR_TRIGGER  AFTER UPDATE OF status ON messages WHEN  NEW.status!=OLD.status BEGIN  UPDATE messages SET alert_status = ( CASE  WHEN NEW.status=");
-        i1 = dqb.d.ordinal();
+        i1 = dsu.d.ordinal();
         obj1 = String.valueOf("status");
-        int j1 = dqb.e.ordinal();
+        int j1 = dsu.e.ordinal();
         s1 = String.valueOf("messages");
         s2 = String.valueOf("message_id");
         s3 = String.valueOf("message_id");
         y = (new StringBuilder(String.valueOf(obj).length() + 108 + String.valueOf(obj1).length() + String.valueOf(s1).length() + String.valueOf(s2).length() + String.valueOf(s3).length())).append(((String) (obj))).append(i1).append(" THEN 3 WHEN NEW.").append(((String) (obj1))).append("=").append(j1).append(" THEN 0 ELSE 0").append(" END) WHERE ").append(s1).append(".").append(s2).append("=NEW.").append(s3).append("; END ").toString();
         obj = String.valueOf("CREATE TRIGGER CONVERSATION_MERGE_KEY_TRIGGER  AFTER INSERT ON conversations FOR EACH ROW  BEGIN  INSERT INTO merge_keys ( conversation_id, merge_key)  VALUES (NEW.conversation_id, \"");
-        obj1 = aqc.e.f;
+        obj1 = aqt.e.f;
         s1 = String.valueOf("conversation_id");
         e = (new StringBuilder(String.valueOf(obj).length() + 15 + String.valueOf(obj1).length() + String.valueOf(s1).length())).append(((String) (obj))).append(((String) (obj1))).append("\"||NEW.").append(s1).append("); END; ").toString();
         obj = String.valueOf(u);
@@ -1474,10 +1426,7 @@ _L1:
         n = Uri.parse(((String) (obj)));
         obj = u;
         obj1 = String.valueOf("messages");
-        o = Uri.parse((new StringBuilder(String.valueOf(obj).length() + 13 + String.valueOf(obj1).length())).append(((String) (obj))).append(((String) (obj1))).append("/conversation").toString());
-        obj = u;
-        obj1 = String.valueOf("messages");
-        p = Uri.parse((new StringBuilder(String.valueOf(obj).length() + 14 + String.valueOf(obj1).length())).append(((String) (obj))).append(((String) (obj1))).append("/conversations").toString());
+        o = Uri.parse((new StringBuilder(String.valueOf(obj).length() + 14 + String.valueOf(obj1).length())).append(((String) (obj))).append(((String) (obj1))).append("/conversations").toString());
         obj = u;
         obj1 = String.valueOf("conversation_images_view");
         z = Uri.parse((new StringBuilder(String.valueOf(obj).length() + 13 + String.valueOf(obj1).length())).append(((String) (obj))).append(((String) (obj1))).append("/conversation").toString());
@@ -1510,9 +1459,9 @@ _L1:
         {
             obj = new String(((String) (obj)));
         }
-        q = Uri.parse(((String) (obj)));
+        p = Uri.parse(((String) (obj)));
         obj = String.valueOf(i);
-        r = Uri.parse((new StringBuilder(String.valueOf(obj).length() + 6)).append(((String) (obj))).append("/query").toString());
+        q = Uri.parse((new StringBuilder(String.valueOf(obj).length() + 6)).append(((String) (obj))).append("/query").toString());
         obj = String.valueOf(u);
         obj1 = String.valueOf("presence");
         if (((String) (obj1)).length() != 0)
@@ -1522,7 +1471,7 @@ _L1:
         {
             obj = new String(((String) (obj)));
         }
-        s = Uri.parse(((String) (obj)));
+        r = Uri.parse(((String) (obj)));
         obj = new UriMatcher(-1);
         C = ((UriMatcher) (obj));
         ((UriMatcher) (obj)).addURI(a, "conversations", 100);

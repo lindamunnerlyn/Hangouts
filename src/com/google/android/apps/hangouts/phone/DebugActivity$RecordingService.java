@@ -10,8 +10,8 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.text.TextUtils;
 import android.widget.ArrayAdapter;
-import cln;
-import clp;
+import cmv;
+import cmx;
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class  extends Service
 
     private static final SimpleDateFormat e = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
     private final Handler a = new Handler();
-    private final IBinder b = new clp(this);
+    private final IBinder b = new cmx(this);
     private ArrayAdapter c;
     private final ArrayList d = new ArrayList();
     private String f;
@@ -81,7 +81,7 @@ public class  extends Service
 
     public void onCreate()
     {
-        RealTimeChatService.a(new cln(this));
+        RealTimeChatService.a(new cmv(this));
     }
 
     public void onDestroy()

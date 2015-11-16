@@ -2,28 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public class gbb
-    implements gbc
+public final class gbb extends gaz
 {
 
-    public gbb()
+    public gbb(Context context)
     {
+        super(context);
     }
 
-    public void a()
+    public gaq a()
     {
-    }
-
-    public void a(kop kop)
-    {
-    }
-
-    public void a(kop kop, kop kop1)
-    {
-    }
-
-    public void b(kop kop)
-    {
+        return new gba(a.a(), b);
     }
 }

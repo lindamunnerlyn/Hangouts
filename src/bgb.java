@@ -2,50 +2,73 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.ProgressDialog;
-import android.os.Bundle;
+import android.content.res.Resources;
+import android.widget.Toast;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class bgb
-    implements bgd
+public final class bgb extends bgs
 {
 
-    private bgc a;
-    private ap b;
+    private final ai d;
+    private final aoa e;
+    private final String f;
+    private final String g;
+    private final String h;
+    private final boolean i;
 
-    public bgb(ap ap1)
+    public bgb(ai ai1, aoa aoa, String s, String s1, String s2, boolean flag)
     {
-        b = ap1;
-        a = new bgc();
+        d = ai1;
+        e = aoa;
+        f = s;
+        g = s1;
+        h = s2;
+        i = flag;
     }
 
-    public void a()
+    public String a()
     {
-        a.a();
+        return d.getResources().getString(l.D, new Object[] {
+            eep.d(f)
+        });
     }
 
-    public void a(android.content.DialogInterface.OnCancelListener oncancellistener)
+    public int b()
     {
-        a.a(oncancellistener);
+        return RealTimeChatService.a(e, g, h, f, true, true);
     }
 
-    public void a(String s)
+    public void c()
     {
-        if (b != null)
+        int j;
+        if (bgs.j())
         {
-            Bundle bundle = new Bundle();
-            bundle.putString("message", s);
-            a.setArguments(bundle);
-            s = b.a();
-            a.a(s, null);
+            j = l.B;
+        } else
+        {
+            j = l.C;
+        }
+        Toast.makeText(d, d.getString(j, new Object[] {
+            f
+        }), 0).show();
+    }
+
+    public void d()
+    {
+        if (i)
+        {
+            d.setResult(1);
+            d.finish();
         }
     }
 
-    public void b(String s)
+    public Class e()
     {
-        ProgressDialog progressdialog = (ProgressDialog)a.c();
-        if (progressdialog != null)
-        {
-            progressdialog.setMessage(s);
-        }
+        return cuv;
+    }
+
+    public Class f()
+    {
+        return czi;
     }
 }

@@ -2,22 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.navigation.NavigationDrawerFragment;
+import android.os.Bundle;
 
-public final class car
-    implements Runnable
+final class car
+    implements cae
 {
 
-    final NavigationDrawerFragment a;
-
-    public car(NavigationDrawerFragment navigationdrawerfragment)
+    car()
     {
-        a = navigationdrawerfragment;
-        super();
     }
 
-    public final void run()
+    public ad a(Bundle bundle)
     {
-        NavigationDrawerFragment.b(a).a();
+        return new cas();
     }
 }

@@ -2,30 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.List;
 
-public final class djz
+public final class djz extends dgj
 {
 
-    public static final String a = cmv.getName();
-    public static final String b = djm.getName();
-    private static djw c;
+    private final List a;
 
-    public static void a(hgx hgx1)
+    public djz(aoa aoa, List list)
     {
-        if (c == null)
-        {
-            c = new djw();
-        }
-        hgx1.a(cmv, c.a());
+        super(aoa);
+        a = list;
     }
 
-    public static void b(hgx hgx1)
+    public void a()
     {
-        if (c == null)
-        {
-            c = new djw();
-        }
-        hgx1.a(djm, new djv());
+        a(((dmf) (new cxg(a))));
     }
-
 }

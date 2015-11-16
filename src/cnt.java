@@ -2,58 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.os.Bundle;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class cnt extends ac
+final class cnt extends coj
 {
 
-    private Dialog aj;
+    final cna a;
 
-    public cnt()
+    cnt(cna cna, String s)
     {
+        a = cna;
+        super(s);
     }
 
-    public static cnt a(int i, int j)
+    public void a()
     {
-        Bundle bundle = new Bundle();
-        bundle.putInt("error_code", i);
-        bundle.putInt("request_code", 1001);
-        cnt cnt1 = new cnt();
-        cnt1.setArguments(bundle);
-        return cnt1;
-    }
-
-    public Dialog a(Bundle bundle)
-    {
-        int i = getArguments().getInt("error_code");
-        int j = getArguments().getInt("request_code");
-        aj = ejn.a(i, getActivity(), j);
-        return aj;
-    }
-
-    public void onActivityCreated(Bundle bundle)
-    {
-        if (aj == null)
-        {
-            f();
-        }
-        super.onActivityCreated(bundle);
-    }
-
-    public void onCancel(DialogInterface dialoginterface)
-    {
-        a();
-        getActivity().finish();
-    }
-
-    public void onCreate(Bundle bundle)
-    {
-        super.onCreate(bundle);
-        if (bundle != null)
-        {
-            a();
-        }
+        RealTimeChatService.a("android.intent.action.PACKAGE_REPLACED", "com.google.android.talk");
     }
 }

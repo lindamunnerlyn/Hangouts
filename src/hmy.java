@@ -3,16 +3,9 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class hmy
-    implements hmw
+public interface hmy
 {
 
-    hmy()
-    {
-    }
+    public static final hnb a = new hnb("debug.poke");
 
-    public long a()
-    {
-        return -1L;
-    }
 }

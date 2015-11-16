@@ -2,59 +2,64 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 
-public final class lcm
-    implements Iterable
+public final class lcm extends kwm
 {
 
-    private final List a = new LinkedList();
-    private final Map b = new HashMap();
+    public kxd a;
 
     public lcm()
     {
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public lcr a(String s)
+    protected int computeSerializedSize()
     {
-        s = s.toLowerCase(Locale.US);
-        s = (List)b.get(s);
-        if (s != null && !s.isEmpty())
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            return (lcr)s.get(0);
-        } else
-        {
-            return null;
+            i = j + kwk.d(1, a);
         }
+        return i;
     }
 
-    public void a(lcr lcr1)
+    public kws mergeFrom(kwj kwj1)
     {
-        String s = lcr1.a().toLowerCase(Locale.US);
-        List list = (List)b.get(s);
-        Object obj = list;
-        if (list == null)
+        do
         {
-            obj = new LinkedList();
-            b.put(s, obj);
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new kxd();
+                }
+                kwj1.a(a);
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.b(1, a);
         }
-        ((List) (obj)).add(lcr1);
-        a.add(lcr1);
-    }
-
-    public Iterator iterator()
-    {
-        return Collections.unmodifiableList(a).iterator();
-    }
-
-    public String toString()
-    {
-        return a.toString();
+        super.writeTo(kwk1);
     }
 }

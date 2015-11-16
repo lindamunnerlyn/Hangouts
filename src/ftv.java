@@ -2,23 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
 
-final class ftv
-    implements Runnable
+public final class ftv
+    implements emv
 {
 
-    final List a;
-    final ftq b;
+    public static final ftv a = (new ftw()).a();
+    private final boolean b;
+    private final boolean c;
+    private final String d;
+    private final a e;
 
-    ftv(ftq ftq, List list)
+    ftv(boolean flag, boolean flag1, String s, a a1)
     {
-        b = ftq;
-        a = list;
-        super();
+        b = flag;
+        c = flag1;
+        d = s;
+        e = a1;
     }
 
-    public void run()
+    public boolean a()
     {
+        return b;
     }
+
+    public boolean b()
+    {
+        return c;
+    }
+
+    public String c()
+    {
+        return d;
+    }
+
+    public a d()
+    {
+        return e;
+    }
+
 }

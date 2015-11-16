@@ -2,16 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.content.EsProvider;
+import android.content.Context;
 
-public interface aoi
+final class aoi
+    implements grg
 {
 
-    public static final String a[] = {
-        "is_draft", "conversation_type", "name", "metadata_present", "continuation_token", "continuation_event_timestamp", "disposition", "inviter_gaia_id", "inviter_chat_id", "status", 
-        "is_pending_leave", "otr_status", "otr_toggle", "generated_name", "has_oldest_message", "transport_type", "sort_timestamp", "(select merge_key FROM merge_keys WHERE merge_keys.conversation_id=conversations.conversation_id) as merge_key", "latest_message_timestamp", "view", 
-        "conversation_id", EsProvider.b(EsProvider.a("gaia_id")), EsProvider.b(EsProvider.a("chat_id")), EsProvider.b(EsProvider.a("phone_id")), EsProvider.b(EsProvider.a("circle_id")), EsProvider.b(EsProvider.a("fallback_name")), EsProvider.b(EsProvider.a("full_name")), EsProvider.b(EsProvider.a("participant_type")), EsProvider.b(EsProvider.a("active")), EsProvider.b(EsProvider.a("first_name")), 
-        EsProvider.b(EsProvider.a("profile_photo_url")), EsProvider.b(EsProvider.a("batch_gebi_tag"))
-    };
+    final aoc a;
 
+    aoi(aoc aoc)
+    {
+        a = aoc;
+        super();
+    }
+
+    public String a()
+    {
+        return "fix_sms_logged_off2";
+    }
+
+    public void a(Context context, grd grd1)
+    {
+        boolean flag1 = true;
+        if ("SMS".equals(grd1.b("account_name")))
+        {
+            boolean flag;
+            if (grd1.d("is_sms_account") && dcn.j())
+            {
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+            grd1.b("logged_in", flag);
+            if (!flag)
+            {
+                flag = flag1;
+            } else
+            {
+                flag = false;
+            }
+            grd1.b("logged_out", flag);
+        }
+    }
 }

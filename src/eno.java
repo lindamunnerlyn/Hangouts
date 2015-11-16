@@ -2,71 +2,110 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ComponentName;
-import android.content.Intent;
-import java.util.Arrays;
+import android.os.Bundle;
+import android.os.DeadObjectException;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.Status;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 
-final class eno
+public final class eno
+    implements eop
 {
 
-    private final String a;
-    private final ComponentName b;
+    private final eof a;
 
-    public eno(ComponentName componentname)
+    public eno(eof eof1)
     {
-        a = null;
-        b = (ComponentName)h.a(componentname);
+        a = eof1;
     }
 
-    public eno(String s)
+    private void a(eoo eoo1)
     {
-        a = h.b(s);
-        b = null;
-    }
-
-    public Intent a()
-    {
-        if (a != null)
+        a.a(eoo1);
+        emw emw1 = a.a(eoo1.f());
+        if (!emw1.d() && a.f.containsKey(eoo1.f()))
         {
-            return (new Intent(a)).setPackage("com.google.android.gms");
+            eoo1.c(new Status(17));
+            return;
         } else
         {
-            return (new Intent()).setComponent(b);
+            eoo1.b(emw1);
+            return;
         }
     }
 
-    public boolean equals(Object obj)
+    private enm b(enm enm)
     {
-        if (this != obj)
+        try
         {
-            if (!(obj instanceof eno))
+            a(enm);
+        }
+        catch (DeadObjectException deadobjectexception)
+        {
+            a.a(new enp(this, this));
+            return enm;
+        }
+        return enm;
+    }
+
+    public enm a(enm enm)
+    {
+        return b(enm);
+    }
+
+    public void a()
+    {
+        while (!a.c.isEmpty()) 
+        {
+            try
             {
-                return false;
+                a((eoo)a.c.remove());
             }
-            obj = (eno)obj;
-            if (!g.a(a, ((eno) (obj)).a) || !g.a(b, ((eno) (obj)).b))
-            {
-                return false;
-            }
+            catch (DeadObjectException deadobjectexception) { }
         }
-        return true;
     }
 
-    public int hashCode()
+    public void a(int i)
     {
-        return Arrays.hashCode(new Object[] {
-            a, b
-        });
+        if (i == 1)
+        {
+            a.l();
+        }
+        for (Iterator iterator = a.l.iterator(); iterator.hasNext(); ((eoo)iterator.next()).b(new Status(8, "The connection to Google Play services was lost"))) { }
+        a.a(null);
+        a.b.a(i);
+        a.b.a();
+        if (i == 2)
+        {
+            a.b();
+        }
     }
 
-    public String toString()
+    public void a(Bundle bundle)
     {
-        if (a == null)
-        {
-            return b.flattenToString();
-        } else
-        {
-            return a;
-        }
+    }
+
+    public void a(ConnectionResult connectionresult, emt emt, int i)
+    {
+    }
+
+    public void b()
+    {
+        a.f.clear();
+        a.g();
+        a.a(null);
+        a.b.a();
+    }
+
+    public void c()
+    {
+    }
+
+    public String d()
+    {
+        return "CONNECTED";
     }
 }

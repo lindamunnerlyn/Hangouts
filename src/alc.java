@@ -2,45 +2,83 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.AlertDialog;
 import android.content.Context;
-import java.util.Iterator;
-import java.util.List;
+import android.os.Bundle;
+import android.text.TextUtils;
 
 final class alc
-    implements ddm
+    implements br
 {
 
-    private final Context a;
+    final alb a;
 
-    alc(Context context)
+    alc(alb alb1)
     {
-        a = context;
+        a = alb1;
+        super();
     }
 
-    public void a(gmw gmw1, cws cws1)
+    public em onCreateLoader(int i, Bundle bundle)
     {
-        int j;
-        j = ((gms)hgx.a(a, gms)).b(gmw1.b("account_name"), gmw1.b("effective_gaia_id"));
-        if (j == -1)
+        return new akv(a.b);
+    }
+
+    public void onLoadFinished(em em, Object obj)
+    {
+        Object obj1 = (ajl)obj;
+        obj = a;
+        em = a.a;
+        obj1 = jnv.c(obj1);
+        boolean flag;
+        if (!eey.c(em.c()))
         {
-            break MISSING_BLOCK_LABEL_138;
-        }
-        gmw1 = new iqq[cws1.m().length];
-        int i = 0;
-_L2:
-        if (i >= gmw1.length)
+            flag = true;
+        } else
         {
-            break; /* Loop/switch isn't completed */
+            flag = false;
         }
-        gmw1[i] = (iqq)kop.mergeFrom(new iqq(), cws1.m()[i]);
-        i++;
-        if (true) goto _L2; else goto _L1
-_L1:
-        try
+        g.d(flag, "If CallerId is blocked, CallerId settings should never be loaded");
+        if (((jnv) (obj1)).b() && !((ajl)((jnv) (obj1)).c()).a())
         {
-            for (cws1 = hgx.c(a, dcd).iterator(); cws1.hasNext(); gbk.execute(new ald(this, (dcd)cws1.next(), j, gmw1))) { }
+            Object obj2 = (ajl)((jnv) (obj1)).c();
+            em = ((alb) (obj)).b;
+            obj1 = ((alb) (obj)).e;
+            ddg ddg1 = ((alb) (obj)).a;
+            int i = ((alb) (obj)).c;
+            obj = ((alb) (obj)).d;
+            String s = eey.g();
+            obj2 = ((ajl) (obj2)).c();
+            if (!TextUtils.isEmpty(s))
+            {
+                flag = ((String) (obj2)).equals(s);
+            } else
+            {
+                flag = false;
+            }
+            obj = (new android.app.AlertDialog.Builder(em)).setTitle(g.iF).setNegativeButton(g.iC, new ajt(ddg1, i, ((String) (obj)), ((akx) (obj1)), em));
+            if (flag)
+            {
+                ((android.app.AlertDialog.Builder) (obj)).setMessage(g.iD).setPositiveButton(g.iG, new aju(em, i));
+            } else
+            {
+                ((android.app.AlertDialog.Builder) (obj)).setMessage(em.getString(g.iE, new Object[] {
+                    eey.o(((String) (obj2)))
+                }));
+            }
+            ((android.app.AlertDialog.Builder) (obj)).create().show();
+            return;
         }
-        // Misplaced declaration of an exception variable
-        catch (gmw gmw1) { }
+        em.a(((jnv) (obj1)));
+        if (((jnv) (obj1)).b())
+        {
+            ((alb) (obj)).e.a(2249);
+        }
+        ((alb) (obj)).b.startActivity(em.a(((alb) (obj)).c, ((alb) (obj)).d));
+        ((alb) (obj)).b.finish();
+    }
+
+    public void onLoaderReset(em em)
+    {
     }
 }

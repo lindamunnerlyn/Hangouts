@@ -2,49 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
+import android.os.IInterface;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 
-final class fja
-    implements fiy
+public interface fja
+    extends IInterface
 {
 
-    private IBinder a;
+    public abstract fcw a();
 
-    fja(IBinder ibinder)
-    {
-        a = ibinder;
-    }
+    public abstract fcw a(float f);
 
-    public void a(ezy ezy1)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnMyLocationChangeListener");
-        if (ezy1 == null)
-        {
-            break MISSING_BLOCK_LABEL_57;
-        }
-        ezy1 = ezy1.asBinder();
-_L1:
-        parcel.writeStrongBinder(ezy1);
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        ezy1 = null;
-          goto _L1
-        ezy1;
-        parcel1.recycle();
-        parcel.recycle();
-        throw ezy1;
-    }
+    public abstract fcw a(float f, float f1);
 
-    public IBinder asBinder()
-    {
-        return a;
-    }
+    public abstract fcw a(float f, int i, int j);
+
+    public abstract fcw a(CameraPosition cameraposition);
+
+    public abstract fcw a(LatLng latlng);
+
+    public abstract fcw a(LatLng latlng, float f);
+
+    public abstract fcw a(LatLngBounds latlngbounds, int i);
+
+    public abstract fcw a(LatLngBounds latlngbounds, int i, int j, int k);
+
+    public abstract fcw b();
+
+    public abstract fcw b(float f);
 }

@@ -2,71 +2,56 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.FilterOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import android.content.Context;
+import android.content.res.Resources;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.google.android.apps.hangouts.navigation.NavigationDrawerFragment;
+import java.util.List;
 
-final class cbv extends FilterOutputStream
+public final class cbv
+    implements fqq
 {
 
-    final cbu a;
+    final NavigationDrawerFragment a;
 
-    cbv(cbu cbu1, OutputStream outputstream)
+    public cbv(NavigationDrawerFragment navigationdrawerfragment)
     {
-        a = cbu1;
-        super(outputstream);
+        a = navigationdrawerfragment;
+        super();
     }
 
-    public void close()
+    public void a(fqr fqr1, ftl ftl1, List list)
     {
-        try
+        ccj ccj1 = (ccj)fqr1;
+        aoa aoa1 = dcn.a(ftl1.a(), ftl1.d());
+        if (aoa1 != null && aoa1.r())
         {
-            out.close();
-            return;
+            ccj1.a.setVisibility(0);
+            ccj1.b.setVisibility(0);
+            StringBuilder stringbuilder = new StringBuilder();
+            eep.a(stringbuilder, a.getString(l.jl, new Object[] {
+                ftl1.a()
+            }));
+            eep.a(stringbuilder, a.getContext().getResources().getText(l.jS));
+            ccj1.l.setContentDescription(stringbuilder.toString());
+        } else
+        {
+            ccj1.a.setVisibility(8);
+            ccj1.b.setVisibility(8);
         }
-        catch (IOException ioexception)
+        if (ftl1.b() || ftl1 == NavigationDrawerFragment.m(a))
         {
-            a.b = true;
+            fqr1.r.setText(null);
         }
-    }
-
-    public void flush()
-    {
-        try
+        if (list.size() > 0)
         {
-            out.flush();
-            return;
+            NavigationDrawerFragment.a(a, (ftl)list.get(0), ccj1.s, ccj1.d, ccj1.f, ccj1.c, ccj1.e);
         }
-        catch (IOException ioexception)
+        if (list.size() > 1)
         {
-            a.b = true;
-        }
-    }
-
-    public void write(int i)
-    {
-        try
-        {
-            out.write(i);
-            return;
-        }
-        catch (IOException ioexception)
-        {
-            a.b = true;
-        }
-    }
-
-    public void write(byte abyte0[], int i, int j)
-    {
-        try
-        {
-            out.write(abyte0, i, j);
-            return;
-        }
-        // Misplaced declaration of an exception variable
-        catch (byte abyte0[])
-        {
-            a.b = true;
+            NavigationDrawerFragment.a(a, (ftl)list.get(1), ccj1.t, ccj1.h, ccj1.j, ccj1.g, ccj1.i);
         }
     }
 }

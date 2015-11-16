@@ -4,23 +4,22 @@
 
 
 final class gnt
-    implements gnu
+    implements Runnable
 {
 
-    boolean a;
+    final gns a;
 
-    gnt(boolean flag)
+    gnt(gns gns1)
     {
-        a = flag;
+        a = gns1;
+        super();
     }
 
-    public Object a(Object obj)
+    public void run()
     {
-        return Boolean.valueOf(a);
-    }
-
-    public void a(android.content.SharedPreferences.Editor editor, String s)
-    {
-        editor.putBoolean(s, a);
+        if (!goj.a())
+        {
+            a.a.a(4);
+        }
     }
 }

@@ -2,17 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
-final class jqp extends jqn
+abstract class jqp extends jqq
+    implements jwl
 {
 
-    jqp(String s)
+    private static final long serialVersionUID = 0x5b6e85fc5d362ea5L;
+
+    protected jqp(Map map)
     {
-        super(s, 1);
+        super(map);
     }
 
-    public int a(int i)
+    abstract List a();
+
+    public List a(Object obj)
     {
-        return i;
+        return (List)super.b(obj);
+    }
+
+    public boolean a(Object obj, Object obj1)
+    {
+        return super.a(obj, obj1);
+    }
+
+    public Collection b(Object obj)
+    {
+        return a(obj);
+    }
+
+    public Map b()
+    {
+        return super.b();
+    }
+
+    Collection c()
+    {
+        return a();
+    }
+
+    public boolean equals(Object obj)
+    {
+        return super.equals(obj);
     }
 }

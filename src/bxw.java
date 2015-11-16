@@ -2,25 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.ValueAnimator;
-import android.view.View;
+import android.content.Context;
 
-final class bxw
-    implements android.animation.ValueAnimator.AnimatorUpdateListener
+final class bxw extends csw
+    implements eeo
 {
 
-    final View a;
-    final bxu b;
+    final bxv a;
 
-    bxw(bxu bxu1, View view)
+    public bxw(bxv bxv1, Context context, hof hof, int i)
     {
-        b = bxu1;
-        a = view;
-        super();
+        a = bxv1;
+        super(context, hof, i, cvc.f.j);
     }
 
-    public void onAnimationUpdate(ValueAnimator valueanimator)
+    public void a(cuz cuz1)
     {
-        bxu.a(a);
+        bxv.a(a, cuz1.d());
+    }
+
+    protected void a(boolean flag)
+    {
+        if (flag)
+        {
+            bxv.a().a(this);
+            return;
+        } else
+        {
+            bxv.a().b(this);
+            return;
+        }
+    }
+
+    protected void c()
+    {
+        bxv.a(a, 0L);
+    }
+
+    public void d()
+    {
+        bxv.a(a);
     }
 }

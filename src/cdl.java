@@ -3,32 +3,29 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.content.Intent;
+import java.io.Serializable;
 
-public final class cdl extends cec
+public interface cdl
+    extends Serializable
 {
 
-    public cdl()
-    {
-    }
+    public abstract String a();
 
-    Intent a(Context context, int i, String s)
-    {
-        Intent intent = new Intent();
-        intent.putExtra("account_id", i);
-        intent.putExtra("conversationIdSetString", s);
-        return b(context, intent);
-    }
+    public abstract void a(int i, dcx dcx);
 
-    public void a(Context context, Intent intent)
-    {
-        int i = intent.getIntExtra("account_id", -1);
-        intent = intent.getStringExtra("conversationIdSetString");
-        cdo cdo1 = cdk.g;
-        intent = dzx.a(intent);
-        if (any.b(new aoe(context, i), intent) > 0 && cej.f(context, i))
-        {
-            cdo.a(context, i, true);
-        }
-    }
+    public abstract void a(Context context, cdn cdn, cdp cdp);
+
+    public abstract boolean a(cdl cdl1);
+
+    public abstract boolean a(cdn cdn, dcx dcx);
+
+    public abstract boolean a(String s);
+
+    public abstract long b();
+
+    public abstract boolean c();
+
+    public abstract boolean d();
+
+    public abstract String e();
 }

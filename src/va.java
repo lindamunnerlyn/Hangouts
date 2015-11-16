@@ -2,217 +2,252 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.res.AssetFileDescriptor;
+import android.content.res.ColorStateList;
 import android.content.res.Configuration;
-import android.view.View;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.Interpolator;
-import android.widget.AdapterView;
-import android.widget.HorizontalScrollView;
-import android.widget.Spinner;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.content.res.XmlResourceParser;
+import android.graphics.Movie;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import java.io.InputStream;
 
-public final class va extends HorizontalScrollView
-    implements android.widget.AdapterView.OnItemSelectedListener
+class va extends Resources
 {
 
-    private static final Interpolator i = new DecelerateInterpolator();
-    Runnable a;
-    int b;
-    int c;
-    private xs d;
-    private Spinner e;
-    private boolean f;
-    private int g;
-    private int h;
+    private final Resources a;
 
-    static vd a(va va1, pr pr)
+    public va(Resources resources)
     {
-        pr = new vd(va1, va1.getContext(), pr, true);
-        pr.setBackgroundDrawable(null);
-        pr.setLayoutParams(new android.widget.AbsListView.LayoutParams(-1, va1.g));
-        return pr;
+        super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
+        a = resources;
     }
 
-    static xs a(va va1)
+    public XmlResourceParser getAnimation(int i)
     {
-        return va1.d;
+        return a.getAnimation(i);
     }
 
-    private void a(int j)
+    public boolean getBoolean(int i)
     {
-        h = j;
-        int l = d.getChildCount();
-        int k = 0;
-        while (k < l) 
-        {
-            View view = d.getChildAt(k);
-            boolean flag;
-            if (k == j)
-            {
-                flag = true;
-            } else
-            {
-                flag = false;
-            }
-            view.setSelected(flag);
-            if (!flag)
-            {
-                continue;
-            }
-            view = d.getChildAt(j);
-            if (a != null)
-            {
-                removeCallbacks(a);
-            }
-            a = new vb(this, view);
-            post(a);
-            k++;
-        }
-        if (e != null && j >= 0)
-        {
-            e.setSelection(j);
-        }
+        return a.getBoolean(i);
     }
 
-    private boolean a()
+    public int getColor(int i)
     {
-        return e != null && e.getParent() == this;
+        return a.getColor(i);
     }
 
-    private boolean b()
+    public ColorStateList getColorStateList(int i)
     {
-        if (!a())
-        {
-            return false;
-        } else
-        {
-            removeView(e);
-            addView(d, new android.view.ViewGroup.LayoutParams(-2, -1));
-            a(e.getSelectedItemPosition());
-            return false;
-        }
+        return a.getColorStateList(i);
     }
 
-    public void a(boolean flag)
+    public Configuration getConfiguration()
     {
-        f = flag;
+        return a.getConfiguration();
     }
 
-    public void onAttachedToWindow()
+    public float getDimension(int i)
     {
-        super.onAttachedToWindow();
+        return a.getDimension(i);
+    }
+
+    public int getDimensionPixelOffset(int i)
+    {
+        return a.getDimensionPixelOffset(i);
+    }
+
+    public int getDimensionPixelSize(int i)
+    {
+        return a.getDimensionPixelSize(i);
+    }
+
+    public DisplayMetrics getDisplayMetrics()
+    {
+        return a.getDisplayMetrics();
+    }
+
+    public Drawable getDrawable(int i)
+    {
+        return a.getDrawable(i);
+    }
+
+    public Drawable getDrawable(int i, android.content.res.Resources.Theme theme)
+    {
+        return a.getDrawable(i, theme);
+    }
+
+    public Drawable getDrawableForDensity(int i, int j)
+    {
+        return a.getDrawableForDensity(i, j);
+    }
+
+    public Drawable getDrawableForDensity(int i, int j, android.content.res.Resources.Theme theme)
+    {
+        return a.getDrawableForDensity(i, j, theme);
+    }
+
+    public float getFraction(int i, int j, int k)
+    {
+        return a.getFraction(i, j, k);
+    }
+
+    public int getIdentifier(String s, String s1, String s2)
+    {
+        return a.getIdentifier(s, s1, s2);
+    }
+
+    public int[] getIntArray(int i)
+    {
+        return a.getIntArray(i);
+    }
+
+    public int getInteger(int i)
+    {
+        return a.getInteger(i);
+    }
+
+    public XmlResourceParser getLayout(int i)
+    {
+        return a.getLayout(i);
+    }
+
+    public Movie getMovie(int i)
+    {
+        return a.getMovie(i);
+    }
+
+    public String getQuantityString(int i, int j)
+    {
+        return a.getQuantityString(i, j);
+    }
+
+    public transient String getQuantityString(int i, int j, Object aobj[])
+    {
+        return a.getQuantityString(i, j, aobj);
+    }
+
+    public CharSequence getQuantityText(int i, int j)
+    {
+        return a.getQuantityText(i, j);
+    }
+
+    public String getResourceEntryName(int i)
+    {
+        return a.getResourceEntryName(i);
+    }
+
+    public String getResourceName(int i)
+    {
+        return a.getResourceName(i);
+    }
+
+    public String getResourcePackageName(int i)
+    {
+        return a.getResourcePackageName(i);
+    }
+
+    public String getResourceTypeName(int i)
+    {
+        return a.getResourceTypeName(i);
+    }
+
+    public String getString(int i)
+    {
+        return a.getString(i);
+    }
+
+    public transient String getString(int i, Object aobj[])
+    {
+        return a.getString(i, aobj);
+    }
+
+    public String[] getStringArray(int i)
+    {
+        return a.getStringArray(i);
+    }
+
+    public CharSequence getText(int i)
+    {
+        return a.getText(i);
+    }
+
+    public CharSequence getText(int i, CharSequence charsequence)
+    {
+        return a.getText(i, charsequence);
+    }
+
+    public CharSequence[] getTextArray(int i)
+    {
+        return a.getTextArray(i);
+    }
+
+    public void getValue(int i, TypedValue typedvalue, boolean flag)
+    {
+        a.getValue(i, typedvalue, flag);
+    }
+
+    public void getValue(String s, TypedValue typedvalue, boolean flag)
+    {
+        a.getValue(s, typedvalue, flag);
+    }
+
+    public void getValueForDensity(int i, int j, TypedValue typedvalue, boolean flag)
+    {
+        a.getValueForDensity(i, j, typedvalue, flag);
+    }
+
+    public XmlResourceParser getXml(int i)
+    {
+        return a.getXml(i);
+    }
+
+    public TypedArray obtainAttributes(AttributeSet attributeset, int ai[])
+    {
+        return a.obtainAttributes(attributeset, ai);
+    }
+
+    public TypedArray obtainTypedArray(int i)
+    {
+        return a.obtainTypedArray(i);
+    }
+
+    public InputStream openRawResource(int i)
+    {
+        return a.openRawResource(i);
+    }
+
+    public InputStream openRawResource(int i, TypedValue typedvalue)
+    {
+        return a.openRawResource(i, typedvalue);
+    }
+
+    public AssetFileDescriptor openRawResourceFd(int i)
+    {
+        return a.openRawResourceFd(i);
+    }
+
+    public void parseBundleExtra(String s, AttributeSet attributeset, Bundle bundle)
+    {
+        a.parseBundleExtra(s, attributeset, bundle);
+    }
+
+    public void parseBundleExtras(XmlResourceParser xmlresourceparser, Bundle bundle)
+    {
+        a.parseBundleExtras(xmlresourceparser, bundle);
+    }
+
+    public void updateConfiguration(Configuration configuration, DisplayMetrics displaymetrics)
+    {
+        super.updateConfiguration(configuration, displaymetrics);
         if (a != null)
         {
-            post(a);
+            a.updateConfiguration(configuration, displaymetrics);
         }
     }
-
-    protected void onConfigurationChanged(Configuration configuration)
-    {
-        if (android.os.Build.VERSION.SDK_INT >= 8)
-        {
-            super.onConfigurationChanged(configuration);
-        }
-        configuration = sf.a(getContext());
-        g = configuration.e();
-        requestLayout();
-        c = configuration.g();
-    }
-
-    public void onDetachedFromWindow()
-    {
-        super.onDetachedFromWindow();
-        if (a != null)
-        {
-            removeCallbacks(a);
-        }
-    }
-
-    public void onItemSelected(AdapterView adapterview, View view, int j, long l)
-    {
-    }
-
-    public void onMeasure(int j, int k)
-    {
-        k = 1;
-        int l = android.view.View.MeasureSpec.getMode(j);
-        int j1;
-        boolean flag;
-        if (l == 0x40000000)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        setFillViewport(flag);
-        j1 = d.getChildCount();
-        if (j1 > 1 && (l == 0x40000000 || l == 0x80000000))
-        {
-            wu wu1;
-            int i1;
-            if (j1 > 2)
-            {
-                b = (int)((float)android.view.View.MeasureSpec.getSize(j) * 0.4F);
-            } else
-            {
-                b = android.view.View.MeasureSpec.getSize(j) / 2;
-            }
-            b = Math.min(b, c);
-        } else
-        {
-            b = -1;
-        }
-        i1 = android.view.View.MeasureSpec.makeMeasureSpec(g, 0x40000000);
-        if (flag || !f)
-        {
-            k = 0;
-        }
-        if (k != 0)
-        {
-            d.measure(0, i1);
-            if (d.getMeasuredWidth() > android.view.View.MeasureSpec.getSize(j))
-            {
-                if (!a())
-                {
-                    if (e == null)
-                    {
-                        wu1 = new wu(getContext(), null, g.l);
-                        wu1.setLayoutParams(new xt(-2, -1));
-                        wu1.setOnItemSelectedListener(this);
-                        e = wu1;
-                    }
-                    removeView(d);
-                    addView(e, new android.view.ViewGroup.LayoutParams(-2, -1));
-                    if (e.getAdapter() == null)
-                    {
-                        e.setAdapter(new vc(this));
-                    }
-                    if (a != null)
-                    {
-                        removeCallbacks(a);
-                        a = null;
-                    }
-                    e.setSelection(h);
-                }
-            } else
-            {
-                b();
-            }
-        } else
-        {
-            b();
-        }
-        k = getMeasuredWidth();
-        super.onMeasure(j, i1);
-        j = getMeasuredWidth();
-        if (flag && k != j)
-        {
-            a(h);
-        }
-    }
-
-    public void onNothingSelected(AdapterView adapterview)
-    {
-    }
-
 }

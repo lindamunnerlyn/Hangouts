@@ -3,40 +3,63 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class inn
+public final class inn extends kwm
 {
 
-    private final imy a;
+    public icx a;
 
-    private inn(imy imy)
+    public inn()
     {
-        a = imy;
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public static inn a()
+    protected int computeSerializedSize()
     {
-        return new inn(ino.b());
-    }
-
-    public static Runnable a(inn inn1, Runnable runnable)
-    {
-        if (inn1 == null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            return runnable;
-        } else
-        {
-            return inl.a(inn1.a, runnable);
+            i = j + kwk.d(1, a);
         }
+        return i;
     }
 
-    public String toString()
+    public kws mergeFrom(kwj kwj1)
     {
-        if (a == null)
+        do
         {
-            return "null ref";
-        } else
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new icx();
+                }
+                kwj1.a(a);
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
         {
-            return a.toString();
+            kwk1.b(1, a);
         }
+        super.writeTo(kwk1);
     }
 }

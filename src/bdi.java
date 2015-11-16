@@ -6,18 +6,29 @@
 final class bdi
 {
 
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public bdh g;
-    final bdf h;
+    public ehk a;
+    public eef b;
+    final bdg c;
 
-    bdi(bdf bdf)
+    bdi(bdg bdg)
     {
-        h = bdf;
+        c = bdg;
         super();
+        a = null;
+        b = null;
+    }
+
+    public void a()
+    {
+        if (b != null)
+        {
+            b.b();
+            b = null;
+        }
+        if (a != null)
+        {
+            a.c();
+            a = null;
+        }
     }
 }

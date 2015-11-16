@@ -2,50 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.ActionProvider;
 import android.view.MenuItem;
-import android.view.View;
 
-final class tk extends tf
-    implements android.view.ActionProvider.VisibilityListener
+final class tk extends sx
+    implements android.view.MenuItem.OnMenuItemClickListener
 {
 
-    ib c;
-    final tj d;
+    final tg a;
 
-    public tk(tj tj, Context context, ActionProvider actionprovider)
+    tk(tg tg1, android.view.MenuItem.OnMenuItemClickListener onmenuitemclicklistener)
     {
-        d = tj;
-        super(tj, context, actionprovider);
+        a = tg1;
+        super(onmenuitemclicklistener);
     }
 
-    public View a(MenuItem menuitem)
+    public boolean onMenuItemClick(MenuItem menuitem)
     {
-        return a.onCreateActionView(menuitem);
-    }
-
-    public void a(ib ib1)
-    {
-        c = ib1;
-        a.setVisibilityListener(this);
-    }
-
-    public boolean b()
-    {
-        return a.overridesItemVisibility();
-    }
-
-    public boolean c()
-    {
-        return a.isVisible();
-    }
-
-    public void onActionProviderVisibilityChanged(boolean flag)
-    {
-        if (c != null)
-        {
-            c.a();
-        }
+        return ((android.view.MenuItem.OnMenuItemClickListener)d).onMenuItemClick(a.a(menuitem));
     }
 }

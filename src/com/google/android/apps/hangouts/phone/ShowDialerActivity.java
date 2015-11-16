@@ -6,36 +6,31 @@ package com.google.android.apps.hangouts.phone;
 
 import android.content.Intent;
 import android.text.TextUtils;
-import bea;
-import cpg;
-import dzu;
-import ebw;
+import beq;
+import cqw;
+import ecy;
+import eev;
 import g;
-import gmq;
-import gwn;
-import gwt;
-import gxe;
-import gxj;
-import gxk;
-import hgx;
-import hhw;
+import gqw;
+import hax;
+import hbd;
+import hbo;
+import hbu;
+import hbv;
+import hlp;
+import hmo;
 
-public class ShowDialerActivity extends hhw
+public class ShowDialerActivity extends hmo
 {
 
-    private bea j;
-    private gmq m;
-    private gwt n;
+    public beq j;
+    private gqw m;
+    private hbd n;
 
     public ShowDialerActivity()
     {
-        m = new cpg(this);
-        n = (new gwt(this, l)).a(k).b(m);
-    }
-
-    public static bea a(ShowDialerActivity showdialeractivity)
-    {
-        return showdialeractivity.j;
+        m = new cqw(this);
+        n = (new hbd(this, l)).a(k).b(m);
     }
 
     public void onResume()
@@ -43,7 +38,7 @@ public class ShowDialerActivity extends hhw
         boolean flag1 = true;
         super.onResume();
         boolean flag;
-        if (!(new dzu(this, "com.google.android.apps.hangouts.phone.notify_external_interruption", "com.google.android.apps.hangouts.phone.block_external_interruption")).a())
+        if (!(new ecy(this, "com.google.android.apps.hangouts.phone.notify_external_interruption", "com.google.android.apps.hangouts.phone.block_external_interruption")).a())
         {
             flag = true;
         } else
@@ -57,12 +52,12 @@ public class ShowDialerActivity extends hhw
             Intent intent;
             if (obj == null)
             {
-                ebw.f("Babel", "Received null action when launching Dialer Activity");
+                eev.f("Babel", "Received null action when launching Dialer Activity");
                 flag = flag1;
             } else
             if (((String) (obj)).equals("android.intent.action.MAIN"))
             {
-                ebw.c("Babel", "Received ACTION_MAIN when launching Dialer Activity");
+                eev.c("Babel", "Received ACTION_MAIN when launching Dialer Activity");
                 flag = flag1;
             } else
             {
@@ -72,16 +67,16 @@ public class ShowDialerActivity extends hhw
             {
                 obj = "com.google.android.apps.hangouts.phone.recentcalls";
             }
-            j = (bea)k.b(bea);
+            j = (beq)k.b(beq);
             if (j != null)
             {
-                obj = new gxk();
-                ((gxk) (obj)).a((new gwn()).b("sms_only"));
-                obj = (new gxe()).a(gxj, ((gxk) (obj)).c());
-                n.a(((gxe) (obj)));
+                obj = new hbv();
+                ((hbv) (obj)).a((new hax()).b("sms_only"));
+                obj = (new hbo()).a(hbu, ((hbv) (obj)).c());
+                n.a(((hbo) (obj)));
                 return;
             }
-            intent = g.e(null);
+            intent = g.d(null);
             if (TextUtils.equals(((CharSequence) (obj)), "com.google.android.apps.hangouts.phone.dialpad"))
             {
                 obj1 = ((Intent) (obj1)).getStringExtra("number_to_call");

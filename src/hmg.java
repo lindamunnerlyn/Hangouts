@@ -3,6 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hmg extends hmi
+public interface hmg
 {
+
+    public abstract Class a();
 }

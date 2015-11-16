@@ -2,9 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.ContentValues;
 
-public interface gxb
+final class gxb extends ThreadLocal
 {
 
-    public abstract void a(gxe gxe, String s, int i);
+    gxb()
+    {
+    }
+
+    protected Object initialValue()
+    {
+        return new ContentValues();
+    }
 }

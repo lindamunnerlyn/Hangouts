@@ -6,7 +6,7 @@ package com.google.android.apps.hangouts.service;
 
 import android.content.Context;
 import android.content.Intent;
-import dbf;
+import dcn;
 import fd;
 
 // Referenced classes of package com.google.android.apps.hangouts.service:
@@ -26,7 +26,7 @@ public class AccountRefreshReceiver extends fd
 _L1:
         if (!intent.getStringExtra("dmagent_autoregister_error_code").equals("SUCCESS")) goto _L4; else goto _L3
 _L3:
-        dbf.w();
+        dcn.w();
 _L6:
         a(context, intent1);
 _L4:

@@ -3,32 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class coq extends dgp
+public final class coq
 {
 
-    final cop a;
-
-    coq(cop cop1)
+    public coq()
     {
-        a = cop1;
-        super();
-    }
-
-    public void a(ani ani, long l)
-    {
-        super.a(ani, l);
-        a.d();
-    }
-
-    public void b()
-    {
-        super.b();
-        a.d();
-    }
-
-    public void h_()
-    {
-        super.h_();
-        a.d();
     }
 }

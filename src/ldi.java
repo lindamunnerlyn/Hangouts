@@ -2,102 +2,126 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
 
-public abstract class ldi
-    implements Serializable
+public final class ldi extends kwm
 {
 
-    static final ldi a = new ldj("eras", (byte)1);
-    static final ldi b = new ldj("centuries", (byte)2);
-    static final ldi c = new ldj("weekyears", (byte)3);
-    static final ldi d = new ldj("years", (byte)4);
-    static final ldi e = new ldj("months", (byte)5);
-    static final ldi f = new ldj("weeks", (byte)6);
-    static final ldi g = new ldj("days", (byte)7);
-    static final ldi h = new ldj("halfdays", (byte)8);
-    static final ldi i = new ldj("hours", (byte)9);
-    static final ldi j = new ldj("minutes", (byte)10);
-    static final ldi k = new ldj("seconds", (byte)11);
-    static final ldi l = new ldj("millis", (byte)12);
-    private static final long serialVersionUID = 0x7f8cac4ed77L;
-    private final String m;
+    public Integer a;
+    public byte b[];
+    public byte c[];
+    public Long d;
+    public Long e;
+    public String f;
+    public String g;
 
-    protected ldi(String s)
+    public ldi()
     {
-        m = s;
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        e = null;
+        f = null;
+        g = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public static ldi a()
+    protected int computeSerializedSize()
     {
-        return l;
-    }
-
-    public static ldi b()
-    {
-        return k;
-    }
-
-    public static ldi c()
-    {
+        int j = super.computeSerializedSize() + kwk.e(1, a.intValue()) + kwk.b(2, b) + kwk.b(3, c);
+        int i = j;
+        if (d != null)
+        {
+            i = j + kwk.e(4, d.longValue());
+        }
+        j = i;
+        if (e != null)
+        {
+            j = i + kwk.e(6, e.longValue());
+        }
+        i = j;
+        if (f != null)
+        {
+            i = j + kwk.b(7, f);
+        }
+        j = i;
+        if (g != null)
+        {
+            j = i + kwk.b(8, g);
+        }
         return j;
     }
 
-    public static ldi d()
+    public kws mergeFrom(kwj kwj1)
     {
-        return i;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
+                break;
+
+            case 18: // '\022'
+                b = kwj1.k();
+                break;
+
+            case 26: // '\032'
+                c = kwj1.k();
+                break;
+
+            case 32: // ' '
+                d = Long.valueOf(kwj1.e());
+                break;
+
+            case 48: // '0'
+                e = Long.valueOf(kwj1.e());
+                break;
+
+            case 58: // ':'
+                f = kwj1.j();
+                break;
+
+            case 66: // 'B'
+                g = kwj1.j();
+                break;
+            }
+        } while (true);
     }
 
-    public static ldi e()
+    public void writeTo(kwk kwk1)
     {
-        return h;
+        kwk1.a(1, a.intValue());
+        kwk1.a(2, b);
+        kwk1.a(3, c);
+        if (d != null)
+        {
+            kwk1.b(4, d.longValue());
+        }
+        if (e != null)
+        {
+            kwk1.b(6, e.longValue());
+        }
+        if (f != null)
+        {
+            kwk1.a(7, f);
+        }
+        if (g != null)
+        {
+            kwk1.a(8, g);
+        }
+        super.writeTo(kwk1);
     }
-
-    public static ldi f()
-    {
-        return g;
-    }
-
-    public static ldi g()
-    {
-        return f;
-    }
-
-    public static ldi h()
-    {
-        return c;
-    }
-
-    public static ldi i()
-    {
-        return e;
-    }
-
-    public static ldi j()
-    {
-        return d;
-    }
-
-    public static ldi k()
-    {
-        return b;
-    }
-
-    public static ldi l()
-    {
-        return a;
-    }
-
-    public abstract ldh a(lcw lcw);
-
-    public String m()
-    {
-        return m;
-    }
-
-    public String toString()
-    {
-        return m();
-    }
-
 }

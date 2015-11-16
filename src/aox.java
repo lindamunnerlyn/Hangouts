@@ -3,20 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface aox
+final class aox
 {
 
-    public static final String a[] = {
-        "_id", "phone_id", "full_name", "profile_photo_url"
-    };
-    public static final String b = s;
-    public static final String c = (new StringBuilder(String.valueOf(s).length() + 7 + String.valueOf(s1).length())).append(s).append(" AND ").append(s1).append("=?").toString();
+    static final int a[];
 
-    
+    static 
     {
-        String s = String.valueOf("participant_type=");
-        int i = cfa.d.ordinal();
-        s = (new StringBuilder(String.valueOf(s).length() + 11)).append(s).append(i).toString();
-        String s1 = String.valueOf("conversation_id");
+        a = new int[dsv.values().length];
+        try
+        {
+            a[dsv.b.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[dsv.c.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

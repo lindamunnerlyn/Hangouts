@@ -2,26 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.View;
 
 final class bdk
-    implements android.view.View.OnClickListener
 {
 
-    final bdj a;
+    public String a;
+    public String b;
+    public String c;
+    public bdi d;
+    final bdg e;
 
-    bdk(bdj bdj1)
+    bdk(bdg bdg)
     {
-        a = bdj1;
+        e = bdg;
         super();
-    }
-
-    public void onClick(View view)
-    {
-        if (g.d(a.a.d().b))
-        {
-            a.b.startActivity(g.c(a.e, a.d));
-        }
     }
 }

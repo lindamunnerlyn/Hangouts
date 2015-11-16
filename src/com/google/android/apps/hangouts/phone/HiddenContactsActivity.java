@@ -6,17 +6,17 @@ package com.google.android.apps.hangouts.phone;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import bka;
+import bkm;
 import g;
-import gng;
-import po;
+import grn;
+import pq;
 
-public class HiddenContactsActivity extends bka
+public class HiddenContactsActivity extends bkm
 {
 
     public HiddenContactsActivity()
     {
-        (new gng(this, q)).a(p);
+        (new grn(this, r)).a(q);
     }
 
     protected boolean a(MenuItem menuitem)
@@ -36,7 +36,7 @@ public class HiddenContactsActivity extends bka
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.gp);
+        setContentView(g.gl);
         g().a(true);
     }
 }

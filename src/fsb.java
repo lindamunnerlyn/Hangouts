@@ -2,76 +2,141 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.accounts.Account;
-import android.os.Parcel;
-import com.google.android.gms.common.api.Scope;
-import com.google.android.gms.signin.internal.RecordConsentRequest;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.IInterface;
+import com.google.android.gms.common.data.DataHolder;
+import com.google.android.gms.common.server.FavaDiagnosticsEntity;
+import com.google.android.gms.people.identity.internal.AccountToken;
+import com.google.android.gms.people.identity.internal.ParcelableGetOptions;
+import com.google.android.gms.people.identity.internal.ParcelableListOptions;
+import com.google.android.gms.people.internal.ParcelableLoadImageOptions;
+import com.google.android.gms.people.model.AvatarReference;
+import java.util.List;
 
-public final class fsb
-    implements android.os.Parcelable.Creator
+public interface fsb
+    extends IInterface
 {
 
-    public fsb()
-    {
-    }
+    public abstract Bundle a(Uri uri);
 
-    public static void a(RecordConsentRequest recordconsentrequest, Parcel parcel, int i)
-    {
-        int j = g.p(parcel, 20293);
-        g.b(parcel, 1, recordconsentrequest.a);
-        g.a(parcel, 2, recordconsentrequest.a(), i);
-        g.a(parcel, 3, recordconsentrequest.b(), i);
-        g.a(parcel, 4, recordconsentrequest.c());
-        g.q(parcel, j);
-    }
+    public abstract Bundle a(fry fry, boolean flag, String s, String s1, int i);
 
-    public Object createFromParcel(Parcel parcel)
-    {
-        int j = g.a(parcel);
-        Scope ascope[] = null;
-        Account account = null;
-        int i = 0;
-        String s = null;
-        do
-        {
-            if (parcel.dataPosition() < j)
-            {
-                int k = parcel.readInt();
-                switch (0xffff & k)
-                {
-                default:
-                    g.b(parcel, k);
-                    break;
+    public abstract Bundle a(String s, String s1);
 
-                case 1: // '\001'
-                    i = g.e(parcel, k);
-                    break;
+    public abstract Bundle a(String s, String s1, long l);
 
-                case 2: // '\002'
-                    account = (Account)g.a(parcel, k, Account.CREATOR);
-                    break;
+    public abstract Bundle a(String s, String s1, long l, boolean flag);
 
-                case 3: // '\003'
-                    ascope = (Scope[])g.b(parcel, k, Scope.CREATOR);
-                    break;
+    public abstract Bundle a(String s, String s1, long l, boolean flag, boolean flag1);
 
-                case 4: // '\004'
-                    s = g.i(parcel, k);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != j)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
-            } else
-            {
-                return new RecordConsentRequest(i, account, ascope, s);
-            }
-        } while (true);
-    }
+    public abstract eqs a(fry fry, DataHolder dataholder, int i, int j, long l);
 
-    public Object[] newArray(int i)
-    {
-        return new RecordConsentRequest[i];
-    }
+    public abstract eqs a(fry fry, AccountToken accounttoken, ParcelableListOptions parcelablelistoptions);
+
+    public abstract eqs a(fry fry, AvatarReference avatarreference, ParcelableLoadImageOptions parcelableloadimageoptions);
+
+    public abstract eqs a(fry fry, String s, int i);
+
+    public abstract eqs a(fry fry, String s, String s1, boolean flag, String s2, String s3, int i, 
+            int j, int k, boolean flag1);
+
+    public abstract void a(fry fry, long l, boolean flag);
+
+    public abstract void a(fry fry, Bundle bundle);
+
+    public abstract void a(fry fry, AccountToken accounttoken, List list, ParcelableGetOptions parcelablegetoptions);
+
+    public abstract void a(fry fry, String s);
+
+    public abstract void a(fry fry, String s, int i, int j);
+
+    public abstract void a(fry fry, String s, String s1);
+
+    public abstract void a(fry fry, String s, String s1, int i);
+
+    public abstract void a(fry fry, String s, String s1, int i, int j);
+
+    public abstract void a(fry fry, String s, String s1, Uri uri);
+
+    public abstract void a(fry fry, String s, String s1, Uri uri, boolean flag);
+
+    public abstract void a(fry fry, String s, String s1, String s2);
+
+    public abstract void a(fry fry, String s, String s1, String s2, int i, String s3);
+
+    public abstract void a(fry fry, String s, String s1, String s2, int i, String s3, boolean flag);
+
+    public abstract void a(fry fry, String s, String s1, String s2, int i, boolean flag, int j, 
+            int k, String s3);
+
+    public abstract void a(fry fry, String s, String s1, String s2, int i, boolean flag, int j, 
+            int k, String s3, boolean flag1);
+
+    public abstract void a(fry fry, String s, String s1, String s2, int i, boolean flag, int j, 
+            int k, String s3, boolean flag1, int l, int i1);
+
+    public abstract void a(fry fry, String s, String s1, String s2, String s3);
+
+    public abstract void a(fry fry, String s, String s1, String s2, String s3, int i, String s4);
+
+    public abstract void a(fry fry, String s, String s1, String s2, String s3, boolean flag);
+
+    public abstract void a(fry fry, String s, String s1, String s2, List list);
+
+    public abstract void a(fry fry, String s, String s1, String s2, List list, int i, boolean flag, 
+            long l);
+
+    public abstract void a(fry fry, String s, String s1, String s2, List list, int i, boolean flag, 
+            long l, String s3, int j);
+
+    public abstract void a(fry fry, String s, String s1, String s2, List list, int i, boolean flag, 
+            long l, String s3, int j, int k);
+
+    public abstract void a(fry fry, String s, String s1, String s2, List list, int i, boolean flag, 
+            long l, String s3, int j, int k, int i1);
+
+    public abstract void a(fry fry, String s, String s1, String s2, List list, List list1);
+
+    public abstract void a(fry fry, String s, String s1, String s2, List list, List list1, FavaDiagnosticsEntity favadiagnosticsentity);
+
+    public abstract void a(fry fry, String s, String s1, String s2, boolean flag);
+
+    public abstract void a(fry fry, String s, String s1, String s2, boolean flag, int i);
+
+    public abstract void a(fry fry, String s, String s1, String s2, boolean flag, int i, int j);
+
+    public abstract void a(fry fry, String s, boolean flag, String as[]);
+
+    public abstract void a(fry fry, boolean flag, boolean flag1, String s, String s1);
+
+    public abstract void a(fry fry, boolean flag, boolean flag1, String s, String s1, int i);
+
+    public abstract void a(boolean flag);
+
+    public abstract boolean a();
+
+    public abstract Bundle b(String s, String s1);
+
+    public abstract eqs b(fry fry, long l, boolean flag);
+
+    public abstract eqs b(fry fry, String s);
+
+    public abstract eqs b(fry fry, String s, int i, int j);
+
+    public abstract eqs b(fry fry, String s, String s1, int i, int j);
+
+    public abstract void b(fry fry, Bundle bundle);
+
+    public abstract void b(fry fry, String s, String s1);
+
+    public abstract void b(fry fry, String s, String s1, int i);
+
+    public abstract void b(fry fry, String s, String s1, String s2, int i, String s3);
+
+    public abstract void b(fry fry, String s, String s1, String s2, boolean flag);
+
+    public abstract eqs c(fry fry, String s, String s1, int i);
+
+    public abstract void c(fry fry, String s, String s1);
 }

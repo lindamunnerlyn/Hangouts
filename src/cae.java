@@ -3,14 +3,7 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class cae extends gz
+public interface cae
+    extends hbb
 {
-
-    public cae()
-    {
-        put("data1", Integer.valueOf(6));
-        put("data2", Integer.valueOf(7));
-        put("data3", Integer.valueOf(8));
-        put("data4", Integer.valueOf(9));
-    }
 }

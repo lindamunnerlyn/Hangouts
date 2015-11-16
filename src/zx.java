@@ -3,10 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.view.MenuItem;
 
 public final class zx
-    implements android.view.View.OnClickListener
+    implements wi
 {
 
     final Toolbar a;
@@ -17,8 +17,14 @@ public final class zx
         super();
     }
 
-    public void onClick(View view)
+    public boolean a(MenuItem menuitem)
     {
-        a.h();
+        if (a.d != null)
+        {
+            return a.d.a(menuitem);
+        } else
+        {
+            return false;
+        }
     }
 }

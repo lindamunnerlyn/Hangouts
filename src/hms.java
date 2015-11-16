@@ -2,52 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import android.content.Context;
 
-final class hms
-    implements Iterator
+public final class hms extends hmi
 {
 
-    final hmq a;
-    private boolean b;
-    private int c;
+    private final ad b;
 
-    hms(hmq hmq1)
+    public hms(ad ad, hof hof)
     {
-        a = hmq1;
-        super();
+        super(hof, hmr);
+        b = ad;
     }
 
-    public boolean hasNext()
+    protected hmh a(Context context)
     {
-        return c < a.a;
+        return new hmr(context);
     }
 
-    public Object next()
+    protected void a(hmg hmg, hof hof, hlp hlp)
     {
-        int i = c;
-        if (i == a.a)
-        {
-            throw new NoSuchElementException();
-        } else
-        {
-            c = c + 1;
-            return new hmr(a, i);
-        }
-    }
-
-    public void remove()
-    {
-        int i = c - 1;
-        if (b || i < 0)
-        {
-            throw new IllegalArgumentException();
-        } else
-        {
-            a.b(i << 1);
-            b = true;
-            return;
-        }
+        ((hmq)hmg).a(b, hof, hlp);
     }
 }

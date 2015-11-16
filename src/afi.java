@@ -3,14 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface afi
+public final class afi extends afd
 {
 
-    public abstract afj a(String s);
+    public afi()
+    {
+    }
 
-    public abstract void a();
-
-    public abstract void a(String s, afj afj);
-
-    public abstract void b(String s);
+    public afi(String s)
+    {
+        super(s);
+    }
 }

@@ -2,39 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.CancellationException;
-import java.util.concurrent.ExecutionException;
 
-final class jsf
-    implements Runnable
+public abstract class jsf
 {
 
-    final jsj a;
-    final jse b;
-
-    jsf(jse jse1, jsj jsj)
+    jsf()
     {
-        b = jse1;
-        a = jsj;
-        super();
     }
 
-    public void run()
+    static int a(int i, int j)
     {
-        b.a(g.a(a));
-        jse.a(b);
-        return;
-        Object obj;
-        obj;
-        b.cancel(false);
-        jse.a(b);
-        return;
-        obj;
-        b.a(((ExecutionException) (obj)).getCause());
-        jse.a(b);
-        return;
-        obj;
-        jse.a(b);
-        throw obj;
+        if (j < 0)
+        {
+            throw new AssertionError("cannot store more than MAX_VALUE elements");
+        }
+        int k = (i >> 1) + i + 1;
+        i = k;
+        if (k < j)
+        {
+            i = Integer.highestOneBit(j - 1) << 1;
+        }
+        j = i;
+        if (i < 0)
+        {
+            j = 0x7fffffff;
+        }
+        return j;
     }
+
+    public transient jsf a(Object aobj[])
+    {
+        int j = aobj.length;
+        for (int i = 0; i < j; i++)
+        {
+            b(aobj[i]);
+        }
+
+        return this;
+    }
+
+    public abstract jsf b(Object obj);
 }

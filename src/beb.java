@@ -2,21 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import java.util.Collection;
 
-public interface beb
+public class beb
 {
 
-    public abstract Object a(Context context, Class class1, Class class2);
+    private final gcz a;
 
-    public abstract Object a(Context context, Object obj);
+    public beb(gcz gcz1)
+    {
+        a = gcz1;
+    }
 
-    public abstract boolean a(Context context);
+    public void a(int i)
+    {
+        a.a(i).d();
+    }
 
-    public abstract Object[] a(Context context, Class class1, Object obj);
+    public void a(int i, int j, int k, Integer integer)
+    {
+        jlf jlf1 = new jlf();
+        jlf1.c = Integer.valueOf(j);
+        jlf1.d = Integer.valueOf(k);
+        if (integer != null)
+        {
+            jlf1.a = integer;
+        }
+        a.a(i).a(jlf1).d();
+    }
 
-    public abstract Object[] a(Context context, Class class1, Collection collection);
+    public void a(int i, int j, Integer integer)
+    {
+        jlf jlf1 = new jlf();
+        jlf1.b = Integer.valueOf(j);
+        if (integer != null)
+        {
+            jlf1.a = integer;
+        }
+        a.a(i).a(jlf1).d();
+    }
 
-    public transient abstract Object[] a(Context context, Class class1, Object aobj[]);
+    public void b(int i)
+    {
+        a(2321, i, null);
+    }
 }

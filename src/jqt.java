@@ -2,31 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Comparator;
-import java.util.List;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
-final class jqt extends jqr
+final class jqt
+    implements Iterator
 {
 
-    jqt(String s)
+    final Iterator a;
+    Collection b;
+    final jqr c;
+
+    jqt(jqr jqr1)
     {
-        super(s, 1);
+        c = jqr1;
+        super();
+        a = c.a.entrySet().iterator();
     }
 
-    int a(Comparator comparator, Object obj, List list, int i)
+    public boolean hasNext()
     {
-        for (int j = list.size() - 1; i < j;)
-        {
-            int k = i + j + 1 >>> 1;
-            if (comparator.compare(list.get(k), obj) > 0)
-            {
-                j = k - 1;
-            } else
-            {
-                i = k;
-            }
-        }
+        return a.hasNext();
+    }
 
-        return i;
+    public Object next()
+    {
+        java.util.Map.Entry entry = (java.util.Map.Entry)a.next();
+        b = (Collection)entry.getValue();
+        return c.a(entry);
+    }
+
+    public void remove()
+    {
+        a.remove();
+        c.b.b = c.b.b - b.size();
+        b.clear();
     }
 }

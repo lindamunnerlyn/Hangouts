@@ -2,19 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.gms.common.api.Status;
 
-public final class eoo
+interface eoo
 {
 
-    public static fdz a;
-    public static fdz b = fdz.a("gms:common:stats:connections:ignored_calling_processes", "");
-    public static fdz c = fdz.a("gms:common:stats:connections:ignored_calling_services", "");
-    public static fdz d = fdz.a("gms:common:stats:connections:ignored_target_processes", "");
-    public static fdz e = fdz.a("gms:common:stats:connections:ignored_target_services", "com.google.android.gms.auth.GetToken");
-    public static fdz f = fdz.a("gms:common:stats:connections:time_out_duration", Long.valueOf(0x927c0L));
+    public abstract void a(eon eon);
 
-    static 
-    {
-        a = fdz.a("gms:common:stats:connections:level", Integer.valueOf(eop.a));
-    }
+    public abstract void b(Status status);
+
+    public abstract void b(emw emw);
+
+    public abstract void c();
+
+    public abstract void c(Status status);
+
+    public abstract emx f();
 }

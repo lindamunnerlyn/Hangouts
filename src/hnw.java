@@ -2,37 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.FilterOutputStream;
-import java.io.OutputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public final class hnw extends FilterOutputStream
+public interface hnw
 {
 
-    final hnu a;
-
-    public hnw(OutputStream outputstream, Logger logger, Level level, int i)
-    {
-        super(outputstream);
-        a = new hnu(logger, level, i);
-    }
-
-    public void close()
-    {
-        a.close();
-        super.close();
-    }
-
-    public void write(int i)
-    {
-        out.write(i);
-        a.write(i);
-    }
-
-    public void write(byte abyte0[], int i, int j)
-    {
-        out.write(abyte0, i, j);
-        a.write(abyte0, i, j);
-    }
+    public abstract void a(boolean flag);
 }

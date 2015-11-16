@@ -4,44 +4,24 @@
 
 
 final class bbs
-    implements bbp
+    implements Runnable
 {
 
-    final bbr a;
+    final String a;
+    final int b;
+    final bbq c;
 
-    bbs(bbr bbr)
+    bbs(bbq bbq1, String s, int i)
     {
-        a = bbr;
+        c = bbq1;
+        a = s;
+        b = i;
         super();
     }
 
-    public int a()
+    public void run()
     {
-        return g.ln;
-    }
-
-    public boolean a(ani ani)
-    {
-        return true;
-    }
-
-    public azm b()
-    {
-        if (android.os.Build.VERSION.SDK_INT >= 16)
-        {
-            return new azm(2658, new String[] {
-                "android.permission.CAMERA", "android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"
-            });
-        } else
-        {
-            return new azm(2658, new String[] {
-                "android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE"
-            });
-        }
-    }
-
-    public Class c()
-    {
-        return bbq;
+        int i = g.j(a);
+        ((beb)hlp.a(c.a, beb)).a(2322, b, Integer.valueOf(i));
     }
 }

@@ -2,61 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.Executor;
 
-public final class kan extends koj
+public final class kan extends Enum
+    implements Executor
 {
 
-    public Boolean a;
+    public static final kan a;
+    private static final kan b[];
 
-    public kan()
+    private kan(String s)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s, 0);
     }
 
-    protected int computeSerializedSize()
+    public static kan valueOf(String s)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        return i;
+        return (kan)Enum.valueOf(kan, s);
     }
 
-    public kop mergeFrom(kog kog1)
+    public static kan[] values()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
+        return (kan[])b.clone();
     }
 
-    public void writeTo(koh koh1)
+    public void execute(Runnable runnable)
     {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
-        }
-        super.writeTo(koh1);
+        runnable.run();
+    }
+
+    public String toString()
+    {
+        return "MoreExecutors.directExecutor()";
+    }
+
+    static 
+    {
+        a = new kan("INSTANCE");
+        b = (new kan[] {
+            a
+        });
     }
 }

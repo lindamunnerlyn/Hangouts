@@ -2,84 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Set;
+import android.content.Context;
+import android.text.Html;
+import android.text.TextUtils;
+import com.google.android.apps.hangouts.phone.BabelHomeActivity;
 
-public final class ckm
-    implements cph
+public final class ckm extends csw
 {
 
-    private kxx a;
-    private kxx b;
-    private kxx c;
-    private final gsl d = new gsl();
-    private kxx e;
-    private kxx f;
-    private kxx g;
-    private kxx h;
-    private kxx i;
-    private kxx j;
-    private final ims k = new ims();
-    private kxx l;
-    private kxx m;
-    private kxx n;
-    private kxx o;
-    private kxx p;
-    private kxx q;
-    private kxx r;
-    private kxx s;
-    private kxx t;
-    private kxx u;
-    private kxx v;
-    private kxx w;
-    private kxx x;
+    final BabelHomeActivity a;
 
-    ckm(ckn ckn1)
+    public ckm(BabelHomeActivity babelhomeactivity, Context context, hof hof, int i, int j)
     {
-        a = kxn.a(ilo.b());
-        b = new iln(a);
-        c = kxn.a(new ilu(b));
-        d.a = kxn.a(gsh.b());
-        e = kxn.a(new gsk(ckn1.b, d.a));
-        f = kxn.a(ilq.b());
-        g = new ilp(f);
-        h = new imu(ckn1.c, imv.b());
-        i = kxn.a(new inj(ckn1.d));
-        j = kxo.a(new kxx[] {
-            h, i
-        });
-        k.a = kxn.a(new inh(c, e, g, j));
-        k.b = new ink(ckn1.d, k.a);
-        l = new inb(k.b);
-        m = kxn.a(imq.b());
-        n = imp.b();
-        o = imj.b();
-        p = kxo.a(new kxx[] {
-            n, o
-        });
-        q = kxn.a(new imr(m, p));
-        r = new ima(ckn1.a);
-        s = kxn.a(new cog(r));
-        t = imd.b();
-        u = new imo(q);
-        v = imh.b();
-        w = new col(s);
-        x = kxo.a(new kxx[] {
-            t, u, v, w
-        });
+        a = babelhomeactivity;
+        super(context, hof, i, j);
     }
 
-    public static ckn a()
+    public void a(cuz cuz1)
     {
-        return new ckn();
+        if (!TextUtils.isEmpty(cuz1.a()))
+        {
+            cuz1 = Html.fromHtml(cuz1.a()).toString();
+        } else
+        {
+            cuz1 = null;
+        }
+        BabelHomeActivity.a(a, cuz1);
     }
 
-    public imz b()
+    protected void c()
     {
-        return (imz)l.a();
-    }
-
-    public Set c()
-    {
-        return (Set)x.a();
     }
 }

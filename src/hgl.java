@@ -2,40 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.Animator;
+import android.os.Parcel;
+import android.os.Parcelable;
+import java.util.List;
 
-final class hgl
-    implements android.animation.Animator.AnimatorListener
+public final class hgl
+    implements Parcelable
 {
 
-    public boolean a;
-    final hgk b;
+    public static final android.os.Parcelable.Creator CREATOR = new hgm();
+    private final List a;
 
-    hgl(hgk hgk1)
+    hgl(Parcel parcel)
     {
-        b = hgk1;
-        super();
+        a = parcel.createStringArrayList();
     }
 
-    public void onAnimationCancel(Animator animator)
+    public hgl(List list)
     {
-        a = true;
+        a = list;
     }
 
-    public void onAnimationEnd(Animator animator)
+    List a()
     {
-        if (!a && !b.al)
-        {
-            animator.start();
-        }
+        return a;
     }
 
-    public void onAnimationRepeat(Animator animator)
+    public int describeContents()
     {
+        return 0;
     }
 
-    public void onAnimationStart(Animator animator)
+    public void writeToParcel(Parcel parcel, int i)
     {
-        a = false;
+        parcel.writeStringList(a);
     }
+
 }

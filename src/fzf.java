@@ -2,27 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Bitmap;
-import com.google.android.gms.common.data.BitmapTeleporter;
-import com.google.android.gms.feedback.FeedbackOptions;
+import android.database.ContentObserver;
+import android.os.Handler;
+import java.util.HashMap;
 
-public class fzf
+final class fzf extends ContentObserver
 {
 
-    public FeedbackOptions a;
+    final fze a;
 
-    public fzf(FeedbackOptions feedbackoptions)
+    fzf(fze fze1, Handler handler)
     {
-        a = feedbackoptions;
+        a = fze1;
+        super(handler);
     }
 
-    public Bitmap a()
+    public void onChange(boolean flag)
     {
-        return a.g().a();
-    }
-
-    public FeedbackOptions b()
-    {
-        return a;
+        fzd;
+        JVM INSTR monitorenter ;
+        fzd.a().clear();
+        fzd.a(new Object());
+        if (fzd.b().length > 0)
+        {
+            fzd.b(a.a, fzd.b());
+        }
+        fzd;
+        JVM INSTR monitorexit ;
+        return;
+        Exception exception;
+        exception;
+        fzd;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 }

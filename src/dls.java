@@ -2,21 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
 
-final class dls
-    implements Runnable
+public interface dls
 {
 
-    final dlp a;
+    public abstract void a(Intent intent);
 
-    dls(dlp dlp1)
-    {
-        a = dlp1;
-        super();
-    }
-
-    public void run()
-    {
-        dlp.a(a);
-    }
+    public abstract void a(cdk cdk);
 }

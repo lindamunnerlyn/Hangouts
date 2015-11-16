@@ -3,38 +3,31 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class bvf
-    implements Comparable
+final class bvf extends bns
 {
 
-    private static long c = 0L;
-    public final long a;
-    public final bux b;
+    final bvd a;
 
-    public bvf(bux bux1)
+    bvf(bvd bvd1)
     {
-        gbh.a();
-        long l = c;
-        c = 1L + l;
-        a = l;
-        b = bux1;
+        a = bvd1;
+        super();
     }
 
-    public int a(bvf bvf1)
+    public void a(int i)
     {
-        int i = Integer.valueOf(b.a).compareTo(Integer.valueOf(bvf1.b.a));
-        if (i != 0)
+        bvd.a(a, null);
+        bvd.a(a, bui.e);
+        if (bvd.a(a) != null)
         {
-            return i;
-        } else
-        {
-            return Long.valueOf(a).compareTo(Long.valueOf(bvf1.a));
+            bvd.a(a).b(bvd.f(a));
+            bvd.a(a, null);
         }
     }
 
-    public int compareTo(Object obj)
+    public void a(gms gms)
     {
-        return a((bvf)obj);
+        bvd.a(a, (gdi)bvd.e(a).o().a(gdi));
+        bvd.a(a).a(bvd.f(a));
     }
-
 }

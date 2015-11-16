@@ -2,63 +2,181 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.os.Handler;
-import android.text.format.DateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
+import android.os.AsyncTask;
+import android.os.ConditionVariable;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
-final class cot extends cox
+public final class cot extends AsyncTask
 {
 
-    final cop a;
+    private File a;
+    private File b;
+    private ConditionVariable c;
 
-    cot(cop cop1)
+    public cot(File file, File file1, ConditionVariable conditionvariable)
     {
-        a = cop1;
-        super(cop1, (byte)0);
+        a = file;
+        b = file1;
+        c = conditionvariable;
     }
 
-    boolean a()
+    private transient Void a()
     {
-        long l1 = TimeUnit.MILLISECONDS.toMicros(System.currentTimeMillis());
-        long l2 = ((doq)hgx.a(cop.f(a), doq)).d(cop.a(a));
-        if (l1 <= l2)
+        Object obj;
+        byte abyte0[];
+        abyte0 = null;
+        Object obj1;
+        Object obj2;
+        Object obj3;
+        int i;
+        long l;
+        long l1;
+        try
         {
-            cop.h(a).postDelayed(cop.g(a), TimeUnit.MICROSECONDS.toMillis(l2) - System.currentTimeMillis());
-            return true;
-        } else
-        {
-            return false;
+            if (b.exists())
+            {
+                b.delete();
+            }
+            obj1 = new BufferedOutputStream(new FileOutputStream(b));
         }
+        // Misplaced declaration of an exception variable
+        catch (byte abyte0[])
+        {
+            obj = null;
+            obj1 = null;
+            continue; /* Loop/switch isn't completed */
+        }
+        finally
+        {
+            obj1 = null;
+        }
+        obj = new BufferedInputStream(new FileInputStream(a));
+        obj3 = obj;
+        obj2 = obj1;
+        abyte0 = new byte[16384];
+_L2:
+        obj3 = obj;
+        obj2 = obj1;
+        i = ((BufferedInputStream) (obj)).read(abyte0);
+        if (i <= 0)
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        obj3 = obj;
+        obj2 = obj1;
+        ((BufferedOutputStream) (obj1)).write(abyte0, 0, i);
+        if (true) goto _L2; else goto _L1
+        abyte0;
+_L6:
+        obj3 = obj;
+        obj2 = obj1;
+        eev.d("DumpDatabase", "Exception copying the database; destination may not be complete.", abyte0);
+        if (obj1 != null)
+        {
+            try
+            {
+                ((BufferedOutputStream) (obj1)).close();
+            }
+            // Misplaced declaration of an exception variable
+            catch (Object obj1)
+            {
+                eev.d("DumpDatabase", "Caught exception closing file", ((Throwable) (obj1)));
+            }
+        }
+        if (obj != null)
+        {
+            try
+            {
+                ((BufferedInputStream) (obj)).close();
+            }
+            // Misplaced declaration of an exception variable
+            catch (Object obj)
+            {
+                eev.d("DumpDatabase", "Caught exception closing file", ((Throwable) (obj)));
+            }
+        }
+        l = a.length();
+        l1 = b.length();
+        eev.e("DumpDatabase", (new StringBuilder(79)).append("Dump complete; orig size: ").append(l).append(", copy size: ").append(l1).toString());
+        return null;
+_L1:
+        try
+        {
+            ((BufferedOutputStream) (obj1)).close();
+        }
+        // Misplaced declaration of an exception variable
+        catch (Object obj1)
+        {
+            eev.d("DumpDatabase", "Caught exception closing file", ((Throwable) (obj1)));
+        }
+        try
+        {
+            ((BufferedInputStream) (obj)).close();
+        }
+        // Misplaced declaration of an exception variable
+        catch (Object obj)
+        {
+            eev.d("DumpDatabase", "Caught exception closing file", ((Throwable) (obj)));
+        }
+        l = a.length();
+        l1 = b.length();
+        eev.e("DumpDatabase", (new StringBuilder(79)).append("Dump complete; orig size: ").append(l).append(", copy size: ").append(l1).toString());
+        return null;
+_L4:
+        if (obj1 != null)
+        {
+            try
+            {
+                ((BufferedOutputStream) (obj1)).close();
+            }
+            // Misplaced declaration of an exception variable
+            catch (Object obj1)
+            {
+                eev.d("DumpDatabase", "Caught exception closing file", ((Throwable) (obj1)));
+            }
+        }
+        if (abyte0 != null)
+        {
+            try
+            {
+                abyte0.close();
+            }
+            // Misplaced declaration of an exception variable
+            catch (Object obj1)
+            {
+                eev.d("DumpDatabase", "Caught exception closing file", ((Throwable) (obj1)));
+            }
+        }
+        l = a.length();
+        l1 = b.length();
+        eev.e("DumpDatabase", (new StringBuilder(79)).append("Dump complete; orig size: ").append(l).append(", copy size: ").append(l1).toString());
+        throw obj;
+        obj;
+        continue; /* Loop/switch isn't completed */
+        obj;
+        abyte0 = ((byte []) (obj3));
+        obj1 = obj2;
+        if (true) goto _L4; else goto _L3
+_L3:
+        break MISSING_BLOCK_LABEL_40;
+        abyte0;
+        obj = null;
+        if (true) goto _L6; else goto _L5
+_L5:
     }
 
-    dsn b()
+    protected Object doInBackground(Object aobj[])
     {
-        long l1 = ((doq)hgx.a(cop.f(a), doq)).d(cop.a(a));
-        Object obj1 = Calendar.getInstance();
-        ((Calendar) (obj1)).setTime(new Date());
-        Object obj = Calendar.getInstance();
-        ((Calendar) (obj)).setTime(new Date(l1 / 1000L));
-        String s = "";
-        if (((Calendar) (obj)).get(6) > ((Calendar) (obj1)).get(6))
-        {
-            s = String.valueOf(((Calendar) (obj)).getDisplayName(7, 1, Locale.getDefault())).concat(" ");
-        }
-        obj1 = DateFormat.getTimeFormat(cop.f(a));
-        s = String.valueOf(s);
-        obj = String.valueOf(((java.text.DateFormat) (obj1)).format(((Calendar) (obj)).getTime()));
-        if (((String) (obj)).length() != 0)
-        {
-            s = s.concat(((String) (obj)));
-        } else
-        {
-            s = new String(s);
-        }
-        return (new dso(cop.f(a))).a(cop.f(a).getString(l.hr, new Object[] {
-            s
-        })).c(cop.f(a).getString(l.ht)).a(new cou(this)).a();
+        return a();
+    }
+
+    public void onPostExecute(Object obj)
+    {
+        c.open();
     }
 }

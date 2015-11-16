@@ -2,129 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
+import java.util.Set;
 
-public final class ish extends koj
+public final class ish
+    implements joj
 {
 
-    public ivz a[];
-    public ixf requestHeader;
+    private final joj a;
+    private final joj b;
 
-    public ish()
+    public ish(joj joj1, joj joj2)
     {
-        requestHeader = null;
-        a = ivz.a();
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = joj1;
+        b = joj2;
     }
 
-    protected int computeSerializedSize()
+    public Object a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (requestHeader != null)
+        boolean flag = true;
+        Object obj = a;
+        Set set = (Set)b.a();
+        if (set.isEmpty())
         {
-            i = j + koh.d(1, requestHeader);
-        }
-        j = i;
-        if (a != null)
+            obj = (hof)((joj) (obj)).a();
+        } else
         {
-            j = i;
-            if (a.length > 0)
+            if (set.size() != 1)
             {
-                for (j = 0; j < a.length;)
-                {
-                    ivz ivz1 = a[j];
-                    int k = i;
-                    if (ivz1 != null)
-                    {
-                        k = i + koh.d(2, ivz1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
+                flag = false;
             }
+            g.d(flag, "More than one fragment lifecycle provider found");
+            obj = (hof)((joj)set.iterator().next()).a();
         }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        if (obj == null)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (requestHeader == null)
-                {
-                    requestHeader = new ixf();
-                }
-                kog1.a(requestHeader);
-                break;
-
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                ivz aivz[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                aivz = new ivz[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aivz, 0, j);
-                    k = j;
-                }
-                for (; k < aivz.length - 1; k++)
-                {
-                    aivz[k] = new ivz();
-                    kog1.a(aivz[k]);
-                    kog1.a();
-                }
-
-                aivz[k] = new ivz();
-                kog1.a(aivz[k]);
-                a = aivz;
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (requestHeader != null)
+            throw new NullPointerException("Cannot return null from a non-@Nullable @Provides method");
+        } else
         {
-            koh1.b(1, requestHeader);
+            return obj;
         }
-        if (a != null && a.length > 0)
-        {
-            for (int i = 0; i < a.length; i++)
-            {
-                ivz ivz1 = a[i];
-                if (ivz1 != null)
-                {
-                    koh1.b(2, ivz1);
-                }
-            }
-
-        }
-        super.writeTo(koh1);
     }
 }

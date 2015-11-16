@@ -2,93 +2,99 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import org.xml.sax.Attributes;
 
-final class kxj
+public final class kxj extends kwm
 {
 
-    kxm a;
-    Attributes b;
+    private static volatile kxj c[];
+    public String a;
+    public ltc b;
 
-    kxj(Attributes attributes)
+    public kxj()
     {
         a = null;
-        b = attributes;
-        attributes = kxd.a("style", attributes);
-        if (attributes != null)
-        {
-            a = new kxm(attributes);
-        }
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public String a(String s)
+    public static kxj[] a()
     {
-        String s1 = null;
+        if (c == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (c == null)
+                {
+                    c = new kxj[0];
+                }
+            }
+        }
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            s1 = a.a(s);
+            i = j + kwk.b(1, a);
         }
-        String s2 = s1;
-        if (s1 == null)
+        j = i;
+        if (b != null)
         {
-            s2 = kxd.a(s, b);
+            j = i + kwk.d(2, b);
         }
-        return s2;
+        return j;
     }
 
-    public String b(String s)
+    public kws mergeFrom(kwj kwj1)
     {
-        return a(s);
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new ltc();
+                }
+                kwj1.a(b);
+                break;
+            }
+        } while (true);
     }
 
-    public Integer c(String s)
+    public void writeTo(kwk kwk1)
     {
-        s = a(s);
-        if (s == null)
+        if (a != null)
         {
-            return null;
+            kwk1.a(1, a);
         }
-        if (!s.startsWith("#") || s.length() != 4 && s.length() != 7)
+        if (b != null)
         {
-            break MISSING_BLOCK_LABEL_111;
+            kwk1.b(2, b);
         }
-        int i;
-        int j;
-        try
-        {
-            j = Integer.parseInt(s.substring(1), 16);
-        }
-        // Misplaced declaration of an exception variable
-        catch (String s)
-        {
-            return null;
-        }
-        i = j;
-        if (s.length() == 4)
-        {
-            i = j & 0xf | ((j & 0xf00) << 8 | (j & 0xf00) << 12 | (j & 0xf0) << 4 | (j & 0xf0) << 8 | (j & 0xf) << 4);
-        }
-        return Integer.valueOf(i);
-        return kxc.a(s);
-    }
-
-    public Float d(String s)
-    {
-        s = a(s);
-        if (s == null)
-        {
-            return null;
-        }
-        float f;
-        try
-        {
-            f = Float.parseFloat(s);
-        }
-        // Misplaced declaration of an exception variable
-        catch (String s)
-        {
-            return null;
-        }
-        return Float.valueOf(f);
+        super.writeTo(kwk1);
     }
 }

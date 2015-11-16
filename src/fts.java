@@ -2,24 +2,62 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.wearable.internal.MessageEventParcelable;
+import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
+import java.lang.reflect.Method;
 
-final class fts
-    implements Runnable
+public final class fts
 {
 
-    final MessageEventParcelable a;
-    final ftq b;
+    private static final Object a = new Object();
+    private static Method b = null;
 
-    fts(ftq ftq1, MessageEventParcelable messageeventparcelable)
+    public static void a(Context context)
     {
-        b = ftq1;
-        a = messageeventparcelable;
-        super();
+        Context context1;
+        g.b(context, "Context must not be null");
+        emo.b(context);
+        context1 = emo.d(context);
+        if (context1 == null)
+        {
+            Log.e("ProviderInstaller", "Failed to get remote context");
+            throw new emm(8);
+        }
+        if (true) goto _L2; else goto _L1
+_L1:
+        context;
+        JVM INSTR monitorenter ;
+_L2:
+        synchronized (a)
+        {
+            if (b == null)
+            {
+                b = context1.getClassLoader().loadClass("com.google.android.gms.common.security.ProviderInstallerImpl").getMethod("insertProvider", new Class[] {
+                    android/content/Context
+                });
+            }
+            b.invoke(null, new Object[] {
+                context1
+            });
+        }
+        return;
+        Exception exception;
+        exception;
+        Log.e("ProviderInstaller", (new StringBuilder("Failed to install provider: ")).append(exception.getMessage()).toString());
+        throw new emm(8);
+        exception1;
+        context;
+        JVM INSTR monitorexit ;
+        throw exception1;
     }
 
-    public void run()
+    public static void a(Context context, ftu ftu)
     {
-        b.b.a(a);
+        g.b(context, "Context must not be null");
+        g.b(ftu, "Listener must not be null");
+        g.y("Must be called on the UI thread");
+        (new ftt(context, ftu)).execute(new Void[0]);
     }
+
 }

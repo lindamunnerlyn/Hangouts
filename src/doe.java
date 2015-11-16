@@ -2,32 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.ConcurrentHashMap;
 
-final class doe
-    implements hfe
+final class doe extends dhy
 {
 
-    final String a;
-    final String b;
-    final het c;
-    final csv d;
-    final doc e;
+    final dod a;
 
-    doe(doc doc1, String s, String s1, het het, csv csv)
+    doe(dod dod1)
     {
-        e = doc1;
-        a = s;
-        b = s1;
-        c = het;
-        d = csv;
+        a = dod1;
         super();
     }
 
-    public boolean a(hfa hfa, Object obj)
+    public void a(int i, aoa aoa, did did)
     {
-        hfa = new aqo(null, a, b);
-        hfa.d = (String)obj;
-        doc.a(e, c, d, hfa);
-        return true;
+        aoa = (String)dod.a(a).remove(Integer.valueOf(i));
+        if (aoa != null)
+        {
+            a.d(aoa);
+        }
+        dod.b(a);
+    }
+
+    public void a(int i, aoa aoa, dmf dmf, dcx dcx)
+    {
+        aoa = (String)dod.a(a).remove(Integer.valueOf(i));
+        if (aoa != null)
+        {
+            dod.a(a, aoa);
+        }
+        dod.b(a);
     }
 }

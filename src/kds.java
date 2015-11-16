@@ -3,13 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kds extends koj
+public final class kds extends kwm
 {
 
-    public String a;
-    public Boolean b;
-    public Long c;
-    public String d;
+    private static volatile kds f[];
+    public Float a;
+    public Float b;
+    public Float c;
+    public Float d;
+    public Float e;
 
     public kds()
     {
@@ -17,8 +19,28 @@ public final class kds extends koj
         b = null;
         c = null;
         d = null;
+        e = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static kds[] a()
+    {
+        if (f == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (f == null)
+                {
+                    f = new kds[0];
+                }
+            }
+        }
+        return f;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -27,36 +49,45 @@ public final class kds extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (c != null)
-        {
-            j = i + koh.e(2, c.longValue());
-        }
-        i = j;
-        if (d != null)
-        {
-            i = j + koh.b(3, d);
+            a.floatValue();
+            i = j + (kwk.f(1) + 4);
         }
         j = i;
         if (b != null)
         {
-            b.booleanValue();
-            j = i + (koh.f(4) + 1);
+            b.floatValue();
+            j = i + (kwk.f(2) + 4);
         }
-        return j;
+        i = j;
+        if (c != null)
+        {
+            c.floatValue();
+            i = j + (kwk.f(3) + 4);
+        }
+        j = i;
+        if (d != null)
+        {
+            d.floatValue();
+            j = i + (kwk.f(4) + 4);
+        }
+        i = j;
+        if (e != null)
+        {
+            e.floatValue();
+            i = j + (kwk.f(5) + 4);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -65,43 +96,51 @@ public final class kds extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                a = kog1.j();
+            case 13: // '\r'
+                a = Float.valueOf(kwj1.c());
                 break;
 
-            case 16: // '\020'
-                c = Long.valueOf(kog1.e());
+            case 21: // '\025'
+                b = Float.valueOf(kwj1.c());
                 break;
 
-            case 26: // '\032'
-                d = kog1.j();
+            case 29: // '\035'
+                c = Float.valueOf(kwj1.c());
                 break;
 
-            case 32: // ' '
-                b = Boolean.valueOf(kog1.i());
+            case 37: // '%'
+                d = Float.valueOf(kwj1.c());
+                break;
+
+            case 45: // '-'
+                e = Float.valueOf(kwj1.c());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
-        }
-        if (c != null)
-        {
-            koh1.b(2, c.longValue());
-        }
-        if (d != null)
-        {
-            koh1.a(3, d);
+            kwk1.a(1, a.floatValue());
         }
         if (b != null)
         {
-            koh1.a(4, b.booleanValue());
+            kwk1.a(2, b.floatValue());
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.a(3, c.floatValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.floatValue());
+        }
+        if (e != null)
+        {
+            kwk1.a(5, e.floatValue());
+        }
+        super.writeTo(kwk1);
     }
 }

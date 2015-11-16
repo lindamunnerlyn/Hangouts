@@ -2,31 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.hangout.HangoutSelfMenu;
+import android.view.View;
+import com.google.android.apps.hangouts.hangout.IncomingRing;
+import com.google.android.apps.hangouts.hangout.IncomingRingActivity;
 
-final class bqn
-    implements Runnable
+public final class bqn
+    implements com.google.android.apps.hangouts.hangout.multiwaveview.GlowPadView.OnTriggerListener
 {
 
-    final bqf a;
+    final IncomingRingActivity a;
 
-    bqn(bqf bqf1)
+    public bqn(IncomingRingActivity incomingringactivity)
     {
-        a = bqf1;
+        a = incomingringactivity;
         super();
     }
 
-    public void run()
+    public void onFinishFinalAnimation()
     {
-        if (bqf.k(a).a())
+    }
+
+    public void onGrabbed(View view, int i)
+    {
+    }
+
+    public void onGrabbedStateChange(View view, int i)
+    {
+    }
+
+    public void onReleased(View view, int i)
+    {
+    }
+
+    public void onTrigger(View view, int i)
+    {
+        switch (i)
         {
-            bqf.k(a).b();
-            bqf.a(a, bqf.k(a));
-        }
-        if (bqf.j(a).a())
-        {
-            bqf.j(a).b();
-            bqf.a(a, bqf.j(a));
+        case 1: // '\001'
+        default:
+            g.l((new StringBuilder(60)).append("Unexpected trigger for GlowPadView widget value: ").append(i).toString());
+            return;
+
+        case 0: // '\0'
+            IncomingRingActivity.a(a);
+            return;
+
+        case 2: // '\002'
+            a.j.m();
+            break;
         }
     }
 }

@@ -2,75 +2,136 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.text.TextUtils;
 import java.io.Serializable;
+import java.util.concurrent.TimeUnit;
 
-public final class crp extends crn
+public final class crp
     implements Serializable
 {
 
-    private static final long serialVersionUID = 1L;
-    public final double i;
-    public final double j;
-    public final String k;
+    private static final boolean a = false;
+    private final String b;
+    private final boolean c;
+    private final boolean d;
+    private final boolean e;
+    private final int f;
+    private boolean g;
 
-    protected crp(koz koz1, kpv kpv1)
+    private crp(String s, boolean flag, boolean flag1, int i, boolean flag2)
     {
-        super(koz1, kpv1.e, kpv1.f, a(kpv1.w), kpv1.c, "hangouts/location");
-        if (crm.d())
+        b = s;
+        c = flag;
+        e = flag1;
+        f = i;
+        d = flag2;
+    }
+
+    public crp(jcf jcf1)
+    {
+        g = false;
+        b = jcf1.a.a;
+        if (TextUtils.isEmpty(b))
         {
-            koz1 = String.valueOf(d);
-            if (koz1.length() != 0)
-            {
-                koz1 = "Received location: ".concat(koz1);
-            } else
-            {
-                koz1 = new String("Received location: ");
-            }
-            ebw.b("Babel", koz1);
+            eev.g("Babel", "Phone number should not be empty");
         }
-        if (kpv1.n == null) goto _L2; else goto _L1
-_L1:
-        koz1 = (kqq)kpv1.n.getExtension(kqq.a);
-        if (koz1 == null) goto _L2; else goto _L3
-_L3:
-        koz1 = ((kqq) (koz1)).s;
-_L5:
-        k = koz1;
-        koz1 = (kpo)kpv1.o.getExtension(kpo.a);
-        if (koz1 == null)
+        c = g.a(jcf1.b, false);
+        d = g.a(jcf1.f, false);
+        boolean flag;
+        if (jcf1.c != null && g.a(jcf1.c, 0) == 1)
         {
-            i = 0.0D;
-            j = 0.0D;
-            return;
+            flag = true;
         } else
         {
-            i = ((kpo) (koz1)).n.doubleValue();
-            j = ((kpo) (koz1)).o.doubleValue();
-            return;
+            flag = false;
         }
+        e = flag;
+        if (a)
+        {
+            String s = b;
+            String s1 = String.valueOf(jcf1.e);
+            eev.b("Babel", (new StringBuilder(String.valueOf(s).length() + 29 + String.valueOf(s1).length())).append("Discoverability status for ").append(s).append(": ").append(s1).toString());
+        }
+        g.a(jcf1.e, 0);
+        JVM INSTR tableswitch 1 3: default 192
+    //                   1 276
+    //                   2 192
+    //                   3 289;
+           goto _L1 _L2 _L1 _L3
+_L1:
+        f = 0;
+_L5:
+        jcf1 = (gdd)hlp.a(g.nU, gdd);
+        if (e)
+        {
+            jcf1.a(-1).a(1616).a(TimeUnit.DAYS);
+        }
+        if (g)
+        {
+            jcf1.a(-1).a(1617).a(TimeUnit.DAYS);
+        }
+        return;
 _L2:
-        koz1 = null;
+        f = 1;
+        g = true;
+        continue; /* Loop/switch isn't completed */
+_L3:
+        f = 2;
         if (true) goto _L5; else goto _L4
 _L4:
     }
 
-    public crp(int ai[], String s, double d, double d1, String s1, 
-            String s2, String s3)
+    public static crp a(String s)
     {
-        super(ai, null, null, s, null, s2, s3, "hangouts/location");
-        i = d;
-        j = d1;
-        k = s1;
+        if (TextUtils.isEmpty(s))
+        {
+            return null;
+        }
+        String as[] = s.split(",");
+        if (as.length != 5)
+        {
+            String s1 = String.valueOf("Phone verification state is ignored due to changed format. Expected 5 parts, but got ");
+            int i = as.length;
+            eev.f("Babel", (new StringBuilder(String.valueOf(s1).length() + 26 + String.valueOf(s).length())).append(s1).append(i).append("; input was: [").append(s).append("]").toString());
+            return null;
+        } else
+        {
+            return new crp(as[0], Boolean.parseBoolean(as[1]), Boolean.parseBoolean(as[2]), Integer.parseInt(as[3]), Boolean.parseBoolean(as[4]));
+        }
+    }
+
+    public String a()
+    {
+        return b;
+    }
+
+    public boolean b()
+    {
+        return e;
+    }
+
+    public boolean c()
+    {
+        return e && f == 1;
+    }
+
+    public boolean d()
+    {
+        return c;
+    }
+
+    public boolean e()
+    {
+        return d;
     }
 
     public String toString()
     {
-        String s = b;
-        String s1 = this.d;
-        double d = i;
-        double d1 = j;
-        String s2 = k;
-        String s3 = f;
-        return (new StringBuilder(String.valueOf(s).length() + 107 + String.valueOf(s1).length() + String.valueOf(s2).length() + String.valueOf(s3).length())).append("id: ").append(s).append(" name: ").append(s1).append(" latitude: ").append(d).append(" longitude: ").append(d1).append(" address: ").append(s2).append(" staticMapUrl: ").append(s3).toString();
+        return (new StringBuilder()).append(b).append(",").append(String.valueOf(c)).append(",").append(String.valueOf(e)).append(",").append(String.valueOf(f)).append(",").append(String.valueOf(d)).toString();
+    }
+
+    static 
+    {
+        hnc hnc = eev.k;
     }
 }

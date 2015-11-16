@@ -2,21 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
 
-public final class hkk extends hiv
+interface hkk
 {
 
-    public hkk()
-    {
-    }
-
-    public void s()
-    {
-        for (int i = 0; i < a.size(); i++)
-        {
-            a.get(i);
-        }
-
-    }
+    public abstract boolean a(hjr hjr);
 }

@@ -3,20 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class bpp
+final class bpp
     implements Runnable
 {
 
-    final gam a;
+    final bpm a;
 
-    public bpp(gam gam1)
+    bpp(bpm bpm1)
     {
-        a = gam1;
+        a = bpm1;
         super();
     }
 
     public void run()
     {
-        a.a().d();
+        eev.g("Babel", "Create hangout id timed out");
+        a.c(11);
     }
 }

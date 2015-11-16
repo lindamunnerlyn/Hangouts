@@ -2,26 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
+import com.google.android.apps.hangouts.fragments.ConversationParticipantsFragment;
 
-final class bji
-    implements Runnable
+public final class bji
+    implements eho
 {
 
-    final bje a;
+    final ConversationParticipantsFragment a;
 
-    bji(bje bje1)
+    public bji(ConversationParticipantsFragment conversationparticipantsfragment)
     {
-        a = bje1;
+        a = conversationparticipantsfragment;
         super();
     }
 
-    public void run()
+    public void a(ehl ehl1)
     {
-        if (bje.a(a) != null)
+        ehl1 = ehl1.a();
+        dsx dsx1 = (dsx)ConversationParticipantsFragment.a(a).b(dsx);
+        if (dsx1 != null)
         {
-            bje.a(a).a();
+            dsx1.a(a.getContext(), a, eep.a(ehl1), ehl1.e(), ehl1.f());
+            g.a(ConversationParticipantsFragment.b(a), 2767);
         }
-        bje.h(a).postDelayed(bje.g(a), 50L);
     }
 }

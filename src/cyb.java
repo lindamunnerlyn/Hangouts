@@ -3,30 +3,31 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cyb extends cvn
+public class cyb extends czc
 {
 
     private static final long serialVersionUID = 1L;
 
-    private cyb(iyh iyh1)
+    private cyb(lep lep1)
     {
-        super(iyh1.responseHeader, 0L);
-        if (cvn.a)
-        {
-            iyh1 = String.valueOf(iyh1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(iyh1).length() + 28)).append("SetDndPresenceResponse from:").append(iyh1).toString());
-        }
+        super(lep1);
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public static cxr parseFrom(byte abyte0[])
     {
-        abyte0 = (iyh)kop.mergeFrom(new iyh(), abyte0);
-        if (a(((iyh) (abyte0)).responseHeader))
+        if (abyte0 != null)
         {
-            return new cvz(((iyh) (abyte0)).responseHeader);
-        } else
-        {
-            return new cyb(abyte0);
+            abyte0 = (lep)kws.mergeFrom(new lep(), abyte0);
+            if (abyte0 != null)
+            {
+                return new cyb(abyte0);
+            }
         }
+        return null;
+    }
+
+    public void a(aow aow, dgk dgk)
+    {
+        super.a(aow, dgk);
     }
 }

@@ -2,28 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Message;
+import android.os.Process;
 
-final class hhx
-    implements hjr
+public final class hhx extends HandlerThread
+    implements android.os.Handler.Callback
 {
 
-    final Bundle a;
-    final hhw b;
+    private Handler a;
 
-    hhx(hhw hhw1, Bundle bundle)
+    public hhx()
     {
-        b = hhw1;
-        a = bundle;
-        super();
+        super("ImageLoader");
     }
 
-    public void a(fsn fsn)
+    public void a(hhm hhm1)
     {
-        if (fsn instanceof hhi)
+        a.sendMessage(a.obtainMessage(0, hhm1));
+    }
+
+    public boolean handleMessage(Message message)
+    {
+        message = (hhm)message.obj;
+        if (message.x() == 2 || message.x() == 4 || message.x() == 6)
         {
-            Bundle bundle = hhw.a(b).a(fsn, a);
-            ((hhi)fsn).a(b, b.k, bundle);
+            message.c();
         }
+        return true;
+    }
+
+    public void run()
+    {
+        Process.setThreadPriority(10);
+        super.run();
+    }
+
+    public void start()
+    {
+        this;
+        JVM INSTR monitorenter ;
+        super.start();
+        a = new Handler(getLooper(), this);
+        this;
+        JVM INSTR monitorexit ;
+        return;
+        Exception exception;
+        exception;
+        throw exception;
     }
 }

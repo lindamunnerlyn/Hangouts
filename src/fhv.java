@@ -2,35 +2,113 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
+import android.os.Bundle;
+import android.os.IBinder;
 import android.os.Parcel;
 
-public abstract class fhv extends Binder
-    implements fhu
+public final class fhv
+    implements fht
 {
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    private IBinder a;
+
+    public fhv(IBinder ibinder)
     {
-        switch (i)
+        a = ibinder;
+    }
+
+    public void a(feu feu1)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.mdm.internal.INetworkQualityService");
+        if (feu1 == null)
         {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
-
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.maps.internal.IOnIndoorStateChangeListener");
-            return true;
-
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnIndoorStateChangeListener");
-            a();
-            parcel1.writeNoException();
-            return true;
-
-        case 2: // '\002'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnIndoorStateChangeListener");
-            a(fkp.a(parcel.readStrongBinder()));
-            parcel1.writeNoException();
-            return true;
+            break MISSING_BLOCK_LABEL_57;
         }
+        feu1 = feu1.asBinder();
+_L1:
+        parcel.writeStrongBinder(feu1);
+        a.transact(2, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        feu1 = null;
+          goto _L1
+        feu1;
+        parcel1.recycle();
+        parcel.recycle();
+        throw feu1;
+    }
+
+    public void a(fex fex1)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.mdm.internal.INetworkQualityService");
+        if (fex1 == null)
+        {
+            break MISSING_BLOCK_LABEL_57;
+        }
+        fex1 = fex1.asBinder();
+_L1:
+        parcel.writeStrongBinder(fex1);
+        a.transact(3, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        fex1 = null;
+          goto _L1
+        fex1;
+        parcel1.recycle();
+        parcel.recycle();
+        throw fex1;
+    }
+
+    public void a(String s, Bundle bundle, Bundle bundle1)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.mdm.internal.INetworkQualityService");
+        parcel.writeString(s);
+        if (bundle == null) goto _L2; else goto _L1
+_L1:
+        parcel.writeInt(1);
+        bundle.writeToParcel(parcel, 0);
+_L3:
+        if (bundle1 == null)
+        {
+            break MISSING_BLOCK_LABEL_111;
+        }
+        parcel.writeInt(1);
+        bundle1.writeToParcel(parcel, 0);
+_L4:
+        a.transact(1, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+_L2:
+        parcel.writeInt(0);
+          goto _L3
+        s;
+        parcel1.recycle();
+        parcel.recycle();
+        throw s;
+        parcel.writeInt(0);
+          goto _L4
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
     }
 }

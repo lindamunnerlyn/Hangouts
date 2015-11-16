@@ -2,40 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.SystemClock;
-import java.util.Map;
+import android.os.Parcel;
 
-public final class hbp
+final class hbp
+    implements android.os.Parcelable.Creator
 {
 
-    private int a;
-    private String b[];
-    private String c;
-    private long d;
-    private long e;
-    private long f;
-    private long g;
-    private long h;
-    private int i;
-    private String j;
-    private long k;
-    private Map l;
-    private final long m = SystemClock.uptimeMillis();
-
-    public hbp(String as[], String s, long l1, long l2, long l3, long l4, long l5, int i1, String s1, 
-            long l6, Map map)
+    hbp()
     {
-        a = 5;
-        b = as;
-        c = s;
-        d = l1;
-        e = l2;
-        f = l3;
-        g = l4;
-        h = l5;
-        i = i1;
-        j = s1;
-        k = l6;
-        l = map;
+    }
+
+    public Object createFromParcel(Parcel parcel)
+    {
+        return new hbo(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new hbo[i];
     }
 }

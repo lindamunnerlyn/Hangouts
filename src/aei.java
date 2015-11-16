@@ -3,33 +3,28 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.text.TextUtils;
+import java.util.Arrays;
 
 public final class aei
-    implements adx
+    implements adz
 {
 
     private final String a;
-    private final int b;
-    private final String c;
-    private final boolean d;
+    private final boolean b;
+    private final byte c[];
+    private Integer d;
 
-    public aei(String s, int i, String s1, boolean flag)
+    public aei(String s, byte abyte0[], boolean flag)
     {
-        if (s.startsWith("sip:"))
-        {
-            a = s.substring(4);
-        } else
-        {
-            a = s;
-        }
-        b = i;
-        c = s1;
-        d = flag;
+        d = null;
+        a = s;
+        c = abyte0;
+        b = flag;
     }
 
-    public adz a()
+    public final aeb a()
     {
-        return adz.i;
+        return aeb.g;
     }
 
     public boolean equals(Object obj)
@@ -41,7 +36,7 @@ public final class aei
                 return false;
             }
             obj = (aei)obj;
-            if (b != ((aei) (obj)).b || !TextUtils.equals(c, ((aei) (obj)).c) || !TextUtils.equals(a, ((aei) (obj)).a) || d != ((aei) (obj)).d)
+            if (!TextUtils.equals(a, ((aei) (obj)).a) || !Arrays.equals(c, ((aei) (obj)).c) || b != ((aei) (obj)).b)
             {
                 return false;
             }
@@ -51,40 +46,53 @@ public final class aei
 
     public int hashCode()
     {
-        int j = 0;
-        int k = b;
-        int i;
-        char c1;
-        if (c != null)
+        int k = 0;
+        if (d != null)
         {
-            i = c.hashCode();
+            return d.intValue();
+        }
+        int i;
+        int j;
+        if (a != null)
+        {
+            i = a.hashCode();
         } else
         {
             i = 0;
         }
-        if (a != null)
+        i *= 31;
+        j = i;
+        if (c != null)
         {
-            j = a.hashCode();
+            byte abyte0[] = c;
+            int l = abyte0.length;
+            do
+            {
+                j = i;
+                if (k >= l)
+                {
+                    break;
+                }
+                i += abyte0[k];
+                k++;
+            } while (true);
         }
-        if (d)
+        if (b)
         {
-            c1 = '\u04CF';
+            i = 1231;
         } else
         {
-            c1 = '\u04D5';
+            i = 1237;
         }
-        return c1 + ((i + k * 31) * 31 + j) * 31;
+        i += j * 31;
+        d = Integer.valueOf(i);
+        return i;
     }
 
     public String toString()
     {
-        String s = String.valueOf(a);
-        if (s.length() != 0)
-        {
-            return "sip: ".concat(s);
-        } else
-        {
-            return new String("sip: ");
-        }
+        return String.format("format: %s: size: %d, isPrimary: %s", new Object[] {
+            a, Integer.valueOf(c.length), Boolean.valueOf(b)
+        });
     }
 }

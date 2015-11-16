@@ -6,13 +6,14 @@ package com.google.android.gms.feedback;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fam;
+import fdk;
+import g;
 
 public class LogOptions
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fam();
+    public static final android.os.Parcelable.Creator CREATOR = new fdk();
     public final int a;
     public String b;
     public boolean c;
@@ -31,7 +32,11 @@ public class LogOptions
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fam.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b);
+        g.a(parcel, 3, c);
+        g.q(parcel, i);
     }
 
 }

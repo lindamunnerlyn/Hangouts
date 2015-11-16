@@ -2,45 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Bitmap;
+import android.content.Context;
 
 final class grw
-    implements gux
+    implements grg
 {
 
-    final grs a;
+    final grq a;
 
-    grw(grs grs1)
+    grw(grq grq)
     {
-        a = grs1;
+        a = grq;
         super();
     }
 
-    public Object a(guy guy, Object obj)
+    public String a()
     {
-        guy = null;
-        if (obj instanceof Bitmap)
+        return "upgrade:account_status";
+    }
+
+    public void a(Context context, grd grd1)
+    {
+        if (grd1.d("non_google_plus"))
         {
-            guy = (Bitmap)obj;
-        } else
-        if (obj instanceof gup)
-        {
-            gup gup1 = (gup)obj;
-            guy = ((gup)obj).a;
-            if (gup1.b < guy.getWidth() || gup1.c < guy.getHeight())
-            {
-                guy = Bitmap.createBitmap(guy, 0, 0, gup1.b, gup1.c);
-            }
+            grd1.f("non_google_plus");
+            grd1.b("account_status", 2);
+            return;
         }
-        if (guy == null)
+        if (grd1.d("notifications_only"))
         {
-            return obj;
+            grd1.f("notifications_only");
+            grd1.b("account_status", 3);
+            return;
+        }
+        if (grd1.d("logged_in"))
+        {
+            grd1.f("logged_in");
+            grd1.b("account_status", 4);
+            return;
         } else
         {
-            obj = grs.a(a).a(guy.getWidth(), guy.getHeight());
-            obj = hgn.a(guy, g.F(grs.b(a)), ((Bitmap) (obj)));
-            grs.a(a).a(guy);
-            return obj;
+            grd1.b("account_status", 5);
+            return;
         }
     }
 }

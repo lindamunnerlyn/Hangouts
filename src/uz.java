@@ -2,160 +2,68 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 
-public final class uz
+final class uz extends rr
 {
 
-    private int a;
-    private int b;
-    private int c;
-    private int d;
-    private int e;
-    private int f;
-    private boolean g;
-    private boolean h;
+    private boolean a;
 
-    public uz()
+    public uz(Drawable drawable)
     {
-        a = 0;
-        b = 0;
-        c = 0x80000000;
-        d = 0x80000000;
-        e = 0;
-        f = 0;
-        g = false;
-        h = false;
+        super(drawable);
+        a = true;
     }
 
-    public int a()
+    void a(boolean flag)
     {
-        return a;
+        a = flag;
     }
 
-    public void a(int i, int j)
+    public void draw(Canvas canvas)
     {
-        c = i;
-        d = j;
-        h = true;
-        if (g)
+        if (a)
         {
-            if (j != 0x80000000)
-            {
-                a = j;
-            }
-            if (i != 0x80000000)
-            {
-                b = i;
-            }
+            super.draw(canvas);
+        }
+    }
+
+    public void setHotspot(float f, float f1)
+    {
+        if (a)
+        {
+            super.setHotspot(f, f1);
+        }
+    }
+
+    public void setHotspotBounds(int i, int j, int k, int l)
+    {
+        if (a)
+        {
+            super.setHotspotBounds(i, j, k, l);
+        }
+    }
+
+    public boolean setState(int ai[])
+    {
+        if (a)
+        {
+            return super.setState(ai);
         } else
         {
-            if (i != 0x80000000)
-            {
-                a = i;
-            }
-            if (j != 0x80000000)
-            {
-                b = j;
-                return;
-            }
+            return false;
         }
     }
 
-    public void a(boolean flag)
+    public boolean setVisible(boolean flag, boolean flag1)
     {
-        if (flag == g)
+        if (a)
         {
-            return;
-        }
-        g = flag;
-        if (h)
-        {
-            if (flag)
-            {
-                int i;
-                if (d != 0x80000000)
-                {
-                    i = d;
-                } else
-                {
-                    i = e;
-                }
-                a = i;
-                if (c != 0x80000000)
-                {
-                    i = c;
-                } else
-                {
-                    i = f;
-                }
-                b = i;
-                return;
-            }
-            int j;
-            if (c != 0x80000000)
-            {
-                j = c;
-            } else
-            {
-                j = e;
-            }
-            a = j;
-            if (d != 0x80000000)
-            {
-                j = d;
-            } else
-            {
-                j = f;
-            }
-            b = j;
-            return;
+            return super.setVisible(flag, flag1);
         } else
         {
-            a = e;
-            b = f;
-            return;
-        }
-    }
-
-    public int b()
-    {
-        return b;
-    }
-
-    public void b(int i, int j)
-    {
-        h = false;
-        if (i != 0x80000000)
-        {
-            e = i;
-            a = i;
-        }
-        if (j != 0x80000000)
-        {
-            f = j;
-            b = j;
-        }
-    }
-
-    public int c()
-    {
-        if (g)
-        {
-            return b;
-        } else
-        {
-            return a;
-        }
-    }
-
-    public int d()
-    {
-        if (g)
-        {
-            return a;
-        } else
-        {
-            return b;
+            return false;
         }
     }
 }

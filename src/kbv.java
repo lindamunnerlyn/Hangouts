@@ -3,26 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kbv extends koj
+public final class kbv extends kwm
 {
 
-    public String a;
-    public String b;
-    public String c;
-    public Float d;
-    public Float e;
-    public Integer f;
-    public Float g;
+    public Integer a;
+    public Integer b;
+    public Float c;
 
     public kbv()
     {
         a = null;
         b = null;
         c = null;
-        d = null;
-        e = null;
-        f = null;
-        g = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -33,53 +25,31 @@ public final class kbv extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.e(1, a.intValue());
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.b(2, b);
+            j = i + kwk.e(2, b.intValue());
         }
         i = j;
         if (c != null)
         {
-            i = j + koh.b(3, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            d.floatValue();
-            j = i + (koh.f(4) + 4);
-        }
-        i = j;
-        if (e != null)
-        {
-            e.floatValue();
-            i = j + (koh.f(5) + 4);
-        }
-        j = i;
-        if (f != null)
-        {
-            j = i + koh.e(6, f.intValue());
-        }
-        i = j;
-        if (g != null)
-        {
-            g.floatValue();
-            i = j + (koh.f(7) + 4);
+            c.floatValue();
+            i = j + (kwk.f(4) + 4);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -88,67 +58,35 @@ public final class kbv extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                a = kog1.j();
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
                 break;
 
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-
-            case 26: // '\032'
-                c = kog1.j();
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
                 break;
 
             case 37: // '%'
-                d = Float.valueOf(kog1.c());
-                break;
-
-            case 45: // '-'
-                e = Float.valueOf(kog1.c());
-                break;
-
-            case 48: // '0'
-                f = Integer.valueOf(kog1.f());
-                break;
-
-            case 61: // '='
-                g = Float.valueOf(kog1.c());
+                c = Float.valueOf(kwj1.c());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(1, a.intValue());
         }
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.a(2, b.intValue());
         }
         if (c != null)
         {
-            koh1.a(3, c);
+            kwk1.a(4, c.floatValue());
         }
-        if (d != null)
-        {
-            koh1.a(4, d.floatValue());
-        }
-        if (e != null)
-        {
-            koh1.a(5, e.floatValue());
-        }
-        if (f != null)
-        {
-            koh1.a(6, f.intValue());
-        }
-        if (g != null)
-        {
-            koh1.a(7, g.floatValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

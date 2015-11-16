@@ -2,69 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.ContextWrapper;
-import android.view.LayoutInflater;
+import android.app.Activity;
 
-public final class hhb extends ContextWrapper
-    implements hha
+public final class hhb
+    implements hmd
 {
-
-    private final hgx a;
-    private LayoutInflater b;
 
     public hhb()
     {
-        super(null);
-        a = new hgx();
     }
 
-    public hhb(Context context)
+    public Class a()
     {
-        this(context, hgx.b(context));
+        return hgz;
     }
 
-    public hhb(Context context, hgx hgx1)
+    public void a(Activity activity, hof hof, hlp hlp1)
     {
-        super(context);
-        if (context == null)
-        {
-            throw new IllegalArgumentException("Cannot construct BinderContextWrapper with null Context");
-        } else
-        {
-            a = new hgx(this, hgx1);
-            return;
-        }
-    }
-
-    public void a(Context context)
-    {
-        attachBaseContext(context);
-        a.a(context);
-    }
-
-    public void a(hgx hgx1)
-    {
-        a.a(hgx1);
-    }
-
-    public hgx getBinder()
-    {
-        return a;
-    }
-
-    public Object getSystemService(String s)
-    {
-        if (s.equals("layout_inflater"))
-        {
-            if (b == null)
-            {
-                b = ((LayoutInflater)super.getSystemService(s)).cloneInContext(this);
-            }
-            return b;
-        } else
-        {
-            return super.getSystemService(s);
-        }
+        hlp1.a(hgz, new hgz(activity, hof));
     }
 }

@@ -3,7 +3,7 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class d extends koj
+public final class d extends kwm
 {
 
     public String a;
@@ -19,18 +19,18 @@ public final class d extends koj
 
     protected int computeSerializedSize()
     {
-        return super.computeSerializedSize() + koh.b(1, a) + koh.b(2, b);
+        return super.computeSerializedSize() + kwk.b(1, a) + kwk.b(2, b);
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -40,20 +40,20 @@ public final class d extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                a = kwj1.j();
                 break;
 
             case 18: // '\022'
-                b = kog1.j();
+                b = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.a(1, a);
-        koh1.a(2, b);
-        super.writeTo(koh1);
+        kwk1.a(1, a);
+        kwk1.a(2, b);
+        super.writeTo(kwk1);
     }
 }

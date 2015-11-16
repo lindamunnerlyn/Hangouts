@@ -2,43 +2,127 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
 
-public final class jkm
+public final class jkm extends kwm
 {
 
-    static final jgu a = jgu.a(", ").b("null");
+    private static volatile jkm e[];
+    public String a;
+    public String b;
+    public String c;
+    public Integer d;
 
-    static StringBuilder a(int i)
+    public jkm()
     {
-        g.c(i, "size");
-        return new StringBuilder((int)Math.min((long)i << 3, 0x40000000L));
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public static Collection a(Iterable iterable)
+    public static jkm[] a()
     {
-        return (Collection)iterable;
+        if (e == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (e == null)
+                {
+                    e = new jkm[0];
+                }
+            }
+        }
+        return e;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    static boolean a(Collection collection, Object obj)
+    protected int computeSerializedSize()
     {
-        n.b(collection);
-        boolean flag;
-        try
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            flag = collection.contains(obj);
+            i = j + kwk.b(1, a);
         }
-        // Misplaced declaration of an exception variable
-        catch (Collection collection)
+        j = i;
+        if (b != null)
         {
-            return false;
+            j = i + kwk.b(2, b);
         }
-        // Misplaced declaration of an exception variable
-        catch (Collection collection)
+        i = j;
+        if (c != null)
         {
-            return false;
+            i = j + kwk.b(3, c);
         }
-        return flag;
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.e(4, d.intValue());
+        }
+        return j;
     }
 
+    public kws mergeFrom(kwj kwj1)
+    {
+_L7:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 5: default 56
+    //                   0: 65
+    //                   10: 67
+    //                   18: 78
+    //                   26: 89
+    //                   32: 100;
+           goto _L1 _L2 _L3 _L4 _L5 _L6
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L7; else goto _L2
+_L2:
+        return this;
+_L3:
+        a = kwj1.j();
+          goto _L7
+_L4:
+        b = kwj1.j();
+          goto _L7
+_L5:
+        c = kwj1.j();
+          goto _L7
+_L6:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 1: // '\001'
+        case 2: // '\002'
+            d = Integer.valueOf(j);
+            break;
+        }
+        if (true) goto _L7; else goto _L8
+_L8:
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.intValue());
+        }
+        super.writeTo(kwk1);
+    }
 }

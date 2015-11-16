@@ -2,28 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.widget.AdapterView;
+import android.content.Context;
 
-final class bfn
-    implements android.widget.AdapterView.OnItemClickListener
+public final class bfn
 {
 
-    final bfo a;
-    final bfk b;
+    public static final String a = bex.getName();
+    public static final String b = ber.getName();
+    private static bfm c;
 
-    bfn(bfk bfk, bfo bfo1)
+    public static void a(Context context, hlp hlp1)
     {
-        b = bfk;
-        a = bfo1;
-        super();
-    }
-
-    public void onItemClick(AdapterView adapterview, View view, int i, long l)
-    {
-        if (a != null)
+        if (c == null)
         {
-            a.a((edk)view);
+            c = new bfm();
         }
+        hlp1.a(bex, c.a(context));
     }
+
+    public static void a(hlp hlp1)
+    {
+        if (c == null)
+        {
+            c = new bfm();
+        }
+        hlp1.a(ber, c.a());
+    }
+
 }

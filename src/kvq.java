@@ -2,232 +2,107 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.IOException;
 
-public final class kvq extends kma
-    implements kna
+final class kvq
+    implements Comparable, java.util.Map.Entry
 {
 
-    private static volatile knb g = null;
-    private static final kvq i;
-    private static volatile knc j;
-    private static final long serialVersionUID = 0L;
-    private int d;
-    private long e;
-    private String f;
-    private byte h;
+    final kvl a;
+    private final Comparable b;
+    private Object c;
 
-    private kvq(klr klr1)
+    kvq(kvl kvl1, Comparable comparable, Object obj)
     {
-        kns kns1;
-        boolean flag;
-        h = -1;
-        e = 0L;
-        f = "";
-        kns1 = knr.newBuilder();
-        flag = false;
-_L8:
-        if (flag) goto _L2; else goto _L1
-_L1:
-        int i1 = klr1.a();
-        i1;
-        JVM INSTR lookupswitch 3: default 194
-    //                   0: 197
-    //                   224: 92
-    //                   234: 138;
-           goto _L3 _L4 _L5 _L6
-_L3:
-        if (!kns1.a(i1, klr1))
-        {
-            flag = true;
-        }
-        continue; /* Loop/switch isn't completed */
-_L5:
-        d = d | 1;
-        e = klr1.e();
-        continue; /* Loop/switch isn't completed */
-        klr1;
-        throw new RuntimeException(klr1.a(this));
-        klr1;
-        b = kns1.a();
-        throw klr1;
-_L6:
-        String s = klr1.j();
-        d = d | 2;
-        f = s;
-        continue; /* Loop/switch isn't completed */
-        klr1;
-        throw new RuntimeException((new kmr(klr1.getMessage())).a(this));
-_L2:
-        b = kns1.a();
-        return;
-_L4:
-        flag = true;
-        if (true) goto _L8; else goto _L7
-_L7:
+        a = kvl1;
+        super();
+        b = comparable;
+        c = obj;
     }
 
-    public static kvq j()
+    kvq(kvl kvl1, java.util.Map.Entry entry)
     {
-        return i;
+        this(kvl1, (Comparable)entry.getKey(), entry.getValue());
     }
 
-    static kvq k()
+    private static boolean a(Object obj, Object obj1)
     {
-        return i;
-    }
-
-    private boolean l()
-    {
-        return (d & 1) == 1;
-    }
-
-    public static kvr newBuilder()
-    {
-        return (kvr)i.g();
-    }
-
-    public static kvr newBuilder(kvq kvq1)
-    {
-        return (kvr)((kvr)i.g()).a(kvq1);
-    }
-
-    protected final Object a(int i1, Object obj, Object obj1)
-    {
-        kvk.a[i1 - 1];
-        JVM INSTR tableswitch 1 8: default 52
-    //                   1 60
-    //                   2 74
-    //                   3 91
-    //                   4 153
-    //                   5 155
-    //                   6 163
-    //                   7 255
-    //                   8 259;
-           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9
-_L1:
-        throw new UnsupportedOperationException();
-_L2:
-        obj1 = new kvq((klr)obj);
-_L11:
-        return obj1;
-_L3:
-        obj = kmn.e;
-        klv.a();
-        return new kvq(((klr) (obj)));
-_L4:
-        i1 = h;
-        if (i1 == 1)
+        if (obj == null)
         {
-            return i;
-        }
-        if (i1 == 0)
-        {
-            return null;
-        }
-        boolean flag = ((Boolean)obj).booleanValue();
-        if (!l())
-        {
-            if (flag)
-            {
-                h = 0;
-            }
-            return null;
-        }
-        if (flag)
-        {
-            h = 1;
-        }
-        return i;
-_L5:
-        return null;
-_L6:
-        return new kvr();
-_L7:
-        obj1 = this;
-        if (obj == i) goto _L11; else goto _L10
-_L10:
-        obj = (kvq)obj;
-        if (((kvq) (obj)).l())
-        {
-            long l1 = ((kvq) (obj)).e;
-            d = d | 1;
-            e = l1;
-        }
-        if ((((kvq) (obj)).d & 2) == 2)
-        {
-            i1 = 1;
+            return obj1 == null;
         } else
         {
-            i1 = 0;
+            return obj.equals(obj1);
         }
-        if (i1 != 0)
-        {
-            d = d | 2;
-            f = ((kvq) (obj)).f;
-        }
-        a(((kvq) (obj)).b);
-        return this;
-_L8:
-        return i;
-_L9:
-        if (j != null) goto _L13; else goto _L12
-_L12:
-        kvq;
-        JVM INSTR monitorenter ;
-        if (j == null)
-        {
-            j = new kmd(i);
-        }
-        kvq;
-        JVM INSTR monitorexit ;
-_L13:
-        return j;
-        obj;
-        kvq;
-        JVM INSTR monitorexit ;
-        throw obj;
     }
 
-    public void a(kls kls1)
+    public Comparable a()
     {
-        if ((d & 1) == 1)
-        {
-            kls1.b(28, e);
-        }
-        if ((d & 2) == 2)
-        {
-            kls1.a(29, f);
-        }
-        b.a(kls1);
+        return b;
     }
 
-    public int m()
+    public int compareTo(Object obj)
     {
-        int i1 = c;
-        if (i1 != -1)
-        {
-            return i1;
-        }
-        i1 = 0;
-        if ((d & 1) == 1)
-        {
-            i1 = kls.e(28, e) + 0;
-        }
-        int j1 = i1;
-        if ((d & 2) == 2)
-        {
-            j1 = i1 + kls.b(29, f);
-        }
-        i1 = j1 + b.b();
-        c = i1;
-        return i1;
+        obj = (kvq)obj;
+        return a().compareTo(((kvq) (obj)).a());
     }
 
-    static 
+    public boolean equals(Object obj)
     {
-        klr klr1 = kmn.e;
-        klv.a();
-        i = new kvq(klr1);
+        if (obj != this)
+        {
+            if (!(obj instanceof java.util.Map.Entry))
+            {
+                return false;
+            }
+            obj = (java.util.Map.Entry)obj;
+            if (!a(b, ((java.util.Map.Entry) (obj)).getKey()) || !a(c, ((java.util.Map.Entry) (obj)).getValue()))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public Object getKey()
+    {
+        return a();
+    }
+
+    public Object getValue()
+    {
+        return c;
+    }
+
+    public int hashCode()
+    {
+        int j = 0;
+        int i;
+        if (b == null)
+        {
+            i = 0;
+        } else
+        {
+            i = b.hashCode();
+        }
+        if (c != null)
+        {
+            j = c.hashCode();
+        }
+        return i ^ j;
+    }
+
+    public Object setValue(Object obj)
+    {
+        a.e();
+        Object obj1 = c;
+        c = obj;
+        return obj1;
+    }
+
+    public String toString()
+    {
+        String s = String.valueOf(b);
+        String s1 = String.valueOf(c);
+        return (new StringBuilder(String.valueOf(s).length() + 1 + String.valueOf(s1).length())).append(s).append("=").append(s1).toString();
     }
 }

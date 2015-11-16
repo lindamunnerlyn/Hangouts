@@ -6,9 +6,9 @@ package com.google.api.client.http;
 
 import com.google.api.client.util.GenericData;
 import h;
-import hok;
-import hol;
-import hom;
+import htg;
+import hth;
+import hti;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -27,7 +27,7 @@ import l;
 public class GenericUrl extends GenericData
 {
 
-    private static final hol URI_FRAGMENT_ESCAPER = new hom("=&-_.!~*'()@:$,;/?:", false);
+    private static final hth URI_FRAGMENT_ESCAPER = new hti("=&-_.!~*'()@:$,;/?:", false);
     private String fragment;
     private String host;
     private List pathParts;
@@ -56,7 +56,7 @@ public class GenericUrl extends GenericData
         pathParts = toPathParts(s2);
         if (s3 != null)
         {
-            s = hok.b(s3);
+            s = htg.b(s3);
         } else
         {
             s = null;
@@ -69,7 +69,7 @@ public class GenericUrl extends GenericData
         s = obj;
         if (s5 != null)
         {
-            s = hok.b(s5);
+            s = htg.b(s5);
         }
         userInfo = s;
     }
@@ -98,7 +98,7 @@ public class GenericUrl extends GenericData
             Object obj = ((java.util.Map.Entry) (obj1)).getValue();
             if (obj != null)
             {
-                obj1 = hok.f((String)((java.util.Map.Entry) (obj1)).getKey());
+                obj1 = htg.f((String)((java.util.Map.Entry) (obj1)).getKey());
                 if (obj instanceof Collection)
                 {
                     obj = ((Collection)obj).iterator();
@@ -125,7 +125,7 @@ public class GenericUrl extends GenericData
             stringbuilder.append('&');
         }
         stringbuilder.append(s);
-        s = hok.f(obj.toString());
+        s = htg.f(obj.toString());
         if (s.length() != 0)
         {
             stringbuilder.append('=').append(s);
@@ -145,7 +145,7 @@ public class GenericUrl extends GenericData
             }
             if (s.length() != 0)
             {
-                stringbuilder.append(hok.c(s));
+                stringbuilder.append(htg.c(s));
             }
         }
 
@@ -192,7 +192,7 @@ public class GenericUrl extends GenericData
             {
                 s1 = s.substring(i);
             }
-            arraylist.add(hok.b(s1));
+            arraylist.add(htg.b(s1));
             i = j + 1;
         }
         return arraylist;
@@ -259,13 +259,13 @@ label0:
     public final String buildAuthority()
     {
         StringBuilder stringbuilder = new StringBuilder();
-        stringbuilder.append((String)h.b(scheme));
+        stringbuilder.append((String)h.a(scheme));
         stringbuilder.append("://");
         if (userInfo != null)
         {
-            stringbuilder.append(hok.e(userInfo)).append('@');
+            stringbuilder.append(htg.e(userInfo)).append('@');
         }
-        stringbuilder.append((String)h.b(host));
+        stringbuilder.append((String)h.a(host));
         int i = port;
         if (i != -1)
         {
@@ -427,7 +427,7 @@ label0:
 
     public final void setHost(String s)
     {
-        host = (String)h.b(s);
+        host = (String)h.a(s);
     }
 
     public void setPathParts(List list)
@@ -456,7 +456,7 @@ label0:
 
     public final void setScheme(String s)
     {
-        scheme = (String)h.b(s);
+        scheme = (String)h.a(s);
     }
 
     public final void setUserInfo(String s)

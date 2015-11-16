@@ -2,88 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.os.Bundle;
-import com.google.android.gms.common.ConnectionResult;
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
 
-final class elz extends em
-    implements eka, ekc
+final class elz
+    implements Runnable
 {
 
-    public final ejx a;
-    private boolean b;
-    private ConnectionResult c;
+    final ely a;
 
-    public elz(Context context, ejx ejx1)
+    elz(ely ely1)
     {
-        super(context);
-        a = ejx1;
+        a = ely1;
+        super();
     }
 
-    private void b(ConnectionResult connectionresult)
+    public void run()
     {
-        c = connectionresult;
-        if (p() && !q())
+        synchronized (ely.a(a))
         {
-            b(connectionresult);
+            if (ely.b(a) <= ely.c(a).b() && ely.d(a) != null)
+            {
+                ely.d(a).d();
+                ely.e(a);
+            }
         }
-    }
-
-    public void a(int l)
-    {
-    }
-
-    public void a(ConnectionResult connectionresult)
-    {
-        b = true;
-        b(connectionresult);
-    }
-
-    public void a(String s, FileDescriptor filedescriptor, PrintWriter printwriter, String as[])
-    {
-        super.a(s, filedescriptor, printwriter, as);
-        a.a(s, printwriter);
-    }
-
-    public void a_(Bundle bundle)
-    {
-        b = false;
-        b(ConnectionResult.a);
-    }
-
-    public boolean c()
-    {
-        return b;
-    }
-
-    protected void i()
-    {
-        super.i();
-        a.a(this);
-        a.a(this);
-        if (c != null)
-        {
-            b(c);
-        }
-        if (!a.e() && !a.f() && !b)
-        {
-            a.b();
-        }
-    }
-
-    protected void j()
-    {
-        a.d();
-    }
-
-    protected void k()
-    {
-        c = null;
-        b = false;
-        a.b(this);
-        a.b(this);
-        a.d();
+        return;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 }

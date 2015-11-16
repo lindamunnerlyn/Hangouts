@@ -2,48 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
-import java.util.concurrent.TimeUnit;
+import java.util.List;
 
-public class csq extends csm
+final class csq
+    implements Runnable
 {
 
-    private static final long serialVersionUID = 1L;
-    private final String a;
+    final int a;
+    final csp b;
 
-    public csq(String s)
+    csq(csp csp1, int i)
     {
-        gbh.b(TextUtils.isEmpty(s));
-        a = s;
+        b = csp1;
+        a = i;
+        super();
     }
 
-    public String a()
+    public void run()
     {
-        return "ui_queue";
-    }
+        for (int i = csp.a(b).size() - 1; i >= 0; i--)
+        {
+            Object obj = (csr)csp.a(b).get(i);
+            if ((a & ((csr) (obj)).a) != 0)
+            {
+                obj = ((csr) (obj)).b;
+                String s = b.a;
+                ((csv) (obj)).a(b.b);
+            }
+        }
 
-    public kop a(String s, int i, int j)
-    {
-        s = new huo();
-        s.a = a;
-        s.e = Integer.valueOf(100);
-        s.d = Integer.valueOf(100);
-        s.c = (new int[] {
-            3
-        });
-        s.i = Boolean.valueOf(false);
-        htm htm1 = new htm();
-        htm1.a = s;
-        return htm1;
-    }
-
-    public long b()
-    {
-        return TimeUnit.MINUTES.toMillis(5L);
-    }
-
-    public String g()
-    {
-        return "userphotoalbums";
     }
 }

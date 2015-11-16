@@ -3,50 +3,48 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.content.Intent;
-import java.util.Collections;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import com.google.android.apps.hangouts.peoplelistv2.impl.EditParticipantsView;
+import com.google.android.apps.hangouts.peoplelistv2.impl.ScrollViewCustom;
 
-final class chk
+public final class chk
+    implements android.view.View.OnClickListener
 {
 
-    chk()
+    final EditParticipantsView a;
+
+    public chk(EditParticipantsView editparticipantsview)
     {
+        a = editparticipantsview;
+        super();
     }
 
-    static ani a(Context context)
+    public void onClick(View view)
     {
-        return dbf.e(((gmo)hgx.a(context, gmo)).a());
-    }
-
-    static void a(Context context, cnd cnd, atd atd)
-    {
-        cnd = g.a(a(context), null, Collections.emptyList(), cnd, atd);
-        cnd.putExtra("opened_from_impression", 2148);
-        context.startActivity(cnd);
-    }
-
-    public cff a()
-    {
-        return new chl(this);
-    }
-
-    public cfe b()
-    {
-        return new chm(this);
-    }
-
-    public cfc c()
-    {
-        return new chn(this);
-    }
-
-    public cfd d()
-    {
-        return new cho(this);
-    }
-
-    public blh e()
-    {
-        return new chp(this);
+        Object obj;
+        int i;
+        EditParticipantsView.e(a).requestChildFocus(EditParticipantsView.a(a), view);
+        i = EditParticipantsView.a(a).indexOfChild(view);
+        obj = view.getTag();
+        if (i != -1) goto _L2; else goto _L1
+_L1:
+        EditParticipantsView.a(a, null);
+_L4:
+        EditParticipantsView.c(a);
+        ((InputMethodManager)view.getContext().getSystemService("input_method")).hideSoftInputFromWindow(view.getWindowToken(), 0);
+        if (EditParticipantsView.g(a) != null)
+        {
+            EditParticipantsView.e(a).requestChildFocus(EditParticipantsView.g(a), EditParticipantsView.g(a));
+        }
+        return;
+_L2:
+        if (obj != null)
+        {
+            EditParticipantsView.a(a, view);
+        }
+        if (true) goto _L4; else goto _L3
+_L3:
     }
 }

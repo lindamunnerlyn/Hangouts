@@ -3,78 +3,198 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jjr
-    implements java.util.Map.Entry
+public final class jjr extends kwm
 {
 
-    private final Object a;
-    private final Object b;
-    private final jjl c;
+    public Boolean a;
+    public Boolean b;
+    public jjs c;
+    public Integer d;
+    public int e[];
 
-    jjr(Object obj, Object obj1, jjl jjl1)
+    public jjr()
     {
-        a = obj;
-        b = obj1;
-        c = (jjl)n.b(jjl1);
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        e = kwx.a;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public boolean equals(Object obj)
+    protected int computeSerializedSize()
     {
-        boolean flag1 = false;
-        boolean flag = flag1;
-        if (obj instanceof java.util.Map.Entry)
+        boolean flag = false;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            obj = (java.util.Map.Entry)obj;
-            flag = flag1;
-            if (n.a(getKey(), ((java.util.Map.Entry) (obj)).getKey()))
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
+        }
+        j = i;
+        if (b != null)
+        {
+            b.booleanValue();
+            j = i + (kwk.f(2) + 1);
+        }
+        int k = j;
+        if (c != null)
+        {
+            k = j + kwk.d(3, c);
+        }
+        i = k;
+        if (d != null)
+        {
+            i = k + kwk.f(4, d.intValue());
+        }
+        j = i;
+        if (e != null)
+        {
+            j = i;
+            if (e.length > 0)
             {
-                flag = flag1;
-                if (n.a(getValue(), ((java.util.Map.Entry) (obj)).getValue()))
+                int l = 0;
+                for (j = ((flag) ? 1 : 0); j < e.length; j++)
                 {
-                    flag = true;
+                    l += kwk.e(e[j]);
                 }
+
+                j = i + l + e.length * 1;
             }
         }
-        return flag;
+        return j;
     }
 
-    public Object getKey()
+    public kws mergeFrom(kwj kwj1)
     {
-        return a;
-    }
-
-    public Object getValue()
-    {
-        return b;
-    }
-
-    public int hashCode()
-    {
-        int j = 0;
-        Object obj = getKey();
-        Object obj1 = getValue();
-        int i;
-        if (obj == null)
+        do
         {
-            i = 0;
-        } else
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 16: // '\020'
+                b = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 26: // '\032'
+                if (c == null)
+                {
+                    c = new jjs();
+                }
+                kwj1.a(c);
+                break;
+
+            case 32: // ' '
+                d = Integer.valueOf(kwj1.l());
+                break;
+
+            case 40: // '('
+                int l = kwx.a(kwj1, 40);
+                int ai[];
+                int j;
+                if (e == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = e.length;
+                }
+                ai = new int[l + j];
+                l = j;
+                if (j != 0)
+                {
+                    System.arraycopy(e, 0, ai, 0, j);
+                    l = j;
+                }
+                for (; l < ai.length - 1; l++)
+                {
+                    ai[l] = kwj1.f();
+                    kwj1.a();
+                }
+
+                ai[l] = kwj1.f();
+                e = ai;
+                break;
+
+            case 42: // '*'
+                int j1 = kwj1.c(kwj1.p());
+                int k = kwj1.r();
+                int i1;
+                for (i1 = 0; kwj1.q() > 0; i1++)
+                {
+                    kwj1.f();
+                }
+
+                kwj1.e(k);
+                int ai1[];
+                if (e == null)
+                {
+                    k = 0;
+                } else
+                {
+                    k = e.length;
+                }
+                ai1 = new int[i1 + k];
+                i1 = k;
+                if (k != 0)
+                {
+                    System.arraycopy(e, 0, ai1, 0, k);
+                    i1 = k;
+                }
+                for (; i1 < ai1.length; i1++)
+                {
+                    ai1[i1] = kwj1.f();
+                }
+
+                e = ai1;
+                kwj1.d(j1);
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
         {
-            i = obj.hashCode();
+            kwk1.a(1, a.booleanValue());
         }
-        if (obj1 != null)
+        if (b != null)
         {
-            j = obj1.hashCode();
+            kwk1.a(2, b.booleanValue());
         }
-        return j ^ i;
-    }
+        if (c != null)
+        {
+            kwk1.b(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.c(4, d.intValue());
+        }
+        if (e != null && e.length > 0)
+        {
+            for (int i = 0; i < e.length; i++)
+            {
+                kwk1.a(5, e[i]);
+            }
 
-    public final Object setValue(Object obj)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public String toString()
-    {
-        return (new StringBuilder()).append(getKey()).append("=").append(getValue()).toString();
+        }
+        super.writeTo(kwk1);
     }
 }

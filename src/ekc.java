@@ -2,10 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.ConnectionResult;
+import android.os.Handler;
+import com.google.android.apps.hangouts.wearable.WearableService;
 
-public interface ekc
+public final class ekc
+    implements aqs
 {
 
-    public abstract void a(ConnectionResult connectionresult);
+    final WearableService a;
+
+    public ekc(WearableService wearableservice)
+    {
+        a = wearableservice;
+        super();
+    }
+
+    public void a(eef eef, edf edf, boolean flag, aqn aqn, boolean flag1)
+    {
+        if (flag && eef != null)
+        {
+            a.n.post(new ekd(this, aqn, eef));
+        }
+    }
 }

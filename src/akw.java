@@ -2,12 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public interface akw
+public final class akw extends ea
 {
 
-    public static final String a[] = {
-        "phone_number_e164", "is_default", "refreshed_at", "client_callerid_setting"
-    };
+    private Context f;
+    private int g;
+    private ajo h;
 
+    public akw(Context context, ajo ajo)
+    {
+        super(context);
+        f = context;
+        g = ((gqu)hlp.a(context, gqu)).a();
+        h = ajo;
+    }
+
+    public Object d()
+    {
+        if (g.a(f, g))
+        {
+            return ajn.a(f, g, h);
+        } else
+        {
+            return null;
+        }
+    }
 }

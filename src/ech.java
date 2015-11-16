@@ -3,12 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public abstract class ech extends hhs
+final class ech
 {
 
-    public ech()
+    ech()
     {
     }
-
-    public abstract void a(eci eci);
 }

@@ -6,8 +6,12 @@
 final class epb
 {
 
-    static final eox a[] = {
-        new epc(eox.a("0\202\003\2670\202\002\237\240\003\002\001\002\002\t\000\356\017h\202Xh\345\3050")), new epd(eox.a("0\202\003\2670\202\002\237\240\003\002\001\002\002\t\000\221\271\272\310\325xZ\2520"))
-    };
+    public final emy a;
+    public final end b;
 
+    epb(emy emy, end end)
+    {
+        a = emy;
+        b = end;
+    }
 }

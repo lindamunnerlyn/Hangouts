@@ -2,141 +2,138 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.ByteArrayOutputStream;
+import java.text.NumberFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public final class hsq extends koj
+public final class hsq extends ByteArrayOutputStream
 {
 
-    public String a;
-    public String b;
-    public Integer c;
-    public String d;
-    public Boolean e;
-    public Integer f;
+    private int a;
+    private final int b;
+    private boolean c;
+    private final Level d;
+    private final Logger e;
 
-    public hsq()
+    public hsq(Logger logger, Level level, int i)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        e = null;
-        f = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        e = (Logger)h.a(logger);
+        d = (Level)h.a(level);
+        boolean flag;
+        if (i >= 0)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        l.a(flag);
+        b = i;
     }
 
-    protected int computeSerializedSize()
+    private static void a(StringBuilder stringbuilder, int i)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        if (i == 1)
         {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != null)
+            stringbuilder.append("1 byte");
+            return;
+        } else
         {
-            j = i + koh.b(2, b);
+            stringbuilder.append(NumberFormat.getInstance().format(i)).append(" bytes");
+            return;
         }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.intValue());
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.b(4, d);
-        }
-        i = j;
-        if (e != null)
-        {
-            e.booleanValue();
-            i = j + (koh.f(5) + 1);
-        }
-        j = i;
-        if (f != null)
-        {
-            j = i + koh.e(6, f.intValue());
-        }
-        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public void close()
     {
-_L9:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 7: default 72
-    //                   0: 81
-    //                   10: 83
-    //                   18: 94
-    //                   24: 105
-    //                   34: 119
-    //                   40: 130
-    //                   48: 144;
-           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L9; else goto _L2
-_L2:
-        return this;
-_L3:
-        a = kog1.j();
-          goto _L9
-_L4:
-        b = kog1.j();
-          goto _L9
-_L5:
-        c = Integer.valueOf(kog1.f());
-          goto _L9
-_L6:
-        d = kog1.j();
-          goto _L9
-_L7:
-        e = Boolean.valueOf(kog1.i());
-          goto _L9
-_L8:
-        int j = kog1.f();
-        switch (j)
+        this;
+        JVM INSTR monitorenter ;
+        if (!c)
         {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-        case 99: // 'c'
-            f = Integer.valueOf(j);
-            break;
+            if (a != 0)
+            {
+                StringBuilder stringbuilder = new StringBuilder("Total: ");
+                a(stringbuilder, a);
+                if (count != 0 && count < a)
+                {
+                    stringbuilder.append(" (logging first ");
+                    a(stringbuilder, count);
+                    stringbuilder.append(")");
+                }
+                e.config(stringbuilder.toString());
+                if (count != 0)
+                {
+                    e.log(d, toString("UTF-8").replaceAll("[\\x00-\\x09\\x0B\\x0C\\x0E-\\x1F\\x7F]", " "));
+                }
+            }
+            c = true;
         }
-        if (true) goto _L9; else goto _L10
-_L10:
+        this;
+        JVM INSTR monitorexit ;
+        return;
+        Exception exception;
+        exception;
+        throw exception;
     }
 
-    public void writeTo(koh koh1)
+    public void write(int i)
     {
-        if (a != null)
+        this;
+        JVM INSTR monitorenter ;
+        boolean flag;
+        if (!c)
         {
-            koh1.a(1, a);
-        }
-        if (b != null)
+            flag = true;
+        } else
         {
-            koh1.a(2, b);
+            flag = false;
         }
-        if (c != null)
+        l.a(flag);
+        a = a + 1;
+        if (count < b)
         {
-            koh1.a(3, c.intValue());
+            super.write(i);
         }
-        if (d != null)
+        this;
+        JVM INSTR monitorexit ;
+        return;
+        Exception exception;
+        exception;
+        throw exception;
+    }
+
+    public void write(byte abyte0[], int i, int j)
+    {
+        this;
+        JVM INSTR monitorenter ;
+        int k;
+        int i1;
+        boolean flag;
+        if (!c)
         {
-            koh1.a(4, d);
-        }
-        if (e != null)
+            flag = true;
+        } else
         {
-            koh1.a(5, e.booleanValue());
+            flag = false;
         }
-        if (f != null)
+        l.a(flag);
+        a = a + j;
+        if (count >= b)
         {
-            koh1.a(6, f.intValue());
+            break MISSING_BLOCK_LABEL_77;
         }
-        super.writeTo(koh1);
+        i1 = count + j;
+        k = j;
+        if (i1 > b)
+        {
+            k = j + (b - i1);
+        }
+        super.write(abyte0, i, k);
+        this;
+        JVM INSTR monitorexit ;
+        return;
+        abyte0;
+        throw abyte0;
     }
 }

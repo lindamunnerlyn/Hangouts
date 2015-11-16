@@ -3,28 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class bpr extends boh
+final class bpr extends gdp
 {
 
-    final bpq a;
+    final bpm a;
 
-    bpr(bpq bpq1)
+    bpr(bpm bpm1)
     {
-        a = bpq1;
+        a = bpm1;
         super();
     }
 
-    public void a(bpd bpd)
+    public void a(kws kws)
     {
-        bpq.b(a);
-        a.a();
+        kws = (jgc)kws;
+        a.a(kws);
     }
 
-    public void a(gho gho1, fyb fyb)
+    public void a(kws kws, kws kws1)
     {
-        if ((fyb instanceof ghr) && bpq.a(a).a(gho1))
-        {
-            a.a();
-        }
+        kws = (jgc)kws1;
+        a.a(kws);
     }
 }

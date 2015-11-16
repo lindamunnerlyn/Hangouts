@@ -3,13 +3,13 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.content.Intent;
+import android.content.pm.ResolveInfo;
+import android.database.DataSetObserver;
 import android.support.v7.internal.widget.ActivityChooserView;
-import android.view.View;
-import android.widget.AdapterView;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 
-public final class up
-    implements android.view.View.OnClickListener, android.view.View.OnLongClickListener, android.widget.AdapterView.OnItemClickListener, android.widget.PopupWindow.OnDismissListener
+public final class up extends DataSetObserver
 {
 
     final ActivityChooserView a;
@@ -20,98 +20,47 @@ public final class up
         super();
     }
 
-    public void onClick(View view)
+    public void onChanged()
     {
-        if (view == ActivityChooserView.e(a))
+        super.onChanged();
+        ActivityChooserView activitychooserview = a;
+        int i;
+        int j;
+        if (activitychooserview.a.getCount() > 0)
         {
-            a.b();
-            view = ActivityChooserView.a(a).b();
-            int i = ActivityChooserView.a(a).e().a(view);
-            view = ActivityChooserView.a(a).e().b(i);
-            if (view != null)
-            {
-                view.addFlags(0x80000);
-                a.getContext().startActivity(view);
-            }
-            return;
+            activitychooserview.d.setEnabled(true);
+        } else
+        {
+            activitychooserview.d.setEnabled(false);
         }
-        if (view == ActivityChooserView.f(a))
+        i = activitychooserview.a.c();
+        j = activitychooserview.a.d();
+        if (i == 1 || i > 1 && j > 0)
         {
-            ActivityChooserView.a(a, false);
-            ActivityChooserView.a(a, ActivityChooserView.g(a));
+            activitychooserview.e.setVisibility(0);
+            Object obj = activitychooserview.a.b();
+            android.content.pm.PackageManager packagemanager = activitychooserview.getContext().getPackageManager();
+            activitychooserview.f.setImageDrawable(((ResolveInfo) (obj)).loadIcon(packagemanager));
+            if (activitychooserview.l != 0)
+            {
+                obj = ((ResolveInfo) (obj)).loadLabel(packagemanager);
+                obj = activitychooserview.getContext().getString(activitychooserview.l, new Object[] {
+                    obj
+                });
+                activitychooserview.e.setContentDescription(((CharSequence) (obj)));
+            }
+        } else
+        {
+            activitychooserview.e.setVisibility(8);
+        }
+        if (activitychooserview.e.getVisibility() == 0)
+        {
+            activitychooserview.b.setBackgroundDrawable(activitychooserview.c);
             return;
         } else
         {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    public void onDismiss()
-    {
-        if (ActivityChooserView.h(a) != null)
-        {
-            ActivityChooserView.h(a).onDismiss();
-        }
-        if (a.a != null)
-        {
-            a.a.a(false);
-        }
-    }
-
-    public void onItemClick(AdapterView adapterview, View view, int i, long l)
-    {
-        ((uo)adapterview.getAdapter()).getItemViewType(i);
-        JVM INSTR tableswitch 0 1: default 32
-    //                   0 50
-    //                   1 40;
-           goto _L1 _L2 _L3
-_L1:
-        throw new IllegalArgumentException();
-_L3:
-        ActivityChooserView.a(a, 0x7fffffff);
-_L5:
-        return;
-_L2:
-        a.b();
-        if (!ActivityChooserView.d(a))
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        if (i > 0)
-        {
-            ActivityChooserView.a(a).e().c(i);
+            activitychooserview.b.setBackgroundDrawable(null);
             return;
-        }
-        if (true) goto _L5; else goto _L4
-_L4:
-        if (!ActivityChooserView.a(a).f())
-        {
-            i++;
-        }
-        adapterview = ActivityChooserView.a(a).e().b(i);
-        if (adapterview != null)
-        {
-            adapterview.addFlags(0x80000);
-            a.getContext().startActivity(adapterview);
-            return;
-        }
-        if (true) goto _L5; else goto _L6
-_L6:
-    }
-
-    public boolean onLongClick(View view)
-    {
-        if (view == ActivityChooserView.e(a))
-        {
-            if (ActivityChooserView.a(a).getCount() > 0)
-            {
-                ActivityChooserView.a(a, true);
-                ActivityChooserView.a(a, ActivityChooserView.g(a));
-            }
-            return true;
-        } else
-        {
-            throw new IllegalArgumentException();
         }
     }
 }

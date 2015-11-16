@@ -4,8 +4,7 @@
 
 package com.google.android.apps.hangouts.views;
 
-import ahj;
-import amy;
+import ahb;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -15,46 +14,47 @@ import android.graphics.Rect;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
-import ani;
-import anv;
-import apw;
-import aqb;
-import aqw;
-import cey;
-import dlb;
-import dle;
-import dlf;
-import dmt;
-import dpy;
-import dqa;
-import dzl;
-import dzn;
-import eab;
-import eam;
-import ean;
-import ebh;
-import ebw;
+import anq;
+import aoa;
+import aon;
+import aqn;
+import aqs;
+import arn;
+import cgd;
+import dny;
+import dob;
+import doc;
+import dpn;
+import dsr;
+import dst;
+import ecp;
+import ecr;
+import edf;
+import edq;
+import edr;
+import eef;
+import eev;
 import g;
-import gbh;
+import gdv;
 import he;
-import hgx;
+import hlp;
 
 public class AvatarView extends View
-    implements aqb, dle, dlf
+    implements aqs, dob, doc
 {
 
     public static final boolean a = false;
     private int b;
     private String c;
-    private amy d;
-    private apw e;
+    private anq d;
+    private aqn e;
     private Bitmap f;
-    private ebh g;
+    private eef g;
     private Bitmap h;
     private Bitmap i;
     private final Rect j;
     private final Rect k;
-    private final dpy l;
+    private final dsr l;
     private boolean m;
     private int n;
     private int o;
@@ -76,14 +76,14 @@ public class AvatarView extends View
         super(context, attributeset, i1);
         j = new Rect();
         k = new Rect();
-        l = new dpy();
+        l = new dsr();
         m = true;
         n = 1;
         o = 0;
         if (attributeset != null)
         {
-            TypedArray typedarray = context.obtainStyledAttributes(attributeset, ahj.i);
-            attributeset = typedarray.getString(ahj.k);
+            TypedArray typedarray = context.obtainStyledAttributes(attributeset, ahb.i);
+            attributeset = typedarray.getString(ahb.k);
             context = attributeset;
             if (attributeset == null)
             {
@@ -121,7 +121,7 @@ public class AvatarView extends View
                 throw new IllegalArgumentException(context);
             }
             b = i1;
-            context = typedarray.getString(ahj.j);
+            context = typedarray.getString(ahb.j);
             if (context == null)
             {
                 i1 = ((flag) ? 1 : 0);
@@ -162,19 +162,19 @@ public class AvatarView extends View
         int i1;
         if (n == 0)
         {
-            i1 = dqa.a;
+            i1 = dst.a;
         } else
         {
-            i1 = dqa.b;
+            i1 = dst.b;
         }
-        h = ean.a().b(j1, j1);
-        if (dpy.a(getContext(), h, s, j1, i1, g.dt))
+        h = edr.a().b(j1, j1);
+        if (dsr.a(getContext(), h, s, j1, i1, g.ds))
         {
             a(h);
             return;
         } else
         {
-            ean.a().a(h);
+            edr.a().a(h);
             h = null;
             return;
         }
@@ -206,19 +206,19 @@ _L3:
 _L4:
         if (n == 1)
         {
-            bitmap = anv.d();
+            bitmap = aon.d();
         } else
         {
-            bitmap = anv.c();
+            bitmap = aon.c();
         }
         continue; /* Loop/switch isn't completed */
 _L5:
         if (n == 1)
         {
-            bitmap = anv.i();
+            bitmap = aon.i();
         } else
         {
-            bitmap = anv.h();
+            bitmap = aon.h();
         }
         continue; /* Loop/switch isn't completed */
 _L2:
@@ -226,7 +226,7 @@ _L2:
         {
             break; /* Loop/switch isn't completed */
         }
-        bitmap = anv.p();
+        bitmap = aon.p();
         if (true) goto _L3; else goto _L6
 _L6:
         if (o == 3)
@@ -238,10 +238,10 @@ _L6:
             case 2: // '\002'
                 if (n == 1)
                 {
-                    bitmap = anv.m();
+                    bitmap = aon.m();
                 } else
                 {
-                    bitmap = anv.l();
+                    bitmap = aon.l();
                 }
                 break;
 
@@ -249,10 +249,10 @@ _L6:
             case 4: // '\004'
                 if (n == 1)
                 {
-                    bitmap = anv.o();
+                    bitmap = aon.o();
                 } else
                 {
-                    bitmap = anv.n();
+                    bitmap = aon.n();
                 }
                 break;
             }
@@ -266,13 +266,13 @@ _L6:
             {
                 flag = false;
             }
-            gbh.a(flag);
+            gdv.a("Expected condition to be true", flag);
             if (n == 1)
             {
-                bitmap = anv.k();
+                bitmap = aon.k();
             } else
             {
-                bitmap = anv.j();
+                bitmap = aon.j();
             }
         }
         if (true) goto _L3; else goto _L7
@@ -284,19 +284,19 @@ _L7:
         switch (b)
         {
         default:
-            gbh.a("Invalid avatar size");
+            gdv.a("Invalid avatar size");
             return 0;
 
         case 0: // '\0'
         case 1: // '\001'
         case 2: // '\002'
-            return anv.b();
+            return aon.b();
 
         case 3: // '\003'
-            return anv.e();
+            return aon.e();
 
         case 4: // '\004'
-            return anv.f();
+            return aon.f();
         }
     }
 
@@ -334,11 +334,6 @@ _L7:
         f();
     }
 
-    public void a(amy amy1)
-    {
-        d = null;
-    }
-
     public void a(Bitmap bitmap)
     {
         if (i != bitmap)
@@ -349,70 +344,75 @@ _L7:
         }
     }
 
-    public void a(cey cey, ani ani1)
+    public void a(anq anq1)
     {
-        d();
-        d = dlb.a(cey, ani1, this);
+        d = null;
     }
 
-    public void a(ebh ebh1, eab eab, boolean flag, apw apw1, boolean flag1)
+    public void a(cgd cgd, aoa aoa1)
     {
-        gbh.a(eab);
+        d();
+        d = dny.a(cgd, aoa1, this);
+    }
+
+    public void a(eef eef1, edf edf, boolean flag, aqn aqn1, boolean flag1)
+    {
+        gdv.a("Expected null", edf);
         if (a)
         {
             String s;
-            if (ebh1 == null)
+            if (eef1 == null)
             {
                 s = null;
             } else
             {
-                s = ebh1.toString();
+                s = eef1.toString();
             }
-            if (eab == null)
+            if (edf == null)
             {
-                eab = null;
+                edf = null;
             } else
             {
-                eab = eab.toString();
+                edf = edf.toString();
             }
-            eab = String.valueOf(eab);
-            ebw.b("Babel_medialoader", (new StringBuilder(String.valueOf(s).length() + 72 + String.valueOf(eab).length())).append("AvatarView: setImageBitmap ").append(s).append("gifImage=").append(eab).append(" success=").append(flag).append(" loadedFromCache=").append(flag1).toString());
+            edf = String.valueOf(edf);
+            eev.b("Babel_medialoader", (new StringBuilder(String.valueOf(s).length() + 72 + String.valueOf(edf).length())).append("AvatarView: setImageBitmap ").append(s).append("gifImage=").append(edf).append(" success=").append(flag).append(" loadedFromCache=").append(flag1).toString());
         }
-        if (e != apw1)
+        if (e != aqn1)
         {
-            if (ebh1 != null)
+            if (eef1 != null)
             {
-                ebh1.b();
+                eef1.b();
             }
         } else
         {
             e = null;
-            if (flag && ebh1 != null)
+            if (flag && eef1 != null)
             {
-                gbh.a(g);
-                g = ebh1;
+                gdv.a("Expected null", g);
+                g = eef1;
                 a(g.e());
                 return;
             }
         }
     }
 
-    public void a(String s, String s1, int i1, aqw aqw, ani ani1)
+    public void a(String s, String s1, int i1, arn arn, aoa aoa1)
     {
-        a(s, s1, ((amy) (aqw)), ((String) (null)), ani1);
+        a(s, s1, ((anq) (arn)), ((String) (null)), aoa1);
         if (i1 == 1)
         {
             a(3);
         }
     }
 
-    public void a(String s, String s1, amy amy1, String s2, ani ani1)
+    public void a(String s, String s1, anq anq1, String s2, aoa aoa1)
     {
         d = null;
-        a(s1, s, ani1);
+        a(s1, s, aoa1);
     }
 
-    public void a(String s, String s1, ani ani1)
+    public void a(String s, String s1, aoa aoa1)
     {
         if (TextUtils.isEmpty(s))
         {
@@ -426,7 +426,7 @@ _L7:
         {
             d();
             c = s;
-            s = (new eam(s, ani1.a())).a(g()).d(true);
+            s = (new edq(s, aoa1.a())).a(g()).d(true);
             boolean flag;
             if (n == 0)
             {
@@ -435,8 +435,8 @@ _L7:
             {
                 flag = false;
             }
-            e = new apw(s.b(flag), this, true, null);
-            if (((dmt)hgx.a(getContext(), dmt)).a(e, false))
+            e = new aqn(s.b(flag), this, true, null);
+            if (((dpn)hlp.a(getContext(), dpn)).a(e, false))
             {
                 e = null;
                 return;
@@ -449,10 +449,10 @@ _L7:
         }
     }
 
-    public void a(String s, boolean flag, ani ani1)
+    public void a(String s, boolean flag, aoa aoa1)
     {
         d();
-        d = dlb.a(s, flag, ani1, this);
+        d = dny.a(s, flag, aoa1, this);
     }
 
     public void a(boolean flag)
@@ -498,7 +498,7 @@ _L7:
         }
         if (h != null)
         {
-            ean.a().a(h);
+            edr.a().a(h);
             h = null;
         }
         c = null;
@@ -522,9 +522,9 @@ _L7:
     {
         if (a && i.isRecycled())
         {
-            dzl dzl1 = ean.a();
+            ecp ecp1 = edr.a();
             Bitmap bitmap = i;
-            ebw.e("Babel", "Attempting to draw with a recycled bitmap", new Exception((Exception)dzl1.b.d.a(bitmap)));
+            eev.e("Babel", "Attempting to draw with a recycled bitmap", new Exception((Exception)ecp1.b.d.a(bitmap)));
         }
         canvas.drawBitmap(i, k, j, p);
     }
@@ -537,6 +537,6 @@ _L7:
 
     static 
     {
-        hik hik = ebw.w;
+        hnc hnc = eev.w;
     }
 }

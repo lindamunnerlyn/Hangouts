@@ -2,33 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.widget.TextView;
 
-final class cho
-    implements cfd
+final class cho extends chy
 {
 
-    final chk a;
+    final chn b;
 
-    cho(chk chk1)
+    cho(chn chn, int i, int j)
     {
-        a = chk1;
-        super();
+        b = chn;
+        super(chn, i, true, false, j);
     }
 
-    public int a()
+    protected void a(zs zs)
     {
-        return h.iN;
-    }
-
-    public void a(Context context)
-    {
-        g.a(chk.a(context), 2503);
-        chk.a(context, cnd.a, atd.a);
-    }
-
-    public int b()
-    {
-        return n.i;
+        zs = (chz)zs;
+        chz.a(zs).setText(h.iC);
+        chz.a(zs).setFocusableInTouchMode(true);
     }
 }

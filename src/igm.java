@@ -3,41 +3,65 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class igm extends koj
+public final class igm extends kwm
 {
 
-    public int a;
-    public igo b[];
+    private static volatile igm d[];
+    public Double a;
+    public String b;
+    public igo c[];
 
     public igm()
     {
-        a = 0x80000000;
-        b = igo.a();
+        a = null;
+        b = null;
+        c = igo.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
+    public static igm[] a()
+    {
+        if (d == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (d == null)
+                {
+                    d = new igm[0];
+                }
+            }
+        }
+        return d;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != 0x80000000)
-        {
-            i = j + koh.e(1, a);
-        }
-        j = i;
+        int i = super.computeSerializedSize();
+        a.doubleValue();
+        int j = i + (kwk.f(1) + 8);
+        i = j;
         if (b != null)
         {
+            i = j + kwk.b(2, b);
+        }
+        j = i;
+        if (c != null)
+        {
             j = i;
-            if (b.length > 0)
+            if (c.length > 0)
             {
-                for (j = 0; j < b.length;)
+                for (j = 0; j < c.length;)
                 {
-                    igo igo1 = b[j];
+                    igo igo1 = c[j];
                     int k = i;
                     if (igo1 != null)
                     {
-                        k = i + koh.d(2, igo1);
+                        k = i + kwk.d(3, igo1);
                     }
                     j++;
                     i = k;
@@ -49,81 +73,83 @@ public final class igm extends koj
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L5:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 3: default 40
-    //                   0: 49
-    //                   8: 51
-    //                   18: 95;
-           goto _L1 _L2 _L3 _L4
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L5; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
+        do
         {
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-            a = j;
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        int l = kou.b(kog1, 18);
-        igo aigo[];
-        int k;
-        if (b == null)
-        {
-            k = 0;
-        } else
-        {
-            k = b.length;
-        }
-        aigo = new igo[l + k];
-        l = k;
-        if (k != 0)
-        {
-            System.arraycopy(b, 0, aigo, 0, k);
-            l = k;
-        }
-        for (; l < aigo.length - 1; l++)
-        {
-            aigo[l] = new igo();
-            kog1.a(aigo[l]);
-            kog1.a();
-        }
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
 
-        aigo[l] = new igo();
-        kog1.a(aigo[l]);
-        b = aigo;
-        if (true) goto _L5; else goto _L6
-_L6:
+            case 0: // '\0'
+                return this;
+
+            case 9: // '\t'
+                a = Double.valueOf(kwj1.b());
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+
+            case 26: // '\032'
+                int k = kwx.a(kwj1, 26);
+                igo aigo[];
+                int j;
+                if (c == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = c.length;
+                }
+                aigo = new igo[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(c, 0, aigo, 0, j);
+                    k = j;
+                }
+                for (; k < aigo.length - 1; k++)
+                {
+                    aigo[k] = new igo();
+                    kwj1.a(aigo[k]);
+                    kwj1.a();
+                }
+
+                aigo[k] = new igo();
+                kwj1.a(aigo[k]);
+                c = aigo;
+                break;
+            }
+        } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != 0x80000000)
+        kwk1.a(1, a.doubleValue());
+        if (b != null)
         {
-            koh1.a(1, a);
+            kwk1.a(2, b);
         }
-        if (b != null && b.length > 0)
+        if (c != null && c.length > 0)
         {
-            for (int i = 0; i < b.length; i++)
+            for (int i = 0; i < c.length; i++)
             {
-                igo igo1 = b[i];
+                igo igo1 = c[i];
                 if (igo1 != null)
                 {
-                    koh1.b(2, igo1);
+                    kwk1.b(3, igo1);
                 }
             }
 
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

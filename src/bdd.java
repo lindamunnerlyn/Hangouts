@@ -2,28 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.conversation.v2.stickerpicker.impl.SlidingTabLayout;
 
 final class bdd
-    implements android.view.ViewTreeObserver.OnGlobalLayoutListener
 {
 
-    final int a;
-    final bdc b;
-
-    bdd(bdc bdc1, int i)
+    bdd()
     {
-        b = bdc1;
-        a = i;
-        super();
     }
 
-    public void onGlobalLayout()
+    public bcq a()
     {
-        int i = bdc.a(b).getWidth();
-        if (i != 0)
-        {
-            bdc.a(b).b(i / 2 - a / 2);
-        }
+        return new bde(this);
     }
 }

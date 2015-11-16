@@ -2,56 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.google.android.apps.hangouts.phone.DebugActivity;
-import java.util.List;
+import android.content.DialogInterface;
+import android.widget.EditText;
+import com.google.android.apps.hangouts.phone.BabelHomeActivity;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class ckp extends BaseAdapter
+public final class ckp
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final List a;
-    final List b;
-    final DebugActivity c;
+    final EditText a;
+    final BabelHomeActivity b;
 
-    public ckp(DebugActivity debugactivity, List list, List list1)
+    public ckp(BabelHomeActivity babelhomeactivity, EditText edittext)
     {
-        c = debugactivity;
-        a = list;
-        b = list1;
+        b = babelhomeactivity;
+        a = edittext;
         super();
     }
 
-    public int getCount()
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        return a.size();
-    }
-
-    public Object getItem(int i)
-    {
-        return new clm(c, (String)a.get(i), b.get(i));
-    }
-
-    public long getItemId(int i)
-    {
-        return (long)i;
-    }
-
-    public View getView(int i, View view, ViewGroup viewgroup)
-    {
-        View view1 = view;
-        if (view == null)
-        {
-            view1 = c.getLayoutInflater().inflate(g.gE, viewgroup, false);
-        }
-        view = (TextView)view1.findViewById(h.dm);
-        viewgroup = (TextView)view1.findViewById(h.gT);
-        String s = (String)a.get(i);
-        view.setText(s);
-        viewgroup.setText(DebugActivity.a(s, b.get(i)));
-        return view1;
+        dialoginterface = a.getText().toString();
+        String s = (String)a.getTag();
+        RealTimeChatService.c(BabelHomeActivity.p(b), s, dialoginterface);
     }
 }

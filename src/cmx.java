@@ -2,23 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.File;
-import java.io.FilenameFilter;
+import android.os.Binder;
 
-final class cmx
-    implements FilenameFilter
+public final class cmx extends Binder
 {
 
-    final cmw a;
+    final com.google.android.apps.hangouts.phone.DebugActivity.RecordingService a;
 
-    cmx(cmw cmw)
+    public cmx(com.google.android.apps.hangouts.phone.DebugActivity.RecordingService recordingservice)
     {
-        a = cmw;
+        a = recordingservice;
         super();
     }
 
-    public boolean accept(File file, String s)
+    com.google.android.apps.hangouts.phone.DebugActivity.RecordingService a()
     {
-        return s != null && (s.startsWith("mmsdump-") || s.startsWith("smsdump-"));
+        return a;
     }
 }

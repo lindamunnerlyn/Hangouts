@@ -2,85 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Cursor;
-import android.database.CursorWrapper;
-import android.text.TextUtils;
 
-public final class aqx extends CursorWrapper
-    implements bgz
+final class aqx
 {
 
-    private bgl a;
+    static final int a[];
 
-    public aqx(Cursor cursor)
+    static 
     {
-        super(cursor);
-    }
-
-    public fqo a()
-    {
-        Object obj1 = null;
-        Object obj = obj1;
-        if (a != null)
+        a = new int[dsv.values().length];
+        try
         {
-            obj = obj1;
-            if (e() != 1)
-            {
-                obj = getString(2);
-                String s = ebz.k(getString(1));
-                if (!TextUtils.isEmpty(((CharSequence) (obj))))
-                {
-                    obj = a.a(((String) (obj)));
-                } else
-                {
-                    obj = obj1;
-                    if (!TextUtils.isEmpty(s))
-                    {
-                        return a.b(s);
-                    }
-                }
-            }
+            a[dsv.m.ordinal()] = 1;
         }
-        return ((fqo) (obj));
-    }
-
-    public void a(bgl bgl1)
-    {
-        a = bgl1;
-    }
-
-    public bhj b()
-    {
-        return new bhj(new bho(getString(1), ""));
-    }
-
-    public bhb c()
-    {
-        boolean flag = true;
-        String s = getString(0);
-        String s1 = getString(1);
-        long l = getLong(3);
-        int i = getInt(4);
-        String s2 = getString(6);
-        if (getInt(7) == 0)
+        catch (NoSuchFieldError nosuchfielderror4) { }
+        try
         {
-            flag = false;
+            a[dsv.l.ordinal()] = 2;
         }
-        return new bhb(s, s1, l, i, s2, flag);
-    }
-
-    public int d()
-    {
-        return 0;
-    }
-
-    public int e()
-    {
-        return getInt(5);
-    }
-
-    public boolean f()
-    {
-        return true;
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[dsv.o.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[dsv.d.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[dsv.n.ordinal()] = 5;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

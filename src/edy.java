@@ -3,102 +3,77 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.util.SparseIntArray;
-import android.widget.TextView;
-import java.lang.reflect.Field;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
+import android.os.Looper;
 
-public class edy
+final class edy extends Thread
 {
 
-    private static edy b = null;
-    public final SparseIntArray a;
+    public edx a;
+    final edu b;
 
-    protected edy()
+    public edy(edu edu1, edx edx1)
     {
-        Field afield[];
+        b = edu1;
+        super();
+        a = edx1;
+    }
+
+    public void run()
+    {
+        Looper.prepare();
+        b.c = Looper.myLooper();
+        this;
+        JVM INSTR monitorenter ;
+        AudioManager audiomanager = (AudioManager)g.nU.getSystemService("audio");
+        MediaPlayer mediaplayer;
         int i;
-        int i1;
-        a = new SparseIntArray();
-        afield = com/google/android/apps/hangouts/R$drawable.getFields();
-        i1 = afield.length;
-        i = 0;
-_L5:
-        Field field;
-        if (i >= i1)
+        mediaplayer = new MediaPlayer();
+        mediaplayer.setAudioStreamType(a.d);
+        mediaplayer.setDataSource(g.nU, a.b);
+        mediaplayer.setLooping(a.c);
+        mediaplayer.setVolume(a.e, a.e);
+        mediaplayer.prepare();
+        if (a.b == null || a.b.getEncodedPath() == null || a.b.getEncodedPath().length() <= 0)
         {
-            break MISSING_BLOCK_LABEL_159;
+            break MISSING_BLOCK_LABEL_164;
         }
-        field = afield[i];
-        if (!field.getName().startsWith("emoji_u")) goto _L2; else goto _L1
-_L1:
-        int j = -1;
-        int k = Integer.parseInt(field.getName().substring(7), 16);
-        j = k;
-_L3:
-        NumberFormatException numberformatexception;
-        if (j >= 0)
+        i = a.d;
+        byte byte0;
+        if (a.c)
         {
-            try
-            {
-                int l = g.a((Integer)field.get(null), 0);
-                a.put(j, l);
-            }
-            catch (IllegalArgumentException illegalargumentexception) { }
-            catch (IllegalAccessException illegalaccessexception) { }
-        }
-_L2:
-        i++;
-        continue; /* Loop/switch isn't completed */
-        numberformatexception;
-        String s = String.valueOf(field.getName());
-        if (s.length() != 0)
-        {
-            s = "Unable to parse resource: ".concat(s);
+            byte0 = 2;
         } else
         {
-            s = new String("Unable to parse resource: ");
+            byte0 = 3;
         }
-        ebw.f("Babel", s);
-          goto _L3
-        return;
-        if (true) goto _L5; else goto _L4
-_L4:
-    }
-
-    public static edy a(Context context)
-    {
-        if (b == null)
+        audiomanager.requestAudioFocus(null, i, byte0);
+        mediaplayer.setOnCompletionListener(b);
+        mediaplayer.start();
+        if (b.h != null)
         {
-            if (android.os.Build.VERSION.SDK_INT >= 19)
-            {
-                b = new edy();
-            } else
-            {
-                b = new edz(context.getApplicationContext());
-            }
+            b.h.release();
         }
-        return b;
+        b.h = mediaplayer;
+_L1:
+        b.j = audiomanager;
+        notify();
+        this;
+        JVM INSTR monitorexit ;
+        Looper.loop();
+        return;
+        Exception exception1;
+        exception1;
+        String s = b.d;
+        String s1 = String.valueOf(a.b);
+        eev.d(s, (new StringBuilder(String.valueOf(s1).length() + 24)).append("error loading sound for ").append(s1).toString(), exception1);
+          goto _L1
+        Exception exception;
+        exception;
+        this;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
-
-    public int a(int i)
-    {
-        return a.get(i, -1);
-    }
-
-    public SpannableString a(CharSequence charsequence, TextView textview)
-    {
-        return null;
-    }
-
-    public void a(Spannable spannable, TextView textview)
-    {
-    }
-
-    public void a(Spanned spanned)
-    {
-    }
-
 }

@@ -2,127 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-public class dgp
-    implements dgm
+public final class dgp
+    implements Runnable
 {
 
-    public dgp()
+    final aoa a;
+    final dnf b;
+
+    public dgp(aoa aoa, dnf dnf1)
     {
+        a = aoa;
+        b = dnf1;
+        super();
     }
 
-    public void Y()
+    public void run()
     {
-        gbh.a();
-    }
-
-    public void Z()
-    {
-        gbh.a();
-    }
-
-    public void a(int i, ani ani, dcg dcg, dgu dgu)
-    {
-        gbh.a();
-    }
-
-    public void a(int i, ani ani, dcg dcg, dgu dgu, int j)
-    {
-        gbh.a();
-    }
-
-    public void a(int i, ani ani, dgu dgu)
-    {
-        gbh.a();
-    }
-
-    public void a(int i, ani ani, dko dko, dbo dbo)
-    {
-        gbh.a();
-    }
-
-    public void a(ani ani, long l)
-    {
-        gbh.a();
-    }
-
-    public void a(ani ani, cwq cwq)
-    {
-        gbh.a();
-    }
-
-    public void a(ani ani, String s)
-    {
-        gbh.a();
-    }
-
-    public void a(ani ani, String s, cey cey, String s1)
-    {
-        gbh.a();
-    }
-
-    public void a(ani ani, String s, cey cey, String s1, long l, boolean flag)
-    {
-        gbh.a();
-    }
-
-    public void a(ani ani, String s, Runnable runnable)
-    {
-        gbh.a();
-    }
-
-    public void a(String s, cey cey, boolean flag)
-    {
-        gbh.a();
-    }
-
-    public void a(String s, String s1)
-    {
-        gbh.a();
-    }
-
-    public void a(String s, List list)
-    {
-        gbh.a();
-    }
-
-    public void aa()
-    {
-        gbh.a();
-    }
-
-    public void ab()
-    {
-        gbh.a();
-    }
-
-    public void b()
-    {
-        gbh.a();
-    }
-
-    public void b(ani ani)
-    {
-        gbh.a();
-    }
-
-    public void b(String s, String s1)
-    {
-    }
-
-    public void c()
-    {
-        gbh.a();
-    }
-
-    public void d(String s)
-    {
-        gbh.a();
-    }
-
-    public void h_()
-    {
-        gbh.a();
+        for (Iterator iterator = RealTimeChatService.o().iterator(); iterator.hasNext(); ((dhy)iterator.next()).a(a, b.c, b.d, b.a)) { }
     }
 }

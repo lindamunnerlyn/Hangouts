@@ -2,382 +2,274 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.PendingIntent;
+import android.content.ContentUris;
 import android.content.Context;
-import android.os.Handler;
-import android.telecom.Connection;
-import android.telecom.DisconnectCause;
-import android.telecom.TelecomManager;
+import android.content.Intent;
+import android.net.Uri;
+import android.telephony.PhoneNumberUtils;
+import android.telephony.SmsManager;
 import android.text.TextUtils;
-import com.google.android.apps.hangouts.telephony.TeleConnectionService;
+import com.google.android.apps.hangouts.sms.SendStatusReceiver;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
 
-final class dun
-    implements dts
+public final class dun
 {
 
-    boolean a;
-    private final Context b;
-    private final dtz c;
-    private final duq d;
-    private final dtr e;
-    private dtr f;
-    private dtz g;
-    private int h;
-    private int i;
-    private int j;
-    private DisconnectCause k;
-    private boolean l;
-    private Handler m;
-    private final Runnable n = new duo(this);
+    public static final boolean a = false;
+    private static ConcurrentHashMap b = new ConcurrentHashMap();
+    private static final Random c = new Random();
+    private static Boolean d = null;
+    private static final Uri e = Uri.parse("content://babelsmssend");
+    private static Method f = null;
+    private static final Class g[];
+    private static final Integer h = Integer.valueOf(0);
+    private static final Boolean i = Boolean.valueOf(false);
 
-    private dun(Context context, dtz dtz1, duq duq1, int i1)
+    private static int a(Context context, String s, String s1, long l, String s2, boolean flag, long l1)
     {
-        i = 1;
-        j = 1;
-        m = new Handler();
-        b = context;
-        c = dtz1;
-        d = duq1;
-        h = i1;
-        e = dtz1.j();
-        e.a(this);
-        i = dtz1.getState();
-        dtz1.a(this);
-        e.b();
-    }
-
-    private void a(int i1)
-    {
-        if (c.getState() == i1) goto _L2; else goto _L1
-_L1:
-        i1;
-        JVM INSTR tableswitch 1 6: default 52
-    //                   1 52
-    //                   2 53
-    //                   3 61
-    //                   4 69
-    //                   5 77
-    //                   6 85;
-           goto _L2 _L2 _L3 _L4 _L5 _L6 _L7
-_L2:
-        return;
-_L3:
-        c.setRinging();
-        return;
-_L4:
-        c.setDialing();
-        return;
-_L5:
-        c.setActive();
-        return;
-_L6:
-        c.setOnHold();
-        return;
-_L7:
-        gbh.b(k);
-        c.setDisconnected(k);
-        c.destroy();
-        c.b(null);
-        return;
-    }
-
-    static void a(Context context, dtz dtz1, int i1)
-    {
-        ebw.e("Babel_telephony", (new StringBuilder(64)).append("TeleHandoffController.handoffWifiToCellular, reason: ").append(i1).toString());
-        if (dtz1.k() != null)
+        SmsManager smsmanager;
+        ArrayList arraylist;
+        ArrayList arraylist1;
+        int i1;
+        gdv.b("Expected non-null", context);
+        if (TextUtils.isEmpty(s))
         {
-            if (i1 == 3)
+            throw new dui("SmsSender: empty destination address");
+        }
+        if (TextUtils.isEmpty(s1))
+        {
+            throw new dui("SmsSender: empty text message");
+        }
+        smsmanager = SmsManager.getDefault();
+        if (dtp.a().k() != null && (adf.c(s) || dtp.a().a(s)))
+        {
+            s1 = (new StringBuilder(String.valueOf(s).length() + 1 + String.valueOf(s1).length())).append(s).append(" ").append(s1).toString();
+            s = dtp.a().k();
+            s1 = smsmanager.divideMessage(s1);
+        } else
+        {
+            s = PhoneNumberUtils.stripSeparators(s);
+            s1 = smsmanager.divideMessage(s1);
+        }
+        i1 = s1.size();
+        if (i1 <= 0)
+        {
+            throw new dui("SmsSender: fails to divide message");
+        }
+        arraylist = new ArrayList(i1);
+        arraylist1 = new ArrayList(i1);
+        int j = 0;
+        while (j < i1) 
+        {
+            if (flag && j == i1 - 1)
             {
-                ebw.e("Babel_telephony", "TeleHandoffController.handoffWifiToCellular, notify handoff about network loss.");
-                context = dtz1.k();
-                if (((dun) (context)).h != 3)
-                {
-                    context.h = 3;
-                    if (((dun) (context)).f != null)
-                    {
-                        context.a(true, 0);
-                    }
-                }
+                arraylist.add(PendingIntent.getBroadcast(context, 0, a(context, "com.google.android.apps.hangouts.sms.SendStatusReceiver.MESSAGE_DELIVERED", l1), 0));
+            } else
+            {
+                arraylist.add(null);
             }
-            ebw.e("Babel_telephony", "TeleHandoffController.handoffWifiToCellular, handoff pending, skipping");
-            return;
-        } else
-        {
-            dur dur1 = new dur(context, (TelecomManager)dtz1.d().getSystemService("telecom"));
-            dur1.a(new dun(context, dtz1, dur1, i1));
-            dur1.a();
-            return;
+            arraylist1.add(PendingIntent.getBroadcast(context, 0, a(context, "com.google.android.apps.hangouts.sms.SendStatusReceiver.MESSAGE_SENT", l), 0));
+            j++;
         }
-    }
-
-    static boolean a(Context context)
-    {
-        return g.a(context).a("babel_manual_handoff_allowed", false);
-    }
-
-    static void b(Context context, dtz dtz1, int i1)
-    {
-        ebw.e("Babel_telephony", (new StringBuilder(64)).append("TeleHandoffController.handoffCellularToWifi, reason: ").append(i1).toString());
-        if (dtz1.k() != null)
+        if (d == null)
         {
-            ebw.e("Babel_telephony", "TeleHandoffController.handoffCellularToWifi, handoff pending, skipping");
-            return;
-        } else
-        {
-            dum dum1 = new dum(context, bof.a(), bnd.a());
-            dum1.a(new dun(context, dtz1, dum1, i1));
-            dum1.a();
-            return;
+            d = Boolean.valueOf(dtp.a().q());
         }
-    }
-
-    dtz a()
-    {
-        return c;
-    }
-
-    void a(dtr dtr1)
-    {
-        String s = String.valueOf(dtr1);
-        ebw.e("Babel_telephony", (new StringBuilder(String.valueOf(s).length() + 52)).append("TeleHandoffController.onHandoffStarted, theNewCall: ").append(s).toString());
-        int i1 = g.a(b, "babel_handoff_timeout_millis", 30000);
-        m.postDelayed(n, i1);
-        f = dtr1;
-        f.a(this);
-        g = new dtz(e.a().f(), e.a().i());
-        g.setDialing();
-        g.b(f);
-        if (h == 3)
-        {
-            a(true, 0);
-            return;
-        } else
-        {
-            h();
-            return;
-        }
-    }
-
-    public final void a(dtr dtr1, int i1)
-    {
-        ebw.e("Babel_telephony", "TeleHandoffController.onTeleCallStateChanged");
-        if (i1 == 6) goto _L2; else goto _L1
+        flag = g.a(d, false);
+        if (!g.a(g.nU, "babel_sms_use_samsung_galaxy_s2_hidden_api", false)) goto _L2; else goto _L1
 _L1:
-        if (dtr1 != e) goto _L4; else goto _L3
-_L3:
-        i = i1;
-_L6:
-        h();
-_L2:
-        return;
-_L4:
-        if (dtr1 == f)
+        if (a)
         {
-            j = i1;
+            eev.b("Babel_SMS", "SmsSender: Samsung phone. Try the fix");
         }
+        if (!flag) goto _L4; else goto _L3
+_L3:
+        int k = 0;
+_L6:
+        if (k >= i1)
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        context = new ArrayList();
+        context.add(s1.get(k));
+        ArrayList arraylist2 = new ArrayList();
+        arraylist2.add(arraylist1.get(k));
+        ArrayList arraylist3 = new ArrayList();
+        arraylist3.add(arraylist.get(k));
+        a(smsmanager, s, s2, ((ArrayList) (context)), arraylist2, arraylist3);
+        k++;
         if (true) goto _L6; else goto _L5
+_L4:
+        a(smsmanager, s, s2, ((ArrayList) (s1)), arraylist1, arraylist);
 _L5:
+        return i1;
+        context;
+        try
+        {
+            eev.d("Babel_SMS", "SmsSender: failed Samsung Galaxy S2 SmsManager fix", context);
+        }
+        // Misplaced declaration of an exception variable
+        catch (Context context)
+        {
+            throw new dui("SmsSender: caught exception in sending", context);
+        }
+          goto _L2
+_L12:
+        if (k >= i1) goto _L8; else goto _L7
+_L7:
+        smsmanager.sendTextMessage(s, s2, (String)s1.get(k), (PendingIntent)arraylist1.get(k), (PendingIntent)arraylist.get(k));
+        k++;
+        continue; /* Loop/switch isn't completed */
+_L10:
+        smsmanager.sendMultipartTextMessage(s, s2, s1, arraylist1, arraylist);
+_L8:
+        return i1;
+_L2:
+        if (!flag) goto _L10; else goto _L9
+_L9:
+        k = 0;
+        if (true) goto _L12; else goto _L11
+_L11:
     }
 
-    public final void a(dtr dtr1, DisconnectCause disconnectcause)
+    private static Intent a(Context context, String s, long l)
     {
-        ebw.e("Babel_telephony", "TeleHandoffController.onDisconnected");
-        if (dtr1 != e) goto _L2; else goto _L1
+        return new Intent(s, ContentUris.withAppendedId(e, l), context, com/google/android/apps/hangouts/sms/SendStatusReceiver);
+    }
+
+    public static duo a(Context context, String s, String s1, String s2, boolean flag, long l)
+    {
+        duo duo1;
+        long l2;
+        duo1 = new duo();
+        l2 = Math.abs(c.nextLong());
+        if (a)
+        {
+            String s3 = String.valueOf("SmsSender: sending message. dest=");
+            String s4 = String.valueOf(eev.b(s));
+            String s5 = String.valueOf(eev.b(s1));
+            eev.b("Babel_SMS", (new StringBuilder(String.valueOf(s3).length() + 83 + String.valueOf(s4).length() + String.valueOf(s5).length() + String.valueOf(s2).length())).append(s3).append(s4).append(" message=").append(s5).append(" serviceCenter=").append(s2).append(" requireDeliveryReport=").append(flag).append(" requestId=").append(l2).toString());
+        }
+        duo1;
+        JVM INSTR monitorenter ;
+        long l1;
+        long l3;
+        b.put(Long.valueOf(l2), duo1);
+        int j = a(context, s, s1, l2, s2, flag, l);
+        if (a)
+        {
+            eev.b("Babel_SMS", (new StringBuilder(32)).append("Sending SMS in ").append(j).append(" parts").toString());
+        }
+        duo1.a(j);
+        l1 = g.a(g.nU, "babel_sms_send_timeout_in_millis", 0x493e0L);
+        l3 = System.currentTimeMillis();
+        l = l1;
+_L5:
+        if (l <= 0L) goto _L2; else goto _L1
 _L1:
-        i = 6;
+        if (a)
+        {
+            eev.b("Babel_SMS", (new StringBuilder(28)).append("Waiting ").append(l).toString());
+        }
+        duo1.wait(l);
+_L3:
+        if (duo1.a())
+        {
+            break MISSING_BLOCK_LABEL_497;
+        }
+        if (a)
+        {
+            eev.b("Babel_SMS", (new StringBuilder(59)).append("No more pending messages after waiting ").append(l).toString());
+        }
+_L2:
+        b.remove(Long.valueOf(l2));
+        if (a)
+        {
+            context = String.valueOf("SmsSender: sending completed. dest=");
+            s = String.valueOf(eev.b(s));
+            s1 = String.valueOf(eev.b(s1));
+            s2 = String.valueOf(duo1);
+            eev.b("Babel_SMS", (new StringBuilder(String.valueOf(context).length() + 17 + String.valueOf(s).length() + String.valueOf(s1).length() + String.valueOf(s2).length())).append(context).append(s).append(" message=").append(s1).append(" result=").append(s2).toString());
+        }
+        duo1;
+        JVM INSTR monitorexit ;
+        return duo1;
+        context;
+        eev.g("Babel_SMS", "SmsSender: sending wait interrupted");
+          goto _L3
+        context;
+        duo1;
+        JVM INSTR monitorexit ;
+        throw context;
+        l = System.currentTimeMillis();
+        l = l1 - (l - l3);
+        if (true) goto _L5; else goto _L4
 _L4:
-        k = disconnectcause;
-        h();
+    }
+
+    public static void a(long l, int j)
+    {
+        if (j == -1) goto _L2; else goto _L1
+_L1:
+        String s = String.valueOf("SmsSender: failure in sending message part.  requestId=");
+        eev.g("Babel_SMS", (new StringBuilder(String.valueOf(s).length() + 43)).append(s).append(l).append(" resultCode=").append(j).toString());
+_L7:
+        if (l < 0L) goto _L4; else goto _L3
+_L3:
+        Object obj = (duo)b.get(Long.valueOf(l));
+        if (obj == null) goto _L4; else goto _L5
+_L5:
+        obj;
+        JVM INSTR monitorenter ;
+        ((duo) (obj)).b(j);
+        if (!((duo) (obj)).a())
+        {
+            obj.notifyAll();
+        }
+        obj;
+        JVM INSTR monitorexit ;
+_L4:
         return;
 _L2:
-        if (dtr1 == f)
+        if (a)
         {
-            j = 6;
+            obj = String.valueOf("SmsSender: received sent result.  requestId=");
+            eev.b("Babel_SMS", (new StringBuilder(String.valueOf(obj).length() + 43)).append(((String) (obj))).append(l).append(" resultCode=").append(j).toString());
         }
-        if (true) goto _L4; else goto _L3
-_L3:
+        if (true) goto _L7; else goto _L6
+_L6:
+        Exception exception;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    void a(boolean flag, int i1)
+    private static void a(SmsManager smsmanager, String s, String s1, ArrayList arraylist, ArrayList arraylist1, ArrayList arraylist2)
     {
-        if (!l)
+        if (f == null)
         {
-            l = true;
-            ebw.e("Babel_telephony", String.format("TeleHandoffController.onHandoffComplete(%b, %s)", new Object[] {
-                Boolean.valueOf(flag), Integer.valueOf(i1)
-            }));
-            e.b(this);
-            if (f != null)
+            Method method = smsmanager.getClass().getMethod("sendMultipartTextMessage", g);
+            f = method;
+            if (method == null)
             {
-                f.b(this);
-                if (!flag)
-                {
-                    f.a(h, i1);
-                }
-            }
-            if (g != null)
-            {
-                if (flag && !TextUtils.isEmpty(g.m()))
-                {
-                    c.a(g.m());
-                }
-                g.b(null);
-                g = null;
-            }
-            c.a(null);
-            m.removeCallbacks(n);
-            if (flag)
-            {
-                dtr dtr1 = f;
-                dtr1.a(true);
-                m.postDelayed(new dup(this, dtr1), 1000L);
-                c.b(f);
-                a(j);
-                e.a(h, i1);
-                return;
-            }
-            a(i);
-            e.b();
-            if (h == 3)
-            {
-                e.a(h, i1);
-                return;
+                throw new NoSuchMethodException();
             }
         }
+        f.invoke(smsmanager, new Object[] {
+            s, s1, arraylist, arraylist1, arraylist2, i, h, h, h
+        });
     }
 
-    int b()
+    static 
     {
-        return i;
-    }
-
-    int c()
-    {
-        return j;
-    }
-
-    boolean d()
-    {
-        return a;
-    }
-
-    void e()
-    {
-        ebw.e("Babel_telephony", "TeleHandoffController.cancelHandoffAndEndCall");
-        if (f != null)
-        {
-            f.g();
-        }
-        if (e != null)
-        {
-            e.g();
-        }
-        a(false, 219);
-    }
-
-    boolean f()
-    {
-        if (!g.p(b))
-        {
-            ebw.e("Babel_telephony", "TeleHandoffController.isHandoffPossible, no permissions.");
-            return false;
-        }
-        ebw.e("Babel_telephony", "TeleHandoffController.isHandoffPossible");
-        if (l)
-        {
-            ebw.e("Babel_telephony", "TeleHandoffController.isHandoffPossible, handoff is already complete");
-            return false;
-        }
-        if (e.a().u())
-        {
-            ebw.e("Babel_telephony", "TeleHandoffController.isHandoffPossible, handoff not allowed for LTE fallback calls");
-            return false;
-        }
-        alw alw1 = g.a(b);
-        switch (h)
-        {
-        default:
-            int i1 = h;
-            ebw.e("Babel_telephony", (new StringBuilder(76)).append("TeleHandoffController.isHandoffPossible, unknown handoff reason: ").append(i1).toString());
-            return false;
-
-        case 2: // '\002'
-            if (!a(b))
-            {
-                ebw.e("Babel_telephony", "TeleHandoffController.isHandoffPossible, manual handoff not allowed");
-                return false;
-            }
-            break;
-
-        case 3: // '\003'
-            if (e.d() == 2)
-            {
-                if (!alw1.a("babel_handoff_on_wifi_loss_allowed", true))
-                {
-                    ebw.e("Babel_telephony", "TeleHandoffController.isHandoffPossible, handoff on wifi loss not allowed");
-                    return false;
-                }
-                break;
-            }
-            if (!alw1.a("babel_handoff_on_cell_loss_allowed", true))
-            {
-                ebw.e("Babel_telephony", "TeleHandoffController.isHandoffPossible, handoff on cell loss not allowed");
-                return false;
-            }
-            break;
-
-        case 1: // '\001'
-            if (ebz.j(e.a().f().c()))
-            {
-                ebw.e("Babel_telephony", "TeleHandoffController.isHandoffPossible, emergency call, handoff for network optimization not allowed");
-                return false;
-            }
-            if (c.t())
-            {
-                ebw.e("Babel_telephony", "TeleHandoffController.isHandoffPossible, network optimizing handoff disabled when calling network was choosen manually");
-                return false;
-            }
-            if (e.d() == 2)
-            {
-                if (!alw1.a("babel_wifi_network_optimizing_handoff_allowed", true))
-                {
-                    ebw.e("Babel_telephony", "TeleHandoffController.isHandoffPossible, handoff for wifi network optimization not allowed");
-                    return false;
-                }
-                break;
-            }
-            if (!alw1.a("babel_cell_network_optimizing_handoff_allowed", true))
-            {
-                ebw.e("Babel_telephony", "TeleHandoffController.isHandoffPossible, handoff for cell network optimization not allowed");
-                return false;
-            }
-            break;
-        }
-        dvh dvh1 = e.a().h();
-        if (dvh1.e() == 2 && !alw1.a("babel_international_handoff_allowed", false))
-        {
-            ebw.e("Babel_telephony", "TeleHandoffController.isHandoffPossible, handoff while international not allowed");
-            return false;
-        }
-        if (dvh1.a() != 1 && !alw1.a("babel_roaming_handoff_allowed", true))
-        {
-            ebw.e("Babel_telephony", "TeleHandoffController.isHandoffPossible, handoff while roaming not allowed");
-            return false;
-        } else
-        {
-            return true;
-        }
-    }
-
-    boolean g()
-    {
-        return l;
-    }
-
-    void h()
-    {
-        String s = String.valueOf(Connection.stateToString(i));
-        String s1 = String.valueOf(Connection.stateToString(j));
-        ebw.e("Babel_telephony", (new StringBuilder(String.valueOf(s).length() + 74 + String.valueOf(s1).length())).append("TeleHandoffController.checkHandoffComplete, oldCallState: ").append(s).append(", newCallState: ").append(s1).toString());
-        d.b();
+        hnc hnc = eev.r;
+        g = (new Class[] {
+            java/lang/String, java/lang/String, java/util/ArrayList, java/util/ArrayList, java/util/ArrayList, Boolean.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE
+        });
     }
 }

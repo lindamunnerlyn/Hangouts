@@ -4,8 +4,8 @@
 
 package com.google.android.libraries.hangouts.video;
 
-import inu;
-import inx;
+import itz;
+import iuc;
 import java.io.PrintWriter;
 import java.util.Arrays;
 
@@ -35,42 +35,42 @@ public class n extends Stats
         printwriter.println("  VoiceSender -- ssrc, codec, sent, lost, seq, rtt, jitter, level, echo, echoRetLoss");
     }
 
-    public void addTo(inu inu1)
+    public void addTo(itz itz1)
     {
-        inx inx1 = Stats.a(1);
-        inx1.k = Integer.valueOf(0);
-        inx1.l = Integer.valueOf(a);
-        inx1.F = b;
-        inx1.g = Long.valueOf(c);
-        inx1.h = Integer.valueOf(d);
-        inx1.c = Integer.valueOf(e);
-        inx1.b = Integer.valueOf((int)(f * 100F));
-        inx1.d = Integer.valueOf(g);
-        inx1.f = Integer.valueOf(h);
-        inx1.e = Integer.valueOf(i);
+        iuc iuc1 = Stats.a(1);
+        iuc1.k = Integer.valueOf(0);
+        iuc1.l = Integer.valueOf(a);
+        iuc1.F = b;
+        iuc1.g = Long.valueOf(c);
+        iuc1.h = Integer.valueOf(d);
+        iuc1.c = Integer.valueOf(e);
+        iuc1.b = Integer.valueOf((int)(f * 100F));
+        iuc1.d = Integer.valueOf(g);
+        iuc1.f = Integer.valueOf(h);
+        iuc1.e = Integer.valueOf(i);
         if (j != -1)
         {
-            inx1.m = Integer.valueOf(j);
+            iuc1.m = Integer.valueOf(j);
         }
         if (k != -1)
         {
-            inx1.H = Integer.valueOf(k);
+            iuc1.H = Integer.valueOf(k);
         }
         if (l != -1)
         {
-            inx1.I = Integer.valueOf(l);
+            iuc1.I = Integer.valueOf(l);
         }
         if (m != -100)
         {
-            inx1.J = Integer.valueOf(m);
+            iuc1.J = Integer.valueOf(m);
         }
         if (n != -100)
         {
-            inx1.K = Integer.valueOf(n);
+            iuc1.K = Integer.valueOf(n);
         }
-        int i1 = inu1.b.length;
-        inu1.b = (inx[])Arrays.copyOf(inu1.b, i1 + 1);
-        inu1.b[i1] = inx1;
+        int i1 = itz1.b.length;
+        itz1.b = (iuc[])Arrays.copyOf(itz1.b, i1 + 1);
+        itz1.b[i1] = iuc1;
     }
 
     public void print(PrintWriter printwriter, ts ts)

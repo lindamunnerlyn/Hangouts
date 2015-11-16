@@ -2,61 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.TimeUnit;
 
-public class cuy extends cui
+public final class cuy extends Enum
 {
 
-    private static final long serialVersionUID = 1L;
-    public final long a;
+    public static final cuy a;
+    public static final cuy b;
+    public static final cuy c;
+    public static final cuy d;
+    private static final cuy e[];
 
-    public cuy(long l)
+    private cuy(String s, int i)
     {
-        a = l;
+        super(s, i);
     }
 
-    public String a()
+    public static cuy valueOf(String s)
     {
-        return "ui_queue";
+        return (cuy)Enum.valueOf(cuy, s);
     }
 
-    public kop a(String s, int i, int j)
+    public static cuy[] values()
     {
-        if (ctr.e)
-        {
-            long l = a;
-            ebw.b("Babel_RequestWriter", (new StringBuilder(57)).append("SetDndPresenceRequest build protobuf ").append(l).toString());
-        }
-        iyg iyg1 = new iyg();
-        isj isj1 = new isj();
-        long l1 = TimeUnit.MILLISECONDS.toSeconds(TimeUnit.MICROSECONDS.toMillis(a) - System.currentTimeMillis());
-        boolean flag;
-        if (l1 > 0L)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        isj1.a = Boolean.valueOf(flag);
-        if (l1 <= 0L)
-        {
-            l1 = 0L;
-        }
-        isj1.b = Long.valueOf(l1);
-        iyg1.b = isj1;
-        iyg1.requestHeader = ctq.a(s, i, j, h);
-        return iyg1;
+        return (cuy[])e.clone();
     }
 
-    public boolean a(ccg ccg)
+    static 
     {
-        gbh.a(getClass(), ccg.getClass());
-        return true;
-    }
-
-    public String g()
-    {
-        return "presence/setpresence";
+        a = new cuy("PHONE_ACL", 0);
+        b = new cuy("EMAIL_ACL", 1);
+        c = new cuy("PUBLIC_ACL", 2);
+        d = new cuy("CIRCLE_ACL", 3);
+        e = (new cuy[] {
+            a, b, c, d
+        });
     }
 }

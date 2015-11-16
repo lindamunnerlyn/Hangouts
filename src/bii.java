@@ -2,33 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import com.google.android.apps.hangouts.fragments.ConversationListFragment;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import com.google.android.apps.hangouts.fragments.ConversationInviteListFragment;
 
 public final class bii
-    implements Runnable
+    implements grf
 {
 
-    final drw a;
-    final Context b;
-    final ConversationListFragment c;
+    final ConversationInviteListFragment a;
 
-    public bii(ConversationListFragment conversationlistfragment, drw drw1, Context context)
+    public bii(ConversationInviteListFragment conversationinvitelistfragment)
     {
-        c = conversationlistfragment;
-        a = drw1;
-        b = context;
+        a = conversationinvitelistfragment;
         super();
     }
 
-    public void run()
+    public void H_()
     {
-        if (a.b())
+        if (ConversationInviteListFragment.b(a).c(ConversationInviteListFragment.a(a).a()))
         {
-            ConversationListFragment.a(c, b);
-            RealTimeChatService.f();
-            a.a(false);
+            ConversationInviteListFragment.c(a);
         }
     }
 }

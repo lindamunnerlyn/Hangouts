@@ -3,106 +3,121 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class knn
-    implements Comparable, java.util.Map.Entry
+public final class knn extends kwm
 {
 
-    final kni a;
-    private final Comparable b;
-    private Object c;
+    private static volatile knn d[];
+    public kns a;
+    public key b;
+    public kno c;
 
-    knn(kni kni1, Comparable comparable, Object obj)
+    public knn()
     {
-        a = kni1;
-        super();
-        b = comparable;
-        c = obj;
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    knn(kni kni1, java.util.Map.Entry entry)
+    public static knn[] a()
     {
-        this(kni1, (Comparable)entry.getKey(), entry.getValue());
-    }
-
-    private static boolean a(Object obj, Object obj1)
-    {
-        if (obj == null)
+        if (d == null)
         {
-            return obj1 == null;
-        } else
-        {
-            return obj.equals(obj1);
-        }
-    }
-
-    public Comparable a()
-    {
-        return b;
-    }
-
-    public int compareTo(Object obj)
-    {
-        obj = (knn)obj;
-        return a().compareTo(((knn) (obj)).a());
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (obj != this)
-        {
-            if (!(obj instanceof java.util.Map.Entry))
+            synchronized (kwq.a)
             {
-                return false;
-            }
-            obj = (java.util.Map.Entry)obj;
-            if (!a(b, ((java.util.Map.Entry) (obj)).getKey()) || !a(c, ((java.util.Map.Entry) (obj)).getValue()))
-            {
-                return false;
+                if (d == null)
+                {
+                    d = new knn[0];
+                }
             }
         }
-        return true;
+        return d;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public Object getKey()
+    protected int computeSerializedSize()
     {
-        return a();
-    }
-
-    public Object getValue()
-    {
-        return c;
-    }
-
-    public int hashCode()
-    {
-        int j = 0;
-        int i;
-        if (b == null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            i = 0;
-        } else
+            i = j + kwk.d(1, a);
+        }
+        j = i;
+        if (b != null)
         {
-            i = b.hashCode();
+            j = i + kwk.d(2, b);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.d(3, c);
+        }
+        return i;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new kns();
+                }
+                kwj1.a(a);
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new key();
+                }
+                kwj1.a(b);
+                break;
+
+            case 26: // '\032'
+                if (c == null)
+                {
+                    c = new kno();
+                }
+                kwj1.a(c);
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.b(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.b(2, b);
         }
         if (c != null)
         {
-            j = c.hashCode();
+            kwk1.b(3, c);
         }
-        return i ^ j;
-    }
-
-    public Object setValue(Object obj)
-    {
-        kni.a(a);
-        Object obj1 = c;
-        c = obj;
-        return obj1;
-    }
-
-    public String toString()
-    {
-        String s = String.valueOf(b);
-        String s1 = String.valueOf(c);
-        return (new StringBuilder(String.valueOf(s).length() + 1 + String.valueOf(s1).length())).append(s).append("=").append(s1).toString();
+        super.writeTo(kwk1);
     }
 }

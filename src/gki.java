@@ -3,99 +3,32 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gki
+final class gki
+    implements gjs
 {
 
-    public final int a;
-    public final int b;
+    private final gjl a;
 
-    public gki(int i, int j)
+    gki(gjl gjl1)
     {
-        a = i;
-        b = j;
+        a = gjl1;
     }
 
-    public static gki a(gki gki1, float f)
+    public void a(kws kws, gds gds)
     {
-        return new gki((int)((float)gki1.a * f) + 2 & -4, (int)((float)gki1.b * f) + 2 & -4);
+        kws = (jjf)kws;
+        a.a("media_sources/add", kws, jjg, gds);
     }
 
-    public static gki a(gki gki1, gki gki2)
+    public void b(kws kws, gds gds)
     {
-        float f = c(gki1, gki2);
-        gki2 = gki1;
-        if ((double)f > 1.0D)
-        {
-            gki2 = a(gki1, f);
-        }
-        return gki2;
+        kws = (jjh)kws;
+        a.a("media_sources/modify", kws, jji, gds);
     }
 
-    public static gki b(gki gki1, gki gki2)
+    public void c(kws kws, gds gds)
     {
-        float f = c(gki1, gki2);
-        gki2 = gki1;
-        if ((double)f < 1.0D)
-        {
-            gki2 = a(gki1, f);
-        }
-        return gki2;
-    }
-
-    private static float c(gki gki1, gki gki2)
-    {
-        float f4 = gki1.a;
-        float f5 = gki1.b;
-        float f = gki2.a;
-        float f1 = gki2.b;
-        float f6 = f4 / f5;
-        float f3 = f / f1;
-        float f2;
-        if (f6 < 1.0F && f3 > 1.0F || f6 > 1.0F && f3 < 1.0F)
-        {
-            f2 = 1.0F / f3;
-        } else
-        {
-            f2 = f;
-            f = f1;
-            f1 = f2;
-            f2 = f3;
-        }
-        if (f6 > f2)
-        {
-            return f1 / f4;
-        } else
-        {
-            return f / f5;
-        }
-    }
-
-    public int a()
-    {
-        return a << 16 | b;
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (obj instanceof gki)
-        {
-            if (a == ((gki) (obj = (gki)obj)).a && b == ((gki) (obj)).b)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public int hashCode()
-    {
-        return a * 32713 + b;
-    }
-
-    public String toString()
-    {
-        int i = a;
-        int j = b;
-        return (new StringBuilder(23)).append(i).append("x").append(j).toString();
+        kws = (jjj)kws;
+        a.a("media_sources/remove", kws, jjk, gds);
     }
 }

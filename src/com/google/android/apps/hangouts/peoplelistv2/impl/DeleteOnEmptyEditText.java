@@ -9,13 +9,13 @@ import android.util.AttributeSet;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.EditText;
-import cfq;
-import cfr;
+import cgw;
+import cgx;
 
 public class DeleteOnEmptyEditText extends EditText
 {
 
-    private cfr a;
+    public cgx a;
 
     public DeleteOnEmptyEditText(Context context)
     {
@@ -32,14 +32,9 @@ public class DeleteOnEmptyEditText extends EditText
         super(context, attributeset, i);
     }
 
-    public static cfr a(DeleteOnEmptyEditText deleteonemptyedittext)
+    public void a(cgx cgx)
     {
-        return deleteonemptyedittext.a;
-    }
-
-    public void a(cfr cfr)
-    {
-        a = cfr;
+        a = cgx;
     }
 
     public boolean onCheckIsTextEditor()
@@ -49,6 +44,6 @@ public class DeleteOnEmptyEditText extends EditText
 
     public InputConnection onCreateInputConnection(EditorInfo editorinfo)
     {
-        return new cfq(this, super.onCreateInputConnection(editorinfo));
+        return new cgw(this, super.onCreateInputConnection(editorinfo));
     }
 }

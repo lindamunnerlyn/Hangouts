@@ -52,7 +52,7 @@ public class ContentFrameLayout extends FrameLayout
     public void a(int i, int j, int k, int l)
     {
         g.set(i, j, k, l);
-        if (kb.x(this))
+        if (kb.y(this))
         {
             requestLayout();
         }

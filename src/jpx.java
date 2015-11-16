@@ -2,22 +2,57 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
+import com.google.common.cache.LocalCache;
+import java.util.AbstractCollection;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentMap;
 
-final class jpx
-    implements Serializable
+public final class jpx extends AbstractCollection
 {
 
-    private static final long serialVersionUID = 1L;
-    private final jlb a;
+    final LocalCache a;
+    private final ConcurrentMap b;
 
-    jpx(jlb jlb1)
+    public jpx(LocalCache localcache, ConcurrentMap concurrentmap)
     {
-        a = jlb1;
+        a = localcache;
+        super();
+        b = concurrentmap;
     }
 
-    Object readResolve()
+    public void clear()
     {
-        return a.a();
+        b.clear();
+    }
+
+    public boolean contains(Object obj)
+    {
+        return b.containsValue(obj);
+    }
+
+    public boolean isEmpty()
+    {
+        return b.isEmpty();
+    }
+
+    public Iterator iterator()
+    {
+        return new jpv(a);
+    }
+
+    public int size()
+    {
+        return b.size();
+    }
+
+    public Object[] toArray()
+    {
+        return LocalCache.a(this).toArray();
+    }
+
+    public Object[] toArray(Object aobj[])
+    {
+        return LocalCache.a(this).toArray(aobj);
     }
 }

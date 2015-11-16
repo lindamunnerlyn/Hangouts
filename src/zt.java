@@ -2,87 +2,62 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.ResultReceiver;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.AutoCompleteTextView;
-import java.lang.reflect.Method;
+import android.os.Bundle;
+import android.view.View;
+import android.view.accessibility.AccessibilityEvent;
 
-public final class zt
+public final class zt extends hp
 {
 
-    private Method a;
-    private Method b;
-    private Method c;
-    private Method d;
+    final yt b;
+    final hp c = new zu(this);
 
-    public zt()
+    public zt(yt yt1)
     {
-        try
+        b = yt1;
+    }
+
+    public void a(View view, mq mq1)
+    {
+        super.a(view, mq1);
+        mq1.b(yt.getName());
+        if (!b.x() && b.d() != null)
         {
-            a = android/widget/AutoCompleteTextView.getDeclaredMethod("doBeforeTextChanged", new Class[0]);
-            a.setAccessible(true);
-        }
-        catch (NoSuchMethodException nosuchmethodexception3) { }
-        try
-        {
-            b = android/widget/AutoCompleteTextView.getDeclaredMethod("doAfterTextChanged", new Class[0]);
-            b.setAccessible(true);
-        }
-        catch (NoSuchMethodException nosuchmethodexception2) { }
-        try
-        {
-            c = android/widget/AutoCompleteTextView.getMethod("ensureImeVisible", new Class[] {
-                Boolean.TYPE
-            });
-            c.setAccessible(true);
-        }
-        catch (NoSuchMethodException nosuchmethodexception1) { }
-        try
-        {
-            d = android/view/inputmethod/InputMethodManager.getMethod("showSoftInputUnchecked", new Class[] {
-                Integer.TYPE, android/os/ResultReceiver
-            });
-            d.setAccessible(true);
-            return;
-        }
-        catch (NoSuchMethodException nosuchmethodexception)
-        {
-            return;
+            b.d().a(mq1);
         }
     }
 
-    public void a(AutoCompleteTextView autocompletetextview)
+    public boolean a(View view, int i, Bundle bundle)
     {
-        if (a == null)
+        if (super.a(view, i, bundle))
         {
-            break MISSING_BLOCK_LABEL_20;
+            return true;
         }
-        a.invoke(autocompletetextview, new Object[0]);
-        return;
-        autocompletetextview;
+        if (!b.x() && b.d() != null)
+        {
+            return b.d().h(i);
+        } else
+        {
+            return false;
+        }
     }
 
-    public void b(AutoCompleteTextView autocompletetextview)
+    hp b()
     {
-        if (b == null)
-        {
-            break MISSING_BLOCK_LABEL_20;
-        }
-        b.invoke(autocompletetextview, new Object[0]);
-        return;
-        autocompletetextview;
+        return c;
     }
 
-    public void c(AutoCompleteTextView autocompletetextview)
+    public void d(View view, AccessibilityEvent accessibilityevent)
     {
-        if (c == null)
+        super.d(view, accessibilityevent);
+        accessibilityevent.setClassName(yt.getName());
+        if ((view instanceof yt) && !b.x())
         {
-            break MISSING_BLOCK_LABEL_27;
+            view = (yt)view;
+            if (view.d() != null)
+            {
+                view.d().a(accessibilityevent);
+            }
         }
-        c.invoke(autocompletetextview, new Object[] {
-            Boolean.valueOf(true)
-        });
-        return;
-        autocompletetextview;
     }
 }

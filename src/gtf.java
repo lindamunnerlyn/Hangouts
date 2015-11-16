@@ -2,9 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
+import java.util.List;
 
 final class gtf
-    implements Runnable
+    implements gua
 {
 
     final gte a;
@@ -15,9 +17,17 @@ final class gtf
         super();
     }
 
-    public void run()
+    public void a(int i, int j)
     {
-        a.a.run();
-        gtb.a(a.b, a);
+        Object obj = a.a.a(j);
+        if (!((List) (obj)).isEmpty())
+        {
+            gtb gtb1;
+            for (obj = ((List) (obj)).iterator(); ((Iterator) (obj)).hasNext(); gte.a(a, i, gtb1))
+            {
+                gtb1 = (gtb)((Iterator) (obj)).next();
+            }
+
+        }
     }
 }

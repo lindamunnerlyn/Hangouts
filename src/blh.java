@@ -6,5 +6,13 @@
 public interface blh
 {
 
-    public abstract bjc a(atd atd, String s, cnd cnd, aik aik);
+    public abstract boolean a();
+
+    public abstract boolean b();
+
+    public abstract String c();
+
+    public abstract boolean d();
+
+    public abstract boolean e();
 }

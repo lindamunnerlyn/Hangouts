@@ -2,10 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
+import java.util.concurrent.TimeUnit;
 
-public interface hiu
+final class hiu extends his
 {
 
-    public abstract void a(Intent intent);
+    private static final long a;
+    private final hm b = new hm();
+    private final fzs c;
+
+    hiu(fzs fzs)
+    {
+        c = fzs;
+    }
+
+    static long a()
+    {
+        return a;
+    }
+
+    public hit a(String s)
+    {
+        this;
+        JVM INSTR monitorenter ;
+        hit hit2 = (hit)b.get(s);
+        hit hit1;
+        hit1 = hit2;
+        if (hit2 != null)
+        {
+            break MISSING_BLOCK_LABEL_43;
+        }
+        hit1 = new hit(s, c);
+        b.put(s, hit1);
+        this;
+        JVM INSTR monitorexit ;
+        return hit1;
+        s;
+        throw s;
+    }
+
+    static 
+    {
+        a = TimeUnit.HOURS.toMillis(1L);
+    }
 }

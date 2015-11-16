@@ -3,44 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kjt extends koj
+public final class kjt extends kwm
 {
 
-    private static volatile kjt f[];
-    public Integer a;
-    public kjv b;
-    public String c;
-    public String d;
-    public keg e;
+    public Boolean a;
+    public Integer b;
 
     public kjt()
     {
         a = null;
         b = null;
-        c = null;
-        d = null;
-        e = null;
         unknownFieldData = null;
         cachedSize = -1;
-    }
-
-    public static kjt[] a()
-    {
-        if (f == null)
-        {
-            synchronized (kon.a)
-            {
-                if (f == null)
-                {
-                    f = new kjt[0];
-                }
-            }
-        }
-        return f;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -49,106 +23,59 @@ public final class kjt extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.e(1, a.intValue());
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.d(2, b);
+            j = i + kwk.e(2, b.intValue());
         }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.b(4, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.b(5, d);
-        }
-        i = j;
-        if (e != null)
-        {
-            i = j + koh.d(6, e);
-        }
-        return i;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L8:
-        int i = kog1.a();
+_L5:
+        int i = kwj1.a();
         i;
-        JVM INSTR lookupswitch 6: default 64
-    //                   0: 73
-    //                   8: 75
-    //                   18: 134
-    //                   34: 163
-    //                   42: 174
-    //                   50: 185;
-           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   8: 51
+    //                   16: 65;
+           goto _L1 _L2 _L3 _L4
 _L1:
-        if (super.storeUnknownField(kog1, i)) goto _L8; else goto _L2
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
 _L2:
         return this;
 _L3:
-        int j = kog1.f();
+        a = Boolean.valueOf(kwj1.i());
+          goto _L5
+_L4:
+        int j = kwj1.f();
         switch (j)
         {
         case 0: // '\0'
         case 1: // '\001'
         case 2: // '\002'
         case 3: // '\003'
-        case 5: // '\005'
-            a = Integer.valueOf(j);
+            b = Integer.valueOf(j);
             break;
         }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        if (b == null)
-        {
-            b = new kjv();
-        }
-        kog1.a(b);
-        continue; /* Loop/switch isn't completed */
-_L5:
-        c = kog1.j();
-        continue; /* Loop/switch isn't completed */
+        if (true) goto _L5; else goto _L6
 _L6:
-        d = kog1.j();
-        continue; /* Loop/switch isn't completed */
-_L7:
-        if (e == null)
-        {
-            e = new keg();
-        }
-        kog1.a(e);
-        if (true) goto _L8; else goto _L9
-_L9:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.intValue());
+            kwk1.a(1, a.booleanValue());
         }
         if (b != null)
         {
-            koh1.b(2, b);
+            kwk1.a(2, b.intValue());
         }
-        if (c != null)
-        {
-            koh1.a(4, c);
-        }
-        if (d != null)
-        {
-            koh1.a(5, d);
-        }
-        if (e != null)
-        {
-            koh1.b(6, e);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

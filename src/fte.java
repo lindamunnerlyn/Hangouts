@@ -3,15 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class fte
+public final class fte extends ftd
 {
+
+    public static final fte a = new fte();
 
     public fte()
     {
+        super(null);
     }
 
-    public ekd a(ejx ejx1, String s, String s1, byte abyte0[])
+    public void a(String s)
     {
-        return ejx1.a(new fvj(this, ejx1, s, s1, abyte0));
     }
+
+    public void b(String s)
+    {
+    }
+
 }

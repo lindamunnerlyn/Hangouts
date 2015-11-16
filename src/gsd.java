@@ -3,21 +3,24 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gsd
+final class gsd
+    implements gsc
 {
 
-    public static final String a = hhl.getName();
-    private static gsc b;
+    float a;
 
-    public static void a(hgx hgx1)
+    gsd(float f)
     {
-        if (b == null)
-        {
-            b = new gsc();
-        }
-        hgx1.a(hhl, new hhl[] {
-            new gsa()
-        });
+        a = f;
     }
 
+    public Object a(Object obj)
+    {
+        return Float.valueOf(a);
+    }
+
+    public void a(android.content.SharedPreferences.Editor editor, String s)
+    {
+        editor.putFloat(s, a);
+    }
 }

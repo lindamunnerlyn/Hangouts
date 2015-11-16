@@ -3,21 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gpa
-    implements hhy
+final class gpa extends Enum
 {
 
-    gpa()
-    {
-    }
+    public static final int a;
+    public static final int b;
+    public static final int c;
+    private static final int d[];
 
-    public Class a()
+    static 
     {
-        return gow;
-    }
-
-    public void a(ad ad, hjm hjm, hgx hgx1)
-    {
-        hgx1.a(gow, new gow(hjm, (byte)0));
+        a = 1;
+        b = 2;
+        c = 3;
+        d = (new int[] {
+            a, b, c
+        });
     }
 }

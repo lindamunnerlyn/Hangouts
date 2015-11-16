@@ -3,144 +3,97 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import java.util.ArrayList;
+import android.view.View;
+import android.view.ViewTreeObserver;
 import java.util.Iterator;
-import java.util.List;
+import java.util.Set;
 
 public final class gng
-    implements fsn, gmo, hhi, hjt, hka, hkb, hkc
 {
 
-    private final Activity a;
-    private int b;
-    private List c;
-    private boolean d;
-    private gms e;
+    private static final boolean a;
 
-    public gng(Activity activity, hjm hjm1)
+    public static String a(Set set, String s)
     {
-        b = -1;
-        c = new ArrayList();
-        d = true;
-        a = activity;
-        hjm1.a(this);
-    }
-
-    private void e()
-    {
-        boolean flag;
-        if (b == -1)
+        if (set != null)
         {
-            if (!d)
+            StringBuilder stringbuilder = new StringBuilder();
+            set = set.iterator();
+            boolean flag = true;
+            while (set.hasNext()) 
             {
-                flag = true;
-            } else
-            {
-                flag = false;
-            }
-        } else
-        {
-            flag = e.c(b);
-        }
-        if (!flag)
-        {
-            if (Log.isLoggable("IntentAccountHandler", 3))
-            {
-                int i = b;
-                String s = String.valueOf(a.getClass().getName());
-                (new StringBuilder(String.valueOf(s).length() + 62)).append("Invalid account state with accountId ").append(i).append(" for activity ").append(s);
-            }
-            b = -1;
-            a.finish();
-        }
-    }
-
-    public void E_()
-    {
-        e();
-    }
-
-    public int a()
-    {
-        g.w();
-        return b;
-    }
-
-    public gmo a(gmq gmq1)
-    {
-        c.add(gmq1);
-        return this;
-    }
-
-    public gng a(hgx hgx1)
-    {
-        hgx1.a(gmo, this);
-        return this;
-    }
-
-    public void a(Context context, hgx hgx1, Bundle bundle)
-    {
-        if (e == null)
-        {
-            e = (gms)hgx1.a(gms);
-        }
-    }
-
-    public void a(Bundle bundle)
-    {
-        if (bundle == null)
-        {
-            b = a.getIntent().getIntExtra("account_id", -1);
-            e();
-            Iterator iterator = c.iterator();
-            while (iterator.hasNext()) 
-            {
-                gmq gmq1 = (gmq)iterator.next();
-                gmp gmp1 = gmp.a;
-                if (b != -1)
+                String s1 = (String)set.next();
+                if (flag)
                 {
-                    bundle = gmp.c;
+                    flag = false;
                 } else
                 {
-                    bundle = gmp.b;
+                    stringbuilder.append(s);
                 }
-                gmq1.a(true, gmp1, bundle, -1, b);
+                stringbuilder.append(s1);
             }
+            return stringbuilder.toString();
         } else
         {
-            b = bundle.getInt("state_account_id");
+            return null;
         }
     }
 
-    public void b(Bundle bundle)
+    public static void a(View view, android.view.ViewTreeObserver.OnGlobalLayoutListener ongloballayoutlistener)
     {
-        bundle.putInt("state_account_id", b);
+label0:
+        {
+            if (view != null)
+            {
+                if (android.os.Build.VERSION.SDK_INT < 16)
+                {
+                    break label0;
+                }
+                view.getViewTreeObserver().removeOnGlobalLayoutListener(ongloballayoutlistener);
+            }
+            return;
+        }
+        view.getViewTreeObserver().removeGlobalOnLayoutListener(ongloballayoutlistener);
     }
 
-    public boolean b()
+    public static boolean a()
     {
-        g.w();
-        return b != -1;
+        return a;
     }
 
-    public gmu c()
+    static 
     {
-        g.w();
-        return e.a(b);
-    }
-
-    public gng d()
-    {
-        d = false;
-        return this;
-    }
-
-    public void j_()
-    {
-        e();
+        int i;
+        boolean flag;
+        flag = true;
+        if (android.os.Build.VERSION.SDK_INT < 19)
+        {
+            break MISSING_BLOCK_LABEL_90;
+        }
+        i = 0;
+_L3:
+        if (i >= 2) goto _L2; else goto _L1
+_L1:
+        java.lang.reflect.Method method = (new Class[] {
+            android/app/Activity, android/view/View
+        })[i].getDeclaredMethod((new String[] {
+            "isVoiceInteraction", "getZ"
+        })[i], (new Class[][] {
+            new Class[0], new Class[0]
+        })[i]);
+        if (method == null)
+        {
+            continue; /* Loop/switch isn't completed */
+        }
+_L4:
+        a = flag;
+        return;
+        NoSuchMethodException nosuchmethodexception;
+        nosuchmethodexception;
+        i++;
+          goto _L3
+_L2:
+        flag = false;
+          goto _L4
     }
 }

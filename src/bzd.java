@@ -2,35 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import android.view.View;
 
-public final class bzd
+public interface bzd
 {
 
-    String a;
-    String b;
+    public abstract View a();
 
-    public bzd()
-    {
-    }
+    public abstract void a(int i);
 
-    public Bundle a()
-    {
-        Bundle bundle = new Bundle();
-        bundle.putString("account_name", a);
-        bundle.putString("effective_gaia_id", b);
-        return bundle;
-    }
+    public abstract boolean b();
 
-    public bzd a(String s)
-    {
-        a = s;
-        return this;
-    }
+    public abstract void c();
 
-    public bzd b(String s)
-    {
-        b = s;
-        return this;
-    }
+    public abstract void d();
 }

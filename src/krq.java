@@ -3,40 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class krq extends koj
+public final class krq extends kwm
 {
 
-    private static volatile krq d[];
-    public String a;
-    public String b;
-    public int c;
+    public kru a;
+    public krs b;
+    public krt c;
+    public kro d;
 
     public krq()
     {
         a = null;
         b = null;
-        c = 0x80000000;
+        c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
-    }
-
-    public static krq[] a()
-    {
-        if (d == null)
-        {
-            synchronized (kon.a)
-            {
-                if (d == null)
-                {
-                    d = new krq[0];
-                }
-            }
-        }
-        return d;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -45,70 +27,96 @@ public final class krq extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.d(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.b(2, b);
+            j = i + kwk.d(2, b);
         }
         i = j;
-        if (c != 0x80000000)
+        if (c != null)
         {
-            i = j + koh.e(3, c);
+            i = j + kwk.d(3, c);
         }
-        return i;
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.d(4, d);
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L6:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 4: default 48
-    //                   0: 57
-    //                   10: 59
-    //                   18: 70
-    //                   24: 81;
-           goto _L1 _L2 _L3 _L4 _L5
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L6; else goto _L2
-_L2:
-        return this;
-_L3:
-        a = kog1.j();
-          goto _L6
-_L4:
-        b = kog1.j();
-          goto _L6
-_L5:
-        int j = kog1.f();
-        switch (j)
+        do
         {
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-            c = j;
-            break;
-        }
-        if (true) goto _L6; else goto _L7
-_L7:
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new kru();
+                }
+                kwj1.a(a);
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new krs();
+                }
+                kwj1.a(b);
+                break;
+
+            case 26: // '\032'
+                if (c == null)
+                {
+                    c = new krt();
+                }
+                kwj1.a(c);
+                break;
+
+            case 34: // '"'
+                if (d == null)
+                {
+                    d = new kro();
+                }
+                kwj1.a(d);
+                break;
+            }
+        } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.b(1, a);
         }
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.b(2, b);
         }
-        if (c != 0x80000000)
+        if (c != null)
         {
-            koh1.a(3, c);
+            kwk1.b(3, c);
         }
-        super.writeTo(koh1);
+        if (d != null)
+        {
+            kwk1.b(4, d);
+        }
+        super.writeTo(kwk1);
     }
 }

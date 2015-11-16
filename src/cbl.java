@@ -2,43 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
+import android.os.ConditionVariable;
+import com.google.android.apps.hangouts.mergedcontacts.impl.MergeContactsService;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 
-public final class cbl extends cbh
+public final class cbl extends diq
 {
 
-    public cbl()
+    public cym a;
+    final MergeContactsService b;
+    private ConditionVariable c;
+
+    public cbl(MergeContactsService mergecontactsservice, ConditionVariable conditionvariable)
     {
+        b = mergecontactsservice;
+        super(mergecontactsservice.getApplicationContext());
+        c = conditionvariable;
     }
 
-    public int a()
+    protected void a(did did1)
     {
-        return l.fC;
+        a = (cym)did1.c();
+        c.open();
     }
 
-    public void a(Activity activity)
+    protected void a(Exception exception)
     {
-        g.a(a, 1603);
-        activity.startActivity(g.c(a.h()));
+        c.open();
     }
 
-    public int b()
+    public void a(Collection collection, int i)
     {
-        return com.google.android.apps.hangouts.R.drawable.ct;
-    }
-
-    public int c()
-    {
-        return 6;
-    }
-
-    public int d()
-    {
-        return 1;
-    }
-
-    public int e()
-    {
-        return 6;
+        ArrayList arraylist = new ArrayList();
+        for (collection = collection.iterator(); collection.hasNext(); arraylist.add(dbi.b((String)collection.next(), null))) { }
+        g.a(new cbm(this, i, arraylist));
     }
 }

@@ -2,29 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.common.data.DataHolder;
 
-final class fyu
-    implements eka
+public final class fyu extends fym
 {
 
-    final fyf a;
-    final fyt b;
+    final fuz a;
 
-    fyu(fyt fyt, fyf fyf1)
+    public fyu(fuz fuz, emy emy)
     {
-        b = fyt;
-        a = fyf1;
-        super();
+        a = fuz;
+        super(emy);
     }
 
-    public void a(int i)
+    protected enh a(Status status)
     {
-        a.a(i);
+        return new fvh(DataHolder.b(status.c()));
     }
 
-    public void a_(Bundle bundle)
+    protected void a(emw emw)
     {
-        a.a();
+        ((fyg)emw).a(this);
     }
 }

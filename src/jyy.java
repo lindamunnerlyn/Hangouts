@@ -3,60 +3,32 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jyy extends koj
+public final class jyy extends Enum
 {
 
-    public Boolean a;
+    public static final jyy a;
+    private static final jyy b[];
 
-    public jyy()
+    private jyy(String s)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s, 0);
     }
 
-    protected int computeSerializedSize()
+    public static jyy valueOf(String s)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        return i;
+        return (jyy)Enum.valueOf(jyy, s);
     }
 
-    public kop mergeFrom(kog kog1)
+    public static jyy[] values()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
+        return (jyy[])b.clone();
     }
 
-    public void writeTo(koh koh1)
+    static 
     {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
-        }
-        super.writeTo(koh1);
+        a = new jyy("APPEND");
+        b = (new jyy[] {
+            a
+        });
     }
 }

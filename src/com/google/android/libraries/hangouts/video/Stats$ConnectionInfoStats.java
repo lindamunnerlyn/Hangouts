@@ -4,10 +4,10 @@
 
 package com.google.android.libraries.hangouts.video;
 
-import inr;
-import inu;
-import inv;
-import inw;
+import itw;
+import itz;
+import iua;
+import iub;
 import java.io.PrintWriter;
 import java.util.Arrays;
 
@@ -31,14 +31,14 @@ public class m extends Stats
     public int l;
     public int m;
     public int n;
-    public inw o;
+    public iub o;
 
     public static void printLegend(PrintWriter printwriter)
     {
         printwriter.println("  Connection -- media type, local address, type, protocol, remote address, type, protocol, received bitrate, sent bitrate, media network type, wifi signal strength, cell signal type, cell level, cell asu level");
     }
 
-    public void addTo(inu inu1)
+    public void addTo(itz itz1)
     {
         a;
         JVM INSTR tableswitch 0 1: default 28
@@ -48,34 +48,34 @@ public class m extends Stats
 _L1:
         int i1 = 0;
 _L5:
-        inr inr1 = new inr();
-        inr1.a = c;
-        inr1.b = Integer.valueOf(i1);
-        inr1.c = Integer.valueOf(b);
-        inr1.d = Integer.valueOf(d);
-        inr inr2 = new inr();
-        inr2.a = c;
-        inr2.b = Integer.valueOf(i1);
-        inr2.c = Integer.valueOf(e);
-        inr2.d = Integer.valueOf(g);
-        inv inv1 = new inv();
-        inv1.a = Integer.valueOf(i1);
-        inv1.b = Integer.valueOf(m);
-        inv1.c = Integer.valueOf(l);
-        inv1.d = Long.valueOf(j);
-        inv1.h = Long.valueOf(h);
-        inv1.e = Integer.valueOf(k / 8);
-        inv1.i = Integer.valueOf(i / 8);
-        inv1.j = inr1;
-        inv1.k = inr2;
+        itw itw1 = new itw();
+        itw1.a = c;
+        itw1.b = Integer.valueOf(i1);
+        itw1.c = Integer.valueOf(b);
+        itw1.d = Integer.valueOf(d);
+        itw itw2 = new itw();
+        itw2.a = c;
+        itw2.b = Integer.valueOf(i1);
+        itw2.c = Integer.valueOf(e);
+        itw2.d = Integer.valueOf(g);
+        iua iua1 = new iua();
+        iua1.a = Integer.valueOf(i1);
+        iua1.b = Integer.valueOf(m);
+        iua1.c = Integer.valueOf(l);
+        iua1.d = Long.valueOf(j);
+        iua1.h = Long.valueOf(h);
+        iua1.e = Integer.valueOf(k / 8);
+        iua1.i = Integer.valueOf(i / 8);
+        iua1.j = itw1;
+        iua1.k = itw2;
         if (n > 0)
         {
-            inv1.l = Integer.valueOf(n);
+            iua1.l = Integer.valueOf(n);
         }
-        inv1.m = o;
-        i1 = inu1.c.length;
-        inu1.c = (inv[])Arrays.copyOf(inu1.c, i1 + 1);
-        inu1.c[i1] = inv1;
+        iua1.m = o;
+        i1 = itz1.c.length;
+        itz1.c = (iua[])Arrays.copyOf(itz1.c, i1 + 1);
+        itz1.c[i1] = iua1;
         return;
 _L3:
         i1 = 1;
@@ -103,10 +103,10 @@ _L4:
         int k2;
         if (3 == b || 3 == e)
         {
-            a(o1, true);
+            o1.c = true;
         } else
         {
-            a(o1, false);
+            o1.c = false;
         }
         if (a == 0)
         {
@@ -136,9 +136,9 @@ _L4:
         n = i1;
     }
 
-    public void setSignalStrength(inw inw1)
+    public void setSignalStrength(iub iub1)
     {
-        o = inw1;
+        o = iub1;
     }
 
     public (int i1, String s, String s1, String s2, String s3, String s4, String s5, 

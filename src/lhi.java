@@ -3,50 +3,36 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lhi extends koj
+public final class lhi extends kwm
 {
 
-    private static volatile lhi k[];
-    public Float a;
-    public Float b;
-    public Float c;
-    public Boolean d;
-    public Float e;
-    public Float f;
-    public Float g;
-    public Float h;
-    public Float i;
-    public Float j;
+    private static volatile lhi d[];
+    public String a;
+    public lhj b[];
+    public Boolean c;
 
     public lhi()
     {
         a = null;
-        b = null;
+        b = lhj.a();
         c = null;
-        d = null;
-        e = null;
-        f = null;
-        g = null;
-        h = null;
-        i = null;
-        j = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     public static lhi[] a()
     {
-        if (k == null)
+        if (d == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
-                if (k == null)
+                if (d == null)
                 {
-                    k = new lhi[0];
+                    d = new lhi[0];
                 }
             }
         }
-        return k;
+        return d;
         exception;
         obj;
         JVM INSTR monitorexit ;
@@ -55,79 +41,51 @@ public final class lhi extends koj
 
     protected int computeSerializedSize()
     {
-        int i1 = super.computeSerializedSize();
-        int l = i1;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            a.floatValue();
-            l = i1 + (koh.f(1) + 4);
+            i = j + kwk.b(1, a);
         }
-        i1 = l;
+        j = i;
         if (b != null)
         {
-            b.floatValue();
-            i1 = l + (koh.f(2) + 4);
+            j = i;
+            if (b.length > 0)
+            {
+                for (j = 0; j < b.length;)
+                {
+                    lhj lhj1 = b[j];
+                    int k = i;
+                    if (lhj1 != null)
+                    {
+                        k = i + kwk.d(2, lhj1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
         }
-        l = i1;
+        i = j;
         if (c != null)
         {
-            c.floatValue();
-            l = i1 + (koh.f(3) + 4);
+            c.booleanValue();
+            i = j + (kwk.f(3) + 1);
         }
-        i1 = l;
-        if (d != null)
-        {
-            d.booleanValue();
-            i1 = l + (koh.f(4) + 1);
-        }
-        l = i1;
-        if (e != null)
-        {
-            e.floatValue();
-            l = i1 + (koh.f(5) + 4);
-        }
-        i1 = l;
-        if (f != null)
-        {
-            f.floatValue();
-            i1 = l + (koh.f(6) + 4);
-        }
-        l = i1;
-        if (g != null)
-        {
-            g.floatValue();
-            l = i1 + (koh.f(7) + 4);
-        }
-        i1 = l;
-        if (h != null)
-        {
-            h.floatValue();
-            i1 = l + (koh.f(8) + 4);
-        }
-        l = i1;
-        if (i != null)
-        {
-            i.floatValue();
-            l = i1 + (koh.f(9) + 4);
-        }
-        i1 = l;
-        if (j != null)
-        {
-            j.floatValue();
-            i1 = l + (koh.f(10) + 4);
-        }
-        return i1;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int l = kog1.a();
-            switch (l)
+            int i = kwj1.a();
+            switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, l))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -136,91 +94,69 @@ public final class lhi extends koj
             case 0: // '\0'
                 return this;
 
-            case 13: // '\r'
-                a = Float.valueOf(kog1.c());
+            case 10: // '\n'
+                a = kwj1.j();
                 break;
 
-            case 21: // '\025'
-                b = Float.valueOf(kog1.c());
+            case 18: // '\022'
+                int k = kwx.a(kwj1, 18);
+                lhj alhj[];
+                int j;
+                if (b == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = b.length;
+                }
+                alhj = new lhj[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(b, 0, alhj, 0, j);
+                    k = j;
+                }
+                for (; k < alhj.length - 1; k++)
+                {
+                    alhj[k] = new lhj();
+                    kwj1.a(alhj[k]);
+                    kwj1.a();
+                }
+
+                alhj[k] = new lhj();
+                kwj1.a(alhj[k]);
+                b = alhj;
                 break;
 
-            case 29: // '\035'
-                c = Float.valueOf(kog1.c());
-                break;
-
-            case 32: // ' '
-                d = Boolean.valueOf(kog1.i());
-                break;
-
-            case 45: // '-'
-                e = Float.valueOf(kog1.c());
-                break;
-
-            case 53: // '5'
-                f = Float.valueOf(kog1.c());
-                break;
-
-            case 61: // '='
-                g = Float.valueOf(kog1.c());
-                break;
-
-            case 69: // 'E'
-                h = Float.valueOf(kog1.c());
-                break;
-
-            case 77: // 'M'
-                i = Float.valueOf(kog1.c());
-                break;
-
-            case 85: // 'U'
-                j = Float.valueOf(kog1.c());
+            case 24: // '\030'
+                c = Boolean.valueOf(kwj1.i());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.floatValue());
+            kwk1.a(1, a);
         }
-        if (b != null)
+        if (b != null && b.length > 0)
         {
-            koh1.a(2, b.floatValue());
+            for (int i = 0; i < b.length; i++)
+            {
+                lhj lhj1 = b[i];
+                if (lhj1 != null)
+                {
+                    kwk1.b(2, lhj1);
+                }
+            }
+
         }
         if (c != null)
         {
-            koh1.a(3, c.floatValue());
+            kwk1.a(3, c.booleanValue());
         }
-        if (d != null)
-        {
-            koh1.a(4, d.booleanValue());
-        }
-        if (e != null)
-        {
-            koh1.a(5, e.floatValue());
-        }
-        if (f != null)
-        {
-            koh1.a(6, f.floatValue());
-        }
-        if (g != null)
-        {
-            koh1.a(7, g.floatValue());
-        }
-        if (h != null)
-        {
-            koh1.a(8, h.floatValue());
-        }
-        if (i != null)
-        {
-            koh1.a(9, i.floatValue());
-        }
-        if (j != null)
-        {
-            koh1.a(10, j.floatValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

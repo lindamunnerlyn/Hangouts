@@ -2,16 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
 
-public class fya extends Exception
+class fya extends fwi
 {
 
-    private final Intent a;
+    private enn a;
 
-    public fya(String s, Intent intent, Throwable throwable)
+    public fya(enn enn1)
     {
-        super(s, throwable);
-        a = intent;
+        a = enn1;
+    }
+
+    public void a(Object obj)
+    {
+        enn enn1 = a;
+        if (enn1 != null)
+        {
+            enn1.a(obj);
+            a = null;
+        }
     }
 }

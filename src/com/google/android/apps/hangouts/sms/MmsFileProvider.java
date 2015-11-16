@@ -7,12 +7,12 @@ package com.google.android.apps.hangouts.sms;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
-import dqu;
-import ebw;
+import dto;
+import eev;
 import java.io.File;
 import java.util.Random;
 
-public class MmsFileProvider extends dqu
+public class MmsFileProvider extends dto
 {
 
     static final String b;
@@ -24,7 +24,7 @@ public class MmsFileProvider extends dqu
     public static Uri a(Context context)
     {
         Object obj = b;
-        long l = Math.abs(dqu.a.nextLong());
+        long l = Math.abs(dto.a.nextLong());
         obj = (new android.net.Uri.Builder()).authority(((String) (obj))).scheme("content");
         ((android.net.Uri.Builder) (obj)).appendPath(String.valueOf(l));
         if (!TextUtils.isEmpty(null))
@@ -43,7 +43,7 @@ public class MmsFileProvider extends dqu
             {
                 context = new String("Failed to create temp file ");
             }
-            ebw.g("Babel", context);
+            eev.g("Babel", context);
         }
         return ((Uri) (obj));
     }

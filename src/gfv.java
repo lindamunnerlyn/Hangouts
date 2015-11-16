@@ -2,13 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.List;
 
-interface gfv
+final class gfv
+    implements Runnable
 {
 
-    public abstract void a();
+    final gmw a;
+    final gio b;
+    final gfu c;
 
-    public abstract void a(Object obj);
+    gfv(gfu gfu1, gmw gmw1, gio gio)
+    {
+        c = gfu1;
+        a = gmw1;
+        b = gio;
+        super();
+    }
 
-    public abstract Object b();
+    public void run()
+    {
+        int j = c.a.size();
+        for (int i = 0; i < j; i++)
+        {
+            ggc ggc1 = (ggc)c.a.get(i);
+            if (ggc1.a.equals(a))
+            {
+                ggc1.a(a, b);
+                return;
+            }
+        }
+
+        c.a.add(new ggc(c, a, b));
+        c.b();
+    }
 }

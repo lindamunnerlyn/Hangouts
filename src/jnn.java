@@ -3,16 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class jnn extends jnm
+public interface jnn
 {
 
-    jnn(String s)
-    {
-        super(s, 0);
-    }
+    public abstract Object a(Object obj);
 
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry a(joh joh, Object obj, int i, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
-    {
-        return new joo(obj, i, referenceentry);
-    }
+    public abstract boolean equals(Object obj);
 }

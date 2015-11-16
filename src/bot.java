@@ -2,151 +2,182 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.ViewGroup;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.res.Resources;
+import android.os.Bundle;
 import com.google.android.apps.hangouts.hangout.HangoutActivity;
-import com.google.android.apps.hangouts.hangout.HangoutFragment;
-import java.util.Collections;
 
-public final class bot
+public final class bot extends ac
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final HangoutFragment a;
-
-    public bot(HangoutFragment hangoutfragment)
+    public bot()
     {
-        a = hangoutfragment;
-        super();
     }
 
-    ani a()
+    public static bot a(String s, int i)
     {
-        return HangoutFragment.a(a);
+        bot bot1 = new bot();
+        Bundle bundle = new Bundle();
+        bundle.putString("key_error_message", s);
+        bundle.putInt("KEY_ERROR", i);
+        bot1.setArguments(bundle);
+        return bot1;
     }
 
-    void a(int i1)
+    public Dialog a(Bundle bundle)
     {
-        HangoutFragment.e(a).setVisibility(i1);
-        if (i1 == 0 && a.b != null)
+        android.app.AlertDialog.Builder builder;
+        Bundle bundle1;
+        builder = new android.app.AlertDialog.Builder(getActivity());
+        bundle1 = getArguments();
+        bundle = bundle1.getString("key_error_message");
+        if (bundle == null) goto _L2; else goto _L1
+_L1:
+        builder.setMessage(bundle);
+        builder.setPositiveButton(getActivity().getResources().getString(l.hd), this);
+        return builder.create();
+_L2:
+        int i;
+        int j;
+        int k;
+        k = bundle1.getInt("KEY_ERROR");
+        j = l.cX;
+        i = j;
+        k;
+        JVM INSTR lookupswitch 40: default 408
+    //                   1: 450
+    //                   2: 458
+    //                   3: 474
+    //                   4: 474
+    //                   5: 474
+    //                   6: 474
+    //                   7: 474
+    //                   8: 474
+    //                   9: 474
+    //                   10: 474
+    //                   11: 474
+    //                   12: 482
+    //                   13: 490
+    //                   14: 498
+    //                   15: 590
+    //                   16: 450
+    //                   17: 506
+    //                   18: 506
+    //                   19: 514
+    //                   20: 526
+    //                   21: 598
+    //                   22: 598
+    //                   23: 598
+    //                   24: 598
+    //                   25: 534
+    //                   28: 614
+    //                   29: 598
+    //                   1000: 542
+    //                   1001: 558
+    //                   1002: 566
+    //                   1003: 598
+    //                   1006: 574
+    //                   1007: 437
+    //                   1008: 582
+    //                   1009: 590
+    //                   1012: 606
+    //                   1013: 466
+    //                   1014: 437
+    //                   1016: 450
+    //                   1019: 550;
+           goto _L3 _L4 _L5 _L6 _L6 _L6 _L6 _L6 _L6 _L6 _L6 _L6 _L7 _L8 _L9 _L10 _L4 _L11 _L11 _L12 _L13 _L14 _L14 _L14 _L14 _L15 _L16 _L14 _L17 _L18 _L19 _L14 _L20 _L21 _L22 _L10 _L23 _L24 _L21 _L4 _L25
+_L16:
+        break MISSING_BLOCK_LABEL_614;
+_L4:
+        break; /* Loop/switch isn't completed */
+_L21:
+        break; /* Loop/switch isn't completed */
+_L3:
+        gdv.a((new StringBuilder(41)).append("Unknown/unexpected error code:").append(k).toString());
+        i = j;
+_L27:
+        bundle = getResources().getString(i);
+        if (true) goto _L1; else goto _L26
+_L26:
+        i = l.cR;
+          goto _L27
+_L5:
+        i = l.ep;
+          goto _L27
+_L24:
+        i = l.cO;
+          goto _L27
+_L6:
+        i = l.cP;
+          goto _L27
+_L7:
+        i = l.cI;
+          goto _L27
+_L8:
+        i = l.cJ;
+          goto _L27
+_L9:
+        i = l.cL;
+          goto _L27
+_L11:
+        i = l.cN;
+          goto _L27
+_L12:
+        gdv.a("This should be handled differently");
+        i = j;
+          goto _L27
+_L13:
+        i = l.cK;
+          goto _L27
+_L15:
+        i = l.cZ;
+          goto _L27
+_L17:
+        i = l.cu;
+          goto _L27
+_L25:
+        i = l.cp;
+          goto _L27
+_L18:
+        i = l.cM;
+          goto _L27
+_L19:
+        i = l.cS;
+          goto _L27
+_L20:
+        i = l.cY;
+          goto _L27
+_L22:
+        i = l.cT;
+          goto _L27
+_L10:
+        i = l.eA;
+          goto _L27
+_L14:
+        i = l.da;
+          goto _L27
+_L23:
+        i = l.ep;
+          goto _L27
+        i = l.cQ;
+          goto _L27
+    }
+
+    public void onCancel(DialogInterface dialoginterface)
+    {
+        dialoginterface = (HangoutActivity)getActivity();
+        if (dialoginterface != null)
         {
-            ebr.a(HangoutFragment.f(a), a.b, b().getString(l.c));
+            dialoginterface.n();
         }
     }
 
-    public void a(String s)
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        HangoutFragment hangoutfragment = a;
-        boolean flag;
-        if (!HangoutFragment.d(a))
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        HangoutFragment.a(hangoutfragment, s, flag);
-    }
-
-    ai b()
-    {
-        return HangoutFragment.b(a);
-    }
-
-    public void b(int i1)
-    {
-        HangoutFragment.b(a, i1);
-        ebw.c("Babel_calls", (new StringBuilder(53)).append("Switch camera menu item visibility is now ").append(i1).toString());
-        a.b();
-    }
-
-    public int c()
-    {
-        return HangoutFragment.c(a);
-    }
-
-    void d()
-    {
-        a.a.x();
-        if (HangoutFragment.c(a) == 0 || HangoutFragment.c(a) == 1)
-        {
-            HangoutFragment.a(a, 2);
-        }
-    }
-
-    public ap e()
-    {
-        return a.getFragmentManager();
-    }
-
-    bq f()
-    {
-        return a.getLoaderManager();
-    }
-
-    public int g()
-    {
-        return a.t();
-    }
-
-    public int h()
-    {
-        boolean flag = true;
-        bpd bpd1 = a.a.t();
-        int i1;
-        if (HangoutFragment.a(a).n())
-        {
-            i1 = 0;
-        } else
-        {
-            i1 = ((flag) ? 1 : 0);
-            if (bpd1 != null)
-            {
-                i1 = ((flag) ? 1 : 0);
-                if (bpd1.C())
-                {
-                    return 2;
-                }
-            }
-        }
-        return i1;
-    }
-
-    boolean i()
-    {
-        return HangoutFragment.d(a);
-    }
-
-    public void j()
-    {
-        a.b();
-    }
-
-    void k()
-    {
-        a.c();
-    }
-
-    public void l()
-    {
-        int i1 = HangoutFragment.c(a);
-        ebw.e("Babel_calls", (new StringBuilder(46)).append("HangoutFragment onExit with state: ").append(i1).toString());
-        bpd bpd1 = a.a.t();
-        if (bpd1 != null)
-        {
-            bpd1.c(1004);
-        }
-        HangoutFragment.b(a).n();
-    }
-
-    public void m()
-    {
-        if (HangoutFragment.g(a).a("android.permission.CAMERA"))
-        {
-            HangoutFragment.h(a);
-            return;
-        } else
-        {
-            HangoutFragment.i(a).a(HangoutFragment.u(), Collections.singletonList("android.permission.CAMERA"), 2657, null);
-            return;
-        }
+        gdv.a(Integer.valueOf(i), Integer.valueOf(-1));
+        onCancel(dialoginterface);
+        a();
     }
 }

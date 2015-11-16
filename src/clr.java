@@ -2,209 +2,145 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.DataSetObserver;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import com.google.android.apps.hangouts.phone.DebugBitmapsActivity;
+import java.util.Set;
 
 public final class clr
-    implements ListAdapter
+    implements cqx
 {
 
-    final DebugBitmapsActivity a;
+    private joj A;
+    private joj B;
+    private joj C;
+    private joj D;
+    private joj E;
+    private joj F;
+    private joj G;
+    private joj H;
+    private joj I;
+    joj a;
+    joj b;
+    joj c;
+    joj d;
+    joj e;
+    joj f;
+    joj g;
+    joj h;
+    joj i;
+    joj j;
+    joj k;
+    joj l;
+    private joj m;
+    private joj n;
+    private joj o;
+    private final gwx p = new gwx();
+    private joj q;
+    private joj r;
+    private joj s;
+    private joj t;
+    private final isw u = new isw();
+    private joj v;
+    private joj w;
+    private joj x;
+    private joj y;
+    private joj z;
 
-    clr(DebugBitmapsActivity debugbitmapsactivity)
+    clr(clv clv1)
     {
-        a = debugbitmapsactivity;
-        super();
+        m = lfs.a(irb.b());
+        n = new ira(m);
+        o = lfs.a(new irh(n));
+        p.a = lfs.a(gwt.b());
+        q = lfs.a(new gww(clv1.a, p.a));
+        r = lfs.a(ird.b());
+        s = new irc(r);
+        a = new isy(clv1.b, isz.b());
+        b = lfs.a(new itn(clv1.c));
+        t = lft.a(new joj[] {
+            a, b
+        });
+        u.a = lfs.a(new itl(o, q, s, t));
+        v = new ito(clv1.c, u.a);
+        w = new itf(v);
+        c = new irv(clv1.d);
+        x = lfs.a(new hcq(c));
+        d = lfs.a(new hcp(x));
+        y = lfs.a(hcr.b());
+        z = lfs.a(hcn.b());
+        A = lfs.a(new hco(c));
+        B = lfs.a(new hcm(x));
+        C = lfs.a(hcs.b());
+        D = lfs.a(new byg(c));
+        E = lfs.a(new cpx(c, D));
+        F = lfs.a(ist.b());
+        e = isn.b();
+        f = iss.b();
+        G = lft.a(new joj[] {
+            e, f
+        });
+        H = lfs.a(new isu(F, G));
+        g = new cqb(E);
+        h = irx.b();
+        i = new isr(H);
+        j = ism.b();
+        I = lft.a(new joj[] {
+            g, h, i, j
+        });
+        k = lfs.a(new iqn(clv1.e, c));
+        l = new csu(clv1.f, c);
     }
 
-    public boolean areAllItemsEnabled()
+    public itd a()
     {
-        return true;
+        return (itd)w.a();
     }
 
-    public int getCount()
+    public Object a(irs irs)
     {
-        return 13;
+        return new cls(this, irs);
     }
 
-    public Object getItem(int i)
+    public hda b()
     {
-        switch (i)
-        {
-        default:
-            return null;
-
-        case 0: // '\0'
-            return anv.p();
-
-        case 1: // '\001'
-            return anv.a(amv.b);
-
-        case 2: // '\002'
-            return anv.q();
-
-        case 3: // '\003'
-            return anv.m();
-
-        case 4: // '\004'
-            return anv.o();
-
-        case 5: // '\005'
-            return anv.i();
-
-        case 6: // '\006'
-            return anv.k();
-
-        case 7: // '\007'
-            return anv.d();
-
-        case 8: // '\b'
-            return anv.l();
-
-        case 9: // '\t'
-            return anv.n();
-
-        case 10: // '\n'
-            return anv.h();
-
-        case 11: // '\013'
-            return anv.j();
-
-        case 12: // '\f'
-            return anv.c();
-        }
+        return (hda)x.a();
     }
 
-    public long getItemId(int i)
+    public hbk c()
     {
-        return (long)i;
+        return (hbk)d.a();
     }
 
-    public int getItemViewType(int i)
+    public hbu d()
     {
-        return 0;
+        return (hbu)y.a();
     }
 
-    public View getView(int i, View view, ViewGroup viewgroup)
+    public hba e()
     {
-        View view1;
-        view1 = view;
-        if (view == null)
-        {
-            view1 = a.getLayoutInflater().inflate(g.fG, viewgroup, false);
-        }
-        view = (Bitmap)getItem(i);
-        if (view == null) goto _L2; else goto _L1
-_L1:
-        TextView textview;
-        TextView textview1;
-        TextView textview2;
-        ImageView imageview;
-        viewgroup = (TextView)view1.findViewById(h.gq);
-        textview = (TextView)view1.findViewById(h.gr);
-        textview1 = (TextView)view1.findViewById(h.gs);
-        textview2 = (TextView)view1.findViewById(h.gt);
-        imageview = (ImageView)view1.findViewById(h.P);
-        i;
-        JVM INSTR tableswitch 0 12: default 168
-    //                   0 242
-    //                   1 251
-    //                   2 260
-    //                   3 269
-    //                   4 278
-    //                   5 287
-    //                   6 296
-    //                   7 305
-    //                   8 314
-    //                   9 323
-    //                   10 332
-    //                   11 341
-    //                   12 350;
-           goto _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L13 _L14 _L15 _L16
-_L3:
-        textview.setText("");
-        i = view.getWidth();
-        int j = view.getHeight();
-        textview1.setText((new StringBuilder(23)).append(i).append("x").append(j).toString());
-        textview2.setText(view.toString());
-        imageview.setImageDrawable(new BitmapDrawable(view));
-_L2:
-        return view1;
-_L4:
-        viewgroup.setText("DefaultCircleAvatar");
-        continue; /* Loop/switch isn't completed */
-_L5:
-        viewgroup.setText("MediumDefaultAvatarWithSmsBadge");
-        continue; /* Loop/switch isn't completed */
-_L6:
-        viewgroup.setText("MissedCallPstnAvatar");
-        continue; /* Loop/switch isn't completed */
-_L7:
-        viewgroup.setText("RectBusinessAvatar");
-        continue; /* Loop/switch isn't completed */
-_L8:
-        viewgroup.setText("RectLargeBusinessAvatar");
-        continue; /* Loop/switch isn't completed */
-_L9:
-        viewgroup.setText("RectLargeDefaultAvatar");
-        continue; /* Loop/switch isn't completed */
-_L10:
-        viewgroup.setText("RectLargePstnAvatar");
-        continue; /* Loop/switch isn't completed */
-_L11:
-        viewgroup.setText("RectMediumDefaultAvatar");
-        continue; /* Loop/switch isn't completed */
-_L12:
-        viewgroup.setText("RoundBusinessAvatar");
-        continue; /* Loop/switch isn't completed */
-_L13:
-        viewgroup.setText("RoundLargeBusinessAvatar");
-        continue; /* Loop/switch isn't completed */
-_L14:
-        viewgroup.setText("RoundLargeDefaultAvatar");
-        continue; /* Loop/switch isn't completed */
-_L15:
-        viewgroup.setText("RoundLargePstnAvatar");
-        continue; /* Loop/switch isn't completed */
-_L16:
-        viewgroup.setText("RoundMediumDefaultAvatar");
-        if (true) goto _L3; else goto _L17
-_L17:
+        return (hba)z.a();
     }
 
-    public int getViewTypeCount()
+    public hci f()
     {
-        return 1;
+        return (hci)A.a();
     }
 
-    public boolean hasStableIds()
+    public gqx[] g()
     {
-        return false;
+        return (gqx[])B.a();
     }
 
-    public boolean isEmpty()
+    public hbt h()
     {
-        return getCount() != 0;
+        return (hbt)C.a();
     }
 
-    public boolean isEnabled(int i)
+    public Set i()
     {
-        return true;
+        return (Set)I.a();
     }
 
-    public void registerDataSetObserver(DataSetObserver datasetobserver)
+    public itd j()
     {
-    }
-
-    public void unregisterDataSetObserver(DataSetObserver datasetobserver)
-    {
+        return (itd)w.a();
     }
 }

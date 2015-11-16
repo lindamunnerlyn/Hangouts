@@ -3,8 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface duq
+final class duq
+    implements Runnable
 {
 
-    public abstract void b();
+    final dup a;
+
+    duq(dup dup1)
+    {
+        a = dup1;
+        super();
+    }
+
+    public void run()
+    {
+        a.a();
+    }
 }

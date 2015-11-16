@@ -2,41 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import java.util.concurrent.BlockingQueue;
 
-final class faq extends Handler
+final class faq
 {
 
-    final fap a;
+    static final erv a[] = {
+        new far(erv.a("0\202\003\3210\202\002\271\240\003\002\001\002\002\t\000\264m/\232\036\024_\0310")), new fas(erv.a("0\202\003\3210\202\002\271\240\003\002\001\002\002\t\000\322\240\n6\231B|\3540"))
+    };
 
-    faq(fap fap1, Looper looper)
-    {
-        a = fap1;
-        super(looper);
-    }
-
-    public void handleMessage(Message message)
-    {
-        Object obj;
-        if (message != null)
-        {
-            obj = message.obj;
-        }
-        message = (Intent)message.obj;
-        if ("com.google.android.c2dm.intent.REGISTRATION".equals(message.getAction()))
-        {
-            fap.a(a).add(message);
-        } else
-        if (!fap.a(a, message))
-        {
-            message.setPackage(fap.b(a).getPackageName());
-            fap.b(a).sendBroadcast(message);
-            return;
-        }
-    }
 }

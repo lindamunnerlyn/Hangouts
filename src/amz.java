@@ -2,327 +2,260 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentResolver;
-import android.content.Context;
-import android.database.Cursor;
 import android.text.TextUtils;
-import com.google.android.apps.hangouts.content.EsProvider;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.Set;
+import java.util.List;
 
-public final class amz
+public final class amz extends amx
+    implements Serializable
 {
 
-    private ana a;
-    private ani b;
+    private String b;
     private String c;
-    private final eay d;
-    private final eay e;
+    private List d;
+    private String e;
+    private String f;
+    private boolean g;
+    private boolean h;
+    private boolean i;
+    private boolean j;
+    private boolean k;
+    private List l;
+    private List m;
 
-    public amz()
+    amz(String s, String s1, List list, String s2, String s3, boolean flag, boolean flag1, 
+            boolean flag2, boolean flag3, boolean flag4, List list1, List list2)
     {
-        this(null);
+        d = new ArrayList();
+        b = s;
+        c = s1;
+        d = list;
+        e = s2;
+        f = s3;
+        g = flag;
+        h = flag1;
+        i = flag2;
+        j = flag3;
+        k = flag4;
+        l = list1;
+        m = list2;
     }
 
-    public amz(ana ana1)
+    public static amz a(cfz cfz1, List list, boolean flag)
     {
-        d = new eay();
-        e = new eay();
-        a = ana1;
-    }
-
-    public static ceu a(ani ani1, Cursor cursor)
-    {
-        String s = cursor.getString(0);
-        String s1 = cursor.getString(2);
-        String s2 = cursor.getString(1);
-        String s3 = cursor.getString(3);
-        String s4 = cursor.getString(10);
-        String s5 = cursor.getString(4);
-        String s6 = cursor.getString(5);
-        String s7 = cursor.getString(6);
-        String s8 = cursor.getString(7);
-        int i = cursor.getInt(14);
-        String s9 = cursor.getString(11);
-        Boolean boolean1 = null;
-        if (cursor.getInt(9) != 0)
+        ArrayList arraylist = new ArrayList();
+        if (cfz1.A != null)
         {
-            boolean1 = Boolean.TRUE;
+            for (Iterator iterator = cfz1.A.iterator(); iterator.hasNext(); arraylist.add(new and((String)iterator.next()))) { }
         }
-        cursor = g.a(cfa.values()[cursor.getInt(8)], s1, s2, s3, s4, s5, s6, s7, s8, s9, boolean1, i);
-        ((aqs)hgx.a(g.nS, aqs)).a(ani1).a(cursor, s);
-        return cursor;
-    }
-
-    public static em a(ani ani1, String s, int i)
-    {
-        String s2 = null;
-        Object obj = ani1.b().b;
-        String s1;
-        String as[];
-        if (i == anb.a)
+        ArrayList arraylist1 = new ArrayList();
+        if (list != null)
         {
-            s1 = "(chat_id!=? OR chat_id IS NULL)  AND active=1";
-            as = new String[1];
-            as[0] = ((String) (obj));
-            s2 = "first_name ASC";
+            for (list = list.iterator(); list.hasNext(); arraylist1.add(new and((String)list.next()))) { }
+        }
+        list = new ArrayList();
+        if (cfz1.B != null)
+        {
+            for (Iterator iterator1 = cfz1.B.iterator(); iterator1.hasNext(); list.add(new amv((String)iterator1.next()))) { }
+        }
+        ana ana1 = new ana();
+        ana ana2 = ana1.b(cfz1.h).a(g.a(cfz1, false)).a(new amw(cfz1.b(), cfz1.h()));
+        if (flag || cfz1.z)
+        {
+            flag = true;
         } else
         {
-            as = null;
-            s1 = null;
+            flag = false;
         }
-        obj = new ArrayList();
-        Collections.addAll(((Collection) (obj)), s.split("\\|"));
-        s = EsProvider.a(ani1, ((ArrayList) (obj)));
-        return new cnh(g.nS, ani1, s, anc.a, s1, as, s2);
-    }
-
-    public static void a(ani ani1, String s)
-    {
-        ani1 = EsProvider.d(ani1, s);
-        g.nS.getContentResolver().notifyChange(ani1, null);
-    }
-
-    public static int b(ani ani1, String s)
-    {
-        return b(ani1, s, anb.a);
-    }
-
-    private static int b(ani ani1, String s, int i)
-    {
-        Object obj = null;
-        String s2 = ani1.b().b;
-        String s1;
-        String as[];
-        if (i == anb.a)
+        ana2.a(flag).c(arraylist).c(arraylist1).b(list);
+        if (!TextUtils.isEmpty(cfz1.c))
         {
-            s1 = "(chat_id!=? OR chat_id IS NULL)  AND active=1";
-            as = new String[1];
-            as[0] = s2;
+            ana1.f(cfz1.c);
+        }
+        return ana1.b();
+    }
+
+    public and a()
+    {
+        boolean flag;
+        if (m != null && !m.isEmpty())
+        {
+            flag = true;
         } else
         {
-            as = null;
-            s1 = null;
+            flag = false;
         }
-        s = EsProvider.d(ani1, s);
-        ani1 = obj;
-        s = g.nS.getContentResolver().query(s, new String[] {
-            "count(*) as count"
-        }, s1, as, null);
-        if (s == null)
+        if (flag)
         {
-            break MISSING_BLOCK_LABEL_104;
-        }
-        ani1 = s;
-        if (!s.moveToFirst())
-        {
-            break MISSING_BLOCK_LABEL_104;
-        }
-        ani1 = s;
-        i = s.getInt(0);
-        if (s != null)
-        {
-            s.close();
-        }
-        return i;
-        if (s != null)
-        {
-            s.close();
-        }
-        return 0;
-        s;
-        if (ani1 != null)
-        {
-            ani1.close();
-        }
-        throw s;
-    }
-
-    public static amz c(ani ani1, String s)
-    {
-        String s1 = null;
-        amz amz1 = new amz();
-        amz1.d(ani1, s);
-        int i = anb.a;
-        Object obj = amz1.b;
-        String s2 = amz1.c;
-        String s3 = ((ani) (obj)).b().b;
-        if (i == anb.a)
-        {
-            ani1 = "(chat_id!=? OR chat_id IS NULL)  AND active=1";
-            s = new String[1];
-            s[0] = s3;
-            s1 = "first_name ASC";
+            return (and)m.get(0);
         } else
         {
-            s = null;
-            ani1 = null;
+            return null;
         }
-        obj = EsProvider.d(((ani) (obj)), s2);
-        ani1 = g.nS.getContentResolver().query(((android.net.Uri) (obj)), anc.a, ani1, s, s1);
-        if (ani1 == null)
-        {
-            break MISSING_BLOCK_LABEL_109;
-        }
-        amz1.a(ani1);
-        ani1.close();
-        return amz1;
-        s;
-        ani1.close();
-        throw s;
-    }
-
-    private void g()
-    {
-        if (a != null)
-        {
-            a.a();
-        }
-    }
-
-    public em a(int i)
-    {
-        return a(b, c, i);
-    }
-
-    public String a()
-    {
-        return c;
-    }
-
-    public void a(Cursor cursor)
-    {
-        d.clear();
-        e.clear();
-        if (cursor != null && cursor.moveToFirst())
-        {
-            do
-            {
-                ceu ceu1 = a(b, cursor);
-                boolean flag;
-                if (cursor.getInt(13) == 1)
-                {
-                    flag = true;
-                } else
-                {
-                    flag = false;
-                }
-                if (flag && !c(ceu1.b))
-                {
-                    e.put(ceu1.b, ceu1);
-                }
-                d.put(ceu1.b, ceu1);
-            } while (cursor.moveToNext());
-        }
-        g();
-    }
-
-    public boolean a(cey cey1)
-    {
-        return d.containsKey(cey1);
-    }
-
-    public ceu b(cey cey1)
-    {
-        return (ceu)d.get(cey1);
     }
 
     public Collection b()
     {
-        return d.values();
-    }
-
-    public Collection c()
-    {
-        return e.values();
-    }
-
-    public boolean c(cey cey1)
-    {
-        return b.b().a(cey1);
-    }
-
-    public String d(cey cey1)
-    {
-        cey1 = (ceu)d.get(cey1);
-        if (cey1 != null)
+        if (m != null)
         {
-            return ((ceu) (cey1)).h;
+            return Collections.unmodifiableList(m);
+        } else
+        {
+            return Collections.emptyList();
+        }
+    }
+
+    public String c()
+    {
+        boolean flag;
+        if (l != null && !l.isEmpty())
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        if (flag)
+        {
+            return ((amv)l.get(0)).b();
         } else
         {
             return null;
         }
     }
 
-    public void d(ani ani1, String s)
+    public Collection d()
     {
-        if (b != ani1 || !TextUtils.equals(c, s))
+        if (l != null)
         {
-            b = ani1;
-            c = s;
-            d.clear();
-            e.clear();
-            g();
-        }
-    }
-
-    public boolean d()
-    {
-        return d.size() == 0;
-    }
-
-    public String e(cey cey1)
-    {
-        cey1 = (ceu)d.get(cey1);
-        if (cey1 != null)
-        {
-            return ((ceu) (cey1)).e;
+            return Collections.unmodifiableList(l);
         } else
         {
-            return null;
+            return Collections.emptyList();
         }
     }
 
-    public ArrayList e()
+    public String e()
+    {
+        return b;
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (this != obj) goto _L2; else goto _L1
+_L1:
+        return true;
+_L2:
+        if (obj == null || getClass() != obj.getClass())
+        {
+            return false;
+        }
+        obj = (amz)obj;
+        if (d == null ? ((amz) (obj)).d != null : !d.equals(((amz) (obj)).d))
+        {
+            return false;
+        }
+        if (l == null ? ((amz) (obj)).l != null : !l.equals(((amz) (obj)).l))
+        {
+            return false;
+        }
+        if (m == null) goto _L4; else goto _L3
+_L3:
+        if (m.equals(((amz) (obj)).m)) goto _L1; else goto _L5
+_L5:
+        return false;
+_L4:
+        if (((amz) (obj)).m == null)
+        {
+            return true;
+        }
+        if (true) goto _L5; else goto _L6
+_L6:
+    }
+
+    public String f()
+    {
+        return c;
+    }
+
+    public boolean g()
+    {
+        return h;
+    }
+
+    public boolean h()
+    {
+        return !d.isEmpty();
+    }
+
+    public int hashCode()
+    {
+        int k1 = 0;
+        int i1;
+        int j1;
+        if (d != null)
+        {
+            i1 = d.hashCode();
+        } else
+        {
+            i1 = 0;
+        }
+        if (l != null)
+        {
+            j1 = l.hashCode();
+        } else
+        {
+            j1 = 0;
+        }
+        if (m != null)
+        {
+            k1 = m.hashCode();
+        }
+        return (j1 + i1 * 31) * 31 + k1;
+    }
+
+    public String i()
     {
         if (d.isEmpty())
         {
             return null;
         } else
         {
-            return new ArrayList(d.values());
+            return ((amw)d.get(0)).a();
         }
     }
 
-    public boolean f()
+    public Collection j()
     {
-        Iterator iterator;
-        int i;
-        iterator = d.entrySet().iterator();
-        i = 0;
-_L7:
-        if (!iterator.hasNext()) goto _L2; else goto _L1
-_L1:
-        java.util.Map.Entry entry;
-        entry = (java.util.Map.Entry)iterator.next();
-        if (c((cey)entry.getKey()))
-        {
-            continue; /* Loop/switch isn't completed */
-        }
-        if (((ceu)entry.getValue()).D == cew.b) goto _L4; else goto _L3
-_L3:
-        return false;
-_L4:
-        i++;
-        continue; /* Loop/switch isn't completed */
-_L2:
-        if (i <= 0) goto _L3; else goto _L5
-_L5:
-        return true;
-        if (true) goto _L7; else goto _L6
-_L6:
+        return Collections.unmodifiableList(d);
+    }
+
+    public String k()
+    {
+        return e;
+    }
+
+    public boolean l()
+    {
+        return !TextUtils.isEmpty(m());
+    }
+
+    public String m()
+    {
+        return f;
+    }
+
+    public boolean n()
+    {
+        return g;
+    }
+
+    public boolean o()
+    {
+        return k;
     }
 }

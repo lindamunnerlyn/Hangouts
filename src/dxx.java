@@ -3,10 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface dxx
+final class dxx
+    implements Runnable
 {
 
-    public abstract void a();
+    final dwz a;
+    final dxv b;
 
-    public abstract void b();
+    dxx(dxv dxv, dwz dwz1)
+    {
+        b = dxv;
+        a = dwz1;
+        super();
+    }
+
+    public void run()
+    {
+        a.a(false);
+        if (a.a() != null)
+        {
+            a.b();
+        }
+    }
 }

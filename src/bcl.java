@@ -3,26 +3,36 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-public class bcl extends bdc
-    implements aur
+public class bcl extends hmm
+    implements avi
 {
+
+    private gte a;
+    private final gtd b = new bcm(this);
 
     public bcl()
     {
     }
 
+    static hlt a(bcl bcl1)
+    {
+        return bcl1.context;
+    }
+
     public boolean a()
     {
-        ((ayf)binder.a(ayf)).h();
-        if (!((aus)binder.a(aus)).e())
+        ((ayt)binder.a(ayt)).h();
+        if (g.a(dcn.e(((gqu)binder.a(gqu)).a()), aqc.a))
         {
-            ((atb)binder.a(atb)).a(asz.d);
-            return false;
-        } else
-        {
-            return true;
+            g.a(dcn.e(((gqu)binder.a(gqu)).a()), 1940);
+            android.content.Intent intent = ((bzi)binder.a(bzi)).a(getActivity());
+            a.a(g.km, intent);
         }
+        return false;
     }
 
     public void b()
@@ -31,12 +41,17 @@ public class bcl extends bdc
 
     public boolean c()
     {
-        return false;
+        return true;
     }
 
-    public void onAttachBinder(Bundle bundle)
+    protected void onAttachBinder(Bundle bundle)
     {
         super.onAttachBinder(bundle);
-        binder.a(bch, new bcm(this));
+        a = ((gte)binder.a(gte)).a(g.km, b);
+    }
+
+    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
+    {
+        return null;
     }
 }

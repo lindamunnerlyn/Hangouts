@@ -2,73 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import java.util.Iterator;
-import java.util.List;
+import android.os.Message;
 
-public class hhs extends hkh
-    implements hha
+final class hhs
+    implements android.os.Handler.Callback
 {
 
-    private hjr aj;
-    public final hhb ak = new hhb();
-    public final hgx al;
+    final hhr a;
 
-    public hhs()
+    hhs(hhr hhr1)
     {
-        al = ak.getBinder();
+        a = hhr1;
+        super();
     }
 
-    static hjg a(hhs hhs1)
+    public boolean handleMessage(Message message)
     {
-        return hhs1.am;
-    }
-
-    public void e(Bundle bundle)
-    {
-        al.a(new hia(this, am));
-    }
-
-    public hgx getBinder()
-    {
-        return al;
-    }
-
-    public Context getContext()
-    {
-        return ak;
-    }
-
-    public LayoutInflater getLayoutInflater(Bundle bundle)
-    {
-        super.getLayoutInflater(bundle);
-        return LayoutInflater.from(ak);
-    }
-
-    public void onAttach(Activity activity)
-    {
-        hgx hgx1 = hgx.a(activity, getParentFragment());
-        ak.a(activity);
-        ak.a(hgx1);
-        al.b(getClass().getName());
-        super.onAttach(activity);
-    }
-
-    public void onCreate(Bundle bundle)
-    {
-        e(bundle);
-        for (Iterator iterator = al.c(hib).iterator(); iterator.hasNext(); iterator.next()) { }
-        al.a();
-        aj = am.a(new hht(this, bundle));
-        super.onCreate(bundle);
-    }
-
-    public void onDestroy()
-    {
-        am.b(aj);
-        super.onDestroy();
+        return a.a(message);
     }
 }

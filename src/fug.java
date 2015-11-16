@@ -2,76 +2,168 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.net.Uri;
+import android.accounts.Account;
+import android.os.Binder;
+import android.os.IBinder;
 import android.os.Parcel;
-import com.google.android.gms.wearable.internal.DataItemParcelable;
+import com.google.android.gms.common.internal.AuthAccountRequest;
+import com.google.android.gms.common.internal.ResolveAccountRequest;
+import com.google.android.gms.signin.internal.CheckServerAuthResult;
+import com.google.android.gms.signin.internal.RecordConsentRequest;
 
-public final class fug
-    implements android.os.Parcelable.Creator
+public abstract class fug extends Binder
+    implements fuf
 {
 
-    public fug()
+    public static fuf a(IBinder ibinder)
     {
-    }
-
-    public static void a(DataItemParcelable dataitemparcelable, Parcel parcel, int i)
-    {
-        int j = g.p(parcel, 20293);
-        g.b(parcel, 1, dataitemparcelable.a);
-        g.a(parcel, 2, dataitemparcelable.a(), i);
-        g.a(parcel, 4, dataitemparcelable.f());
-        g.a(parcel, 5, dataitemparcelable.b());
-        g.q(parcel, j);
-    }
-
-    public Object createFromParcel(Parcel parcel)
-    {
-        int j = g.a(parcel);
-        android.os.Bundle bundle = null;
-        Uri uri = null;
-        int i = 0;
-        byte abyte0[] = null;
-        do
+        if (ibinder == null)
         {
-            if (parcel.dataPosition() < j)
-            {
-                int k = parcel.readInt();
-                switch (0xffff & k)
-                {
-                case 3: // '\003'
-                default:
-                    g.b(parcel, k);
-                    break;
-
-                case 1: // '\001'
-                    i = g.e(parcel, k);
-                    break;
-
-                case 2: // '\002'
-                    uri = (Uri)g.a(parcel, k, Uri.CREATOR);
-                    break;
-
-                case 4: // '\004'
-                    bundle = g.k(parcel, k);
-                    break;
-
-                case 5: // '\005'
-                    abyte0 = g.l(parcel, k);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != j)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
-            } else
-            {
-                return new DataItemParcelable(i, uri, bundle, abyte0);
-            }
-        } while (true);
+            return null;
+        }
+        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.signin.internal.ISignInService");
+        if (iinterface != null && (iinterface instanceof fuf))
+        {
+            return (fuf)iinterface;
+        } else
+        {
+            return new fuh(ibinder);
+        }
     }
 
-    public Object[] newArray(int i)
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
     {
-        return new DataItemParcelable[i];
+        boolean flag2 = false;
+        boolean flag = false;
+        Object obj = null;
+        switch (i)
+        {
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
+
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.signin.internal.ISignInService");
+            return true;
+
+        case 2: // '\002'
+            parcel.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+            AuthAccountRequest authaccountrequest;
+            if (parcel.readInt() != 0)
+            {
+                authaccountrequest = (AuthAccountRequest)AuthAccountRequest.CREATOR.createFromParcel(parcel);
+            } else
+            {
+                authaccountrequest = null;
+            }
+            a(authaccountrequest, fud.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            return true;
+
+        case 3: // '\003'
+            parcel.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+            if (parcel.readInt() != 0)
+            {
+                parcel = (CheckServerAuthResult)CheckServerAuthResult.CREATOR.createFromParcel(parcel);
+            } else
+            {
+                parcel = null;
+            }
+            a(parcel);
+            parcel1.writeNoException();
+            return true;
+
+        case 4: // '\004'
+            parcel.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+            if (parcel.readInt() != 0)
+            {
+                flag = true;
+            }
+            a(flag);
+            parcel1.writeNoException();
+            return true;
+
+        case 5: // '\005'
+            parcel.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+            ResolveAccountRequest resolveaccountrequest;
+            if (parcel.readInt() != 0)
+            {
+                resolveaccountrequest = (ResolveAccountRequest)ResolveAccountRequest.CREATOR.createFromParcel(parcel);
+            } else
+            {
+                resolveaccountrequest = null;
+            }
+            parcel = parcel.readStrongBinder();
+            if (parcel == null)
+            {
+                parcel = obj;
+            } else
+            {
+                android.os.IInterface iinterface = parcel.queryLocalInterface("com.google.android.gms.common.internal.IResolveAccountCallbacks");
+                if (iinterface != null && (iinterface instanceof erb))
+                {
+                    parcel = (erb)iinterface;
+                } else
+                {
+                    parcel = new erd(parcel);
+                }
+            }
+            a(resolveaccountrequest, parcel);
+            parcel1.writeNoException();
+            return true;
+
+        case 7: // '\007'
+            parcel.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+            a(parcel.readInt());
+            parcel1.writeNoException();
+            return true;
+
+        case 8: // '\b'
+            parcel.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+            i = parcel.readInt();
+            Account account;
+            if (parcel.readInt() != 0)
+            {
+                account = (Account)Account.CREATOR.createFromParcel(parcel);
+            } else
+            {
+                account = null;
+            }
+            a(i, account, fud.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            return true;
+
+        case 9: // '\t'
+            parcel.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+            epq epq = epr.a(parcel.readStrongBinder());
+            i = parcel.readInt();
+            boolean flag1 = flag2;
+            if (parcel.readInt() != 0)
+            {
+                flag1 = true;
+            }
+            a(epq, i, flag1);
+            parcel1.writeNoException();
+            return true;
+
+        case 10: // '\n'
+            parcel.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+            RecordConsentRequest recordconsentrequest;
+            if (parcel.readInt() != 0)
+            {
+                recordconsentrequest = (RecordConsentRequest)RecordConsentRequest.CREATOR.createFromParcel(parcel);
+            } else
+            {
+                recordconsentrequest = null;
+            }
+            a(recordconsentrequest, fud.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            return true;
+
+        case 11: // '\013'
+            parcel.enforceInterface("com.google.android.gms.signin.internal.ISignInService");
+            a(fud.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            return true;
+        }
     }
 }

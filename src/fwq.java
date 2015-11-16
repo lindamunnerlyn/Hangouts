@@ -2,27 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.common.data.DataHolder;
+import android.os.Parcel;
+import com.google.android.gms.wearable.internal.CapabilityInfoParcelable;
+import com.google.android.gms.wearable.internal.GetCapabilityResponse;
 
-public final class fwq extends fwh
+public final class fwq
+    implements android.os.Parcelable.Creator
 {
 
-    final fst a;
-
-    public fwq(fst fst, ejx ejx)
+    public fwq()
     {
-        a = fst;
-        super(ejx);
     }
 
-    protected ekg a(Status status)
+    public Object createFromParcel(Parcel parcel)
     {
-        return new ftb(DataHolder.b(status.f()));
+        int j = 0;
+        int k = g.a(parcel);
+        CapabilityInfoParcelable capabilityinfoparcelable = null;
+        int i = 0;
+        do
+        {
+            if (parcel.dataPosition() < k)
+            {
+                int l = parcel.readInt();
+                switch (0xffff & l)
+                {
+                default:
+                    g.b(parcel, l);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, l);
+                    break;
+
+                case 2: // '\002'
+                    j = g.e(parcel, l);
+                    break;
+
+                case 3: // '\003'
+                    capabilityinfoparcelable = (CapabilityInfoParcelable)g.a(parcel, l, CapabilityInfoParcelable.CREATOR);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != k)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
+            } else
+            {
+                return new GetCapabilityResponse(i, j, capabilityinfoparcelable);
+            }
+        } while (true);
     }
 
-    protected void a(ejv ejv)
+    public Object[] newArray(int i)
     {
-        ((fwb)ejv).a(this);
+        return new GetCapabilityResponse[i];
     }
 }

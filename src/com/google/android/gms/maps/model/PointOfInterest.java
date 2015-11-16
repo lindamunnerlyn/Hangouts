@@ -6,7 +6,8 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import flj;
+import fof;
+import g;
 
 // Referenced classes of package com.google.android.gms.maps.model:
 //            LatLng
@@ -15,7 +16,7 @@ public final class PointOfInterest
     implements SafeParcelable
 {
 
-    public static final flj CREATOR = new flj();
+    public static final fof CREATOR = new fof();
     public final LatLng a;
     public final String b;
     public final String c;
@@ -29,7 +30,7 @@ public final class PointOfInterest
         c = s1;
     }
 
-    public int a()
+    private int a()
     {
         return d;
     }
@@ -41,7 +42,12 @@ public final class PointOfInterest
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        flj.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a());
+        g.a(parcel, 2, a, i);
+        g.a(parcel, 3, b);
+        g.a(parcel, 4, c);
+        g.q(parcel, j);
     }
 
 }

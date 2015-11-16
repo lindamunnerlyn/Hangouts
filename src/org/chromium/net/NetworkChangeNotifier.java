@@ -7,7 +7,8 @@ package org.chromium.net;
 import android.content.Context;
 import java.util.ArrayList;
 import java.util.Iterator;
-import org.chromium.base.ObserverList;
+import llp;
+import lmv;
 
 // Referenced classes of package org.chromium.net:
 //            NetworkChangeNotifierAutoDetect
@@ -15,19 +16,19 @@ import org.chromium.base.ObserverList;
 public class NetworkChangeNotifier
 {
 
-    private static NetworkChangeNotifier g;
-    private final Context a;
-    private final ArrayList b = new ArrayList();
-    private final ObserverList c = new ObserverList();
-    private NetworkChangeNotifierAutoDetect d;
-    private int e;
-    private double f;
+    static NetworkChangeNotifier a;
+    private final Context b;
+    private final ArrayList c = new ArrayList();
+    private final llp d = new llp();
+    private NetworkChangeNotifierAutoDetect e;
+    private int f;
+    private double g;
 
     private NetworkChangeNotifier(Context context)
     {
-        e = 0;
-        f = (1.0D / 0.0D);
-        a = context.getApplicationContext();
+        f = 0;
+        g = (1.0D / 0.0D);
+        b = context.getApplicationContext();
     }
 
     public static double a(int i)
@@ -35,67 +36,13 @@ public class NetworkChangeNotifier
         return nativeGetMaxBandwidthForConnectionSubtype(i);
     }
 
-    public static void a()
-    {
-        g.a(true, true);
-    }
-
-    static void a(NetworkChangeNotifier networkchangenotifier, double d1)
-    {
-        networkchangenotifier.b(d1);
-    }
-
-    static void a(NetworkChangeNotifier networkchangenotifier, int i)
-    {
-        networkchangenotifier.c(i);
-    }
-
-    private void a(boolean flag, boolean flag1)
-    {
-        if (flag)
-        {
-            if (d == null)
-            {
-                d = new NetworkChangeNotifierAutoDetect(new _cls1(), a, flag1);
-                NetworkChangeNotifierAutoDetect.NetworkState networkstate = d.c();
-                c(d.a(networkstate));
-                b(d.b(networkstate));
-            }
-        } else
-        if (d != null)
-        {
-            d.b();
-            d = null;
-            return;
-        }
-    }
-
-    private void b(double d1)
-    {
-        if (d1 == f)
-        {
-            return;
-        } else
-        {
-            f = d1;
-            a(d1);
-            return;
-        }
-    }
-
-    private void c(int i)
-    {
-        e = i;
-        b(i);
-    }
-
     public static void forceConnectivityState(boolean flag)
     {
         int i = 0;
-        g.a(false, false);
-        NetworkChangeNotifier networkchangenotifier = g;
+        a.a(false, false);
+        NetworkChangeNotifier networkchangenotifier = a;
         boolean flag1;
-        if (networkchangenotifier.e != 6)
+        if (networkchangenotifier.f != 6)
         {
             flag1 = true;
         } else
@@ -109,7 +56,7 @@ public class NetworkChangeNotifier
             {
                 i = 6;
             }
-            networkchangenotifier.c(i);
+            networkchangenotifier.b(i);
             if (flag)
             {
                 d1 = (1.0D / 0.0D);
@@ -117,17 +64,17 @@ public class NetworkChangeNotifier
             {
                 d1 = 0.0D;
             }
-            networkchangenotifier.b(d1);
+            networkchangenotifier.a(d1);
         }
     }
 
     public static NetworkChangeNotifier init(Context context)
     {
-        if (g == null)
+        if (a == null)
         {
-            g = new NetworkChangeNotifier(context);
+            a = new NetworkChangeNotifier(context);
         }
-        return g;
+        return a;
     }
 
     private static native double nativeGetMaxBandwidthForConnectionSubtype(int i);
@@ -136,58 +83,73 @@ public class NetworkChangeNotifier
 
     private native void nativeNotifyMaxBandwidthChanged(long l, double d1);
 
-    void a(double d1)
+    public void a(double d1)
     {
-        for (Iterator iterator = b.iterator(); iterator.hasNext(); nativeNotifyMaxBandwidthChanged(((Long)iterator.next()).longValue(), d1)) { }
+        if (d1 == g)
+        {
+            return;
+        } else
+        {
+            g = d1;
+            b(d1);
+            return;
+        }
+    }
+
+    void a(boolean flag, boolean flag1)
+    {
+        if (flag)
+        {
+            if (e == null)
+            {
+                e = new NetworkChangeNotifierAutoDetect(new lmv(this), b, flag1);
+                lmy lmy = e.d();
+                b(e.a(lmy));
+                a(e.b(lmy));
+            }
+        } else
+        if (e != null)
+        {
+            e.c();
+            e = null;
+            return;
+        }
     }
 
     public void addNativeObserver(long l)
     {
-        b.add(Long.valueOf(l));
+        c.add(Long.valueOf(l));
     }
 
-    void b(int i)
+    void b(double d1)
     {
-        for (Iterator iterator = b.iterator(); iterator.hasNext(); nativeNotifyConnectionTypeChanged(((Long)iterator.next()).longValue(), i)) { }
-        for (Iterator iterator1 = c.iterator(); iterator1.hasNext(); iterator1.next()) { }
+        for (Iterator iterator = c.iterator(); iterator.hasNext(); nativeNotifyMaxBandwidthChanged(((Long)iterator.next()).longValue(), d1)) { }
+    }
+
+    public void b(int i)
+    {
+        f = i;
+        c(i);
+    }
+
+    void c(int i)
+    {
+        for (Iterator iterator = c.iterator(); iterator.hasNext(); nativeNotifyConnectionTypeChanged(((Long)iterator.next()).longValue(), i)) { }
+        for (Iterator iterator1 = d.iterator(); iterator1.hasNext(); iterator1.next()) { }
     }
 
     public int getCurrentConnectionType()
     {
-        return e;
+        return f;
     }
 
     public double getCurrentMaxBandwidthInMbps()
     {
-        return f;
+        return g;
     }
 
     public void removeNativeObserver(long l)
     {
-        b.remove(Long.valueOf(l));
+        c.remove(Long.valueOf(l));
     }
-
-    private class _cls1
-        implements NetworkChangeNotifierAutoDetect.Observer
-    {
-
-        final NetworkChangeNotifier a;
-
-        public void a(double d1)
-        {
-            NetworkChangeNotifier.a(a, d1);
-        }
-
-        public void a(int i)
-        {
-            NetworkChangeNotifier.a(a, i);
-        }
-
-        _cls1()
-        {
-            a = NetworkChangeNotifier.this;
-            super();
-        }
-    }
-
 }

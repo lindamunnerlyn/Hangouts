@@ -2,142 +2,89 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.IntentFilter;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.Executor;
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.os.SystemClock;
+import android.util.Log;
 
-final class alz
-    implements alw
+public final class alz
+    implements Parcelable
 {
 
-    private final String a;
-    private final Context b;
-    private final Object c = new Object();
-    private boolean d;
-    private final List e = new ArrayList();
+    public static final android.os.Parcelable.Creator CREATOR = new ama();
+    public final String a;
+    public final Bundle b;
+    public final alt c;
+    public final long d;
+    public final Bundle e;
+    public int f;
+    final String g;
 
-    public alz(String s, Context context, Executor executor)
+    protected alz(Parcel parcel)
     {
+        a = parcel.readString();
+        b = parcel.readBundle();
+        c = (alt)parcel.readParcelable(alt.getClassLoader());
+        d = parcel.readLong();
+        e = parcel.readBundle();
+        f = aly.a()[parcel.readInt()];
+        g = parcel.readString();
+    }
+
+    public alz(String s, String s1, Bundle bundle, int i)
+    {
+        g.c(true);
         a = s;
-        b = context;
-        executor.execute(new ama(this));
-        s = new IntentFilter();
-        s.addAction("com.google.gservices.intent.action.GSERVICES_CHANGED");
-        context.registerReceiver(new amb(this), s);
+        b = bundle;
+        c = new alt(s1);
+        d = 0L + SystemClock.elapsedRealtime();
+        e = new Bundle();
+        f = aly.a;
+        g = Log.getStackTraceString(new Throwable());
     }
 
-    private void a()
+    public alx a(Class class1)
     {
-        if (d)
+        b.setClassLoader(class1.getClassLoader());
+        class1 = b;
+        if (class1 != null)
         {
-            return;
-        }
-        Object obj = c;
-        obj;
-        JVM INSTR monitorenter ;
-        long l = System.currentTimeMillis();
-_L2:
-        boolean flag = d;
-        if (flag)
+            class1 = class1.getParcelable("concurrent_bundle_util_key");
+        } else
         {
-            break MISSING_BLOCK_LABEL_71;
+            class1 = null;
         }
-        c.wait(3000L);
-        if (System.currentTimeMillis() - l <= 3000L) goto _L2; else goto _L1
-_L1:
-        g.a(null, 2029);
-        obj;
-        JVM INSTR monitorexit ;
-        return;
-        Object obj1;
-        obj1;
-        obj;
-        JVM INSTR monitorexit ;
-        throw obj1;
-        obj1;
-        obj;
-        JVM INSTR monitorexit ;
-        return;
-        obj;
-        JVM INSTR monitorexit ;
+        return (alx)class1;
     }
 
-    static void a(alz alz1)
+    public String a()
     {
-        fwz.b(alz1.b.getContentResolver(), new String[] {
-            alz1.a
-        });
-        synchronized (alz1.c)
+        int j = a.lastIndexOf('.') + 1;
+        int i = j;
+        if (j >= a.length())
         {
-            alz1.d = true;
-            alz1.c.notifyAll();
+            i = 0;
         }
-        alz1.b();
-        return;
-        alz1;
-        obj;
-        JVM INSTR monitorexit ;
-        throw alz1;
+        String s = String.valueOf(a.substring(i));
+        String s1 = String.valueOf(c);
+        return (new StringBuilder(String.valueOf(s).length() + 0 + String.valueOf(s1).length())).append(s).append(s1).toString();
     }
 
-    private void b()
+    public int describeContents()
     {
-        List list = e;
-        list;
-        JVM INSTR monitorenter ;
-        for (Iterator iterator = e.iterator(); iterator.hasNext(); g.a((Runnable)iterator.next())) { }
-        break MISSING_BLOCK_LABEL_46;
-        Exception exception;
-        exception;
-        list;
-        JVM INSTR monitorexit ;
-        throw exception;
-        list;
-        JVM INSTR monitorexit ;
+        return 0;
     }
 
-    static void b(alz alz1)
+    public void writeToParcel(Parcel parcel, int i)
     {
-        alz1.b();
+        parcel.writeString(a);
+        parcel.writeBundle(b);
+        parcel.writeParcelable(c, 0);
+        parcel.writeLong(d);
+        parcel.writeBundle(e);
+        parcel.writeInt(f - 1);
+        parcel.writeString(g);
     }
 
-    public int a(String s, int i)
-    {
-        a();
-        return fwz.a(b.getContentResolver(), s, i);
-    }
-
-    public long a(String s, long l)
-    {
-        a();
-        return fwz.a(b.getContentResolver(), s, l);
-    }
-
-    public String a(String s, String s1)
-    {
-        a();
-        return fwz.a(b.getContentResolver(), s, s1);
-    }
-
-    public void a(Runnable runnable)
-    {
-        synchronized (e)
-        {
-            e.add(runnable);
-        }
-        return;
-        runnable;
-        list;
-        JVM INSTR monitorexit ;
-        throw runnable;
-    }
-
-    public boolean a(String s, boolean flag)
-    {
-        a();
-        return fwz.a(b.getContentResolver(), s, flag);
-    }
 }

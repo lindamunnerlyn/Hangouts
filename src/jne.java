@@ -3,11 +3,28 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class jne extends jnb
+final class jne extends jmr
 {
 
-    jne(String s)
+    static final jne o = new jne();
+
+    private jne()
     {
-        super(s, 2);
     }
+
+    public volatile boolean a(Object obj)
+    {
+        return super.a((Character)obj);
+    }
+
+    public boolean b(char c)
+    {
+        return Character.isUpperCase(c);
+    }
+
+    public String toString()
+    {
+        return "CharMatcher.javaUpperCase()";
+    }
+
 }

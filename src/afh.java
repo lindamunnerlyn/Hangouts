@@ -2,30 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
 
-public final class afh extends agf
+public class afh extends afd
 {
-
-    private Intent b;
 
     public afh()
     {
     }
 
-    public afh(afr afr)
+    public afh(String s)
     {
-        super(afr);
-    }
-
-    public String getMessage()
-    {
-        if (b != null)
-        {
-            return "User needs to (re)enter credentials.";
-        } else
-        {
-            return super.getMessage();
-        }
+        super(s);
     }
 }

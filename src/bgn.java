@@ -2,41 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.ActionMode;
-import android.view.Menu;
-import android.view.MenuItem;
-import com.google.android.apps.hangouts.fragments.CallContactPickerFragment;
+import android.app.ProgressDialog;
+import android.os.Bundle;
 
 public final class bgn
-    implements android.view.ActionMode.Callback
+    implements bgp
 {
 
-    final CallContactPickerFragment a;
+    private bgo a;
+    private ap b;
 
-    public bgn(CallContactPickerFragment callcontactpickerfragment)
+    public bgn(ap ap1)
     {
-        a = callcontactpickerfragment;
-        super();
+        b = ap1;
+        a = new bgo();
     }
 
-    public boolean onActionItemClicked(ActionMode actionmode, MenuItem menuitem)
+    public void a()
     {
-        return false;
+        a.a();
     }
 
-    public boolean onCreateActionMode(ActionMode actionmode, Menu menu)
+    public void a(android.content.DialogInterface.OnCancelListener oncancellistener)
     {
-        CallContactPickerFragment.a(a).n_();
-        return true;
+        a.a(oncancellistener);
     }
 
-    public void onDestroyActionMode(ActionMode actionmode)
+    public void a(String s)
     {
-        CallContactPickerFragment.a(a).o_();
+        if (b != null)
+        {
+            Bundle bundle = new Bundle();
+            bundle.putString("message", s);
+            a.setArguments(bundle);
+            s = b.a();
+            a.a(s, null);
+        }
     }
 
-    public boolean onPrepareActionMode(ActionMode actionmode, Menu menu)
+    public void b(String s)
     {
-        return false;
+        ProgressDialog progressdialog = (ProgressDialog)a.c();
+        if (progressdialog != null)
+        {
+            progressdialog.setMessage(s);
+        }
     }
 }

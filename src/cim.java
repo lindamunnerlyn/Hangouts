@@ -2,11 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.ResultReceiver;
 
-public final class cim
+final class cim extends ResultReceiver
 {
 
-    public cim()
+    final amx a;
+    final cil b;
+
+    cim(cil cil1, Handler handler, amx amx)
     {
+        b = cil1;
+        a = amx;
+        super(handler);
+    }
+
+    protected void onReceiveResult(int i, Bundle bundle)
+    {
+        super.onReceiveResult(i, bundle);
+        cic.a(b.a, a);
     }
 }

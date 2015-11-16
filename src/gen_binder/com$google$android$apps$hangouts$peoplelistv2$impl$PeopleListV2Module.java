@@ -5,28 +5,28 @@
 package gen_binder;
 
 import android.content.Context;
-import chq;
-import hgx;
-import hhe;
+import ciw;
+import hlp;
+import hlw;
 import java.util.HashMap;
 
 public final class 
-    implements hhe
+    implements hlw
 {
 
     private HashMap a;
 
-    public void a(Context context, Class class1, hgx hgx)
+    public void a(Context context, Class class1, hlp hlp)
     {
         if (a == null)
         {
             a = new HashMap(6);
-            a.put(chq.a, Integer.valueOf(0));
-            a.put(chq.b, Integer.valueOf(1));
-            a.put(chq.c, Integer.valueOf(2));
-            a.put(chq.d, Integer.valueOf(3));
-            a.put(chq.e, Integer.valueOf(4));
-            a.put(chq.f, Integer.valueOf(5));
+            a.put(ciw.a, Integer.valueOf(0));
+            a.put(ciw.b, Integer.valueOf(1));
+            a.put(ciw.c, Integer.valueOf(2));
+            a.put(ciw.d, Integer.valueOf(3));
+            a.put(ciw.e, Integer.valueOf(4));
+            a.put(ciw.f, Integer.valueOf(5));
         }
         context = (Integer)a.get(class1.getName());
         if (context == null)
@@ -39,27 +39,27 @@ public final class
             return;
 
         case 0: // '\0'
-            chq.a(hgx);
+            ciw.a(hlp);
             return;
 
         case 1: // '\001'
-            chq.b(hgx);
+            ciw.b(hlp);
             return;
 
         case 2: // '\002'
-            chq.c(hgx);
+            ciw.c(hlp);
             return;
 
         case 3: // '\003'
-            chq.d(hgx);
+            ciw.d(hlp);
             return;
 
         case 4: // '\004'
-            chq.e(hgx);
+            ciw.e(hlp);
             return;
 
         case 5: // '\005'
-            chq.f(hgx);
+            ciw.f(hlp);
             break;
         }
     }

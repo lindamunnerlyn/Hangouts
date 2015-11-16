@@ -2,34 +2,55 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class ddw extends ddx
+public final class ddw
 {
 
-    public ddw(Context context, int j, ddy ddy)
+    final String a;
+    final long b;
+    final String c[];
+
+    public ddw(dne dne1)
     {
-        super(context, j, ddy, l.tE);
+        a = dne1.a;
+        b = dne1.b;
+        c = dne1.c;
     }
 
-    public int b()
+    public ddw(String s, long l, String as[])
     {
-        return RealTimeChatService.e(d);
+        a = s;
+        b = l;
+        c = as;
     }
 
-    public Class e()
+    public void a(aow aow1)
     {
-        return csg;
+        if (c == null)
+        {
+            aow1.d(a, b);
+            aoq.d(aow1);
+        } else
+        {
+            String as[] = c;
+            int j = as.length;
+            int i = 0;
+            while (i < j) 
+            {
+                Object obj = as[i];
+                obj = aow1.g(a, ((String) (obj)));
+                if (obj != null)
+                {
+                    aoq.a(aow1, g.a(((Long) (obj)), 0L));
+                }
+                i++;
+            }
+        }
+        aoq.d(aow1, a);
     }
 
-    public Class f()
+    public void a(dgj dgj1)
     {
-        return cwy;
-    }
-
-    protected int i()
-    {
-        return g.a(g.nS, "babel_get_voice_account_info_request_timeout_millis", 20000);
+        dgj1.a(new cwb(a, b, c));
     }
 }

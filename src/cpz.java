@@ -3,20 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class cpz extends dfa
+final class cpz
+    implements guj
 {
 
-    private final String a;
+    final cpy a;
 
-    public cpz(ani ani, String s)
+    cpz(cpy cpy)
     {
-        super(ani);
-        a = s;
-    }
-
-    public void a()
-    {
-        cvf cvf1 = new cvf(a);
-        c.a(cvf1);
+        a = cpy;
+        super();
     }
 }

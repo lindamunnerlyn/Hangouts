@@ -10,29 +10,47 @@ final class xj
 {
 
     final ArrayList a;
-    final xg b;
+    final xi b;
 
-    xj(xg xg1, ArrayList arraylist)
+    xj(xi xi1, ArrayList arraylist)
     {
-        b = xg1;
+        b = xi1;
         a = arraylist;
         super();
     }
 
     public void run()
     {
-        zq zq1;
-        xg xg1;
-        lr lr1;
-        for (Iterator iterator = a.iterator(); iterator.hasNext(); lr1.a(1.0F).a(xg1.f()).a(new xl(xg1, zq1, lr1)).c())
+        xi xi1;
+        zs zs1;
+        Object obj;
+        int i;
+        int k;
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((lr) (obj)).a(xi1.e()).a(new xo(xi1, zs1, k, i, ((lr) (obj)))).c())
         {
-            zq1 = (zq)iterator.next();
-            xg1 = b;
-            lr1 = kb.o(zq1.a);
-            xg1.d.add(zq1);
+            obj = (xs)iterator.next();
+            xi1 = b;
+            zs1 = ((xs) (obj)).a;
+            k = ((xs) (obj)).b;
+            i = ((xs) (obj)).c;
+            int l = ((xs) (obj)).d;
+            int j = ((xs) (obj)).e;
+            obj = zs1.a;
+            k = l - k;
+            i = j - i;
+            if (k != 0)
+            {
+                kb.p(((android.view.View) (obj))).b(0.0F);
+            }
+            if (i != 0)
+            {
+                kb.p(((android.view.View) (obj))).c(0.0F);
+            }
+            obj = kb.p(((android.view.View) (obj)));
+            xi1.e.add(zs1);
         }
 
         a.clear();
-        b.a.remove(a);
+        b.b.remove(a);
     }
 }

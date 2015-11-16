@@ -2,32 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.view.ViewTreeObserver;
 
 final class aat
-    implements android.view.ViewTreeObserver.OnGlobalLayoutListener
+    implements Runnable
 {
 
-    final View a;
-    final aam b;
+    final aao a;
 
-    aat(aam aam1, View view)
+    aat(aao aao1)
     {
-        b = aam1;
-        a = view;
+        a = aao1;
         super();
     }
 
-    public void onGlobalLayout()
+    public void run()
     {
-        if (android.os.Build.VERSION.SDK_INT >= 16)
-        {
-            a.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-        } else
-        {
-            a.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-        }
-        b.n();
+        aao.a(a);
     }
 }

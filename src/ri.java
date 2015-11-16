@@ -2,57 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.internal.widget.ActionBarContextView;
 import android.view.View;
-import android.view.Window;
 
-final class ri
-    implements vs
+final class ri extends mf
 {
 
-    final ra a;
-    private vs b;
+    final rc a;
 
-    public ri(ra ra1, vs vs1)
+    ri(rc rc1)
     {
-        a = ra1;
+        a = rc1;
         super();
-        b = vs1;
     }
 
-    public void a(vr vr)
+    public void a(View view)
     {
-        b.a(vr);
-        if (a.q != null)
+        a.p.setVisibility(0);
+        a.p.sendAccessibilityEvent(32);
+        if (a.p.getParent() != null)
         {
-            a.b.getDecorView().removeCallbacks(a.r);
+            kb.s((View)a.p.getParent());
         }
-        if (a.p != null)
-        {
-            a.m();
-            a.s = kb.o(a.p).a(0.0F);
-            a.s.a(new rj(this));
-        }
-        if (a.e != null)
-        {
-            a.e.b(a.o);
-        }
-        a.o = null;
     }
 
-    public boolean a(vr vr, Menu menu)
+    public void b(View view)
     {
-        return b.a(vr, menu);
-    }
-
-    public boolean a(vr vr, MenuItem menuitem)
-    {
-        return b.a(vr, menuitem);
-    }
-
-    public boolean b(vr vr, Menu menu)
-    {
-        return b.b(vr, menu);
+        kb.c(a.p, 1.0F);
+        a.s.a(null);
+        a.s = null;
     }
 }

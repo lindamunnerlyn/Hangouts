@@ -2,53 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
+import android.os.Binder;
+import android.os.Parcel;
 
-public interface fkl
-    extends IInterface
+public abstract class fkl extends Binder
+    implements fkk
 {
 
-    public abstract void a();
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    {
+        fcw fcw2 = null;
+        fcw fcw1 = null;
+        switch (i)
+        {
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
 
-    public abstract void a(float f1);
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.maps.internal.IInfoWindowAdapter");
+            return true;
 
-    public abstract void a(float f1, float f2);
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IInfoWindowAdapter");
+            fcw2 = a(fno.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            parcel = fcw1;
+            if (fcw2 != null)
+            {
+                parcel = fcw2.asBinder();
+            }
+            parcel1.writeStrongBinder(parcel);
+            return true;
 
-    public abstract void a(LatLng latlng);
-
-    public abstract void a(LatLngBounds latlngbounds);
-
-    public abstract void a(ezy ezy);
-
-    public abstract void a(boolean flag);
-
-    public abstract boolean a(fkl fkl1);
-
-    public abstract String b();
-
-    public abstract void b(float f1);
-
-    public abstract LatLng c();
-
-    public abstract void c(float f1);
-
-    public abstract float d();
-
-    public abstract void d(float f1);
-
-    public abstract float e();
-
-    public abstract LatLngBounds f();
-
-    public abstract float g();
-
-    public abstract float h();
-
-    public abstract boolean i();
-
-    public abstract float j();
-
-    public abstract int k();
+        case 2: // '\002'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IInfoWindowAdapter");
+            fcw1 = b(fno.a(parcel.readStrongBinder()));
+            parcel1.writeNoException();
+            parcel = fcw2;
+            break;
+        }
+        if (fcw1 != null)
+        {
+            parcel = fcw1.asBinder();
+        }
+        parcel1.writeStrongBinder(parcel);
+        return true;
+    }
 }

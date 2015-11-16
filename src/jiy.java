@@ -2,50 +2,83 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.cache.LocalCache;
 
-public final class jiy extends jiw
+public final class jiy extends kwm
 {
 
-    volatile long a;
-    com.google.common.cache.LocalCache.ReferenceEntry b;
-    com.google.common.cache.LocalCache.ReferenceEntry c;
+    public jif a;
+    public jdl responseHeader;
 
-    jiy(Object obj, int i, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    public jiy()
     {
-        super(obj, i, referenceentry);
-        a = 0x7fffffffffffffffL;
-        b = LocalCache.j();
-        c = LocalCache.j();
+        responseHeader = null;
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public com.google.common.cache.LocalCache.ReferenceEntry getNextInWriteQueue()
+    protected int computeSerializedSize()
     {
-        return b;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (responseHeader != null)
+        {
+            i = j + kwk.d(1, responseHeader);
+        }
+        j = i;
+        if (a != null)
+        {
+            j = i + kwk.d(2, a);
+        }
+        return j;
     }
 
-    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInWriteQueue()
+    public kws mergeFrom(kwj kwj1)
     {
-        return c;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (responseHeader == null)
+                {
+                    responseHeader = new jdl();
+                }
+                kwj1.a(responseHeader);
+                break;
+
+            case 18: // '\022'
+                if (a == null)
+                {
+                    a = new jif();
+                }
+                kwj1.a(a);
+                break;
+            }
+        } while (true);
     }
 
-    public long getWriteTime()
+    public void writeTo(kwk kwk1)
     {
-        return a;
-    }
-
-    public void setNextInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
-    {
-        b = referenceentry;
-    }
-
-    public void setPreviousInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
-    {
-        c = referenceentry;
-    }
-
-    public void setWriteTime(long l)
-    {
-        a = l;
+        if (responseHeader != null)
+        {
+            kwk1.b(1, responseHeader);
+        }
+        if (a != null)
+        {
+            kwk1.b(2, a);
+        }
+        super.writeTo(kwk1);
     }
 }

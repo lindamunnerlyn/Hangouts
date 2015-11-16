@@ -25,23 +25,23 @@ import java.util.ArrayList;
 import jg;
 import kb;
 import kt;
-import od;
-import oe;
 import of;
 import og;
 import oh;
 import oi;
 import oj;
 import ok;
+import ol;
 import om;
-import oq;
-import pk;
+import oo;
+import os;
+import pm;
 
 public class DrawerLayout extends ViewGroup
-    implements oq
+    implements os
 {
 
-    static final of a;
+    static final oh a;
     private static final int b[] = {
         0x10100b3
     };
@@ -57,16 +57,16 @@ public class DrawerLayout extends ViewGroup
     private Drawable H;
     private Drawable I;
     private final ArrayList J;
-    private final oe e;
+    private final og e;
     private float f;
     private int g;
     private int h;
     private float i;
     private Paint j;
-    private final pk k;
-    private final pk l;
-    private final om m;
-    private final om n;
+    private final pm k;
+    private final pm l;
+    private final oo m;
+    private final oo n;
     private int o;
     private boolean p;
     private boolean q;
@@ -74,7 +74,7 @@ public class DrawerLayout extends ViewGroup
     private int s;
     private boolean t;
     private boolean u;
-    private oi v;
+    private ok v;
     private float w;
     private float x;
     private Drawable y;
@@ -93,7 +93,7 @@ public class DrawerLayout extends ViewGroup
     public DrawerLayout(Context context, AttributeSet attributeset, int i1)
     {
         super(context, attributeset, i1);
-        e = new oe(this);
+        e = new og(this);
         h = 0x99000000;
         j = new Paint();
         q = true;
@@ -105,21 +105,21 @@ public class DrawerLayout extends ViewGroup
         float f1 = getResources().getDisplayMetrics().density;
         g = (int)(64F * f1 + 0.5F);
         float f2 = 400F * f1;
-        m = new om(this, 3);
-        n = new om(this, 5);
-        k = pk.a(this, m);
+        m = new oo(this, 3);
+        n = new oo(this, 5);
+        k = pm.a(this, m);
         k.a(1);
         k.a(f2);
         m.a(k);
-        l = pk.a(this, n);
+        l = pm.a(this, n);
         l.a(2);
         l.a(f2);
         n.a(l);
         setFocusableInTouchMode(true);
         kb.c(this, 1);
-        kb.a(this, new od(this));
+        kb.a(this, new of(this));
         kt.a(this);
-        if (kb.s(this))
+        if (kb.t(this))
         {
             a.a(this);
             y = a.a(context);
@@ -205,7 +205,7 @@ public class DrawerLayout extends ViewGroup
 
     public static boolean l(View view)
     {
-        return kb.e(view) != 4 && kb.e(view) != 2;
+        return kb.f(view) != 4 && kb.f(view) != 2;
     }
 
     public int a(View view)
@@ -230,7 +230,7 @@ public class DrawerLayout extends ViewGroup
         for (int i1 = 0; i1 < j1; i1++)
         {
             View view = getChildAt(i1);
-            if (((oj)view.getLayoutParams()).d)
+            if (((ol)view.getLayoutParams()).d)
             {
                 return view;
             }
@@ -241,7 +241,7 @@ public class DrawerLayout extends ViewGroup
 
     public CharSequence a(int i1)
     {
-        i1 = ih.a(i1, kb.h(this));
+        i1 = ih.a(i1, kb.i(this));
         if (i1 == 3)
         {
             return B;
@@ -257,7 +257,7 @@ public class DrawerLayout extends ViewGroup
 
     public void a(int i1, int j1)
     {
-        j1 = ih.a(j1, kb.h(this));
+        j1 = ih.a(j1, kb.i(this));
         if (j1 == 3)
         {
             r = i1;
@@ -268,15 +268,15 @@ public class DrawerLayout extends ViewGroup
         }
         if (i1 != 0)
         {
-            pk pk1;
+            pm pm1;
             if (j1 == 3)
             {
-                pk1 = k;
+                pm1 = k;
             } else
             {
-                pk1 = l;
+                pm1 = l;
             }
-            pk1.e();
+            pm1.e();
         }
         i1;
         JVM INSTR tableswitch 1 2: default 60
@@ -305,7 +305,7 @@ _L4:
 
     public void a(int i1, View view)
     {
-        oj oj1;
+        ol ol1;
         boolean flag = true;
         int k1 = k.a();
         int l1 = l.a();
@@ -326,8 +326,8 @@ _L4:
         }
         if (view == null || i1 != 0) goto _L2; else goto _L1
 _L1:
-        oj1 = (oj)view.getLayoutParams();
-        if (oj1.b != 0.0F) goto _L4; else goto _L3
+        ol1 = (ol)view.getLayoutParams();
+        if (ol1.b != 0.0F) goto _L4; else goto _L3
 _L3:
         b(view);
 _L2:
@@ -341,7 +341,7 @@ _L2:
         }
         return;
 _L4:
-        if (oj1.b == 1.0F)
+        if (ol1.b == 1.0F)
         {
             c(view);
         }
@@ -372,9 +372,9 @@ _L5:
         requestLayout();
     }
 
-    public void a(oi oi1)
+    public void a(ok ok1)
     {
-        v = oi1;
+        v = ok1;
     }
 
     void a(boolean flag)
@@ -387,7 +387,7 @@ _L5:
 label0:
             {
                 View view = getChildAt(j1);
-                oj oj1 = (oj)view.getLayoutParams();
+                ol ol1 = (ol)view.getLayoutParams();
                 int k1 = i1;
                 if (!g(view))
                 {
@@ -396,7 +396,7 @@ label0:
                 if (flag)
                 {
                     k1 = i1;
-                    if (!oj1.c)
+                    if (!ol1.c)
                     {
                         break label0;
                     }
@@ -409,7 +409,7 @@ label0:
                 {
                     i1 |= l.a(view, getWidth(), view.getTop());
                 }
-                oj1.c = false;
+                ol1.c = false;
                 k1 = i1;
             }
             j1++;
@@ -488,7 +488,7 @@ label0:
 
     public View b(int i1)
     {
-        int j1 = ih.a(i1, kb.h(this));
+        int j1 = ih.a(i1, kb.i(this));
         int k1 = getChildCount();
         for (i1 = 0; i1 < k1; i1++)
         {
@@ -509,10 +509,10 @@ label0:
 
     void b(View view)
     {
-        oj oj1 = (oj)view.getLayoutParams();
-        if (oj1.d)
+        ol ol1 = (ol)view.getLayoutParams();
+        if (ol1.d)
         {
-            oj1.d = false;
+            ol1.d = false;
             if (v != null)
             {
                 v.b(view);
@@ -531,13 +531,13 @@ label0:
 
     public void b(View view, float f1)
     {
-        oj oj1 = (oj)view.getLayoutParams();
-        if (f1 == oj1.b)
+        ol ol1 = (ol)view.getLayoutParams();
+        if (f1 == ol1.b)
         {
             return;
         } else
         {
-            oj1.b = f1;
+            ol1.b = f1;
             a(view, f1);
             return;
         }
@@ -564,10 +564,10 @@ label0:
 
     void c(View view)
     {
-        oj oj1 = (oj)view.getLayoutParams();
-        if (!oj1.d)
+        ol ol1 = (ol)view.getLayoutParams();
+        if (!ol1.d)
         {
-            oj1.d = true;
+            ol1.d = true;
             if (v != null)
             {
                 v.a(view);
@@ -583,7 +583,7 @@ label0:
 
     protected boolean checkLayoutParams(android.view.ViewGroup.LayoutParams layoutparams)
     {
-        return (layoutparams instanceof oj) && super.checkLayoutParams(layoutparams);
+        return (layoutparams instanceof ol) && super.checkLayoutParams(layoutparams);
     }
 
     public void computeScroll()
@@ -592,19 +592,19 @@ label0:
         float f1 = 0.0F;
         for (int i1 = 0; i1 < j1; i1++)
         {
-            f1 = Math.max(f1, ((oj)getChildAt(i1).getLayoutParams()).b);
+            f1 = Math.max(f1, ((ol)getChildAt(i1).getLayoutParams()).b);
         }
 
         i = f1;
         if (k.f() | l.f())
         {
-            kb.d(this);
+            kb.e(this);
         }
     }
 
     public float d(View view)
     {
-        return ((oj)view.getLayoutParams()).b;
+        return ((ol)view.getLayoutParams()).b;
     }
 
     public void d()
@@ -735,7 +735,7 @@ _L2:
 
     public int e(View view)
     {
-        return ih.a(((oj)view.getLayoutParams()).a, kb.h(this));
+        return ih.a(((ol)view.getLayoutParams()).a, kb.i(this));
     }
 
     public boolean e()
@@ -764,7 +764,7 @@ _L2:
 
     boolean f(View view)
     {
-        return ((oj)view.getLayoutParams()).a == 0;
+        return ((ol)view.getLayoutParams()).a == 0;
     }
 
     public void g()
@@ -786,31 +786,31 @@ _L2:
 
     public boolean g(View view)
     {
-        return (ih.a(((oj)view.getLayoutParams()).a, kb.h(view)) & 7) != 0;
+        return (ih.a(((ol)view.getLayoutParams()).a, kb.i(view)) & 7) != 0;
     }
 
     protected android.view.ViewGroup.LayoutParams generateDefaultLayoutParams()
     {
-        return new oj();
+        return new ol();
     }
 
     public android.view.ViewGroup.LayoutParams generateLayoutParams(AttributeSet attributeset)
     {
-        return new oj(getContext(), attributeset);
+        return new ol(getContext(), attributeset);
     }
 
     protected android.view.ViewGroup.LayoutParams generateLayoutParams(android.view.ViewGroup.LayoutParams layoutparams)
     {
-        if (layoutparams instanceof oj)
+        if (layoutparams instanceof ol)
         {
-            return new oj((oj)layoutparams);
+            return new ol((ol)layoutparams);
         }
         if (layoutparams instanceof android.view.ViewGroup.MarginLayoutParams)
         {
-            return new oj((android.view.ViewGroup.MarginLayoutParams)layoutparams);
+            return new ol((android.view.ViewGroup.MarginLayoutParams)layoutparams);
         } else
         {
-            return new oj(layoutparams);
+            return new ol(layoutparams);
         }
     }
 
@@ -822,9 +822,9 @@ _L2:
         }
         if (q)
         {
-            oj oj1 = (oj)view.getLayoutParams();
-            oj1.b = 1.0F;
-            oj1.d = true;
+            ol ol1 = (ol)view.getLayoutParams();
+            ol1.b = 1.0F;
+            ol1.d = true;
             a(view, true);
         } else
         if (a(view, 3))
@@ -845,7 +845,7 @@ _L2:
         }
         if (q)
         {
-            view = (oj)view.getLayoutParams();
+            view = (ol)view.getLayoutParams();
             view.b = 0.0F;
             view.d = false;
         } else
@@ -866,7 +866,7 @@ _L2:
             throw new IllegalArgumentException((new StringBuilder("View ")).append(view).append(" is not a drawer").toString());
         } else
         {
-            return ((oj)view.getLayoutParams()).d;
+            return ((ol)view.getLayoutParams()).d;
         }
     }
 
@@ -876,7 +876,7 @@ _L2:
         {
             throw new IllegalArgumentException((new StringBuilder("View ")).append(view).append(" is not a drawer").toString());
         }
-        return ((oj)view.getLayoutParams()).b > 0.0F;
+        return ((ol)view.getLayoutParams()).b > 0.0F;
     }
 
     protected void onAttachedToWindow()
@@ -933,7 +933,7 @@ _L5:
 _L17:
         if (i1 >= j1) goto _L8; else goto _L7
 _L7:
-        if (!((oj)getChildAt(i1).getLayoutParams()).c) goto _L10; else goto _L9
+        if (!((ol)getChildAt(i1).getLayoutParams()).c) goto _L10; else goto _L9
 _L9:
         i1 = 1;
 _L18:
@@ -1029,7 +1029,7 @@ _L13:
         k1 = 0;
 _L2:
         View view;
-        oj oj1;
+        ol ol1;
         if (k1 >= l2)
         {
             break MISSING_BLOCK_LABEL_446;
@@ -1037,12 +1037,12 @@ _L2:
         view = getChildAt(k1);
         if (view.getVisibility() != 8)
         {
-            oj1 = (oj)view.getLayoutParams();
+            ol1 = (ol)view.getLayoutParams();
             if (!f(view))
             {
                 break; /* Loop/switch isn't completed */
             }
-            view.layout(oj1.leftMargin, oj1.topMargin, oj1.leftMargin + view.getMeasuredWidth(), oj1.topMargin + view.getMeasuredHeight());
+            view.layout(ol1.leftMargin, ol1.topMargin, ol1.leftMargin + view.getMeasuredWidth(), ol1.topMargin + view.getMeasuredHeight());
         }
 _L6:
         k1++;
@@ -1058,21 +1058,21 @@ _L1:
         if (a(view, 3))
         {
             i1 = -i3;
-            i2 = (int)((float)i3 * oj1.b) + i1;
+            i2 = (int)((float)i3 * ol1.b) + i1;
             f1 = (float)(i3 + i2) / (float)i3;
         } else
         {
-            i2 = k2 - (int)((float)i3 * oj1.b);
+            i2 = k2 - (int)((float)i3 * ol1.b);
             f1 = (float)(k2 - i2) / (float)i3;
         }
-        if (f1 != oj1.b)
+        if (f1 != ol1.b)
         {
             flag1 = true;
         } else
         {
             flag1 = false;
         }
-        oj1.a & 0x70;
+        ol1.a & 0x70;
         JVM INSTR lookupswitch 2: default 212
     //                   16: 356
     //                   80: 316;
@@ -1080,7 +1080,7 @@ _L1:
 _L4:
         break MISSING_BLOCK_LABEL_356;
 _L3:
-        view.layout(i2, oj1.topMargin, i3 + i2, j3 + oj1.topMargin);
+        view.layout(i2, ol1.topMargin, i3 + i2, j3 + ol1.topMargin);
 _L7:
         if (flag1)
         {
@@ -1088,7 +1088,7 @@ _L7:
         }
         int j2;
         int k3;
-        if (oj1.b > 0.0F)
+        if (ol1.b > 0.0F)
         {
             i1 = 0;
         } else
@@ -1102,19 +1102,19 @@ _L7:
           goto _L6
 _L5:
         i1 = l1 - j1;
-        view.layout(i2, i1 - oj1.bottomMargin - view.getMeasuredHeight(), i3 + i2, i1 - oj1.bottomMargin);
+        view.layout(i2, i1 - ol1.bottomMargin - view.getMeasuredHeight(), i3 + i2, i1 - ol1.bottomMargin);
           goto _L7
         k3 = l1 - j1;
         j2 = (k3 - j3) / 2;
-        if (j2 < oj1.topMargin)
+        if (j2 < ol1.topMargin)
         {
-            i1 = oj1.topMargin;
+            i1 = ol1.topMargin;
         } else
         {
             i1 = j2;
-            if (j2 + j3 > k3 - oj1.bottomMargin)
+            if (j2 + j3 > k3 - ol1.bottomMargin)
             {
-                i1 = k3 - oj1.bottomMargin - j3;
+                i1 = k3 - ol1.bottomMargin - j3;
             }
         }
         view.layout(i2, i1, i3 + i2, j3 + i1);
@@ -1178,39 +1178,39 @@ label0:
           goto _L3
 _L5:
         setMeasuredDimension(l1, k1);
-        if (D != null && kb.s(this))
+        if (D != null && kb.t(this))
         {
             flag = true;
         } else
         {
             flag = false;
         }
-        k2 = kb.h(this);
+        k2 = kb.i(this);
         l2 = getChildCount();
         while (j2 < l2) 
         {
             View view = getChildAt(j2);
             if (view.getVisibility() != 8)
             {
-                oj oj1 = (oj)view.getLayoutParams();
+                ol ol1 = (ol)view.getLayoutParams();
                 if (flag)
                 {
-                    int j3 = ih.a(oj1.a, k2);
-                    if (kb.s(view))
+                    int j3 = ih.a(ol1.a, k2);
+                    if (kb.t(view))
                     {
                         a.a(view, D, j3);
                     } else
                     {
-                        a.a(oj1, D, j3);
+                        a.a(ol1, D, j3);
                     }
                 }
                 if (f(view))
                 {
-                    view.measure(android.view.View.MeasureSpec.makeMeasureSpec(l1 - oj1.leftMargin - oj1.rightMargin, 0x40000000), android.view.View.MeasureSpec.makeMeasureSpec(k1 - oj1.topMargin - oj1.bottomMargin, 0x40000000));
+                    view.measure(android.view.View.MeasureSpec.makeMeasureSpec(l1 - ol1.leftMargin - ol1.rightMargin, 0x40000000), android.view.View.MeasureSpec.makeMeasureSpec(k1 - ol1.topMargin - ol1.bottomMargin, 0x40000000));
                 } else
                 if (g(view))
                 {
-                    if (d && kb.p(view) != f)
+                    if (d && kb.q(view) != f)
                     {
                         kb.f(view, f);
                     }
@@ -1219,7 +1219,7 @@ _L5:
                     {
                         throw new IllegalStateException((new StringBuilder("Child drawer has absolute gravity ")).append(d(k3)).append(" but this DrawerLayout already has a drawer view along that edge").toString());
                     }
-                    view.measure(getChildMeasureSpec(i1, g + oj1.leftMargin + oj1.rightMargin, oj1.width), getChildMeasureSpec(j1, oj1.topMargin + oj1.bottomMargin, oj1.height));
+                    view.measure(getChildMeasureSpec(i1, g + ol1.leftMargin + ol1.rightMargin, ol1.width), getChildMeasureSpec(j1, ol1.topMargin + ol1.bottomMargin, ol1.height));
                 } else
                 {
                     throw new IllegalStateException((new StringBuilder("Child ")).append(view).append(" at index ").append(j2).append(" does not have a valid layout_gravity - must be Gravity.LEFT, Gravity.RIGHT or Gravity.NO_GRAVITY").toString());
@@ -1236,25 +1236,25 @@ _L4:
 
     protected void onRestoreInstanceState(Parcelable parcelable)
     {
-        parcelable = (ok)parcelable;
+        parcelable = (om)parcelable;
         super.onRestoreInstanceState(parcelable.getSuperState());
-        if (((ok) (parcelable)).a != 0)
+        if (((om) (parcelable)).a != 0)
         {
-            View view = b(((ok) (parcelable)).a);
+            View view = b(((om) (parcelable)).a);
             if (view != null)
             {
                 h(view);
             }
         }
-        a(((ok) (parcelable)).b, 3);
-        a(((ok) (parcelable)).c, 5);
+        a(((om) (parcelable)).b, 3);
+        a(((om) (parcelable)).c, 5);
     }
 
     public void onRtlPropertiesChanged(int i1)
     {
         if (d) goto _L2; else goto _L1
 _L1:
-        i1 = kb.h(this);
+        i1 = kb.i(this);
         if (i1 != 0) goto _L4; else goto _L3
 _L3:
         if (F == null) goto _L6; else goto _L5
@@ -1264,7 +1264,7 @@ _L5:
         drawable = F;
 _L8:
         z = drawable;
-        i1 = kb.h(this);
+        i1 = kb.i(this);
         if (i1 == 0)
         {
             if (G == null)
@@ -1301,15 +1301,15 @@ _L6:
 
     protected Parcelable onSaveInstanceState()
     {
-        ok ok1 = new ok(super.onSaveInstanceState());
+        om om1 = new om(super.onSaveInstanceState());
         View view = a();
         if (view != null)
         {
-            ok1.a = ((oj)view.getLayoutParams()).a;
+            om1.a = ((ol)view.getLayoutParams()).a;
         }
-        ok1.b = r;
-        ok1.c = s;
-        return ok1;
+        om1.b = r;
+        om1.c = s;
+        return om1;
     }
 
     public boolean onTouchEvent(MotionEvent motionevent)
@@ -1413,10 +1413,10 @@ _L9:
         d = flag;
         if (android.os.Build.VERSION.SDK_INT >= 21)
         {
-            a = new og();
+            a = new oi();
         } else
         {
-            a = new oh();
+            a = new oj();
         }
     }
 }

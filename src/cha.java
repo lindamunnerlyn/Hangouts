@@ -2,33 +2,55 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.ContextMenu;
-import android.view.View;
 
 final class cha
-    implements android.view.View.OnCreateContextMenuListener
+    implements ehr
 {
 
-    final cgw a;
+    final cgy a;
 
-    cha(cgw cgw1)
+    cha(cgy cgy1)
     {
-        a = cgw1;
+        a = cgy1;
         super();
     }
 
-    public void onCreateContextMenu(ContextMenu contextmenu, View view, android.view.ContextMenu.ContextMenuInfo contextmenuinfo)
+    public void a(ehl ehl1)
     {
-        if (view instanceof eej)
+        amx amx;
+        amx = ehl1.a();
+        if (cgy.b(a).c(amx))
         {
-            contextmenu.add(0, 201, 0, l.fZ);
-            view = ((eej)view).a();
-            cgw.b(a, view);
-            if (view.o())
+            if (!cgy.b(a).b(amx))
             {
-                contextmenu.add(0, 200, 0, l.fH);
-                contextmenu.setHeaderTitle(l.fD);
+                cgy.f(a).b(amx);
             }
+            return;
         }
+        chb.a[ehl1.b() - 1];
+        JVM INSTR tableswitch 1 3: default 84
+    //                   1 147
+    //                   2 154
+    //                   3 161;
+           goto _L1 _L2 _L3 _L4
+_L1:
+        int i = 0;
+_L6:
+        if (i != 0)
+        {
+            ((gdd)cgy.h(a).a(gdd)).a(cgy.g(a).a()).a(i).d();
+        }
+        cgy.f(a).a(amx);
+        return;
+_L2:
+        i = 2538;
+        continue; /* Loop/switch isn't completed */
+_L3:
+        i = 2540;
+        continue; /* Loop/switch isn't completed */
+_L4:
+        i = 2539;
+        if (true) goto _L6; else goto _L5
+_L5:
     }
 }

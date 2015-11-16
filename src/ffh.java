@@ -2,27 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
 
-public final class ffh extends ffj
+final class ffh
+    implements HostnameVerifier
 {
 
-    final String a;
-    final String b;
-    final int i;
-    final int j = 1;
-    final fmh k;
+    final ffg a;
 
-    public ffh(fmh fmh, ejx ejx, String s, String s1, int l, int i1)
+    ffh(ffg ffg)
     {
-        k = fmh;
-        a = s;
-        b = s1;
-        i = l;
-        super(ejx);
+        a = ffg;
+        super();
     }
 
-    protected void a(ejv ejv)
+    public boolean verify(String s, SSLSession sslsession)
     {
-        a(((fpo)ejv).a(this, a, b, i, j));
+        HostnameVerifier hostnameverifier = HttpsURLConnection.getDefaultHostnameVerifier();
+        if (hostnameverifier.verify(s, sslsession))
+        {
+            return true;
+        }
+        if ("android.clients.google.com".equalsIgnoreCase(s))
+        {
+            return hostnameverifier.verify("clients.google.com", sslsession);
+        } else
+        {
+            return false;
+        }
     }
 }

@@ -2,21 +2,55 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Timer;
 
-final class dty
-    implements Runnable
+public final class dty
 {
 
-    final dtx a;
+    public int a;
+    public boolean b;
+    public Timer c;
+    public dvc d;
+    public abz e;
 
-    dty(dtx dtx1)
+    public dty()
     {
-        a = dtx1;
-        super();
+        a = 0;
+        b = false;
+        c = null;
+        d = null;
+        e = null;
     }
 
-    public void run()
+    public static void a(boolean flag, abz abz)
     {
-        dtx.a(a);
+        dtv.a().b = flag;
+        dtv.a().e = abz;
+        dtv.a().notifyAll();
+        if (!flag || dtv.a().c != null)
+        {
+            break MISSING_BLOCK_LABEL_90;
+        }
+        abz = dtv.a();
+        if (((dty) (abz)).c != null)
+        {
+            ((dty) (abz)).c.cancel();
+        }
+        abz.c = new Timer("mms_apn_extension_timer", true);
+        ((dty) (abz)).c.schedule(new dtw(), g.a(g.nU, "babel_apn_extension_wait_in_millis", 30000L));
+        return;
+        abz;
+        abz = String.valueOf(abz);
+        eev.g("Babel_SMS", (new StringBuilder(String.valueOf(abz).length() + 60)).append("MmsSendReceiveManager.SendingStatus.startApnExtensionTimer: ").append(abz).toString());
+        return;
+    }
+
+    public void a()
+    {
+        if (c != null)
+        {
+            c.cancel();
+        }
+        c = null;
     }
 }

@@ -2,16 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.view.View;
+import android.widget.ImageView;
+import com.google.android.gms.people.accountswitcherview.SelectedAccountNavigationView;
 
-final class fqg extends ThreadLocal
+public final class fqg extends AnimatorListenerAdapter
 {
 
-    fqg()
+    final SelectedAccountNavigationView a;
+
+    public fqg(SelectedAccountNavigationView selectedaccountnavigationview)
     {
+        a = selectedaccountnavigationview;
+        super();
     }
 
-    protected Object initialValue()
+    public void onAnimationEnd(Animator animator)
     {
-        return new String[4];
+        a.a.B.setVisibility(8);
+        a.a.y.setVisibility(8);
+        if (a.a.C != null)
+        {
+            a.a.C.setVisibility(8);
+        }
+        SelectedAccountNavigationView.a(a);
+        a.b();
+        a.c = null;
     }
 }

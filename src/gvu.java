@@ -2,94 +2,85 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Bitmap;
-import java.util.HashMap;
-import java.util.Map;
+import android.content.Context;
+import android.os.PowerManager;
+import android.util.SparseArray;
 
 final class gvu
 {
 
-    private final Map a = new HashMap();
-    private final gvv b = new gvv(null);
+    private static gvu a;
+    private final Context b;
+    private final SparseArray c = new SparseArray();
+    private int d;
 
-    gvu()
+    private gvu(Context context)
     {
+        b = context;
     }
 
-    private static void a(gvv gvv1)
+    static gvu a(Context context)
     {
-        gvv1.a.b = gvv1.b;
-        gvv1.b.a = gvv1.a;
-    }
-
-    public Bitmap a()
-    {
-        for (gvv gvv1 = b.b; gvv1 != b; gvv1 = gvv1.b)
+        gvu;
+        JVM INSTR monitorenter ;
+        if (a == null)
         {
-            if (gvv1.a() > 0)
-            {
-                return gvv1.b();
-            }
-            a.remove(gvv1.c);
-            a(gvv1);
+            a = new gvu(context);
         }
-
-        return null;
+        context = a;
+        gvu;
+        JVM INSTR monitorexit ;
+        return context;
+        context;
+        throw context;
     }
 
-    public Bitmap a(gvo gvo)
+    int a()
     {
-        gvv gvv1 = (gvv)a.get(gvo);
-        if (gvv1 == null)
+        SparseArray sparsearray = c;
+        sparsearray;
+        JVM INSTR monitorenter ;
+        int i;
+        i = d + 1;
+        d = i;
+        if (i > 0)
         {
-            gvv1 = new gvv(gvo);
-            a.put(gvo, gvv1);
-            gvo = gvv1;
-        } else
-        {
-            a(gvv1);
-            gvo = gvv1;
+            break MISSING_BLOCK_LABEL_28;
         }
-        gvo.b = b;
-        gvo.a = b.a;
-        ((gvv) (gvo)).a.b = gvo;
-        b.a = gvo;
-        return gvo.b();
+        d = 1;
+        android.os.PowerManager.WakeLock wakelock = ((PowerManager)b.getSystemService("power")).newWakeLock(1, "BackgroundTaskService");
+        wakelock.setReferenceCounted(false);
+        wakelock.acquire(60000L);
+        c.put(d, wakelock);
+        sparsearray;
+        JVM INSTR monitorexit ;
+        return d;
+        Exception exception;
+        exception;
+        sparsearray;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public void a(gvo gvo, Bitmap bitmap)
+    void a(int i)
     {
-        gvv gvv2 = (gvv)a.get(gvo);
-        gvv gvv1 = gvv2;
-        if (gvv2 == null)
+        SparseArray sparsearray = c;
+        sparsearray;
+        JVM INSTR monitorenter ;
+        android.os.PowerManager.WakeLock wakelock = (android.os.PowerManager.WakeLock)c.get(i);
+        if (wakelock == null)
         {
-            gvv1 = new gvv(gvo);
-            a.put(gvo, gvv1);
-            gvv1.b = b.b;
-            gvv1.a = b;
-            gvv1.b.a = gvv1;
-            b.b = gvv1;
+            break MISSING_BLOCK_LABEL_35;
         }
-        gvv1.a(bitmap);
-    }
-
-    public String toString()
-    {
-        gvv gvv1 = b.a;
-        String s = "GroupedLinkedMap(";
-        Object obj = s;
-        if (!a.isEmpty())
-        {
-            for (obj = gvv1; obj != b; obj = ((gvv) (obj)).a)
-            {
-                s = String.valueOf(s);
-                String s1 = String.valueOf(((gvv) (obj)).c);
-                int i = ((gvv) (obj)).a();
-                s = (new StringBuilder(String.valueOf(s).length() + 16 + String.valueOf(s1).length())).append(s).append("{").append(s1).append(", ").append(i).append("} ").toString();
-            }
-
-            obj = s.substring(0, s.length() - 1);
-        }
-        return String.valueOf(obj).concat(")");
+        wakelock.release();
+        c.remove(i);
+        sparsearray;
+        JVM INSTR monitorexit ;
+        return;
+        Exception exception;
+        exception;
+        sparsearray;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 }

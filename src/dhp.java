@@ -2,23 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-public final class dhp extends dfa
+public final class dhp
+    implements Runnable
 {
 
-    private final String a;
-    private final String d;
+    final aoa a;
 
-    public dhp(ani ani, String s, String s1)
+    public dhp(aoa aoa)
     {
-        super(ani);
-        d = s;
-        a = s1;
+        a = aoa;
+        super();
     }
 
-    public void a()
+    public void run()
     {
-        cus cus1 = new cus(d, a);
-        c.a(cus1);
+        for (Iterator iterator = RealTimeChatService.o().iterator(); iterator.hasNext(); ((dhy)iterator.next()).b(a)) { }
     }
 }

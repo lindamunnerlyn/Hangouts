@@ -2,31 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.util.Log;
 
-final class fot extends Thread
+public final class fot
 {
 
-    final for a;
-
-    public fot(for for1)
+    public fot()
     {
-        a = for1;
-        super("PeopleAggregator-contacts");
     }
 
-    public final void run()
+    public ene a(emy emy1, fow fow1)
     {
-        a.h.a("contacts query start");
-        try
+        if (Log.isLoggable("PeopleClientCall", 3))
         {
-            a.a(a.c(), null);
-            return;
+            g.a("loadOwners", new Object[] {
+                fow1
+            });
         }
-        catch (Exception exception)
+        if (fow1 == null)
         {
-            g.a("PeopleAggregator", "Error while quering contacts", exception);
-            a.a(null, exception);
-            return;
+            fow1 = fow.a;
         }
+        return emy1.a(new fhw(this, emy1, fow1));
+    }
+
+    public ene a(emy emy1, String s, String s1, fou fou)
+    {
+        if (Log.isLoggable("PeopleClientCall", 3))
+        {
+            g.a("loadAggregatedPeople", new Object[] {
+                s, s1, fou
+            });
+        }
+        return emy1.a(new fia(this, emy1, s, s1, fou));
+    }
+
+    public ene a(emy emy1, String s, String s1, foy foy)
+    {
+        if (Log.isLoggable("PeopleClientCall", 3))
+        {
+            g.a("loadPeople", new Object[] {
+                s, s1, foy
+            });
+        }
+        return emy1.a(new fhy(this, emy1, s, s1, foy));
     }
 }

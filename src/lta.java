@@ -1,0 +1,122 @@
+// Decompiled by Jad v1.5.8e. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.geocities.com/kpdus/jad.html
+// Decompiler options: braces fieldsfirst space lnc 
+
+
+public final class lta extends kwm
+{
+
+    public Float a;
+    public Integer b;
+    public Integer c;
+    public Integer d;
+    public Integer e;
+
+    public lta()
+    {
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        e = null;
+        unknownFieldData = null;
+        cachedSize = -1;
+    }
+
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            a.floatValue();
+            i = j + (kwk.f(1) + 4);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.intValue());
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.intValue());
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.e(4, d.intValue());
+        }
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.e(5, e.intValue());
+        }
+        return i;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 13: // '\r'
+                a = Float.valueOf(kwj1.c());
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
+                break;
+
+            case 24: // '\030'
+                c = Integer.valueOf(kwj1.f());
+                break;
+
+            case 32: // ' '
+                d = Integer.valueOf(kwj1.f());
+                break;
+
+            case 40: // '('
+                e = Integer.valueOf(kwj1.f());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.floatValue());
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.intValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.intValue());
+        }
+        if (e != null)
+        {
+            kwk1.a(5, e.intValue());
+        }
+        super.writeTo(kwk1);
+    }
+}

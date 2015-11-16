@@ -2,25 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 import android.content.Intent;
-import com.google.android.apps.hangouts.realtimechat.DebugOzGetMergedPersonActivity;
+import android.view.View;
+import android.widget.AdapterView;
+import com.google.android.apps.hangouts.phone.DebugActivity;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-final class cml extends cmu
+public final class cml
+    implements android.widget.AdapterView.OnItemLongClickListener
 {
 
-    final cls a;
+    final DebugActivity a;
 
-    cml(cls cls1, String s)
+    public cml(DebugActivity debugactivity)
     {
-        a = cls1;
-        super(s);
+        a = debugactivity;
+        super();
     }
 
-    public void a()
+    public boolean onItemLongClick(AdapterView adapterview, View view, int i, long l)
     {
-        Intent intent = new Intent(a.a, com/google/android/apps/hangouts/realtimechat/DebugOzGetMergedPersonActivity);
-        intent.putExtra("account_id", a.c);
-        a.a.startActivity(intent);
+        adapterview = (Intent)adapterview.getItemAtPosition(i);
+        return DebugActivity.a(a, RealTimeChatService.a(adapterview, DebugActivity.b(a)));
     }
 }

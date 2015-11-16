@@ -2,11 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.content.Intent;
 
-public final class fzp
+public final class fzp extends fzo
 {
 
     public fzp()
     {
+    }
+
+    public volatile fzn a(Context context, Intent intent)
+    {
+        return super.a(context, intent);
     }
 }

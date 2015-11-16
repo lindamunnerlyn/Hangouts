@@ -2,41 +2,63 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
+import com.google.android.gms.common.ConnectionResult;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.Queue;
 
 public final class eoe
+    implements eop
 {
 
-    private final String a;
+    private final eof a;
 
-    public eoe(String s)
+    public eoe(eof eof1)
     {
-        a = s;
+        a = eof1;
     }
 
-    private static CharSequence a(Object obj)
+    public enm a(enm enm)
     {
-        if (obj instanceof CharSequence)
-        {
-            return (CharSequence)obj;
-        } else
-        {
-            return obj.toString();
-        }
+        a.c.add(enm);
+        return enm;
     }
 
-    public final StringBuilder a(StringBuilder stringbuilder, Iterable iterable)
+    public void a()
     {
-        iterable = iterable.iterator();
-        if (iterable.hasNext())
-        {
-            stringbuilder.append(a(iterable.next()));
-            for (; iterable.hasNext(); stringbuilder.append(a(iterable.next())))
-            {
-                stringbuilder.append(a);
-            }
+        a.h();
+        a.g = Collections.emptySet();
+    }
 
-        }
-        return stringbuilder;
+    public void a(int i)
+    {
+    }
+
+    public void a(Bundle bundle)
+    {
+    }
+
+    public void a(ConnectionResult connectionresult, emt emt, int i)
+    {
+    }
+
+    public void b()
+    {
+        for (Iterator iterator = a.c.iterator(); iterator.hasNext(); ((eoo)iterator.next()).c()) { }
+        a.c.clear();
+        a.f.clear();
+        a.g();
+    }
+
+    public void c()
+    {
+        a.i();
+    }
+
+    public String d()
+    {
+        return "DISCONNECTED";
     }
 }

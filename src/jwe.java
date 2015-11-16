@@ -3,26 +3,35 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jwe extends koj
+abstract class jwe extends Enum
+    implements jnn
 {
 
-    public jwe()
+    public static final jwe a;
+    public static final jwe b;
+    private static final jwe c[];
+
+    jwe(String s, int i)
     {
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s, i);
     }
 
-    public kop mergeFrom(kog kog1)
+    public static jwe valueOf(String s)
     {
-_L3:
-        int i = kog1.a();
-        i;
-        JVM INSTR tableswitch 0 0: default 24
-    //                   0 33;
-           goto _L1 _L2
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L3; else goto _L2
-_L2:
-        return this;
+        return (jwe)Enum.valueOf(jwe, s);
+    }
+
+    public static jwe[] values()
+    {
+        return (jwe[])c.clone();
+    }
+
+    static 
+    {
+        a = new jwf("KEY");
+        b = new jwg("VALUE");
+        c = (new jwe[] {
+            a, b
+        });
     }
 }

@@ -2,68 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.gms.wearable.internal.GetCloudSyncSettingResponse;
+import android.content.Context;
+import android.os.Looper;
+import com.google.android.gms.common.api.Scope;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.Executors;
 
-public final class fup
-    implements android.os.Parcelable.Creator
+final class fup extends emu
 {
 
-    public fup()
+    fup()
     {
     }
 
-    public static void a(GetCloudSyncSettingResponse getcloudsyncsettingresponse, Parcel parcel)
+    public emw a(Context context, Looper looper, epo epo, Object obj, enb enb, end end)
     {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, getcloudsyncsettingresponse.a);
-        g.b(parcel, 2, getcloudsyncsettingresponse.b);
-        g.a(parcel, 3, getcloudsyncsettingresponse.c);
-        g.q(parcel, i);
+        return new fuj(context, looper, true, epo, enb, end, Executors.newSingleThreadExecutor());
     }
 
-    public Object createFromParcel(Parcel parcel)
+    public List a()
     {
-        boolean flag = false;
-        int k = g.a(parcel);
-        int j = 0;
-        int i = 0;
-        do
-        {
-            if (parcel.dataPosition() < k)
-            {
-                int l = parcel.readInt();
-                switch (0xffff & l)
-                {
-                default:
-                    g.b(parcel, l);
-                    break;
-
-                case 1: // '\001'
-                    i = g.e(parcel, l);
-                    break;
-
-                case 2: // '\002'
-                    j = g.e(parcel, l);
-                    break;
-
-                case 3: // '\003'
-                    flag = g.c(parcel, l);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != k)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
-            } else
-            {
-                return new GetCloudSyncSettingResponse(i, j, flag);
-            }
-        } while (true);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new GetCloudSyncSettingResponse[i];
+        return Arrays.asList(new Scope[] {
+            fuo.e, fuo.f
+        });
     }
 }

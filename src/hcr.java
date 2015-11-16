@@ -2,22 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.net.Uri;
 
-final class hcr
+public final class hcr extends Enum
+    implements joj
 {
 
-    final Uri a;
-    final String b;
-    final hct c;
-    final hcq d;
+    public static final hcr a;
+    private static final hcr b[];
 
-    hcr(hcq hcq, Uri uri, String s, hct hct)
+    private hcr(String s)
     {
-        d = hcq;
-        a = uri;
-        b = s;
-        c = hct;
-        super();
+        super(s, 0);
+    }
+
+    public static joj b()
+    {
+        return a;
+    }
+
+    public static hcr valueOf(String s)
+    {
+        return (hcr)Enum.valueOf(hcr, s);
+    }
+
+    public static hcr[] values()
+    {
+        return (hcr[])b.clone();
+    }
+
+    public Object a()
+    {
+        return new hdf();
+    }
+
+    static 
+    {
+        a = new hcr("INSTANCE");
+        b = (new hcr[] {
+            a
+        });
     }
 }

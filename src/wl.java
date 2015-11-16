@@ -2,126 +2,91 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.res.ColorStateList;
-import android.content.res.TypedArray;
-import android.util.AttributeSet;
-import android.view.View;
 
 final class wl
 {
 
-    private final View a;
-    private final vi b;
-    private vh c;
-    private vh d;
+    int a;
+    int b;
+    Object c;
+    int d;
 
-    wl(View view, vi vi1)
+    wl(int i, int j, int k, Object obj)
     {
-        a = view;
-        b = vi1;
+        a = i;
+        b = j;
+        d = k;
+        c = obj;
     }
 
-    private void b(ColorStateList colorstatelist)
+    public boolean equals(Object obj)
     {
-        if (colorstatelist != null)
+        if (this != obj) goto _L2; else goto _L1
+_L1:
+        return true;
+_L2:
+        if (obj == null || getClass() != obj.getClass())
         {
-            if (c == null)
-            {
-                c = new vh();
-            }
-            c.a = colorstatelist;
-            c.d = true;
-        } else
-        {
-            c = null;
+            return false;
         }
-        b();
+        obj = (wl)obj;
+        if (a != ((wl) (obj)).a)
+        {
+            return false;
+        }
+        if (a == 3 && Math.abs(d - b) == 1 && d == ((wl) (obj)).b && b == ((wl) (obj)).d) goto _L1; else goto _L3
+_L3:
+        if (d != ((wl) (obj)).d)
+        {
+            return false;
+        }
+        if (b != ((wl) (obj)).b)
+        {
+            return false;
+        }
+        if (c == null)
+        {
+            continue; /* Loop/switch isn't completed */
+        }
+        if (c.equals(((wl) (obj)).c)) goto _L1; else goto _L4
+_L4:
+        return false;
+        if (((wl) (obj)).c == null) goto _L1; else goto _L5
+_L5:
+        return false;
     }
 
-    void a()
+    public int hashCode()
     {
-        b(null);
+        return (a * 31 + b) * 31 + d;
     }
 
-    void a(int i)
+    public String toString()
     {
-        ColorStateList colorstatelist;
-        if (b != null)
-        {
-            colorstatelist = b.b(i);
-        } else
-        {
-            colorstatelist = null;
-        }
-        b(colorstatelist);
-    }
-
-    void a(ColorStateList colorstatelist)
-    {
-        if (d == null)
-        {
-            d = new vh();
-        }
-        d.a = colorstatelist;
-        d.d = true;
-        b();
-    }
-
-    void a(android.graphics.PorterDuff.Mode mode)
-    {
-        if (d == null)
-        {
-            d = new vh();
-        }
-        d.b = mode;
-        d.c = true;
-        b();
-    }
-
-    void a(AttributeSet attributeset, int i)
-    {
-        attributeset = a.getContext().obtainStyledAttributes(attributeset, ro.cD, i, 0);
-        ColorStateList colorstatelist;
-        if (!attributeset.hasValue(ro.cE))
-        {
-            break MISSING_BLOCK_LABEL_52;
-        }
-        colorstatelist = b.b(attributeset.getResourceId(ro.cE, -1));
-        if (colorstatelist == null)
-        {
-            break MISSING_BLOCK_LABEL_52;
-        }
-        b(colorstatelist);
-        if (attributeset.hasValue(ro.cF))
-        {
-            kb.a(a, attributeset.getColorStateList(ro.cF));
-        }
-        if (attributeset.hasValue(ro.cG))
-        {
-            kb.a(a, g.a(attributeset.getInt(ro.cG, -1)));
-        }
-        attributeset.recycle();
-        return;
-        Exception exception;
-        exception;
-        attributeset.recycle();
-        throw exception;
-    }
-
-    void b()
-    {
-        if (a.getBackground() != null)
-        {
-            if (d != null)
-            {
-                vi.a(a, d);
-            } else
-            if (c != null)
-            {
-                vi.a(a, c);
-                return;
-            }
-        }
+        StringBuilder stringbuilder = (new StringBuilder()).append(Integer.toHexString(System.identityHashCode(this))).append("[");
+        a;
+        JVM INSTR tableswitch 0 3: default 56
+    //                   0 109
+    //                   1 115
+    //                   2 121
+    //                   3 127;
+           goto _L1 _L2 _L3 _L4 _L5
+_L1:
+        String s = "??";
+_L7:
+        return stringbuilder.append(s).append(",s:").append(b).append("c:").append(d).append(",p:").append(c).append("]").toString();
+_L2:
+        s = "add";
+        continue; /* Loop/switch isn't completed */
+_L3:
+        s = "rm";
+        continue; /* Loop/switch isn't completed */
+_L4:
+        s = "up";
+        continue; /* Loop/switch isn't completed */
+_L5:
+        s = "mv";
+        if (true) goto _L7; else goto _L6
+_L6:
     }
 }

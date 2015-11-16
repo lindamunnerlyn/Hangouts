@@ -2,61 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.Future;
 
-public final class kae extends koj
+public class kae extends kad
 {
 
-    public Boolean a;
+    private final kak a;
 
-    public kae()
+    protected kae(kak kak1)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = (kak)n.b(kak1);
     }
 
-    protected int computeSerializedSize()
+    protected Future a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        return i;
+        return a;
     }
 
-    public kop mergeFrom(kog kog1)
+    protected final kak b()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
+        return a;
     }
 
-    public void writeTo(koh koh1)
+    protected Object c()
     {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
-        }
-        super.writeTo(koh1);
+        return a;
     }
 }

@@ -4,42 +4,37 @@
 
 package gen_binder;
 
-import ajh;
+import aje;
 import android.content.Context;
-import hgx;
-import hhe;
+import hlp;
+import hlw;
 import java.util.HashMap;
 
 public final class 
-    implements hhe
+    implements hlw
 {
 
     private HashMap a;
 
-    public void a(Context context, Class class1, hgx hgx)
+    public void a(Context context, Class class1, hlp hlp)
     {
         if (a == null)
         {
-            a = new HashMap(2);
-            a.put(ajh.a, Integer.valueOf(0));
-            a.put(ajh.b, Integer.valueOf(1));
+            a = new HashMap(1);
+            a.put(aje.a, Integer.valueOf(0));
         }
-        class1 = (Integer)a.get(class1.getName());
-        if (class1 == null)
+        context = (Integer)a.get(class1.getName());
+        if (context == null)
         {
             return;
         }
-        switch (class1.intValue())
+        switch (context.intValue())
         {
         default:
             return;
 
         case 0: // '\0'
-            ajh.a(context, hgx);
-            return;
-
-        case 1: // '\001'
-            ajh.a(hgx);
+            aje.a(hlp);
             break;
         }
     }

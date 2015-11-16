@@ -2,92 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.net.Uri;
-import android.util.Log;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import android.accounts.Account;
+import android.os.IInterface;
+import com.google.android.gms.common.internal.AuthAccountRequest;
+import com.google.android.gms.common.internal.ResolveAccountRequest;
+import com.google.android.gms.signin.internal.CheckServerAuthResult;
+import com.google.android.gms.signin.internal.RecordConsentRequest;
 
-public final class fuf
-    implements fsz
+public interface fuf
+    extends IInterface
 {
 
-    private Uri a;
-    private byte b[];
-    private Map c;
+    public abstract void a(int i);
 
-    public fuf(fsz fsz1)
-    {
-        a = fsz1.a();
-        b = fsz1.b();
-        HashMap hashmap = new HashMap();
-        fsz1 = fsz1.c().entrySet().iterator();
-        do
-        {
-            if (!fsz1.hasNext())
-            {
-                break;
-            }
-            java.util.Map.Entry entry = (java.util.Map.Entry)fsz1.next();
-            if (entry.getKey() != null)
-            {
-                hashmap.put(entry.getKey(), ((fta)entry.getValue()).e());
-            }
-        } while (true);
-        c = Collections.unmodifiableMap(hashmap);
-    }
+    public abstract void a(int i, Account account, fuc fuc);
 
-    public Uri a()
-    {
-        return a;
-    }
+    public abstract void a(AuthAccountRequest authaccountrequest, fuc fuc);
 
-    public byte[] b()
-    {
-        return b;
-    }
+    public abstract void a(ResolveAccountRequest resolveaccountrequest, erb erb);
 
-    public Map c()
-    {
-        return c;
-    }
+    public abstract void a(CheckServerAuthResult checkserverauthresult);
 
-    public Object e()
-    {
-        return this;
-    }
+    public abstract void a(RecordConsentRequest recordconsentrequest, fuc fuc);
 
-    public String toString()
-    {
-        boolean flag = Log.isLoggable("DataItem", 3);
-        StringBuilder stringbuilder = new StringBuilder("DataItemEntity{ ");
-        stringbuilder.append((new StringBuilder("uri=")).append(a).toString());
-        StringBuilder stringbuilder1 = new StringBuilder(", dataSz=");
-        Object obj;
-        if (b == null)
-        {
-            obj = "null";
-        } else
-        {
-            obj = Integer.valueOf(b.length);
-        }
-        stringbuilder.append(stringbuilder1.append(obj).toString());
-        stringbuilder.append((new StringBuilder(", numAssets=")).append(c.size()).toString());
-        if (flag && !c.isEmpty())
-        {
-            stringbuilder.append(", assets=[");
-            Iterator iterator = c.entrySet().iterator();
-            for (obj = ""; iterator.hasNext(); obj = ", ")
-            {
-                java.util.Map.Entry entry = (java.util.Map.Entry)iterator.next();
-                stringbuilder.append((new StringBuilder()).append(((String) (obj))).append((String)entry.getKey()).append(": ").append(((fta)entry.getValue()).a()).toString());
-            }
+    public abstract void a(epq epq, int i, boolean flag);
 
-            stringbuilder.append("]");
-        }
-        stringbuilder.append(" }");
-        return stringbuilder.toString();
-    }
+    public abstract void a(fuc fuc);
+
+    public abstract void a(boolean flag);
 }

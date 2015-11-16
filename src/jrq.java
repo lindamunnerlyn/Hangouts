@@ -2,51 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Arrays;
 
-public final class jrq
+final class jrq extends jsn
 {
 
-    private static final byte a[];
+    static final jrq a = new jrq();
+    private static final long serialVersionUID = 0L;
 
-    public static int a(long l)
+    private jrq()
     {
-        if (l > 0x7fffffffL)
-        {
-            return 0x7fffffff;
-        }
-        if (l < 0xffffffff80000000L)
-        {
-            return 0x80000000;
-        } else
-        {
-            return (int)l;
-        }
+        super(jxe.b, 0);
     }
 
-    static 
+    private Object readResolve()
     {
-        boolean flag = false;
-        byte abyte0[] = new byte[128];
-        a = abyte0;
-        Arrays.fill(abyte0, (byte)-1);
-        int i = 0;
-        int j;
-        do
-        {
-            j = ((flag) ? 1 : 0);
-            if (i > 9)
-            {
-                break;
-            }
-            a[i + 48] = (byte)i;
-            i++;
-        } while (true);
-        for (; j <= 26; j++)
-        {
-            a[j + 65] = (byte)(j + 10);
-            a[j + 97] = (byte)(j + 10);
-        }
-
+        return a;
     }
+
 }

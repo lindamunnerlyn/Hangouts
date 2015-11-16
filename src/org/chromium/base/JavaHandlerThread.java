@@ -6,23 +6,25 @@ package org.chromium.base;
 
 import android.os.Handler;
 import android.os.HandlerThread;
+import llm;
+import lln;
 
-class JavaHandlerThread
+public class JavaHandlerThread
 {
 
-    final HandlerThread a;
+    public final HandlerThread a;
 
     private JavaHandlerThread(String s)
     {
         a = new HandlerThread(s);
     }
 
-    static void a(JavaHandlerThread javahandlerthread, long l, long l1)
+    public static void a(JavaHandlerThread javahandlerthread, long l, long l1)
     {
         javahandlerthread.nativeInitializeThread(l, l1);
     }
 
-    static void b(JavaHandlerThread javahandlerthread, long l, long l1)
+    public static void b(JavaHandlerThread javahandlerthread, long l, long l1)
     {
         javahandlerthread.nativeStopThread(l, l1);
     }
@@ -39,7 +41,7 @@ class JavaHandlerThread
     private void start(long l, long l1)
     {
         a.start();
-        (new Handler(a.getLooper())).post(new _cls1(l, l1));
+        (new Handler(a.getLooper())).post(new llm(this, l, l1));
     }
 
     private void stop(long l, long l1)
@@ -52,62 +54,10 @@ class JavaHandlerThread
         {
             flag = false;
         }
-        (new Handler(a.getLooper())).post(new _cls2(l, l1, flag));
+        (new Handler(a.getLooper())).post(new lln(this, l, l1, flag));
         if (flag)
         {
             a.quitSafely();
         }
     }
-
-    private class _cls1
-        implements Runnable
-    {
-
-        final long a;
-        final long b;
-        final JavaHandlerThread c;
-
-        public void run()
-        {
-            JavaHandlerThread.a(c, a, b);
-        }
-
-        _cls1(long l, long l1)
-        {
-            c = JavaHandlerThread.this;
-            a = l;
-            b = l1;
-            super();
-        }
-    }
-
-
-    private class _cls2
-        implements Runnable
-    {
-
-        final long a;
-        final long b;
-        final boolean c;
-        final JavaHandlerThread d;
-
-        public void run()
-        {
-            JavaHandlerThread.b(d, a, b);
-            if (!c)
-            {
-                d.a.quit();
-            }
-        }
-
-        _cls2(long l, long l1, boolean flag)
-        {
-            d = JavaHandlerThread.this;
-            a = l;
-            b = l1;
-            c = flag;
-            super();
-        }
-    }
-
 }

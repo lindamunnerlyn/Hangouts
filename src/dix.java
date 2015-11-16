@@ -2,127 +2,76 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.Set;
 
-public final class dix extends dfa
+public final class dix
+    implements dmf
 {
 
     private final String a;
-    private String d;
-    private Integer e;
-    private boolean f;
+    private final byte b[];
+    private final long c;
+    private final boolean d;
+    private int e;
+    private final String f = eev.a(new Throwable());
     private String g;
-    private boolean h;
-    private String i;
 
-    public dix(ani ani1, String s)
+    public dix(String s, byte abyte0[], long l, boolean flag)
     {
-        super(ani1);
-        d = null;
-        e = null;
-        f = false;
-        h = false;
+        e = 0;
         a = s;
+        b = abyte0;
+        c = l;
+        d = flag;
     }
 
-    private String a(aoe aoe1, String s)
+    public String a()
     {
-        if (ebw.a("Babel", 3))
-        {
-            String s1 = String.valueOf(a);
-            long l;
-            long l1;
-            if (s1.length() != 0)
-            {
-                s1 = "updateConversationNameLocally conversationId: ".concat(s1);
-            } else
-            {
-                s1 = new String("updateConversationNameLocally conversationId: ");
-            }
-            ebw.c("Babel", s1);
-        }
-        aoe1.a();
-        s1 = aoe1.o(a);
-        l1 = aoe1.P(a);
-        l = 0L;
-        if (aoe1.A(a) == 1)
-        {
-            l = 0x7fffffffffffffffL;
-        }
-        (new djd(a, b.b(), l1, l, s, d, dqb.b)).a(aoe1, c);
-        aoe1.b();
-        aoe1.c();
-        return s1;
-        s;
-        aoe1.c();
-        throw s;
+        return a;
     }
 
-    public void a()
+    public void a(int i)
     {
-        aoe aoe1;
-        aoe1 = new aoe(g.nS, b.h());
-        if (d != null && !aoe.a(a))
-        {
-            String s = aoe.g();
-            String s1 = a(aoe1, s);
-            c.a(new cup(s, a, d, s1));
-        }
-        if (e != null)
-        {
-            (new diy(a, g.a(e, 0))).a(aoe1, c);
-        }
-        if (!h && !f)
-        {
-            break MISSING_BLOCK_LABEL_205;
-        }
-        aoe1.a();
-        Iterator iterator = aoe1.ag(a).iterator();
-        do
-        {
-            if (!iterator.hasNext())
-            {
-                break;
-            }
-            String s2 = (String)iterator.next();
-            if (f)
-            {
-                aoe1.c(s2, g);
-            }
-            if (h)
-            {
-                aoe1.d(s2, i);
-            }
-        } while (true);
-        break MISSING_BLOCK_LABEL_197;
-        Exception exception;
-        exception;
-        aoe1.c();
-        throw exception;
-        aoe1.b();
-        aoe1.c();
-    }
-
-    public void a(int j)
-    {
-        e = Integer.valueOf(j);
+        e = i;
     }
 
     public void b(String s)
     {
-        d = s;
-    }
-
-    public void c(String s)
-    {
         g = s;
-        f = true;
     }
 
-    public void d(String s)
+    public byte[] b()
     {
-        i = s;
-        h = true;
+        return b;
+    }
+
+    public long c()
+    {
+        return c;
+    }
+
+    public boolean d()
+    {
+        return d;
+    }
+
+    public int k()
+    {
+        return e;
+    }
+
+    public cdl m()
+    {
+        return new div(this);
+    }
+
+    public String toString()
+    {
+        String s = a;
+        int i = b.length;
+        long l = c;
+        boolean flag = d;
+        String s1 = f;
+        String s2 = g;
+        return (new StringBuilder(String.valueOf(s).length() + 159 + String.valueOf(s1).length() + String.valueOf(s2).length())).append("retrive mms request: content location=").append(s).append(" len(transactionId)=").append(i).append(" notificationRowId=").append(l).append(" autoRetrieve=").append(flag).append("\nCreation stack:\n").append(s1).append("\nOrigin stack:\n").append(s2).toString();
     }
 }

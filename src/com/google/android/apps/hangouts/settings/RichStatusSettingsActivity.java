@@ -5,25 +5,25 @@
 package com.google.android.apps.hangouts.settings;
 
 import android.os.Bundle;
-import doy;
+import drr;
 import g;
-import gng;
-import hgt;
-import hhj;
+import grn;
+import hll;
+import hmb;
 
-public class RichStatusSettingsActivity extends hhj
+public class RichStatusSettingsActivity extends hmb
 {
 
     public RichStatusSettingsActivity()
     {
-        (new gng(this, q)).a(p).d();
-        new hgt(this, q);
-        new doy(this, this, q);
+        (new grn(this, r)).a(q).d();
+        new hll(this, r);
+        new drr(this, this, r);
     }
 
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.fL);
+        setContentView(g.fJ);
     }
 }

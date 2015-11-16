@@ -2,21 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import com.google.android.apps.hangouts.service.NetworkConnectivityChangeReceiver;
 
-final class dom
-    implements hfe
+public final class dom extends ain
 {
 
-    final dok a;
+    private static final boolean b = false;
+    private final Context a;
 
-    dom(dok dok1)
+    public dom(Context context)
     {
-        a = dok1;
-        super();
+        a = context;
     }
 
-    public boolean a(hfa hfa, Object obj)
+    protected void a(Activity activity)
     {
-        return dok.a(a, g.a((Boolean)obj, false));
+        if (b)
+        {
+            eev.b("Babel", "Enable foreground broadcast receivers");
+        }
+        a.getPackageManager().setComponentEnabledSetting(new ComponentName(a, com/google/android/apps/hangouts/service/NetworkConnectivityChangeReceiver), 1, 1);
+    }
+
+    protected void b()
+    {
+        if (b)
+        {
+            eev.b("Babel", "Disable foreground broadcast receivers");
+        }
+        a.getPackageManager().setComponentEnabledSetting(new ComponentName(a, com/google/android/apps/hangouts/service/NetworkConnectivityChangeReceiver), 2, 1);
+    }
+
+    static 
+    {
+        hnc hnc = eev.n;
     }
 }

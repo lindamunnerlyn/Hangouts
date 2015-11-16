@@ -2,8 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.widget.ImageView;
 
 public interface bbu
-    extends azn
 {
+
+    public abstract ImageView a();
+
+    public abstract boolean a(bbo bbo);
 }

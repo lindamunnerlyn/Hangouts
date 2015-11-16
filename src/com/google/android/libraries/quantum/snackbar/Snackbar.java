@@ -18,18 +18,18 @@ import android.view.accessibility.AccessibilityManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import g;
-import gma;
-import gmb;
-import gmk;
-import gml;
-import gmm;
+import gqg;
+import gqh;
+import gqq;
+import gqr;
+import gqs;
 import java.util.List;
 
 public class Snackbar extends LinearLayout
-    implements gma
+    implements gqg
 {
 
-    public final gmb a;
+    public final gqh a;
     private final TextView b;
     private final TextView c;
     private int d;
@@ -41,21 +41,21 @@ public class Snackbar extends LinearLayout
 
     public Snackbar(Context context, AttributeSet attributeset)
     {
-        this(context, attributeset, g.rS);
+        this(context, attributeset, g.st);
     }
 
     public Snackbar(Context context, AttributeSet attributeset, int i)
     {
         super(context, attributeset, i);
-        a = new gmb(this);
+        a = new gqh(this);
         d = 1;
-        LayoutInflater.from(context).inflate(g.rV, this);
-        b = (TextView)findViewById(g.rU);
-        c = (TextView)findViewById(g.rT);
-        context = context.obtainStyledAttributes(attributeset, gmk.K, i, g.rW);
-        attributeset = context.getDrawable(gmk.M);
-        ColorStateList colorstatelist = context.getColorStateList(gmk.N);
-        ColorStateList colorstatelist1 = context.getColorStateList(gmk.L);
+        LayoutInflater.from(context).inflate(g.sw, this);
+        b = (TextView)findViewById(g.sv);
+        c = (TextView)findViewById(g.su);
+        context = context.obtainStyledAttributes(attributeset, gqq.K, i, g.sx);
+        attributeset = context.getDrawable(gqq.M);
+        ColorStateList colorstatelist = context.getColorStateList(gqq.N);
+        ColorStateList colorstatelist1 = context.getColorStateList(gqq.L);
         context.recycle();
         setOrientation(0);
         setBackgroundDrawable(attributeset);
@@ -69,7 +69,7 @@ public class Snackbar extends LinearLayout
         }
     }
 
-    public static void b(Snackbar snackbar)
+    public static void a(Snackbar snackbar)
     {
         String s = snackbar.b.getText().toString().trim();
         if (!TextUtils.isEmpty(s))
@@ -95,7 +95,7 @@ public class Snackbar extends LinearLayout
 
     public void a()
     {
-        gmb gmb1 = a;
+        gqh gqh1 = a;
         ObjectAnimator objectanimator = ObjectAnimator.ofPropertyValuesHolder(this, new PropertyValuesHolder[] {
             PropertyValuesHolder.ofFloat("alpha", new float[] {
                 0.0F, 1.0F
@@ -103,8 +103,8 @@ public class Snackbar extends LinearLayout
                 (float)getHeight(), 0.0F
             })
         });
-        objectanimator.addListener(new gml(this));
-        gmb1.a(objectanimator);
+        objectanimator.addListener(new gqr(this));
+        gqh1.a(objectanimator);
     }
 
     public void a(ColorStateList colorstatelist)
@@ -137,7 +137,7 @@ public class Snackbar extends LinearLayout
 
     public void b()
     {
-        gmb gmb1 = a;
+        gqh gqh1 = a;
         ObjectAnimator objectanimator = ObjectAnimator.ofPropertyValuesHolder(this, new PropertyValuesHolder[] {
             PropertyValuesHolder.ofFloat("alpha", new float[] {
                 1.0F, 0.0F
@@ -145,8 +145,8 @@ public class Snackbar extends LinearLayout
                 0.0F, (float)getHeight()
             })
         });
-        objectanimator.addListener(new gmm(this));
-        gmb1.b(objectanimator);
+        objectanimator.addListener(new gqs(this));
+        gqh1.b(objectanimator);
     }
 
     public void b(ColorStateList colorstatelist)

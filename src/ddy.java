@@ -3,10 +3,31 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface ddy
+public final class ddy extends dgj
 {
 
-    public abstract void a();
+    private final String a;
+    private final dsv e;
 
-    public abstract void b();
+    public ddy(aoa aoa, String s, dsv dsv)
+    {
+        super(aoa);
+        a = s;
+        e = dsv;
+    }
+
+    public void a()
+    {
+        aow aow1;
+        aow1 = new aow(g.nU, super.b.a);
+        aow1.a();
+        aow1.a(a, e);
+        aow1.b();
+        aow1.c();
+        return;
+        Exception exception;
+        exception;
+        aow1.c();
+        throw exception;
+    }
 }

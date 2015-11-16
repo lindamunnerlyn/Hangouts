@@ -7,13 +7,17 @@ package org.chromium.base;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import epp;
+import gap;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import llk;
+import llp;
 
 // Referenced classes of package org.chromium.base:
-//            ObserverList, BaseChromiumApplication, ThreadUtils
+//            ThreadUtils
 
 public class ApplicationStatus
 {
@@ -22,25 +26,13 @@ public class ApplicationStatus
     private static Object b = new Object();
     private static Integer c;
     private static Activity d;
-    private static ApplicationStateListener e;
+    private static gap e;
     private static final Map f = new ConcurrentHashMap();
-    private static final ObserverList g = new ObserverList();
-    private static final ObserverList h = new ObserverList();
+    private static final llp g = new llp();
+    private static final llp h = new llp();
 
     private ApplicationStatus()
     {
-    }
-
-    public static int a(Activity activity)
-    {
-        activity = (ActivityInfo)f.get(activity);
-        if (activity != null)
-        {
-            return activity.a();
-        } else
-        {
-            return 6;
-        }
     }
 
     public static Activity a()
@@ -48,72 +40,9 @@ public class ApplicationStatus
         return d;
     }
 
-    static void a(int i)
+    public static void a(gap gap)
     {
-        nativeOnApplicationStateChange(i);
-    }
-
-    static void a(Activity activity, int i)
-    {
-        int j;
-        if (activity == null)
-        {
-            throw new IllegalArgumentException("null activity is not supported");
-        }
-        if (d == null || i == 1 || i == 3 || i == 2)
-        {
-            d = activity;
-        }
-        j = c();
-        if (i == 1)
-        {
-            f.put(activity, new ActivityInfo());
-        }
-        synchronized (b)
-        {
-            c = null;
-        }
-        obj = (ActivityInfo)f.get(activity);
-        ((ActivityInfo) (obj)).a(i);
-        for (obj = ((ActivityInfo) (obj)).b().iterator(); ((Iterator) (obj)).hasNext(); ((Iterator) (obj)).next()) { }
-        break MISSING_BLOCK_LABEL_127;
-        activity;
-        obj;
-        JVM INSTR monitorexit ;
-        throw activity;
-        for (Iterator iterator = g.iterator(); iterator.hasNext(); iterator.next()) { }
-        int k = c();
-        if (k != j)
-        {
-            for (Iterator iterator1 = h.iterator(); iterator1.hasNext(); ((ApplicationStateListener)iterator1.next()).a(k)) { }
-        }
-        if (i == 6)
-        {
-            f.remove(activity);
-            if (activity == d)
-            {
-                d = null;
-            }
-        }
-        return;
-    }
-
-    public static void a(ApplicationStateListener applicationstatelistener)
-    {
-        h.a(applicationstatelistener);
-    }
-
-    public static void a(BaseChromiumApplication basechromiumapplication)
-    {
-        a = basechromiumapplication;
-        basechromiumapplication.a(new _cls1());
-        basechromiumapplication.registerActivityLifecycleCallbacks(new _cls2());
-    }
-
-    static Activity b(Activity activity)
-    {
-        d = activity;
-        return activity;
+        h.a(gap);
     }
 
     public static Context b()
@@ -127,10 +56,9 @@ public class ApplicationStatus
         }
     }
 
-    static ApplicationStateListener b(ApplicationStateListener applicationstatelistener)
+    public static void b(gap gap)
     {
-        e = applicationstatelistener;
-        return applicationstatelistener;
+        h.b(gap);
     }
 
     public static int c()
@@ -152,7 +80,7 @@ _L5:
         {
             break MISSING_BLOCK_LABEL_126;
         }
-        j = ((ActivityInfo)iterator.next()).a();
+        j = ((epp)iterator.next()).a();
         if (j == 4 || j == 5 || j == 6) goto _L4; else goto _L3
 _L3:
         i = ((flag1) ? 1 : 0);
@@ -192,12 +120,13 @@ _L4:
           goto _L6
     }
 
-    static Activity d()
+    public static gap c(gap gap)
     {
-        return d;
+        e = gap;
+        return gap;
     }
 
-    static ApplicationStateListener e()
+    public static gap d()
     {
         return e;
     }
@@ -206,151 +135,7 @@ _L4:
 
     private static void registerThreadSafeNativeApplicationStateListener()
     {
-        ThreadUtils.a(new _cls3());
-    }
-
-
-    private class ActivityInfo
-    {
-
-        private int a;
-        private ObserverList b;
-
-        public int a()
-        {
-            return a;
-        }
-
-        public void a(int i)
-        {
-            a = i;
-        }
-
-        public ObserverList b()
-        {
-            return b;
-        }
-
-        ActivityInfo()
-        {
-            a = 6;
-            b = new ObserverList();
-        }
-    }
-
-
-    private class ApplicationStateListener
-    {
-
-        public abstract void a(int i);
-    }
-
-
-    private class _cls1
-        implements BaseChromiumApplication.WindowFocusChangedListener
-    {
-
-        public void a(Activity activity, boolean flag)
-        {
-            int i;
-            if (flag && activity != ApplicationStatus.d())
-            {
-                if ((i = ApplicationStatus.a(activity)) != 6 && i != 5)
-                {
-                    ApplicationStatus.b(activity);
-                    return;
-                }
-            }
-        }
-
-        _cls1()
-        {
-        }
-    }
-
-
-    private class _cls2
-        implements android.app.Application.ActivityLifecycleCallbacks
-    {
-
-        public void onActivityCreated(Activity activity, Bundle bundle)
-        {
-            ApplicationStatus.a(activity, 1);
-        }
-
-        public void onActivityDestroyed(Activity activity)
-        {
-            ApplicationStatus.a(activity, 6);
-        }
-
-        public void onActivityPaused(Activity activity)
-        {
-            ApplicationStatus.a(activity, 4);
-        }
-
-        public void onActivityResumed(Activity activity)
-        {
-            ApplicationStatus.a(activity, 3);
-        }
-
-        public void onActivitySaveInstanceState(Activity activity, Bundle bundle)
-        {
-        }
-
-        public void onActivityStarted(Activity activity)
-        {
-            ApplicationStatus.a(activity, 2);
-        }
-
-        public void onActivityStopped(Activity activity)
-        {
-            ApplicationStatus.a(activity, 5);
-        }
-
-        _cls2()
-        {
-        }
-    }
-
-
-    private class _cls3
-        implements Runnable
-    {
-
-        public void run()
-        {
-            if (ApplicationStatus.e() != null)
-            {
-                return;
-            } else
-            {
-                class _cls1
-                    implements ApplicationStateListener
-                {
-
-                    final _cls3 a;
-
-                    public void a(int i)
-                    {
-                        ApplicationStatus.a(i);
-                    }
-
-                _cls1()
-                {
-                    a = _cls3.this;
-                    super();
-                }
-                }
-
-                ApplicationStatus.b(new _cls1());
-                ApplicationStatus.a(ApplicationStatus.e());
-                return;
-            }
-        }
-
-        _cls3()
-        {
-        }
+        ThreadUtils.a(new llk());
     }
 
 }

@@ -3,16 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kzx extends koj
+public final class kzx extends kwm
 {
 
-    public Double a;
-    public String b;
+    public Long a;
+    public Long b;
+    public Long c;
+    public Long d;
 
     public kzx()
     {
         a = null;
         b = null;
+        c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -23,26 +27,35 @@ public final class kzx extends koj
         int i = j;
         if (a != null)
         {
-            a.doubleValue();
-            i = j + (koh.f(1) + 8);
+            i = j + kwk.e(1, a.longValue());
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.b(2, b);
+            j = i + kwk.e(2, b.longValue());
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.longValue());
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.e(4, d.longValue());
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -51,27 +64,43 @@ public final class kzx extends koj
             case 0: // '\0'
                 return this;
 
-            case 9: // '\t'
-                a = Double.valueOf(kog1.b());
+            case 8: // '\b'
+                a = Long.valueOf(kwj1.e());
                 break;
 
-            case 18: // '\022'
-                b = kog1.j();
+            case 16: // '\020'
+                b = Long.valueOf(kwj1.e());
+                break;
+
+            case 24: // '\030'
+                c = Long.valueOf(kwj1.e());
+                break;
+
+            case 32: // ' '
+                d = Long.valueOf(kwj1.e());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.doubleValue());
+            kwk1.b(1, a.longValue());
         }
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.b(2, b.longValue());
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.b(3, c.longValue());
+        }
+        if (d != null)
+        {
+            kwk1.b(4, d.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

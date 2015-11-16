@@ -2,12 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
-import com.google.android.gms.clearcut.LogEventParcelable;
+import com.google.android.apps.hangouts.views.MessageListView;
 
-public interface eiu
-    extends IInterface
+public final class eiu
 {
 
-    public abstract void a(eir eir, LogEventParcelable logeventparcelable);
+    public int a;
+    public int b;
+    public boolean c;
+    final MessageListView d;
+
+    public eiu(MessageListView messagelistview)
+    {
+        d = messagelistview;
+        super();
+        a = -1;
+        b = 0;
+        c = false;
+    }
 }

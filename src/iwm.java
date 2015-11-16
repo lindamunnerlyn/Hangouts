@@ -3,113 +3,78 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iwm extends koj
+public final class iwm extends kwm
 {
 
-    public iwn a[];
+    public Boolean a;
+    public Integer b;
 
     public iwm()
     {
-        a = iwn.a();
+        a = null;
+        b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        int k = i;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            k = i;
-            if (a.length > 0)
-            {
-                int j = 0;
-                do
-                {
-                    k = i;
-                    if (j >= a.length)
-                    {
-                        break;
-                    }
-                    iwn iwn1 = a[j];
-                    k = i;
-                    if (iwn1 != null)
-                    {
-                        k = i + koh.d(1, iwn1);
-                    }
-                    j++;
-                    i = k;
-                } while (true);
-            }
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
-        return k;
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.intValue());
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L5:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   8: 51
+    //                   16: 65;
+           goto _L1 _L2 _L3 _L4
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
+_L2:
+        return this;
+_L3:
+        a = Boolean.valueOf(kwj1.i());
+          goto _L5
+_L4:
+        int j = kwj1.f();
+        switch (j)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                iwn aiwn[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                aiwn = new iwn[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aiwn, 0, j);
-                    k = j;
-                }
-                for (; k < aiwn.length - 1; k++)
-                {
-                    aiwn[k] = new iwn();
-                    kog1.a(aiwn[k]);
-                    kog1.a();
-                }
-
-                aiwn[k] = new iwn();
-                kog1.a(aiwn[k]);
-                a = aiwn;
-                break;
-            }
-        } while (true);
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+            b = Integer.valueOf(j);
+            break;
+        }
+        if (true) goto _L5; else goto _L6
+_L6:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null && a.length > 0)
+        if (a != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                iwn iwn1 = a[i];
-                if (iwn1 != null)
-                {
-                    koh1.b(1, iwn1);
-                }
-            }
-
+            kwk1.a(1, a.booleanValue());
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

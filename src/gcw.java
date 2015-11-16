@@ -3,24 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gcw
-    implements Runnable
+public final class gcw
+    implements gcr
 {
 
-    final int a;
-    final int b;
-    final gcu c;
-
-    gcw(gcu gcu1, int i, int j)
+    public gcw()
     {
-        c = gcu1;
-        a = i;
-        b = j;
-        super();
     }
 
-    public void run()
+    public gcq a()
     {
-        c.a.a(a, b);
+        return new gcv();
     }
 }

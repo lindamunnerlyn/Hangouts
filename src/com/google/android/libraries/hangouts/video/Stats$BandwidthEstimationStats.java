@@ -4,8 +4,8 @@
 
 package com.google.android.libraries.hangouts.video;
 
-import inu;
-import inx;
+import itz;
+import iuc;
 import java.io.PrintWriter;
 import java.util.Arrays;
 
@@ -25,17 +25,17 @@ public class d extends Stats
         printwriter.println("  BandwidthEstimation -- availSend, avilRecv, trans, retrans");
     }
 
-    public void addTo(inu inu1)
+    public void addTo(itz itz1)
     {
-        inx inx1 = Stats.a(2);
-        inx1.k = Integer.valueOf(2);
-        inx1.z = Integer.valueOf(a);
-        inx1.A = Integer.valueOf(b);
-        inx1.B = Integer.valueOf(c);
-        inx1.C = Integer.valueOf(d);
-        int i = inu1.b.length;
-        inu1.b = (inx[])Arrays.copyOf(inu1.b, i + 1);
-        inu1.b[i] = inx1;
+        iuc iuc1 = Stats.a(2);
+        iuc1.k = Integer.valueOf(2);
+        iuc1.z = Integer.valueOf(a);
+        iuc1.A = Integer.valueOf(b);
+        iuc1.B = Integer.valueOf(c);
+        iuc1.C = Integer.valueOf(d);
+        int i = itz1.b.length;
+        itz1.b = (iuc[])Arrays.copyOf(itz1.b, i + 1);
+        itz1.b[i] = iuc1;
     }
 
     public void print(PrintWriter printwriter, d d1)

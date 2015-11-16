@@ -3,11 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class emf extends emg
+public final class emf
 {
 
-    public emf(String as[])
+    public emf()
     {
-        super(as, null);
     }
 }

@@ -2,19 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.telephony.PhoneStateListener;
+import android.telephony.ServiceState;
 
-final class bhq
+final class bhq extends PhoneStateListener
 {
 
-    static final int a[];
+    final bhr a;
+    final bhp b;
 
-    static 
+    bhq(bhp bhp1, bhr bhr1)
     {
-        a = new int[dqb.values().length];
-        try
+        b = bhp1;
+        a = bhr1;
+        super();
+    }
+
+    public void onServiceStateChanged(ServiceState servicestate)
+    {
+        bhp bhp1 = b;
+        boolean flag;
+        if (servicestate.getState() == 0)
         {
-            a[dqb.d.ordinal()] = 1;
+            flag = true;
+        } else
+        {
+            flag = false;
         }
-        catch (NoSuchFieldError nosuchfielderror) { }
+        bhp1.a = flag;
+        a.a();
     }
 }

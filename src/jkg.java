@@ -2,40 +2,111 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
-import java.util.Set;
 
-final class jkg extends jkc
-    implements Set
+public final class jkg extends kwm
 {
 
-    final jjt a;
+    public String a[];
 
-    jkg(jjt jjt1, Object obj, Set set)
+    public jkg()
     {
-        a = jjt1;
-        super(jjt1, obj, set, null);
+        a = kwx.f;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public boolean removeAll(Collection collection)
+    protected int computeSerializedSize()
     {
-        boolean flag;
-        if (collection.isEmpty())
+        int i = 0;
+        int j1 = super.computeSerializedSize();
+        if (a != null && a.length > 0)
         {
-            flag = false;
+            int j = 0;
+            int k;
+            int l;
+            for (k = 0; i < a.length; k = l)
+            {
+                String s = a[i];
+                int i1 = j;
+                l = k;
+                if (s != null)
+                {
+                    l = k + 1;
+                    i1 = j + kwk.a(s);
+                }
+                i++;
+                j = i1;
+            }
+
+            return j1 + j + k * 1;
         } else
         {
-            int i = size();
-            boolean flag1 = h.a((Set)c, collection);
-            flag = flag1;
-            if (flag1)
-            {
-                int j = c.size();
-                jjt.a(a, j - i);
-                b();
-                return flag1;
-            }
+            return j1;
         }
-        return flag;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                int k = kwx.a(kwj1, 10);
+                String as[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                as = new String[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, as, 0, j);
+                    k = j;
+                }
+                for (; k < as.length - 1; k++)
+                {
+                    as[k] = kwj1.j();
+                    kwj1.a();
+                }
+
+                as[k] = kwj1.j();
+                a = as;
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null && a.length > 0)
+        {
+            for (int i = 0; i < a.length; i++)
+            {
+                String s = a[i];
+                if (s != null)
+                {
+                    kwk1.a(1, s);
+                }
+            }
+
+        }
+        super.writeTo(kwk1);
     }
 }

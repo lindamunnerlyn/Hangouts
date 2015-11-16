@@ -2,17 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
 
 final class hnz
-    implements hny
+    implements hok
 {
 
-    hnz()
+    final Activity a;
+    final hny b;
+
+    hnz(hny hny, Activity activity)
     {
+        b = hny;
+        a = activity;
+        super();
     }
 
-    public long a()
+    public void a(hoy hoy)
     {
-        return System.nanoTime();
+        if (hoy instanceof hnt)
+        {
+            ((hnt)hoy).a(a);
+        }
     }
 }

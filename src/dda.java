@@ -3,20 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class dda extends dfa
+final class dda
 {
 
-    private final String a;
-
-    public dda(ani ani, String s)
+    dda()
     {
-        super(ani);
-        a = s;
-    }
-
-    public void a()
-    {
-        cse cse1 = new cse(a);
-        c.a(cse1);
     }
 }

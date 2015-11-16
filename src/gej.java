@@ -2,25 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.libraries.hangouts.video.MediaCodecSimulcastEncoder;
-import java.util.Comparator;
+import com.google.android.libraries.hangouts.video.Libjingle;
 
-public final class gej
-    implements Comparator
+final class gej
+    implements gds
 {
 
-    final MediaCodecSimulcastEncoder a;
+    final String a;
+    final gmn b;
+    final geg c;
 
-    public gej(MediaCodecSimulcastEncoder mediacodecsimulcastencoder)
+    gej(geg geg1, String s, gmn gmn)
     {
-        a = mediacodecsimulcastencoder;
+        c = geg1;
+        a = s;
+        b = gmn;
         super();
     }
 
-    public int compare(Object obj, Object obj1)
+    public void a(kws kws)
     {
-        obj = (com.google.android.libraries.hangouts.video.MediaCodecSimulcastEncoder.EncoderConfigurationOutputParams)obj;
-        obj1 = (com.google.android.libraries.hangouts.video.MediaCodecSimulcastEncoder.EncoderConfigurationOutputParams)obj1;
-        return ((com.google.android.libraries.hangouts.video.MediaCodecSimulcastEncoder.EncoderConfigurationOutputParams) (obj)).width * ((com.google.android.libraries.hangouts.video.MediaCodecSimulcastEncoder.EncoderConfigurationOutputParams) (obj)).height - ((com.google.android.libraries.hangouts.video.MediaCodecSimulcastEncoder.EncoderConfigurationOutputParams) (obj1)).width * ((com.google.android.libraries.hangouts.video.MediaCodecSimulcastEncoder.EncoderConfigurationOutputParams) (obj1)).height;
+        kws = (jhx)kws;
+        String s = a;
+        geg.a((new StringBuilder(String.valueOf(s).length() + 31)).append("initiateCall for ").append(s).append(" after resolve").toString(), new Object[0]);
+        geg.a(c, ((jhx) (kws)).a);
+        geg.e(c).a(b, ((jhx) (kws)).a);
+    }
+
+    public void b(kws kws)
+    {
+        c.a(15);
     }
 }

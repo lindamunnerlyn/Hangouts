@@ -4,8 +4,8 @@
 
 package com.google.android.libraries.hangouts.video;
 
-import iof;
-import jgz;
+import iuk;
+import jnt;
 import n;
 
 public class b
@@ -14,12 +14,12 @@ public class b
     private final int a;
     private final int b;
 
-    public iof a()
+    public iuk a()
     {
-        iof iof1 = new iof();
-        iof1.a = Integer.valueOf(a);
-        iof1.b = Integer.valueOf(b);
-        return iof1;
+        iuk iuk1 = new iuk();
+        iuk1.a = Integer.valueOf(a);
+        iuk1.b = Integer.valueOf(b);
+        return iuk1;
     }
 
     public String toString()

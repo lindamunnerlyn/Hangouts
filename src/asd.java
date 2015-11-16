@@ -2,10 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
 
 public interface asd
 {
 
-    public abstract void a(atd atd, Collection collection);
+    public abstract void a(asa asa);
 }

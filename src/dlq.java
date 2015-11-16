@@ -3,22 +3,29 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class dlq
-    implements Runnable
+public final class dlq
 {
 
-    final dlt a;
-    final dlp b;
+    public static final String a = cok.getName();
+    public static final String b = dld.getName();
+    private static dln c;
 
-    dlq(dlp dlp1, dlt dlt)
+    public static void a(hlp hlp1)
     {
-        b = dlp1;
-        a = dlt;
-        super();
+        if (c == null)
+        {
+            c = new dln();
+        }
+        hlp1.a(cok, c.a());
     }
 
-    public void run()
+    public static void b(hlp hlp1)
     {
-        b.a(a);
+        if (c == null)
+        {
+            c = new dln();
+        }
+        hlp1.a(dld, new dlm());
     }
+
 }

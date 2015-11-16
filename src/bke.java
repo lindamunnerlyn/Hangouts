@@ -2,30 +2,68 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.res.Resources;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-public final class bke extends aug
+public final class bke
 {
 
-    public bke(View view, bkf bkf1, dsp dsp)
+    private static int c = 16;
+    private static final Object d = new Object();
+    private final Context a;
+    private final CopyOnWriteArrayList b = new CopyOnWriteArrayList();
+    private bkh e;
+
+    public bke(Context context)
     {
-        super(view, bkf1, dsp);
+        a = context;
+        (new bkg(this)).a(new Void[0]);
     }
 
-    protected boolean a()
+    static Context a(bke bke1)
     {
-        boolean flag = false;
-        if (g.a(g.nS, "babel_gcm_change_notification", false))
+        return bke1.a;
+    }
+
+    static int b()
+    {
+        return c;
+    }
+
+    static CopyOnWriteArrayList b(bke bke1)
+    {
+        return bke1.b;
+    }
+
+    static bkh c(bke bke1)
+    {
+        return bke1.e;
+    }
+
+    static Object c()
+    {
+        return d;
+    }
+
+    public CopyOnWriteArrayList a()
+    {
+        return b;
+    }
+
+    public void a(int i)
+    {
+        while (b.remove(Integer.valueOf(i))) ;
+        b.add(0, Integer.valueOf(i));
+        if (e != null)
         {
-            flag = ((bkf)c).w();
+            e.i_();
         }
-        return flag;
+        gdy.a(new bkf(this));
     }
 
-    protected dsn b()
+    public void a(bkh bkh1)
     {
-        return e().a(b.getResources().getString(l.cl)).a();
+        e = bkh1;
     }
+
 }

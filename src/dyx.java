@@ -3,33 +3,24 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class dyx
+final class dyx
+    implements Runnable
 {
 
-    public static final String a = apl.getName();
-    public static final String b = apm.getName();
-    private static dyw c;
+    final dyw a;
 
-    public static void a(hgx hgx1)
+    dyx(dyw dyw1)
     {
-        if (c == null)
-        {
-            c = new dyw();
-        }
-        hgx1.a(apl, new apl[] {
-            new dyu()
-        });
+        a = dyw1;
+        super();
     }
 
-    public static void b(hgx hgx1)
+    public void run()
     {
-        if (c == null)
-        {
-            c = new dyw();
-        }
-        hgx1.a(apm, new apm[] {
-            new dyv()
+        a.a.a(new int[] {
+            204
         });
+        eev.e("Babel_telephony", "TeleProxyNumberHelper, request timed out.");
+        a.a(true);
     }
-
 }

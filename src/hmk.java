@@ -2,79 +2,73 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.api.client.json.GenericJson;
-import com.google.api.client.util.GenericData;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import java.util.Iterator;
+import java.util.List;
 
-public final class hmk extends GenericJson
+public class hmk extends hpc
+    implements hls
 {
 
-    private Long a;
-    private Long b;
-    private String c;
-    private Object d;
-    private String e;
+    private hok aj;
+    public final hlt ak = new hlt();
+    public final hlp al;
 
     public hmk()
     {
+        al = ak.getBinder();
     }
 
-    private hmk a(String s, Object obj)
+    static hny a(hmk hmk1)
     {
-        return (hmk)super.set(s, obj);
+        return hmk1.am;
     }
 
-    public hmk a(Long long1)
+    public void e(Bundle bundle)
     {
-        a = long1;
-        return this;
+        al.a(new hms(this, am));
     }
 
-    public hmk a(Object obj)
+    public hlp getBinder()
     {
-        d = obj;
-        return this;
+        return al;
     }
 
-    public hmk a(String s)
+    public Context getContext()
     {
-        c = s;
-        return this;
+        return ak;
     }
 
-    public hmk b(Long long1)
+    public LayoutInflater getLayoutInflater(Bundle bundle)
     {
-        b = long1;
-        return this;
+        super.getLayoutInflater(bundle);
+        return LayoutInflater.from(ak);
     }
 
-    public hmk b(String s)
+    public void onAttach(Activity activity)
     {
-        e = s;
-        return this;
+        hlp hlp1 = hlp.a(activity, getParentFragment());
+        ak.a(activity);
+        ak.a(hlp1);
+        al.c(getClass().getName());
+        super.onAttach(activity);
     }
 
-    public GenericJson clone()
+    public void onCreate(Bundle bundle)
     {
-        return (hmk)super.clone();
+        e(bundle);
+        for (Iterator iterator = al.c(hmt).iterator(); iterator.hasNext(); iterator.next()) { }
+        al.a();
+        aj = am.a(new hml(this, bundle));
+        super.onCreate(bundle);
     }
 
-    public GenericData clone()
+    public void onDestroy()
     {
-        return (hmk)super.clone();
-    }
-
-    public Object clone()
-    {
-        return (hmk)super.clone();
-    }
-
-    public GenericJson set(String s, Object obj)
-    {
-        return a(s, obj);
-    }
-
-    public GenericData set(String s, Object obj)
-    {
-        return a(s, obj);
+        am.b(aj);
+        super.onDestroy();
     }
 }

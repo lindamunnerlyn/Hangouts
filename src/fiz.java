@@ -2,29 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
-import android.os.Parcel;
+import android.os.RemoteException;
 
-public abstract class fiz extends Binder
-    implements fiy
+public final class fiz
 {
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    private final fkb a;
+
+    fiz(fkb fkb1)
     {
-        switch (i)
+        a = fkb1;
+    }
+
+    public void a()
+    {
+        try
         {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
+            a.a(false);
+            return;
+        }
+        catch (RemoteException remoteexception)
+        {
+            throw new af(remoteexception);
+        }
+    }
 
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.maps.internal.IOnMyLocationChangeListener");
-            return true;
-
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnMyLocationChangeListener");
-            a(ezz.a(parcel.readStrongBinder()));
-            parcel1.writeNoException();
-            return true;
+    public void b()
+    {
+        try
+        {
+            a.h(false);
+            return;
+        }
+        catch (RemoteException remoteexception)
+        {
+            throw new af(remoteexception);
         }
     }
 }

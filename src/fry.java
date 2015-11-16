@@ -2,32 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.accounts.Account;
+import android.os.Bundle;
 import android.os.IInterface;
-import com.google.android.gms.common.internal.AuthAccountRequest;
-import com.google.android.gms.common.internal.ResolveAccountRequest;
-import com.google.android.gms.signin.internal.CheckServerAuthResult;
-import com.google.android.gms.signin.internal.RecordConsentRequest;
+import android.os.ParcelFileDescriptor;
+import com.google.android.gms.common.data.DataHolder;
 
 public interface fry
     extends IInterface
 {
 
-    public abstract void a(int i);
+    public abstract void a(int i, Bundle bundle, Bundle bundle1);
 
-    public abstract void a(int i, Account account, frv frv);
+    public abstract void a(int i, Bundle bundle, ParcelFileDescriptor parcelfiledescriptor);
 
-    public abstract void a(AuthAccountRequest authaccountrequest, frv frv);
+    public abstract void a(int i, Bundle bundle, ParcelFileDescriptor parcelfiledescriptor, Bundle bundle1);
 
-    public abstract void a(ResolveAccountRequest resolveaccountrequest, eob eob);
+    public abstract void a(int i, Bundle bundle, DataHolder dataholder);
 
-    public abstract void a(CheckServerAuthResult checkserverauthresult);
-
-    public abstract void a(RecordConsentRequest recordconsentrequest, frv frv);
-
-    public abstract void a(emq emq, int i, boolean flag);
-
-    public abstract void a(frv frv);
-
-    public abstract void a(boolean flag);
+    public abstract void a(int i, Bundle bundle, DataHolder adataholder[]);
 }

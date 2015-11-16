@@ -2,74 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import android.os.Message;
-import com.google.android.apps.hangouts.phone.ViewVCardActivity;
-import java.util.Iterator;
-import java.util.List;
+import android.text.TextPaint;
+import android.text.style.URLSpan;
+import com.google.android.apps.hangouts.phone.GoogleVoiceTermsOfServiceActivity;
 
-public final class cpq
-    implements aen
+public final class cpq extends URLSpan
 {
 
-    final ViewVCardActivity a;
-    private Handler b;
+    final GoogleVoiceTermsOfServiceActivity a;
 
-    public cpq(ViewVCardActivity viewvcardactivity, Handler handler)
+    public cpq(GoogleVoiceTermsOfServiceActivity googlevoicetermsofserviceactivity, String s)
     {
-        a = viewvcardactivity;
-        super();
-        b = handler;
+        a = googlevoicetermsofserviceactivity;
+        super(s);
     }
 
-    public void a()
+    public void updateDrawState(TextPaint textpaint)
     {
-        ViewVCardActivity.a("onStart");
-    }
-
-    public void a(ads ads1)
-    {
-        Object obj = String.valueOf(ads1.b());
-        if (((String) (obj)).length() != 0)
-        {
-            obj = "onEntryCreated, display name is ".concat(((String) (obj)));
-        } else
-        {
-            obj = new String("onEntryCreated, display name is ");
-        }
-        ViewVCardActivity.a(((String) (obj)));
-        obj = ads1.a;
-        if (obj != null)
-        {
-            Iterator iterator = ((List) (obj)).iterator();
-            while (iterator.hasNext()) 
-            {
-                obj = String.valueOf(((aef)iterator.next()).toString());
-                if (((String) (obj)).length() != 0)
-                {
-                    obj = "onEntryCreated, ".concat(((String) (obj)));
-                } else
-                {
-                    obj = new String("onEntryCreated, ");
-                }
-                ViewVCardActivity.a(((String) (obj)));
-            }
-        } else
-        {
-            ViewVCardActivity.a("onEntryCreated, entry.getPhoneList() is null");
-        }
-        if (b != null)
-        {
-            b.obtainMessage(1003, ads1).sendToTarget();
-        }
-    }
-
-    public void b()
-    {
-        ViewVCardActivity.a("onEnd");
-        if (b != null)
-        {
-            b.sendEmptyMessage(1001);
-        }
+        super.updateDrawState(textpaint);
+        textpaint.setUnderlineText(false);
     }
 }

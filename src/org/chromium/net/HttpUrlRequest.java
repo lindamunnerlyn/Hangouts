@@ -47,4 +47,6 @@ public interface HttpUrlRequest
     public abstract String l();
 
     public abstract Map m();
+
+    public abstract String n();
 }

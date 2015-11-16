@@ -2,98 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
+import android.os.Binder;
+import android.os.Parcel;
+import com.google.android.gms.maps.model.StreetViewPanoramaLocation;
 
-public final class fme
+public abstract class fme extends Binder
+    implements fmd
 {
 
-    public static final fme a = new fme();
-    private String b;
-    private Collection c;
-    private int d;
-    private boolean e;
-    private long f;
-    private String g;
-    private int h;
-    private int i;
-    private int j;
-
-    public fme()
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
     {
-        d = 0x1fffff;
-        h = 7;
-        i = 0;
-    }
+        switch (i)
+        {
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
 
-    public fme a()
-    {
-        e = true;
-        return this;
-    }
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.maps.internal.IOnStreetViewPanoramaChangeListener");
+            return true;
 
-    public fme a(String s)
-    {
-        g = s;
-        return this;
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnStreetViewPanoramaChangeListener");
+            break;
+        }
+        if (parcel.readInt() != 0)
+        {
+            fok fok1 = StreetViewPanoramaLocation.CREATOR;
+            parcel = fok.a(parcel);
+        } else
+        {
+            parcel = null;
+        }
+        a(parcel);
+        parcel1.writeNoException();
+        return true;
     }
-
-    public fme a(Collection collection)
-    {
-        c = collection;
-        return this;
-    }
-
-    public String b()
-    {
-        return b;
-    }
-
-    public Collection c()
-    {
-        return c;
-    }
-
-    public int d()
-    {
-        return d;
-    }
-
-    public boolean e()
-    {
-        return e;
-    }
-
-    public long f()
-    {
-        return f;
-    }
-
-    public String g()
-    {
-        return g;
-    }
-
-    public int h()
-    {
-        return h;
-    }
-
-    public int i()
-    {
-        return i;
-    }
-
-    public int j()
-    {
-        return j;
-    }
-
-    public String toString()
-    {
-        return g.a(new Object[] {
-            "mCircleId", b, "mQualifiedIds", c, "mProjection", Integer.valueOf(d), "mPeopleOnly", Boolean.valueOf(e), "mChangedSince", Long.valueOf(f), 
-            "mQuery", g, "mSearchFields", Integer.valueOf(h), "mSortOrder", Integer.valueOf(i), "mExtraColumns", Integer.valueOf(j)
-        });
-    }
-
 }

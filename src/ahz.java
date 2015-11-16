@@ -2,22 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.TimeInterpolator;
-import android.view.animation.DecelerateInterpolator;
 
-public final class ahz
-    implements TimeInterpolator
+public final class ahz extends Enum
 {
 
-    private DecelerateInterpolator a;
+    public static final int a;
+    public static final int b;
+    private static final int c[];
 
-    public ahz(float f)
+    public static int[] a()
     {
-        a = new DecelerateInterpolator(f);
+        return (int[])c.clone();
     }
 
-    public float getInterpolation(float f)
+    static 
     {
-        return a.getInterpolation(f);
+        a = 1;
+        b = 2;
+        c = (new int[] {
+            a, b
+        });
     }
 }

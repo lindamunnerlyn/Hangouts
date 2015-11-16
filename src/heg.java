@@ -2,21 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.os.Parcel;
 
-public final class heg
+final class heg
+    implements android.os.Parcelable.Creator
 {
 
-    public static final String a = heb.getName();
-    private static hef b;
-
-    public static void a(Context context, hgx hgx1)
+    heg()
     {
-        if (b == null)
-        {
-            b = new hef();
-        }
-        hgx1.a(heb, new hed((fxo)hgx.a(context, fxo)));
     }
 
+    public Object createFromParcel(Parcel parcel)
+    {
+        return new hef(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new hef[i];
+    }
 }

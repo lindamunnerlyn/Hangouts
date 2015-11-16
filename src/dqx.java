@@ -4,15 +4,30 @@
 
 
 final class dqx
-    implements dqo
+    implements hjv
 {
 
-    dqx()
+    final String a;
+    final String b;
+    final hjk c;
+    final cuy d;
+    final dqv e;
+
+    dqx(dqv dqv1, String s, String s1, hjk hjk, cuy cuy)
     {
+        e = dqv1;
+        a = s;
+        b = s1;
+        c = hjk;
+        d = cuy;
+        super();
     }
 
-    public void a(String s, String s1, String s2, String s3)
+    public boolean a(hjr hjr, Object obj)
     {
-        dqv.a(s1, s2, s3);
+        hjr = new arf(null, a, b);
+        hjr.d = (String)obj;
+        dqv.a(e, c, d, hjr);
+        return true;
     }
 }

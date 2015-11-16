@@ -3,11 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class bzv extends gqn
+final class bzv
 {
 
-    public bzv(String s)
+    bzv()
     {
-        super(s);
     }
 }

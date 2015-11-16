@@ -2,34 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.conversation.v2.TransportSpinner;
-import java.util.List;
+import android.content.Intent;
+import android.view.View;
+import com.google.android.apps.hangouts.conversation.v2.PreviewImageActivity;
 
 public final class bad
-    implements arm
+    implements android.view.View.OnClickListener
 {
 
-    final TransportSpinner a;
+    final PreviewImageActivity a;
 
-    public bad(TransportSpinner transportspinner)
+    public bad(PreviewImageActivity previewimageactivity)
     {
-        a = transportspinner;
+        a = previewimageactivity;
         super();
     }
 
-    public void a()
+    public void onClick(View view)
     {
-    }
-
-    public void a(ark ark)
-    {
-        TransportSpinner.a(a, ark);
-        TransportSpinner.b(a, ark);
-    }
-
-    public void a(List list, ark ark)
-    {
-        TransportSpinner.a(a, ark);
-        TransportSpinner.a(a, list);
+        view = a.getIntent();
+        view.putExtra("result_media_attachment", a.j);
+        a.setResult(-1, view);
+        a.finish();
     }
 }

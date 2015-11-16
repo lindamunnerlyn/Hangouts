@@ -2,29 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.support.v7.internal.widget.ActionBarOverlayLayout;
-import android.view.View;
+import android.graphics.Outline;
+import android.graphics.drawable.Drawable;
+import android.support.v7.internal.widget.ActionBarContainer;
 
-public final class tz extends mf
+public final class tz extends ty
 {
 
-    final ActionBarOverlayLayout a;
-
-    public tz(ActionBarOverlayLayout actionbaroverlaylayout)
+    public tz(ActionBarContainer actionbarcontainer)
     {
-        a = actionbaroverlaylayout;
-        super();
+        super(actionbarcontainer);
     }
 
-    public void b(View view)
+    public void getOutline(Outline outline)
     {
-        ActionBarOverlayLayout.a(a, null);
-        ActionBarOverlayLayout.a(a);
-    }
-
-    public void c(View view)
-    {
-        ActionBarOverlayLayout.a(a, null);
-        ActionBarOverlayLayout.a(a);
+        if (a.d)
+        {
+            if (a.c != null)
+            {
+                a.c.getOutline(outline);
+            }
+        } else
+        if (a.a != null)
+        {
+            a.a.getOutline(outline);
+            return;
+        }
     }
 }

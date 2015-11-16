@@ -3,17 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ddi extends dfa
+public interface ddi
 {
 
-    public ddi(ani ani)
-    {
-        super(ani);
-    }
-
-    public void a()
-    {
-        csf csf1 = new csf();
-        c.a(csf1);
-    }
+    public abstract void b(ddg ddg);
 }

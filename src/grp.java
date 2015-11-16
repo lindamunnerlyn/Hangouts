@@ -2,18 +2,15 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-final class grp
-    implements gri
+final class grp extends hmz
 {
 
-    grp()
-    {
-    }
+    final gro a;
 
-    public grh a(Context context, ap ap)
+    grp(gro gro, String s)
     {
-        return new gro(context, ap);
+        a = gro;
+        super(s);
     }
 }

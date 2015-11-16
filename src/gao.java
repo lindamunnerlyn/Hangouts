@@ -2,16 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
 
-public final class gao
+public class gao extends Exception
 {
 
-    public final int a;
-    public final int b;
+    private final Intent a;
 
-    public gao(int i, int j)
+    public gao(String s, Intent intent, Throwable throwable)
     {
-        a = i;
-        b = j;
+        super(s, throwable);
+        a = intent;
     }
 }

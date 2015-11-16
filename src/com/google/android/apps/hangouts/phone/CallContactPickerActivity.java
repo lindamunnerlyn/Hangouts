@@ -7,59 +7,59 @@ package com.google.android.apps.hangouts.phone;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import ani;
+import aoa;
 import ap;
-import bgx;
-import bka;
-import bnd;
-import bpd;
+import bhj;
+import bkm;
+import bnk;
+import bpm;
 import com.google.android.apps.hangouts.fragments.CallContactPickerFragment;
-import dbf;
-import dbx;
-import dbz;
-import ebw;
+import dcn;
+import ddg;
+import ddi;
+import eev;
 import g;
-import gmo;
-import gng;
+import gqu;
+import grn;
 import h;
-import hgx;
+import hlp;
 import java.util.ArrayList;
 import l;
-import po;
+import pq;
 
-public class CallContactPickerActivity extends bka
-    implements bgx, dbz
+public class CallContactPickerActivity extends bkm
+    implements bhj, ddi
 {
 
-    private ani m;
-    private int n;
+    private aoa n;
+    private int o;
 
     public CallContactPickerActivity()
     {
-        (new gng(this, q)).a(p);
+        (new grn(this, r)).a(q);
     }
 
     public int a()
     {
-        return n;
+        return o;
     }
 
-    public void a(dbx dbx1)
+    public void a(ddg ddg1)
     {
-        if (dbx1.b() == 2)
+        if (ddg1.b() == 2)
         {
-            g.a(dbx1, m, this, this);
+            g.a(ddg1, n, this, this);
         } else
-        if (dbx1.b() == 3)
+        if (ddg1.b() == 3)
         {
             ArrayList arraylist = new ArrayList(1);
-            arraylist.add(dbx1.a());
-            dbx1 = new ArrayList();
-            bnd bnd1 = bnd.a();
-            bpd bpd1 = bnd1.t();
-            if (bpd1 != null && bpd1.i())
+            arraylist.add(ddg1.a());
+            ddg1 = new ArrayList();
+            bnk bnk1 = bnk.a();
+            bpm bpm1 = bnk1.s();
+            if (bpm1 != null && bpm1.i())
             {
-                bnd1.b(arraylist, dbx1);
+                bnk1.b(arraylist, ddg1);
                 return;
             }
         }
@@ -77,20 +77,25 @@ public class CallContactPickerActivity extends bka
         }
     }
 
-    public void b(dbx dbx1)
+    public String b()
     {
-        switch (dbx1.b())
+        return null;
+    }
+
+    public void b(ddg ddg1)
+    {
+        switch (ddg1.b())
         {
         default:
-            int i = dbx1.b();
-            ebw.g("Babel", (new StringBuilder(32)).append("Unrecognized action: ").append(i).toString());
+            int i = ddg1.b();
+            eev.g("Babel", (new StringBuilder(32)).append("Unrecognized action: ").append(i).toString());
             // fall through
 
         case 1: // '\001'
             return;
 
         case 2: // '\002'
-            g.a(this, dbx1, m.h(), m.a());
+            g.a(this, ddg1, n.h(), n.a());
             break;
         }
     }
@@ -119,15 +124,6 @@ public class CallContactPickerActivity extends bka
         finish();
     }
 
-    public String m_()
-    {
-        return null;
-    }
-
-    public void n_()
-    {
-    }
-
     public void o_()
     {
     }
@@ -135,22 +131,22 @@ public class CallContactPickerActivity extends bka
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        n = getIntent().getIntExtra("com.google.android.apps.hangouts.voiceCallActionMode", -1);
-        if (n == -1)
+        o = getIntent().getIntExtra("com.google.android.apps.hangouts.voiceCallActionMode", -1);
+        if (o == -1)
         {
-            ebw.g("Babel", "Missing EXTRA_VOICE_CALL_ACTION_MODE");
+            eev.g("Babel", "Missing EXTRA_VOICE_CALL_ACTION_MODE");
             setResult(0);
             finish();
         } else
         {
-            m = dbf.e(((gmo)p.a(gmo)).a());
-            setContentView(g.fe);
-            bundle = (CallContactPickerFragment)t_().a(h.W);
+            n = dcn.e(((gqu)q.a(gqu)).a());
+            setContentView(g.fc);
+            bundle = (CallContactPickerFragment)u_().a(h.W);
             bundle.a(this);
             bundle.c();
-            if (n == 2)
+            if (o == 2)
             {
-                setTitle(getString(l.l));
+                setTitle(getString(l.k));
                 return;
             }
         }
@@ -160,5 +156,9 @@ public class CallContactPickerActivity extends bka
     {
         super.onStart();
         g().a(true);
+    }
+
+    public void p_()
+    {
     }
 }

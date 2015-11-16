@@ -2,27 +2,101 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.text.TextUtils;
+import java.io.Serializable;
 
-final class aif
+public final class aif
+    implements Serializable
 {
 
-    static final int a[];
+    private static final long serialVersionUID = 1L;
+    private final String a;
+    private String b;
+    private final int c;
+    private final aih d;
 
-    static 
+    public aif(aig aig1)
     {
-        a = new int[aig.a().length];
-        try
+        gdv.b("Circle id can't be null", aig1.a);
+        a = aig1.a;
+        b = aig1.b;
+        c = aig1.c;
+        d = aig1.d;
+    }
+
+    public static aig newBuilder()
+    {
+        return new aig();
+    }
+
+    public static aig newBuilder(aif aif1)
+    {
+        return newBuilder().a(aif1);
+    }
+
+    public boolean a()
+    {
+        return !TextUtils.isEmpty(a);
+    }
+
+    public String b()
+    {
+        return a;
+    }
+
+    public boolean c()
+    {
+        return !TextUtils.isEmpty(b);
+    }
+
+    public Object clone()
+    {
+        aig aig1 = new aig();
+        aig1.d = d;
+        aig1.a = a;
+        aig1.b = b;
+        aig1.c = c;
+        return aig1.a();
+    }
+
+    public String d()
+    {
+        return b;
+    }
+
+    public int e()
+    {
+        return c;
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (this == obj)
         {
-            a[aig.a - 1] = 1;
+            return true;
         }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
+        if (!(obj instanceof aif))
         {
-            a[aig.b - 1] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
+            return false;
+        } else
         {
-            return;
+            obj = (aif)obj;
+            return a.equals(((aif) (obj)).a);
         }
+    }
+
+    public boolean f()
+    {
+        return d != null;
+    }
+
+    public aih g()
+    {
+        return d;
+    }
+
+    public int hashCode()
+    {
+        return a.hashCode();
     }
 }

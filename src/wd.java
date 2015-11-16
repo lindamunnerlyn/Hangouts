@@ -2,26 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.support.v7.widget.ActionMenuView;
+import android.view.MenuItem;
 
-public final class wd
-    implements to
+final class wd
+    implements tq
 {
 
-    final ActionMenuView a;
+    final vw a;
 
-    public wd(ActionMenuView actionmenuview)
+    wd(vw vw1)
     {
-        a = actionmenuview;
+        a = vw1;
         super();
     }
 
-    public void a(sy sy, boolean flag)
+    public void a(ta ta1, boolean flag)
     {
+        if (ta1 instanceof tu)
+        {
+            ((tu)ta1).r().a(false);
+        }
+        tq tq1 = a.a();
+        if (tq1 != null)
+        {
+            tq1.a(ta1, flag);
+        }
     }
 
-    public boolean a(sy sy)
+    public boolean a(ta ta1)
     {
-        return false;
+        if (ta1 == null)
+        {
+            return false;
+        }
+        a.l = ((tu)ta1).getItem().getItemId();
+        tq tq1 = a.a();
+        if (tq1 != null)
+        {
+            return tq1.a(ta1);
+        } else
+        {
+            return false;
+        }
     }
 }

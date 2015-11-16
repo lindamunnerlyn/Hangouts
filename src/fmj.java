@@ -2,11 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.IInterface;
+import com.google.android.gms.maps.model.StreetViewPanoramaOrientation;
 
-public final class fmj
+public interface fmj
+    extends IInterface
 {
 
-    public fmj()
-    {
-    }
+    public abstract void a(StreetViewPanoramaOrientation streetviewpanoramaorientation);
 }

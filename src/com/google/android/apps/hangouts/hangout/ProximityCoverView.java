@@ -11,60 +11,54 @@ import android.os.PowerManager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import bnd;
-import brt;
-import bru;
-import brv;
-import brw;
-import ebw;
+import bnk;
+import bsc;
+import bsd;
+import bse;
+import bsf;
+import eev;
 import g;
-import gbh;
+import gdv;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 public final class ProximityCoverView extends View
 {
 
-    private final SensorManager a;
-    private final Sensor b;
-    private final brw c = new brw(this);
-    private final bru d = new bru(this);
-    private float e;
-    private float f;
+    public float a;
+    public float b;
+    private final SensorManager c;
+    private final Sensor d;
+    private final bsf e = new bsf(this);
+    private final bsd f = new bsd(this);
     private boolean g;
-    private brv h;
+    private bse h;
     private android.os.PowerManager.WakeLock i;
     private boolean j;
-    private brt k;
+    private bsc k;
     private int l;
 
     public ProximityCoverView(Context context, AttributeSet attributeset)
     {
         boolean flag1 = false;
         super(context, attributeset);
-        e = 3.402823E+38F;
-        f = 0.0F;
+        a = 3.402823E+38F;
+        b = 0.0F;
         h = null;
         i = null;
         boolean flag = flag1;
-        if (g.a(g.nS, "babel_proximity_wakelock_whitelist", false))
+        if (g.a(g.nU, "babel_proximity_wakelock_whitelist", false))
         {
             flag = flag1;
-            if (!g.a(g.nS, "babel_proximity_wakelock_blacklist", false))
+            if (!g.a(g.nU, "babel_proximity_wakelock_blacklist", false))
             {
                 flag = true;
             }
         }
         j = flag;
-        a = (SensorManager)context.getSystemService("sensor");
-        b = a.getDefaultSensor(8);
+        c = (SensorManager)context.getSystemService("sensor");
+        d = c.getDefaultSensor(8);
         c();
-    }
-
-    public static float a(ProximityCoverView proximitycoverview, float f1)
-    {
-        proximitycoverview.f = f1;
-        return f1;
     }
 
     private void a(boolean flag)
@@ -104,12 +98,6 @@ public final class ProximityCoverView extends View
         g = flag;
     }
 
-    public static float b(ProximityCoverView proximitycoverview, float f1)
-    {
-        proximitycoverview.e = f1;
-        return f1;
-    }
-
     private boolean f()
     {
         if (j) goto _L2; else goto _L1
@@ -124,7 +112,7 @@ _L2:
         }
         powermanager = (PowerManager)getContext().getApplicationContext().getSystemService("power");
         i1 = g.a((Integer)android/os/PowerManager.getDeclaredField("PROXIMITY_SCREEN_OFF_WAKE_LOCK").get(null), 0);
-        ebw.c("Babel", (new StringBuilder(42)).append("PROXIMITY_SCREEN_OFF_WAKE_LOCK:").append(i1).toString());
+        eev.c("Babel", (new StringBuilder(42)).append("PROXIMITY_SCREEN_OFF_WAKE_LOCK:").append(i1).toString());
         if (i1 == 0)
         {
             continue; /* Loop/switch isn't completed */
@@ -137,7 +125,7 @@ _L3:
         }).invoke(powermanager, new Object[] {
             Integer.valueOf(i1)
         }), false);
-        ebw.c("Babel", (new StringBuilder(30)).append("isWakeLockLevelSupported:").append(flag).toString());
+        eev.c("Babel", (new StringBuilder(30)).append("isWakeLockLevelSupported:").append(flag).toString());
 _L5:
         if (flag)
         {
@@ -157,7 +145,7 @@ _L5:
                 {
                     s = new String("Failed to acquire proximity and keyguard locks: ");
                 }
-                ebw.f("Babel", s);
+                eev.f("Babel", s);
                 g();
                 return false;
             }
@@ -166,7 +154,7 @@ _L5:
         continue; /* Loop/switch isn't completed */
 _L4:
         j1 = g.a((Integer)powermanager.getClass().getDeclaredMethod("getSupportedWakeLockFlags", new Class[0]).invoke(powermanager, new Object[0]), 0);
-        ebw.c("Babel", (new StringBuilder(37)).append("getSupportedWakeLockFlags:").append(j1).toString());
+        eev.c("Babel", (new StringBuilder(37)).append("getSupportedWakeLockFlags:").append(j1).toString());
         if ((j1 & i1) != 0)
         {
             flag = true;
@@ -197,23 +185,23 @@ _L6:
         {
             return;
         }
-        if (b != null)
+        if (d != null)
         {
-            a.registerListener(c, b, 3);
+            c.registerListener(e, d, 3);
         }
-        bnd.a().a(d);
+        bnk.a().a(f);
         c();
     }
 
-    public void a(brt brt1)
+    public void a(bsc bsc1)
     {
-        k = brt1;
+        k = bsc1;
     }
 
-    public void a(brv brv1)
+    public void a(bse bse1)
     {
-        gbh.a(h);
-        h = brv1;
+        gdv.a("Expected null", h);
+        h = bse1;
     }
 
     public void b()
@@ -229,11 +217,11 @@ _L6:
             l = 0;
             return;
         }
-        if (b != null)
+        if (d != null)
         {
-            a.unregisterListener(c);
+            c.unregisterListener(e);
         }
-        bnd.a().b(d);
+        bnk.a().b(f);
         a(false);
     }
 
@@ -249,7 +237,7 @@ _L6:
         {
             flag = false;
         }
-        if (0.0D <= (double)e && (e < 1.0F || e <= 5F && f > 5F))
+        if (0.0D <= (double)a && (a < 1.0F || a <= 5F && b > 5F))
         {
             flag1 = true;
         } else

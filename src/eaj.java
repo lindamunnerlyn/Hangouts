@@ -3,195 +3,232 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.os.AsyncTask;
-import android.os.SystemClock;
-import android.widget.ImageView;
-import java.lang.ref.WeakReference;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.text.TextUtils;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-public final class eaj extends AsyncTask
+public final class eaj
 {
 
-    final eaf a;
-    private final Map b;
-    private final int c[];
-    private final Map d;
-    private final android.graphics.BitmapFactory.Options e = eaf.a();
-    private final StringBuilder f;
-    private final Canvas g;
-    private final Context h;
+    private static CopyOnWriteArrayList b = new CopyOnWriteArrayList();
+    private final Context a;
 
-    public eaj(eaf eaf1, Context context, int ai[])
+    private eaj(Context context)
     {
-        a = eaf1;
-        super();
-        h = context.getApplicationContext();
-        c = ai;
-        int i = ai.length;
-        b = Collections.synchronizedMap(new HashMap(i));
-        d = Collections.synchronizedMap(new HashMap(i));
-        if (eaf.a(eaf1))
+        a = context.getApplicationContext();
+    }
+
+    public static eaj a(Context context)
+    {
+        return new eaj(context);
+    }
+
+    public static void a(eal eal)
+    {
+        b.add(eal);
+    }
+
+    private void a(String s, String s1)
+    {
+        String s2 = String.valueOf(eev.b(s1));
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(s).length() + 47 + String.valueOf(s2).length())).append("TelePreferences.updatePrefValue, key: ").append(s).append(", value: ").append(s2).toString());
+        if (TextUtils.isEmpty(s1))
         {
-            f = new StringBuilder();
-            g = new Canvas();
+            m().edit().remove(s).apply();
+        } else
+        {
+            m().edit().putString(s, s1).apply();
+        }
+        c(s);
+    }
+
+    public static int[] a()
+    {
+        gdv.a();
+        return dcn.c();
+    }
+
+    private void c(String s)
+    {
+        (new Handler(a.getMainLooper())).post(new eak(this, s));
+    }
+
+    static CopyOnWriteArrayList l()
+    {
+        return b;
+    }
+
+    private SharedPreferences m()
+    {
+        return a.getSharedPreferences("telephony_preference", 0);
+    }
+
+    public void a(int i1)
+    {
+        gdv.a();
+        a("account_name_v2", dcn.a(a, i1));
+    }
+
+    public void a(int i1, String s)
+    {
+        ((gqz)hlp.a(a, gqz)).b(i1).c("incoming_wifi_call_invites", s).d();
+    }
+
+    public void a(long l1)
+    {
+        int i1 = e();
+        if (i1 == -1)
+        {
+            eev.e("Babel_telephony", "TelePreferences.setLastEmergencyDialedTimeFromDarkNumber, account not found");
             return;
         } else
         {
-            f = null;
-            g = null;
+            ((gqz)hlp.a(a, gqz)).b(i1).c("last_emergency_dialed_time_from_dark_number_in_milliseconds", l1).d();
             return;
         }
     }
 
-    private transient void a(Integer ainteger[])
+    public void a(String s)
     {
-        boolean flag;
-        int i;
-        flag = false;
-        i = g.a(ainteger[0], 0);
-        ainteger = b;
-        ainteger;
-        JVM INSTR monitorenter ;
-        Object obj = (WeakReference)b.get(Integer.valueOf(i));
-        if (obj == null)
+        a("tycho_account_name", s);
+    }
+
+    public void a(boolean flag)
+    {
+        eev.e("Babel_telephony", (new StringBuilder(54)).append("TelePreferences.setWifiCallingEnabled, newValue: ").append(flag).toString());
+        m().edit().putBoolean("wifi_calling_enabled", flag).apply();
+        c("wifi_calling_enabled");
+    }
+
+    public int b()
+    {
+        aoa aoa1 = dcn.a(m().getString("account_name_v2", h()), null);
+        if (aoa1 == null)
         {
-            break MISSING_BLOCK_LABEL_110;
+            return -1;
+        } else
+        {
+            return aoa1.h();
         }
-        Bitmap bitmap;
-        Exception exception;
-        if (isCancelled() || ((WeakReference) (obj)).get() == null)
+    }
+
+    public void b(int i1)
+    {
+        gdv.a();
+        a("account_name_for_incoming_calls", dcn.a(a, i1));
+    }
+
+    public void b(int i1, String s)
+    {
+        ((gqz)hlp.a(a, gqz)).b(i1).c("dedupe_call_log", s).d();
+    }
+
+    public void b(long l1)
+    {
+        m().edit().putLong("last_emergency_call_over_lte_millis", l1).apply();
+        c("last_emergency_call_over_lte_millis");
+    }
+
+    public void b(String s)
+    {
+        a("last_seen_network_country_iso", s);
+    }
+
+    public void b(boolean flag)
+    {
+        eev.e("Babel_telephony", (new StringBuilder(47)).append("TelePreferences.setAskEachCall, newValue: ").append(flag).toString());
+        m().edit().putBoolean("ask_each_call", flag).apply();
+        c("ask_each_call");
+    }
+
+    public String c(int i1)
+    {
+        return ((gqz)hlp.a(a, gqz)).a(i1).a("incoming_wifi_call_invites", null);
+    }
+
+    public void c(boolean flag)
+    {
+        m().edit().putBoolean("request_feedback", flag).apply();
+        c("request_feedback");
+    }
+
+    public boolean c()
+    {
+        boolean flag = false;
+        if (!TextUtils.isEmpty(h()))
         {
             flag = true;
         }
-        if (flag)
-        {
-            break MISSING_BLOCK_LABEL_110;
-        }
-        bitmap = (Bitmap)d.get(Integer.valueOf(i));
-        obj = (ImageView)((WeakReference) (obj)).get();
-        if (bitmap == null || obj == null)
-        {
-            break MISSING_BLOCK_LABEL_110;
-        }
-        if (eaf.a(((ImageView) (obj))) == this)
-        {
-            ((ImageView) (obj)).setImageBitmap(bitmap);
-        }
-        ainteger;
-        JVM INSTR monitorexit ;
-        return;
-        exception;
-        ainteger;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return m().getBoolean("wifi_calling_enabled", flag);
     }
 
-    public void a(int i, ImageView imageview)
+    public String d(int i1)
     {
-        b.put(Integer.valueOf(i), new WeakReference(imageview));
-        a(new Integer[] {
-            Integer.valueOf(i)
-        });
+        return ((gqz)hlp.a(a, gqz)).a(i1).a("dedupe_call_log", null);
     }
 
-    protected Object doInBackground(Object aobj[])
+    public boolean d()
     {
-        int ai[] = c;
-        int j = ai.length;
-        int i = 0;
-        while (i < j) 
+        return m().getBoolean("ask_each_call", false);
+    }
+
+    public int e()
+    {
+        aoa aoa1 = dcn.a(h(), null);
+        if (aoa1 == null)
         {
-            int k = ai[i];
-            if (isCancelled())
-            {
-                break;
-            }
-            Bitmap bitmap = (Bitmap)eaf.b(a).a(Integer.valueOf(k));
-            aobj = bitmap;
-            if (bitmap == null)
-            {
-                aobj = bitmap;
-                if (!isCancelled())
-                {
-                    if (eaf.a(a))
-                    {
-                        aobj = eaf.c().a(eaf.c(a), eaf.c(a), null);
-                        ((Bitmap) (aobj)).eraseColor(0);
-                        g.setBitmap(((Bitmap) (aobj)));
-                        f.delete(0, f.length());
-                        f.appendCodePoint(k);
-                        String s = f.toString();
-                        float f1 = ((Bitmap) (aobj)).getWidth() / 2;
-                        float f2 = ((Bitmap) (aobj)).getHeight() / 2;
-                        Rect rect = new Rect();
-                        eaf.d(a).getTextBounds(s, 0, s.length(), rect);
-                        g.drawText(s, f1 - rect.exactCenterX(), f2 - rect.exactCenterY(), eaf.d(a));
-                        eaf.b(a).a(Integer.valueOf(k), ((Object) (aobj)));
-                    } else
-                    {
-                        long l1 = 0L;
-                        if (eaf.d())
-                        {
-                            l1 = SystemClock.elapsedRealtime();
-                        }
-                        int l = edy.a(h).a(k);
-                        if (l == -1)
-                        {
-                            ebw.f("Babel", (new StringBuilder(45)).append("Invalid resourceId for codePoint: ").append(k).toString());
-                            aobj = null;
-                        } else
-                        {
-                            aobj = eaf.c().a(l, e, e.inTargetDensity, e.inTargetDensity);
-                            if (aobj != null)
-                            {
-                                eaf.b(a).a(Integer.valueOf(k), ((Object) (aobj)));
-                            }
-                            if (eaf.d())
-                            {
-                                long l2 = SystemClock.elapsedRealtime();
-                                ebw.b("Babel", (new StringBuilder(45)).append("Emoji Bitmap decodingTim=").append(l2 - l1).toString());
-                            }
-                        }
-                    }
-                }
-            }
-            if (aobj != null && !isCancelled())
-            {
-                d.put(Integer.valueOf(k), ((Object) (aobj)));
-                publishProgress(new Integer[] {
-                    Integer.valueOf(k)
-                });
-            }
-            i++;
-        }
-        return null;
-    }
-
-    protected void onCancelled(Object obj)
-    {
-        obj = c;
-        int j = obj.length;
-        for (int i = 0; i < j; i++)
+            return -1;
+        } else
         {
-            int k = obj[i];
-            eaf.b(a).b(Integer.valueOf(k));
-            Bitmap bitmap = (Bitmap)d.remove(Integer.valueOf(k));
-            if (bitmap != null)
-            {
-                eaf.c().a(bitmap);
-            }
+            return aoa1.h();
         }
-
     }
 
-    protected void onProgressUpdate(Object aobj[])
+    public long f()
     {
-        a((Integer[])aobj);
+        int i1 = e();
+        if (i1 == -1)
+        {
+            eev.e("Babel_telephony", "TelePreferences.setLastEmergencyDialedTimeFromDarkNumber, account not found");
+            return 0L;
+        } else
+        {
+            return ((gqz)hlp.a(a, gqz)).a(i1).a("last_emergency_dialed_time_from_dark_number_in_milliseconds", 0L);
+        }
     }
+
+    public int g()
+    {
+        gdv.a();
+        aoa aoa1 = dcn.a(m().getString("account_name_for_incoming_calls", null), null);
+        if (aoa1 == null)
+        {
+            return -1;
+        } else
+        {
+            return aoa1.h();
+        }
+    }
+
+    public String h()
+    {
+        return m().getString("tycho_account_name", null);
+    }
+
+    public boolean i()
+    {
+        return m().getBoolean("request_feedback", true);
+    }
+
+    public String j()
+    {
+        return m().getString("last_seen_network_country_iso", null);
+    }
+
+    public long k()
+    {
+        return m().getLong("last_emergency_call_over_lte_millis", 0L);
+    }
+
 }

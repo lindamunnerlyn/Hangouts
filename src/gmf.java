@@ -2,101 +2,145 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.graphics.SurfaceTexture;
+import android.os.Handler;
+import android.view.Surface;
+import android.view.TextureView;
 
-public final class gmf extends gmc
+public final class gmf extends gmi
+    implements android.view.TextureView.SurfaceTextureListener
 {
 
-    public gmf(Context context)
+    gmh a;
+    boolean b;
+    boolean c;
+    private final TextureView f;
+    private final boolean g = true;
+    private Surface h;
+    private final Runnable i = new gmg(this);
+
+    public gmf(gmm gmm, TextureView textureview)
     {
-        super(context, g.rK);
+        super(gmm);
+        h = null;
+        f = textureview;
+        gmm = textureview.getSurfaceTexture();
+        if (gmm != null)
+        {
+            a(new gmw(a(gmm), textureview.getWidth(), textureview.getHeight(), true));
+        }
+        textureview.setSurfaceTextureListener(this);
     }
 
-    protected Object a(int i, View view)
+    private Surface a(SurfaceTexture surfacetexture)
     {
-        gme gme1 = (gme)getItem(i);
-        if (gme1 instanceof gmh)
+        if (h == null)
         {
-            return new gmg(view);
+            h = new Surface(surfacetexture);
         }
-        if (gme1 instanceof gmi)
-        {
-            return null;
-        }
-        view = String.valueOf(gme1.getClass().getSimpleName());
-        if (view.length() != 0)
-        {
-            view = "Unsupported item: ".concat(view);
-        } else
-        {
-            view = new String("Unsupported item: ");
-        }
-        throw new IllegalStateException(view);
+        return h;
     }
 
-    protected void a(int i, Object obj)
+    public void a()
     {
-        Object obj1 = (gme)getItem(i);
-        if (!(obj1 instanceof gmh)) goto _L2; else goto _L1
-_L1:
-        gmg gmg1;
-        obj1 = (gmh)obj1;
-        gmg1 = (gmg)obj;
-        gmg1.a.setText(((gmh) (obj1)).d());
-        TextView textview = gmg1.a;
-        if (((gmh) (obj1)).e() == null)
+        f.setSurfaceTextureListener(null);
+        a = null;
+        if (h != null)
         {
-            obj = getContext().getResources().getColorStateList(g.rD);
-        } else
-        {
-            obj = ((gmh) (obj1)).e();
+            h.release();
+            h = null;
         }
-        textview.setTextColor(((android.content.res.ColorStateList) (obj)));
-        if (((gmh) (obj1)).f() == null)
+        super.a();
+    }
+
+    public void a(gmh gmh1)
+    {
+        a = gmh1;
+    }
+
+    protected void a(boolean flag)
+    {
+label0:
         {
-            gmg1.b.setVisibility(8);
-        } else
-        {
-            gmg1.b.setImageDrawable(((gmh) (obj1)).f());
-            gmg1.b.setVisibility(0);
-        }
-        if (((gmh) (obj1)).g() != null) goto _L4; else goto _L3
-_L3:
-        gmg1.c.setVisibility(8);
-_L6:
-        return;
-_L4:
-        gmg1.c.setImageDrawable(((gmh) (obj1)).g());
-        gmg1.c.setVisibility(0);
-        return;
-_L2:
-        if (!(obj1 instanceof gmi))
-        {
-            obj = String.valueOf(obj1.getClass().getSimpleName());
-            if (((String) (obj)).length() != 0)
+            if (a != null)
             {
-                obj = "Unsupported item: ".concat(((String) (obj)));
-            } else
-            {
-                obj = new String("Unsupported item: ");
+                gne.a(3, "vclib", (new StringBuilder(59)).append("TextureViewVideoRenderer.onCurrentParticipantChanged: ").append(flag).toString());
+                Runnable runnable = i;
+                g.x().removeCallbacks(runnable);
+                if (!flag)
+                {
+                    break label0;
+                }
+                i.run();
             }
-            throw new IllegalStateException(((String) (obj)));
+            return;
         }
-        if (true) goto _L6; else goto _L5
-_L5:
+        g.a(i, 100L);
     }
 
-    public int getItemViewType(int i)
+    protected void b(boolean flag)
     {
-        return !(getItem(i) instanceof gmh) ? 1 : 0;
+        if (flag && a != null)
+        {
+            gne.a(3, "vclib", (new StringBuilder(50)).append("TextureViewVideoRenderer.onMuteStateChanged: ").append(flag).toString());
+            Runnable runnable = i;
+            g.x().removeCallbacks(runnable);
+            i.run();
+        }
     }
 
-    public int getViewTypeCount()
+    public void onSurfaceTextureAvailable(SurfaceTexture surfacetexture, int j, int k)
     {
-        return 2;
+        gne.a(3, "vclib", "TextureViewVideoRenderer.onSurfaceTextureAvailable");
+        if (j == 0 || k == 0)
+        {
+            gne.a(3, "vclib", "Ignoring surface because it has an area of zero.");
+            return;
+        } else
+        {
+            a(new gmw(a(surfacetexture), j, k, g));
+            return;
+        }
+    }
+
+    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfacetexture)
+    {
+        gne.a(3, "vclib", "TextureViewVideoRenderer.onSurfaceTextureDestroyed");
+        h.release();
+        h = null;
+        a(((gmw) (null)));
+        return true;
+    }
+
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surfacetexture, int j, int k)
+    {
+        gne.a(3, "vclib", "TextureViewVideoRenderer.onSurfaceTextureSizeChanged");
+        c = false;
+        if (j == 0 || k == 0)
+        {
+            gne.a(3, "vclib", "Ignoring surface because it has an area of zero.");
+            return;
+        } else
+        {
+            a(new gmw(a(surfacetexture), j, k, g));
+            return;
+        }
+    }
+
+    public void onSurfaceTextureUpdated(SurfaceTexture surfacetexture)
+    {
+        if (a != null && c)
+        {
+            surfacetexture = i;
+            g.x().removeCallbacks(surfacetexture);
+            if (!b)
+            {
+                gdv.a();
+                a.c();
+                b = true;
+            }
+            g.a(i, 2000L);
+        }
+        c = true;
     }
 }

@@ -2,80 +2,76 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
 
-public final class jxt extends koj
+final class jxt extends jth
 {
 
-    public Boolean a;
-    public jxu b;
+    final transient Object a;
+    private transient int b;
 
-    public jxt()
+    jxt(Object obj)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = n.b(obj);
     }
 
-    protected int computeSerializedSize()
+    jxt(Object obj, int i)
     {
-        int j = super.computeSerializedSize();
+        a = obj;
+        b = i;
+    }
+
+    boolean I_()
+    {
+        return b != 0;
+    }
+
+    int a(Object aobj[], int i)
+    {
+        aobj[i] = a;
+        return i + 1;
+    }
+
+    public jyh a()
+    {
+        return jts.a(a);
+    }
+
+    public boolean contains(Object obj)
+    {
+        return a.equals(obj);
+    }
+
+    boolean e()
+    {
+        return false;
+    }
+
+    public final int hashCode()
+    {
+        int j = b;
         int i = j;
-        if (a != null)
+        if (j == 0)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            i = a.hashCode();
+            b = i;
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public Iterator iterator()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new jxu();
-                }
-                kog1.a(b);
-                break;
-            }
-        } while (true);
+        return a();
     }
 
-    public void writeTo(koh koh1)
+    public int size()
     {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
-        }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        super.writeTo(koh1);
+        return 1;
+    }
+
+    public String toString()
+    {
+        String s = a.toString();
+        return (new StringBuilder(s.length() + 2)).append('[').append(s).append(']').toString();
     }
 }

@@ -2,24 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 
-final class bnh
-    implements gja
+public interface bnh
 {
 
-    final bnd a;
-
-    bnh(bnd bnd1)
-    {
-        a = bnd1;
-        super();
-    }
-
-    public void a(giw giw, Set set)
-    {
-        for (Iterator iterator = a.a.iterator(); iterator.hasNext(); ((bnk)iterator.next()).a(giw, set)) { }
-    }
+    public abstract void a(bnf bnf);
 }

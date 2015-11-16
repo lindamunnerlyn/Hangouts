@@ -2,24 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Comparator;
 
 final class gra
-    implements Runnable
+    implements Comparator
 {
 
-    final gqz a;
-
-    gra(gqz gqz1)
+    gra()
     {
-        a = gqz1;
-        super();
     }
 
-    public void run()
+    public int compare(Object obj, Object obj1)
     {
-        if (!gqz.a(a).b())
+        obj = (grb)obj;
+        obj1 = (grb)obj1;
+        int i = ((grb) (obj)).a("device_index", 0x7fffffff);
+        int j = ((grb) (obj1)).a("device_index", 0x7fffffff);
+        if (i < j)
         {
-            gqz.a(a).a(gqz.b(a), null);
+            return -1;
         }
+        return i != j ? 1 : 0;
     }
 }

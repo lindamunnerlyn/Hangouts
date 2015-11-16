@@ -2,27 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Set;
-import java.util.concurrent.ScheduledFuture;
 
-final class imm
-    implements Runnable
+public final class imm extends kwm
 {
 
-    final Set a;
-    final iml b;
+    public String a;
+    public String b;
 
-    imm(iml iml1, Set set)
+    public imm()
     {
-        b = iml1;
-        a = set;
-        super();
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public void run()
+    protected int computeSerializedSize()
     {
-        imk.a(b.b).cancel(true);
-        String s = String.valueOf(a);
-        throw new RuntimeException((new StringBuilder(String.valueOf(s).length() + 19)).append("Disallowed thread! ").append(s).toString());
+        return super.computeSerializedSize() + kwk.b(1, a) + kwk.b(2, b);
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        kwk1.a(1, a);
+        kwk1.a(2, b);
+        super.writeTo(kwk1);
     }
 }

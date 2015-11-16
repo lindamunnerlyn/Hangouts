@@ -2,30 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import com.google.android.apps.hangouts.phone.DebugActivity;
 
-final class cmt extends cmu
+public final class cmt
+    implements ServiceConnection
 {
 
-    final cls a;
+    final DebugActivity a;
 
-    cmt(cls cls1, String s)
+    public cmt(DebugActivity debugactivity)
     {
-        a = cls1;
-        super(s);
+        a = debugactivity;
+        super();
     }
 
-    public void a()
+    public void onServiceConnected(ComponentName componentname, IBinder ibinder)
     {
-        ani ani1 = a.b;
-        doh doh1 = (doh)hgx.a(g.nS, doh);
-        int i;
-        if (ani1 != null)
-        {
-            i = ani1.h();
-        } else
-        {
-            i = -1;
-        }
-        doh1.c(i);
+        componentname = (cmx)ibinder;
+        DebugActivity.a(a, componentname.a());
+        DebugActivity.d(a).setOnItemClickListener(DebugActivity.e(a));
+        DebugActivity.d(a).setOnItemLongClickListener(DebugActivity.f(a));
+        DebugActivity.a(a, DebugActivity.g(a));
+        DebugActivity.i(a).a(DebugActivity.h(a), null);
+        DebugActivity.d(a).setAdapter(DebugActivity.h(a));
+        DebugActivity.d(a).setSelection(DebugActivity.h(a).getCount() - 1);
+    }
+
+    public void onServiceDisconnected(ComponentName componentname)
+    {
+        DebugActivity.i(a).a(null, null);
+        DebugActivity.a(a, null);
     }
 }

@@ -2,12 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Map;
 
-public final class hik extends hil
+public interface hik
 {
 
-    public hik(String s)
-    {
-        super(s);
-    }
+    public abstract Map a(String s);
+
+    public abstract void a();
 }

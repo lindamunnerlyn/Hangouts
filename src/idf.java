@@ -3,15 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class idf extends koj
+public final class idf extends kwm
 {
 
-    public idh a[];
-    public idh b;
+    public String a;
+    public String b;
 
     public idf()
     {
-        a = idh.a();
+        a = null;
         b = null;
         unknownFieldData = null;
         cachedSize = -1;
@@ -19,49 +19,29 @@ public final class idf extends koj
 
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        int j = i;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            j = i;
-            if (a.length > 0)
-            {
-                int k = 0;
-                do
-                {
-                    j = i;
-                    if (k >= a.length)
-                    {
-                        break;
-                    }
-                    idh idh1 = a[k];
-                    j = i;
-                    if (idh1 != null)
-                    {
-                        j = i + koh.d(1, idh1);
-                    }
-                    k++;
-                    i = j;
-                } while (true);
-            }
+            i = j + kwk.b(1, a);
         }
-        i = j;
+        j = i;
         if (b != null)
         {
-            i = j + koh.d(2, b);
+            j = i + kwk.b(2, b);
         }
-        return i;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -71,64 +51,26 @@ public final class idf extends koj
                 return this;
 
             case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                idh aidh[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                aidh = new idh[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aidh, 0, j);
-                    k = j;
-                }
-                for (; k < aidh.length - 1; k++)
-                {
-                    aidh[k] = new idh();
-                    kog1.a(aidh[k]);
-                    kog1.a();
-                }
-
-                aidh[k] = new idh();
-                kog1.a(aidh[k]);
-                a = aidh;
+                a = kwj1.j();
                 break;
 
             case 18: // '\022'
-                if (b == null)
-                {
-                    b = new idh();
-                }
-                kog1.a(b);
+                b = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null && a.length > 0)
+        if (a != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                idh idh1 = a[i];
-                if (idh1 != null)
-                {
-                    koh1.b(1, idh1);
-                }
-            }
-
+            kwk1.a(1, a);
         }
         if (b != null)
         {
-            koh1.b(2, b);
+            kwk1.a(2, b);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

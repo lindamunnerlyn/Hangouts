@@ -12,11 +12,6 @@ public class RecordHistogram
     {
     }
 
-    public static void a(String s, boolean flag)
-    {
-        nativeRecordBooleanHistogram(s, System.identityHashCode(s), flag);
-    }
-
     private static native int nativeGetHistogramValueCountForTesting(String s, int i);
 
     private static native void nativeInitialize();
@@ -29,6 +24,8 @@ public class RecordHistogram
             int j);
 
     private static native void nativeRecordEnumeratedHistogram(String s, int i, int j, int k);
+
+    private static native void nativeRecordLinearCountHistogram(String s, int i, int j, int k, int l, int i1);
 
     private static native void nativeRecordSparseHistogram(String s, int i, int j);
 }

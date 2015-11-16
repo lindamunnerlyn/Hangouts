@@ -2,18 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.media.MediaPlayer;
+import android.preference.Preference;
+import android.preference.SwitchPreference;
 
 final class ebs
-    implements android.media.MediaPlayer.OnCompletionListener
+    implements android.preference.Preference.OnPreferenceClickListener
 {
 
-    ebs()
+    final SwitchPreference a;
+    final ebp b;
+
+    ebs(ebp ebp1, SwitchPreference switchpreference)
     {
+        b = ebp1;
+        a = switchpreference;
+        super();
     }
 
-    public void onCompletion(MediaPlayer mediaplayer)
+    public boolean onPreferenceClick(Preference preference)
     {
-        mediaplayer.release();
+        eaj.a(b.getActivity()).b(a.isChecked());
+        b.b();
+        return true;
     }
 }

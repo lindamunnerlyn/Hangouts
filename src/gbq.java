@@ -3,25 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gbq extends gep
+public interface gbq
 {
 
-    final gem a;
-    final gbn b;
-
-    gbq(gbn gbn1, gem gem1)
-    {
-        b = gbn1;
-        a = gem1;
-        super();
-    }
-
-    public void a(gem gem1)
-    {
-        if (gem1.e() && a.d() != null)
-        {
-            b.d.b(this);
-            b.b.b(b.j);
-        }
-    }
+    public abstract gav a(gbt gbt);
 }

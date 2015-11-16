@@ -3,8 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gok
+public final class gok
 {
 
-    public abstract void a();
+    public gok()
+    {
+    }
 }

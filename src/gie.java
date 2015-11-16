@@ -2,282 +2,283 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 import android.graphics.SurfaceTexture;
-import android.hardware.camera2.CameraAccessException;
-import android.hardware.camera2.CameraCaptureSession;
-import android.hardware.camera2.CameraCharacteristics;
-import android.hardware.camera2.CameraDevice;
-import android.hardware.camera2.CameraManager;
-import android.hardware.camera2.params.StreamConfigurationMap;
-import android.util.Size;
-import android.view.Surface;
+import android.os.SystemClock;
+import com.google.android.libraries.hangouts.video.EncoderManager;
+import com.google.android.libraries.hangouts.video.RendererManager;
+import java.util.concurrent.atomic.AtomicInteger;
 
-public final class gie extends gih
+public final class gie extends gio
+    implements gfp, gmy
 {
 
-    final CameraManager a;
-    final gig b;
-    CameraDevice c;
-    CameraCaptureSession d;
-    Surface e;
-    gki f;
-    private final gif v;
-    private String w;
-    private String x;
-    private boolean y;
+    private long A;
+    private long B;
+    private long C;
+    private volatile long D;
+    final Object a = new Object();
+    final AtomicInteger b = new AtomicInteger(0);
+    gft c;
+    int d;
+    int e;
+    int f;
+    SurfaceTexture g;
+    gfo h;
+    gnk i;
+    gnk j;
+    int k;
+    boolean l;
+    boolean m;
+    int n;
+    gmz o;
+    private final ggl w;
+    private final EncoderManager x;
+    private final RendererManager y;
+    private gnk z;
 
-    public gie(Context context)
+    public gie(ggl ggl1, EncoderManager encodermanager, RendererManager renderermanager, gfu gfu1, ghm ghm)
     {
-        super(context);
-        v = new gif(this);
-        b = new gig(this);
-        a = (CameraManager)context.getSystemService("camera");
-        int j;
-        context = a.getCameraIdList();
-        j = context.length;
-        int i = 0;
-_L2:
-        String s;
-        if (i >= j)
+        super(gfu1, ghm);
+        d = 0;
+        e = 0;
+        f = d;
+        B = 0x7fffffffffffffffL;
+        D = 16L;
+        w = ggl1;
+        x = encodermanager;
+        y = renderermanager;
+        ggl1 = new gnk(0, 0);
+        j = ggl1;
+        z = ggl1;
+        i = ggl1;
+        gfu1.a(new gif(this));
+    }
+
+    private int r()
+    {
+        if (h != null)
         {
-            break MISSING_BLOCK_LABEL_114;
+            int i1 = h.b();
+            if (i1 != -1)
+            {
+                return i1;
+            }
         }
-        s = context[i];
-        if (((Integer)a.getCameraCharacteristics(s).get(CameraCharacteristics.LENS_FACING)).intValue() == 0)
+        return 0;
+    }
+
+    public void F_()
+    {
+        super.F_();
+        q.a(new gig(this));
+    }
+
+    public void a()
+    {
+        a(j);
+        if (o != null)
         {
-            w = s;
-            break MISSING_BLOCK_LABEL_115;
+            g.a(new gim(this));
         }
-        try
+    }
+
+    public void a(int i1)
+    {
+        D = 1000 / i1;
+    }
+
+    public void a(int i1, int j1)
+    {
+        q.a(new gin(this, i1, j1));
+    }
+
+    public void a(int i1, int j1, int k1, int l1, boolean flag)
+    {
+        q.a(new gij(this, flag, i1, j1, k1, l1));
+    }
+
+    public void a(gmz gmz1)
+    {
+        o = gmz1;
+        Object obj = a;
+        obj;
+        JVM INSTR monitorenter ;
+        if (g == null || gmz1 == null)
         {
-            x = s;
-            break MISSING_BLOCK_LABEL_115;
+            break MISSING_BLOCK_LABEL_33;
         }
-        // Misplaced declaration of an exception variable
-        catch (Context context)
-        {
-            gkc.b("vclib", "Failed to detect cameras", context);
-        }
+        gmz1.a(g);
+        obj;
+        JVM INSTR monitorexit ;
         return;
-        i++;
-        if (true) goto _L2; else goto _L1
-_L1:
+        gmz1;
+        obj;
+        JVM INSTR monitorexit ;
+        throw gmz1;
     }
 
-    public static boolean a(Context context)
+    void a(gnk gnk1)
     {
-        context = (CameraManager)context.getSystemService("camera");
-        String as[];
-        int i;
-        int j;
-        int k;
-        try
+        j = gnk1;
+        if (!m)
         {
-            as = context.getCameraIdList();
-            j = as.length;
+            int j1 = giq.c(r()).d();
+            int i1 = j1;
+            if (k != 0)
+            {
+                i1 = Math.min(k, j1);
+            }
+            gnk1 = gnk.a(gnk1, i1);
         }
-        // Misplaced declaration of an exception variable
-        catch (Context context)
-        {
-            gkc.b("vclib", "Exception reading camera properties", context);
-            return false;
-        }
-        i = 0;
-        if (i >= j)
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        k = ((Integer)context.getCameraCharacteristics(as[i]).get(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL)).intValue();
-        if (k != 1)
-        {
-            return false;
-        }
-        i++;
-        if (true) goto _L2; else goto _L1
-_L2:
-        break MISSING_BLOCK_LABEL_20;
-_L1:
-        return true;
+        z = gnk1;
+        o();
     }
 
-    public boolean a()
+    public void b(int i1)
     {
-        return w != null;
+        q.a(new gil(this, i1));
+    }
+
+    public void b(boolean flag)
+    {
+        a(flag);
+        w.a(flag);
     }
 
     public boolean b()
     {
-        return x != null;
+        return !u;
     }
 
-    protected gki c()
+    public void c(boolean flag)
     {
-        gki gki1;
-        synchronized (n)
-        {
-            gki1 = f;
-        }
-        return gki1;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        q.a(new gik(this, flag));
     }
 
-    protected void d()
+    public boolean c()
     {
-label0:
+        gdv.b("Attempted to processFrame without initializing.", g);
+        gdv.b("Attempted to processFrame without initializing.", c);
+        long l1;
+        if (!u && i.a != 0 && i.b != 0)
         {
-            synchronized (n)
+            if ((l1 = SystemClock.elapsedRealtime()) >= A)
             {
-                if (!y)
+                int i1 = b.getAndSet(0);
+                if (i1 > 0)
                 {
-                    break label0;
+                    try
+                    {
+                        g.updateTexImage();
+                    }
+                    catch (RuntimeException runtimeexception)
+                    {
+                        gne.a("vclib", "Failed to updateTexImage", runtimeexception);
+                        return false;
+                    }
+                    C = g.getTimestamp();
+                    if (i1 > 1)
+                    {
+                        gne.a(3, "vclib", (new StringBuilder(35)).append("Skipped encoding ").append(i1 - 1).append(" frames").toString());
+                    }
+                } else
+                {
+                    if (l1 < B)
+                    {
+                        continue;
+                    }
+                    C = C + 0xf4240L;
                 }
-                gkc.b("vclib", "Camera was already opened, ignoring");
+                do
+                {
+                    c.b();
+                    A = D + l1;
+                    B = l1 + 1000L;
+                    if (h == null)
+                    {
+                        h = x.a(y, this, q);
+                        h.a();
+                        o();
+                    }
+                    if (!h.a(f, C, g()))
+                    {
+                        gne.a(5, "vclib", "Failed to encode frame.");
+                        return false;
+                    } else
+                    {
+                        return true;
+                    }
+                } while (i1 != 0);
+                return false;
             }
-            return;
         }
-        if (this.s != 0)
-        {
-            break MISSING_BLOCK_LABEL_46;
-        }
-        gkc.f("vclib", "openCamera was called with no camera selected.");
-        obj;
-        JVM INSTR monitorexit ;
-        return;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-        y = true;
-        if (c != null) goto _L2; else goto _L1
-_L1:
-        gkc.b("vclib", "Opening camera");
-        if (this.s != 1) goto _L4; else goto _L3
-_L3:
-        String s = w;
-_L7:
-        a.openCamera(s, v, j);
-_L5:
-        obj;
-        JVM INSTR monitorexit ;
-        return;
-_L4:
-        s = x;
-        continue; /* Loop/switch isn't completed */
-        CameraAccessException cameraaccessexception;
-        cameraaccessexception;
-        gkc.b("vclib", "Failed to open cameras", cameraaccessexception);
-        g.a(super.h);
-          goto _L5
-_L2:
-        obj;
-        JVM INSTR monitorexit ;
-        return;
-        if (true) goto _L7; else goto _L6
-_L6:
+        return false;
     }
 
-    protected void e()
+    public String d()
     {
-        Object obj = n;
-        obj;
-        JVM INSTR monitorenter ;
-        if (d == null) goto _L2; else goto _L1
-_L1:
-        gkc.b("vclib", "Stopping capture session");
-        d.stopRepeating();
-        d.close();
-_L3:
-        d = null;
-_L2:
+        return "InputCapture";
+    }
+
+    public int e()
+    {
+        return f;
+    }
+
+    public boolean f()
+    {
+        return l;
+    }
+
+    public boolean g()
+    {
+        return d == f;
+    }
+
+    public int h()
+    {
+        return z.a;
+    }
+
+    public int i()
+    {
+        return z.b;
+    }
+
+    public gna n()
+    {
+        gna gna1 = new gna();
+        giq giq1 = giq.c(r());
+        gna1.a = giq1.c().a;
+        gna1.b = giq1.c().b;
+        gna1.c = giq1.e();
+        giq1 = giq.a();
+        gna1.d = giq1.c().a;
+        gna1.e = giq1.c().b;
+        gna1.f = giq1.e();
+        return gna1;
+    }
+
+    void o()
+    {
         if (c != null)
         {
-            gkc.b("vclib", "Closing camera");
-            c.close();
-            c = null;
+            gft gft1 = c;
+            gnk gnk1 = i;
+            gnk gnk2 = z;
+            boolean flag;
+            if (!m)
+            {
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+            gft1.a(gnk1, gnk2, flag);
         }
-        if (e != null)
+        if (h != null)
         {
-            e.release();
-            e = null;
+            h.a(z.a, z.b, m);
         }
-        y = false;
-        return;
-        Object obj1;
-        obj1;
-        gkc.b("vclib", "Failed to stop camera capture session", ((Throwable) (obj1)));
-          goto _L3
-        obj1;
-        obj;
-        JVM INSTR monitorexit ;
-        throw obj1;
-    }
-
-    gki f()
-    {
-        Object obj1 = n;
-        obj1;
-        JVM INSTR monitorenter ;
-        if (this.s != 1) goto _L2; else goto _L1
-_L1:
-        Object obj = w;
-_L5:
-        StreamConfigurationMap streamconfigurationmap;
-        Size asize[];
-        String s;
-        int i;
-        int j;
-        int k;
-        try
-        {
-            streamconfigurationmap = (StreamConfigurationMap)a.getCameraCharacteristics(((String) (obj))).get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
-            obj = new Size(0, 0);
-            asize = streamconfigurationmap.getOutputSizes(android/graphics/SurfaceTexture);
-            j = asize.length;
-        }
-        catch (CameraAccessException cameraaccessexception)
-        {
-            gkc.b("vclib", "Failed to read camera capture sizes", cameraaccessexception);
-            return new gki(0, 0);
-        }
-        i = 0;
-        if (i >= j)
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        obj1 = asize[i];
-        s = String.valueOf(obj1);
-        gkc.b("vclib", (new StringBuilder(String.valueOf(s).length() + 23)).append("Camera candidate size: ").append(s).toString());
-        if (((Size) (obj1)).getWidth() <= ((Size) (obj)).getWidth() || ((Size) (obj1)).getWidth() > 1920 || ((Size) (obj1)).getHeight() <= ((Size) (obj)).getHeight())
-        {
-            break MISSING_BLOCK_LABEL_169;
-        }
-        k = ((Size) (obj1)).getHeight();
-        if (k <= 1080)
-        {
-            obj = obj1;
-        }
-        i++;
-        if (true) goto _L4; else goto _L3
-_L4:
-        break MISSING_BLOCK_LABEL_66;
-_L2:
-        obj = x;
-          goto _L5
-        obj;
-        obj1;
-        JVM INSTR monitorexit ;
-        throw obj;
-_L3:
-        obj1 = obj;
-        if (((Size) (obj)).getWidth() == 0)
-        {
-            obj1 = streamconfigurationmap.getOutputSizes(android/graphics/SurfaceTexture)[0];
-        }
-        obj = new gki(((Size) (obj1)).getWidth(), ((Size) (obj1)).getHeight());
-        return ((gki) (obj));
     }
 }

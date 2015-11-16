@@ -3,7 +3,7 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.os.Parcel;
-import com.google.android.gms.wearable.internal.CloseChannelResponse;
+import com.google.android.gms.wearable.internal.DeleteDataItemsResponse;
 
 public final class fwo
     implements android.os.Parcelable.Creator
@@ -13,51 +13,48 @@ public final class fwo
     {
     }
 
-    public static void a(CloseChannelResponse closechannelresponse, Parcel parcel)
-    {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, closechannelresponse.a);
-        g.b(parcel, 2, closechannelresponse.b);
-        g.q(parcel, i);
-    }
-
     public Object createFromParcel(Parcel parcel)
     {
+        int k = 0;
+        int l = g.a(parcel);
         int j = 0;
-        int k = g.a(parcel);
         int i = 0;
         do
         {
-            if (parcel.dataPosition() < k)
+            if (parcel.dataPosition() < l)
             {
-                int l = parcel.readInt();
-                switch (0xffff & l)
+                int i1 = parcel.readInt();
+                switch (0xffff & i1)
                 {
                 default:
-                    g.b(parcel, l);
+                    g.b(parcel, i1);
                     break;
 
                 case 1: // '\001'
-                    i = g.e(parcel, l);
+                    i = g.e(parcel, i1);
                     break;
 
                 case 2: // '\002'
-                    j = g.e(parcel, l);
+                    j = g.e(parcel, i1);
+                    break;
+
+                case 3: // '\003'
+                    k = g.e(parcel, i1);
                     break;
                 }
             } else
-            if (parcel.dataPosition() != k)
+            if (parcel.dataPosition() != l)
             {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
+                throw new af((new StringBuilder("Overread allowed size end=")).append(l).toString(), parcel);
             } else
             {
-                return new CloseChannelResponse(i, j);
+                return new DeleteDataItemsResponse(i, j, k);
             }
         } while (true);
     }
 
     public Object[] newArray(int i)
     {
-        return new CloseChannelResponse[i];
+        return new DeleteDataItemsResponse[i];
     }
 }

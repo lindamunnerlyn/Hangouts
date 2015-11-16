@@ -3,26 +3,78 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ldl extends IllegalArgumentException
+public final class ldl extends kwm
 {
 
-    private static final long serialVersionUID = 0x299988b9c68L;
+    public byte a[];
+    public ldm b;
 
-    public ldl(long l, String s)
+    public ldl()
     {
-        String s1 = lfn.a("yyyy-MM-dd'T'HH:mm:ss.SSS").a(new ldm(l));
-        if (s != null)
-        {
-            s = (new StringBuilder(String.valueOf(s).length() + 3)).append(" (").append(s).append(")").toString();
-        } else
-        {
-            s = "";
-        }
-        super((new StringBuilder(String.valueOf(s1).length() + 82 + String.valueOf(s).length())).append("Illegal instant due to time zone offset transition (daylight savings time 'gap'): ").append(s1).append(s).toString());
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public ldl(String s)
+    protected int computeSerializedSize()
     {
-        super(s);
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.b(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(2, b);
+        }
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.k();
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new ldm();
+                }
+                kwj1.a(b);
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        super.writeTo(kwk1);
     }
 }

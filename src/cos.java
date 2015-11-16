@@ -3,31 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
+import android.widget.Toast;
 
-final class cos extends cox
+public final class cos
+    implements bei
 {
 
-    final cop a;
-
-    cos(cop cop1)
+    public cos()
     {
-        a = cop1;
-        super(cop1, (byte)0);
     }
 
-    boolean a()
+    public void a(Context context)
     {
-        if (g.a(cop.f(a), "babel_network_change_notification", false))
-        {
-            return ((ccm)hgx.a(cop.f(a), ccm)).a() == ccl.c;
-        } else
-        {
-            return false;
-        }
+        Toast.makeText(context, "Dumping accounts.xml, please wait", 0).show();
+        java.io.File file = g.d(context);
+        Toast.makeText(context, "accounts.xml dumped", 0).show();
+        g.a(context, file);
     }
 
-    dsn b()
+    public boolean a(String s)
     {
-        return (new dso(cop.f(a))).a(cop.f(a).getString(l.V)).a();
+        return "dumpaccounts".equals(s);
     }
 }

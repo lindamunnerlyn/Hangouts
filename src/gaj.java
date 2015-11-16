@@ -2,11 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-final class gaj
+public final class gaj extends gae
 {
 
-    gaj()
+    public gaj(Context context)
     {
+        super(context);
+    }
+
+    public volatile void a(String s, String s1, int i, byte abyte0[])
+    {
+        super.a(s, s1, i, abyte0);
     }
 }

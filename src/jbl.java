@@ -3,18 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jbl extends koj
+public final class jbl extends kwm
 {
 
-    public String a;
-    public jbw b;
-    public ixf requestHeader;
+    public jbm a;
+    public jbn b;
+    public jbo c;
 
     public jbl()
     {
-        requestHeader = null;
         a = null;
         b = null;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -23,32 +23,32 @@ public final class jbl extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (requestHeader != null)
-        {
-            i = j + koh.d(1, requestHeader);
-        }
-        j = i;
-        if (a != null)
-        {
-            j = i + koh.b(2, a);
-        }
-        i = j;
         if (b != null)
         {
-            i = j + koh.d(3, b);
+            i = j + kwk.d(1, b);
+        }
+        j = i;
+        if (c != null)
+        {
+            j = i + kwk.d(2, c);
+        }
+        i = j;
+        if (a != null)
+        {
+            i = j + kwk.d(3, a);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -58,42 +58,46 @@ public final class jbl extends koj
                 return this;
 
             case 10: // '\n'
-                if (requestHeader == null)
+                if (b == null)
                 {
-                    requestHeader = new ixf();
+                    b = new jbn();
                 }
-                kog1.a(requestHeader);
+                kwj1.a(b);
                 break;
 
             case 18: // '\022'
-                a = kog1.j();
+                if (c == null)
+                {
+                    c = new jbo();
+                }
+                kwj1.a(c);
                 break;
 
             case 26: // '\032'
-                if (b == null)
+                if (a == null)
                 {
-                    b = new jbw();
+                    a = new jbm();
                 }
-                kog1.a(b);
+                kwj1.a(a);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (requestHeader != null)
+        if (b != null)
         {
-            koh1.b(1, requestHeader);
+            kwk1.b(1, b);
+        }
+        if (c != null)
+        {
+            kwk1.b(2, c);
         }
         if (a != null)
         {
-            koh1.a(2, a);
+            kwk1.b(3, a);
         }
-        if (b != null)
-        {
-            koh1.b(3, b);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

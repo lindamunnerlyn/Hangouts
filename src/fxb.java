@@ -2,38 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.ContentObserver;
-import android.os.Handler;
-import java.util.HashMap;
+import android.os.Parcel;
+import com.google.android.gms.wearable.internal.GetLocalNodeResponse;
+import com.google.android.gms.wearable.internal.NodeParcelable;
 
-final class fxb extends ContentObserver
+public final class fxb
+    implements android.os.Parcelable.Creator
 {
 
-    final fxa a;
-
-    fxb(fxa fxa1, Handler handler)
+    public fxb()
     {
-        a = fxa1;
-        super(handler);
     }
 
-    public void onChange(boolean flag)
+    public Object createFromParcel(Parcel parcel)
     {
-        fwz;
-        JVM INSTR monitorenter ;
-        fwz.a().clear();
-        fwz.a(new Object());
-        if (fwz.b().length > 0)
+        int j = 0;
+        int k = g.a(parcel);
+        NodeParcelable nodeparcelable = null;
+        int i = 0;
+        do
         {
-            fwz.b(a.a, fwz.b());
-        }
-        fwz;
-        JVM INSTR monitorexit ;
-        return;
-        Exception exception;
-        exception;
-        fwz;
-        JVM INSTR monitorexit ;
-        throw exception;
+            if (parcel.dataPosition() < k)
+            {
+                int l = parcel.readInt();
+                switch (0xffff & l)
+                {
+                default:
+                    g.b(parcel, l);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, l);
+                    break;
+
+                case 2: // '\002'
+                    j = g.e(parcel, l);
+                    break;
+
+                case 3: // '\003'
+                    nodeparcelable = (NodeParcelable)g.a(parcel, l, NodeParcelable.CREATOR);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != k)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
+            } else
+            {
+                return new GetLocalNodeResponse(i, j, nodeparcelable);
+            }
+        } while (true);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new GetLocalNodeResponse[i];
     }
 }

@@ -3,15 +3,13 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jao extends koj
+public final class jao extends kwm
 {
 
-    public jbw a;
-    public ixg responseHeader;
+    public Integer a;
 
     public jao()
     {
-        responseHeader = null;
         a = null;
         unknownFieldData = null;
         cachedSize = -1;
@@ -21,64 +19,46 @@ public final class jao extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (responseHeader != null)
-        {
-            i = j + koh.d(1, responseHeader);
-        }
-        j = i;
         if (a != null)
         {
-            j = i + koh.d(2, a);
+            i = j + kwk.e(1, a.intValue());
         }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L4:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 2: default 32
+    //                   0: 41
+    //                   8: 43;
+           goto _L1 _L2 _L3
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L4; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (responseHeader == null)
-                {
-                    responseHeader = new ixg();
-                }
-                kog1.a(responseHeader);
-                break;
-
-            case 18: // '\022'
-                if (a == null)
-                {
-                    a = new jbw();
-                }
-                kog1.a(a);
-                break;
-            }
-        } while (true);
+        case 0: // '\0'
+        case 100: // 'd'
+        case 200: 
+            a = Integer.valueOf(j);
+            break;
+        }
+        if (true) goto _L4; else goto _L5
+_L5:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (responseHeader != null)
-        {
-            koh1.b(1, responseHeader);
-        }
         if (a != null)
         {
-            koh1.b(2, a);
+            kwk1.a(1, a.intValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

@@ -2,32 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collections;
-import java.util.Map;
+import android.content.Intent;
 
-public final class afj
+public final class afj extends agh
 {
 
-    public byte a[];
-    public String b;
-    public long c;
-    public long d;
-    public long e;
-    public long f;
-    public Map g;
+    private Intent b;
 
     public afj()
     {
-        g = Collections.emptyMap();
     }
 
-    public boolean a()
+    public afj(aft aft)
     {
-        return e < System.currentTimeMillis();
+        super(aft);
     }
 
-    public boolean b()
+    public String getMessage()
     {
-        return f < System.currentTimeMillis();
+        if (b != null)
+        {
+            return "User needs to (re)enter credentials.";
+        } else
+        {
+            return super.getMessage();
+        }
     }
 }

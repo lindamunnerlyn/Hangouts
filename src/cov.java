@@ -2,37 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import com.google.android.apps.hangouts.service.NetworkStateReceiver;
 
-final class cov extends cox
+public final class cov extends Enum
 {
 
-    final cop a;
+    public static final cov a;
+    public static final cov b;
+    public static final cov c;
+    public static final cov d;
+    public static final cov e;
+    public static final cov f;
+    public static final cov g;
+    public static final cov h;
+    private static final cov i[];
 
-    cov(cop cop1)
+    private cov(String s, int j)
     {
-        a = cop1;
-        super(cop1, (byte)0);
+        super(s, j);
     }
 
-    boolean a()
+    public static cov valueOf(String s)
     {
-        boolean flag1 = false;
-        boolean flag = flag1;
-        if (g.a(cop.f(a), "babel_gcm_change_notification", false))
-        {
-            flag = flag1;
-            if (!NetworkStateReceiver.a())
-            {
-                flag = true;
-            }
-        }
-        return flag;
+        return (cov)Enum.valueOf(cov, s);
     }
 
-    dsn b()
+    public static cov[] values()
     {
-        return (new dso(cop.f(a))).a(cop.f(a).getString(l.cl)).a();
+        return (cov[])i.clone();
+    }
+
+    static 
+    {
+        a = new cov("CREATE_NEW_GROUP_CONVERSATION", 0);
+        b = new cov("FORK_CONVERSATION", 1);
+        c = new cov("UPGRADE_TO_GROUPCHAT", 2);
+        d = new cov("INVITE_MORE_TO_GROUPCHAT", 3);
+        e = new cov("INVITE_MORE_TO_HANGOUT", 4);
+        f = new cov("INVITE_GAIA_IDS_TO_HANGOUT", 5);
+        g = new cov("CREATE_NEW_HANGOUT", 6);
+        h = new cov("CREATE_NEW_ONE_ON_ONE", 7);
+        i = (new cov[] {
+            a, b, c, d, e, f, g, h
+        });
     }
 }

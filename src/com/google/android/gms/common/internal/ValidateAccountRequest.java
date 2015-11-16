@@ -9,17 +9,18 @@ import android.os.IBinder;
 import android.os.Parcel;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import ejk;
-import emq;
-import emv;
+import eml;
+import epq;
+import epv;
+import g;
 
 public class ValidateAccountRequest
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new emv();
-    public final int a;
-    public final IBinder b;
+    public static final android.os.Parcelable.Creator CREATOR = new epv();
+    final int a;
+    final IBinder b;
     private final int c;
     private final Scope d[];
     private final Bundle e;
@@ -35,17 +36,17 @@ public class ValidateAccountRequest
         f = s;
     }
 
-    public ValidateAccountRequest(emq emq1, Scope ascope[], String s, Bundle bundle)
+    public ValidateAccountRequest(epq epq1, Scope ascope[], String s, Bundle bundle)
     {
-        int i = ejk.a;
-        if (emq1 == null)
+        int i = eml.a;
+        if (epq1 == null)
         {
-            emq1 = null;
+            epq1 = null;
         } else
         {
-            emq1 = emq1.asBinder();
+            epq1 = epq1.asBinder();
         }
-        this(1, i, ((IBinder) (emq1)), ascope, null, s);
+        this(1, i, ((IBinder) (epq1)), ascope, null, s);
     }
 
     public int a()
@@ -75,7 +76,14 @@ public class ValidateAccountRequest
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        emv.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, a());
+        g.a(parcel, 3, b);
+        g.a(parcel, 4, b(), i);
+        g.a(parcel, 5, d());
+        g.a(parcel, 6, c());
+        g.q(parcel, j);
     }
 
 }

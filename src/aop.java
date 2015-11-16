@@ -3,15 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class aop
+public interface aop
 {
 
-    final aom a;
-    final boolean b;
+    public static final String a[] = {
+        "_id", "phone_number", "contact_id", "call_timestamp", "call_type", "contact_type", "call_rate", "is_free_call"
+    };
 
-    aop(aom aom, boolean flag)
-    {
-        a = aom;
-        b = flag;
-    }
 }

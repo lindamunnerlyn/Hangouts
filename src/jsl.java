@@ -2,10 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.ScheduledExecutorService;
+import java.io.Serializable;
 
-public interface jsl
-    extends ExecutorService, ScheduledExecutorService
+final class jsl
+    implements Serializable
 {
+
+    private static final long serialVersionUID = 0L;
+    final Object a[];
+
+    jsl(Object aobj[])
+    {
+        a = aobj;
+    }
+
+    Object readResolve()
+    {
+        return jsh.a(a);
+    }
 }

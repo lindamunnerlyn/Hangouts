@@ -2,68 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Bitmap;
+import android.content.Context;
 
 final class grv
-    implements gux
+    implements grg
 {
 
-    final grs a;
+    final grq a;
 
-    grv(grs grs1)
+    grv(grq grq)
     {
-        a = grs1;
+        a = grq;
         super();
     }
 
-    public Object a(guy guy, Object obj)
+    public String a()
     {
-        Bitmap bitmap = null;
-        if (!(obj instanceof Bitmap)) goto _L2; else goto _L1
-_L1:
-        bitmap = (Bitmap)obj;
-_L4:
-        if (bitmap == null)
+        return "add_effective_gaia_id";
+    }
+
+    public void a(Context context, grd grd1)
+    {
+        if (grd1.d("is_managed_account"))
         {
-            return obj;
+            grd1.b("effective_gaia_id", grd1.b("gaia_id"));
         }
-        break; /* Loop/switch isn't completed */
-_L2:
-        if (obj instanceof gup)
-        {
-            gup gup1 = (gup)obj;
-            bitmap = ((gup)obj).a;
-            if (gup1.b < bitmap.getWidth() || gup1.c < bitmap.getHeight())
-            {
-                bitmap = Bitmap.createBitmap(bitmap, 0, 0, gup1.b, gup1.c);
-            }
-        }
-        if (true) goto _L4; else goto _L3
-_L3:
-label0:
-        {
-            int i = ((grt)guy).a();
-            if (bitmap.getWidth() >= i)
-            {
-                guy = bitmap;
-                if (bitmap.getHeight() >= i)
-                {
-                    break label0;
-                }
-            }
-            guy = grs.a(a).a(i, i);
-            obj = hkm.a(bitmap, i, i, guy);
-            if (obj != guy)
-            {
-                grs.a(a).a(guy);
-            }
-            guy = bitmap;
-            if (obj != bitmap)
-            {
-                grs.a(a).a(bitmap);
-                guy = ((guy) (obj));
-            }
-        }
-        return hgn.a(guy);
     }
 }

@@ -2,106 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.util.AttributeSet;
 
-final class xv
+public class xv extends android.view.ViewGroup.MarginLayoutParams
 {
 
-    int a;
-    int b;
-    boolean c;
-    final xu d;
+    public float g;
+    public int h;
 
-    xv(xu xu1)
+    public xv(int i, int j)
     {
-        d = xu1;
-        super();
+        super(i, j);
+        h = -1;
+        g = 0.0F;
     }
 
-    void a()
+    public xv(Context context, AttributeSet attributeset)
     {
-        a = -1;
-        b = 0x80000000;
-        c = false;
+        super(context, attributeset);
+        h = -1;
+        context = context.obtainStyledAttributes(attributeset, rq.au);
+        g = context.getFloat(rq.aw, 0.0F);
+        h = context.getInt(rq.av, -1);
+        context.recycle();
     }
 
-    public void a(View view)
+    public xv(android.view.ViewGroup.LayoutParams layoutparams)
     {
-        int k = d.b.b();
-        if (k < 0) goto _L2; else goto _L1
-_L1:
-        b(view);
-_L4:
-        return;
-_L2:
-        a = d.d(view);
-        if (!c)
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        int i = d.b.d() - k - d.b.b(view);
-        b = d.b.d() - i;
-        if (i > 0)
-        {
-            k = d.b.c(view);
-            int l = b;
-            int k1 = d.b.c();
-            k = l - k - (k1 + Math.min(d.b.a(view) - k1, 0));
-            if (k < 0)
-            {
-                int i1 = b;
-                b = Math.min(i, -k) + i1;
-                return;
-            }
-        }
-        if (true) goto _L4; else goto _L3
-_L3:
-        int j1 = d.b.a(view);
-        int j = j1 - d.b.c();
-        b = j1;
-        if (j > 0)
-        {
-            int l1 = d.b.c(view);
-            int i2 = d.b.d();
-            int j2 = d.b.b(view);
-            k = d.b.d() - Math.min(0, i2 - k - j2) - (j1 + l1);
-            if (k < 0)
-            {
-                b = b - Math.min(j, -k);
-                return;
-            }
-        }
-        if (true) goto _L4; else goto _L5
-_L5:
-    }
-
-    void b()
-    {
-        int i;
-        if (c)
-        {
-            i = d.b.d();
-        } else
-        {
-            i = d.b.c();
-        }
-        b = i;
-    }
-
-    public void b(View view)
-    {
-        if (c)
-        {
-            b = d.b.b(view) + d.b.b();
-        } else
-        {
-            b = d.b.a(view);
-        }
-        a = d.d(view);
-    }
-
-    public String toString()
-    {
-        return (new StringBuilder("AnchorInfo{mPosition=")).append(a).append(", mCoordinate=").append(b).append(", mLayoutFromEnd=").append(c).append('}').toString();
+        super(layoutparams);
+        h = -1;
     }
 }

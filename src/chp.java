@@ -2,21 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.widget.TextView;
 
-final class chp
-    implements blh
+final class chp extends chy
 {
 
-    final chk a;
+    final chn b;
 
-    chp(chk chk)
+    chp(chn chn, int i, int j)
     {
-        a = chk;
-        super();
+        b = chn;
+        super(chn, i, true, false, j);
     }
 
-    public bjc a(atd atd, String s, cnd cnd, aik aik)
+    protected void a(zs zs)
     {
-        return cfs.a(atd, s, cnd, aik);
+        zs = (chz)zs;
+        chz.a(zs).setText(h.iI);
+        chz.a(zs).setFocusableInTouchMode(true);
     }
 }

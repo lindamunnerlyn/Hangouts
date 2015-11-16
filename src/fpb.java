@@ -2,57 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.google.android.gms.common.data.DataHolder;
+import android.util.Log;
 
-public final class fpb extends eml
-    implements fqq
+public final class fpb
 {
 
-    private final Bundle c;
-
-    public fpb(DataHolder dataholder, int i, Bundle bundle)
+    public fpb()
     {
-        super(dataholder, i);
-        c = bundle;
     }
 
-    public String a()
+    private ene b(emy emy1, String s, String s1)
     {
-        return b("circle_id");
+        if (Log.isLoggable("PeopleClientCall", 3))
+        {
+            g.a("loadOwnerCoverPhoto", new Object[] {
+                s, s1
+            });
+        }
+        return emy1.a(new fie(this, emy1, s, s1));
     }
 
-    public String b()
+    public ene a(emy emy1, long l)
     {
-        int j = a("type");
-        int i = j;
-        switch (j)
+        if (Log.isLoggable("PeopleClientCall", 3))
         {
-        case 0: // '\0'
-        default:
-            i = -2;
-            break;
+            g.a("loadContactThumbnailByContactId", new Object[] {
+                Long.valueOf(l)
+            });
+        }
+        return emy1.a(new fic(this, emy1, l));
+    }
 
-        case -1: 
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-        case 4: // '\004'
-            break;
-        }
-        if (i != -1)
+    public ene a(emy emy1, String s, String s1)
+    {
+        return b(emy1, s, s1);
+    }
+
+    public ene a(emy emy1, String s, String s1, int i)
+    {
+        if (Log.isLoggable("PeopleClientCall", 3))
         {
-            Object obj = c.getBundle("localized_group_names");
-            if (obj != null)
-            {
-                obj = ((Bundle) (obj)).getString(String.valueOf(i));
-                if (!TextUtils.isEmpty(((CharSequence) (obj))))
-                {
-                    return ((String) (obj));
-                }
-            }
+            g.a("loadOwnerAvatar", new Object[] {
+                s, s1, Integer.valueOf(i), Integer.valueOf(1)
+            });
         }
-        return b("name");
+        return emy1.a(new fid(this, emy1, s, s1, i, 1));
     }
 }

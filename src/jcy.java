@@ -3,20 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jcy extends koj
+public final class jcy extends kwm
 {
 
-    public jcp a;
-    public jbw b;
-    public jcp c[];
-    public ixg responseHeader;
+    public jdl responseHeader;
 
     public jcy()
     {
         responseHeader = null;
-        a = null;
-        b = null;
-        c = jcp.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -27,51 +21,20 @@ public final class jcy extends koj
         int i = j;
         if (responseHeader != null)
         {
-            i = j + koh.d(1, responseHeader);
+            i = j + kwk.d(1, responseHeader);
         }
-        j = i;
-        if (a != null)
-        {
-            j = i + koh.d(2, a);
-        }
-        i = j;
-        if (b != null)
-        {
-            i = j + koh.d(3, b);
-        }
-        j = i;
-        if (c != null)
-        {
-            j = i;
-            if (c.length > 0)
-            {
-                for (j = 0; j < c.length;)
-                {
-                    jcp jcp1 = c[j];
-                    int k = i;
-                    if (jcp1 != null)
-                    {
-                        k = i + koh.d(4, jcp1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
-        }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -83,86 +46,20 @@ public final class jcy extends koj
             case 10: // '\n'
                 if (responseHeader == null)
                 {
-                    responseHeader = new ixg();
+                    responseHeader = new jdl();
                 }
-                kog1.a(responseHeader);
-                break;
-
-            case 18: // '\022'
-                if (a == null)
-                {
-                    a = new jcp();
-                }
-                kog1.a(a);
-                break;
-
-            case 26: // '\032'
-                if (b == null)
-                {
-                    b = new jbw();
-                }
-                kog1.a(b);
-                break;
-
-            case 34: // '"'
-                int k = kou.b(kog1, 34);
-                jcp ajcp[];
-                int j;
-                if (c == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = c.length;
-                }
-                ajcp = new jcp[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(c, 0, ajcp, 0, j);
-                    k = j;
-                }
-                for (; k < ajcp.length - 1; k++)
-                {
-                    ajcp[k] = new jcp();
-                    kog1.a(ajcp[k]);
-                    kog1.a();
-                }
-
-                ajcp[k] = new jcp();
-                kog1.a(ajcp[k]);
-                c = ajcp;
+                kwj1.a(responseHeader);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (responseHeader != null)
         {
-            koh1.b(1, responseHeader);
+            kwk1.b(1, responseHeader);
         }
-        if (a != null)
-        {
-            koh1.b(2, a);
-        }
-        if (b != null)
-        {
-            koh1.b(3, b);
-        }
-        if (c != null && c.length > 0)
-        {
-            for (int i = 0; i < c.length; i++)
-            {
-                jcp jcp1 = c[i];
-                if (jcp1 != null)
-                {
-                    koh1.b(4, jcp1);
-                }
-            }
-
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

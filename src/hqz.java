@@ -2,115 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.FilterInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
-public final class hqz extends koj
+final class hqz extends FilterInputStream
 {
 
-    public Boolean a;
-    public hrc b;
-    public Boolean c;
-    public hra d;
+    final hqy a;
+    private long b;
 
-    public hqz()
+    public hqz(hqy hqy1, InputStream inputstream)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = hqy1;
+        super(inputstream);
+        b = 0L;
     }
 
-    protected int computeSerializedSize()
+    private void a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        long l;
+        for (l = a.getContentLength(); l == -1L || b == 0L || b >= l;)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            return;
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            c.booleanValue();
-            i = j + (koh.f(3) + 1);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.d(4, d);
-        }
-        return j;
+
+        long l1 = b;
+        throw new IOException((new StringBuilder(102)).append("Connection closed prematurely: bytesRead = ").append(l1).append(", Content-Length = ").append(l).toString());
     }
 
-    public kop mergeFrom(kog kog1)
+    public int read()
     {
-        do
+        int i = in.read();
+        if (i == -1)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new hrc();
-                }
-                kog1.a(b);
-                break;
-
-            case 24: // '\030'
-                c = Boolean.valueOf(kog1.i());
-                break;
-
-            case 34: // '"'
-                if (d == null)
-                {
-                    d = new hra();
-                }
-                kog1.a(d);
-                break;
-            }
-        } while (true);
+            a();
+            return i;
+        } else
+        {
+            b = b + 1L;
+            return i;
+        }
     }
 
-    public void writeTo(koh koh1)
+    public int read(byte abyte0[], int i, int j)
     {
-        if (a != null)
+        i = in.read(abyte0, i, j);
+        if (i == -1)
         {
-            koh1.a(1, a.booleanValue());
-        }
-        if (b != null)
+            a();
+            return i;
+        } else
         {
-            koh1.b(2, b);
+            b = b + (long)i;
+            return i;
         }
-        if (c != null)
-        {
-            koh1.a(3, c.booleanValue());
-        }
-        if (d != null)
-        {
-            koh1.b(4, d);
-        }
-        super.writeTo(koh1);
     }
 }

@@ -2,54 +2,64 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.Parcel;
+import java.lang.reflect.Field;
 
-public abstract class fcz extends Binder
-    implements fcy
+public final class fcz extends fcx
 {
 
-    public static fcy a(IBinder ibinder)
+    private final Object a;
+
+    private fcz(Object obj)
     {
-        if (ibinder == null)
-        {
-            return null;
-        }
-        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.iid.IMessengerCompat");
-        if (iinterface != null && (iinterface instanceof fcy))
-        {
-            return (fcy)iinterface;
-        } else
-        {
-            return new fda(ibinder);
-        }
+        a = obj;
     }
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    public static fcw a(Object obj)
     {
-        switch (i)
+        return new fcz(obj);
+    }
+
+    public static Object a(fcw fcw1)
+    {
+        if (fcw1 instanceof fcz)
         {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
-
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.iid.IMessengerCompat");
-            return true;
-
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.gms.iid.IMessengerCompat");
-            break;
+            return ((fcz)fcw1).a;
         }
-        if (parcel.readInt() != 0)
+        fcw1 = fcw1.asBinder();
+        Field afield[] = fcw1.getClass().getDeclaredFields();
+        if (afield.length == 1)
         {
-            parcel = (Message)Message.CREATOR.createFromParcel(parcel);
+            Field field = afield[0];
+            if (!field.isAccessible())
+            {
+                field.setAccessible(true);
+                try
+                {
+                    fcw1 = ((fcw) (field.get(fcw1)));
+                }
+                // Misplaced declaration of an exception variable
+                catch (fcw fcw1)
+                {
+                    throw new IllegalArgumentException("Binder object is null.", fcw1);
+                }
+                // Misplaced declaration of an exception variable
+                catch (fcw fcw1)
+                {
+                    throw new IllegalArgumentException("remoteBinder is the wrong class.", fcw1);
+                }
+                // Misplaced declaration of an exception variable
+                catch (fcw fcw1)
+                {
+                    throw new IllegalArgumentException("Could not access the field in remoteBinder.", fcw1);
+                }
+                return fcw1;
+            } else
+            {
+                throw new IllegalArgumentException("The concrete class implementing IObjectWrapper must have exactly one declared *private* field for the wrapped object. Preferably, this is an instance of the ObjectWrapper<T> class.");
+            }
         } else
         {
-            parcel = null;
+            throw new IllegalArgumentException("The concrete class implementing IObjectWrapper must have exactly *one* declared private field for the wrapped object.  Preferably, this is an instance of the ObjectWrapper<T> class.");
         }
-        a(parcel);
-        return true;
     }
 }

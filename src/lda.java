@@ -3,209 +3,94 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class lda extends lcz
+public final class lda extends kwm
 {
 
-    private static final long serialVersionUID = 0xfffff6f623875386L;
-    private final byte x;
-    private final transient ldi y;
-    private final transient ldi z;
+    public String a;
+    public int b;
 
-    lda(String s, byte byte0, ldi ldi, ldi ldi1)
+    public lda()
     {
-        super(s);
-        x = byte0;
-        y = ldi;
-        z = ldi1;
+        a = null;
+        b = 0x80000000;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private Object readResolve()
+    protected int computeSerializedSize()
     {
-        switch (x)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-        default:
-            return this;
-
-        case 1: // '\001'
-            return lcz.a;
-
-        case 2: // '\002'
-            return lcz.b;
-
-        case 3: // '\003'
-            return lcz.c;
-
-        case 4: // '\004'
-            return lcz.d;
-
-        case 5: // '\005'
-            return lcz.e;
-
-        case 6: // '\006'
-            return lcz.f;
-
-        case 7: // '\007'
-            return lcz.g;
-
-        case 8: // '\b'
-            return lcz.h;
-
-        case 9: // '\t'
-            return lcz.i;
-
-        case 10: // '\n'
-            return lcz.j;
-
-        case 11: // '\013'
-            return lcz.k;
-
-        case 12: // '\f'
-            return lcz.l;
-
-        case 13: // '\r'
-            return lcz.m;
-
-        case 14: // '\016'
-            return lcz.n;
-
-        case 15: // '\017'
-            return lcz.o;
-
-        case 16: // '\020'
-            return lcz.p;
-
-        case 17: // '\021'
-            return lcz.q;
-
-        case 18: // '\022'
-            return lcz.r;
-
-        case 19: // '\023'
-            return lcz.s;
-
-        case 20: // '\024'
-            return lcz.t;
-
-        case 21: // '\025'
-            return lcz.u;
-
-        case 22: // '\026'
-            return lcz.v;
-
-        case 23: // '\027'
-            return lcz.w;
+            i = j + kwk.b(1, a);
         }
-    }
-
-    public lcy a(lcw lcw1)
-    {
-        lcw1 = ldb.a(lcw1);
-        switch (x)
+        j = i;
+        if (b != 0x80000000)
         {
-        default:
-            throw new InternalError();
-
-        case 1: // '\001'
-            return lcw1.K();
-
-        case 2: // '\002'
-            return lcw1.F();
-
-        case 3: // '\003'
-            return lcw1.I();
-
-        case 4: // '\004'
-            return lcw1.G();
-
-        case 5: // '\005'
-            return lcw1.E();
-
-        case 6: // '\006'
-            return lcw1.v();
-
-        case 7: // '\007'
-            return lcw1.C();
-
-        case 8: // '\b'
-            return lcw1.u();
-
-        case 9: // '\t'
-            return lcw1.A();
-
-        case 10: // '\n'
-            return lcw1.z();
-
-        case 11: // '\013'
-            return lcw1.x();
-
-        case 12: // '\f'
-            return lcw1.t();
-
-        case 13: // '\r'
-            return lcw1.r();
-
-        case 14: // '\016'
-            return lcw1.p();
-
-        case 15: // '\017'
-            return lcw1.q();
-
-        case 16: // '\020'
-            return lcw1.n();
-
-        case 17: // '\021'
-            return lcw1.m();
-
-        case 18: // '\022'
-            return lcw1.k();
-
-        case 19: // '\023'
-            return lcw1.j();
-
-        case 20: // '\024'
-            return lcw1.h();
-
-        case 21: // '\025'
-            return lcw1.g();
-
-        case 22: // '\026'
-            return lcw1.e();
-
-        case 23: // '\027'
-            return lcw1.d();
+            j = i + kwk.e(2, b);
         }
+        return j;
     }
 
-    public boolean equals(Object obj)
+    public kws mergeFrom(kwj kwj1)
     {
-        if (this != obj)
+_L5:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   10: 51
+    //                   16: 62;
+           goto _L1 _L2 _L3 _L4
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
+_L2:
+        return this;
+_L3:
+        a = kwj1.j();
+          goto _L5
+_L4:
+        int j = kwj1.f();
+        switch (j)
         {
-            if (obj instanceof lda)
-            {
-                if (x != ((lda)obj).x)
-                {
-                    return false;
-                }
-            } else
-            {
-                return false;
-            }
+        case 0: // '\0'
+        case 73046798: 
+        case 73046859: 
+        case 73046960: 
+        case 73047122: 
+        case 73063113: 
+        case 77630322: 
+        case 78631618: 
+        case 89449585: 
+        case 91688171: 
+        case 95298271: 
+        case 96372017: 
+        case 98979821: 
+        case 101530918: 
+        case 103685814: 
+        case 103903807: 
+        case 104208012: 
+        case 104316901: 
+        case 104320496: 
+        case 105019679: 
+            b = j;
+            break;
         }
-        return true;
+        if (true) goto _L5; else goto _L6
+_L6:
     }
 
-    public int hashCode()
+    public void writeTo(kwk kwk1)
     {
-        return 1 << x;
-    }
-
-    public ldi y()
-    {
-        return y;
-    }
-
-    public ldi z()
-    {
-        return z;
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != 0x80000000)
+        {
+            kwk1.a(2, b);
+        }
+        super.writeTo(kwk1);
     }
 }

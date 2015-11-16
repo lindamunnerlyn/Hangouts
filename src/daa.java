@@ -2,24 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import android.net.Uri;
+import android.text.TextUtils;
 
-final class daa extends czw
+public final class daa extends cxr
 {
 
-    daa(String s)
+    private static final long serialVersionUID = 1L;
+    private final String g;
+    private final long h;
+
+    public daa(Uri uri, long l)
     {
-        super(s, 3);
+        if (uri != null)
+        {
+            uri = uri.toString();
+        } else
+        {
+            uri = null;
+        }
+        g = uri;
+        h = l;
     }
 
-    public Object a(Cursor cursor, int i)
+    public void a(aow aow1, dgk dgk)
     {
-        return cursor.getString(i);
-    }
-
-    public void a(String s, Object obj, ContentValues contentvalues)
-    {
-        contentvalues.put(s, (String)obj);
+        super.a(aow1, dgk);
+        djm djm1 = (djm)b;
+        String s = djm1.c();
+        String s1 = djm1.b();
+        if (g != null)
+        {
+            dgk = Uri.parse(g);
+        } else
+        {
+            dgk = null;
+        }
+        aoq.a(aow1, s, s1, dgk, 0L, h, false, -1L, djm1.f());
+        aoc.a(g.nU, aow1.f().h(), "sent_sms_count_since_last_upload");
+        dgk = djm1.d();
+        if (!TextUtils.isEmpty(dgk))
+        {
+            cax cax1 = (cax)hlp.a(g.nU, cax);
+            aow1.f().h();
+            cax1.a(dgk);
+        }
     }
 }

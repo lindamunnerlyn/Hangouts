@@ -2,98 +2,112 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
-final class jln extends jlk
+public final class jln extends kwm
 {
 
-    private final transient jlk b;
+    public String a;
+    public Integer b;
+    public Integer c;
+    public jlo d;
 
-    jln(jlk jlk1)
+    public jln()
     {
-        b = jlk1;
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private int b(int i)
+    protected int computeSerializedSize()
     {
-        return size() - 1 - i;
-    }
-
-    public jlk a(int i, int j)
-    {
-        n.a(i, j, size());
-        return b.a(size() - j, size() - i).h();
-    }
-
-    public boolean contains(Object obj)
-    {
-        return b.contains(obj);
-    }
-
-    boolean e()
-    {
-        return b.e();
-    }
-
-    public Object get(int i)
-    {
-        n.a(i, size());
-        return b.get(b(i));
-    }
-
-    public jlk h()
-    {
-        return b;
-    }
-
-    public int indexOf(Object obj)
-    {
-        int i = b.lastIndexOf(obj);
-        if (i >= 0)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            return b(i);
-        } else
-        {
-            return -1;
+            i = j + kwk.b(1, a);
         }
-    }
-
-    public Iterator iterator()
-    {
-        return super.a();
-    }
-
-    public int lastIndexOf(Object obj)
-    {
-        int i = b.indexOf(obj);
-        if (i >= 0)
+        j = i;
+        if (b != null)
         {
-            return b(i);
-        } else
-        {
-            return -1;
+            j = i + kwk.e(2, b.intValue());
         }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.intValue());
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.d(4, d);
+        }
+        return j;
     }
 
-    public ListIterator listIterator()
+    public kws mergeFrom(kwj kwj1)
     {
-        return super.g();
+_L7:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 5: default 56
+    //                   0: 65
+    //                   10: 67
+    //                   16: 78
+    //                   24: 92
+    //                   34: 138;
+           goto _L1 _L2 _L3 _L4 _L5 _L6
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L7; else goto _L2
+_L2:
+        return this;
+_L3:
+        a = kwj1.j();
+          goto _L7
+_L4:
+        b = Integer.valueOf(kwj1.f());
+          goto _L7
+_L5:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+            c = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L6:
+        if (d == null)
+        {
+            d = new jlo();
+        }
+        kwj1.a(d);
+        if (true) goto _L7; else goto _L8
+_L8:
     }
 
-    public ListIterator listIterator(int i)
+    public void writeTo(kwk kwk1)
     {
-        return super.a(i);
-    }
-
-    public int size()
-    {
-        return b.size();
-    }
-
-    public List subList(int i, int j)
-    {
-        return a(i, j);
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.intValue());
+        }
+        if (d != null)
+        {
+            kwk1.b(4, d);
+        }
+        super.writeTo(kwk1);
     }
 }

@@ -2,19 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
 
-public final class goh extends hhu
-    implements gov
+public abstract class goh
+    implements gny
 {
 
     public goh()
     {
-        (new gow(lifecycle)).a(binder).a(g.rX, this);
     }
 
-    public void a(int i, Intent intent)
+    public int b()
     {
-        ((gne)getParentFragment()).a();
+        return 10;
     }
 }

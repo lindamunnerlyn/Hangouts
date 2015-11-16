@@ -2,27 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.res.Configuration;
-import android.content.res.Resources;
+import java.util.Comparator;
 
-final class dqw extends Thread
+final class dqw
+    implements Comparator
 {
 
-    final Context a;
+    final dqv a;
 
-    dqw(Context context)
+    dqw(dqv dqv)
     {
-        a = context;
+        a = dqv;
         super();
     }
 
-    public void run()
+    public int compare(Object obj, Object obj1)
     {
-        Configuration configuration = a.getResources().getConfiguration();
-        int i = configuration.mcc;
-        int j = configuration.mnc;
-        ebw.e("Babel_SMS", (new StringBuilder(43)).append("MmsConfig: mnc/mcc: ").append(i).append("/").append(j).toString());
-        dqv.b(a);
+        obj = (arf)obj;
+        obj1 = (arf)obj1;
+        return ((arf) (obj)).c.compareToIgnoreCase(((arf) (obj1)).c);
     }
 }

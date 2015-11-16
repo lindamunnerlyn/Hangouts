@@ -2,35 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
 final class ayc
-    implements arn
 {
 
-    final String a;
-    final String b;
-    final ayb c;
+    String a;
+    int b;
+    long c;
+    boolean d;
+    int e;
+    String f;
+    public long g;
+    public long h;
 
-    ayc(ayb ayb1, String s, String s1)
+    ayc()
     {
-        c = ayb1;
-        a = s;
-        b = s1;
-        super();
+        e = -1;
     }
 
-    public void a(ark ark)
+    public void a(aoa aoa)
     {
-        if (c.a.getActivity() == null || c.a.O() == null)
-        {
-            return;
-        } else
-        {
-            ave.b(c.a).a(a, b);
-            ave.a(c.a, ave.I(c.a));
-            c.a.getLoaderManager().b(0, null, c.a);
-            c.a.getLoaderManager().b(2, null, c.a);
-            return;
-        }
+        e = RealTimeChatService.l(aoa, a);
+    }
+
+    public String toString()
+    {
+        String s = a;
+        int i = b;
+        String s1 = f;
+        boolean flag = d;
+        long l = c;
+        return (new StringBuilder(String.valueOf(s).length() + 40 + String.valueOf(s1).length())).append(s).append("/").append(i).append("/").append(s1).append("/").append(flag).append("/").append(l).toString();
     }
 }

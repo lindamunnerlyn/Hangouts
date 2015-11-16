@@ -2,28 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import com.google.android.libraries.hangouts.video.CallService;
 
-final class gdz
+public class gdz
 {
 
-    final Context a;
-
-    gdz(Context context)
+    public gdz()
     {
-        a = context;
     }
 
-    protected ggl a(String s, iqw iqw, iqt iqt)
+    public void a()
     {
-        gfr gfr1 = new gfr(a, CallService.b(a));
-        gfr1.a(s, System.currentTimeMillis());
-        return new ggl(gfr1, iqw, iqt);
     }
 
-    void a(String s, String s1, jdh jdh)
+    public void a(int i, long l)
     {
-        gbk.a(new gea(this, ((ggj)hgx.b(a).a(ggj)).a(s), s1, jdh));
+    }
+
+    public transient void a(int ai[])
+    {
     }
 }

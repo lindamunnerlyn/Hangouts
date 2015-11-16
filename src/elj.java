@@ -2,54 +2,65 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import java.util.concurrent.locks.Lock;
+import android.accounts.Account;
+import android.os.Parcel;
+import com.google.android.gms.auth.AccountChangeEventsRequest;
 
-final class elj extends Handler
+public final class elj
+    implements android.os.Parcelable.Creator
 {
 
-    final ele a;
-
-    elj(ele ele1, Looper looper)
+    public elj()
     {
-        a = ele1;
-        super(looper);
     }
 
-    public void handleMessage(Message message)
+    public Object createFromParcel(Parcel parcel)
     {
-        message.what;
-        JVM INSTR tableswitch 1 4: default 36
-    //                   1 54
-    //                   2 101
-    //                   3 109
-    //                   4 124;
-           goto _L1 _L2 _L3 _L4 _L5
-_L1:
-        (new StringBuilder("Unknown message id: ")).append(message.what);
-        return;
-_L2:
-        message = a;
-        ((ele) (message)).a.lock();
-        if (message.m())
+        Account account = null;
+        int k = g.a(parcel);
+        int j = 0;
+        int i = 0;
+        String s = null;
+        do
         {
-            message.b();
-        }
-        ((ele) (message)).a.unlock();
-        return;
-        Exception exception;
-        exception;
-        ((ele) (message)).a.unlock();
-        throw exception;
-_L3:
-        ele.a(a);
-        return;
-_L4:
-        ((elk)message.obj).a(a);
-        return;
-_L5:
-        throw (RuntimeException)message.obj;
+            if (parcel.dataPosition() < k)
+            {
+                int l = parcel.readInt();
+                switch (0xffff & l)
+                {
+                default:
+                    g.b(parcel, l);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, l);
+                    break;
+
+                case 2: // '\002'
+                    j = g.e(parcel, l);
+                    break;
+
+                case 3: // '\003'
+                    s = g.i(parcel, l);
+                    break;
+
+                case 4: // '\004'
+                    account = (Account)g.a(parcel, l, Account.CREATOR);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != k)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
+            } else
+            {
+                return new AccountChangeEventsRequest(i, j, s, account);
+            }
+        } while (true);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new AccountChangeEventsRequest[i];
     }
 }

@@ -2,125 +2,61 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
 
-public final class jty extends koj
+final class jty
+    implements jxc
 {
 
-    private static volatile jty e[];
-    public String a;
-    public Integer b;
-    public Integer c;
-    public Integer d;
+    private final Iterator a;
+    private boolean b;
+    private Object c;
 
-    public jty()
+    public jty(Iterator iterator)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = (Iterator)n.b(iterator);
     }
 
-    public static jty[] a()
+    public Object a()
     {
-        if (e == null)
+        if (!b)
         {
-            synchronized (kon.a)
-            {
-                if (e == null)
-                {
-                    e = new jty[0];
-                }
-            }
+            c = a.next();
+            b = true;
         }
-        return e;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return c;
     }
 
-    protected int computeSerializedSize()
+    public boolean hasNext()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.intValue());
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.intValue());
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.e(4, d.intValue());
-        }
-        return j;
+        return b || a.hasNext();
     }
 
-    public kop mergeFrom(kog kog1)
+    public Object next()
     {
-        do
+        if (!b)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
-                break;
-
-            case 24: // '\030'
-                c = Integer.valueOf(kog1.f());
-                break;
-
-            case 32: // ' '
-                d = Integer.valueOf(kog1.f());
-                break;
-            }
-        } while (true);
+            return a.next();
+        } else
+        {
+            Object obj = c;
+            b = false;
+            c = null;
+            return obj;
+        }
     }
 
-    public void writeTo(koh koh1)
+    public void remove()
     {
-        if (a != null)
+        boolean flag;
+        if (!b)
         {
-            koh1.a(1, a);
-        }
-        if (b != null)
+            flag = true;
+        } else
         {
-            koh1.a(2, b.intValue());
+            flag = false;
         }
-        if (c != null)
-        {
-            koh1.a(3, c.intValue());
-        }
-        if (d != null)
-        {
-            koh1.a(4, d.intValue());
-        }
-        super.writeTo(koh1);
+        n.b(flag, "Can't remove after you've peeked at next");
+        a.remove();
     }
 }

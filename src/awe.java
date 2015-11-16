@@ -2,22 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import android.os.Bundle;
+import java.util.List;
 
 final class awe
-    implements android.view.View.OnClickListener
+    implements cjh
 {
 
-    final ave a;
+    final avv a;
 
-    awe(ave ave1)
+    awe(avv avv1)
     {
-        a = ave1;
+        a = avv1;
         super();
     }
 
-    public void onClick(View view)
+    public void a(List list, Bundle bundle)
     {
-        a.L();
+        if (g.a(list))
+        {
+            avv.W(a).a(bundle, avv.V(a), avv.h(a));
+        }
     }
 }

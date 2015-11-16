@@ -2,60 +2,57 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.Serializable;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
-public final class kup extends koj
+final class kup
+    implements Serializable
 {
 
-    public String a;
+    private static final long serialVersionUID = 0L;
+    private final String a;
+    private final byte b[];
 
-    public kup()
+    kup(kve kve1)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = kve1.getClass().getName();
+        b = kve1.a();
     }
 
-    protected int computeSerializedSize()
+    protected Object readResolve()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        Object obj;
+        try
         {
-            i = j + koh.b(1, a);
-        }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
+            obj = (kve)Class.forName(a).getMethod("newMessage", new Class[0]).invoke(null, new Object[0]);
+            byte abyte0[] = b;
+            ktu.a(abyte0, 0, abyte0.length);
+            if (!((kve) (obj)).e())
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
+                throw new RuntimeException("Unable to understand proto buffer");
             }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a);
         }
-        super.writeTo(koh1);
+        // Misplaced declaration of an exception variable
+        catch (Object obj)
+        {
+            throw new RuntimeException("Unable to find proto buffer class", ((Throwable) (obj)));
+        }
+        // Misplaced declaration of an exception variable
+        catch (Object obj)
+        {
+            throw new RuntimeException("Unable to find newMessage method", ((Throwable) (obj)));
+        }
+        // Misplaced declaration of an exception variable
+        catch (Object obj)
+        {
+            throw new RuntimeException("Unable to call newMessage method", ((Throwable) (obj)));
+        }
+        // Misplaced declaration of an exception variable
+        catch (Object obj)
+        {
+            throw new RuntimeException("Error calling newMessage", ((InvocationTargetException) (obj)).getCause());
+        }
+        return obj;
     }
 }

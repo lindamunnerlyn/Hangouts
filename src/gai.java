@@ -2,17 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Handler;
+import android.util.Log;
+import com.google.android.gms.common.api.Status;
 
-public final class gai
-    implements gad
+final class gai
+    implements eni
 {
 
-    public gai()
+    final gae a;
+
+    gai(gae gae1)
     {
+        a = gae1;
+        super();
     }
 
-    public gac a()
+    public void a(enh enh)
     {
-        return new gah();
+        enh = (Status)enh;
+        if (Log.isLoggable("GcoreClearcutLogger", 3))
+        {
+            enh = String.valueOf(enh);
+            (new StringBuilder(String.valueOf(enh).length() + 27)).append("ClearcutLogger log result: ").append(enh);
+        }
+        a.d.postDelayed(a.e, 10000L);
     }
 }

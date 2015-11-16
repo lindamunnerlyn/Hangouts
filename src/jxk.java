@@ -3,60 +3,122 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jxk extends koj
+final class jxk extends jso
 {
 
-    public Boolean a;
+    private static final long serialVersionUID = 0L;
+    private final transient java.util.Map.Entry b[];
+    private final transient jss c[];
+    private final transient int d;
 
-    public jxk()
+    private jxk(java.util.Map.Entry aentry[], jss ajss[], int i)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        b = aentry;
+        c = ajss;
+        d = i;
     }
 
-    protected int computeSerializedSize()
+    static Object a(Object obj, jss ajss[], int i)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        if (obj != null)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
+            ajss = ajss[jrx.a(obj.hashCode()) & i];
+            while (ajss != null) 
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
+                if (obj.equals(ajss.getKey()))
                 {
-                    continue;
+                    return ajss.getValue();
                 }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
+                ajss = ajss.a();
             }
-        } while (true);
+        }
+        return null;
     }
 
-    public void writeTo(koh koh1)
+    static jxk a(int i, java.util.Map.Entry aentry[])
     {
-        if (a != null)
+        n.b(i, aentry.length);
+        Object aobj[];
+        jss ajss[];
+        int j;
+        int k;
+        if (i == aentry.length)
         {
-            koh1.a(1, a.booleanValue());
+            aobj = aentry;
+        } else
+        {
+            aobj = new jss[i];
         }
-        super.writeTo(koh1);
+        j = jrx.b(i);
+        ajss = new jss[j];
+        k = j - 1;
+        j = 0;
+        while (j < i) 
+        {
+            Object obj = aentry[j];
+            Object obj1 = ((java.util.Map.Entry) (obj)).getKey();
+            Object obj2 = ((java.util.Map.Entry) (obj)).getValue();
+            g.f(obj1, obj2);
+            int l = jrx.a(obj1.hashCode()) & k;
+            jss jss1 = ajss[l];
+            if (jss1 == null)
+            {
+                boolean flag;
+                if ((obj instanceof jss) && ((jss)obj).c())
+                {
+                    flag = true;
+                } else
+                {
+                    flag = false;
+                }
+                if (flag)
+                {
+                    obj = (jss)obj;
+                } else
+                {
+                    obj = new jss(obj1, obj2);
+                }
+            } else
+            {
+                obj = new jsu(obj1, obj2, jss1);
+            }
+            ajss[l] = ((jss) (obj));
+            aobj[j] = ((java.util.Map.Entry) (obj));
+            a(obj1, ((java.util.Map.Entry) (obj)), jss1);
+            j++;
+        }
+        return new jxk(((java.util.Map.Entry []) (aobj)), ajss, k);
+    }
+
+    static void a(Object obj, java.util.Map.Entry entry, jss jss1)
+    {
+        while (jss1 != null) 
+        {
+            boolean flag;
+            if (!obj.equals(jss1.getKey()))
+            {
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+            a(flag, "key", entry, ((java.util.Map.Entry) (jss1)));
+            jss1 = jss1.a();
+        }
+    }
+
+    jth e()
+    {
+        return new jsx(this, b);
+    }
+
+    public Object get(Object obj)
+    {
+        return a(obj, c, d);
+    }
+
+    public int size()
+    {
+        return b.length;
     }
 }

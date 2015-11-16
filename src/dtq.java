@@ -2,53 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.util.SparseArray;
-import java.util.ArrayList;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 
-final class dtq extends gbm
+final class dtq extends Thread
 {
 
-    private static final SparseArray a;
-    private static final int b[] = {
-        5
-    };
-    private static final SparseArray c;
-    private final String d;
+    final Context a;
 
-    dtq(String s)
+    dtq(Context context)
     {
-        super(g.nS, b, c, a);
-        d = s;
+        a = context;
+        super();
     }
 
-    protected ArrayList a()
+    public void run()
     {
-        return null;
-    }
-
-    protected void a(ahf ahf1)
-    {
-        super.a(ahf1);
-        ahf1.a("plid", d);
-    }
-
-    protected void a(jew jew1)
-    {
-        super.a(jew1);
-        jew1.a = new jev();
-        jew1.a.e = d;
-    }
-
-    static 
-    {
-        SparseArray sparsearray = new SparseArray();
-        sparsearray.put(5, "start_call");
-        a = sparsearray;
-        sparsearray = new SparseArray();
-        sparsearray.put(200, "fpnst");
-        sparsearray.put(201, "fpnsu");
-        sparsearray.put(202, "fpnf");
-        sparsearray.put(203, "fpnt");
-        c = sparsearray;
+        Configuration configuration = a.getResources().getConfiguration();
+        int i = configuration.mcc;
+        int j = configuration.mnc;
+        eev.e("Babel_SMS", (new StringBuilder(43)).append("MmsConfig: mnc/mcc: ").append(i).append("/").append(j).toString());
+        dtp.b(a);
     }
 }

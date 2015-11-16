@@ -3,8 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface hiq
+public final class hiq
 {
 
-    public abstract boolean a();
+    public hiq()
+    {
+    }
 }

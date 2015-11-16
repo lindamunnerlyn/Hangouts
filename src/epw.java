@@ -2,12 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Parcel;
+import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.common.internal.AuthAccountRequest;
 
-final class epw
+public final class epw
+    implements android.os.Parcelable.Creator
 {
 
-    static final eox a[] = {
-        new epx(eox.a("0\202\003\3150\202\002\265\240\003\002\001\002\002\t\000\354/]\231\355|B\1770")), new epy(eox.a("0\202\003\3150\202\002\265\240\003\002\001\002\002\t\000\231Eq\216\215\342\200\2240"))
-    };
+    public epw()
+    {
+    }
 
+    public Object createFromParcel(Parcel parcel)
+    {
+        Scope ascope[] = null;
+        int j = g.a(parcel);
+        int i = 0;
+        android.os.IBinder ibinder = null;
+        do
+        {
+            if (parcel.dataPosition() < j)
+            {
+                int k = parcel.readInt();
+                switch (0xffff & k)
+                {
+                default:
+                    g.b(parcel, k);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, k);
+                    break;
+
+                case 2: // '\002'
+                    ibinder = g.j(parcel, k);
+                    break;
+
+                case 3: // '\003'
+                    ascope = (Scope[])g.b(parcel, k, Scope.CREATOR);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != j)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
+            } else
+            {
+                return new AuthAccountRequest(i, ibinder, ascope);
+            }
+        } while (true);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new AuthAccountRequest[i];
+    }
 }

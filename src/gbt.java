@@ -2,34 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.graphics.Bitmap;
+import com.google.android.gms.common.data.BitmapTeleporter;
+import com.google.android.gms.feedback.FeedbackOptions;
 
-final class gbt
-    implements Runnable
+public class gbt
 {
 
-    final gbs a;
+    public FeedbackOptions a;
 
-    gbt(gbs gbs1)
+    public gbt(FeedbackOptions feedbackoptions)
     {
-        a = gbs1;
-        super();
+        a = feedbackoptions;
     }
 
-    public void run()
+    public Bitmap a()
     {
-        gkc.b("vclib", "Getting new token.");
-        ggi ggi1 = gbs.a(a).a();
-        if (ggi1 != null)
-        {
-            ggi1.b(gbs.b(a), gbs.c(a));
-            gbs.a(a, new gby(a, ggi1, false, null));
-            gbs.d(a).a(new Void[0]);
-            g.a(this, gbs.f());
-            return;
-        } else
-        {
-            gkc.d("vclib", "Account name is null.");
-            return;
-        }
+        return a.g().a();
+    }
+
+    public FeedbackOptions b()
+    {
+        return a;
     }
 }

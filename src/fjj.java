@@ -2,50 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
-import com.google.android.gms.maps.model.StreetViewPanoramaLocation;
+import android.os.Bundle;
+import android.os.IInterface;
+import com.google.android.gms.maps.GoogleMapOptions;
 
-final class fjj
-    implements fjh
+public interface fjj
+    extends IInterface
 {
 
-    private IBinder a;
+    public abstract fcw a(fcw fcw, fcw fcw1, Bundle bundle);
 
-    fjj(IBinder ibinder)
-    {
-        a = ibinder;
-    }
+    public abstract fjd a();
 
-    public void a(StreetViewPanoramaLocation streetviewpanoramalocation)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnStreetViewPanoramaChangeListener");
-        if (streetviewpanoramalocation == null)
-        {
-            break MISSING_BLOCK_LABEL_56;
-        }
-        parcel.writeInt(1);
-        streetviewpanoramalocation.writeToParcel(parcel, 0);
-_L1:
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        streetviewpanoramalocation;
-        parcel1.recycle();
-        parcel.recycle();
-        throw streetviewpanoramalocation;
-    }
+    public abstract void a(Bundle bundle);
 
-    public IBinder asBinder()
-    {
-        return a;
-    }
+    public abstract void a(fcw fcw, GoogleMapOptions googlemapoptions, Bundle bundle);
+
+    public abstract void a(fli fli);
+
+    public abstract void b();
+
+    public abstract void b(Bundle bundle);
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract boolean g();
 }

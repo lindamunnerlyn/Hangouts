@@ -3,34 +3,33 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.view.View;
-import java.util.Arrays;
 
-public final class n
+public class n
     implements a
 {
 
-    public static final int a = 0x7f0c025b;
-    public static final int b = 0x7f0c02c3;
-    public static final int c = 0x7f0c02c4;
-    public static final int d = 0x7f0205b3;
-    public static final int e = 0x7f0205ce;
-    public static final int f = 0x7f0205e3;
-    public static final int g = 0x7f0205e4;
-    public static final int h = 0x7f0205e9;
-    public static final int i = 0x7f020604;
-    public static final int j = 0x7f02060a;
-    public static final int k = 0x7f02060b;
-    public static final int l = 0x7f02061d;
-    public static final int m = 0x7f020622;
-    public static final int n = 0x7f020626;
-    public static final int o = 0x7f0c00ab;
-    public static final int p = 0x7f0c0080;
-    public static final int q = 0x7f0c0161;
-    public static final int r = 0x7f0c0081;
-    public static final int s = 0x7f090aa8;
-    public static final int t = 0x7f090aa7;
-    public static final int u = 0x7f090aa9;
-    public static final int v = 0x7f090aa6;
+    public static final int a = 0x7f0d0248;
+    public static final int b = 0x7f0d02b4;
+    public static final int c = 0x7f0d02b5;
+    public static final int d = 0x7f02058f;
+    public static final int e = 0x7f0205ab;
+    public static final int f = 0x7f0205c0;
+    public static final int g = 0x7f0205c1;
+    public static final int h = 0x7f0205c6;
+    public static final int i = 0x7f0205e1;
+    public static final int j = 0x7f0205e7;
+    public static final int k = 0x7f0205e8;
+    public static final int l = 0x7f0205fa;
+    public static final int m = 0x7f0205ff;
+    public static final int n = 0x7f020603;
+    public static final int o = 0x7f0d00ab;
+    public static final int p = 0x7f0d0080;
+    public static final int q = 0x7f0d0158;
+    public static final int r = 0x7f0d0081;
+    public static final int s = 0x7f0a0a80;
+    public static final int t = 0x7f0a0a7f;
+    public static final int u = 0x7f0a0a81;
+    public static final int v = 0x7f0a0a7e;
 
     n()
     {
@@ -50,7 +49,7 @@ public final class n
             {
                 if (j1 < 0)
                 {
-                    throw new IllegalArgumentException((new StringBuilder("negative size: ")).append(j1).toString());
+                    throw new IllegalArgumentException((new StringBuilder(26)).append("negative size: ").append(j1).toString());
                 }
                 s1 = a("%s (%s) must be less than size (%s)", new Object[] {
                     "index", Integer.valueOf(i1), Integer.valueOf(j1)
@@ -61,11 +60,6 @@ public final class n
         {
             return i1;
         }
-    }
-
-    public static transient int a(Object aobj[])
-    {
-        return Arrays.hashCode(aobj);
     }
 
     public static String a(int i1)
@@ -156,7 +150,7 @@ public final class n
         }
         if (j1 < 0)
         {
-            throw new IllegalArgumentException((new StringBuilder("negative size: ")).append(j1).toString());
+            throw new IllegalArgumentException((new StringBuilder(26)).append("negative size: ").append(j1).toString());
         } else
         {
             return a("%s (%s) must not be greater than size (%s)", new Object[] {
@@ -203,9 +197,9 @@ public final class n
         return stringbuilder.toString();
     }
 
-    public static jgz a(Object obj)
+    public static jnt a(Object obj)
     {
-        return new jgz(h.a(obj.getClass()));
+        return new jnt(obj.getClass().getSimpleName());
     }
 
     public static void a(int i1, int j1, int k1)

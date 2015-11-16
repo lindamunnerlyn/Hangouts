@@ -2,24 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
-import com.google.android.apps.hangouts.phone.ClassZeroActivity;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 
-public final class ckf
-    implements android.content.DialogInterface.OnClickListener
+public final class ckf extends Handler
 {
 
-    final ClassZeroActivity a;
+    private Handler a;
+    private SQLiteDatabase b;
 
-    public ckf(ClassZeroActivity classzeroactivity)
+    public ckf(SQLiteDatabase sqlitedatabase, Looper looper, Handler handler)
     {
-        a = classzeroactivity;
-        super();
+        super(looper);
+        a = handler;
+        b = sqlitedatabase;
     }
 
-    public void onClick(DialogInterface dialoginterface, int i)
+    public void handleMessage(Message message)
     {
-        dialoginterface.dismiss();
-        ClassZeroActivity.c(a);
+        switch (message.what)
+        {
+        default:
+            return;
+
+        case 1: // '\001'
+            anh.b(b);
+            break;
+        }
+        a.sendEmptyMessage(2);
     }
 }

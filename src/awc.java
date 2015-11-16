@@ -2,22 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
 
 final class awc
-    implements gov
+    implements baa
 {
 
-    final ave a;
+    final avv a;
 
-    awc(ave ave1)
+    awc(avv avv1)
     {
-        a = ave1;
+        a = avv1;
         super();
     }
 
-    public void a(int i, Intent intent)
+    public void a()
     {
-        g.a(ave.c(a), i, intent);
+        avv.S(a);
     }
 }

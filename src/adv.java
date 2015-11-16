@@ -3,21 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.text.TextUtils;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 public final class adv
-    implements adx
+    implements adz
 {
 
-    public final String a;
+    private final String a;
+    private final List b;
 
-    public adv(String s)
+    public adv(String s, List list)
     {
         a = s;
+        b = list;
     }
 
-    public adz a()
+    public aeb a()
     {
-        return adz.l;
+        return aeb.n;
     }
 
     public boolean equals(Object obj)
@@ -29,33 +34,83 @@ public final class adv
         if (!(obj instanceof adv))
         {
             return false;
-        } else
-        {
-            obj = (adv)obj;
-            return TextUtils.equals(a, ((adv) (obj)).a);
         }
+        obj = (adv)obj;
+        if (!TextUtils.equals(a, ((adv) (obj)).a))
+        {
+            return false;
+        }
+        if (b == null)
+        {
+            return ((adv) (obj)).b == null;
+        }
+        int j = b.size();
+        if (j != ((adv) (obj)).b.size())
+        {
+            return false;
+        }
+        for (int i = 0; i < j; i++)
+        {
+            if (!TextUtils.equals((CharSequence)b.get(i), (CharSequence)((adv) (obj)).b.get(i)))
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public int hashCode()
     {
+        int i;
+        int j;
         if (a != null)
         {
-            return a.hashCode();
+            i = a.hashCode();
         } else
         {
-            return 0;
+            i = 0;
         }
+        if (b != null)
+        {
+            Iterator iterator = b.iterator();
+            do
+            {
+                j = i;
+                if (!iterator.hasNext())
+                {
+                    break;
+                }
+                String s = (String)iterator.next();
+                if (s != null)
+                {
+                    j = s.hashCode();
+                } else
+                {
+                    j = 0;
+                }
+                i = j + i * 31;
+            } while (true);
+        } else
+        {
+            j = i;
+        }
+        return j;
     }
 
     public String toString()
     {
-        String s = String.valueOf(a);
-        if (s.length() != 0)
+        StringBuilder stringbuilder = new StringBuilder();
+        String s = a;
+        stringbuilder.append((new StringBuilder(String.valueOf(s).length() + 24)).append("android-custom: ").append(s).append(", data: ").toString());
+        if (b == null)
         {
-            return "birthday: ".concat(s);
+            s = "null";
         } else
         {
-            return new String("birthday: ");
+            s = Arrays.toString(b.toArray());
         }
+        stringbuilder.append(s);
+        return stringbuilder.toString();
     }
 }

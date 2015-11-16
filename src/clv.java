@@ -2,23 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.media.AudioManager;
 
-final class clv extends cmu
+public final class clv
 {
 
-    final AudioManager a;
-    final cls b;
+    gwv a;
+    isx b;
+    itm c;
+    iru d;
+    iqm e;
+    cst f;
 
-    clv(cls cls, String s, AudioManager audiomanager)
+    public clv()
     {
-        b = cls;
-        a = audiomanager;
-        super(s);
     }
 
-    public void a()
+    public clv a(iru iru1)
     {
-        a.setMicrophoneMute(true);
+        d = iru1;
+        return this;
+    }
+
+    public cqx a()
+    {
+        if (a == null)
+        {
+            a = new gwv();
+        }
+        if (b == null)
+        {
+            b = new isx();
+        }
+        if (c == null)
+        {
+            c = new itm();
+        }
+        if (d == null)
+        {
+            throw new IllegalStateException(String.valueOf(iru.getCanonicalName()).concat(" must be set"));
+        }
+        if (e == null)
+        {
+            e = new iqm();
+        }
+        if (f == null)
+        {
+            f = new cst();
+        }
+        return new clr(this);
     }
 }

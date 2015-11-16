@@ -5,9 +5,9 @@
 package com.google.api.client.http;
 
 import g;
-import hng;
-import hno;
-import hok;
+import hsc;
+import hsk;
+import htg;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -93,26 +93,26 @@ _L3:
 _L1:
         if ((obj instanceof Iterable) || obj.getClass().isArray())
         {
-            obj = getListPropertyValue(s1, g.e(obj).iterator(), flag1, ((CompositeOutput) (obj1)));
+            obj = getListPropertyValue(s1, g.f(obj).iterator(), flag1, ((CompositeOutput) (obj1)));
         } else
         if (obj.getClass().isEnum())
         {
-            obj1 = hno.a((Enum)obj).b();
+            obj1 = hsk.a((Enum)obj).b();
             if (obj1 != null)
             {
-                obj = hok.c(((String) (obj1)));
+                obj = htg.c(((String) (obj1)));
             }
         } else
-        if (!hng.d(obj))
+        if (!hsc.d(obj))
         {
             obj = getMapPropertyValue(s1, getMap(obj), flag1, ((CompositeOutput) (obj1)));
         } else
         if (((CompositeOutput) (obj1)).getReservedExpansion())
         {
-            obj = hok.d(obj.toString());
+            obj = htg.d(obj.toString());
         } else
         {
-            obj = hok.c(obj.toString());
+            obj = htg.c(obj.toString());
         }
           goto _L3
         if (true) goto _L2; else goto _L4
@@ -195,7 +195,7 @@ _L4:
         }
         if (flag && compositeoutput.requiresVarAssignment())
         {
-            stringbuilder.append(hok.c(s));
+            stringbuilder.append(htg.c(s));
             stringbuilder.append("=");
         }
         stringbuilder.append(compositeoutput.getEncodedValue(iterator.next().toString()));
@@ -209,7 +209,7 @@ _L2:
         s1 = s2;
         if (compositeoutput.requiresVarAssignment())
         {
-            stringbuilder.append(hok.c(s));
+            stringbuilder.append(htg.c(s));
             stringbuilder.append("=");
             s1 = s2;
         }
@@ -221,7 +221,7 @@ _L3:
     private static Map getMap(Object obj)
     {
         LinkedHashMap linkedhashmap = new LinkedHashMap();
-        obj = hng.b(obj).entrySet().iterator();
+        obj = hsc.b(obj).entrySet().iterator();
         do
         {
             if (!((Iterator) (obj)).hasNext())
@@ -230,7 +230,7 @@ _L3:
             }
             java.util.Map.Entry entry = (java.util.Map.Entry)((Iterator) (obj)).next();
             Object obj1 = entry.getValue();
-            if (obj1 != null && !hng.a(obj1))
+            if (obj1 != null && !hsc.a(obj1))
             {
                 linkedhashmap.put(entry.getKey(), obj1);
             }
@@ -255,7 +255,7 @@ _L3:
         {
             if (compositeoutput.requiresVarAssignment())
             {
-                stringbuilder.append(hok.c(s));
+                stringbuilder.append(htg.c(s));
                 stringbuilder.append("=");
             }
             s = ",";
@@ -319,10 +319,10 @@ _L3:
         {
             if (reservedExpansion)
             {
-                return hok.c(s);
+                return htg.c(s);
             } else
             {
-                return hok.a(s);
+                return htg.a(s);
             }
         }
 
@@ -370,8 +370,8 @@ _L3:
         {
             super(s, i);
             propertyPrefix = character;
-            outputPrefix = (String)h.b(s1);
-            explodeJoiner = (String)h.b(s2);
+            outputPrefix = (String)h.a(s1);
+            explodeJoiner = (String)h.a(s2);
             requiresVarAssignment = flag;
             reservedExpansion = flag1;
             if (character != null)

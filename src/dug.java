@@ -2,27 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.List;
+import android.os.Parcel;
 
 final class dug
-    implements Runnable
+    implements android.os.Parcelable.Creator
 {
 
-    final gmw a;
-    final cxi b;
-    final duf c;
-
-    dug(duf duf1, gmw gmw, cxi cxi)
+    dug()
     {
-        c = duf1;
-        a = gmw;
-        b = cxi;
-        super();
     }
 
-    public void run()
+    public Object createFromParcel(Parcel parcel)
     {
-        for (Iterator iterator = duf.a(c).iterator(); iterator.hasNext(); ((dha)iterator.next()).a(a, b)) { }
+        duf duf1 = new duf();
+        duf1.a = parcel.readString();
+        duf1.b = parcel.readString();
+        duf1.c = parcel.readInt();
+        duf1.d = parcel.readInt();
+        return duf1;
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new duf[i];
     }
 }

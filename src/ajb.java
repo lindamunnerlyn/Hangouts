@@ -2,28 +2,63 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 
 final class ajb
-    implements android.content.DialogInterface.OnCancelListener
+    implements dij
 {
 
-    final boolean a;
-    final aiy b;
+    private final ajc a;
+    private final Context b;
 
-    ajb(aiy aiy1, boolean flag)
+    ajb(Context context)
     {
-        b = aiy1;
-        a = flag;
-        super();
+        a = (ajc)hlp.a(context, ajc);
+        b = context;
     }
 
-    public void onCancel(DialogInterface dialoginterface)
+    public void a(grd grd1, czm czm1)
     {
-        if (a)
+        byte byte0 = 0;
+        boolean flag1 = true;
+        PackageManager packagemanager;
+        boolean flag;
+        int i;
+        if (czm1.n() == 2)
         {
-            b.a.finish();
+            flag = true;
+        } else
+        {
+            flag = false;
         }
-        b.b = null;
+        if (czm1.n() == 1)
+        {
+            byte0 = 1;
+        }
+        if (!flag && !byte0)
+        {
+            break MISSING_BLOCK_LABEL_112;
+        }
+        czm1 = czm1.o();
+        packagemanager = b.getPackageManager();
+        try
+        {
+            i = packagemanager.getPackageInfo(b.getPackageName(), 0).versionCode;
+        }
+        // Misplaced declaration of an exception variable
+        catch (grd grd1)
+        {
+            throw new AssertionError(grd1);
+        }
+        byte0 = flag1;
+        if (flag)
+        {
+            byte0 = 2;
+        }
+        grd1.b("app_upgrade_type", byte0);
+        grd1.b("app_upgrade_url", czm1);
+        grd1.b("app_upgrade_version_code", i);
     }
 }

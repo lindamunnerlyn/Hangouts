@@ -2,41 +2,56 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.ConditionVariable;
-import com.google.android.apps.hangouts.mergedcontacts.impl.MergeContactsService;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
 
-public final class cah extends dhh
+public final class cah extends hla
 {
 
-    public cwi a;
-    final MergeContactsService b;
-    private ConditionVariable c;
+    private hbi aj;
 
-    public cah(MergeContactsService mergecontactsservice, ConditionVariable conditionvariable)
+    public cah()
     {
-        b = mergecontactsservice;
-        super(mergecontactsservice.getApplicationContext());
-        c = conditionvariable;
     }
 
-    protected void a(dgu dgu1)
+    static void a(Context context, ap ap, int i, int j)
     {
-        a = (cwi)dgu1.c();
-        c.open();
+        Bundle bundle = new Bundle();
+        bundle.putString("title", context.getString(i));
+        bundle.putString("message", context.getString(j));
+        bundle.putString("positive", context.getString(l.hi));
+        bundle.putString("negative", context.getString(l.hj));
+        context = new cah();
+        context.setArguments(bundle);
+        context.a(ap, "error");
     }
 
-    protected void a(Exception exception)
+    protected void e(Bundle bundle)
     {
-        c.open();
+        super.e(bundle);
+        aj = (hbi)al.a(hbi);
     }
 
-    public void a(Collection collection, int i)
+    public void onCancel(DialogInterface dialoginterface)
     {
-        ArrayList arraylist = new ArrayList();
-        for (collection = collection.iterator(); collection.hasNext(); arraylist.add(dac.b((String)collection.next(), null))) { }
-        g.a(new cai(this, i, arraylist));
+        aj.c();
+    }
+
+    public void onClick(DialogInterface dialoginterface, int i)
+    {
+        switch (i)
+        {
+        default:
+            return;
+
+        case -1: 
+            aj.b();
+            return;
+
+        case -2: 
+            aj.c();
+            return;
+        }
     }
 }

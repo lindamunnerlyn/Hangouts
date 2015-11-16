@@ -8,31 +8,31 @@ import android.content.Intent;
 import android.os.Bundle;
 import ap;
 import bg;
-import cqb;
+import crs;
 import g;
-import gng;
-import hhw;
+import grn;
+import hmo;
 import w;
 
-public class PhoneVerificationActivity extends hhw
+public class PhoneVerificationActivity extends hmo
 {
 
     public PhoneVerificationActivity()
     {
-        (new gng(this, l)).a(k);
+        (new grn(this, l)).a(k);
     }
 
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.nW);
+        setContentView(g.nY);
         if (bundle != null)
         {
             return;
         } else
         {
-            bundle = new cqb(getIntent().getBooleanExtra("from_settings", false));
-            bg bg1 = t_().a();
+            bundle = new crs(getIntent().getBooleanExtra("from_settings", false));
+            bg bg1 = u_().a();
             bg1.a(w.n, bundle.a());
             bg1.b();
             return;

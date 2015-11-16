@@ -2,26 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.ConcurrentHashMap;
+import android.content.Context;
+import android.widget.TextView;
 
-final class dlh extends dgp
+final class dlh extends TextView
 {
 
     final dlg a;
 
-    dlh(dlg dlg1)
+    dlh(dlg dlg, Context context)
     {
-        a = dlg1;
-        super();
-    }
-
-    public void a(int i, ani ani, dgu dgu)
-    {
-        ani = (String)dlg.a(a).remove(Integer.valueOf(i));
-        if (ani != null)
-        {
-            a.d(ani);
-        }
-        dlg.b(a);
+        a = dlg;
+        super(context);
+        setText("Map from wakelock id to how long that wakelock has been held. Click a row to see the details of the intent holding the wakelock.");
+        setPadding(20, 20, 20, 20);
     }
 }

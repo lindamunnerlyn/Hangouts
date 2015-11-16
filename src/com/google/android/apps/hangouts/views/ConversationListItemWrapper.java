@@ -4,26 +4,26 @@
 
 package com.google.android.apps.hangouts.views;
 
-import aia;
+import aht;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import bya;
-import ecv;
-import edp;
-import edq;
+import bzd;
+import efx;
+import egr;
+import egs;
 import h;
 
 public class ConversationListItemWrapper extends LinearLayout
-    implements bya
+    implements bzd
 {
 
-    final Runnable a = new edp(this);
-    private int b;
-    private View c;
+    public View a;
+    final Runnable b = new egr(this);
+    private int c;
     private View d;
     private View e;
     private View f;
@@ -31,12 +31,7 @@ public class ConversationListItemWrapper extends LinearLayout
     public ConversationListItemWrapper(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
-        b = -1;
-    }
-
-    public static View a(ConversationListItemWrapper conversationlistitemwrapper)
-    {
-        return conversationlistitemwrapper.c;
+        c = -1;
     }
 
     public View a()
@@ -71,24 +66,24 @@ public class ConversationListItemWrapper extends LinearLayout
 
     public void a(View view)
     {
-        ((FrameLayout)findViewById(h.as)).addView(view);
-        c = view;
+        ((FrameLayout)findViewById(h.an)).addView(view);
+        a = view;
     }
 
     public boolean b()
     {
-        return c instanceof ecv;
+        return a instanceof efx;
     }
 
     public void c()
     {
-        Runnable runnable = a;
+        Runnable runnable = b;
         ObjectAnimator objectanimator = ObjectAnimator.ofInt(this, "animatedHeight", new int[] {
             getMeasuredHeight(), 0
         });
-        objectanimator.setInterpolator(new aia((byte)0));
+        objectanimator.setInterpolator(new aht((byte)0));
         objectanimator.setDuration(200L);
-        objectanimator.addListener(new edq(this, runnable));
+        objectanimator.addListener(new egs(this, runnable));
         objectanimator.start();
     }
 
@@ -99,14 +94,14 @@ public class ConversationListItemWrapper extends LinearLayout
 
     public View e()
     {
-        return c;
+        return a;
     }
 
     public void f()
     {
-        b = -1;
-        c.setTranslationX(0.0F);
-        c.setAlpha(1.0F);
+        c = -1;
+        a.setTranslationX(0.0F);
+        a.setAlpha(1.0F);
         setAlpha(1.0F);
         d();
     }
@@ -114,28 +109,28 @@ public class ConversationListItemWrapper extends LinearLayout
     public void onFinishInflate()
     {
         super.onFinishInflate();
-        d = findViewById(h.ap);
-        e = findViewById(h.aq);
-        f = findViewById(h.ar);
+        d = findViewById(h.ak);
+        e = findViewById(h.al);
+        f = findViewById(h.am);
     }
 
     protected void onMeasure(int i, int j)
     {
         super.onMeasure(i, j);
-        if (b == -1)
+        if (c == -1)
         {
             setMeasuredDimension(getMeasuredWidth(), getMeasuredHeight());
             return;
         } else
         {
-            setMeasuredDimension(getMeasuredWidth(), b);
+            setMeasuredDimension(getMeasuredWidth(), c);
             return;
         }
     }
 
     public void setAnimatedHeight(int i)
     {
-        b = i;
+        c = i;
         requestLayout();
     }
 }

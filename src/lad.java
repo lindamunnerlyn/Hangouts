@@ -3,89 +3,51 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lad extends koj
+public final class lad extends kwm
 {
 
-    public lcb a;
-    public laa b[];
-    public lae c[];
+    public String a;
+    public Long b;
+    public Long c;
+    public lab d;
+    public lab e;
 
     public lad()
     {
         a = null;
-        b = laa.a();
-        c = lae.a();
+        b = null;
+        c = null;
+        d = null;
+        e = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        boolean flag = false;
-        int i = super.computeSerializedSize();
-        int j = i;
-        if (a != null)
+        int j = super.computeSerializedSize() + kwk.b(1, a) + kwk.e(2, b.longValue()) + kwk.e(3, c.longValue());
+        int i = j;
+        if (d != null)
         {
-            j = i + koh.d(1, a);
+            i = j + kwk.d(4, d);
         }
-        i = j;
-        if (b != null)
+        j = i;
+        if (e != null)
         {
-            i = j;
-            if (b.length > 0)
-            {
-                i = j;
-                for (int k = 0; k < b.length;)
-                {
-                    laa laa1 = b[k];
-                    int i1 = i;
-                    if (laa1 != null)
-                    {
-                        i1 = i + koh.d(2, laa1);
-                    }
-                    k++;
-                    i = i1;
-                }
-
-            }
+            j = i + kwk.d(5, e);
         }
-        int j1 = i;
-        if (c != null)
-        {
-            j1 = i;
-            if (c.length > 0)
-            {
-                int l = ((flag) ? 1 : 0);
-                do
-                {
-                    j1 = i;
-                    if (l >= c.length)
-                    {
-                        break;
-                    }
-                    lae lae1 = c[l];
-                    j1 = i;
-                    if (lae1 != null)
-                    {
-                        j1 = i + koh.d(3, lae1);
-                    }
-                    l++;
-                    i = j1;
-                } while (true);
-            }
-        }
-        return j1;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -95,107 +57,49 @@ public final class lad extends koj
                 return this;
 
             case 10: // '\n'
-                if (a == null)
-                {
-                    a = new lcb();
-                }
-                kog1.a(a);
+                a = kwj1.j();
                 break;
 
-            case 18: // '\022'
-                int l = kou.b(kog1, 18);
-                laa alaa[];
-                int j;
-                if (b == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
-                }
-                alaa = new laa[l + j];
-                l = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, alaa, 0, j);
-                    l = j;
-                }
-                for (; l < alaa.length - 1; l++)
-                {
-                    alaa[l] = new laa();
-                    kog1.a(alaa[l]);
-                    kog1.a();
-                }
-
-                alaa[l] = new laa();
-                kog1.a(alaa[l]);
-                b = alaa;
+            case 16: // '\020'
+                b = Long.valueOf(kwj1.e());
                 break;
 
-            case 26: // '\032'
-                int i1 = kou.b(kog1, 26);
-                lae alae[];
-                int k;
-                if (c == null)
-                {
-                    k = 0;
-                } else
-                {
-                    k = c.length;
-                }
-                alae = new lae[i1 + k];
-                i1 = k;
-                if (k != 0)
-                {
-                    System.arraycopy(c, 0, alae, 0, k);
-                    i1 = k;
-                }
-                for (; i1 < alae.length - 1; i1++)
-                {
-                    alae[i1] = new lae();
-                    kog1.a(alae[i1]);
-                    kog1.a();
-                }
+            case 24: // '\030'
+                c = Long.valueOf(kwj1.e());
+                break;
 
-                alae[i1] = new lae();
-                kog1.a(alae[i1]);
-                c = alae;
+            case 34: // '"'
+                if (d == null)
+                {
+                    d = new lab();
+                }
+                kwj1.a(d);
+                break;
+
+            case 42: // '*'
+                if (e == null)
+                {
+                    e = new lab();
+                }
+                kwj1.a(e);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        boolean flag = false;
-        if (a != null)
+        kwk1.a(1, a);
+        kwk1.b(2, b.longValue());
+        kwk1.b(3, c.longValue());
+        if (d != null)
         {
-            koh1.b(1, a);
+            kwk1.b(4, d);
         }
-        if (b != null && b.length > 0)
+        if (e != null)
         {
-            for (int i = 0; i < b.length; i++)
-            {
-                laa laa1 = b[i];
-                if (laa1 != null)
-                {
-                    koh1.b(2, laa1);
-                }
-            }
-
+            kwk1.b(5, e);
         }
-        if (c != null && c.length > 0)
-        {
-            for (int j = ((flag) ? 1 : 0); j < c.length; j++)
-            {
-                lae lae1 = c[j];
-                if (lae1 != null)
-                {
-                    koh1.b(3, lae1);
-                }
-            }
-
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

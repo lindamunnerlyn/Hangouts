@@ -3,72 +3,74 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jbv extends koj
+public final class jbv extends kwm
 {
 
-    private static volatile jbv d[];
-    public String a;
-    public String b;
-    public String c;
+    public iza a;
+    public ixg b;
+    public Boolean c;
+    public Long d;
+    public String e;
+    public jdl responseHeader;
 
     public jbv()
     {
+        responseHeader = null;
         a = null;
         b = null;
         c = null;
+        d = null;
+        e = null;
         unknownFieldData = null;
         cachedSize = -1;
-    }
-
-    public static jbv[] a()
-    {
-        if (d == null)
-        {
-            synchronized (kon.a)
-            {
-                if (d == null)
-                {
-                    d = new jbv[0];
-                }
-            }
-        }
-        return d;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
     protected int computeSerializedSize()
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (a != null)
+        if (responseHeader != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.d(1, responseHeader);
         }
         j = i;
-        if (b != null)
+        if (d != null)
         {
-            j = i + koh.b(2, b);
+            j = i + kwk.d(2, d.longValue());
         }
         i = j;
+        if (e != null)
+        {
+            i = j + kwk.b(3, e);
+        }
+        j = i;
+        if (a != null)
+        {
+            j = i + kwk.d(4, a);
+        }
+        i = j;
+        if (b != null)
+        {
+            i = j + kwk.d(5, b);
+        }
+        j = i;
         if (c != null)
         {
-            i = j + koh.b(3, c);
+            c.booleanValue();
+            j = i + (kwk.f(6) + 1);
         }
-        return i;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -78,34 +80,70 @@ public final class jbv extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                if (responseHeader == null)
+                {
+                    responseHeader = new jdl();
+                }
+                kwj1.a(responseHeader);
                 break;
 
-            case 18: // '\022'
-                b = kog1.j();
+            case 16: // '\020'
+                d = Long.valueOf(kwj1.d());
                 break;
 
             case 26: // '\032'
-                c = kog1.j();
+                e = kwj1.j();
+                break;
+
+            case 34: // '"'
+                if (a == null)
+                {
+                    a = new iza();
+                }
+                kwj1.a(a);
+                break;
+
+            case 42: // '*'
+                if (b == null)
+                {
+                    b = new ixg();
+                }
+                kwj1.a(b);
+                break;
+
+            case 48: // '0'
+                c = Boolean.valueOf(kwj1.i());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
+        if (responseHeader != null)
+        {
+            kwk1.b(1, responseHeader);
+        }
+        if (d != null)
+        {
+            kwk1.a(2, d.longValue());
+        }
+        if (e != null)
+        {
+            kwk1.a(3, e);
+        }
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.b(4, a);
         }
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.b(5, b);
         }
         if (c != null)
         {
-            koh1.a(3, c);
+            kwk1.a(6, c.booleanValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

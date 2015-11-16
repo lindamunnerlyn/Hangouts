@@ -8,7 +8,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import dbf;
+import dcn;
 
 public class MmsWapPushReceiver extends BroadcastReceiver
 {
@@ -19,7 +19,7 @@ public class MmsWapPushReceiver extends BroadcastReceiver
 
     public void onReceive(Context context, Intent intent)
     {
-        if ("android.provider.Telephony.WAP_PUSH_RECEIVED".equals(intent.getAction()) && "application/vnd.wap.mms-message".equals(intent.getType()) && dbf.j())
+        if ("android.provider.Telephony.WAP_PUSH_RECEIVED".equals(intent.getAction()) && "application/vnd.wap.mms-message".equals(intent.getType()) && dcn.j())
         {
             RealTimeChatService.a(intent.getByteArrayExtra("data"));
         }

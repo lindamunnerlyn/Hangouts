@@ -2,33 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.IBinder;
+import android.os.Parcel;
 import com.google.android.gms.common.api.Status;
+import java.util.List;
 
-final class fez
-    implements fmd
+public final class fez
+    implements fex
 {
 
-    final Status a;
-    final fey b;
+    private IBinder a;
 
-    fez(fey fey, Status status)
+    public fez(IBinder ibinder)
     {
-        b = fey;
-        a = status;
-        super();
+        a = ibinder;
     }
 
-    public Status B_()
+    public void a(Status status, List list)
+    {
+        Parcel parcel = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.herrevad.internal.IConnectedNetworksQualityCallbacks");
+        if (status == null)
+        {
+            break MISSING_BLOCK_LABEL_49;
+        }
+        parcel.writeInt(1);
+        status.writeToParcel(parcel, 0);
+_L1:
+        parcel.writeTypedList(list);
+        a.transact(2, parcel, null, 1);
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        status;
+        parcel.recycle();
+        throw status;
+    }
+
+    public IBinder asBinder()
     {
         return a;
-    }
-
-    public void b()
-    {
-    }
-
-    public fqv c()
-    {
-        return null;
     }
 }

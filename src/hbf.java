@@ -6,12 +6,15 @@
 final class hbf
 {
 
-    final String a;
-    final long b;
+    final hbo a;
+    final Runnable b;
+    final hbd c;
 
-    hbf(String s, long l)
+    hbf(hbd hbd, hbo hbo1)
     {
-        a = s;
-        b = l;
+        c = hbd;
+        super();
+        a = (hbo)g.e(hbo1);
+        b = itp.a(new hbg(this, hbd, hbo1));
     }
 }

@@ -2,30 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
-import java.util.List;
+import android.view.Menu;
+import android.view.MenuItem;
 
-public final class csk
-    implements Serializable
+public interface csk
 {
 
-    private static final long serialVersionUID = 1L;
-    private String a;
-    private jlk b;
+    public abstract void a(csi csi, int i, boolean flag);
 
-    public csk(String s, List list)
-    {
-        a = s;
-        b = jlk.a(list);
-    }
+    public abstract boolean a(MenuItem menuitem);
 
-    public String a()
-    {
-        return a;
-    }
+    public abstract boolean a(csi csi, Menu menu);
 
-    public List b()
-    {
-        return b;
-    }
+    public abstract void b();
+
+    public abstract boolean b(csi csi, Menu menu);
 }

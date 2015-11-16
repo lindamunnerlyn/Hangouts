@@ -6,33 +6,7 @@
 final class cdv
 {
 
-    static final int a[];
-
-    static 
+    cdv()
     {
-        a = new int[cel.values().length];
-        try
-        {
-            a[cel.a.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror3) { }
-        try
-        {
-            a[cel.c.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[cel.d.ordinal()] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[cel.b.ordinal()] = 4;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
     }
 }

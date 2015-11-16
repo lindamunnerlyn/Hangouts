@@ -2,90 +2,109 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
 
-public final class lcu extends lct
+public final class lcu extends kwm
 {
 
-    private final File d;
-    private final String e;
-    private final String f;
+    public String a;
+    public String b;
+    public lcn c;
+    public String d;
 
-    public lcu(File file)
+    public lcu()
     {
-        this(file, "application/octet-stream", (byte)0);
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private lcu(File file, String s)
+    protected int computeSerializedSize()
     {
-        this(file, s, ((String) (null)));
-    }
-
-    private lcu(File file, String s, byte byte0)
-    {
-        this(file, s);
-    }
-
-    private lcu(File file, String s, String s1)
-    {
-        super(s);
-        if (file == null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            throw new IllegalArgumentException("File may not be null");
-        } else
-        {
-            d = file;
-            e = file.getName();
-            f = null;
-            return;
+            i = j + kwk.b(1, a);
         }
-    }
-
-    public void a(OutputStream outputstream)
-    {
-        FileInputStream fileinputstream;
-        if (outputstream == null)
+        j = i;
+        if (b != null)
         {
-            throw new IllegalArgumentException("Output stream may not be null");
+            j = i + kwk.b(2, b);
         }
-        fileinputstream = new FileInputStream(d);
-        byte abyte0[] = new byte[4096];
-_L1:
-        int i = fileinputstream.read(abyte0);
-        if (i == -1)
+        i = j;
+        if (c != null)
         {
-            break MISSING_BLOCK_LABEL_63;
+            i = j + kwk.d(3, c);
         }
-        outputstream.write(abyte0, 0, i);
-          goto _L1
-        outputstream;
-        fileinputstream.close();
-        throw outputstream;
-        outputstream.flush();
-        fileinputstream.close();
-        return;
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.b(4, d);
+        }
+        return j;
     }
 
-    public String b()
+    public kws mergeFrom(kwj kwj1)
     {
-        return f;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+
+            case 26: // '\032'
+                if (c == null)
+                {
+                    c = new lcn();
+                }
+                kwj1.a(c);
+                break;
+
+            case 34: // '"'
+                d = kwj1.j();
+                break;
+            }
+        } while (true);
     }
 
-    public String c()
+    public void writeTo(kwk kwk1)
     {
-        return "binary";
-    }
-
-    public long d()
-    {
-        return d.length();
-    }
-
-    public String e()
-    {
-        return e;
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.b(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d);
+        }
+        super.writeTo(kwk1);
     }
 }

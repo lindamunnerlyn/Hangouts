@@ -2,11 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
+import android.os.ParcelFileDescriptor;
+import com.google.android.gms.common.api.Status;
 
-public interface fig
-    extends IInterface
+final class fig
+    implements fpc
 {
 
-    public abstract void a();
+    final Status a;
+    final fif b;
+
+    fig(fif fif, Status status)
+    {
+        b = fif;
+        a = status;
+        super();
+    }
+
+    public Status D_()
+    {
+        return a;
+    }
+
+    public void b()
+    {
+    }
+
+    public ParcelFileDescriptor c()
+    {
+        return null;
+    }
+
+    public int d()
+    {
+        return 0;
+    }
+
+    public int e()
+    {
+        return 0;
+    }
 }

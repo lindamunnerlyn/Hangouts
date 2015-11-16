@@ -3,7 +3,7 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lap extends koj
+public final class lap extends kwm
 {
 
     public laq a[];
@@ -36,7 +36,7 @@ public final class lap extends koj
                     k = i;
                     if (laq1 != null)
                     {
-                        k = i + koh.d(1, laq1);
+                        k = i + kwk.d(1, laq1);
                     }
                     j++;
                     i = k;
@@ -46,15 +46,15 @@ public final class lap extends koj
         return k;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -64,7 +64,7 @@ public final class lap extends koj
                 return this;
 
             case 10: // '\n'
-                int k = kou.b(kog1, 10);
+                int k = kwx.a(kwj1, 10);
                 laq alaq[];
                 int j;
                 if (a == null)
@@ -84,19 +84,19 @@ public final class lap extends koj
                 for (; k < alaq.length - 1; k++)
                 {
                     alaq[k] = new laq();
-                    kog1.a(alaq[k]);
-                    kog1.a();
+                    kwj1.a(alaq[k]);
+                    kwj1.a();
                 }
 
                 alaq[k] = new laq();
-                kog1.a(alaq[k]);
+                kwj1.a(alaq[k]);
                 a = alaq;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null && a.length > 0)
         {
@@ -105,11 +105,11 @@ public final class lap extends koj
                 laq laq1 = a[i];
                 if (laq1 != null)
                 {
-                    koh1.b(1, laq1);
+                    kwk1.b(1, laq1);
                 }
             }
 
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

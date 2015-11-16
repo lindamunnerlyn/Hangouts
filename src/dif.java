@@ -2,138 +2,186 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.os.Bundle;
-import android.os.SystemClock;
+import android.app.Service;
+import android.os.Handler;
 
-public abstract class dif extends gqn
+public abstract class dif extends Service
 {
 
-    public final ani a;
-    public final String b;
-    private final long e;
+    private static final boolean a = false;
+    private final Handler b = new Handler();
+    private int c;
+    private boolean d;
+    private int e;
+    private final Object f = new Object();
+    private final Runnable g = new dig(this);
 
-    public dif(Context context, String s, ani ani1, String s1)
+    public dif()
     {
-        this(context, s, ani1, s1, g.a(g.nS, "babel_pending_message_failure_duration", 0x124f80L));
+        c = 0;
+        d = true;
+        e = 0;
     }
 
-    public dif(Context context, String s, ani ani1, String s1, long l)
+    static Object a(dif dif1)
     {
-        super(context, s);
-        a = ani1;
-        b = s1;
-        if (l > 0L)
-        {
-            l = SystemClock.elapsedRealtime() + l;
-        } else
-        {
-            l = -1L;
-        }
-        e = l;
+        return dif1.f;
     }
 
-    protected grk a()
+    static int b(dif dif1)
     {
-        Object obj;
-        if (g())
+        return dif1.c;
+    }
+
+    static int c(dif dif1)
+    {
+        return dif1.e;
+    }
+
+    static boolean i()
+    {
+        return a;
+    }
+
+    public abstract int a();
+
+    public String a(String s)
+    {
+        String s1 = String.valueOf(getClass().getName());
+        int j = c;
+        int k = e;
+        boolean flag = d;
+        return (new StringBuilder(String.valueOf(s1).length() + 75 + String.valueOf(s).length())).append("RefCountedService(").append(s1).append(") ").append(s).append(" (count=").append(j).append(", startId=").append(k).append(" stopped=").append(flag).append(")").toString();
+    }
+
+    public void a(int j)
+    {
+        synchronized (f)
         {
-            obj = String.valueOf(toString());
-            if (((String) (obj)).length() != 0)
+            e = j;
+            if (a)
             {
-                obj = "The task was cancelled:".concat(((String) (obj)));
-            } else
-            {
-                obj = new String("The task was cancelled:");
+                eev.b("Babel", a("Retain w/ startId"));
             }
-            ebw.c("Babel_SrvOpTask", ((String) (obj)));
-            obj = new grk(200, null, "canceled");
+            h();
+        }
+        return;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
+    public void d()
+    {
+        d = true;
+    }
+
+    public void h()
+    {
+        gdv.a();
+        if (!w_())
+        {
+            eev.g("Babel", a("Retain Failed"));
+            throw new IllegalStateException();
         } else
         {
-            if (e > 0L && e < SystemClock.elapsedRealtime())
+            return;
+        }
+    }
+
+    public void onCreate()
+    {
+        super.onCreate();
+        synchronized (f)
+        {
+            gdv.a(Integer.valueOf(0), Integer.valueOf(c));
+            d = false;
+            b.postDelayed(g, a());
+            if (a)
             {
-                obj = String.valueOf(toString());
-                if (((String) (obj)).length() != 0)
+                eev.b("Babel", a("onCreate"));
+            }
+        }
+        return;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
+    public void onDestroy()
+    {
+        super.onDestroy();
+        if (a)
+        {
+            eev.b("Babel", a("onDestroy"));
+        }
+    }
+
+    public boolean w_()
+    {
+label0:
+        {
+            synchronized (f)
+            {
+                if (!d)
                 {
-                    obj = "The task expired:".concat(((String) (obj)));
-                } else
-                {
-                    obj = new String("The task expired:");
+                    break label0;
                 }
-                ebw.f("Babel_SrvOpTask", ((String) (obj)));
-                return new grk(0, null, "expired");
-            }
-            try
-            {
-                c();
-            }
-            // Misplaced declaration of an exception variable
-            catch (Object obj)
-            {
-                String s = String.valueOf(toString());
-                String s2 = String.valueOf(obj);
-                ebw.g("Babel_SrvOpTask", (new StringBuilder(String.valueOf(s).length() + 37 + String.valueOf(s2).length())).append("The task ").append(s).append(" failed in local operations ").append(s2).toString());
-                return new grk(0, ((Exception) (obj)), "local failed");
-            }
-            obj = b();
-            if (obj == null)
-            {
-                obj = String.valueOf(toString());
-                if (((String) (obj)).length() != 0)
+                if (a)
                 {
-                    obj = "The task gets null server operation:".concat(((String) (obj)));
-                } else
-                {
-                    obj = new String("The task gets null server operation:");
+                    eev.b("Babel", a("Retain failed."));
                 }
-                ebw.c("Babel_SrvOpTask", ((String) (obj)));
-                return new grk(200, null, "no server op");
             }
-            grk grk1;
-            cvn cvn1;
-            try
-            {
-                ((ctp) (obj)).f();
-            }
-            catch (dbo dbo1)
-            {
-                String s1 = String.valueOf(toString());
-                String s3 = String.valueOf(obj);
-                String s4 = String.valueOf(dbo1);
-                ebw.g("Babel_SrvOpTask", (new StringBuilder(String.valueOf(s1).length() + 25 + String.valueOf(s3).length() + String.valueOf(s4).length())).append("The task ").append(s1).append(" failed in ").append(s3).append(" for ").append(s4).toString());
-            }
-            grk1 = new grk(((hdp) (obj)).k, ((hdp) (obj)).m, "server op result");
-            cvn1 = ((ctp) (obj)).e();
-            obj = grk1;
-            if (cvn1 != null)
-            {
-                grk1.d().putSerializable("response_header", cvn1.c);
-                return grk1;
-            }
+            return false;
         }
-        return ((grk) (obj));
+        c = c + 1;
+        if (a)
+        {
+            eev.b("Babel", a("Retain"));
+        }
+        b.removeCallbacks(g);
+        obj;
+        JVM INSTR monitorexit ;
+        return true;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public String a(String s, String s1)
+    public void x_()
     {
-        String s2;
-        int i;
-        long l;
-        if (a != null)
+        synchronized (f)
         {
-            i = a.h();
-        } else
-        {
-            i = -1;
+            c = c - 1;
+            if (a)
+            {
+                eev.b("Babel", a("Release"));
+            }
+            if (c < 0)
+            {
+                eev.g("Babel", a("Negative service count"));
+            }
+            if (c == 0)
+            {
+                if (a)
+                {
+                    eev.b("Babel", a("Idle"));
+                }
+                b.postDelayed(g, a());
+            }
         }
-        s2 = b;
-        l = e;
-        return (new StringBuilder(String.valueOf(s).length() + 80 + String.valueOf(s2).length() + String.valueOf(s1).length())).append(s).append(" [account=").append(i).append(", conversationId=").append(s2).append(", expirationMillis=").append(l).append(", ").append(s1).append("]").toString();
+        return;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public abstract ctp b();
-
-    public void c()
+    static 
     {
+        hnc hnc = eev.n;
     }
 }

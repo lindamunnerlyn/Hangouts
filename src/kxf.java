@@ -2,65 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Matrix;
-import java.util.ArrayList;
 
-final class kxf
+public final class kxf extends kwm
 {
 
-    String a;
-    String b;
-    boolean c;
-    float d;
-    float e;
-    float f;
-    float g;
-    float h;
-    float i;
-    float j;
-    ArrayList k;
-    ArrayList l;
-    Matrix m;
+    public String a;
 
-    kxf()
+    public kxf()
     {
-        k = new ArrayList();
-        l = new ArrayList();
-        m = null;
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public kxf a(kxf kxf1)
+    protected int computeSerializedSize()
     {
-        kxf kxf2;
-label0:
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            kxf2 = new kxf();
-            kxf2.a = kxf1.a;
-            kxf2.b = a;
-            kxf2.c = kxf1.c;
-            kxf2.d = kxf1.d;
-            kxf2.f = kxf1.f;
-            kxf2.e = kxf1.e;
-            kxf2.g = kxf1.g;
-            kxf2.h = kxf1.h;
-            kxf2.i = kxf1.i;
-            kxf2.j = kxf1.j;
-            kxf2.k = k;
-            kxf2.l = l;
-            kxf2.m = m;
-            if (kxf1.m != null)
-            {
-                if (m != null)
-                {
-                    break label0;
-                }
-                kxf2.m = kxf1.m;
-            }
-            return kxf2;
+            i = j + kwk.b(1, a);
         }
-        Matrix matrix = new Matrix(m);
-        matrix.preConcat(kxf1.m);
-        kxf2.m = matrix;
-        return kxf2;
+        return i;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        super.writeTo(kwk1);
     }
 }

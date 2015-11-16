@@ -2,36 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
-import java.util.List;
 
-public final class cuj
-    implements Serializable
+public class cuj extends cud
 {
 
     private static final long serialVersionUID = 1L;
-    public final String a;
-    public final List b;
 
-    public cuj(String s, List list)
+    public cuj()
     {
-        a = s;
-        b = list;
     }
 
-    public iva a()
+    public kws a(String s, int i, int j)
     {
-        iva iva1 = new iva();
-        iva1.a = ctq.a(a);
-        if (b != null && b.size() > 0)
-        {
-            iva1.b = new String[b.size()];
-            for (int i = 0; i < b.size(); i++)
-            {
-                iva1.b[i] = (String)b.get(i);
-            }
+        return new cue();
+    }
 
-        }
-        return iva1;
+    public String f()
+    {
+        return "users/@me/account";
+    }
+
+    public boolean h()
+    {
+        return false;
     }
 }

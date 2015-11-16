@@ -2,10 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-public interface btm
+final class btm
+    implements bpf
 {
 
-    public abstract btl a(Context context, hjm hjm);
+    final btf a;
+
+    btm(btf btf)
+    {
+        a = btf;
+        super();
+    }
+
+    public void a(bpm bpm)
+    {
+    }
+
+    public void a(gmt gmt)
+    {
+    }
 }

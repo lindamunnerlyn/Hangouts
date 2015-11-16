@@ -3,132 +3,40 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jub extends koj
+class jub extends Enum
 {
 
-    public jud a[];
-    public jua b;
+    public static final jub a;
+    public static final jub b;
+    public static final jub c;
+    public static final jub d;
+    public static final jub e;
+    private static final jub f[];
 
-    public jub()
+    jub(String s, int i)
     {
-        a = jud.a();
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s, i);
     }
 
-    protected int computeSerializedSize()
+    public static jub valueOf(String s)
     {
-        int i = super.computeSerializedSize();
-        int j = i;
-        if (a != null)
-        {
-            j = i;
-            if (a.length > 0)
-            {
-                int k = 0;
-                do
-                {
-                    j = i;
-                    if (k >= a.length)
-                    {
-                        break;
-                    }
-                    jud jud1 = a[k];
-                    j = i;
-                    if (jud1 != null)
-                    {
-                        j = i + koh.d(1, jud1);
-                    }
-                    k++;
-                    i = j;
-                } while (true);
-            }
-        }
-        i = j;
-        if (b != null)
-        {
-            i = j + koh.d(2, b);
-        }
-        return i;
+        return (jub)Enum.valueOf(jub, s);
     }
 
-    public kop mergeFrom(kog kog1)
+    public static jub[] values()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                jud ajud[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                ajud = new jud[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, ajud, 0, j);
-                    k = j;
-                }
-                for (; k < ajud.length - 1; k++)
-                {
-                    ajud[k] = new jud();
-                    kog1.a(ajud[k]);
-                    kog1.a();
-                }
-
-                ajud[k] = new jud();
-                kog1.a(ajud[k]);
-                a = ajud;
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new jua();
-                }
-                kog1.a(b);
-                break;
-            }
-        } while (true);
+        return (jub[])f.clone();
     }
 
-    public void writeTo(koh koh1)
+    static 
     {
-        if (a != null && a.length > 0)
-        {
-            for (int i = 0; i < a.length; i++)
-            {
-                jud jud1 = a[i];
-                if (jud1 != null)
-                {
-                    koh1.b(1, jud1);
-                }
-            }
-
-        }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        super.writeTo(koh1);
+        a = new juc("EXPLICIT");
+        b = new jud("REPLACED");
+        c = new jue("COLLECTED");
+        d = new juf("EXPIRED");
+        e = new jug("SIZE");
+        f = (new jub[] {
+            a, b, c, d, e
+        });
     }
 }

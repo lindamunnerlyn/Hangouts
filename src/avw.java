@@ -2,38 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.hangout.ProximityCoverView;
+import android.content.Intent;
 
 final class avw
-    implements edc
+    implements gtd
 {
 
-    final ave a;
+    final avv a;
 
-    avw(ave ave1)
+    avw(avv avv1)
     {
-        a = ave1;
+        a = avv1;
         super();
     }
 
-    public void a(int i)
+    public void a(int i, Intent intent)
     {
-        i;
-        JVM INSTR tableswitch 3 4: default 24
-    //                   3 42
-    //                   4 55;
-           goto _L1 _L2 _L3
-_L1:
-        ave.Y(a).c();
-_L5:
-        ave.Z(a);
-        return;
-_L2:
-        ave.Y(a).a();
-        continue; /* Loop/switch isn't completed */
-_L3:
-        ave.Y(a).b();
-        if (true) goto _L5; else goto _L4
-_L4:
+        if (i == 1)
+        {
+            a.getActivity().finish();
+        }
     }
 }

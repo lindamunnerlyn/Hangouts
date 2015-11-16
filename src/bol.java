@@ -2,18 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
+import com.google.android.apps.hangouts.hangout.FocusedParticipantView;
 
-final class bol
+public final class bol
+    implements android.view.View.OnClickListener
 {
 
-    bol()
+    final bqo a;
+    final FocusedParticipantView b;
+
+    public bol(FocusedParticipantView focusedparticipantview, bqo bqo1)
     {
+        b = focusedparticipantview;
+        a = bqo1;
+        super();
     }
 
-    public bvs[] a()
+    public void onClick(View view)
     {
-        return (new bvs[] {
-            new bom(this)
-        });
+        a.i();
+        eep.a(b, null, a.b(b.getContext()));
     }
 }

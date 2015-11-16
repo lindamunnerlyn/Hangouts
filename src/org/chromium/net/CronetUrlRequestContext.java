@@ -10,20 +10,19 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
 import android.util.Log;
-import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicInteger;
+import lmn;
 
 // Referenced classes of package org.chromium.net:
-//            UrlRequestContext, CronetLibraryLoader, UrlRequestContextConfig, CronetUrlRequest, 
-//            UrlRequestListener, UrlRequest
+//            UrlRequestContext, CronetLibraryLoader, UrlRequestContextConfig
 
 public class CronetUrlRequestContext extends UrlRequestContext
 {
 
-    private final Object a;
-    private final ConditionVariable b;
-    private final AtomicInteger c;
-    private long d;
+    public final Object a;
+    public long b;
+    private final ConditionVariable c;
+    private final AtomicInteger d;
     private Thread e;
 
     public CronetUrlRequestContext(Context context, UrlRequestContextConfig urlrequestcontextconfig)
@@ -32,17 +31,17 @@ public class CronetUrlRequestContext extends UrlRequestContext
         byte0 = 3;
         super();
         a = new Object();
-        b = new ConditionVariable(false);
-        c = new AtomicInteger(0);
-        d = 0L;
+        c = new ConditionVariable(false);
+        d = new AtomicInteger(0);
+        b = 0L;
         CronetLibraryLoader.a(context, urlrequestcontextconfig);
         if (!Log.isLoggable("ChromiumNetwork", 2)) goto _L2; else goto _L1
 _L1:
         byte0 = -2;
 _L4:
         nativeSetMinLogLevel(byte0);
-        d = nativeCreateRequestContextAdapter(urlrequestcontextconfig.toString());
-        if (d == 0L)
+        b = nativeCreateRequestContextAdapter(urlrequestcontextconfig.toString());
+        if (b == 0L)
         {
             throw new NullPointerException("Context Adapter creation failed.");
         }
@@ -54,7 +53,7 @@ _L2:
         }
         if (true) goto _L4; else goto _L3
 _L3:
-        context = new _cls1();
+        context = new lmn(this);
         if (Looper.getMainLooper() == Looper.myLooper())
         {
             context.run();
@@ -66,38 +65,9 @@ _L3:
         }
     }
 
-    static Object a(CronetUrlRequestContext croneturlrequestcontext)
-    {
-        return croneturlrequestcontext.a;
-    }
-
-    static void a(CronetUrlRequestContext croneturlrequestcontext, long l)
+    public static void a(CronetUrlRequestContext croneturlrequestcontext, long l)
     {
         croneturlrequestcontext.nativeInitRequestContextOnMainThread(l);
-    }
-
-    static long b(CronetUrlRequestContext croneturlrequestcontext)
-    {
-        return croneturlrequestcontext.d;
-    }
-
-    private void d()
-    {
-        boolean flag;
-        if (d != 0L)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        if (!flag)
-        {
-            throw new IllegalStateException("Context is shut down.");
-        } else
-        {
-            return;
-        }
     }
 
     private void initNetworkThread()
@@ -105,7 +75,7 @@ _L3:
         synchronized (a)
         {
             e = Thread.currentThread();
-            b.open();
+            c.open();
         }
         Thread.currentThread().setName("ChromiumNet");
         Process.setThreadPriority(10);
@@ -128,69 +98,8 @@ _L3:
 
     private native void nativeStopNetLog(long l);
 
-    public UrlRequest a(String s, UrlRequestListener urlrequestlistener, Executor executor)
-    {
-        synchronized (a)
-        {
-            d();
-            s = new CronetUrlRequest(this, s, urlrequestlistener, executor);
-        }
-        return s;
-        s;
-        obj;
-        JVM INSTR monitorexit ;
-        throw s;
-    }
-
     void a()
     {
-        c.incrementAndGet();
+        d.decrementAndGet();
     }
-
-    void b()
-    {
-        c.decrementAndGet();
-    }
-
-    long c()
-    {
-        long l;
-        synchronized (a)
-        {
-            d();
-            l = d;
-        }
-        return l;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
-    private class _cls1
-        implements Runnable
-    {
-
-        final CronetUrlRequestContext a;
-
-        public void run()
-        {
-            synchronized (CronetUrlRequestContext.a(a))
-            {
-                CronetUrlRequestContext.a(a, CronetUrlRequestContext.b(a));
-            }
-            return;
-            exception;
-            obj;
-            JVM INSTR monitorexit ;
-            throw exception;
-        }
-
-        _cls1()
-        {
-            a = CronetUrlRequestContext.this;
-            super();
-        }
-    }
-
 }

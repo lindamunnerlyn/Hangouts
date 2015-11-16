@@ -2,117 +2,142 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.IOException;
+import java.util.Arrays;
 
-public final class kws extends koj
+public abstract class kws
 {
 
-    private static volatile kws d[];
-    public Integer a;
-    public Boolean b;
-    public kwt c;
+    public volatile int cachedSize;
 
     public kws()
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
         cachedSize = -1;
     }
 
-    public static kws[] a()
+    public static final kws mergeFrom(kws kws1, byte abyte0[])
     {
-        if (d == null)
+        return mergeFrom(kws1, abyte0, 0, abyte0.length);
+    }
+
+    public static final kws mergeFrom(kws kws1, byte abyte0[], int i, int j)
+    {
+        try
         {
-            synchronized (kon.a)
+            abyte0 = kwj.a(abyte0, i, j);
+            kws1.mergeFrom(((kwj) (abyte0)));
+            abyte0.a(0);
+        }
+        // Misplaced declaration of an exception variable
+        catch (kws kws1)
+        {
+            throw kws1;
+        }
+        // Misplaced declaration of an exception variable
+        catch (kws kws1)
+        {
+            throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).");
+        }
+        return kws1;
+    }
+
+    public static final boolean messageNanoEquals(kws kws1, kws kws2)
+    {
+        boolean flag1 = false;
+        boolean flag;
+        if (kws1 == kws2)
+        {
+            flag = true;
+        } else
+        {
+            flag = flag1;
+            if (kws1 != null)
             {
-                if (d == null)
+                flag = flag1;
+                if (kws2 != null)
                 {
-                    d = new kws[0];
+                    flag = flag1;
+                    if (kws1.getClass() == kws2.getClass())
+                    {
+                        int i = kws1.getSerializedSize();
+                        flag = flag1;
+                        if (kws2.getSerializedSize() == i)
+                        {
+                            byte abyte0[] = new byte[i];
+                            byte abyte1[] = new byte[i];
+                            toByteArray(kws1, abyte0, 0, i);
+                            toByteArray(kws2, abyte1, 0, i);
+                            return Arrays.equals(abyte0, abyte1);
+                        }
+                    }
                 }
             }
         }
-        return d;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return flag;
     }
 
-    protected int computeSerializedSize()
+    public static final void toByteArray(kws kws1, byte abyte0[], int i, int j)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        try
         {
-            i = j + koh.e(1, a.intValue());
+            abyte0 = kwk.a(abyte0, i, j);
+            kws1.writeTo(abyte0);
+            abyte0.a();
+            return;
         }
-        j = i;
-        if (b != null)
+        // Misplaced declaration of an exception variable
+        catch (kws kws1)
         {
-            b.booleanValue();
-            j = i + (koh.f(2) + 1);
+            throw new RuntimeException("Serializing to a byte array threw an IOException (should never happen).", kws1);
         }
-        i = j;
-        if (c != null)
+    }
+
+    public static final byte[] toByteArray(kws kws1)
+    {
+        byte abyte0[] = new byte[kws1.getSerializedSize()];
+        toByteArray(kws1, abyte0, 0, abyte0.length);
+        return abyte0;
+    }
+
+    public volatile Object clone()
+    {
+        return clone();
+    }
+
+    public kws clone()
+    {
+        return (kws)super.clone();
+    }
+
+    public int computeSerializedSize()
+    {
+        return 0;
+    }
+
+    public int getCachedSize()
+    {
+        if (cachedSize < 0)
         {
-            i = j + koh.d(3, c);
+            getSerializedSize();
         }
+        return cachedSize;
+    }
+
+    public int getSerializedSize()
+    {
+        int i = computeSerializedSize();
+        cachedSize = i;
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public abstract kws mergeFrom(kwj kwj1);
+
+    public String toString()
     {
-_L6:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 4: default 48
-    //                   0: 57
-    //                   8: 59
-    //                   16: 102
-    //                   26: 116;
-           goto _L1 _L2 _L3 _L4 _L5
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L6; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
-        {
-        case 0: // '\0'
-        case 1: // '\001'
-            a = Integer.valueOf(j);
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        b = Boolean.valueOf(kog1.i());
-        continue; /* Loop/switch isn't completed */
-_L5:
-        if (c == null)
-        {
-            c = new kwt();
-        }
-        kog1.a(c);
-        if (true) goto _L6; else goto _L7
-_L7:
+        return g.a(this);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
-        {
-            koh1.a(1, a.intValue());
-        }
-        if (b != null)
-        {
-            koh1.a(2, b.booleanValue());
-        }
-        if (c != null)
-        {
-            koh1.b(3, c);
-        }
-        super.writeTo(koh1);
     }
 }

@@ -2,10 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Map;
+import android.util.Property;
+import android.view.View;
 
-public interface gut
+final class gut extends Property
 {
 
-    public abstract Map a();
+    gut(Class class1, String s)
+    {
+        super(class1, s);
+    }
+
+    public Object get(Object obj)
+    {
+        return Float.valueOf(((View)obj).getWidth());
+    }
+
+    public void set(Object obj, Object obj1)
+    {
+        View view = (View)obj;
+        obj1 = (Float)obj1;
+        obj = view.getLayoutParams();
+        if (obj == null)
+        {
+            obj = new android.view.ViewGroup.LayoutParams(((Float) (obj1)).intValue(), -2);
+        } else
+        {
+            obj.width = ((Float) (obj1)).intValue();
+        }
+        view.setLayoutParams(((android.view.ViewGroup.LayoutParams) (obj)));
+        view.requestLayout();
+    }
 }

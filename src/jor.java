@@ -2,75 +2,97 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.collect.MapMakerInternalMap;
 
-public final class jor extends joo
-    implements com.google.common.collect.MapMakerInternalMap.ReferenceEntry
+public class jor
+    implements com.google.common.cache.LocalCache.ReferenceEntry
 {
 
-    volatile long e;
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry f;
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry g;
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry h;
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry i;
-
-    jor(Object obj, int j, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    jor()
     {
-        super(obj, j, referenceentry);
-        e = 0x7fffffffffffffffL;
-        f = MapMakerInternalMap.h();
-        g = MapMakerInternalMap.h();
-        h = MapMakerInternalMap.h();
-        i = MapMakerInternalMap.h();
     }
 
-    public long getExpirationTime()
+    public long getAccessTime()
     {
-        return e;
+        throw new UnsupportedOperationException();
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextEvictable()
+    public int getHash()
     {
-        return h;
+        throw new UnsupportedOperationException();
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextExpirable()
+    public Object getKey()
     {
-        return f;
+        throw new UnsupportedOperationException();
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousEvictable()
+    public com.google.common.cache.LocalCache.ReferenceEntry getNext()
     {
-        return i;
+        throw new UnsupportedOperationException();
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousExpirable()
+    public com.google.common.cache.LocalCache.ReferenceEntry getNextInAccessQueue()
     {
-        return g;
+        throw new UnsupportedOperationException();
     }
 
-    public void setExpirationTime(long l)
+    public com.google.common.cache.LocalCache.ReferenceEntry getNextInWriteQueue()
     {
-        e = l;
+        throw new UnsupportedOperationException();
     }
 
-    public void setNextEvictable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInAccessQueue()
     {
-        h = referenceentry;
+        throw new UnsupportedOperationException();
     }
 
-    public void setNextExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInWriteQueue()
     {
-        f = referenceentry;
+        throw new UnsupportedOperationException();
     }
 
-    public void setPreviousEvictable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    public jpw getValueReference()
     {
-        i = referenceentry;
+        throw new UnsupportedOperationException();
     }
 
-    public void setPreviousExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    public long getWriteTime()
     {
-        g = referenceentry;
+        throw new UnsupportedOperationException();
+    }
+
+    public void setAccessTime(long l)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setNextInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setNextInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setPreviousInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setPreviousInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setValueReference(jpw jpw)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setWriteTime(long l)
+    {
+        throw new UnsupportedOperationException();
     }
 }

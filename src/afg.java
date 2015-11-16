@@ -3,15 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class afg extends afb
+public final class afg extends afh
 {
 
     public afg()
     {
-    }
-
-    public afg(String s)
-    {
-        super(s);
     }
 }

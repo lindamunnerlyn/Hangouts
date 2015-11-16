@@ -2,47 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import java.io.Serializable;
 
-final class dmf
-    implements eka
+public interface dmf
+    extends Serializable
 {
 
-    final dme a;
+    public abstract void a(int i);
 
-    dmf(dme dme1)
-    {
-        a = dme1;
-        super();
-    }
+    public abstract void b(String s);
 
-    public void a(int i)
-    {
-        ebw.c("Babel", "Google API client disconnected.");
-    }
+    public abstract int k();
 
-    public void a_(Bundle bundle)
-    {
-label0:
-        {
-            synchronized (dme.a(a))
-            {
-                if (!dme.b(a))
-                {
-                    break label0;
-                }
-            }
-            return;
-        }
-        ebw.c("Babel", "Google API client connected.");
-        fmn.m.a(dme.c(a), dme.d(a), "gms_people_cache_account", null, 8);
-        dme.e(a);
-        bundle;
-        JVM INSTR monitorexit ;
-        return;
-        exception;
-        bundle;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
+    public abstract cdl m();
 }

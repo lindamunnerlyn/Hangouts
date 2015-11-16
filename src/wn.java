@@ -4,76 +4,124 @@
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.graphics.drawable.Drawable;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.widget.CheckBox;
+import android.view.View;
 
-public final class wn extends CheckBox
-    implements pj
+final class wn
 {
 
-    private vi a;
-    private wp b;
+    private final View a;
+    private final vk b;
+    private vj c;
+    private vj d;
 
-    public wn(Context context, AttributeSet attributeset)
+    wn(View view, vk vk1)
     {
-        this(context, attributeset, g.w);
+        a = view;
+        b = vk1;
     }
 
-    private wn(Context context, AttributeSet attributeset, int i)
+    private void b(ColorStateList colorstatelist)
     {
-        super(context, attributeset, i);
-        a = vi.a(context);
-        b = new wp(this, a);
-        b.a(attributeset, i);
-    }
-
-    public void a(ColorStateList colorstatelist)
-    {
-        if (b != null)
+        if (colorstatelist != null)
         {
-            b.a(colorstatelist);
-        }
-    }
-
-    public void a(android.graphics.PorterDuff.Mode mode)
-    {
-        if (b != null)
-        {
-            b.a(mode);
-        }
-    }
-
-    public int getCompoundPaddingLeft()
-    {
-        int j = super.getCompoundPaddingLeft();
-        int i = j;
-        if (b != null)
-        {
-            i = b.a(j);
-        }
-        return i;
-    }
-
-    public void setButtonDrawable(int i)
-    {
-        Drawable drawable;
-        if (a != null)
-        {
-            drawable = a.a(i);
+            if (c == null)
+            {
+                c = new vj();
+            }
+            c.a = colorstatelist;
+            c.d = true;
         } else
         {
-            drawable = ef.a(getContext(), i);
+            c = null;
         }
-        setButtonDrawable(drawable);
+        b();
     }
 
-    public void setButtonDrawable(Drawable drawable)
+    void a()
     {
-        super.setButtonDrawable(drawable);
+        b(null);
+    }
+
+    void a(int i)
+    {
+        ColorStateList colorstatelist;
         if (b != null)
         {
-            b.a();
+            colorstatelist = b.b(i);
+        } else
+        {
+            colorstatelist = null;
+        }
+        b(colorstatelist);
+    }
+
+    void a(ColorStateList colorstatelist)
+    {
+        if (d == null)
+        {
+            d = new vj();
+        }
+        d.a = colorstatelist;
+        d.d = true;
+        b();
+    }
+
+    void a(android.graphics.PorterDuff.Mode mode)
+    {
+        if (d == null)
+        {
+            d = new vj();
+        }
+        d.b = mode;
+        d.c = true;
+        b();
+    }
+
+    void a(AttributeSet attributeset, int i)
+    {
+        attributeset = a.getContext().obtainStyledAttributes(attributeset, rq.cD, i, 0);
+        ColorStateList colorstatelist;
+        if (!attributeset.hasValue(rq.cE))
+        {
+            break MISSING_BLOCK_LABEL_52;
+        }
+        colorstatelist = b.b(attributeset.getResourceId(rq.cE, -1));
+        if (colorstatelist == null)
+        {
+            break MISSING_BLOCK_LABEL_52;
+        }
+        b(colorstatelist);
+        if (attributeset.hasValue(rq.cF))
+        {
+            kb.a(a, attributeset.getColorStateList(rq.cF));
+        }
+        if (attributeset.hasValue(rq.cG))
+        {
+            kb.a(a, g.a(attributeset.getInt(rq.cG, -1)));
+        }
+        attributeset.recycle();
+        return;
+        Exception exception;
+        exception;
+        attributeset.recycle();
+        throw exception;
+    }
+
+    void b()
+    {
+        if (a.getBackground() != null)
+        {
+            if (d != null)
+            {
+                vk.a(a, d);
+            } else
+            if (c != null)
+            {
+                vk.a(a, c);
+                return;
+            }
         }
     }
 }

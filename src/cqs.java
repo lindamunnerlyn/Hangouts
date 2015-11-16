@@ -2,46 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.ActionMode;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.os.Parcel;
 
-final class cqs
-    implements android.widget.AbsListView.MultiChoiceModeListener
+public final class cqs
+    implements hav
 {
 
-    final cqr a;
+    public static final android.os.Parcelable.Creator CREATOR = new cqt();
 
-    cqs(cqr cqr1)
+    public cqs()
     {
-        a = cqr1;
-        super();
     }
 
-    public boolean onActionItemClicked(ActionMode actionmode, MenuItem menuitem)
+    public boolean a(int i, grb grb)
     {
-        return a.a.a(menuitem);
+        return dcn.e(i).p();
     }
 
-    public boolean onCreateActionMode(ActionMode actionmode, Menu menu)
+    public int describeContents()
     {
-        a.b = actionmode;
-        return a.a.a(a, menu);
+        return 0;
     }
 
-    public void onDestroyActionMode(ActionMode actionmode)
+    public void writeToParcel(Parcel parcel, int i)
     {
-        a.a.b();
-        a.b = null;
     }
 
-    public void onItemCheckedStateChanged(ActionMode actionmode, int i, long l, boolean flag)
-    {
-        a.a.a(a, i, flag);
-    }
-
-    public boolean onPrepareActionMode(ActionMode actionmode, Menu menu)
-    {
-        return a.a.b(a, menu);
-    }
 }

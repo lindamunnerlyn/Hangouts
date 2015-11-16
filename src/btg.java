@@ -8,19 +8,22 @@ final class btg
     implements android.view.View.OnClickListener
 {
 
-    final bot a;
-    final btc b;
+    final bpc a;
+    final gmt b;
+    final btf c;
 
-    btg(btc btc, bot bot1)
+    btg(btf btf, bpc bpc1, gmt gmt1)
     {
-        b = btc;
-        a = bot1;
+        c = btf;
+        a = bpc1;
+        b = gmt1;
         super();
     }
 
     public void onClick(View view)
     {
-        g.b(1227);
-        a.l();
+        g.b(671);
+        view = a;
+        bpz.a(b.a()).a(view.e(), null);
     }
 }

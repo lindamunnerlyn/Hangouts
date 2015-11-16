@@ -4,8 +4,8 @@
 
 package com.google.api.client.http;
 
-import hnm;
-import hnn;
+import hsi;
+import hsj;
 
 // Referenced classes of package com.google.api.client.http:
 //            BackOffPolicy
@@ -19,7 +19,7 @@ public class ExponentialBackOffPolicy
     public static final int DEFAULT_MAX_INTERVAL_MILLIS = 60000;
     public static final double DEFAULT_MULTIPLIER = 1.5D;
     public static final double DEFAULT_RANDOMIZATION_FACTOR = 0.5D;
-    private final hnm exponentialBackOff;
+    private final hsi exponentialBackOff;
 
     public ExponentialBackOffPolicy()
     {
@@ -99,7 +99,7 @@ public class ExponentialBackOffPolicy
     private class Builder
     {
 
-        final hnn exponentialBackOffBuilder = new hnn();
+        final hsj exponentialBackOffBuilder = new hsj();
 
         public ExponentialBackOffPolicy build()
         {
@@ -126,7 +126,7 @@ public class ExponentialBackOffPolicy
             return exponentialBackOffBuilder.c;
         }
 
-        public final hny getNanoClock()
+        public final hsu getNanoClock()
         {
             return exponentialBackOffBuilder.f;
         }
@@ -160,9 +160,9 @@ public class ExponentialBackOffPolicy
             return this;
         }
 
-        public Builder setNanoClock(hny hny)
+        public Builder setNanoClock(hsu hsu)
         {
-            exponentialBackOffBuilder.a(hny);
+            exponentialBackOffBuilder.a(hsu);
             return this;
         }
 

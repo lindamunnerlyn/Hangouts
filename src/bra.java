@@ -2,49 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.CheckBox;
+import android.widget.TextView;
+import com.google.android.apps.hangouts.hangout.HangoutActivity;
+import com.google.android.apps.hangouts.hangout.HangoutFragment;
 
-public final class bra extends RelativeLayout
-    implements brd
+public final class bra extends ac
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    private brb a;
+    private CheckBox aj;
 
-    public bra(Context context, int i, android.widget.RelativeLayout.LayoutParams layoutparams, boolean flag)
+    public bra()
     {
-        super(context);
-        context = (ImageView)LayoutInflater.from(context).inflate(g.gg, this, true).findViewById(h.er);
-        context.setImageResource(i);
-        context.setLayoutParams(layoutparams);
-        if (flag)
-        {
-            i = 0;
-        } else
-        {
-            i = 8;
-        }
-        setVisibility(i);
     }
 
-    public View a()
+    public Dialog a(Bundle bundle)
     {
-        return this;
+        bundle = new android.app.AlertDialog.Builder(getActivity());
+        bundle.setTitle(l.ea);
+        View view = View.inflate(getActivity(), g.fY, null);
+        bundle.setView(view);
+        TextView textview = (TextView)view.findViewById(h.af);
+        Math.round(textview.getTextSize());
+        textview.setText(Html.fromHtml(getResources().getString(l.dZ), null, null));
+        aj = (CheckBox)view.findViewById(h.ag);
+        bundle.setPositiveButton(getActivity().getResources().getString(l.hd), this);
+        return bundle.create();
     }
 
-    public void a(brb brb1)
+    public void onCancel(DialogInterface dialoginterface)
     {
-        a = brb1;
+        ((HangoutActivity)getActivity()).p();
     }
 
-    public void a(gjr gjr)
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        if (a != null)
+        gdv.a(Integer.valueOf(i), Integer.valueOf(-1));
+        dialoginterface = (HangoutActivity)getActivity();
+        dialoginterface.o().e();
+        if (aj.isChecked())
         {
-            a.a(gjr);
+            aoc.k(getActivity(), dcn.e(((gqu)hlp.a(dialoginterface, gqu)).a()));
         }
     }
 }

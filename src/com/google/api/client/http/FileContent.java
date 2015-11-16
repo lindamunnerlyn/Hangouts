@@ -20,7 +20,7 @@ public final class FileContent extends AbstractInputStreamContent
     public FileContent(String s, File file1)
     {
         super(s);
-        file = (File)h.b(file1);
+        file = (File)h.a(file1);
     }
 
     public File getFile()

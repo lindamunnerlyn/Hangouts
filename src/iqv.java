@@ -2,119 +2,57 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
-public final class iqv extends koj
+public final class iqv
 {
 
-    private static volatile iqv d[];
-    public iqt a;
-    public Integer b;
-    public Long c;
+    private static final android.os.StrictMode.ThreadPolicy a = (new android.os.StrictMode.ThreadPolicy.Builder()).detectAll().penaltyDeath().penaltyLog().build();
+    private static final android.os.StrictMode.ThreadPolicy b = (new android.os.StrictMode.ThreadPolicy.Builder()).detectNetwork().penaltyDeath().penaltyLog().build();
 
-    public iqv()
+    static Executor a(kal kal1)
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        return kal1;
     }
 
-    public static iqv[] a()
+    static Executor a(kam kam1)
     {
-        if (d == null)
-        {
-            synchronized (kon.a)
-            {
-                if (d == null)
-                {
-                    d = new iqv[0];
-                }
-            }
-        }
-        return d;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return kam1;
     }
 
-    protected int computeSerializedSize()
+    static kam a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        ScheduledExecutorService scheduledexecutorservice = Executors.newScheduledThreadPool(Runtime.getRuntime().availableProcessors(), (new kat()).a().a("Lightweight Thread #%d").a(new iqw()).b());
+        if (scheduledexecutorservice instanceof kam)
         {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
+            return (kam)scheduledexecutorservice;
+        } else
         {
-            j = i + koh.e(2, b.intValue());
+            return new kap(scheduledexecutorservice);
         }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.longValue());
-        }
-        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    static kal b()
     {
-_L6:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 4: default 48
-    //                   0: 57
-    //                   10: 59
-    //                   16: 88
-    //                   24: 158;
-           goto _L1 _L2 _L3 _L4 _L5
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L6; else goto _L2
-_L2:
-        return this;
-_L3:
-        if (a == null)
+        java.util.concurrent.ExecutorService executorservice = Executors.newCachedThreadPool((new kat()).a().a("Blocking Thread #%d").a(new iqy()).b());
+        if (executorservice instanceof kal)
         {
-            a = new iqt();
+            return (kal)executorservice;
         }
-        kog1.a(a);
-          goto _L6
-_L4:
-        int j = kog1.f();
-        switch (j)
+        if (executorservice instanceof ScheduledExecutorService)
         {
-        case 1: // '\001'
-        case 10: // '\n'
-        case 20: // '\024'
-        case 30: // '\036'
-        case 40: // '('
-            b = Integer.valueOf(j);
-            break;
+            return new kap((ScheduledExecutorService)executorservice);
+        } else
+        {
+            return new kao(executorservice);
         }
-        continue; /* Loop/switch isn't completed */
-_L5:
-        c = Long.valueOf(kog1.e());
-        if (true) goto _L6; else goto _L7
-_L7:
     }
 
-    public void writeTo(koh koh1)
+    static android.os.StrictMode.ThreadPolicy c()
     {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b.intValue());
-        }
-        if (c != null)
-        {
-            koh1.b(3, c.longValue());
-        }
-        super.writeTo(koh1);
+        return a;
     }
+
 }

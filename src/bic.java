@@ -3,8 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface bic
+final class bic
 {
 
-    public abstract void a(cey cey, String s, int i, long l);
+    static final int a[];
+
+    static 
+    {
+        a = new int[dsu.values().length];
+        try
+        {
+            a[dsu.d.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror) { }
+    }
 }

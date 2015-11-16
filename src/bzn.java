@@ -2,86 +2,122 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import android.content.Context;
+import android.content.res.Resources;
+import android.text.TextUtils;
+import android.util.TypedValue;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.google.android.gms.maps.GoogleMapOptions;
 
-public final class bzn extends hhu
-    implements bzg, gxh
+public final class bzn extends fiu
+    implements bzf
 {
 
-    private gwy a;
-    private gms b;
-    private int c;
+    private final int b = Math.round(TypedValue.applyDimension(1, 400F, getResources().getDisplayMetrics()));
 
-    public bzn()
+    public bzn(Context context)
     {
-        c = -1;
+        super(context, (new GoogleMapOptions()).a(g.a(g.nU, "babel_use_lite_mode_maps", dlb.f)));
     }
 
-    public void a()
+    private int a(int i, int j)
     {
-        ank.d(getContext(), dbf.e(c));
-        gmu gmu1 = b.a(c);
-        a.a(gmu1.b("account_name"), gmu1.b("effective_gaia_id"));
+        int k = i;
+        switch (j)
+        {
+        default:
+            k = b;
+            // fall through
+
+        case 1073741824: 
+            return k;
+
+        case -2147483648: 
+            return Math.min(b, i);
+        }
     }
 
-    public void a(int i)
+    public void a(ad ad, String s, String s1, double d1, double d2)
     {
-        gmu gmu1;
-        c = i;
-        gmu1 = b.a(i);
-        if (!bzl.a(gmu1))
+        super.a.a(null);
+        if (super.a.a() == null)
         {
-            break MISSING_BLOCK_LABEL_99;
+            Context context = getContext();
+            int i = emo.a(context);
+            String s3 = g.a(context, i, emo.e(context));
+            String s2 = g.d(context, i);
+            LinearLayout linearlayout = new LinearLayout(getContext());
+            linearlayout.setOrientation(1);
+            linearlayout.setLayoutParams(new android.widget.FrameLayout.LayoutParams(-2, -2));
+            addView(linearlayout);
+            TextView textview = new TextView(getContext());
+            textview.setLayoutParams(new android.widget.FrameLayout.LayoutParams(-2, -2));
+            textview.setText(s3);
+            linearlayout.addView(textview);
+            if (s2 != null)
+            {
+                Button button = new Button(context);
+                button.setLayoutParams(new android.widget.FrameLayout.LayoutParams(-2, -2));
+                button.setText(s2);
+                linearlayout.addView(button);
+                button.setOnClickListener(new fct(context, i));
+            }
         }
-        if (bzl.c(gmu1) || !bzl.d(gmu1)) goto _L2; else goto _L1
-_L1:
-        bzf.a(context, getChildFragmentManager());
-_L4:
-        return;
-_L2:
-        if (!bzl.d(gmu1))
+        super.a.b();
+        a(((fiy) (new bzo(this, d1, d2, s, s1, ad))));
+        ad = getResources();
+        if (!TextUtils.isEmpty(s1))
         {
-            bze.a(context, getChildFragmentManager(), l.hR, l.hQ);
-            return;
+            if (!TextUtils.isEmpty(s))
+            {
+                ad = ad.getString(g.mW, new Object[] {
+                    s, s1
+                });
+            } else
+            {
+                ad = ad.getString(g.mU, new Object[] {
+                    s1
+                });
+            }
+        } else
+        {
+            ad = ad.getString(g.mV);
         }
-        if (!bzl.e(gmu1)) goto _L4; else goto _L3
-_L3:
-        bze.a(context, getChildFragmentManager(), l.hT, l.hS);
-        return;
-        a.a(getString(l.sR));
-        return;
+        setContentDescription(ad);
+    }
+
+    public void a(String s)
+    {
     }
 
     public void b()
     {
-        a.c();
+        super.a.c();
+        super.a.d();
     }
 
-    protected void onAttachBinder(Bundle bundle)
+    public void c()
     {
-        super.onAttachBinder(bundle);
-        b = (gms)binder.a(gms);
-        a = (gwy)binder.a(gwy);
-        binder.a(bzg, this);
     }
 
-    public void onCreate(Bundle bundle)
+    public void d()
     {
-        super.onCreate(bundle);
-        if (bundle != null)
-        {
-            c = bundle.getInt("account_id");
-        }
     }
 
-    public void onDestroy()
+    public void h_()
     {
-        super.onDestroy();
     }
 
-    public void onSaveInstanceState(Bundle bundle)
+    public void onMeasure(int i, int j)
     {
-        super.onSaveInstanceState(bundle);
-        bundle.putInt("account_id", c);
+        int k = android.view.View.MeasureSpec.getSize(i);
+        int l = android.view.View.MeasureSpec.getSize(j);
+        i = android.view.View.MeasureSpec.getMode(i);
+        j = android.view.View.MeasureSpec.getMode(j);
+        i = android.view.View.MeasureSpec.makeMeasureSpec(Math.min(a(k, i), a(l, j)), 0x40000000);
+        super.onMeasure(i, i);
     }
 }

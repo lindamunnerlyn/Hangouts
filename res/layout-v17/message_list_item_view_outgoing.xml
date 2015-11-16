@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.apps.hangouts.views.MessageListItemView android:orientation="horizontal" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:importantForAccessibility="2"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="right" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:id="@id/out_of_bubble_attachment_frame" android:paddingLeft="12.0dip" android:paddingTop="0.0dip" android:paddingRight="12.0dip" android:paddingBottom="8.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <com.google.android.apps.hangouts.views.MessageBubbleView android:gravity="center_vertical" android:orientation="vertical" android:id="@id/message_bubble_view" android:paddingLeft="@dimen/message_bubble_padding_outside" android:paddingTop="@dimen/message_bubble_padding_top" android:paddingRight="@dimen/message_bubble_padding_inside" android:paddingBottom="@dimen/message_bubble_padding_bottom" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/message_bubble_margin_outside" android:layout_marginRight="@dimen/message_bubble_margin_inside" android:baselineAligned="false" android:importantForAccessibility="2" android:paddingStart="@dimen/message_bubble_padding_outside" android:paddingEnd="@dimen/message_bubble_padding_inside" android:layout_marginStart="@dimen/message_bubble_margin_outside" android:layout_marginEnd="@dimen/message_bubble_margin_inside">
+            <LinearLayout android:orientation="vertical" android:id="@id/attachmentFrame" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <com.google.android.apps.hangouts.views.WrapWidthTextView android:layout_gravity="left" android:id="@id/messageText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="400.0dip" android:importantForAccessibility="2" style="@style/RealTimeChat.Message.Text" />
+        </com.google.android.apps.hangouts.views.MessageBubbleView>
+        <FrameLayout android:paddingRight="@dimen/message_bubble_padding_inside" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/message_bubble_margin_inside" android:paddingEnd="@dimen/message_bubble_padding_inside" android:layout_marginEnd="@dimen/message_bubble_margin_inside">
+            <include android:id="@id/message_status" layout="@layout/message_status" />
+        </FrameLayout>
+    </LinearLayout>
+</com.google.android.apps.hangouts.views.MessageListItemView>

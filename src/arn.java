@@ -3,8 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface arn
+public final class arn extends anq
 {
 
-    public abstract void a(ark ark);
+    private final boolean d;
+
+    public arn(String s, boolean flag, doc doc)
+    {
+        super(dbi.b(s), doc);
+        d = flag;
+    }
+
+    public String e()
+    {
+        return a.d;
+    }
 }

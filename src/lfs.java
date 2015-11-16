@@ -3,54 +3,56 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class lfs extends lfw
+public final class lfs
+    implements joj
 {
 
-    protected lfs(lcz lcz, int i)
+    private static final Object a = new Object();
+    private final joj b;
+    private volatile Object c;
+
+    private lfs(joj joj1)
     {
-        super(lcz, i, false, i);
+        c = a;
+        b = joj1;
     }
 
-    public int a(lgf lgf, String s, int i)
+    public static joj a(joj joj1)
     {
-        int l = super.a(lgf, s, i);
-        if (l >= 0) goto _L2; else goto _L1
-_L1:
-        int k;
-        return l;
-_L2:
-        int j;
-label0:
+        if (joj1 == null)
         {
-            if (l == (k = b + i))
-            {
-                continue; /* Loop/switch isn't completed */
-            }
-            j = k;
-            if (!c)
-            {
-                break label0;
-            }
-            i = s.charAt(i);
-            if (i != 45)
-            {
-                j = k;
-                if (i != 43)
-                {
-                    break label0;
-                }
-            }
-            j = k + 1;
-        }
-        if (l > j)
+            throw new NullPointerException();
+        } else
         {
-            return ~(j + 1);
+            return new lfs(joj1);
         }
-        if (l < j)
-        {
-            return ~l;
-        }
-        if (true) goto _L1; else goto _L3
-_L3:
     }
+
+    public Object a()
+    {
+        Object obj;
+        obj = c;
+        if (obj != a)
+        {
+            break MISSING_BLOCK_LABEL_52;
+        }
+        this;
+        JVM INSTR monitorenter ;
+        Object obj1 = c;
+        obj = obj1;
+        if (obj1 == a)
+        {
+            obj = b.a();
+            c = obj;
+        }
+        this;
+        JVM INSTR monitorexit ;
+        return obj;
+        obj;
+        this;
+        JVM INSTR monitorexit ;
+        throw obj;
+        return obj;
+    }
+
 }

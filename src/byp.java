@@ -2,25 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import android.content.Context;
+import java.util.ArrayList;
+import java.util.List;
 
 final class byp
-    implements android.view.View.OnClickListener
+    implements bym
 {
 
-    final byn a;
+    final byo a;
 
-    byp(byn byn1)
+    byp(byo byo)
     {
-        a = byn1;
+        a = byo;
         super();
     }
 
-    public void onClick(View view)
+    private static void a(Context context, List list, Class class1)
     {
-        if (byn.c(a) != null)
+        context = (byl)hlp.b(context, class1);
+        if (context != null)
         {
-            byn.c(a).a();
+            list.add(context);
         }
+    }
+
+    public List a(Context context)
+    {
+        ArrayList arraylist = new ArrayList();
+        a(context, ((List) (arraylist)), byr);
+        a(context, ((List) (arraylist)), byn);
+        return arraylist;
     }
 }

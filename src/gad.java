@@ -6,5 +6,5 @@
 public interface gad
 {
 
-    public abstract gac a();
+    public abstract void a(String s, String s1, int i, byte abyte0[]);
 }

@@ -2,30 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
 
 final class awd
-    implements android.view.View.OnLayoutChangeListener
+    implements bzj
 {
 
-    final ave a;
+    final avv a;
 
-    awd(ave ave1)
+    awd(avv avv1)
     {
-        a = ave1;
+        a = avv1;
         super();
     }
 
-    public void onLayoutChange(View view, int i, int j, int k, int l, int i1, int j1, 
-            int k1, int l1)
+    public void a(boolean flag)
     {
-        if (ave.ak(a) == -1)
+        if (flag)
         {
-            ave.a(a, j);
-        }
-        if (ave.al(a))
+            android.content.Intent intent = ((bzi)avv.T(a).a(bzi)).a(a.getActivity());
+            avv.U(a).a(g.km, intent);
+            return;
+        } else
         {
-            ave.am(a).a(ave.ak(a));
+            eev.e("Conv", "Location permission not granted!");
+            return;
         }
     }
 }

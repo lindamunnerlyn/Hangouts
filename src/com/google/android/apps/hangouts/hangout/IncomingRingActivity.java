@@ -19,20 +19,20 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-import bpy;
-import bqa;
-import bqb;
-import bqc;
-import bqd;
-import bqe;
-import cey;
+import bqh;
+import bqj;
+import bqk;
+import bql;
+import bqm;
+import bqn;
+import cgd;
 import com.google.android.apps.hangouts.hangout.multiwaveview.GlowPadView;
 import com.google.android.apps.hangouts.views.AvatarView;
 import com.google.android.apps.hangouts.views.FixedParticipantsGalleryView;
-import dbf;
-import dzj;
-import dzs;
-import ebr;
+import dcn;
+import ecn;
+import ecw;
+import eep;
 import g;
 import h;
 import java.util.List;
@@ -42,46 +42,36 @@ import l;
 //            IncomingRing
 
 public final class IncomingRingActivity extends ai
-    implements bpy
+    implements bqh
 {
 
-    private IncomingRing j;
-    private List k;
-    private boolean l;
-    private TextView m;
-    private TextView n;
+    public IncomingRing j;
+    public GlowPadView k;
+    public final Handler l = new Handler(Looper.getMainLooper());
+    private List m;
+    private boolean n;
     private TextView o;
-    private AvatarView p;
-    private GlowPadView q;
-    private Button r;
+    private TextView p;
+    private TextView q;
+    private AvatarView r;
     private Button s;
-    private FixedParticipantsGalleryView t;
-    private final Handler u = new Handler(Looper.getMainLooper());
+    private Button t;
+    private FixedParticipantsGalleryView u;
     private boolean v;
-    private final Runnable w = new bqa(this);
-    private final dzs x = new dzs(this, "com.google.android.apps.hangouts.phone.notify_set_active", "com.google.android.apps.hangouts.phone.block_set_active");
+    private final Runnable w = new bqj(this);
+    private final ecw x = new ecw(this, "com.google.android.apps.hangouts.phone.notify_set_active", "com.google.android.apps.hangouts.phone.block_set_active");
 
     public IncomingRingActivity()
     {
     }
 
-    public static GlowPadView a(IncomingRingActivity incomingringactivity)
-    {
-        return incomingringactivity.q;
-    }
-
-    public static Handler b(IncomingRingActivity incomingringactivity)
-    {
-        return incomingringactivity.u;
-    }
-
-    public static void c(IncomingRingActivity incomingringactivity)
+    public static void a(IncomingRingActivity incomingringactivity)
     {
         boolean flag2;
         boolean flag3 = true;
         boolean flag;
         boolean flag1;
-        if (!incomingringactivity.j.i())
+        if (!incomingringactivity.j.j())
         {
             flag = true;
         } else
@@ -118,21 +108,16 @@ public final class IncomingRingActivity extends ai
 _L1:
         if (flag2)
         {
-            (new android.app.AlertDialog.Builder(incomingringactivity)).setMessage(incomingringactivity.getResources().getString(l.eI)).setCancelable(false).setPositiveButton(0x104000a, new bqd(incomingringactivity)).show();
-            g.a(incomingringactivity.j.c(), 2682);
+            (new android.app.AlertDialog.Builder(incomingringactivity)).setMessage(incomingringactivity.getResources().getString(l.er)).setCancelable(false).setPositiveButton(0x104000a, new bqm(incomingringactivity)).show();
+            g.a(incomingringactivity.j.d(), 2682);
             return;
         } else
         {
-            incomingringactivity.j.k();
+            incomingringactivity.j.l();
             return;
         }
         flag2 = false;
           goto _L1
-    }
-
-    public static IncomingRing d(IncomingRingActivity incomingringactivity)
-    {
-        return incomingringactivity.j;
     }
 
     private boolean g()
@@ -142,15 +127,15 @@ _L1:
 
     private void h()
     {
-        if (!v || TextUtils.isEmpty(j.g()))
+        if (!v || TextUtils.isEmpty(j.h()))
         {
             return;
         } else
         {
-            String s1 = getResources().getString(l.dG, new Object[] {
-                j.g()
+            String s1 = getResources().getString(l.dp, new Object[] {
+                j.h()
             });
-            ebr.a(m, null, s1);
+            eep.a(o, null, s1);
             return;
         }
     }
@@ -162,39 +147,39 @@ _L1:
 
     public void b()
     {
-        m.setText(j.a(getResources()));
-        m.setVisibility(0);
+        o.setText(j.a(getResources()));
+        o.setVisibility(0);
         Object obj = j;
         getResources();
-        obj = ((IncomingRing) (obj)).b();
+        obj = ((IncomingRing) (obj)).c();
         if (!TextUtils.isEmpty(((CharSequence) (obj))))
         {
-            n.setText(((CharSequence) (obj)));
-            n.setVisibility(0);
+            p.setText(((CharSequence) (obj)));
+            p.setVisibility(0);
         } else
         {
-            n.setVisibility(8);
+            p.setVisibility(8);
         }
-        if (dbf.h())
+        if (dcn.h())
         {
-            o.setText(j.b(getResources()));
-            o.setVisibility(0);
+            q.setText(j.b(getResources()));
+            q.setVisibility(0);
         }
         h();
-        if (j.d() != k)
+        if (j.e() != m)
         {
-            k = j.d();
-            t.a(j.c(), k, null);
-            t.setVisibility(0);
+            m = j.e();
+            u.a(j.d(), m, null);
+            u.setVisibility(0);
         }
     }
 
     public void onConfigurationChanged(Configuration configuration)
     {
         super.onConfigurationChanged(configuration);
-        if (l)
+        if (n)
         {
-            dzj.a(this);
+            ecn.a(this);
         }
     }
 
@@ -209,58 +194,58 @@ _L1:
             return;
         }
         getWindow().addFlags(0x680080);
-        if (dzj.c())
+        if (ecn.c())
         {
             if (g())
             {
-                l = true;
-                setTheme(g.in);
+                n = true;
+                setTheme(g._fldif);
             }
         } else
         {
             setRequestedOrientation(1);
         }
-        setContentView(g.gj);
-        if (l)
+        setContentView(g.gf);
+        if (n)
         {
-            dzj.a(this);
+            ecn.a(this);
         }
-        m = (TextView)findViewById(h.da);
-        n = (TextView)findViewById(h.cZ);
-        p = (AvatarView)findViewById(h.dh);
-        o = (TextView)findViewById(h.df);
-        t = (FixedParticipantsGalleryView)findViewById(h.cn);
-        q = (GlowPadView)findViewById(h.cW);
-        if (dzj.c() || !dzj.a() || ebr.a(this))
+        o = (TextView)findViewById(h.cP);
+        p = (TextView)findViewById(h.cO);
+        r = (AvatarView)findViewById(h.cW);
+        q = (TextView)findViewById(h.cU);
+        u = (FixedParticipantsGalleryView)findViewById(h.cd);
+        k = (GlowPadView)findViewById(h.cL);
+        if (ecn.c() || !ecn.a() || eep.a(this))
         {
-            q.setVisibility(8);
+            k.setVisibility(8);
             findViewById(h.R).setVisibility(0);
             int i = h.k;
-            int j1 = h.cO;
-            r = (Button)findViewById(i);
-            r.setOnClickListener(new bqb(this));
-            s = (Button)findViewById(j1);
-            s.setOnClickListener(new bqc(this));
-            p.setBackgroundResource(0x106000b);
+            int j1 = h.cE;
+            s = (Button)findViewById(i);
+            s.setOnClickListener(new bqk(this));
+            t = (Button)findViewById(j1);
+            t.setOnClickListener(new bql(this));
+            r.setBackgroundResource(0x106000b);
             return;
         }
-        q.setOnTriggerListener(new bqe(this));
-        q.clearAnimation();
-        q.setTargetResources(g.cR);
-        q.setTargetDescriptionsResourceId(g.cQ);
-        q.setDirectionDescriptionsResourceId(g.cP);
-        bundle = q;
+        k.setOnTriggerListener(new bqn(this));
+        k.clearAnimation();
+        k.setTargetResources(g.cQ);
+        k.setTargetDescriptionsResourceId(g.cP);
+        k.setDirectionDescriptionsResourceId(g.cO);
+        bundle = k;
         Resources resources = getResources();
         int i1;
-        if (j.i() || j.h())
+        if (j.j() || j.i())
         {
-            i1 = com.google.android.apps.hangouts.R.drawable.bt;
+            i1 = com.google.android.apps.hangouts.R.drawable.bp;
         } else
         {
-            i1 = com.google.android.apps.hangouts.R.drawable.bu;
+            i1 = com.google.android.apps.hangouts.R.drawable.bq;
         }
         bundle.setHandleDrawable(resources, i1);
-        p.setBackgroundResource(0x106000c);
+        r.setBackgroundResource(0x106000c);
     }
 
     public void onDestroy()
@@ -291,7 +276,7 @@ _L1:
         if (j != IncomingRing.a())
         {
             finish();
-            startActivity(g.j());
+            startActivity(g.i());
         }
     }
 
@@ -305,17 +290,17 @@ _L1:
         {
             j.a(this);
             b();
-            if (j.h())
+            if (j.i())
             {
-                p.a(j.j(), true, j.c());
+                r.a(j.k(), true, j.d());
             } else
             {
-                cey cey1 = cey.a(j.f());
-                p.a(cey1, j.c());
+                cgd cgd1 = cgd.a(j.g());
+                r.a(cgd1, j.d());
             }
-            if (q != null)
+            if (k != null)
             {
-                u.postDelayed(w, 1000L);
+                l.postDelayed(w, 1000L);
                 return;
             }
         }
@@ -329,13 +314,13 @@ _L1:
             j.a(false);
         }
         j.b(this);
-        if (q != null)
+        if (k != null)
         {
-            u.removeCallbacks(w);
-            q.reset(false);
+            l.removeCallbacks(w);
+            k.reset(false);
         }
-        t.a();
-        t.setVisibility(8);
+        u.a();
+        u.setVisibility(8);
     }
 
     public void onWindowFocusChanged(boolean flag)

@@ -2,52 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.collect.MapMakerInternalMap;
-import java.lang.ref.ReferenceQueue;
 
-public final class joy extends jow
-    implements com.google.common.collect.MapMakerInternalMap.ReferenceEntry
+final class joy extends jos
 {
 
-    volatile long d;
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry e;
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry f;
-
-    joy(ReferenceQueue referencequeue, Object obj, int i, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    joy(String s)
     {
-        super(referencequeue, obj, i, referenceentry);
-        d = 0x7fffffffffffffffL;
-        e = MapMakerInternalMap.h();
-        f = MapMakerInternalMap.h();
+        super(s, 5);
     }
 
-    public long getExpirationTime()
+    com.google.common.cache.LocalCache.ReferenceEntry a(jpj jpj1, com.google.common.cache.LocalCache.ReferenceEntry referenceentry, com.google.common.cache.LocalCache.ReferenceEntry referenceentry1)
     {
-        return d;
+        jpj1 = super.a(jpj1, referenceentry, referenceentry1);
+        a(referenceentry, ((com.google.common.cache.LocalCache.ReferenceEntry) (jpj1)));
+        return jpj1;
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextExpirable()
+    com.google.common.cache.LocalCache.ReferenceEntry a(jpj jpj1, Object obj, int i, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        return e;
-    }
-
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousExpirable()
-    {
-        return f;
-    }
-
-    public void setExpirationTime(long l)
-    {
-        d = l;
-    }
-
-    public void setNextExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
-    {
-        e = referenceentry;
-    }
-
-    public void setPreviousExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
-    {
-        f = referenceentry;
+        return new jpy(jpj1.h, obj, i, referenceentry);
     }
 }

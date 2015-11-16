@@ -5,19 +5,25 @@
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-final class vo extends mf
+final class vo
+    implements android.view.View.OnClickListener
 {
 
-    final vl a;
+    final ss a;
+    final vn b;
 
-    vo(vl vl1)
+    vo(vn vn1)
     {
-        a = vl1;
+        b = vn1;
         super();
+        a = new ss(b.a.getContext(), b.b);
     }
 
-    public void a(View view)
+    public void onClick(View view)
     {
-        a.a.setVisibility(0);
+        if (b.c != null && b.d)
+        {
+            b.c.onMenuItemSelected(0, a);
+        }
     }
 }

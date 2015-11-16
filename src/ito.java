@@ -3,63 +3,28 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ito extends koj
+public final class ito
+    implements joj
 {
 
-    public ixg responseHeader;
+    private final itm a;
+    private final joj b;
 
-    public ito()
+    public ito(itm itm, joj joj1)
     {
-        responseHeader = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = itm;
+        b = joj1;
     }
 
-    protected int computeSerializedSize()
+    public Object a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (responseHeader != null)
+        iti iti1 = (iti)b.a();
+        if (iti1 == null)
         {
-            i = j + koh.d(1, responseHeader);
+            throw new NullPointerException("Cannot return null from a non-@Nullable @Provides method");
+        } else
+        {
+            return iti1;
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (responseHeader == null)
-                {
-                    responseHeader = new ixg();
-                }
-                kog1.a(responseHeader);
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (responseHeader != null)
-        {
-            koh1.b(1, responseHeader);
-        }
-        super.writeTo(koh1);
     }
 }

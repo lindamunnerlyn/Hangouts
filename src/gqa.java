@@ -2,26 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.TimeInterpolator;
+import java.util.LinkedHashMap;
 
-public class gqa extends gpz
-    implements TimeInterpolator
+final class gqa extends LinkedHashMap
 {
 
-    public gqa(float f, float f1, float f2, float f3)
+    final gpz a;
+
+    gqa(gpz gpz1, int i)
     {
-        b = 0.0F;
-        a = 0.0F;
-        c = f;
-        d = f1;
-        e = f2;
-        this.f = f3;
-        h = 1.0F;
-        g = 1.0F;
+        a = gpz1;
+        super(i, 0.75F, true);
     }
 
-    public float getInterpolation(float f)
+    protected boolean removeEldestEntry(java.util.Map.Entry entry)
     {
-        return b(c(f));
+        return size() > a.a;
     }
 }

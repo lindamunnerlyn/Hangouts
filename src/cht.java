@@ -2,41 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.EditText;
+import android.widget.TextView;
 
-final class cht
-    implements TextWatcher
+final class cht extends chy
 {
 
-    final chr a;
+    final chn b;
 
-    cht(chr chr1)
+    cht(chn chn, int i)
     {
-        a = chr1;
-        super();
+        b = chn;
+        super(chn, i, false, true);
     }
 
-    public void afterTextChanged(Editable editable)
+    protected void a(zs zs)
     {
-    }
-
-    public void beforeTextChanged(CharSequence charsequence, int i, int j, int k)
-    {
-    }
-
-    public void onTextChanged(CharSequence charsequence, int i, int j, int k)
-    {
-        if (bdt.a(chr.a(a), charsequence))
-        {
-            chr.b(a).setText("");
-            chr.c(a).a("");
-            return;
-        } else
-        {
-            chr.c(a).a(charsequence.toString());
-            return;
-        }
+        zs = (cia)zs;
+        zs.b(h.iR);
+        cia.a(zs).setFocusableInTouchMode(true);
     }
 }

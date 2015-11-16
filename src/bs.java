@@ -16,18 +16,13 @@ public final class bs extends bq
     boolean e;
     boolean f;
     boolean g;
-    private ao h;
+    ao h;
 
     bs(String s, ao ao1, boolean flag)
     {
         d = s;
         h = ao1;
         e = flag;
-    }
-
-    static ao a(bs bs1)
-    {
-        return bs1.h;
     }
 
     private bt c(int i, Bundle bundle, br br1)

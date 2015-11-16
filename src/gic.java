@@ -2,136 +2,121 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.hardware.Camera;
-import android.os.Handler;
+import java.io.PrintWriter;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-public final class gic extends gih
+public final class gic
 {
 
-    int a;
-    int b;
-    int c;
-    int d;
-    Camera e;
-    gki f;
-    private final gid v;
+    private static gic a = new gic();
+    private final List b = new CopyOnWriteArrayList();
+    private final gew c = new gid(this);
+    private geg d;
 
-    public gic(Context context)
+    private gic()
     {
-        int i;
-        i = 0;
-        super(context);
-        a = -1;
-        b = -1;
-        c = 0;
-        d = 0;
-        v = new gid(this);
-        int j;
-        context = new android.hardware.Camera.CameraInfo();
-        j = Camera.getNumberOfCameras();
-_L2:
-        if (i >= j)
-        {
-            break MISSING_BLOCK_LABEL_110;
-        }
-        Camera.getCameraInfo(i, context);
-        if (((android.hardware.Camera.CameraInfo) (context)).facing == 1)
-        {
-            a = i;
-            c = ((android.hardware.Camera.CameraInfo) (context)).orientation;
-            break MISSING_BLOCK_LABEL_111;
-        }
-        try
-        {
-            b = i;
-            d = ((android.hardware.Camera.CameraInfo) (context)).orientation;
-            break MISSING_BLOCK_LABEL_111;
-        }
-        // Misplaced declaration of an exception variable
-        catch (Context context)
-        {
-            gkc.b("vclib", "Failed to detect cameras", context);
-        }
-        return;
-        i++;
-        if (true) goto _L2; else goto _L1
-_L1:
     }
 
-    public boolean a()
+    public static gic a()
     {
-        return a != -1;
+        gdv.b("Expected non-null", a);
+        gdv.a();
+        return a;
     }
 
-    public boolean b()
+    static List a(gic gic1)
     {
-        return b != -1;
+        return gic1.b;
     }
 
-    protected gki c()
+    public static void b(String s)
     {
-        gki gki;
-        synchronized (n)
+        if (a.d != null)
         {
-            gki = f;
+            a.d.d(s);
         }
-        return gki;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
-    protected void d()
+    public void a(char c1, int i, String s)
     {
-label0:
+        gdv.a();
+        if (d != null)
         {
-            synchronized (n)
-            {
-                if (e == null)
-                {
-                    break label0;
-                }
-                gkc.b("vclib", "Camera was already opened, ignoring");
-            }
-            return;
+            d.a(c1, i, s);
         }
-        if (s != 0)
-        {
-            break MISSING_BLOCK_LABEL_46;
-        }
-        gkc.f("vclib", "openCamera was called with no camera selected.");
-        obj;
-        JVM INSTR monitorexit ;
-        return;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-        obj;
-        JVM INSTR monitorexit ;
-        j.removeCallbacks(v);
-        j.post(v);
-        return;
     }
 
-    protected void e()
+    void a(geg geg1)
     {
-        j.removeCallbacks(v);
-        synchronized (n)
+        d = geg1;
+        if (geg1 != null)
         {
-            if (e != null)
-            {
-                e.stopPreview();
-                e.release();
-                e = null;
-            }
+            geg1.a(c);
         }
-        return;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
+
+    public void a(gew gew)
+    {
+        gdv.a();
+        b.add(gew);
+    }
+
+    public void a(PrintWriter printwriter)
+    {
+        if (d != null)
+        {
+            d.a(printwriter);
+        }
+    }
+
+    public void a(String s)
+    {
+        gdv.a();
+        if (d != null)
+        {
+            d.c(s);
+        }
+    }
+
+    public void a(String s, String s1, boolean flag, boolean flag1, byte abyte0[])
+    {
+        gdv.a();
+        if (d != null)
+        {
+            d.a(s, s1, false, flag, flag1, abyte0);
+        }
+    }
+
+    public void a(byte abyte0[])
+    {
+        gdv.a();
+        if (d != null)
+        {
+            d.a(abyte0);
+        }
+    }
+
+    public void a(String as[], String as1[])
+    {
+        gdv.a();
+        gdv.a();
+        if (d != null)
+        {
+            d.a(false, as, as1, 1, true, false, null);
+        }
+    }
+
+    public geu b()
+    {
+        gdv.a();
+        if (d == null)
+        {
+            return null;
+        } else
+        {
+            return d.a();
+        }
+    }
+
 }

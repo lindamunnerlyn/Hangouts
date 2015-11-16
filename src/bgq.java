@@ -2,23 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import com.google.android.apps.hangouts.fragments.CallContactPickerFragment;
 
-public final class bgq
-    implements android.view.View.OnClickListener
+public interface bgq
 {
 
-    final CallContactPickerFragment a;
+    public abstract String a();
 
-    public bgq(CallContactPickerFragment callcontactpickerfragment)
-    {
-        a = callcontactpickerfragment;
-        super();
-    }
+    public abstract void a(bgr bgr);
 
-    public void onClick(View view)
-    {
-        CallContactPickerFragment.b(a, 0);
-    }
+    public abstract void c();
+
+    public abstract void d();
+
+    public abstract void g();
+
+    public abstract void h();
 }

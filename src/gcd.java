@@ -3,24 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gcd
-    implements Runnable
+public final class gcd
 {
 
-    final gcc a;
-
-    gcd(gcc gcc1)
+    public gcd()
     {
-        a = gcc1;
-        super();
-    }
-
-    public void run()
-    {
-        if (!gcc.a(a))
-        {
-            gkc.c("vclib", "We still don't have a connection after 10 seconds. Terminate the call");
-            gbs.k(a.a);
-        }
     }
 }

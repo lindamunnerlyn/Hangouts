@@ -2,48 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.Parcel;
-import com.google.android.gms.common.api.Status;
+import java.util.List;
 
-public abstract class eis extends Binder
-    implements eir
+public abstract class eis
 {
 
     public eis()
     {
-        attachInterface(this, "com.google.android.gms.clearcut.internal.IClearcutLoggerCallbacks");
     }
 
-    public IBinder asBinder()
+    public static boolean a(int i)
     {
-        return this;
+        return i == 2 || i == 3;
     }
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
-    {
-        switch (i)
-        {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
+    public abstract int a(String s);
 
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.clearcut.internal.IClearcutLoggerCallbacks");
-            return true;
+    public abstract void a(String s, int i);
 
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.gms.clearcut.internal.IClearcutLoggerCallbacks");
-            break;
-        }
-        if (parcel.readInt() != 0)
-        {
-            parcel = (Status)Status.CREATOR.createFromParcel(parcel);
-        } else
-        {
-            parcel = null;
-        }
-        a(parcel);
-        return true;
-    }
+    public abstract void a(String s, List list);
+
+    public abstract boolean b(String s);
+
+    public abstract List c(String s);
 }

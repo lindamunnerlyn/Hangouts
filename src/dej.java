@@ -3,66 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class dej extends die
+public final class dej extends dgj
 {
 
-    private final cuk b;
-
-    public dej(cuk cuk1)
+    public dej(aoa aoa)
     {
-        super(cuk1);
-        b = cuk1;
+        super(aoa);
     }
 
-    protected ctp a(ani ani, int i, String s)
+    public void a()
     {
-        b.m();
-        return new csi(ani, i, b, s);
-    }
-
-    public String a()
-    {
-        return b.a();
-    }
-
-    public boolean a(ccg ccg)
-    {
-        return false;
-    }
-
-    public boolean a(cci cci, dbo dbo)
-    {
-        return b.a(cci, dbo);
-    }
-
-    public boolean a(String s)
-    {
-        return b.a(s);
-    }
-
-    public long b()
-    {
-        return b.b();
-    }
-
-    protected void b(int i, dbo dbo)
-    {
-        ani ani = dbf.e(i);
-        b.a(ani, dbo);
-    }
-
-    public boolean c()
-    {
-        return b.c();
-    }
-
-    public boolean d()
-    {
-        return b.d();
-    }
-
-    public String e()
-    {
-        return b.e();
+        a(((dmf) (new cur())));
     }
 }

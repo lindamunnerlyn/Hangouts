@@ -2,53 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 import android.content.res.Resources;
-import com.google.android.apps.hangouts.fragments.BlockedPeopleFragment;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.view.View;
+import android.view.ViewGroup;
 
-public final class bft
-    implements edj
+public final class bft extends aux
 {
 
-    final BlockedPeopleFragment a;
+    private int d;
 
-    public bft(BlockedPeopleFragment blockedpeoplefragment)
+    public bft(View view, bfu bfu1, dvi dvi)
     {
-        a = blockedpeoplefragment;
-        super();
+        super(view, bfu1, dvi);
     }
 
-    public void a(edi edi1)
+    protected boolean a()
     {
-        String s;
-        cey cey1;
-label0:
+        return ((bfu)c).u() && !g.a(cqo.b);
+    }
+
+    protected dvg b()
+    {
+        if (g.e(((bfu)c).d()))
         {
-            BlockedPeopleFragment.a(a);
-            s = edi1.b();
-            if (s == null)
-            {
-                edi1 = a.getActivity();
-                ebr.a(edi1, edi1.getResources().getString(l.jx, new Object[] {
-                    ""
-                }));
-                return;
-            }
-            cey1 = edi1.a();
-            ani ani1 = dbf.l();
-            if (BlockedPeopleFragment.b(a).q())
-            {
-                edi1 = ani1;
-                if (ani1 != null)
-                {
-                    break label0;
-                }
-            }
-            edi1 = BlockedPeopleFragment.b(a);
+            d = l.A;
+        } else
+        {
+            d = l.z;
         }
-        int i = RealTimeChatService.a(edi1, cey1.a, cey1.b, s, false, false);
-        BlockedPeopleFragment.c(a).put(Integer.valueOf(i), new bfx(cey1, s));
-        BlockedPeopleFragment.d(a).notifyDataSetChanged();
+        g.b(cqo.b);
+        return e().a(b.getResources().getString(d)).a();
     }
 }

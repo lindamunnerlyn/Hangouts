@@ -7,11 +7,12 @@ package org.chromium.net;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import lmc;
 
 // Referenced classes of package org.chromium.net:
 //            NetworkChangeNotifier, UrlRequestContextConfig
 
-class CronetLibraryLoader
+public class CronetLibraryLoader
 {
 
     private static final Object a = new Object();
@@ -21,10 +22,10 @@ class CronetLibraryLoader
     {
     }
 
-    static void a(Context context)
+    public static void a(Context context)
     {
         NetworkChangeNotifier.init(context);
-        NetworkChangeNotifier.a();
+        NetworkChangeNotifier.a.a(true, true);
         nativeCronetInitOnMainThread();
     }
 
@@ -42,10 +43,10 @@ label0:
             return;
         }
         System.loadLibrary(urlrequestcontextconfig.e());
-        if (!"45.0.2454.79".equals(nativeGetCronetVersion()))
+        if (!"47.0.2526.6".equals(nativeGetCronetVersion()))
         {
             throw new RuntimeException(String.format("Expected Cronet version number %s, actual version number %s.", new Object[] {
-                "45.0.2454.79", nativeGetCronetVersion()
+                "47.0.2526.6", nativeGetCronetVersion()
             }));
         }
         break MISSING_BLOCK_LABEL_66;
@@ -54,7 +55,7 @@ label0:
         JVM INSTR monitorexit ;
         throw context;
         nativeCronetInitApplicationContext(context.getApplicationContext());
-        context = new _cls1(context);
+        context = new lmc(context);
         if (Looper.getMainLooper() != Looper.myLooper())
         {
             break MISSING_BLOCK_LABEL_104;
@@ -75,24 +76,5 @@ _L1:
     private static native void nativeCronetInitOnMainThread();
 
     private static native String nativeGetCronetVersion();
-
-
-    private class _cls1
-        implements Runnable
-    {
-
-        final Context a;
-
-        public void run()
-        {
-            CronetLibraryLoader.a(a);
-        }
-
-        _cls1(Context context)
-        {
-            a = context;
-            super();
-        }
-    }
 
 }

@@ -2,16 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.graphics.drawable.ColorDrawable;
 
-final class fqf extends ThreadLocal
+public final class fqf extends ColorDrawable
 {
 
-    fqf()
+    private int a;
+
+    public fqf()
     {
+        this((byte)0);
     }
 
-    protected Object initialValue()
+    private fqf(byte byte0)
     {
-        return new String[3];
+        super(0x33000000);
+    }
+
+    public void a(int i)
+    {
+        a = i;
+    }
+
+    public int getIntrinsicHeight()
+    {
+        return a;
     }
 }

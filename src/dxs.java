@@ -2,24 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import android.os.AsyncTask;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
-final class dxs
-    implements android.view.View.OnClickListener
+final class dxs extends AsyncTask
 {
 
-    final dxq a;
+    final long a;
+    final gbt b;
+    final dxr c;
 
-    dxs(dxq dxq1)
+    dxs(dxr dxr1, long l, gbt gbt)
     {
-        a = dxq1;
+        c = dxr1;
+        a = l;
+        b = gbt;
         super();
     }
 
-    public void onClick(View view)
+    private transient Void a()
     {
-        int i = dxq.a(a);
-        dxq.b(a).a(i);
-        dxq.c(a).a(dbf.e(i));
+        try
+        {
+            c.a.await(a, TimeUnit.MILLISECONDS);
+        }
+        catch (InterruptedException interruptedexception)
+        {
+            eev.e("Babel_telephony", "TeleFeedbackSender.sendFeedback, exception", interruptedexception);
+        }
+        return null;
+    }
+
+    public Object doInBackground(Object aobj[])
+    {
+        return a();
+    }
+
+    public void onPostExecute(Object obj)
+    {
+        if (c.b.c())
+        {
+            eev.e("Babel_telephony", "TeleFeedbackSender.sendFeedback, calling startFeedback");
+            c.c.a(c.b).a(b).a(c);
+            return;
+        } else
+        {
+            eev.e("Babel_telephony", "TeleFeedbackSender.sendFeedback, API not connected, skipping");
+            return;
+        }
     }
 }

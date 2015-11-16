@@ -3,13 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gtr extends Exception
+public final class gtr
 {
 
-    private static final long serialVersionUID = 0xcbde2c049b0c84d3L;
-
-    public gtr(String s)
+    public gtr()
     {
-        super(s);
     }
 }

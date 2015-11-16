@@ -2,24 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Set;
 
-final class grb
-    implements ThreadFactory
+public interface grb
 {
 
-    private final AtomicInteger a = new AtomicInteger(1);
+    public abstract float a(String s, float f);
 
-    grb()
-    {
-    }
+    public abstract int a(String s, int i);
 
-    public Thread newThread(Runnable runnable)
-    {
-        int i = a.getAndIncrement();
-        runnable = new Thread(runnable, (new StringBuilder(27)).append("BackgroundTask #").append(i).toString());
-        runnable.setPriority(1);
-        return runnable;
-    }
+    public abstract long a(String s, long l);
+
+    public abstract String a(String s, String s1);
+
+    public abstract boolean a();
+
+    public abstract boolean a(String s);
+
+    public abstract boolean a(String s, boolean flag);
+
+    public abstract String b(String s);
+
+    public abstract boolean b();
+
+    public abstract Set c(String s);
+
+    public abstract boolean d(String s);
+
+    public abstract grb e(String s);
 }

@@ -2,26 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
 
-public final class hlz extends Enum
+final class hlz
+    implements hok
 {
 
-    public static final int a;
-    public static final int b;
-    public static final int c;
-    public static final int d;
-    public static final int e;
-    private static final int f[];
+    final Bundle a;
+    final hly b;
 
-    static 
+    hlz(hly hly1, Bundle bundle)
     {
-        a = 1;
-        b = 2;
-        c = 3;
-        d = 4;
-        e = 5;
-        f = (new int[] {
-            a, b, c, d, e
-        });
+        b = hly1;
+        a = bundle;
+        super();
+    }
+
+    public void a(hoy hoy)
+    {
+        if (hoy instanceof hma)
+        {
+            Bundle bundle = b.b.a(hoy, a);
+            ((hma)hoy).a(b, b.a, bundle);
+        }
     }
 }

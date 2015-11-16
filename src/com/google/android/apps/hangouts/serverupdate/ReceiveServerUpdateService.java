@@ -4,7 +4,7 @@
 
 package com.google.android.apps.hangouts.serverupdate;
 
-import alw;
+import amo;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -12,53 +12,53 @@ import android.content.Intent;
 import android.os.PowerManager;
 import android.os.Process;
 import android.os.SystemClock;
-import ani;
-import any;
-import aoe;
-import byy;
-import cej;
-import cey;
+import aoa;
+import aoq;
+import aow;
+import cab;
+import cfo;
+import cgd;
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import crm;
-import ctr;
-import cyq;
-import cyr;
-import cys;
-import cyt;
-import cyv;
-import cyy;
-import cyz;
-import cza;
-import czf;
-import czh;
-import czi;
-import czj;
-import czm;
-import dbe;
-import dbf;
-import dbn;
-import dbw;
-import dco;
-import dfb;
-import dfd;
-import dii;
-import diy;
-import djl;
-import djm;
-import dkw;
-import doq;
-import eba;
-import ebw;
+import cvv;
+import dck;
+import dcn;
+import dcw;
+import ddf;
+import ddw;
+import dgk;
+import dgm;
+import djt;
+import dkl;
+import dlc;
+import dld;
+import dmo;
+import dmv;
+import dmw;
+import dmx;
+import dmy;
+import dmz;
+import dnb;
+import dne;
+import dnf;
+import dng;
+import dnl;
+import dnn;
+import dno;
+import dnp;
+import dns;
+import drj;
+import eee;
+import eev;
 import g;
-import gms;
-import gmw;
+import gqz;
+import grd;
 import h;
-import hgx;
+import hlp;
 import java.util.Iterator;
 import java.util.List;
-import jhb;
+import jnv;
 
-public class ReceiveServerUpdateService extends djl
+public class ReceiveServerUpdateService extends dlc
 {
 
     private static final boolean a = false;
@@ -101,23 +101,23 @@ public class ReceiveServerUpdateService extends djl
         {
             s = new String(s1);
         }
-        ebw.b("Babel", s);
+        eev.b("Babel", s);
     }
 
-    public static void a(String s, int i, long l, long l1, jhb jhb)
+    public static void a(String s, int i, long l, long l1, jnv jnv)
     {
-        Intent intent = new Intent(g.nS, com/google/android/apps/hangouts/serverupdate/ReceiveServerUpdateService);
+        Intent intent = new Intent(g.nU, com/google/android/apps/hangouts/serverupdate/ReceiveServerUpdateService);
         intent.putExtra("op", 1);
         intent.putExtra("account_id", i);
         intent.putExtra("timestamp", l);
         intent.putExtra("gcm_handle_timestamps", l1);
-        cyq.a(intent, s);
+        dmw.a(intent, s);
         intent.putExtra("rqtms", SystemClock.elapsedRealtime());
         if (a || e)
         {
             intent.putExtra("rqtns", System.nanoTime());
         }
-        Context context = g.nS;
+        Context context = g.nU;
         synchronized (c)
         {
             if (d == null)
@@ -144,35 +144,35 @@ public class ReceiveServerUpdateService extends djl
         d.acquire();
         intent.setClass(context, com/google/android/apps/hangouts/serverupdate/ReceiveServerUpdateService);
         intent.putExtra("pid", b);
-        intent.putExtra("stack_trace", ebw.a(new Throwable()));
-        if (((djm)hgx.a(context, djm)).a(context, intent, jhb) == null)
+        intent.putExtra("stack_trace", eev.a(new Throwable()));
+        if (((dld)hlp.a(context, dld)).a(context, intent, jnv) == null)
         {
             s = String.valueOf(intent);
-            ebw.g("Babel", (new StringBuilder(String.valueOf(s).length() + 62)).append("ReceiveServerUpdateService failed to start service for intent ").append(s).toString());
+            eev.g("Babel", (new StringBuilder(String.valueOf(s).length() + 62)).append("ReceiveServerUpdateService failed to start service for intent ").append(s).toString());
             d.release();
         }
         return;
-        jhb;
+        jnv;
         s;
         JVM INSTR monitorexit ;
-        throw jhb;
+        throw jnv;
     }
 
     private static void b()
     {
-        e = g.a(g.nS, "babel_log_dump", false);
+        e = g.a(g.nU, "babel_log_dump", false);
     }
 
-    public void a(Intent intent, jhb jhb)
+    public void a(Intent intent, jnv jnv)
     {
         if (intent != null) goto _L2; else goto _L1
 _L1:
-        ebw.f("Babel", "ReceiveServerUpdateService onHandleIntent called with null intent");
+        eev.f("Babel", "ReceiveServerUpdateService onHandleIntent called with null intent");
 _L8:
         return;
 _L2:
         Object obj;
-        dbn dbn1;
+        dcw dcw1;
         int i;
         int j;
         boolean flag;
@@ -184,21 +184,21 @@ _L2:
             flag = false;
         }
         i = intent.getIntExtra("account_id", -1);
-        obj = dbf.e(i);
+        obj = dcn.e(i);
         j = intent.getIntExtra("op", 0);
-        dbn1 = dbf.h(((ani) (obj)));
+        dcw1 = dcn.g(((aoa) (obj)));
         if (a)
         {
             String s = String.valueOf(intent);
-            String s1 = a(j);
+            String s1 = String.valueOf(a(j));
             a((new StringBuilder(String.valueOf(s).length() + 73 + String.valueOf(s1).length())).append("ReceiveServerUpdateService onHandleIntent ").append(s).append(" opCode: ").append(s1).append(" respectWakeLock ").append(flag).toString());
         }
         if (obj == null) goto _L4; else goto _L3
 _L3:
         j;
-        JVM INSTR tableswitch 1 2: default 168
-    //                   1 186
-    //                   2 1519;
+        JVM INSTR tableswitch 1 2: default 172
+    //                   1 190
+    //                   2 1507;
            goto _L4 _L5 _L6
 _L4:
         if (!flag) goto _L8; else goto _L7
@@ -208,7 +208,7 @@ _L7:
 _L5:
         long l1;
         l1 = SystemClock.elapsedRealtime();
-        obj = cyq.a(intent, ((ani) (obj)), true);
+        obj = dmw.a(intent, ((aoa) (obj)), true);
         if (obj == null) goto _L10; else goto _L9
 _L9:
         Iterator iterator = ((List) (obj)).iterator();
@@ -219,50 +219,50 @@ _L11:
         Object obj2;
         long l2;
         long l3;
-        obj2 = (cyq)iterator.next();
-        if (obj2 instanceof crm)
+        obj2 = (dmw)iterator.next();
+        if (obj2 instanceof dmo)
         {
-            ((crm)obj2).a(1);
+            ((dmo)obj2).a(1);
         }
         l2 = intent.getLongExtra("timestamp", 0L);
         l3 = intent.getLongExtra("gcm_handle_timestamps", 0L);
-        obj1 = dbf.e(i);
-        if (!ebw.a("Babel", 3)) goto _L13; else goto _L12
+        obj1 = dcn.e(i);
+        if (!eev.a("Babel", 3)) goto _L13; else goto _L12
 _L12:
         obj = null;
         Object obj3;
         Object obj4;
-        if (obj2 instanceof cys)
+        if (obj2 instanceof dmy)
         {
-            obj = ((cys)obj2).c;
+            obj = ((dmy)obj2).c;
         }
         obj3 = String.valueOf(obj2.getClass().getSimpleName());
-        obj4 = String.valueOf(((ani) (obj1)).b());
+        obj4 = String.valueOf(((aoa) (obj1)).b());
         if (obj == null)
         {
-            break MISSING_BLOCK_LABEL_1573;
+            break MISSING_BLOCK_LABEL_1561;
         }
         obj = String.valueOf(obj);
         if (((String) (obj)).length() == 0) goto _L15; else goto _L14
 _L14:
         obj = "update convId ".concat(((String) (obj)));
 _L24:
-        ebw.c("Babel", (new StringBuilder(String.valueOf(obj3).length() + 32 + String.valueOf(obj4).length() + String.valueOf(obj).length())).append("processServerUpdate: ").append(((String) (obj3))).append(", account: ").append(((String) (obj4))).append(((String) (obj))).toString());
+        eev.c("Babel", (new StringBuilder(String.valueOf(obj3).length() + 32 + String.valueOf(obj4).length() + String.valueOf(obj).length())).append("processServerUpdate: ").append(((String) (obj3))).append(", account: ").append(((String) (obj4))).append(((String) (obj))).toString());
 _L13:
-        if (!(obj2 instanceof cyr)) goto _L17; else goto _L16
+        if (!(obj2 instanceof dmx)) goto _L17; else goto _L16
 _L16:
-        if (((cyr)obj2).a == 1) goto _L19; else goto _L18
+        if (((dmx)obj2).a == 1) goto _L19; else goto _L18
 _L18:
         if (!a) goto _L21; else goto _L20
 _L20:
-        obj = String.valueOf(((ani) (obj1)).a());
+        obj = String.valueOf(((aoa) (obj1)).a());
         if (((String) (obj)).length() == 0) goto _L23; else goto _L22
 _L22:
         obj = "Clearing active client time stamp for account: ".concat(((String) (obj)));
 _L25:
         a(((String) (obj)));
 _L21:
-        dii.a(((ani) (obj1))).h();
+        djt.a(((aoa) (obj1))).h();
           goto _L19
         intent;
         if (flag)
@@ -279,70 +279,69 @@ _L23:
 _L17:
 label0:
         {
-            if (!(obj2 instanceof czh))
+            if (!(obj2 instanceof dnn))
             {
                 break label0;
             }
-            obj = (czh)obj2;
-            if (((czh) (obj)).b == 1)
+            obj = (dnn)obj2;
+            if (((dnn) (obj)).b == 1)
             {
-                (new aoe(this, i)).s(((czh) (obj)).a);
+                (new aow(this, i)).s(((dnn) (obj)).a);
             }
         }
           goto _L19
-        if (!(obj2 instanceof czj))
+        if (!(obj2 instanceof dnp))
         {
-            break MISSING_BLOCK_LABEL_629;
+            break MISSING_BLOCK_LABEL_633;
         }
-        obj = (czj)obj2;
-        if (!((czj) (obj)).b) goto _L19; else goto _L26
+        obj = (dnp)obj2;
+        if (!((dnp) (obj)).b) goto _L19; else goto _L26
 _L26:
-        l2 = ((czj) (obj)).a;
+        l2 = ((dnp) (obj)).a;
         if (obj1 == null)
         {
-            break MISSING_BLOCK_LABEL_619;
+            break MISSING_BLOCK_LABEL_623;
         }
-        ((doq)hgx.a(getApplicationContext(), doq)).a(i, l2);
-        RealTimeChatService.b(((ani) (obj1)), l2);
+        ((drj)hlp.a(getApplicationContext(), drj)).a(i, l2);
+        RealTimeChatService.b(((aoa) (obj1)), l2);
           goto _L19
 label1:
         {
-            if (!(obj2 instanceof czm))
+            if (!(obj2 instanceof dns))
             {
                 break label1;
             }
-            obj = (czm)obj2;
-            new dfb();
-            obj1 = new aoe(this, i);
-            (new dbe(((czm) (obj)))).b(((aoe) (obj1)));
+            obj = (dns)obj2;
+            obj1 = new aow(this, i);
+            (new dck(((dns) (obj)))).b(((aow) (obj1)));
         }
           goto _L19
 label2:
         {
-            if (!(obj2 instanceof cyt))
+            if (!(obj2 instanceof dmz))
             {
                 break label2;
             }
-            obj = (cyt)obj2;
-            new dfb();
-            obj1 = new aoe(this, i);
-            (new dbw(((cyt) (obj)))).a(((aoe) (obj1)));
+            obj = (dmz)obj2;
+            new dgk();
+            obj1 = new aow(this, i);
+            (new ddf(((dmz) (obj)))).a(((aow) (obj1)));
         }
           goto _L19
-        if (!(obj2 instanceof cyv))
+        if (!(obj2 instanceof dnb))
         {
-            break MISSING_BLOCK_LABEL_804;
+            break MISSING_BLOCK_LABEL_800;
         }
-        obj1 = ((cyv)obj2).c;
+        obj1 = ((dnb)obj2).c;
         obj = String.valueOf(obj1);
         if (((String) (obj)).length() == 0)
         {
-            break MISSING_BLOCK_LABEL_790;
+            break MISSING_BLOCK_LABEL_786;
         }
         obj = "ContactsNotification.selfFanoutId == ".concat(((String) (obj)));
 _L27:
         a(((String) (obj)));
-        if (!ctr.c(((String) (obj1))))
+        if (!cvv.c(((String) (obj1))))
         {
             RealTimeChatService.a(i, true);
         }
@@ -351,129 +350,128 @@ _L27:
           goto _L27
 label3:
         {
-            if (!(obj2 instanceof cyy))
+            if (!(obj2 instanceof dne))
             {
                 break label3;
             }
-            obj = (cyy)obj2;
-            new dfb();
-            obj1 = new aoe(this, i);
-            (new dco(((cyy) (obj)))).a(((aoe) (obj1)));
+            obj = (dne)obj2;
+            obj1 = new aow(this, i);
+            (new ddw(((dne) (obj)))).a(((aow) (obj1)));
         }
           goto _L19
 label4:
         {
-            if (!(obj2 instanceof czf))
+            if (!(obj2 instanceof dnl))
             {
                 break label4;
             }
-            obj = (czf)obj2;
-            new dfb();
-            obj1 = new aoe(this, i);
-            (new diy(((czf) (obj)))).a(((aoe) (obj1)));
+            obj = (dnl)obj2;
+            new dgk();
+            obj1 = new aow(this, i);
+            (new dkl(((dnl) (obj)))).a(((aow) (obj1)));
         }
           goto _L19
 label5:
         {
-            if (!(obj2 instanceof czi))
+            if (!(obj2 instanceof dno))
             {
                 break label5;
             }
-            obj = (czi)obj2;
-            obj2 = ((gms)hgx.a(g.nS, gms)).b(i);
-            RealTimeChatService.a(((gmw) (obj2)), ((czi) (obj)).a);
-            ((gmw) (obj2)).d();
-            RealTimeChatService.f(((ani) (obj1)));
+            obj = (dno)obj2;
+            obj2 = ((gqz)hlp.a(g.nU, gqz)).b(i);
+            RealTimeChatService.a(((grd) (obj2)), ((dno) (obj)).a);
+            ((grd) (obj2)).d();
+            RealTimeChatService.f(((aoa) (obj1)));
         }
           goto _L19
 label6:
         {
-            if (!(obj2 instanceof cyz))
+            if (!(obj2 instanceof dnf))
             {
                 break label6;
             }
-            RealTimeChatService.a(((ani) (obj1)), (cyz)obj2);
+            RealTimeChatService.a(((aoa) (obj1)), (dnf)obj2);
         }
           goto _L19
         obj3 = getApplicationContext();
-        obj4 = dbf.e(i);
-        obj = new dfb();
-        ((dfb) (obj)).a(((ani) (obj4)));
-        ((dfb) (obj)).b();
-        any.a(new aoe(g.nS, i), ((cyq) (obj2)), ((dfb) (obj)), l2, l3, l1 * 1000L);
-        ((dfb) (obj)).e();
-        obj1 = ((dfb) (obj)).c();
+        obj4 = dcn.e(i);
+        obj = new dgk();
+        ((dgk) (obj)).a(((aoa) (obj4)));
+        ((dgk) (obj)).b();
+        aoq.a(new aow(g.nU, i), ((dmw) (obj2)), ((dgk) (obj)), l2, l3, l1 * 1000L);
+        ((dgk) (obj)).e();
+        obj1 = ((dgk) (obj)).c();
         if (((List) (obj1)).isEmpty())
         {
-            break MISSING_BLOCK_LABEL_1156;
+            break MISSING_BLOCK_LABEL_1144;
         }
-        if (ebw.a("Babel", 3))
+        if (eev.a("Babel", 3))
         {
             int k = ((List) (obj1)).size();
             String s2 = String.valueOf(obj2.getClass().getSimpleName());
-            ebw.c("Babel", (new StringBuilder(String.valueOf(s2).length() + 66)).append("processServerUpdate: sending ").append(k).append(" requests from processing ").append(s2).toString());
+            eev.c("Babel", (new StringBuilder(String.valueOf(s2).length() + 66)).append("processServerUpdate: sending ").append(k).append(" requests from processing ").append(s2).toString());
         }
-        if (dbn1 == null)
+        if (dcw1 == null)
         {
-            break MISSING_BLOCK_LABEL_1156;
+            break MISSING_BLOCK_LABEL_1144;
         }
-        dbn1.a(((java.util.Collection) (obj1)), 0);
-        dfd dfd1 = ((dfb) (obj)).g();
-        if (!ebw.a("Babel", 3)) goto _L29; else goto _L28
+        dcw1.a(((java.util.Collection) (obj1)), 0);
+        dgm dgm1 = ((dgk) (obj)).g();
+        if (!eev.a("Babel", 3)) goto _L29; else goto _L28
 _L28:
-        obj = String.valueOf(dfd1.toString());
+        obj = String.valueOf(dgm1.toString());
         if (((String) (obj)).length() == 0) goto _L31; else goto _L30
 _L30:
         obj = "update should trigger notification? ".concat(((String) (obj)));
 _L36:
-        ebw.c("Babel", ((String) (obj)));
+        eev.c("Babel", ((String) (obj)));
 _L29:
-        if (!(obj2 instanceof cza)) goto _L33; else goto _L32
+        if (!(obj2 instanceof dng)) goto _L33; else goto _L32
 _L32:
-        obj1 = (cza)obj2;
-        obj = ((cza) (obj1)).c;
-        obj1 = ((cza) (obj1)).m;
+        obj1 = (dng)obj2;
+        obj = ((dng) (obj1)).c;
+        obj1 = ((dng) (obj1)).m;
 _L37:
         l2 = SystemClock.elapsedRealtime();
-        if (dfd1 != dfd.b) goto _L35; else goto _L34
+        if (dgm1 != dgm.b) goto _L35; else goto _L34
 _L34:
-        h.a(i, l2, 10, (new byy()).a(453).c(((String) (obj1))).a(((String) (obj))));
-        ebw.a("Babel", "Scheduling future notification after late push");
-        obj2 = (AlarmManager)g.nS.getSystemService("alarm");
+        h.a(i, l2, 10, (new cab()).a(453).c(((String) (obj1))).a(((String) (obj))));
+        eev.a("Babel", "Scheduling future notification after late push");
+        obj2 = (AlarmManager)g.nU.getSystemService("alarm");
         obj3 = new Intent("com.google.android.apps.hangouts.DEFERRED_NOTIFICATION");
         ((Intent) (obj3)).putExtra("op", 2);
         ((Intent) (obj3)).putExtra("account_id", i);
         ((Intent) (obj3)).putExtra("message_id", ((String) (obj1)));
         ((Intent) (obj3)).putExtra("conversation_id", ((String) (obj)));
-        int l = eba.a(i, 1, 110, null);
-        obj = PendingIntent.getBroadcast(g.nS, l, ((Intent) (obj3)), 0x10000000);
-        ((AlarmManager) (obj2)).set(2, SystemClock.elapsedRealtime() + g.a(g.nS, "babel_latenotifdly", 3000L), ((PendingIntent) (obj)));
+        int l = eee.a(i, 1, 110, null);
+        obj = PendingIntent.getBroadcast(g.nU, l, ((Intent) (obj3)), 0x10000000);
+        ((AlarmManager) (obj2)).set(2, SystemClock.elapsedRealtime() + g.a(g.nU, "babel_latenotifdly", 3000L), ((PendingIntent) (obj)));
           goto _L19
 _L31:
         obj = new String("update should trigger notification? ");
           goto _L36
 _L35:
-        if (dfd1 == dfd.e)
+        if (dgm1 == dgm.e)
         {
-            h.a(i, l2, 10, (new byy()).a(403).c(((String) (obj1))).a(((String) (obj))));
+            h.a(i, l2, 10, (new cab()).a(403).c(((String) (obj1))).a(((String) (obj))));
         }
-        cej.a(g.nS, i, dfd1, true, jhb);
-        if ((obj2 instanceof crm) && ((ani) (obj4)).H() && !((crm)obj2).d.equals(((ani) (obj4)).b()))
+        cfo.a(g.nU, i, dgm1, true, jnv);
+        if ((obj2 instanceof dmo) && ((aoa) (obj4)).F() && !((dmo)obj2).d.equals(((aoa) (obj4)).b()))
         {
-            cej.b(((Context) (obj3)), i);
+            cfo.b(((Context) (obj3)), i);
         }
           goto _L19
 _L10:
-        ebw.g("Babel", "could not parse ServerUpdate");
+        eev.g("Babel", "could not parse ServerUpdate");
           goto _L4
 _L6:
         if (a)
         {
             a("handle OP_TRIGGER_DEFERRED_NOTIFICATION");
         }
-        jhb = intent.getStringExtra("message_id");
+        jnv = intent.getStringExtra("message_id");
         intent = intent.getStringExtra("conversation_id");
-        cej.a(getApplicationContext(), i, jhb, intent);
+        cfo.a(getApplicationContext(), i, jnv, intent);
           goto _L4
 _L33:
         obj1 = "";
@@ -485,8 +483,8 @@ _L33:
 
     static 
     {
-        hik hik = ebw.n;
+        hnc hnc = eev.n;
         b();
-        g.a(g.nS).a(new dkw());
+        g.a(g.nU).a(new dmv());
     }
 }

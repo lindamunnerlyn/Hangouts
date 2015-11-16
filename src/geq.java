@@ -2,164 +2,63 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
-final class geq extends gcj
+final class geq extends BroadcastReceiver
 {
 
-    final gen a;
+    boolean a;
+    final geg b;
 
-    geq(gen gen1)
+    geq(geg geg1)
     {
-        a = gen1;
+        b = geg1;
         super();
+        a = true;
     }
 
-    public void a(gho gho1, fyb fyb)
+    public void onReceive(Context context, Intent intent)
     {
-        boolean flag2;
-        flag2 = false;
-        gen gen1 = a;
-        boolean flag;
-        if ((fyb instanceof ghq) || (fyb instanceof ghn))
+        g.v();
+        break MISSING_BLOCK_LABEL_3;
+        if ((NetworkInfo)intent.getParcelableExtra("networkInfo") != null && geg.i(b))
         {
-            if (gho1.k() && !gen1.g.containsKey(gho1.a()))
+            context = geg.j(b).getAllNetworkInfo();
+            int j = context.length;
+            int i = 0;
+            boolean flag = false;
+            for (; i < j; i++)
             {
-                flag = true;
-            } else
-            {
-                flag = false;
-            }
-        } else
-        {
-            flag = false;
-        }
-        if (flag)
-        {
-            if (gho1.l())
-            {
-                fyb = a.k;
-                gjr gjr1 = fyb.b();
-                gjr1.f();
-                gjr1.i(gho1.u());
-                gjr1.j(gho1.w());
-            } else
-            {
-                fyb = new gem(a);
-            }
-            fyb.a(gho1);
-            a.a(fyb);
-            synchronized (a.e)
-            {
-                a.g.put(fyb.a(), fyb);
-                a.h.add(fyb);
-                a.e();
-            }
-            for (gho1 = a.d.iterator(); gho1.hasNext(); ((ger)gho1.next()).a(fyb)) { }
-            break MISSING_BLOCK_LABEL_431;
-        }
-        break MISSING_BLOCK_LABEL_232;
-        fyb;
-        gho1;
-        JVM INSTR monitorexit ;
-        throw fyb;
-        if (!(fyb instanceof ghr))
-        {
-            break MISSING_BLOCK_LABEL_363;
-        }
-        fyb = ((fyb) (a.e));
-        fyb;
-        JVM INSTR monitorenter ;
-        gho1 = (gem)a.g.remove(gho1.a());
-        if (gho1 != null)
-        {
-            break MISSING_BLOCK_LABEL_276;
-        }
-        fyb;
-        JVM INSTR monitorexit ;
-        return;
-        a.j.add(gho1);
-        a.e();
-        fyb;
-        JVM INSTR monitorexit ;
-        if (gho1 == a.l)
-        {
-            a.b(null);
-        }
-        for (fyb = a.d.iterator(); fyb.hasNext(); ((ger)fyb.next()).b(gho1)) { }
-        break MISSING_BLOCK_LABEL_431;
-        gho1;
-        fyb;
-        JVM INSTR monitorexit ;
-        throw gho1;
-        boolean flag1;
-label0:
-        {
-            if (!(fyb instanceof ghm) && !(fyb instanceof ght) && !(fyb instanceof ghu))
-            {
-                flag1 = flag2;
-                if (!(fyb instanceof ghw))
+                intent = context[i];
+                if (gne.a())
                 {
-                    break label0;
+                    String s = String.valueOf(intent.getTypeName());
+                    boolean flag1 = intent.isConnected();
+                    gne.a(2, "vclib", (new StringBuilder(String.valueOf(s).length() + 27)).append("Network: ").append(s).append(", connected? ").append(flag1).toString());
+                }
+                if (intent.isConnected())
+                {
+                    flag = true;
                 }
             }
-            flag1 = true;
-        }
-        if (flag1)
-        {
-            gho1 = (gem)a.g.get(gho1.a());
-            if (gho1 != null)
-            {
-                gho1.f();
-            }
-        }
-        a.d();
-        return;
-    }
 
-    public void a(String s, int i)
-    {
-        s = a.m;
-        a.m = null;
-        Iterator iterator = a.b.a().m().iterator();
-        do
-        {
-            if (!iterator.hasNext())
+            if (flag)
             {
-                break;
+                a = true;
+                return;
             }
-            gho gho1 = (gho)iterator.next();
-            if (!gho1.m().contains(Integer.valueOf(i)))
+            if (a)
             {
-                continue;
+                gne.a(4, "vclib", "We lost our connection. Give it some time to recover then  terminate the call if it can't.");
+                a = false;
+                g.a(new ger(this), 10000L);
+                return;
             }
-            a.m = (gem)a.g.get(gho1.a());
-            break;
-        } while (true);
-        if (a.m != s)
-        {
-            a.a(s);
-            a.a(a.m);
-            a.d();
-        }
-    }
-
-    public void b(gcg gcg1)
-    {
-        a.b.b(a.c);
-        synchronized (a.e)
-        {
-            a.p = true;
-            a.f = false;
         }
         return;
-        exception;
-        gcg1;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 }

@@ -2,60 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import java.util.Collection;
+import java.util.List;
 
-public class cuo extends cua
+public final class cuo extends cvt
 {
 
-    private static final long serialVersionUID = 1L;
-    public final cey a = null;
+    private boolean a;
+    private final int b;
 
-    private cuo(String s, String s1)
+    public cuo(aoa aoa1, dfv dfv1)
     {
-        super(s1, s);
+        super(hio.newBuilder().a(aoa1.a()).b(aoa1.ab()).a(true).a(), dfv1, "lookupmergedperson", dmi.d, new hyk(), new hyl());
+        a = true;
+        b = aoa1.h();
     }
 
-    public static cuo a(String s, String s1)
+    public static cuo a(int i, int j, Integer integer, Collection collection)
     {
-        return new cuo(s, s1);
+        g.w();
+        integer = new cuo(dcn.e(i), new dfv(j, 0, integer, collection));
+        integer.a = false;
+        integer.g();
+        return integer;
     }
 
-    public kop a(String s, int i, int j)
+    protected cxr a(kws kws)
     {
-        if (ctr.e)
+        return dfw.a((hyl)kws);
+    }
+
+    public void a(int i, Exception exception)
+    {
+        for (exception = e(); exception == null || !a;)
         {
-            String s1 = String.valueOf("RemoveUserRequest build protobuf convID: ");
-            String s2 = c;
-            String s3 = this.j;
-            String s4 = String.valueOf(a);
-            ebw.b("Babel_RequestWriter", (new StringBuilder(String.valueOf(s1).length() + 36 + String.valueOf(s2).length() + String.valueOf(s3).length() + String.valueOf(s4).length())).append(s1).append(s2).append(" clientGeneratedId: ").append(s3).append(" participantId: ").append(s4).toString());
+            return;
         }
-        itb itb1 = new itb();
-        itb1.b = aoe.c(this.j);
-        itb1.a = ctq.a(c);
-        itb1.e = Integer.valueOf(5);
-        iww iww1 = new iww();
-        iww1.a = itb1;
-        if (a != null)
-        {
-            cey cey1 = a;
-            ivz ivz1 = new ivz();
-            if (!TextUtils.isEmpty(cey1.a))
-            {
-                ivz1.b = cey1.a;
-            }
-            if (!TextUtils.isEmpty(cey1.b))
-            {
-                ivz1.a = cey1.b;
-            }
-            iww1.b = ivz1;
-        }
-        iww1.requestHeader = ctq.a(s, i, j, h);
-        return iww1;
+
+        RealTimeChatService.a(b, exception);
     }
 
-    public String g()
+    protected void b(kws kws)
     {
-        return "conversations/removeuser";
+        kws = (hyk)kws;
+        Object obj = (dfv)super.e;
+        kws.a = new icv();
+        ((hyk) (kws)).a.a = new hve();
+        ((hyk) (kws)).a.a.b = Integer.valueOf(((dfv) (obj)).a());
+        ((hyk) (kws)).a.a.c = Integer.valueOf(((dfv) (obj)).b());
+        ((hyk) (kws)).a.a.g = ((dfv) (obj)).c();
+        obj = ((dfv) (obj)).d();
+        ((hyk) (kws)).a.a.a = (String)((List) (obj)).get(0);
+        String as[] = new String[((List) (obj)).size()];
+        ((List) (obj)).toArray(as);
+        ((hyk) (kws)).a.a.e = as;
     }
 }

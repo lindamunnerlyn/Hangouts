@@ -3,30 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class agf extends Exception
+public final class agf extends agh
 {
-
-    public final afr a;
-    private long b;
 
     public agf()
     {
-        a = null;
     }
 
-    public agf(afr afr)
+    public agf(aft aft)
     {
-        a = afr;
-    }
-
-    public agf(Throwable throwable)
-    {
-        super(throwable);
-        a = null;
-    }
-
-    void a(long l)
-    {
-        b = l;
+        super(aft);
     }
 }

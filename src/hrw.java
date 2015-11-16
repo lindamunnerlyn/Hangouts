@@ -2,178 +2,110 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.FilterInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
-public final class hrw extends koj
+public final class hrw extends FilterInputStream
 {
 
-    private static volatile hrw h[];
-    public hru a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public hsn g;
+    private long a;
+    private long b;
 
-    public hrw()
+    public hrw(InputStream inputstream, long l1)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        e = null;
-        f = null;
-        g = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(inputstream);
+        b = -1L;
+        h.a(inputstream);
+        boolean flag;
+        if (l1 >= 0L)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        l.a(flag, "limit must be non-negative");
+        a = l1;
     }
 
-    public static hrw[] a()
+    public int available()
     {
-        if (h == null)
-        {
-            synchronized (kon.a)
-            {
-                if (h == null)
-                {
-                    h = new hrw[0];
-                }
-            }
-        }
-        return h;
-        exception;
-        obj;
+        return (int)Math.min(in.available(), a);
+    }
+
+    public void mark(int i)
+    {
+        this;
+        JVM INSTR monitorenter ;
+        in.mark(i);
+        b = a;
+        this;
         JVM INSTR monitorexit ;
+        return;
+        Exception exception;
+        exception;
         throw exception;
     }
 
-    protected int computeSerializedSize()
+    public int read()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        if (a == 0L)
         {
-            i = j + koh.d(1, a);
+            return -1;
         }
-        j = i;
-        if (b != null)
+        int i = in.read();
+        if (i != -1)
         {
-            j = i + koh.b(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.b(3, c);
-        }
-        j = i;
-        if (e != null)
-        {
-            j = i + koh.b(4, e);
-        }
-        i = j;
-        if (d != null)
-        {
-            i = j + koh.b(5, d);
-        }
-        j = i;
-        if (g != null)
-        {
-            j = i + koh.d(6, g);
-        }
-        i = j;
-        if (f != null)
-        {
-            i = j + koh.b(7, f);
+            a = a - 1L;
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public int read(byte abyte0[], int i, int j)
     {
-        do
+        if (a == 0L)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new hru();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-
-            case 26: // '\032'
-                c = kog1.j();
-                break;
-
-            case 34: // '"'
-                e = kog1.j();
-                break;
-
-            case 42: // '*'
-                d = kog1.j();
-                break;
-
-            case 50: // '2'
-                if (g == null)
-                {
-                    g = new hsn();
-                }
-                kog1.a(g);
-                break;
-
-            case 58: // ':'
-                f = kog1.j();
-                break;
-            }
-        } while (true);
+            return -1;
+        }
+        j = (int)Math.min(j, a);
+        i = in.read(abyte0, i, j);
+        if (i != -1)
+        {
+            a = a - (long)i;
+        }
+        return i;
     }
 
-    public void writeTo(koh koh1)
+    public void reset()
     {
-        if (a != null)
+        this;
+        JVM INSTR monitorenter ;
+        if (!in.markSupported())
         {
-            koh1.b(1, a);
+            throw new IOException("Mark not supported");
         }
-        if (b != null)
+        break MISSING_BLOCK_LABEL_27;
+        Exception exception;
+        exception;
+        this;
+        JVM INSTR monitorexit ;
+        throw exception;
+        if (b == -1L)
         {
-            koh1.a(2, b);
+            throw new IOException("Mark not set");
         }
-        if (c != null)
-        {
-            koh1.a(3, c);
-        }
-        if (e != null)
-        {
-            koh1.a(4, e);
-        }
-        if (d != null)
-        {
-            koh1.a(5, d);
-        }
-        if (g != null)
-        {
-            koh1.b(6, g);
-        }
-        if (f != null)
-        {
-            koh1.a(7, f);
-        }
-        super.writeTo(koh1);
+        in.reset();
+        a = b;
+        this;
+        JVM INSTR monitorexit ;
+    }
+
+    public long skip(long l1)
+    {
+        l1 = Math.min(l1, a);
+        l1 = in.skip(l1);
+        a = a - l1;
+        return l1;
     }
 }

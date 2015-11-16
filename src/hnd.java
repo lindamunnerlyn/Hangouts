@@ -2,38 +2,14 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Comparator;
 
-final class hnd
-    implements Comparator
+public class hnd
 {
 
-    final hnc a;
+    private final String a;
 
-    hnd(hnc hnc)
+    protected hnd(String s)
     {
-        a = hnc;
-        super();
-    }
-
-    public int compare(Object obj, Object obj1)
-    {
-        obj = (String)obj;
-        obj1 = (String)obj1;
-        if (obj == obj1)
-        {
-            return 0;
-        }
-        if (obj == null)
-        {
-            return -1;
-        }
-        if (obj1 == null)
-        {
-            return 1;
-        } else
-        {
-            return ((String) (obj)).compareTo(((String) (obj1)));
-        }
+        a = s;
     }
 }

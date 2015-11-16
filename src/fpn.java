@@ -2,83 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import android.util.Log;
 
 public final class fpn
 {
 
-    public static final fpn a = new fpn();
-    private Pattern b[];
-    private String c[];
-
-    private fpn()
+    public fpn()
     {
-        b = new Pattern[0];
-        c = new String[0];
     }
 
-    private void a(String as[], String as1[])
+    private ene b(emy emy1, String s, String s1, long l)
     {
-        int i = 0;
-        this;
-        JVM INSTR monitorenter ;
-        boolean flag;
-        if (as.length == as1.length)
+        return emy1.a(new fij(this, emy1, s, s1, l, false, false));
+    }
+
+    public ene a(emy emy1, String s, String s1, long l)
+    {
+        if (Log.isLoggable("PeopleClientCall", 3))
         {
-            flag = true;
-        } else
-        {
-            flag = false;
+            g.a("requestSync", new Object[] {
+                s, s1, Long.valueOf(l)
+            });
         }
-        h.b(flag);
-        b = new Pattern[as.length];
-        c = as1;
-_L1:
-        if (i >= as.length)
-        {
-            break MISSING_BLOCK_LABEL_64;
-        }
-        b[i] = Pattern.compile(as[i]);
-        i++;
-          goto _L1
-        this;
-        JVM INSTR monitorexit ;
-        return;
-        as;
-        throw as;
+        return b(emy1, s, s1, l);
     }
-
-    public String a(String s)
-    {
-        this;
-        JVM INSTR monitorenter ;
-        boolean flag = TextUtils.isEmpty(s);
-        if (!flag) goto _L2; else goto _L1
-_L1:
-        String s1 = null;
-_L4:
-        this;
-        JVM INSTR monitorexit ;
-        return s1;
-_L2:
-        int i = 0;
-_L5:
-        s1 = s;
-        if (i >= b.length) goto _L4; else goto _L3
-_L3:
-        s = b[i].matcher(s).replaceAll(c[i]);
-        i++;
-          goto _L5
-        s;
-        throw s;
-    }
-
-    public void a(Bundle bundle)
-    {
-        a(bundle.getStringArray("config.url_uncompress.patterns"), bundle.getStringArray("config.url_uncompress.replacements"));
-    }
-
 }

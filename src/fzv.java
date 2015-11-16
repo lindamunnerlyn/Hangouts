@@ -2,36 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
 
-public final class fzv
+public final class fzv extends fzw
 {
 
-    int a;
-    int b;
+    private final int a;
 
-    public fzv()
+    public fzv(int i, String s, Intent intent, Exception exception)
     {
-    }
-
-    public fzv a()
-    {
-        b = 1;
-        return this;
-    }
-
-    public fzv a(int i)
-    {
+        super(s, intent, exception);
         a = i;
-        return this;
-    }
-
-    public int b()
-    {
-        return a;
-    }
-
-    public int c()
-    {
-        return b;
     }
 }

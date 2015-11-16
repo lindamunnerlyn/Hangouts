@@ -3,19 +3,12 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ghr
-    implements fyb
+public interface ghr
 {
 
-    private final Integer a;
+    public abstract void a(ghm ghm);
 
-    public ghr(Integer integer)
-    {
-        a = integer;
-    }
+    public abstract void b(ghm ghm);
 
-    public Integer b()
-    {
-        return a;
-    }
+    public abstract void c(ghm ghm);
 }

@@ -5,7 +5,7 @@
 package com.google.api.client.http;
 
 import g;
-import hnb;
+import hrx;
 import java.nio.charset.Charset;
 
 // Referenced classes of package com.google.api.client.http:
@@ -56,7 +56,7 @@ public abstract class AbstractHttpContent
     {
         if (mediaType == null || mediaType.getCharsetParameter() == null)
         {
-            return hnb.a;
+            return hrx.a;
         } else
         {
             return mediaType.getCharsetParameter();

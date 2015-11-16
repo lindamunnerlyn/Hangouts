@@ -2,22 +2,51 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.lang.ref.ReferenceQueue;
 
-public interface jja
+public final class jja extends kwm
 {
 
-    public abstract int a();
+    public String a;
 
-    public abstract jja a(ReferenceQueue referencequeue, Object obj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry);
+    public jja()
+    {
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
+    }
 
-    public abstract void a(Object obj);
+    protected int computeSerializedSize()
+    {
+        return super.computeSerializedSize() + kwk.b(1, a);
+    }
 
-    public abstract com.google.common.cache.LocalCache.ReferenceEntry b();
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
 
-    public abstract boolean c();
+            case 0: // '\0'
+                return this;
 
-    public abstract boolean d();
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+            }
+        } while (true);
+    }
 
-    public abstract Object get();
+    public void writeTo(kwk kwk1)
+    {
+        kwk1.a(1, a);
+        super.writeTo(kwk1);
+    }
 }

@@ -2,40 +2,64 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.Executor;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
-public final class jsm extends Enum
-    implements Executor
+final class jsm extends jsh
 {
 
-    public static final jsm a;
-    private static final jsm b[];
+    final transient int a;
+    final transient int b;
+    final jsh c;
 
-    private jsm(String s)
+    jsm(jsh jsh1, int i, int j)
     {
-        super(s, 0);
+        c = jsh1;
+        super();
+        a = i;
+        b = j;
     }
 
-    public static jsm valueOf(String s)
+    public jsh a(int i, int j)
     {
-        return (jsm)Enum.valueOf(jsm, s);
+        n.a(i, j, b);
+        return c.a(a + i, a + j);
     }
 
-    public static jsm[] values()
+    boolean e()
     {
-        return (jsm[])b.clone();
+        return true;
     }
 
-    public void execute(Runnable runnable)
+    public Object get(int i)
     {
-        runnable.run();
+        n.a(i, b);
+        return c.get(a + i);
     }
 
-    static 
+    public Iterator iterator()
     {
-        a = new jsm("INSTANCE");
-        b = (new jsm[] {
-            a
-        });
+        return super.a();
+    }
+
+    public ListIterator listIterator()
+    {
+        return super.c();
+    }
+
+    public ListIterator listIterator(int i)
+    {
+        return super.a(i);
+    }
+
+    public int size()
+    {
+        return b;
+    }
+
+    public List subList(int i, int j)
+    {
+        return a(i, j);
     }
 }

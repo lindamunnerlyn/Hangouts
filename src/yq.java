@@ -4,70 +4,56 @@
 
 import android.view.View;
 
-final class yq extends yo
+public abstract class yq
 {
 
-    yq(ze ze1)
+    public final zg a;
+    private int b;
+
+    private yq(zg zg)
     {
-        super(ze1, (byte)0);
+        b = 0x80000000;
+        a = zg;
     }
 
-    public int a(View view)
+    yq(zg zg, byte byte0)
     {
-        zf zf1 = (zf)view.getLayoutParams();
-        return a.i(view) - zf1.topMargin;
+        this(zg);
     }
 
-    public void a(int i)
+    public abstract int a(View view);
+
+    public void a()
     {
-        a.g(i);
+        b = f();
     }
 
-    public int b(View view)
+    public abstract void a(int i);
+
+    public int b()
     {
-        zf zf1 = (zf)view.getLayoutParams();
-        int i = a.k(view);
-        return zf1.bottomMargin + i;
+        if (0x80000000 == b)
+        {
+            return 0;
+        } else
+        {
+            return f() - b;
+        }
     }
 
-    public int c()
-    {
-        return a.o();
-    }
+    public abstract int b(View view);
 
-    public int c(View view)
-    {
-        zf zf1 = (zf)view.getLayoutParams();
-        int i = a.g(view);
-        int j = zf1.topMargin;
-        return zf1.bottomMargin + (i + j);
-    }
+    public abstract int c();
 
-    public int d()
-    {
-        return a.m() - a.q();
-    }
+    public abstract int c(View view);
 
-    public int d(View view)
-    {
-        zf zf1 = (zf)view.getLayoutParams();
-        int i = a.f(view);
-        int j = zf1.leftMargin;
-        return zf1.rightMargin + (i + j);
-    }
+    public abstract int d();
 
-    public int e()
-    {
-        return a.m();
-    }
+    public abstract int d(View view);
 
-    public int f()
-    {
-        return a.m() - a.o() - a.q();
-    }
+    public abstract int e();
 
-    public int g()
-    {
-        return a.q();
-    }
+    public abstract int f();
+
+    public abstract int g();
 }

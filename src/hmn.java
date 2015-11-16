@@ -2,15 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
 
 final class hmn
+    implements hok
 {
 
-    String a;
-    Object b;
-    hmn c;
+    final Bundle a;
+    final hmm b;
 
-    hmn()
+    hmn(hmm hmm1, Bundle bundle)
     {
+        b = hmm1;
+        a = bundle;
+        super();
+    }
+
+    public void a(hoy hoy)
+    {
+        if (hoy instanceof hma)
+        {
+            Bundle bundle = hmm.a(b).a(hoy, a);
+            ((hma)hoy).a(b.context, b.binder, bundle);
+        }
     }
 }

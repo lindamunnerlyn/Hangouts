@@ -2,69 +2,64 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.res.Resources;
-import android.text.TextUtils;
+import android.os.Bundle;
 
-final class buk
-    implements btr
+public final class buk extends hmk
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final buj a;
+    private android.content.DialogInterface.OnDismissListener aj;
 
-    buk(buj buj1)
-    {
-        a = buj1;
-        super();
-    }
-
-    public void a()
+    public buk()
     {
     }
 
-    public void a(jba jba1)
+    public Dialog a(Bundle bundle)
     {
-        a.c();
-        a.a(jba1);
+        eev.c("Babel", "Showing disable knocking dialog");
+        g.b(1666);
+        bundle = getActivity();
+        Resources resources = bundle.getResources();
+        String s = resources.getString(h.hI);
+        String s1 = resources.getString(h.hH);
+        return (new android.app.AlertDialog.Builder(bundle)).setTitle(s).setMessage(s1).setPositiveButton(resources.getString(h.hJ), this).setNegativeButton(resources.getString(h.hG), this).setCancelable(false).create();
     }
 
-    public void b()
+    public void a(android.content.DialogInterface.OnDismissListener ondismisslistener)
     {
-        a.c();
-        buj buj1 = a;
-        buj1.e = new btx();
-        buj1.e.a(new bul(buj1));
-        buj1.e.a(buj1.a.t_(), null);
+        aj = ondismisslistener;
     }
 
-    public void b(jba jba1)
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        buj buj1 = a;
-        Resources resources = buj1.a.getResources();
-        if (TextUtils.isEmpty(jba1.d))
+        switch (i)
         {
-            jba1 = resources.getString(h.ik);
-        } else
-        {
-            jba1 = resources.getString(h.ij, new Object[] {
-                jba1.d
-            });
+        default:
+            gdv.a("Unrecognized button click");
+            return;
+
+        case -1: 
+            eev.e("Babel", "Knocking to be disabled");
+            g.b(1667);
+            ((buh)hlp.a(getActivity(), buh)).a(false);
+            return;
+
+        case -2: 
+            eev.e("Babel", "Knocking will not be disabled");
+            g.b(1668);
+            return;
         }
-        buj1.b.a((new buy()).a(1).a(jba1).a().b());
     }
 
-    public void c(jba jba1)
+    public void onDismiss(DialogInterface dialoginterface)
     {
-        buj buj1 = a;
-        Resources resources = buj1.a.getResources();
-        if (TextUtils.isEmpty(jba1.d))
+        if (aj != null)
         {
-            jba1 = resources.getString(h.ip);
-        } else
-        {
-            jba1 = resources.getString(h.io, new Object[] {
-                jba1.d
-            });
+            aj.onDismiss(dialoginterface);
         }
-        buj1.b.a((new buy()).a(1).a(jba1).a().b());
     }
 }

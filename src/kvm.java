@@ -2,53 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
-public final class kvm extends kmc
-    implements kna
+final class kvm extends kvl
 {
 
-    kvm()
+    kvm(int i)
     {
-        super(kvl.p());
+        super(i, (byte)0);
     }
 
-    public kvm a(double d)
+    public void a()
     {
-        b();
-        kvl.a((kvl)a, d);
-        return this;
+        if (!b())
+        {
+            for (int i = 0; i < c(); i++)
+            {
+                java.util.Map.Entry entry = b(i);
+                if (((kuc)entry.getKey()).d())
+                {
+                    entry.setValue(Collections.unmodifiableList((List)entry.getValue()));
+                }
+            }
+
+            Iterator iterator = d().iterator();
+            do
+            {
+                if (!iterator.hasNext())
+                {
+                    break;
+                }
+                java.util.Map.Entry entry1 = (java.util.Map.Entry)iterator.next();
+                if (((kuc)entry1.getKey()).d())
+                {
+                    entry1.setValue(Collections.unmodifiableList((List)entry1.getValue()));
+                }
+            } while (true);
+        }
+        super.a();
     }
 
-    public kvm a(long l)
+    public Object put(Object obj, Object obj1)
     {
-        b();
-        kvl.a((kvl)a, l);
-        return this;
-    }
-
-    public kvm a(String s)
-    {
-        b();
-        kvl.a((kvl)a, s);
-        return this;
-    }
-
-    public kvm b(long l)
-    {
-        b();
-        kvl.b((kvl)a, l);
-        return this;
-    }
-
-    public kvm j()
-    {
-        b();
-        kvl.c((kvl)a, 0L);
-        return this;
-    }
-
-    public String k()
-    {
-        return ((kvl)a).l();
+        return super.a((kuc)obj, obj1);
     }
 }

@@ -3,20 +3,29 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class cod
-    implements Runnable
+final class cod extends coj
 {
 
-    final coc a;
+    final cna a;
 
-    cod(coc coc1)
+    cod(cna cna1, String s)
     {
-        a = coc1;
-        super();
+        a = cna1;
+        super(s);
     }
 
-    public void run()
+    public void a()
     {
-        a.b();
+        aoa aoa1 = a.b;
+        dra dra1 = (dra)hlp.a(g.nU, dra);
+        int i;
+        if (aoa1 != null)
+        {
+            i = aoa1.h();
+        } else
+        {
+            i = -1;
+        }
+        dra1.c(i);
     }
 }

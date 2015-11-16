@@ -2,29 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import java.util.List;
 
-final class hbq
-    implements hbn
+public interface hbq
 {
 
-    private final List a;
-    private final Context b;
+    public abstract ad b();
 
-    hbq(Context context)
-    {
-        a = hgx.c(context, hbo);
-        b = context;
-    }
-
-    public void a()
-    {
-        int i = 0;
-        for (int j = a.size(); i < j; i++)
-        {
-            a.get(i);
-        }
-
-    }
+    public abstract boolean e(grb grb);
 }

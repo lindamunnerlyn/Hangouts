@@ -3,10 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class asq
+public interface asq
 {
 
-    asq()
-    {
-    }
+    public abstract void a(amx amx, atu atu);
 }

@@ -2,80 +2,51 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.common.collect.MapMakerInternalMap;
 
-public final class jvr extends koj
+public final class jvr extends jvp
+    implements com.google.common.collect.MapMakerInternalMap.ReferenceEntry
 {
 
-    private static volatile jvr b[];
-    public Integer a;
+    volatile long e;
+    com.google.common.collect.MapMakerInternalMap.ReferenceEntry f;
+    com.google.common.collect.MapMakerInternalMap.ReferenceEntry g;
 
-    public jvr()
+    jvr(Object obj, int i, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(obj, i, referenceentry);
+        e = 0x7fffffffffffffffL;
+        f = MapMakerInternalMap.h();
+        g = MapMakerInternalMap.h();
     }
 
-    public static jvr[] a()
+    public long getExpirationTime()
     {
-        if (b == null)
-        {
-            synchronized (kon.a)
-            {
-                if (b == null)
-                {
-                    b = new jvr[0];
-                }
-            }
-        }
-        return b;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return e;
     }
 
-    protected int computeSerializedSize()
+    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextExpirable()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.e(1, a.intValue());
-        }
-        return i;
+        return f;
     }
 
-    public kop mergeFrom(kog kog1)
+    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousExpirable()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
-                break;
-            }
-        } while (true);
+        return g;
     }
 
-    public void writeTo(koh koh1)
+    public void setExpirationTime(long l)
     {
-        if (a != null)
-        {
-            koh1.a(1, a.intValue());
-        }
-        super.writeTo(koh1);
+        e = l;
+    }
+
+    public void setNextExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    {
+        f = referenceentry;
+    }
+
+    public void setPreviousExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    {
+        g = referenceentry;
     }
 }

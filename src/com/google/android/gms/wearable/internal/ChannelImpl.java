@@ -7,16 +7,15 @@ package com.google.android.gms.wearable.internal;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.google.android.gms.wearable.Channel;
-import fwl;
+import fyp;
 import g;
-import h;
 
 public class ChannelImpl
     implements SafeParcelable, Channel
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fwl();
-    public final int a;
+    public static final android.os.Parcelable.Creator CREATOR = new fyp();
+    final int a;
     private final String b;
     private final String c;
     private final String d;
@@ -24,9 +23,9 @@ public class ChannelImpl
     public ChannelImpl(int i, String s, String s1, String s2)
     {
         a = i;
-        b = (String)h.a(s);
-        c = (String)h.a(s1);
-        d = (String)h.a(s2);
+        b = (String)g.d(s);
+        c = (String)g.d(s1);
+        d = (String)g.d(s2);
     }
 
     public String a()
@@ -78,7 +77,12 @@ public class ChannelImpl
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fwl.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, c());
+        g.a(parcel, 3, a());
+        g.a(parcel, 4, b());
+        g.q(parcel, i);
     }
 
 }

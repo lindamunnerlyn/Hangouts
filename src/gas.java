@@ -2,11 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
 public interface gas
-    extends gba
 {
 
-    public static final gbf a = new gat();
-
+    public abstract gar newBuilder(Context context);
 }

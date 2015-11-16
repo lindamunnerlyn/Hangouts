@@ -2,26 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
 
-final class jmw extends jqy
+abstract class jmw extends jmr
 {
 
-    final Iterator a;
-
-    jmw(Iterator iterator)
+    jmw()
     {
-        a = iterator;
-        super();
     }
 
-    public boolean hasNext()
+    public volatile boolean a(Object obj)
     {
-        return a.hasNext();
-    }
-
-    public Object next()
-    {
-        return a.next();
+        return super.a((Character)obj);
     }
 }

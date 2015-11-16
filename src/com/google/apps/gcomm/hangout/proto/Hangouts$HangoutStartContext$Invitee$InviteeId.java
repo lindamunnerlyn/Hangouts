@@ -4,13 +4,13 @@
 
 package com.google.apps.gcomm.hangout.proto;
 
-import kog;
-import koh;
-import koj;
-import kon;
-import kop;
+import kwj;
+import kwk;
+import kwm;
+import kwq;
+import kws;
 
-public final class clear extends koj
+public final class clear extends kwm
 {
 
     private static volatile email _emptyArray[];
@@ -23,7 +23,7 @@ public final class clear extends koj
     {
         if (_emptyArray == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
                 if (_emptyArray == null)
                 {
@@ -38,14 +38,14 @@ public final class clear extends koj
         throw exception;
     }
 
-    public static _emptyArray parseFrom(kog kog1)
+    public static _emptyArray parseFrom(kwj kwj1)
     {
-        return (new <init>()).mergeFrom(kog1);
+        return (new <init>()).mergeFrom(kwj1);
     }
 
     public static mergeFrom parseFrom(byte abyte0[])
     {
-        return (mergeFrom)kop.mergeFrom(new <init>(), abyte0);
+        return (mergeFrom)kws.mergeFrom(new <init>(), abyte0);
     }
 
     public <init> clear()
@@ -65,35 +65,35 @@ public final class clear extends koj
         int i = j;
         if (profileId != null)
         {
-            i = j + koh.b(1, profileId);
+            i = j + kwk.b(1, profileId);
         }
         j = i;
         if (phoneNumber != null)
         {
-            j = i + koh.b(2, phoneNumber);
+            j = i + kwk.b(2, phoneNumber);
         }
         i = j;
         if (circleId != null)
         {
-            i = j + koh.b(3, circleId);
+            i = j + kwk.b(3, circleId);
         }
         j = i;
         if (email != null)
         {
-            j = i + koh.b(4, email);
+            j = i + kwk.b(4, email);
         }
         return j;
     }
 
-    public email mergeFrom(kog kog1)
+    public email mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -103,48 +103,48 @@ public final class clear extends koj
                 return this;
 
             case 10: // '\n'
-                profileId = kog1.j();
+                profileId = kwj1.j();
                 break;
 
             case 18: // '\022'
-                phoneNumber = kog1.j();
+                phoneNumber = kwj1.j();
                 break;
 
             case 26: // '\032'
-                circleId = kog1.j();
+                circleId = kwj1.j();
                 break;
 
             case 34: // '"'
-                email = kog1.j();
+                email = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public volatile kop mergeFrom(kog kog1)
+    public volatile kws mergeFrom(kwj kwj1)
     {
-        return mergeFrom(kog1);
+        return mergeFrom(kwj1);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (profileId != null)
         {
-            koh1.a(1, profileId);
+            kwk1.a(1, profileId);
         }
         if (phoneNumber != null)
         {
-            koh1.a(2, phoneNumber);
+            kwk1.a(2, phoneNumber);
         }
         if (circleId != null)
         {
-            koh1.a(3, circleId);
+            kwk1.a(3, circleId);
         }
         if (email != null)
         {
-            koh1.a(4, email);
+            kwk1.a(4, email);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 
     public ()

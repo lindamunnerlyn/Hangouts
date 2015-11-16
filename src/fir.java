@@ -2,57 +2,55 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
+import android.os.RemoteException;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-final class fir
-    implements fip
+public final class fir
 {
 
-    private IBinder a;
+    public final fjd a;
+    private fiz b;
 
-    fir(IBinder ibinder)
+    protected fir(fjd fjd1)
     {
-        a = ibinder;
+        a = (fjd)g.d(fjd1);
     }
 
-    public boolean a(fkr fkr1)
+    public final fiz a()
     {
-        Parcel parcel;
-        Parcel parcel1;
-        boolean flag;
-        flag = true;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnMarkerClickListener");
-        if (fkr1 == null)
+        fiz fiz1;
+        try
         {
-            break MISSING_BLOCK_LABEL_73;
+            if (b == null)
+            {
+                b = new fiz(a.k());
+            }
+            fiz1 = b;
         }
-        fkr1 = fkr1.asBinder();
-_L1:
-        int i;
-        parcel.writeStrongBinder(fkr1);
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        i = parcel1.readInt();
-        if (i == 0)
+        catch (RemoteException remoteexception)
         {
-            flag = false;
+            throw new af(remoteexception);
         }
-        parcel1.recycle();
-        parcel.recycle();
-        return flag;
-        fkr1 = null;
-          goto _L1
-        fkr1;
-        parcel1.recycle();
-        parcel.recycle();
-        throw fkr1;
+        return fiz1;
     }
 
-    public IBinder asBinder()
+    public final fmu a(MarkerOptions markeroptions)
     {
-        return a;
+        try
+        {
+            markeroptions = a.a(markeroptions);
+        }
+        // Misplaced declaration of an exception variable
+        catch (MarkerOptions markeroptions)
+        {
+            throw new af(markeroptions);
+        }
+        if (markeroptions == null)
+        {
+            break MISSING_BLOCK_LABEL_26;
+        }
+        markeroptions = new fmu(markeroptions);
+        return markeroptions;
+        return null;
     }
 }

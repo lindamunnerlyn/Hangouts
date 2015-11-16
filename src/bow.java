@@ -3,10 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface bow
+public final class bow
 {
 
-    public abstract void a(bpd bpd);
+    public static final String a = bwl.getName();
+    private static bou b;
 
-    public abstract void a(gjr gjr);
+    public static void a(hlp hlp1)
+    {
+        if (b == null)
+        {
+            b = new bou();
+        }
+        hlp1.a(bwl, b.a());
+    }
+
 }

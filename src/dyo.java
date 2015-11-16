@@ -2,10 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
 
 final class dyo
-    implements android.view.View.OnClickListener
+    implements Runnable
 {
 
     final dyn a;
@@ -16,8 +15,9 @@ final class dyo
         super();
     }
 
-    public void onClick(View view)
+    public void run()
     {
-        dyn.a(a).h();
+        dyl.f(a.a);
+        dyl.g(a.a);
     }
 }

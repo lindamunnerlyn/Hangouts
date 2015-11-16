@@ -3,29 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cyd extends cvn
+public final class cyd extends cxr
 {
 
     private static final long serialVersionUID = 1L;
 
-    private cyd(iyf iyf1)
+    public cyd(hxz hxz)
     {
-        if (cvn.a)
-        {
-            iyf1 = String.valueOf(iyf1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(iyf1).length() + 42)).append("SetHangoutNotificationStatusResponse from:").append(iyf1).toString());
-        }
+        super(hxz);
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public cyd(jdl jdl)
     {
-        abyte0 = (iyf)kop.mergeFrom(new iyf(), abyte0);
-        if (a(((iyf) (abyte0)).responseHeader))
-        {
-            return new cvz(((iyf) (abyte0)).responseHeader);
-        } else
-        {
-            return new cyd(abyte0);
-        }
+        super(jdl, -1L);
     }
 }

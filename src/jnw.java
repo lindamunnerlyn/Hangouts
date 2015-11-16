@@ -2,70 +2,69 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.collect.MapMakerInternalMap;
-import java.util.AbstractSet;
-import java.util.Iterator;
+import java.io.Serializable;
 
-public final class jnw extends AbstractSet
+public final class jnw
+    implements Serializable
 {
 
-    final MapMakerInternalMap a;
+    private static final long serialVersionUID = 0xa60d052d8237f63L;
+    public final Object a;
+    public final Object b;
 
-    public jnw(MapMakerInternalMap mapmakerinternalmap)
+    private jnw(Object obj, Object obj1)
     {
-        a = mapmakerinternalmap;
-        super();
+        a = obj;
+        b = obj1;
     }
 
-    public void clear()
+    public static jnw a(Object obj, Object obj1)
     {
-        a.clear();
+        return new jnw(obj, obj1);
     }
 
-    public boolean contains(Object obj)
+    public boolean equals(Object obj)
     {
-        if (obj instanceof java.util.Map.Entry)
+        boolean flag1 = false;
+        boolean flag = flag1;
+        if (obj instanceof jnw)
         {
-            obj = (java.util.Map.Entry)obj;
-            Object obj1 = ((java.util.Map.Entry) (obj)).getKey();
-            if (obj1 != null)
+            obj = (jnw)obj;
+            flag = flag1;
+            if (n.a(a, ((jnw) (obj)).a))
             {
-                obj1 = a.get(obj1);
-                if (obj1 != null && a.f.a(((java.util.Map.Entry) (obj)).getValue(), obj1))
+                flag = flag1;
+                if (n.a(b, ((jnw) (obj)).b))
                 {
-                    return true;
+                    flag = true;
                 }
             }
         }
-        return false;
+        return flag;
     }
 
-    public boolean isEmpty()
+    public int hashCode()
     {
-        return a.isEmpty();
-    }
-
-    public Iterator iterator()
-    {
-        return new jnv(a);
-    }
-
-    public boolean remove(Object obj)
-    {
-        if (obj instanceof java.util.Map.Entry)
+        int j = 0;
+        int i;
+        if (a == null)
         {
-            obj = (java.util.Map.Entry)obj;
-            Object obj1 = ((java.util.Map.Entry) (obj)).getKey();
-            if (obj1 != null && a.remove(obj1, ((java.util.Map.Entry) (obj)).getValue()))
-            {
-                return true;
-            }
+            i = 0;
+        } else
+        {
+            i = a.hashCode();
         }
-        return false;
+        if (b != null)
+        {
+            j = b.hashCode();
+        }
+        return i * 31 + j;
     }
 
-    public int size()
+    public String toString()
     {
-        return a.size();
+        String s = String.valueOf(a);
+        String s1 = String.valueOf(b);
+        return (new StringBuilder(String.valueOf(s).length() + 4 + String.valueOf(s1).length())).append("(").append(s).append(", ").append(s1).append(")").toString();
     }
 }

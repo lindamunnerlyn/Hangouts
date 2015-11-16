@@ -2,123 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.Parcel;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.signin.GoogleSignInAccount;
-import com.google.android.gms.signin.internal.AuthAccountResult;
+import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
+import com.google.android.gms.common.data.DataHolder;
 
-public abstract class frw extends Binder
-    implements frv
+public class frw extends frz
 {
 
     public frw()
     {
-        attachInterface(this, "com.google.android.gms.signin.internal.ISignInCallbacks");
     }
 
-    public static frv a(IBinder ibinder)
+    public void a(int i, Bundle bundle, Bundle bundle1)
     {
-        if (ibinder == null)
-        {
-            return null;
-        }
-        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.signin.internal.ISignInCallbacks");
-        if (iinterface != null && (iinterface instanceof frv))
-        {
-            return (frv)iinterface;
-        } else
-        {
-            return new frx(ibinder);
-        }
     }
 
-    public IBinder asBinder()
+    public final void a(int i, Bundle bundle, ParcelFileDescriptor parcelfiledescriptor)
     {
-        return this;
+        throw new RuntimeException("Shouldn't be called");
     }
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    public void a(int i, Bundle bundle, ParcelFileDescriptor parcelfiledescriptor, Bundle bundle1)
     {
-        switch (i)
-        {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
+    }
 
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.signin.internal.ISignInCallbacks");
-            return true;
+    public void a(int i, Bundle bundle, DataHolder dataholder)
+    {
+    }
 
-        case 3: // '\003'
-            parcel.enforceInterface("com.google.android.gms.signin.internal.ISignInCallbacks");
-            ConnectionResult connectionresult;
-            if (parcel.readInt() != 0)
-            {
-                connectionresult = (ConnectionResult)ConnectionResult.CREATOR.createFromParcel(parcel);
-            } else
-            {
-                connectionresult = null;
-            }
-            if (parcel.readInt() != 0)
-            {
-                parcel = (AuthAccountResult)AuthAccountResult.CREATOR.createFromParcel(parcel);
-            } else
-            {
-                parcel = null;
-            }
-            a(connectionresult, parcel);
-            parcel1.writeNoException();
-            return true;
-
-        case 4: // '\004'
-            parcel.enforceInterface("com.google.android.gms.signin.internal.ISignInCallbacks");
-            if (parcel.readInt() != 0)
-            {
-                parcel = (Status)Status.CREATOR.createFromParcel(parcel);
-            } else
-            {
-                parcel = null;
-            }
-            a(parcel);
-            parcel1.writeNoException();
-            return true;
-
-        case 6: // '\006'
-            parcel.enforceInterface("com.google.android.gms.signin.internal.ISignInCallbacks");
-            if (parcel.readInt() != 0)
-            {
-                parcel = (Status)Status.CREATOR.createFromParcel(parcel);
-            } else
-            {
-                parcel = null;
-            }
-            b(parcel);
-            parcel1.writeNoException();
-            return true;
-
-        case 7: // '\007'
-            parcel.enforceInterface("com.google.android.gms.signin.internal.ISignInCallbacks");
-            break;
-        }
-        Status status;
-        if (parcel.readInt() != 0)
-        {
-            status = (Status)Status.CREATOR.createFromParcel(parcel);
-        } else
-        {
-            status = null;
-        }
-        if (parcel.readInt() != 0)
-        {
-            parcel = (GoogleSignInAccount)GoogleSignInAccount.CREATOR.createFromParcel(parcel);
-        } else
-        {
-            parcel = null;
-        }
-        a(status, parcel);
-        parcel1.writeNoException();
-        return true;
+    public void a(int i, Bundle bundle, DataHolder adataholder[])
+    {
     }
 }

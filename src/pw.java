@@ -2,35 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 
-final class pw extends rq
-    implements px
+public interface pw
 {
 
-    private final Activity a;
+    public abstract Drawable a();
 
-    public pw(Activity activity, Context context)
-    {
-        super(context);
-        a = activity;
-    }
+    public abstract void a(int i);
 
-    public void a(float f)
-    {
-        if (f != 1.0F) goto _L2; else goto _L1
-_L1:
-        b(true);
-_L4:
-        d(f);
-        return;
-_L2:
-        if (f == 0.0F)
-        {
-            b(false);
-        }
-        if (true) goto _L4; else goto _L3
-_L3:
-    }
+    public abstract void a(Drawable drawable, int i);
+
+    public abstract Context b();
+
+    public abstract boolean c();
 }

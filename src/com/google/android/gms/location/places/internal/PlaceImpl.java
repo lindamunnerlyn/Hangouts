@@ -10,10 +10,10 @@ import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
-import eof;
-import ffo;
-import ffp;
-import ffr;
+import erf;
+import fik;
+import fil;
+import fin;
 import g;
 import java.util.Arrays;
 import java.util.Collections;
@@ -27,12 +27,12 @@ import java.util.TimeZone;
 //            PlaceLocalization
 
 public final class PlaceImpl
-    implements SafeParcelable, ffo
+    implements SafeParcelable, fik
 {
 
-    public static final ffp CREATOR = new ffp();
-    public final int a;
-    public final boolean b;
+    public static final fil CREATOR = new fil();
+    final int a;
+    final boolean b;
     private final String c;
     private final Bundle d;
     private final PlaceLocalization e;
@@ -55,7 +55,7 @@ public final class PlaceImpl
     private final Map v = Collections.unmodifiableMap(new HashMap());
     private final TimeZone w = null;
     private Locale x;
-    private ffr y;
+    private fin y;
 
     public PlaceImpl(int i1, String s1, List list, List list1, Bundle bundle, String s2, String s3, 
             String s4, String s5, List list2, LatLng latlng, float f1, LatLngBounds latlngbounds, String s6, 
@@ -106,25 +106,129 @@ public final class PlaceImpl
         }
     }
 
+    private List g()
+    {
+        a("getPlaceTypes");
+        return p;
+    }
+
+    private List h()
+    {
+        a("getTypesDeprecated");
+        return o;
+    }
+
+    private String i()
+    {
+        a("getName");
+        return q;
+    }
+
+    private String j()
+    {
+        a("getAddress");
+        return r;
+    }
+
+    private float k()
+    {
+        a("getLevelNumber");
+        return g;
+    }
+
+    private LatLngBounds l()
+    {
+        a("getViewport");
+        return h;
+    }
+
+    private Uri m()
+    {
+        a("getWebsiteUri");
+        return j;
+    }
+
+    private String n()
+    {
+        a("getPhoneNumber");
+        return s;
+    }
+
+    private String o()
+    {
+        a("getRegularOpenHours");
+        return t;
+    }
+
+    private List p()
+    {
+        a("getAttributions");
+        return u;
+    }
+
+    private boolean q()
+    {
+        a("isPermanentlyClosed");
+        return k;
+    }
+
+    private float r()
+    {
+        a("getRating");
+        return l;
+    }
+
+    private int s()
+    {
+        a("getPriceLevel");
+        return m;
+    }
+
+    private long t()
+    {
+        return n;
+    }
+
+    private Bundle u()
+    {
+        return d;
+    }
+
+    private String v()
+    {
+        return i;
+    }
+
+    private PlaceLocalization w()
+    {
+        a("getLocalization");
+        return e;
+    }
+
+    public boolean C_()
+    {
+        return true;
+    }
+
     public String a()
     {
         a("getId");
         return c;
     }
 
-    public void a(ffr ffr1)
+    public void a(fin fin1)
     {
-        y = ffr1;
+        y = fin1;
     }
 
     public CharSequence b()
     {
-        return i();
+        return j();
     }
 
     public CharSequence c()
     {
-        return h();
+        return i();
     }
 
     public LatLng d()
@@ -136,11 +240,6 @@ public final class PlaceImpl
     public int describeContents()
     {
         return 0;
-    }
-
-    public Object e()
-    {
-        return this;
     }
 
     public boolean equals(Object obj)
@@ -160,22 +259,9 @@ public final class PlaceImpl
         return true;
     }
 
-    public List f()
+    public Object f()
     {
-        a("getPlaceTypes");
-        return p;
-    }
-
-    public List g()
-    {
-        a("getTypesDeprecated");
-        return o;
-    }
-
-    public String h()
-    {
-        a("getName");
-        return q;
+        return this;
     }
 
     public int hashCode()
@@ -185,95 +271,36 @@ public final class PlaceImpl
         });
     }
 
-    public String i()
-    {
-        a("getAddress");
-        return r;
-    }
-
-    public float j()
-    {
-        a("getLevelNumber");
-        return g;
-    }
-
-    public LatLngBounds k()
-    {
-        a("getViewport");
-        return h;
-    }
-
-    public Uri l()
-    {
-        a("getWebsiteUri");
-        return j;
-    }
-
-    public String m()
-    {
-        a("getPhoneNumber");
-        return s;
-    }
-
-    public String n()
-    {
-        a("getRegularOpenHours");
-        return t;
-    }
-
-    public List o()
-    {
-        a("getAttributions");
-        return u;
-    }
-
-    public boolean p()
-    {
-        a("isPermanentlyClosed");
-        return k;
-    }
-
-    public float q()
-    {
-        a("getRating");
-        return l;
-    }
-
-    public int r()
-    {
-        a("getPriceLevel");
-        return m;
-    }
-
-    public long s()
-    {
-        return n;
-    }
-
-    public Bundle t()
-    {
-        return d;
-    }
-
     public String toString()
     {
         return g.c(this).a("id", c).a("placeTypes", p).a("locale", x).a("name", q).a("address", r).a("phoneNumber", s).a("latlng", f).a("viewport", h).a("websiteUri", j).a("isPermanentlyClosed", Boolean.valueOf(k)).a("priceLevel", Integer.valueOf(m)).a("timestampSecs", Long.valueOf(n)).toString();
     }
 
-    public String u()
-    {
-        return i;
-    }
-
-    public PlaceLocalization v()
-    {
-        a("getLocalization");
-        return e;
-    }
-
     public void writeToParcel(Parcel parcel, int i1)
     {
-        ffp.a(this, parcel, i1);
+        int j1 = g.p(parcel, 20293);
+        g.a(parcel, 1, a());
+        g.a(parcel, 2, u());
+        g.a(parcel, 3, w(), i1);
+        g.a(parcel, 4, d(), i1);
+        g.a(parcel, 5, k());
+        g.a(parcel, 6, l(), i1);
+        g.a(parcel, 7, v());
+        g.a(parcel, 8, m(), i1);
+        g.a(parcel, 9, q());
+        g.a(parcel, 10, r());
+        g.b(parcel, 11, s());
+        g.a(parcel, 12, t());
+        g.a(parcel, 13, h());
+        g.a(parcel, 14, j());
+        g.a(parcel, 15, n());
+        g.b(parcel, 17, p());
+        g.a(parcel, 16, o());
+        g.b(parcel, 1000, a);
+        g.a(parcel, 19, i());
+        g.a(parcel, 18, b);
+        g.a(parcel, 20, g());
+        g.q(parcel, j1);
     }
 
 }

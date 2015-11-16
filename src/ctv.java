@@ -2,275 +2,256 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import com.google.api.client.http.HttpContent;
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
 
-public class ctv extends cui
+public final class ctv
+    implements Serializable
 {
 
-    private static final long serialVersionUID = 1L;
-    public final int a;
-    public final int b;
-    public final String c;
-    public final List d;
-    public final String j;
-    public final String k;
+    private final String a;
+    private final int b;
+    private Boolean c;
+    private Long d;
+    private Float e;
+    private boolean f;
+    private boolean g;
+    private long h;
+    private float i;
 
-    public ctv(String s, int i, int l, String s1, List list, String s2)
+    public ctv(izk izk1)
     {
-        gbh.a(aoe.a(s));
-        j = s;
-        a = i;
-        b = l;
-        c = s1;
-        d = list;
-        k = s2;
-        s = d.iterator();
-        do
+        boolean flag = true;
+        super();
+        f = false;
+        a = izk1.a;
+        int j = g.a(izk1.b, 0);
+        if (j == 1)
         {
-            if (!s.hasNext())
-            {
-                break MISSING_BLOCK_LABEL_426;
-            }
-            s1 = (ceu)s.next();
-            StringBuilder stringbuilder;
-            if (((ceu) (s1)).d == null && TextUtils.isEmpty(((ceu) (s1)).g))
-            {
-                s = "CCR invitee should not have empty fallback name.";
-                break MISSING_BLOCK_LABEL_96;
-            }
-            s1 = s1.b();
-        } while (s1 == null || !s1.startsWith("g:"));
-        s = "CCR invitee gaiaId should not start with g:.";
-_L2:
-        if (s != null)
+            b = 1;
+            g = g.a(izk1.c.d, false);
+        } else
+        if (j == 2)
         {
-            s1 = new StringBuilder();
-            s1.append(s).append(" ");
-            s1.append("Invitees: ");
-            list = d.iterator();
-            while (list.hasNext()) 
-            {
-                s2 = (ceu)list.next();
-                s1.append("[");
-                s1.append("g:").append(s2.b()).append(",");
-                s1.append("ch:").append(s2.c()).append(",");
-                s1.append("ci:").append(((ceu) (s2)).d).append(",");
-                stringbuilder = s1.append("p:");
-                s = ((ceu) (s2)).c;
-                if (!TextUtils.isEmpty(s))
-                {
-                    i = s.length();
-                    if (4 >= i)
-                    {
-                        s = g.c("x", i);
-                    } else
-                    {
-                        String s3 = String.valueOf(g.c("x", i - 4));
-                        s = String.valueOf(s.substring(i - 4, i));
-                        if (s.length() != 0)
-                        {
-                            s = s3.concat(s);
-                        } else
-                        {
-                            s = new String(s3);
-                        }
-                    }
-                }
-                stringbuilder.append(s).append(",");
-                stringbuilder = s1.append("fallback:");
-                if (TextUtils.isEmpty(((ceu) (s2)).g))
-                {
-                    s = "unset";
-                } else
-                {
-                    s = "set";
-                }
-                stringbuilder.append(s);
-                s1.append("] ");
-            }
-            gbh.a(s1.toString());
-        }
-        return;
-        s = null;
-        if (true) goto _L2; else goto _L1
-_L1:
-    }
-
-    public ctv(String s, int i, String s1, List list)
-    {
-        this(s, i, 0, s1, list, null);
-    }
-
-    public String a()
-    {
-        return "event_queue";
-    }
-
-    public kop a(String s, int i, int l)
-    {
-        Object obj;
-        if (ebw.a("Babel_RequestWriter", 3))
+            b = 2;
+            h = g.a(izk1.c.a, 0L);
+        } else
+        if (j == 3)
         {
-            obj = String.valueOf(c);
-            Iterator iterator;
-            String s1;
-            if (((String) (obj)).length() != 0)
-            {
-                obj = "ConversationRequest build protobuf: name=".concat(((String) (obj)));
-            } else
-            {
-                obj = new String("ConversationRequest build protobuf: name=");
-            }
-            ebw.d("Babel_RequestWriter", ((String) (obj)));
-        }
-        obj = new iro();
-        obj.requestHeader = ctq.a(s, i, l, h);
-        obj.a = Integer.valueOf(a);
-        obj.c = aoe.c(j);
-        if (c != null)
-        {
-            obj.d = c;
-        }
-        if (d != null)
-        {
-            i = d.size();
+            b = 3;
+            i = (float)g.a(izk1.c.b);
         } else
         {
-            i = 0;
+            eev.g("Babel", String.format("Invalid server experiment type %s for %s", new Object[] {
+                Integer.valueOf(j), toString()
+            }));
+            b = -1;
         }
-        if (i > 0)
-        {
-            obj.f = new ius[i];
-            s = d.iterator();
-            int i1 = 0;
-            while (s.hasNext()) 
-            {
-                ceu ceu1 = (ceu)s.next();
-                ius ius1 = g.a(ceu1, b);
-                if (ceu1.B != null)
-                {
-                    i = ceu1.B.size() + 0;
-                } else
-                {
-                    i = 0;
-                }
-                l = i;
-                if (ceu1.A != null)
-                {
-                    l = i + ceu1.A.size();
-                }
-                i = l + 1;
-                if (i > 0)
-                {
-                    ius1.f = new iut[i];
-                    if (ceu1.B != null)
-                    {
-                        iterator = ceu1.B.iterator();
-                        l = 0;
-                        do
-                        {
-                            i = l;
-                            if (!iterator.hasNext())
-                            {
-                                break;
-                            }
-                            s1 = (String)iterator.next();
-                            ius1.f[l] = new iut();
-                            ius1.f[l].b = new iuu();
-                            ius1.f[l].b.a = s1;
-                            l++;
-                        } while (true);
-                    } else
-                    {
-                        i = 0;
-                    }
-                    l = i;
-                    if (ceu1.A != null)
-                    {
-                        Iterator iterator1 = ceu1.A.iterator();
-                        do
-                        {
-                            l = i;
-                            if (!iterator1.hasNext())
-                            {
-                                break;
-                            }
-                            String s2 = (String)iterator1.next();
-                            ius1.f[i] = new iut();
-                            ius1.f[i].a = new iuw();
-                            ius1.f[i].a.a = new jtj();
-                            ius1.f[i].a.a.a = s2;
-                            i++;
-                        } while (true);
-                    }
-                    ius1.f[l] = new iut();
-                    ius1.f[l].c = new iuv();
-                    if (!TextUtils.isEmpty(ceu1.C))
-                    {
-                        ius1.f[l].c.a = ceu1.C;
-                    } else
-                    if (!TextUtils.isEmpty(ceu1.e))
-                    {
-                        ius1.f[l].c.a = ceu1.e;
-                    } else
-                    {
-                        ius1.f[l].c.a = "unknown person";
-                    }
-                }
-                ((iro) (obj)).f[i1] = ius1;
-                i1++;
-            }
-        }
-        if (!TextUtils.isEmpty(k))
-        {
-            s = new iup();
-            s.a = k;
-            obj.h = s;
-        }
-        return ((kop) (obj));
-    }
-
-    public void a(ani ani, dbo dbo1)
-    {
-        boolean flag;
-        if (dbo1.c() == 111)
-        {
-            flag = true;
-        } else
+        if (g.a(izk1.d, 0) != 2)
         {
             flag = false;
         }
-        RealTimeChatService.a(ani, j, flag);
+        f = flag;
     }
 
-    public HttpContent b(String s, int i, int l)
+    public ctv(String s)
     {
-        s = a(s, i, l);
-        if (s != null)
+        f = false;
+        a = s;
+        e = Float.valueOf(1.08F);
+        b = 3;
+    }
+
+    public ctv(String s, long l)
+    {
+        f = false;
+        a = s;
+        d = Long.valueOf(l);
+        b = 2;
+    }
+
+    public ctv(String s, boolean flag)
+    {
+        f = false;
+        a = s;
+        c = Boolean.valueOf(flag);
+        b = 1;
+    }
+
+    private static grd d(int j)
+    {
+        return ((gqz)hlp.a(g.nU, gqz)).b(j);
+    }
+
+    private static Boolean d()
+    {
+        for (Iterator iterator = hlp.c(g.nU, dcy).iterator(); iterator.hasNext();)
         {
-            this.i = s.toString();
+            dcy dcy1 = (dcy)iterator.next();
+            if (dcy1.a())
+            {
+                return Boolean.valueOf(dcy1.b());
+            }
         }
-        return new csj(s);
+
+        return null;
     }
 
-    protected String f()
+    private static Long e()
     {
-        String s = String.valueOf(g());
-        if (s.length() != 0)
+        for (Iterator iterator = hlp.c(g.nU, dcy).iterator(); iterator.hasNext();)
         {
-            return "https://www.googleapis.com/chat/v1android/".concat(s);
+            dcy dcy1 = (dcy)iterator.next();
+            if (dcy1.a())
+            {
+                return Long.valueOf(dcy1.c());
+            }
+        }
+
+        return null;
+    }
+
+    private static Float f()
+    {
+        for (Iterator iterator = hlp.c(g.nU, dcy).iterator(); iterator.hasNext();)
+        {
+            dcy dcy1 = (dcy)iterator.next();
+            if (dcy1.a())
+            {
+                return Float.valueOf(dcy1.d());
+            }
+        }
+
+        return null;
+    }
+
+    public int a()
+    {
+        boolean flag1 = true;
+        int j = b;
+        String s = (new StringBuilder(36)).append("Invalid experiment type. ").append(j).toString();
+        boolean flag = flag1;
+        if (b != 1)
+        {
+            flag = flag1;
+            if (b != 2)
+            {
+                if (b == 3)
+                {
+                    flag = flag1;
+                } else
+                {
+                    flag = false;
+                }
+            }
+        }
+        gdv.a(s, flag);
+        return b;
+    }
+
+    public void a(grd grd1, ctv ctv1)
+    {
+        gdv.a(ctv1.b(), b());
+        gdv.a(Integer.valueOf(ctv1.a()), Integer.valueOf(a()));
+        if (ctv1.a() == 1)
+        {
+            grd1.g("babel_exp").b(a, ctv1.g);
         } else
         {
-            return new String("https://www.googleapis.com/chat/v1android/");
+            if (ctv1.a() == 2)
+            {
+                grd1.g("babel_exp").b(a, ctv1.h);
+                return;
+            }
+            if (ctv1.a() == 3)
+            {
+                grd1.g("babel_exp").b(a, ctv1.i);
+                return;
+            }
         }
     }
 
-    public String g()
+    public void a(boolean flag)
     {
-        return "conversations/createconversation";
+        f = flag;
+    }
+
+    public boolean a(int j)
+    {
+        gdv.b("Expected non-null", c);
+        boolean flag = g.a(c, false);
+        if (!((gqz)hlp.a(g.nU, gqz)).c(j))
+        {
+            eev.f("Babel", (new StringBuilder(54)).append("Invalid account getting boolean experiment ").append(j).toString());
+            return flag;
+        }
+        Boolean boolean1 = d();
+        if (boolean1 != null)
+        {
+            return g.a(boolean1, false);
+        } else
+        {
+            return d(j).i("babel_exp").a(a, flag);
+        }
+    }
+
+    public long b(int j)
+    {
+        gdv.b("Expected non-null", d);
+        long l = g.a(d, 0L);
+        if (!((gqz)hlp.a(g.nU, gqz)).c(j))
+        {
+            eev.f("Babel", (new StringBuilder(51)).append("Invalid account getting long experiment ").append(j).toString());
+            return l;
+        }
+        Long long1 = e();
+        if (long1 != null)
+        {
+            return g.a(long1, 0L);
+        } else
+        {
+            return d(j).i("babel_exp").a(a, l);
+        }
+    }
+
+    public String b()
+    {
+        return a;
+    }
+
+    public float c(int j)
+    {
+        gdv.b("Expected non-null", e);
+        float f1 = g.a(e);
+        if (!((gqz)hlp.a(g.nU, gqz)).c(j))
+        {
+            eev.f("Babel", (new StringBuilder(52)).append("Invalid account getting float experiment ").append(j).toString());
+            return f1;
+        }
+        Float float1 = f();
+        if (float1 != null)
+        {
+            return g.a(float1);
+        } else
+        {
+            return d(j).i("babel_exp").a(a, f1);
+        }
+    }
+
+    public boolean c()
+    {
+        return f;
+    }
+
+    public String toString()
+    {
+        String s = String.valueOf("BabelExperiment{id='");
+        String s1 = a;
+        int j = b;
+        String s2 = String.valueOf(c);
+        String s3 = String.valueOf(d);
+        String s4 = String.valueOf(e);
+        return (new StringBuilder(String.valueOf(s).length() + 76 + String.valueOf(s1).length() + String.valueOf(s2).length() + String.valueOf(s3).length() + String.valueOf(s4).length())).append(s).append(s1).append("', experimentType=").append(j).append(", defaultBoolean=").append(s2).append(", defaultLong=").append(s3).append(", defaultFloat=").append(s4).append("}").toString();
     }
 }

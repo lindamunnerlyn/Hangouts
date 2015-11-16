@@ -2,143 +2,104 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.os.Parcel;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.PolygonOptions;
 import java.util.ArrayList;
-import java.util.regex.Pattern;
 
-public abstract class fog
+public final class fog
+    implements android.os.Parcelable.Creator
 {
 
-    public static foi a;
-    public static foh b;
-    private final char c = '\001';
-    private final char d = '\002';
-    private final String e;
-    private final String f;
-    private final Bundle g;
-
-    fog(Bundle bundle)
+    public fog()
     {
-        g = bundle;
-        e = Pattern.quote(String.valueOf(c));
-        f = Pattern.quote(String.valueOf(d));
     }
 
-    private static double a(String s)
+    public PolygonOptions a(Parcel parcel)
     {
-        if (TextUtils.isEmpty(s))
+        float f = 0.0F;
+        boolean flag = false;
+        int l = g.a(parcel);
+        ArrayList arraylist = null;
+        ArrayList arraylist1 = new ArrayList();
+        boolean flag1 = false;
+        int i = 0;
+        int j = 0;
+        float f1 = 0.0F;
+        int k = 0;
+        do
         {
-            return 0.0D;
-        }
-        double d1;
-        try
-        {
-            d1 = Double.parseDouble(s);
-        }
-        // Misplaced declaration of an exception variable
-        catch (String s)
-        {
-            g.a("PhoneEmailDecoder", "NumberFormatException", s);
-            return 0.0D;
-        }
-        return d1;
-    }
+            if (parcel.dataPosition() >= l)
+            {
+                break;
+            }
+            int i1 = parcel.readInt();
+            switch (0xffff & i1)
+            {
+            default:
+                g.b(parcel, i1);
+                break;
 
-    private static int a(String s, char c1, int i, int j)
-    {
-        c1 = s.indexOf(c1, i);
-        if (c1 >= 0 && c1 < j)
+            case 1: // '\001'
+                k = g.e(parcel, i1);
+                break;
+
+            case 2: // '\002'
+                arraylist = g.c(parcel, i1, LatLng.CREATOR);
+                break;
+
+            case 3: // '\003'
+                ClassLoader classloader = getClass().getClassLoader();
+                i1 = g.a(parcel, i1);
+                int j1 = parcel.dataPosition();
+                if (i1 != 0)
+                {
+                    parcel.readList(arraylist1, classloader);
+                    parcel.setDataPosition(i1 + j1);
+                }
+                break;
+
+            case 4: // '\004'
+                f1 = g.g(parcel, i1);
+                break;
+
+            case 5: // '\005'
+                j = g.e(parcel, i1);
+                break;
+
+            case 6: // '\006'
+                i = g.e(parcel, i1);
+                break;
+
+            case 7: // '\007'
+                f = g.g(parcel, i1);
+                break;
+
+            case 8: // '\b'
+                flag1 = g.c(parcel, i1);
+                break;
+
+            case 9: // '\t'
+                flag = g.c(parcel, i1);
+                break;
+            }
+        } while (true);
+        if (parcel.dataPosition() != l)
         {
-            return c1;
+            throw new af((new StringBuilder("Overread allowed size end=")).append(l).toString(), parcel);
         } else
         {
-            return -1;
+            return new PolygonOptions(k, arraylist, arraylist1, f1, j, i, f, flag1, flag);
         }
     }
 
-    private final void a(ArrayList arraylist, String s)
+    public Object createFromParcel(Parcel parcel)
     {
-        int k = s.length();
-        int i = 0;
-        while (i < k) 
-        {
-            int j = s.indexOf(d, i);
-            int l;
-            int i1;
-            if (j < 0)
-            {
-                j = s.length();
-            }
-            l = a(s, c, i, j);
-            i1 = a(s, c, l + 1, j);
-            if (l >= 0 && i1 >= 0)
-            {
-                a(arraylist, s.substring(i, l), s.substring(l + 1, i1), s.substring(i1 + 1, j), 0.0D, 0.0D, 0.0D, 0.0D, 0.0D, null, null, null, null, null);
-            }
-            i = j + 1;
-        }
+        return a(parcel);
     }
 
-    private void a(ArrayList arraylist, String s, String s1, String s2, double d1, double d2, double d3, double d4, double d5, 
-            String s3, String s4, String s5, String s6, String s7)
+    public Object[] newArray(int i)
     {
-        if (TextUtils.isEmpty(s2))
-        {
-            return;
-        }
-        String s8 = g.getString(s);
-        s = s8;
-        if (TextUtils.isEmpty(s8))
-        {
-            s = s1;
-        }
-        arraylist.add(a(s2, s, d1, d2, d3, d4, d5, s3, s4, s5, s6, s7));
-    }
-
-    private final void b(ArrayList arraylist, String s)
-    {
-        s = TextUtils.split(s, f);
-        int j = s.length;
-        int i = 0;
-        while (i < j) 
-        {
-            String as[] = TextUtils.split(s[i], e);
-            if (as.length < 13)
-            {
-                g.m(5);
-            } else
-            {
-                a(arraylist, as[0], as[1], as[2], a(as[3]), a(as[4]), a(as[5]), a(as[6]), a(as[7]), fqa.a(as[8]), fqa.a(as[9]), fqa.a(as[10]), fqa.a(as[11]), fqa.a(as[12]));
-            }
-            i++;
-        }
-    }
-
-    protected abstract Object a(String s, String s1, double d1, double d2, double d3, double d4, double d5, String s2, String s3, 
-            String s4, String s5, String s6);
-
-    public final ArrayList a(String s, boolean flag)
-    {
-        ArrayList arraylist = new ArrayList();
-        if (TextUtils.isEmpty(s))
-        {
-            return arraylist;
-        }
-        if (flag)
-        {
-            b(arraylist, s);
-            return arraylist;
-        } else
-        {
-            a(arraylist, s);
-            return arraylist;
-        }
-    }
-
-    static 
-    {
-        a = new foi(Bundle.EMPTY);
-        b = new foh(Bundle.EMPTY);
+        return new PolygonOptions[i];
     }
 }

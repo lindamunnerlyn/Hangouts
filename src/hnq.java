@@ -2,37 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.api.client.util.GenericData;
-import java.util.AbstractSet;
-import java.util.Iterator;
-import java.util.Map;
 
-public final class hnq extends AbstractSet
+final class hnq
+    implements hok
 {
 
-    final GenericData a;
-    private final hnk b;
+    final hnn a;
 
-    public hnq(GenericData genericdata)
+    hnq(hnn hnn)
     {
-        a = genericdata;
+        a = hnn;
         super();
-        b = (new hnh(genericdata, genericdata.classInfo.a)).a();
     }
 
-    public void clear()
+    public void a(hoy hoy)
     {
-        a.unknownFields.clear();
-        b.clear();
-    }
-
-    public Iterator iterator()
-    {
-        return new hnp(a, b);
-    }
-
-    public int size()
-    {
-        return a.unknownFields.size() + b.size();
     }
 }

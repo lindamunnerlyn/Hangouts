@@ -3,24 +3,28 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gpl
-    implements hhy
+public final class gpl extends Enum
 {
 
-    gpl()
+    public static final int a;
+    public static final int b;
+    public static final int c;
+    public static final int d;
+    private static final int e[];
+
+    public static int[] a()
     {
+        return (int[])e.clone();
     }
 
-    public Class a()
+    static 
     {
-        return gpw;
-    }
-
-    public void a(ad ad1, hjm hjm, hgx hgx1)
-    {
-        if (ad1.getActivity() instanceof ily)
-        {
-            hgx1.a(gpw, ((gpi)g.a(ad1.getActivity(), gpi)).a());
-        }
+        a = 1;
+        b = 2;
+        c = 3;
+        d = 4;
+        e = (new int[] {
+            a, b, c, d
+        });
     }
 }

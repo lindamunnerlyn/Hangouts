@@ -2,21 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
+import android.view.View;
+import android.view.animation.Animation;
+import com.google.android.apps.hangouts.views.RichStatusView;
 
-public final class ejm extends ejr
+final class ejm
+    implements android.view.animation.Animation.AnimationListener
 {
 
-    private final int a;
+    final ejl a;
+    private final boolean b;
 
-    ejm(int i, String s, Intent intent)
+    ejm(ejl ejl1, boolean flag)
     {
-        super(s, intent);
-        a = i;
+        a = ejl1;
+        super();
+        b = flag;
     }
 
-    public int a()
+    public void onAnimationEnd(Animation animation)
     {
-        return a;
+        if (!b)
+        {
+            a.b.setVisibility(8);
+            RichStatusView.a(a.e);
+        }
+    }
+
+    public void onAnimationRepeat(Animation animation)
+    {
+    }
+
+    public void onAnimationStart(Animation animation)
+    {
     }
 }

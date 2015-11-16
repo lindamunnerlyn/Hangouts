@@ -10,7 +10,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Window;
 import eq;
-import gkc;
+import gne;
 
 public class  extends Activity
 {
@@ -31,7 +31,7 @@ public class  extends Activity
         getWindow().setBackgroundDrawable(new ColorDrawable(0));
         super.onCreate(bundle);
         bundle = (Intent)getIntent().getParcelableExtra("share_permission_intent");
-        gkc.a("vclib", "requesting capture now...");
+        gne.a(2, "vclib", "requesting capture now...");
         startActivityForResult(bundle, 1);
     }
 

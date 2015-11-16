@@ -2,11 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-final class dbk
+public final class dbk
+    implements Serializable
 {
 
-    dbk()
+    private static final long serialVersionUID = 1L;
+    public final dbl a;
+    public final int b;
+    private final String c;
+
+    private dbk(jaw jaw1)
     {
+        a = new dbl(jaw1.a);
+        c = jaw1.b;
+        b = g.a(jaw1.c, 0);
+    }
+
+    public static List a(jaw ajaw[])
+    {
+        ArrayList arraylist = new ArrayList();
+        int j = ajaw.length;
+        for (int i = 0; i < j; i++)
+        {
+            arraylist.add(new dbk(ajaw[i]));
+        }
+
+        return arraylist;
     }
 }

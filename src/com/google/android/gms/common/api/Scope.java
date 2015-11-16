@@ -6,20 +6,20 @@ package com.google.android.gms.common.api;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import elt;
-import h;
+import eou;
+import g;
 
 public final class Scope
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new elt();
-    public final int a;
+    public static final android.os.Parcelable.Creator CREATOR = new eou();
+    final int a;
     private final String b;
 
     public Scope(int i, String s)
     {
-        h.a(s, "scopeUri must not be null or empty");
+        g.a(s, "scopeUri must not be null or empty");
         a = i;
         b = s;
     }
@@ -29,7 +29,7 @@ public final class Scope
         this(1, s);
     }
 
-    public String a()
+    private String a()
     {
         return b;
     }
@@ -66,7 +66,10 @@ public final class Scope
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        elt.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, a());
+        g.q(parcel, i);
     }
 
 }

@@ -2,56 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.gms.signin.internal.AuthAccountResult;
+import com.google.android.gms.common.data.DataHolder;
 
 public final class frq
-    implements android.os.Parcelable.Creator
 {
 
-    public frq()
+    public final DataHolder a;
+    private final int b;
+    private int c;
+
+    public frq(DataHolder dataholder)
     {
+        c = -1;
+        a = dataholder;
+        b = dataholder.d();
     }
 
-    public static void a(AuthAccountResult authaccountresult, Parcel parcel)
+    public int a()
     {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, authaccountresult.a);
-        g.q(parcel, i);
+        return b;
     }
 
-    public Object createFromParcel(Parcel parcel)
+    public String a(String s)
     {
-        int j = g.a(parcel);
-        int i = 0;
-        do
-        {
-            if (parcel.dataPosition() < j)
-            {
-                int k = parcel.readInt();
-                switch (0xffff & k)
-                {
-                default:
-                    g.b(parcel, k);
-                    break;
-
-                case 1: // '\001'
-                    i = g.e(parcel, k);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != j)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
-            } else
-            {
-                return new AuthAccountResult(i);
-            }
-        } while (true);
+        return a.b(s, c, a.a(c));
     }
 
-    public Object[] newArray(int i)
+    public void a(int i)
     {
-        return new AuthAccountResult[i];
+        c = i;
+    }
+
+    public int b()
+    {
+        return c;
+    }
+
+    public boolean c()
+    {
+        c = c + 1;
+        return c >= 0 && c < b;
+    }
+
+    public boolean d()
+    {
+        return c >= b;
     }
 }

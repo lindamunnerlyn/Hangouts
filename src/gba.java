@@ -2,18 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Map;
 
-public interface gba
+public final class gba extends gay
 {
 
-    public abstract void a(gbc gbc);
-
-    public abstract void a(kop kop, gbe gbe);
-
-    public abstract Map b();
-
-    public abstract void b(gbc gbc);
-
-    public abstract void b(kop kop, gbe gbe);
+    public gba(emy emy, gbn gbn)
+    {
+        super(emy, gbn);
+    }
 }

@@ -2,39 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.collect.MapMakerInternalMap;
+import java.util.AbstractQueue;
+import java.util.Iterator;
 
-public final class jop extends joo
-    implements com.google.common.collect.MapMakerInternalMap.ReferenceEntry
+public final class jop extends AbstractQueue
 {
 
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry e;
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry f;
-
-    jop(Object obj, int i, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    public jop()
     {
-        super(obj, i, referenceentry);
-        e = MapMakerInternalMap.h();
-        f = MapMakerInternalMap.h();
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextEvictable()
+    public Iterator iterator()
     {
-        return e;
+        return jxl.a.a();
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousEvictable()
+    public boolean offer(Object obj)
     {
-        return f;
+        return true;
     }
 
-    public void setNextEvictable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    public Object peek()
     {
-        e = referenceentry;
+        return null;
     }
 
-    public void setPreviousEvictable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    public Object poll()
     {
-        f = referenceentry;
+        return null;
+    }
+
+    public int size()
+    {
+        return 0;
     }
 }

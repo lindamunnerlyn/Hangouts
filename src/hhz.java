@@ -2,13 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import java.io.Serializable;
 
-final class hhz extends hhp
+public final class hhz
+    implements Serializable
 {
 
-    public hhz(Context context)
+    private static final long serialVersionUID = 0x2ba6046fa3ebca2aL;
+    private final String a;
+    private final String b;
+    private final String c;
+    private final String d;
+    private final String e;
+    private final hhz f;
+
+    public String a()
     {
-        super(context, hhy);
+        return a;
+    }
+
+    public String b()
+    {
+        return b;
+    }
+
+    public String c()
+    {
+        return c;
+    }
+
+    public String d()
+    {
+        return d;
+    }
+
+    public hhz e()
+    {
+        return f;
+    }
+
+    public String f()
+    {
+        return e;
     }
 }

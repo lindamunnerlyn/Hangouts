@@ -2,11 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Comparator;
 
-public interface jqm
-    extends Iterable
+final class jqm extends jqh
 {
 
-    public abstract Comparator comparator();
+    jqm(String s)
+    {
+        super(s, 4);
+    }
+
+    boolean a()
+    {
+        return true;
+    }
 }

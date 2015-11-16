@@ -3,88 +3,84 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class kmv
+public final class kmv extends kwm
 {
 
-    private static final klv b = klv.a();
-    public volatile kmy a;
-    private klp c;
-    private klv d;
-    private volatile klp e;
+    private static volatile kmv b[];
+    public Integer a;
 
-    public kmy a(kmy kmy1)
+    public kmv()
     {
-        c(kmy1);
-        return a;
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public int b()
+    public static kmv[] a()
     {
-        if (c != null)
+        if (b == null)
         {
-            return c.a();
+            synchronized (kwq.a)
+            {
+                if (b == null)
+                {
+                    b = new kmv[0];
+                }
+            }
         }
-        if (e != null)
-        {
-            return e.a();
-        }
+        return b;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            return a.m();
-        } else
-        {
-            return 0;
+            i = j + kwk.e(1, a.intValue());
         }
+        return i;
     }
 
-    public kmy b(kmy kmy1)
+    public kws mergeFrom(kwj kwj1)
     {
-        kmy kmy2 = a;
-        c = null;
-        e = null;
-        a = kmy1;
-        return kmy2;
-    }
-
-    protected void c(kmy kmy1)
-    {
-        if (a != null)
-        {
-            return;
-        }
-        this;
-        JVM INSTR monitorenter ;
-        if (a == null)
-        {
-            break MISSING_BLOCK_LABEL_25;
-        }
-        this;
-        JVM INSTR monitorexit ;
-        return;
-        kmy1;
-        this;
-        JVM INSTR monitorexit ;
-        throw kmy1;
-        if (c == null) goto _L2; else goto _L1
+_L4:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 2: default 32
+    //                   0: 41
+    //                   8: 43;
+           goto _L1 _L2 _L3
 _L1:
-        a = (kmy)kmy1.c().c(c, d);
-        e = c;
-        c = null;
-_L3:
-        this;
-        JVM INSTR monitorexit ;
-        return;
+        if (super.storeUnknownField(kwj1, i)) goto _L4; else goto _L2
 _L2:
-        a = kmy1;
-        e = klp.a;
-        c = null;
-          goto _L3
-        kmr kmr1;
-        kmr1;
-        a = kmy1;
-        e = klp.a;
-        c = null;
-          goto _L3
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+            a = Integer.valueOf(j);
+            break;
+        }
+        if (true) goto _L4; else goto _L5
+_L5:
     }
 
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        super.writeTo(kwk1);
+    }
 }

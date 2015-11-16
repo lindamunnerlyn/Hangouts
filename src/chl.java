@@ -2,33 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.ViewGroup;
+import com.google.android.apps.hangouts.peoplelistv2.impl.EditParticipantsView;
 
-final class chl
-    implements cff
+public final class chl
+    implements android.animation.Animator.AnimatorListener
 {
 
-    final chk a;
+    final EditParticipantsView a;
 
-    chl(chk chk1)
+    public chl(EditParticipantsView editparticipantsview)
     {
-        a = chk1;
+        a = editparticipantsview;
         super();
     }
 
-    public int a()
+    public void onAnimationCancel(Animator animator)
     {
-        return h.iP;
+        animator = (View)((ObjectAnimator)animator).getTarget();
+        EditParticipantsView.a(a).removeView(animator);
     }
 
-    public void a(Context context)
+    public void onAnimationEnd(Animator animator)
     {
-        g.a(chk.a(context), 2500);
-        chk.a(context, cnd.g, atd.d);
+        animator = (View)((ObjectAnimator)animator).getTarget();
+        EditParticipantsView.a(a).removeView(animator);
     }
 
-    public int b()
+    public void onAnimationRepeat(Animator animator)
     {
-        return n.n;
+    }
+
+    public void onAnimationStart(Animator animator)
+    {
     }
 }

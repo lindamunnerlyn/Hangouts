@@ -2,28 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
 
 final class hep
-    implements hjr
 {
 
-    final Bundle a;
-    final heo b;
+    private final Map a;
 
-    hep(heo heo1, Bundle bundle)
+    public hep(Map map)
     {
-        b = heo1;
-        a = bundle;
-        super();
+        a = Collections.unmodifiableMap(a(map));
     }
 
-    public void a(fsn fsn)
+    private static Map a(Map map)
     {
-        if (fsn instanceof hhi)
+        HashMap hashmap = new HashMap();
+        String s;
+        for (Iterator iterator = map.keySet().iterator(); iterator.hasNext(); hashmap.put(b(s), map.get(s)))
         {
-            Bundle bundle = b.c.a(fsn, a);
-            ((hhi)fsn).a(b.a, b.b, bundle);
+            s = (String)iterator.next();
         }
+
+        return hashmap;
+    }
+
+    private static String b(String s)
+    {
+        if (s == null)
+        {
+            return s;
+        } else
+        {
+            return s.toLowerCase(Locale.US);
+        }
+    }
+
+    public List a(String s)
+    {
+        return (List)a.get(b(s));
     }
 }

@@ -2,106 +2,62 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import java.util.concurrent.TimeUnit;
 
-public final class cxi extends cvn
+public class cxi extends cvy
 {
 
     private static final long serialVersionUID = 1L;
-    private int g;
-    private String h;
-    private final String i;
+    public final int a;
 
-    private cxi(iwv iwv1)
+    public cxi(String s, int i)
     {
-        super(iwv1.responseHeader, -1L);
-        g = g.a(iwv1.a, 0);
-        h = iwv1.b;
-        i = iwv1.c;
-        if (cvn.a)
-        {
-            iwv1 = String.valueOf(iwv1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(iwv1).length() + 28)).append("RegisterDeviceResponse from:").append(iwv1).toString());
-        }
+        super(s);
+        a = i;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public String a()
     {
-        abyte0 = (iwv)kop.mergeFrom(new iwv(), abyte0);
-        if (a(((iwv) (abyte0)).responseHeader))
+        return "background_queue";
+    }
+
+    public kws a(String s, int i, int j)
+    {
+        if (cvv.e)
         {
-            return new cvz(((iwv) (abyte0)).responseHeader);
+            eev.b("Babel_RequestWriter", "typingRequest build protobuf");
+        }
+        jeq jeq1 = new jeq();
+        jeq1.requestHeader = cvu.a(s, i, j, h);
+        jeq1.a = cvu.a(c);
+        jeq1.b = Integer.valueOf(a);
+        return jeq1;
+    }
+
+    public boolean a(cdl cdl)
+    {
+        gdv.a(getClass(), cdl.getClass());
+        return ((cxi)cdl).c.equals(c);
+    }
+
+    public boolean a(cdn cdn1, dcx dcx)
+    {
+        if (dcz.b(cdn1.c))
+        {
+            return false;
         } else
         {
-            return new cxi(abyte0);
+            return super.a(cdn1, dcx);
         }
     }
 
-    public void a(aoe aoe1, dfb dfb)
+    public long b()
     {
-        super.a(aoe1, dfb);
-        ebw.e("Babel", "ProcessRegisterDeviceResponse");
-        if (aoe1 != null)
-        {
-            aoe1 = aoe1.f();
-        } else
-        {
-            aoe1 = null;
-        }
-        if (aoe1 != null && dbf.d(aoe1))
-        {
-            dfb = String.valueOf("Perform warm sync in case there are messages missed before the device is registered for account ");
-            String s = String.valueOf(ebw.b(aoe1.a()));
-            if (s.length() != 0)
-            {
-                dfb = dfb.concat(s);
-            } else
-            {
-                dfb = new String(dfb);
-            }
-            ebw.e("Babel", dfb);
-            RealTimeChatService.a(aoe1.h(), false, false, 0, false);
-        }
+        return TimeUnit.SECONDS.toMillis(10L);
     }
 
-    public void a(dko dko)
+    public String f()
     {
-        super.a(dko);
-        dko = (cun)b;
-        if (((cun) (dko)).u != null)
-        {
-            g = 2;
-            h = ((cun) (dko)).u;
-        }
-    }
-
-    public int k()
-    {
-        return ((cun)b).a;
-    }
-
-    public String l()
-    {
-        return ((cun)b).m;
-    }
-
-    public String m()
-    {
-        return i;
-    }
-
-    public int n()
-    {
-        return g;
-    }
-
-    public String o()
-    {
-        return h;
-    }
-
-    public boolean p()
-    {
-        return ((cun)b).k;
+        return "conversations/settyping";
     }
 }

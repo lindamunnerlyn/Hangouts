@@ -3,18 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jfu extends koj
+public final class jfu extends kwm
 {
 
-    public jtj a;
-    public byte b[];
-    public Long c;
+    public jdl responseHeader;
 
     public jfu()
     {
-        a = null;
-        b = null;
-        c = null;
+        responseHeader = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -23,32 +19,22 @@ public final class jfu extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (a != null)
+        if (responseHeader != null)
         {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.b(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.d(3, c.longValue());
+            i = j + kwk.d(1, responseHeader);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -58,38 +44,22 @@ public final class jfu extends koj
                 return this;
 
             case 10: // '\n'
-                if (a == null)
+                if (responseHeader == null)
                 {
-                    a = new jtj();
+                    responseHeader = new jdl();
                 }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                b = kog1.k();
-                break;
-
-            case 24: // '\030'
-                c = Long.valueOf(kog1.d());
+                kwj1.a(responseHeader);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
+        if (responseHeader != null)
         {
-            koh1.b(1, a);
+            kwk1.b(1, responseHeader);
         }
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
-        if (c != null)
-        {
-            koh1.a(3, c.longValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

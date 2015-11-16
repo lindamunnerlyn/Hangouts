@@ -2,25 +2,13 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import com.google.android.apps.hangouts.fragments.ConversationInviteListFragment;
-import java.util.concurrent.TimeUnit;
+import java.io.Serializable;
 
-public final class bhx
-    implements Runnable
+public class bhx
+    implements Serializable
 {
 
-    final ConversationInviteListFragment a;
-
-    public bhx(ConversationInviteListFragment conversationinvitelistfragment)
+    public bhx()
     {
-        a = conversationinvitelistfragment;
-        super();
-    }
-
-    public void run()
-    {
-        ((bia)a.g).notifyDataSetChanged();
-        ConversationInviteListFragment.c(a).postDelayed(ConversationInviteListFragment.b(a), TimeUnit.SECONDS.toMillis(60L));
     }
 }

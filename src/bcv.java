@@ -2,105 +2,86 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 import android.content.res.Resources;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewPropertyAnimator;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import java.util.ArrayList;
+import com.google.android.apps.hangouts.views.FixedAspectRatioImageView;
+import com.google.android.apps.hangouts.views.MessageListItemView;
 
-final class bcv extends ArrayAdapter
+public final class bcv extends eib
 {
 
-    final bcq a;
+    String a;
+    String b;
+    private eic g;
+    private MessageListItemView h;
 
-    public bcv(bcq bcq1, ArrayList arraylist)
+    public bcv(Context context, int i, boolean flag, String s, String s1, int j, int k, 
+            String s2, String s3, MessageListItemView messagelistitemview, eic eic)
     {
-        a = bcq1;
-        super(bcq1.getActivity(), 0, arraylist);
-    }
-
-    static void a(ImageView imageview, bcu bcu1)
-    {
-        b(imageview, bcu1);
-    }
-
-    private static void b(ImageView imageview, bcu bcu1)
-    {
-        if (bcu1.d.b != null)
+        super(context, null);
+        int l;
+        if (s.startsWith("file://"))
         {
-            imageview.setImageBitmap(bcu1.d.b.e());
-            imageview.setScaleType(android.widget.ImageView.ScaleType.FIT_CENTER);
-        } else
-        if (bcu1.d.a != null)
-        {
-            imageview.setImageDrawable(bcu1.d.a);
-            imageview.setScaleType(android.widget.ImageView.ScaleType.FIT_CENTER);
-            bcu1.d.a.a();
+            context = s.replace("file://", "");
         } else
         {
-            bcu1 = String.valueOf(bcu1.a);
-            if (bcu1.length() != 0)
-            {
-                bcu1 = "No cache item set:".concat(bcu1);
-            } else
-            {
-                bcu1 = new String("No cache item set:");
-            }
-            gbh.a(bcu1);
+            context = null;
         }
-        imageview.setAlpha(0.0F);
-        imageview.animate().alpha(1.0F).setDuration(250L).start();
+        if (!s.startsWith("file://"))
+        {
+            s = s1;
+        }
+        a(s);
+        b = s2;
+        f = flag;
+        g = eic;
+        h = messagelistitemview;
+        l = (int)getContext().getResources().getDimension(g.lj);
+        e.setMaxWidth(l);
+        e.setMaxHeight(l);
+        if (j > 0 && k > 0)
+        {
+            e.a(j, k);
+        } else
+        {
+            e.a(l, l);
+        }
+        setOnClickListener(new bcw(this));
+        setContentDescription(bdr.b(getContext().getResources(), s3));
+        s = (new edq(a, null)).a(getContext().getResources().getInteger(g.lm));
+        s.b(s3);
+        d = new arr(i, s, context, this, null);
+        if (((dpn)hlp.a(getContext(), dpn)).a(d, f))
+        {
+            d = null;
+            return;
+        } else
+        {
+            e();
+            return;
+        }
     }
 
-    public void a()
+    static MessageListItemView a(bcv bcv1)
     {
-        for (int i = 0; i < getCount(); i++)
-        {
-            bcu bcu1 = (bcu)getItem(i);
-            if (bcu1 != null && bcu1.d != null)
-            {
-                bcu1.d.a();
-                bcu1.d = null;
-            }
-        }
-
+        return bcv1.h;
     }
 
-    public View getView(int i, View view, ViewGroup viewgroup)
+    static eic b(bcv bcv1)
     {
-        View view1;
-label0:
+        return bcv1.g;
+    }
+
+    public void a(String s)
+    {
+        if (a == null || !a.startsWith("file://"))
         {
-            view1 = view;
-            if (view == null)
-            {
-                view1 = a.getActivity().getLayoutInflater().inflate(g.lx, viewgroup, false);
-            }
-            view = (bcu)getItem(i);
-            viewgroup = (ImageView)view1.findViewById(h.hC);
-            if (i != g.a((Integer)viewgroup.getTag(), -1))
-            {
-                viewgroup.setTag(Integer.valueOf(i));
-                viewgroup.setContentDescription(bdb.b(a.getResources(), ((bcu) (view)).a));
-                if (((bcu) (view)).d == null)
-                {
-                    break label0;
-                }
-                b(viewgroup, view);
-            }
-            return view1;
+            a = s;
         }
-        viewgroup.setImageResource(g.ls);
-        viewgroup.setScaleType(android.widget.ImageView.ScaleType.CENTER);
-        viewgroup.setAlpha(0.2F);
-        int j = a.getActivity().getResources().getInteger(g.lu);
-        eam eam1 = (new eam(((bcu) (view)).b, null)).b(j, j).a(bcq.a(a));
-        eam1.b(((bcu) (view)).a);
-        view = new ara(((gmo)bcq.b(a).a(gmo)).a(), eam1, ((bcu) (view)).c, new bcw(this, view, i), viewgroup);
-        ((dmt)bcq.c(a).a(dmt)).a(view);
-        return view1;
+    }
+
+    protected boolean a()
+    {
+        return false;
     }
 }

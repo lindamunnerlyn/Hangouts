@@ -2,25 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.widget.Spinner;
+import android.content.Context;
 
-final class cqi
-    implements android.view.View.OnClickListener
+final class cqi extends cqn
 {
 
-    final Spinner a;
-    final cqf b;
+    final cqf a;
 
-    cqi(cqf cqf, Spinner spinner)
+    cqi(cqf cqf1)
     {
-        b = cqf;
-        a = spinner;
-        super();
+        a = cqf1;
+        super(cqf1, (byte)0);
     }
 
-    public void onClick(View view)
+    boolean a()
     {
-        a.performClick();
+        if (g.a(cqf.f(a), "babel_network_change_notification", false))
+        {
+            return ((cdr)hlp.a(cqf.f(a), cdr)).a() == cdq.c;
+        } else
+        {
+            return false;
+        }
+    }
+
+    dvg b()
+    {
+        return (new dvh(cqf.f(a))).a(cqf.f(a).getString(l.S)).a();
     }
 }

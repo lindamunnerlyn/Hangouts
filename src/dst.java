@@ -3,22 +3,24 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class dst
-    implements Runnable
+public final class dst extends Enum
 {
 
-    final dsn a;
-    final dsp b;
+    public static final int a;
+    public static final int b;
+    private static final int c[];
 
-    dst(dsp dsp1, dsn dsn)
+    public static int[] a()
     {
-        b = dsp1;
-        a = dsn;
-        super();
+        return (int[])c.clone();
     }
 
-    public void run()
+    static 
     {
-        b.b(a);
+        a = 1;
+        b = 2;
+        c = (new int[] {
+            a, b
+        });
     }
 }

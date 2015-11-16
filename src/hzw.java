@@ -3,46 +3,38 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hzw extends koj
+public final class hzw extends kwm
 {
 
-    public Double a;
-    public Double b;
-    public Double c;
-    public Double d;
+    public Integer a;
 
     public hzw()
     {
         a = null;
-        b = null;
-        c = null;
-        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        a.doubleValue();
-        int j = koh.f(1);
-        b.doubleValue();
-        int k = koh.f(2);
-        c.doubleValue();
-        int l = koh.f(3);
-        d.doubleValue();
-        return i + (j + 8) + (k + 8) + (l + 8) + (koh.f(4) + 8);
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.e(1, a.intValue());
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -51,31 +43,19 @@ public final class hzw extends koj
             case 0: // '\0'
                 return this;
 
-            case 9: // '\t'
-                a = Double.valueOf(kog1.b());
-                break;
-
-            case 17: // '\021'
-                b = Double.valueOf(kog1.b());
-                break;
-
-            case 25: // '\031'
-                c = Double.valueOf(kog1.b());
-                break;
-
-            case 33: // '!'
-                d = Double.valueOf(kog1.b());
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.a(1, a.doubleValue());
-        koh1.a(2, b.doubleValue());
-        koh1.a(3, c.doubleValue());
-        koh1.a(4, d.doubleValue());
-        super.writeTo(koh1);
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

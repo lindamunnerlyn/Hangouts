@@ -3,12 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gcm
+public final class gcm
 {
 
-    public abstract String a();
-
-    public abstract String b();
-
-    public abstract String c();
+    public gcm()
+    {
+    }
 }

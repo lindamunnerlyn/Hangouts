@@ -7,14 +7,14 @@ package com.google.android.apps.hangouts.fragments;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
-import ani;
+import aoa;
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
 public class  extends RelativeLayout
 {
 
     private String a;
-    private ani b;
+    private aoa b;
     private String c;
 
     public void a()
@@ -25,9 +25,9 @@ public class  extends RelativeLayout
         }
     }
 
-    public void a(ani ani, String s)
+    public void a(aoa aoa, String s)
     {
-        b = ani;
+        b = aoa;
         a = s;
     }
 

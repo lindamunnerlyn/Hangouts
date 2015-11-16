@@ -4,38 +4,23 @@
 
 
 final class awa
-    implements axu
+    implements bhr
 {
 
-    final ave a;
+    final avv a;
 
-    awa(ave ave1)
+    awa(avv avv1)
     {
-        a = ave1;
+        a = avv1;
         super();
     }
 
     public void a()
     {
-    }
-
-    public void a(String s, axo axo1)
-    {
-        if (!aoe.a(s))
+        ai ai1 = a.getActivity();
+        if (ai1 != null)
         {
-            s = axo1.a;
-            ave.ac(a).b(bab.a(s));
-            ave.ac(a).a(new bab(ave.af(a), ave.h(a), s, false, 0));
-            if (ave.h(a) != null && dbq.r(ave.h(a).h()))
-            {
-                ave.ac(a).a(new azi(ave.ag(a), s, ave.h(a).h()));
-            }
-            if (ave.ah(a) != 3)
-            {
-                ave.ac(a).b(bac.a(s));
-                ave.ac(a).a(new bac(ave.ai(a), ave.h(a), s, 3));
-                return;
-            }
+            ai1.q_();
         }
     }
 }

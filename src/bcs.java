@@ -2,33 +2,80 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
+import com.google.android.apps.hangouts.conversation.v2.stickerpicker.impl.SlidingTabLayout;
 
-final class bcs
+public final class bcs
+    implements lg
 {
 
-    public eei a;
-    public ebh b;
-    final bcq c;
+    final SlidingTabLayout a;
+    private int b;
 
-    bcs(bcq bcq)
+    public bcs(SlidingTabLayout slidingtablayout)
     {
-        c = bcq;
+        a = slidingtablayout;
         super();
-        a = null;
-        b = null;
     }
 
-    public void a()
+    public void a(int i)
     {
-        if (b != null)
+        if (b == 0)
         {
-            b.b();
-            b = null;
+            a.c.a(i, 0.0F);
+            a.b(i, 0);
         }
-        if (a != null)
+        int j = 0;
+        while (j < a.c.getChildCount()) 
         {
-            a.c();
-            a = null;
+            View view = a.c.getChildAt(j);
+            boolean flag;
+            if (i == j)
+            {
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+            view.setSelected(flag);
+            j++;
+        }
+        if (a.b != null)
+        {
+            a.b.a(i);
+        }
+    }
+
+    public void a(int i, float f, int j)
+    {
+        int k = a.c.getChildCount();
+        if (k != 0 && i >= 0 && i < k)
+        {
+            a.c.a(i, f);
+            View view = a.c.getChildAt(i);
+            int l;
+            if (view != null)
+            {
+                l = (int)((float)view.getWidth() * f);
+            } else
+            {
+                l = 0;
+            }
+            a.b(i, l);
+            if (a.b != null)
+            {
+                a.b.a(i, f, j);
+                return;
+            }
+        }
+    }
+
+    public void b(int i)
+    {
+        b = i;
+        if (a.b != null)
+        {
+            a.b.b(i);
         }
     }
 }

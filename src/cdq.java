@@ -3,11 +3,45 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface cdq
+public final class cdq extends Enum
 {
 
-    public static final String a[] = {
-        "conversation_id", "conversation_type", "generated_name", "name", "sort_timestamp", "inviter_gaia_id", "inviter_chat_id", "inviter_first_name", "inviter_full_name"
-    };
+    public static final cdq a;
+    public static final cdq b;
+    public static final cdq c;
+    public static final cdq d;
+    private static final cdq f[];
+    private final boolean e;
 
+    private cdq(String s, int i, boolean flag)
+    {
+        super(s, i);
+        e = flag;
+    }
+
+    public static cdq valueOf(String s)
+    {
+        return (cdq)Enum.valueOf(cdq, s);
+    }
+
+    public static cdq[] values()
+    {
+        return (cdq[])f.clone();
+    }
+
+    public boolean a()
+    {
+        return e;
+    }
+
+    static 
+    {
+        a = new cdq("UNKNOWN", 0, true);
+        b = new cdq("DISCONNECTED", 1, false);
+        c = new cdq("CAPTIVE_PORTAL", 2, false);
+        d = new cdq("CONNECTED", 3, true);
+        f = (new cdq[] {
+            a, b, c, d
+        });
+    }
 }

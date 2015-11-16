@@ -2,55 +2,99 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.NoSuchElementException;
 
-final class kmx
-    implements klq
+public final class kmx extends kwm
 {
 
-    final kmw a;
-    private int b;
-    private final int c;
+    public Boolean a;
+    public kie b;
+    public kmy c;
 
-    kmx(kmw kmw1)
+    public kmx()
     {
-        a = kmw1;
-        super();
-        b = 0;
-        c = kmw1.a();
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public byte a()
+    protected int computeSerializedSize()
     {
-        byte byte0;
-        byte abyte0[];
-        int i;
-        try
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            abyte0 = a.b;
-            i = b;
-            b = i + 1;
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
-        catch (ArrayIndexOutOfBoundsException arrayindexoutofboundsexception)
+        j = i;
+        if (b != null)
         {
-            throw new NoSuchElementException(arrayindexoutofboundsexception.getMessage());
+            j = i + kwk.d(2, b);
         }
-        byte0 = abyte0[i];
-        return byte0;
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.d(3, c);
+        }
+        return i;
     }
 
-    public boolean hasNext()
+    public kws mergeFrom(kwj kwj1)
     {
-        return b < c;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new kie();
+                }
+                kwj1.a(b);
+                break;
+
+            case 26: // '\032'
+                if (c == null)
+                {
+                    c = new kmy();
+                }
+                kwj1.a(c);
+                break;
+            }
+        } while (true);
     }
 
-    public Object next()
+    public void writeTo(kwk kwk1)
     {
-        return Byte.valueOf(a());
-    }
-
-    public void remove()
-    {
-        throw new UnsupportedOperationException();
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
+        }
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.b(3, c);
+        }
+        super.writeTo(kwk1);
     }
 }

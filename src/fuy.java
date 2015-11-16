@@ -2,43 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
 
-final class fuy
-    implements fuw
+public final class fuy
 {
 
-    private IBinder a;
-
-    fuy(IBinder ibinder)
+    public fuy()
     {
-        a = ibinder;
-    }
-
-    public void a(int i, int j)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IChannelStreamCallbacks");
-        parcel.writeInt(i);
-        parcel.writeInt(j);
-        a.transact(2, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public IBinder asBinder()
-    {
-        return a;
     }
 }

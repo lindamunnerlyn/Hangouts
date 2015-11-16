@@ -2,95 +2,90 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
 
-public final class ldn extends ldu
-    implements Serializable, Cloneable, ldq
+public final class ldn extends kwm
 {
 
-    private static final long serialVersionUID = 0x2796807cf37e0267L;
-    private lcy a;
-    private int b;
+    public String a;
+    public String b;
+    public Long c;
 
     public ldn()
     {
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public ldn(ldd ldd)
+    protected int computeSerializedSize()
     {
-        super(0L, ldd);
-    }
-
-    public ldo a(lcz lcz1)
-    {
-        if (lcz1 == null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            throw new IllegalArgumentException("The DateTimeFieldType must not be null");
+            i = j + kwk.b(1, a);
         }
-        lcy lcy1 = lcz1.a(c());
-        if (!lcy1.c())
+        j = i;
+        if (b != null)
         {
-            lcz1 = String.valueOf(lcz1);
-            throw new IllegalArgumentException((new StringBuilder(String.valueOf(lcz1).length() + 25)).append("Field '").append(lcz1).append("' is not supported").toString());
-        } else
-        {
-            return new ldo(this, lcy1);
+            j = i + kwk.b(2, b);
         }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.longValue());
+        }
+        return i;
     }
 
-    public void a(long l)
+    public kws mergeFrom(kwj kwj1)
     {
-        long l1 = l;
-        b;
-        JVM INSTR tableswitch 0 5: default 44
-    //                   0 46
-    //                   1 52
-    //                   2 64
-    //                   3 76
-    //                   4 88
-    //                   5 100;
-           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7
-_L2:
-        break; /* Loop/switch isn't completed */
-_L1:
-        l1 = l;
-_L9:
-        super.a(l1);
-        return;
-_L3:
-        l1 = a.d(l);
-        continue; /* Loop/switch isn't completed */
-_L4:
-        l1 = a.e(l);
-        continue; /* Loop/switch isn't completed */
-_L5:
-        l1 = a.f(l);
-        continue; /* Loop/switch isn't completed */
-_L6:
-        l1 = a.g(l);
-        continue; /* Loop/switch isn't completed */
-_L7:
-        l1 = a.h(l);
-        if (true) goto _L9; else goto _L8
-_L8:
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+
+            case 24: // '\030'
+                c = Long.valueOf(kwj1.e());
+                break;
+            }
+        } while (true);
     }
 
-    public Object clone()
+    public void writeTo(kwk kwk1)
     {
-        Object obj;
-        try
+        if (a != null)
         {
-            obj = super.clone();
+            kwk1.a(1, a);
         }
-        catch (CloneNotSupportedException clonenotsupportedexception)
+        if (b != null)
         {
-            throw new InternalError("Clone error");
+            kwk1.a(2, b);
         }
-        return obj;
-    }
-
-    public String toString()
-    {
-        return lgk.a().a(this);
+        if (c != null)
+        {
+            kwk1.b(3, c.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

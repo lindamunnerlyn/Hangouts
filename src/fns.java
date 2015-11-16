@@ -2,63 +2,470 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.google.android.gms.people.accountswitcherview.ExpanderView;
-import com.google.android.gms.people.accountswitcherview.SelectedAccountNavigationView;
+import android.os.IBinder;
+import android.os.Parcel;
+import com.google.android.gms.maps.model.LatLng;
+import java.util.List;
 
-public final class fns
-    implements fnw
+final class fns
+    implements fnq
 {
 
-    final SelectedAccountNavigationView a;
+    private IBinder a;
 
-    public fns(SelectedAccountNavigationView selectedaccountnavigationview)
+    fns(IBinder ibinder)
     {
-        a = selectedaccountnavigationview;
-        super();
+        a = ibinder;
     }
 
-    public fnv a(View view)
+    public void a()
     {
-        fnv fnv1 = new fnv();
-        fnv1.l = view;
-        fnv1.m = view.findViewById(o.j);
-        fnv1.p = view.findViewById(o.m);
-        fnv1.v = (ImageView)fnv1.p;
-        fnv1.q = (TextView)view.findViewById(o.f);
-        fnv1.r = (TextView)view.findViewById(o.e);
-        fnv1.u = (ImageView)view.findViewById(o.r);
-        fnv1.n = (ExpanderView)view.findViewById(o.g);
-        fnv1.o = view.findViewById(o.h);
-        fnv1.k = view.findViewById(o.A);
-        fnv1.I = a.findViewById(o.i);
-        if (SelectedAccountNavigationView.g(a))
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        a.transact(1, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public void a(float f1)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        parcel.writeFloat(f1);
+        a.transact(7, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public void a(int l)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        parcel.writeInt(l);
+        a.transact(9, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public void a(List list)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        parcel.writeTypedList(list);
+        a.transact(3, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        list;
+        parcel1.recycle();
+        parcel.recycle();
+        throw list;
+    }
+
+    public void a(boolean flag)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        int l;
+        l = 0;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        if (flag)
         {
-            fnv1.s = view.findViewById(o.n);
-            fnv1.w = (ImageView)view.findViewById(o.o);
-            fnv1.t = view.findViewById(o.p);
-            fnv1.x = (ImageView)view.findViewById(o.q);
-            if (fnv1.w == null && (fnv1.s instanceof ImageView))
-            {
-                fnv1.w = (ImageView)fnv1.s;
-            }
-            if (fnv1.x == null && (fnv1.t instanceof ImageView))
-            {
-                fnv1.x = (ImageView)fnv1.t;
-            }
-            fnv1.B = view.findViewById(o.x);
-            fnv1.F = (ImageView)fnv1.B;
-            fnv1.C = (ImageView)view.findViewById(o.y);
-            fnv1.y = view.findViewById(o.z);
-            fnv1.z = (TextView)view.findViewById(o.w);
-            fnv1.A = (TextView)view.findViewById(o.v);
-            fnv1.D = view.findViewById(o.s);
-            fnv1.G = (ImageView)fnv1.D;
-            fnv1.E = view.findViewById(o.t);
-            fnv1.H = (ImageView)fnv1.E;
+            l = 1;
         }
-        return fnv1;
+        parcel.writeInt(l);
+        a.transact(15, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public boolean a(fnq fnq1)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        boolean flag;
+        flag = false;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        if (fnq1 == null)
+        {
+            break MISSING_BLOCK_LABEL_77;
+        }
+        fnq1 = fnq1.asBinder();
+_L1:
+        int l;
+        parcel.writeStrongBinder(fnq1);
+        a.transact(19, parcel, parcel1, 0);
+        parcel1.readException();
+        l = parcel1.readInt();
+        if (l != 0)
+        {
+            flag = true;
+        }
+        parcel1.recycle();
+        parcel.recycle();
+        return flag;
+        fnq1 = null;
+          goto _L1
+        fnq1;
+        parcel1.recycle();
+        parcel.recycle();
+        throw fnq1;
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
+    }
+
+    public String b()
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        String s;
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        a.transact(2, parcel, parcel1, 0);
+        parcel1.readException();
+        s = parcel1.readString();
+        parcel1.recycle();
+        parcel.recycle();
+        return s;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public void b(float f1)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        parcel.writeFloat(f1);
+        a.transact(13, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public void b(int l)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        parcel.writeInt(l);
+        a.transact(11, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public void b(List list)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        parcel.writeList(list);
+        a.transact(5, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        list;
+        parcel1.recycle();
+        parcel.recycle();
+        throw list;
+    }
+
+    public void b(boolean flag)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        int l;
+        l = 0;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        if (flag)
+        {
+            l = 1;
+        }
+        parcel.writeInt(l);
+        a.transact(17, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public List c()
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        java.util.ArrayList arraylist;
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        a.transact(4, parcel, parcel1, 0);
+        parcel1.readException();
+        arraylist = parcel1.createTypedArrayList(LatLng.CREATOR);
+        parcel1.recycle();
+        parcel.recycle();
+        return arraylist;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public List d()
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        java.util.ArrayList arraylist;
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        a.transact(6, parcel, parcel1, 0);
+        parcel1.readException();
+        arraylist = parcel1.readArrayList(getClass().getClassLoader());
+        parcel1.recycle();
+        parcel.recycle();
+        return arraylist;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public float e()
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        float f1;
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        a.transact(8, parcel, parcel1, 0);
+        parcel1.readException();
+        f1 = parcel1.readFloat();
+        parcel1.recycle();
+        parcel.recycle();
+        return f1;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public int f()
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        int l;
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        a.transact(10, parcel, parcel1, 0);
+        parcel1.readException();
+        l = parcel1.readInt();
+        parcel1.recycle();
+        parcel.recycle();
+        return l;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public int g()
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        int l;
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        a.transact(12, parcel, parcel1, 0);
+        parcel1.readException();
+        l = parcel1.readInt();
+        parcel1.recycle();
+        parcel.recycle();
+        return l;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public float h()
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        float f1;
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        a.transact(14, parcel, parcel1, 0);
+        parcel1.readException();
+        f1 = parcel1.readFloat();
+        parcel1.recycle();
+        parcel.recycle();
+        return f1;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public boolean i()
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        boolean flag;
+        flag = false;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        int l;
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        a.transact(16, parcel, parcel1, 0);
+        parcel1.readException();
+        l = parcel1.readInt();
+        if (l != 0)
+        {
+            flag = true;
+        }
+        parcel1.recycle();
+        parcel.recycle();
+        return flag;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public boolean j()
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        boolean flag;
+        flag = false;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        int l;
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        a.transact(18, parcel, parcel1, 0);
+        parcel1.readException();
+        l = parcel1.readInt();
+        if (l != 0)
+        {
+            flag = true;
+        }
+        parcel1.recycle();
+        parcel.recycle();
+        return flag;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public int k()
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        int l;
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IPolygonDelegate");
+        a.transact(20, parcel, parcel1, 0);
+        parcel1.readException();
+        l = parcel1.readInt();
+        parcel1.recycle();
+        parcel.recycle();
+        return l;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
     }
 }

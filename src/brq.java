@@ -2,23 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import com.google.android.apps.hangouts.hangout.PresentToAllBannerView;
+import com.google.android.apps.hangouts.hangout.ParticipantTrayView;
 
 public final class brq
-    implements android.view.View.OnClickListener
+    implements Runnable
 {
 
-    final PresentToAllBannerView a;
+    final ParticipantTrayView a;
 
-    public brq(PresentToAllBannerView presenttoallbannerview)
+    public brq(ParticipantTrayView participanttrayview)
     {
-        a = presenttoallbannerview;
+        a = participanttrayview;
         super();
     }
 
-    public void onClick(View view)
+    public void run()
     {
-        PresentToAllBannerView.a(a);
+        a.a(a.b);
     }
 }

@@ -3,23 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.content.Intent;
 
-public abstract class dlo
+final class dlo
+    implements cok
 {
 
-    public dlo()
+    final dln a;
+
+    dlo(dln dln)
     {
+        a = dln;
+        super();
     }
 
-    public abstract Class a();
-
-    public abstract void a(Context context, Intent intent);
-
-    public Intent b(Context context, Intent intent)
+    public coj a(Context context)
     {
-        intent.putExtra("ds_processor", getClass().getName());
-        intent.setClass(context, a());
-        return intent;
+        return new dlp(this, "Debug Wakelocks Activity", context);
     }
 }

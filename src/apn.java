@@ -3,27 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public abstract class apn
-    implements apl
+final class apn
 {
 
-    private final apk a;
+    public String a;
+    public String b;
+    final aow c;
 
-    protected apn(apk apk)
+    apn(aow aow)
     {
-        a = apk;
-    }
-
-    abstract boolean a(ani ani);
-
-    public boolean a(ani ani, apk apk)
-    {
-        if (a == apk)
-        {
-            return a(ani);
-        } else
-        {
-            return false;
-        }
+        c = aow;
+        super();
     }
 }

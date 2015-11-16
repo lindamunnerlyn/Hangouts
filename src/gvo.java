@@ -2,49 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 
-public final class gvo
+final class gvo
+    implements Runnable
 {
 
-    final int a;
-    final int b;
-    final long c;
-    private final gvp d;
+    final guy a;
+    final gvv b;
+    final gvk c;
 
-    gvo(int i, int j, long l, gvp gvp1)
+    gvo(gvk gvk1, guy guy, gvv gvv)
     {
-        b = i;
-        a = j;
-        c = l;
-        d = gvp1;
+        c = gvk1;
+        a = guy;
+        b = gvv;
+        super();
     }
 
-    gvo(int i, int j, gvp gvp1)
+    public void run()
     {
-        this(i, j, (long)i * (long)j << 2, gvp1);
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (obj instanceof gvo)
+        Handler handler;
+label0:
         {
-            obj = (gvo)obj;
-            return d.a(this, ((gvo) (obj)));
-        } else
-        {
-            return false;
+            gvk.a(c).a(a, b);
+            if (!gvk.a(c).b())
+            {
+                handler = gvk.a(c).d();
+                handler.removeMessages(510);
+                if (a != gvk.b(c))
+                {
+                    break label0;
+                }
+                gvk.c(c).stopService(gvk.d(c));
+            }
+            return;
         }
-    }
-
-    public int hashCode()
-    {
-        return d.a(this);
-    }
-
-    public String toString()
-    {
-        int i = b;
-        int j = a;
-        return (new StringBuilder(35)).append("BitmapKey(").append(i).append(", ").append(j).append(")").toString();
+        Message message = Message.obtain(handler, itp.a(gvk.e(c)));
+        message.what = 510;
+        handler.sendMessageDelayed(message, 5000L);
     }
 }

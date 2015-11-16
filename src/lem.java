@@ -2,33 +2,87 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Locale;
 
-final class lem extends lef
+public final class lem extends kwm
 {
 
-    lem(ldz ldz)
+    private static volatile lem c[];
+    public String a;
+    public String b;
+
+    public lem()
     {
-        super(ldz);
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    protected int a(String s, Locale locale)
+    public static lem[] a()
     {
-        return lel.a(locale).b(s);
+        if (c == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (c == null)
+                {
+                    c = new lem[0];
+                }
+            }
+        }
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public int a(Locale locale)
+    protected int computeSerializedSize()
     {
-        return lel.a(locale).b();
+        int j = super.computeSerializedSize() + kwk.b(1, a);
+        int i = j;
+        if (b != null)
+        {
+            i = j + kwk.b(2, b);
+        }
+        return i;
     }
 
-    public String a(int i, Locale locale)
+    public kws mergeFrom(kwj kwj1)
     {
-        return lel.a(locale).b(i);
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+            }
+        } while (true);
     }
 
-    public String b(int i, Locale locale)
+    public void writeTo(kwk kwk1)
     {
-        return lel.a(locale).c(i);
+        kwk1.a(1, a);
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        super.writeTo(kwk1);
     }
 }

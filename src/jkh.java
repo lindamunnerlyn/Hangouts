@@ -2,83 +2,64 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Comparator;
-import java.util.SortedSet;
 
-final class jkh extends jkc
-    implements SortedSet
+public final class jkh extends kwm
 {
 
-    final jjt a;
+    public jkg a;
 
-    jkh(jjt jjt, Object obj, SortedSet sortedset, jkc jkc1)
+    public jkh()
     {
-        a = jjt;
-        super(jjt, obj, sortedset, jkc1);
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public Comparator comparator()
+    protected int computeSerializedSize()
     {
-        return ((SortedSet)e()).comparator();
-    }
-
-    public Object first()
-    {
-        a();
-        return ((SortedSet)e()).first();
-    }
-
-    public SortedSet headSet(Object obj)
-    {
-        a();
-        jjt jjt = a;
-        Object obj1 = c();
-        SortedSet sortedset = ((SortedSet)e()).headSet(obj);
-        if (f() == null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            obj = this;
-        } else
-        {
-            obj = f();
+            i = j + kwk.d(1, a);
         }
-        return new jkh(jjt, obj1, sortedset, ((jkc) (obj)));
+        return i;
     }
 
-    public Object last()
+    public kws mergeFrom(kwj kwj1)
     {
-        a();
-        return ((SortedSet)e()).last();
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new jkg();
+                }
+                kwj1.a(a);
+                break;
+            }
+        } while (true);
     }
 
-    public SortedSet subSet(Object obj, Object obj1)
+    public void writeTo(kwk kwk1)
     {
-        a();
-        jjt jjt = a;
-        Object obj2 = c();
-        obj1 = ((SortedSet)e()).subSet(obj, obj1);
-        if (f() == null)
+        if (a != null)
         {
-            obj = this;
-        } else
-        {
-            obj = f();
+            kwk1.b(1, a);
         }
-        return new jkh(jjt, obj2, ((SortedSet) (obj1)), ((jkc) (obj)));
-    }
-
-    public SortedSet tailSet(Object obj)
-    {
-        a();
-        jjt jjt = a;
-        Object obj1 = c();
-        SortedSet sortedset = ((SortedSet)e()).tailSet(obj);
-        if (f() == null)
-        {
-            obj = this;
-        } else
-        {
-            obj = f();
-        }
-        return new jkh(jjt, obj1, sortedset, ((jkc) (obj)));
+        super.writeTo(kwk1);
     }
 }

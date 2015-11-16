@@ -2,42 +2,87 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.ServiceConnection;
+import android.os.DeadObjectException;
+import android.os.RemoteException;
+import com.google.android.gms.common.api.Status;
+import java.util.concurrent.atomic.AtomicReference;
 
-public abstract class enm
+public abstract class enm extends enj
+    implements enn, eoo
 {
 
-    private static final Object a = new Object();
-    private static enm b;
+    private AtomicReference a;
+    final emx h;
 
-    public enm()
+    public enm(emx emx1, emy emy1)
     {
+        super(((emy)g.b(emy1, "GoogleApiClient must not be null")).a());
+        a = new AtomicReference();
+        h = (emx)g.d(emx1);
     }
 
-    public static enm a(Context context)
+    private void a(RemoteException remoteexception)
     {
-        synchronized (a)
+        c(new Status(8, remoteexception.getLocalizedMessage(), null));
+    }
+
+    public abstract void a(emw emw);
+
+    public void a(eon eon1)
+    {
+        a.set(eon1);
+    }
+
+    public void a(Object obj)
+    {
+        super.a((enh)obj);
+    }
+
+    public final void b(emw emw)
+    {
+        try
         {
-            if (b == null)
-            {
-                b = new enn(context.getApplicationContext());
-            }
+            a(emw);
+            return;
         }
-        return b;
-        context;
-        obj;
-        JVM INSTR monitorexit ;
-        throw context;
+        // Misplaced declaration of an exception variable
+        catch (emw emw)
+        {
+            a(emw);
+            throw emw;
+        }
+        // Misplaced declaration of an exception variable
+        catch (emw emw)
+        {
+            a(emw);
+        }
     }
 
-    public abstract boolean a(ComponentName componentname, ServiceConnection serviceconnection, String s);
+    public final void c(Status status)
+    {
+        boolean flag;
+        if (!status.b())
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        g.b(flag, "Failed result must not be success");
+        a(a(status));
+    }
 
-    public abstract boolean a(String s, ServiceConnection serviceconnection, String s1);
+    protected void e()
+    {
+        eon eon1 = (eon)a.getAndSet(null);
+        if (eon1 != null)
+        {
+            eon1.a(this);
+        }
+    }
 
-    public abstract void b(ComponentName componentname, ServiceConnection serviceconnection, String s);
-
-    public abstract void b(String s, ServiceConnection serviceconnection, String s1);
-
+    public final emx f()
+    {
+        return h;
+    }
 }

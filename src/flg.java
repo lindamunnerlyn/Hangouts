@@ -2,74 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Binder;
 import android.os.Parcel;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 
-public final class flg
-    implements android.os.Parcelable.Creator
+public abstract class flg extends Binder
+    implements flf
 {
 
-    public flg()
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
     {
-    }
-
-    public static LatLngBounds a(Parcel parcel)
-    {
-        int j = g.a(parcel);
-        LatLng latlng = null;
-        int i = 0;
-        LatLng latlng1 = null;
-        do
+        switch (i)
         {
-            if (parcel.dataPosition() < j)
-            {
-                int k = parcel.readInt();
-                switch (0xffff & k)
-                {
-                default:
-                    g.b(parcel, k);
-                    break;
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
 
-                case 1: // '\001'
-                    i = g.e(parcel, k);
-                    break;
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.maps.internal.IOnMapLongClickListener");
+            return true;
 
-                case 2: // '\002'
-                    latlng = (LatLng)g.a(parcel, k, LatLng.CREATOR);
-                    break;
-
-                case 3: // '\003'
-                    latlng1 = (LatLng)g.a(parcel, k, LatLng.CREATOR);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != j)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
-            } else
-            {
-                return new LatLngBounds(i, latlng, latlng1);
-            }
-        } while (true);
-    }
-
-    public static void a(LatLngBounds latlngbounds, Parcel parcel, int i)
-    {
-        int j = g.p(parcel, 20293);
-        g.b(parcel, 1, latlngbounds.a());
-        g.a(parcel, 2, latlngbounds.a, i);
-        g.a(parcel, 3, latlngbounds.b, i);
-        g.q(parcel, j);
-    }
-
-    public Object createFromParcel(Parcel parcel)
-    {
-        return a(parcel);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new LatLngBounds[i];
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnMapLongClickListener");
+            break;
+        }
+        if (parcel.readInt() != 0)
+        {
+            fod fod1 = LatLng.CREATOR;
+            parcel = fod.a(parcel);
+        } else
+        {
+            parcel = null;
+        }
+        a(parcel);
+        parcel1.writeNoException();
+        return true;
     }
 }

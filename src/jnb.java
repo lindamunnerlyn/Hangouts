@@ -3,40 +3,28 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-class jnb extends Enum
+final class jnb extends jmr
 {
 
-    public static final jnb a;
-    public static final jnb b;
-    public static final jnb c;
-    public static final jnb d;
-    public static final jnb e;
-    private static final jnb f[];
+    static final jnb o = new jnb();
 
-    jnb(String s, int i)
+    private jnb()
     {
-        super(s, i);
     }
 
-    public static jnb valueOf(String s)
+    public volatile boolean a(Object obj)
     {
-        return (jnb)Enum.valueOf(jnb, s);
+        return super.a((Character)obj);
     }
 
-    public static jnb[] values()
+    public boolean b(char c)
     {
-        return (jnb[])f.clone();
+        return Character.isLetter(c);
     }
 
-    static 
+    public String toString()
     {
-        a = new jnc("EXPLICIT");
-        b = new jnd("REPLACED");
-        c = new jne("COLLECTED");
-        d = new jnf("EXPIRED");
-        e = new jng("SIZE");
-        f = (new jnb[] {
-            a, b, c, d, e
-        });
+        return "CharMatcher.javaLetter()";
     }
+
 }

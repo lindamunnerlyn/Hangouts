@@ -2,176 +2,106 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
-import java.util.Collection;
-import java.util.Map;
-import java.util.Set;
 
-public abstract class jlr
-    implements Serializable, Map
+public final class jlr extends kwm
 {
 
-    private static final java.util.Map.Entry a[] = new java.util.Map.Entry[0];
-    private transient jmi b;
-    private transient jmi c;
-    private transient jle d;
+    public Integer a;
+    public Integer b;
+    public Long c;
+    public Boolean d;
 
-    jlr()
+    public jlr()
     {
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public static jlr a(Object obj, Object obj1, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6, Object obj7)
+    protected int computeSerializedSize()
     {
-        return new jqa(new jlv[] {
-            c(obj, obj1), c(obj2, obj3), c(obj4, obj5), c(obj6, obj7)
-        });
-    }
-
-    static void a(boolean flag, String s, java.util.Map.Entry entry, java.util.Map.Entry entry1)
-    {
-        if (!flag)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            throw new IllegalArgumentException((new StringBuilder("Multiple entries with same ")).append(s).append(": ").append(entry).append(" and ").append(entry1).toString());
-        } else
-        {
-            return;
+            i = j + kwk.e(1, a.intValue());
         }
-    }
-
-    public static jlr b(Object obj, Object obj1)
-    {
-        return jlb.a(obj, obj1);
-    }
-
-    static jlv c(Object obj, Object obj1)
-    {
-        g.d(obj, obj1);
-        return new jlv(obj, obj1);
-    }
-
-    public static jlr h()
-    {
-        return jlb.e();
-    }
-
-    public static jls i()
-    {
-        return new jls();
-    }
-
-    public jmi b()
-    {
-        jmi jmi2 = b;
-        jmi jmi1 = jmi2;
-        if (jmi2 == null)
+        j = i;
+        if (b != null)
         {
-            jmi1 = c();
-            b = jmi1;
+            j = i + kwk.e(2, b.intValue());
         }
-        return jmi1;
-    }
-
-    abstract jmi c();
-
-    public final void clear()
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public boolean containsKey(Object obj)
-    {
-        return get(obj) != null;
-    }
-
-    public boolean containsValue(Object obj)
-    {
-        return g().contains(obj);
-    }
-
-    public jmi d()
-    {
-        jmi jmi2 = c;
-        jmi jmi1 = jmi2;
-        if (jmi2 == null)
+        i = j;
+        if (c != null)
         {
-            jmi1 = j();
-            c = jmi1;
+            i = j + kwk.e(3, c.longValue());
         }
-        return jmi1;
-    }
-
-    public Set entrySet()
-    {
-        return b();
-    }
-
-    public boolean equals(Object obj)
-    {
-        return jpc.d(this, obj);
-    }
-
-    public jle g()
-    {
-        jle jle1 = d;
-        Object obj = jle1;
-        if (jle1 == null)
+        j = i;
+        if (d != null)
         {
-            obj = new jmb(this);
-            d = ((jle) (obj));
+            d.booleanValue();
+            j = i + (kwk.f(4) + 1);
         }
-        return ((jle) (obj));
+        return j;
     }
 
-    public abstract Object get(Object obj);
-
-    public int hashCode()
+    public kws mergeFrom(kwj kwj1)
     {
-        return b().hashCode();
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
+                break;
+
+            case 24: // '\030'
+                c = Long.valueOf(kwj1.e());
+                break;
+
+            case 32: // ' '
+                d = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
     }
 
-    public boolean isEmpty()
+    public void writeTo(kwk kwk1)
     {
-        return size() == 0;
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        if (c != null)
+        {
+            kwk1.b(3, c.longValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
-
-    jmi j()
-    {
-        return new jly(this);
-    }
-
-    public Set keySet()
-    {
-        return d();
-    }
-
-    public final Object put(Object obj, Object obj1)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public final void putAll(Map map)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public final Object remove(Object obj)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public String toString()
-    {
-        return jpc.a(this);
-    }
-
-    public Collection values()
-    {
-        return g();
-    }
-
-    Object writeReplace()
-    {
-        return new jlt(this);
-    }
-
 }

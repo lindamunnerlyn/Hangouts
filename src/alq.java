@@ -3,40 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
+import android.content.Intent;
+import com.google.android.apps.hangouts.callpromos.impl.DialerPromoActivity;
 
-public final class alq
+final class alq
+    implements all
 {
 
-    public static final String a = alo.getName();
-    public static final String b = cqv.getName();
-    public static final String c = beb.getName();
-    private static alp d;
-
-    public static void a(Context context, hgx hgx1)
+    alq()
     {
-        if (d == null)
-        {
-            d = new alp();
-        }
-        hgx1.a(alo, d.a(context));
     }
 
-    public static void a(hgx hgx1)
+    public Intent a(Context context)
     {
-        if (d == null)
-        {
-            d = new alp();
-        }
-        hgx1.a(beb, d.a());
+        int i = ((gqu)hlp.a(context, gqu)).a();
+        context = new Intent(context, com/google/android/apps/hangouts/callpromos/impl/DialerPromoActivity);
+        context.putExtra("account_id", i);
+        return context;
     }
-
-    public static void b(Context context, hgx hgx1)
-    {
-        if (d == null)
-        {
-            d = new alp();
-        }
-        hgx1.a(cqv, d.b(context));
-    }
-
 }

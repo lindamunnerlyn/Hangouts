@@ -2,46 +2,15 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.widget.ListView;
+import android.content.Context;
 
-final class blr
-    implements android.view.ViewTreeObserver.OnGlobalLayoutListener
+public final class blr extends bhs
 {
 
-    final blp a;
-    private int b;
-    private boolean c;
-    private boolean d;
-
-    blr(blp blp1)
+    public blr(Context context, bls bls, blu blu)
     {
-        a = blp1;
-        super();
-        d = true;
-    }
-
-    public void onGlobalLayout()
-    {
-        gbh.b(a.f.findViewById(h.dV));
-        if (!c)
-        {
-            b = a.f.getMeasuredHeight();
-            c = true;
-        }
-        if (a.b().getMeasuredHeight() > b)
-        {
-            if (!d)
-            {
-                d = true;
-                a.f.findViewById(h.dV).setVisibility(8);
-            }
-        } else
-        if (d)
-        {
-            d = false;
-            a.f.findViewById(h.dV).setVisibility(0);
-            return;
-        }
+        super(context);
+        a(new bhu(this, false, bls));
+        a(new blv(this, blu));
     }
 }

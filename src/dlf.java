@@ -2,10 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.widget.ListView;
+import com.google.android.apps.hangouts.realtimechat.wakelock.impl.DebugWakelocksActivity;
 
-public interface dlf
-    extends dle
+public final class dlf extends ListView
 {
 
-    public abstract void a(String s, String s1, int i, aqw aqw, ani ani);
+    final DebugWakelocksActivity a;
+
+    public dlf(DebugWakelocksActivity debugwakelocksactivity, Context context)
+    {
+        a = debugwakelocksactivity;
+        super(context);
+        setOnItemClickListener(new dlj(a));
+    }
 }

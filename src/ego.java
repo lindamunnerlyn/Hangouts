@@ -3,26 +3,52 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.view.View;
+import com.google.android.apps.hangouts.views.ConversationListItemView;
 
-final class ego
+public final class ego
     implements android.view.View.OnClickListener
 {
 
-    final ani a;
-    final ad b;
-    final egn c;
+    final ConversationListItemView a;
 
-    ego(egn egn1, ani ani, ad ad1)
+    public ego(ConversationListItemView conversationlistitemview)
     {
-        c = egn1;
-        a = ani;
-        b = ad1;
+        a = conversationlistitemview;
         super();
     }
 
     public void onClick(View view)
     {
-        view = g.b(a, egn.a(c));
-        b.startActivity(view);
+        int i;
+        byte byte0;
+        boolean flag;
+        if (a.d == 0)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        if (a.o())
+        {
+            i = 1;
+        } else
+        {
+            i = 2;
+        }
+        if (flag)
+        {
+            byte0 = 57;
+        } else
+        {
+            byte0 = 58;
+        }
+        if (a.e != null && a.a != null)
+        {
+            view = a.e;
+            String s = a.a;
+            int j = a.b;
+            view.a(s, flag, i, byte0);
+        }
     }
 }

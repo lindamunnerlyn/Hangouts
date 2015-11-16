@@ -3,33 +3,43 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hcn
+public final class hcn extends Enum
+    implements joj
 {
 
-    public static final String a = hhl.getName();
-    public static final String b = hhy.getName();
-    private static hcm c;
+    public static final hcn a;
+    private static final hcn b[];
 
-    public static void a(hgx hgx1)
+    private hcn(String s)
     {
-        if (c == null)
-        {
-            c = new hcm();
-        }
-        hgx1.a(hhl, new hhl[] {
-            new hck(), new hca()
-        });
+        super(s, 0);
     }
 
-    public static void b(hgx hgx1)
+    public static joj b()
     {
-        if (c == null)
-        {
-            c = new hcm();
-        }
-        hgx1.a(hhy, new hhy[] {
-            new hcb()
-        });
+        return a;
     }
 
+    public static hcn valueOf(String s)
+    {
+        return (hcn)Enum.valueOf(hcn, s);
+    }
+
+    public static hcn[] values()
+    {
+        return (hcn[])b.clone();
+    }
+
+    public Object a()
+    {
+        return new hcg();
+    }
+
+    static 
+    {
+        a = new hcn("INSTANCE");
+        b = (new hcn[] {
+            a
+        });
+    }
 }

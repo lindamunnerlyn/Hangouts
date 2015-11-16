@@ -3,60 +3,53 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ioc extends koj
+public final class ioc extends kwm
 {
 
-    private static volatile ioc c[];
     public String a;
     public String b;
+    public Boolean c;
 
     public ioc()
     {
         a = null;
         b = null;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    public static ioc[] a()
-    {
-        if (c == null)
-        {
-            synchronized (kon.a)
-            {
-                if (c == null)
-                {
-                    c = new ioc[0];
-                }
-            }
-        }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize() + koh.b(6, a);
+        int j = super.computeSerializedSize();
         int i = j;
+        if (a != null)
+        {
+            i = j + kwk.b(1, a);
+        }
+        j = i;
         if (b != null)
         {
-            i = j + koh.b(7, b);
+            j = i + kwk.b(2, b);
+        }
+        i = j;
+        if (c != null)
+        {
+            c.booleanValue();
+            i = j + (kwk.f(3) + 1);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -65,24 +58,35 @@ public final class ioc extends koj
             case 0: // '\0'
                 return this;
 
-            case 50: // '2'
-                a = kog1.j();
+            case 10: // '\n'
+                a = kwj1.j();
                 break;
 
-            case 58: // ':'
-                b = kog1.j();
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+
+            case 24: // '\030'
+                c = Boolean.valueOf(kwj1.i());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.a(6, a);
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
         if (b != null)
         {
-            koh1.a(7, b);
+            kwk1.a(2, b);
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.a(3, c.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

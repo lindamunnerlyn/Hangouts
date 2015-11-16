@@ -16,9 +16,9 @@ import android.widget.ListAdapter;
 import android.widget.OverScroller;
 import java.util.LinkedList;
 import java.util.Queue;
-import kxu;
-import kxv;
-import kxw;
+import lfz;
+import lga;
+import lgb;
 
 public class HorizontalListView extends AdapterView
 {
@@ -28,17 +28,17 @@ public class HorizontalListView extends AdapterView
     public int c;
     public int d;
     public int e;
-    public OverScroller f;
-    private int g;
-    private int h;
-    private int i;
-    private float j;
-    private GestureDetector k;
-    private Queue l;
-    private android.widget.AdapterView.OnItemSelectedListener m;
-    private android.widget.AdapterView.OnItemClickListener n;
-    private android.widget.AdapterView.OnItemLongClickListener o;
-    private boolean p;
+    public int f;
+    public OverScroller g;
+    public android.widget.AdapterView.OnItemSelectedListener h;
+    public android.widget.AdapterView.OnItemClickListener i;
+    public android.widget.AdapterView.OnItemLongClickListener j;
+    public boolean k;
+    private int l;
+    private int m;
+    private float n;
+    private GestureDetector o;
+    private Queue p;
     private DataSetObserver q;
     private android.view.GestureDetector.OnGestureListener r;
 
@@ -46,32 +46,32 @@ public class HorizontalListView extends AdapterView
     {
         super(context);
         a = true;
-        g = -1;
-        h = 0;
-        e = 0x7fffffff;
-        i = 0;
-        j = -1F;
-        l = new LinkedList();
-        p = false;
-        q = new kxu(this);
-        r = new kxw(this);
-        d();
+        c = -1;
+        l = 0;
+        f = 0x7fffffff;
+        m = 0;
+        n = -1F;
+        p = new LinkedList();
+        k = false;
+        q = new lfz(this);
+        r = new lgb(this);
+        e();
     }
 
     public HorizontalListView(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
         a = true;
-        g = -1;
-        h = 0;
-        e = 0x7fffffff;
-        i = 0;
-        j = -1F;
-        l = new LinkedList();
-        p = false;
-        q = new kxu(this);
-        r = new kxw(this);
-        d();
+        c = -1;
+        l = 0;
+        f = 0x7fffffff;
+        m = 0;
+        n = -1F;
+        p = new LinkedList();
+        k = false;
+        q = new lfz(this);
+        r = new lgb(this);
+        e();
     }
 
     private void a(View view, int i1)
@@ -101,70 +101,24 @@ public class HorizontalListView extends AdapterView
         view.measure(i1, j1);
     }
 
-    public static boolean a(HorizontalListView horizontallistview)
-    {
-        horizontallistview.p = true;
-        return true;
-    }
-
-    public static void b(HorizontalListView horizontallistview)
-    {
-        horizontallistview.e();
-    }
-
-    public static android.widget.AdapterView.OnItemClickListener c(HorizontalListView horizontallistview)
-    {
-        return horizontallistview.n;
-    }
-
-    public static int d(HorizontalListView horizontallistview)
-    {
-        return horizontallistview.g;
-    }
-
-    private void d()
-    {
-        this;
-        JVM INSTR monitorenter ;
-        g = -1;
-        h = 0;
-        i = 0;
-        c = 0;
-        d = 0;
-        e = 0x7fffffff;
-        f = new OverScroller(getContext());
-        k = new GestureDetector(getContext(), r);
-        this;
-        JVM INSTR monitorexit ;
-        return;
-        Exception exception;
-        exception;
-        throw exception;
-    }
-
-    public static android.widget.AdapterView.OnItemSelectedListener e(HorizontalListView horizontallistview)
-    {
-        return horizontallistview.m;
-    }
-
     private void e()
     {
         this;
         JVM INSTR monitorenter ;
-        d();
-        removeAllViewsInLayout();
-        requestLayout();
+        c = -1;
+        l = 0;
+        m = 0;
+        d = 0;
+        e = 0;
+        f = 0x7fffffff;
+        g = new OverScroller(getContext());
+        o = new GestureDetector(getContext(), r);
         this;
         JVM INSTR monitorexit ;
         return;
         Exception exception;
         exception;
         throw exception;
-    }
-
-    public static android.widget.AdapterView.OnItemLongClickListener f(HorizontalListView horizontallistview)
-    {
-        return horizontallistview.o;
     }
 
     public ListAdapter a()
@@ -180,14 +134,14 @@ public class HorizontalListView extends AdapterView
         }
         b = listadapter;
         b.registerDataSetObserver(q);
-        e();
+        b();
     }
 
     public boolean a(float f1)
     {
         this;
         JVM INSTR monitorenter ;
-        f.fling(d, 0, (int)(-b(f1)), 0, 0, e, 0, 0);
+        g.fling(e, 0, (int)(-b(f1)), 0, 0, f, 0, 0);
         this;
         JVM INSTR monitorexit ;
         requestLayout();
@@ -201,42 +155,57 @@ public class HorizontalListView extends AdapterView
 
     protected float b(float f1)
     {
-        if (j == -1F)
+        if (n == -1F)
         {
             return f1;
         } else
         {
             float f2 = Math.abs(f1);
-            return f1 * (Math.min(f2, j) / f2);
+            return f1 * (Math.min(f2, n) / f2);
         }
     }
 
-    protected void b()
+    public void b()
     {
-        if (d < 0 || d == 0 && f.getStartX() != 0)
+        this;
+        JVM INSTR monitorenter ;
+        e();
+        removeAllViewsInLayout();
+        requestLayout();
+        this;
+        JVM INSTR monitorexit ;
+        return;
+        Exception exception;
+        exception;
+        throw exception;
+    }
+
+    protected void c()
+    {
+        if (e < 0 || e == 0 && g.getStartX() != 0)
         {
-            d = 0;
-            f.forceFinished(true);
+            e = 0;
+            g.forceFinished(true);
         }
-        if (d > e || d == e && f.getStartX() != e)
+        if (e > f || e == f && g.getStartX() != f)
         {
-            d = e;
-            f.forceFinished(true);
+            e = f;
+            g.forceFinished(true);
         }
     }
 
-    public boolean c()
+    public boolean d()
     {
-        if (!f.isFinished())
+        if (!g.isFinished())
         {
-            f.forceFinished(true);
+            g.forceFinished(true);
         }
         return true;
     }
 
     public boolean dispatchTouchEvent(MotionEvent motionevent)
     {
-        return super.dispatchTouchEvent(motionevent) | k.onTouchEvent(motionevent);
+        return super.dispatchTouchEvent(motionevent) | o.onTouchEvent(motionevent);
     }
 
     public Adapter getAdapter()
@@ -262,20 +231,20 @@ _L1:
         JVM INSTR monitorexit ;
         return;
 _L2:
-        if (p)
+        if (k)
         {
-            i1 = c;
-            d();
+            i1 = d;
+            e();
             removeAllViewsInLayout();
-            d = i1;
-            p = false;
+            e = i1;
+            k = false;
         }
-        if (f.computeScrollOffset())
+        if (g.computeScrollOffset())
         {
-            d = f.getCurrX();
+            e = g.getCurrX();
         }
-        b();
-        j1 = c - d;
+        c();
+        j1 = d - e;
         obj = getChildAt(0);
 _L3:
         if (obj == null)
@@ -286,10 +255,10 @@ _L3:
         {
             break MISSING_BLOCK_LABEL_166;
         }
-        i = i + ((View) (obj)).getMeasuredWidth();
-        l.offer(obj);
+        m = m + ((View) (obj)).getMeasuredWidth();
+        p.offer(obj);
         removeViewInLayout(((View) (obj)));
-        g = g + 1;
+        c = c + 1;
         obj = getChildAt(0);
           goto _L3
 _L5:
@@ -302,37 +271,37 @@ _L5:
         {
             break MISSING_BLOCK_LABEL_235;
         }
-        l.offer(obj);
+        p.offer(obj);
         removeViewInLayout(((View) (obj)));
-        h = h - 1;
+        l = l - 1;
         if (true) goto _L5; else goto _L4
 _L4:
         Exception exception;
         exception;
         throw exception;
-        i1 = i;
+        i1 = m;
         exception = getChildAt(getChildCount() - 1);
         if (exception == null)
         {
             break MISSING_BLOCK_LABEL_266;
         }
         i1 = exception.getRight();
-        while (i1 + j1 < getWidth() && h < b.getCount()) 
+        while (i1 + j1 < getWidth() && l < b.getCount()) 
         {
-            exception = b.getView(h, (View)l.poll(), this);
+            exception = b.getView(l, (View)p.poll(), this);
             a(exception, -1);
             i1 = exception.getMeasuredWidth() + i1;
-            if (h == b.getCount() - 1)
+            if (l == b.getCount() - 1)
             {
-                e = (c + i1) - getWidth();
+                f = (d + i1) - getWidth();
             }
-            if (e < 0)
+            if (f < 0)
             {
-                e = 0;
+                f = 0;
             }
-            h = h + 1;
+            l = l + 1;
         }
-        i1 = i;
+        i1 = m;
         exception = getChildAt(0);
         if (exception == null)
         {
@@ -344,22 +313,22 @@ _L7:
         {
             break; /* Loop/switch isn't completed */
         }
-        if (g < 0)
+        if (c < 0)
         {
             break; /* Loop/switch isn't completed */
         }
-        View view = b.getView(g, (View)l.poll(), this);
+        View view = b.getView(c, (View)p.poll(), this);
         a(view, 0);
         k1 = view.getMeasuredWidth();
-        g = g - 1;
-        i = i - view.getMeasuredWidth();
+        c = c - 1;
+        m = m - view.getMeasuredWidth();
         i1 -= k1;
         if (true) goto _L7; else goto _L6
 _L6:
         if (getChildCount() <= 0) goto _L9; else goto _L8
 _L8:
-        i = i + j1;
-        j1 = i;
+        m = m + j1;
+        j1 = m;
         i1 = 0;
 _L10:
         if (i1 >= getChildCount())
@@ -373,10 +342,10 @@ _L10:
         i1++;
         if (true) goto _L10; else goto _L9
 _L9:
-        c = d;
-        if (!f.isFinished())
+        d = e;
+        if (!g.isFinished())
         {
-            post(new kxv(this));
+            post(new lga(this));
         }
           goto _L1
     }
@@ -388,17 +357,17 @@ _L9:
 
     public void setOnItemClickListener(android.widget.AdapterView.OnItemClickListener onitemclicklistener)
     {
-        n = onitemclicklistener;
+        i = onitemclicklistener;
     }
 
     public void setOnItemLongClickListener(android.widget.AdapterView.OnItemLongClickListener onitemlongclicklistener)
     {
-        o = onitemlongclicklistener;
+        j = onitemlongclicklistener;
     }
 
     public void setOnItemSelectedListener(android.widget.AdapterView.OnItemSelectedListener onitemselectedlistener)
     {
-        m = onitemselectedlistener;
+        h = onitemselectedlistener;
     }
 
     public void setSelection(int i1)

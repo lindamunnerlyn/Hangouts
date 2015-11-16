@@ -2,47 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.bluetooth.BluetoothHeadset;
-import android.bluetooth.BluetoothProfile;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
-final class giz
-    implements android.bluetooth.BluetoothProfile.ServiceListener
+public final class giz
 {
 
-    final gir a;
+    long a;
+    int b;
+    List c;
 
-    giz(gir gir1)
+    public giz()
     {
-        a = gir1;
-        super();
+        b = 0;
+        c = new ArrayList();
     }
 
-    public void onServiceConnected(int i, BluetoothProfile bluetoothprofile)
+    static void a(giz giz1, long l, String s, byte abyte0[])
     {
-        if (i == 1)
-        {
-            gkc.b("vclib", "BluetoothProfile.ServiceListener : onServiceConnected");
-            a.l = (BluetoothHeadset)bluetoothprofile;
-            if (a.h == giw.e)
-            {
-                a.e();
-            }
-        }
-    }
-
-    public void onServiceDisconnected(int i)
-    {
-        if (i == 1)
-        {
-            gkc.b("vclib", "BluetoothProfile.ServiceListener : onServiceDisconnected");
-            a.f();
-            a.n = null;
-            a.l = null;
-            if (a.i.remove(giv.c))
-            {
-                a.d();
-            }
-        }
+        gjb gjb1 = new gjb();
+        gjb1.a = l;
+        gjb1.c = abyte0;
+        gjb1.b = s;
+        giz1.c.add(gjb1);
     }
 }

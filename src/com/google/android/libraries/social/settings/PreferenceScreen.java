@@ -16,22 +16,22 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import g;
-import hfa;
-import hfm;
-import hfn;
-import hfq;
-import hfw;
+import hjr;
+import hkd;
+import hke;
+import hkh;
+import hkn;
 
-public final class PreferenceScreen extends hfm
+public final class PreferenceScreen extends hkd
     implements android.content.DialogInterface.OnDismissListener, android.widget.AdapterView.OnItemClickListener
 {
 
-    private ListAdapter b;
+    private ListAdapter a;
     private Dialog c;
 
     public PreferenceScreen(Context context, AttributeSet attributeset)
     {
-        super(context, attributeset, g.tk);
+        super(context, attributeset, g.tL);
     }
 
     private void a(Bundle bundle)
@@ -66,25 +66,25 @@ public final class PreferenceScreen extends hfm
 
     private ListAdapter i()
     {
-        if (b == null)
+        if (a == null)
         {
-            b = new hfn(this);
+            a = new hke(this);
         }
-        return b;
+        return a;
     }
 
     protected void a(Parcelable parcelable)
     {
-        if (parcelable == null || !parcelable.getClass().equals(hfw))
+        if (parcelable == null || !parcelable.getClass().equals(hkn))
         {
             super.a(parcelable);
         } else
         {
-            parcelable = (hfw)parcelable;
+            parcelable = (hkn)parcelable;
             super.a(parcelable.getSuperState());
-            if (((hfw) (parcelable)).a)
+            if (((hkn) (parcelable)).a)
             {
-                a(((hfw) (parcelable)).b);
+                a(((hkn) (parcelable)).b);
                 return;
             }
         }
@@ -97,18 +97,6 @@ public final class PreferenceScreen extends hfm
         C();
     }
 
-    protected void b()
-    {
-        if (j() != null || c() == 0)
-        {
-            return;
-        } else
-        {
-            a(((Bundle) (null)));
-            return;
-        }
-    }
-
     protected Parcelable e()
     {
         Object obj = super.e();
@@ -118,7 +106,7 @@ public final class PreferenceScreen extends hfm
             return ((Parcelable) (obj));
         } else
         {
-            obj = new hfw(((Parcelable) (obj)));
+            obj = new hkn(((Parcelable) (obj)));
             obj.a = true;
             obj.b = dialog.onSaveInstanceState();
             return ((Parcelable) (obj));
@@ -139,12 +127,24 @@ public final class PreferenceScreen extends hfm
     public void onItemClick(AdapterView adapterview, View view, int j, long l)
     {
         adapterview = ((AdapterView) (i().getItem(j)));
-        if (!(adapterview instanceof hfa))
+        if (!(adapterview instanceof hjr))
         {
             return;
         } else
         {
-            ((hfa)adapterview).a(this);
+            ((hjr)adapterview).a(this);
+            return;
+        }
+    }
+
+    protected void z_()
+    {
+        if (j() != null || c() == 0)
+        {
+            return;
+        } else
+        {
+            a(((Bundle) (null)));
             return;
         }
     }

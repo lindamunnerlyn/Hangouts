@@ -2,77 +2,94 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.widget.Toast;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import com.google.android.libraries.social.settings.CheckBoxPreference;
 
-public final class drv
+final class drv extends bgs
 {
 
-    private int a;
-    private int b;
+    final drt d;
+    private final int e;
+    private final boolean f;
 
-    public drv()
+    drv(drt drt1, int i, boolean flag)
     {
+        d = drt1;
+        super();
+        e = i;
+        f = flag;
     }
 
-    public void a(int i)
+    public String a()
     {
-        boolean flag;
-        if (i > 0)
+        return d.getActivity().getString(l.jf);
+    }
+
+    protected void a(did did1)
+    {
+        super.a(did1);
+        did1 = (daj)did1.c();
+        int i = drt.e(d).a();
+        Boolean boolean1 = did1.k();
+        if (boolean1 != null)
         {
-            flag = true;
-        } else
-        {
-            flag = false;
+            boolean flag = g.a(boolean1, false);
+            drt.a(d).a(flag);
+            drt.f(d).b(i, flag);
         }
-        gbh.a(flag);
-        a = i;
-        b = 0;
+        did1 = did1.l();
+        if (did1 != null)
+        {
+            boolean flag1 = g.a(did1, false);
+            drt.b(d).a(flag1);
+            drt.f(d).a(i, flag1);
+        }
     }
 
-    public boolean a()
+    protected void a(Exception exception)
     {
-        return a > 0;
+        super.a(exception);
+        if (e == 2)
+        {
+            exception = drt.a(d);
+            boolean flag;
+            if (!f)
+            {
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+            exception.a(flag);
+        }
     }
 
     public int b()
     {
-        return b;
+        return RealTimeChatService.a(drt.d(d), e, f);
     }
 
-    public void b(int i)
+    public void c()
     {
-        a = a - 1;
-        i;
-        JVM INSTR tableswitch -1 4: default 48
-    //                   -1 64
-    //                   0 48
-    //                   1 48
-    //                   2 69
-    //                   3 48
-    //                   4 69;
-           goto _L1 _L2 _L1 _L1 _L3 _L1 _L3
-_L1:
-        i = 2;
-_L5:
-        if (i > b)
+        if (!j())
         {
-            b = i;
+            Toast.makeText(drt.g(d), l.jh, 0).show();
+            return;
+        } else
+        {
+            Toast.makeText(drt.h(d), l.jg, 0).show();
+            return;
         }
-        return;
-_L2:
-        i = 0;
-        continue; /* Loop/switch isn't completed */
-_L3:
-        i = 1;
-        if (true) goto _L5; else goto _L4
-_L4:
     }
 
-    public String toString()
+    public Class e()
     {
-        StringBuilder stringbuilder = new StringBuilder();
-        stringbuilder.append("SendResult:");
-        stringbuilder.append("Pending=").append(a).append(",");
-        stringbuilder.append("HighestFailureLevel=").append(b);
-        return stringbuilder.toString();
+        return cxg;
+    }
+
+    public Class f()
+    {
+        return daj;
     }
 }

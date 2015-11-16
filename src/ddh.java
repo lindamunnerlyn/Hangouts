@@ -2,21 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Parcel;
 
-public final class ddh extends dfa
+final class ddh
+    implements android.os.Parcelable.Creator
 {
 
-    public final String a;
-
-    public ddh(ani ani, String s)
+    ddh()
     {
-        super(ani);
-        a = s;
     }
 
-    public void a()
+    public Object createFromParcel(Parcel parcel)
     {
-        cug cug1 = new cug(b, a);
-        c.a(cug1);
+        return new ddg(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new ddg[i];
     }
 }

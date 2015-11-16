@@ -2,12 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 
-final class erv
+abstract class erv
 {
 
-    static final eox a[] = {
-        new erw(eox.a("0\202\003\3010\202\002\251\240\003\002\001\002\002\t\000\234Z \002:B\313e0")), new erx(eox.a("0\202\003\3010\202\002\251\240\003\002\001\002\002\t\000\324\326\344\222)\264\342\3600"))
-    };
+    private int a;
 
+    protected erv(byte abyte0[])
+    {
+        boolean flag;
+        if (abyte0.length == 25)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        g.b(flag, "cert hash data has incorrect length");
+        a = Arrays.hashCode(abyte0);
+    }
+
+    protected static byte[] a(String s)
+    {
+        try
+        {
+            s = s.getBytes("ISO-8859-1");
+        }
+        // Misplaced declaration of an exception variable
+        catch (String s)
+        {
+            throw new AssertionError(s);
+        }
+        return s;
+    }
+
+    abstract byte[] a();
+
+    public boolean equals(Object obj)
+    {
+        if (obj == null || !(obj instanceof erv))
+        {
+            return false;
+        } else
+        {
+            obj = (erv)obj;
+            return Arrays.equals(a(), ((erv) (obj)).a());
+        }
+    }
+
+    public int hashCode()
+    {
+        return a;
+    }
 }

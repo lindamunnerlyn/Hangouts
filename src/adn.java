@@ -2,20 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import org.apache.http.conn.ClientConnectionOperator;
-import org.apache.http.conn.scheme.SchemeRegistry;
-import org.apache.http.params.HttpParams;
+import org.apache.http.HttpRequest;
+import org.apache.http.HttpRequestInterceptor;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.protocol.HttpContext;
 
-final class adn extends adm
+final class adn
+    implements HttpRequestInterceptor
 {
 
-    public adn(HttpParams httpparams, SchemeRegistry schemeregistry)
+    final adk a;
+
+    adn(adk adk1)
     {
-        super(httpparams, schemeregistry, (byte)0);
+        a = adk1;
+        super();
     }
 
-    protected ClientConnectionOperator createConnectionOperator(SchemeRegistry schemeregistry)
+    public void process(HttpRequest httprequest, HttpContext httpcontext)
     {
-        return new adg(schemeregistry, false);
+        httpcontext = adk.a(a);
+        if (httpcontext != null && httpcontext.e() && (httprequest instanceof HttpUriRequest))
+        {
+            httpcontext.a(adk.a((HttpUriRequest)httprequest));
+        }
     }
 }

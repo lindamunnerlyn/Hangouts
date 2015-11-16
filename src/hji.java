@@ -3,26 +3,45 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-final class hji
-    implements hjr
+final class hji extends hjs
 {
 
-    final Bundle a;
-    final hjg b;
+    public static final android.os.Parcelable.Creator CREATOR = new hjj();
+    boolean a;
+    Bundle b;
 
-    hji(hjg hjg1, Bundle bundle)
+    public hji(Parcel parcel)
     {
-        b = hjg1;
-        a = bundle;
-        super();
-    }
-
-    public void a(fsn fsn)
-    {
-        if (fsn instanceof hja)
+        boolean flag = true;
+        super(parcel);
+        if (parcel.readInt() != 1)
         {
-            b.a(fsn, a);
+            flag = false;
         }
+        a = flag;
+        b = parcel.readBundle();
     }
+
+    public hji(Parcelable parcelable)
+    {
+        super(parcelable);
+    }
+
+    public void writeToParcel(Parcel parcel, int i)
+    {
+        super.writeToParcel(parcel, i);
+        if (a)
+        {
+            i = 1;
+        } else
+        {
+            i = 0;
+        }
+        parcel.writeInt(i);
+        parcel.writeBundle(b);
+    }
+
 }

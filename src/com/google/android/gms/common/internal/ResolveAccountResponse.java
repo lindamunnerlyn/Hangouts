@@ -8,17 +8,18 @@ import android.os.IBinder;
 import android.os.Parcel;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import emq;
-import emr;
-import eoh;
+import epq;
+import epr;
+import erh;
+import g;
 
 public class ResolveAccountResponse
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new eoh();
-    public final int a;
-    public IBinder b;
+    public static final android.os.Parcelable.Creator CREATOR = new erh();
+    final int a;
+    IBinder b;
     private ConnectionResult c;
     private boolean d;
     private boolean e;
@@ -42,9 +43,9 @@ public class ResolveAccountResponse
         this(1, null, connectionresult, false, false);
     }
 
-    public emq a()
+    public epq a()
     {
-        return emr.a(b);
+        return epr.a(b);
     }
 
     public ConnectionResult b()
@@ -86,7 +87,13 @@ public class ResolveAccountResponse
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        eoh.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b);
+        g.a(parcel, 3, b(), i);
+        g.a(parcel, 4, c());
+        g.a(parcel, 5, d());
+        g.q(parcel, j);
     }
 
 }

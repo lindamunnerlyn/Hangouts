@@ -14,7 +14,7 @@ public final class UserAgent
 {
 
     private static final Object a = new Object();
-    private static int b;
+    private static int b = 0;
 
     private UserAgent()
     {
@@ -43,7 +43,7 @@ public final class UserAgent
             stringbuilder.append(context);
         }
         stringbuilder.append("; Cronet/");
-        stringbuilder.append("45.0.2454.79");
+        stringbuilder.append("47.0.2526.6");
         stringbuilder.append(')');
         return stringbuilder.toString();
     }

@@ -3,20 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class bqg
-    implements Runnable
+public interface bqg
 {
 
-    final bqf a;
+    public static final String a[] = {
+        "hangout_ringtone_uri"
+    };
 
-    bqg(bqf bqf1)
-    {
-        a = bqf1;
-        super();
-    }
-
-    public void run()
-    {
-        a.g();
-    }
 }

@@ -2,13 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.IOException;
+import java.util.List;
+import java.util.ListIterator;
 
-public final class jrc extends IOException
+final class jrc extends jra
+    implements ListIterator
 {
 
-    jrc(String s)
+    final jrb d;
+
+    jrc(jrb jrb1)
     {
-        super(s);
+        d = jrb1;
+        super(jrb1);
+    }
+
+    public jrc(jrb jrb1, int i)
+    {
+        d = jrb1;
+        super(jrb1, jrb1.g().listIterator(i));
+    }
+
+    public void add(Object obj)
+    {
+        boolean flag = d.isEmpty();
+        ((ListIterator)b()).add(obj);
+        jqq.b(d.g);
+        if (flag)
+        {
+            d.d();
+        }
+    }
+
+    public boolean hasPrevious()
+    {
+        return ((ListIterator)b()).hasPrevious();
+    }
+
+    public int nextIndex()
+    {
+        return ((ListIterator)b()).nextIndex();
+    }
+
+    public Object previous()
+    {
+        return ((ListIterator)b()).previous();
+    }
+
+    public int previousIndex()
+    {
+        return ((ListIterator)b()).previousIndex();
+    }
+
+    public void set(Object obj)
+    {
+        ((ListIterator)b()).set(obj);
     }
 }

@@ -2,32 +2,102 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
 
-public final class jgr extends jgq
-    implements Serializable
+public final class jgr extends kwm
 {
 
-    public static final jgr a = new jgr();
-    private static final long serialVersionUID = 1L;
+    public jgc a;
+    public jif b;
+    public jdl responseHeader;
 
-    jgr()
+    public jgr()
     {
+        responseHeader = null;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private Object readResolve()
+    protected int computeSerializedSize()
     {
-        return a;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (responseHeader != null)
+        {
+            i = j + kwk.d(1, responseHeader);
+        }
+        j = i;
+        if (a != null)
+        {
+            j = i + kwk.d(2, a);
+        }
+        i = j;
+        if (b != null)
+        {
+            i = j + kwk.d(3, b);
+        }
+        return i;
     }
 
-    protected int b(Object obj)
+    public kws mergeFrom(kwj kwj1)
     {
-        return obj.hashCode();
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (responseHeader == null)
+                {
+                    responseHeader = new jdl();
+                }
+                kwj1.a(responseHeader);
+                break;
+
+            case 18: // '\022'
+                if (a == null)
+                {
+                    a = new jgc();
+                }
+                kwj1.a(a);
+                break;
+
+            case 26: // '\032'
+                if (b == null)
+                {
+                    b = new jif();
+                }
+                kwj1.a(b);
+                break;
+            }
+        } while (true);
     }
 
-    protected boolean b(Object obj, Object obj1)
+    public void writeTo(kwk kwk1)
     {
-        return obj.equals(obj1);
+        if (responseHeader != null)
+        {
+            kwk1.b(1, responseHeader);
+        }
+        if (a != null)
+        {
+            kwk1.b(2, a);
+        }
+        if (b != null)
+        {
+            kwk1.b(3, b);
+        }
+        super.writeTo(kwk1);
     }
-
 }

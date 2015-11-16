@@ -4,23 +4,29 @@
 
 
 final class axw
-    implements Runnable
+    implements auh
 {
 
-    final axv a;
+    final avv a;
 
-    axw(axv axv1)
+    axw(avv avv1)
     {
-        a = axv1;
+        a = avv1;
         super();
     }
 
-    public void run()
+    public int a()
     {
-        if (a.a == axx.a)
-        {
-            a.a = axx.b;
-            axv.a(a);
-        }
+        return avv.m(a).a().b;
+    }
+
+    public boolean b()
+    {
+        return avv.m(a).a().g;
+    }
+
+    public boolean c()
+    {
+        return avv.n(a);
     }
 }

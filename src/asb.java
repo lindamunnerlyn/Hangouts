@@ -6,5 +6,15 @@
 public interface asb
 {
 
-    public abstract void a(amf amf, atd atd);
+    public abstract int a();
+
+    public abstract void a(asa asa);
+
+    public abstract void a(asc asc);
+
+    public abstract void a(asd asd);
+
+    public abstract String b();
+
+    public abstract void c();
 }

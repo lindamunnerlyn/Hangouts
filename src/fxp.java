@@ -2,21 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.gms.common.api.Status;
 
-public class fxp extends Exception
+public final class fxp extends fym
 {
 
-    public fxp()
+    final String a;
+    final String b;
+    final byte i[];
+    final fvk j;
+
+    public fxp(fvk fvk, emy emy, String s, String s1, byte abyte0[])
     {
+        j = fvk;
+        a = s;
+        b = s1;
+        i = abyte0;
+        super(emy);
     }
 
-    public fxp(String s)
+    protected enh a(Status status)
     {
-        super(s);
+        return new fvm(status, -1);
     }
 
-    public fxp(Throwable throwable)
+    protected void a(emw emw)
     {
-        super(throwable);
+        ((fyg)emw).a(this, a, b, i);
     }
 }

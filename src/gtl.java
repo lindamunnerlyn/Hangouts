@@ -2,37 +2,92 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
-public final class gtl extends Enum
+public class gtl
+    implements hol, hon, hov, hoy
 {
 
-    public static final gtl a;
-    public static final gtl b;
-    public static final gtl c;
-    private static final gtl d[];
+    private final Activity a;
+    private final Set b = new HashSet();
+    private gtx c;
 
-    private gtl(String s, int i)
+    public gtl(Activity activity, hof hof1)
     {
-        super(s, i);
+        a = activity;
+        hof1.a(this);
     }
 
-    public static gtl valueOf(String s)
+    public List a(int i)
     {
-        return (gtl)Enum.valueOf(gtl, s);
+        List list1 = c.a(Integer.valueOf(i));
+        List list = list1;
+        if (list1 == null)
+        {
+            list = Collections.emptyList();
+        }
+        return list;
     }
 
-    public static gtl[] values()
+    public void a(int i, int j, Intent intent)
     {
-        return (gtl[])d.clone();
+        intent = new gtb(i, j, intent);
+        Iterator iterator = b.iterator();
+        j = 0;
+        do
+        {
+            if (!iterator.hasNext())
+            {
+                break;
+            }
+            if (((gtm)iterator.next()).a(intent))
+            {
+                j = 1;
+            }
+        } while (true);
+        if (j == 0)
+        {
+            c.a(Integer.valueOf(i), intent);
+        }
     }
 
-    static 
+    void a(int i, Intent intent)
     {
-        a = new gtl("LOADING", 0);
-        b = new gtl("LOADED", 1);
-        c = new gtl("EMPTY", 2);
-        d = (new gtl[] {
-            a, b, c
-        });
+        a.startActivityForResult(intent, i);
+    }
+
+    public void a(Bundle bundle)
+    {
+        if (bundle != null)
+        {
+            c = (gtx)bundle.getParcelable("com.google.android.libraries.social.activityresult.ActivityResultManager.Results");
+            return;
+        } else
+        {
+            c = new gtx(gtb);
+            return;
+        }
+    }
+
+    void a(gtm gtm1)
+    {
+        b.add(gtm1);
+    }
+
+    public void b(Bundle bundle)
+    {
+        bundle.putParcelable("com.google.android.libraries.social.activityresult.ActivityResultManager.Results", c);
+    }
+
+    void b(gtm gtm1)
+    {
+        b.remove(gtm1);
     }
 }

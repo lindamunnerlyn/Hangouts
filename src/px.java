@@ -3,8 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface px
+public interface px
 {
 
-    public abstract void a(float f);
+    public abstract pw n_();
 }

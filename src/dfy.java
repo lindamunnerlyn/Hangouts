@@ -2,33 +2,141 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
 
-public final class dfy
-    implements Runnable
+public abstract class dfy extends dgj
 {
 
-    final cwa a;
-    final RealTimeChatService b;
+    private final long a;
+    private final long e;
+    private int f;
 
-    public dfy(RealTimeChatService realtimechatservice, cwa cwa1)
+    public dfy(aoa aoa, long l, long l1)
     {
-        b = realtimechatservice;
-        a = cwa1;
-        super();
+        super(aoa);
+        a = l;
+        e = l1;
+        f = 0;
     }
 
-    public void run()
+    public void a(int j)
     {
-        dgp dgp1;
-        for (Iterator iterator = RealTimeChatService.o().iterator(); iterator.hasNext(); dgp1.aa())
+        this;
+        JVM INSTR monitorenter ;
+        f = j;
+        if (f == 3)
         {
-            dgp1 = (dgp)iterator.next();
-            a.b();
-            a.k();
+            a(System.currentTimeMillis());
+            f = 0;
         }
-
+        this;
+        JVM INSTR monitorexit ;
+        return;
+        Exception exception;
+        exception;
+        this;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
+
+    protected abstract void a(long l);
+
+    public int d()
+    {
+        return f;
+    }
+
+    public boolean e()
+    {
+        boolean flag = false;
+        this;
+        JVM INSTR monitorenter ;
+        if (f <= 0)
+        {
+            break MISSING_BLOCK_LABEL_15;
+        }
+        this;
+        JVM INSTR monitorexit ;
+        return false;
+        if (System.currentTimeMillis() - i() > a)
+        {
+            flag = true;
+        }
+        this;
+        JVM INSTR monitorexit ;
+        return flag;
+        Exception exception;
+        exception;
+        this;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
+    public boolean f()
+    {
+        boolean flag = false;
+        this;
+        JVM INSTR monitorenter ;
+        if (f < 2)
+        {
+            break MISSING_BLOCK_LABEL_17;
+        }
+        this;
+        JVM INSTR monitorexit ;
+        return false;
+        long l;
+        long l1;
+        l = System.currentTimeMillis();
+        l1 = i();
+        Exception exception;
+        if (l - l1 > e || l1 - l > 0x5265c00L)
+        {
+            flag = true;
+        }
+        this;
+        JVM INSTR monitorexit ;
+        return flag;
+        exception;
+        this;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
+    public boolean g()
+    {
+        this;
+        JVM INSTR monitorenter ;
+        Exception exception;
+        boolean flag;
+        if (f == 2)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        this;
+        JVM INSTR monitorexit ;
+        return flag;
+        exception;
+        this;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
+    public void h()
+    {
+        this;
+        JVM INSTR monitorenter ;
+        a(-1L);
+        this;
+        JVM INSTR monitorexit ;
+        return;
+        Exception exception;
+        exception;
+        this;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
+    protected abstract long i();
 }

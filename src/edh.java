@@ -2,25 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.views.BalanceView;
+import java.io.ByteArrayInputStream;
 
-final class edh
-    implements gmq
+final class edh extends ByteArrayInputStream
 {
 
-    final edg a;
+    final edf a;
 
-    edh(edg edg1)
+    edh(edf edf, byte abyte0[])
     {
-        a = edg1;
-        super();
+        a = edf;
+        super(abyte0);
     }
 
-    public void a(boolean flag, gmp gmp1, gmp gmp2, int i, int j)
+    public int a()
     {
-        if (BalanceView.c(a.a) && gmp2 == gmp.c)
-        {
-            BalanceView.a(a.a);
-        }
+        return pos;
     }
 }

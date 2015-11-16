@@ -3,56 +3,63 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ipy extends koj
+public final class ipy extends kwm
 {
 
-    private static volatile ipy d[];
-    public Integer a;
-    public Integer b;
-    public Integer c;
+    public Float a;
+    public Float b;
+    public Float c;
+    public Float d;
 
     public ipy()
     {
         a = null;
         b = null;
         c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    public static ipy[] a()
-    {
-        if (d == null)
-        {
-            synchronized (kon.a)
-            {
-                if (d == null)
-                {
-                    d = new ipy[0];
-                }
-            }
-        }
-        return d;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
     protected int computeSerializedSize()
     {
-        return super.computeSerializedSize() + koh.e(1, a.intValue()) + koh.e(2, b.intValue()) + koh.e(3, c.intValue());
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            a.floatValue();
+            i = j + (kwk.f(1) + 4);
+        }
+        j = i;
+        if (b != null)
+        {
+            b.floatValue();
+            j = i + (kwk.f(2) + 4);
+        }
+        i = j;
+        if (c != null)
+        {
+            c.floatValue();
+            i = j + (kwk.f(3) + 4);
+        }
+        j = i;
+        if (d != null)
+        {
+            d.floatValue();
+            j = i + (kwk.f(4) + 4);
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -61,26 +68,43 @@ public final class ipy extends koj
             case 0: // '\0'
                 return this;
 
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
+            case 13: // '\r'
+                a = Float.valueOf(kwj1.c());
                 break;
 
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
+            case 21: // '\025'
+                b = Float.valueOf(kwj1.c());
                 break;
 
-            case 24: // '\030'
-                c = Integer.valueOf(kog1.f());
+            case 29: // '\035'
+                c = Float.valueOf(kwj1.c());
+                break;
+
+            case 37: // '%'
+                d = Float.valueOf(kwj1.c());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.a(1, a.intValue());
-        koh1.a(2, b.intValue());
-        koh1.a(3, c.intValue());
-        super.writeTo(koh1);
+        if (a != null)
+        {
+            kwk1.a(1, a.floatValue());
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.floatValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.floatValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.floatValue());
+        }
+        super.writeTo(kwk1);
     }
 }

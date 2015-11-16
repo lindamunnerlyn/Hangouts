@@ -5,27 +5,27 @@
 package gen_binder;
 
 import android.content.Context;
-import gqm;
-import hgx;
-import hhe;
+import gux;
+import hlp;
+import hlw;
 import java.util.HashMap;
 
 public final class 
-    implements hhe
+    implements hlw
 {
 
     private HashMap a;
 
-    public void a(Context context, Class class1, hgx hgx)
+    public void a(Context context, Class class1, hlp hlp)
     {
         if (a == null)
         {
             a = new HashMap(5);
-            a.put(gqm.a, Integer.valueOf(0));
-            a.put(gqm.b, Integer.valueOf(1));
-            a.put(gqm.c, Integer.valueOf(2));
-            a.put(gqm.d, Integer.valueOf(3));
-            a.put(gqm.e, Integer.valueOf(4));
+            a.put(gux.a, Integer.valueOf(0));
+            a.put(gux.b, Integer.valueOf(1));
+            a.put(gux.c, Integer.valueOf(2));
+            a.put(gux.d, Integer.valueOf(3));
+            a.put(gux.e, Integer.valueOf(4));
         }
         class1 = (Integer)a.get(class1.getName());
         if (class1 == null)
@@ -38,23 +38,23 @@ public final class
             return;
 
         case 0: // '\0'
-            gqm.a(hgx);
+            gux.a(hlp);
             return;
 
         case 1: // '\001'
-            gqm.a(context, hgx);
+            gux.a(context, hlp);
             return;
 
         case 2: // '\002'
-            gqm.b(context, hgx);
+            gux.b(context, hlp);
             return;
 
         case 3: // '\003'
-            gqm.b(hgx);
+            gux.b(hlp);
             return;
 
         case 4: // '\004'
-            gqm.c(context, hgx);
+            gux.c(context, hlp);
             break;
         }
     }

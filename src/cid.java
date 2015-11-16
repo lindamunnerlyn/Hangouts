@@ -2,36 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import java.util.Iterator;
+import android.os.Bundle;
 import java.util.List;
 
 final class cid
-    implements chz
+    implements cjh
 {
 
-    private final Context a;
+    final cic a;
 
-    cid(Context context)
+    cid(cic cic1)
     {
-        a = context;
+        a = cic1;
+        super();
     }
 
-    public boolean a(String s)
+    public void a(List list, Bundle bundle)
     {
-        return android.os.Build.VERSION.SDK_INT < 23 || a.checkSelfPermission(s) == 0;
-    }
-
-    public boolean a(List list)
-    {
-        for (list = list.iterator(); list.hasNext();)
+        boolean flag;
+        if (((cji)list.get(0)).b && ((cji)list.get(1)).b)
         {
-            if (!a((String)list.next()))
-            {
-                return false;
-            }
+            flag = true;
+        } else
+        {
+            flag = false;
         }
-
-        return true;
+        eev.e("Babel", (new StringBuilder(13)).append("granted:").append(flag).toString());
+        if (flag)
+        {
+            cic.a(a);
+        }
     }
 }

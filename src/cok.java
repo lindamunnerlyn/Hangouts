@@ -2,11 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public final class cok
+public interface cok
 {
 
-    public cok()
-    {
-    }
+    public abstract coj a(Context context);
 }

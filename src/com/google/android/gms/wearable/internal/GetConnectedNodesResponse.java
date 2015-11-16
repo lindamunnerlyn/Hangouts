@@ -6,14 +6,15 @@ package com.google.android.gms.wearable.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fus;
+import fwy;
+import g;
 import java.util.List;
 
 public class GetConnectedNodesResponse
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fus();
+    public static final android.os.Parcelable.Creator CREATOR = new fwy();
     public final int a;
     public final int b;
     public final List c;
@@ -32,7 +33,11 @@ public class GetConnectedNodesResponse
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fus.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, b);
+        g.c(parcel, 3, c);
+        g.q(parcel, i);
     }
 
 }

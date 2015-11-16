@@ -2,70 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-abstract class cnp
-    implements Iterator
+final class cnp extends coj
 {
 
-    int b;
-    Object c;
+    final long a;
+    final cna b;
 
-    cnp()
+    cnp(cna cna1, String s, long l)
     {
-        b = cnq.b;
+        b = cna1;
+        a = l;
+        super(s);
     }
 
-    protected abstract Object a();
-
-    boolean b()
+    public void a()
     {
-        b = cnq.d;
-        c = a();
-        if (b != cnq.c)
-        {
-            b = cnq.a;
-            return true;
-        } else
-        {
-            return false;
-        }
-    }
-
-    public final boolean hasNext()
-    {
-        if (b == cnq.d)
-        {
-            throw new IllegalStateException();
-        }
-        switch (cnj.a[b - 1])
-        {
-        default:
-            return b();
-
-        case 1: // '\001'
-            return false;
-
-        case 2: // '\002'
-            return true;
-        }
-    }
-
-    public final Object next()
-    {
-        if (!hasNext())
-        {
-            throw new NoSuchElementException();
-        } else
-        {
-            b = cnq.b;
-            return c;
-        }
-    }
-
-    public void remove()
-    {
-        throw new UnsupportedOperationException();
+        RealTimeChatService.c(b.b, a + 1000L);
     }
 }

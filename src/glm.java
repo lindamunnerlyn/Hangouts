@@ -2,59 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Externalizable;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import java.util.ArrayList;
-import java.util.List;
 
-public class glm
-    implements Externalizable
+final class glm
+    implements Runnable
 {
 
-    private static final long serialVersionUID = 1L;
-    private List a;
+    final glj a;
 
-    public glm()
+    glm(glj glj1)
     {
-        a = new ArrayList();
+        a = glj1;
+        super();
     }
 
-    public static gln newBuilder()
+    public void run()
     {
-        return new gln();
-    }
-
-    public List a()
-    {
-        return a;
-    }
-
-    public int b()
-    {
-        return a.size();
-    }
-
-    public void readExternal(ObjectInput objectinput)
-    {
-        int j = objectinput.readInt();
-        for (int i = 0; i < j; i++)
-        {
-            glk glk1 = new glk();
-            glk1.readExternal(objectinput);
-            a.add(glk1);
-        }
-
-    }
-
-    public void writeExternal(ObjectOutput objectoutput)
-    {
-        int j = b();
-        objectoutput.writeInt(j);
-        for (int i = 0; i < j; i++)
-        {
-            ((glk)a.get(i)).writeExternal(objectoutput);
-        }
-
+        glj.a(a);
     }
 }

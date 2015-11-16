@@ -17,20 +17,20 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import ani;
-import ebw;
-import ecw;
-import ecx;
-import ecy;
-import ecz;
-import edd;
-import efo;
+import aoa;
+import eev;
+import efy;
+import efz;
+import ega;
+import egb;
+import egf;
+import eiq;
 import g;
 import h;
 import l;
 
 public class AudioAttachmentView extends LinearLayout
-    implements android.widget.SeekBar.OnSeekBarChangeListener, efo
+    implements android.widget.SeekBar.OnSeekBarChangeListener, eiq
 {
 
     private static final boolean a = false;
@@ -43,8 +43,8 @@ public class AudioAttachmentView extends LinearLayout
     private SeekBar h;
     private boolean i;
     private int j;
-    private edd k;
-    private ecz l;
+    private egf k;
+    private egb l;
 
     public AudioAttachmentView(Context context)
     {
@@ -93,12 +93,12 @@ public class AudioAttachmentView extends LinearLayout
         return audioattachmentview.i;
     }
 
-    public static edd c(AudioAttachmentView audioattachmentview)
+    public static egf c(AudioAttachmentView audioattachmentview)
     {
         return audioattachmentview.k;
     }
 
-    public static ecz d(AudioAttachmentView audioattachmentview)
+    public static egb d(AudioAttachmentView audioattachmentview)
     {
         return audioattachmentview.l;
     }
@@ -110,14 +110,14 @@ public class AudioAttachmentView extends LinearLayout
 
     private void h()
     {
-        f.setImageResource(com.google.android.apps.hangouts.R.drawable.cs);
-        f.setContentDescription(getResources().getString(l.ih));
+        f.setImageResource(com.google.android.apps.hangouts.R.drawable.ck);
+        f.setContentDescription(getResources().getString(l.hB));
     }
 
     private void i()
     {
-        f.setImageResource(com.google.android.apps.hangouts.R.drawable.cp);
-        f.setContentDescription(getResources().getString(l.hV));
+        f.setImageResource(com.google.android.apps.hangouts.R.drawable.ch);
+        f.setContentDescription(getResources().getString(l.hp));
     }
 
     private void j()
@@ -125,12 +125,12 @@ public class AudioAttachmentView extends LinearLayout
         int i1 = l.b();
         if ("speaker".equals(l.c()))
         {
-            g.setImageResource(com.google.android.apps.hangouts.R.drawable.cv);
-            g.setContentDescription(getResources().getString(l.kR));
+            g.setImageResource(com.google.android.apps.hangouts.R.drawable.cn);
+            g.setContentDescription(getResources().getString(l.kk));
         } else
         {
-            g.setImageResource(com.google.android.apps.hangouts.R.drawable.ck);
-            g.setContentDescription(getResources().getString(l.kQ));
+            g.setImageResource(com.google.android.apps.hangouts.R.drawable.cc);
+            g.setContentDescription(getResources().getString(l.kj));
         }
         if (l.f() || i1 == 0 || i1 == 1)
         {
@@ -155,7 +155,7 @@ public class AudioAttachmentView extends LinearLayout
         case 3: // '\003'
             i();
             h.setProgress(0);
-            d.setText(getResources().getString(l.y));
+            d.setText(getResources().getString(l.v));
             return;
 
         case 4: // '\004'
@@ -193,7 +193,7 @@ public class AudioAttachmentView extends LinearLayout
         d.setTextColor(j);
         f.setColorFilter(j);
         g.setColorFilter(j);
-        a(com.google.android.apps.hangouts.R.drawable.cE, com.google.android.apps.hangouts.R.drawable.cD);
+        a(com.google.android.apps.hangouts.R.drawable.cw, com.google.android.apps.hangouts.R.drawable.cv);
     }
 
     public void a(int i1, int j1)
@@ -207,16 +207,16 @@ public class AudioAttachmentView extends LinearLayout
         h.setProgressDrawable(((Drawable) (obj)));
     }
 
-    public void a(ani ani, String s, long l1, String s1, String s2, String s3, 
+    public void a(aoa aoa, String s, long l1, String s1, String s2, String s3, 
             String s4, long l2, int i1)
     {
         b = l2;
         setLongClickable(true);
-        a(((edd) (new ecy(this, ani, s1, s3))));
-        ani = ecz.a;
-        if (ani == null || !ani.a().equals(s2)) goto _L2; else goto _L1
+        a(((egf) (new ega(this, aoa, s1, s3))));
+        aoa = egb.a;
+        if (aoa == null || !aoa.a().equals(s2)) goto _L2; else goto _L1
 _L1:
-        l = ani;
+        l = aoa;
         l.a(s, l1);
 _L4:
         l.a(this);
@@ -233,19 +233,19 @@ _L2:
             if (!l.a().equals(s2))
             {
                 l.a(null);
-                l = new ecz(this, s2, s, l1);
+                l = new egb(this, s2, s, l1);
             }
         } else
         {
-            l = new ecz(this, s2, s, l1);
+            l = new egb(this, s2, s, l1);
         }
         if (true) goto _L4; else goto _L3
 _L3:
     }
 
-    public void a(edd edd)
+    public void a(egf egf)
     {
-        k = edd;
+        k = egf;
     }
 
     public void a(String s)
@@ -264,7 +264,7 @@ _L3:
             return;
         } else
         {
-            ebw.f("Babel", "updateUrl: audioPlaybackController is null");
+            eev.f("Babel", "updateUrl: audioPlaybackController is null");
             return;
         }
     }
@@ -311,24 +311,24 @@ _L3:
         return e;
     }
 
-    public void f_()
+    public void h_()
     {
     }
 
     public void onFinishInflate()
     {
-        c = (TextView)findViewById(h.B);
-        d = (TextView)findViewById(h.A);
-        f = (ImageView)findViewById(h.eE);
-        g = (ImageView)findViewById(h.ga);
-        h = (SeekBar)findViewById(h.eD);
+        c = (TextView)findViewById(h.A);
+        d = (TextView)findViewById(h.z);
+        f = (ImageView)findViewById(h.en);
+        g = (ImageView)findViewById(h.fI);
+        h = (SeekBar)findViewById(h.em);
         l();
         if (!i)
         {
-            findViewById(h.eD).setVisibility(4);
+            findViewById(h.em).setVisibility(4);
         }
-        f.setOnClickListener(new ecw(this));
-        g.setOnClickListener(new ecx(this));
+        f.setOnClickListener(new efy(this));
+        g.setOnClickListener(new efz(this));
         h.setOnSeekBarChangeListener(this);
     }
 
@@ -347,7 +347,7 @@ label0:
             }
             return;
         }
-        ebw.f("Babel", "onProgressChanged: audioPlaybackController is null");
+        eev.f("Babel", "onProgressChanged: audioPlaybackController is null");
     }
 
     public void onStartTrackingTouch(SeekBar seekbar)
@@ -358,7 +358,7 @@ label0:
             return;
         } else
         {
-            ebw.f("Babel", "onStartTrackingTouch: audioPlaybackController is null");
+            eev.f("Babel", "onStartTrackingTouch: audioPlaybackController is null");
             return;
         }
     }
@@ -367,30 +367,30 @@ label0:
     {
         if (l != null)
         {
-            ecz ecz1 = l;
+            egb egb1 = l;
             int i1 = (seekbar.getProgress() * l.h()) / 100;
             if (a)
             {
-                ecz1.a("sendSeek", (new StringBuilder(27)).append("new position is ").append(i1).toString());
+                egb1.a("sendSeek", (new StringBuilder(27)).append("new position is ").append(i1).toString());
             }
-            int j1 = ecz1.b();
+            int j1 = egb1.b();
             if (j1 == 4 || j1 == 5)
             {
-                seekbar = ecz1.a(4);
+                seekbar = egb1.a(4);
                 seekbar.putExtra("position_in_milliseconds", i1);
-                ecz1.c.startService(seekbar);
+                egb1.c.startService(seekbar);
             }
             l.k();
             return;
         } else
         {
-            ebw.f("Babel", "onStopTrackingTouch: audioPlaybackController is null");
+            eev.f("Babel", "onStopTrackingTouch: audioPlaybackController is null");
             return;
         }
     }
 
     static 
     {
-        hik hik = ebw.a;
+        hnc hnc = eev.a;
     }
 }

@@ -3,20 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class bue
-    implements btt
+public interface bue
 {
 
-    final btz a;
+    public abstract void a();
 
-    bue(btz btz1)
-    {
-        a = btz1;
-        super();
-    }
+    public abstract void a(jhh jhh);
 
-    public void a(btv btv, boolean flag)
-    {
-        btz.f(a);
-    }
+    public abstract void b();
+
+    public abstract void b(jhh jhh);
+
+    public abstract void c(jhh jhh);
 }

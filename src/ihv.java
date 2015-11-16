@@ -3,38 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ihv extends koj
+public final class ihv extends kwm
 {
 
-    private static volatile ihv c[];
     public String a;
-    public String b;
+    public igw b;
+    public ihw c;
 
     public ihv()
     {
         a = null;
         b = null;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
-    }
-
-    public static ihv[] a()
-    {
-        if (c == null)
-        {
-            synchronized (kon.a)
-            {
-                if (c == null)
-                {
-                    c = new ihv[0];
-                }
-            }
-        }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -43,25 +25,30 @@ public final class ihv extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.b(2, a);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.b(2, b);
+            j = i + kwk.d(3, b);
         }
-        return j;
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.d(4, c);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -70,27 +57,43 @@ public final class ihv extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                a = kog1.j();
+            case 18: // '\022'
+                a = kwj1.j();
                 break;
 
-            case 18: // '\022'
-                b = kog1.j();
+            case 26: // '\032'
+                if (b == null)
+                {
+                    b = new igw();
+                }
+                kwj1.a(b);
+                break;
+
+            case 34: // '"'
+                if (c == null)
+                {
+                    c = new ihw();
+                }
+                kwj1.a(c);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(2, a);
         }
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.b(3, b);
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.b(4, c);
+        }
+        super.writeTo(kwk1);
     }
 }

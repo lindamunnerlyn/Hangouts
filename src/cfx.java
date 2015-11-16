@@ -2,57 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.content.Context;
+import java.util.ArrayList;
 
-final class cfx extends dgp
+final class cfx
 {
 
-    final cfs a;
+    private final ber a = (new bes()).a("oob").b("Module that hosts the basic OOB flow.").a(true).a();
 
-    cfx(cfs cfs1)
+    public cfx()
     {
-        a = cfs1;
-        super();
     }
 
-    public void a(int i, ani ani, dcg dcg1, dgu dgu1, int j)
+    public ber[] a()
     {
-        super.a(i, ani, dcg1, dgu1, j);
-        if (i != cfs.k(a))
-        {
-            return;
-        }
-        ani = a.getActivity();
-        if (ani == null)
-        {
-            RealTimeChatService.b(cfs.m(a));
-            return;
-        }
-        if (dgu1.b() != 1) goto _L2; else goto _L1
-_L1:
-        gbh.b(cnd.e, cfs.l(a));
-        gbh.b(cnd.f, cfs.l(a));
-        cfs.e(a).a(dcg1.a, dcg1.b, dcg1.c, cfs.b(a).a());
-_L4:
-        RealTimeChatService.b(cfs.m(a));
-        return;
-_L2:
-        i = dgu1.b();
-        dgu1 = String.valueOf(dcg1);
-        if (dcg1 == null)
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        ani = dcg1.a;
-_L5:
-        ani = String.valueOf(ani);
-        ebw.g("Babel", (new StringBuilder(String.valueOf(dgu1).length() + 55 + String.valueOf(ani).length())).append("couldn't create conversation; error code: ").append(i).append(" ").append(dgu1).append(" ").append(ani).toString());
-        if (true) goto _L4; else goto _L3
-        ani;
-        RealTimeChatService.b(cfs.m(a));
-        throw ani;
-_L3:
-        ani = "NULL";
-          goto _L5
+        return (new ber[] {
+            a
+        });
+    }
+
+    public ctf[] a(Context context)
+    {
+        ArrayList arraylist = new ArrayList();
+        arraylist.add(new cfw());
+        return (ctf[])a.a(context, ctf, arraylist);
     }
 }

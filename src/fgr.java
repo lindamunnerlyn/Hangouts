@@ -2,129 +2,191 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Parcel;
+import java.util.Arrays;
 
-public abstract class fgr extends Binder
-    implements fgq
+public final class fgr extends fgh
 {
 
-    public static fgq a(IBinder ibinder)
+    public byte a[];
+    public byte b[][];
+    public boolean c;
+
+    public fgr()
     {
-        if (ibinder == null)
-        {
-            return null;
-        }
-        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-        if (iinterface != null && (iinterface instanceof fgq))
-        {
-            return (fgq)iinterface;
-        } else
-        {
-            return new fgs(ibinder);
-        }
+        a = fgo.h;
+        b = fgo.g;
+        c = false;
+        o = null;
+        p = -1;
     }
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    protected int a()
     {
-        Object obj1 = null;
-        Object obj2 = null;
-        fgh fgh1 = null;
-        Object obj = null;
-        switch (i)
+        boolean flag = false;
+        int j = super.a();
+        int i = j;
+        if (!Arrays.equals(a, fgo.h))
         {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
-
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.maps.internal.IMapViewDelegate");
-            return true;
-
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-            fgh1 = a();
-            parcel1.writeNoException();
-            parcel = obj;
-            if (fgh1 != null)
-            {
-                parcel = fgh1.asBinder();
-            }
-            parcel1.writeStrongBinder(parcel);
-            return true;
-
-        case 2: // '\002'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-            Bundle bundle = obj1;
-            if (parcel.readInt() != 0)
-            {
-                bundle = (Bundle)Bundle.CREATOR.createFromParcel(parcel);
-            }
-            a(bundle);
-            parcel1.writeNoException();
-            return true;
-
-        case 3: // '\003'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-            b();
-            parcel1.writeNoException();
-            return true;
-
-        case 4: // '\004'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-            c();
-            parcel1.writeNoException();
-            return true;
-
-        case 5: // '\005'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-            d();
-            parcel1.writeNoException();
-            return true;
-
-        case 6: // '\006'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-            e();
-            parcel1.writeNoException();
-            return true;
-
-        case 7: // '\007'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-            Bundle bundle1 = obj2;
-            if (parcel.readInt() != 0)
-            {
-                bundle1 = (Bundle)Bundle.CREATOR.createFromParcel(parcel);
-            }
-            b(bundle1);
-            parcel1.writeNoException();
-            if (bundle1 != null)
-            {
-                parcel1.writeInt(1);
-                bundle1.writeToParcel(parcel1, 1);
-            } else
-            {
-                parcel1.writeInt(0);
-            }
-            return true;
-
-        case 8: // '\b'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-            ezy ezy1 = f();
-            parcel1.writeNoException();
-            parcel = fgh1;
-            if (ezy1 != null)
-            {
-                parcel = ezy1.asBinder();
-            }
-            parcel1.writeStrongBinder(parcel);
-            return true;
-
-        case 9: // '\t'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.IMapViewDelegate");
-            a(fin.a(parcel.readStrongBinder()));
-            parcel1.writeNoException();
-            return true;
+            i = j + fgg.b(1, a);
         }
+        j = i;
+        if (b != null)
+        {
+            j = i;
+            if (b.length > 0)
+            {
+                int k = 0;
+                int l = 0;
+                for (j = ((flag) ? 1 : 0); j < b.length;)
+                {
+                    byte abyte0[] = b[j];
+                    int j1 = k;
+                    int i1 = l;
+                    if (abyte0 != null)
+                    {
+                        i1 = l + 1;
+                        j1 = k + fgg.a(abyte0);
+                    }
+                    j++;
+                    k = j1;
+                    l = i1;
+                }
+
+                j = i + k + l * 1;
+            }
+        }
+        i = j;
+        if (c)
+        {
+            i = j + (fgg.c(3) + 1);
+        }
+        return i;
+    }
+
+    public fgm a(fgf fgf1)
+    {
+        do
+        {
+            int i = fgf1.a();
+            switch (i)
+            {
+            default:
+                if (a(fgf1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = fgf1.h();
+                break;
+
+            case 18: // '\022'
+                int k = fgo.a(fgf1, 18);
+                byte abyte0[][];
+                int j;
+                if (b == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = b.length;
+                }
+                abyte0 = new byte[k + j][];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(b, 0, abyte0, 0, j);
+                    k = j;
+                }
+                for (; k < abyte0.length - 1; k++)
+                {
+                    abyte0[k] = fgf1.h();
+                    fgf1.a();
+                }
+
+                abyte0[k] = fgf1.h();
+                b = abyte0;
+                break;
+
+            case 24: // '\030'
+                c = fgf1.f();
+                break;
+            }
+        } while (true);
+    }
+
+    public void a(fgg fgg1)
+    {
+        if (!Arrays.equals(a, fgo.h))
+        {
+            fgg1.a(1, a);
+        }
+        if (b != null && b.length > 0)
+        {
+            for (int i = 0; i < b.length; i++)
+            {
+                byte abyte0[] = b[i];
+                if (abyte0 != null)
+                {
+                    fgg1.a(2, abyte0);
+                }
+            }
+
+        }
+        if (c)
+        {
+            fgg1.a(3, c);
+        }
+        super.a(fgg1);
+    }
+
+    public boolean equals(Object obj)
+    {
+        boolean flag1 = false;
+        boolean flag;
+        if (obj == this)
+        {
+            flag = true;
+        } else
+        {
+            flag = flag1;
+            if (obj instanceof fgr)
+            {
+                obj = (fgr)obj;
+                flag = flag1;
+                if (Arrays.equals(a, ((fgr) (obj)).a))
+                {
+                    flag = flag1;
+                    if (fgk.a(b, ((fgr) (obj)).b))
+                    {
+                        flag = flag1;
+                        if (c == ((fgr) (obj)).c)
+                        {
+                            return a(((fgh) (obj)));
+                        }
+                    }
+                }
+            }
+        }
+        return flag;
+    }
+
+    public int hashCode()
+    {
+        int i = Arrays.hashCode(a);
+        int j = fgk.a(b);
+        char c1;
+        if (c)
+        {
+            c1 = '\u04CF';
+        } else
+        {
+            c1 = '\u04D5';
+        }
+        return (c1 + ((i + 527) * 31 + j) * 31) * 31 + c();
     }
 }

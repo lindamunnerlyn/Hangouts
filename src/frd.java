@@ -2,18 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
-import com.google.android.gms.playlog.internal.LogEvent;
-import com.google.android.gms.playlog.internal.PlayLoggerContext;
-import java.util.List;
+import android.os.Bundle;
 
-public interface frd
-    extends IInterface
+public final class frd extends frc
 {
 
-    public abstract void a(String s, PlayLoggerContext playloggercontext, LogEvent logevent);
+    public frd(Bundle bundle)
+    {
+        super(bundle);
+    }
 
-    public abstract void a(String s, PlayLoggerContext playloggercontext, List list);
-
-    public abstract void a(String s, PlayLoggerContext playloggercontext, byte abyte0[]);
+    protected Object a(String s, String s1, double d, double d1, double d2, double d3, double d4, String s2, String s3, 
+            String s4, String s5, String s6)
+    {
+        return new frm(s1, s, d, d1, d2, d3, d4, s2, s3, s4, s5, s6);
+    }
 }

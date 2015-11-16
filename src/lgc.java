@@ -2,206 +2,187 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Locale;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.ByteBuffer;
 
-final class lgc
-    implements lge, lgi
+public class lgc
 {
 
-    private final lcz a;
-    private final int b;
-    private final boolean c;
+    private static final byte l[] = new byte[768];
+    int a;
+    boolean b;
+    boolean c;
+    int d[];
+    int e;
+    int f;
+    int g;
+    private final byte h[];
+    private final int i;
+    private int j;
+    private int k;
 
-    lgc(lcz lcz1, int i, boolean flag)
+    public lgc(ByteBuffer bytebuffer)
     {
-        a = lcz1;
-        b = i;
-        c = flag;
+        byte abyte0[] = a(bytebuffer);
+        int i1;
+        if (bytebuffer.hasArray())
+        {
+            i1 = bytebuffer.arrayOffset();
+        } else
+        {
+            i1 = 0;
+        }
+        this(abyte0, i1);
     }
 
-    private int a(long l, lcw lcw)
+    private lgc(byte abyte0[], int i1)
     {
-        int i;
-        int j;
+        boolean flag;
+        flag = false;
+        super();
+        d = new int[256];
+        h = abyte0;
+        i = i1;
+        abyte0 = new lgd(this, abyte0);
+        abyte0.skip(i1);
+        if (abyte0.read() == 71)
+        {
+            i1 = 1;
+        } else
+        {
+            i1 = 0;
+        }
+        if (i1 == 0) goto _L2; else goto _L1
+_L1:
+        if (abyte0.read() != 73) goto _L2; else goto _L3
+_L3:
+        i1 = 1;
+_L9:
+        if (i1 == 0) goto _L5; else goto _L4
+_L4:
+        if (abyte0.read() != 70) goto _L5; else goto _L6
+_L6:
+        i1 = 1;
+_L10:
+        if (i1 != 0) goto _L8; else goto _L7
+_L7:
+        c = true;
+_L11:
+        a = abyte0.a();
+_L12:
+        IOException ioexception;
         try
         {
-            j = a.a(lcw).a(l);
+            abyte0.close();
+            return;
         }
         // Misplaced declaration of an exception variable
-        catch (lcw lcw)
+        catch (byte abyte0[])
         {
-            return -1;
+            return;
         }
-        i = j;
-        if (j < 0)
+_L2:
+        i1 = 0;
+          goto _L9
+_L5:
+        i1 = 0;
+          goto _L10
+_L8:
+        abyte0.skip(3L);
+        j = a(abyte0);
+        k = a(abyte0);
+        i1 = abyte0.read();
+        if ((i1 & 0x80) != 0)
         {
-            i = -j;
+            flag = true;
         }
-        return i % 100;
+        b = flag;
+        e = 2 << (i1 & 7);
+        g = abyte0.read();
+        abyte0.skip(1L);
+        if (b && !c)
+        {
+            a(abyte0, d, e);
+            f = d[g];
+        }
+          goto _L11
+        ioexception;
+        c = true;
+          goto _L12
+    }
+
+    private static int a(InputStream inputstream)
+    {
+        return inputstream.read() | inputstream.read() << 8;
+    }
+
+    private static boolean a(InputStream inputstream, int ai[], int i1)
+    {
+        int k1 = 0;
+        byte abyte0[] = l;
+        abyte0;
+        JVM INSTR monitorenter ;
+        int j1 = i1 * 3;
+        if (inputstream.read(l, 0, j1) >= j1) goto _L2; else goto _L1
+_L1:
+        abyte0;
+        JVM INSTR monitorexit ;
+        return false;
+_L4:
+        if (j1 >= i1)
+        {
+            break MISSING_BLOCK_LABEL_125;
+        }
+        inputstream = l;
+        byte byte0;
+        int i2;
+        i2 = k1 + 1;
+        byte0 = inputstream[k1];
+        inputstream = l;
+        int l1;
+        l1 = i2 + 1;
+        i2 = inputstream[i2];
+        inputstream = l;
+        k1 = l1 + 1;
+        ai[j1] = (i2 & 0xff) << 8 | ((byte0 & 0xff) << 16 | 0xff000000) | inputstream[l1] & 0xff;
+        j1++;
+        continue; /* Loop/switch isn't completed */
+        abyte0;
+        JVM INSTR monitorexit ;
+        return true;
+        inputstream;
+        abyte0;
+        JVM INSTR monitorexit ;
+        throw inputstream;
+_L2:
+        j1 = 0;
+        if (true) goto _L4; else goto _L3
+_L3:
+    }
+
+    private static byte[] a(ByteBuffer bytebuffer)
+    {
+        int i1;
+        if (bytebuffer.hasArray())
+        {
+            return bytebuffer.array();
+        }
+        i1 = bytebuffer.position();
+        byte abyte0[];
+        abyte0 = new byte[bytebuffer.capacity()];
+        bytebuffer.get(abyte0);
+        bytebuffer.position(i1);
+        return abyte0;
+        Exception exception;
+        exception;
+        bytebuffer.position(i1);
+        throw exception;
     }
 
     public int a()
     {
-        return 2;
+        return h.length + (d.length << 2);
     }
 
-    public int a(lgf lgf1, String s, int i)
-    {
-        int l;
-        char c2;
-        c2 = '\0';
-        l = s.length() - i;
-        if (c) goto _L2; else goto _L1
-_L1:
-        int k;
-        k = i;
-        if (Math.min(2, l) < 2)
-        {
-            return ~i;
-        }
-          goto _L3
-_L2:
-        boolean flag;
-        int j;
-        j = 0;
-        flag = false;
-        k = 0;
-        do
-        {
-            if (j >= l)
-            {
-                break;
-            }
-            char c3 = s.charAt(i + j);
-            if (j == 0 && (c3 == '-' || c3 == '+'))
-            {
-                if (c3 == '-')
-                {
-                    flag = true;
-                } else
-                {
-                    flag = false;
-                }
-                if (flag)
-                {
-                    j++;
-                    k = 1;
-                } else
-                {
-                    i++;
-                    k = 1;
-                    l--;
-                }
-                continue;
-            }
-            if (c3 < '0' || c3 > '9')
-            {
-                break;
-            }
-            j++;
-        } while (true);
-        if (j == 0)
-        {
-            return ~i;
-        }
-        if (k != 0) goto _L5; else goto _L4
-_L4:
-        k = i;
-        if (j == 2) goto _L3; else goto _L5
-_L5:
-        if (j < 9) goto _L7; else goto _L6
-_L6:
-        k = i + j;
-        j = Integer.parseInt(s.substring(i, k));
-_L8:
-        lgf1.a(a, j);
-        return k;
-_L7:
-        char c1;
-        int i1;
-        if (flag)
-        {
-            k = i + 1;
-        } else
-        {
-            k = i;
-        }
-        try
-        {
-            c2 = s.charAt(k);
-        }
-        // Misplaced declaration of an exception variable
-        catch (lgf lgf1)
-        {
-            return ~i;
-        }
-        i1 = i + j;
-        i = c2 - 48;
-        for (j = k + 1; j < i1; j++)
-        {
-            i = (s.charAt(j) + ((i << 3) + (i << 1))) - 48;
-        }
-
-        j = i;
-        k = i1;
-        if (flag)
-        {
-            j = -i;
-            k = i1;
-        }
-        if (true) goto _L8; else goto _L3
-_L3:
-        i = s.charAt(k);
-        if (i < 48 || i > 57)
-        {
-            return ~k;
-        }
-        i -= 48;
-        c1 = s.charAt(k + 1);
-        if (c1 < '0' || c1 > '9')
-        {
-            return ~k;
-        }
-        j = ((i << 1) + (i << 3) + c1) - 48;
-        i = b;
-        if (lgf1.c() != null)
-        {
-            i = lgf1.c().intValue();
-        }
-        i1 = i - 50;
-        if (i1 >= 0)
-        {
-            i = i1 % 100;
-        } else
-        {
-            i = (i1 + 1) % 100 + 99;
-        }
-        c1 = c2;
-        if (j < i)
-        {
-            c1 = 'd';
-        }
-        lgf1.a(a, ((c1 + i1) - i) + j);
-        return k + 2;
-    }
-
-    public void a(StringBuffer stringbuffer, long l, lcw lcw, int i, ldd ldd, Locale locale)
-    {
-        i = a(l, lcw);
-        if (i < 0)
-        {
-            stringbuffer.append('\uFFFD');
-            stringbuffer.append('\uFFFD');
-            return;
-        } else
-        {
-            lgj.a(stringbuffer, i, 2);
-            return;
-        }
-    }
-
-    public int b()
-    {
-        return !c ? 2 : 4;
-    }
 }

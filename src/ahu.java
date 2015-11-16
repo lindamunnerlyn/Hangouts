@@ -2,11 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.animation.Interpolator;
 
-final class ahu
+public final class ahu
+    implements Interpolator
 {
 
-    ahu()
+    private final float a = 0.85F;
+    private final float b = 0.6F;
+
+    public ahu()
     {
+    }
+
+    public float getInterpolation(float f)
+    {
+        return aht.a(f, a, b);
     }
 }

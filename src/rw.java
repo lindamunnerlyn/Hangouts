@@ -5,35 +5,19 @@
 import android.view.MenuItem;
 
 final class rw
-    implements sz
+    implements wi
 {
 
-    final rs a;
+    final ru a;
 
-    rw(rs rs1)
+    rw(ru ru1)
     {
-        a = rs1;
+        a = ru1;
         super();
     }
 
-    public void a(sy sy)
+    public boolean a(MenuItem menuitem)
     {
-        if (a.c != null)
-        {
-            if (a.a.f())
-            {
-                a.c.onPanelClosed(108, sy);
-            } else
-            if (a.c.onPreparePanel(0, null, sy))
-            {
-                a.c.onMenuOpened(108, sy);
-                return;
-            }
-        }
-    }
-
-    public boolean a(sy sy, MenuItem menuitem)
-    {
-        return false;
+        return a.c.onMenuItemSelected(0, menuitem);
     }
 }

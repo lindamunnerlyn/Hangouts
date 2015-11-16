@@ -5,38 +5,35 @@
 package com.google.android.libraries.hangouts.video;
 
 import android.media.MediaFormat;
-import gbh;
-import gct;
-import gdp;
-import geu;
-import gey;
-import gfb;
-import gkc;
+import gdv;
+import ggd;
+import ggv;
+import ghu;
+import gia;
+import gne;
 
 // Referenced classes of package com.google.android.libraries.hangouts.video:
-//            Renderer, RendererManager, DecoderManager, Decoder
+//            Renderer, RendererManager, DecoderManager, MediaCodecDecoder
 
 public final class RemoteRenderer extends Renderer
-    implements gct
+    implements ggv
 {
 
     private int a;
-    private final Decoder b;
-    private final gey c;
-    private final gdp d;
-    private int e;
-    private boolean f;
+    private final MediaCodecDecoder b;
+    private final ghu c;
+    private int d;
+    private boolean e;
 
-    RemoteRenderer(RendererManager renderermanager, DecoderManager decodermanager, gdp gdp1, gey gey1)
+    RemoteRenderer(RendererManager renderermanager, DecoderManager decodermanager, ggd ggd, ghu ghu1)
     {
-        gbh.a(true);
+        gdv.a("Expected condition to be true", true);
         mRendererManager = renderermanager;
         mRendererID = mRendererManager.a(3);
-        d = gdp1;
-        c = gey1;
+        c = ghu1;
         if (decodermanager != null)
         {
-            b = decodermanager.a(gdp1, this);
+            b = decodermanager.a(ggd, this);
         } else
         {
             b = null;
@@ -44,74 +41,66 @@ public final class RemoteRenderer extends Renderer
         RendererManager.a(this);
     }
 
-    public static gey a(RemoteRenderer remoterenderer)
-    {
-        return remoterenderer.c;
-    }
-
     public void a()
     {
-        gbh.c();
-        if (c != null)
-        {
-            c.a();
-        }
+        gdv.c();
+        c.n();
     }
 
     public void a(int i)
     {
         if (b != null)
         {
-            b.b(i);
+            b.d(i);
         }
     }
 
-    public boolean a(gfb gfb)
+    public boolean a(gia gia)
     {
-        RendererFrameOutputData rendererframeoutputdata = (RendererFrameOutputData)gfb;
-        boolean flag = f;
-        if (b != null && b.c())
+        RendererFrameOutputData rendererframeoutputdata = (RendererFrameOutputData)gia;
+        boolean flag = e;
+        if (b != null && b.h())
         {
-            e = b.b();
-            f = true;
-            rendererframeoutputdata.updatedTexture = b.e();
+            d = b.g();
+            e = true;
+            rendererframeoutputdata.updatedTexture = b.j();
             if (rendererframeoutputdata.updatedTexture)
             {
-                gfb = b.f();
-                if (gfb != null)
+                gia = b.k();
+                if (gia != null)
                 {
-                    int j = gfb.getInteger("width");
-                    int k = gfb.getInteger("height");
+                    int j = gia.getInteger("width");
+                    int k = gia.getInteger("height");
                     rendererframeoutputdata.frameWidth = j;
                     rendererframeoutputdata.frameHeight = k;
                     int i;
-                    if (gfb.containsKey("crop-left"))
+                    if (gia.containsKey("crop-left"))
                     {
-                        i = gfb.getInteger("crop-left");
+                        i = gia.getInteger("crop-left");
                     } else
                     {
                         i = 0;
                     }
                     rendererframeoutputdata.cropLeft = i;
-                    if (gfb.containsKey("crop-top"))
+                    if (gia.containsKey("crop-top"))
                     {
-                        i = gfb.getInteger("crop-top");
+                        i = gia.getInteger("crop-top");
                     } else
                     {
                         i = 0;
                     }
                     rendererframeoutputdata.cropTop = i;
-                    if (gfb.containsKey("crop-right"))
+                    if (gia.containsKey("crop-right"))
                     {
-                        i = gfb.getInteger("crop-right");
+                        i = gia.getInteger("crop-right");
                     } else
                     {
                         i = j - 1;
                     }
                     rendererframeoutputdata.cropRight = i;
-                    if (gfb.containsKey("crop-bottom"))
+                    if (gia.containsKey("crop-bottom"))
                     {
-                        i = gfb.getInteger("crop-bottom");
+                        i = gia.getInteger("crop-bottom");
                     } else
                     {
                         i = k - 1;
@@ -119,7 +108,7 @@ public final class RemoteRenderer extends Renderer
                     rendererframeoutputdata.cropBottom = i;
                     if (rendererframeoutputdata.cropLeft < 0 || rendererframeoutputdata.cropLeft >= j || rendererframeoutputdata.cropTop < 0 || rendererframeoutputdata.cropTop >= k || rendererframeoutputdata.cropRight < 0 || rendererframeoutputdata.cropRight >= j || rendererframeoutputdata.cropBottom < 0 || rendererframeoutputdata.cropBottom >= k)
                     {
-                        gkc.e("vclib", String.format("RemoteRenderer hardware decode: Unexpected crop values: width: %d height: %d crop-left: %d crop-top: %d crop-right: %d crop-bottom: %d", new Object[] {
+                        gne.a(6, "vclib", String.format("RemoteRenderer hardware decode: Unexpected crop values: width: %d height: %d crop-left: %d crop-top: %d crop-right: %d crop-bottom: %d", new Object[] {
                             Integer.valueOf(j), Integer.valueOf(k), Integer.valueOf(rendererframeoutputdata.cropLeft), Integer.valueOf(rendererframeoutputdata.cropTop), Integer.valueOf(rendererframeoutputdata.cropRight), Integer.valueOf(rendererframeoutputdata.cropBottom)
                         }));
                         rendererframeoutputdata.cropLeft = 0;
@@ -131,17 +120,17 @@ public final class RemoteRenderer extends Renderer
             }
         } else
         {
-            e = a;
-            f = false;
-            mRendererManager.renderFrame(mRendererID, null, gfb);
+            d = a;
+            e = false;
+            mRendererManager.renderFrame(mRendererID, null, gia);
             rendererframeoutputdata.cropLeft = 0;
             rendererframeoutputdata.cropTop = 0;
             rendererframeoutputdata.cropRight = rendererframeoutputdata.frameWidth - 1;
             rendererframeoutputdata.cropBottom = rendererframeoutputdata.frameHeight - 1;
         }
-        if (flag != f && c != null)
+        if (flag != e)
         {
-            d.a(new geu(this));
+            c.n();
         }
         return rendererframeoutputdata.updatedTexture;
     }
@@ -152,30 +141,30 @@ public final class RemoteRenderer extends Renderer
         a = mRendererManager.getIntParam(mRendererID, "sub_outtex");
         if (b != null)
         {
-            b.a();
+            b.f();
         }
     }
 
     public int c()
     {
-        gbh.b(Integer.valueOf(e), Integer.valueOf(0));
-        return e;
+        gdv.b(Integer.valueOf(d), Integer.valueOf(0));
+        return d;
     }
 
     public boolean d()
     {
-        return f;
+        return e;
     }
 
     public void e()
     {
         int i = mRendererID;
-        gkc.a("vclib", (new StringBuilder(19)).append("release ").append(i).toString());
+        gne.a(2, "vclib", (new StringBuilder(19)).append("release ").append(i).toString());
         RendererManager.b(this);
         mRendererManager.releaseRenderer(mRendererID);
         if (b != null)
         {
-            b.g();
+            b.l();
         }
     }
 
@@ -183,7 +172,7 @@ public final class RemoteRenderer extends Renderer
     {
         if (b != null)
         {
-            int i = b.d();
+            int i = b.i();
             if (i != -1)
             {
                 return i;
@@ -192,7 +181,7 @@ public final class RemoteRenderer extends Renderer
         return 0;
     }
 
-    private class RendererFrameOutputData extends gfb
+    private class RendererFrameOutputData extends gia
     {
 
         public int cropBottom;

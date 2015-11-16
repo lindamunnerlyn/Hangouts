@@ -3,25 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class joc extends jkk
+final class joc extends job
 {
 
-    final joa a;
-
-    joc(joa joa1, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    joc(String s)
     {
-        a = joa1;
-        super(referenceentry);
+        super(s, 0);
     }
 
-    protected Object a(Object obj)
+    public boolean a(Object obj)
     {
-        com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry = ((com.google.common.collect.MapMakerInternalMap.ReferenceEntry)obj).getNextExpirable();
-        obj = referenceentry;
-        if (referenceentry == a.a)
-        {
-            obj = null;
-        }
-        return obj;
+        return true;
+    }
+
+    public String toString()
+    {
+        return "Predicates.alwaysTrue()";
     }
 }

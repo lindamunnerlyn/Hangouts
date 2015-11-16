@@ -3,37 +3,38 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class afy
+public final class afy extends Enum
 {
 
-    public final Object a;
-    public final afj b;
-    public final agf c;
-    public boolean d;
+    public static final afy a;
+    public static final afy b;
+    public static final afy c;
+    public static final afy d;
+    private static final afy e[];
 
-    private afy(agf agf)
+    private afy(String s, int i)
     {
-        d = false;
-        a = null;
-        b = null;
-        c = agf;
+        super(s, i);
     }
 
-    public afy(Object obj, afj afj)
+    public static afy valueOf(String s)
     {
-        d = false;
-        a = obj;
-        b = afj;
-        c = null;
+        return (afy)Enum.valueOf(afy, s);
     }
 
-    public static afy a(agf agf)
+    public static afy[] values()
     {
-        return new afy(agf);
+        return (afy[])e.clone();
     }
 
-    public boolean a()
+    static 
     {
-        return c == null;
+        a = new afy("LOW", 0);
+        b = new afy("NORMAL", 1);
+        c = new afy("HIGH", 2);
+        d = new afy("IMMEDIATE", 3);
+        e = (new afy[] {
+            a, b, c, d
+        });
     }
 }

@@ -2,14 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.util.Log;
+import com.google.android.gms.common.ConnectionResult;
 
-public final class gag extends gae
-    implements gab
+final class gag
+    implements end
 {
 
-    public gag(Context context)
+    final gae a;
+
+    gag(gae gae)
     {
-        super(context);
+        a = gae;
+        super();
+    }
+
+    public void a(ConnectionResult connectionresult)
+    {
+        connectionresult = String.valueOf(connectionresult);
+        Log.e("GcoreClearcutLogger", (new StringBuilder(String.valueOf(connectionresult).length() + 34)).append("ClearcutLogger connection failed: ").append(connectionresult).toString());
     }
 }

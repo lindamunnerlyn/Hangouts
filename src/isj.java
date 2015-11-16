@@ -2,76 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import java.util.Iterator;
+import java.util.Set;
 
-public final class isj extends koj
+public final class isj
 {
 
-    public Boolean a;
-    public Long b;
+    private final hof a;
+    private final Set b;
 
-    public isj()
+    isj(Activity activity, Set set)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        b = set;
+        if (activity instanceof hoe)
+        {
+            a = ((hoe)activity).getLifecycle();
+            return;
+        } else
+        {
+            a = null;
+            return;
+        }
     }
 
-    protected int computeSerializedSize()
+    public void a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
         if (a != null)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b.longValue());
-        }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
+            a a1;
+            for (Iterator iterator = b.iterator(); iterator.hasNext(); a.a(a1))
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-
-            case 16: // '\020'
-                b = Long.valueOf(kog1.d());
-                break;
+                a1 = (a)iterator.next();
             }
-        } while (true);
-    }
 
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
         }
-        if (b != null)
-        {
-            koh1.a(2, b.longValue());
-        }
-        super.writeTo(koh1);
     }
 }

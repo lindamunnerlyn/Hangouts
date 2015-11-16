@@ -2,16 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
+import com.google.android.gms.common.ConnectionResult;
 
-public final class eop
+public interface eop
 {
 
-    public static int a = 0;
-    public static int b = 1;
-    public static int c = 2;
-    public static int d = 4;
-    public static int e = 8;
-    public static int f = 16;
-    public static int g = 32;
+    public abstract enm a(enm enm);
 
+    public abstract void a();
+
+    public abstract void a(int i);
+
+    public abstract void a(Bundle bundle);
+
+    public abstract void a(ConnectionResult connectionresult, emt emt, int i);
+
+    public abstract void b();
+
+    public abstract void c();
+
+    public abstract String d();
 }

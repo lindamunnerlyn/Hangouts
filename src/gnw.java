@@ -2,25 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Application;
+import android.content.Context;
 
 final class gnw
-    implements gnu
 {
 
-    int a;
+    private static gnw a;
+    private final gno b;
+    private final gnr c;
 
-    gnw(int i)
+    private gnw(gon gon, Application application, gny gny)
     {
-        a = i;
+        g.e(gon);
+        g.e(application);
+        b = new goa(new gnx(), gon, new gnp(), gny, application.getPackageName());
+        c = new gnr(b, application);
     }
 
-    public Object a(Object obj)
+    static gnw a(gon gon, Application application, gny gny)
     {
-        return Integer.valueOf(a);
+        gnw;
+        JVM INSTR monitorenter ;
+        if (a == null)
+        {
+            a = new gnw(gon, application, gny);
+        }
+        gon = a;
+        gnw;
+        JVM INSTR monitorexit ;
+        return gon;
+        gon;
+        throw gon;
     }
 
-    public void a(android.content.SharedPreferences.Editor editor, String s)
+    public void a()
     {
-        editor.putInt(s, a);
+        c.a();
     }
 }

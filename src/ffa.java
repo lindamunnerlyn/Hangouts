@@ -2,32 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
+import android.content.Context;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Looper;
 
-public final class ffa extends fmr
+public final class ffa extends eqa
 {
 
-    final String a;
-    final String b;
-    final fma i;
-    final flx j;
-
-    public ffa(flx flx, ejx ejx, String s, String s1, fma fma1)
+    public ffa(Context context, Looper looper, epo epo, enb enb, end end)
     {
-        j = flx;
-        a = s;
-        b = s1;
-        i = fma1;
-        super(ejx);
+        super(context, looper, 28, epo, enb, end);
     }
 
-    protected ekg a(Status status)
+    public IInterface a(IBinder ibinder)
     {
-        return new ffb(this, status);
+        if (ibinder == null)
+        {
+            return null;
+        }
+        IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.mdm.internal.INetworkQualityService");
+        if (iinterface != null && (iinterface instanceof fht))
+        {
+            return (fht)iinterface;
+        } else
+        {
+            return new fhv(ibinder);
+        }
     }
 
-    protected void a(ejv ejv)
+    protected String a()
     {
-        ((fpo)ejv).a(this, a, b, i.a(), i.d(), i.b(), i.c());
+        return "com.google.android.gms.mdm.services.START";
+    }
+
+    protected String b()
+    {
+        return "com.google.android.gms.mdm.internal.INetworkQualityService";
     }
 }

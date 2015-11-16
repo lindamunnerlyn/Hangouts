@@ -2,13 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public interface aur
+final class aur extends coj
 {
 
-    public abstract boolean a();
+    final aui a;
 
-    public abstract void b();
+    aur(aui aui1, String s)
+    {
+        a = aui1;
+        super(s);
+    }
 
-    public abstract boolean c();
+    public void a()
+    {
+        int i = g.a(a.a, "babel_stress_message_count", 1000);
+        RealTimeChatService.a(a.b, a.c.a, 0, i);
+    }
 }

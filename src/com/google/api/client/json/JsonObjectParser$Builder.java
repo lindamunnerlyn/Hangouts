@@ -41,6 +41,6 @@ public class jsonFactory
     public _cls9(JsonFactory jsonfactory)
     {
         wrapperKeys = new HashSet();
-        jsonFactory = (JsonFactory)h.b(jsonfactory);
+        jsonFactory = (JsonFactory)h.a(jsonfactory);
     }
 }

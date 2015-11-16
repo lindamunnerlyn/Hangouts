@@ -3,96 +3,52 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lhs extends koj
+public final class lhs extends kwm
 {
 
-    public kkz a[];
-    public Integer b;
+    public lgo a;
+    public lhc b;
     public Integer c;
-    public lhj d[];
 
     public lhs()
     {
-        a = kkz.a();
+        a = null;
         b = null;
         c = null;
-        d = lhj.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        boolean flag = false;
         int j = super.computeSerializedSize();
         int i = j;
         if (a != null)
         {
-            i = j;
-            if (a.length > 0)
-            {
-                i = j;
-                for (j = 0; j < a.length;)
-                {
-                    kkz kkz1 = a[j];
-                    int l = i;
-                    if (kkz1 != null)
-                    {
-                        l = i + koh.d(1, kkz1);
-                    }
-                    j++;
-                    i = l;
-                }
-
-            }
+            i = j + kwk.d(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.e(2, b.intValue());
+            j = i + kwk.d(2, b);
         }
         i = j;
         if (c != null)
         {
-            i = j + koh.e(3, c.intValue());
+            i = j + kwk.e(3, c.intValue());
         }
-        int i1 = i;
-        if (d != null)
-        {
-            i1 = i;
-            if (d.length > 0)
-            {
-                int k = ((flag) ? 1 : 0);
-                do
-                {
-                    i1 = i;
-                    if (k >= d.length)
-                    {
-                        break;
-                    }
-                    lhj lhj1 = d[k];
-                    i1 = i;
-                    if (lhj1 != null)
-                    {
-                        i1 = i + koh.d(4, lhj1);
-                    }
-                    k++;
-                    i = i1;
-                } while (true);
-            }
-        }
-        return i1;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -102,111 +58,42 @@ public final class lhs extends koj
                 return this;
 
             case 10: // '\n'
-                int l = kou.b(kog1, 10);
-                kkz akkz[];
-                int j;
                 if (a == null)
                 {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
+                    a = new lgo();
                 }
-                akkz = new kkz[l + j];
-                l = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, akkz, 0, j);
-                    l = j;
-                }
-                for (; l < akkz.length - 1; l++)
-                {
-                    akkz[l] = new kkz();
-                    kog1.a(akkz[l]);
-                    kog1.a();
-                }
-
-                akkz[l] = new kkz();
-                kog1.a(akkz[l]);
-                a = akkz;
+                kwj1.a(a);
                 break;
 
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new lhc();
+                }
+                kwj1.a(b);
                 break;
 
             case 24: // '\030'
-                c = Integer.valueOf(kog1.f());
-                break;
-
-            case 34: // '"'
-                int i1 = kou.b(kog1, 34);
-                lhj alhj[];
-                int k;
-                if (d == null)
-                {
-                    k = 0;
-                } else
-                {
-                    k = d.length;
-                }
-                alhj = new lhj[i1 + k];
-                i1 = k;
-                if (k != 0)
-                {
-                    System.arraycopy(d, 0, alhj, 0, k);
-                    i1 = k;
-                }
-                for (; i1 < alhj.length - 1; i1++)
-                {
-                    alhj[i1] = new lhj();
-                    kog1.a(alhj[i1]);
-                    kog1.a();
-                }
-
-                alhj[i1] = new lhj();
-                kog1.a(alhj[i1]);
-                d = alhj;
+                c = Integer.valueOf(kwj1.f());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        boolean flag = false;
-        if (a != null && a.length > 0)
+        if (a != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                kkz kkz1 = a[i];
-                if (kkz1 != null)
-                {
-                    koh1.b(1, kkz1);
-                }
-            }
-
+            kwk1.b(1, a);
         }
         if (b != null)
         {
-            koh1.a(2, b.intValue());
+            kwk1.b(2, b);
         }
         if (c != null)
         {
-            koh1.a(3, c.intValue());
+            kwk1.a(3, c.intValue());
         }
-        if (d != null && d.length > 0)
-        {
-            for (int j = ((flag) ? 1 : 0); j < d.length; j++)
-            {
-                lhj lhj1 = d[j];
-                if (lhj1 != null)
-                {
-                    koh1.b(4, lhj1);
-                }
-            }
-
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

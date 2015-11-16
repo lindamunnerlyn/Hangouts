@@ -2,25 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Map;
 
-final class jnq extends jnm
+public final class jnq
 {
 
-    jnq(String s)
+    private final jno a;
+    private final String b;
+
+    jnq(jno jno1, String s)
     {
-        super(s, 3);
+        a = jno1;
+        b = (String)n.b(s);
     }
 
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry a(joh joh, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry1)
+    private StringBuilder a(StringBuilder stringbuilder, Iterator iterator)
     {
-        joh = super.a(joh, referenceentry, referenceentry1);
-        a(referenceentry, ((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (joh)));
-        b(referenceentry, joh);
-        return joh;
+        try
+        {
+            n.b(stringbuilder);
+            if (iterator.hasNext())
+            {
+                java.util.Map.Entry entry = (java.util.Map.Entry)iterator.next();
+                stringbuilder.append(a.a(entry.getKey()));
+                stringbuilder.append(b);
+                stringbuilder.append(a.a(entry.getValue()));
+                java.util.Map.Entry entry1;
+                for (; iterator.hasNext(); stringbuilder.append(a.a(entry1.getValue())))
+                {
+                    stringbuilder.append(a.a);
+                    entry1 = (java.util.Map.Entry)iterator.next();
+                    stringbuilder.append(a.a(entry1.getKey()));
+                    stringbuilder.append(b);
+                }
+
+            }
+        }
+        // Misplaced declaration of an exception variable
+        catch (StringBuilder stringbuilder)
+        {
+            throw new AssertionError(stringbuilder);
+        }
+        return stringbuilder;
     }
 
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry a(joh joh, Object obj, int i, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    public StringBuilder a(StringBuilder stringbuilder, Map map)
     {
-        return new jor(obj, i, referenceentry);
+        return a(stringbuilder, map.entrySet().iterator());
     }
 }

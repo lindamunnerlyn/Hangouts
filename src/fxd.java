@@ -2,52 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Map;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.Parcel;
 
-final class fxd extends fxf
+public abstract class fxd extends Binder
+    implements fxc
 {
 
-    final fxc a;
-
-    fxd(fxc fxc1)
+    public static fxc a(IBinder ibinder)
     {
-        a = fxc1;
-        super();
-    }
-
-    protected int a()
-    {
-        return a.g;
-    }
-
-    protected int a(Object obj)
-    {
-        if (obj == null)
+        if (ibinder == null)
         {
-            return fxc.a(a);
+            return null;
+        }
+        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.wearable.internal.IChannelStreamCallbacks");
+        if (iinterface != null && (iinterface instanceof fxc))
+        {
+            return (fxc)iinterface;
         } else
         {
-            return fxc.a(a, obj, obj.hashCode());
+            return new fxe(ibinder);
         }
     }
 
-    protected Object a(int i)
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
     {
-        return a.f[i];
-    }
+        switch (i)
+        {
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
 
-    protected Map b()
-    {
-        throw new UnsupportedOperationException("not a map");
-    }
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.wearable.internal.IChannelStreamCallbacks");
+            return true;
 
-    protected void b(int i)
-    {
-        a.a(i);
-    }
-
-    protected void c()
-    {
-        a.clear();
+        case 2: // '\002'
+            parcel.enforceInterface("com.google.android.gms.wearable.internal.IChannelStreamCallbacks");
+            a(parcel.readInt(), parcel.readInt());
+            parcel1.writeNoException();
+            return true;
+        }
     }
 }

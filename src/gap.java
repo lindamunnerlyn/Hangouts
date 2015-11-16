@@ -4,7 +4,6 @@
 
 
 public interface gap
+    extends enh, kvd
 {
-
-    public abstract gal a(int i);
 }

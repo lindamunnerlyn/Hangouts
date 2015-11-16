@@ -2,89 +2,14 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
+import android.os.IInterface;
 
-public final class dww extends kop
+public interface dww
+    extends IInterface
 {
 
-    public int a;
-    public String b;
-    public String c;
+    public abstract int a();
 
-    public dww()
-    {
-        a = 0;
-        b = "";
-        c = "";
-        cachedSize = -1;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != 0)
-        {
-            i = j + koh.e(1, a);
-        }
-        j = i;
-        if (!b.equals(""))
-        {
-            j = i + koh.b(2, b);
-        }
-        i = j;
-        if (!c.equals(""))
-        {
-            i = j + koh.b(3, c);
-        }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (kou.a(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = kog1.f();
-                break;
-
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-
-            case 26: // '\032'
-                c = kog1.j();
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != 0)
-        {
-            koh1.a(1, a);
-        }
-        if (!b.equals(""))
-        {
-            koh1.a(2, b);
-        }
-        if (!c.equals(""))
-        {
-            koh1.a(3, c);
-        }
-        super.writeTo(koh1);
-    }
+    public abstract Bundle a(String s);
 }

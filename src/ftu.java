@@ -2,23 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.wearable.internal.NodeParcelable;
 
-final class ftu
-    implements Runnable
+public interface ftu
 {
 
-    final NodeParcelable a;
-    final ftq b;
-
-    ftu(ftq ftq, NodeParcelable nodeparcelable)
-    {
-        b = ftq;
-        a = nodeparcelable;
-        super();
-    }
-
-    public void run()
-    {
-    }
+    public abstract void b(int i);
 }

@@ -27,11 +27,11 @@ public class BabelWidgetProvider extends AppWidgetProvider
         for (int i = 0; i < j; i++)
         {
             int k = ai[i];
-            Object obj = g.e(null);
+            Object obj = g.d(null);
             ((Intent) (obj)).putExtra("opened_from_impression", 2150);
             obj = PendingIntent.getActivity(context, 0, ((Intent) (obj)), 0);
-            RemoteViews remoteviews = new RemoteViews(context.getPackageName(), g.hq);
-            remoteviews.setOnClickPendingIntent(h.ha, ((PendingIntent) (obj)));
+            RemoteViews remoteviews = new RemoteViews(context.getPackageName(), g.hi);
+            remoteviews.setOnClickPendingIntent(h.gG, ((PendingIntent) (obj)));
             appwidgetmanager.updateAppWidget(k, remoteviews);
         }
 

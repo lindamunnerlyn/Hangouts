@@ -2,27 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.content.ContextWrapper;
 
-public final class irq extends koj
+public final class irq extends ContextWrapper
+    implements irm
 {
 
-    public irq()
+    private final Object a;
+
+    public irq(Context context, Object obj)
     {
-        unknownFieldData = null;
-        cachedSize = -1;
+        super((Context)g.e(context));
+        a = g.e(obj);
     }
 
-    public kop mergeFrom(kog kog1)
+    public Object a()
     {
-_L3:
-        int i = kog1.a();
-        i;
-        JVM INSTR tableswitch 0 0: default 24
-    //                   0 33;
-           goto _L1 _L2
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L3; else goto _L2
-_L2:
-        return this;
+        return a;
     }
 }

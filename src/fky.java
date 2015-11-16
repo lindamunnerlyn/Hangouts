@@ -2,142 +2,77 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
+import android.location.Location;
 import android.os.IBinder;
 import android.os.Parcel;
 
-public abstract class fky extends Binder
-    implements fkx
+final class fky
+    implements fkw
 {
 
-    public static fkx a(IBinder ibinder)
+    private IBinder a;
+
+    fky(IBinder ibinder)
     {
-        if (ibinder == null)
-        {
-            return null;
-        }
-        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-        if (iinterface != null && (iinterface instanceof fkx))
-        {
-            return (fkx)iinterface;
-        } else
-        {
-            return new fkz(ibinder);
-        }
+        a = ibinder;
     }
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    public void a(Location location)
     {
-        boolean flag = false;
-        boolean flag1 = false;
-        boolean flag4 = false;
-        boolean flag2 = false;
-        boolean flag3 = false;
-        switch (i)
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnLocationChangeListener");
+        if (location == null)
         {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
-
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-            return true;
-
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-            a();
-            parcel1.writeNoException();
-            return true;
-
-        case 2: // '\002'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-            b();
-            parcel1.writeNoException();
-            return true;
-
-        case 3: // '\003'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-            parcel = c();
-            parcel1.writeNoException();
-            parcel1.writeString(parcel);
-            return true;
-
-        case 4: // '\004'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-            a(parcel.readFloat());
-            parcel1.writeNoException();
-            return true;
-
-        case 5: // '\005'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-            float f = d();
-            parcel1.writeNoException();
-            parcel1.writeFloat(f);
-            return true;
-
-        case 6: // '\006'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-            if (parcel.readInt() != 0)
-            {
-                flag3 = true;
-            }
-            a(flag3);
-            parcel1.writeNoException();
-            return true;
-
-        case 7: // '\007'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-            flag3 = e();
-            parcel1.writeNoException();
-            i = ((flag) ? 1 : 0);
-            if (flag3)
-            {
-                i = 1;
-            }
-            parcel1.writeInt(i);
-            return true;
-
-        case 8: // '\b'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-            flag3 = a(a(parcel.readStrongBinder()));
-            parcel1.writeNoException();
-            i = ((flag1) ? 1 : 0);
-            if (flag3)
-            {
-                i = 1;
-            }
-            parcel1.writeInt(i);
-            return true;
-
-        case 9: // '\t'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-            i = f();
-            parcel1.writeNoException();
-            parcel1.writeInt(i);
-            return true;
-
-        case 10: // '\n'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-            flag3 = flag4;
-            if (parcel.readInt() != 0)
-            {
-                flag3 = true;
-            }
-            b(flag3);
-            parcel1.writeNoException();
-            return true;
-
-        case 11: // '\013'
-            parcel.enforceInterface("com.google.android.gms.maps.model.internal.ITileOverlayDelegate");
-            flag3 = g();
-            parcel1.writeNoException();
-            i = ((flag2) ? 1 : 0);
-            break;
+            break MISSING_BLOCK_LABEL_56;
         }
-        if (flag3)
+        parcel.writeInt(1);
+        location.writeToParcel(parcel, 0);
+_L1:
+        a.transact(2, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        location;
+        parcel1.recycle();
+        parcel.recycle();
+        throw location;
+    }
+
+    public void a(fcw fcw1)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnLocationChangeListener");
+        if (fcw1 == null)
         {
-            i = 1;
+            break MISSING_BLOCK_LABEL_57;
         }
-        parcel1.writeInt(i);
-        return true;
+        fcw1 = fcw1.asBinder();
+_L1:
+        parcel.writeStrongBinder(fcw1);
+        a.transact(1, parcel, parcel1, 0);
+        parcel1.readException();
+        parcel1.recycle();
+        parcel.recycle();
+        return;
+        fcw1 = null;
+          goto _L1
+        fcw1;
+        parcel1.recycle();
+        parcel.recycle();
+        throw fcw1;
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
     }
 }

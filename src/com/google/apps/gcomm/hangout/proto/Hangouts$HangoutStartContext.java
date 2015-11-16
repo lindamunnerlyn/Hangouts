@@ -4,14 +4,14 @@
 
 package com.google.apps.gcomm.hangout.proto;
 
-import kog;
-import koh;
-import koj;
-import kon;
-import kop;
-import kou;
+import kwj;
+import kwk;
+import kwm;
+import kwq;
+import kws;
+import kwx;
 
-public final class clear extends koj
+public final class clear extends kwm
 {
 
     private static volatile sharingId _emptyArray[];
@@ -64,7 +64,7 @@ public final class clear extends koj
     {
         if (_emptyArray == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
                 if (_emptyArray == null)
                 {
@@ -79,14 +79,14 @@ public final class clear extends koj
         throw exception;
     }
 
-    public static _emptyArray parseFrom(kog kog1)
+    public static _emptyArray parseFrom(kwj kwj1)
     {
-        return (new <init>()).mergeFrom(kog1);
+        return (new <init>()).mergeFrom(kwj1);
     }
 
     public static mergeFrom parseFrom(byte abyte0[])
     {
-        return (mergeFrom)kop.mergeFrom(new <init>(), abyte0);
+        return (mergeFrom)kws.mergeFrom(new <init>(), abyte0);
     }
 
     public <init> clear()
@@ -97,7 +97,7 @@ public final class clear extends koj
         topic = null;
         referringUrl = null;
         circleId = null;
-        profileId = kou.f;
+        profileId = kwx.f;
         activityId = null;
         appId = null;
         appData = null;
@@ -110,7 +110,7 @@ public final class clear extends koj
         latencyMarks = null;
         callback = null;
         externalKey = null;
-        class Invitee extends koj
+        class Invitee extends kwm
         {
 
             private static volatile Invitee _emptyArray[];
@@ -123,7 +123,7 @@ public final class clear extends koj
             {
                 if (_emptyArray == null)
                 {
-                    synchronized (kon.a)
+                    synchronized (kwq.a)
                     {
                         if (_emptyArray == null)
                         {
@@ -138,14 +138,14 @@ public final class clear extends koj
                 throw exception;
             }
 
-            public static Invitee parseFrom(kog kog1)
+            public static Invitee parseFrom(kwj kwj1)
             {
-                return (new Invitee()).mergeFrom(kog1);
+                return (new Invitee()).mergeFrom(kwj1);
             }
 
             public static Invitee parseFrom(byte abyte0[])
             {
-                return (Invitee)kop.mergeFrom(new Invitee(), abyte0);
+                return (Invitee)kws.mergeFrom(new Invitee(), abyte0);
             }
 
             public Invitee clear()
@@ -165,35 +165,35 @@ public final class clear extends koj
                 int i = j;
                 if (profileId != null)
                 {
-                    i = j + koh.b(1, profileId);
+                    i = j + kwk.b(1, profileId);
                 }
                 j = i;
                 if (profileName != null)
                 {
-                    j = i + koh.b(2, profileName);
+                    j = i + kwk.b(2, profileName);
                 }
                 i = j;
                 if (inviteeId != null)
                 {
-                    i = j + koh.d(3, inviteeId);
+                    i = j + kwk.d(3, inviteeId);
                 }
                 j = i;
                 if (shortDisplayName != null)
                 {
-                    j = i + koh.b(4, shortDisplayName);
+                    j = i + kwk.b(4, shortDisplayName);
                 }
                 return j;
             }
 
-            public Invitee mergeFrom(kog kog1)
+            public Invitee mergeFrom(kwj kwj1)
             {
                 do
                 {
-                    int i = kog1.a();
+                    int i = kwj1.a();
                     switch (i)
                     {
                     default:
-                        if (super.storeUnknownField(kog1, i))
+                        if (super.storeUnknownField(kwj1, i))
                         {
                             continue;
                         }
@@ -203,15 +203,15 @@ public final class clear extends koj
                         return this;
 
                     case 10: // '\n'
-                        profileId = kog1.j();
+                        profileId = kwj1.j();
                         break;
 
                     case 18: // '\022'
-                        profileName = kog1.j();
+                        profileName = kwj1.j();
                         break;
 
                     case 26: // '\032'
-                        class InviteeId extends koj
+                        class InviteeId extends kwm
                         {
 
                             private static volatile InviteeId _emptyArray[];
@@ -224,7 +224,7 @@ public final class clear extends koj
                             {
                                 if (_emptyArray == null)
                                 {
-                                    synchronized (kon.a)
+                                    synchronized (kwq.a)
                                     {
                                         if (_emptyArray == null)
                                         {
@@ -239,14 +239,14 @@ public final class clear extends koj
                                 throw exception;
                             }
 
-                            public static InviteeId parseFrom(kog kog2)
+                            public static InviteeId parseFrom(kwj kwj2)
                             {
-                                return (new InviteeId()).mergeFrom(kog2);
+                                return (new InviteeId()).mergeFrom(kwj2);
                             }
 
                             public static InviteeId parseFrom(byte abyte0[])
                             {
-                                return (InviteeId)kop.mergeFrom(new InviteeId(), abyte0);
+                                return (InviteeId)kws.mergeFrom(new InviteeId(), abyte0);
                             }
 
                             public InviteeId clear()
@@ -266,35 +266,35 @@ public final class clear extends koj
                                 int j = k;
                                 if (profileId != null)
                                 {
-                                    j = k + koh.b(1, profileId);
+                                    j = k + kwk.b(1, profileId);
                                 }
                                 k = j;
                                 if (phoneNumber != null)
                                 {
-                                    k = j + koh.b(2, phoneNumber);
+                                    k = j + kwk.b(2, phoneNumber);
                                 }
                                 j = k;
                                 if (circleId != null)
                                 {
-                                    j = k + koh.b(3, circleId);
+                                    j = k + kwk.b(3, circleId);
                                 }
                                 k = j;
                                 if (email != null)
                                 {
-                                    k = j + koh.b(4, email);
+                                    k = j + kwk.b(4, email);
                                 }
                                 return k;
                             }
 
-                            public InviteeId mergeFrom(kog kog2)
+                            public InviteeId mergeFrom(kwj kwj2)
                             {
                                 do
                                 {
-                                    int j = kog2.a();
+                                    int j = kwj2.a();
                                     switch (j)
                                     {
                                     default:
-                                        if (super.storeUnknownField(kog2, j))
+                                        if (super.storeUnknownField(kwj2, j))
                                         {
                                             continue;
                                         }
@@ -304,48 +304,48 @@ public final class clear extends koj
                                         return this;
 
                                     case 10: // '\n'
-                                        profileId = kog2.j();
+                                        profileId = kwj2.j();
                                         break;
 
                                     case 18: // '\022'
-                                        phoneNumber = kog2.j();
+                                        phoneNumber = kwj2.j();
                                         break;
 
                                     case 26: // '\032'
-                                        circleId = kog2.j();
+                                        circleId = kwj2.j();
                                         break;
 
                                     case 34: // '"'
-                                        email = kog2.j();
+                                        email = kwj2.j();
                                         break;
                                     }
                                 } while (true);
                             }
 
-                            public volatile kop mergeFrom(kog kog2)
+                            public volatile kws mergeFrom(kwj kwj2)
                             {
-                                return mergeFrom(kog2);
+                                return mergeFrom(kwj2);
                             }
 
-                            public void writeTo(koh koh1)
+                            public void writeTo(kwk kwk1)
                             {
                                 if (profileId != null)
                                 {
-                                    koh1.a(1, profileId);
+                                    kwk1.a(1, profileId);
                                 }
                                 if (phoneNumber != null)
                                 {
-                                    koh1.a(2, phoneNumber);
+                                    kwk1.a(2, phoneNumber);
                                 }
                                 if (circleId != null)
                                 {
-                                    koh1.a(3, circleId);
+                                    kwk1.a(3, circleId);
                                 }
                                 if (email != null)
                                 {
-                                    koh1.a(4, email);
+                                    kwk1.a(4, email);
                                 }
-                                super.writeTo(koh1);
+                                super.writeTo(kwk1);
                             }
 
                         public InviteeId()
@@ -358,40 +358,40 @@ public final class clear extends koj
                         {
                             inviteeId = new InviteeId();
                         }
-                        kog1.a(inviteeId);
+                        kwj1.a(inviteeId);
                         break;
 
                     case 34: // '"'
-                        shortDisplayName = kog1.j();
+                        shortDisplayName = kwj1.j();
                         break;
                     }
                 } while (true);
             }
 
-            public volatile kop mergeFrom(kog kog1)
+            public volatile kws mergeFrom(kwj kwj1)
             {
-                return mergeFrom(kog1);
+                return mergeFrom(kwj1);
             }
 
-            public void writeTo(koh koh1)
+            public void writeTo(kwk kwk1)
             {
                 if (profileId != null)
                 {
-                    koh1.a(1, profileId);
+                    kwk1.a(1, profileId);
                 }
                 if (profileName != null)
                 {
-                    koh1.a(2, profileName);
+                    kwk1.a(2, profileName);
                 }
                 if (inviteeId != null)
                 {
-                    koh1.b(3, inviteeId);
+                    kwk1.b(3, inviteeId);
                 }
                 if (shortDisplayName != null)
                 {
-                    koh1.a(4, shortDisplayName);
+                    kwk1.a(4, shortDisplayName);
                 }
-                super.writeTo(koh1);
+                super.writeTo(kwk1);
             }
 
             public Invitee()
@@ -410,19 +410,19 @@ public final class clear extends koj
         invitedOid = null;
         widgetPublisherId = null;
         shouldHideInviteButton = null;
-        startOption = kou.a;
-        currentOccupantAvatar = kou.f;
+        startOption = kwx.a;
+        currentOccupantAvatar = kwx.f;
         numCircles = null;
         externalEventId = null;
         gatewayAppId = null;
-        roomAppId = kou.f;
+        roomAppId = kwx.f;
         mediaType = null;
         appIntegrationId = null;
         shouldAutoJoin = null;
-        tag = kou.f;
+        tag = kwx.f;
         encodedCalendarId = null;
         xsrfToken = null;
-        class InitialAppData extends koj
+        class InitialAppData extends kwm
         {
 
             private static volatile InitialAppData _emptyArray[];
@@ -434,7 +434,7 @@ public final class clear extends koj
             {
                 if (_emptyArray == null)
                 {
-                    synchronized (kon.a)
+                    synchronized (kwq.a)
                     {
                         if (_emptyArray == null)
                         {
@@ -449,14 +449,14 @@ public final class clear extends koj
                 throw exception;
             }
 
-            public static InitialAppData parseFrom(kog kog1)
+            public static InitialAppData parseFrom(kwj kwj1)
             {
-                return (new InitialAppData()).mergeFrom(kog1);
+                return (new InitialAppData()).mergeFrom(kwj1);
             }
 
             public static InitialAppData parseFrom(byte abyte0[])
             {
-                return (InitialAppData)kop.mergeFrom(new InitialAppData(), abyte0);
+                return (InitialAppData)kws.mergeFrom(new InitialAppData(), abyte0);
             }
 
             public InitialAppData clear()
@@ -475,25 +475,25 @@ public final class clear extends koj
                 int i = j;
                 if (appId != null)
                 {
-                    i = j + koh.b(1, appId);
+                    i = j + kwk.b(1, appId);
                 }
                 j = i;
                 if (startData != null)
                 {
-                    j = i + koh.b(2, startData);
+                    j = i + kwk.b(2, startData);
                 }
                 i = j;
                 if (startType != null)
                 {
-                    i = j + koh.e(3, startType.intValue());
+                    i = j + kwk.e(3, startType.intValue());
                 }
                 return i;
             }
 
-            public InitialAppData mergeFrom(kog kog1)
+            public InitialAppData mergeFrom(kwj kwj1)
             {
 _L6:
-                int i = kog1.a();
+                int i = kwj1.a();
                 i;
                 JVM INSTR lookupswitch 4: default 48
             //                           0: 57
@@ -502,17 +502,17 @@ _L6:
             //                           24: 81;
                    goto _L1 _L2 _L3 _L4 _L5
 _L1:
-                if (super.storeUnknownField(kog1, i)) goto _L6; else goto _L2
+                if (super.storeUnknownField(kwj1, i)) goto _L6; else goto _L2
 _L2:
                 return this;
 _L3:
-                appId = kog1.j();
+                appId = kwj1.j();
                   goto _L6
 _L4:
-                startData = kog1.j();
+                startData = kwj1.j();
                   goto _L6
 _L5:
-                int j = kog1.f();
+                int j = kwj1.f();
                 switch (j)
                 {
                 case 1: // '\001'
@@ -525,26 +525,26 @@ _L5:
 _L7:
             }
 
-            public volatile kop mergeFrom(kog kog1)
+            public volatile kws mergeFrom(kwj kwj1)
             {
-                return mergeFrom(kog1);
+                return mergeFrom(kwj1);
             }
 
-            public void writeTo(koh koh1)
+            public void writeTo(kwk kwk1)
             {
                 if (appId != null)
                 {
-                    koh1.a(1, appId);
+                    kwk1.a(1, appId);
                 }
                 if (startData != null)
                 {
-                    koh1.a(2, startData);
+                    kwk1.a(2, startData);
                 }
                 if (startType != null)
                 {
-                    koh1.a(3, startType.intValue());
+                    kwk1.a(3, startType.intValue());
                 }
-                super.writeTo(koh1);
+                super.writeTo(kwk1);
             }
 
             public InitialAppData()
@@ -564,21 +564,21 @@ _L7:
     protected int computeSerializedSize()
     {
         boolean flag = false;
-        int j = super.computeSerializedSize() + koh.b(1, hangoutId) + koh.e(2, hangoutType.intValue());
+        int j = super.computeSerializedSize() + kwk.b(1, hangoutId) + kwk.e(2, hangoutType.intValue());
         int i = j;
         if (topic != null)
         {
-            i = j + koh.b(3, topic);
+            i = j + kwk.b(3, topic);
         }
         j = i;
         if (referringUrl != null)
         {
-            j = i + koh.b(4, referringUrl);
+            j = i + kwk.b(4, referringUrl);
         }
         i = j;
         if (circleId != null)
         {
-            i = j + koh.b(5, circleId);
+            i = j + kwk.b(5, circleId);
         }
         j = i;
         if (profileId != null)
@@ -598,7 +598,7 @@ _L7:
                     if (s != null)
                     {
                         j2 = j1 + 1;
-                        j3 = k + koh.a(s);
+                        j3 = k + kwk.a(s);
                     }
                     j++;
                     k = j3;
@@ -610,65 +610,65 @@ _L7:
         i = j;
         if (activityId != null)
         {
-            i = j + koh.b(7, activityId);
+            i = j + kwk.b(7, activityId);
         }
         j = i;
         if (appId != null)
         {
-            j = i + koh.b(8, appId);
+            j = i + kwk.b(8, appId);
         }
         i = j;
         if (appData != null)
         {
-            i = j + koh.b(9, appData);
+            i = j + kwk.b(9, appData);
         }
         j = i;
         if (flippy != null)
         {
             flippy.booleanValue();
-            j = i + (koh.f(10) + 1);
+            j = i + (kwk.f(10) + 1);
         }
         i = j;
         if (dEPRECATEDCallback != null)
         {
             dEPRECATEDCallback.booleanValue();
-            i = j + (koh.f(11) + 1);
+            i = j + (kwk.f(11) + 1);
         }
         j = i;
         if (source != null)
         {
-            j = i + koh.e(12, source.intValue());
+            j = i + kwk.e(12, source.intValue());
         }
         i = j;
         if (invitation != null)
         {
-            i = j + koh.d(13, invitation);
+            i = j + kwk.d(13, invitation);
         }
         j = i;
         if (create != null)
         {
             create.booleanValue();
-            j = i + (koh.f(14) + 1);
+            j = i + (kwk.f(14) + 1);
         }
         i = j;
         if (nick != null)
         {
-            i = j + koh.b(15, nick);
+            i = j + kwk.b(15, nick);
         }
         j = i;
         if (latencyMarks != null)
         {
-            j = i + koh.d(16, latencyMarks);
+            j = i + kwk.d(16, latencyMarks);
         }
         int l = j;
         if (callback != null)
         {
-            l = j + koh.e(17, callback.intValue());
+            l = j + kwk.e(17, callback.intValue());
         }
         i = l;
         if (externalKey != null)
         {
-            i = l + koh.d(18, externalKey);
+            i = l + kwk.d(18, externalKey);
         }
         j = i;
         if (invitee != null)
@@ -682,7 +682,7 @@ _L7:
                     l = i;
                     if (invitee1 != null)
                     {
-                        l = i + koh.d(19, invitee1);
+                        l = i + kwk.d(19, invitee1);
                     }
                     j++;
                     i = l;
@@ -695,49 +695,49 @@ _L7:
         if (shouldAutoInvite != null)
         {
             shouldAutoInvite.booleanValue();
-            i = j + (koh.f(20) + 1);
+            i = j + (kwk.f(20) + 1);
         }
         j = i;
         if (contextId != null)
         {
-            j = i + koh.b(21, contextId);
+            j = i + kwk.b(21, contextId);
         }
         i = j;
         if (shouldMuteVideo != null)
         {
             shouldMuteVideo.booleanValue();
-            i = j + (koh.f(22) + 1);
+            i = j + (kwk.f(22) + 1);
         }
         j = i;
         if (externalUserId != null)
         {
-            j = i + koh.b(23, externalUserId);
+            j = i + kwk.b(23, externalUserId);
         }
         i = j;
         if (conversationId != null)
         {
-            i = j + koh.b(24, conversationId);
+            i = j + kwk.b(24, conversationId);
         }
         j = i;
         if (squareId != null)
         {
-            j = i + koh.b(25, squareId);
+            j = i + kwk.b(25, squareId);
         }
         i = j;
         if (invitedOid != null)
         {
-            i = j + koh.b(26, invitedOid);
+            i = j + kwk.b(26, invitedOid);
         }
         l = i;
         if (widgetPublisherId != null)
         {
-            l = i + koh.b(27, widgetPublisherId);
+            l = i + kwk.b(27, widgetPublisherId);
         }
         j = l;
         if (shouldHideInviteButton != null)
         {
             shouldHideInviteButton.booleanValue();
-            j = l + (koh.f(28) + 1);
+            j = l + (kwk.f(28) + 1);
         }
         i = j;
         if (startOption != null)
@@ -749,7 +749,7 @@ _L7:
                 l = 0;
                 for (; i < startOption.length; i++)
                 {
-                    l += koh.e(startOption[i]);
+                    l += kwk.e(startOption[i]);
                 }
 
                 i = j + l + startOption.length * 2;
@@ -773,7 +773,7 @@ _L7:
                     if (s1 != null)
                     {
                         k2 = k1 + 1;
-                        k3 = l + koh.a(s1);
+                        k3 = l + kwk.a(s1);
                     }
                     j++;
                     l = k3;
@@ -785,17 +785,17 @@ _L7:
         i = j;
         if (numCircles != null)
         {
-            i = j + koh.e(31, numCircles.longValue());
+            i = j + kwk.e(31, numCircles.longValue());
         }
         j = i;
         if (externalEventId != null)
         {
-            j = i + koh.b(32, externalEventId);
+            j = i + kwk.b(32, externalEventId);
         }
         i = j;
         if (gatewayAppId != null)
         {
-            i = j + koh.b(33, gatewayAppId);
+            i = j + kwk.b(33, gatewayAppId);
         }
         j = i;
         if (roomAppId != null)
@@ -815,7 +815,7 @@ _L7:
                     if (s2 != null)
                     {
                         l2 = l1 + 1;
-                        l3 = l + koh.a(s2);
+                        l3 = l + kwk.a(s2);
                     }
                     j++;
                     l = l3;
@@ -827,18 +827,18 @@ _L7:
         i = j;
         if (mediaType != null)
         {
-            i = j + koh.e(35, mediaType.intValue());
+            i = j + kwk.e(35, mediaType.intValue());
         }
         j = i;
         if (appIntegrationId != null)
         {
-            j = i + koh.b(36, appIntegrationId);
+            j = i + kwk.b(36, appIntegrationId);
         }
         i = j;
         if (shouldAutoJoin != null)
         {
             shouldAutoJoin.booleanValue();
-            i = j + (koh.f(37) + 1);
+            i = j + (kwk.f(37) + 1);
         }
         j = i;
         if (tag != null)
@@ -858,7 +858,7 @@ _L7:
                     if (s3 != null)
                     {
                         i3 = i2 + 1;
-                        i4 = l + koh.a(s3);
+                        i4 = l + kwk.a(s3);
                     }
                     j++;
                     l = i4;
@@ -870,12 +870,12 @@ _L7:
         l = j;
         if (encodedCalendarId != null)
         {
-            l = j + koh.b(39, encodedCalendarId);
+            l = j + kwk.b(39, encodedCalendarId);
         }
         i = l;
         if (xsrfToken != null)
         {
-            i = l + koh.b(40, xsrfToken);
+            i = l + kwk.b(40, xsrfToken);
         }
         j = i;
         if (initialApp != null)
@@ -895,7 +895,7 @@ _L7:
                     j = i;
                     if (initialappdata != null)
                     {
-                        j = i + koh.d(41, initialappdata);
+                        j = i + kwk.d(41, initialappdata);
                     }
                     i1++;
                     i = j;
@@ -905,84 +905,84 @@ _L7:
         i = j;
         if (participantLogId != null)
         {
-            i = j + koh.b(42, participantLogId);
+            i = j + kwk.b(42, participantLogId);
         }
         j = i;
         if (shouldMuteAudio != null)
         {
             shouldMuteAudio.booleanValue();
-            j = i + (koh.f(43) + 1);
+            j = i + (kwk.f(43) + 1);
         }
         i = j;
         if (sharingId != null)
         {
-            i = j + koh.b(44, sharingId);
+            i = j + kwk.b(44, sharingId);
         }
         return i;
     }
 
-    public sharingId mergeFrom(kog kog1)
+    public sharingId mergeFrom(kwj kwj1)
     {
 _L48:
-        int i = kog1.a();
+        int i = kwj1.a();
         i;
         JVM INSTR lookupswitch 46: default 388
     //                   0: 398
     //                   10: 400
     //                   16: 411
-    //                   26: 471
-    //                   34: 482
-    //                   42: 493
-    //                   50: 504
-    //                   58: 613
-    //                   66: 624
-    //                   74: 635
-    //                   80: 646
-    //                   88: 660
-    //                   96: 674
-    //                   106: 1195
-    //                   112: 1224
-    //                   122: 1238
-    //                   130: 1249
-    //                   136: 1278
-    //                   146: 1327
-    //                   154: 1356
-    //                   160: 1488
-    //                   170: 1502
-    //                   176: 1513
-    //                   186: 1527
-    //                   194: 1538
-    //                   202: 1549
-    //                   210: 1560
-    //                   218: 1571
-    //                   224: 1582
-    //                   232: 1596
-    //                   234: 1780
-    //                   242: 1978
-    //                   248: 2088
-    //                   258: 2102
-    //                   266: 2113
-    //                   274: 2124
-    //                   280: 2234
-    //                   290: 2279
-    //                   296: 2290
-    //                   306: 2304
-    //                   314: 2414
-    //                   322: 2425
-    //                   330: 2436
-    //                   338: 2568
-    //                   344: 2579
-    //                   354: 2593;
+    //                   26: 475
+    //                   34: 486
+    //                   42: 497
+    //                   50: 508
+    //                   58: 617
+    //                   66: 628
+    //                   74: 639
+    //                   80: 650
+    //                   88: 664
+    //                   96: 678
+    //                   106: 1199
+    //                   112: 1228
+    //                   122: 1242
+    //                   130: 1253
+    //                   136: 1282
+    //                   146: 1331
+    //                   154: 1360
+    //                   160: 1492
+    //                   170: 1506
+    //                   176: 1517
+    //                   186: 1531
+    //                   194: 1542
+    //                   202: 1553
+    //                   210: 1564
+    //                   218: 1575
+    //                   224: 1586
+    //                   232: 1600
+    //                   234: 1784
+    //                   242: 1982
+    //                   248: 2092
+    //                   258: 2106
+    //                   266: 2117
+    //                   274: 2128
+    //                   280: 2238
+    //                   290: 2283
+    //                   296: 2294
+    //                   306: 2308
+    //                   314: 2418
+    //                   322: 2429
+    //                   330: 2440
+    //                   338: 2572
+    //                   344: 2583
+    //                   354: 2597;
            goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L13 _L14 _L15 _L16 _L17 _L18 _L19 _L20 _L21 _L22 _L23 _L24 _L25 _L26 _L27 _L28 _L29 _L30 _L31 _L32 _L33 _L34 _L35 _L36 _L37 _L38 _L39 _L40 _L41 _L42 _L43 _L44 _L45 _L46 _L47
 _L1:
-        if (super.storeUnknownField(kog1, i)) goto _L48; else goto _L2
+        if (super.storeUnknownField(kwj1, i)) goto _L48; else goto _L2
 _L2:
         return this;
 _L3:
-        hangoutId = kog1.j();
+        hangoutId = kwj1.j();
           goto _L48
 _L4:
-        i = kog1.f();
+        i = kwj1.f();
         switch (i)
         {
         case 0: // '\0'
@@ -991,21 +991,22 @@ _L4:
         case 3: // '\003'
         case 4: // '\004'
         case 5: // '\005'
+        case 6: // '\006'
             hangoutType = Integer.valueOf(i);
             break;
         }
         continue; /* Loop/switch isn't completed */
 _L5:
-        topic = kog1.j();
+        topic = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L6:
-        referringUrl = kog1.j();
+        referringUrl = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L7:
-        circleId = kog1.j();
+        circleId = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L8:
-        int k1 = kou.b(kog1, 50);
+        int k1 = kwx.a(kwj1, 50);
         String as[];
         if (profileId == null)
         {
@@ -1023,30 +1024,30 @@ _L8:
         }
         for (; k1 < as.length - 1; k1++)
         {
-            as[k1] = kog1.j();
-            kog1.a();
+            as[k1] = kwj1.j();
+            kwj1.a();
         }
 
-        as[k1] = kog1.j();
+        as[k1] = kwj1.j();
         profileId = as;
         continue; /* Loop/switch isn't completed */
 _L9:
-        activityId = kog1.j();
+        activityId = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L10:
-        appId = kog1.j();
+        appId = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L11:
-        appData = kog1.j();
+        appData = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L12:
-        flippy = Boolean.valueOf(kog1.i());
+        flippy = Boolean.valueOf(kwj1.i());
         continue; /* Loop/switch isn't completed */
 _L13:
-        dEPRECATEDCallback = Boolean.valueOf(kog1.i());
+        dEPRECATEDCallback = Boolean.valueOf(kwj1.i());
         continue; /* Loop/switch isn't completed */
 _L14:
-        i = kog1.f();
+        i = kwj1.f();
         switch (i)
         {
         case 0: // '\0'
@@ -1175,7 +1176,7 @@ _L14:
         }
         continue; /* Loop/switch isn't completed */
 _L15:
-        class Invitation extends koj
+        class Invitation extends kwm
         {
 
             private static volatile Invitation _emptyArray[];
@@ -1194,7 +1195,7 @@ _L15:
             {
                 if (_emptyArray == null)
                 {
-                    synchronized (kon.a)
+                    synchronized (kwq.a)
                     {
                         if (_emptyArray == null)
                         {
@@ -1209,14 +1210,14 @@ _L15:
                 throw exception;
             }
 
-            public static Invitation parseFrom(kog kog2)
+            public static Invitation parseFrom(kwj kwj2)
             {
-                return (new Invitation()).mergeFrom(kog2);
+                return (new Invitation()).mergeFrom(kwj2);
             }
 
             public static Invitation parseFrom(byte abyte0[])
             {
-                return (Invitation)kop.mergeFrom(new Invitation(), abyte0);
+                return (Invitation)kws.mergeFrom(new Invitation(), abyte0);
             }
 
             public Invitation clear()
@@ -1238,58 +1239,58 @@ _L15:
 
             protected int computeSerializedSize()
             {
-                int k4 = super.computeSerializedSize() + koh.e(1, timestamp.longValue()) + koh.b(2, inviterGaiaId);
+                int k4 = super.computeSerializedSize() + kwk.e(1, timestamp.longValue()) + kwk.b(2, inviterGaiaId);
                 int j4 = k4;
                 if (invitationType != null)
                 {
-                    j4 = k4 + koh.e(3, invitationType.intValue());
+                    j4 = k4 + kwk.e(3, invitationType.intValue());
                 }
                 k4 = j4;
                 if (inviterProfileName != null)
                 {
-                    k4 = j4 + koh.b(4, inviterProfileName);
+                    k4 = j4 + kwk.b(4, inviterProfileName);
                 }
                 j4 = k4;
                 if (shouldAutoAccept != null)
                 {
                     shouldAutoAccept.booleanValue();
-                    j4 = k4 + (koh.f(5) + 1);
+                    j4 = k4 + (kwk.f(5) + 1);
                 }
                 k4 = j4;
                 if (phoneNumber != null)
                 {
-                    k4 = j4 + koh.b(6, phoneNumber);
+                    k4 = j4 + kwk.b(6, phoneNumber);
                 }
                 j4 = k4;
                 if (inviterPhoneNumber != null)
                 {
-                    j4 = k4 + koh.b(7, inviterPhoneNumber);
+                    j4 = k4 + kwk.b(7, inviterPhoneNumber);
                 }
                 k4 = j4;
                 if (isInviterPstnParticipant != null)
                 {
                     isInviterPstnParticipant.booleanValue();
-                    k4 = j4 + (koh.f(8) + 1);
+                    k4 = j4 + (kwk.f(8) + 1);
                 }
                 j4 = k4;
                 if (isGroupInvitation != null)
                 {
                     isGroupInvitation.booleanValue();
-                    j4 = k4 + (koh.f(9) + 1);
+                    j4 = k4 + (kwk.f(9) + 1);
                 }
                 k4 = j4;
                 if (isInviterTrusted != null)
                 {
                     isInviterTrusted.booleanValue();
-                    k4 = j4 + (koh.f(10) + 1);
+                    k4 = j4 + (kwk.f(10) + 1);
                 }
                 return k4;
             }
 
-            public Invitation mergeFrom(kog kog2)
+            public Invitation mergeFrom(kwj kwj2)
             {
 _L13:
-                int j4 = kog2.a();
+                int j4 = kwj2.a();
                 j4;
                 JVM INSTR lookupswitch 11: default 104
             //                           0: 113
@@ -1305,17 +1306,17 @@ _L13:
             //                           80: 261;
                    goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12
 _L1:
-                if (super.storeUnknownField(kog2, j4)) goto _L13; else goto _L2
+                if (super.storeUnknownField(kwj2, j4)) goto _L13; else goto _L2
 _L2:
                 return this;
 _L3:
-                timestamp = Long.valueOf(kog2.e());
+                timestamp = Long.valueOf(kwj2.e());
                   goto _L13
 _L4:
-                inviterGaiaId = kog2.j();
+                inviterGaiaId = kwj2.j();
                   goto _L13
 _L5:
-                int k4 = kog2.f();
+                int k4 = kwj2.f();
                 switch (k4)
                 {
                 case 0: // '\0'
@@ -1326,71 +1327,71 @@ _L5:
                 }
                 continue; /* Loop/switch isn't completed */
 _L6:
-                inviterProfileName = kog2.j();
+                inviterProfileName = kwj2.j();
                 continue; /* Loop/switch isn't completed */
 _L7:
-                shouldAutoAccept = Boolean.valueOf(kog2.i());
+                shouldAutoAccept = Boolean.valueOf(kwj2.i());
                 continue; /* Loop/switch isn't completed */
 _L8:
-                phoneNumber = kog2.j();
+                phoneNumber = kwj2.j();
                 continue; /* Loop/switch isn't completed */
 _L9:
-                inviterPhoneNumber = kog2.j();
+                inviterPhoneNumber = kwj2.j();
                 continue; /* Loop/switch isn't completed */
 _L10:
-                isInviterPstnParticipant = Boolean.valueOf(kog2.i());
+                isInviterPstnParticipant = Boolean.valueOf(kwj2.i());
                 continue; /* Loop/switch isn't completed */
 _L11:
-                isGroupInvitation = Boolean.valueOf(kog2.i());
+                isGroupInvitation = Boolean.valueOf(kwj2.i());
                 continue; /* Loop/switch isn't completed */
 _L12:
-                isInviterTrusted = Boolean.valueOf(kog2.i());
+                isInviterTrusted = Boolean.valueOf(kwj2.i());
                 if (true) goto _L13; else goto _L14
 _L14:
             }
 
-            public volatile kop mergeFrom(kog kog2)
+            public volatile kws mergeFrom(kwj kwj2)
             {
-                return mergeFrom(kog2);
+                return mergeFrom(kwj2);
             }
 
-            public void writeTo(koh koh1)
+            public void writeTo(kwk kwk1)
             {
-                koh1.b(1, timestamp.longValue());
-                koh1.a(2, inviterGaiaId);
+                kwk1.b(1, timestamp.longValue());
+                kwk1.a(2, inviterGaiaId);
                 if (invitationType != null)
                 {
-                    koh1.a(3, invitationType.intValue());
+                    kwk1.a(3, invitationType.intValue());
                 }
                 if (inviterProfileName != null)
                 {
-                    koh1.a(4, inviterProfileName);
+                    kwk1.a(4, inviterProfileName);
                 }
                 if (shouldAutoAccept != null)
                 {
-                    koh1.a(5, shouldAutoAccept.booleanValue());
+                    kwk1.a(5, shouldAutoAccept.booleanValue());
                 }
                 if (phoneNumber != null)
                 {
-                    koh1.a(6, phoneNumber);
+                    kwk1.a(6, phoneNumber);
                 }
                 if (inviterPhoneNumber != null)
                 {
-                    koh1.a(7, inviterPhoneNumber);
+                    kwk1.a(7, inviterPhoneNumber);
                 }
                 if (isInviterPstnParticipant != null)
                 {
-                    koh1.a(8, isInviterPstnParticipant.booleanValue());
+                    kwk1.a(8, isInviterPstnParticipant.booleanValue());
                 }
                 if (isGroupInvitation != null)
                 {
-                    koh1.a(9, isGroupInvitation.booleanValue());
+                    kwk1.a(9, isGroupInvitation.booleanValue());
                 }
                 if (isInviterTrusted != null)
                 {
-                    koh1.a(10, isInviterTrusted.booleanValue());
+                    kwk1.a(10, isInviterTrusted.booleanValue());
                 }
-                super.writeTo(koh1);
+                super.writeTo(kwk1);
             }
 
             public Invitation()
@@ -1403,16 +1404,16 @@ _L14:
         {
             invitation = new Invitation();
         }
-        kog1.a(invitation);
+        kwj1.a(invitation);
         continue; /* Loop/switch isn't completed */
 _L16:
-        create = Boolean.valueOf(kog1.i());
+        create = Boolean.valueOf(kwj1.i());
         continue; /* Loop/switch isn't completed */
 _L17:
-        nick = kog1.j();
+        nick = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L18:
-        class LatencyMarks extends koj
+        class LatencyMarks extends kwm
         {
 
             private static volatile LatencyMarks _emptyArray[];
@@ -1425,7 +1426,7 @@ _L18:
             {
                 if (_emptyArray == null)
                 {
-                    synchronized (kon.a)
+                    synchronized (kwq.a)
                     {
                         if (_emptyArray == null)
                         {
@@ -1440,14 +1441,14 @@ _L18:
                 throw exception;
             }
 
-            public static LatencyMarks parseFrom(kog kog2)
+            public static LatencyMarks parseFrom(kwj kwj2)
             {
-                return (new LatencyMarks()).mergeFrom(kog2);
+                return (new LatencyMarks()).mergeFrom(kwj2);
             }
 
             public static LatencyMarks parseFrom(byte abyte0[])
             {
-                return (LatencyMarks)kop.mergeFrom(new LatencyMarks(), abyte0);
+                return (LatencyMarks)kws.mergeFrom(new LatencyMarks(), abyte0);
             }
 
             public LatencyMarks clear()
@@ -1467,35 +1468,35 @@ _L18:
                 int j4 = k4;
                 if (clientLaunch != null)
                 {
-                    j4 = k4 + koh.e(1, clientLaunch.longValue());
+                    j4 = k4 + kwk.e(1, clientLaunch.longValue());
                 }
                 k4 = j4;
                 if (serverCreateRoomStart != null)
                 {
-                    k4 = j4 + koh.e(2, serverCreateRoomStart.longValue());
+                    k4 = j4 + kwk.e(2, serverCreateRoomStart.longValue());
                 }
                 j4 = k4;
                 if (serverCreateRoomEnd != null)
                 {
-                    j4 = k4 + koh.e(3, serverCreateRoomEnd.longValue());
+                    j4 = k4 + kwk.e(3, serverCreateRoomEnd.longValue());
                 }
                 k4 = j4;
                 if (serverCreateRedirectEnd != null)
                 {
-                    k4 = j4 + koh.e(4, serverCreateRedirectEnd.longValue());
+                    k4 = j4 + kwk.e(4, serverCreateRedirectEnd.longValue());
                 }
                 return k4;
             }
 
-            public LatencyMarks mergeFrom(kog kog2)
+            public LatencyMarks mergeFrom(kwj kwj2)
             {
                 do
                 {
-                    int j4 = kog2.a();
+                    int j4 = kwj2.a();
                     switch (j4)
                     {
                     default:
-                        if (super.storeUnknownField(kog2, j4))
+                        if (super.storeUnknownField(kwj2, j4))
                         {
                             continue;
                         }
@@ -1505,48 +1506,48 @@ _L18:
                         return this;
 
                     case 8: // '\b'
-                        clientLaunch = Long.valueOf(kog2.e());
+                        clientLaunch = Long.valueOf(kwj2.e());
                         break;
 
                     case 16: // '\020'
-                        serverCreateRoomStart = Long.valueOf(kog2.e());
+                        serverCreateRoomStart = Long.valueOf(kwj2.e());
                         break;
 
                     case 24: // '\030'
-                        serverCreateRoomEnd = Long.valueOf(kog2.e());
+                        serverCreateRoomEnd = Long.valueOf(kwj2.e());
                         break;
 
                     case 32: // ' '
-                        serverCreateRedirectEnd = Long.valueOf(kog2.e());
+                        serverCreateRedirectEnd = Long.valueOf(kwj2.e());
                         break;
                     }
                 } while (true);
             }
 
-            public volatile kop mergeFrom(kog kog2)
+            public volatile kws mergeFrom(kwj kwj2)
             {
-                return mergeFrom(kog2);
+                return mergeFrom(kwj2);
             }
 
-            public void writeTo(koh koh1)
+            public void writeTo(kwk kwk1)
             {
                 if (clientLaunch != null)
                 {
-                    koh1.b(1, clientLaunch.longValue());
+                    kwk1.b(1, clientLaunch.longValue());
                 }
                 if (serverCreateRoomStart != null)
                 {
-                    koh1.b(2, serverCreateRoomStart.longValue());
+                    kwk1.b(2, serverCreateRoomStart.longValue());
                 }
                 if (serverCreateRoomEnd != null)
                 {
-                    koh1.b(3, serverCreateRoomEnd.longValue());
+                    kwk1.b(3, serverCreateRoomEnd.longValue());
                 }
                 if (serverCreateRedirectEnd != null)
                 {
-                    koh1.b(4, serverCreateRedirectEnd.longValue());
+                    kwk1.b(4, serverCreateRedirectEnd.longValue());
                 }
-                super.writeTo(koh1);
+                super.writeTo(kwk1);
             }
 
             public LatencyMarks()
@@ -1559,10 +1560,10 @@ _L18:
         {
             latencyMarks = new LatencyMarks();
         }
-        kog1.a(latencyMarks);
+        kwj1.a(latencyMarks);
         continue; /* Loop/switch isn't completed */
 _L19:
-        i = kog1.f();
+        i = kwj1.f();
         switch (i)
         {
         case 0: // '\0'
@@ -1577,10 +1578,10 @@ _L20:
         {
             externalKey = new nit>();
         }
-        kog1.a(externalKey);
+        kwj1.a(externalKey);
         continue; /* Loop/switch isn't completed */
 _L21:
-        int l1 = kou.b(kog1, 154);
+        int l1 = kwx.a(kwj1, 154);
         Invitee ainvitee[];
         if (invitee == null)
         {
@@ -1599,46 +1600,46 @@ _L21:
         for (; l1 < ainvitee.length - 1; l1++)
         {
             ainvitee[l1] = new Invitee();
-            kog1.a(ainvitee[l1]);
-            kog1.a();
+            kwj1.a(ainvitee[l1]);
+            kwj1.a();
         }
 
         ainvitee[l1] = new Invitee();
-        kog1.a(ainvitee[l1]);
+        kwj1.a(ainvitee[l1]);
         invitee = ainvitee;
         continue; /* Loop/switch isn't completed */
 _L22:
-        shouldAutoInvite = Boolean.valueOf(kog1.i());
+        shouldAutoInvite = Boolean.valueOf(kwj1.i());
         continue; /* Loop/switch isn't completed */
 _L23:
-        contextId = kog1.j();
+        contextId = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L24:
-        shouldMuteVideo = Boolean.valueOf(kog1.i());
+        shouldMuteVideo = Boolean.valueOf(kwj1.i());
         continue; /* Loop/switch isn't completed */
 _L25:
-        externalUserId = kog1.j();
+        externalUserId = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L26:
-        conversationId = kog1.j();
+        conversationId = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L27:
-        squareId = kog1.j();
+        squareId = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L28:
-        invitedOid = kog1.j();
+        invitedOid = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L29:
-        widgetPublisherId = kog1.j();
+        widgetPublisherId = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L30:
-        shouldHideInviteButton = Boolean.valueOf(kog1.i());
+        shouldHideInviteButton = Boolean.valueOf(kwj1.i());
         continue; /* Loop/switch isn't completed */
 _L31:
         int ai[];
         int i2;
         int l3;
-        l3 = kou.b(kog1, 232);
+        l3 = kwx.a(kwj1, 232);
         ai = new int[l3];
         i2 = 0;
         i = 0;
@@ -1648,13 +1649,13 @@ _L49:
         int i4;
         if (i2 != 0)
         {
-            kog1.a();
+            kwj1.a();
         }
-        i4 = kog1.f();
+        i4 = kwj1.f();
         i4;
-        JVM INSTR tableswitch 0 1: default 1664
-    //                   0 1673
-    //                   1 1673;
+        JVM INSTR tableswitch 0 1: default 1668
+    //                   0 1677
+    //                   1 1677;
            goto _L51 _L52 _L52
 _L51:
         i2++;
@@ -1693,13 +1694,13 @@ _L50:
 _L53:
 _L32:
         int k3;
-        k3 = kog1.c(kog1.p());
-        i = kog1.r();
+        k3 = kwj1.c(kwj1.p());
+        i = kwj1.r();
         i2 = 0;
 _L60:
-        if (kog1.q() > 0)
+        if (kwj1.q() > 0)
         {
-            switch (kog1.f())
+            switch (kwj1.f())
             {
             case 0: // '\0'
             case 1: // '\001'
@@ -1710,7 +1711,7 @@ _L60:
         }
         if (i2 == 0) goto _L56; else goto _L55
 _L55:
-        kog1.e(i);
+        kwj1.e(i);
         if (startOption == null)
         {
             i = 0;
@@ -1726,9 +1727,9 @@ _L55:
             i2 = i;
         }
 _L58:
-        if (kog1.q() > 0)
+        if (kwj1.q() > 0)
         {
-            i = kog1.f();
+            i = kwj1.f();
             switch (i)
             {
             case 0: // '\0'
@@ -1741,14 +1742,14 @@ _L58:
         }
         startOption = ai;
 _L56:
-        kog1.d(k3);
+        kwj1.d(k3);
         continue; /* Loop/switch isn't completed */
         if (true) goto _L58; else goto _L57
 _L57:
         if (true) goto _L60; else goto _L59
 _L59:
 _L33:
-        int j2 = kou.b(kog1, 242);
+        int j2 = kwx.a(kwj1, 242);
         String as1[];
         int j;
         if (currentOccupantAvatar == null)
@@ -1767,24 +1768,24 @@ _L33:
         }
         for (; j2 < as1.length - 1; j2++)
         {
-            as1[j2] = kog1.j();
-            kog1.a();
+            as1[j2] = kwj1.j();
+            kwj1.a();
         }
 
-        as1[j2] = kog1.j();
+        as1[j2] = kwj1.j();
         currentOccupantAvatar = as1;
         continue; /* Loop/switch isn't completed */
 _L34:
-        numCircles = Long.valueOf(kog1.e());
+        numCircles = Long.valueOf(kwj1.e());
         continue; /* Loop/switch isn't completed */
 _L35:
-        externalEventId = kog1.j();
+        externalEventId = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L36:
-        gatewayAppId = kog1.j();
+        gatewayAppId = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L37:
-        int k2 = kou.b(kog1, 274);
+        int k2 = kwx.a(kwj1, 274);
         String as2[];
         int k;
         if (roomAppId == null)
@@ -1803,15 +1804,15 @@ _L37:
         }
         for (; k2 < as2.length - 1; k2++)
         {
-            as2[k2] = kog1.j();
-            kog1.a();
+            as2[k2] = kwj1.j();
+            kwj1.a();
         }
 
-        as2[k2] = kog1.j();
+        as2[k2] = kwj1.j();
         roomAppId = as2;
         continue; /* Loop/switch isn't completed */
 _L38:
-        int l = kog1.f();
+        int l = kwj1.f();
         switch (l)
         {
         case 1: // '\001'
@@ -1821,13 +1822,13 @@ _L38:
         }
         continue; /* Loop/switch isn't completed */
 _L39:
-        appIntegrationId = kog1.j();
+        appIntegrationId = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L40:
-        shouldAutoJoin = Boolean.valueOf(kog1.i());
+        shouldAutoJoin = Boolean.valueOf(kwj1.i());
         continue; /* Loop/switch isn't completed */
 _L41:
-        int l2 = kou.b(kog1, 306);
+        int l2 = kwx.a(kwj1, 306);
         String as3[];
         int i1;
         if (tag == null)
@@ -1846,21 +1847,21 @@ _L41:
         }
         for (; l2 < as3.length - 1; l2++)
         {
-            as3[l2] = kog1.j();
-            kog1.a();
+            as3[l2] = kwj1.j();
+            kwj1.a();
         }
 
-        as3[l2] = kog1.j();
+        as3[l2] = kwj1.j();
         tag = as3;
         continue; /* Loop/switch isn't completed */
 _L42:
-        encodedCalendarId = kog1.j();
+        encodedCalendarId = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L43:
-        xsrfToken = kog1.j();
+        xsrfToken = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L44:
-        int i3 = kou.b(kog1, 330);
+        int i3 = kwx.a(kwj1, 330);
         InitialAppData ainitialappdata[];
         int j1;
         if (initialApp == null)
@@ -1880,47 +1881,47 @@ _L44:
         for (; i3 < ainitialappdata.length - 1; i3++)
         {
             ainitialappdata[i3] = new InitialAppData();
-            kog1.a(ainitialappdata[i3]);
-            kog1.a();
+            kwj1.a(ainitialappdata[i3]);
+            kwj1.a();
         }
 
         ainitialappdata[i3] = new InitialAppData();
-        kog1.a(ainitialappdata[i3]);
+        kwj1.a(ainitialappdata[i3]);
         initialApp = ainitialappdata;
         continue; /* Loop/switch isn't completed */
 _L45:
-        participantLogId = kog1.j();
+        participantLogId = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L46:
-        shouldMuteAudio = Boolean.valueOf(kog1.i());
+        shouldMuteAudio = Boolean.valueOf(kwj1.i());
         continue; /* Loop/switch isn't completed */
 _L47:
-        sharingId = kog1.j();
+        sharingId = kwj1.j();
         if (true) goto _L48; else goto _L61
 _L61:
     }
 
-    public volatile kop mergeFrom(kog kog1)
+    public volatile kws mergeFrom(kwj kwj1)
     {
-        return mergeFrom(kog1);
+        return mergeFrom(kwj1);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         boolean flag = false;
-        koh1.a(1, hangoutId);
-        koh1.a(2, hangoutType.intValue());
+        kwk1.a(1, hangoutId);
+        kwk1.a(2, hangoutType.intValue());
         if (topic != null)
         {
-            koh1.a(3, topic);
+            kwk1.a(3, topic);
         }
         if (referringUrl != null)
         {
-            koh1.a(4, referringUrl);
+            kwk1.a(4, referringUrl);
         }
         if (circleId != null)
         {
-            koh1.a(5, circleId);
+            kwk1.a(5, circleId);
         }
         if (profileId != null && profileId.length > 0)
         {
@@ -1929,58 +1930,58 @@ _L61:
                 String s = profileId[i];
                 if (s != null)
                 {
-                    koh1.a(6, s);
+                    kwk1.a(6, s);
                 }
             }
 
         }
         if (activityId != null)
         {
-            koh1.a(7, activityId);
+            kwk1.a(7, activityId);
         }
         if (appId != null)
         {
-            koh1.a(8, appId);
+            kwk1.a(8, appId);
         }
         if (appData != null)
         {
-            koh1.a(9, appData);
+            kwk1.a(9, appData);
         }
         if (flippy != null)
         {
-            koh1.a(10, flippy.booleanValue());
+            kwk1.a(10, flippy.booleanValue());
         }
         if (dEPRECATEDCallback != null)
         {
-            koh1.a(11, dEPRECATEDCallback.booleanValue());
+            kwk1.a(11, dEPRECATEDCallback.booleanValue());
         }
         if (source != null)
         {
-            koh1.a(12, source.intValue());
+            kwk1.a(12, source.intValue());
         }
         if (invitation != null)
         {
-            koh1.b(13, invitation);
+            kwk1.b(13, invitation);
         }
         if (create != null)
         {
-            koh1.a(14, create.booleanValue());
+            kwk1.a(14, create.booleanValue());
         }
         if (nick != null)
         {
-            koh1.a(15, nick);
+            kwk1.a(15, nick);
         }
         if (latencyMarks != null)
         {
-            koh1.b(16, latencyMarks);
+            kwk1.b(16, latencyMarks);
         }
         if (callback != null)
         {
-            koh1.a(17, callback.intValue());
+            kwk1.a(17, callback.intValue());
         }
         if (externalKey != null)
         {
-            koh1.b(18, externalKey);
+            kwk1.b(18, externalKey);
         }
         if (invitee != null && invitee.length > 0)
         {
@@ -1989,52 +1990,52 @@ _L61:
                 Invitee invitee1 = invitee[j];
                 if (invitee1 != null)
                 {
-                    koh1.b(19, invitee1);
+                    kwk1.b(19, invitee1);
                 }
             }
 
         }
         if (shouldAutoInvite != null)
         {
-            koh1.a(20, shouldAutoInvite.booleanValue());
+            kwk1.a(20, shouldAutoInvite.booleanValue());
         }
         if (contextId != null)
         {
-            koh1.a(21, contextId);
+            kwk1.a(21, contextId);
         }
         if (shouldMuteVideo != null)
         {
-            koh1.a(22, shouldMuteVideo.booleanValue());
+            kwk1.a(22, shouldMuteVideo.booleanValue());
         }
         if (externalUserId != null)
         {
-            koh1.a(23, externalUserId);
+            kwk1.a(23, externalUserId);
         }
         if (conversationId != null)
         {
-            koh1.a(24, conversationId);
+            kwk1.a(24, conversationId);
         }
         if (squareId != null)
         {
-            koh1.a(25, squareId);
+            kwk1.a(25, squareId);
         }
         if (invitedOid != null)
         {
-            koh1.a(26, invitedOid);
+            kwk1.a(26, invitedOid);
         }
         if (widgetPublisherId != null)
         {
-            koh1.a(27, widgetPublisherId);
+            kwk1.a(27, widgetPublisherId);
         }
         if (shouldHideInviteButton != null)
         {
-            koh1.a(28, shouldHideInviteButton.booleanValue());
+            kwk1.a(28, shouldHideInviteButton.booleanValue());
         }
         if (startOption != null && startOption.length > 0)
         {
             for (int k = 0; k < startOption.length; k++)
             {
-                koh1.a(29, startOption[k]);
+                kwk1.a(29, startOption[k]);
             }
 
         }
@@ -2045,22 +2046,22 @@ _L61:
                 String s1 = currentOccupantAvatar[l];
                 if (s1 != null)
                 {
-                    koh1.a(30, s1);
+                    kwk1.a(30, s1);
                 }
             }
 
         }
         if (numCircles != null)
         {
-            koh1.b(31, numCircles.longValue());
+            kwk1.b(31, numCircles.longValue());
         }
         if (externalEventId != null)
         {
-            koh1.a(32, externalEventId);
+            kwk1.a(32, externalEventId);
         }
         if (gatewayAppId != null)
         {
-            koh1.a(33, gatewayAppId);
+            kwk1.a(33, gatewayAppId);
         }
         if (roomAppId != null && roomAppId.length > 0)
         {
@@ -2069,22 +2070,22 @@ _L61:
                 String s2 = roomAppId[i1];
                 if (s2 != null)
                 {
-                    koh1.a(34, s2);
+                    kwk1.a(34, s2);
                 }
             }
 
         }
         if (mediaType != null)
         {
-            koh1.a(35, mediaType.intValue());
+            kwk1.a(35, mediaType.intValue());
         }
         if (appIntegrationId != null)
         {
-            koh1.a(36, appIntegrationId);
+            kwk1.a(36, appIntegrationId);
         }
         if (shouldAutoJoin != null)
         {
-            koh1.a(37, shouldAutoJoin.booleanValue());
+            kwk1.a(37, shouldAutoJoin.booleanValue());
         }
         if (tag != null && tag.length > 0)
         {
@@ -2093,18 +2094,18 @@ _L61:
                 String s3 = tag[j1];
                 if (s3 != null)
                 {
-                    koh1.a(38, s3);
+                    kwk1.a(38, s3);
                 }
             }
 
         }
         if (encodedCalendarId != null)
         {
-            koh1.a(39, encodedCalendarId);
+            kwk1.a(39, encodedCalendarId);
         }
         if (xsrfToken != null)
         {
-            koh1.a(40, xsrfToken);
+            kwk1.a(40, xsrfToken);
         }
         if (initialApp != null && initialApp.length > 0)
         {
@@ -2113,24 +2114,24 @@ _L61:
                 InitialAppData initialappdata = initialApp[k1];
                 if (initialappdata != null)
                 {
-                    koh1.b(41, initialappdata);
+                    kwk1.b(41, initialappdata);
                 }
             }
 
         }
         if (participantLogId != null)
         {
-            koh1.a(42, participantLogId);
+            kwk1.a(42, participantLogId);
         }
         if (shouldMuteAudio != null)
         {
-            koh1.a(43, shouldMuteAudio.booleanValue());
+            kwk1.a(43, shouldMuteAudio.booleanValue());
         }
         if (sharingId != null)
         {
-            koh1.a(44, sharingId);
+            kwk1.a(44, sharingId);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 
     public LatencyMarks()

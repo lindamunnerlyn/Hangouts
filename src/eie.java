@@ -2,27 +2,13 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
 
-public class eie extends eib
+public interface eie
 {
 
-    private final Intent a;
+    public abstract void a();
 
-    public eie(String s, Intent intent)
-    {
-        super(s);
-        a = intent;
-    }
+    public abstract void b();
 
-    public Intent b()
-    {
-        if (a == null)
-        {
-            return null;
-        } else
-        {
-            return new Intent(a);
-        }
-    }
+    public abstract boolean c();
 }

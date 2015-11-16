@@ -2,51 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
 
-public class crj
+public final class crj extends dgj
 {
 
-    private List a;
+    private final String a;
+    private final String e;
+    private final boolean f;
 
-    public crj()
+    public crj(aoa aoa, String s, String s1, boolean flag)
     {
+        super(aoa);
+        a = s;
+        e = s1;
+        f = flag;
     }
 
-    public int a()
+    public void a()
     {
-        return a.size();
-    }
-
-    public cra a(int i)
-    {
-        return (cra)a.get(i);
-    }
-
-    public void a(Context context)
-    {
-        a = hgx.c(context, cqv);
-        Iterator iterator = a.iterator();
-        do
-        {
-            if (!iterator.hasNext())
-            {
-                break;
-            }
-            if (!((cra)iterator.next()).a(context))
-            {
-                iterator.remove();
-            }
-        } while (true);
-        Collections.sort(a);
-    }
-
-    public boolean b(int i)
-    {
-        a.get(i);
-        return false;
+        a(((dmf) (new cwf(a, e, f))));
     }
 }

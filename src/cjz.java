@@ -2,40 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
-import com.google.android.apps.hangouts.fragments.BabelPhotoViewFragment;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
+import com.google.android.apps.hangouts.phone.ApnEditorActivity;
 
-public final class cjz extends abd
+public final class cjz extends AsyncTask
 {
 
-    final boolean j = false;
+    final ApnEditorActivity a;
 
-    public cjz(Context context, ap ap, Cursor cursor, float f)
+    public cjz(ApnEditorActivity apneditoractivity)
     {
-        super(context, ap, null, f, false);
+        a = apneditoractivity;
+        super();
     }
 
-    public ad a(Cursor cursor, int i)
+    protected Object doInBackground(Object aobj[])
     {
-        Object obj = b(cursor);
-        String s = c(cursor);
-        boolean flag2 = d(cursor);
-        boolean flag1 = false;
-        boolean flag = flag1;
-        if (obj == null)
+        if (ApnEditorActivity.a(a) != null)
         {
-            flag = flag1;
-            if (flag2)
-            {
-                flag = true;
-            }
+            aobj = ApnEditorActivity.a(a);
+            ApnEditorActivity.a(a, ApnEditorActivity.b(a).query("apn", ApnEditorActivity.a(), "_id =?", new String[] {
+                aobj
+            }, null, null, null, null));
         }
-        aah aah1 = g.a(a, abe);
-        aah1.c(((String) (obj))).d(s).a(j).a(h);
-        obj = aah1.b();
-        ((Intent) (obj)).putExtra("content_type", cursor.getString(cursor.getColumnIndex("contentType")));
-        return BabelPhotoViewFragment.b(((Intent) (obj)), i, flag);
+        return null;
+    }
+
+    protected void onPostExecute(Object obj)
+    {
+        if (ApnEditorActivity.c(a) == null)
+        {
+            a.finish();
+            return;
+        } else
+        {
+            ApnEditorActivity.c(a).moveToFirst();
+            ApnEditorActivity.d(a);
+            return;
+        }
     }
 }

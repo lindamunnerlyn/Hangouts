@@ -2,87 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.res.Resources;
-import android.os.Bundle;
-import android.text.Html;
-import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.TextView;
-import com.google.android.apps.hangouts.hangout.HangoutActivity;
-import com.google.android.apps.hangouts.hangout.HangoutFragment;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
+import android.widget.LinearLayout;
 
-public final class bqu extends hhs
-    implements android.content.DialogInterface.OnClickListener, android.widget.CompoundButton.OnCheckedChangeListener
+final class bqu extends Animation
 {
 
-    private boolean aj;
-    private Button an;
-    private CheckBox ao;
+    final android.view.ViewGroup.LayoutParams a;
+    final int b;
+    final int c;
+    final LinearLayout d;
+    final boolean e;
+    final bqo f;
 
-    public bqu()
+    bqu(bqo bqo1, android.view.ViewGroup.LayoutParams layoutparams, int i, int j, LinearLayout linearlayout, boolean flag)
     {
+        f = bqo1;
+        a = layoutparams;
+        b = i;
+        c = j;
+        d = linearlayout;
+        e = flag;
+        super();
     }
 
-    public Dialog a(Bundle bundle)
+    protected void applyTransformation(float f1, Transformation transformation)
     {
-        bundle = new android.app.AlertDialog.Builder(getActivity());
-        aj = g.a(dbf.e(((gmo)al.a(gmo)).a()), apk.d);
-        if (aj)
+        transformation = (android.widget.FrameLayout.LayoutParams)a;
+        transformation.bottomMargin = b + (int)((float)c * f1);
+        d.setLayoutParams(transformation);
+        if (e)
         {
-            bundle.setTitle(l.eB);
-            Object obj = View.inflate(getActivity(), g.gd, null);
-            bundle.setView(((View) (obj)));
-            ((TextView)((View) (obj)).findViewById(h.cL)).setText(Html.fromHtml(getResources().getString(l.eA)));
-            ao = (CheckBox)((View) (obj)).findViewById(h.cK);
-            ao.setOnCheckedChangeListener(this);
-            obj = getActivity().getResources();
-            bundle.setPositiveButton(((Resources) (obj)).getString(l.is), this);
-            bundle.setNegativeButton(((Resources) (obj)).getString(l.T), this);
+            d.setAlpha(f1);
         } else
         {
-            bundle.setTitle(l.eB);
-            bundle.setMessage(l.dh);
-            bundle.setNeutralButton(getResources().getString(l.hJ), this);
+            d.setAlpha(1.0F - f1);
         }
-        return bundle.create();
-    }
-
-    public void onCancel(DialogInterface dialoginterface)
-    {
-        ((HangoutActivity)getActivity()).p();
-    }
-
-    public void onCheckedChanged(CompoundButton compoundbutton, boolean flag)
-    {
-        an.setEnabled(flag);
-    }
-
-    public void onClick(DialogInterface dialoginterface, int i)
-    {
-        if (i == -1)
+        if (f1 == 1.0F)
         {
-            ((HangoutActivity)getActivity()).o().f();
-            return;
-        } else
-        {
-            onCancel(dialoginterface);
-            return;
-        }
-    }
-
-    public void onStart()
-    {
-        super.onStart();
-        AlertDialog alertdialog = (AlertDialog)c();
-        if (aj)
-        {
-            an = alertdialog.getButton(-1);
-            onCheckedChanged(ao, ao.isChecked());
+            bqo.b(f);
         }
     }
 }

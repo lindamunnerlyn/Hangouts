@@ -2,47 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
 final class bwx
 {
 
-    static final int a[];
+    private final ber a = (new bes()).a("http").b("Module containing code for performing cronet HTTP operations.").a(true).a();
 
-    static 
+    public bwx()
     {
-        a = new int[bwr.values().length];
-        try
-        {
-            a[bwr.d.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror5) { }
-        try
-        {
-            a[bwr.b.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror4) { }
-        try
-        {
-            a[bwr.c.ordinal()] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror3) { }
-        try
-        {
-            a[bwr.a.ordinal()] = 4;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[bwr.f.ordinal()] = 5;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[bwr.e.ordinal()] = 6;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
+    }
+
+    public gdu a(Context context)
+    {
+        return (gdu)a.a(context, new bwv());
+    }
+
+    public ber[] a()
+    {
+        return (new ber[] {
+            a
+        });
     }
 }

@@ -3,25 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class afv
-    implements Runnable
+public final class afv extends agh
 {
 
-    final String a;
-    final long b;
-    final afu c;
-
-    afv(afu afu1, String s, long l)
+    public afv()
     {
-        c = afu1;
-        a = s;
-        b = l;
-        super();
     }
 
-    public void run()
+    public afv(Throwable throwable)
     {
-        afu.b(c).a(a, b);
-        afu.b(c).a(toString());
+        super(throwable);
     }
 }

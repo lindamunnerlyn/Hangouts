@@ -2,29 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Notification;
+import com.google.android.libraries.hangouts.video.CallService;
 
-public final class get
+final class get extends gmo
 {
 
-    public final String a;
-    public final long b;
-    public final String c[][] = ges.b();
-    public final int d;
-    public final int e;
-    public final String f;
-    public final int g;
-    public final String h;
+    final ges a;
 
-    public get(String s, long l, int i, int j, String s1, int k, 
-            String s2)
+    get(ges ges1)
     {
-        gbh.a(k, 0, 2);
-        a = s;
-        b = l;
-        d = i;
-        e = j;
-        f = s1;
-        g = k;
-        h = s2;
+        a = ges1;
+        super();
+    }
+
+    public void a(int i)
+    {
+        a.a.d = null;
+        a.a.stopForeground(true);
+        if (a.a.b == 0)
+        {
+            a.a.stopSelf();
+        }
+    }
+
+    public void a(gms gms)
+    {
+        gms = a.a.d.d().a().s();
+        if (gms == null)
+        {
+            gne.a(5, "vclib", "No notification was specified for the call; service may be terminated unexpectedly.");
+            return;
+        } else
+        {
+            gms.flags = ((Notification) (gms)).flags | 2;
+            a.a.startForeground(1, gms);
+            return;
+        }
     }
 }

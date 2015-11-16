@@ -2,61 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
 
-final class jmy
-    implements jpq
+final class jmy extends jmw
 {
 
-    private final Iterator a;
-    private boolean b;
-    private Object c;
+    private final char o;
 
-    public jmy(Iterator iterator)
+    jmy(char c)
     {
-        a = (Iterator)n.b(iterator);
+        o = c;
     }
 
-    public Object a()
+    public boolean b(char c)
     {
-        if (!b)
+        return c == o;
+    }
+
+    public String toString()
+    {
+        char c = o;
+        char ac[] = new char[6];
+        char[] _tmp = ac;
+        ac[0] = '\\';
+        ac[1] = 'u';
+        ac[2] = '\0';
+        ac[3] = '\0';
+        ac[4] = '\0';
+        ac[5] = '\0';
+        for (int i = 0; i < 4; i++)
         {
-            c = a.next();
-            b = true;
+            ac[5 - i] = "0123456789ABCDEF".charAt(c & 0xf);
+            c >>= '\004';
         }
-        return c;
-    }
 
-    public boolean hasNext()
-    {
-        return b || a.hasNext();
-    }
-
-    public Object next()
-    {
-        if (!b)
-        {
-            return a.next();
-        } else
-        {
-            Object obj = c;
-            b = false;
-            c = null;
-            return obj;
-        }
-    }
-
-    public void remove()
-    {
-        boolean flag;
-        if (!b)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        n.b(flag, "Can't remove after you've peeked at next");
-        a.remove();
+        String s = String.valueOf(String.copyValueOf(ac));
+        return (new StringBuilder(String.valueOf(s).length() + 18)).append("CharMatcher.is('").append(s).append("')").toString();
     }
 }

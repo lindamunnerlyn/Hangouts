@@ -2,52 +2,79 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import android.content.Context;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 
 final class buw
-    implements android.view.View.OnClickListener, btr, btt
+    implements hma, hor, hou, hoy
 {
 
-    final buu a;
+    final ai a;
+    bvm b;
+    buf c;
+    bul d;
+    buk e;
+    private final bue f = new bux(this);
+    private final Handler g = new Handler(Looper.getMainLooper());
+    private Runnable h;
+    private boolean i;
 
-    buw(buu buu1)
+    buw(ai ai, hof hof1)
     {
-        a = buu1;
-        super();
+        a = ai;
+        hof1.a(this);
+    }
+
+    public void G_()
+    {
+        i = true;
+        c.a(f);
+        if (c.a() != null)
+        {
+            a(c.a());
+        }
     }
 
     public void a()
     {
-        a.c();
-    }
-
-    public void a(btv btv1, boolean flag)
-    {
-        a.c();
-        if (!flag)
+        i = false;
+        c.b(f);
+        c();
+        if (e != null)
         {
-            a.c.a((new buy()).a(btv1.a(a.a, a.b.c())).a().b());
+            e.b();
+            e = null;
         }
     }
 
-    public void a(jba jba)
+    public void a(Context context, hlp hlp1, Bundle bundle)
     {
+        b = (bvm)hlp1.a(bvm);
+        c = (buf)hlp1.a(buf);
     }
 
-    public void b()
+    void a(jhh jhh)
     {
+        if (jhh != null && e == null && i)
+        {
+            h = new buz(this, jhh);
+            g.postDelayed(h, 1000L);
+        }
     }
 
-    public void b(jba jba)
+    void c()
     {
-    }
-
-    public void c(jba jba)
-    {
-    }
-
-    public void onClick(View view)
-    {
-        a.a(2244);
+        if (h != null)
+        {
+            g.removeCallbacks(h);
+            h = null;
+        }
+        if (d != null)
+        {
+            d.b();
+            d = null;
+        }
     }
 }

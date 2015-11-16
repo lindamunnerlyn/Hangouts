@@ -2,30 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Cursor;
+import android.app.AlertDialog;
 
-public final class dqq
+final class dqq
+    implements hjw
 {
 
-    public static final String a[] = {
-        "address", "charset"
-    };
-    public static final int b = 0;
-    public static final int c;
-    private static int d;
+    final dqn a;
 
-    public static String a(Cursor cursor)
+    dqq(dqn dqn1)
     {
-        int i = cursor.getInt(c);
-        return g.a(g.b(cursor.getString(b), 4), i);
+        a = dqn1;
+        super();
     }
 
-    static 
+    public boolean a()
     {
-        d = 0;
-        d = 1;
-        int i = d;
-        d = i + 1;
-        c = i;
+        a.b().show();
+        return true;
     }
 }

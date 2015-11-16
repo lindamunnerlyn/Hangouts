@@ -3,11 +3,12 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iya extends koj
+public final class iya extends kwm
 {
 
-    public irg a;
-    public izi b;
+    private static volatile iya c[];
+    public Long a;
+    public Integer b;
 
     public iya()
     {
@@ -17,68 +18,82 @@ public final class iya extends koj
         cachedSize = -1;
     }
 
+    public static iya[] a()
+    {
+        if (c == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (c == null)
+                {
+                    c = new iya[0];
+                }
+            }
+        }
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
     protected int computeSerializedSize()
     {
         int j = super.computeSerializedSize();
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.d(1, a.longValue());
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.d(2, b);
+            j = i + kwk.e(2, b.intValue());
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L5:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   8: 51
+    //                   16: 65;
+           goto _L1 _L2 _L3 _L4
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
+_L2:
+        return this;
+_L3:
+        a = Long.valueOf(kwj1.d());
+          goto _L5
+_L4:
+        int j = kwj1.f();
+        switch (j)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new irg();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new izi();
-                }
-                kog1.a(b);
-                break;
-            }
-        } while (true);
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+            b = Integer.valueOf(j);
+            break;
+        }
+        if (true) goto _L5; else goto _L6
+_L6:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.a(1, a.longValue());
         }
         if (b != null)
         {
-            koh1.b(2, b);
+            kwk1.a(2, b.intValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

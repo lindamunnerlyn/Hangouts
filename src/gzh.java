@@ -2,23 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
 
-final class gzh
-    implements android.os.Parcelable.Creator
+public interface gzh
 {
 
-    gzh()
-    {
-    }
-
-    public Object createFromParcel(Parcel parcel)
-    {
-        return new gzg(parcel);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new gzg[i];
-    }
+    public abstract Object a(gzi gzi, Object obj);
 }

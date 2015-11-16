@@ -2,28 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.libraries.hangouts.video.MediaCodecSimulcastEncoder;
+import java.util.Iterator;
 import java.util.List;
 
-final class ghj
+public final class ghj
     implements Runnable
 {
 
-    final gbc a;
-    final ghi b;
+    final List a;
+    final MediaCodecSimulcastEncoder b;
 
-    ghj(ghi ghi1, gbc gbc1)
+    public ghj(MediaCodecSimulcastEncoder mediacodecsimulcastencoder, List list)
     {
-        b = ghi1;
-        a = gbc1;
+        b = mediacodecsimulcastencoder;
+        a = list;
         super();
     }
 
     public void run()
     {
-        b.c.add(a);
-        if (b.d)
-        {
-            a.a();
-        }
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((gfn)iterator.next()).b()) { }
     }
 }

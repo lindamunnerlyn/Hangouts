@@ -2,55 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.List;
 
-public final class dek extends dfa
+public final class dek extends dgj
 {
 
-    private final int a;
-    private final String d;
+    private final List a;
+    private final String e;
+    private final boolean f;
 
-    public dek(ani ani1, String s, int i)
+    public dek(aoa aoa, List list, String s, boolean flag)
     {
-        super(ani1);
-        d = s;
-        a = i;
+        super(aoa);
+        a = list;
+        e = s;
+        f = flag;
     }
 
     public void a()
     {
-        Object obj;
-        if (ebw.a("Babel", 3))
-        {
-            obj = String.valueOf(d);
-            String s;
-            int i;
-            long l;
-            if (((String) (obj)).length() != 0)
-            {
-                obj = "executeModifyOtrStatusOperation conversationId: ".concat(((String) (obj)));
-            } else
-            {
-                obj = new String("executeModifyOtrStatusOperation conversationId: ");
-            }
-            ebw.c("Babel", ((String) (obj)));
-        }
-        s = aoe.g();
-        obj = new aoe(g.nS, b.h());
-        ((aoe) (obj)).a();
-        i = ((aoe) (obj)).A(d);
-        l = ((aoe) (obj)).P(d);
-        (new djg(d, b.b(), l, -1L, s, null, a, dqb.b)).c(((aoe) (obj)));
-        ((aoe) (obj)).b();
-        ((aoe) (obj)).c();
-        if (!aoe.a(d))
-        {
-            c.a(new cuk(s, d, a, i));
-        }
-        any.d(((aoe) (obj)), d);
-        return;
-        Exception exception;
-        exception;
-        ((aoe) (obj)).c();
-        throw exception;
+        a(((dmf) (new cwh(a, e, f, false))));
     }
 }

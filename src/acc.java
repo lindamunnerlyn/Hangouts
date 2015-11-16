@@ -2,195 +2,59 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.util.Log;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import android.util.SparseArray;
 import java.io.UnsupportedEncodingException;
 
 public final class acc
-    implements Cloneable
 {
 
-    private int a;
-    private byte b[];
+    private static final int a[] = {
+        0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 
+        12, 17, 18, 38, 39, 40, 106, 113, 114, 2025, 
+        2026, 1000, 1015, 2085
+    };
+    private static final String b[] = {
+        "*", "us-ascii", "iso-8859-1", "iso-8859-2", "iso-8859-3", "iso-8859-4", "iso-8859-5", "iso-8859-6", "iso-8859-7", "iso-8859-8", 
+        "iso-8859-9", "shift_JIS", "euc-jp", "euc-kr", "iso-2022-jp", "iso-2022-jp-2", "utf-8", "gbk", "gb18030", "gb2312", 
+        "big5", "iso-10646-ucs-2", "utf-16", "hz-gb-2312"
+    };
+    private static final SparseArray c;
+    private static final hm d;
 
-    public acc(int i, String s)
+    public static int a(String s)
     {
+        s = (Integer)d.get(s);
         if (s == null)
         {
-            throw new NullPointerException("EncodedStringValue: Text-string is null");
-        }
-        a = i;
-        try
-        {
-            b = s.getBytes(aca.a(i));
-            return;
-        }
-        catch (UnsupportedEncodingException unsupportedencodingexception)
-        {
-            Log.e("EncodedStringValue", (new StringBuilder(45)).append("Input encoding ").append(i).append(" must be supported.").toString(), unsupportedencodingexception);
-        }
-        b = s.getBytes();
-    }
-
-    public acc(int i, byte abyte0[])
-    {
-        if (abyte0 == null)
-        {
-            throw new NullPointerException("EncodedStringValue: Text-string is null.");
+            throw new UnsupportedEncodingException();
         } else
         {
-            a = i;
-            b = new byte[abyte0.length];
-            System.arraycopy(abyte0, 0, b, 0, abyte0.length);
-            return;
+            return s.intValue();
         }
     }
 
-    public acc(String s)
+    public static String a(int i)
     {
-        this(106, s);
-    }
-
-    public acc(byte abyte0[])
-    {
-        this(106, abyte0);
-    }
-
-    public static acc a(acc acc1)
-    {
-        if (acc1 == null)
+        String s = (String)c.get(i);
+        if (s == null)
         {
-            return null;
+            throw new UnsupportedEncodingException();
         } else
         {
-            return new acc(acc1.a, acc1.b);
+            return s;
         }
     }
 
-    public static acc[] a(String as[])
+    static 
     {
-        int j = as.length;
-        acc aacc[];
-        if (j > 0)
+        int i = 0;
+        c = new SparseArray();
+        d = new hm();
+        for (int j = a.length; i <= j - 1; i++)
         {
-            acc aacc1[] = new acc[j];
-            int i = 0;
-            do
-            {
-                aacc = aacc1;
-                if (i >= j)
-                {
-                    break;
-                }
-                aacc1[i] = new acc(as[i]);
-                i++;
-            } while (true);
-        } else
-        {
-            aacc = null;
+            c.put(a[i], b[i]);
+            d.put(b[i], Integer.valueOf(a[i]));
         }
-        return aacc;
-    }
 
-    public int a()
-    {
-        return a;
-    }
-
-    public void a(byte abyte0[])
-    {
-        if (abyte0 == null)
-        {
-            throw new NullPointerException("EncodedStringValue: Text-string is null.");
-        } else
-        {
-            b = new byte[abyte0.length];
-            System.arraycopy(abyte0, 0, b, 0, abyte0.length);
-            return;
-        }
-    }
-
-    public void b(byte abyte0[])
-    {
-        if (abyte0 == null)
-        {
-            throw new NullPointerException("Text-string is null.");
-        }
-        if (b == null)
-        {
-            b = new byte[abyte0.length];
-            System.arraycopy(abyte0, 0, b, 0, abyte0.length);
-            return;
-        }
-        ByteArrayOutputStream bytearrayoutputstream = new ByteArrayOutputStream();
-        try
-        {
-            bytearrayoutputstream.write(b);
-            bytearrayoutputstream.write(abyte0);
-        }
-        // Misplaced declaration of an exception variable
-        catch (byte abyte0[])
-        {
-            abyte0.printStackTrace();
-            throw new NullPointerException("appendTextString: failed when write a new Text-string");
-        }
-        b = bytearrayoutputstream.toByteArray();
-    }
-
-    public byte[] b()
-    {
-        byte abyte0[] = new byte[b.length];
-        System.arraycopy(b, 0, abyte0, 0, b.length);
-        return abyte0;
-    }
-
-    public String c()
-    {
-        if (a == 0)
-        {
-            return new String(b);
-        }
-        String s;
-        try
-        {
-            s = aca.a(a);
-            s = new String(b, s);
-        }
-        catch (UnsupportedEncodingException unsupportedencodingexception)
-        {
-            String s1;
-            try
-            {
-                s1 = new String(b, "iso-8859-1");
-            }
-            catch (UnsupportedEncodingException unsupportedencodingexception1)
-            {
-                return new String(b);
-            }
-            return s1;
-        }
-        return s;
-    }
-
-    public Object clone()
-    {
-        super.clone();
-        int i = b.length;
-        byte abyte0[] = new byte[i];
-        System.arraycopy(b, 0, abyte0, 0, i);
-        acc acc1;
-        try
-        {
-            acc1 = new acc(a, abyte0);
-        }
-        catch (Exception exception)
-        {
-            String s = String.valueOf(this);
-            Log.e("EncodedStringValue", (new StringBuilder(String.valueOf(s).length() + 39)).append("failed to clone an EncodedStringValue: ").append(s).toString());
-            exception.printStackTrace();
-            throw new CloneNotSupportedException(exception.getMessage());
-        }
-        return acc1;
     }
 }

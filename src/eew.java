@@ -2,64 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import com.google.android.apps.hangouts.views.MessageListItemView;
 
-public final class eew extends eez
+public final class eew
 {
 
-    String a;
-    String b;
-    private efa g;
-    private MessageListItemView h;
+    private final long a = System.currentTimeMillis();
+    private final String b;
+    private long c;
 
-    public eew(Context context)
+    public eew(String s)
     {
-        this(context, (byte)0);
-    }
-
-    private eew(Context context, byte byte0)
-    {
-        super(context, null);
-    }
-
-    static MessageListItemView a(eew eew1)
-    {
-        return eew1.h;
-    }
-
-    static efa b(eew eew1)
-    {
-        return eew1.g;
-    }
-
-    static String c(eew eew1)
-    {
-        return eew1.a;
-    }
-
-    public void a(ani ani, boolean flag, String s, int i, int j, int k, efa efa, 
-            MessageListItemView messagelistitemview, String s1, String s2)
-    {
-        a(s);
-        b = s2;
-        g = efa;
-        h = messagelistitemview;
-        if (!"image/gif".equals(s1) || ean.a(getContext()))
-        {
-            setOnClickListener(new eex(this));
-        }
-        a(l.fc);
-        super.a(ani, flag, s, i, j, k);
+        b = s;
+        c = a;
     }
 
     public void a(String s)
     {
-        a = s;
-    }
-
-    protected boolean a()
-    {
-        return false;
+        long l = System.currentTimeMillis();
+        long l1 = a;
+        long l2 = c;
+        c = l;
+        String s1 = b;
+        eev.e("Babel/TL", (new StringBuilder(String.valueOf(s1).length() + 60 + String.valueOf(s).length())).append(s1).append(":").append(s).append(" in ").append(l - l2).append(" ms, total: ").append(l - l1).append(" ms").toString());
     }
 }

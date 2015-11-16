@@ -2,61 +2,62 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public final class kag extends koj
+abstract class kag
+    implements kak
 {
 
-    public Boolean a;
+    private static final Logger a = Logger.getLogger(kag.getName());
 
-    public kag()
+    kag()
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public void a(Runnable runnable, Executor executor)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        n.b(runnable, "Runnable was null.");
+        n.b(executor, "Executor was null.");
+        try
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            executor.execute(runnable);
+            return;
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        catch (RuntimeException runtimeexception)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
+            Logger logger = a;
+            Level level = Level.SEVERE;
+            runnable = String.valueOf(runnable);
+            executor = String.valueOf(executor);
+            logger.log(level, (new StringBuilder(String.valueOf(runnable).length() + 57 + String.valueOf(executor).length())).append("RuntimeException while executing runnable ").append(runnable).append(" with executor ").append(executor).toString(), runtimeexception);
+            return;
         }
-        super.writeTo(koh1);
     }
+
+    public boolean cancel(boolean flag)
+    {
+        return false;
+    }
+
+    public abstract Object get();
+
+    public Object get(long l, TimeUnit timeunit)
+    {
+        n.b(timeunit);
+        return get();
+    }
+
+    public boolean isCancelled()
+    {
+        return false;
+    }
+
+    public boolean isDone()
+    {
+        return true;
+    }
+
 }

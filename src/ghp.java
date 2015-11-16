@@ -3,8 +3,23 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface ghp
+public class ghp
+    implements ghr
 {
 
-    public abstract String a();
+    public ghp()
+    {
+    }
+
+    public void a(ghm ghm)
+    {
+    }
+
+    public void b(ghm ghm)
+    {
+    }
+
+    public void c(ghm ghm)
+    {
+    }
 }

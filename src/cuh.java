@@ -2,113 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Arrays;
 
-public class cuh extends cui
+public class cuh extends cud
 {
 
     private static final long serialVersionUID = 1L;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int j;
-    public byte k[];
-    public byte l[];
-    public byte m[];
-    public byte n[];
-    public byte o[];
+    private final String a;
 
-    public cuh(int i, int i1, int j1, int k1, int l1, byte abyte0[], byte abyte1[], 
-            byte abyte2[], byte abyte3[], byte abyte4[])
+    public cuh(String s)
     {
-        a = i;
-        b = i1;
-        c = j1;
-        d = k1;
-        j = l1;
-        k = abyte0;
-        l = abyte1;
-        m = abyte2;
-        n = abyte3;
-        o = abyte4;
-    }
-
-    public String a()
-    {
-        return "ui_queue";
-    }
-
-    public kop a(String s, int i, int i1)
-    {
-        if (ctr.e)
+        String s1 = eey.g(s);
+        if (s1 == null)
         {
-            ebw.b("Babel_RequestWriter", "getSuggestedRequest()");
+            eev.g("Babel_RequestWriter", (new StringBuilder(String.valueOf(s).length() + 45)).append("Invalid phone number: ").append(s).append(" in GetCallRateRequest.").toString());
+            a = null;
+            return;
         }
-        iub iub1 = new iub();
-        iub1.c = Boolean.valueOf(false);
-        iub1.requestHeader = ctq.a(null, true, s, i, i1, h);
-        s = new iuc();
-        s.a = Integer.valueOf(a);
-        if (k != null)
+        if (s1.charAt(0) == '+')
         {
-            s.b = Arrays.copyOf(k, k.length);
-        }
-        iub1.f = s;
-        s = new iuc();
-        s.a = Integer.valueOf(b);
-        if (l != null)
-        {
-            s.b = Arrays.copyOf(l, l.length);
-        }
-        iub1.g = s;
-        s = new iuc();
-        s.a = Integer.valueOf(c);
-        if (m != null)
-        {
-            s.b = Arrays.copyOf(m, m.length);
-        }
-        iub1.h = s;
-        s = new iuc();
-        s.a = Integer.valueOf(d);
-        if (n != null)
-        {
-            s.b = Arrays.copyOf(n, n.length);
-        }
-        iub1.i = s;
-        s = new iuc();
-        s.a = Integer.valueOf(j);
-        if (o != null)
-        {
-            s.b = Arrays.copyOf(o, o.length);
-        }
-        iub1.k = s;
-        return iub1;
-    }
-
-    public void a(ani ani1, dbo dbo)
-    {
-        dbo = dir.b(ani1.h());
-        ani1 = String.valueOf(ebw.b(ani1.a()));
-        if (ani1.length() != 0)
-        {
-            ani1 = "SyncBaselineSuggestedContactsOperation failed: ".concat(ani1);
+            a = s1.substring(1);
+            return;
         } else
         {
-            ani1 = new String("SyncBaselineSuggestedContactsOperation failed: ");
+            a = s1;
+            return;
         }
-        ebw.f("Babel_RequestWriter", ani1);
-        dbo.a(0);
     }
 
-    public boolean a(ccg ccg)
+    public kws a(String s, int i, int j)
     {
-        gbh.a(getClass(), ccg.getClass());
-        return true;
+        return new cue();
     }
 
-    public String g()
+    public String f()
     {
-        return "contacts/getsuggestedentities";
+        String s = String.valueOf("users/@me/destinations/%");
+        String s1 = String.valueOf(Integer.toHexString(43));
+        String s2 = a;
+        String s3 = String.valueOf("/rate");
+        return (new StringBuilder(String.valueOf(s).length() + 0 + String.valueOf(s1).length() + String.valueOf(s2).length() + String.valueOf(s3).length())).append(s).append(s1).append(s2).append(s3).toString();
+    }
+
+    public boolean h()
+    {
+        return false;
     }
 }

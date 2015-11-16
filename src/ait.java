@@ -3,44 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ait
+public interface ait
 {
 
-    daf a;
-    String b;
-    String c;
-    String d;
-
-    ait()
-    {
-    }
-
-    public ais a()
-    {
-        return new ais(this);
-    }
-
-    public ait a(daf daf)
-    {
-        a = daf;
-        return this;
-    }
-
-    public ait a(String s)
-    {
-        b = s;
-        return this;
-    }
-
-    public ait b(String s)
-    {
-        c = s;
-        return this;
-    }
-
-    public ait c(String s)
-    {
-        d = s;
-        return this;
-    }
+    public abstract void a(ai ai, hof hof);
 }

@@ -2,22 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.DialogInterface;
+import com.google.android.apps.hangouts.phone.ShortlinkUrlHandlerActivity;
 
-public abstract class cqv
-    implements cra
+public final class cqv
+    implements android.content.DialogInterface.OnCancelListener
 {
 
-    public cqv()
+    final ShortlinkUrlHandlerActivity a;
+
+    public cqv(ShortlinkUrlHandlerActivity shortlinkurlhandleractivity)
     {
+        a = shortlinkurlhandleractivity;
+        super();
     }
 
-    public int a(cqv cqv1)
+    public void onCancel(DialogInterface dialoginterface)
     {
-        return b() - 1 - (cqv1.b() - 1);
-    }
-
-    public int compareTo(Object obj)
-    {
-        return a((cqv)obj);
+        a.finish();
     }
 }

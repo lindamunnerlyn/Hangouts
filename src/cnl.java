@@ -3,41 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class cnl
+final class cnl extends coj
 {
 
-    final boolean a;
-    final cns b;
+    final cna a;
 
-    private cnl(cns cns)
+    cnl(cna cna1, String s)
     {
-        this(cns, false);
+        a = cna1;
+        super(s);
     }
 
-    private cnl(cns cns, boolean flag)
+    public void a()
     {
-        b = cns;
-        a = flag;
-    }
-
-    public static cnl a(String s)
-    {
-        if (s.length() == 0)
+        if (cna.a(a))
         {
-            throw new IllegalArgumentException("separator may not be empty or null");
-        } else
-        {
-            return new cnl(new cnm(s));
+            (new Thread(new cnm(this))).start();
         }
-    }
-
-    public cnl a()
-    {
-        return new cnl(b, true);
-    }
-
-    public Iterable a(CharSequence charsequence)
-    {
-        return new cno(this, charsequence);
     }
 }

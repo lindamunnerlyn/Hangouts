@@ -2,21 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.settings.SettingsActivity;
 
-final class drx
-    implements Runnable
+public final class drx extends hkq
 {
 
-    final drw a;
+    final SettingsActivity a;
 
-    drx(drw drw1)
+    public drx(SettingsActivity settingsactivity, pu pu, hof hof)
     {
-        a = drw1;
-        super();
+        a = settingsactivity;
+        super(pu, hof);
     }
 
-    public void run()
+    protected hjy a()
     {
-        drw.a(a);
+        return new drz();
     }
 }

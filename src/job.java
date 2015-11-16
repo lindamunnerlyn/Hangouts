@@ -3,47 +3,44 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class job extends jnk
+abstract class job extends Enum
+    implements jnx
 {
 
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry a;
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry b;
-    final joa c;
+    public static final job a;
+    public static final job b;
+    public static final job c;
+    public static final job d;
+    private static final job e[];
 
-    job(joa joa)
+    job(String s, int i)
     {
-        c = joa;
-        super();
-        a = this;
-        b = this;
+        super(s, i);
     }
 
-    public long getExpirationTime()
+    public static job valueOf(String s)
     {
-        return 0x7fffffffffffffffL;
+        return (job)Enum.valueOf(job, s);
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextExpirable()
+    public static job[] values()
     {
-        return a;
+        return (job[])e.clone();
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousExpirable()
+    jnx a()
     {
-        return b;
+        return this;
     }
 
-    public void setExpirationTime(long l)
+    static 
     {
-    }
-
-    public void setNextExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
-    {
-        a = referenceentry;
-    }
-
-    public void setPreviousExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
-    {
-        b = referenceentry;
+        a = new joc("ALWAYS_TRUE");
+        b = new jod("ALWAYS_FALSE");
+        c = new joe("IS_NULL");
+        d = new jof("NOT_NULL");
+        e = (new job[] {
+            a, b, c, d
+        });
     }
 }

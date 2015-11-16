@@ -2,16 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public final class aok
+final class aok
+    implements grg
 {
 
-    public final long a;
-    public final long b;
+    final aoc a;
 
-    public aok(long l, long l1)
+    aok(aoc aoc)
     {
-        a = l;
-        b = l1;
+        a = aoc;
+        super();
+    }
+
+    public String a()
+    {
+        return "legacy_avatar_url";
+    }
+
+    public void a(Context context, grd grd1)
+    {
+        if (grd1.a("avatar_url"))
+        {
+            grd1.b("profile_photo_url", grd1.b("avatar_url"));
+            grd1.f("avatar_url");
+        }
     }
 }

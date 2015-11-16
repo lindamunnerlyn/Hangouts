@@ -7,13 +7,14 @@ package com.google.android.gms.wearable.internal;
 import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fuu;
+import fxa;
+import g;
 
 public class GetFdForAssetResponse
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fuu();
+    public static final android.os.Parcelable.Creator CREATOR = new fxa();
     public final int a;
     public final int b;
     public final ParcelFileDescriptor c;
@@ -32,7 +33,11 @@ public class GetFdForAssetResponse
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fuu.a(this, parcel, i | 1);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, b);
+        g.a(parcel, 3, c, i | 1);
+        g.q(parcel, j);
     }
 
 }

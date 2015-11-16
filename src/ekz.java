@@ -2,30 +2,14 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Set;
+import android.app.PendingIntent;
+import android.os.IInterface;
 
-final class ekz extends elc
+public interface ekz
+    extends IInterface
 {
 
-    final ekp a;
-    private final ArrayList c;
+    public abstract int a();
 
-    public ekz(ekp ekp1, ArrayList arraylist)
-    {
-        a = ekp1;
-        super(ekp1, (byte)0);
-        c = arraylist;
-    }
-
-    public void a()
-    {
-        Set set = a.a.g;
-        if (set.isEmpty())
-        {
-            set = a.j();
-        }
-        for (Iterator iterator = c.iterator(); iterator.hasNext(); ((ejv)iterator.next()).a(a.g, set)) { }
-    }
+    public abstract void a(PendingIntent pendingintent);
 }

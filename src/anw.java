@@ -3,31 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class anw
+public final class anw extends dor
 {
 
-    static final int a[];
+    public final String a;
+    public final dog b;
 
-    static 
+    public anw(String s, dog dog)
     {
-        a = new int[amv.values().length];
-        try
-        {
-            a[amv.b.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[amv.c.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[amv.a.ordinal()] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
+        a = s;
+        b = dog;
+    }
+
+    public String c()
+    {
+        return a;
     }
 }

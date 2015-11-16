@@ -4,14 +4,23 @@
 
 
 final class ema
+    implements Runnable
 {
 
-    public final ejx a;
-    public final ekc b;
+    final emy a;
+    final emg b;
+    final ely c;
 
-    ema(ejx ejx, ekc ekc)
+    ema(ely ely, emy emy1, emg emg)
     {
-        a = ejx;
-        b = ekc;
+        c = ely;
+        a = emy1;
+        b = emg;
+        super();
+    }
+
+    public void run()
+    {
+        a.a(b);
     }
 }

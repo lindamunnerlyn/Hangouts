@@ -2,50 +2,91 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.IOException;
 
-public final class koo extends IOException
+public final class koo extends kwm
 {
 
-    private static final long serialVersionUID = 0xe9924688c2f20054L;
+    public String a;
+    public Long b;
+    public String c;
 
-    private koo(String s)
+    public koo()
     {
-        super(s);
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    static koo a()
+    protected int computeSerializedSize()
     {
-        return new koo("While parsing a protocol message, the input ended unexpectedly in the middle of a field.  This could mean either than the input has been truncated or that an embedded message misreported its own length.");
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.b(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            b.longValue();
+            j = i + (kwk.f(2) + 8);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.b(3, c);
+        }
+        return i;
     }
 
-    static koo b()
+    public kws mergeFrom(kwj kwj1)
     {
-        return new koo("CodedInputStream encountered an embedded string or message which claimed to have negative size.");
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 17: // '\021'
+                b = Long.valueOf(kwj1.g());
+                break;
+
+            case 26: // '\032'
+                c = kwj1.j();
+                break;
+            }
+        } while (true);
     }
 
-    static koo c()
+    public void writeTo(kwk kwk1)
     {
-        return new koo("CodedInputStream encountered a malformed varint.");
-    }
-
-    static koo d()
-    {
-        return new koo("Protocol message contained an invalid tag (zero).");
-    }
-
-    static koo e()
-    {
-        return new koo("Protocol message end-group tag did not match expected tag.");
-    }
-
-    static koo f()
-    {
-        return new koo("Protocol message tag had invalid wire type.");
-    }
-
-    static koo g()
-    {
-        return new koo("Protocol message had too many levels of nesting.  May be malicious.  Use CodedInputStream.setRecursionLimit() to increase the depth limit.");
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.c(2, b.longValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        super.writeTo(kwk1);
     }
 }

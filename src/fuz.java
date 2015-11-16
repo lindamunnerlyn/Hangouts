@@ -2,86 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.common.data.DataHolder;
-import com.google.android.gms.wearable.internal.AddLocalCapabilityResponse;
-import com.google.android.gms.wearable.internal.ChannelReceiveFileResponse;
-import com.google.android.gms.wearable.internal.ChannelSendFileResponse;
-import com.google.android.gms.wearable.internal.CloseChannelResponse;
-import com.google.android.gms.wearable.internal.DeleteDataItemsResponse;
-import com.google.android.gms.wearable.internal.GetAllCapabilitiesResponse;
-import com.google.android.gms.wearable.internal.GetCapabilityResponse;
-import com.google.android.gms.wearable.internal.GetChannelInputStreamResponse;
-import com.google.android.gms.wearable.internal.GetChannelOutputStreamResponse;
-import com.google.android.gms.wearable.internal.GetCloudSyncOptInOutDoneResponse;
-import com.google.android.gms.wearable.internal.GetCloudSyncOptInStatusResponse;
-import com.google.android.gms.wearable.internal.GetCloudSyncSettingResponse;
-import com.google.android.gms.wearable.internal.GetConfigResponse;
-import com.google.android.gms.wearable.internal.GetConfigsResponse;
-import com.google.android.gms.wearable.internal.GetConnectedNodesResponse;
-import com.google.android.gms.wearable.internal.GetDataItemResponse;
-import com.google.android.gms.wearable.internal.GetFdForAssetResponse;
-import com.google.android.gms.wearable.internal.GetLocalNodeResponse;
-import com.google.android.gms.wearable.internal.OpenChannelResponse;
-import com.google.android.gms.wearable.internal.PutDataResponse;
-import com.google.android.gms.wearable.internal.RemoveLocalCapabilityResponse;
-import com.google.android.gms.wearable.internal.SendMessageResponse;
-import com.google.android.gms.wearable.internal.StorageInfoResponse;
+import android.net.Uri;
+import com.google.android.gms.wearable.PutDataRequest;
 
-public interface fuz
-    extends IInterface
+public final class fuz
 {
 
-    public abstract void a(Status status);
+    public fuz()
+    {
+    }
 
-    public abstract void a(DataHolder dataholder);
+    private ene c(emy emy1, Uri uri)
+    {
+        return emy1.a(new fyv(this, emy1, uri, 0));
+    }
 
-    public abstract void a(AddLocalCapabilityResponse addlocalcapabilityresponse);
+    private ene d(emy emy1, Uri uri)
+    {
+        return emy1.a(new fyw(this, emy1, uri, 0));
+    }
 
-    public abstract void a(ChannelReceiveFileResponse channelreceivefileresponse);
+    public ene a(emy emy1)
+    {
+        return emy1.a(new fyu(this, emy1));
+    }
 
-    public abstract void a(ChannelSendFileResponse channelsendfileresponse);
+    public ene a(emy emy1, Uri uri)
+    {
+        return c(emy1, uri);
+    }
 
-    public abstract void a(CloseChannelResponse closechannelresponse);
+    public ene a(emy emy1, PutDataRequest putdatarequest)
+    {
+        return emy1.a(new fyt(this, emy1, putdatarequest));
+    }
 
-    public abstract void a(DeleteDataItemsResponse deletedataitemsresponse);
-
-    public abstract void a(GetAllCapabilitiesResponse getallcapabilitiesresponse);
-
-    public abstract void a(GetCapabilityResponse getcapabilityresponse);
-
-    public abstract void a(GetChannelInputStreamResponse getchannelinputstreamresponse);
-
-    public abstract void a(GetChannelOutputStreamResponse getchanneloutputstreamresponse);
-
-    public abstract void a(GetCloudSyncOptInOutDoneResponse getcloudsyncoptinoutdoneresponse);
-
-    public abstract void a(GetCloudSyncOptInStatusResponse getcloudsyncoptinstatusresponse);
-
-    public abstract void a(GetCloudSyncSettingResponse getcloudsyncsettingresponse);
-
-    public abstract void a(GetConfigResponse getconfigresponse);
-
-    public abstract void a(GetConfigsResponse getconfigsresponse);
-
-    public abstract void a(GetConnectedNodesResponse getconnectednodesresponse);
-
-    public abstract void a(GetDataItemResponse getdataitemresponse);
-
-    public abstract void a(GetFdForAssetResponse getfdforassetresponse);
-
-    public abstract void a(GetLocalNodeResponse getlocalnoderesponse);
-
-    public abstract void a(OpenChannelResponse openchannelresponse);
-
-    public abstract void a(PutDataResponse putdataresponse);
-
-    public abstract void a(RemoveLocalCapabilityResponse removelocalcapabilityresponse);
-
-    public abstract void a(SendMessageResponse sendmessageresponse);
-
-    public abstract void a(StorageInfoResponse storageinforesponse);
-
-    public abstract void b(CloseChannelResponse closechannelresponse);
+    public ene b(emy emy1, Uri uri)
+    {
+        return d(emy1, uri);
+    }
 }

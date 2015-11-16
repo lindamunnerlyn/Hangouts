@@ -2,22 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.MenuItem;
+import android.view.CollapsibleActionView;
+import android.view.View;
+import android.widget.FrameLayout;
 
-final class ti extends sv
-    implements android.view.MenuItem.OnMenuItemClickListener
+final class ti extends FrameLayout
+    implements vv
 {
 
-    final te a;
+    final CollapsibleActionView a;
 
-    ti(te te1, android.view.MenuItem.OnMenuItemClickListener onmenuitemclicklistener)
+    ti(View view)
     {
-        a = te1;
-        super(onmenuitemclicklistener);
+        super(view.getContext());
+        a = (CollapsibleActionView)view;
+        addView(view);
     }
 
-    public boolean onMenuItemClick(MenuItem menuitem)
+    public void a()
     {
-        return ((android.view.MenuItem.OnMenuItemClickListener)d).onMenuItemClick(a.a(menuitem));
+        a.onActionViewExpanded();
+    }
+
+    public void b()
+    {
+        a.onActionViewCollapsed();
+    }
+
+    View c()
+    {
+        return (View)a;
     }
 }

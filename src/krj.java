@@ -3,26 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class krj extends koj
+public final class krj extends kwm
 {
 
-    public static final kok a = kok.a(krj, 0xd0c6942L);
-    private static final krj h[] = new krj[0];
-    public Double b;
-    public Double c;
-    public String d;
-    public String e;
-    public String f;
-    public koz g;
+    public krh a;
+    public krg b;
+    public krm c;
 
     public krj()
     {
+        a = null;
         b = null;
         c = null;
-        d = null;
-        e = null;
-        f = null;
-        g = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -31,49 +23,32 @@ public final class krj extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
+        if (a != null)
+        {
+            i = j + kwk.d(1, a);
+        }
+        j = i;
         if (b != null)
         {
-            b.doubleValue();
-            i = j + (koh.f(1) + 8);
+            j = i + kwk.d(2, b);
         }
-        j = i;
+        i = j;
         if (c != null)
         {
-            c.doubleValue();
-            j = i + (koh.f(2) + 8);
+            i = j + kwk.d(3, c);
         }
-        i = j;
-        if (d != null)
-        {
-            i = j + koh.b(3, d);
-        }
-        j = i;
-        if (e != null)
-        {
-            j = i + koh.b(4, e);
-        }
-        i = j;
-        if (f != null)
-        {
-            i = j + koh.b(5, f);
-        }
-        j = i;
-        if (g != null)
-        {
-            j = i + koh.d(6, g);
-        }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -82,64 +57,47 @@ public final class krj extends koj
             case 0: // '\0'
                 return this;
 
-            case 9: // '\t'
-                b = Double.valueOf(kog1.b());
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new krh();
+                }
+                kwj1.a(a);
                 break;
 
-            case 17: // '\021'
-                c = Double.valueOf(kog1.b());
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new krg();
+                }
+                kwj1.a(b);
                 break;
 
             case 26: // '\032'
-                d = kog1.j();
-                break;
-
-            case 34: // '"'
-                e = kog1.j();
-                break;
-
-            case 42: // '*'
-                f = kog1.j();
-                break;
-
-            case 50: // '2'
-                if (g == null)
+                if (c == null)
                 {
-                    g = new koz();
+                    c = new krm();
                 }
-                kog1.a(g);
+                kwj1.a(c);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
+        if (a != null)
+        {
+            kwk1.b(1, a);
+        }
         if (b != null)
         {
-            koh1.a(1, b.doubleValue());
+            kwk1.b(2, b);
         }
         if (c != null)
         {
-            koh1.a(2, c.doubleValue());
+            kwk1.b(3, c);
         }
-        if (d != null)
-        {
-            koh1.a(3, d);
-        }
-        if (e != null)
-        {
-            koh1.a(4, e);
-        }
-        if (f != null)
-        {
-            koh1.a(5, f);
-        }
-        if (g != null)
-        {
-            koh1.b(6, g);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
-
 }

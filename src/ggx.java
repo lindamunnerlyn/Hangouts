@@ -2,29 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.media.MediaCodec;
+import android.os.Handler;
 
 final class ggx
-    implements ggq
+    implements Runnable
 {
 
-    ggx()
+    final ggw a;
+
+    ggx(ggw ggw1)
     {
+        a = ggw1;
+        super();
     }
 
-    public jec a(kop kop)
+    public void run()
     {
-        Object obj = (jas)kop;
-        kop = new jdm();
-        kop.a = ((jas) (obj)).b;
-        kop.b = (jaq[])((jas) (obj)).c.clone();
-        obj = new jec();
-        obj.i = kop;
-        return ((jec) (obj));
-    }
-
-    public jec b(kop kop)
-    {
-        gbh.a("Common announcement modification operation is not supported");
-        return null;
+        MediaCodec mediacodec;
+        android.media.MediaCodec.BufferInfo bufferinfo;
+        int i;
+        long l;
+        a.e().removeCallbacks(ggw.a(a));
+        l = System.currentTimeMillis();
+        mediacodec = a.d();
+        if (mediacodec == null)
+        {
+            return;
+        }
+        bufferinfo = new android.media.MediaCodec.BufferInfo();
+        i = mediacodec.dequeueOutputBuffer(bufferinfo, 0L);
+        if (i < 0) goto _L2; else goto _L1
+_L1:
+        a.a(i, bufferinfo);
+_L4:
+        l = Math.max(0L, 10L - (System.currentTimeMillis() - l));
+        a.e().postDelayed(ggw.a(a), l);
+        return;
+_L2:
+        if (i == -2)
+        {
+            a.a(mediacodec.getOutputFormat());
+        } else
+        if (i == -3)
+        {
+            ggw.a(a, mediacodec.getOutputBuffers());
+        }
+        if (true) goto _L4; else goto _L3
+_L3:
     }
 }

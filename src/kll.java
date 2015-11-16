@@ -3,60 +3,60 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public abstract class kll
-    implements knc
+public final class kll extends kwm
 {
 
-    private static final klv a = klv.a();
+    public Boolean a;
 
     public kll()
     {
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public kmy a(klp klp1, klv klv1)
+    protected int computeSerializedSize()
     {
-        try
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            klp1 = klp1.f();
-            klv1 = (kmy)a(((klr) (klp1)), klv1);
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
-        // Misplaced declaration of an exception variable
-        catch (klp klp1)
-        {
-            throw klp1;
-        }
-        klp1.a(0);
-        return klv1;
-        klp1;
-        throw klp1.a(klv1);
+        return i;
     }
 
-    public kmy b(klp klp1, klv klv1)
+    public kws mergeFrom(kwj kwj1)
     {
-        klv1 = a(klp1, klv1);
-        if (klv1 != null && !klv1.C_())
+        do
         {
-            if (klv1 instanceof kli)
+            int i = kwj1.a();
+            switch (i)
             {
-                klp1 = ((kli)klv1).b();
-            } else
-            if (klv1 instanceof klk)
-            {
-                klp1 = ((klk)klv1).I_();
-            } else
-            {
-                klp1 = new knq();
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
             }
-            throw klp1.a().a(klv1);
-        } else
-        {
-            return klv1;
-        }
+        } while (true);
     }
 
-    public Object c(klp klp1, klv klv1)
+    public void writeTo(kwk kwk1)
     {
-        return b(klp1, klv1);
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
-
 }

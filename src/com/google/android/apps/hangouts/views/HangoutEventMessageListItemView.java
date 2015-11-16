@@ -10,9 +10,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import ani;
-import cao;
-import cey;
+import aoa;
+import cbt;
+import cgd;
+import eep;
 import g;
 import h;
 import java.util.List;
@@ -21,7 +22,7 @@ import java.util.List;
 //            FixedParticipantsGalleryView
 
 public class HangoutEventMessageListItemView extends RelativeLayout
-    implements cao
+    implements cbt
 {
 
     List a;
@@ -31,7 +32,7 @@ public class HangoutEventMessageListItemView extends RelativeLayout
     private FixedParticipantsGalleryView e;
     private CharSequence f;
     private long g;
-    private ani h;
+    private aoa h;
 
     public HangoutEventMessageListItemView(Context context)
     {
@@ -53,11 +54,11 @@ public class HangoutEventMessageListItemView extends RelativeLayout
         g = l;
     }
 
-    public void a(CharSequence charsequence, long l, ani ani1, List list, int i)
+    public void a(CharSequence charsequence, long l, aoa aoa1, List list, int i)
     {
         f = charsequence;
         a(l);
-        h = ani1;
+        h = aoa1;
         if (a != null || list != null) goto _L2; else goto _L1
 _L1:
         int j = 0;
@@ -87,14 +88,14 @@ _L4:
         {
             flag = false;
         }
-        k = com.google.android.apps.hangouts.R.drawable.ci;
+        k = com.google.android.apps.hangouts.R.drawable.ca;
         if (flag)
         {
-            i = com.google.android.apps.hangouts.R.drawable.bY;
+            i = com.google.android.apps.hangouts.R.drawable.bQ;
         } else
         if (i == 1)
         {
-            i = com.google.android.apps.hangouts.R.drawable.bX;
+            i = com.google.android.apps.hangouts.R.drawable.bP;
         } else
         {
             i = k;
@@ -118,7 +119,7 @@ _L2:
             {
                 break;
             }
-            if (!((cey)a.get(j)).a((cey)list.get(j)))
+            if (!((cgd)a.get(j)).a((cgd)list.get(j)))
             {
                 j = 1;
                 continue; /* Loop/switch isn't completed */
@@ -137,14 +138,17 @@ _L3:
 
     public void c()
     {
-        setContentDescription(c.getText());
+        StringBuilder stringbuilder = new StringBuilder();
+        eep.a(stringbuilder, c.getText());
+        eep.a(stringbuilder, d.getContentDescription());
+        setContentDescription(stringbuilder);
     }
 
     public void onFinishInflate()
     {
-        b = (ImageView)findViewById(h.cM);
-        c = (TextView)findViewById(h.gp);
-        e = (FixedParticipantsGalleryView)findViewById(h.cp);
+        b = (ImageView)findViewById(h.cC);
+        c = (TextView)findViewById(h.fX);
+        e = (FixedParticipantsGalleryView)findViewById(h.cf);
         d = (TextView)findViewById(h.U);
     }
 }

@@ -3,89 +3,28 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kuv extends koj
+public final class kuv extends kuy
 {
 
-    public Long a;
-    public String b;
-    public String c;
+    private final kvb b;
 
-    public kuv()
+    public kvb a()
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        return a(b);
     }
 
-    protected int computeSerializedSize()
+    public boolean equals(Object obj)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.e(1, a.longValue());
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.b(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.b(3, c);
-        }
-        return i;
+        return a().equals(obj);
     }
 
-    public kop mergeFrom(kog kog1)
+    public int hashCode()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Long.valueOf(kog1.e());
-                break;
-
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-
-            case 26: // '\032'
-                c = kog1.j();
-                break;
-            }
-        } while (true);
+        return a().hashCode();
     }
 
-    public void writeTo(koh koh1)
+    public String toString()
     {
-        if (a != null)
-        {
-            koh1.b(1, a.longValue());
-        }
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
-        if (c != null)
-        {
-            koh1.a(3, c);
-        }
-        super.writeTo(koh1);
+        return a().toString();
     }
 }

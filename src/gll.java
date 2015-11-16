@@ -3,10 +3,23 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gll extends glk
+final class gll
+    implements Runnable
 {
 
-    public gll()
+    final glj a;
+
+    gll(glj glj1)
     {
+        a = glj1;
+        super();
+    }
+
+    public void run()
+    {
+        if (a.n == null)
+        {
+            gne.a(6, "vclib", "A camera error occurred while no callback was registered");
+        }
     }
 }

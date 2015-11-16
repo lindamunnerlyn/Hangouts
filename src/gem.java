@@ -2,95 +2,98 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.content.Intent;
+import android.util.Pair;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
 
-final class gem
+final class gem extends gdy
 {
 
-    private final gen a;
-    private final gjr b = new gjr();
-    private gfo c;
-    private gho d;
+    final geg a;
+    private final gji b;
+    private final boolean c;
+    private final gmn e;
 
-    gem(gen gen1)
+    gem(geg geg1, gji gji1, boolean flag, gmn gmn)
     {
-        a = gen1;
+        a = geg1;
+        super(gdy.d);
+        b = gji1;
+        c = flag;
+        e = gmn;
     }
 
-    public String a()
+    private transient Pair b()
     {
-        return b.a();
-    }
-
-    void a(gfo gfo1)
-    {
-        c = gfo1;
-    }
-
-    void a(gho gho1)
-    {
-        d = gho1;
-    }
-
-    public gjr b()
-    {
-        return b;
-    }
-
-    public gfo c()
-    {
-        return c;
-    }
-
-    public gho d()
-    {
-        return d;
-    }
-
-    public boolean e()
-    {
-        if (d == null)
+        Object obj;
+        try
         {
-            return true;
-        } else
-        {
-            return d.l();
+            gne.a(3, "vclib", "AuthenticationTask.doInBackgroundTimed");
+            obj = geg.b(a).getApplicationContext();
+            obj = b.a(((Context) (obj)), "oauth2:https://www.googleapis.com/auth/hangouts ");
+            gne.a(3, "vclib", "Got authToken for hangouts");
+            obj = Pair.create(obj, null);
         }
+        catch (elf elf1)
+        {
+            gne.a("vclib", "Got authException", elf1);
+            return Pair.create(null, elf1.b());
+        }
+        catch (elc elc1)
+        {
+            gne.a("vclib", "Error in getToken", elc1);
+            return null;
+        }
+        catch (IOException ioexception)
+        {
+            return null;
+        }
+        return ((Pair) (obj));
     }
 
-    public void f()
+    protected Object a()
     {
-        if (d != null)
+        return b();
+    }
+
+    protected void onPostExecute(Object obj)
+    {
+        obj = (Pair)obj;
+        gne.a(3, "vclib", "AuthenticationTask.onPostExecute");
+        if (!isCancelled()) goto _L2; else goto _L1
+_L1:
+        gne.a(3, "vclib", "AuthenticationTask cancelled");
+_L4:
+        return;
+_L2:
+        geg.a(a, null);
+        if (obj == null)
         {
-            b.a(d.a());
-            b.b(d.c());
-            b.c(d.d());
-            b.a(d.h());
-            b.a(d.o());
-            if (d instanceof ghs)
+            a.b(1000, null);
+            return;
+        }
+        if (((Pair) (obj)).first != null)
+        {
+            geg.b(a, (String)((Pair) (obj)).first);
+            geg.g(a).a(geg.c(a), System.currentTimeMillis());
+            if (c)
             {
-                b.d(((ghs)d).x());
+                geg.a(a, e);
+                return;
             }
-            b.g(d instanceof ghv);
-            b.h(d.q());
-        }
-        boolean flag;
-        boolean flag1;
-        if (d == null)
-        {
-            flag = true;
         } else
         {
-            flag = d.p();
+            a.b(46, "User authentication is required.");
+            Iterator iterator = geg.h(a).iterator();
+            while (iterator.hasNext()) 
+            {
+                ((gew)iterator.next()).a((Intent)((Pair) (obj)).second);
+            }
         }
-        if (c == null)
-        {
-            flag1 = false;
-        } else
-        {
-            flag1 = c.p();
-        }
-        b.b(flag);
-        b.k(flag1);
-        a.b(this);
+        if (true) goto _L4; else goto _L3
+_L3:
     }
 }

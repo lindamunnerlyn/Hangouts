@@ -4,14 +4,23 @@
 
 
 final class gtt
+    implements hmq
 {
 
-    final int a;
-    final gua b;
-
-    gtt(gua gua, int i)
+    gtt()
     {
-        b = gua;
-        a = i;
+    }
+
+    public Class a()
+    {
+        return gtl;
+    }
+
+    public void a(ad ad1, hof hof, hlp hlp1)
+    {
+        if (ad1.getActivity() instanceof irm)
+        {
+            hlp1.a(gtl, ((gts)g.a(ad1.getActivity(), gts)).b());
+        }
     }
 }

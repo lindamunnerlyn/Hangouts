@@ -4,23 +4,22 @@
 
 
 final class gnv
-    implements gnu
+    implements Runnable
 {
 
-    float a;
+    final gnu a;
 
-    gnv(float f)
+    gnv(gnu gnu1)
     {
-        a = f;
+        a = gnu1;
+        super();
     }
 
-    public Object a(Object obj)
+    public void run()
     {
-        return Float.valueOf(a);
-    }
-
-    public void a(android.content.SharedPreferences.Editor editor, String s)
-    {
-        editor.putFloat(s, a);
+        if (goj.a())
+        {
+            a.a.a(5);
+        }
     }
 }

@@ -3,58 +3,136 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ihp extends koj
+public final class ihp extends kwm
 {
 
-    public Integer a;
-    public String b;
+    public Boolean a;
+    public ijl b;
+    public ijl c;
+    public ijl d;
+    public ihj e;
 
     public ihp()
     {
         a = null;
         b = null;
+        c = null;
+        d = null;
+        e = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        return super.computeSerializedSize() + koh.e(1, a.intValue()) + koh.b(2, b);
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-_L5:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 3: default 40
-    //                   0: 49
-    //                   8: 51
-    //                   18: 90;
-           goto _L1 _L2 _L3 _L4
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L5; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-        case 0: // '\0'
-            a = Integer.valueOf(j);
-            break;
+            a.booleanValue();
+            i = j + (kwk.f(5) + 1);
         }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        b = kog1.j();
-        if (true) goto _L5; else goto _L6
-_L6:
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(6, b);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.d(7, c);
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.d(8, d);
+        }
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.d(9, e);
+        }
+        return i;
     }
 
-    public void writeTo(koh koh1)
+    public kws mergeFrom(kwj kwj1)
     {
-        koh1.a(1, a.intValue());
-        koh1.a(2, b);
-        super.writeTo(koh1);
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 40: // '('
+                a = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 50: // '2'
+                if (b == null)
+                {
+                    b = new ijl();
+                }
+                kwj1.a(b);
+                break;
+
+            case 58: // ':'
+                if (c == null)
+                {
+                    c = new ijl();
+                }
+                kwj1.a(c);
+                break;
+
+            case 66: // 'B'
+                if (d == null)
+                {
+                    d = new ijl();
+                }
+                kwj1.a(d);
+                break;
+
+            case 74: // 'J'
+                if (e == null)
+                {
+                    e = new ihj();
+                }
+                kwj1.a(e);
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(5, a.booleanValue());
+        }
+        if (b != null)
+        {
+            kwk1.b(6, b);
+        }
+        if (c != null)
+        {
+            kwk1.b(7, c);
+        }
+        if (d != null)
+        {
+            kwk1.b(8, d);
+        }
+        if (e != null)
+        {
+            kwk1.b(9, e);
+        }
+        super.writeTo(kwk1);
     }
 }

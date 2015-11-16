@@ -3,34 +3,95 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class jky
+public final class jky extends kwm
 {
 
-    private static int a = 0x40000000;
+    private static volatile jky c[];
+    public String a;
+    public Float b;
 
-    static int a(int i)
+    public jky()
     {
-        return 0x1b873593 * Integer.rotateLeft(0xcc9e2d51 * i, 15);
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    static int b(int i)
+    public static jky[] a()
     {
-label0:
+        if (c == null)
         {
-            int k = Math.max(i, 2);
-            int j = Integer.highestOneBit(k);
-            i = j;
-            if (k > (int)(1.2D * (double)j))
+            synchronized (kwq.a)
             {
-                i = j << 1;
-                if (i <= 0)
+                if (c == null)
                 {
-                    break label0;
+                    c = new jky[0];
                 }
             }
-            return i;
         }
-        return a;
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.b(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            b.floatValue();
+            j = i + (kwk.f(2) + 4);
+        }
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 21: // '\025'
+                b = Float.valueOf(kwj1.c());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.floatValue());
+        }
+        super.writeTo(kwk1);
+    }
 }

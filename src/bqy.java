@@ -3,20 +3,47 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class bqy
-    implements Runnable
+final class bqy extends boq
 {
 
-    final bqx a;
+    final bqo a;
 
-    bqy(bqx bqx1)
+    bqy(bqo bqo1)
     {
-        a = bqx1;
+        a = bqo1;
         super();
     }
 
-    public void run()
+    public void b(int j)
     {
-        a.a(false, null);
+        bqo.b(a);
+        if (j == 1)
+        {
+            bqo.d(a);
+            glj glj1 = bnk.k();
+            if (glj1 != null)
+            {
+                eev.e("Babel_calls", "Disabling camera because there are only PSTN participants");
+                glj1.a(false);
+            }
+        }
+    }
+
+    public void c()
+    {
+        gdv.b(bqo.a(a), bqz.a);
+        bqo.b(a);
+        bqo.c(a);
+    }
+
+    public void g()
+    {
+        bqo.e(a);
+    }
+
+    public void i()
+    {
+        bqo.f(a);
+        a.c();
     }
 }

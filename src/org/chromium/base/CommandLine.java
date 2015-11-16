@@ -4,30 +4,23 @@
 
 package org.chromium.base;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 public abstract class CommandLine
 {
 
-    private static final AtomicReference a = new AtomicReference();
+    private static final List a = new ArrayList();
+    private static final AtomicReference b = new AtomicReference();
 
-    CommandLine()
+    private CommandLine()
     {
     }
 
-    public static CommandLine a()
+    public static CommandLine c()
     {
-        return (CommandLine)a.get();
-    }
-
-    static boolean c(String s)
-    {
-        return nativeHasSwitch(s);
-    }
-
-    static String d(String s)
-    {
-        return nativeGetSwitchValue(s);
+        return (CommandLine)b.get();
     }
 
     private static native void nativeAppendSwitch(String s);
@@ -42,8 +35,8 @@ public abstract class CommandLine
 
     private static native void nativeReset();
 
-    public abstract boolean a(String s);
+    public abstract boolean a();
 
-    public abstract String b(String s);
+    public abstract String b();
 
 }

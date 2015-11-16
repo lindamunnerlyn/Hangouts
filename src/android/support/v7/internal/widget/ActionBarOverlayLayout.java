@@ -22,22 +22,22 @@ import jo;
 import kb;
 import lr;
 import me;
-import pe;
-import to;
-import tz;
-import ua;
+import pg;
+import tq;
 import ub;
 import uc;
 import ud;
-import us;
-import ut;
-import vp;
+import ue;
+import uf;
+import uu;
+import uv;
+import vr;
 
 // Referenced classes of package android.support.v7.internal.widget:
 //            ActionBarContainer, ContentFrameLayout
 
 public class ActionBarOverlayLayout extends ViewGroup
-    implements jn, us
+    implements jn, uu
 {
 
     static final int a[];
@@ -47,7 +47,7 @@ public class ActionBarOverlayLayout extends ViewGroup
     private int c;
     private ContentFrameLayout d;
     private ActionBarContainer e;
-    private ut f;
+    private uv f;
     private Drawable g;
     private boolean h;
     private boolean i;
@@ -62,9 +62,9 @@ public class ActionBarOverlayLayout extends ViewGroup
     private final Rect r;
     private final Rect s;
     private final Rect t;
-    private uc u;
+    private ue u;
     private final int v;
-    private pe w;
+    private pg w;
     private lr x;
     private final me y;
     private final Runnable z;
@@ -85,9 +85,9 @@ public class ActionBarOverlayLayout extends ViewGroup
         s = new Rect();
         t = new Rect();
         v = 600;
-        y = new tz(this);
-        z = new ua(this);
-        A = new ub(this);
+        y = new ub(this);
+        z = new uc(this);
+        A = new ud(this);
         a(context);
         B = new jo(this);
     }
@@ -122,7 +122,7 @@ public class ActionBarOverlayLayout extends ViewGroup
             flag = false;
         }
         h = flag;
-        w = pe.a(context, null);
+        w = pg.a(context, null);
     }
 
     public static boolean a(ActionBarOverlayLayout actionbaroverlaylayout)
@@ -134,23 +134,23 @@ public class ActionBarOverlayLayout extends ViewGroup
     private static boolean a(View view, Rect rect, boolean flag)
     {
         boolean flag1 = false;
-        view = (ud)view.getLayoutParams();
-        if (((ud) (view)).leftMargin != rect.left)
+        view = (uf)view.getLayoutParams();
+        if (((uf) (view)).leftMargin != rect.left)
         {
             view.leftMargin = rect.left;
             flag1 = true;
         }
-        if (((ud) (view)).topMargin != rect.top)
+        if (((uf) (view)).topMargin != rect.top)
         {
             view.topMargin = rect.top;
             flag1 = true;
         }
-        if (((ud) (view)).rightMargin != rect.right)
+        if (((uf) (view)).rightMargin != rect.right)
         {
             view.rightMargin = rect.right;
             flag1 = true;
         }
-        if (flag && ((ud) (view)).bottomMargin != rect.bottom)
+        if (flag && ((uf) (view)).bottomMargin != rect.bottom)
         {
             view.bottomMargin = rect.bottom;
             return true;
@@ -185,9 +185,9 @@ public class ActionBarOverlayLayout extends ViewGroup
         }
     }
 
-    public ud a(AttributeSet attributeset)
+    public uf a(AttributeSet attributeset)
     {
-        return new ud(getContext(), attributeset);
+        return new uf(getContext(), attributeset);
     }
 
     public void a()
@@ -208,10 +208,10 @@ public class ActionBarOverlayLayout extends ViewGroup
         kb.b(e, -i1);
     }
 
-    public void a(Menu menu, to to)
+    public void a(Menu menu, tq tq)
     {
         e();
-        f.a(menu, to);
+        f.a(menu, tq);
     }
 
     public void a(android.view.Window.Callback callback)
@@ -226,16 +226,16 @@ public class ActionBarOverlayLayout extends ViewGroup
         f.a(charsequence);
     }
 
-    public void a(uc uc1)
+    public void a(ue ue1)
     {
-        u = uc1;
+        u = ue1;
         if (getWindowToken() != null)
         {
             u.d(c);
             if (n != 0)
             {
                 onWindowSystemUiVisibilityChanged(n);
-                kb.r(this);
+                kb.s(this);
             }
         }
     }
@@ -285,12 +285,12 @@ public class ActionBarOverlayLayout extends ViewGroup
 
     protected boolean checkLayoutParams(android.view.ViewGroup.LayoutParams layoutparams)
     {
-        return layoutparams instanceof ud;
+        return layoutparams instanceof uf;
     }
 
-    protected ud d()
+    protected uf d()
     {
-        return new ud();
+        return new uf();
     }
 
     public void draw(Canvas canvas)
@@ -301,7 +301,7 @@ public class ActionBarOverlayLayout extends ViewGroup
             int i1;
             if (e.getVisibility() == 0)
             {
-                i1 = (int)((float)e.getBottom() + kb.l(e) + 0.5F);
+                i1 = (int)((float)e.getBottom() + kb.m(e) + 0.5F);
             } else
             {
                 i1 = 0;
@@ -318,9 +318,9 @@ public class ActionBarOverlayLayout extends ViewGroup
             d = (ContentFrameLayout)findViewById(g.aM);
             e = (ActionBarContainer)findViewById(g.aN);
             Object obj = findViewById(g.aL);
-            if (obj instanceof ut)
+            if (obj instanceof uv)
             {
-                obj = (ut)obj;
+                obj = (uv)obj;
             } else
             if (obj instanceof Toolbar)
             {
@@ -329,7 +329,7 @@ public class ActionBarOverlayLayout extends ViewGroup
             {
                 throw new IllegalStateException((new StringBuilder("Can't make a decor toolbar out of ")).append(obj.getClass().getSimpleName()).toString());
             }
-            f = ((ut) (obj));
+            f = ((uv) (obj));
         }
     }
 
@@ -337,7 +337,7 @@ public class ActionBarOverlayLayout extends ViewGroup
     {
         if (e != null)
         {
-            return -(int)kb.l(e);
+            return -(int)kb.m(e);
         } else
         {
             return 0;
@@ -347,10 +347,10 @@ public class ActionBarOverlayLayout extends ViewGroup
     protected boolean fitSystemWindows(Rect rect)
     {
         e();
-        kb.q(this);
+        kb.r(this);
         boolean flag = a(e, rect, false);
         r.set(rect);
-        vp.a(this, r, o);
+        vr.a(this, r, o);
         if (!p.equals(o))
         {
             p.set(o);
@@ -381,7 +381,7 @@ public class ActionBarOverlayLayout extends ViewGroup
 
     protected android.view.ViewGroup.LayoutParams generateLayoutParams(android.view.ViewGroup.LayoutParams layoutparams)
     {
-        return new ud(layoutparams);
+        return new uf(layoutparams);
     }
 
     public int getNestedScrollAxes()
@@ -432,7 +432,7 @@ public class ActionBarOverlayLayout extends ViewGroup
             super.onConfigurationChanged(configuration);
         }
         a(getContext());
-        kb.r(this);
+        kb.s(this);
     }
 
     protected void onDetachedFromWindow()
@@ -453,11 +453,11 @@ public class ActionBarOverlayLayout extends ViewGroup
             View view = getChildAt(i1);
             if (view.getVisibility() != 8)
             {
-                ud ud1 = (ud)view.getLayoutParams();
+                uf uf1 = (uf)view.getLayoutParams();
                 int i2 = view.getMeasuredWidth();
                 int j2 = view.getMeasuredHeight();
-                int k2 = ud1.leftMargin + k1;
-                int l2 = ud1.topMargin + l1;
+                int k2 = uf1.leftMargin + k1;
+                int l2 = uf1.topMargin + l1;
                 view.layout(k2, l2, i2 + k2, j2 + l2);
             }
         }
@@ -468,14 +468,14 @@ public class ActionBarOverlayLayout extends ViewGroup
     {
         e();
         measureChildWithMargins(e, i1, 0, j1, 0);
-        Object obj = (ud)e.getLayoutParams();
-        int i3 = Math.max(0, e.getMeasuredWidth() + ((ud) (obj)).leftMargin + ((ud) (obj)).rightMargin);
+        Object obj = (uf)e.getLayoutParams();
+        int i3 = Math.max(0, e.getMeasuredWidth() + ((uf) (obj)).leftMargin + ((uf) (obj)).rightMargin);
         int k1 = e.getMeasuredHeight();
-        int l1 = ((ud) (obj)).topMargin;
-        int l2 = Math.max(0, ((ud) (obj)).bottomMargin + (k1 + l1));
-        int k2 = vp.a(0, kb.j(e));
+        int l1 = ((uf) (obj)).topMargin;
+        int l2 = Math.max(0, ((uf) (obj)).bottomMargin + (k1 + l1));
+        int k2 = vr.a(0, kb.k(e));
         int j2;
-        if ((kb.q(this) & 0x100) != 0)
+        if ((kb.r(this) & 0x100) != 0)
         {
             l1 = 1;
         } else
@@ -524,12 +524,12 @@ public class ActionBarOverlayLayout extends ViewGroup
             d.a(s);
         }
         measureChildWithMargins(d, i1, 0, j1, 0);
-        obj = (ud)d.getLayoutParams();
-        k1 = Math.max(i3, d.getMeasuredWidth() + ((ud) (obj)).leftMargin + ((ud) (obj)).rightMargin);
+        obj = (uf)d.getLayoutParams();
+        k1 = Math.max(i3, d.getMeasuredWidth() + ((uf) (obj)).leftMargin + ((uf) (obj)).rightMargin);
         l1 = d.getMeasuredHeight();
-        j2 = ((ud) (obj)).topMargin;
-        l1 = Math.max(l2, ((ud) (obj)).bottomMargin + (l1 + j2));
-        j2 = vp.a(k2, kb.j(d));
+        j2 = ((uf) (obj)).topMargin;
+        l1 = Math.max(l2, ((uf) (obj)).bottomMargin + (l1 + j2));
+        j2 = vr.a(k2, kb.k(d));
         k2 = getPaddingLeft();
         l2 = getPaddingRight();
         l1 = Math.max(l1 + (getPaddingTop() + getPaddingBottom()), getSuggestedMinimumHeight());
@@ -645,12 +645,12 @@ label0:
         }
         if (u != null)
         {
-            uc uc1 = u;
+            ue ue1 = u;
             if (flag1)
             {
                 flag2 = false;
             }
-            uc1.e(flag2);
+            ue1.e(flag2);
             if (flag || !flag1)
             {
                 u.l();
@@ -661,7 +661,7 @@ label0:
         }
         if (((j1 ^ i1) & 0x100) != 0 && u != null)
         {
-            kb.r(this);
+            kb.s(this);
         }
     }
 

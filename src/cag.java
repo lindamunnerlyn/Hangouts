@@ -2,26 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.mergedcontacts.impl.MergeContactsService;
+import android.os.Bundle;
 
 public final class cag
 {
 
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
-    public boolean f;
-    public String g;
-    public String h;
-    public String i;
-    public long j;
-    final MergeContactsService k;
+    String a;
+    String b;
 
-    public cag(MergeContactsService mergecontactsservice)
+    public cag()
     {
-        k = mergecontactsservice;
-        super();
+    }
+
+    public Bundle a()
+    {
+        Bundle bundle = new Bundle();
+        bundle.putString("account_name", a);
+        bundle.putString("effective_gaia_id", b);
+        return bundle;
+    }
+
+    public cag a(String s)
+    {
+        a = s;
+        return this;
+    }
+
+    public cag b(String s)
+    {
+        b = s;
+        return this;
     }
 }

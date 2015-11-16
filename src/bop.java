@@ -2,39 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import com.google.android.apps.hangouts.hangout.HangoutFragment;
-import java.util.Iterator;
-import java.util.List;
+import android.content.Intent;
+import android.util.Base64;
+import com.google.android.apps.hangouts.realtimechat.GcmIntentService;
 
-public final class bop
-    implements cib
+final class bop
+    implements Runnable
 {
 
-    final HangoutFragment a;
+    final Intent a;
+    final boo b;
 
-    public bop(HangoutFragment hangoutfragment)
+    bop(boo boo, Intent intent)
     {
-        a = hangoutfragment;
+        b = boo;
+        a = intent;
         super();
     }
 
-    public void a(List list, Bundle bundle)
+    public void run()
     {
-        list = list.iterator();
-        do
-        {
-            if (!list.hasNext())
-            {
-                break;
-            }
-            bundle = (cic)list.next();
-            if (!((cic) (bundle)).a.equals("android.permission.CAMERA") || !((cic) (bundle)).b)
-            {
-                continue;
-            }
-            HangoutFragment.h(a);
-            break;
-        } while (true);
+        byte abyte0[] = Base64.decode(GcmIntentService.a(a), 0);
+        gic.a().a(abyte0);
     }
 }

@@ -2,55 +2,78 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.telephony.PhoneStateListener;
-import android.telephony.TelephonyManager;
+import android.view.View;
+import com.google.android.apps.hangouts.fragments.CallContactPickerFragment;
 
 public final class bhd
+    implements android.view.ViewTreeObserver.OnGlobalLayoutListener
 {
 
-    boolean a;
-    private final Context b;
-    private boolean c;
-    private PhoneStateListener d;
-    private TelephonyManager e;
+    int a;
+    int b;
+    final View c;
+    final CallContactPickerFragment d;
 
-    public bhd(Context context)
+    public bhd(CallContactPickerFragment callcontactpickerfragment, View view)
     {
-        b = context;
+        d = callcontactpickerfragment;
+        c = view;
+        super();
+        a = 0;
+        b = 0;
     }
 
-    public void a(bhf bhf1)
+    public void onGlobalLayout()
     {
-        gbh.b(c);
-        c = true;
-        e = (TelephonyManager)b.getSystemService("phone");
-        if (e == null)
+        boolean flag1 = true;
+        if (d.isResumed()) goto _L2; else goto _L1
+_L1:
+        return;
+_L2:
+        if (!CallContactPickerFragment.a(d).h())
         {
-            ebw.e("Babel", "couldn't retrieve TelephonyManager!");
-            bhf1.a();
-            return;
-        } else
-        {
-            d = new bhe(this, bhf1);
-            e.listen(d, 1);
+            CallContactPickerFragment.d(d).a(true);
             return;
         }
-    }
-
-    public boolean a()
-    {
-        gbh.a(c);
-        return a;
-    }
-
-    public void b()
-    {
-        c = false;
-        if (d != null)
+        if (CallContactPickerFragment.c(d) != 0) goto _L4; else goto _L3
+_L3:
+        int i;
+        i = c.getHeight();
+        int j = c.getWidth();
+        if (j != b)
         {
-            e.listen(d, 0);
-            d = null;
+            a = 0;
+            b = j;
         }
+        a = Math.max(i, a);
+        if (i >= a) goto _L4; else goto _L5
+_L5:
+        boolean flag = true;
+_L7:
+        if (CallContactPickerFragment.d(d) == null)
+        {
+            if (flag)
+            {
+                CallContactPickerFragment.e(d).setVisibility(8);
+                return;
+            }
+            continue; /* Loop/switch isn't completed */
+        }
+        break MISSING_BLOCK_LABEL_168;
+_L4:
+        flag = false;
+        if (true) goto _L7; else goto _L6
+_L6:
+        if (CallContactPickerFragment.f(d).getVisibility() != 8) goto _L1; else goto _L8
+_L8:
+        CallContactPickerFragment.e(d).setVisibility(0);
+        return;
+        bev bev1 = CallContactPickerFragment.d(d);
+        if (flag)
+        {
+            flag1 = false;
+        }
+        bev1.a(flag1);
+        return;
     }
 }

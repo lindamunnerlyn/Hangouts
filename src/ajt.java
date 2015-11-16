@@ -3,22 +3,32 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import com.google.android.libraries.social.settings.CheckBoxPreference;
+import android.content.DialogInterface;
 
-final class ajt extends CheckBoxPreference
+public final class ajt
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    ajt(Context context)
+    final ddg a;
+    final int b;
+    final String c;
+    final akx d;
+    final Context e;
+
+    public ajt(ddg ddg1, int i, String s, akx akx1, Context context)
     {
-        super(context);
+        a = ddg1;
+        b = i;
+        c = s;
+        d = akx1;
+        e = context;
+        super();
     }
 
-    public void a(boolean flag)
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-    }
-
-    public void a_(boolean flag)
-    {
-        super.a(flag);
+        dialoginterface = a.a(b, c);
+        d.a(2250);
+        e.startActivity(dialoginterface);
     }
 }

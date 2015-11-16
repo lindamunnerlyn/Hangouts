@@ -3,36 +3,29 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class bqq extends Enum
+final class bqq
+    implements Runnable
 {
 
-    public static final bqq a;
-    public static final bqq b;
-    public static final bqq c;
-    private static final bqq d[];
+    final bqo a;
 
-    private bqq(String s, int i)
+    bqq(bqo bqo1)
     {
-        super(s, i);
+        a = bqo1;
+        super();
     }
 
-    public static bqq valueOf(String s)
+    public void run()
     {
-        return (bqq)Enum.valueOf(bqq, s);
-    }
-
-    public static bqq[] values()
-    {
-        return (bqq[])d.clone();
-    }
-
-    static 
-    {
-        a = new bqq("NONE", 0);
-        b = new bqq("SELF_MENU", 1);
-        c = new bqq("PARTICIPANT_TRAY", 2);
-        d = (new bqq[] {
-            a, b, c
-        });
+        if (a.j())
+        {
+            bqo.d(a);
+            glj glj1 = bnk.k();
+            if (glj1 != null)
+            {
+                eev.e("Babel_calls", "Disabling camera because the earpiece is on.");
+                glj1.a(false);
+            }
+        }
     }
 }

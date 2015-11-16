@@ -7,15 +7,16 @@ package org.chromium.base.library_loader;
 import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import android.os.Parcelable;
+import g;
 import java.io.IOException;
 import java.util.Locale;
-import org.chromium.base.Log;
+import lma;
 
 public class mRelroFd
     implements Parcelable
 {
 
-    public static final android.os.tor CREATOR = new _cls1();
+    public static final android.os.tor CREATOR = new lma();
     public long mLoadAddress;
     public long mLoadSize;
     public int mRelroFd;
@@ -49,14 +50,14 @@ public class mRelroFd
         parcelfiledescriptor.close();
         return;
         parcel;
-        Log.b("cr.library_loader", "Cant' write LibInfo file descriptor to parcel", new Object[] {
+        g.a("LibraryLoader", "Can't write LibInfo file descriptor to parcel", new Object[] {
             parcel
         });
         return;
     }
 
 
-    public _cls1()
+    public ()
     {
         mLoadAddress = 0L;
         mLoadSize = 0L;
@@ -82,24 +83,4 @@ public class mRelroFd
         }
         mRelroFd = i;
     }
-
-    class _cls1
-        implements android.os.Parcelable.Creator
-    {
-
-        public Object createFromParcel(Parcel parcel)
-        {
-            return new Linker.LibInfo(parcel);
-        }
-
-        public Object[] newArray(int i)
-        {
-            return new Linker.LibInfo[i];
-        }
-
-            _cls1()
-            {
-            }
-    }
-
 }

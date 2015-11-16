@@ -2,124 +2,129 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
-import java.util.List;
-import java.util.ListIterator;
 
-class jke extends jkc
-    implements List
+public final class jke extends kwm
 {
 
-    final jjt g;
+    public jif a;
+    public jij b[];
 
-    jke(jjt jjt1, Object obj, List list, jkc jkc1)
+    public jke()
     {
-        g = jjt1;
-        super(jjt1, obj, list, jkc1);
+        a = null;
+        b = jij.a();
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public void add(int i, Object obj)
+    protected int computeSerializedSize()
     {
-        a();
-        boolean flag = e().isEmpty();
-        g().add(i, obj);
-        jjt.c(g);
-        if (flag)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            d();
+            i = j + kwk.d(1, a);
         }
-    }
-
-    public boolean addAll(int i, Collection collection)
-    {
-        boolean flag;
-        if (collection.isEmpty())
+        j = i;
+        if (b != null)
         {
-            flag = false;
-        } else
-        {
-            int j = size();
-            boolean flag1 = g().addAll(i, collection);
-            flag = flag1;
-            if (flag1)
+            j = i;
+            if (b.length > 0)
             {
-                i = e().size();
-                jjt.a(g, i - j);
-                flag = flag1;
-                if (j == 0)
+                for (j = 0; j < b.length;)
                 {
-                    d();
-                    return flag1;
+                    jij jij1 = b[j];
+                    int k = i;
+                    if (jij1 != null)
+                    {
+                        k = i + kwk.d(2, jij1);
+                    }
+                    j++;
+                    i = k;
                 }
+
+                j = i;
             }
         }
-        return flag;
+        return j;
     }
 
-    List g()
+    public kws mergeFrom(kwj kwj1)
     {
-        return (List)e();
-    }
-
-    public Object get(int i)
-    {
-        a();
-        return g().get(i);
-    }
-
-    public int indexOf(Object obj)
-    {
-        a();
-        return g().indexOf(obj);
-    }
-
-    public int lastIndexOf(Object obj)
-    {
-        a();
-        return g().lastIndexOf(obj);
-    }
-
-    public ListIterator listIterator()
-    {
-        a();
-        return new jkf(this);
-    }
-
-    public ListIterator listIterator(int i)
-    {
-        a();
-        return new jkf(this, i);
-    }
-
-    public Object remove(int i)
-    {
-        a();
-        Object obj = g().remove(i);
-        jjt.b(g);
-        b();
-        return obj;
-    }
-
-    public Object set(int i, Object obj)
-    {
-        a();
-        return g().set(i, obj);
-    }
-
-    public List subList(int i, int j)
-    {
-        a();
-        jjt jjt1 = g;
-        Object obj1 = c();
-        List list = g().subList(i, j);
-        Object obj;
-        if (f() == null)
+        do
         {
-            obj = this;
-        } else
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new jif();
+                }
+                kwj1.a(a);
+                break;
+
+            case 18: // '\022'
+                int k = kwx.a(kwj1, 18);
+                jij ajij[];
+                int j;
+                if (b == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = b.length;
+                }
+                ajij = new jij[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(b, 0, ajij, 0, j);
+                    k = j;
+                }
+                for (; k < ajij.length - 1; k++)
+                {
+                    ajij[k] = new jij();
+                    kwj1.a(ajij[k]);
+                    kwj1.a();
+                }
+
+                ajij[k] = new jij();
+                kwj1.a(ajij[k]);
+                b = ajij;
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
         {
-            obj = f();
+            kwk1.b(1, a);
         }
-        return jjt.a(jjt1, obj1, list, ((jkc) (obj)));
+        if (b != null && b.length > 0)
+        {
+            for (int i = 0; i < b.length; i++)
+            {
+                jij jij1 = b[i];
+                if (jij1 != null)
+                {
+                    kwk1.b(2, jij1);
+                }
+            }
+
+        }
+        super.writeTo(kwk1);
     }
 }

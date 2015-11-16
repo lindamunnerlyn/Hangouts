@@ -2,90 +2,309 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Fragment;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 
-public final class hpb extends koj
+public class hpb extends pu
+    implements hoe
 {
 
-    public Long a;
-    public String b;
-    public Long c;
+    private int j;
+    public final hpf r = new hpf();
 
     public hpb()
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    private void c(Intent intent)
     {
-        int j = super.computeSerializedSize();
         int i = j;
-        if (a != null)
+        j = i + 1;
+        if (i == 0)
         {
-            i = j + koh.e(1, a.longValue());
+            r.a(intent);
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.b(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.longValue());
-        }
-        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    private void j()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Long.valueOf(kog1.e());
-                break;
-
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-
-            case 24: // '\030'
-                c = Long.valueOf(kog1.e());
-                break;
-            }
-        } while (true);
+        j = j - 1;
     }
 
-    public void writeTo(koh koh1)
+    public void a(ad ad)
     {
-        if (a != null)
+        r.u();
+        super.a(ad);
+    }
+
+    public void a(ad ad, Intent intent, int i)
+    {
+        c(intent);
+        super.a(ad, intent, i);
+        j();
+    }
+
+    public void a(vt vt)
+    {
+        r.j();
+        super.a(vt);
+    }
+
+    public void b(vt vt)
+    {
+        r.k();
+        super.b(vt);
+    }
+
+    public boolean dispatchKeyEvent(KeyEvent keyevent)
+    {
+        if (r.a(keyevent))
         {
-            koh1.b(1, a.longValue());
-        }
-        if (b != null)
+            return true;
+        } else
         {
-            koh1.a(2, b);
+            return super.dispatchKeyEvent(keyevent);
         }
-        if (c != null)
+    }
+
+    public void finish()
+    {
+        r.i();
+        super.finish();
+    }
+
+    public hof getLifecycle()
+    {
+        return r;
+    }
+
+    public void onActivityResult(int i, int k, Intent intent)
+    {
+        r.a(i, k, intent);
+        super.onActivityResult(i, k, intent);
+    }
+
+    public void onAttachedToWindow()
+    {
+        r.d();
+        super.onAttachedToWindow();
+    }
+
+    public void onBackPressed()
+    {
+        if (!r.l())
         {
-            koh1.b(3, c.longValue());
+            super.onBackPressed();
         }
-        super.writeTo(koh1);
+    }
+
+    public boolean onContextItemSelected(MenuItem menuitem)
+    {
+        if (r.p())
+        {
+            return true;
+        } else
+        {
+            return super.onContextItemSelected(menuitem);
+        }
+    }
+
+    public void onCreate(Bundle bundle)
+    {
+        r.c(bundle);
+        super.onCreate(bundle);
+    }
+
+    public void onCreateContextMenu(ContextMenu contextmenu, View view, android.view.ContextMenu.ContextMenuInfo contextmenuinfo)
+    {
+        r.o();
+        super.onCreateContextMenu(contextmenu, view, contextmenuinfo);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        if (r.a(menu))
+        {
+            return true;
+        } else
+        {
+            return super.onCreateOptionsMenu(menu);
+        }
+    }
+
+    public void onDestroy()
+    {
+        r.c();
+        super.onDestroy();
+    }
+
+    public void onDetachedFromWindow()
+    {
+        r.e();
+        super.onDetachedFromWindow();
+    }
+
+    public boolean onKeyDown(int i, KeyEvent keyevent)
+    {
+        if (r.m())
+        {
+            return true;
+        } else
+        {
+            return super.onKeyDown(i, keyevent);
+        }
+    }
+
+    public boolean onKeyUp(int i, KeyEvent keyevent)
+    {
+        if (r.n())
+        {
+            return true;
+        } else
+        {
+            return super.onKeyUp(i, keyevent);
+        }
+    }
+
+    public void onLowMemory()
+    {
+        r.t();
+        super.onLowMemory();
+    }
+
+    public void onNewIntent(Intent intent)
+    {
+        r.g();
+        super.onNewIntent(intent);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem menuitem)
+    {
+        if (r.a(menuitem))
+        {
+            return true;
+        } else
+        {
+            return super.onOptionsItemSelected(menuitem);
+        }
+    }
+
+    public void onPause()
+    {
+        r.b();
+        super.onPause();
+    }
+
+    protected void onPostCreate(Bundle bundle)
+    {
+        r.a(bundle);
+        super.onPostCreate(bundle);
+    }
+
+    protected void onPostResume()
+    {
+        r.a();
+        super.onPostResume();
+    }
+
+    public boolean onPrepareOptionsMenu(Menu menu)
+    {
+        if (r.b(menu))
+        {
+            return true;
+        } else
+        {
+            return super.onPrepareOptionsMenu(menu);
+        }
+    }
+
+    public void onRequestPermissionsResult(int i, String as[], int ai[])
+    {
+        r.a(i, as, ai);
+    }
+
+    public void onRestoreInstanceState(Bundle bundle)
+    {
+        r.b(bundle);
+        super.onRestoreInstanceState(bundle);
+    }
+
+    public void onResume()
+    {
+        h.a(u_());
+        r.r();
+        super.onResume();
+    }
+
+    public void onSaveInstanceState(Bundle bundle)
+    {
+        r.d(bundle);
+        super.onSaveInstanceState(bundle);
+    }
+
+    public void onStart()
+    {
+        h.a(u_());
+        r.q();
+        super.onStart();
+    }
+
+    public void onStop()
+    {
+        r.s();
+        super.onStop();
+    }
+
+    protected void onUserLeaveHint()
+    {
+        r.h();
+        super.onUserLeaveHint();
+    }
+
+    public void onWindowFocusChanged(boolean flag)
+    {
+        r.f();
+        super.onWindowFocusChanged(flag);
+    }
+
+    public void startActivity(Intent intent)
+    {
+        c(intent);
+        super.startActivity(intent);
+        j();
+    }
+
+    public void startActivity(Intent intent, Bundle bundle)
+    {
+        c(intent);
+        super.startActivity(intent, bundle);
+        j();
+    }
+
+    public void startActivityForResult(Intent intent, int i)
+    {
+        c(intent);
+        super.startActivityForResult(intent, i);
+        j();
+    }
+
+    public void startActivityForResult(Intent intent, int i, Bundle bundle)
+    {
+        c(intent);
+        super.startActivityForResult(intent, i, bundle);
+        j();
+    }
+
+    public void startActivityFromFragment(Fragment fragment, Intent intent, int i, Bundle bundle)
+    {
+        c(intent);
+        super.startActivityFromFragment(fragment, intent, i, bundle);
+        j();
     }
 }

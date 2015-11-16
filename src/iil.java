@@ -3,113 +3,197 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iil extends koj
+public final class iil extends kwm
 {
 
-    public iga a[];
+    private static volatile iil h[];
+    public iqe a;
+    public String b;
+    public int c;
+    public ijb d;
+    public iha e;
+    public ijn f;
+    public ihc g;
 
     public iil()
     {
-        a = iga.a();
+        a = null;
+        b = null;
+        c = 0x80000000;
+        d = null;
+        e = null;
+        f = null;
+        g = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
+    public static iil[] a()
+    {
+        if (h == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (h == null)
+                {
+                    h = new iil[0];
+                }
+            }
+        }
+        return h;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        int k = i;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            k = i;
-            if (a.length > 0)
-            {
-                int j = 0;
-                do
-                {
-                    k = i;
-                    if (j >= a.length)
-                    {
-                        break;
-                    }
-                    iga iga1 = a[j];
-                    k = i;
-                    if (iga1 != null)
-                    {
-                        k = i + koh.d(1, iga1);
-                    }
-                    j++;
-                    i = k;
-                } while (true);
-            }
+            i = j + kwk.d(1, a);
         }
-        return k;
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.b(2, b);
+        }
+        i = j;
+        if (c != 0x80000000)
+        {
+            i = j + kwk.e(3, c);
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.d(4, d);
+        }
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.d(5, e);
+        }
+        j = i;
+        if (f != null)
+        {
+            j = i + kwk.d(6, f);
+        }
+        i = j;
+        if (g != null)
+        {
+            i = j + kwk.d(7, g);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L10:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 8: default 80
+    //                   0: 89
+    //                   10: 91
+    //                   18: 120
+    //                   24: 131
+    //                   34: 195
+    //                   42: 224
+    //                   50: 253
+    //                   58: 282;
+           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L10; else goto _L2
+_L2:
+        return this;
+_L3:
+        if (a == null)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                iga aiga[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                aiga = new iga[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aiga, 0, j);
-                    k = j;
-                }
-                for (; k < aiga.length - 1; k++)
-                {
-                    aiga[k] = new iga();
-                    kog1.a(aiga[k]);
-                    kog1.a();
-                }
-
-                aiga[k] = new iga();
-                kog1.a(aiga[k]);
-                a = aiga;
-                break;
-            }
-        } while (true);
+            a = new iqe();
+        }
+        kwj1.a(a);
+          goto _L10
+_L4:
+        b = kwj1.j();
+          goto _L10
+_L5:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+        case 5: // '\005'
+        case 6: // '\006'
+        case 7: // '\007'
+            c = j;
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L6:
+        if (d == null)
+        {
+            d = new ijb();
+        }
+        kwj1.a(d);
+        continue; /* Loop/switch isn't completed */
+_L7:
+        if (e == null)
+        {
+            e = new iha();
+        }
+        kwj1.a(e);
+        continue; /* Loop/switch isn't completed */
+_L8:
+        if (f == null)
+        {
+            f = new ijn();
+        }
+        kwj1.a(f);
+        continue; /* Loop/switch isn't completed */
+_L9:
+        if (g == null)
+        {
+            g = new ihc();
+        }
+        kwj1.a(g);
+        if (true) goto _L10; else goto _L11
+_L11:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null && a.length > 0)
+        if (a != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                iga iga1 = a[i];
-                if (iga1 != null)
-                {
-                    koh1.b(1, iga1);
-                }
-            }
-
+            kwk1.b(1, a);
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        if (c != 0x80000000)
+        {
+            kwk1.a(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.b(4, d);
+        }
+        if (e != null)
+        {
+            kwk1.b(5, e);
+        }
+        if (f != null)
+        {
+            kwk1.b(6, f);
+        }
+        if (g != null)
+        {
+            kwk1.b(7, g);
+        }
+        super.writeTo(kwk1);
     }
 }

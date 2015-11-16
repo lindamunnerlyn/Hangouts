@@ -2,137 +2,72 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
-import android.os.SystemClock;
-import com.google.android.apps.hangouts.content.EsProvider;
 
-final class cdg
+public final class cdg
 {
 
-    cdg()
-    {
-    }
+    private static final boolean a = false;
+    private static final efh b = efh.a("VolleyUtils");
+    private static afz c = null;
 
-    static void a(Context context, int i)
+    public static afz a()
     {
-        Cursor cursor;
-        long l4;
-        l4 = g.a(context, "babel_max_pending_message_animation", 0x1d4c0L);
-        cdc.a(i, l4);
-        android.net.Uri uri = EsProvider.a(EsProvider.j, i);
-        cursor = context.getContentResolver().query(uri, cdt.a, cdc.a, null, "timestamp ASC");
-        if (cursor == null) goto _L2; else goto _L1
+        cdg;
+        JVM INSTR monitorenter ;
+        if (c != null) goto _L2; else goto _L1
 _L1:
-        Object obj = new dzx();
-        int j;
-        int k;
-        long l1;
-        j = 0;
-        k = -1;
-        l1 = 0L;
-        cursor.moveToPosition(-1);
-        long l2 = 0x7fffffffffffffffL;
-_L9:
-        dqb dqb1;
-        String s;
-        long l3;
-        if (!cursor.moveToNext())
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        dqb1 = dqb.values()[cursor.getInt(12)];
-        s = cursor.getString(7);
-        l3 = cursor.getLong(11) / 1000L;
-        cdd.a[dqb1.ordinal()];
-        JVM INSTR tableswitch 1 3: default 493
-    //                   1 160
-    //                   2 160
-    //                   3 243;
-           goto _L3 _L4 _L4 _L5
+        Object obj = b.b("RQ initialization");
+        Object obj1 = g.nU;
+        fts.a(((Context) (obj1)));
 _L3:
-        continue; /* Loop/switch isn't completed */
-_L4:
-        long l5 = System.currentTimeMillis() - (l3 + l4);
-        if (l5 <= 0L) goto _L7; else goto _L6
-_L6:
-        int l = j + 1;
-        int i1;
-        ((dzx) (obj)).add(s);
-        i1 = cursor.getPosition();
-        k = i1;
-        j = l;
-        if (l3 > l1)
+        Object obj2 = ffc.a(g.h(), ((Context) (obj1)));
+        if (a)
         {
-            l1 = l3;
-            k = i1;
-            j = l;
+            ((ffc) (obj2)).a("Babel");
+            eev.b("Babel", "initialize Volley request queue");
         }
-        continue; /* Loop/switch isn't completed */
-_L7:
-        l2 = Math.min(l2, -l5);
-        continue; /* Loop/switch isn't completed */
-_L5:
-        l = j + 1;
-        ((dzx) (obj)).add(s);
-        i1 = cursor.getPosition();
-        k = i1;
-        j = l;
-        if (l3 > l1)
-        {
-            k = i1;
-            l1 = l3;
-            j = l;
-        }
-        if (true) goto _L9; else goto _L8
-_L8:
-        if (ced.m)
-        {
-            ebw.b("Babel", (new StringBuilder(43)).append("query for failed message sends: ").append(j).toString());
-        }
-        if (j <= 0) goto _L11; else goto _L10
-_L10:
-        if (j != 1) goto _L13; else goto _L12
-_L12:
-        cursor.moveToPosition(k);
-        obj = new cdi(context, i, new cdr(cursor, i), l1);
-_L16:
-        ((cdc) (obj)).a(true);
-_L17:
-        if (l2 == 0x7fffffffffffffffL) goto _L15; else goto _L14
-_L14:
-        obj = (AlarmManager)context.getSystemService("alarm");
-        Intent intent = (new cdf()).a(context, i);
-        intent.setAction("com.google.android.apps.hangouts.UPDATE_NOTIFICATION");
-        intent.setComponent(null);
-        context = PendingIntent.getBroadcast(context, eba.a(i, 1, 100, null), intent, 0x10000000);
-        ((AlarmManager) (obj)).set(2, SystemClock.elapsedRealtime() + l2, context);
-_L15:
-        cursor.close();
+        obj2 = new agl(new ago(((org.apache.http.client.HttpClient) (obj2))));
+        obj1 = new afz(new cde(((Context) (obj1)).getCacheDir(), g.a(g.nU, "babel_volley_cache_size", 0x3200000)), ((afq) (obj2)), g.a(g.nU, "babel_thread_pool_size", 2));
+        c = ((afz) (obj1));
+        ((afz) (obj1)).a();
+        b.c(((String) (obj)));
 _L2:
-        return;
-_L13:
-        obj = new cdh(context, i, ((dzx) (obj)), j, l1);
-          goto _L16
-_L11:
-        cdc.a(context, i);
-          goto _L17
-        context;
-        cursor.close();
-        throw context;
-          goto _L16
+        obj = c;
+        cdg;
+        JVM INSTR monitorexit ;
+        return ((afz) (obj));
+        Object obj3;
+        obj3;
+        eev.e("Babel", "Temporarily unable to update security library", ((Throwable) (obj3)));
+        emo.a(((emn) (obj3)).a(), ((Context) (obj1)));
+          goto _L3
+        Exception exception1;
+        exception1;
+        b.c(((String) (obj)));
+        throw exception1;
+        Exception exception;
+        exception;
+        cdg;
+        JVM INSTR monitorexit ;
+        throw exception;
+        obj3;
+        eev.e("Babel", "Permanently unable to update security library", ((Throwable) (obj3)));
+          goto _L3
     }
 
-    void a(Context context, int i, String s)
+    public static void a(String s)
     {
-        s = dzx.a(s);
-        if (any.c(new aoe(context, i), s) > 0 && cej.f(context, i))
+        a();
+        afk afk1 = c.b();
+        if (afk1 != null)
         {
-            a(context, i);
+            afk1.b(s);
         }
+    }
+
+    static 
+    {
+        hnc hnc = eev.h;
     }
 }

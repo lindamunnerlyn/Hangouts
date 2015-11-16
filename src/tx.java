@@ -2,31 +2,51 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Outline;
-import android.graphics.drawable.Drawable;
-import android.support.v7.internal.widget.ActionBarContainer;
+import android.view.View;
 
-public final class tx extends tw
+public final class tx
+    implements me
 {
 
-    public tx(ActionBarContainer actionbarcontainer)
+    int a;
+    final tw b;
+    private boolean c;
+
+    protected tx(tw tw1)
     {
-        super(actionbarcontainer);
+        b = tw1;
+        super();
+        c = false;
     }
 
-    public void getOutline(Outline outline)
+    public tx a(lr lr, int i)
     {
-        if (a.d)
+        b.f = lr;
+        a = i;
+        return this;
+    }
+
+    public void a(View view)
+    {
+        tw.a(b);
+        c = false;
+    }
+
+    public void b(View view)
+    {
+        if (c)
         {
-            if (a.c != null)
-            {
-                a.c.getOutline(outline);
-            }
+            return;
         } else
-        if (a.a != null)
         {
-            a.a.getOutline(outline);
+            b.f = null;
+            tw.a(b, a);
             return;
         }
+    }
+
+    public void c(View view)
+    {
+        c = true;
     }
 }

@@ -2,50 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.util.Log;
+import android.os.Binder;
+import android.os.Parcel;
+import com.google.android.gms.maps.model.StreetViewPanoramaOrientation;
 
-public final class fmh
+public abstract class fmh extends Binder
+    implements fmg
 {
 
-    public fmh()
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
     {
-    }
-
-    private ekd b(ejx ejx1, String s, String s1)
-    {
-        if (Log.isLoggable("PeopleClientCall", 3))
+        switch (i)
         {
-            g.a("loadOwnerCoverPhoto", new Object[] {
-                s, s1
-            });
-        }
-        return ejx1.a(new ffi(this, ejx1, s, s1));
-    }
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
 
-    public ekd a(ejx ejx1, long l)
-    {
-        if (Log.isLoggable("PeopleClientCall", 3))
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.maps.internal.IOnStreetViewPanoramaClickListener");
+            return true;
+
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.IOnStreetViewPanoramaClickListener");
+            break;
+        }
+        if (parcel.readInt() != 0)
         {
-            g.a("loadContactThumbnailByContactId", new Object[] {
-                Long.valueOf(l)
-            });
-        }
-        return ejx1.a(new ffg(this, ejx1, l));
-    }
-
-    public ekd a(ejx ejx1, String s, String s1)
-    {
-        return b(ejx1, s, s1);
-    }
-
-    public ekd a(ejx ejx1, String s, String s1, int i)
-    {
-        if (Log.isLoggable("PeopleClientCall", 3))
+            fol fol1 = StreetViewPanoramaOrientation.CREATOR;
+            parcel = fol.a(parcel);
+        } else
         {
-            g.a("loadOwnerAvatar", new Object[] {
-                s, s1, Integer.valueOf(i), Integer.valueOf(1)
-            });
+            parcel = null;
         }
-        return ejx1.a(new ffh(this, ejx1, s, s1, i, 1));
+        a(parcel);
+        parcel1.writeNoException();
+        return true;
     }
 }

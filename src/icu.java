@@ -3,18 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class icu extends koj
+public final class icu extends kwm
 {
 
-    public ibs a;
-    public ibs b[];
-    public icq c;
+    public iby a;
 
     public icu()
     {
         a = null;
-        b = ibs.a();
-        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -25,46 +21,20 @@ public final class icu extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(4, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i;
-            if (b.length > 0)
-            {
-                for (j = 0; j < b.length;)
-                {
-                    ibs ibs1 = b[j];
-                    int k = i;
-                    if (ibs1 != null)
-                    {
-                        k = i + koh.d(5, ibs1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.d(6, c);
+            i = j + kwk.d(1, a);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -73,77 +43,23 @@ public final class icu extends koj
             case 0: // '\0'
                 return this;
 
-            case 34: // '"'
+            case 10: // '\n'
                 if (a == null)
                 {
-                    a = new ibs();
+                    a = new iby();
                 }
-                kog1.a(a);
-                break;
-
-            case 42: // '*'
-                int k = kou.b(kog1, 42);
-                ibs aibs[];
-                int j;
-                if (b == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
-                }
-                aibs = new ibs[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, aibs, 0, j);
-                    k = j;
-                }
-                for (; k < aibs.length - 1; k++)
-                {
-                    aibs[k] = new ibs();
-                    kog1.a(aibs[k]);
-                    kog1.a();
-                }
-
-                aibs[k] = new ibs();
-                kog1.a(aibs[k]);
-                b = aibs;
-                break;
-
-            case 50: // '2'
-                if (c == null)
-                {
-                    c = new icq();
-                }
-                kog1.a(c);
+                kwj1.a(a);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(4, a);
+            kwk1.b(1, a);
         }
-        if (b != null && b.length > 0)
-        {
-            for (int i = 0; i < b.length; i++)
-            {
-                ibs ibs1 = b[i];
-                if (ibs1 != null)
-                {
-                    koh1.b(5, ibs1);
-                }
-            }
-
-        }
-        if (c != null)
-        {
-            koh1.b(6, c);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

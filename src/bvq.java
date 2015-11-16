@@ -4,38 +4,19 @@
 
 
 final class bvq
-    implements brb
+    implements Runnable
 {
 
-    final bra a;
-    final bvp b;
+    final bvp a;
 
-    bvq(bvp bvp, bra bra1)
+    bvq(bvp bvp1)
     {
-        b = bvp;
-        a = bra1;
+        a = bvp1;
         super();
     }
 
-    public void a(gjr gjr1)
+    public void run()
     {
-        int i = 0;
-        boolean flag;
-        if (a.getVisibility() == 0)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        if (gjr1.d() != flag)
-        {
-            bra bra1 = a;
-            if (!gjr1.d())
-            {
-                i = 8;
-            }
-            bra1.setVisibility(i);
-        }
+        a.d();
     }
 }

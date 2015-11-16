@@ -4,15 +4,15 @@
 
 package com.google.android.apps.hangouts.views;
 
-import aia;
+import aht;
 import android.animation.ObjectAnimator;
 import android.widget.AbsListView;
-import efb;
-import efc;
-import efd;
+import eid;
+import eie;
+import eif;
 
 // Referenced classes of package com.google.android.apps.hangouts.views:
-//            MessageListView, MessageListAnimationManager, MessageListItemWrapperView
+//            MessageListView, MessageListItemWrapperView, MessageListAnimationManager
 
 public class f
     implements Comparable, Runnable
@@ -25,7 +25,12 @@ public class f
     private ObjectAnimator e;
     private boolean f;
 
-    private void a()
+    public int a(f f1)
+    {
+        return a.g() <= f1.a.g() ? -1 : 1;
+    }
+
+    public void a()
     {
         if (MessageListAnimationManager.a(b) != null)
         {
@@ -40,16 +45,6 @@ public class f
         MessageListAnimationManager.d(b);
     }
 
-    public static void b(b b1)
-    {
-        b1.a();
-    }
-
-    public int a(a a1)
-    {
-        return a.g() <= a1.a.g() ? -1 : 1;
-    }
-
     public int compareTo(Object obj)
     {
         return a((a)obj);
@@ -61,8 +56,8 @@ public class f
             0.0F, 1.0F
         });
         e.setDuration(MessageListAnimationManager.c());
-        e.setInterpolator(new aia((byte)0));
-        e.addListener(new efb(this));
+        e.setInterpolator(new aht((byte)0));
+        e.addListener(new eid(this));
         if (MessageListAnimationManager.a(b) != null)
         {
             MessageListAnimationManager.a(b).a();

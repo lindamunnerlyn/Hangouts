@@ -6,5 +6,5 @@
 public interface ggv
 {
 
-    public abstract void a(jdo jdo);
+    public abstract void a();
 }

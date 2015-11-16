@@ -2,25 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
+import android.widget.EditText;
+import com.google.android.apps.hangouts.realtimechat.DebugOzGetMergedPersonActivity;
 
 public final class ddr
-    implements ddy
+    implements android.view.View.OnClickListener
 {
 
-    final Runnable a;
+    final EditText a;
+    final DebugOzGetMergedPersonActivity b;
 
-    public ddr(Runnable runnable)
+    public ddr(DebugOzGetMergedPersonActivity debugozgetmergedpersonactivity, EditText edittext)
     {
-        a = runnable;
+        b = debugozgetmergedpersonactivity;
+        a = edittext;
         super();
     }
 
-    public void a()
+    public void onClick(View view)
     {
-        a.run();
-    }
-
-    public void b()
-    {
+        a.setInputType(33);
     }
 }

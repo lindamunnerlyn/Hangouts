@@ -2,11 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+import java.util.List;
 
-public interface bmm
+final class bmm extends ArrayAdapter
 {
 
-    public abstract void a(int i);
+    final bml a;
 
-    public abstract void a(int i, boolean flag);
+    public bmm(bml bml, Context context, List list)
+    {
+        a = bml;
+        super(context, g.gT, list);
+    }
+
+    public View getView(int i, View view, ViewGroup viewgroup)
+    {
+        if (view == null || !(view instanceof TextView))
+        {
+            view = (TextView)LayoutInflater.from(getContext()).inflate(g.gT, viewgroup, false);
+        } else
+        {
+            view = (TextView)view;
+        }
+        view.setText((String)getItem(i));
+        view.setOnClickListener(new bmn(this, i));
+        return view;
+    }
 }

@@ -3,15 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ids extends koj
+public final class ids extends kwm
 {
 
-    public idu a[];
-    public idu b;
+    public Integer a;
+    public Integer b;
 
     public ids()
     {
-        a = idu.a();
+        a = null;
         b = null;
         unknownFieldData = null;
         cachedSize = -1;
@@ -20,48 +20,21 @@ public final class ids extends koj
     protected int computeSerializedSize()
     {
         int i = super.computeSerializedSize();
-        int j = i;
-        if (a != null)
-        {
-            j = i;
-            if (a.length > 0)
-            {
-                int k = 0;
-                do
-                {
-                    j = i;
-                    if (k >= a.length)
-                    {
-                        break;
-                    }
-                    idu idu1 = a[k];
-                    j = i;
-                    if (idu1 != null)
-                    {
-                        j = i + koh.d(1, idu1);
-                    }
-                    k++;
-                    i = j;
-                } while (true);
-            }
-        }
-        i = j;
-        if (b != null)
-        {
-            i = j + koh.d(2, b);
-        }
-        return i;
+        a.intValue();
+        int j = kwk.f(1);
+        b.intValue();
+        return i + (j + 4) + (kwk.f(2) + 4);
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -70,65 +43,21 @@ public final class ids extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                idu aidu[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                aidu = new idu[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aidu, 0, j);
-                    k = j;
-                }
-                for (; k < aidu.length - 1; k++)
-                {
-                    aidu[k] = new idu();
-                    kog1.a(aidu[k]);
-                    kog1.a();
-                }
-
-                aidu[k] = new idu();
-                kog1.a(aidu[k]);
-                a = aidu;
+            case 13: // '\r'
+                a = Integer.valueOf(kwj1.h());
                 break;
 
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new idu();
-                }
-                kog1.a(b);
+            case 21: // '\025'
+                b = Integer.valueOf(kwj1.h());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null && a.length > 0)
-        {
-            for (int i = 0; i < a.length; i++)
-            {
-                idu idu1 = a[i];
-                if (idu1 != null)
-                {
-                    koh1.b(1, idu1);
-                }
-            }
-
-        }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        super.writeTo(koh1);
+        kwk1.b(1, a.intValue());
+        kwk1.b(2, b.intValue());
+        super.writeTo(kwk1);
     }
 }

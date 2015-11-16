@@ -2,25 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.nio.ByteBuffer;
 
-public final class guo extends kxy
+public final class guo extends RuntimeException
 {
 
-    public guo(ByteBuffer bytebuffer)
+    public guo(String s)
     {
-        super(bytebuffer);
+        super(s);
     }
 
-    public static boolean a(ByteBuffer bytebuffer)
+    public guo(Throwable throwable)
     {
-        if (bytebuffer.capacity() < 3)
-        {
-            return false;
-        }
-        byte abyte0[] = new byte[3];
-        ((ByteBuffer)bytebuffer.rewind()).get(abyte0).rewind();
-        bytebuffer.rewind();
-        return abyte0[0] == 71 && abyte0[1] == 73 && abyte0[2] == 70;
+        super(throwable);
     }
 }

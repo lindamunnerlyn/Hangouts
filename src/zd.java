@@ -3,21 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class zd
+interface zd
 {
 
-    zq a;
-    int b;
-    int c;
-    int d;
-    int e;
+    public abstract void a(zs zs);
 
-    zd(zq zq, int i, int j, int k, int l)
-    {
-        a = zq;
-        b = i;
-        c = j;
-        d = k;
-        e = l;
-    }
+    public abstract void b(zs zs);
+
+    public abstract void c(zs zs);
+
+    public abstract void d(zs zs);
 }

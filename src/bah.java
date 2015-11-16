@@ -3,17 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public abstract class bah
+public interface bah
 {
 
-    bah()
-    {
-    }
-
-    public abstract String a();
-
-    public int b()
-    {
-        return 0;
-    }
+    public abstract void a(dcc dcc);
 }

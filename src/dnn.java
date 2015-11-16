@@ -2,31 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
-import com.google.android.apps.hangouts.phone.HiddenContactsActivity;
 
-final class dnn
-    implements hff
+public final class dnn extends dmw
 {
 
-    final dnm a;
+    private static final long serialVersionUID = 1L;
+    public final String a;
+    public final int b;
 
-    dnn(dnm dnm1)
+    public dnn(jdf jdf1)
     {
-        a = dnm1;
-        super();
-    }
-
-    public boolean a()
-    {
-        ai ai1 = a.getActivity();
-        ani ani1 = dnm.a(a);
-        Intent intent = new Intent(g.nS, com/google/android/apps/hangouts/phone/HiddenContactsActivity);
-        if (ani1 != null)
-        {
-            intent.putExtra("account_id", ani1.h());
-        }
-        ai1.startActivity(intent);
-        return true;
+        b = g.a(jdf1.b, 0);
+        a = jdf1.a.a;
     }
 }

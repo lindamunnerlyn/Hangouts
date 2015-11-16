@@ -2,52 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.api.client.json.GenericJson;
-import com.google.api.client.util.GenericData;
+import android.text.TextPaint;
+import android.text.style.SuperscriptSpan;
 
-public class hli extends GenericJson
+public final class hli extends SuperscriptSpan
 {
-
-    String a;
-    Long b;
-    String c;
 
     public hli()
     {
     }
 
-    public hli a()
+    public void updateDrawState(TextPaint textpaint)
     {
-        return (hli)super.clone();
+        textpaint.baselineShift = textpaint.baselineShift + (int)(textpaint.ascent() / 4F);
     }
 
-    public hli a(String s, Object obj)
+    public void updateMeasureState(TextPaint textpaint)
     {
-        return (hli)super.set(s, obj);
-    }
-
-    public GenericJson clone()
-    {
-        return a();
-    }
-
-    public GenericData clone()
-    {
-        return a();
-    }
-
-    public Object clone()
-    {
-        return a();
-    }
-
-    public GenericJson set(String s, Object obj)
-    {
-        return a(s, obj);
-    }
-
-    public GenericData set(String s, Object obj)
-    {
-        return a(s, obj);
+        textpaint.baselineShift = textpaint.baselineShift + (int)(textpaint.ascent() / 4F);
     }
 }

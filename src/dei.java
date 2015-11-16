@@ -3,21 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class dei extends dfa
+public final class dei extends dgj
 {
 
-    private final byte a[];
-    private final byte d[];
+    private final String a;
 
-    public dei(ani ani, byte abyte0[], byte abyte1[])
+    public dei(aoa aoa, String s)
     {
-        super(ani);
-        a = abyte0;
-        d = abyte1;
+        super(aoa);
+        a = s;
     }
 
     public void a()
     {
-        c.a(new ctk(a, d));
+        a(((dmf) (new cuh(a))));
     }
 }

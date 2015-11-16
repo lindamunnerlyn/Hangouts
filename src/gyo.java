@@ -2,56 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.os.Bundle;
 
-public final class gyo extends hhs
-    implements android.content.DialogInterface.OnClickListener
+final class gyo
 {
 
-    private gwy aj;
+    public static final byte a[] = "Exif\000\0".getBytes();
+    public static final byte b[] = "http://ns.adobe.com/xap/1.0/\0".getBytes();
 
-    public gyo()
+    public static final boolean a(short word0)
     {
+        return word0 >= -64 && word0 <= -49 && word0 != -60 && word0 != -56 && word0 != -52;
     }
 
-    static void a(ap ap)
-    {
-        (new gyo()).a(ap, "irrecoverable_error");
-    }
-
-    public Dialog a(Bundle bundle)
-    {
-        bundle = new android.app.AlertDialog.Builder(getActivity());
-        bundle.setTitle(g.sW);
-        bundle.setMessage(g.sU);
-        bundle.setPositiveButton(g.sV, this);
-        bundle.setNegativeButton(0x1040000, this);
-        return bundle.create();
-    }
-
-    protected void e(Bundle bundle)
-    {
-        super.e(bundle);
-        aj = (gwy)al.a(gwy);
-    }
-
-    public void onCancel(DialogInterface dialoginterface)
-    {
-        aj.c();
-    }
-
-    public void onClick(DialogInterface dialoginterface, int i)
-    {
-        if (i == -1)
-        {
-            aj.d();
-            return;
-        } else
-        {
-            aj.c();
-            return;
-        }
-    }
 }

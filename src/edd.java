@@ -3,8 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface edd
+final class edd
+    implements Runnable
 {
 
-    public abstract void a();
+    edd()
+    {
+    }
+
+    public void run()
+    {
+        edc.f();
+    }
 }

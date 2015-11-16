@@ -3,11 +3,17 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class aby extends acd
+public final class aby extends abz
 {
 
-    aby(acn acn)
+    private static final long serialVersionUID = 0xe380e9ae1e1e755aL;
+
+    public aby()
     {
-        super(acn);
+    }
+
+    public aby(String s)
+    {
+        super(s);
     }
 }

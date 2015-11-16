@@ -3,12 +3,12 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lho extends koj
+public final class lho extends kwm
 {
 
-    public Float a;
-    public Float b;
-    public Float c;
+    public lhq a;
+    public lhq b;
+    public lhq c;
 
     public lho()
     {
@@ -25,33 +25,30 @@ public final class lho extends koj
         int i = j;
         if (a != null)
         {
-            a.floatValue();
-            i = j + (koh.f(1) + 4);
+            i = j + kwk.d(1, a);
         }
         j = i;
         if (b != null)
         {
-            b.floatValue();
-            j = i + (koh.f(2) + 4);
+            j = i + kwk.d(2, b);
         }
         i = j;
         if (c != null)
         {
-            c.floatValue();
-            i = j + (koh.f(3) + 4);
+            i = j + kwk.d(3, c);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -60,35 +57,47 @@ public final class lho extends koj
             case 0: // '\0'
                 return this;
 
-            case 13: // '\r'
-                a = Float.valueOf(kog1.c());
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new lhq();
+                }
+                kwj1.a(a);
                 break;
 
-            case 21: // '\025'
-                b = Float.valueOf(kog1.c());
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new lhq();
+                }
+                kwj1.a(b);
                 break;
 
-            case 29: // '\035'
-                c = Float.valueOf(kog1.c());
+            case 26: // '\032'
+                if (c == null)
+                {
+                    c = new lhq();
+                }
+                kwj1.a(c);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.floatValue());
+            kwk1.b(1, a);
         }
         if (b != null)
         {
-            koh1.a(2, b.floatValue());
+            kwk1.b(2, b);
         }
         if (c != null)
         {
-            koh1.a(3, c.floatValue());
+            kwk1.b(3, c);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

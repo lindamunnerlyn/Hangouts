@@ -3,96 +3,61 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jdy extends koj
+public final class jdy extends kwm
 {
 
-    public jbw a;
-    public jcm b[];
-    public jdx c[];
-    public jdx d;
+    public iwt a[];
+    public jdk requestHeader;
 
     public jdy()
     {
-        a = null;
-        b = jcm.a();
-        c = jdx.a();
-        d = null;
+        requestHeader = null;
+        a = iwt.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        boolean flag = false;
-        int i = super.computeSerializedSize();
-        int j = i;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (requestHeader != null)
+        {
+            i = j + kwk.d(1, requestHeader);
+        }
+        j = i;
         if (a != null)
         {
-            j = i + koh.d(1, a);
-        }
-        i = j;
-        if (b != null)
-        {
-            i = j;
-            if (b.length > 0)
+            j = i;
+            if (a.length > 0)
             {
-                i = j;
-                for (j = 0; j < b.length;)
+                for (j = 0; j < a.length;)
                 {
-                    jcm jcm1 = b[j];
+                    iwt iwt1 = a[j];
                     int k = i;
-                    if (jcm1 != null)
+                    if (iwt1 != null)
                     {
-                        k = i + koh.d(2, jcm1);
+                        k = i + kwk.d(2, iwt1);
                     }
                     j++;
                     i = k;
                 }
 
+                j = i;
             }
         }
-        j = i;
-        if (c != null)
-        {
-            j = i;
-            if (c.length > 0)
-            {
-                int l = ((flag) ? 1 : 0);
-                do
-                {
-                    j = i;
-                    if (l >= c.length)
-                    {
-                        break;
-                    }
-                    jdx jdx1 = c[l];
-                    j = i;
-                    if (jdx1 != null)
-                    {
-                        j = i + koh.d(3, jdx1);
-                    }
-                    l++;
-                    i = j;
-                } while (true);
-            }
-        }
-        i = j;
-        if (d != null)
-        {
-            i = j + koh.d(4, d);
-        }
-        return i;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -102,119 +67,64 @@ public final class jdy extends koj
                 return this;
 
             case 10: // '\n'
-                if (a == null)
+                if (requestHeader == null)
                 {
-                    a = new jbw();
+                    requestHeader = new jdk();
                 }
-                kog1.a(a);
+                kwj1.a(requestHeader);
                 break;
 
             case 18: // '\022'
-                int l = kou.b(kog1, 18);
-                jcm ajcm[];
+                int k = kwx.a(kwj1, 18);
+                iwt aiwt[];
                 int j;
-                if (b == null)
+                if (a == null)
                 {
                     j = 0;
                 } else
                 {
-                    j = b.length;
+                    j = a.length;
                 }
-                ajcm = new jcm[l + j];
-                l = j;
+                aiwt = new iwt[k + j];
+                k = j;
                 if (j != 0)
                 {
-                    System.arraycopy(b, 0, ajcm, 0, j);
-                    l = j;
+                    System.arraycopy(a, 0, aiwt, 0, j);
+                    k = j;
                 }
-                for (; l < ajcm.length - 1; l++)
+                for (; k < aiwt.length - 1; k++)
                 {
-                    ajcm[l] = new jcm();
-                    kog1.a(ajcm[l]);
-                    kog1.a();
-                }
-
-                ajcm[l] = new jcm();
-                kog1.a(ajcm[l]);
-                b = ajcm;
-                break;
-
-            case 26: // '\032'
-                int i1 = kou.b(kog1, 26);
-                jdx ajdx[];
-                int k;
-                if (c == null)
-                {
-                    k = 0;
-                } else
-                {
-                    k = c.length;
-                }
-                ajdx = new jdx[i1 + k];
-                i1 = k;
-                if (k != 0)
-                {
-                    System.arraycopy(c, 0, ajdx, 0, k);
-                    i1 = k;
-                }
-                for (; i1 < ajdx.length - 1; i1++)
-                {
-                    ajdx[i1] = new jdx();
-                    kog1.a(ajdx[i1]);
-                    kog1.a();
+                    aiwt[k] = new iwt();
+                    kwj1.a(aiwt[k]);
+                    kwj1.a();
                 }
 
-                ajdx[i1] = new jdx();
-                kog1.a(ajdx[i1]);
-                c = ajdx;
-                break;
-
-            case 34: // '"'
-                if (d == null)
-                {
-                    d = new jdx();
-                }
-                kog1.a(d);
+                aiwt[k] = new iwt();
+                kwj1.a(aiwt[k]);
+                a = aiwt;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        boolean flag = false;
-        if (a != null)
+        if (requestHeader != null)
         {
-            koh1.b(1, a);
+            kwk1.b(1, requestHeader);
         }
-        if (b != null && b.length > 0)
+        if (a != null && a.length > 0)
         {
-            for (int i = 0; i < b.length; i++)
+            for (int i = 0; i < a.length; i++)
             {
-                jcm jcm1 = b[i];
-                if (jcm1 != null)
+                iwt iwt1 = a[i];
+                if (iwt1 != null)
                 {
-                    koh1.b(2, jcm1);
+                    kwk1.b(2, iwt1);
                 }
             }
 
         }
-        if (c != null && c.length > 0)
-        {
-            for (int j = ((flag) ? 1 : 0); j < c.length; j++)
-            {
-                jdx jdx1 = c[j];
-                if (jdx1 != null)
-                {
-                    koh1.b(3, jdx1);
-                }
-            }
-
-        }
-        if (d != null)
-        {
-            koh1.b(4, d);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

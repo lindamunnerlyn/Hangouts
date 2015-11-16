@@ -2,42 +2,96 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Notification;
-import com.google.android.libraries.hangouts.video.CallService;
+import android.accounts.Account;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
+import com.google.android.gms.feedback.ThemeSettings;
+import com.google.android.gms.googlehelp.GoogleHelp;
 
-final class gcf extends gjm
+public final class gcf
 {
 
-    final gce a;
+    public final GoogleHelp a;
+    public fdf b;
+    public boolean c;
 
-    gcf(gce gce1)
+    public gcf(String s)
     {
-        a = gce1;
-        super();
+        a = GoogleHelp.a(s);
     }
 
-    public void a(int i)
+    private fdf a()
     {
-        CallService.a(a.a, null);
-        a.a.stopForeground(true);
-        if (CallService.d(a.a) == 0)
+        if (b == null)
         {
-            a.a.stopSelf();
+            b = new fdf();
         }
+        return b;
     }
 
-    public void a(gjq gjq)
+    private gcf a(Bitmap bitmap)
     {
-        gjq = CallService.b(a.a).b().a().s();
-        if (gjq == null)
+        a().a(bitmap);
+        return this;
+    }
+
+    public Intent a(Context context)
+    {
+        if (c)
         {
-            gkc.d("vclib", "No notification was specified for the call; service may be terminated unexpectedly.");
-            return;
-        } else
-        {
-            gjq.flags = ((Notification) (gjq)).flags | 2;
-            a.a.startForeground(1, gjq);
-            return;
+            throw new IllegalStateException("Cannot call buildHelpIntent twice");
         }
+        c = true;
+        if (b != null)
+        {
+            a.a(b.a(), context.getCacheDir());
+        }
+        return a.a();
+    }
+
+    public gcf a(Account account)
+    {
+        a.a(account);
+        return this;
+    }
+
+    public gcf a(Activity activity)
+    {
+        a(GoogleHelp.a(activity));
+        return this;
+    }
+
+    public gcf a(Uri uri)
+    {
+        a.a(uri);
+        return this;
+    }
+
+    public gcf a(Bundle bundle)
+    {
+        a().a(bundle);
+        return this;
+    }
+
+    public gcf a(gcj gcj1)
+    {
+        a.a((new ThemeSettings()).b(gcj1.b()).a(gcj1.c()));
+        return this;
+    }
+
+    public gcf a(String s, Intent intent)
+    {
+        a.a(0, s, intent);
+        return this;
+    }
+
+    public gcf a(String s, String s1, byte abyte0[])
+    {
+        a().a(s, s1, abyte0);
+        return this;
     }
 }

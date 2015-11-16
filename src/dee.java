@@ -2,38 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.AsyncTask;
+import java.io.IOException;
 
-public final class dee extends cvn
+public final class dee extends AsyncTask
 {
 
-    private static final boolean g = false;
-    private static final long serialVersionUID = 1L;
-
-    private dee(ivf ivf1)
+    public dee()
     {
-        super(ivf1.responseHeader, -1L);
-        if (g)
-        {
-            ivf1 = String.valueOf(ivf1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(ivf1).length() + 31)).append("MarkEventObservedResponse from:").append(ivf1).toString());
-        }
     }
 
-    public static cvn a(ivf ivf1)
+    private static transient Void a()
     {
-        if (a(ivf1.responseHeader))
+        try
         {
-            String s = String.valueOf(ivf1);
-            ebw.f("Babel", (new StringBuilder(String.valueOf(s).length() + 62)).append("MarkEventObservedResponse.processResponse: request failed for ").append(s).toString());
-            return new cvz(ivf1.responseHeader);
-        } else
-        {
-            return new dee(ivf1);
+            String s = fdn.a(g.nU).a(new String[] {
+                "366187734148"
+            });
+            def.c().a(s);
         }
+        catch (IOException ioexception)
+        {
+            eev.d("Babel", "Error registering for GCM", ioexception);
+        }
+        return null;
     }
 
-    static 
+    protected Object doInBackground(Object aobj[])
     {
-        hik hik = ebw.k;
+        return a();
     }
 }

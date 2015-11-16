@@ -2,36 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
+import java.lang.ref.ReferenceQueue;
+import java.lang.ref.WeakReference;
 
-final class jqb extends jlw
+public class jqb extends WeakReference
+    implements jpw
 {
 
-    final jqa a;
+    final com.google.common.cache.LocalCache.ReferenceEntry a;
 
-    jqb(jqa jqa1)
+    jqb(ReferenceQueue referencequeue, Object obj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        a = jqa1;
-        super();
+        super(obj, referencequeue);
+        a = referenceentry;
     }
 
-    public jqy a()
+    public int a()
     {
-        return b().a();
+        return 1;
     }
 
-    jlr d()
+    public jpw a(ReferenceQueue referencequeue, Object obj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        return new jqb(referencequeue, obj, referenceentry);
+    }
+
+    public void a(Object obj)
+    {
+    }
+
+    public com.google.common.cache.LocalCache.ReferenceEntry b()
     {
         return a;
     }
 
-    jlk f()
+    public boolean c()
     {
-        return new jpr(this, jqa.a(a));
+        return false;
     }
 
-    public Iterator iterator()
+    public boolean d()
     {
-        return a();
+        return true;
     }
 }

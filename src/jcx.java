@@ -3,75 +3,96 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jcx extends koj
+public final class jcx extends kwm
 {
 
-    public jcp a;
-    public jbw b;
-    public jcp c[];
-    public ixf requestHeader;
+    public iwl a[];
+    public jam b[];
+    public Long c;
+    public jdk requestHeader;
 
     public jcx()
     {
         requestHeader = null;
-        a = null;
-        b = null;
-        c = jcp.a();
+        a = iwl.a();
+        b = jam.a();
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
+        boolean flag = false;
+        int i = super.computeSerializedSize();
+        int j = i;
         if (requestHeader != null)
         {
-            i = j + koh.d(1, requestHeader);
-        }
-        j = i;
-        if (a != null)
-        {
-            j = i + koh.d(2, a);
+            j = i + kwk.d(1, requestHeader);
         }
         i = j;
-        if (b != null)
+        if (a != null)
         {
-            i = j + koh.d(3, b);
-        }
-        j = i;
-        if (c != null)
-        {
-            j = i;
-            if (c.length > 0)
+            i = j;
+            if (a.length > 0)
             {
-                for (j = 0; j < c.length;)
+                i = j;
+                for (j = 0; j < a.length;)
                 {
-                    jcp jcp1 = c[j];
+                    iwl iwl1 = a[j];
                     int k = i;
-                    if (jcp1 != null)
+                    if (iwl1 != null)
                     {
-                        k = i + koh.d(4, jcp1);
+                        k = i + kwk.d(2, iwl1);
                     }
                     j++;
                     i = k;
                 }
 
-                j = i;
             }
         }
-        return j;
+        j = i;
+        if (b != null)
+        {
+            j = i;
+            if (b.length > 0)
+            {
+                int l = ((flag) ? 1 : 0);
+                do
+                {
+                    j = i;
+                    if (l >= b.length)
+                    {
+                        break;
+                    }
+                    jam jam1 = b[l];
+                    j = i;
+                    if (jam1 != null)
+                    {
+                        j = i + kwk.d(3, jam1);
+                    }
+                    l++;
+                    i = j;
+                } while (true);
+            }
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.d(4, c.longValue());
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -83,86 +104,113 @@ public final class jcx extends koj
             case 10: // '\n'
                 if (requestHeader == null)
                 {
-                    requestHeader = new ixf();
+                    requestHeader = new jdk();
                 }
-                kog1.a(requestHeader);
+                kwj1.a(requestHeader);
                 break;
 
             case 18: // '\022'
-                if (a == null)
-                {
-                    a = new jcp();
-                }
-                kog1.a(a);
-                break;
-
-            case 26: // '\032'
-                if (b == null)
-                {
-                    b = new jbw();
-                }
-                kog1.a(b);
-                break;
-
-            case 34: // '"'
-                int k = kou.b(kog1, 34);
-                jcp ajcp[];
+                int l = kwx.a(kwj1, 18);
+                iwl aiwl[];
                 int j;
-                if (c == null)
+                if (a == null)
                 {
                     j = 0;
                 } else
                 {
-                    j = c.length;
+                    j = a.length;
                 }
-                ajcp = new jcp[k + j];
-                k = j;
+                aiwl = new iwl[l + j];
+                l = j;
                 if (j != 0)
                 {
-                    System.arraycopy(c, 0, ajcp, 0, j);
-                    k = j;
+                    System.arraycopy(a, 0, aiwl, 0, j);
+                    l = j;
                 }
-                for (; k < ajcp.length - 1; k++)
+                for (; l < aiwl.length - 1; l++)
                 {
-                    ajcp[k] = new jcp();
-                    kog1.a(ajcp[k]);
-                    kog1.a();
+                    aiwl[l] = new iwl();
+                    kwj1.a(aiwl[l]);
+                    kwj1.a();
                 }
 
-                ajcp[k] = new jcp();
-                kog1.a(ajcp[k]);
-                c = ajcp;
+                aiwl[l] = new iwl();
+                kwj1.a(aiwl[l]);
+                a = aiwl;
+                break;
+
+            case 26: // '\032'
+                int i1 = kwx.a(kwj1, 26);
+                jam ajam[];
+                int k;
+                if (b == null)
+                {
+                    k = 0;
+                } else
+                {
+                    k = b.length;
+                }
+                ajam = new jam[i1 + k];
+                i1 = k;
+                if (k != 0)
+                {
+                    System.arraycopy(b, 0, ajam, 0, k);
+                    i1 = k;
+                }
+                for (; i1 < ajam.length - 1; i1++)
+                {
+                    ajam[i1] = new jam();
+                    kwj1.a(ajam[i1]);
+                    kwj1.a();
+                }
+
+                ajam[i1] = new jam();
+                kwj1.a(ajam[i1]);
+                b = ajam;
+                break;
+
+            case 32: // ' '
+                c = Long.valueOf(kwj1.d());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
+        boolean flag = false;
         if (requestHeader != null)
         {
-            koh1.b(1, requestHeader);
+            kwk1.b(1, requestHeader);
         }
-        if (a != null)
+        if (a != null && a.length > 0)
         {
-            koh1.b(2, a);
-        }
-        if (b != null)
-        {
-            koh1.b(3, b);
-        }
-        if (c != null && c.length > 0)
-        {
-            for (int i = 0; i < c.length; i++)
+            for (int i = 0; i < a.length; i++)
             {
-                jcp jcp1 = c[i];
-                if (jcp1 != null)
+                iwl iwl1 = a[i];
+                if (iwl1 != null)
                 {
-                    koh1.b(4, jcp1);
+                    kwk1.b(2, iwl1);
                 }
             }
 
         }
-        super.writeTo(koh1);
+        if (b != null && b.length > 0)
+        {
+            for (int j = ((flag) ? 1 : 0); j < b.length; j++)
+            {
+                jam jam1 = b[j];
+                if (jam1 != null)
+                {
+                    kwk1.b(3, jam1);
+                }
+            }
+
+        }
+        if (c != null)
+        {
+            kwk1.a(4, c.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

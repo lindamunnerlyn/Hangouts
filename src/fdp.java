@@ -2,50 +2,59 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Arrays;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import com.google.android.gms.googlehelp.GoogleHelp;
+import java.util.List;
 
-final class fdp
+public final class fdp
 {
 
-    final int a;
-    final byte b[];
+    public final Activity a;
+    final emy b;
 
-    fdp(int i, byte abyte0[])
+    public fdp(Activity activity)
     {
-        a = i;
-        b = abyte0;
+        this(activity, (new emz(activity)).a(fej.c).a());
     }
 
-    int a()
+    private fdp(Activity activity, emy emy)
     {
-        return fdi.e(a) + 0 + b.length;
+        a = activity;
+        b = emy;
     }
 
-    void a(fdi fdi1)
+    public void a(Intent intent)
     {
-        fdi1.d(a);
-        fdi1.b(b);
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (obj != this)
+        if (!intent.getAction().equals("com.google.android.gms.googlehelp.HELP") || !intent.hasExtra("EXTRA_GOOGLE_HELP"))
         {
-            if (!(obj instanceof fdp))
+            throw new IllegalArgumentException("The intent you are trying to launch is not GoogleHelp intent! This class only supports GoogleHelp intents.");
+        }
+        int i = emo.a(a);
+        if (i == 0)
+        {
+            fej.a(b, new fdq(this, intent));
+            return;
+        }
+        intent = (GoogleHelp)intent.getParcelableExtra("EXTRA_GOOGLE_HELP");
+        intent = (new Intent("android.intent.action.VIEW")).setData(intent.b());
+        if (i != 7)
+        {
+            boolean flag;
+            if (a.getPackageManager().queryIntentActivities(intent, 0).size() > 0)
             {
-                return false;
+                flag = true;
+            } else
+            {
+                flag = false;
             }
-            obj = (fdp)obj;
-            if (a != ((fdp) (obj)).a || !Arrays.equals(b, ((fdp) (obj)).b))
+            if (flag)
             {
-                return false;
+                a.startActivity(intent);
+                return;
             }
         }
-        return true;
-    }
-
-    public int hashCode()
-    {
-        return (a + 527) * 31 + Arrays.hashCode(b);
+        emo.a(i, a);
     }
 }

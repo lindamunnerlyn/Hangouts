@@ -3,47 +3,79 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Intent;
-import android.text.TextUtils;
-import android.widget.ArrayAdapter;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.view.Window;
+import com.google.android.apps.hangouts.fragments.ConversationListFragment;
 
-final class clo
-    implements Runnable
+public class clo extends bkm
+    implements bjh, djs
 {
 
-    final Intent a;
-    final cln b;
+    public final gqu n;
+    public ConversationListFragment o;
 
-    clo(cln cln1, Intent intent)
+    public clo()
     {
-        b = cln1;
-        a = intent;
-        super();
+        n = (new grn(this, r)).a(q);
     }
 
-    public void run()
+    public void a(aia aia1)
     {
-        Intent intent = (Intent)a.clone();
-        intent.putExtra("___time", com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.a().format(new Date()));
-        com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.a(b.a).add(intent);
-        if ((com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.b(b.a) == null || TextUtils.equals(intent.getStringExtra("conversation_id"), com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.b(b.a))) && com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.c(b.a) != null)
+        Intent intent = g.a(n.a(), aia1.a, aia1.b);
+        intent.putExtra("conversation_parameters", aia1);
+        intent.putExtra("opened_from_impression", 1634);
+        startActivity(intent);
+    }
+
+    public void a(Intent intent)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void a(cgd cgd, String s, int i, long l)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void a(dvg dvg)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void a(dvg dvg, dvg dvg1)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void a(String s, boolean flag, int i, int k)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public boolean a(String s)
+    {
+        return bnk.a(dcn.e(n.a()), s);
+    }
+
+    public void j()
+    {
+    }
+
+    public void m_()
+    {
+    }
+
+    public void onCreate(Bundle bundle)
+    {
+        super.onCreate(bundle);
+        setContentView(g.ft);
+        o = (ConversationListFragment)u_().a(h.au);
+        o.a(this);
+        if (android.os.Build.VERSION.SDK_INT >= 21)
         {
-            com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.c(b.a).add(intent);
-            com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.c(b.a).notifyDataSetChanged();
+            int i = g.ds;
+            getWindow().setStatusBarColor(getResources().getColor(i));
         }
-        do
-        {
-            if (com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.a(b.a).size() <= 1000)
-            {
-                break;
-            }
-            Intent intent1 = (Intent)com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.a(b.a).remove(0);
-            if (com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.c(b.a) != null)
-            {
-                com.google.android.apps.hangouts.phone.DebugActivity.RecordingService.c(b.a).remove(intent1);
-            }
-        } while (true);
     }
 }

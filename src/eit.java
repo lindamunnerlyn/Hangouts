@@ -2,44 +2,49 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
-import com.google.android.gms.common.api.Status;
+import android.animation.Animator;
+import com.google.android.apps.hangouts.views.MessageListAnimationManager;
+import com.google.android.apps.hangouts.views.MessageListItemWrapperView;
 
-final class eit
-    implements eir
+public final class eit
+    implements android.animation.Animator.AnimatorListener
 {
 
-    private IBinder a;
+    final com.google.android.apps.hangouts.views.MessageListItemWrapperView.WatermarkGalleryStateTransition a;
 
-    eit(IBinder ibinder)
+    public eit(com.google.android.apps.hangouts.views.MessageListItemWrapperView.WatermarkGalleryStateTransition watermarkgallerystatetransition)
     {
-        a = ibinder;
+        a = watermarkgallerystatetransition;
+        super();
     }
 
-    public void a(Status status)
+    private void a()
     {
-        Parcel parcel = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.clearcut.internal.IClearcutLoggerCallbacks");
-        if (status == null)
+        MessageListItemWrapperView.a(a.b, MessageListItemWrapperView.a(a.b));
+        MessageListItemWrapperView.b(a.b, -1);
+        MessageListItemWrapperView.c(a.b).a(MessageListItemWrapperView.b(a.b), a.a);
+        eie eie1 = MessageListItemWrapperView.d(a.b).a();
+        if (eie1 != null)
         {
-            break MISSING_BLOCK_LABEL_44;
+            eie1.b();
         }
-        parcel.writeInt(1);
-        status.writeToParcel(parcel, 0);
-_L1:
-        a.transact(1, parcel, null, 1);
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        status;
-        parcel.recycle();
-        throw status;
     }
 
-    public IBinder asBinder()
+    public void onAnimationCancel(Animator animator)
     {
-        return a;
+        a();
+    }
+
+    public void onAnimationEnd(Animator animator)
+    {
+        a();
+    }
+
+    public void onAnimationRepeat(Animator animator)
+    {
+    }
+
+    public void onAnimationStart(Animator animator)
+    {
     }
 }

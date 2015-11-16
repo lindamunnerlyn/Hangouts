@@ -3,59 +3,103 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lhk extends koj
+public final class lhk extends kwm
 {
 
-    public lhn a;
-    public lhn b;
-    public lho c;
-    public lho d;
+    private static volatile lhk c[];
+    public lhd a[];
+    public String b[];
 
     public lhk()
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
+        a = lhd.a();
+        b = kwx.f;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
+    public static lhk[] a()
+    {
+        if (c == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (c == null)
+                {
+                    c = new lhk[0];
+                }
+            }
+        }
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
     protected int computeSerializedSize()
     {
+        boolean flag = false;
         int j = super.computeSerializedSize();
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j;
+            if (a.length > 0)
+            {
+                i = j;
+                for (j = 0; j < a.length;)
+                {
+                    lhd lhd1 = a[j];
+                    int k = i;
+                    if (lhd1 != null)
+                    {
+                        k = i + kwk.d(1, lhd1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+            }
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.d(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.d(3, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.d(4, d);
+            j = i;
+            if (b.length > 0)
+            {
+                int l = 0;
+                int i1 = 0;
+                for (j = ((flag) ? 1 : 0); j < b.length;)
+                {
+                    String s = b[j];
+                    int k1 = l;
+                    int j1 = i1;
+                    if (s != null)
+                    {
+                        j1 = i1 + 1;
+                        k1 = l + kwk.a(s);
+                    }
+                    j++;
+                    l = k1;
+                    i1 = j1;
+                }
+
+                j = i + l + i1 * 1;
+            }
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -65,58 +109,93 @@ public final class lhk extends koj
                 return this;
 
             case 10: // '\n'
+                int l = kwx.a(kwj1, 10);
+                lhd alhd[];
+                int j;
                 if (a == null)
                 {
-                    a = new lhn();
+                    j = 0;
+                } else
+                {
+                    j = a.length;
                 }
-                kog1.a(a);
+                alhd = new lhd[l + j];
+                l = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, alhd, 0, j);
+                    l = j;
+                }
+                for (; l < alhd.length - 1; l++)
+                {
+                    alhd[l] = new lhd();
+                    kwj1.a(alhd[l]);
+                    kwj1.a();
+                }
+
+                alhd[l] = new lhd();
+                kwj1.a(alhd[l]);
+                a = alhd;
                 break;
 
             case 18: // '\022'
+                int i1 = kwx.a(kwj1, 18);
+                String as[];
+                int k;
                 if (b == null)
                 {
-                    b = new lhn();
-                }
-                kog1.a(b);
-                break;
-
-            case 26: // '\032'
-                if (c == null)
+                    k = 0;
+                } else
                 {
-                    c = new lho();
+                    k = b.length;
                 }
-                kog1.a(c);
-                break;
-
-            case 34: // '"'
-                if (d == null)
+                as = new String[i1 + k];
+                i1 = k;
+                if (k != 0)
                 {
-                    d = new lho();
+                    System.arraycopy(b, 0, as, 0, k);
+                    i1 = k;
                 }
-                kog1.a(d);
+                for (; i1 < as.length - 1; i1++)
+                {
+                    as[i1] = kwj1.j();
+                    kwj1.a();
+                }
+
+                as[i1] = kwj1.j();
+                b = as;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
+        boolean flag = false;
+        if (a != null && a.length > 0)
         {
-            koh1.b(1, a);
+            for (int i = 0; i < a.length; i++)
+            {
+                lhd lhd1 = a[i];
+                if (lhd1 != null)
+                {
+                    kwk1.b(1, lhd1);
+                }
+            }
+
         }
-        if (b != null)
+        if (b != null && b.length > 0)
         {
-            koh1.b(2, b);
+            for (int j = ((flag) ? 1 : 0); j < b.length; j++)
+            {
+                String s = b[j];
+                if (s != null)
+                {
+                    kwk1.a(2, s);
+                }
+            }
+
         }
-        if (c != null)
-        {
-            koh1.b(3, c);
-        }
-        if (d != null)
-        {
-            koh1.b(4, d);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

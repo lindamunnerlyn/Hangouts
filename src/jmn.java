@@ -2,259 +2,82 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.InvalidObjectException;
-import java.io.ObjectInputStream;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.NavigableSet;
-import java.util.SortedSet;
 
-public abstract class jmn extends jmq
-    implements NavigableSet, jqm
+public final class jmn extends kwm
 {
 
-    private static final Comparator c;
-    private static final jmn d;
-    final transient Comparator a;
-    transient jmn b;
+    public static final kwn a = kwn.a(jmn, 0x2ebcfdd2L);
+    private static final jmn d[] = new jmn[0];
+    public kxc b;
+    public String c;
 
-    jmn(Comparator comparator1)
+    public jmn()
     {
-        a = comparator1;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    static jmn a(Comparator comparator1)
+    protected int computeSerializedSize()
     {
-        if (c.equals(comparator1))
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (b != null)
         {
-            return d;
-        } else
-        {
-            return new jks(comparator1);
+            i = j + kwk.d(1, b);
         }
+        j = i;
+        if (c != null)
+        {
+            j = i + kwk.b(2, c);
+        }
+        return j;
     }
 
-    static transient jmn a(Comparator comparator1, int i, Object aobj[])
+    public kws mergeFrom(kwj kwj1)
     {
-        if (i == 0)
+        do
         {
-            return a(comparator1);
-        }
-        jpo.c(aobj, i);
-        Arrays.sort(aobj, 0, i, comparator1);
-        int k = 1;
-        int j = 1;
-        for (; k < i; k++)
-        {
-            Object obj = aobj[k];
-            if (comparator1.compare(obj, aobj[j - 1]) != 0)
+            int i = kwj1.a();
+            switch (i)
             {
-                int l = j + 1;
-                aobj[j] = obj;
-                j = l;
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (b == null)
+                {
+                    b = new kxc();
+                }
+                kwj1.a(b);
+                break;
+
+            case 18: // '\022'
+                c = kwj1.j();
+                break;
             }
-        }
-
-        Arrays.fill(aobj, j, i, null);
-        return new jqe(jlk.b(aobj, j), comparator1);
+        } while (true);
     }
 
-    public static jmn a(Comparator comparator1, Collection collection)
+    public void writeTo(kwk kwk1)
     {
-        n.b(comparator1);
-        if (g.a(comparator1, collection) && (collection instanceof jmn))
+        if (b != null)
         {
-            jmn jmn1 = (jmn)collection;
-            if (!jmn1.e())
-            {
-                return jmn1;
-            }
+            kwk1.b(1, b);
         }
-        collection = ((Collection) ((Object[])g.b(collection)));
-        return a(comparator1, collection.length, ((Object []) (collection)));
-    }
-
-    private void readObject(ObjectInputStream objectinputstream)
-    {
-        throw new InvalidObjectException("Use SerializedForm");
-    }
-
-    public jmn G_()
-    {
-        jmn jmn2 = b;
-        jmn jmn1 = jmn2;
-        if (jmn2 == null)
+        if (c != null)
         {
-            jmn1 = d();
-            b = jmn1;
-            jmn1.b = this;
+            kwk1.a(2, c);
         }
-        return jmn1;
+        super.writeTo(kwk1);
     }
 
-    abstract int a(Object obj);
-
-    abstract jmn a(Object obj, boolean flag);
-
-    abstract jmn a(Object obj, boolean flag, Object obj1, boolean flag1);
-
-    public abstract jqy a();
-
-    int b(Object obj, Object obj1)
-    {
-        return a.compare(obj, obj1);
-    }
-
-    abstract jmn b(Object obj, boolean flag);
-
-    public jmn b(Object obj, boolean flag, Object obj1, boolean flag1)
-    {
-        n.b(obj);
-        n.b(obj1);
-        boolean flag2;
-        if (a.compare(obj, obj1) <= 0)
-        {
-            flag2 = true;
-        } else
-        {
-            flag2 = false;
-        }
-        n.a(flag2);
-        return a(obj, flag, obj1, flag1);
-    }
-
-    public jmn c(Object obj)
-    {
-        return c(obj, false);
-    }
-
-    public jmn c(Object obj, Object obj1)
-    {
-        return b(obj, true, obj1, false);
-    }
-
-    public jmn c(Object obj, boolean flag)
-    {
-        return a(n.b(obj), flag);
-    }
-
-    public abstract jqy c();
-
-    public Object ceiling(Object obj)
-    {
-        return g.c(d(obj, true));
-    }
-
-    public Comparator comparator()
-    {
-        return a;
-    }
-
-    jmn d()
-    {
-        return new jko(this);
-    }
-
-    public jmn d(Object obj)
-    {
-        return d(obj, true);
-    }
-
-    public jmn d(Object obj, boolean flag)
-    {
-        return b(n.b(obj), flag);
-    }
-
-    public Iterator descendingIterator()
-    {
-        return c();
-    }
-
-    public NavigableSet descendingSet()
-    {
-        return G_();
-    }
-
-    public Object first()
-    {
-        return a().next();
-    }
-
-    public Object floor(Object obj)
-    {
-        return jmr.b(c(obj, true).c(), null);
-    }
-
-    public NavigableSet headSet(Object obj, boolean flag)
-    {
-        return c(obj, flag);
-    }
-
-    public SortedSet headSet(Object obj)
-    {
-        return c(obj);
-    }
-
-    public Object higher(Object obj)
-    {
-        return g.c(d(obj, false));
-    }
-
-    public Iterator iterator()
-    {
-        return a();
-    }
-
-    public Object last()
-    {
-        return c().next();
-    }
-
-    public Object lower(Object obj)
-    {
-        return jmr.b(c(obj, false).c(), null);
-    }
-
-    public final Object pollFirst()
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public final Object pollLast()
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public NavigableSet subSet(Object obj, boolean flag, Object obj1, boolean flag1)
-    {
-        return b(obj, flag, obj1, flag1);
-    }
-
-    public SortedSet subSet(Object obj, Object obj1)
-    {
-        return c(obj, obj1);
-    }
-
-    public NavigableSet tailSet(Object obj, boolean flag)
-    {
-        return d(obj, flag);
-    }
-
-    public SortedSet tailSet(Object obj)
-    {
-        return d(obj);
-    }
-
-    Object writeReplace()
-    {
-        return new jmp(a, toArray());
-    }
-
-    static 
-    {
-        c = jpp.b();
-        d = new jks(c);
-    }
 }

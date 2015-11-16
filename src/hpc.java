@@ -2,106 +2,164 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
-public final class hpc extends koj
+public class hpc extends ac
+    implements hoe
 {
 
-    private static volatile hpc b[];
-    public Integer a;
+    public final hny am = new hny();
 
     public hpc()
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    public static hpc[] a()
+    public hof getLifecycle()
     {
-        if (b == null)
-        {
-            synchronized (kon.a)
-            {
-                if (b == null)
-                {
-                    b = new hpc[0];
-                }
-            }
-        }
-        return b;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return am;
     }
 
-    protected int computeSerializedSize()
+    public void onActivityResult(int i, int j, Intent intent)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.e(1, a.intValue());
-        }
-        return i;
+        am.a(i, j, intent);
+        super.onActivityResult(i, j, intent);
     }
 
-    public kop mergeFrom(kog kog1)
+    public void onAttach(Activity activity)
     {
-_L4:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 2: default 32
-    //                   0: 41
-    //                   8: 43;
-           goto _L1 _L2 _L3
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L4; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
-        {
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-        case 4: // '\004'
-        case 5: // '\005'
-        case 6: // '\006'
-        case 7: // '\007'
-        case 8: // '\b'
-        case 9: // '\t'
-        case 10: // '\n'
-        case 11: // '\013'
-        case 12: // '\f'
-        case 13: // '\r'
-        case 14: // '\016'
-        case 15: // '\017'
-        case 16: // '\020'
-        case 17: // '\021'
-        case 18: // '\022'
-        case 19: // '\023'
-        case 20: // '\024'
-        case 21: // '\025'
-        case 22: // '\026'
-        case 23: // '\027'
-        case 24: // '\030'
-        case 25: // '\031'
-        case 26: // '\032'
-            a = Integer.valueOf(j);
-            break;
-        }
-        if (true) goto _L4; else goto _L5
-_L5:
+        am.a(activity);
+        super.onAttach(activity);
     }
 
-    public void writeTo(koh koh1)
+    public boolean onContextItemSelected(MenuItem menuitem)
     {
-        if (a != null)
+        if (am.p())
         {
-            koh1.a(1, a.intValue());
+            return true;
+        } else
+        {
+            return super.onContextItemSelected(menuitem);
         }
-        super.writeTo(koh1);
+    }
+
+    public void onCreate(Bundle bundle)
+    {
+        am.c(bundle);
+        super.onCreate(bundle);
+    }
+
+    public void onCreateContextMenu(ContextMenu contextmenu, View view, android.view.ContextMenu.ContextMenuInfo contextmenuinfo)
+    {
+        am.o();
+        super.onCreateContextMenu(contextmenu, view, contextmenuinfo);
+    }
+
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuinflater)
+    {
+        if (am.a(menu))
+        {
+            setHasOptionsMenu(true);
+        }
+    }
+
+    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
+    {
+        am.b(bundle);
+        return super.onCreateView(layoutinflater, viewgroup, bundle);
+    }
+
+    public void onDestroy()
+    {
+        am.c();
+        super.onDestroy();
+    }
+
+    public void onDestroyView()
+    {
+        am.a();
+        super.onDestroyView();
+    }
+
+    public void onDetach()
+    {
+        am.d();
+        super.onDetach();
+    }
+
+    public void onLowMemory()
+    {
+        am.t();
+        super.onLowMemory();
+    }
+
+    public boolean onOptionsItemSelected(MenuItem menuitem)
+    {
+        return am.a(menuitem);
+    }
+
+    public void onPause()
+    {
+        am.b();
+        super.onPause();
+    }
+
+    public void onPrepareOptionsMenu(Menu menu)
+    {
+        if (am.b(menu))
+        {
+            setHasOptionsMenu(true);
+        }
+    }
+
+    public void onRequestPermissionsResult(int i, String as[], int ai[])
+    {
+        am.a(i, as, ai);
+    }
+
+    public void onResume()
+    {
+        h.a(getChildFragmentManager());
+        am.r();
+        super.onResume();
+    }
+
+    public void onSaveInstanceState(Bundle bundle)
+    {
+        am.d(bundle);
+        super.onSaveInstanceState(bundle);
+    }
+
+    public void onStart()
+    {
+        h.a(getChildFragmentManager());
+        am.q();
+        super.onStart();
+    }
+
+    public void onStop()
+    {
+        am.s();
+        super.onStop();
+    }
+
+    public void onViewCreated(View view, Bundle bundle)
+    {
+        am.a(view, bundle);
+        super.onViewCreated(view, bundle);
+    }
+
+    public void setUserVisibleHint(boolean flag)
+    {
+        am.a(flag);
+        super.setUserVisibleHint(flag);
     }
 }

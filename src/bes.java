@@ -2,24 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
 
-final class bes
-    implements android.view.View.OnClickListener
+public final class bes
 {
 
-    final bee a;
-    final ben b;
+    String a;
+    String b;
+    boolean c;
 
-    bes(ben ben1, bee bee)
+    public bes()
     {
-        b = ben1;
-        a = bee;
-        super();
     }
 
-    public void onClick(View view)
+    public ber a()
     {
-        ben.a(view.getContext(), a);
+        return new bet(a, b, c);
+    }
+
+    public bes a(String s)
+    {
+        a = s;
+        return this;
+    }
+
+    public bes a(boolean flag)
+    {
+        c = flag;
+        return this;
+    }
+
+    public bes b(String s)
+    {
+        b = s;
+        return this;
     }
 }

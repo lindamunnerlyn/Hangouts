@@ -2,26 +2,52 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import com.google.android.apps.hangouts.wearable.WearableService;
+import android.content.Context;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.widget.TextView;
 
-public final class eha
-    implements aqb
+public class eha
 {
 
-    final WearableService a;
+    private static eha a = null;
 
-    public eha(WearableService wearableservice)
+    public eha()
     {
-        a = wearableservice;
-        super();
     }
 
-    public void a(ebh ebh, eab eab, boolean flag, apw apw, boolean flag1)
+    public static eha a(Context context)
     {
-        if (flag && ebh != null)
+        if (a == null)
         {
-            a.n.post(new ehb(this, apw, ebh));
+            if (android.os.Build.VERSION.SDK_INT >= 19)
+            {
+                a = new eha();
+            } else
+            {
+                a = new ehb(context.getApplicationContext());
+            }
         }
+        return a;
     }
+
+    public int a(int i)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public SpannableString a(CharSequence charsequence, TextView textview)
+    {
+        return null;
+    }
+
+    public void a(Spannable spannable, TextView textview)
+    {
+    }
+
+    public void a(Spanned spanned)
+    {
+    }
+
 }

@@ -2,24 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.List;
+import android.view.View;
 
-public final class bzs
-    implements gnc
+final class bzs
+    implements android.view.View.OnClickListener
 {
 
-    public bzs()
+    final bzq a;
+
+    bzs(bzq bzq1)
     {
+        a = bzq1;
+        super();
     }
 
-    public List a()
+    public void onClick(View view)
     {
-        ArrayList arraylist = new ArrayList();
-        if (ebz.d())
+        if (a.a != null)
         {
-            arraylist.add((new gnb("SMS", 0x7fffffff)).a().b());
+            a.a.a();
         }
-        return arraylist;
     }
 }

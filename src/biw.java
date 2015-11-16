@@ -2,27 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.fragments.ConversationParticipantsFragment;
+import android.view.View;
+import com.google.android.apps.hangouts.fragments.ConversationListFragment;
 
 public final class biw
-    implements eem
+    implements android.view.View.OnClickListener
 {
 
-    final ConversationParticipantsFragment a;
+    final View a;
+    final ConversationListFragment b;
 
-    public biw(ConversationParticipantsFragment conversationparticipantsfragment)
+    public biw(ConversationListFragment conversationlistfragment, View view)
     {
-        a = conversationparticipantsfragment;
+        b = conversationlistfragment;
+        a = view;
         super();
     }
 
-    public void a(eej eej1)
+    public void onClick(View view)
     {
-        eej1 = eej1.a();
-        dqd dqd1 = (dqd)ConversationParticipantsFragment.a(a).b(dqd);
-        if (dqd1 != null)
-        {
-            dqd1.a(a.getContext(), a, ebr.a(eej1), eej1.e(), eej1.f());
-        }
+        a.setVisibility(8);
     }
 }

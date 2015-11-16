@@ -2,97 +2,124 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.math.RoundingMode;
-import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.ListIterator;
 
-final class jrb extends jgb
+class jrb extends jqz
+    implements List
 {
 
-    final int q;
-    final int r;
-    final int s;
-    final int t;
-    private final String u;
-    private final char v[];
-    private final byte w[];
-    private final boolean x[];
+    final jqq g;
 
-    jrb(String s1, char ac[])
+    jrb(jqq jqq1, Object obj, List list, jqz jqz1)
     {
-        boolean flag = false;
-        super();
-        u = (String)n.b(s1);
-        v = (char[])n.b(ac);
-        int i;
-        try
-        {
-            r = jro.a(ac.length, RoundingMode.UNNECESSARY);
-        }
-        // Misplaced declaration of an exception variable
-        catch (String s1)
-        {
-            throw new IllegalArgumentException((new StringBuilder("Illegal alphabet length ")).append(ac.length).toString(), s1);
-        }
-        i = Math.min(8, Integer.lowestOneBit(r));
-        s = 8 / i;
-        t = r / i;
-        q = ac.length - 1;
-        s1 = new byte[128];
-        Arrays.fill(s1, (byte)-1);
-        i = 0;
-        while (i < ac.length) 
-        {
-            char c1 = ac[i];
-            n.a(jgb.b.b(c1), "Non-ASCII character: %s", new Object[] {
-                Character.valueOf(c1)
-            });
-            boolean flag1;
-            if (s1[c1] == -1)
-            {
-                flag1 = true;
-            } else
-            {
-                flag1 = false;
-            }
-            n.a(flag1, "Duplicate character: %s", new Object[] {
-                Character.valueOf(c1)
-            });
-            s1[c1] = (byte)i;
-            i++;
-        }
-        w = s1;
-        s1 = new boolean[s];
-        for (int j = ((flag) ? 1 : 0); j < t; j++)
-        {
-            s1[jro.a(j << 3, r, RoundingMode.CEILING)] = 1;
-        }
-
-        x = s1;
+        g = jqq1;
+        super(jqq1, obj, list, jqz1);
     }
 
-    boolean a(int i)
+    public void add(int i, Object obj)
     {
-        return x[i % s];
-    }
-
-    public boolean b(char c1)
-    {
-        return jgb.b.b(c1) && w[c1] != -1;
-    }
-
-    int c(char c1)
-    {
-        if (c1 > '\177' || w[c1] == -1)
+        a();
+        boolean flag = e().isEmpty();
+        g().add(i, obj);
+        jqq.b(g);
+        if (flag)
         {
-            throw new jrc((new StringBuilder("Unrecognized character: ")).append(c1).toString());
+            d();
+        }
+    }
+
+    public boolean addAll(int i, Collection collection)
+    {
+        boolean flag;
+        if (collection.isEmpty())
+        {
+            flag = false;
         } else
         {
-            return w[c1];
+            int j = size();
+            boolean flag1 = g().addAll(i, collection);
+            flag = flag1;
+            if (flag1)
+            {
+                i = e().size();
+                g.b = (i - j) + g.b;
+                flag = flag1;
+                if (j == 0)
+                {
+                    d();
+                    return flag1;
+                }
+            }
         }
+        return flag;
     }
 
-    public String toString()
+    List g()
     {
-        return u;
+        return (List)e();
+    }
+
+    public Object get(int i)
+    {
+        a();
+        return g().get(i);
+    }
+
+    public int indexOf(Object obj)
+    {
+        a();
+        return g().indexOf(obj);
+    }
+
+    public int lastIndexOf(Object obj)
+    {
+        a();
+        return g().lastIndexOf(obj);
+    }
+
+    public ListIterator listIterator()
+    {
+        a();
+        return new jrc(this);
+    }
+
+    public ListIterator listIterator(int i)
+    {
+        a();
+        return new jrc(this, i);
+    }
+
+    public Object remove(int i)
+    {
+        a();
+        Object obj = g().remove(i);
+        jqq.a(g);
+        b();
+        return obj;
+    }
+
+    public Object set(int i, Object obj)
+    {
+        a();
+        return g().set(i, obj);
+    }
+
+    public List subList(int i, int j)
+    {
+        a();
+        jqq jqq1 = g;
+        Object obj1 = c();
+        List list = g().subList(i, j);
+        Object obj;
+        if (f() == null)
+        {
+            obj = this;
+        } else
+        {
+            obj = f();
+        }
+        return jqq1.a(obj1, list, ((jqz) (obj)));
     }
 }

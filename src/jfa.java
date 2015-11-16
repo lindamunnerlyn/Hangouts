@@ -3,66 +3,58 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jfa extends koj
+public final class jfa extends kwm
 {
 
-    public Integer a;
-    public Integer b;
-    public Integer c;
-    public Integer d;
-    public Integer e;
+    public jbr a[];
 
     public jfa()
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        e = null;
+        a = jbr.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
+        int i = super.computeSerializedSize();
+        int k = i;
         if (a != null)
         {
-            i = j + koh.e(1, a.intValue());
+            k = i;
+            if (a.length > 0)
+            {
+                int j = 0;
+                do
+                {
+                    k = i;
+                    if (j >= a.length)
+                    {
+                        break;
+                    }
+                    jbr jbr1 = a[j];
+                    k = i;
+                    if (jbr1 != null)
+                    {
+                        k = i + kwk.d(1, jbr1);
+                    }
+                    j++;
+                    i = k;
+                } while (true);
+            }
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.intValue());
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.intValue());
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.e(4, d.intValue());
-        }
-        i = j;
-        if (e != null)
-        {
-            i = j + koh.e(5, e.intValue());
-        }
-        return i;
+        return k;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -71,51 +63,53 @@ public final class jfa extends koj
             case 0: // '\0'
                 return this;
 
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
-                break;
+            case 10: // '\n'
+                int k = kwx.a(kwj1, 10);
+                jbr ajbr[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                ajbr = new jbr[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, ajbr, 0, j);
+                    k = j;
+                }
+                for (; k < ajbr.length - 1; k++)
+                {
+                    ajbr[k] = new jbr();
+                    kwj1.a(ajbr[k]);
+                    kwj1.a();
+                }
 
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
-                break;
-
-            case 24: // '\030'
-                c = Integer.valueOf(kog1.f());
-                break;
-
-            case 32: // ' '
-                d = Integer.valueOf(kog1.f());
-                break;
-
-            case 40: // '('
-                e = Integer.valueOf(kog1.f());
+                ajbr[k] = new jbr();
+                kwj1.a(ajbr[k]);
+                a = ajbr;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
+        if (a != null && a.length > 0)
         {
-            koh1.a(1, a.intValue());
+            for (int i = 0; i < a.length; i++)
+            {
+                jbr jbr1 = a[i];
+                if (jbr1 != null)
+                {
+                    kwk1.b(1, jbr1);
+                }
+            }
+
         }
-        if (b != null)
-        {
-            koh1.a(2, b.intValue());
-        }
-        if (c != null)
-        {
-            koh1.a(3, c.intValue());
-        }
-        if (d != null)
-        {
-            koh1.a(4, d.intValue());
-        }
-        if (e != null)
-        {
-            koh1.a(5, e.intValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

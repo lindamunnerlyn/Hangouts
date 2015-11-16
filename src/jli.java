@@ -2,80 +2,90 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
-import java.util.EnumSet;
-import java.util.Iterator;
 
-final class jli extends jmi
+public final class jli extends kwm
 {
 
-    private final transient EnumSet a;
-    private transient int b;
+    public String a;
+    public Integer b;
+    public Integer c;
 
-    jli(EnumSet enumset)
+    public jli()
     {
-        a = enumset;
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public jqy a()
+    protected int computeSerializedSize()
     {
-        return jmr.a(a.iterator());
-    }
-
-    public boolean contains(Object obj)
-    {
-        return a.contains(obj);
-    }
-
-    public boolean containsAll(Collection collection)
-    {
-        return a.containsAll(collection);
-    }
-
-    boolean e()
-    {
-        return false;
-    }
-
-    public boolean equals(Object obj)
-    {
-        return obj == this || a.equals(obj);
-    }
-
-    public int hashCode()
-    {
-        int j = b;
+        int j = super.computeSerializedSize();
         int i = j;
-        if (j == 0)
+        if (a != null)
         {
-            i = a.hashCode();
-            b = i;
+            i = j + kwk.b(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.intValue());
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.intValue());
         }
         return i;
     }
 
-    public boolean isEmpty()
+    public kws mergeFrom(kwj kwj1)
     {
-        return a.isEmpty();
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
+                break;
+
+            case 24: // '\030'
+                c = Integer.valueOf(kwj1.f());
+                break;
+            }
+        } while (true);
     }
 
-    public Iterator iterator()
+    public void writeTo(kwk kwk1)
     {
-        return a();
-    }
-
-    public int size()
-    {
-        return a.size();
-    }
-
-    public String toString()
-    {
-        return a.toString();
-    }
-
-    Object writeReplace()
-    {
-        return new jlj(a);
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

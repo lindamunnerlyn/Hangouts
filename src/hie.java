@@ -3,10 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hie
+public interface hie
 {
 
-    public hie()
-    {
-    }
+    public abstract void a(hig hig);
 }

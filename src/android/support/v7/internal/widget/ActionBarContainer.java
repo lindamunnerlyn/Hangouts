@@ -13,10 +13,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import g;
-import ro;
-import tw;
-import tx;
-import va;
+import rq;
+import ty;
+import tz;
+import vc;
 
 public class ActionBarContainer extends FrameLayout
 {
@@ -52,20 +52,20 @@ public class ActionBarContainer extends FrameLayout
         }
         if (flag)
         {
-            obj = new tx(this);
+            obj = new tz(this);
         } else
         {
-            obj = new tw(this);
+            obj = new ty(this);
         }
         setBackgroundDrawable(((Drawable) (obj)));
-        context = context.obtainStyledAttributes(attributeset, ro.a);
-        a = context.getDrawable(ro.b);
-        b = context.getDrawable(ro.d);
-        j = context.getDimensionPixelSize(ro.j, -1);
+        context = context.obtainStyledAttributes(attributeset, rq.a);
+        a = context.getDrawable(rq.b);
+        b = context.getDrawable(rq.d);
+        j = context.getDimensionPixelSize(rq.j, -1);
         if (getId() == g.bi)
         {
             d = true;
-            c = context.getDrawable(ro.c);
+            c = context.getDrawable(rq.c);
         }
         context.recycle();
         if (d)
@@ -106,20 +106,20 @@ public class ActionBarContainer extends FrameLayout
         return g;
     }
 
-    public void a(va va1)
+    public void a(vc vc1)
     {
         if (g != null)
         {
             removeView(g);
         }
-        g = va1;
-        if (va1 != null)
+        g = vc1;
+        if (vc1 != null)
         {
-            addView(va1);
-            android.view.ViewGroup.LayoutParams layoutparams = va1.getLayoutParams();
+            addView(vc1);
+            android.view.ViewGroup.LayoutParams layoutparams = vc1.getLayoutParams();
             layoutparams.width = -1;
             layoutparams.height = -2;
-            va1.a(false);
+            vc1.a(false);
         }
     }
 

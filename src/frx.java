@@ -2,150 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.signin.GoogleSignInAccount;
-import com.google.android.gms.signin.internal.AuthAccountResult;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-final class frx
-    implements frv
+public final class frx
+    implements Iterable, Iterator
 {
 
-    private IBinder a;
-
-    frx(IBinder ibinder)
+    public frx()
     {
-        a = ibinder;
     }
 
-    public void a(ConnectionResult connectionresult, AuthAccountResult authaccountresult)
+    public boolean hasNext()
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInCallbacks");
-        if (connectionresult == null) goto _L2; else goto _L1
-_L1:
-        parcel.writeInt(1);
-        connectionresult.writeToParcel(parcel, 0);
-_L3:
-        if (authaccountresult == null)
-        {
-            break MISSING_BLOCK_LABEL_95;
-        }
-        parcel.writeInt(1);
-        authaccountresult.writeToParcel(parcel, 0);
-_L4:
-        a.transact(3, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-_L2:
-        parcel.writeInt(0);
-          goto _L3
-        connectionresult;
-        parcel1.recycle();
-        parcel.recycle();
-        throw connectionresult;
-        parcel.writeInt(0);
-          goto _L4
+        return false;
     }
 
-    public void a(Status status)
+    public Iterator iterator()
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInCallbacks");
-        if (status == null)
-        {
-            break MISSING_BLOCK_LABEL_56;
-        }
-        parcel.writeInt(1);
-        status.writeToParcel(parcel, 0);
-_L1:
-        a.transact(4, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        status;
-        parcel1.recycle();
-        parcel.recycle();
-        throw status;
+        return this;
     }
 
-    public void a(Status status, GoogleSignInAccount googlesigninaccount)
+    public Object next()
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInCallbacks");
-        if (status == null) goto _L2; else goto _L1
-_L1:
-        parcel.writeInt(1);
-        status.writeToParcel(parcel, 0);
-_L3:
-        if (googlesigninaccount == null)
-        {
-            break MISSING_BLOCK_LABEL_96;
-        }
-        parcel.writeInt(1);
-        googlesigninaccount.writeToParcel(parcel, 0);
-_L4:
-        a.transact(7, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-_L2:
-        parcel.writeInt(0);
-          goto _L3
-        status;
-        parcel1.recycle();
-        parcel.recycle();
-        throw status;
-        parcel.writeInt(0);
-          goto _L4
+        throw new NoSuchElementException();
     }
 
-    public IBinder asBinder()
+    public void remove()
     {
-        return a;
-    }
-
-    public void b(Status status)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.signin.internal.ISignInCallbacks");
-        if (status == null)
-        {
-            break MISSING_BLOCK_LABEL_57;
-        }
-        parcel.writeInt(1);
-        status.writeToParcel(parcel, 0);
-_L1:
-        a.transact(6, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        status;
-        parcel1.recycle();
-        parcel.recycle();
-        throw status;
+        throw new UnsupportedOperationException();
     }
 }

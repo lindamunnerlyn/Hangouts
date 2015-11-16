@@ -5,28 +5,28 @@
 package gen_binder;
 
 import android.content.Context;
-import god;
-import hgx;
-import hhe;
+import gsl;
+import hlp;
+import hlw;
 import java.util.HashMap;
 
 public final class 
-    implements hhe
+    implements hlw
 {
 
     private HashMap a;
 
-    public void a(Context context, Class class1, hgx hgx)
+    public void a(Context context, Class class1, hlp hlp)
     {
         if (a == null)
         {
             a = new HashMap(6);
-            a.put(god.a, Integer.valueOf(0));
-            a.put(god.b, Integer.valueOf(1));
-            a.put(god.c, Integer.valueOf(2));
-            a.put(god.d, Integer.valueOf(3));
-            a.put(god.e, Integer.valueOf(4));
-            a.put(god.f, Integer.valueOf(5));
+            a.put(gsl.a, Integer.valueOf(0));
+            a.put(gsl.b, Integer.valueOf(1));
+            a.put(gsl.c, Integer.valueOf(2));
+            a.put(gsl.d, Integer.valueOf(3));
+            a.put(gsl.e, Integer.valueOf(4));
+            a.put(gsl.f, Integer.valueOf(5));
         }
         class1 = (Integer)a.get(class1.getName());
         if (class1 == null)
@@ -39,27 +39,27 @@ public final class
             return;
 
         case 0: // '\0'
-            god.a(hgx);
+            gsl.a(hlp);
             return;
 
         case 1: // '\001'
-            god.a(context, hgx);
+            gsl.a(context, hlp);
             return;
 
         case 2: // '\002'
-            god.b(context, hgx);
+            gsl.b(context, hlp);
             return;
 
         case 3: // '\003'
-            god.c(context, hgx);
+            gsl.c(context, hlp);
             return;
 
         case 4: // '\004'
-            god.b(hgx);
+            gsl.b(hlp);
             return;
 
         case 5: // '\005'
-            god.c(hgx);
+            gsl.c(hlp);
             break;
         }
     }

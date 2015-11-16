@@ -2,24 +2,14 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.OutputStream;
 
-public final class hmz extends OutputStream
+public class hmz
 {
 
-    public long a;
+    final String b;
 
-    public hmz()
+    public hmz(String s)
     {
-    }
-
-    public void write(int i)
-    {
-        a = a + 1L;
-    }
-
-    public void write(byte abyte0[], int i, int j)
-    {
-        a = a + (long)j;
+        b = s;
     }
 }

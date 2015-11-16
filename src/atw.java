@@ -2,20 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Parcel;
 
-final class atw extends cmu
+final class atw
+    implements android.os.Parcelable.Creator
 {
 
-    final atr a;
-
-    atw(atr atr1, String s)
+    atw()
     {
-        a = atr1;
-        super(s);
     }
 
-    public void a()
+    public Object createFromParcel(Parcel parcel)
     {
-        atr.a(new atx(this));
+        return new atv(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new atv[i];
     }
 }

@@ -2,9 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public interface bch
+final class bch
 {
 
-    public abstract void a();
+    private final ber a = (new bes()).a("livecamera").b("Live camera inline with the attachment area.").a(false).a();
+
+    public bch()
+    {
+    }
+
+    public bcf a(Context context)
+    {
+        if (a.a(context))
+        {
+            return new bci(this);
+        } else
+        {
+            return null;
+        }
+    }
+
+    public ber[] a()
+    {
+        return (new ber[] {
+            a
+        });
+    }
 }

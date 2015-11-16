@@ -2,23 +2,13 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.IInterface;
 import com.google.android.gms.common.api.Status;
+import com.google.android.gms.herrevad.PredictedNetworkQuality;
 
-class feu
-    implements ekg
+public interface feu
+    extends IInterface
 {
 
-    public final Object a;
-    private final Status b;
-
-    public feu(Status status, Object obj)
-    {
-        b = status;
-        a = obj;
-    }
-
-    public Status B_()
-    {
-        return b;
-    }
+    public abstract void a(Status status, PredictedNetworkQuality predictednetworkquality);
 }

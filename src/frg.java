@@ -2,45 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.playlog.internal.LogEvent;
-import com.google.android.gms.playlog.internal.PlayLoggerContext;
-import java.util.ArrayList;
+import android.content.res.Resources;
 
-public final class frg
+final class frg extends frj
 {
 
-    private final ArrayList a;
-    private int b;
+    final frf a;
 
-    public frg()
+    frg(frf frf, Resources resources)
     {
-        this((byte)0);
+        a = frf;
+        super(resources);
     }
 
-    private frg(byte byte0)
+    protected String a(Resources resources, int i)
     {
-        a = new ArrayList();
-        b = 100;
-    }
-
-    public ArrayList a()
-    {
-        return a;
-    }
-
-    public void a(PlayLoggerContext playloggercontext, LogEvent logevent)
-    {
-        a.add(new frh(playloggercontext, logevent));
-        for (; a.size() > b; a.remove(0)) { }
-    }
-
-    public void b()
-    {
-        a.clear();
-    }
-
-    public boolean c()
-    {
-        return a.isEmpty();
+        return (String)android.provider.ContactsContract.CommonDataKinds.Email.getTypeLabel(resources, i, null);
     }
 }

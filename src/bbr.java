@@ -2,32 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.database.Cursor;
+import com.google.android.apps.hangouts.conversation.v2.gallerypicker.impl.GalleryItemView;
 
 final class bbr
+    implements Runnable
 {
 
-    private final beb a = (new bec()).a("livecamera").b("Live camera inline with the attachment area.").a(false).a();
+    final Cursor a;
+    final GalleryItemView b;
+    final bbq c;
 
-    public bbr()
+    bbr(bbq bbq1, Cursor cursor, GalleryItemView galleryitemview)
     {
+        c = bbq1;
+        a = cursor;
+        b = galleryitemview;
+        super();
     }
 
-    public bbp a(Context context)
+    public void run()
     {
-        if (a.a(context))
+        bbq bbq1 = c;
+        Cursor cursor = a;
+        GalleryItemView galleryitemview = b;
+        if (!cursor.isClosed())
         {
-            return new bbs(this);
-        } else
-        {
-            return null;
+            int j = cursor.getPosition();
+            for (int i = j - 5; i < j + 5; i++)
+            {
+                if (i >= 0 && i < bbq1.getCount() && i != j)
+                {
+                    cursor.moveToPosition(i);
+                    bbo bbo1 = bbq1.b.a(cursor);
+                    bbq1.b.a(bbo1.a, null, galleryitemview.c());
+                }
+            }
+
+            cursor.moveToPosition(j);
         }
-    }
-
-    public beb[] a()
-    {
-        return (new beb[] {
-            a
-        });
     }
 }

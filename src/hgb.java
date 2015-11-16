@@ -2,151 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.res.TypedArray;
-import android.media.RingtoneManager;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.AttributeSet;
+import java.nio.ByteBuffer;
+import java.nio.channels.ReadableByteChannel;
 
-public class hgb extends hfa
-    implements hfs
+public final class hgb
+    implements ReadableByteChannel
 {
 
-    private int b;
-    private boolean c;
-    private boolean d;
-    private int e;
+    private final hfy a;
+    private final ReadableByteChannel b;
 
-    private hgb(Context context)
+    public hgb(ReadableByteChannel readablebytechannel, hfx hfx, long l)
     {
-        this(context, null, g.tm);
+        this(readablebytechannel, new hfy(hfx, l));
     }
 
-    public hgb(Context context, byte byte0)
+    private hgb(ReadableByteChannel readablebytechannel, hfy hfy1)
     {
-        this(context);
+        b = readablebytechannel;
+        a = hfy1;
     }
 
-    private hgb(Context context, AttributeSet attributeset, int i)
+    public void close()
     {
-        super(context, null, i);
-        context = context.obtainStyledAttributes(null, hga.au, i, 0);
-        b = context.getInt(hga.av, 1);
-        c = context.getBoolean(hga.aw, true);
-        d = context.getBoolean(hga.ax, true);
-        context.recycle();
+        b.close();
     }
 
-    protected Object a(TypedArray typedarray, int i)
+    public boolean isOpen()
     {
-        return typedarray.getString(i);
+        return b.isOpen();
     }
 
-    public void a(int i)
+    public int read(ByteBuffer bytebuffer)
     {
-        b = i;
-    }
-
-    protected void a(hfq hfq1)
-    {
-        super.a(hfq1);
-        hfq1.a(this);
-        e = hfq1.j();
-    }
-
-    protected void a(boolean flag, Object obj)
-    {
-        for (obj = (String)obj; flag || TextUtils.isEmpty(((CharSequence) (obj)));)
+        int i = b.read(bytebuffer);
+        if (i >= 0)
         {
-            return;
+            a.b(i);
         }
-
-        c(Uri.parse(((String) (obj))));
-    }
-
-    public boolean a(int i, int j, Intent intent)
-    {
-        if (i == e)
-        {
-            if (intent != null)
-            {
-                Uri uri = (Uri)intent.getParcelableExtra("android.intent.extra.ringtone.PICKED_URI");
-                if (uri != null)
-                {
-                    intent = uri.toString();
-                } else
-                {
-                    intent = "";
-                }
-                if (a(intent))
-                {
-                    c(uri);
-                }
-            }
-            return true;
-        } else
-        {
-            return false;
-        }
-    }
-
-    protected void b()
-    {
-        Intent intent = new Intent("android.intent.action.RINGTONE_PICKER");
-        b(intent);
-        hfh hfh1 = B().a();
-        if (hfh1 != null)
-        {
-            hfh1.startActivityForResult(intent, e);
-            return;
-        } else
-        {
-            B().g().startActivityForResult(intent, e);
-            return;
-        }
-    }
-
-    protected void b(Intent intent)
-    {
-        intent.putExtra("android.intent.extra.ringtone.EXISTING_URI", y_());
-        intent.putExtra("android.intent.extra.ringtone.SHOW_DEFAULT", c);
-        if (c)
-        {
-            intent.putExtra("android.intent.extra.ringtone.DEFAULT_URI", RingtoneManager.getDefaultUri(d()));
-        }
-        intent.putExtra("android.intent.extra.ringtone.SHOW_SILENT", d);
-        intent.putExtra("android.intent.extra.ringtone.TYPE", b);
-        intent.putExtra("android.intent.extra.ringtone.TITLE", o());
-    }
-
-    protected void c(Uri uri)
-    {
-        if (uri != null)
-        {
-            uri = uri.toString();
-        } else
-        {
-            uri = "";
-        }
-        f(uri);
-    }
-
-    public int d()
-    {
-        return b;
-    }
-
-    public Uri y_()
-    {
-        Uri uri = null;
-        String s = g(null);
-        if (!TextUtils.isEmpty(s))
-        {
-            uri = Uri.parse(s);
-        }
-        return uri;
+        return i;
     }
 }

@@ -2,40 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 
-public final class og
-    implements of
+public final class og extends hp
 {
 
-    public og()
+    final DrawerLayout b;
+
+    public og(DrawerLayout drawerlayout)
     {
+        b = drawerlayout;
+        super();
     }
 
-    public int a(Object obj)
+    public void a(View view, mq mq1)
     {
-        return oo.a(obj);
-    }
-
-    public Drawable a(Context context)
-    {
-        return oo.a(context);
-    }
-
-    public void a(View view)
-    {
-        oo.a(view);
-    }
-
-    public void a(View view, Object obj, int i)
-    {
-        oo.a(view, obj, i);
-    }
-
-    public void a(android.view.ViewGroup.MarginLayoutParams marginlayoutparams, Object obj, int i)
-    {
-        oo.a(marginlayoutparams, obj, i);
+        super.a(view, mq1);
+        if (!DrawerLayout.l(view))
+        {
+            mq1.c(null);
+        }
     }
 }

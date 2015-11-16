@@ -2,46 +2,78 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.UUID;
 
-final class imx
-    implements imy
+public final class imx extends kwm
 {
 
-    private final ind a;
-    private final gsi b;
-    private final imy c = null;
-    private final kvm d;
-    private final UUID e;
-    private final boolean f = true;
+    public Integer a;
+    public Integer b;
 
-    imx(UUID uuid, ind ind, gsi gsi, kvm kvm1, boolean flag)
+    public imx()
     {
-        a = ind;
-        b = gsi;
-        e = (UUID)n.b(uuid);
-        d = kvm1;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public imy a()
+    protected int computeSerializedSize()
     {
-        return c;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.e(1, a.intValue());
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.intValue());
+        }
+        return j;
     }
 
-    public void a(String s)
+    public kws mergeFrom(kwj kwj1)
     {
-        n.b(s.equals(b()), "Ended wrong trace, expected %s but got %s", new Object[] {
-            s, b()
-        });
+_L5:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   8: 51
+    //                   16: 98;
+           goto _L1 _L2 _L3 _L4
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+            a = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        b = Integer.valueOf(kwj1.f());
+        if (true) goto _L5; else goto _L6
+_L6:
     }
 
-    public String b()
+    public void writeTo(kwk kwk1)
     {
-        return d.k();
-    }
-
-    public boolean c()
-    {
-        return f;
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

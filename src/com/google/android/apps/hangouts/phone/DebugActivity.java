@@ -33,43 +33,44 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
-import ani;
-import aoe;
-import apd;
-import cko;
-import ckp;
-import ckq;
-import ckr;
-import ckt;
-import cku;
-import ckw;
-import ckx;
-import cky;
-import ckz;
-import cla;
-import clb;
-import clc;
-import cld;
-import cle;
-import clf;
-import clg;
-import clh;
-import cli;
-import clj;
-import clk;
-import cll;
-import ctr;
-import cvn;
-import dbf;
-import ebw;
+import aoa;
+import aoc;
+import aow;
+import apv;
+import clw;
+import clx;
+import cly;
+import clz;
+import cmb;
+import cmc;
+import cme;
+import cmf;
+import cmg;
+import cmh;
+import cmi;
+import cmj;
+import cmk;
+import cml;
+import cmm;
+import cmn;
+import cmo;
+import cmp;
+import cmq;
+import cmr;
+import cms;
+import cmt;
+import cvv;
+import cxr;
+import dcn;
+import eev;
 import g;
-import gmo;
-import gms;
-import gmw;
-import gng;
+import gqu;
+import gqz;
+import grd;
+import grn;
 import h;
-import hgx;
-import hhg;
+import hlp;
+import hly;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -77,32 +78,32 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
-public class DebugActivity extends hhg
+public class DebugActivity extends hly
 {
 
     private static final String n[] = {
         "url:hangouts_conserver", "url:hangouts_conserver_upload", "url:hangouts_rs"
     };
-    private final gmo c;
+    private final gqu c;
     private TextView d;
     private ListView e;
-    private aoe f;
+    private aow f;
     private ListView g;
     private RecordingService h;
     private ArrayAdapter i;
-    private ani j;
+    private aoa j;
     private boolean k;
-    private gms l;
+    private gqz l;
     private ServiceConnection m;
 
     public DebugActivity()
     {
-        c = (new gng(this, b)).a(a);
+        c = (new grn(this, b)).a(a);
     }
 
     public static android.widget.AdapterView.OnItemClickListener a(DebugActivity debugactivity, Cursor cursor)
     {
-        return new ckw(debugactivity, cursor);
+        return new cme(debugactivity, cursor);
     }
 
     public static ArrayAdapter a(DebugActivity debugactivity, ArrayAdapter arrayadapter)
@@ -149,7 +150,7 @@ public class DebugActivity extends hhg
 
     private BaseAdapter a(Cursor cursor, int ai[])
     {
-        return new ckq(this, cursor, ai);
+        return new cly(this, cursor, ai);
     }
 
     public static BaseAdapter a(DebugActivity debugactivity, Cursor cursor, int ai[])
@@ -164,13 +165,13 @@ public class DebugActivity extends hhg
 
     private BaseAdapter a(List list, List list1)
     {
-        return new ckp(this, list, list1);
+        return new clx(this, list, list1);
     }
 
-    public static aoe a(DebugActivity debugactivity, aoe aoe1)
+    public static aow a(DebugActivity debugactivity, aow aow1)
     {
-        debugactivity.f = aoe1;
-        return aoe1;
+        debugactivity.f = aow1;
+        return aow1;
     }
 
     public static RecordingService a(DebugActivity debugactivity, RecordingService recordingservice)
@@ -179,27 +180,27 @@ public class DebugActivity extends hhg
         return recordingservice;
     }
 
-    public static String a(ani ani1, String s)
+    public static String a(aoa aoa1, String s)
     {
-        apd apd1 = (new aoe(g.nS, ani1.h())).e();
-        ani1 = new StringBuilder();
-        Cursor cursor = apd1.a("conversations", null, "conversation_id=?", new String[] {
+        apv apv1 = (new aow(g.nU, aoa1.h())).e();
+        aoa1 = new StringBuilder();
+        Cursor cursor = apv1.a("conversations", null, "conversation_id=?", new String[] {
             s
         }, "sort_timestamp DESC");
-        a(((StringBuilder) (ani1)), cursor, "CONVERSATIONS", "conversation_id");
+        a(((StringBuilder) (aoa1)), cursor, "CONVERSATIONS", "conversation_id");
         cursor.close();
-        cursor = apd1.a("conversation_participants_view", null, "conversation_id=?", new String[] {
+        cursor = apv1.a("conversation_participants_view", null, "conversation_id=?", new String[] {
             s
         }, null);
-        ani1.append("PARTICIPANTS\n");
-        a(((StringBuilder) (ani1)), cursor, "PARTICIPANTS", "_id");
+        aoa1.append("PARTICIPANTS\n");
+        a(((StringBuilder) (aoa1)), cursor, "PARTICIPANTS", "_id");
         cursor.close();
-        s = apd1.a("messages", null, "conversation_id=?", new String[] {
+        s = apv1.a("messages", null, "conversation_id=?", new String[] {
             s
         }, "timestamp ASC");
-        a(((StringBuilder) (ani1)), ((Cursor) (s)), "MESSAGES", "message_id");
+        a(((StringBuilder) (aoa1)), ((Cursor) (s)), "MESSAGES", "message_id");
         s.close();
-        return ani1.toString();
+        return aoa1.toString();
     }
 
     public static String a(String s, Object obj)
@@ -214,12 +215,12 @@ public class DebugActivity extends hhg
             cursor.getColumnIndex("generated_name"), cursor.getColumnIndex("conversation_id")
         });
         e.setAdapter(baseadapter);
-        e.setOnItemClickListener(new cky(this, cursor));
+        e.setOnItemClickListener(new cmg(this, cursor));
     }
 
     public static void a(Context context)
     {
-        (new Thread(new clj(context))).start();
+        (new Thread(new cmr(context))).start();
     }
 
     private void a(View view, Cursor cursor, Runnable runnable)
@@ -230,7 +231,7 @@ public class DebugActivity extends hhg
         view = new PopupWindow(view, point.x, point.y - 25);
         view.setFocusable(true);
         view.setBackgroundDrawable(new ColorDrawable(-1));
-        view.setOnDismissListener(new cle(this, cursor, runnable));
+        view.setOnDismissListener(new cmm(this, cursor, runnable));
         view.showAtLocation(getWindow().getDecorView(), 0, 0, 0);
     }
 
@@ -266,12 +267,11 @@ public class DebugActivity extends hhg
             obj = "UNKNOWN";
         }
         ((TextView) (obj1)).setText(((CharSequence) (obj)));
-        debugactivity.d.setOnClickListener(new clb(debugactivity, as));
-        debugactivity.d.setOnLongClickListener(new clf(debugactivity, as));
-        debugactivity.g = (ListView)debugactivity.findViewById(h.fB);
-        textview = (TextView)debugactivity.findViewById(h.ds);
-        obj = (TextView)debugactivity.findViewById(h.fO);
-        obj1 = new clg(debugactivity, textview, ((TextView) (obj)));
+        debugactivity.d.setOnClickListener(new cmj(debugactivity, as));
+        debugactivity.d.setOnLongClickListener(new cmn(debugactivity, as));
+        textview = (TextView)debugactivity.findViewById(h.dg);
+        obj = (TextView)debugactivity.findViewById(h.fw);
+        obj1 = new cmo(debugactivity, textview, ((TextView) (obj)));
         ((TextView) (obj)).setText("REALTIMECHATSERVICE");
         ((TextView) (obj)).setOnClickListener(((android.view.View.OnClickListener) (obj1)));
         obj = String.valueOf(debugactivity.f.e().e().getPath());
@@ -284,9 +284,9 @@ public class DebugActivity extends hhg
         }
         textview.setText(((CharSequence) (obj)));
         textview.setOnClickListener(((android.view.View.OnClickListener) (obj1)));
-        obj = (CheckBox)debugactivity.findViewById(h.at);
+        obj = (CheckBox)debugactivity.findViewById(h.ao);
         ((CheckBox) (obj)).setText("RECORD AFTER EXIT");
-        if (debugactivity.f.O("DEBUG_RTCS") > 0L)
+        if (aoc.a(debugactivity.getApplicationContext(), debugactivity.j.h(), "DEBUG_RTCS", 0L) > 0L)
         {
             flag = true;
         } else
@@ -294,7 +294,7 @@ public class DebugActivity extends hhg
             flag = false;
         }
         ((CheckBox) (obj)).setChecked(flag);
-        ((CheckBox) (obj)).setOnCheckedChangeListener(new clh(debugactivity));
+        ((CheckBox) (obj)).setOnCheckedChangeListener(new cmp(debugactivity));
         debugactivity.startService(c(debugactivity));
     }
 
@@ -308,22 +308,22 @@ public class DebugActivity extends hhg
         Cursor cursor = debugactivity.f.e().a(s1, null, "conversation_id=?", new String[] {
             s
         }, "sort_timestamp DESC");
-        View view = debugactivity.getLayoutInflater().inflate(g.fM, null);
-        Button button = (Button)view.findViewById(h.fQ);
-        Button button1 = (Button)view.findViewById(h.fS);
-        Button button2 = (Button)view.findViewById(h.fR);
+        View view = debugactivity.getLayoutInflater().inflate(g.fK, null);
+        Button button = (Button)view.findViewById(h.fy);
+        Button button1 = (Button)view.findViewById(h.fA);
+        Button button2 = (Button)view.findViewById(h.fz);
         if ("conversations_view".equals(s1))
         {
             button.setText("switch to conversation view");
             button.setVisibility(0);
-            button.setOnClickListener(new ckt(debugactivity, s));
+            button.setOnClickListener(new cmb(debugactivity, s));
         }
         button1.setText("show participants");
         button1.setVisibility(0);
-        button1.setOnClickListener(new cku(debugactivity, s, button2, button1, button));
+        button1.setOnClickListener(new cmc(debugactivity, s, button2, button1, button));
         button2.setText("show messages");
         button2.setVisibility(0);
-        button2.setOnClickListener(new ckr(debugactivity, s, button2, button1, button));
+        button2.setOnClickListener(new clz(debugactivity, s, button2, button1, button));
         ((ListView)view.findViewById(0x102000a)).setAdapter(debugactivity.a(cursor));
         debugactivity.a(view, cursor, ((Runnable) (null)));
     }
@@ -405,15 +405,15 @@ public class DebugActivity extends hhg
 
     public static android.widget.AdapterView.OnItemClickListener b(DebugActivity debugactivity, Cursor cursor)
     {
-        return new ckx(debugactivity, cursor);
+        return new cmf(debugactivity, cursor);
     }
 
     private ArrayAdapter b()
     {
-        return new clk(this, this, g.gE, h.gT);
+        return new cms(this, this, g.gz, h.gz);
     }
 
-    public static ani b(DebugActivity debugactivity)
+    public static aoa b(DebugActivity debugactivity)
     {
         return debugactivity.j;
     }
@@ -424,7 +424,7 @@ public class DebugActivity extends hhg
         {
             return "NULL";
         }
-        if ((obj instanceof ctr) || (obj instanceof cvn))
+        if ((obj instanceof cvv) || (obj instanceof cxr))
         {
             return obj.getClass().getSimpleName();
         }
@@ -442,7 +442,7 @@ public class DebugActivity extends hhg
             }
             catch (Exception exception)
             {
-                ebw.c("Babel", String.valueOf(s).concat(" is not a Long"));
+                eev.c("Babel", String.valueOf(s).concat(" is not a Long"));
                 return ((String) (obj));
             }
             return ((String) (obj1));
@@ -495,44 +495,44 @@ _L2:
         return debugactivity.g;
     }
 
-    public static aoe e(DebugActivity debugactivity)
+    public static android.widget.AdapterView.OnItemClickListener e(DebugActivity debugactivity)
     {
-        return debugactivity.f;
+        return new cmk(debugactivity);
     }
 
-    public static android.widget.AdapterView.OnItemClickListener f(DebugActivity debugactivity)
+    public static android.widget.AdapterView.OnItemLongClickListener f(DebugActivity debugactivity)
     {
-        return new clc(debugactivity);
+        return new cml(debugactivity);
     }
 
-    public static android.widget.AdapterView.OnItemLongClickListener g(DebugActivity debugactivity)
-    {
-        return new cld(debugactivity);
-    }
-
-    public static ArrayAdapter h(DebugActivity debugactivity)
+    public static ArrayAdapter g(DebugActivity debugactivity)
     {
         return debugactivity.b();
     }
 
-    public static ArrayAdapter i(DebugActivity debugactivity)
+    public static ArrayAdapter h(DebugActivity debugactivity)
     {
         return debugactivity.i;
     }
 
-    public static RecordingService j(DebugActivity debugactivity)
+    public static RecordingService i(DebugActivity debugactivity)
     {
         return debugactivity.h;
     }
 
+    public static aow j(DebugActivity debugactivity)
+    {
+        return debugactivity.f;
+    }
+
     public static android.widget.AdapterView.OnItemClickListener k(DebugActivity debugactivity)
     {
-        return new ckz(debugactivity);
+        return new cmh(debugactivity);
     }
 
     public static android.widget.AdapterView.OnItemLongClickListener l(DebugActivity debugactivity)
     {
-        return new cla(debugactivity);
+        return new cmi(debugactivity);
     }
 
     public boolean onContextItemSelected(MenuItem menuitem)
@@ -570,13 +570,14 @@ _L5:
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.fE);
-        j = dbf.e(c.a());
-        d = (TextView)findViewById(h.aJ);
+        setContentView(g.fC);
+        j = dcn.e(c.a());
+        d = (TextView)findViewById(h.aE);
         e = (ListView)findViewById(0x102000a);
-        l = (gms)a.a(gms);
+        g = (ListView)findViewById(h.fj);
+        l = (gqz)a.a(gqz);
         l.b(j.h()).c("preserve_response_data", true).d();
-        (new cko(this)).a(new Void[0]);
+        (new clw(this)).a(new Void[0]);
     }
 
     public void onCreateContextMenu(ContextMenu contextmenu, View view, android.view.ContextMenu.ContextMenuInfo contextmenuinfo)
@@ -629,7 +630,7 @@ _L5:
         if (s != null)
         {
             getIntent().removeExtra("conversation_id");
-            (new Handler()).postDelayed(new cli(this, s), 100L);
+            (new Handler()).postDelayed(new cmq(this, s), 100L);
         }
     }
 
@@ -639,7 +640,7 @@ _L5:
         Intent intent = new Intent(this, com/google/android/apps/hangouts/phone/DebugActivity$RecordingService);
         if (m == null)
         {
-            m = new cll(this);
+            m = new cmt(this);
         }
         bindService(intent, m, 1);
     }
@@ -652,7 +653,7 @@ _L5:
             unbindService(m);
             m = null;
         }
-        if (!((CheckBox)findViewById(h.at)).isChecked())
+        if (!((CheckBox)findViewById(h.ao)).isChecked())
         {
             stopService(c(this));
         }
@@ -664,7 +665,7 @@ _L5:
 
         private static final SimpleDateFormat e = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
         private final Handler a = new Handler();
-        private final IBinder b = new clp(this);
+        private final IBinder b = new cmx(this);
         private ArrayAdapter c;
         private final ArrayList d = new ArrayList();
         private String f;
@@ -722,7 +723,7 @@ _L5:
 
         public void onCreate()
         {
-            RealTimeChatService.a(new cln(this));
+            RealTimeChatService.a(new cmv(this));
         }
 
         public void onDestroy()

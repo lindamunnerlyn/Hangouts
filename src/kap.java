@@ -2,64 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 
-public final class kap extends koj
+public final class kap extends kao
+    implements kam
 {
 
-    public kaq a;
+    final ScheduledExecutorService a;
 
-    public kap()
+    public kap(ScheduledExecutorService scheduledexecutorservice)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(scheduledexecutorservice);
+        a = (ScheduledExecutorService)n.b(scheduledexecutorservice);
     }
 
-    protected int computeSerializedSize()
+    public ScheduledFuture schedule(Runnable runnable, long l, TimeUnit timeunit)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(2, a);
-        }
-        return i;
+        runnable = kav.a(runnable, null);
+        return new kaq(runnable, a.schedule(runnable, l, timeunit));
     }
 
-    public kop mergeFrom(kog kog1)
+    public ScheduledFuture schedule(Callable callable, long l, TimeUnit timeunit)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 18: // '\022'
-                if (a == null)
-                {
-                    a = new kaq();
-                }
-                kog1.a(a);
-                break;
-            }
-        } while (true);
+        callable = kav.a(callable);
+        return new kaq(callable, a.schedule(callable, l, timeunit));
     }
 
-    public void writeTo(koh koh1)
+    public ScheduledFuture scheduleAtFixedRate(Runnable runnable, long l, long l1, TimeUnit timeunit)
     {
-        if (a != null)
-        {
-            koh1.b(2, a);
-        }
-        super.writeTo(koh1);
+        runnable = new kar(runnable);
+        return new kaq(runnable, a.scheduleAtFixedRate(runnable, l, l1, timeunit));
+    }
+
+    public ScheduledFuture scheduleWithFixedDelay(Runnable runnable, long l, long l1, TimeUnit timeunit)
+    {
+        runnable = new kar(runnable);
+        return new kaq(runnable, a.scheduleWithFixedDelay(runnable, l, l1, timeunit));
     }
 }

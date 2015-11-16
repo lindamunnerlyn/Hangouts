@@ -3,72 +3,38 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class huc extends koj
+public final class huc extends kwm
 {
 
-    public hug a[];
-    public hur b;
-    public huf c;
+    public String a;
 
     public huc()
     {
-        a = hug.a();
-        b = null;
-        c = null;
+        a = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        int j = i;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            j = i;
-            if (a.length > 0)
-            {
-                int k = 0;
-                do
-                {
-                    j = i;
-                    if (k >= a.length)
-                    {
-                        break;
-                    }
-                    hug hug1 = a[k];
-                    j = i;
-                    if (hug1 != null)
-                    {
-                        j = i + koh.d(1, hug1);
-                    }
-                    k++;
-                    i = j;
-                } while (true);
-            }
+            i = j + kwk.b(1, a);
         }
-        i = j;
-        if (b != null)
-        {
-            i = j + koh.d(2, b);
-        }
-        j = i;
-        if (c != null)
-        {
-            j = i + koh.d(3, c);
-        }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -78,76 +44,18 @@ public final class huc extends koj
                 return this;
 
             case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                hug ahug[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                ahug = new hug[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, ahug, 0, j);
-                    k = j;
-                }
-                for (; k < ahug.length - 1; k++)
-                {
-                    ahug[k] = new hug();
-                    kog1.a(ahug[k]);
-                    kog1.a();
-                }
-
-                ahug[k] = new hug();
-                kog1.a(ahug[k]);
-                a = ahug;
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new hur();
-                }
-                kog1.a(b);
-                break;
-
-            case 26: // '\032'
-                if (c == null)
-                {
-                    c = new huf();
-                }
-                kog1.a(c);
+                a = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null && a.length > 0)
+        if (a != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                hug hug1 = a[i];
-                if (hug1 != null)
-                {
-                    koh1.b(1, hug1);
-                }
-            }
-
+            kwk1.a(1, a);
         }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        if (c != null)
-        {
-            koh1.b(3, c);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

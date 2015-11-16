@@ -2,12 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-final class hgy extends RuntimeException
+public final class hgy
 {
 
-    public hgy(String s)
+    private final List a = new ArrayList();
+
+    public hgy(String as[], int ai[])
     {
-        super(s);
+        int i = 0;
+        while (i < as.length) 
+        {
+            boolean flag;
+            if (ai[i] == 0)
+            {
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+            a.add(new hgx(as[i], flag));
+            i++;
+        }
+    }
+
+    public List a()
+    {
+        return Collections.unmodifiableList(a);
     }
 }

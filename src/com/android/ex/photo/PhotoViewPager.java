@@ -4,9 +4,9 @@
 
 package com.android.ex.photo;
 
-import aax;
-import aay;
 import aaz;
+import aba;
+import abb;
 import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
@@ -20,7 +20,7 @@ public class PhotoViewPager extends ViewPager
     private int b;
     private float c;
     private float d;
-    private aaz e;
+    private abb e;
 
     public PhotoViewPager(Context context)
     {
@@ -36,12 +36,12 @@ public class PhotoViewPager extends ViewPager
 
     private void i()
     {
-        a(new aax(this));
+        a(new aaz(this));
     }
 
-    public void a(aaz aaz1)
+    public void a(abb abb1)
     {
-        e = aaz1;
+        e = abb1;
     }
 
     public boolean onInterceptTouchEvent(MotionEvent motionevent)
@@ -56,16 +56,16 @@ public class PhotoViewPager extends ViewPager
             k = e.a(c, d);
         } else
         {
-            k = aay.a;
+            k = aba.a;
         }
-        if (k == aay.d || k == aay.b)
+        if (k == aba.d || k == aba.b)
         {
             flag = true;
         } else
         {
             flag = false;
         }
-        if (k == aay.d || k == aay.c)
+        if (k == aba.d || k == aba.c)
         {
             k = 1;
         } else

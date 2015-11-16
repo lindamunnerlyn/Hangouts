@@ -7,51 +7,59 @@ package org.chromium.net;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import gap;
+import lmw;
+import lmx;
+import lmy;
+import lmz;
 import org.chromium.base.ApplicationStatus;
 
 // Referenced classes of package org.chromium.net:
 //            NetworkChangeNotifier
 
 public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver
-    implements org.chromium.base.ApplicationStatus.ApplicationStateListener
+    implements gap
 {
 
-    private final NetworkConnectivityIntentFilter a;
+    private final lmx a;
     private final Observer b;
     private final Context c;
-    private ConnectivityManagerDelegate d;
-    private WifiManagerDelegate e;
+    private lmw d;
+    private lmz e;
     private boolean f;
-    private int g;
-    private String h;
-    private double i;
+    private final boolean g;
+    private int h;
+    private String i;
+    private double j;
 
     public NetworkChangeNotifierAutoDetect(Observer observer, Context context, boolean flag)
     {
         b = observer;
         c = context.getApplicationContext();
-        d = new ConnectivityManagerDelegate(context);
-        e = new WifiManagerDelegate(context);
+        d = new lmw(context);
+        e = new lmz(context);
         observer = d.a();
-        g = a(observer);
-        h = c(observer);
-        i = b(observer);
-        a = new NetworkConnectivityIntentFilter(e.c());
+        h = a(observer);
+        i = c(observer);
+        j = b(observer);
+        a = new lmx(e.c());
         if (flag)
         {
-            d();
+            e();
+            g = false;
             return;
         } else
         {
             ApplicationStatus.a(this);
-            a(a());
+            a(b());
+            g = true;
             return;
         }
     }
 
-    private String c(NetworkState networkstate)
+    private String c(lmy lmy1)
     {
-        if (a(networkstate) != 2)
+        if (a(lmy1) != 2)
         {
             return "";
         } else
@@ -60,7 +68,24 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver
         }
     }
 
-    private void d()
+    private void d(lmy lmy1)
+    {
+        int k = a(lmy1);
+        lmy1 = c(lmy1);
+        if (k == h && lmy1.equals(i))
+        {
+            return;
+        } else
+        {
+            h = k;
+            i = lmy1;
+            (new StringBuilder("Network connectivity changed, type is: ")).append(h);
+            b.a(k);
+            return;
+        }
+    }
+
+    private void e()
     {
         if (!f)
         {
@@ -69,24 +94,21 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver
         }
     }
 
-    private void d(NetworkState networkstate)
+    private void e(lmy lmy1)
     {
-        int j = a(networkstate);
-        networkstate = c(networkstate);
-        if (j == g && networkstate.equals(h))
+        double d1 = b(lmy1);
+        if (d1 == j)
         {
             return;
         } else
         {
-            g = j;
-            h = networkstate;
-            (new StringBuilder("Network connectivity changed, type is: ")).append(g);
-            b.a(j);
+            j = d1;
+            b.a(d1);
             return;
         }
     }
 
-    private void e()
+    private void f()
     {
         if (f)
         {
@@ -95,36 +117,17 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver
         }
     }
 
-    private void e(NetworkState networkstate)
-    {
-        double d1 = b(networkstate);
-        if (d1 == i)
-        {
-            return;
-        } else
-        {
-            i = d1;
-            b.a(d1);
-            return;
-        }
-    }
-
-    int a()
-    {
-        return ApplicationStatus.c();
-    }
-
-    public int a(NetworkState networkstate)
+    public int a(lmy lmy1)
     {
         byte byte1 = 5;
-        if (networkstate.a()) goto _L2; else goto _L1
+        if (lmy1.a()) goto _L2; else goto _L1
 _L1:
         byte byte0 = 6;
 _L4:
         return byte0;
 _L2:
         byte0 = byte1;
-        switch (networkstate.b())
+        switch (lmy1.b())
         {
         case 2: // '\002'
         case 3: // '\003'
@@ -150,7 +153,7 @@ _L2:
             byte0 = byte1;
             break;
         }
-        switch (networkstate.c())
+        switch (lmy1.c())
         {
         default:
             return 0;
@@ -180,42 +183,42 @@ _L2:
 _L3:
     }
 
-    public void a(int j)
+    public void a(int k)
     {
-        NetworkState networkstate = c();
-        if (j == 1)
+        lmy lmy1 = d();
+        if (k == 1)
         {
-            d(networkstate);
-            e(networkstate);
-            d();
-        } else
-        if (j == 2)
-        {
+            d(lmy1);
+            e(lmy1);
             e();
+        } else
+        if (k == 2)
+        {
+            f();
             return;
         }
     }
 
-    public double b(NetworkState networkstate)
+    public double b(lmy lmy1)
     {
         byte byte1;
         byte1 = 30;
-        if (a(networkstate) == 2)
+        if (a(lmy1) == 2)
         {
-            int j = e.b();
-            if (j != -1)
+            int k = e.b();
+            if (k != -1)
             {
-                return (double)j;
+                return (double)k;
             }
         }
-        if (networkstate.a()) goto _L2; else goto _L1
+        if (lmy1.a()) goto _L2; else goto _L1
 _L1:
         byte byte0 = 31;
 _L4:
         return NetworkChangeNotifier.a(byte0);
 _L2:
         byte0 = byte1;
-        switch (networkstate.b())
+        switch (lmy1.b())
         {
         case 2: // '\002'
         case 3: // '\003'
@@ -233,7 +236,7 @@ _L2:
             break;
 
         case 0: // '\0'
-            switch (networkstate.c())
+            switch (lmy1.c())
             {
             default:
                 byte0 = byte1;
@@ -305,19 +308,28 @@ _L2:
 _L3:
     }
 
-    public void b()
+    int b()
     {
-        e();
+        return ApplicationStatus.c();
     }
 
-    public NetworkState c()
+    public void c()
+    {
+        if (g)
+        {
+            ApplicationStatus.b(this);
+        }
+        f();
+    }
+
+    public lmy d()
     {
         return d.a();
     }
 
     public void onReceive(Context context, Intent intent)
     {
-        context = c();
+        context = d();
         if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction()))
         {
             d(context);
@@ -330,160 +342,12 @@ _L3:
         }
     }
 
-    private class ConnectivityManagerDelegate
-    {
-
-        private final ConnectivityManager a;
-
-        NetworkState a()
-        {
-            NetworkInfo networkinfo = a.getActiveNetworkInfo();
-            if (networkinfo == null || !networkinfo.isConnected())
-            {
-                return new NetworkState(false, -1, -1);
-            } else
-            {
-                return new NetworkState(true, networkinfo.getType(), networkinfo.getSubtype());
-            }
-        }
-
-        ConnectivityManagerDelegate()
-        {
-            a = null;
-        }
-
-        ConnectivityManagerDelegate(Context context)
-        {
-            a = (ConnectivityManager)context.getSystemService("connectivity");
-        }
-    }
-
-
-    private class WifiManagerDelegate
-    {
-
-        private final Context a;
-        private final WifiManager b;
-        private final boolean c;
-
-        String a()
-        {
-            Object obj = a.registerReceiver(null, new IntentFilter("android.net.wifi.STATE_CHANGE"));
-            if (obj != null)
-            {
-                obj = (WifiInfo)((Intent) (obj)).getParcelableExtra("wifiInfo");
-                if (obj != null)
-                {
-                    obj = ((WifiInfo) (obj)).getSSID();
-                    if (obj != null)
-                    {
-                        return ((String) (obj));
-                    }
-                }
-            }
-            return "";
-        }
-
-        int b()
-        {
-            WifiInfo wifiinfo;
-            if (c && b != null)
-            {
-                if ((wifiinfo = b.getConnectionInfo()) != null)
-                {
-                    return wifiinfo.getLinkSpeed();
-                }
-            }
-            return -1;
-        }
-
-        boolean c()
-        {
-            return c;
-        }
-
-        WifiManagerDelegate()
-        {
-            a = null;
-            b = null;
-            c = false;
-        }
-
-        WifiManagerDelegate(Context context)
-        {
-            a = context;
-            boolean flag;
-            if (a.getPackageManager().checkPermission("android.permission.ACCESS_WIFI_STATE", a.getPackageName()) == 0)
-            {
-                flag = true;
-            } else
-            {
-                flag = false;
-            }
-            c = flag;
-            if (c)
-            {
-                context = (WifiManager)a.getSystemService("wifi");
-            } else
-            {
-                context = null;
-            }
-            b = context;
-        }
-    }
-
-
-    private class NetworkConnectivityIntentFilter extends IntentFilter
-    {
-
-        NetworkConnectivityIntentFilter(boolean flag)
-        {
-            addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            if (flag)
-            {
-                addAction("android.net.wifi.RSSI_CHANGED");
-            }
-        }
-    }
-
-
     private class Observer
     {
 
         public abstract void a(double d1);
 
-        public abstract void a(int j);
-    }
-
-
-    private class NetworkState
-    {
-
-        private final boolean a;
-        private final int b;
-        private final int c;
-
-        public boolean a()
-        {
-            return a;
-        }
-
-        public int b()
-        {
-            return b;
-        }
-
-        public int c()
-        {
-            return c;
-        }
-
-        public NetworkState(boolean flag, int j, int k)
-        {
-            a = flag;
-            b = j;
-            c = k;
-        }
+        public abstract void a(int k);
     }
 
 }

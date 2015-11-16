@@ -2,108 +2,235 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import java.lang.reflect.Field;
+import android.net.Uri;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public final class hek
 {
 
-    private static final hm a = new hm();
+    private static final Pattern a = Pattern.compile("^(((http(s)?):)?\\/\\/images(\\d)?-.+-opensocial\\.googleusercontent\\.com\\/gadgets\\/proxy\\?)");
+    private static int b;
 
-    private static Field a(kop kop)
+    private static Uri a(int i, int j, Uri uri, String s)
     {
-        Class class1 = kop.getClass();
-        hm hm1 = a;
-        hm1;
-        JVM INSTR monitorenter ;
-        Field field = (Field)a.get(class1);
-        kop = field;
-        if (field != null)
+        Object obj;
+        Object obj1;
+        obj = Uri.EMPTY.buildUpon();
+        ((android.net.Uri.Builder) (obj)).authority(uri.getAuthority());
+        ((android.net.Uri.Builder) (obj)).scheme(uri.getScheme());
+        ((android.net.Uri.Builder) (obj)).path(uri.getPath());
+        if (i != -1 && j != -1)
         {
-            break MISSING_BLOCK_LABEL_44;
+            ((android.net.Uri.Builder) (obj)).appendQueryParameter("resize_w", Integer.toString(i));
+            ((android.net.Uri.Builder) (obj)).appendQueryParameter("resize_h", Integer.toString(j));
+            ((android.net.Uri.Builder) (obj)).appendQueryParameter("no_expand", "1");
         }
-        kop = class1.getField("apiHeader");
-        a.put(class1, kop);
-        hm1;
-        JVM INSTR monitorexit ;
-        return kop;
-        kop;
-        hm1;
-        JVM INSTR monitorexit ;
-        throw kop;
-    }
-
-    public static void a(Context context, kop kop, String s, int i)
-    {
-        Object obj = null;
-        lgw lgw1 = new lgw();
-        Object obj1 = new lhf();
-        obj1.a = Integer.valueOf(g.H(context));
-        obj1.b = Integer.valueOf(g.I(context));
-        obj1.c = Integer.valueOf(g.J(context));
-        lgw1.j = Integer.valueOf(g.G(context));
-        lgw1.p = ((lhf) (obj1));
-        lgw1.i = s;
-        s = (hdw)hgx.b(context, hdw);
-        hss hss1;
+        obj1 = ((android.net.Uri.Builder) (obj)).build();
+        if (uri.isOpaque())
+        {
+            throw new UnsupportedOperationException("This isn't a hierarchical URI.");
+        }
+        obj = uri.getEncodedQuery();
+        if (obj != null) goto _L2; else goto _L1
+_L1:
+        obj = Collections.emptySet();
+_L8:
+        Object obj2;
+        obj2 = ((Set) (obj)).iterator();
+        obj = obj1;
+_L4:
+        android.net.Uri.Builder builder;
+        int k;
+        int l;
+        if (!((Iterator) (obj2)).hasNext())
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        obj1 = (String)((Iterator) (obj2)).next();
+        if (((Uri) (obj)).getQueryParameter(((String) (obj1))) != null)
+        {
+            continue; /* Loop/switch isn't completed */
+        }
+        int i1;
+        int j1;
+        if ("resize_w".equals(obj1) || "resize_h".equals(obj1) || "no_expand".equals(obj1))
+        {
+            k = 1;
+        } else
+        {
+            k = 0;
+        }
+        if (i == -1 || j == -1)
+        {
+            l = 1;
+        } else
+        {
+            l = 0;
+        }
+        builder = ((Uri) (obj)).buildUpon();
+        if (!"url".equals(obj1))
+        {
+            continue; /* Loop/switch isn't completed */
+        }
+        builder.appendQueryParameter("url", uri.getQueryParameter("url"));
+_L6:
+        obj = builder.build();
+        if (true) goto _L4; else goto _L3
+_L2:
+        obj2 = new LinkedHashSet();
+        l = 0;
+        do
+        {
+label0:
+            {
+                i1 = ((String) (obj)).indexOf('&', l);
+                k = i1;
+                if (i1 == -1)
+                {
+                    k = ((String) (obj)).length();
+                }
+                j1 = ((String) (obj)).indexOf('=', l);
+                if (j1 <= k)
+                {
+                    i1 = j1;
+                    if (j1 != -1)
+                    {
+                        break label0;
+                    }
+                }
+                i1 = k;
+            }
+            ((Set) (obj2)).add(Uri.decode(((String) (obj)).substring(l, i1)));
+            k++;
+            l = k;
+        } while (k < ((String) (obj)).length());
+        obj = Collections.unmodifiableSet(((Set) (obj2)));
+        continue; /* Loop/switch isn't completed */
+        if (l != 0 && k != 0) goto _L4; else goto _L5
+_L5:
+        obj = uri.getQueryParameters(((String) (obj1))).iterator();
+        while (((Iterator) (obj)).hasNext()) 
+        {
+            builder.appendQueryParameter(((String) (obj1)), (String)((Iterator) (obj)).next());
+        }
+          goto _L6
+_L3:
+        uri = ((Uri) (obj));
         if (s != null)
         {
-            s = s.b();
+            uri = ((Uri) (obj));
+            if (((Uri) (obj)).getQueryParameter("url") == null)
+            {
+                uri = ((Uri) (obj)).buildUpon();
+                uri.appendQueryParameter("url", s);
+                uri = uri.build();
+            }
+        }
+        s = uri;
+        if (uri.getQueryParameter("container") == null)
+        {
+            uri = uri.buildUpon();
+            uri.appendQueryParameter("container", "esmobile");
+            s = uri.build();
+        }
+        uri = s;
+        if (s.getQueryParameter("gadget") == null)
+        {
+            uri = s.buildUpon();
+            uri.appendQueryParameter("gadget", "a");
+            uri = uri.build();
+        }
+        s = uri;
+        if (uri.getQueryParameter("rewriteMime") == null)
+        {
+            uri = uri.buildUpon();
+            uri.appendQueryParameter("rewriteMime", "image/*");
+            s = uri.build();
+        }
+        return s;
+        if (true) goto _L8; else goto _L7
+_L7:
+    }
+
+    private static String a()
+    {
+        String s = String.valueOf("https://images");
+        int i = b();
+        String s1 = String.valueOf("-esmobile-opensocial.googleusercontent.com/gadgets/proxy");
+        return (new StringBuilder(String.valueOf(s).length() + 11 + String.valueOf(s1).length())).append(s).append(i).append(s1).toString();
+    }
+
+    static String a(int i, int j, String s)
+    {
+        if (s == null)
+        {
+            return s;
+        }
+        String s1;
+        String s2;
+        if (!a(s))
+        {
+            s2 = a();
+            s1 = s;
         } else
         {
-            s = null;
+            s1 = null;
+            s2 = s;
         }
-        if (!TextUtils.isEmpty(s))
+        return a(i, j, Uri.parse(s2), s1).toString();
+    }
+
+    static String a(int i, String s)
+    {
+        if (s == null)
         {
-            lgw1.m = s;
+            return s;
         }
-        s = new kue();
-        s.b = hgx.b(context, "com.google.android.libraries.social.appid");
-        if (g.L(context))
+        String s1;
+        String s2;
+        if (!a(s))
         {
-            s.a = 3;
+            s2 = a();
+            s1 = s;
         } else
         {
-            s.a = 2;
+            s1 = null;
+            s2 = s;
         }
-        s.c = 2;
-        s.d = i;
-        lgw1.n = s;
-        try
+        return a(i, i, Uri.parse(s2), s1).toString();
+    }
+
+    private static boolean a(String s)
+    {
+        if (s == null)
         {
-            obj1 = a(kop);
-            hss1 = new hss();
-            hss1.b = lgw1;
-        }
-        // Misplaced declaration of an exception variable
-        catch (Context context)
+            return false;
+        } else
         {
-            Log.e("PlusiUtils", "Failed to find apiHeader field on an http request, this should not happen", context);
-            return;
+            return a.matcher(s).find();
         }
-        // Misplaced declaration of an exception variable
-        catch (Context context)
-        {
-            Log.e("PlusiUtils", "apiHeader field on http request was not accessible, this should not happen", context);
-            return;
-        }
-        s = obj;
-        if (context == null)
-        {
-            break MISSING_BLOCK_LABEL_213;
-        }
-        context = (gsm)hgx.b(context, gsm);
-        s = obj;
-        if (context == null)
-        {
-            break MISSING_BLOCK_LABEL_213;
-        }
-        s = context.a();
-        hss1.d = s;
-        ((Field) (obj1)).set(kop, hss1);
-        return;
+    }
+
+    private static int b()
+    {
+        hek;
+        JVM INSTR monitorenter ;
+        int i;
+        i = b + 1;
+        b = i;
+        b %= 3;
+        hek;
+        JVM INSTR monitorexit ;
+        return i;
+        Exception exception;
+        exception;
+        throw exception;
     }
 
 }

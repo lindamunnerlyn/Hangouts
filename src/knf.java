@@ -2,72 +2,76 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.Stack;
 
-final class knf
-    implements Iterator
+public final class knf extends kwm
 {
 
-    private final Stack a = new Stack();
-    private kmw b;
+    public String a;
+    public Long b;
 
-    knf(klp klp)
+    public knf()
     {
-        b = a(klp);
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private kmw a(klp klp)
+    protected int computeSerializedSize()
     {
-        for (; klp instanceof kne; klp = kne.a(klp))
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            klp = (kne)klp;
-            a.push(klp);
+            i = j + kwk.b(1, a);
         }
-
-        return (kmw)klp;
+        j = i;
+        if (b != null)
+        {
+            b.longValue();
+            j = i + (kwk.f(2) + 8);
+        }
+        return j;
     }
 
-    private kmw b()
+    public kws mergeFrom(kwj kwj1)
     {
-        kmw kmw1;
         do
         {
-            if (a.isEmpty())
+            int i = kwj1.a();
+            switch (i)
             {
-                return null;
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 17: // '\021'
+                b = Long.valueOf(kwj1.g());
+                break;
             }
-            kmw1 = a(kne.b((kne)a.pop()));
-        } while (kmw1.d());
-        return kmw1;
+        } while (true);
     }
 
-    public kmw a()
+    public void writeTo(kwk kwk1)
     {
-        if (b == null)
+        if (a != null)
         {
-            throw new NoSuchElementException();
-        } else
-        {
-            kmw kmw1 = b;
-            b = b();
-            return kmw1;
+            kwk1.a(1, a);
         }
-    }
-
-    public boolean hasNext()
-    {
-        return b != null;
-    }
-
-    public Object next()
-    {
-        return a();
-    }
-
-    public void remove()
-    {
-        throw new UnsupportedOperationException();
+        if (b != null)
+        {
+            kwk1.c(2, b.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

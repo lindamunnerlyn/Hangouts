@@ -2,45 +2,94 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Observable;
-import java.util.ArrayList;
 
-public final class yy extends Observable
+final class yy
+    implements wk
 {
 
-    yy()
+    final yt a;
+
+    yy(yt yt1)
     {
+        a = yt1;
+        super();
+    }
+
+    private void c(wl wl1)
+    {
+        switch (wl1.a)
+        {
+        default:
+            return;
+
+        case 0: // '\0'
+            yt.e(a);
+            return;
+
+        case 1: // '\001'
+            yt.e(a);
+            return;
+
+        case 2: // '\002'
+            yt.e(a);
+            return;
+
+        case 3: // '\003'
+            yt.e(a);
+            break;
+        }
+    }
+
+    public zs a(int i)
+    {
+        zs zs1;
+        for (zs1 = a.b(i); zs1 == null || a.c.d(zs1.a);)
+        {
+            return null;
+        }
+
+        return zs1;
     }
 
     public void a(int i, int j)
     {
-        for (int k = mObservers.size() - 1; k >= 0; k--)
-        {
-            ((yz)mObservers.get(k)).a(i, j, null);
-        }
-
+        a.a(i, j, true);
+        a.f = true;
+        zq zq1 = a.e;
+        zq1.h = zq1.h + j;
     }
 
-    public boolean a()
+    public void a(int i, int j, Object obj)
     {
-        return !mObservers.isEmpty();
+        a.a(i, j, obj);
+        a.g = true;
+    }
+
+    public void a(wl wl1)
+    {
+        c(wl1);
     }
 
     public void b(int i, int j)
     {
-        for (int k = mObservers.size() - 1; k >= 0; k--)
-        {
-            ((yz)mObservers.get(k)).a(i, j);
-        }
+        a.a(i, j, false);
+        a.f = true;
+    }
 
+    public void b(wl wl1)
+    {
+        c(wl1);
     }
 
     public void c(int i, int j)
     {
-        for (int k = mObservers.size() - 1; k >= 0; k--)
-        {
-            ((yz)mObservers.get(k)).b(i, j);
-        }
+        a.e(i, j);
+        a.f = true;
+    }
 
+    public void d(int i, int j)
+    {
+        a.d(i, j);
+        a.f = true;
     }
 }

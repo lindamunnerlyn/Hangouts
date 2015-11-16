@@ -9,9 +9,9 @@ import ai;
 import android.content.Intent;
 import android.os.Bundle;
 import ap;
-import bln;
-import ebw;
-import hgx;
+import blw;
+import eev;
+import hlp;
 
 public final class LatencyBugActivity extends ai
 {
@@ -20,16 +20,16 @@ public final class LatencyBugActivity extends ai
     {
     }
 
-    private bln g()
+    private blw g()
     {
-        return (bln)hgx.b(this, bln);
+        return (blw)hlp.b(this, blw);
     }
 
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        ebw.a("Babel", "LatencyBugActivity.onCreate");
-        bundle = t_().a();
+        eev.a("Babel", "LatencyBugActivity.onCreate");
+        bundle = u_().a();
         getIntent().getStringExtra("latency_message");
         if (g() != null)
         {

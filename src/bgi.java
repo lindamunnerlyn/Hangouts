@@ -2,34 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.TimeoutException;
 
-final class bgi
-    implements Runnable
+public interface bgi
 {
 
-    final bgg a;
+    public static final String a[] = {
+        "_id", "chat_id", "gaia_id", "name", "profile_photo_url"
+    };
 
-    bgi(bgg bgg1)
-    {
-        a = bgg1;
-        super();
-    }
-
-    public void run()
-    {
-        synchronized (a.c)
-        {
-            if (a.a >= 0)
-            {
-                a.a = -1;
-                a.a(new TimeoutException());
-            }
-        }
-        return;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
 }

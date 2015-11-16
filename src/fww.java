@@ -2,10 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.net.Uri;
 import android.os.Parcel;
-import android.os.ParcelFileDescriptor;
-import com.google.android.gms.wearable.Asset;
+import com.google.android.gms.wearable.ConnectionConfiguration;
+import com.google.android.gms.wearable.internal.GetConfigResponse;
 
 public final class fww
     implements android.os.Parcelable.Creator
@@ -15,69 +14,48 @@ public final class fww
     {
     }
 
-    public static void a(Asset asset, Parcel parcel, int i)
-    {
-        int j = g.p(parcel, 20293);
-        g.b(parcel, 1, asset.a);
-        g.a(parcel, 2, asset.a());
-        g.a(parcel, 3, asset.b());
-        g.a(parcel, 4, asset.b, i);
-        g.a(parcel, 5, asset.c, i);
-        g.q(parcel, j);
-    }
-
     public Object createFromParcel(Parcel parcel)
     {
-        Uri uri = null;
-        int j = g.a(parcel);
+        int j = 0;
+        int k = g.a(parcel);
+        ConnectionConfiguration connectionconfiguration = null;
         int i = 0;
-        ParcelFileDescriptor parcelfiledescriptor = null;
-        String s = null;
-        byte abyte0[] = null;
         do
         {
-            if (parcel.dataPosition() < j)
+            if (parcel.dataPosition() < k)
             {
-                int k = parcel.readInt();
-                switch (0xffff & k)
+                int l = parcel.readInt();
+                switch (0xffff & l)
                 {
                 default:
-                    g.b(parcel, k);
+                    g.b(parcel, l);
                     break;
 
                 case 1: // '\001'
-                    i = g.e(parcel, k);
+                    i = g.e(parcel, l);
                     break;
 
                 case 2: // '\002'
-                    abyte0 = g.l(parcel, k);
+                    j = g.e(parcel, l);
                     break;
 
                 case 3: // '\003'
-                    s = g.i(parcel, k);
-                    break;
-
-                case 4: // '\004'
-                    parcelfiledescriptor = (ParcelFileDescriptor)g.a(parcel, k, ParcelFileDescriptor.CREATOR);
-                    break;
-
-                case 5: // '\005'
-                    uri = (Uri)g.a(parcel, k, Uri.CREATOR);
+                    connectionconfiguration = (ConnectionConfiguration)g.a(parcel, l, ConnectionConfiguration.CREATOR);
                     break;
                 }
             } else
-            if (parcel.dataPosition() != j)
+            if (parcel.dataPosition() != k)
             {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
+                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
             } else
             {
-                return new Asset(i, abyte0, s, parcelfiledescriptor, uri);
+                return new GetConfigResponse(i, j, connectionconfiguration);
             }
         } while (true);
     }
 
     public Object[] newArray(int i)
     {
-        return new Asset[i];
+        return new GetConfigResponse[i];
     }
 }

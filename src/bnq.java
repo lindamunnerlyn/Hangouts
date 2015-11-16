@@ -2,39 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.telephony.PhoneStateListener;
+import com.google.android.apps.hangouts.hangout.IncomingRing;
 
-final class bnq extends Enum
+final class bnq extends PhoneStateListener
 {
 
-    public static final bnq a;
-    public static final bnq b;
-    public static final bnq c;
-    public static final bnq d;
-    private static final bnq e[];
+    final bnk a;
 
-    private bnq(String s, int i)
+    bnq(bnk bnk1)
     {
-        super(s, i);
+        a = bnk1;
+        super();
     }
 
-    public static bnq valueOf(String s)
+    public void onCallStateChanged(int i, String s)
     {
-        return (bnq)Enum.valueOf(bnq, s);
-    }
-
-    public static bnq[] values()
-    {
-        return (bnq[])e.clone();
-    }
-
-    static 
-    {
-        a = new bnq("NONE", 0);
-        b = new bnq("OUTGOING_AUDIO", 1);
-        c = new bnq("OUTGOING_VIDEO", 2);
-        d = new bnq("STILL_JOINING", 3);
-        e = (new bnq[] {
-            a, b, c, d
-        });
+        if (i == 2)
+        {
+            if (a.r != null)
+            {
+                a.r.c(1006);
+            }
+            s = IncomingRing.a();
+            if (s != null)
+            {
+                s.n();
+            }
+        }
     }
 }

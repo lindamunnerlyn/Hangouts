@@ -3,58 +3,45 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ikb extends koj
+public final class ikb extends kwm
 {
 
-    public ika a[];
+    public String a;
+    public String b;
 
     public ikb()
     {
-        a = ika.a();
+        a = null;
+        b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        int k = i;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            k = i;
-            if (a.length > 0)
-            {
-                int j = 0;
-                do
-                {
-                    k = i;
-                    if (j >= a.length)
-                    {
-                        break;
-                    }
-                    ika ika1 = a[j];
-                    k = i;
-                    if (ika1 != null)
-                    {
-                        k = i + koh.d(1, ika1);
-                    }
-                    j++;
-                    i = k;
-                } while (true);
-            }
+            i = j + kwk.b(1, a);
         }
-        return k;
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.b(2, b);
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -64,52 +51,26 @@ public final class ikb extends koj
                 return this;
 
             case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                ika aika[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                aika = new ika[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aika, 0, j);
-                    k = j;
-                }
-                for (; k < aika.length - 1; k++)
-                {
-                    aika[k] = new ika();
-                    kog1.a(aika[k]);
-                    kog1.a();
-                }
+                a = kwj1.j();
+                break;
 
-                aika[k] = new ika();
-                kog1.a(aika[k]);
-                a = aika;
+            case 18: // '\022'
+                b = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null && a.length > 0)
+        if (a != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                ika ika1 = a[i];
-                if (ika1 != null)
-                {
-                    koh1.b(1, ika1);
-                }
-            }
-
+            kwk1.a(1, a);
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        super.writeTo(kwk1);
     }
 }

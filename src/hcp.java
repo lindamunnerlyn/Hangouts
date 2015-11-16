@@ -3,23 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class hcp
+public final class hcp
+    implements joj
 {
 
-    private volatile boolean a;
-    private volatile boolean b;
+    private final joj a;
 
-    hcp()
+    public hcp(joj joj1)
     {
+        a = joj1;
     }
 
-    public boolean a()
+    public Object a()
     {
-        return a;
-    }
-
-    public boolean b()
-    {
-        return b;
+        hda hda1 = (hda)a.a();
+        if (hda1 == null)
+        {
+            throw new NullPointerException("Cannot return null from a non-@Nullable @Provides method");
+        } else
+        {
+            return hda1;
+        }
     }
 }

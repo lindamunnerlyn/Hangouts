@@ -3,18 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jej extends koj
+public final class jej extends kwm
 {
 
-    public jek a;
-    public String b;
-    public Integer c;
+    public String a;
+    public Integer b;
+    public jdk requestHeader;
 
     public jej()
     {
+        requestHeader = null;
         a = null;
         b = null;
-        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -23,27 +23,27 @@ public final class jej extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (a != null)
+        if (requestHeader != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.d(1, requestHeader);
         }
         j = i;
-        if (b != null)
+        if (a != null)
         {
-            j = i + koh.b(2, b);
+            j = i + kwk.b(2, a);
         }
         i = j;
-        if (c != null)
+        if (b != null)
         {
-            i = j + koh.e(3, c.intValue());
+            i = j + kwk.e(3, b.intValue());
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
 _L6:
-        int i = kog1.a();
+        int i = kwj1.a();
         i;
         JVM INSTR lookupswitch 4: default 48
     //                   0: 57
@@ -52,48 +52,46 @@ _L6:
     //                   24: 99;
            goto _L1 _L2 _L3 _L4 _L5
 _L1:
-        if (super.storeUnknownField(kog1, i)) goto _L6; else goto _L2
+        if (super.storeUnknownField(kwj1, i)) goto _L6; else goto _L2
 _L2:
         return this;
 _L3:
-        if (a == null)
+        if (requestHeader == null)
         {
-            a = new jek();
+            requestHeader = new jdk();
         }
-        kog1.a(a);
+        kwj1.a(requestHeader);
           goto _L6
 _L4:
-        b = kog1.j();
+        a = kwj1.j();
           goto _L6
 _L5:
-        int j = kog1.f();
+        int j = kwj1.f();
         switch (j)
         {
         case 1: // '\001'
         case 2: // '\002'
-        case 3: // '\003'
-        case 4: // '\004'
-            c = Integer.valueOf(j);
+            b = Integer.valueOf(j);
             break;
         }
         if (true) goto _L6; else goto _L7
 _L7:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
+        if (requestHeader != null)
+        {
+            kwk1.b(1, requestHeader);
+        }
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.a(2, a);
         }
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.a(3, b.intValue());
         }
-        if (c != null)
-        {
-            koh1.a(3, c.intValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

@@ -2,42 +2,75 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
 
-public abstract class jhb
-    implements Serializable
+public final class jhb extends kwm
 {
 
-    private static final long serialVersionUID = 0L;
+    public String a;
+    public String b;
 
-    jhb()
+    public jhb()
     {
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public static jhb b(Object obj)
+    protected int computeSerializedSize()
     {
-        return new jhm(n.b(obj));
-    }
-
-    public static jhb c(Object obj)
-    {
-        if (obj == null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            return jga.a();
-        } else
-        {
-            return new jhm(obj);
+            i = j + kwk.b(1, a);
         }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.b(2, b);
+        }
+        return j;
     }
 
-    public static jhb d()
+    public kws mergeFrom(kwj kwj1)
     {
-        return jga.a();
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+            }
+        } while (true);
     }
 
-    public abstract Object a(Object obj);
-
-    public abstract boolean b();
-
-    public abstract Object c();
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        super.writeTo(kwk1);
+    }
 }

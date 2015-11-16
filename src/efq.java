@@ -2,27 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.google.android.apps.hangouts.views.AvatarView;
 
-public abstract class efq
+final class efq
 {
 
-    public efq()
+    public final TextView a;
+    public final TextView b;
+    public final AvatarView c;
+    public final ImageView d;
+    final efp e;
+
+    efq(efp efp, TextView textview, TextView textview1, AvatarView avatarview, ImageView imageview)
     {
+        e = efp;
+        super();
+        a = textview;
+        b = textview1;
+        c = avatarview;
+        d = imageview;
     }
-
-    public static boolean a(int i)
-    {
-        return i == 2 || i == 3;
-    }
-
-    public abstract int a(String s);
-
-    public abstract void a(String s, int i);
-
-    public abstract void a(String s, List list);
-
-    public abstract boolean b(String s);
-
-    public abstract List c(String s);
 }

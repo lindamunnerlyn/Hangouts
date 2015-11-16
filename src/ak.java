@@ -25,19 +25,33 @@ final class ak extends ao
         return a.findViewById(i);
     }
 
-    public void a(ad ad)
+    public void a(ad ad1)
     {
-        a.a(ad);
+        a.a(ad1);
     }
 
-    public void a(ad ad, Intent intent, int i)
+    public void a(ad ad1, Intent intent, int i)
     {
-        a.a(ad, intent, i);
+        a.a(ad1, intent, i);
     }
 
-    public void a(ad ad, String as[], int i)
+    public void a(ad ad1, String as[], int i)
     {
-        ai.a(a, ad, as, i);
+        ai ai1 = a;
+        if (i == -1)
+        {
+            p.a(ai1, as, i);
+            return;
+        }
+        if ((i & 0xffffff00) != 0)
+        {
+            throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
+        } else
+        {
+            ai1.i = true;
+            p.a(ai1, as, (ad1.p + 1 << 8) + (i & 0xff));
+            return;
+        }
     }
 
     public void a(String s, PrintWriter printwriter, String as[])
@@ -75,7 +89,7 @@ final class ak extends ao
 
     public void d()
     {
-        a.p_();
+        a.q_();
     }
 
     public boolean e()

@@ -4,31 +4,42 @@
 
 
 final class rx
-    implements to
+    implements tq
 {
 
-    final rs a;
+    final ru a;
+    private boolean b;
 
-    rx(rs rs1)
+    rx(ru ru1)
     {
-        a = rs1;
+        a = ru1;
         super();
     }
 
-    public void a(sy sy, boolean flag)
+    public void a(ta ta, boolean flag)
+    {
+        if (b)
+        {
+            return;
+        }
+        b = true;
+        a.a.k();
+        if (a.c != null)
+        {
+            a.c.onPanelClosed(108, ta);
+        }
+        b = false;
+    }
+
+    public boolean a(ta ta)
     {
         if (a.c != null)
         {
-            a.c.onPanelClosed(0, sy);
-        }
-    }
-
-    public boolean a(sy sy)
-    {
-        if (sy == null && a.c != null)
+            a.c.onMenuOpened(108, ta);
+            return true;
+        } else
         {
-            a.c.onMenuOpened(0, sy);
+            return false;
         }
-        return true;
     }
 }

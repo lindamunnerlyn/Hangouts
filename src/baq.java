@@ -2,61 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
-import java.util.ArrayList;
-import java.util.List;
+import android.content.Context;
+import java.util.concurrent.TimeUnit;
 
-final class baq
-    implements gov
+public final class baq extends djq
 {
 
-    final ban a;
+    private final boolean c;
+    private final int d;
 
-    baq(ban ban1)
+    public baq(Context context, aoa aoa, String s, boolean flag, int i)
     {
-        a = ban1;
-        super();
+        super(context, a(s), aoa, s, TimeUnit.SECONDS.toMillis(30L));
+        c = flag;
+        d = i;
     }
 
-    public void a(int i, Intent intent)
+    public static String a(String s)
     {
-        boolean flag = true;
-        if (i == -1 && intent != null)
+        String s1 = String.valueOf("SetFocusTask");
+        s = String.valueOf(s);
+        if (s.length() != 0)
         {
-            intent = (atg)intent.getParcelableExtra("result_media_attachment");
-            Object obj = (aus)hgx.a(ban.e(a), aus);
-            ArrayList arraylist = new ArrayList(1);
-            arraylist.add(intent);
-            ((aus) (obj)).a(arraylist);
-            int j;
-            if (((atg) (intent)).c == asz.c)
-            {
-                i = 1;
-            } else
-            {
-                i = 0;
-            }
-            obj = (bdp)ban.f(a).a(bdp);
-            if (i != 0)
-            {
-                j = 0;
-            } else
-            {
-                j = 1;
-            }
-            if (i != 0)
-            {
-                i = ((flag) ? 1 : 0);
-            } else
-            {
-                i = 0;
-            }
-            ((bdp) (obj)).a(2339, j, i, Integer.valueOf(((atg) (intent)).h));
-            return;
+            return s1.concat(s);
         } else
         {
-            ban.c(a);
-            return;
+            return new String(s1);
         }
+    }
+
+    protected cvt b()
+    {
+        return new dav(a, b, c, d);
+    }
+
+    public String toString()
+    {
+        boolean flag = c;
+        int i = d;
+        return a("SetFocusTask", (new StringBuilder(34)).append("focused=").append(flag).append(", timeout=").append(i).toString());
     }
 }

@@ -3,132 +3,48 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iqr extends koj
+final class iqr extends iql
 {
 
-    public ivm a;
-    public isy b[];
+    private final int a;
 
-    public iqr()
+    iqr(int i)
     {
-        a = null;
-        b = isy.a();
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = i;
     }
 
-    protected int computeSerializedSize()
+    public int a()
     {
-        int i = super.computeSerializedSize();
-        int j = i;
-        if (b != null)
-        {
-            j = i;
-            if (b.length > 0)
-            {
-                int k = 0;
-                do
-                {
-                    j = i;
-                    if (k >= b.length)
-                    {
-                        break;
-                    }
-                    isy isy1 = b[k];
-                    j = i;
-                    if (isy1 != null)
-                    {
-                        j = i + koh.d(2, isy1);
-                    }
-                    k++;
-                    i = j;
-                } while (true);
-            }
-        }
-        i = j;
-        if (a != null)
-        {
-            i = j + koh.d(3, a);
-        }
-        return i;
+        return a;
     }
 
-    public kop mergeFrom(kog kog1)
+    public boolean equals(Object obj)
     {
-        do
+        if (obj != this)
         {
-            int i = kog1.a();
-            switch (i)
+            if (obj instanceof iql)
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
+                if (a != ((iql) (obj = (iql)obj)).a())
                 {
-                    continue;
+                    return false;
                 }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                isy aisy[];
-                int j;
-                if (b == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
-                }
-                aisy = new isy[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, aisy, 0, j);
-                    k = j;
-                }
-                for (; k < aisy.length - 1; k++)
-                {
-                    aisy[k] = new isy();
-                    kog1.a(aisy[k]);
-                    kog1.a();
-                }
-
-                aisy[k] = new isy();
-                kog1.a(aisy[k]);
-                b = aisy;
-                break;
-
-            case 26: // '\032'
-                if (a == null)
-                {
-                    a = new ivm();
-                }
-                kog1.a(a);
-                break;
+            } else
+            {
+                return false;
             }
-        } while (true);
+        }
+        return true;
     }
 
-    public void writeTo(koh koh1)
+    public int hashCode()
     {
-        if (b != null && b.length > 0)
-        {
-            for (int i = 0; i < b.length; i++)
-            {
-                isy isy1 = b[i];
-                if (isy1 != null)
-                {
-                    koh1.b(2, isy1);
-                }
-            }
+        return 0xf4243 ^ a;
+    }
 
-        }
-        if (a != null)
-        {
-            koh1.b(3, a);
-        }
-        super.writeTo(koh1);
+    public String toString()
+    {
+        String s = String.valueOf("AccountId{id=");
+        int i = a;
+        return (new StringBuilder(String.valueOf(s).length() + 12)).append(s).append(i).append("}").toString();
     }
 }

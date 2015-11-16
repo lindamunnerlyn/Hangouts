@@ -227,15 +227,29 @@ _L5:
             return true;
 
         case 1: // '\001'
-            Object obj = (dh)message.obj;
-            message = ((dh) (obj)).a;
-            obj = ((dh) (obj)).b;
-            message = (dj)d.get(message);
-            if (message != null)
+            message = (dh)message.obj;
+            Object obj = ((dh) (message)).a;
+            message = ((dh) (message)).b;
+            obj = (dj)d.get(obj);
+            if (obj != null)
             {
-                message.c = bo.a(((IBinder) (obj)));
-                message.e = 0;
-                c(message);
+                if (message == null)
+                {
+                    message = null;
+                } else
+                {
+                    android.os.IInterface iinterface = message.queryLocalInterface("android.support.v4.app.INotificationSideChannel");
+                    if (iinterface != null && (iinterface instanceof bn))
+                    {
+                        message = (bn)iinterface;
+                    } else
+                    {
+                        message = new bp(message);
+                    }
+                }
+                obj.c = message;
+                obj.e = 0;
+                c(((dj) (obj)));
             }
             return true;
 

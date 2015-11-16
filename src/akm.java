@@ -2,24 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
+import android.os.Bundle;
 
 final class akm
-    implements android.content.DialogInterface.OnClickListener
+    implements br
 {
 
-    final String a[];
-    final aki b;
+    final akf a;
 
-    akm(aki aki1, String as[])
+    akm(akf akf1)
     {
-        b = aki1;
-        a = as;
+        a = akf1;
         super();
     }
 
-    public void onClick(DialogInterface dialoginterface, int i)
+    public em onCreateLoader(int i, Bundle bundle)
     {
-        aki.a(b, ebz.g(a[i]));
+        return new akw(a.b, a.d);
+    }
+
+    public void onLoadFinished(em em, Object obj)
+    {
+        em = (ajl)obj;
+        akf.a(a, em);
+    }
+
+    public void onLoaderReset(em em)
+    {
     }
 }

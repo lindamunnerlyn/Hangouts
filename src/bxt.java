@@ -3,21 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class bxt
+final class bxt
 {
 
-    public static final String a = bxo.getName();
-    private static bxs b;
-
-    public static void a(hgx hgx1)
+    bxt()
     {
-        if (b == null)
-        {
-            b = new bxs();
-        }
-        hgx1.a(bxo, new bxo[] {
-            new bxr()
-        });
     }
-
 }

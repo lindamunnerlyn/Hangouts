@@ -11,7 +11,7 @@ import android.view.MotionEvent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import bmq;
+import bmx;
 
 public class DigitsEditText extends EditText
 {
@@ -20,7 +20,7 @@ public class DigitsEditText extends EditText
     {
         super(context, attributeset);
         setInputType(getInputType() | 0x80000);
-        addTextChangedListener(new bmq(this));
+        addTextChangedListener(new bmx(this));
     }
 
     protected void onFocusChanged(boolean flag, int i, Rect rect)

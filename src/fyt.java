@@ -2,76 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.ConnectionResult;
-import java.util.Map;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.wearable.PutDataRequest;
 
-class fyt
+public final class fyt extends fym
 {
 
-    private Map a;
-    private Map b;
+    final PutDataRequest a;
+    final fuz b;
 
-    public fyt()
+    public fyt(fuz fuz, emy emy, PutDataRequest putdatarequest)
     {
-        a = new gz();
-        b = new gz();
+        b = fuz;
+        a = putdatarequest;
+        super(emy);
     }
 
-    public ejs a(fyb fyb)
+    public enh a(Status status)
     {
-        if (fyb instanceof fyr)
-        {
-            return fad.a;
-        } else
-        {
-            return null;
-        }
+        return new fva(status, null);
     }
 
-    public ejx a(fyc fyc)
+    protected void a(emw emw)
     {
-        if (fyc instanceof fza)
-        {
-            return ((fza)fyc).d();
-        } else
-        {
-            return null;
-        }
-    }
-
-    public eka a(fyf fyf)
-    {
-        if (a.containsKey(fyf))
-        {
-            return (eka)a.get(fyf);
-        } else
-        {
-            fyu fyu1 = new fyu(this, fyf);
-            a.put(fyf, fyu1);
-            return fyu1;
-        }
-    }
-
-    public ekc a(fyg fyg)
-    {
-        if (b.containsKey(fyg))
-        {
-            return (ekc)b.get(fyg);
-        } else
-        {
-            fyv fyv1 = new fyv(this, fyg);
-            b.put(fyg, fyv1);
-            return fyv1;
-        }
-    }
-
-    public fyb a(ConnectionResult connectionresult)
-    {
-        return new fys(connectionresult);
-    }
-
-    public fyh a(ekd ekd)
-    {
-        return new fyh(ekd, fyy.a);
+        ((fyg)emw).a(this, a);
     }
 }

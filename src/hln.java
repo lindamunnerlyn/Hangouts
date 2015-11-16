@@ -2,31 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.security.PrivateKey;
-import java.util.Collection;
 
-public final class hln extends hlc
+public final class hln
 {
 
-    String i;
-    Collection j;
-    PrivateKey k;
-    String l;
-    String m;
+    public static final String a = hmj.getName();
+    private static hlm b;
 
-    public hln()
+    public static void a(hlp hlp1)
     {
-        super(hkz.a());
-        b("https://accounts.google.com/o/oauth2/token");
+        if (b == null)
+        {
+            b = new hlm();
+        }
+        hlp1.a(hmj, new hmj[] {
+            new hlk()
+        });
     }
 
-    private hln b(String s)
-    {
-        return (hln)super.a(s);
-    }
-
-    public hlc a(String s)
-    {
-        return b(s);
-    }
 }

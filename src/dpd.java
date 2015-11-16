@@ -2,32 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.libraries.social.settings.CheckBoxPreference;
 
-final class dpd extends dgp
+final class dpd
+    implements Runnable
 {
 
-    final dpa a;
+    final fti a;
+    final ftp b;
+    final doy c;
 
-    dpd(dpa dpa1)
+    dpd(doy doy1, fti fti, ftp ftp)
     {
-        a = dpa1;
+        c = doy1;
+        a = fti;
+        b = ftp;
         super();
     }
 
-    public void b(ani ani1)
+    public void run()
     {
-        if (ani1.h() == dpa.e(a).a())
-        {
-            int i = dpa.e(a).a();
-            if (dpa.a(a) != null)
-            {
-                dpa.a(a).a(dpa.f(a).c(i));
-            }
-            if (dpa.b(a) != null)
-            {
-                dpa.b(a).a(dpa.f(a).b(i));
-            }
-        }
+        doy.a(c, a, b);
     }
 }

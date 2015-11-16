@@ -4,8 +4,8 @@
 
 package com.google.android.libraries.hangouts.video;
 
-import inu;
-import inx;
+import itz;
+import iuc;
 import java.io.PrintWriter;
 import java.util.Arrays;
 
@@ -43,40 +43,40 @@ public class v extends Stats
         printwriter.println("  VoiceReceiver -- ssrc, rcvd, lost, seq, jitter, jbuf, delay, level, expand");
     }
 
-    public void addTo(inu inu1)
+    public void addTo(itz itz1)
     {
-        inx inx1 = Stats.a(1);
-        inx1.k = Integer.valueOf(1);
-        inx1.l = Integer.valueOf(a);
-        inx1.i = Long.valueOf(b);
-        inx1.j = Integer.valueOf(c);
-        inx1.c = Integer.valueOf(d);
-        inx1.b = Integer.valueOf((int)(e * 100F));
-        inx1.d = Integer.valueOf(f);
-        inx1.e = Integer.valueOf(g);
-        inx1.w = Integer.valueOf(h);
-        inx1.W = Float.valueOf(l);
-        inx1.X = Float.valueOf(m);
-        inx1.Y = Float.valueOf(p);
-        inx1.Z = Float.valueOf(o);
-        inx1.aa = Float.valueOf(n);
-        inx1.af = Integer.valueOf(q);
-        inx1.ag = Integer.valueOf(r);
-        inx1.ah = Integer.valueOf(s);
-        inx1.ai = Integer.valueOf(t);
-        inx1.aj = Integer.valueOf(u);
-        inx1.ak = Integer.valueOf(v);
+        iuc iuc1 = Stats.a(1);
+        iuc1.k = Integer.valueOf(1);
+        iuc1.l = Integer.valueOf(a);
+        iuc1.i = Long.valueOf(b);
+        iuc1.j = Integer.valueOf(c);
+        iuc1.c = Integer.valueOf(d);
+        iuc1.b = Integer.valueOf((int)(e * 100F));
+        iuc1.d = Integer.valueOf(f);
+        iuc1.e = Integer.valueOf(g);
+        iuc1.w = Integer.valueOf(h);
+        iuc1.W = Float.valueOf(l);
+        iuc1.X = Float.valueOf(m);
+        iuc1.Y = Float.valueOf(p);
+        iuc1.Z = Float.valueOf(o);
+        iuc1.aa = Float.valueOf(n);
+        iuc1.af = Integer.valueOf(q);
+        iuc1.ag = Integer.valueOf(r);
+        iuc1.ah = Integer.valueOf(s);
+        iuc1.ai = Integer.valueOf(t);
+        iuc1.aj = Integer.valueOf(u);
+        iuc1.ak = Integer.valueOf(v);
         if (j != -1)
         {
-            inx1.y = Integer.valueOf(j);
+            iuc1.y = Integer.valueOf(j);
         }
         if (k != -1)
         {
-            inx1.m = Integer.valueOf(k);
+            iuc1.m = Integer.valueOf(k);
         }
-        int i1 = inu1.b.length;
-        inu1.b = (inx[])Arrays.copyOf(inu1.b, i1 + 1);
-        inu1.b[i1] = inx1;
+        int i1 = itz1.b.length;
+        itz1.b = (iuc[])Arrays.copyOf(itz1.b, i1 + 1);
+        itz1.b[i1] = iuc1;
     }
 
     public void print(PrintWriter printwriter,  )

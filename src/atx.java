@@ -2,37 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
-import com.google.android.apps.hangouts.phone.DebugActivity;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-final class atx
-    implements Runnable
+public final class atx extends ato
+    implements Parcelable
 {
 
-    final atw a;
+    public static final android.os.Parcelable.Creator CREATOR = new aty();
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public long i;
 
-    atx(atw atw1)
+    public atx()
     {
-        a = atw1;
-        super();
     }
 
-    public void run()
+    atx(Parcel parcel)
     {
-        Intent intent = new Intent("android.intent.action.VIEW");
-        intent.setType("text/plain");
-        intent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
-        String s = String.valueOf(a.a.c.a);
-        if (s.length() != 0)
-        {
-            s = "conversation ".concat(s);
-        } else
-        {
-            s = new String("conversation ");
-        }
-        intent.putExtra("android.intent.extra.SUBJECT", s);
-        intent.putExtra("android.intent.extra.TEXT", DebugActivity.a(a.a.b, a.a.c.a));
-        a.a.a.startActivity(intent);
+        super.b(parcel);
+        e = parcel.readInt();
+        f = parcel.readInt();
+        g = parcel.readInt();
+        h = parcel.readInt();
+        i = parcel.readLong();
     }
+
+    public int describeContents()
+    {
+        return 0;
+    }
+
+    public void writeToParcel(Parcel parcel, int j)
+    {
+        super.a(parcel);
+        parcel.writeInt(e);
+        parcel.writeInt(f);
+        parcel.writeInt(g);
+        parcel.writeInt(h);
+        parcel.writeLong(i);
+    }
+
 }

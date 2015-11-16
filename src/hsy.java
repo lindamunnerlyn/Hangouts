@@ -3,82 +3,24 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hsy extends koj
+public final class hsy
 {
 
-    public hts a;
-    public hsu apiHeader;
+    private final hrh a;
 
-    public hsy()
+    public hsy(hrh hrh1)
     {
-        apiHeader = null;
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = hrh1;
     }
 
-    protected int computeSerializedSize()
+    public hsy a(String s, Object obj)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (apiHeader != null)
-        {
-            i = j + koh.d(1, apiHeader);
-        }
-        j = i;
-        if (a != null)
-        {
-            j = i + koh.d(2, a);
-        }
-        return j;
+        a.a(s, obj);
+        return this;
     }
 
-    public kop mergeFrom(kog kog1)
+    public String toString()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (apiHeader == null)
-                {
-                    apiHeader = new hsu();
-                }
-                kog1.a(apiHeader);
-                break;
-
-            case 18: // '\022'
-                if (a == null)
-                {
-                    a = new hts();
-                }
-                kog1.a(a);
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (apiHeader != null)
-        {
-            koh1.b(1, apiHeader);
-        }
-        if (a != null)
-        {
-            koh1.b(2, a);
-        }
-        super.writeTo(koh1);
+        return a.toString();
     }
 }

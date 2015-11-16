@@ -2,86 +2,108 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.common.cache.LocalCache;
+import java.lang.ref.ReferenceQueue;
+import java.lang.ref.WeakReference;
 
-final class jqa extends jlr
+public class jqa extends WeakReference
+    implements com.google.common.cache.LocalCache.ReferenceEntry
 {
 
-    private static final long serialVersionUID = 0L;
-    private final transient jlu a[];
-    private final transient jlu b[];
-    private final transient int c;
+    final int g;
+    final com.google.common.cache.LocalCache.ReferenceEntry h;
+    volatile jpw i;
 
-    jqa(int i, jlv ajlv[])
+    jqa(ReferenceQueue referencequeue, Object obj, int j, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        a = new jlu[i];
-        int j = jky.b(i);
-        b = new jlu[j];
-        c = j - 1;
-        for (int k = 0; k < i; k++)
-        {
-            Object obj = ajlv[k];
-            Object obj1 = ((jlv) (obj)).getKey();
-            int l = jky.a(obj1.hashCode()) & c;
-            jlu jlu1 = b[l];
-            if (jlu1 != null)
-            {
-                obj = new jqc(((jlu) (obj)), jlu1);
-            }
-            b[l] = ((jlu) (obj));
-            a[k] = ((jlu) (obj));
-            while (jlu1 != null) 
-            {
-                boolean flag;
-                if (!obj1.equals(jlu1.getKey()))
-                {
-                    flag = true;
-                } else
-                {
-                    flag = false;
-                }
-                a(flag, "key", ((java.util.Map.Entry) (obj)), jlu1);
-                jlu1 = jlu1.a();
-            }
-        }
-
+        super(obj, referencequeue);
+        i = LocalCache.i();
+        g = j;
+        h = referenceentry;
     }
 
-    transient jqa(jlv ajlv[])
+    public long getAccessTime()
     {
-        this(4, ajlv);
+        throw new UnsupportedOperationException();
     }
 
-    static jlu[] a(jqa jqa1)
+    public int getHash()
     {
-        return jqa1.a;
+        return g;
     }
 
-    jmi c()
+    public Object getKey()
     {
-        return new jqb(this);
+        return get();
     }
 
-    public Object get(Object obj)
+    public com.google.common.cache.LocalCache.ReferenceEntry getNext()
     {
-        if (obj != null)
-        {
-            int i = jky.a(obj.hashCode());
-            int j = c;
-            jlu jlu1 = b[i & j];
-            while (jlu1 != null) 
-            {
-                if (obj.equals(jlu1.getKey()))
-                {
-                    return jlu1.getValue();
-                }
-                jlu1 = jlu1.a();
-            }
-        }
-        return null;
+        return h;
     }
 
-    public int size()
+    public com.google.common.cache.LocalCache.ReferenceEntry getNextInAccessQueue()
     {
-        return a.length;
+        throw new UnsupportedOperationException();
+    }
+
+    public com.google.common.cache.LocalCache.ReferenceEntry getNextInWriteQueue()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInAccessQueue()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInWriteQueue()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public jpw getValueReference()
+    {
+        return i;
+    }
+
+    public long getWriteTime()
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setAccessTime(long l)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setNextInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setNextInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setPreviousInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setPreviousInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void setValueReference(jpw jpw)
+    {
+        i = jpw;
+    }
+
+    public void setWriteTime(long l)
+    {
+        throw new UnsupportedOperationException();
     }
 }

@@ -3,294 +3,76 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class huv extends koj
+public final class huv extends kwm
 {
 
-    public hye a[];
-    public hye b[];
-    public Integer c;
-    public String d;
-    public hyu e;
-    public iba f[];
+    public String a;
+    public int b;
 
     public huv()
     {
-        a = hye.a();
-        b = hye.a();
-        c = null;
-        d = null;
-        e = null;
-        f = iba.a();
+        a = null;
+        b = 0x80000000;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        boolean flag = false;
         int j = super.computeSerializedSize();
         int i = j;
         if (a != null)
         {
-            i = j;
-            if (a.length > 0)
-            {
-                i = j;
-                for (j = 0; j < a.length;)
-                {
-                    hye hye1 = a[j];
-                    int l = i;
-                    if (hye1 != null)
-                    {
-                        l = i + koh.d(1, hye1);
-                    }
-                    j++;
-                    i = l;
-                }
-
-            }
+            i = j + kwk.b(1, a);
         }
         j = i;
-        if (b != null)
+        if (b != 0x80000000)
         {
-            j = i;
-            if (b.length > 0)
-            {
-                for (j = 0; j < b.length;)
-                {
-                    hye hye2 = b[j];
-                    int i1 = i;
-                    if (hye2 != null)
-                    {
-                        i1 = i + koh.d(2, hye2);
-                    }
-                    j++;
-                    i = i1;
-                }
-
-                j = i;
-            }
+            j = i + kwk.e(2, b);
         }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.intValue());
-        }
-        j = i;
-        if (e != null)
-        {
-            j = i + koh.d(4, e);
-        }
-        i = j;
-        if (d != null)
-        {
-            i = j + koh.b(5, d);
-        }
-        int j1 = i;
-        if (f != null)
-        {
-            j1 = i;
-            if (f.length > 0)
-            {
-                int k = ((flag) ? 1 : 0);
-                do
-                {
-                    j1 = i;
-                    if (k >= f.length)
-                    {
-                        break;
-                    }
-                    iba iba1 = f[k];
-                    j1 = i;
-                    if (iba1 != null)
-                    {
-                        j1 = i + koh.d(6, iba1);
-                    }
-                    k++;
-                    i = j1;
-                } while (true);
-            }
-        }
-        return j1;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L5:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   10: 51
+    //                   16: 62;
+           goto _L1 _L2 _L3 _L4
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
+_L2:
+        return this;
+_L3:
+        a = kwj1.j();
+          goto _L5
+_L4:
+        int j = kwj1.f();
+        switch (j)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                int i1 = kou.b(kog1, 10);
-                hye ahye[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                ahye = new hye[i1 + j];
-                i1 = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, ahye, 0, j);
-                    i1 = j;
-                }
-                for (; i1 < ahye.length - 1; i1++)
-                {
-                    ahye[i1] = new hye();
-                    kog1.a(ahye[i1]);
-                    kog1.a();
-                }
-
-                ahye[i1] = new hye();
-                kog1.a(ahye[i1]);
-                a = ahye;
-                break;
-
-            case 18: // '\022'
-                int j1 = kou.b(kog1, 18);
-                hye ahye1[];
-                int k;
-                if (b == null)
-                {
-                    k = 0;
-                } else
-                {
-                    k = b.length;
-                }
-                ahye1 = new hye[j1 + k];
-                j1 = k;
-                if (k != 0)
-                {
-                    System.arraycopy(b, 0, ahye1, 0, k);
-                    j1 = k;
-                }
-                for (; j1 < ahye1.length - 1; j1++)
-                {
-                    ahye1[j1] = new hye();
-                    kog1.a(ahye1[j1]);
-                    kog1.a();
-                }
-
-                ahye1[j1] = new hye();
-                kog1.a(ahye1[j1]);
-                b = ahye1;
-                break;
-
-            case 24: // '\030'
-                c = Integer.valueOf(kog1.f());
-                break;
-
-            case 34: // '"'
-                if (e == null)
-                {
-                    e = new hyu();
-                }
-                kog1.a(e);
-                break;
-
-            case 42: // '*'
-                d = kog1.j();
-                break;
-
-            case 50: // '2'
-                int k1 = kou.b(kog1, 50);
-                iba aiba[];
-                int l;
-                if (f == null)
-                {
-                    l = 0;
-                } else
-                {
-                    l = f.length;
-                }
-                aiba = new iba[k1 + l];
-                k1 = l;
-                if (l != 0)
-                {
-                    System.arraycopy(f, 0, aiba, 0, l);
-                    k1 = l;
-                }
-                for (; k1 < aiba.length - 1; k1++)
-                {
-                    aiba[k1] = new iba();
-                    kog1.a(aiba[k1]);
-                    kog1.a();
-                }
-
-                aiba[k1] = new iba();
-                kog1.a(aiba[k1]);
-                f = aiba;
-                break;
-            }
-        } while (true);
+        case 0: // '\0'
+        case 1: // '\001'
+            b = j;
+            break;
+        }
+        if (true) goto _L5; else goto _L6
+_L6:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        boolean flag = false;
-        if (a != null && a.length > 0)
+        if (a != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                hye hye1 = a[i];
-                if (hye1 != null)
-                {
-                    koh1.b(1, hye1);
-                }
-            }
-
+            kwk1.a(1, a);
         }
-        if (b != null && b.length > 0)
+        if (b != 0x80000000)
         {
-            for (int j = 0; j < b.length; j++)
-            {
-                hye hye2 = b[j];
-                if (hye2 != null)
-                {
-                    koh1.b(2, hye2);
-                }
-            }
-
+            kwk1.a(2, b);
         }
-        if (c != null)
-        {
-            koh1.a(3, c.intValue());
-        }
-        if (e != null)
-        {
-            koh1.b(4, e);
-        }
-        if (d != null)
-        {
-            koh1.a(5, d);
-        }
-        if (f != null && f.length > 0)
-        {
-            for (int k = ((flag) ? 1 : 0); k < f.length; k++)
-            {
-                iba iba1 = f[k];
-                if (iba1 != null)
-                {
-                    koh1.b(6, iba1);
-                }
-            }
-
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

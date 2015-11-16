@@ -3,10 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class gfb
+final class gfb
 {
 
-    public gfb()
+    boolean a;
+    int b;
+    final gnd c = new gnd(1200);
+
+    gfb()
     {
+        b = 0;
     }
 }

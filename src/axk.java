@@ -2,41 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import android.content.DialogInterface;
 
 final class axk
-    implements bky
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final ave a;
+    final long a;
+    final Long b[];
+    final String c;
+    final Activity d;
+    final avv e;
 
-    axk(ave ave1)
+    axk(avv avv1, long l, Long along[], String s, Activity activity)
     {
-        a = ave1;
+        e = avv1;
+        a = l;
+        b = along;
+        c = s;
+        d = activity;
         super();
     }
 
-    public boolean a()
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        return ave.o(a).f().f();
-    }
-
-    public boolean b()
-    {
-        return ave.o(a).d() == 1;
-    }
-
-    public String c()
-    {
-        return a.M().e;
-    }
-
-    public boolean d()
-    {
-        return ave.n(a);
-    }
-
-    public boolean e()
-    {
-        return a.c();
+        if (i == 0)
+        {
+            avv.b(e).a(new axl(this));
+        } else
+        if (i == 1)
+        {
+            avv.a(e, a);
+            return;
+        }
     }
 }

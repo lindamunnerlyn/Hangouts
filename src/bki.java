@@ -2,92 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.database.Cursor;
+import android.content.res.Resources;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import com.google.android.apps.hangouts.fragments.HiddenContactsFragment;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-public final class bki extends ny
+final class bki extends bka
+    implements bkh
 {
 
-    final HiddenContactsFragment j;
+    final bkb a;
+    private View b;
 
-    public bki(HiddenContactsFragment hiddencontactsfragment, Context context)
+    public bki(bkb bkb1, Resources resources)
     {
-        j = hiddencontactsfragment;
-        super(context, null);
-        d = context;
+        a = bkb1;
+        super(resources, bkb.a(bkb1));
+        bkb.b(bkb1).a(this);
     }
 
-    public View a(Context context, Cursor cursor, ViewGroup viewgroup)
+    public void a(View view)
     {
-        context = eeu.a(context);
-        context.a(HiddenContactsFragment.h(j));
-        return context;
+        b = view;
     }
 
-    public void a(View view, Cursor cursor)
+    public int getCount()
     {
-        view = (eeu)view;
-        view.a(cursor.getString(3));
-        view.a(cursor.getString(4), cursor.getString(3), dbf.e(HiddenContactsFragment.c(j).a()));
-        view.a(new cey(cursor.getString(2), cursor.getString(1)));
+        return Math.min(bkb.b(a).a().size(), bkb.c(a));
     }
 
-    public Cursor b(Cursor cursor)
+    public long getItemId(int i)
     {
-        return super.b(cursor);
+        return (long)g.a((Integer)bkb.b(a).a().get(i), 0);
     }
 
-    public View getView(int i, View view, ViewGroup viewgroup)
+    public void i_()
     {
-        if (i >= getCount())
+        if (b != null && bkb.b(a).a().size() > 0)
         {
-            View view1 = view;
-            if (view == null)
-            {
-                view1 = a(d, a(), viewgroup);
-            }
-            return view1;
+            b.findViewById(h.bf).setVisibility(0);
+            ViewGroup viewgroup = (ViewGroup)b.findViewById(h.eX);
+            viewgroup.setVisibility(8);
+            viewgroup.removeViewAt(0);
+            b = null;
+            notifyDataSetChanged();
         }
-        view = super.getView(i, view, viewgroup);
-        viewgroup = (Button)view.findViewById(h.gP);
-        String s = ((eeu)view).a().a;
-        boolean flag = g.a(HiddenContactsFragment.a(j), s);
-        if (flag)
-        {
-            i = l.sV;
-        } else
-        {
-            i = l.sU;
-        }
-        if (!flag)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        viewgroup.setText(i);
-        viewgroup.setClickable(flag);
-        return view;
-    }
-
-    public boolean isEmpty()
-    {
-        if (a() == null)
-        {
-            return true;
-        } else
-        {
-            return super.isEmpty();
-        }
-    }
-
-    public boolean isEnabled(int i)
-    {
-        return false;
     }
 }

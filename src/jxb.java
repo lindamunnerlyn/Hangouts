@@ -2,204 +2,74 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
 
-public final class jxb extends koj
+public abstract class jxb
+    implements Comparator
 {
 
-    private static volatile jxb h[];
-    public int a;
-    public String b;
-    public jxd c;
-    public jxe d;
-    public jxf e;
-    public jxg f;
-    public jxc g;
-
-    public jxb()
+    protected jxb()
     {
-        a = 0x80000000;
-        b = null;
-        c = null;
-        d = null;
-        e = null;
-        f = null;
-        g = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    public static jxb[] a()
+    public static jxb a(Comparator comparator)
     {
-        if (h == null)
+        if (comparator instanceof jxb)
         {
-            synchronized (kon.a)
-            {
-                if (h == null)
-                {
-                    h = new jxb[0];
-                }
-            }
+            return (jxb)comparator;
+        } else
+        {
+            return new jrl(comparator);
         }
-        return h;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
-    protected int computeSerializedSize()
+    public jsh a(Iterable iterable)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != 0x80000000)
+        int j;
+        if (iterable instanceof Collection)
         {
-            i = j + koh.e(1, a);
-        }
-        j = i;
-        if (b != null)
+            iterable = (Collection)iterable;
+        } else
         {
-            j = i + koh.b(2, b);
+            iterable = h.a(iterable.iterator());
         }
-        i = j;
-        if (c != null)
+        iterable = ((Iterable) (iterable.toArray()));
+        j = iterable.length;
+        for (int i = 0; i < j; i++)
         {
-            i = j + koh.d(3, c);
+            n.b(iterable[i]);
         }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.d(4, d);
-        }
-        i = j;
-        if (e != null)
-        {
-            i = j + koh.d(5, e);
-        }
-        j = i;
-        if (f != null)
-        {
-            j = i + koh.d(6, f);
-        }
-        i = j;
-        if (g != null)
-        {
-            i = j + koh.d(7, g);
-        }
-        return i;
+
+        Arrays.sort(iterable, this);
+        return jsh.b(iterable, iterable.length);
     }
 
-    public kop mergeFrom(kog kog1)
+    public jxb a()
     {
-_L10:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 8: default 80
-    //                   0: 89
-    //                   8: 91
-    //                   18: 179
-    //                   26: 190
-    //                   34: 219
-    //                   42: 248
-    //                   50: 277
-    //                   58: 306;
-           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L10; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
-        {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-        case 4: // '\004'
-        case 5: // '\005'
-        case 6: // '\006'
-        case 7: // '\007'
-        case 8: // '\b'
-        case 9: // '\t'
-        case 10: // '\n'
-        case 11: // '\013'
-        case 12: // '\f'
-        case 13: // '\r'
-            a = j;
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L4:
-        b = kog1.j();
-        continue; /* Loop/switch isn't completed */
-_L5:
-        if (c == null)
-        {
-            c = new jxd();
-        }
-        kog1.a(c);
-        continue; /* Loop/switch isn't completed */
-_L6:
-        if (d == null)
-        {
-            d = new jxe();
-        }
-        kog1.a(d);
-        continue; /* Loop/switch isn't completed */
-_L7:
-        if (e == null)
-        {
-            e = new jxf();
-        }
-        kog1.a(e);
-        continue; /* Loop/switch isn't completed */
-_L8:
-        if (f == null)
-        {
-            f = new jxg();
-        }
-        kog1.a(f);
-        continue; /* Loop/switch isn't completed */
-_L9:
-        if (g == null)
-        {
-            g = new jxc();
-        }
-        kog1.a(g);
-        if (true) goto _L10; else goto _L11
-_L11:
+        return new jwy(this);
     }
 
-    public void writeTo(koh koh1)
+    public jxb a(jnn jnn)
     {
-        if (a != 0x80000000)
-        {
-            koh1.a(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
-        if (c != null)
-        {
-            koh1.b(3, c);
-        }
-        if (d != null)
-        {
-            koh1.b(4, d);
-        }
-        if (e != null)
-        {
-            koh1.b(5, e);
-        }
-        if (f != null)
-        {
-            koh1.b(6, f);
-        }
-        if (g != null)
-        {
-            koh1.b(7, g);
-        }
-        super.writeTo(koh1);
+        return new jrj(jnn, this);
+    }
+
+    public jxb b()
+    {
+        return new jwz(this);
+    }
+
+    public jxb c()
+    {
+        return new jxo(this);
+    }
+
+    public abstract int compare(Object obj, Object obj1);
+
+    jxb d()
+    {
+        return a(jwd.a());
     }
 }

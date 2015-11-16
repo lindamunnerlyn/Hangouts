@@ -4,14 +4,14 @@
 
 package com.google.android.apps.hangouts.views;
 
-import ahj;
+import ahb;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import ani;
-import cey;
+import aoa;
+import cgd;
 import java.util.Iterator;
 import java.util.List;
 
@@ -28,10 +28,10 @@ public class FixedParticipantsGalleryView extends LinearLayout
     public FixedParticipantsGalleryView(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
-        context = context.getTheme().obtainStyledAttributes(attributeset, ahj.t, 0, 0);
-        a = context.getDimensionPixelSize(ahj.v, 1);
-        b = context.getDimensionPixelSize(ahj.u, 0);
-        c = context.getInt(ahj.y, 100);
+        context = context.getTheme().obtainStyledAttributes(attributeset, ahb.t, 0, 0);
+        a = context.getDimensionPixelSize(ahb.v, 1);
+        b = context.getDimensionPixelSize(ahb.u, 0);
+        c = context.getInt(ahb.y, 100);
         context.recycle();
         return;
         attributeset;
@@ -44,7 +44,7 @@ public class FixedParticipantsGalleryView extends LinearLayout
         removeAllViews();
     }
 
-    public void a(ani ani, List list, cey cey1)
+    public void a(aoa aoa, List list, cgd cgd1)
     {
         removeAllViews();
         if (list != null)
@@ -57,11 +57,11 @@ public class FixedParticipantsGalleryView extends LinearLayout
                 {
                     break;
                 }
-                Object obj = (cey)list.next();
-                if (cey1 == null || !cey1.a(((cey) (obj))))
+                Object obj = (cgd)list.next();
+                if (cgd1 == null || !cgd1.a(((cgd) (obj))))
                 {
                     AvatarView avatarview = new AvatarView(getContext());
-                    avatarview.a(((cey) (obj)), ani);
+                    avatarview.a(((cgd) (obj)), aoa);
                     obj = new android.widget.LinearLayout.LayoutParams(a, a, 1.0F);
                     ((android.widget.LinearLayout.LayoutParams) (obj)).setMargins(b, b, b, b);
                     obj.gravity = 16;

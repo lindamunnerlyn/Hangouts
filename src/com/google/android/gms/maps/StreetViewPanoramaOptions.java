@@ -8,14 +8,14 @@ import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.StreetViewPanoramaCamera;
-import flu;
+import foq;
 import g;
 
 public final class StreetViewPanoramaOptions
     implements SafeParcelable
 {
 
-    public static final flu CREATOR = new flu();
+    public static final foq CREATOR = new foq();
     private final int a;
     private StreetViewPanoramaCamera b;
     private String c;
@@ -55,24 +55,54 @@ public final class StreetViewPanoramaOptions
         j = g.a(byte4);
     }
 
-    public int a()
+    private int a()
     {
         return a;
     }
 
-    public byte b()
+    private byte b()
     {
         return g.a(f);
     }
 
-    public byte c()
+    private byte c()
     {
         return g.a(g);
     }
 
-    public byte d()
+    private byte d()
     {
         return g.a(h);
+    }
+
+    private byte e()
+    {
+        return g.a(i);
+    }
+
+    private byte f()
+    {
+        return g.a(j);
+    }
+
+    private StreetViewPanoramaCamera g()
+    {
+        return b;
+    }
+
+    private LatLng h()
+    {
+        return d;
+    }
+
+    private Integer i()
+    {
+        return e;
+    }
+
+    private String j()
+    {
+        return c;
     }
 
     public int describeContents()
@@ -80,39 +110,25 @@ public final class StreetViewPanoramaOptions
         return 0;
     }
 
-    public byte e()
-    {
-        return g.a(i);
-    }
-
-    public byte f()
-    {
-        return g.a(j);
-    }
-
-    public StreetViewPanoramaCamera g()
-    {
-        return b;
-    }
-
-    public LatLng h()
-    {
-        return d;
-    }
-
-    public Integer i()
-    {
-        return e;
-    }
-
-    public String j()
-    {
-        return c;
-    }
-
     public void writeToParcel(Parcel parcel, int k)
     {
-        flu.a(this, parcel, k);
+        int l = g.p(parcel, 20293);
+        g.b(parcel, 1, a());
+        g.a(parcel, 2, g(), k);
+        g.a(parcel, 3, j());
+        g.a(parcel, 4, h(), k);
+        Integer integer = i();
+        if (integer != null)
+        {
+            g.a(parcel, 5, 4);
+            parcel.writeInt(integer.intValue());
+        }
+        g.a(parcel, 6, b());
+        g.a(parcel, 7, c());
+        g.a(parcel, 8, d());
+        g.a(parcel, 9, e());
+        g.a(parcel, 10, f());
+        g.q(parcel, l);
     }
 
 }

@@ -2,18 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
 
 final class hgs
-    implements hhr
+    implements hmq
 {
 
     hgs()
     {
     }
 
-    public void a(Activity activity, hjm hjm)
+    public Class a()
     {
-        new hgr(activity, hjm);
+        return hgn;
+    }
+
+    public void a(ad ad, hof hof, hlp hlp1)
+    {
+        hlp1.a(hgn, new hgo(hof));
     }
 }

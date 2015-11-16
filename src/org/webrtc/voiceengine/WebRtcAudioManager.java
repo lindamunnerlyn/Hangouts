@@ -209,7 +209,7 @@ class WebRtcAudioManager
 
     private void setCommunicationMode(boolean flag)
     {
-        String s = WebRtcAudioUtils.getThreadInfo();
+        String s = String.valueOf(WebRtcAudioUtils.getThreadInfo());
         Logd((new StringBuilder(String.valueOf(s).length() + 27)).append("setCommunicationMode(").append(flag).append(")").append(s).toString());
         assertTrue(initialized);
         if (flag)

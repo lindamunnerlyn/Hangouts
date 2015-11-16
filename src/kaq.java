@@ -2,61 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.Delayed;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 
-public final class kaq extends koj
+final class kaq extends kae
+    implements ScheduledFuture, kak
 {
 
-    public Boolean a;
+    private final ScheduledFuture a;
 
-    public kaq()
+    public kaq(kak kak1, ScheduledFuture scheduledfuture)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(kak1);
+        a = scheduledfuture;
     }
 
-    protected int computeSerializedSize()
+    public boolean cancel(boolean flag)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        boolean flag1 = super.cancel(flag);
+        if (flag1)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            a.cancel(flag);
         }
-        return i;
+        return flag1;
     }
 
-    public kop mergeFrom(kog kog1)
+    public int compareTo(Object obj)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
+        obj = (Delayed)obj;
+        return a.compareTo(obj);
     }
 
-    public void writeTo(koh koh1)
+    public long getDelay(TimeUnit timeunit)
     {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
-        }
-        super.writeTo(koh1);
+        return a.getDelay(timeunit);
     }
 }

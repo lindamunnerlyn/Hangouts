@@ -10,7 +10,7 @@ import java.nio.channels.WritableByteChannel;
 import java.util.Map;
 
 // Referenced classes of package org.chromium.net:
-//            UrlRequestContextConfig, HttpUrlConnectionUrlRequestFactory, HttpUrlRequestListener, HttpUrlRequest
+//            UrlRequestContextConfig, HttpUrlRequestListener, HttpUrlRequest
 
 public abstract class HttpUrlRequestFactory
 {
@@ -20,22 +20,6 @@ public abstract class HttpUrlRequestFactory
     }
 
     public static HttpUrlRequestFactory a(Context context, UrlRequestContextConfig urlrequestcontextconfig)
-    {
-        HttpUrlRequestFactory httpurlrequestfactory = null;
-        if (!urlrequestcontextconfig.d())
-        {
-            httpurlrequestfactory = b(context, urlrequestcontextconfig);
-        }
-        Object obj = httpurlrequestfactory;
-        if (httpurlrequestfactory == null)
-        {
-            obj = new HttpUrlConnectionUrlRequestFactory(context, urlrequestcontextconfig);
-        }
-        (new StringBuilder("Using network stack: ")).append(((HttpUrlRequestFactory) (obj)).b());
-        return ((HttpUrlRequestFactory) (obj));
-    }
-
-    private static HttpUrlRequestFactory b(Context context, UrlRequestContextConfig urlrequestcontextconfig)
     {
         boolean flag;
         try

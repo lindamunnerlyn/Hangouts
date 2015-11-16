@@ -2,27 +2,118 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.OutputStream;
+import java.io.Serializable;
+import java.util.Iterator;
 
-public final class kts extends koj
+public abstract class kts
+    implements Serializable, Iterable
 {
 
-    public kts()
+    public static final kts a = new kuz(new byte[0]);
+
+    kts()
     {
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    public kop mergeFrom(kog kog1)
+    public static kts a(byte abyte0[], int i, int j)
     {
-_L3:
-        int i = kog1.a();
-        i;
-        JVM INSTR tableswitch 0 0: default 24
-    //                   0 33;
-           goto _L1 _L2
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L3; else goto _L2
-_L2:
-        return this;
+        byte abyte1[] = new byte[j];
+        System.arraycopy(abyte0, i, abyte1, 0, j);
+        return new kuz(abyte1);
     }
+
+    public abstract int a();
+
+    protected abstract int a(int i, int j, int k);
+
+    void a(OutputStream outputstream, int i, int j)
+    {
+        if (i < 0)
+        {
+            throw new IndexOutOfBoundsException((new StringBuilder(30)).append("Source offset < 0: ").append(i).toString());
+        }
+        if (j < 0)
+        {
+            throw new IndexOutOfBoundsException((new StringBuilder(23)).append("Length < 0: ").append(j).toString());
+        }
+        if (i + j > a())
+        {
+            throw new IndexOutOfBoundsException((new StringBuilder(39)).append("Source end offset exceeded: ").append(i + j).toString());
+        }
+        if (j > 0)
+        {
+            b(outputstream, i, j);
+        }
+    }
+
+    protected abstract void a(byte abyte0[], int i, int j, int k);
+
+    abstract void b(OutputStream outputstream, int i, int j);
+
+    public void b(byte abyte0[], int i, int j, int k)
+    {
+        if (i < 0)
+        {
+            throw new IndexOutOfBoundsException((new StringBuilder(30)).append("Source offset < 0: ").append(i).toString());
+        }
+        if (j < 0)
+        {
+            throw new IndexOutOfBoundsException((new StringBuilder(30)).append("Target offset < 0: ").append(j).toString());
+        }
+        if (k < 0)
+        {
+            throw new IndexOutOfBoundsException((new StringBuilder(23)).append("Length < 0: ").append(k).toString());
+        }
+        if (i + k > a())
+        {
+            throw new IndexOutOfBoundsException((new StringBuilder(34)).append("Source end offset < 0: ").append(i + k).toString());
+        }
+        if (j + k > abyte0.length)
+        {
+            throw new IndexOutOfBoundsException((new StringBuilder(34)).append("Target end offset < 0: ").append(j + k).toString());
+        }
+        if (k > 0)
+        {
+            a(abyte0, i, j, k);
+        }
+    }
+
+    public abstract ktt c();
+
+    public boolean d()
+    {
+        return a() == 0;
+    }
+
+    public byte[] e()
+    {
+        int i = a();
+        if (i == 0)
+        {
+            return kuq.c;
+        } else
+        {
+            byte abyte0[] = new byte[i];
+            a(abyte0, 0, 0, i);
+            return abyte0;
+        }
+    }
+
+    public abstract ktu f();
+
+    protected abstract int g();
+
+    public Iterator iterator()
+    {
+        return c();
+    }
+
+    public String toString()
+    {
+        return String.format("<ByteString@%s size=%d>", new Object[] {
+            Integer.toHexString(System.identityHashCode(this)), Integer.valueOf(a())
+        });
+    }
+
 }

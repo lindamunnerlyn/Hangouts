@@ -2,27 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
 
-public final class ddz extends dfa
+public final class ddz extends dgj
 {
 
     private final String a;
-    private final aik d;
 
-    public ddz(ani ani1, String s, aik aik)
+    public ddz(aoa aoa, String s)
     {
-        super(ani1);
+        super(aoa);
         a = s;
-        d = aik;
     }
 
     public void a()
     {
-        aik aik = d;
-        ArrayList arraylist = new ArrayList();
-        g.a(aik, new deq(arraylist));
-        g.a(g.nS, d);
-        any.a(new aoe(g.nS, b.h()), a, arraylist, c);
+        a(((dmf) (new cwc(a))));
     }
 }

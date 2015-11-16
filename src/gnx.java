@@ -3,24 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gnx
-    implements gnu
+class gnx
 {
 
-    long a;
-
-    gnx(long l)
+    gnx()
     {
-        a = l;
     }
 
-    public Object a(Object obj)
+    public kws a(gnq gnq1)
     {
-        return Long.valueOf(a);
-    }
-
-    public void a(android.content.SharedPreferences.Editor editor, String s)
-    {
-        editor.putLong(s, a);
+        return goi.a(((gnq)gnq1).a());
     }
 }

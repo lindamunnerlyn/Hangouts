@@ -3,8 +3,32 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface ftf
+public final class ftf
 {
 
-    public abstract void a(fth fth);
+    private final ftg a = new ftg();
+
+    public ftf()
+    {
+    }
+
+    public int a(String s)
+    {
+        return a.a(s);
+    }
+
+    public void a(String s, int i)
+    {
+        a.a(s, Integer.valueOf(i));
+    }
+
+    public int b(String s, int i)
+    {
+        return ((Integer)a.a(s, i)).intValue();
+    }
+
+    public String toString()
+    {
+        return a.toString();
+    }
 }

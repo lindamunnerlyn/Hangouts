@@ -2,51 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.collect.MapMakerInternalMap;
+import com.google.common.cache.LocalCache;
+import java.util.AbstractSet;
+import java.util.ArrayList;
+import java.util.concurrent.ConcurrentMap;
 
-public final class joq extends joo
-    implements com.google.common.collect.MapMakerInternalMap.ReferenceEntry
+public abstract class joq extends AbstractSet
 {
 
-    volatile long e;
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry f;
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry g;
+    final ConcurrentMap a;
+    final LocalCache b;
 
-    joq(Object obj, int i, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    joq(LocalCache localcache, ConcurrentMap concurrentmap)
     {
-        super(obj, i, referenceentry);
-        e = 0x7fffffffffffffffL;
-        f = MapMakerInternalMap.h();
-        g = MapMakerInternalMap.h();
+        b = localcache;
+        super();
+        a = concurrentmap;
     }
 
-    public long getExpirationTime()
+    public void clear()
     {
-        return e;
+        a.clear();
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextExpirable()
+    public boolean isEmpty()
     {
-        return f;
+        return a.isEmpty();
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousExpirable()
+    public int size()
     {
-        return g;
+        return a.size();
     }
 
-    public void setExpirationTime(long l)
+    public Object[] toArray()
     {
-        e = l;
+        return LocalCache.a(this).toArray();
     }
 
-    public void setNextExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    public Object[] toArray(Object aobj[])
     {
-        f = referenceentry;
-    }
-
-    public void setPreviousExpirable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
-    {
-        g = referenceentry;
+        return LocalCache.a(this).toArray(aobj);
     }
 }

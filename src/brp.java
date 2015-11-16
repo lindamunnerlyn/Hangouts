@@ -2,10 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import com.google.android.apps.hangouts.hangout.ParticipantTrayView;
 
-public interface brp
+public final class brp
+    implements brs
 {
 
-    public abstract brd a(Context context, gjr gjr);
+    final bqo a;
+    final ParticipantTrayView b;
+
+    public brp(ParticipantTrayView participanttrayview, bqo bqo1)
+    {
+        b = participanttrayview;
+        a = bqo1;
+        super();
+    }
+
+    public void a()
+    {
+        a.h();
+    }
 }

@@ -4,9 +4,9 @@
 
 package com.google.android.libraries.hangouts.video;
 
-import gfb;
+import gia;
 
-public class  extends gfb
+public class  extends gia
 {
 
     public int cropBottom;

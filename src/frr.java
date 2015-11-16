@@ -2,31 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.signin.GoogleSignInAccount;
-import com.google.android.gms.signin.internal.AuthAccountResult;
 
-public class frr extends frw
+public final class frr
 {
 
-    public frr()
+    public final enn a;
+
+    public frr(enn enn1)
     {
+        a = enn1;
     }
 
-    public void a(ConnectionResult connectionresult, AuthAccountResult authaccountresult)
+    public void a(int i, fti fti)
     {
-    }
-
-    public void a(Status status)
-    {
-    }
-
-    public void a(Status status, GoogleSignInAccount googlesigninaccount)
-    {
-    }
-
-    public void b(Status status)
-    {
+        com.google.android.gms.common.api.Status status = fsj.a(i, null);
+        a.a(new fsk(status, fti));
     }
 }

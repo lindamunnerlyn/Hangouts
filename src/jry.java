@@ -2,31 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.Future;
+import java.io.InvalidObjectException;
+import java.io.ObjectInputStream;
 
-public abstract class jry extends jrx
-    implements jsj
+abstract class jry extends jsh
 {
 
-    protected jry()
+    jry()
     {
     }
 
-    protected Future a()
+    private void readObject(ObjectInputStream objectinputstream)
     {
-        return b();
+        throw new InvalidObjectException("Use SerializedForm");
     }
 
-    public void a(Runnable runnable, Executor executor)
+    abstract jsd b();
+
+    public boolean contains(Object obj)
     {
-        b().a(runnable, executor);
+        return b().contains(obj);
     }
 
-    protected abstract jsj b();
-
-    protected Object c()
+    boolean e()
     {
-        return b();
+        return b().e();
+    }
+
+    public boolean isEmpty()
+    {
+        return b().isEmpty();
+    }
+
+    public int size()
+    {
+        return b().size();
+    }
+
+    Object writeReplace()
+    {
+        return new jrz(b());
     }
 }

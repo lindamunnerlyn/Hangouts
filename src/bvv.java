@@ -2,42 +2,75 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
 
-public final class bvv extends cbh
+final class bvv
+    implements gdq
 {
 
-    public bvv()
+    final bvu a;
+    private boolean b;
+
+    bvv(bvu bvu1)
     {
+        a = bvu1;
+        super();
     }
 
-    public int a()
+    private boolean a(jhh jhh1)
     {
-        return g.mA;
+        boolean flag1 = false;
+        boolean flag = flag1;
+        if (b)
+        {
+            flag = flag1;
+            if (jhh1 != a.c.a())
+            {
+                flag = flag1;
+                if (g.a(jhh1.r, false))
+                {
+                    flag = true;
+                }
+            }
+        }
+        return flag;
     }
 
-    public void a(Activity activity)
+    public void a()
     {
-        bwa.a(activity);
+        b = true;
     }
 
-    public int b()
+    public void a(kws kws)
     {
-        return g.mv;
+        kws = (jhh)kws;
+        if (a(((jhh) (kws))))
+        {
+            a.b.a(g.a(a.a, kws));
+        }
     }
 
-    public int c()
+    public void a(kws kws, kws kws1)
     {
-        return 8;
+        kws = (jhh)kws;
+        kws1 = (jhh)kws1;
+        if (a(((jhh) (kws1))) && !g.a(((jhh) (kws)).r, false))
+        {
+            a.b.a(g.a(a.a, kws1));
+        }
     }
 
-    public int d()
+    public void b(kws kws)
     {
-        return 2;
-    }
-
-    public int e()
-    {
-        return 8;
+        kws = (jhh)kws;
+        if (a(kws))
+        {
+            bvm bvm1 = a.b;
+            Context context = a.a;
+            bvm1.a((new bvl()).a(context.getResources().getString(l.dP, new Object[] {
+                ((jhh) (kws)).d
+            })).b());
+        }
     }
 }

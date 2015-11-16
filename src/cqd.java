@@ -2,41 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-public final class cqd
+final class cqd
+    implements Runnable
 {
 
-    public static final String a = cpx.getName();
-    public static final String b = cqv.getName();
-    public static final String c = beb.getName();
-    private static cqc d;
+    final Thread a;
+    final Throwable b;
+    final cqc c;
 
-    public static void a(Context context, hgx hgx1)
+    cqd(cqc cqc1, Thread thread, Throwable throwable)
     {
-        if (d == null)
-        {
-            d = new cqc();
-        }
-        hgx1.a(cpx, d.a(context));
+        c = cqc1;
+        a = thread;
+        b = throwable;
+        super();
     }
 
-    public static void a(hgx hgx1)
+    public void run()
     {
-        if (d == null)
+        if (cqc.a(c) != null)
         {
-            d = new cqc();
+            cqc.a(c).uncaughtException(a, b);
         }
-        hgx1.a(beb, d.a());
     }
-
-    public static void b(Context context, hgx hgx1)
-    {
-        if (d == null)
-        {
-            d = new cqc();
-        }
-        hgx1.a(cqv, d.b(context));
-    }
-
 }

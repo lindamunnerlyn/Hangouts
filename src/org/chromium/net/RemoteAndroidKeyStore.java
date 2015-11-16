@@ -17,10 +17,9 @@ public class RemoteAndroidKeyStore
 
     public byte[] getECKeyOrder(AndroidPrivateKey androidprivatekey)
     {
-        androidprivatekey = (RemotePrivateKey)androidprivatekey;
         try
         {
-            androidprivatekey = a.d(androidprivatekey.a());
+            androidprivatekey = a.g();
         }
         // Misplaced declaration of an exception variable
         catch (AndroidPrivateKey androidprivatekey)
@@ -43,11 +42,10 @@ public class RemoteAndroidKeyStore
 
     public int getPrivateKeyType(AndroidPrivateKey androidprivatekey)
     {
-        androidprivatekey = (RemotePrivateKey)androidprivatekey;
         int i;
         try
         {
-            i = a.e(androidprivatekey.a());
+            i = a.i();
         }
         // Misplaced declaration of an exception variable
         catch (AndroidPrivateKey androidprivatekey)
@@ -60,10 +58,9 @@ public class RemoteAndroidKeyStore
 
     public byte[] getRSAKeyModulus(AndroidPrivateKey androidprivatekey)
     {
-        androidprivatekey = (RemotePrivateKey)androidprivatekey;
         try
         {
-            androidprivatekey = a.a(androidprivatekey.a());
+            androidprivatekey = a.d();
         }
         // Misplaced declaration of an exception variable
         catch (AndroidPrivateKey androidprivatekey)
@@ -76,10 +73,9 @@ public class RemoteAndroidKeyStore
 
     public byte[] rawSignDigestWithPrivateKey(AndroidPrivateKey androidprivatekey, byte abyte0[])
     {
-        androidprivatekey = (RemotePrivateKey)androidprivatekey;
         try
         {
-            androidprivatekey = a.a(androidprivatekey.a(), abyte0);
+            androidprivatekey = a.h();
         }
         // Misplaced declaration of an exception variable
         catch (AndroidPrivateKey androidprivatekey)
@@ -92,35 +88,5 @@ public class RemoteAndroidKeyStore
 
     public void releaseKey(AndroidPrivateKey androidprivatekey)
     {
-        androidprivatekey = (RemotePrivateKey)androidprivatekey;
-        try
-        {
-            a.f(androidprivatekey.a());
-            return;
-        }
-        // Misplaced declaration of an exception variable
-        catch (AndroidPrivateKey androidprivatekey)
-        {
-            androidprivatekey.printStackTrace();
-        }
     }
-
-    private class RemotePrivateKey
-        implements AndroidPrivateKey
-    {
-
-        final int a;
-        final RemoteAndroidKeyStore b;
-
-        public int a()
-        {
-            return a;
-        }
-
-        public AndroidKeyStore getKeyStore()
-        {
-            return b;
-        }
-    }
-
 }

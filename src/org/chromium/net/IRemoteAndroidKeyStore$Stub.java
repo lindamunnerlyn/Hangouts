@@ -5,10 +5,12 @@
 package org.chromium.net;
 
 import android.os.Binder;
+import android.os.IBinder;
 import android.os.Parcel;
+import lmu;
 
 // Referenced classes of package org.chromium.net:
-//            IRemoteAndroidKeyStore
+//            IRemoteAndroidKeyStore, IRemoteAndroidKeyStoreCallbacks
 
 public abstract class attachInterface extends Binder
     implements IRemoteAndroidKeyStore
@@ -34,75 +36,92 @@ public abstract class attachInterface extends Binder
 
         case 2: // '\002'
             parcel.enforceInterface("org.chromium.net.IRemoteAndroidKeyStore");
-            parcel = a(parcel.readString());
+            parcel.readString();
+            parcel = b();
             parcel1.writeNoException();
             parcel1.writeByteArray(parcel);
             return true;
 
         case 3: // '\003'
             parcel.enforceInterface("org.chromium.net.IRemoteAndroidKeyStore");
-            i = b(parcel.readString());
+            parcel.readString();
+            i = c();
             parcel1.writeNoException();
             parcel1.writeInt(i);
             return true;
 
         case 4: // '\004'
             parcel.enforceInterface("org.chromium.net.IRemoteAndroidKeyStore");
-            a(cks.Stub.a(parcel.readStrongBinder()));
+            parcel = parcel.readStrongBinder();
+            if (parcel != null)
+            {
+                android.os.IInterface iinterface = parcel.queryLocalInterface("org.chromium.net.IRemoteAndroidKeyStoreCallbacks");
+                if (iinterface == null || !(iinterface instanceof IRemoteAndroidKeyStoreCallbacks))
+                {
+                    new lmu(parcel);
+                }
+            }
             parcel1.writeNoException();
             return true;
 
         case 5: // '\005'
             parcel.enforceInterface("org.chromium.net.IRemoteAndroidKeyStore");
-            parcel = a(parcel.readInt());
+            parcel.readInt();
+            parcel = d();
             parcel1.writeNoException();
             parcel1.writeByteArray(parcel);
             return true;
 
         case 6: // '\006'
             parcel.enforceInterface("org.chromium.net.IRemoteAndroidKeyStore");
-            parcel = b(parcel.readInt());
+            parcel.readInt();
+            parcel = e();
             parcel1.writeNoException();
             parcel1.writeByteArray(parcel);
             return true;
 
         case 7: // '\007'
             parcel.enforceInterface("org.chromium.net.IRemoteAndroidKeyStore");
-            parcel = c(parcel.readInt());
+            parcel.readInt();
+            parcel = f();
             parcel1.writeNoException();
             parcel1.writeByteArray(parcel);
             return true;
 
         case 8: // '\b'
             parcel.enforceInterface("org.chromium.net.IRemoteAndroidKeyStore");
-            parcel = d(parcel.readInt());
+            parcel.readInt();
+            parcel = g();
             parcel1.writeNoException();
             parcel1.writeByteArray(parcel);
             return true;
 
         case 9: // '\t'
             parcel.enforceInterface("org.chromium.net.IRemoteAndroidKeyStore");
-            parcel = a(parcel.readInt(), parcel.createByteArray());
+            parcel.readInt();
+            parcel.createByteArray();
+            parcel = h();
             parcel1.writeNoException();
             parcel1.writeByteArray(parcel);
             return true;
 
         case 10: // '\n'
             parcel.enforceInterface("org.chromium.net.IRemoteAndroidKeyStore");
-            i = e(parcel.readInt());
+            parcel.readInt();
+            i = i();
             parcel1.writeNoException();
             parcel1.writeInt(i);
             return true;
 
         case 11: // '\013'
             parcel.enforceInterface("org.chromium.net.IRemoteAndroidKeyStore");
-            f(parcel.readInt());
+            parcel.readInt();
             parcel1.writeNoException();
             return true;
         }
     }
 
-    public cks.Stub()
+    public cks()
     {
         attachInterface(this, "org.chromium.net.IRemoteAndroidKeyStore");
     }

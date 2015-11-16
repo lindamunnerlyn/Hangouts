@@ -3,10 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ksb extends koj
+public final class ksb extends kwm
 {
 
-    public kry a;
+    public String a;
 
     public ksb()
     {
@@ -21,20 +21,20 @@ public final class ksb extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.b(1, a);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -44,22 +44,18 @@ public final class ksb extends koj
                 return this;
 
             case 10: // '\n'
-                if (a == null)
-                {
-                    a = new kry();
-                }
-                kog1.a(a);
+                a = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.a(1, a);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

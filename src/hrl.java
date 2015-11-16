@@ -3,59 +3,134 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hrl extends koj
+public abstract class hrl
 {
 
-    public String a;
+    private final int a = 3;
+    public final byte b = 61;
+    public final int c;
+    public byte d[];
+    public int e;
+    public boolean f;
+    public int g;
+    public int h;
+    private final int i = 4;
+    private final int j;
+    private int k;
 
-    public hrl()
+    protected hrl(int l, int i1)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        if (l > 0 && i1 > 0)
         {
-            i = j + koh.b(1, a);
+            l = l / 4 << 2;
+        } else
+        {
+            l = 0;
         }
-        return i;
+        c = l;
+        j = i1;
     }
 
-    public kop mergeFrom(kog kog1)
+    int a()
     {
-        do
+        if (d != null)
         {
-            int i = kog1.a();
-            switch (i)
+            return e - k;
+        } else
+        {
+            return 0;
+        }
+    }
+
+    int a(byte abyte0[], int l)
+    {
+        if (d != null)
+        {
+            l = Math.min(a(), l);
+            System.arraycopy(d, k, abyte0, 0, l);
+            k = k + l;
+            if (k >= e)
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
+                d = null;
             }
-        } while (true);
+            return l;
+        }
+        return !f ? 0 : -1;
     }
 
-    public void writeTo(koh koh1)
+    protected void a(int l)
     {
-        if (a != null)
+label0:
         {
-            koh1.a(1, a);
+            if (d == null || d.length < e + l)
+            {
+                if (d != null)
+                {
+                    break label0;
+                }
+                d = new byte[8192];
+                e = 0;
+                k = 0;
+            }
+            return;
         }
-        super.writeTo(koh1);
+        byte abyte0[] = new byte[d.length << 1];
+        System.arraycopy(d, 0, abyte0, 0, d.length);
+        d = abyte0;
+    }
+
+    abstract void a(byte abyte0[], int l, int i1);
+
+    protected abstract boolean a(byte byte0);
+
+    public byte[] c(byte abyte0[])
+    {
+        d = null;
+        e = 0;
+        k = 0;
+        g = 0;
+        h = 0;
+        f = false;
+        if (abyte0 == null || abyte0.length == 0)
+        {
+            return abyte0;
+        } else
+        {
+            a(abyte0, 0, abyte0.length);
+            a(abyte0, 0, -1);
+            abyte0 = new byte[e - k];
+            a(abyte0, abyte0.length);
+            return abyte0;
+        }
+    }
+
+    protected boolean d(byte abyte0[])
+    {
+        if (abyte0 != null)
+        {
+            int i1 = abyte0.length;
+            int l = 0;
+            while (l < i1) 
+            {
+                byte byte0 = abyte0[l];
+                if (61 == byte0 || a(byte0))
+                {
+                    return true;
+                }
+                l++;
+            }
+        }
+        return false;
+    }
+
+    public long e(byte abyte0[])
+    {
+        long l1 = (long)(((abyte0.length + a) - 1) / a) * (long)i;
+        long l = l1;
+        if (c > 0)
+        {
+            l = l1 + ((((long)c + l1) - 1L) / (long)c) * (long)j;
+        }
+        return l;
     }
 }

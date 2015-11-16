@@ -3,94 +3,224 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.util.AttributeSet;
+import android.content.pm.ResolveInfo;
+import android.support.v7.internal.widget.ActivityChooserView;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.PopupWindow;
-import java.lang.reflect.Field;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-public final class uq extends PopupWindow
+public final class uq extends BaseAdapter
 {
 
-    private static final boolean a;
-    private boolean b;
+    final ActivityChooserView a;
+    private ug b;
+    private int c;
+    private boolean d;
+    private boolean e;
+    private boolean f;
 
-    public uq(Context context, AttributeSet attributeset, int i)
+    public uq(ActivityChooserView activitychooserview)
     {
-        super(context, attributeset, i);
-        context = vk.a(context, attributeset, ro.bh, i);
-        if (context.g(ro.bj))
+        a = activitychooserview;
+        super();
+        c = 4;
+    }
+
+    public int a()
+    {
+        int i = 0;
+        int k = c;
+        c = 0x7fffffff;
+        int l = android.view.View.MeasureSpec.makeMeasureSpec(0, 0);
+        int i1 = android.view.View.MeasureSpec.makeMeasureSpec(0, 0);
+        int j1 = getCount();
+        View view = null;
+        int j = 0;
+        for (; i < j1; i++)
         {
-            boolean flag = context.a(ro.bj, false);
-            if (a)
+            view = getView(i, view, null);
+            view.measure(l, i1);
+            j = Math.max(j, view.getMeasuredWidth());
+        }
+
+        c = k;
+        return j;
+    }
+
+    public void a(int i)
+    {
+        if (c != i)
+        {
+            c = i;
+            notifyDataSetChanged();
+        }
+    }
+
+    public void a(ug ug1)
+    {
+        ug ug2 = a.a.e();
+        if (ug2 != null && a.isShown())
+        {
+            ug2.unregisterObserver(a.h);
+        }
+        b = ug1;
+        if (ug1 != null && a.isShown())
+        {
+            ug1.registerObserver(a.h);
+        }
+        notifyDataSetChanged();
+    }
+
+    public void a(boolean flag)
+    {
+        if (f != flag)
+        {
+            f = flag;
+            notifyDataSetChanged();
+        }
+    }
+
+    public void a(boolean flag, boolean flag1)
+    {
+        if (d != flag || e != flag1)
+        {
+            d = flag;
+            e = flag1;
+            notifyDataSetChanged();
+        }
+    }
+
+    public ResolveInfo b()
+    {
+        return b.b();
+    }
+
+    public int c()
+    {
+        return b.a();
+    }
+
+    public int d()
+    {
+        return b.c();
+    }
+
+    public ug e()
+    {
+        return b;
+    }
+
+    public boolean f()
+    {
+        return d;
+    }
+
+    public int getCount()
+    {
+        int j = b.a();
+        int i = j;
+        if (!d)
+        {
+            i = j;
+            if (b.b() != null)
             {
-                b = flag;
-            } else
-            {
-                ox.a(this, flag);
+                i = j - 1;
             }
         }
-        setBackgroundDrawable(context.a(ro.bi));
-        context.b();
-        if (android.os.Build.VERSION.SDK_INT >= 14)
+        j = Math.min(i, c);
+        i = j;
+        if (f)
         {
-            break MISSING_BLOCK_LABEL_120;
+            i = j + 1;
         }
-        context = android/widget/PopupWindow.getDeclaredField("mAnchor");
-        context.setAccessible(true);
-        attributeset = android/widget/PopupWindow.getDeclaredField("mOnScrollChangedListener");
-        attributeset.setAccessible(true);
-        attributeset.set(this, new ur(context, this, (android.view.ViewTreeObserver.OnScrollChangedListener)attributeset.get(this)));
-        return;
-        context;
+        return i;
     }
 
-    public void showAsDropDown(View view, int i, int j)
+    public Object getItem(int i)
     {
-        int k = j;
-        if (a)
+        int j;
+        switch (getItemViewType(i))
         {
-            k = j;
-            if (b)
+        default:
+            throw new IllegalArgumentException();
+
+        case 1: // '\001'
+            return null;
+
+        case 0: // '\0'
+            j = i;
+            break;
+        }
+        if (!d)
+        {
+            j = i;
+            if (b.b() != null)
             {
-                k = j - view.getHeight();
+                j = i + 1;
             }
         }
-        super.showAsDropDown(view, i, k);
+        return b.a(j);
     }
 
-    public void showAsDropDown(View view, int i, int j, int k)
+    public long getItemId(int i)
     {
-        int l = j;
-        if (a)
-        {
-            l = j;
-            if (b)
-            {
-                l = j - view.getHeight();
-            }
-        }
-        super.showAsDropDown(view, i, l, k);
+        return (long)i;
     }
 
-    public void update(View view, int i, int j, int k, int l)
+    public int getItemViewType(int i)
     {
-        if (a && b)
-        {
-            j -= view.getHeight();
-        }
-        super.update(view, i, j, k, l);
+        return !f || i != getCount() - 1 ? 0 : 1;
     }
 
-    static 
+    public View getView(int i, View view, ViewGroup viewgroup)
     {
-        boolean flag;
-        if (android.os.Build.VERSION.SDK_INT < 21)
+        getItemViewType(i);
+        JVM INSTR tableswitch 0 1: default 28
+    //                   0 107
+    //                   1 36;
+           goto _L1 _L2 _L3
+_L1:
+        throw new IllegalArgumentException();
+_L3:
+        if (view == null) goto _L5; else goto _L4
+_L4:
+        View view1 = view;
+        if (view.getId() == 1) goto _L6; else goto _L5
+_L5:
+        view1 = LayoutInflater.from(a.getContext()).inflate(g.bt, viewgroup, false);
+        view1.setId(1);
+        ((TextView)view1.findViewById(g.bk)).setText(a.getContext().getString(g.bF));
+_L6:
+        return view1;
+_L2:
+        if (view == null) goto _L8; else goto _L7
+_L7:
+        view1 = view;
+        if (view.getId() == g.bf) goto _L9; else goto _L8
+_L8:
+        view1 = LayoutInflater.from(a.getContext()).inflate(g.bt, viewgroup, false);
+_L9:
+        view = a.getContext().getPackageManager();
+        viewgroup = (ImageView)view1.findViewById(g.bd);
+        ResolveInfo resolveinfo = (ResolveInfo)getItem(i);
+        viewgroup.setImageDrawable(resolveinfo.loadIcon(view));
+        ((TextView)view1.findViewById(g.bk)).setText(resolveinfo.loadLabel(view));
+        if (d && i == 0 && e)
         {
-            flag = true;
+            kb.a(view1, true);
+            return view1;
         } else
         {
-            flag = false;
+            kb.a(view1, false);
+            return view1;
         }
-        a = flag;
+    }
+
+    public int getViewTypeCount()
+    {
+        return 3;
     }
 }

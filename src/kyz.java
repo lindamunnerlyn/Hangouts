@@ -3,38 +3,97 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kyz extends koj
+public final class kyz extends kwm
 {
 
-    public kyy a;
+    public String a;
+    public Integer b;
+    public Integer c;
+    public Boolean d;
+    public Boolean e;
+    public Boolean f;
+    public String g;
+    public Integer h;
+    public kyw i;
 
     public kyz()
     {
         a = null;
+        b = null;
+        c = null;
+        d = null;
+        e = null;
+        f = null;
+        g = null;
+        h = null;
+        i = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
+        int k = super.computeSerializedSize();
+        int j = k;
         if (a != null)
         {
-            i = j + koh.d(4, a);
+            j = k + kwk.b(1, a);
         }
-        return i;
+        k = j;
+        if (b != null)
+        {
+            k = j + kwk.e(2, b.intValue());
+        }
+        j = k;
+        if (c != null)
+        {
+            j = k + kwk.e(3, c.intValue());
+        }
+        k = j;
+        if (d != null)
+        {
+            d.booleanValue();
+            k = j + (kwk.f(4) + 1);
+        }
+        j = k;
+        if (e != null)
+        {
+            e.booleanValue();
+            j = k + (kwk.f(5) + 1);
+        }
+        k = j;
+        if (f != null)
+        {
+            f.booleanValue();
+            k = j + (kwk.f(6) + 1);
+        }
+        j = k;
+        if (g != null)
+        {
+            j = k + kwk.b(7, g);
+        }
+        k = j;
+        if (h != null)
+        {
+            k = j + kwk.e(8, h.intValue());
+        }
+        j = k;
+        if (i != null)
+        {
+            j = k + kwk.d(9, i);
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
-            switch (i)
+            int j = kwj1.a();
+            switch (j)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, j))
                 {
                     continue;
                 }
@@ -43,23 +102,87 @@ public final class kyz extends koj
             case 0: // '\0'
                 return this;
 
-            case 34: // '"'
-                if (a == null)
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
+                break;
+
+            case 24: // '\030'
+                c = Integer.valueOf(kwj1.f());
+                break;
+
+            case 32: // ' '
+                d = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 40: // '('
+                e = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 48: // '0'
+                f = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 58: // ':'
+                g = kwj1.j();
+                break;
+
+            case 64: // '@'
+                h = Integer.valueOf(kwj1.f());
+                break;
+
+            case 74: // 'J'
+                if (i == null)
                 {
-                    a = new kyy();
+                    i = new kyw();
                 }
-                kog1.a(a);
+                kwj1.a(i);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(4, a);
+            kwk1.a(1, a);
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.intValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.booleanValue());
+        }
+        if (e != null)
+        {
+            kwk1.a(5, e.booleanValue());
+        }
+        if (f != null)
+        {
+            kwk1.a(6, f.booleanValue());
+        }
+        if (g != null)
+        {
+            kwk1.a(7, g);
+        }
+        if (h != null)
+        {
+            kwk1.a(8, h.intValue());
+        }
+        if (i != null)
+        {
+            kwk1.b(9, i);
+        }
+        super.writeTo(kwk1);
     }
 }

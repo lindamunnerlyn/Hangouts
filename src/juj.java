@@ -2,131 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.AbstractQueue;
+import java.util.Iterator;
 
-public final class juj extends koj
+public final class juj extends AbstractQueue
 {
-
-    private static volatile juj e[];
-    public jug a;
-    public Long b;
-    public Float c;
-    public Float d;
 
     public juj()
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    public static juj[] a()
+    public Iterator iterator()
     {
-        if (e == null)
-        {
-            synchronized (kon.a)
-            {
-                if (e == null)
-                {
-                    e = new juj[0];
-                }
-            }
-        }
-        return e;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return jts.a();
     }
 
-    protected int computeSerializedSize()
+    public boolean offer(Object obj)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.longValue());
-        }
-        i = j;
-        if (d != null)
-        {
-            d.floatValue();
-            i = j + (koh.f(3) + 4);
-        }
-        j = i;
-        if (c != null)
-        {
-            c.floatValue();
-            j = i + (koh.f(4) + 4);
-        }
-        return j;
+        return true;
     }
 
-    public kop mergeFrom(kog kog1)
+    public Object peek()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new jug();
-                }
-                kog1.a(a);
-                break;
-
-            case 16: // '\020'
-                b = Long.valueOf(kog1.e());
-                break;
-
-            case 29: // '\035'
-                d = Float.valueOf(kog1.c());
-                break;
-
-            case 37: // '%'
-                c = Float.valueOf(kog1.c());
-                break;
-            }
-        } while (true);
+        return null;
     }
 
-    public void writeTo(koh koh1)
+    public Object poll()
     {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        if (b != null)
-        {
-            koh1.b(2, b.longValue());
-        }
-        if (d != null)
-        {
-            koh1.a(3, d.floatValue());
-        }
-        if (c != null)
-        {
-            koh1.a(4, c.floatValue());
-        }
-        super.writeTo(koh1);
+        return null;
+    }
+
+    public int size()
+    {
+        return 0;
     }
 }

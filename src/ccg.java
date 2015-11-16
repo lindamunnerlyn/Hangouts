@@ -2,30 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import java.io.Serializable;
+import android.view.View;
+import android.widget.ImageView;
 
-public interface ccg
-    extends Serializable
+public final class ccg extends fqd
 {
 
-    public abstract String a();
+    public View a;
+    public ImageView b;
+    public ImageView c;
 
-    public abstract void a(int i, dbo dbo);
-
-    public abstract void a(Context context, cci cci, cck cck);
-
-    public abstract boolean a(ccg ccg1);
-
-    public abstract boolean a(cci cci, dbo dbo);
-
-    public abstract boolean a(String s);
-
-    public abstract long b();
-
-    public abstract boolean c();
-
-    public abstract boolean d();
-
-    public abstract String e();
+    ccg()
+    {
+    }
 }

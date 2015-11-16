@@ -2,40 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import android.text.TextUtils;
 
-final class dml
-    implements fmm
+public interface dml
 {
 
-    final dme a;
-
-    dml(dme dme1)
-    {
-        a = dme1;
-        super();
-    }
-
-    public void a(String s, String s1, int i)
-    {
-        if (ebw.a("Babel", 3))
-        {
-            long l;
-            if (TextUtils.isEmpty(s))
-            {
-                s = "";
-            } else
-            {
-                s = ebw.b(s);
-            }
-            ebw.d("Babel", (new StringBuilder(String.valueOf(s).length() + 68 + String.valueOf(s1).length())).append("GmsPeopleCache.onDataChanged. Account: ").append(s).append(" gaiaId: ").append(s1).append(" scopes: ").append(i).toString());
-        }
-        l = dme.k();
-        if (l != 0L)
-        {
-            dme.i(a).removeCallbacks(dme.h(a));
-            dme.i(a).postDelayed(dme.h(a), l);
-        }
-    }
+    public abstract String a(aoa aoa, String s, String s1, String s2, int i, String s3, int j, 
+            int k, String s4, String s5, boolean flag, fik fik, int l);
 }

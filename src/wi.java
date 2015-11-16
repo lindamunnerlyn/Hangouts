@@ -2,23 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.MenuItem;
 
-interface wi
+public interface wi
 {
 
-    public abstract zq a(int i);
-
-    public abstract void a(int i, int j);
-
-    public abstract void a(int i, int j, Object obj);
-
-    public abstract void a(wj wj);
-
-    public abstract void b(int i, int j);
-
-    public abstract void b(wj wj);
-
-    public abstract void c(int i, int j);
-
-    public abstract void d(int i, int j);
+    public abstract boolean a(MenuItem menuitem);
 }

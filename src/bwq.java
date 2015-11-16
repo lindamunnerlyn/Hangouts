@@ -2,57 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-final class bwq extends bgg
+final class bwq
+    implements hor, hou, hoy
 {
 
-    private final Context d;
-    private final hgx e;
-    private final ani f;
-    private final String g;
+    final bwp a;
 
-    public bwq(Context context, hgx hgx1, ani ani, String s)
+    bwq(bwp bwp1)
     {
-        d = context;
-        e = hgx1;
-        f = ani;
-        g = s;
+        a = bwp1;
+        super();
     }
 
-    private void a(dsn dsn)
+    public void G_()
     {
-        ((dsp)e.a(dsp)).a(dsn);
+        bwp bwp1 = a;
+        bwp1.a = bwp1.a + 1;
     }
 
-    public String a()
+    public void a()
     {
-        return null;
-    }
-
-    public int b()
-    {
-        return RealTimeChatService.s(f, g);
-    }
-
-    public void c()
-    {
-        a((new dso(d)).a(d.getString(l.hx)).a());
-    }
-
-    public void d()
-    {
-        a((new dso(d)).a(d.getString(l.hz)).a());
-    }
-
-    public Class e()
-    {
-        return cuu;
-    }
-
-    public Class f()
-    {
-        return cxv;
+        bwp bwp1 = a;
+        bwp1.a = bwp1.a - 1;
     }
 }

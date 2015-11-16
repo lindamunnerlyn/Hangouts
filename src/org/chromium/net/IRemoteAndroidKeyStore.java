@@ -6,32 +6,25 @@ package org.chromium.net;
 
 import android.os.IInterface;
 
-// Referenced classes of package org.chromium.net:
-//            IRemoteAndroidKeyStoreCallbacks
-
 public interface IRemoteAndroidKeyStore
     extends IInterface
 {
 
     public abstract String a();
 
-    public abstract void a(IRemoteAndroidKeyStoreCallbacks iremoteandroidkeystorecallbacks);
+    public abstract byte[] b();
 
-    public abstract byte[] a(int i);
+    public abstract int c();
 
-    public abstract byte[] a(int i, byte abyte0[]);
+    public abstract byte[] d();
 
-    public abstract byte[] a(String s);
+    public abstract byte[] e();
 
-    public abstract int b(String s);
+    public abstract byte[] f();
 
-    public abstract byte[] b(int i);
+    public abstract byte[] g();
 
-    public abstract byte[] c(int i);
+    public abstract byte[] h();
 
-    public abstract byte[] d(int i);
-
-    public abstract int e(int i);
-
-    public abstract void f(int i);
+    public abstract int i();
 }

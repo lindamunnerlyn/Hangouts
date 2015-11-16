@@ -4,7 +4,7 @@
 
 package com.google.api.client.json;
 
-import hob;
+import hsx;
 import java.io.InputStream;
 import java.io.Reader;
 import java.lang.reflect.Type;
@@ -18,7 +18,7 @@ import l;
 //            JsonParser, JsonToken, JsonFactory
 
 public class JsonObjectParser
-    implements hob
+    implements hsx
 {
 
     private final JsonFactory jsonFactory;
@@ -121,7 +121,7 @@ public class JsonObjectParser
         public Builder(JsonFactory jsonfactory)
         {
             wrapperKeys = new HashSet();
-            jsonFactory = (JsonFactory)h.b(jsonfactory);
+            jsonFactory = (JsonFactory)h.a(jsonfactory);
         }
     }
 

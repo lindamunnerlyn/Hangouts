@@ -3,30 +3,36 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public abstract class hdj
-    implements hdw
+public final class hdj
+    implements hbt
 {
-
-    private static final hkl a = new hkl("debug.plus.apiary_token", "");
-    private static final hkl b = new hkl("debug.plus.backend.url", "");
-    private static final hij c = new hij("debug.plus.tracing_enabled");
-    private static final hkl d = new hkl("debug.plus.tracing_token", "");
-    private static final hkl e = new hkl("debug.plus.tracing_path", "");
-    private static final hkl f = new hkl("debug.plus.tracing_level", "");
-    private static final hkl g = new hkl("debug.plus.experiment_override", "");
 
     public hdj()
     {
     }
 
-    public String a()
+    public void a(ap ap)
     {
-        return a.a();
+        hdi.a(ap);
     }
 
-    public String b()
+    public void a(ap ap, String s, boolean flag)
     {
-        return g.a();
+        if (!hdi.b(ap))
+        {
+            hdi.a(ap, s, flag);
+        }
     }
 
+    public void b(ap ap)
+    {
+        a(ap);
+        hdk.a(ap);
+    }
+
+    public void c(ap ap)
+    {
+        a(ap);
+        hdh.a(ap);
+    }
 }

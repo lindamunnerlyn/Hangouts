@@ -3,22 +3,30 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class czo extends dfa
+public class czo extends cxr
 {
 
-    private final String a;
-    private final boolean d;
+    private static final long serialVersionUID = 1L;
 
-    public czo(ani ani, boolean flag, String s)
+    private czo(jdc jdc1)
     {
-        super(ani);
-        d = flag;
-        a = s;
+        super(jdc1.responseHeader, 0L);
+        if (cxr.a)
+        {
+            jdc1 = String.valueOf(jdc1);
+            eev.b("Babel_protos", (new StringBuilder(String.valueOf(jdc1).length() + 24)).append("RemoveUserResponse from:").append(jdc1).toString());
+        }
     }
 
-    public void a()
+    public static cxr parseFrom(byte abyte0[])
     {
-        cuw cuw1 = new cuw(d, a);
-        c.a(cuw1);
+        abyte0 = (jdc)kws.mergeFrom(new jdc(), abyte0);
+        if (a(((jdc) (abyte0)).responseHeader))
+        {
+            return new cyd(((jdc) (abyte0)).responseHeader);
+        } else
+        {
+            return new czo(abyte0);
+        }
     }
 }

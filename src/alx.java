@@ -3,10 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class alx
+public interface alx
 {
 
-    alx()
-    {
-    }
+    public abstract int a(alt alt);
 }

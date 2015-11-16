@@ -2,54 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.api.client.http.HttpHeaders;
-import com.google.api.client.http.HttpRequest;
-import com.google.api.client.http.HttpRequestInitializer;
 
-final class czs
-    implements HttpRequestInitializer
+public class czs extends cxr
 {
 
-    final Long a;
-    final String b;
-    final hlm c;
-    final String d;
-    final int e;
+    private static final long serialVersionUID = 1L;
 
-    czs(Long long1, String s, hlm hlm1, String s1, int i)
+    private czs(jiy jiy1)
     {
-        a = long1;
-        b = s;
-        c = hlm1;
-        d = s1;
-        e = i;
-        super();
+        if (cxr.a)
+        {
+            jiy1 = String.valueOf(jiy1);
+            eev.b("Babel_protos", (new StringBuilder(String.valueOf(jiy1).length() + 33)).append("ReportCallPerfStatsResponse from:").append(jiy1).toString());
+        }
     }
 
-    public void initialize(HttpRequest httprequest)
+    public static cxr parseFrom(byte abyte0[])
     {
-        httprequest.getHeaders().put("X-Device-ID", czr.b());
-        String s = dzk.b();
-        httprequest.getHeaders().put("X-Network-ID", s);
-        httprequest.getHeaders().setUserAgent(g.i());
-        HttpHeaders httpheaders = httprequest.getHeaders();
-        if (a != null)
+        abyte0 = (jiy)kws.mergeFrom(new jiy(), abyte0);
+        if (a(((jiy) (abyte0)).responseHeader))
         {
-            s = a.toString();
+            g.b(2017);
+            return new cyd(((jiy) (abyte0)).responseHeader);
         } else
         {
-            s = "none";
+            g.b(2016);
+            return new czs(abyte0);
         }
-        httpheaders.put("X-Auth-Time", s);
-        if (b != null)
-        {
-            c.initialize(httprequest);
-        }
-        if (d != null)
-        {
-            httprequest.getHeaders().put("X-Goog-PageId", d);
-        }
-        httprequest.setConnectTimeout(e);
-        httprequest.setReadTimeout(e);
     }
 }

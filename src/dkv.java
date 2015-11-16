@@ -2,21 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-public final class dkv
+public final class dkv extends dgj
 {
 
-    public static final String a = dkt.getName();
-    private static dku b;
+    private final String a;
 
-    public static void a(Context context, hgx hgx1)
+    public dkv(aoa aoa, String s)
     {
-        if (b == null)
-        {
-            b = new dku();
-        }
-        hgx1.a(dkt, b.a(context));
+        super(aoa);
+        a = s;
     }
 
+    public void a()
+    {
+        a(((dmf) (new cua(a))));
+    }
 }

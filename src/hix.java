@@ -2,27 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import android.content.Context;
 
-final class hix
-    implements hjr
+public final class hix
 {
 
-    final Bundle a;
-    final hiv b;
+    public static final String a = his.getName();
+    private static hiw b;
 
-    hix(hiv hiv1, Bundle bundle)
+    public static void a(Context context, hlp hlp1)
     {
-        b = hiv1;
-        a = bundle;
-        super();
-    }
-
-    public void a(fsn fsn)
-    {
-        if (fsn instanceof hit)
+        if (b == null)
         {
-            g.d(b.a(fsn, a));
+            b = new hiw();
         }
+        hlp1.a(his, new hiu((fzs)hlp.a(context, fzs)));
     }
+
 }

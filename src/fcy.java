@@ -2,12 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
-import android.os.Message;
+import android.os.IBinder;
 
-public interface fcy
-    extends IInterface
+final class fcy
+    implements fcw
 {
 
-    public abstract void a(Message message);
+    private IBinder a;
+
+    fcy(IBinder ibinder)
+    {
+        a = ibinder;
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
+    }
 }

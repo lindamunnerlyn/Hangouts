@@ -2,53 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
-import com.google.android.gms.clearcut.LogEventParcelable;
+import android.view.View;
+import com.google.android.apps.hangouts.views.MultiLineLayout;
 
-final class eiw
-    implements eiu
+public final class eiw extends eiy
 {
 
-    private IBinder a;
+    final MultiLineLayout a;
 
-    eiw(IBinder ibinder)
+    public eiw(MultiLineLayout multilinelayout)
     {
-        a = ibinder;
+        a = multilinelayout;
+        super(multilinelayout, (byte)0);
     }
 
-    public void a(eir eir1, LogEventParcelable logeventparcelable)
+    protected void a(View view, int i, int j, int k, int l)
     {
-        IBinder ibinder;
-        Parcel parcel;
-        ibinder = null;
-        parcel = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.clearcut.internal.IClearcutLoggerService");
-        if (eir1 == null)
-        {
-            break MISSING_BLOCK_LABEL_25;
-        }
-        ibinder = eir1.asBinder();
-        parcel.writeStrongBinder(ibinder);
-        if (logeventparcelable == null)
-        {
-            break MISSING_BLOCK_LABEL_69;
-        }
-        parcel.writeInt(1);
-        logeventparcelable.writeToParcel(parcel, 0);
-_L1:
-        a.transact(1, parcel, null, 1);
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        eir1;
-        parcel.recycle();
-        throw eir1;
-    }
-
-    public IBinder asBinder()
-    {
-        return a;
+        view.layout(i, j, i + k, j + l);
     }
 }

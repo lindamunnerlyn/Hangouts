@@ -2,9 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public interface bwf
+public final class bwf
 {
 
-    public abstract gam a(int i, int j);
+    public bwf()
+    {
+    }
+
+    public gog a(Context context)
+    {
+        boolean flag = g.a(context, "babel_healthcheck_memory_enabled", false);
+        eev.e("Babel_Prime", (new StringBuilder(21)).append("isMemoryEnabled=").append(flag).toString());
+        return new bwg(this, flag);
+    }
+
+    public goh b(Context context)
+    {
+        boolean flag = g.a(context, "babel_healthcheck_timer_enabled", false);
+        eev.e("Babel_Prime", (new StringBuilder(20)).append("isTimerEnabled=").append(flag).toString());
+        return new bwh(this, flag);
+    }
 }

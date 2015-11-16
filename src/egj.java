@@ -2,68 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.widget.ImageView;
-import com.google.android.apps.hangouts.views.RichStatusView;
+import com.google.android.apps.hangouts.views.BalanceView;
 
-public final class egj
+final class egj
+    implements gqw
 {
 
-    public boolean a;
-    public final View b;
-    public final ImageView c;
-    public int d;
-    final RichStatusView e;
+    final egi a;
 
-    public egj(RichStatusView richstatusview, int i, int j, int k)
+    egj(egi egi1)
     {
-        e = richstatusview;
+        a = egi1;
         super();
-        b = richstatusview.findViewById(i);
-        gbh.b(b);
-        c = (ImageView)richstatusview.findViewById(j);
-        gbh.b(c);
-        d = k;
     }
 
-    public void a(int i)
+    public void a(boolean flag, gqv gqv1, gqv gqv2, int i, int j)
     {
-        b.getLayoutParams().width = i;
-        b.requestLayout();
-    }
-
-    public void a(boolean flag)
-    {
-        if (a != flag)
+        if (a.a.a && gqv2 == gqv.c)
         {
-            egl egl1 = new egl(this, d, flag);
-            egl1.setDuration(250L);
-            egl1.setAnimationListener(new egk(this, flag));
-            b.startAnimation(egl1);
-            RichStatusView.a(e);
-            a = flag;
+            a.a.a();
         }
-    }
-
-    public boolean a(int i, int j)
-    {
-        c.setImageResource(i);
-        c.setColorFilter(j, android.graphics.PorterDuff.Mode.SRC_IN);
-        boolean flag;
-        if (i != 0)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        a(flag);
-        return flag;
-    }
-
-    public void b(int i)
-    {
-        b.getBackground().setColorFilter(i, android.graphics.PorterDuff.Mode.SRC_IN);
     }
 }

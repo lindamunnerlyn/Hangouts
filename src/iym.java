@@ -3,16 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iym extends koj
+public final class iym extends kwm
 {
 
-    public Long a;
-    public ixg responseHeader;
+    public jce a[];
+    public jdk requestHeader;
 
     public iym()
     {
-        responseHeader = null;
-        a = null;
+        requestHeader = null;
+        a = jce.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,27 +21,43 @@ public final class iym extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (responseHeader != null)
+        if (requestHeader != null)
         {
-            i = j + koh.d(1, responseHeader);
+            i = j + kwk.d(1, requestHeader);
         }
         j = i;
         if (a != null)
         {
-            j = i + koh.d(2, a.longValue());
+            j = i;
+            if (a.length > 0)
+            {
+                for (j = 0; j < a.length;)
+                {
+                    jce jce1 = a[j];
+                    int k = i;
+                    if (jce1 != null)
+                    {
+                        k = i + kwk.d(2, jce1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -51,30 +67,64 @@ public final class iym extends koj
                 return this;
 
             case 10: // '\n'
-                if (responseHeader == null)
+                if (requestHeader == null)
                 {
-                    responseHeader = new ixg();
+                    requestHeader = new jdk();
                 }
-                kog1.a(responseHeader);
+                kwj1.a(requestHeader);
                 break;
 
-            case 16: // '\020'
-                a = Long.valueOf(kog1.d());
+            case 18: // '\022'
+                int k = kwx.a(kwj1, 18);
+                jce ajce[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                ajce = new jce[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, ajce, 0, j);
+                    k = j;
+                }
+                for (; k < ajce.length - 1; k++)
+                {
+                    ajce[k] = new jce();
+                    kwj1.a(ajce[k]);
+                    kwj1.a();
+                }
+
+                ajce[k] = new jce();
+                kwj1.a(ajce[k]);
+                a = ajce;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (responseHeader != null)
+        if (requestHeader != null)
         {
-            koh1.b(1, responseHeader);
+            kwk1.b(1, requestHeader);
         }
-        if (a != null)
+        if (a != null && a.length > 0)
         {
-            koh1.a(2, a.longValue());
+            for (int i = 0; i < a.length; i++)
+            {
+                jce jce1 = a[i];
+                if (jce1 != null)
+                {
+                    kwk1.b(2, jce1);
+                }
+            }
+
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

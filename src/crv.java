@@ -2,43 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import android.content.Context;
+import android.content.Intent;
+import com.google.android.apps.hangouts.phoneverification.impl.PhoneVerificationActivity;
 
 public final class crv
-    implements Serializable
+    implements cro
 {
 
-    private static final long serialVersionUID = 1L;
-    public final cey a;
-    public final String b;
-    public final String c;
-    public final int d;
-
-    private crv(iri iri1)
+    public crv()
     {
-        String s = null;
-        super();
-        a = g.a(iri1.a, null);
-        c = iri1.b;
-        if (iri1.e != null)
-        {
-            s = iri1.e.a;
-        }
-        b = s;
-        d = g.a(iri1.c, 0);
     }
 
-    public static List a(iri airi[])
+    public Intent a(Context context, int i)
     {
-        ArrayList arraylist = new ArrayList();
-        int j = airi.length;
-        for (int i = 0; i < j; i++)
-        {
-            arraylist.add(new crv(airi[i]));
-        }
-
-        return arraylist;
+        context = new Intent(context, com/google/android/apps/hangouts/phoneverification/impl/PhoneVerificationActivity);
+        context.setAction("android.intent.action.VIEW");
+        context.putExtra("account_id", i);
+        context.putExtra("from_settings", true);
+        return context;
     }
 }

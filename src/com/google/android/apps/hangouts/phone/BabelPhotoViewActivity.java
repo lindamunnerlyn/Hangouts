@@ -4,19 +4,19 @@
 
 package com.google.android.apps.hangouts.phone;
 
-import aai;
-import aam;
-import cka;
+import aak;
+import aao;
+import clf;
 
-public class BabelPhotoViewActivity extends aai
+public class BabelPhotoViewActivity extends aak
 {
 
     public BabelPhotoViewActivity()
     {
     }
 
-    public aam g()
+    public aao g()
     {
-        return new cka(this);
+        return new clf(this);
     }
 }

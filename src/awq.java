@@ -4,21 +4,38 @@
 
 
 final class awq
-    implements Runnable
+    implements ayi
 {
 
-    final String a;
-    final awp b;
+    final avv a;
 
-    awq(awp awp1, String s)
+    awq(avv avv1)
     {
-        b = awp1;
-        a = s;
+        a = avv1;
         super();
     }
 
-    public void run()
+    public void a()
     {
-        ave.c(b.a, a);
+    }
+
+    public void a(String s, ayc ayc1)
+    {
+        if (!aow.a(s))
+        {
+            s = ayc1.a;
+            avv.ad(a).b(baq.a(s));
+            avv.ad(a).a(new baq(avv.ag(a), avv.h(a), s, false, 0));
+            if (avv.h(a) != null && dcz.t(avv.h(a).h()))
+            {
+                avv.ad(a).a(new azv(avv.ah(a), s, avv.h(a).h()));
+            }
+            if (avv.ai(a) != 3)
+            {
+                avv.ad(a).b(bar.a(s));
+                avv.ad(a).a(new bar(avv.aj(a), avv.h(a), s, 3));
+                return;
+            }
+        }
     }
 }

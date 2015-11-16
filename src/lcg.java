@@ -3,42 +3,36 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lcg extends koj
+public final class lcg extends kwm
 {
 
-    private static volatile lcg g[];
+    private static volatile lcg d[];
     public String a;
-    public String b;
-    public Boolean c;
-    public Boolean d;
-    public Integer e;
-    public Long f;
+    public String b[];
+    public lcf c[];
 
     public lcg()
     {
         a = null;
-        b = null;
-        c = null;
-        d = null;
-        e = null;
-        f = null;
+        b = kwx.f;
+        c = lcf.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     public static lcg[] a()
     {
-        if (g == null)
+        if (d == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
-                if (g == null)
+                if (d == null)
                 {
-                    g = new lcg[0];
+                    d = new lcg[0];
                 }
             }
         }
-        return g;
+        return d;
         exception;
         obj;
         JVM INSTR monitorexit ;
@@ -47,115 +41,173 @@ public final class lcg extends koj
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        boolean flag = false;
+        int l1 = super.computeSerializedSize() + kwk.b(1, a);
+        int i;
+        int i1;
+        if (b != null && b.length > 0)
         {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != null)
+            i = 0;
+            int j = 0;
+            int l;
+            int j1;
+            for (l = 0; i < b.length; l = j1)
+            {
+                String s = b[i];
+                int k1 = j;
+                j1 = l;
+                if (s != null)
+                {
+                    j1 = l + 1;
+                    k1 = j + kwk.a(s);
+                }
+                i++;
+                j = k1;
+            }
+
+            i = l1 + j + l * 1;
+        } else
         {
-            j = i + koh.b(2, b);
+            i = l1;
         }
-        i = j;
+        i1 = i;
         if (c != null)
         {
-            c.booleanValue();
-            i = j + (koh.f(3) + 1);
+            i1 = i;
+            if (c.length > 0)
+            {
+                int k = ((flag) ? 1 : 0);
+                do
+                {
+                    i1 = i;
+                    if (k >= c.length)
+                    {
+                        break;
+                    }
+                    lcf lcf1 = c[k];
+                    i1 = i;
+                    if (lcf1 != null)
+                    {
+                        i1 = i + kwk.d(3, lcf1);
+                    }
+                    k++;
+                    i = i1;
+                } while (true);
+            }
         }
-        j = i;
-        if (d != null)
-        {
-            d.booleanValue();
-            j = i + (koh.f(4) + 1);
-        }
-        i = j;
-        if (e != null)
-        {
-            i = j + koh.e(5, e.intValue());
-        }
-        j = i;
-        if (f != null)
-        {
-            j = i + koh.e(6, f.longValue());
-        }
-        return j;
+        return i1;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L9:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 7: default 72
-    //                   0: 81
-    //                   10: 83
-    //                   18: 94
-    //                   24: 105
-    //                   32: 119
-    //                   40: 133
-    //                   48: 178;
-           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L9; else goto _L2
-_L2:
-        return this;
-_L3:
-        a = kog1.j();
-          goto _L9
-_L4:
-        b = kog1.j();
-          goto _L9
-_L5:
-        c = Boolean.valueOf(kog1.i());
-          goto _L9
-_L6:
-        d = Boolean.valueOf(kog1.i());
-          goto _L9
-_L7:
-        int j = kog1.f();
-        switch (j)
+        do
         {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-            e = Integer.valueOf(j);
-            break;
-        }
-        continue; /* Loop/switch isn't completed */
-_L8:
-        f = Long.valueOf(kog1.e());
-        if (true) goto _L9; else goto _L10
-_L10:
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                int l = kwx.a(kwj1, 18);
+                String as[];
+                int j;
+                if (b == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = b.length;
+                }
+                as = new String[l + j];
+                l = j;
+                if (j != 0)
+                {
+                    System.arraycopy(b, 0, as, 0, j);
+                    l = j;
+                }
+                for (; l < as.length - 1; l++)
+                {
+                    as[l] = kwj1.j();
+                    kwj1.a();
+                }
+
+                as[l] = kwj1.j();
+                b = as;
+                break;
+
+            case 26: // '\032'
+                int i1 = kwx.a(kwj1, 26);
+                lcf alcf[];
+                int k;
+                if (c == null)
+                {
+                    k = 0;
+                } else
+                {
+                    k = c.length;
+                }
+                alcf = new lcf[i1 + k];
+                i1 = k;
+                if (k != 0)
+                {
+                    System.arraycopy(c, 0, alcf, 0, k);
+                    i1 = k;
+                }
+                for (; i1 < alcf.length - 1; i1++)
+                {
+                    alcf[i1] = new lcf();
+                    kwj1.a(alcf[i1]);
+                    kwj1.a();
+                }
+
+                alcf[i1] = new lcf();
+                kwj1.a(alcf[i1]);
+                c = alcf;
+                break;
+            }
+        } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
+        boolean flag = false;
+        kwk1.a(1, a);
+        if (b != null && b.length > 0)
         {
-            koh1.a(1, a);
+            for (int i = 0; i < b.length; i++)
+            {
+                String s = b[i];
+                if (s != null)
+                {
+                    kwk1.a(2, s);
+                }
+            }
+
         }
-        if (b != null)
+        if (c != null && c.length > 0)
         {
-            koh1.a(2, b);
+            for (int j = ((flag) ? 1 : 0); j < c.length; j++)
+            {
+                lcf lcf1 = c[j];
+                if (lcf1 != null)
+                {
+                    kwk1.b(3, lcf1);
+                }
+            }
+
         }
-        if (c != null)
-        {
-            koh1.a(3, c.booleanValue());
-        }
-        if (d != null)
-        {
-            koh1.a(4, d.booleanValue());
-        }
-        if (e != null)
-        {
-            koh1.a(5, e.intValue());
-        }
-        if (f != null)
-        {
-            koh1.b(6, f.longValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

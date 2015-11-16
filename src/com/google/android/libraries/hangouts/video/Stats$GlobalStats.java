@@ -4,7 +4,7 @@
 
 package com.google.android.libraries.hangouts.video;
 
-import inu;
+import itz;
 import java.io.PrintWriter;
 
 // Referenced classes of package com.google.android.libraries.hangouts.video:
@@ -21,25 +21,20 @@ public class b extends Stats
     public boolean f;
     public int g;
 
-    public static void a(PrintWriter printwriter)
-    {
-        printwriter.println("  GlobalStats -- pcpu, tcpu, online cores, util per cpu, cpu freq, on battery, battery level");
-    }
-
     public void a(boolean flag)
     {
         f = flag;
     }
 
-    public void addTo(inu inu1)
+    public void addTo(itz itz1)
     {
-        inu1.d = Integer.valueOf(a);
-        inu1.h = Integer.valueOf(b);
-        inu1.i = Integer.valueOf(c);
-        inu1.m = Integer.valueOf(d);
-        inu1.n = Integer.valueOf(e);
-        inu1.o = Boolean.valueOf(f);
-        inu1.p = Integer.valueOf(g);
+        itz1.d = Integer.valueOf(a);
+        itz1.h = Integer.valueOf(b);
+        itz1.i = Integer.valueOf(c);
+        itz1.m = Integer.valueOf(d);
+        itz1.n = Integer.valueOf(e);
+        itz1.o = Boolean.valueOf(f);
+        itz1.p = Integer.valueOf(g);
     }
 
     public void b(int i)

@@ -2,12 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-final class epk
+public final class epk
+    implements Iterator
 {
 
-    static final eox a[] = {
-        new epl(eox.a("0\202\003\2670\202\002\237\240\003\002\001\002\002\t\000\365h\334\242D\b\"\f0")), new epm(eox.a("0\202\003\2670\202\002\237\240\003\002\001\002\002\t\000\253\315F\331\223\271\013\2540"))
-    };
+    public final epe a;
+    public int b;
 
+    public epk(epe epe1)
+    {
+        a = (epe)g.d(epe1);
+        b = -1;
+    }
+
+    public boolean hasNext()
+    {
+        return b < a.a() - 1;
+    }
+
+    public Object next()
+    {
+        if (!hasNext())
+        {
+            throw new NoSuchElementException((new StringBuilder("Cannot advance the iterator beyond ")).append(b).toString());
+        } else
+        {
+            epe epe1 = a;
+            int i = b + 1;
+            b = i;
+            return epe1.a(i);
+        }
+    }
+
+    public void remove()
+    {
+        throw new UnsupportedOperationException("Cannot remove elements from a DataBufferIterator");
+    }
 }

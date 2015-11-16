@@ -2,20 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.File;
-import java.util.Comparator;
 
-public final class bpo
-    implements Comparator
+final class bpo
+    implements Runnable
 {
 
-    public bpo()
+    final bpm a;
+
+    bpo(bpm bpm1)
     {
+        a = bpm1;
+        super();
     }
 
-    public int compare(Object obj, Object obj1)
+    public void run()
     {
-        obj = (File)obj;
-        return (int)(((File)obj1).lastModified() - ((File) (obj)).lastModified());
+        eev.g("Babel", "Conversation id resolve timed out");
+        a.c(4);
     }
 }

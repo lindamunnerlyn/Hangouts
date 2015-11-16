@@ -2,28 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.Editable;
-import android.view.inputmethod.InputConnection;
-import android.view.inputmethod.InputConnectionWrapper;
-import com.google.android.apps.hangouts.peoplelistv2.impl.DeleteOnEmptyEditText;
 
-public final class cfq extends InputConnectionWrapper
+public final class cfq extends Enum
 {
 
-    final DeleteOnEmptyEditText a;
+    public static final cfq a;
+    public static final cfq b;
+    public static final cfq c;
+    public static final cfq d;
+    private static final cfq e[];
 
-    public cfq(DeleteOnEmptyEditText deleteonemptyedittext, InputConnection inputconnection)
+    private cfq(String s, int i)
     {
-        a = deleteonemptyedittext;
-        super(inputconnection, true);
+        super(s, i);
     }
 
-    public boolean deleteSurroundingText(int i, int j)
+    public static cfq valueOf(String s)
     {
-        if (a.getText().length() == 0 && DeleteOnEmptyEditText.a(a) != null)
-        {
-            DeleteOnEmptyEditText.a(a).a();
-        }
-        return super.deleteSurroundingText(i, j);
+        return (cfq)Enum.valueOf(cfq, s);
+    }
+
+    public static cfq[] values()
+    {
+        return (cfq[])e.clone();
+    }
+
+    static 
+    {
+        a = new cfq("LOCAL_SMS", 0);
+        b = new cfq("MESSAGE", 1);
+        c = new cfq("GV_SMS", 2);
+        d = new cfq("GV_VOICEMAIL", 3);
+        e = (new cfq[] {
+            a, b, c, d
+        });
     }
 }

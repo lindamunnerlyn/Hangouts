@@ -2,49 +2,112 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
-public class cse extends csa
+public final class cse extends hmm
 {
 
-    private static final long serialVersionUID = 1L;
-    private final String a;
+    private String a;
+    private View b;
+    private EditText c;
+    private TextView d;
+    private Button e;
+    private gqu f;
+    private boolean g;
+    private crk h;
 
-    public cse(String s)
+    public cse()
     {
-        String s1 = ebz.g(s);
-        if (s1 == null)
+        b = null;
+    }
+
+    static gqu a(cse cse1)
+    {
+        return cse1.f;
+    }
+
+    static crk b(cse cse1)
+    {
+        return cse1.h;
+    }
+
+    static String c(cse cse1)
+    {
+        return cse1.a;
+    }
+
+    static boolean d(cse cse1)
+    {
+        return cse1.g;
+    }
+
+    static TextView e(cse cse1)
+    {
+        return cse1.d;
+    }
+
+    static Button f(cse cse1)
+    {
+        return cse1.e;
+    }
+
+    protected boolean a(int i)
+    {
+        String s;
+label0:
         {
-            ebw.g("Babel_RequestWriter", (new StringBuilder(String.valueOf(s).length() + 45)).append("Invalid phone number: ").append(s).append(" in GetCallRateRequest.").toString());
-            a = null;
-            return;
+            if (i == w.l)
+            {
+                s = c.getText().toString();
+                if (s.length() >= 4)
+                {
+                    break label0;
+                }
+                e.setVisibility(8);
+                d.setVisibility(0);
+            }
+            return false;
         }
-        if (s1.charAt(0) == '+')
+        g.a(dcn.e(f.a()), 2196);
+        if (h != null)
         {
-            a = s1.substring(1);
-            return;
-        } else
-        {
-            a = s1;
-            return;
+            h.a(s);
         }
+        return true;
     }
 
-    public kop a(String s, int j, int k)
+    protected void onAttachBinder(Bundle bundle)
     {
-        return new csb();
+        super.onAttachBinder(bundle);
+        f = (gqu)binder.a(gqu);
     }
 
-    public String g()
+    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
-        String s = String.valueOf("users/@me/destinations/%");
-        String s1 = String.valueOf(Integer.toHexString(43));
-        String s2 = a;
-        String s3 = String.valueOf("/rate");
-        return (new StringBuilder(String.valueOf(s).length() + 0 + String.valueOf(s1).length() + String.valueOf(s2).length() + String.valueOf(s3).length())).append(s).append(s1).append(s2).append(s3).toString();
+        g = getArguments().getBoolean("set_discoverability", true);
+        a = getArguments().getString("phone_number", "");
+        h = (crk)binder.b(crk);
+        b = layoutinflater.inflate(g.ob, viewgroup, false);
+        c = (EditText)b.findViewById(w.w);
+        d = (TextView)b.findViewById(w.u);
+        e = (Button)b.findViewById(w.y);
+        e.getCompoundDrawables()[0].setAlpha(128);
+        e.setOnClickListener(new csf(this));
+        c.addTextChangedListener(new csg(this));
+        c.setOnFocusChangeListener(new csh(this));
+        return b;
     }
 
-    public boolean i()
+    public void onResume()
     {
-        return false;
+        c.requestFocus();
+        super.onResume();
     }
 }

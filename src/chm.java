@@ -2,33 +2,51 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.view.MotionEvent;
+import com.google.android.apps.hangouts.peoplelistv2.impl.FastScrollingRecyclerView;
 
-final class chm
-    implements cfe
+public final class chm
+    implements zi
 {
 
-    final chk a;
+    final FastScrollingRecyclerView a;
+    private boolean b;
 
-    chm(chk chk1)
+    public chm(FastScrollingRecyclerView fastscrollingrecyclerview)
     {
-        a = chk1;
+        a = fastscrollingrecyclerview;
         super();
     }
 
-    public int a()
+    public void a(yt yt1, MotionEvent motionevent)
     {
-        return h.iO;
+        if (!b) goto _L2; else goto _L1
+_L1:
+        motionevent.getAction();
+        JVM INSTR tableswitch 0 2: default 36
+    //                   0 37
+    //                   1 68
+    //                   2 37;
+           goto _L2 _L3 _L4 _L3
+_L2:
+        return;
+_L3:
+        yt1.a((int)(((float)a.c().a() * motionevent.getY()) / (float)FastScrollingRecyclerView.c(a)));
+        return;
+_L4:
+        b = false;
+        return;
     }
 
-    public void a(Context context)
+    public boolean a(MotionEvent motionevent)
     {
-        g.a(chk.a(context), 2501);
-        chk.a(context, cnd.a, atd.b);
-    }
-
-    public int b()
-    {
-        return n.l;
+        if (motionevent.getX() > (float)(FastScrollingRecyclerView.a(a) - FastScrollingRecyclerView.b(a)))
+        {
+            b = true;
+            return true;
+        } else
+        {
+            return false;
+        }
     }
 }

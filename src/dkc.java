@@ -2,18 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.requestwriter.RequestWriter;
+import android.os.Parcel;
 
-public final class dkc
-    implements Runnable
+final class dkc
+    implements android.os.Parcelable.Creator
 {
 
-    public dkc()
+    dkc()
     {
     }
 
-    public void run()
+    public Object createFromParcel(Parcel parcel)
     {
-        RequestWriter.l();
+        return new dkb(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new dkb[i];
     }
 }

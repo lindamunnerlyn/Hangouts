@@ -2,16 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.Menu;
 
-final class hoo extends ThreadLocal
+public interface hoo
 {
 
-    hoo()
-    {
-    }
-
-    protected Object initialValue()
-    {
-        return new char[1024];
-    }
+    public abstract boolean a(Menu menu);
 }

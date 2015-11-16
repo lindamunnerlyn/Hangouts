@@ -8,7 +8,8 @@ import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import emj;
+import epj;
+import g;
 import java.io.Closeable;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -22,10 +23,10 @@ public class BitmapTeleporter
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new emj();
-    public final int a;
-    public ParcelFileDescriptor b;
-    public final int c;
+    public static final android.os.Parcelable.Creator CREATOR = new epj();
+    final int a;
+    ParcelFileDescriptor b;
+    final int c;
     private Bitmap d;
     private boolean e;
     private File f;
@@ -160,7 +161,11 @@ public class BitmapTeleporter
         ((DataOutputStream) (obj)).writeUTF(bitmap.getConfig().toString());
         ((DataOutputStream) (obj)).write(abyte0);
         a(((Closeable) (obj)));
-        emj.a(this, parcel, i | 1);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b, i | 1);
+        g.b(parcel, 3, c);
+        g.q(parcel, j);
         b = null;
         return;
         parcel;

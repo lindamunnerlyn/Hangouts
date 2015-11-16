@@ -2,26 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import com.google.android.apps.hangouts.views.MessageListItemView;
 
-final class aqe
-    implements android.widget.AbsListView.RecyclerListener
+public interface aqe
 {
 
-    final aqd a;
-
-    aqe(aqd aqd)
-    {
-        a = aqd;
-        super();
-    }
-
-    public void onMovedToScrapHeap(View view)
-    {
-        if (view instanceof MessageListItemView)
-        {
-            ((MessageListItemView)view).j();
-        }
-    }
+    public abstract boolean a(int i);
 }

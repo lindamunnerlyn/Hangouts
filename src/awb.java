@@ -2,21 +2,63 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.widget.Toast;
 
 final class awb
-    implements Runnable
+    implements atr
 {
 
-    final ave a;
+    final avv a;
 
-    awb(ave ave1)
+    awb(avv avv1)
     {
-        a = ave1;
+        a = avv1;
         super();
     }
 
-    public void run()
+    public void a()
     {
-        ave.aj(a);
+        avv.O(a);
+    }
+
+    public void a(atp atp1)
+    {
+        asa asa1;
+        for (asa1 = avv.m(a).a(); asa1 == null || atp1 != atp.d;)
+        {
+            return;
+        }
+
+        bxi bxi1 = bxi.d;
+        atp1 = asa1.e;
+        if (asa1.h != null)
+        {
+            atp1 = g.a(asa1.h, true);
+        }
+        if (asa1.e != null)
+        {
+            ((bxg)avv.Q(a).a(bxg)).a(avv.P(a), a.getFragmentManager(), atp1, asa1.e, asa1.a, bxi1);
+            return;
+        } else
+        {
+            Toast.makeText(avv.R(a), g.kH, 0).show();
+            return;
+        }
+    }
+
+    public void b()
+    {
+        if (avv.B(a) != null)
+        {
+            avv.a(a, false);
+        }
+    }
+
+    public void c()
+    {
+        if (avv.B(a) != null)
+        {
+            avv.a(a, true);
+        }
     }
 }

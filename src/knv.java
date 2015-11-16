@@ -3,106 +3,60 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class knv
+public final class knv extends kwm
 {
 
-    static final int a[];
+    public Boolean a;
 
-    static 
+    public knv()
     {
-        a = new int[knw.values().length];
-        try
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
+    }
+
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            a[knw.a.ordinal()] = 1;
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
-        catch (NoSuchFieldError nosuchfielderror17) { }
-        try
+        return i;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
         {
-            a[knw.b.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror16) { }
-        try
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
         {
-            a[knw.c.ordinal()] = 3;
+            kwk1.a(1, a.booleanValue());
         }
-        catch (NoSuchFieldError nosuchfielderror15) { }
-        try
-        {
-            a[knw.d.ordinal()] = 4;
-        }
-        catch (NoSuchFieldError nosuchfielderror14) { }
-        try
-        {
-            a[knw.e.ordinal()] = 5;
-        }
-        catch (NoSuchFieldError nosuchfielderror13) { }
-        try
-        {
-            a[knw.f.ordinal()] = 6;
-        }
-        catch (NoSuchFieldError nosuchfielderror12) { }
-        try
-        {
-            a[knw.g.ordinal()] = 7;
-        }
-        catch (NoSuchFieldError nosuchfielderror11) { }
-        try
-        {
-            a[knw.h.ordinal()] = 8;
-        }
-        catch (NoSuchFieldError nosuchfielderror10) { }
-        try
-        {
-            a[knw.l.ordinal()] = 9;
-        }
-        catch (NoSuchFieldError nosuchfielderror9) { }
-        try
-        {
-            a[knw.m.ordinal()] = 10;
-        }
-        catch (NoSuchFieldError nosuchfielderror8) { }
-        try
-        {
-            a[knw.o.ordinal()] = 11;
-        }
-        catch (NoSuchFieldError nosuchfielderror7) { }
-        try
-        {
-            a[knw.p.ordinal()] = 12;
-        }
-        catch (NoSuchFieldError nosuchfielderror6) { }
-        try
-        {
-            a[knw.q.ordinal()] = 13;
-        }
-        catch (NoSuchFieldError nosuchfielderror5) { }
-        try
-        {
-            a[knw.r.ordinal()] = 14;
-        }
-        catch (NoSuchFieldError nosuchfielderror4) { }
-        try
-        {
-            a[knw.i.ordinal()] = 15;
-        }
-        catch (NoSuchFieldError nosuchfielderror3) { }
-        try
-        {
-            a[knw.j.ordinal()] = 16;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[knw.k.ordinal()] = 17;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[knw.n.ordinal()] = 18;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
+        super.writeTo(kwk1);
     }
 }

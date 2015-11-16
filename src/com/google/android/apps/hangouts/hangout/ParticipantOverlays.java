@@ -7,13 +7,13 @@ package com.google.android.apps.hangouts.hangout;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import bnd;
-import brd;
-import bre;
-import brp;
-import gbh;
-import gjr;
-import hgx;
+import bnk;
+import brm;
+import brn;
+import bry;
+import gdv;
+import gmt;
+import hlp;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -21,42 +21,37 @@ import java.util.List;
 public class ParticipantOverlays extends LinearLayout
 {
 
-    public List a;
-    private final bre b = new bre(this);
-    private final bnd c = bnd.a();
-    private gjr d;
+    public gmt a;
+    public List b;
+    private final brn c = new brn(this);
+    private final bnk d = bnk.a();
 
     public ParticipantOverlays(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
     }
 
-    public static gjr a(ParticipantOverlays participantoverlays)
-    {
-        return participantoverlays.d;
-    }
-
     public void a()
     {
-        gbh.b(a);
-        c.b(b);
+        gdv.b("Expected non-null", b);
+        d.b(c);
         removeAllViews();
-        a = null;
+        b = null;
     }
 
-    public void a(gjr gjr)
+    public void a(gmt gmt)
     {
-        gbh.a(a);
-        d = gjr;
-        a = new ArrayList();
+        gdv.a("Expected null", b);
+        a = gmt;
+        b = new ArrayList();
         Context context = getContext();
-        brd brd1;
-        for (Iterator iterator = hgx.c(context, brp).iterator(); iterator.hasNext(); a.add(brd1))
+        brm brm1;
+        for (Iterator iterator = hlp.c(context, bry).iterator(); iterator.hasNext(); b.add(brm1))
         {
-            brd1 = ((brp)iterator.next()).a(context, gjr);
+            brm1 = ((bry)iterator.next()).a(context, gmt);
         }
 
-        for (gjr = a.iterator(); gjr.hasNext(); addView(((brd)gjr.next()).a())) { }
-        c.a(b);
+        for (gmt = b.iterator(); gmt.hasNext(); addView(((brm)gmt.next()).a())) { }
+        d.a(c);
     }
 }

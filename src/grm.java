@@ -3,10 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class grm
+public final class grm extends Exception
 {
 
-    public grm()
+    public grm(Throwable throwable)
     {
+        super(throwable);
     }
 }

@@ -2,11 +2,13 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.nio.ByteBuffer;
 
-public interface gyy
+public final class gyy extends lgc
 {
 
-    public abstract void j();
-
-    public abstract void k();
+    public gyy(ByteBuffer bytebuffer)
+    {
+        super(bytebuffer);
+    }
 }

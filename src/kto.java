@@ -3,59 +3,60 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kto extends koj
+public abstract class kto
+    implements kvf
 {
 
-    public String a;
+    private static final kty a = kty.a();
 
     public kto()
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public kvb a(kts kts1, kty kty1)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        try
         {
-            i = j + koh.b(1, a);
+            kts1 = kts1.f();
+            kty1 = (kvb)a(((ktu) (kts1)), kty1);
         }
-        return i;
+        // Misplaced declaration of an exception variable
+        catch (kts kts1)
+        {
+            throw kts1;
+        }
+        kts1.a(0);
+        return kty1;
+        kts1;
+        throw kts1.a(kty1);
     }
 
-    public kop mergeFrom(kog kog1)
+    public kvb b(kts kts1, kty kty1)
     {
-        do
+        kty1 = a(kts1, kty1);
+        if (kty1 != null && !kty1.E_())
         {
-            int i = kog1.a();
-            switch (i)
+            if (kty1 instanceof ktl)
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
+                kts1 = ((ktl)kty1).b();
+            } else
+            if (kty1 instanceof ktn)
+            {
+                kts1 = ((ktn)kty1).J_();
+            } else
+            {
+                kts1 = new kvt();
             }
-        } while (true);
+            throw kts1.a().a(kty1);
+        } else
+        {
+            return kty1;
+        }
     }
 
-    public void writeTo(koh koh1)
+    public Object c(kts kts1, kty kty1)
     {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        super.writeTo(koh1);
+        return b(kts1, kty1);
     }
+
 }

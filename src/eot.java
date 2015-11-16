@@ -2,43 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.SystemClock;
 
 public final class eot
-    implements eor
 {
 
-    private static eot a;
+    public final String a;
+    public final String b;
+    public final int c;
 
-    public eot()
+    public eot(String s, String s1, int i)
     {
+        a = s;
+        b = s1;
+        c = i;
     }
 
-    public static eor c()
+    private void a(fpg fpg1)
     {
-        eot;
-        JVM INSTR monitorenter ;
-        eot eot1;
-        if (a == null)
-        {
-            a = new eot();
-        }
-        eot1 = a;
-        eot;
-        JVM INSTR monitorexit ;
-        return eot1;
-        Exception exception;
-        exception;
-        throw exception;
+        fpg1.a(a, b, c);
     }
 
-    public long a()
+    public void a(Object obj)
     {
-        return System.currentTimeMillis();
-    }
-
-    public long b()
-    {
-        return SystemClock.elapsedRealtime();
+        a((fpg)obj);
     }
 }

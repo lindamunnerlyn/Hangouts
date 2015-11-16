@@ -3,27 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class cpw
+final class cpw
+    implements Runnable
 {
 
-    public static final String a = cpt.getName();
-    private static cpv b;
-
-    public static void a(hgx hgx1)
+    cpw()
     {
-        if (b == null)
-        {
-            b = new cpv();
-        }
-        cpt cpt1;
-        if (g.a(g.nS, "babel_phone_verification_enabled", true))
-        {
-            cpt1 = new cpt();
-        } else
-        {
-            cpt1 = null;
-        }
-        hgx1.a(cpt, cpt1);
     }
 
+    public void run()
+    {
+        eey.m("(800) 555-0199");
+    }
 }

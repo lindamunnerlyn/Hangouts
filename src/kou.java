@@ -3,50 +3,60 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kou
+public final class kou extends kwm
 {
 
-    public static final int a[] = new int[0];
-    public static final long b[] = new long[0];
-    public static final float c[] = new float[0];
-    public static final double d[] = new double[0];
-    public static final boolean e[] = new boolean[0];
-    public static final String f[] = new String[0];
-    public static final byte g[][] = new byte[0][];
-    public static final byte h[] = new byte[0];
+    public Boolean a;
 
-    static int a(int i)
+    public kou()
     {
-        return i & 7;
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    static int a(int i, int j)
+    protected int computeSerializedSize()
     {
-        return i << 3 | j;
-    }
-
-    public static boolean a(kog kog1, int i)
-    {
-        return kog1.b(i);
-    }
-
-    public static int b(int i)
-    {
-        return i >>> 3;
-    }
-
-    public static final int b(kog kog1, int i)
-    {
-        int j = 1;
-        int k = kog1.r();
-        kog1.b(i);
-        while (kog1.a() == i) 
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            kog1.b(i);
-            j++;
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
-        kog1.e(k);
-        return j;
+        return i;
     }
 
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
+        }
+        super.writeTo(kwk1);
+    }
 }

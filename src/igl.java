@@ -3,94 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class igl extends koj
+public final class igl extends kwm
 {
 
-    private static volatile igl c[];
-    public String a;
-    public String b;
-
-    public igl()
+    public kws mergeFrom(kwj kwj1)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
-    }
-
-    public static igl[] a()
-    {
-        if (c == null)
-        {
-            synchronized (kon.a)
-            {
-                if (c == null)
-                {
-                    c = new igl[0];
-                }
-            }
-        }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.b(2, b);
-        }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
-        super.writeTo(koh1);
+_L3:
+        int i = kwj1.a();
+        i;
+        JVM INSTR tableswitch 0 0: default 24
+    //                   0 33;
+           goto _L1 _L2
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L3; else goto _L2
+_L2:
+        return this;
     }
 }

@@ -2,28 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
 
-public final class cta
-    implements Serializable
+final class cta
+    implements Runnable
 {
 
-    private static final long serialVersionUID = 1L;
-    private final String a;
-    private final String b;
-    private final long c;
-    private final boolean d;
+    final csy a;
 
-    public cta(String s, String s1, long l, boolean flag)
+    cta(csy csy1)
     {
-        a = s;
-        b = s1;
-        c = l;
-        d = flag;
+        a = csy1;
+        super();
     }
 
-    public String a()
+    public void run()
     {
-        return b;
+        csy.a(a).a(a);
+        a.H_();
     }
 }

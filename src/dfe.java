@@ -2,38 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
+import android.content.Context;
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class dfe
-    implements ServiceConnection
+public final class dfe extends dff
 {
 
-    final RealTimeChatService a;
-
-    public dfe(RealTimeChatService realtimechatservice)
+    public dfe(Context context, int j, dfg dfg)
     {
-        a = realtimechatservice;
-        super();
+        super(context, j, dfg, l.sW);
     }
 
-    public void onServiceConnected(ComponentName componentname, IBinder ibinder)
+    public int b()
     {
-        RealTimeChatService.a(a, ((dkf)ibinder).a());
-        if (RealTimeChatService.l())
-        {
-            ebw.b("Babel", "RequestWriter connected");
-        }
+        return RealTimeChatService.e(d);
     }
 
-    public void onServiceDisconnected(ComponentName componentname)
+    public Class e()
     {
-        RealTimeChatService.a(a, null);
-        if (RealTimeChatService.l())
-        {
-            ebw.b("Babel", "RequestWriter disconnected");
-        }
+        return cuj;
+    }
+
+    public Class f()
+    {
+        return czc;
+    }
+
+    protected int i()
+    {
+        return g.a(g.nU, "babel_get_voice_account_info_request_timeout_millis", 20000);
     }
 }

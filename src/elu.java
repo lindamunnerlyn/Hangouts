@@ -2,75 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.PendingIntent;
+import android.os.IBinder;
 import android.os.Parcel;
 import com.google.android.gms.common.api.Status;
 
-public final class elu
-    implements android.os.Parcelable.Creator
+final class elu
+    implements els
 {
 
-    public elu()
+    private IBinder a;
+
+    elu(IBinder ibinder)
     {
+        a = ibinder;
     }
 
-    public static void a(Status status, Parcel parcel, int i)
+    public void a(Status status)
     {
-        int j = g.p(parcel, 20293);
-        g.b(parcel, 1, status.f());
-        g.b(parcel, 1000, status.d());
-        g.a(parcel, 2, status.c());
-        g.a(parcel, 3, status.b(), i);
-        g.q(parcel, j);
-    }
-
-    public Object createFromParcel(Parcel parcel)
-    {
-        PendingIntent pendingintent = null;
-        int k = g.a(parcel);
-        int j = 0;
-        int i = 0;
-        String s = null;
-        do
+        Parcel parcel = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.clearcut.internal.IClearcutLoggerCallbacks");
+        if (status == null)
         {
-            if (parcel.dataPosition() < k)
-            {
-                int l = parcel.readInt();
-                switch (0xffff & l)
-                {
-                default:
-                    g.b(parcel, l);
-                    break;
-
-                case 1: // '\001'
-                    j = g.e(parcel, l);
-                    break;
-
-                case 1000: 
-                    i = g.e(parcel, l);
-                    break;
-
-                case 2: // '\002'
-                    s = g.i(parcel, l);
-                    break;
-
-                case 3: // '\003'
-                    pendingintent = (PendingIntent)g.a(parcel, l, PendingIntent.CREATOR);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != k)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
-            } else
-            {
-                return new Status(i, j, s, pendingintent);
-            }
-        } while (true);
+            break MISSING_BLOCK_LABEL_44;
+        }
+        parcel.writeInt(1);
+        status.writeToParcel(parcel, 0);
+_L1:
+        a.transact(1, parcel, null, 1);
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        status;
+        parcel.recycle();
+        throw status;
     }
 
-    public Object[] newArray(int i)
+    public IBinder asBinder()
     {
-        return new Status[i];
+        return a;
     }
 }

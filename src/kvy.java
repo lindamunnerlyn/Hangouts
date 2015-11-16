@@ -3,66 +3,106 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kvy extends koj
+final class kvy
 {
 
-    public String a;
-    public String b;
+    static final int a[];
 
-    public kvy()
+    static 
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize() + koh.b(1, a);
-        int i = j;
-        if (b != null)
+        a = new int[kvz.values().length];
+        try
         {
-            i = j + koh.b(2, b);
+            a[kvz.a.ordinal()] = 1;
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        catch (NoSuchFieldError nosuchfielderror17) { }
+        try
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        koh1.a(1, a);
-        if (b != null)
-        {
-            koh1.a(2, b);
+            a[kvz.b.ordinal()] = 2;
         }
-        super.writeTo(koh1);
+        catch (NoSuchFieldError nosuchfielderror16) { }
+        try
+        {
+            a[kvz.c.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror15) { }
+        try
+        {
+            a[kvz.d.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror14) { }
+        try
+        {
+            a[kvz.e.ordinal()] = 5;
+        }
+        catch (NoSuchFieldError nosuchfielderror13) { }
+        try
+        {
+            a[kvz.f.ordinal()] = 6;
+        }
+        catch (NoSuchFieldError nosuchfielderror12) { }
+        try
+        {
+            a[kvz.g.ordinal()] = 7;
+        }
+        catch (NoSuchFieldError nosuchfielderror11) { }
+        try
+        {
+            a[kvz.h.ordinal()] = 8;
+        }
+        catch (NoSuchFieldError nosuchfielderror10) { }
+        try
+        {
+            a[kvz.l.ordinal()] = 9;
+        }
+        catch (NoSuchFieldError nosuchfielderror9) { }
+        try
+        {
+            a[kvz.m.ordinal()] = 10;
+        }
+        catch (NoSuchFieldError nosuchfielderror8) { }
+        try
+        {
+            a[kvz.o.ordinal()] = 11;
+        }
+        catch (NoSuchFieldError nosuchfielderror7) { }
+        try
+        {
+            a[kvz.p.ordinal()] = 12;
+        }
+        catch (NoSuchFieldError nosuchfielderror6) { }
+        try
+        {
+            a[kvz.q.ordinal()] = 13;
+        }
+        catch (NoSuchFieldError nosuchfielderror5) { }
+        try
+        {
+            a[kvz.r.ordinal()] = 14;
+        }
+        catch (NoSuchFieldError nosuchfielderror4) { }
+        try
+        {
+            a[kvz.i.ordinal()] = 15;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[kvz.j.ordinal()] = 16;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[kvz.k.ordinal()] = 17;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[kvz.n.ordinal()] = 18;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

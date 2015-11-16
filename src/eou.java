@@ -2,47 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import android.os.Looper;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+import android.os.Parcel;
+import com.google.android.gms.common.api.Scope;
 
 public final class eou
-    implements ServiceConnection
+    implements android.os.Parcelable.Creator
 {
-
-    boolean a;
-    private final BlockingQueue b = new LinkedBlockingQueue();
 
     public eou()
     {
-        a = false;
     }
 
-    public IBinder a()
+    public Object createFromParcel(Parcel parcel)
     {
-        if (Looper.myLooper() == Looper.getMainLooper())
+        int j = g.a(parcel);
+        int i = 0;
+        String s = null;
+        do
         {
-            throw new IllegalStateException("BlockingServiceConnection.getService() called on main thread");
-        }
-        if (a)
-        {
-            throw new IllegalStateException();
-        } else
-        {
-            a = true;
-            return (IBinder)b.take();
-        }
+            if (parcel.dataPosition() < j)
+            {
+                int k = parcel.readInt();
+                switch (0xffff & k)
+                {
+                default:
+                    g.b(parcel, k);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, k);
+                    break;
+
+                case 2: // '\002'
+                    s = g.i(parcel, k);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != j)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
+            } else
+            {
+                return new Scope(i, s);
+            }
+        } while (true);
     }
 
-    public void onServiceConnected(ComponentName componentname, IBinder ibinder)
+    public Object[] newArray(int i)
     {
-        b.add(ibinder);
-    }
-
-    public void onServiceDisconnected(ComponentName componentname)
-    {
+        return new Scope[i];
     }
 }

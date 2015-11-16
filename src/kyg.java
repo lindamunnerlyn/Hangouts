@@ -3,421 +3,228 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kyg extends koj
+public final class kyg extends kwm
 {
 
-    public kye a[];
-    public kye b[];
-    public Integer c;
-    public Integer d;
+    private static volatile kyg h[];
+    public Integer a;
+    public Integer b;
+    public kyf c[];
+    public Boolean d;
     public Integer e;
-    public kye f[];
-    public kyh g[];
-    public kyk h[];
+    public String f;
+    public Boolean g;
 
     public kyg()
     {
-        a = kye.a();
-        b = kye.a();
-        c = null;
+        a = null;
+        b = null;
+        c = kyf.a();
         d = null;
         e = null;
-        f = kye.a();
-        g = kyh.a();
-        h = kyk.a();
+        f = null;
+        g = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
+    public static kyg[] a()
+    {
+        if (h == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (h == null)
+                {
+                    h = new kyg[0];
+                }
+            }
+        }
+        return h;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
     protected int computeSerializedSize()
     {
-        boolean flag = false;
-        int j = super.computeSerializedSize();
-        int i = j;
+        int i = super.computeSerializedSize();
+        int j = i;
         if (a != null)
         {
-            i = j;
-            if (a.length > 0)
+            j = i + kwk.e(1, a.intValue());
+        }
+        i = j;
+        if (b != null)
+        {
+            i = j + kwk.e(2, b.intValue());
+        }
+        j = i;
+        if (c != null)
+        {
+            j = i;
+            if (c.length > 0)
             {
-                i = j;
-                for (j = 0; j < a.length;)
+                for (j = 0; j < c.length;)
                 {
-                    kye kye1 = a[j];
+                    kyf kyf1 = c[j];
                     int k = i;
-                    if (kye1 != null)
+                    if (kyf1 != null)
                     {
-                        k = i + koh.d(1, kye1);
+                        k = i + kwk.d(3, kyf1);
                     }
                     j++;
                     i = k;
                 }
 
-            }
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i;
-            if (b.length > 0)
-            {
-                for (j = 0; j < b.length;)
-                {
-                    kye kye2 = b[j];
-                    int l = i;
-                    if (kye2 != null)
-                    {
-                        l = i + koh.d(2, kye2);
-                    }
-                    j++;
-                    i = l;
-                }
-
                 j = i;
             }
         }
         i = j;
-        if (c != null)
+        if (d != null)
         {
-            i = j + koh.e(3, c.intValue());
+            d.booleanValue();
+            i = j + (kwk.f(4) + 1);
         }
         j = i;
+        if (e != null)
+        {
+            j = i + kwk.e(5, e.intValue());
+        }
+        i = j;
         if (f != null)
         {
-            j = i;
-            if (f.length > 0)
-            {
-                for (j = 0; j < f.length;)
-                {
-                    kye kye3 = f[j];
-                    int i1 = i;
-                    if (kye3 != null)
-                    {
-                        i1 = i + koh.d(4, kye3);
-                    }
-                    j++;
-                    i = i1;
-                }
-
-                j = i;
-            }
-        }
-        int j1 = j;
-        if (g != null)
-        {
-            j1 = j;
-            if (g.length > 0)
-            {
-                i = j;
-                for (j = 0; j < g.length;)
-                {
-                    kyh kyh1 = g[j];
-                    j1 = i;
-                    if (kyh1 != null)
-                    {
-                        j1 = i + koh.d(5, kyh1);
-                    }
-                    j++;
-                    i = j1;
-                }
-
-                j1 = i;
-            }
-        }
-        i = j1;
-        if (d != null)
-        {
-            i = j1 + koh.e(6, d.intValue());
+            i = j + kwk.b(6, f);
         }
         j = i;
-        if (h != null)
+        if (g != null)
         {
-            j = i;
-            if (h.length > 0)
-            {
-                int k1 = ((flag) ? 1 : 0);
-                do
-                {
-                    j = i;
-                    if (k1 >= h.length)
-                    {
-                        break;
-                    }
-                    kyk kyk1 = h[k1];
-                    j = i;
-                    if (kyk1 != null)
-                    {
-                        j = i + koh.d(7, kyk1);
-                    }
-                    k1++;
-                    i = j;
-                } while (true);
-            }
+            g.booleanValue();
+            j = i + (kwk.f(7) + 1);
         }
-        i = j;
-        if (e != null)
-        {
-            i = j + koh.e(8, e.intValue());
-        }
-        return i;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L10:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 8: default 80
+    //                   0: 89
+    //                   8: 91
+    //                   16: 154
+    //                   26: 168
+    //                   32: 292
+    //                   40: 306
+    //                   50: 320
+    //                   56: 331;
+           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L10; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+        case 5: // '\005'
+        case 6: // '\006'
+        case 7: // '\007'
+            a = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        b = Integer.valueOf(kwj1.f());
+        continue; /* Loop/switch isn't completed */
+_L5:
+        int l = kwx.a(kwj1, 26);
+        kyf akyf[];
+        int k;
+        if (c == null)
+        {
+            k = 0;
+        } else
+        {
+            k = c.length;
+        }
+        akyf = new kyf[l + k];
+        l = k;
+        if (k != 0)
+        {
+            System.arraycopy(c, 0, akyf, 0, k);
+            l = k;
+        }
+        for (; l < akyf.length - 1; l++)
+        {
+            akyf[l] = new kyf();
+            kwj1.a(akyf[l]);
+            kwj1.a();
+        }
 
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                int k1 = kou.b(kog1, 10);
-                kye akye[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                akye = new kye[k1 + j];
-                k1 = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, akye, 0, j);
-                    k1 = j;
-                }
-                for (; k1 < akye.length - 1; k1++)
-                {
-                    akye[k1] = new kye();
-                    kog1.a(akye[k1]);
-                    kog1.a();
-                }
-
-                akye[k1] = new kye();
-                kog1.a(akye[k1]);
-                a = akye;
-                break;
-
-            case 18: // '\022'
-                int l1 = kou.b(kog1, 18);
-                kye akye1[];
-                int k;
-                if (b == null)
-                {
-                    k = 0;
-                } else
-                {
-                    k = b.length;
-                }
-                akye1 = new kye[l1 + k];
-                l1 = k;
-                if (k != 0)
-                {
-                    System.arraycopy(b, 0, akye1, 0, k);
-                    l1 = k;
-                }
-                for (; l1 < akye1.length - 1; l1++)
-                {
-                    akye1[l1] = new kye();
-                    kog1.a(akye1[l1]);
-                    kog1.a();
-                }
-
-                akye1[l1] = new kye();
-                kog1.a(akye1[l1]);
-                b = akye1;
-                break;
-
-            case 24: // '\030'
-                c = Integer.valueOf(kog1.f());
-                break;
-
-            case 34: // '"'
-                int i2 = kou.b(kog1, 34);
-                kye akye2[];
-                int l;
-                if (f == null)
-                {
-                    l = 0;
-                } else
-                {
-                    l = f.length;
-                }
-                akye2 = new kye[i2 + l];
-                i2 = l;
-                if (l != 0)
-                {
-                    System.arraycopy(f, 0, akye2, 0, l);
-                    i2 = l;
-                }
-                for (; i2 < akye2.length - 1; i2++)
-                {
-                    akye2[i2] = new kye();
-                    kog1.a(akye2[i2]);
-                    kog1.a();
-                }
-
-                akye2[i2] = new kye();
-                kog1.a(akye2[i2]);
-                f = akye2;
-                break;
-
-            case 42: // '*'
-                int j2 = kou.b(kog1, 42);
-                kyh akyh[];
-                int i1;
-                if (g == null)
-                {
-                    i1 = 0;
-                } else
-                {
-                    i1 = g.length;
-                }
-                akyh = new kyh[j2 + i1];
-                j2 = i1;
-                if (i1 != 0)
-                {
-                    System.arraycopy(g, 0, akyh, 0, i1);
-                    j2 = i1;
-                }
-                for (; j2 < akyh.length - 1; j2++)
-                {
-                    akyh[j2] = new kyh();
-                    kog1.a(akyh[j2]);
-                    kog1.a();
-                }
-
-                akyh[j2] = new kyh();
-                kog1.a(akyh[j2]);
-                g = akyh;
-                break;
-
-            case 48: // '0'
-                d = Integer.valueOf(kog1.f());
-                break;
-
-            case 58: // ':'
-                int k2 = kou.b(kog1, 58);
-                kyk akyk[];
-                int j1;
-                if (h == null)
-                {
-                    j1 = 0;
-                } else
-                {
-                    j1 = h.length;
-                }
-                akyk = new kyk[k2 + j1];
-                k2 = j1;
-                if (j1 != 0)
-                {
-                    System.arraycopy(h, 0, akyk, 0, j1);
-                    k2 = j1;
-                }
-                for (; k2 < akyk.length - 1; k2++)
-                {
-                    akyk[k2] = new kyk();
-                    kog1.a(akyk[k2]);
-                    kog1.a();
-                }
-
-                akyk[k2] = new kyk();
-                kog1.a(akyk[k2]);
-                h = akyk;
-                break;
-
-            case 64: // '@'
-                e = Integer.valueOf(kog1.f());
-                break;
-            }
-        } while (true);
+        akyf[l] = new kyf();
+        kwj1.a(akyf[l]);
+        c = akyf;
+        continue; /* Loop/switch isn't completed */
+_L6:
+        d = Boolean.valueOf(kwj1.i());
+        continue; /* Loop/switch isn't completed */
+_L7:
+        e = Integer.valueOf(kwj1.f());
+        continue; /* Loop/switch isn't completed */
+_L8:
+        f = kwj1.j();
+        continue; /* Loop/switch isn't completed */
+_L9:
+        g = Boolean.valueOf(kwj1.i());
+        if (true) goto _L10; else goto _L11
+_L11:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        boolean flag = false;
-        if (a != null && a.length > 0)
+        if (a != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                kye kye1 = a[i];
-                if (kye1 != null)
-                {
-                    koh1.b(1, kye1);
-                }
-            }
-
+            kwk1.a(1, a.intValue());
         }
-        if (b != null && b.length > 0)
+        if (b != null)
         {
-            for (int j = 0; j < b.length; j++)
-            {
-                kye kye2 = b[j];
-                if (kye2 != null)
-                {
-                    koh1.b(2, kye2);
-                }
-            }
-
+            kwk1.a(2, b.intValue());
         }
-        if (c != null)
+        if (c != null && c.length > 0)
         {
-            koh1.a(3, c.intValue());
-        }
-        if (f != null && f.length > 0)
-        {
-            for (int k = 0; k < f.length; k++)
+            for (int i = 0; i < c.length; i++)
             {
-                kye kye3 = f[k];
-                if (kye3 != null)
+                kyf kyf1 = c[i];
+                if (kyf1 != null)
                 {
-                    koh1.b(4, kye3);
-                }
-            }
-
-        }
-        if (g != null && g.length > 0)
-        {
-            for (int l = 0; l < g.length; l++)
-            {
-                kyh kyh1 = g[l];
-                if (kyh1 != null)
-                {
-                    koh1.b(5, kyh1);
+                    kwk1.b(3, kyf1);
                 }
             }
 
         }
         if (d != null)
         {
-            koh1.a(6, d.intValue());
-        }
-        if (h != null && h.length > 0)
-        {
-            for (int i1 = ((flag) ? 1 : 0); i1 < h.length; i1++)
-            {
-                kyk kyk1 = h[i1];
-                if (kyk1 != null)
-                {
-                    koh1.b(7, kyk1);
-                }
-            }
-
+            kwk1.a(4, d.booleanValue());
         }
         if (e != null)
         {
-            koh1.a(8, e.intValue());
+            kwk1.a(5, e.intValue());
         }
-        super.writeTo(koh1);
+        if (f != null)
+        {
+            kwk1.a(6, f);
+        }
+        if (g != null)
+        {
+            kwk1.a(7, g.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

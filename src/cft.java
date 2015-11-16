@@ -3,47 +3,44 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class cft
-    implements ary
+final class cft extends cfk
 {
 
-    final cfs a;
+    final cfs b;
 
     cft(cfs cfs1)
     {
-        a = cfs1;
-        super();
+        b = cfs1;
+        super(cfs1);
     }
 
-    public void a()
+    public void a(eef eef1, edf edf, boolean flag, aqn aqn, boolean flag1)
     {
-    }
-
-    public void a(String s)
-    {
-        boolean flag = true;
-        bjd bjd1;
-        byte byte0;
-        if (cfs.b(a).b() > 1)
+        gdv.a("Expected null", edf);
+        android.graphics.Bitmap bitmap;
+        if (flag)
         {
-            byte0 = 2;
+            bitmap = eef1.d();
         } else
         {
-            byte0 = 1;
+            bitmap = aon.c();
         }
-        bjd1 = cfs.e(a);
-        if (cfs.d(a) != atd.d)
+        if (cez.b)
         {
-            flag = false;
+            String s = String.valueOf(bitmap);
+            eev.b("Babel", (new StringBuilder(String.valueOf(s).length() + 38)).append("setImageBitmap: success ").append(flag).append(" bitmap: ").append(s).toString());
         }
-        bjd1.a(s, byte0, flag, cfs.b(a).a());
-    }
-
-    public void a(boolean flag)
-    {
-        if (flag && !cfs.a(a) && cfs.b(a).b() == 1)
+        ((cd)b.s).a(bitmap);
+        b.t.a(b.s);
+        if (cec.a(b.o))
         {
-            cfs.c(a);
+            cf cf1 = new cf(b.o);
+            cs cs1 = new cs();
+            cs1.b();
+            cs1.a(bitmap);
+            cf1.a(cs1);
+            b.u.a(cf1.g());
         }
+        super.a(eef1, edf, flag, aqn, flag1);
     }
 }

@@ -3,29 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class bqh
-    implements Runnable
+public interface bqh
 {
 
-    final bqf a;
+    public abstract void a();
 
-    bqh(bqf bqf1)
-    {
-        a = bqf1;
-        super();
-    }
-
-    public void run()
-    {
-        if (a.j())
-        {
-            bqf.d(a);
-            gih gih1 = bnd.l();
-            if (gih1 != null)
-            {
-                ebw.e("Babel_calls", "Disabling camera because the earpiece is on.");
-                gih1.a(false);
-            }
-        }
-    }
+    public abstract void b();
 }

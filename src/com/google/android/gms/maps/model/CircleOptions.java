@@ -6,7 +6,8 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fle;
+import foa;
+import g;
 
 // Referenced classes of package com.google.android.gms.maps.model:
 //            LatLng
@@ -15,7 +16,7 @@ public final class CircleOptions
     implements SafeParcelable
 {
 
-    public static final fle CREATOR = new fle();
+    public static final foa CREATOR = new foa();
     private final int a;
     private LatLng b;
     private double c;
@@ -57,24 +58,44 @@ public final class CircleOptions
         h = flag;
     }
 
-    public int a()
+    private int a()
     {
         return a;
     }
 
-    public LatLng b()
+    private LatLng b()
     {
         return b;
     }
 
-    public double c()
+    private double c()
     {
         return c;
     }
 
-    public float d()
+    private float d()
     {
         return d;
+    }
+
+    private int e()
+    {
+        return e;
+    }
+
+    private int f()
+    {
+        return f;
+    }
+
+    private float g()
+    {
+        return g;
+    }
+
+    private boolean h()
+    {
+        return h;
     }
 
     public int describeContents()
@@ -82,29 +103,18 @@ public final class CircleOptions
         return 0;
     }
 
-    public int e()
-    {
-        return e;
-    }
-
-    public int f()
-    {
-        return f;
-    }
-
-    public float g()
-    {
-        return g;
-    }
-
-    public boolean h()
-    {
-        return h;
-    }
-
     public void writeToParcel(Parcel parcel, int i)
     {
-        fle.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a());
+        g.a(parcel, 2, b(), i);
+        g.a(parcel, 3, c());
+        g.a(parcel, 4, d());
+        g.b(parcel, 5, e());
+        g.b(parcel, 6, f());
+        g.a(parcel, 7, g());
+        g.a(parcel, 8, h());
+        g.q(parcel, j);
     }
 
 }

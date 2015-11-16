@@ -8,7 +8,7 @@
             <com.google.android.apps.hangouts.views.ContactDetailItemView android:textSize="14.0sp" android:ellipsize="end" android:id="@id/contact_detail_item" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="1" style="@style/RealTimeChat.Compose.Contact.Item" />
         </LinearLayout>
         <com.google.android.apps.hangouts.views.CheckmarkView android:layout_gravity="center_vertical" android:id="@id/checkmark" android:background="@drawable/ic_checkmark_dark" android:layout_width="32.0dip" android:layout_height="32.0dip" android:layout_marginRight="@dimen/ml_space" android:alpha="0.0" />
-        <ImageView android:layout_gravity="center_vertical" android:id="@id/sms_icon" android:paddingRight="@dimen/m_space" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_sms_status_bubble_list" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:importantForAccessibility="2" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/sms_icon" android:paddingRight="@dimen/m_space" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_sms_status_bubble_list" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
     </LinearLayout>
     <LinearLayout android:orientation="vertical" android:id="@id/phone_list" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
 </LinearLayout>

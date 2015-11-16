@@ -12,12 +12,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import cao;
+import cbt;
 import g;
 import h;
 
 public class SystemMessageListItemView extends RelativeLayout
-    implements cao
+    implements cbt
 {
 
     private static boolean a = false;
@@ -39,8 +39,8 @@ public class SystemMessageListItemView extends RelativeLayout
         if (!a)
         {
             context = context.getApplicationContext().getResources();
-            b = context.getColor(g.dL);
-            c = context.getColor(g.dK);
+            b = context.getColor(g.dK);
+            c = context.getColor(g.dJ);
             a = true;
         }
     }
@@ -103,8 +103,8 @@ public class SystemMessageListItemView extends RelativeLayout
 
     public void onFinishInflate()
     {
-        e = (TextView)findViewById(h.gp);
-        d = (ImageView)findViewById(h.cM);
+        e = (TextView)findViewById(h.fX);
+        d = (ImageView)findViewById(h.cC);
     }
 
 }

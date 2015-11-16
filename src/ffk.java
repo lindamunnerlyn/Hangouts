@@ -2,44 +2,14 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.ParcelFileDescriptor;
-import com.google.android.gms.common.api.Status;
+import android.os.Bundle;
+import android.os.IInterface;
 
-final class ffk
-    implements fmi
+public interface ffk
+    extends IInterface
 {
 
-    final Status a;
-    final ffj b;
+    public abstract Bundle a(String s);
 
-    ffk(ffj ffj, Status status)
-    {
-        b = ffj;
-        a = status;
-        super();
-    }
-
-    public Status B_()
-    {
-        return a;
-    }
-
-    public void b()
-    {
-    }
-
-    public ParcelFileDescriptor c()
-    {
-        return null;
-    }
-
-    public int d()
-    {
-        return 0;
-    }
-
-    public int e()
-    {
-        return 0;
-    }
+    public abstract void a(String s, int i);
 }

@@ -2,9 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public interface bfo
+public final class bfo
+    implements bex
 {
 
-    public abstract void a(edk edk);
+    public bfo()
+    {
+    }
+
+    public bev a(Context context)
+    {
+        return new bfd(context);
+    }
 }

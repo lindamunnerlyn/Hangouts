@@ -2,98 +2,61 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.AbstractList;
-import java.util.Collection;
 
-abstract class klm extends AbstractList
-    implements kmq
+public final class klm extends kwm
 {
 
-    boolean a;
+    public Boolean a;
 
-    klm()
+    public klm()
     {
-        a = true;
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public boolean a()
+    protected int computeSerializedSize()
     {
-        return a;
-    }
-
-    public void add(int i, Object obj)
-    {
-        c();
-        super.add(i, obj);
-    }
-
-    public boolean add(Object obj)
-    {
-        c();
-        return super.add(obj);
-    }
-
-    public boolean addAll(int i, Collection collection)
-    {
-        c();
-        return super.addAll(i, collection);
-    }
-
-    public boolean addAll(Collection collection)
-    {
-        c();
-        return super.addAll(collection);
-    }
-
-    public final void b()
-    {
-        a = false;
-    }
-
-    protected void c()
-    {
-        if (!a)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            throw new UnsupportedOperationException();
-        } else
-        {
-            return;
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
+        return i;
     }
 
-    public void clear()
+    public kws mergeFrom(kwj kwj1)
     {
-        c();
-        super.clear();
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
     }
 
-    public Object remove(int i)
+    public void writeTo(kwk kwk1)
     {
-        c();
-        return super.remove(i);
-    }
-
-    public boolean remove(Object obj)
-    {
-        c();
-        return super.remove(obj);
-    }
-
-    public boolean removeAll(Collection collection)
-    {
-        c();
-        return super.removeAll(collection);
-    }
-
-    public boolean retainAll(Collection collection)
-    {
-        c();
-        return super.retainAll(collection);
-    }
-
-    public Object set(int i, Object obj)
-    {
-        c();
-        return super.set(i, obj);
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

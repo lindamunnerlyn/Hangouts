@@ -14,55 +14,50 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 import com.google.android.apps.hangouts.views.MainViewPager;
-import ebl;
-import ebm;
-import ebn;
-import ees;
-import eet;
+import eej;
+import eek;
+import eel;
+import ehu;
+import ehv;
 import g;
-import gmo;
+import gqu;
 import h;
-import hgx;
+import hlp;
 import lg;
 
 public class TabHostEx extends TabHost
 {
 
-    private boolean a;
-    private MainViewPager b;
-    private TabWidget c;
-    private gmo d;
-    private final android.widget.TabHost.TabContentFactory e;
-    private final lg f;
-    private final android.widget.TabHost.OnTabChangeListener g;
+    public MainViewPager a;
+    public gqu b;
+    public final android.widget.TabHost.OnTabChangeListener c;
+    private boolean d;
+    private TabWidget e;
+    private final android.widget.TabHost.TabContentFactory f;
+    private final lg g;
 
     public TabHostEx(Context context)
     {
         super(context);
-        c = getTabWidget();
-        e = new ebl(this);
-        f = new ebm(this);
-        g = new ebn(this);
+        e = getTabWidget();
+        f = new eej(this);
+        g = new eek(this);
+        c = new eel(this);
     }
 
     public TabHostEx(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
-        c = getTabWidget();
-        e = new ebl(this);
-        f = new ebm(this);
-        g = new ebn(this);
-    }
-
-    public static android.widget.TabHost.OnTabChangeListener a(TabHostEx tabhostex)
-    {
-        return tabhostex.g;
+        e = getTabWidget();
+        f = new eej(this);
+        g = new eek(this);
+        c = new eel(this);
     }
 
     private void a()
     {
         int i;
-        if (!a && c.getTabCount() > 1)
+        if (!d && e.getTabCount() > 1)
         {
             i = 0;
         } else
@@ -74,24 +69,24 @@ public class TabHostEx extends TabHost
             float f1;
             if (i == 0)
             {
-                f1 = getResources().getDimension(g.eN);
+                f1 = getResources().getDimension(g.eL);
             } else
             {
                 f1 = 0.0F;
             }
             setElevation(f1);
         }
-        c.setVisibility(i);
+        e.setVisibility(i);
     }
 
-    private void a(int i)
+    public void a(int i)
     {
         if (android.os.Build.VERSION.SDK_INT < 21)
         {
             int j = 0;
-            while (j < c.getChildCount()) 
+            while (j < e.getChildCount()) 
             {
-                ImageView imageview = (ImageView)c.getChildAt(j).findViewById(h.go);
+                ImageView imageview = (ImageView)e.getChildAt(j).findViewById(h.fW);
                 if (imageview != null)
                 {
                     TypedValue typedvalue = new TypedValue();
@@ -99,10 +94,10 @@ public class TabHostEx extends TabHost
                     int k;
                     if (j == i)
                     {
-                        k = g.dX;
+                        k = g.dV;
                     } else
                     {
-                        k = g.dW;
+                        k = g.dU;
                     }
                     resources.getValue(k, typedvalue, true);
                     imageview.setAlpha(typedvalue.getFloat());
@@ -112,58 +107,43 @@ public class TabHostEx extends TabHost
         }
     }
 
-    public static void a(TabHostEx tabhostex, int i)
-    {
-        tabhostex.a(i);
-    }
-
-    public static MainViewPager b(TabHostEx tabhostex)
-    {
-        return tabhostex.b;
-    }
-
-    public static gmo c(TabHostEx tabhostex)
-    {
-        return tabhostex.d;
-    }
-
     public void a(LayoutInflater layoutinflater)
     {
         setOnTabChangedListener(null);
         clearAllTabs();
-        eet eet1 = b.i();
-        int k = eet1.b();
+        ehv ehv1 = a.i();
+        int k = ehv1.b();
         for (int i = 0; i < k; i++)
         {
-            ees ees1 = eet1.d(i);
-            View view = layoutinflater.inflate(g.hg, null);
-            ImageView imageview = (ImageView)view.findViewById(h.go);
-            imageview.setContentDescription(getResources().getString(ees1.a));
-            imageview.setImageResource(ees1.b);
-            addTab(newTabSpec(ees1.d).setIndicator(view).setContent(e));
+            ehu ehu1 = ehv1.d(i);
+            View view = layoutinflater.inflate(g.gY, null);
+            ImageView imageview = (ImageView)view.findViewById(h.fW);
+            imageview.setContentDescription(getResources().getString(ehu1.a));
+            imageview.setImageResource(ehu1.b);
+            addTab(newTabSpec(ehu1.d).setIndicator(view).setContent(f));
         }
 
         if (k > 0)
         {
-            int j = b.c();
+            int j = a.c();
             setCurrentTab(j);
             a(j);
         }
         a();
-        setOnTabChangedListener(g);
+        setOnTabChangedListener(c);
     }
 
     public void a(MainViewPager mainviewpager)
     {
-        b = mainviewpager;
-        b.b(f);
+        a = mainviewpager;
+        a.b(g);
     }
 
     public void a(boolean flag)
     {
-        if (a != flag)
+        if (d != flag)
         {
-            a = flag;
+            d = flag;
             a();
         }
     }
@@ -175,7 +155,7 @@ public class TabHostEx extends TabHost
     public void setup()
     {
         super.setup();
-        c = getTabWidget();
-        d = (gmo)hgx.b(getContext()).a(gmo);
+        e = getTabWidget();
+        b = (gqu)hlp.b(getContext()).a(gqu);
     }
 }

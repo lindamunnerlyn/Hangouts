@@ -2,41 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.ActionProvider;
-import android.view.SubMenu;
-import android.view.View;
 
-class tf extends hz
+final class tf
+    implements ib
 {
 
-    final ActionProvider a;
-    final te b;
+    final te a;
 
-    public tf(te te1, Context context, ActionProvider actionprovider)
+    tf(te te1)
     {
-        b = te1;
-        super(context);
-        a = actionprovider;
+        a = te1;
+        super();
     }
 
-    public View a()
+    public void a()
     {
-        return a.onCreateActionView();
-    }
-
-    public void a(SubMenu submenu)
-    {
-        a.onPrepareSubMenu(b.a(submenu));
-    }
-
-    public boolean d()
-    {
-        return a.onPerformDefaultAction();
-    }
-
-    public boolean e()
-    {
-        return a.hasSubMenu();
+        a.a.i();
     }
 }

@@ -2,114 +2,80 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.Serializable;
+import java.util.AbstractMap;
+import java.util.Collections;
+import java.util.Set;
+import java.util.concurrent.ConcurrentMap;
 
-public final class jua extends koj
+final class jua extends AbstractMap
+    implements Serializable, ConcurrentMap
 {
 
-    public juc a[];
+    private static final long serialVersionUID = 0L;
+    private final fuu a;
+    private final jub b;
 
-    public jua()
+    jua(jtz jtz1)
     {
-        a = juc.a();
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = jtz1.a();
+        b = jtz1.j;
     }
 
-    protected int computeSerializedSize()
+    public boolean containsKey(Object obj)
     {
-        int i = super.computeSerializedSize();
-        int k = i;
-        if (a != null)
-        {
-            k = i;
-            if (a.length > 0)
-            {
-                int j = 0;
-                do
-                {
-                    k = i;
-                    if (j >= a.length)
-                    {
-                        break;
-                    }
-                    juc juc1 = a[j];
-                    k = i;
-                    if (juc1 != null)
-                    {
-                        k = i + koh.d(1, juc1);
-                    }
-                    j++;
-                    i = k;
-                } while (true);
-            }
-        }
-        return k;
+        return false;
     }
 
-    public kop mergeFrom(kog kog1)
+    public boolean containsValue(Object obj)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                juc ajuc[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                ajuc = new juc[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, ajuc, 0, j);
-                    k = j;
-                }
-                for (; k < ajuc.length - 1; k++)
-                {
-                    ajuc[k] = new juc();
-                    kog1.a(ajuc[k]);
-                    kog1.a();
-                }
-
-                ajuc[k] = new juc();
-                kog1.a(ajuc[k]);
-                a = ajuc;
-                break;
-            }
-        } while (true);
+        return false;
     }
 
-    public void writeTo(koh koh1)
+    public Set entrySet()
     {
-        if (a != null && a.length > 0)
-        {
-            for (int i = 0; i < a.length; i++)
-            {
-                juc juc1 = a[i];
-                if (juc1 != null)
-                {
-                    koh1.b(1, juc1);
-                }
-            }
+        return Collections.emptySet();
+    }
 
-        }
-        super.writeTo(koh1);
+    public Object get(Object obj)
+    {
+        return null;
+    }
+
+    public Object put(Object obj, Object obj1)
+    {
+        n.b(obj);
+        n.b(obj1);
+        new juh(obj, obj1, b);
+        return null;
+    }
+
+    public Object putIfAbsent(Object obj, Object obj1)
+    {
+        return put(obj, obj1);
+    }
+
+    public Object remove(Object obj)
+    {
+        return null;
+    }
+
+    public boolean remove(Object obj, Object obj1)
+    {
+        return false;
+    }
+
+    public Object replace(Object obj, Object obj1)
+    {
+        n.b(obj);
+        n.b(obj1);
+        return null;
+    }
+
+    public boolean replace(Object obj, Object obj1, Object obj2)
+    {
+        n.b(obj);
+        n.b(obj2);
+        return false;
     }
 }

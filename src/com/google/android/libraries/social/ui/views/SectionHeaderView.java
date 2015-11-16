@@ -8,12 +8,12 @@ import android.content.Context;
 import android.text.style.SuperscriptSpan;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
-import hgq;
+import hli;
 
 public final class SectionHeaderView extends RelativeLayout
 {
 
-    private static final SuperscriptSpan a = new hgq();
+    private static final SuperscriptSpan a = new hli();
 
     public SectionHeaderView(Context context)
     {

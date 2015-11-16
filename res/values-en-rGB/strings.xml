@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="add_account_button_text">Add account</string>
-    <string name="invalid_account_toast_text">Account not found.</string>
+    <string name="invalid_account_toast_text">Account not found: %s</string>
     <string name="choose_account_title">Choose account</string>
     <string name="login_pending">Signing in…</string>
     <string name="login_impl_failed_loading_device_accounts">Failed to retrieve device accounts.</string>
@@ -15,6 +15,7 @@
     <string name="wifi_calling_enabled_summary">Use Wi-Fi for calls when my connection is strong enough</string>
     <string name="selected_account_title">Wi‑Fi account</string>
     <string name="ask_each_call_title">Ask every time</string>
+    <string name="request_feedback_title">Rate calls</string>
     <string name="progress_verify_phone_number_message">Verifying phone number…</string>
     <string name="wifi_chooser_title">How would you like to place this call?</string>
     <string name="wifi_chooser_choose_wifi">Wi‑Fi</string>
@@ -59,7 +60,6 @@
     <string name="progress_sign_in_message">Signing in to account…</string>
     <string name="progress_setup_wifi_calling_title">Configuring Wi‑Fi calling…</string>
     <string name="progress_update_account_info_message">Retrieving Wi‑Fi calling status…</string>
-    <string name="progress_get_proxy_number_message">Getting proxy phone number…</string>
     <string name="setup_error_signing_in">"Couldn't sign in."</string>
     <string name="setup_error_update_google_voice_status">"Couldn't retrieve Wi‑Fi calling status for this account."</string>
     <string name="setup_error_title">Wi‑Fi Setup Error</string>
@@ -127,6 +127,8 @@
     <string name="select_phone_number_list_item" formatted="false">%s %s</string>
     <string name="add_people_history">People you add can see all previous messages in this Hangout</string>
     <string name="invitation_detail_title">Invite to Hangouts</string>
+    <string name="hide_user_failed_network">"Couldn't hide %s because you don't have a connection. Try again."</string>
+    <string name="hide_user_failed">"Couldn't hide %s. Try again."</string>
     <string name="contacts_rationale_title">Find your friends</string>
     <string name="contacts_rationale_explanation">Allow Hangouts to access your contacts so that you can find your friends faster.</string>
     <string name="contacts_rationale_next">Next</string>
@@ -143,6 +145,24 @@
     <string name="last_seen_promo_title">New in Hangouts</string>
     <string name="last_seen_promo_text_top">\"Last seen\" shows when the people you use Hangouts with were last using Hangouts. Change your own \"last seen\" in the Settings.</string>
     <string name="last_seen_promo_ok">OK, got it</string>
+    <string name="account_picker_select_initial_title">Sign in</string>
+    <string name="offnetwork_invite_send_button_text">Invite</string>
+    <string name="offnetwork_invite_sms_continue">Send SMS</string>
+    <string name="offnetwork_invite_title">Invite %s to the Hangouts app</string>
+    <string name="offnetwork_invite_video_call_title">Invite %s to Hangouts to use video calls</string>
+    <string name="offnetwork_invite_audio_call_title">Invite %s to Hangouts for a voice call</string>
+    <string name="offnetwork_invite_stickers_title">Invite %s to Hangouts to send stickers</string>
+    <string name="offnetwork_invite_sign_in_title">Sign in to send invitations on Hangouts</string>
+    <string name="offnetwork_invite_sign_in_video_call_title">Sign in to make video calls on Hangouts</string>
+    <string name="offnetwork_invite_sign_in_audio_call_title">Sign in to make voice calls on Hangouts</string>
+    <string name="offnetwork_invite_sign_in_stickers_title">Sign in to send stickers on Hangouts</string>
+    <string name="offnetwork_invite_sms_explanation">Send an SMS message with a link to Hangouts.</string>
+    <string name="offnetwork_invite_email_explanation">Hangouts will send an email with a link to Hangouts.</string>
+    <string name="offnetwork_invite_people_list_explanation">When you both use Hangouts, you can send stickers, start video calls and share photos</string>
+    <string name="contact_invite_no_valid_contact">No valid email address or phone number is found for this contact.</string>
+    <string name="offnetwork_invite_failed">"Couldn't send invite. Please try again."</string>
+    <string name="offnetwork_invite_sent">Invite sent.</string>
+    <string name="offnetwork_invite_canned_sms_text">"Let's chat on Hangouts! %s"</string>
     <string name="help_feedback_menu_item_text">Help &amp; feedback</string>
     <string name="help_menu_privacy_policy">Privacy Policy</string>
     <string name="help_menu_maps_tos">Maps Terms of Service</string>
@@ -217,6 +237,7 @@
     <string name="otr_status_off_still_send_body">Do you still want to send the message with history off?</string>
     <string name="otr_status_send_button_text">Send</string>
     <string name="otr_status_cancel_button_text">Cancel</string>
+    <string name="sticker_to_group_sms_error">"Can't send stickers to an SMS group"</string>
     <string name="hangouts_msg_title">Hangouts message</string>
     <string name="sms_msg_title">SMS message</string>
     <string name="voice_call_title">Voice call</string>
@@ -227,6 +248,7 @@
     <string name="transport_selection_title">Start SMS with</string>
     <string name="carrier_number">Carrier number</string>
     <string name="gv_number">Google Voice</string>
+    <string name="unreachable_person">"%s can't be reached via Hangouts at the moment."</string>
     <string name="unknown_caller">Unknown caller</string>
     <string name="unknown_user">Unknown person</string>
     <string name="on_hangouts">On Hangouts</string>
@@ -282,7 +304,7 @@
 
 Are you sure you wish to continue? &lt;a href=%s>Learn more&lt;/a>"</string>
     <string name="phone_callerid_disable_alert_cancel">Cancel</string>
-    <string name="phone_callerid_disable_alert_continue">Disable outbound caller ID</string>
+    <string name="phone_callerid_disable_alert_continue">Disable</string>
     <string name="phone_callerid_alert_title">Outbound caller ID not active</string>
     <string name="phone_callerid_alert_later">Call Anyway</string>
     <string name="phone_callerid_alert_verify">Verify</string>
@@ -325,6 +347,7 @@ Are you sure you wish to continue? &lt;a href=%s>Learn more&lt;/a>"</string>
     <string name="emergency_message_warning_message">There is no text to emergency number service available. Use your phone dialler to call %s.</string>
     <string name="hangouts_emergency_warning_title">Unable to call or message emergency number</string>
     <string name="hangouts_emergency_warning_message">"Emergency numbers can't be contacted via Hangouts calls or messages. Use your phone dialler to call %s."</string>
+    <string name="offnetwork_invite_without_name_title">Invite to Hangouts</string>
     <string name="elapsed_just_now">just now</string>
     <string name="elapsed_just_now_announce">just now</string>
     <string name="elapsed_today">today</string>
@@ -1237,11 +1260,11 @@ Are you sure you wish to continue? &lt;a href=%s>Learn more&lt;/a>"</string>
     <string name="switch_text_on">On</string>
     <string name="switch_text_off">Off</string>
     <string name="about_preference_category">About</string>
-    <string name="stream_settings_category">Stream Settings</string>
+    <string name="stream_settings_category">Stream settings</string>
     <string name="preferences_build_version">Build version</string>
     <string name="menu_home_privacy_policy">Privacy policy</string>
     <string name="menu_home_terms_of_service">Terms of service</string>
-    <string name="developer_preference_category">Developer Settings</string>
+    <string name="developer_preference_category">Developer settings</string>
     <string name="debug_preference_title">Debug</string>
     <string name="tracing_preference_title">Tracing</string>
     <string name="learn_more_preference_text">Learn more</string>
@@ -1257,7 +1280,7 @@ Are you sure you wish to continue? &lt;a href=%s>Learn more&lt;/a>"</string>
     <string name="menu_search">Search</string>
     <string name="confidential_title">CONFIDENTIAL</string>
     <string name="confidential_body">This dogfood version of %1$s is internal only and may contain features not yet released publicly.</string>
-    <string name="okay_got_it">OK, got it</string>
+    <string name="okay_got_it">Got it</string>
     <string name="iph_learn_more">Learn more</string>
     <string name="clear_text">Clear Text</string>
     <string name="people_search_job">%1$s at %2$s</string>
@@ -1280,8 +1303,8 @@ Are you sure you wish to continue? &lt;a href=%s>Learn more&lt;/a>"</string>
     <string name="remove">Remove</string>
     <string name="remove_photo">Remove photo</string>
     <string name="choose_photo">Choose photo</string>
-    <string name="tab_content_description_selected" formatted="false">%s, selected, tab %d of %d</string>
-    <string name="tab_content_description_unselected" formatted="false">%s, not selected, tab %d of %d</string>
+    <string name="tab_content_description_selected">%1$s, selected, tab %2$d of %3$d</string>
+    <string name="tab_content_description_unselected">%1$s, not selected, tab %2$d of %3$d</string>
     <string name="camera_label">Camera</string>
     <string name="common_google_play_services_notification_ticker">Google Play services error</string>
     <string name="common_google_play_services_notification_needs_update_title">An application requires an update for Google Play Services.</string>
@@ -1335,10 +1358,6 @@ Are you sure you wish to continue? &lt;a href=%s>Learn more&lt;/a>"</string>
     <string name="home_screen_account_not_signed_in">Not signed in</string>
     <string name="nav_drawer_account_not_signed_in">%s (signed out)</string>
     <string name="share_intent_label">Hangouts</string>
-    <string name="upgrade_to_google_plus_activity_label">Upgrade to Google+</string>
-    <string name="upgrade_to_google_plus_button">Upgrade to Google+</string>
-    <string name="decline_upgrade_to_google_plus_photos_button">Cancel</string>
-    <string name="upgrade_to_google_plus_photos_dialog_text">With Google+, you can set a public profile photo and display name to help your friends find you.</string>
     <string name="menu_item_save">Save</string>
     <string name="menu_privacy_policy">Privacy policy</string>
     <string name="menu_terms_of_service">Terms of service</string>
@@ -1358,6 +1377,7 @@ Are you sure you wish to continue? &lt;a href=%s>Learn more&lt;/a>"</string>
     <string name="realtimechat_block_user_button">Block</string>
     <string name="realtimechat_unblock_user_button">Unblock</string>
     <string name="realtimechat_unblock_user_toast">Unblocked %s</string>
+    <string name="realtimechat_unblock_unknown_user_failed">"Couldn't unblock this person. Try again."</string>
     <string name="realtimechat_unblock_user_failed">"Couldn't unblock %s. Try again."</string>
     <string name="realtimechat_unblock_user_failed_network">"Couldn't unblock %s because you don't have a connection. Try again."</string>
     <string name="realtimechat_load_blocked_users_failed">"Couldn't load blocked people. Try again later."</string>
@@ -1403,25 +1423,10 @@ Are you sure you wish to continue? &lt;a href=%s>Learn more&lt;/a>"</string>
     <string name="people_search_activity_label">Search people</string>
     <string name="dialer_activity_label">Google Voice dialler</string>
     <string name="proceed">Proceed</string>
-    <string name="person_with_subtitle_entry_content_description" formatted="false">%s; %s</string>
     <string name="notification_one_to_one_hangout">Invited you to a Hangout</string>
     <string name="contact_invite_title">Invite %s to Hangouts</string>
     <string name="contact_invite_with_choice_title">Invite %s to Hangouts via:</string>
     <string name="contact_invite_message_email" formatted="false">%s is not yet on Hangouts. Would you like to tell %s about it?</string>
-    <string name="offnetwork_invite_title">Invite %s to the Hangouts app</string>
-    <string name="offnetwork_invite_without_name_title">Invite to Hangouts</string>
-    <string name="offnetwork_invite_video_call_title">Invite %s to Hangouts to use video calls</string>
-    <string name="offnetwork_invite_audio_call_title">Invite %s to Hangouts for a voice call</string>
-    <string name="offnetwork_invite_stickers_title">Invite %s to Hangouts to send stickers</string>
-    <string name="offnetwork_invite_sign_in_title">Sign in to send invitations on Hangouts</string>
-    <string name="offnetwork_invite_sign_in_video_call_title">Sign in to make video calls on Hangouts</string>
-    <string name="offnetwork_invite_sign_in_audio_call_title">Sign in to make voice calls on Hangouts</string>
-    <string name="offnetwork_invite_sign_in_stickers_title">Sign in to send stickers on Hangouts</string>
-    <string name="offnetwork_invite_sms_explanation">Send an SMS message with a link to Hangouts.</string>
-    <string name="offnetwork_invite_email_explanation">Hangouts will send an email with a link to Hangouts.</string>
-    <string name="offnetwork_invite_people_list_explanation">When you both use Hangouts, you can send stickers, start video calls and share photos</string>
-    <string name="offnetwork_invite_sms_continue">Continue to SMS</string>
-    <string name="contact_invite_without_name_message_email" formatted="false">"We couldn't find anyone with %s on Hangouts. Would you like to tell %s about it?"</string>
     <string name="contact_profile_picker_dialog_title">Multiple profiles found</string>
     <string name="contact_audio_hangouts">Hangouts Voice Call</string>
     <string name="contact_phone_type">Phone</string>
@@ -1429,7 +1434,6 @@ Are you sure you wish to continue? &lt;a href=%s>Learn more&lt;/a>"</string>
     <string name="contact_email_type">Email</string>
     <string name="contact_email_custom_type">%s Email</string>
     <string name="contact_hangouts">Hangouts</string>
-    <string name="offnetwork_invite_send_button_text">Invite</string>
     <string name="phone_select_title">Send message to %s via</string>
     <string name="person_has_no_phone">No phone found for selected person.</string>
     <string name="gmscore_upgrade_title">Update Google Play Services</string>
@@ -1540,10 +1544,9 @@ Are you sure you wish to continue? &lt;a href=%s>Learn more&lt;/a>"</string>
     <string name="realtimechat_conversation_error_dialog_title">Alert</string>
     <string name="realtimechat_conversation_error_dialog_general">"Couldn't create the Hangout because of an error."</string>
     <string name="realtimechat_conversation_error_dialog_leave_button">OK</string>
-    <string name="remove_from_circles">Remove from circles</string>
     <string name="realtimechat_participant_without_name_text">No name</string>
     <string name="realtimechat_conversation_invite_menu_item_text">Add people</string>
-    <string name="realtimechat_conversation_ignore_menu_item_text">Ignore &amp; Report</string>
+    <string name="realtimechat_conversation_ignore_menu_item_text">Ignore</string>
     <string name="realtimechat_conversation_new_group_conversation_menu_item_text">New group conversation</string>
     <string name="realtimechat_start_hangout_description">Video call</string>
     <string name="redacted_notification_text">Contents hidden</string>
@@ -1595,25 +1598,10 @@ Are you sure you wish to continue? &lt;a href=%s>Learn more&lt;/a>"</string>
     <string name="realtimechat_reject_invitation_button_text">Ignore</string>
     <string name="realtimechat_accept_invitation_button_text">Accept</string>
     <string name="realtimechat_profile_avatar_content_description">Profile of %s</string>
-    <string name="realtimechat_acl_anyone">Anyone</string>
-    <string name="realtimechat_acl_my_circles">Your circles</string>
-    <string name="realtimechat_acl_extended_circles">Extended circles</string>
-    <string name="circles_selection_count">%d circles</string>
-    <string name="contact_lookup_by_gaia">Looking up contact…</string>
-    <string name="contact_lookup_failed">Failed to find contact. Please try again later.</string>
-    <string name="contact_lookup_failed_with_invalid_contact">Failed to find contact. Please check contact phone number and try again.</string>
-    <string name="contact_lookup_selected_yourself">You do not need to add yourself to the Hangout.</string>
-    <string name="people_search_local_contact_title">Phone contacts</string>
     <string name="people_search_in_your_domain">People from %s</string>
-    <string name="people_search_public_profile_title">Suggested from Google+</string>
     <string name="blocked_people_empty">No blocked people</string>
-    <string name="google_plus_account_label">Google+</string>
     <string name="profile_does_not_exist">"Can't find the Google+ profile."</string>
     <string name="menu_license">Open-source licences</string>
-    <string name="invite_contact_label">Add to circle</string>
-    <string name="contacts_sync_preference_category">Phone contacts</string>
-    <string name="contacts_sync_preference_enabled_title">Sync contacts</string>
-    <string name="contacts_sync_preference_enabled_summary">Sync Google+ people and circles to your phone contacts.</string>
     <string name="no_conversations_status_text">No conversations</string>
     <string name="no_conversations_instruction_text">Tap the + button to start a conversation!</string>
     <string name="no_conversations_instruction_description">Tap the New conversation button to start a conversation</string>
@@ -1645,8 +1633,6 @@ Are you sure you wish to continue? &lt;a href=%s>Learn more&lt;/a>"</string>
     <string name="hangout_local_participant_controls_visible">Controls for call.</string>
     <string name="hangout_minor_consent_title">Remember</string>
     <string name="hangout_minor_consent_guidance">"It's easy to ignore someone by tapping their video and then tapping report, or tap Exit to leave the video call immediately. Anyone in the Hangout can invite others to join, including people who are not in your circles."</string>
-    <string name="hangout_abuse_tos_title">Important information about public video calls</string>
-    <string name="hangout_abuse_tos_message">"In order to help protect the Google+ community, we've started recording short snippets of video calls if a participant reports abuse. These snippets are used only to evaluate reports and are discarded shortly after evaluation is complete. &lt;a href=%s>Learn more&lt;/a>"</string>
     <string name="hangout_on_air_consent_title">Hangouts On Air</string>
     <string name="hangout_on_air_consent_guidance">"• This video call will be streamed live on Google+ and YouTube &lt;br/>  • People who you don't know may be able to watch you &lt;br/> • Everything in the video call will be recorded and may be reshared &lt;p> You must not include any material that you don’t own or have the appropriate rights to, and you must comply at all times with the Google+ user content and conduct policy and YouTube’s Terms of Service and Community Guidelines."</string>
     <string name="hangout_on_air_consent_checkbox">I have read and understood the information above.</string>
@@ -1662,11 +1648,7 @@ Are you sure you wish to continue? &lt;a href=%s>Learn more&lt;/a>"</string>
     <string name="hangout_eject_heading_message">Eject %1$s</string>
     <string name="hangout_eject_blurb_message">Are you sure you want to eject %1$s from this video call?</string>
     <string name="hangout_block_label">Block permanently</string>
-    <string name="hangout_abuse_label">Report abuse</string>
     <string name="hangout_block_description">You will no longer receive direct messages and notifications, but this person will still be present in any group Hangouts you have in common. &lt;a href=%s>Learn more&lt;/a></string>
-    <string name="hangout_abuse_description">Google will record a portion of this call and use it to determine if abuse is occurring. Abuse is defined as any violation of our user content and conduct policies including sexually explicit behaviour, harassment, hate speech or acts of violence. &lt;a href=%s>Learn more&lt;/a></string>
-    <string name="hangout_abuse_reported_toast">"You have reported abuse. We'll take action if the user is in violation of our policies."</string>
-    <string name="hangout_abuse_report_failed">Your attempt to report abuse has failed.</string>
     <string name="hangout_common_menu_exit">Exit</string>
     <string name="conversation_launch_invalid_url">Invalid Hangout link</string>
     <string name="conversation_launch_invalid_account">Invalid account in Hangout link</string>
@@ -1802,7 +1784,7 @@ Google Voice
     <string name="ongoing_hangout">Ongoing call</string>
     <string name="previously_joined_hangout">You were on a video call</string>
     <string name="previously_joined_voice_hangout">You were on a voice call</string>
-    <string name="network_unavailable">Data network unavailable</string>
+    <string name="network_unavailable">No Internet connection</string>
     <string name="captive_portal_detected">Network requires sign-in</string>
     <string name="dnd_menu_item">Snooze notifications</string>
     <string name="notifications_are_dnd">Notifications snoozed until %s</string>
@@ -1871,16 +1853,12 @@ You will start receiving SMS messages in your default SMS app"</string>
     <string name="google_voice_messages_summary">Show SMS &amp; voicemail in Hangouts</string>
     <string name="google_voice_incoming_phone_calls_title">Incoming phone calls</string>
     <string name="google_voice_number_delimeter">", "</string>
-    <string name="google_plus_profile_title">Google+ profile</string>
-    <string name="google_plus_upgrade_title">Join Google+</string>
     <string name="phone_verification_title_default">Verify phone number</string>
     <string name="phone_verification_summary_default">Phone number</string>
     <string name="phone_verification_title_confirm">Verify phone number</string>
     <string name="phone_verification_summary_verify">Is %s your number?</string>
     <string name="phone_verification_title_verified">Verified phone number(s)</string>
-    <string name="google_plus_change_avatar_subtitle">Change your Google+ profile photo</string>
-    <string name="google_plus_add_avatar_subtitle">Add your Google+ profile photo</string>
-    <string name="google_plus_change_avatar_title">Profile photo</string>
+    <string name="change_avatar_title">Profile photo</string>
     <string name="change_avatar_dialog_cancel">Cancel</string>
     <string name="change_avatar_dialog_positive_button">Set profile photo</string>
     <string name="change_avatar_dialog_content">Your profile photo is visible to everyone across Google products. &lt;a href=%s>Learn more&lt;/a></string>
@@ -1963,11 +1941,8 @@ You will start receiving SMS messages in your default SMS app"</string>
     <string name="notification_send_failures_line1_plural">Some messages not sent</string>
     <string name="notification_signin_failed_line1">Sign-in failed for (%s)</string>
     <string name="notification_signin_failed_line2">(%s) is not signed into Hangouts</string>
-    <string name="g_plus_upgrade_success">%s joined Google+.</string>
-    <string name="g_plus_upgrade_cancel">Upgrade to Google+ cancelled.</string>
     <string name="high_affinity_invites_header">New Invites</string>
     <string name="low_affinity_invites_header">Spam</string>
-    <string name="add_to_circles">ADD</string>
     <string name="invite_wants_you_to_join_unnamed_group_conversation_zero">sent you a message</string>
     <string name="invite_wants_you_to_join_named_group_conversation_zero">%s wants to Hangout</string>
     <string name="invite_group_hangout">Group Hangout</string>
@@ -1976,7 +1951,6 @@ You will start receiving SMS messages in your default SMS app"</string>
     <string name="invite_wants_you_to_join_conversation">Sent you a message</string>
     <string name="invite_wants_you_to_join_conversation_image">Sent you a photo</string>
     <string name="invite_wants_you_to_join_conversation_video">Tried to video call you</string>
-    <string name="friends_circle_name">Friends</string>
     <string name="conversation_archived">Hangout archived.</string>
     <string name="n_conversations_archived">%d archived.</string>
     <string name="archive_undo">undo</string>
@@ -1984,10 +1958,6 @@ You will start receiving SMS messages in your default SMS app"</string>
     <string name="conversation_list_item_ongoing_voice_hangout_button_description">Join voice call</string>
     <string name="conversation_list_item_missed_hangout_button_description">Call back with video call</string>
     <string name="conversation_list_item_missed_voice_hangout_button_description">Call back</string>
-    <string name="people_list_item_not_reachable_status">unreachable</string>
-    <string name="people_list_item_reachable_status">reachable</string>
-    <string name="public_profile_role_organization_separator">" at "</string>
-    <string name="circle_summary_circles">%d circles</string>
     <string name="more_invites">More</string>
     <string name="add_by_email_title">Add by email</string>
     <string name="add_by_phone_title">Find on Hangouts</string>
@@ -2000,10 +1970,6 @@ You will start receiving SMS messages in your default SMS app"</string>
     <string name="contact_details_error_dialog_message_unknown">You need to enter an email address or phone number.</string>
     <string name="contact_details_error_dialog_leave_button">Done</string>
     <string name="contact_input_ending_comma">,</string>
-    <string name="offnetwork_invite_failed">"Couldn't send invite. Please try again."</string>
-    <string name="offnetwork_invite_sent">Invite sent.</string>
-    <string name="offnetwork_invite_canned_sms_text">"Let's chat on Hangouts! %s"</string>
-    <string name="contact_invite_no_valid_contact">No valid email address or phone number is found for this contact.</string>
     <string name="title_at" formatted="false">%s at %s</string>
     <string name="unable_to_sign_in">Unable to sign in</string>
     <string name="oobe_dialog_add_account_button">Add account</string>
@@ -2022,7 +1988,6 @@ Hangouts will save all of your conversation history so that you can access it an
     <string name="chat_acl_setting_progress_dialog_text">Updating …</string>
     <string name="chat_acl_setting_toast_no_net">"Couldn't update these settings because you don't have a connection. Please try again."</string>
     <string name="chat_acl_setting_toast_failed">"Couldn't update these settings. Please try again."</string>
-    <string name="chat_acl_setting_toast_success">Settings updated.</string>
     <string name="add_people_to_group_hangout_disclaimer">People you add can see all previous messages in this Hangout.</string>
     <string name="delete_conversation_failed">"Couldn't delete Hangout. Try again."</string>
     <string name="delete_message_failed">"Couldn't delete message. Try again."</string>
@@ -2074,9 +2039,7 @@ Hangouts will save all of your conversation history so that you can access it an
     <string name="menu_save_media">Save media</string>
     <string name="menu_details_title">Message options</string>
     <string name="class_0_message_activity">Class 0 message</string>
-    <string name="message_content_description" formatted="false">%s %s from %s, %s</string>
-    <string name="failed_message_content_description" formatted="false">%s, %s, %s, %s</string>
-    <string name="voicemail_content_description" formatted="false">%s Voicemail: %s, %s; Message: %s</string>
+    <string name="message_content_description_from">from %s</string>
     <string name="message_details_title">Message details</string>
     <string name="message_type_label">Type: %s</string>
     <string name="text_message">Text message</string>
@@ -2251,7 +2214,6 @@ Hangouts will save all of your conversation history so that you can access it an
     <string name="menu_view_in_store">View in Google Play Store</string>
     <string name="location_tos">Location terms of service</string>
     <string name="maps_tos">Maps Terms of Service</string>
-    <string name="account_picker_select_initial_title">Sign in</string>
     <string name="account_picker_select_all">Sign in all accounts</string>
     <string name="transport_spinner_switch_content_description">Switch between Hangouts and SMS</string>
     <string name="transport_spinner_sms_content_description">Send via SMS</string>
@@ -2615,8 +2577,6 @@ Hangouts will save all of your conversation history so that you can access it an
     <string name="realtimechat_load_hidden_contacts_failed">"Couldn't load hidden contacts. Try again later."</string>
     <string name="realtimechat_unhide_user_failed_network">"Couldn't unhide %s because you don't have a connection. Try again."</string>
     <string name="realtimechat_unhide_user_failed">"Couldn't unhide %s. Try again."</string>
-    <string name="realtimechat_hide_user_failed_network">"Couldn't hide %s because you don't have a connection. Try again."</string>
-    <string name="realtimechat_hide_user_failed">"Couldn't hide %s. Try again."</string>
     <string name="hidden_contacts_title">Hidden contacts</string>
     <string name="block_user_in_progress">Blocking %s</string>
     <string name="block_user_failed">"Couldn't block %s"</string>

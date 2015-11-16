@@ -2,29 +2,68 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 public final class gue
+    implements Parcelable
 {
 
-    private final String a;
-    private final String b;
-    private final int c;
-    private final String d;
-    private final hkl e;
+    public static final android.os.Parcelable.Creator CREATOR = new guf();
+    private final Map a;
 
-    public gue(String s, String s1, String s2, int i)
+    public gue()
     {
-        if (s.length() > 31)
-        {
-            throw new IllegalArgumentException((new StringBuilder(String.valueOf(s).length() + 25)).append("\"").append(s).append("\".length() > 31").toString());
-        } else
-        {
-            a = s;
-            b = s1;
-            d = s2;
-            c = i;
-            e = new hkl(s, null);
-            return;
-        }
+        a = new HashMap();
     }
+
+    public gue(Parcel parcel)
+    {
+        a = new HashMap();
+        int j = parcel.readInt();
+        for (int i = 0; i < j; i++)
+        {
+            int k = parcel.readInt();
+            int l = parcel.readInt();
+            a.put(Integer.valueOf(k), Integer.valueOf(l));
+        }
+
+    }
+
+    public Integer a(Integer integer)
+    {
+        return (Integer)a.get(integer);
+    }
+
+    public Set a()
+    {
+        return a.keySet();
+    }
+
+    public void a(Integer integer, Integer integer1)
+    {
+        a.put(integer, integer1);
+    }
+
+    public int describeContents()
+    {
+        return 0;
+    }
+
+    public void writeToParcel(Parcel parcel, int i)
+    {
+        parcel.writeInt(a.size());
+        java.util.Map.Entry entry;
+        for (Iterator iterator = a.entrySet().iterator(); iterator.hasNext(); parcel.writeInt(((Integer)entry.getValue()).intValue()))
+        {
+            entry = (java.util.Map.Entry)iterator.next();
+            parcel.writeInt(((Integer)entry.getKey()).intValue());
+        }
+
+    }
+
 }

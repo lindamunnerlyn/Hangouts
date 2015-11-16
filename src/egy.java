@@ -2,11 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Bitmap;
-import android.net.Uri;
+import android.graphics.drawable.AnimationDrawable;
 
-public interface egy
+final class egy
+    implements Runnable
 {
 
-    public abstract void a(Uri uri, Bitmap bitmap);
+    final AnimationDrawable a;
+
+    egy(AnimationDrawable animationdrawable)
+    {
+        a = animationdrawable;
+        super();
+    }
+
+    public void run()
+    {
+        a.stop();
+    }
 }

@@ -3,52 +3,65 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jam extends koj
+public final class jam extends kwm
 {
 
-    public izx a;
-    public jbw b;
-    public ixg responseHeader;
+    private static volatile jam c[];
+    public jzd a;
+    public jan b;
 
     public jam()
     {
-        responseHeader = null;
         a = null;
         b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
+    public static jam[] a()
+    {
+        if (c == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (c == null)
+                {
+                    c = new jam[0];
+                }
+            }
+        }
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
     protected int computeSerializedSize()
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (responseHeader != null)
-        {
-            i = j + koh.d(1, responseHeader);
-        }
-        j = i;
         if (a != null)
         {
-            j = i + koh.d(2, a);
+            i = j + kwk.d(1, a);
         }
-        i = j;
+        j = i;
         if (b != null)
         {
-            i = j + koh.d(3, b);
+            j = i + kwk.d(2, b);
         }
-        return i;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -58,46 +71,34 @@ public final class jam extends koj
                 return this;
 
             case 10: // '\n'
-                if (responseHeader == null)
+                if (a == null)
                 {
-                    responseHeader = new ixg();
+                    a = new jzd();
                 }
-                kog1.a(responseHeader);
+                kwj1.a(a);
                 break;
 
             case 18: // '\022'
-                if (a == null)
-                {
-                    a = new izx();
-                }
-                kog1.a(a);
-                break;
-
-            case 26: // '\032'
                 if (b == null)
                 {
-                    b = new jbw();
+                    b = new jan();
                 }
-                kog1.a(b);
+                kwj1.a(b);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (responseHeader != null)
-        {
-            koh1.b(1, responseHeader);
-        }
         if (a != null)
         {
-            koh1.b(2, a);
+            kwk1.b(1, a);
         }
         if (b != null)
         {
-            koh1.b(3, b);
+            kwk1.b(2, b);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

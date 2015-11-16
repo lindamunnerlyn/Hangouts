@@ -2,51 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import com.google.android.apps.hangouts.phone.HelpAndFeedbackActivity;
-import java.util.Set;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.widget.Toast;
 
-public final class coo extends WebViewClient
+final class coo
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final View a;
-    final HelpAndFeedbackActivity b;
+    final con a;
 
-    public coo(HelpAndFeedbackActivity helpandfeedbackactivity, View view)
+    coo(con con1)
     {
-        b = helpandfeedbackactivity;
-        a = view;
+        a = con1;
         super();
     }
 
-    public void onPageFinished(WebView webview, String s)
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        a.setVisibility(8);
-    }
-
-    public void onPageStarted(WebView webview, String s, Bitmap bitmap)
-    {
-        super.onPageStarted(webview, s, bitmap);
-        a.setVisibility(0);
-    }
-
-    public boolean shouldOverrideUrlLoading(WebView webview, String s)
-    {
-        Uri uri = Uri.parse(s);
-        if ("https".equals(uri.getScheme()) && HelpAndFeedbackActivity.m().contains(uri.getHost()))
-        {
-            webview.loadUrl(s);
-        } else
-        {
-            webview = new Intent("android.intent.action.VIEW");
-            webview.setData(uri);
-            b.startActivity(webview);
-        }
-        return true;
+        dialoginterface = a.a.edit();
+        dialoginterface.putString(dmi.a.f, "https://staging-www.sandbox.googleapis.com/chat/v1/");
+        dialoginterface.putString(dmi.c.f, "https://staging-www.sandbox.googleapis.com/hangouts/v1_staging/");
+        dialoginterface.putBoolean("use_staging_servers", true);
+        dialoginterface.apply();
+        Toast.makeText(a.b.a, "You may need to restart the app for changes to take effect", 0).show();
     }
 }

@@ -3,16 +3,44 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class czh extends cyq
+public class czh extends cxr
 {
 
     private static final long serialVersionUID = 1L;
-    public final String a;
-    public final int b;
 
-    public czh(ixa ixa1)
+    private czh(jee jee1)
     {
-        b = g.a(ixa1.b, 0);
-        a = ixa1.a.a;
+        super(jee1.responseHeader, g.a(jee1.a, 0L));
+        if (cxr.a)
+        {
+            jee1 = String.valueOf(jee1);
+            eev.b("Babel_protos", (new StringBuilder(String.valueOf(jee1).length() + 31)).append("NotificationLevelResponse from:").append(jee1).toString());
+        }
+    }
+
+    public static cxr parseFrom(byte abyte0[])
+    {
+        abyte0 = (jee)kws.mergeFrom(new jee(), abyte0);
+        if (a(((jee) (abyte0)).responseHeader))
+        {
+            return new cyd(((jee) (abyte0)).responseHeader);
+        } else
+        {
+            return new czh(abyte0);
+        }
+    }
+
+    public void a(aow aow, dgk dgk)
+    {
+        super.a(aow, dgk);
+        if (aoq.a || cxr.a)
+        {
+            eev.b("Babel", "processNotificationLevelResponse");
+        }
+        if (c.b != 1)
+        {
+            int i = c.b;
+            eev.f("Babel", (new StringBuilder(59)).append("Failed to set conversation preference with code ").append(i).toString());
+        }
     }
 }

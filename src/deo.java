@@ -2,27 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
 
-public final class deo
-    implements Serializable
+public final class deo extends dgj
 {
 
-    public boolean a;
-    public String b;
-    public String c;
-    public String d;
+    private final String a;
 
-    deo()
+    public deo(aoa aoa, String s)
     {
+        super(aoa);
+        a = s;
     }
 
-    public String toString()
+    public void a()
     {
-        boolean flag = a;
-        String s = b;
-        String s1 = c;
-        String s2 = d;
-        return (new StringBuilder(String.valueOf(s).length() + 73 + String.valueOf(s1).length() + String.valueOf(s2).length())).append("MergedPerson{isHangoutsReachable=").append(flag).append(", gaiaId='").append(s).append("', avatarUrl='").append(s1).append("', name='").append(s2).append("'}").toString();
+        a(((dmf) (new cvk(a))));
     }
 }

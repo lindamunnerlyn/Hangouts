@@ -2,11 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcelable;
 
-public interface gwp
-    extends Parcelable
+public final class gwp
 {
 
-    public abstract int a();
+    public gwp()
+    {
+    }
 }

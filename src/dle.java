@@ -2,11 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Handler;
+import android.widget.ListView;
+import com.google.android.apps.hangouts.realtimechat.wakelock.impl.DebugWakelocksActivity;
+import java.util.concurrent.ConcurrentHashMap;
 
-public interface dle
+public final class dle
+    implements Runnable
 {
 
-    public abstract void a(amy amy);
+    final DebugWakelocksActivity a;
 
-    public abstract void a(String s, String s1, amy amy, String s2, ani ani);
+    public dle(DebugWakelocksActivity debugwakelocksactivity)
+    {
+        a = debugwakelocksactivity;
+        super();
+    }
+
+    public void run()
+    {
+        Object obj = a.c;
+        g.x().removeCallbacks(((Runnable) (obj)));
+        obj = a.b;
+        DebugWakelocksActivity debugwakelocksactivity = a;
+        ((ListView) (obj)).setAdapter(new dli(debugwakelocksactivity, debugwakelocksactivity, h.jb, g.oR, h.b(debugwakelocksactivity.a.b.values())));
+        g.a(this, 100L);
+    }
 }

@@ -7,6 +7,8 @@ package org.chromium.net;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.security.KeyChain;
 import android.telephony.TelephonyManager;
 import java.net.NetworkInterface;
@@ -24,6 +26,21 @@ class AndroidNetworkLibrary
 
     AndroidNetworkLibrary()
     {
+    }
+
+    public static void addTestRootCertificate(byte abyte0[])
+    {
+        X509Util.a(abyte0);
+    }
+
+    public static void clearTestRootCertificates()
+    {
+        X509Util.a();
+    }
+
+    private static boolean getIsRoaming(Context context)
+    {
+        return ((ConnectivityManager)context.getSystemService("connectivity")).getActiveNetworkInfo().isRoaming();
     }
 
     public static String getMimeTypeFromExtension(String s)
@@ -52,6 +69,18 @@ class AndroidNetworkLibrary
         } else
         {
             return context.getNetworkOperator();
+        }
+    }
+
+    private static String getSimOperator(Context context)
+    {
+        context = (TelephonyManager)context.getSystemService("phone");
+        if (context == null)
+        {
+            return "";
+        } else
+        {
+            return context.getSimOperator();
         }
     }
 

@@ -11,20 +11,20 @@ import ap;
 import bg;
 import com.google.android.apps.hangouts.fragments.CallContactPickerFragment;
 import com.google.android.apps.hangouts.fragments.ConversationListFragment;
-import eeq;
-import ees;
-import eet;
+import ehs;
+import ehu;
+import ehv;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import l;
 
-public class MainViewPager extends eeq
+public class MainViewPager extends ehs
 {
 
-    public static final ees a;
-    public static final ees b;
-    private eet c;
+    public static final ehu a;
+    public static final ehu b;
+    private ehv c;
     private int d;
     private boolean e;
 
@@ -80,7 +80,7 @@ label0:
             } while (ad2 == null || !ad1.getClass().equals(ad2.getClass()) || ad1 == ad2);
             bg1.a(ad1);
         } while (true);
-        bg1.b();
+        bg1.c();
         ap1.b();
     }
 
@@ -100,7 +100,7 @@ label0:
                 arraylist1.add(b);
             }
         }
-        c = new eet(ap1, getContext(), i1, arraylist1);
+        c = new ehv(ap1, getContext(), i1, arraylist1);
         a(((jq) (c)));
         a(ap1, ((List) (arraylist)), ((List) (new ArrayList(ap1.d()))));
         d = i1;
@@ -108,11 +108,11 @@ label0:
         return true;
     }
 
-    public boolean a(ees ees1)
+    public boolean a(ehu ehu1)
     {
         if (c != null)
         {
-            int i1 = c.a(ees1);
+            int i1 = c.a(ehu1);
             if (i1 >= 0)
             {
                 a(i1);
@@ -136,12 +136,12 @@ label0:
         return false;
     }
 
-    public eet i()
+    public ehv i()
     {
         return c;
     }
 
-    public ees j()
+    public ehu j()
     {
         if (c != null)
         {
@@ -167,7 +167,7 @@ label0:
 
     static 
     {
-        a = new ees(com/google/android/apps/hangouts/fragments/ConversationListFragment, "conversations", l.sr, com.google.android.apps.hangouts.R.drawable.aW, 1546);
-        b = new ees(com/google/android/apps/hangouts/fragments/CallContactPickerFragment, "phone_calls", l.sq, com.google.android.apps.hangouts.R.drawable.aZ, 1547);
+        a = new ehu(com/google/android/apps/hangouts/fragments/ConversationListFragment, "conversations", l.rK, com.google.android.apps.hangouts.R.drawable.aS, 1546);
+        b = new ehu(com/google/android/apps/hangouts/fragments/CallContactPickerFragment, "phone_calls", l.rJ, com.google.android.apps.hangouts.R.drawable.aV, 1547);
     }
 }

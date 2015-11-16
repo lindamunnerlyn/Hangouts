@@ -2,38 +2,127 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.RemoteException;
-import android.util.Log;
+import java.util.ArrayList;
 
-final class fsf
-    implements Runnable
+public final class fsf
 {
 
-    final String a;
-    final String b;
-    final fry c;
-    final fsd d;
+    private final ArrayList a = new ArrayList();
 
-    fsf(fsd fsd1, String s, String s1, fry fry1)
+    public fsf()
     {
-        d = fsd1;
-        a = s;
-        b = s1;
-        c = fry1;
-        super();
     }
 
-    public void run()
+    private static IndexOutOfBoundsException b(int i, int j)
     {
-        try
+        return new IndexOutOfBoundsException(String.format("Size=%d, requested=%d", new Object[] {
+            Integer.valueOf(i), Integer.valueOf(j)
+        }));
+    }
+
+    public int a()
+    {
+        return a.size();
+    }
+
+    public int a(int i, int j)
+    {
+        Object obj = a.get(i);
+        if (obj == null)
         {
-            boolean flag = fsd.a(d).k();
-            c.a(flag);
+            throw b(0, j);
+        }
+        if (obj instanceof Integer)
+        {
+            if (j > 0)
+            {
+                throw b(1, j);
+            } else
+            {
+                return ((Integer)obj).intValue();
+            }
+        }
+        obj = (ArrayList)obj;
+        if (j > ((ArrayList) (obj)).size())
+        {
+            throw b(((ArrayList) (obj)).size(), j);
+        } else
+        {
+            return ((Integer)((ArrayList) (obj)).get(j)).intValue();
+        }
+    }
+
+    public void a(int i)
+    {
+        a.add(Integer.valueOf(i));
+    }
+
+    public void a(ftf ftf1, String s)
+    {
+        int i = 0;
+        int j = ftf1.a(s);
+        if (j == 0)
+        {
             return;
         }
-        catch (RemoteException remoteexception)
+        if (j == 1)
         {
-            Log.e("SignInClientImpl", "RemoteException thrown when processing uploadServerAuthCode callback", remoteexception);
+            a.add(Integer.valueOf(ftf1.b(s, 0)));
+            return;
         }
+        ArrayList arraylist = new ArrayList(j);
+        for (; i < j; i++)
+        {
+            arraylist.add(Integer.valueOf(ftf1.b(s, i)));
+        }
+
+        a.add(arraylist);
+    }
+
+    public int b(int i)
+    {
+        Object obj = a.get(i);
+        if (obj == null)
+        {
+            return 0;
+        }
+        if (obj instanceof Integer)
+        {
+            return 1;
+        } else
+        {
+            return ((ArrayList)obj).size();
+        }
+    }
+
+    public void b()
+    {
+        a.add(null);
+    }
+
+    public String toString()
+    {
+        StringBuilder stringbuilder = fst.a();
+        for (int i = 0; i < a(); i++)
+        {
+            if (i > 0)
+            {
+                stringbuilder.append(",");
+            }
+            stringbuilder.append("[");
+            int k = b(i);
+            for (int j = 0; j < k; j++)
+            {
+                if (j > 0)
+                {
+                    stringbuilder.append(",");
+                }
+                stringbuilder.append(a(i, j));
+            }
+
+            stringbuilder.append("]");
+        }
+
+        return stringbuilder.toString();
     }
 }

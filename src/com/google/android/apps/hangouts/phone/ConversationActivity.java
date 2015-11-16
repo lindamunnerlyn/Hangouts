@@ -5,8 +5,8 @@
 package com.google.android.apps.hangouts.phone;
 
 import ad;
-import aih;
-import aiv;
+import aia;
+import ais;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,62 +14,57 @@ import android.os.StrictMode;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
-import ani;
+import aoa;
 import ap;
 import bg;
-import bhp;
-import bhr;
-import bhs;
-import bje;
-import bka;
-import cbj;
-import cki;
+import bib;
+import bid;
+import bie;
+import bjq;
+import bkm;
+import cco;
+import cln;
 import com.google.android.apps.hangouts.views.HangoutsToolbar;
-import dbf;
-import dbx;
-import dbz;
-import dih;
-import ebr;
-import ebw;
-import eew;
+import dcn;
+import ddg;
+import ddi;
+import djs;
+import eep;
+import eev;
+import ehy;
 import g;
-import gmo;
-import gng;
+import gqu;
+import grn;
 import h;
-import hgx;
+import hlp;
 import l;
-import po;
+import pq;
 
-public class ConversationActivity extends bka
-    implements bhr, dbz, dih
+public class ConversationActivity extends bkm
+    implements bid, ddi, djs
 {
 
-    private ani m;
-    private bhp n;
-    private android.os.StrictMode.ThreadPolicy o;
-    private final gmo r;
+    public bib n;
+    private aoa o;
+    private android.os.StrictMode.ThreadPolicy p;
+    private final gqu s;
 
     public ConversationActivity()
     {
-        r = (new gng(this, q)).a(p);
-        new aiv(this, q);
-        new cbj(this, q);
+        s = (new grn(this, r)).a(q);
+        new ais(this, r);
+        new cco(this, r);
     }
 
-    public static bhp a(ConversationActivity conversationactivity)
+    private static aia c(Intent intent)
     {
-        return conversationactivity.n;
-    }
-
-    private static aih c(Intent intent)
-    {
-        aih aih2 = (aih)intent.getParcelableExtra("conversation_parameters");
-        aih aih1 = aih2;
-        if (aih2 == null)
+        aia aia2 = (aia)intent.getParcelableExtra("conversation_parameters");
+        aia aia1 = aia2;
+        if (aia2 == null)
         {
-            aih1 = new aih(intent.getStringExtra("conversation_id"), intent.getIntExtra("client_conversation_type", 0));
+            aia1 = new aia(intent.getStringExtra("conversation_id"), intent.getIntExtra("client_conversation_type", 0));
         }
-        return aih1;
+        return aia1;
     }
 
     public void a()
@@ -79,17 +74,17 @@ public class ConversationActivity extends bka
 
     public void a(ad ad)
     {
-        if (ad instanceof bje)
+        if (ad instanceof bjq)
         {
-            ((bje)ad).a(new cki(this));
+            ((bjq)ad).a(new cln(this));
         }
     }
 
-    public void a(aih aih1)
+    public void a(aia aia1)
     {
-        if (ebw.a("Babel", 3))
+        if (eev.a("Babel", 3))
         {
-            Object obj = String.valueOf(aih1.a);
+            Object obj = String.valueOf(aia1.a);
             if (((String) (obj)).length() != 0)
             {
                 obj = "Restart fragment for new conv id: ".concat(((String) (obj)));
@@ -97,19 +92,19 @@ public class ConversationActivity extends bka
             {
                 obj = new String("Restart fragment for new conv id: ");
             }
-            ebw.d("Babel", ((String) (obj)));
+            eev.d("Babel", ((String) (obj)));
         }
-        n = ((bhs)hgx.a(this, bhs)).a();
+        n = ((bie)hlp.a(this, bie)).a();
         n.a(this);
         obj = new Bundle();
-        ((Bundle) (obj)).putParcelable("conversation_parameters", aih1);
+        ((Bundle) (obj)).putParcelable("conversation_parameters", aia1);
         n.setArguments(((Bundle) (obj)));
-        t_().a().b(h.ax, n, bhp.getName()).b();
+        u_().a().b(h.as, n, bib.getName()).b();
     }
 
-    public void a(eew eew, String s, String s1)
+    public void a(ehy ehy, String s1, String s2)
     {
-        g.a(this, m, eew, s, s1);
+        g.a(this, o, ehy, s1, s2);
     }
 
     public void a(Runnable runnable)
@@ -121,35 +116,35 @@ public class ConversationActivity extends bka
         }
     }
 
-    public void a(String s)
+    public void a(String s1)
     {
-        setTitle(getString(l.aD, new Object[] {
-            s
+        setTitle(getString(l.ay, new Object[] {
+            s1
         }));
-        g().a(ebr.d(s));
+        g().a(eep.d(s1));
     }
 
-    public void a(String s, String s1)
+    public void a(String s1, String s2)
     {
-        HangoutsToolbar hangoutstoolbar = (HangoutsToolbar)l;
-        hangoutstoolbar.c(s);
-        hangoutstoolbar.e(s1);
+        HangoutsToolbar hangoutstoolbar = (HangoutsToolbar)m;
+        hangoutstoolbar.c(s1);
+        hangoutstoolbar.e(s2);
     }
 
-    public void b(dbx dbx1)
+    public void b(ddg ddg1)
     {
-        switch (dbx1.b())
+        switch (ddg1.b())
         {
         default:
-            int i = dbx1.b();
-            ebw.g("Babel", (new StringBuilder(32)).append("Unrecognized action: ").append(i).toString());
+            int i = ddg1.b();
+            eev.g("Babel", (new StringBuilder(32)).append("Unrecognized action: ").append(i).toString());
             // fall through
 
         case 1: // '\001'
             return;
 
         case 2: // '\002'
-            g.a(this, dbx1, m.h(), m.a());
+            g.a(this, ddg1, o.h(), o.a());
             break;
         }
     }
@@ -164,7 +159,7 @@ public class ConversationActivity extends bka
         {
             i = 8;
         }
-        l.setVisibility(i);
+        m.setVisibility(i);
     }
 
     public void onCreate(Bundle bundle)
@@ -173,11 +168,11 @@ public class ConversationActivity extends bka
         boolean flag = g.a(this, "babel_conversation_activity_disable_strict_mode", false);
         if (Build.TYPE.equals("eng") || Build.TYPE.equals("userdebug") || flag)
         {
-            o = StrictMode.getThreadPolicy();
+            p = StrictMode.getThreadPolicy();
             StrictMode.setThreadPolicy((new android.os.StrictMode.ThreadPolicy.Builder()).build());
         }
-        setContentView(c(g.fn));
-        Object obj = (HangoutsToolbar)l;
+        setContentView(c(g.fl));
+        Object obj = (HangoutsToolbar)m;
         ((HangoutsToolbar) (obj)).v().setFocusableInTouchMode(true);
         ((HangoutsToolbar) (obj)).w().setPadding(0, 0, 0, 0);
         obj = ((HangoutsToolbar) (obj)).x();
@@ -186,7 +181,7 @@ public class ConversationActivity extends bka
         ((TextView) (obj)).setPadding(0, 0, 0, 0);
         ((TextView) (obj)).setSelected(true);
         obj = getIntent();
-        m = dbf.e(r.a());
+        o = dcn.e(s.a());
         if (bundle == null)
         {
             if (((Intent) (obj)).hasExtra("share_intent"))
@@ -196,12 +191,12 @@ public class ConversationActivity extends bka
             g.b(((Intent) (obj)));
         }
         bundle = c(((Intent) (obj)));
-        obj = t_();
-        n = (bhp)((ap) (obj)).a(bhp.getName());
+        obj = u_();
+        n = (bib)((ap) (obj)).a(bib.getName());
         if (n == null)
         {
-            n = ((bhs)hgx.a(this, bhs)).a();
-            ((ap) (obj)).a().a(h.ax, n, bhp.getName()).b();
+            n = ((bie)hlp.a(this, bie)).a();
+            ((ap) (obj)).a().a(h.as, n, bib.getName()).b();
             obj = new Bundle();
             ((Bundle) (obj)).putParcelable("conversation_parameters", bundle);
             n.setArguments(((Bundle) (obj)));
@@ -212,9 +207,9 @@ public class ConversationActivity extends bka
     public void onDestroy()
     {
         super.onDestroy();
-        if (o != null)
+        if (p != null)
         {
-            StrictMode.setThreadPolicy(o);
+            StrictMode.setThreadPolicy(p);
         }
     }
 

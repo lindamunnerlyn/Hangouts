@@ -2,23 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-final class hcj
-    implements Runnable
+public final class hcj
 {
 
-    final int a;
-    final hci b;
-
-    hcj(hci hci1, int i)
+    public hcj()
     {
-        b = hci1;
-        a = i;
-        super();
     }
 
-    public void run()
+    static hcl a(Context context)
     {
-        b.a(a, new String[0], new int[0]);
+        return (hcl)g.a(context.getApplicationContext(), hcl);
     }
 }

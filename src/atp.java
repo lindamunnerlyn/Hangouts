@@ -2,71 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.view.View;
-import android.view.ViewGroup;
 
-public final class atp extends aug
+public final class atp extends Enum
 {
 
-    private ani d;
+    public static final atp a;
+    public static final atp b;
+    public static final atp c;
+    public static final atp d;
+    public static final atp e;
+    private static final atp f[];
 
-    public atp(View view, atq atq1, dsp dsp, int i)
+    private atp(String s, int i)
     {
-        super(view, atq1, dsp);
-        d = dbf.e(i);
+        super(s, i);
     }
 
-    public void a(boolean flag)
+    public static atp valueOf(String s)
     {
-        if (!((atq)c).b() && flag)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        super.a(flag);
+        return (atp)Enum.valueOf(atp, s);
     }
 
-    protected boolean a()
+    public static atp[] values()
     {
-        boolean flag1 = g.e(((atq)c).a());
-        boolean flag;
-        if (d.s() && d.A())
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        return flag1 && flag && !((atq)c).c();
+        return (atp[])f.clone();
     }
 
-    protected dsn b()
+    static 
     {
-        String s;
-        int i;
-        i = ((atq)c).a();
-        s = null;
-        if (!g.g(i)) goto _L2; else goto _L1
-_L1:
-        if (d.ab())
-        {
-            return e().a(b.getResources().getString(l.jt)).a();
-        }
-        s = d.B();
-_L4:
-        return e().a(b.getContext().getString(l.jW, new Object[] {
-            ebz.p(s)
-        })).a();
-_L2:
-        if (g.d(i))
-        {
-            s = ani.N();
-        }
-        if (true) goto _L4; else goto _L3
-_L3:
+        a = new atp("NONE", 0);
+        b = new atp("PHOTO", 1);
+        c = new atp("VIDEO", 2);
+        d = new atp("STICKER", 3);
+        e = new atp("LOCATION", 4);
+        f = (new atp[] {
+            a, b, c, d, e
+        });
     }
 }

@@ -2,21 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
-import java.util.Map;
+import java.lang.ref.ReferenceQueue;
+import java.lang.ref.SoftReference;
 
-public interface jpl
+public class jpl extends SoftReference
+    implements jpw
 {
 
-    public abstract Collection a(Object obj);
+    final com.google.common.cache.LocalCache.ReferenceEntry a;
 
-    public abstract boolean a(Object obj, Iterable iterable);
+    jpl(ReferenceQueue referencequeue, Object obj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        super(obj, referencequeue);
+        a = referenceentry;
+    }
 
-    public abstract boolean a(Object obj, Object obj1);
+    public int a()
+    {
+        return 1;
+    }
 
-    public abstract int c();
+    public jpw a(ReferenceQueue referencequeue, Object obj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        return new jpl(referencequeue, obj, referenceentry);
+    }
 
-    public abstract boolean g();
+    public void a(Object obj)
+    {
+    }
 
-    public abstract Map i();
+    public com.google.common.cache.LocalCache.ReferenceEntry b()
+    {
+        return a;
+    }
+
+    public boolean c()
+    {
+        return false;
+    }
+
+    public boolean d()
+    {
+        return true;
+    }
 }

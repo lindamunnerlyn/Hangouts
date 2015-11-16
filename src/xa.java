@@ -2,28 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.ViewTreeObserver;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
 
 final class xa
-    implements android.widget.PopupWindow.OnDismissListener
+    implements android.widget.AdapterView.OnItemClickListener
 {
 
-    final android.view.ViewTreeObserver.OnGlobalLayoutListener a;
-    final wx b;
+    final ww a;
+    final wz b;
 
-    xa(wx wx1, android.view.ViewTreeObserver.OnGlobalLayoutListener ongloballayoutlistener)
+    xa(wz wz1, ww ww1)
     {
-        b = wx1;
-        a = ongloballayoutlistener;
+        b = wz1;
+        a = ww1;
         super();
     }
 
-    public void onDismiss()
+    public void onItemClick(AdapterView adapterview, View view, int i, long l)
     {
-        ViewTreeObserver viewtreeobserver = b.a.getViewTreeObserver();
-        if (viewtreeobserver != null)
+        b.a.setSelection(i);
+        if (b.a.getOnItemClickListener() != null)
         {
-            viewtreeobserver.removeGlobalOnLayoutListener(a);
+            b.a.performItemClick(view, i, wz.a(b).getItemId(i));
         }
+        b.k();
     }
 }

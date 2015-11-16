@@ -2,54 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.AsyncTask;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import android.content.Context;
+import android.telephony.SmsManager;
 
-final class duk extends AsyncTask
+public final class duk
 {
 
-    final long a;
-    final fzf b;
-    final duj c;
+    public static final String a = bwl.getName();
+    public static final String b = dts.getName();
+    public static final String c = dtz.getName();
+    public static final String d = dup.getName();
+    private static duj e;
 
-    duk(duj duj1, long l, fzf fzf)
+    public static void a(Context context, hlp hlp1)
     {
-        c = duj1;
-        a = l;
-        b = fzf;
-        super();
-    }
-
-    private transient Void a()
-    {
-        try
+        if (e == null)
         {
-            c.a.await(a, TimeUnit.MILLISECONDS);
+            e = new duj();
         }
-        catch (InterruptedException interruptedexception)
-        {
-            ebw.e("Babel_telephony", "TeleFeedbackSender.sendFeedback, exception", interruptedexception);
-        }
-        return null;
+        hlp1.a(bwl, new bwl[] {
+            (bwl)hlp.a(context, dup)
+        });
     }
 
-    public Object doInBackground(Object aobj[])
+    public static void a(hlp hlp1)
     {
-        return a();
+        if (e == null)
+        {
+            e = new duj();
+        }
+        hlp1.a(dts, new dts(SmsManager.getDefault()));
     }
 
-    public void onPostExecute(Object obj)
+    public static void b(Context context, hlp hlp1)
     {
-        if (c.b.c())
+        if (e == null)
         {
-            ebw.e("Babel_telephony", "TeleFeedbackSender.sendFeedback, calling startFeedback");
-            c.c.a(c.b).a(b).a(c);
-            return;
-        } else
-        {
-            ebw.e("Babel_telephony", "TeleFeedbackSender.sendFeedback, API not connected, skipping");
-            return;
+            e = new duj();
         }
+        hlp1.a(dup, new dup(context));
     }
+
+    public static void b(hlp hlp1)
+    {
+        if (e == null)
+        {
+            e = new duj();
+        }
+        hlp1.a(dtz, new dtz(SmsManager.getDefault()));
+    }
+
 }

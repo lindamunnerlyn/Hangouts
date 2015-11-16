@@ -3,10 +3,9 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.support.v7.widget.ActionMenuView;
-import android.view.MenuItem;
 
 public final class wf
-    implements sz
+    implements tq
 {
 
     final ActionMenuView a;
@@ -17,16 +16,12 @@ public final class wf
         super();
     }
 
-    public void a(sy sy)
+    public void a(ta ta, boolean flag)
     {
-        if (ActionMenuView.b(a) != null)
-        {
-            ActionMenuView.b(a).a(sy);
-        }
     }
 
-    public boolean a(sy sy, MenuItem menuitem)
+    public boolean a(ta ta)
     {
-        return ActionMenuView.a(a) != null && ActionMenuView.a(a).a(menuitem);
+        return false;
     }
 }

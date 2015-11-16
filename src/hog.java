@@ -2,15 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
 
-public final class hog
+final class hog
+    implements hok
 {
 
-    public static final String a = System.getProperty("line.separator");
+    final Bundle a;
+    final hof b;
 
-    public static byte[] a(String s)
+    hog(hof hof1, Bundle bundle)
     {
-        return g.i(s, "UTF-8");
+        b = hof1;
+        a = bundle;
+        super();
     }
 
+    public void a(hoy hoy)
+    {
+        if (hoy instanceof hon)
+        {
+            Bundle bundle = b.a(hoy, a);
+            ((hon)hoy).a(bundle);
+        }
+    }
 }

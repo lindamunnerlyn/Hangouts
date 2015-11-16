@@ -2,46 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
+import com.google.common.cache.LocalCache;
 
-final class jpv extends jlw
+public final class jpv extends jpd
 {
 
-    final jpu a;
+    final LocalCache a;
 
-    jpv(jpu jpu1)
+    jpv(LocalCache localcache)
     {
-        a = jpu1;
-        super();
+        a = localcache;
+        super(localcache);
     }
 
-    boolean H_()
+    public Object next()
     {
-        return true;
-    }
-
-    public jqy a()
-    {
-        return b().a();
-    }
-
-    jlr d()
-    {
-        return a;
-    }
-
-    jlk f()
-    {
-        return new jpw(this);
-    }
-
-    public int hashCode()
-    {
-        return jps.b(a.a);
-    }
-
-    public Iterator iterator()
-    {
-        return a();
+        return c().getValue();
     }
 }

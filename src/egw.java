@@ -2,37 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.views.EasterEggView;
+import java.util.List;
 
-public final class egw
-    implements gmo
+final class egw
+    implements Runnable
 {
 
-    private final gms a;
-    private final int b;
+    final egv a;
+    final egv b;
 
-    public egw(gms gms1, int i)
+    egw(egv egv1, egv egv2)
     {
-        a = gms1;
-        b = i;
+        b = egv1;
+        a = egv2;
+        super();
     }
 
-    public int a()
+    public void run()
     {
-        return b;
-    }
-
-    public gmo a(gmq gmq)
-    {
-        return this;
-    }
-
-    public boolean b()
-    {
-        return b != -1;
-    }
-
-    public gmu c()
-    {
-        return a.a(b);
+        b.a();
+        EasterEggView.a(b.a).remove(a);
     }
 }

@@ -5,53 +5,87 @@
 import android.text.TextUtils;
 
 public final class aec
-    implements adx
+    implements adz
 {
 
     private final String a;
+    private final int b;
+    private final String c = null;
+    private final int d;
+    private final boolean e;
 
-    public aec(String s)
+    public aec(int i, String s, String s1, int j, boolean flag)
     {
-        a = s;
+        b = i;
+        d = j;
+        a = s1;
+        e = flag;
     }
 
-    public adz a()
+    public final aeb a()
     {
-        return adz.j;
+        return aeb.f;
+    }
+
+    public String b()
+    {
+        return a;
+    }
+
+    public int c()
+    {
+        return b;
     }
 
     public boolean equals(Object obj)
     {
-        if (!(obj instanceof aec))
+        if (this != obj)
         {
-            return false;
-        } else
-        {
+            if (!(obj instanceof aec))
+            {
+                return false;
+            }
             obj = (aec)obj;
-            return TextUtils.equals(a, ((aec) (obj)).a);
+            if (d != ((aec) (obj)).d || b != ((aec) (obj)).b || !TextUtils.equals(c, ((aec) (obj)).c) || !TextUtils.equals(a, ((aec) (obj)).a) || e != ((aec) (obj)).e)
+            {
+                return false;
+            }
         }
+        return true;
     }
 
     public int hashCode()
     {
-        if (a != null)
+        int j = 0;
+        int k = d;
+        int l = b;
+        int i;
+        char c1;
+        if (c != null)
         {
-            return a.hashCode();
+            i = c.hashCode();
         } else
         {
-            return 0;
+            i = 0;
         }
+        if (a != null)
+        {
+            j = a.hashCode();
+        }
+        if (e)
+        {
+            c1 = '\u04CF';
+        } else
+        {
+            c1 = '\u04D5';
+        }
+        return c1 + ((i + (k * 31 + l) * 31) * 31 + j) * 31;
     }
 
     public String toString()
     {
-        String s = String.valueOf(a);
-        if (s.length() != 0)
-        {
-            return "nickname: ".concat(s);
-        } else
-        {
-            return new String("nickname: ");
-        }
+        return String.format("type: %d, protocol: %d, custom_protcol: %s, data: %s, isPrimary: %s", new Object[] {
+            Integer.valueOf(d), Integer.valueOf(b), c, a, Boolean.valueOf(e)
+        });
     }
 }

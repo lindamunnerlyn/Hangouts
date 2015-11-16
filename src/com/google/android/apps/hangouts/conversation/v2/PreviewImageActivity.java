@@ -12,78 +12,61 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
-import apw;
-import aqb;
-import atg;
-import azo;
-import azp;
+import aqn;
+import aqs;
+import atx;
+import bad;
+import bae;
 import com.google.android.libraries.quantum.fab.FloatingActionButton;
-import eab;
-import ebh;
-import ebw;
-import eei;
+import edf;
+import eef;
+import eev;
+import ehk;
 import g;
-import gmo;
-import gng;
-import hgx;
-import hhj;
-import po;
+import gqu;
+import grn;
+import hmb;
+import pq;
 
-public class PreviewImageActivity extends hhj
-    implements aqb
+public class PreviewImageActivity extends hmb
+    implements aqs
 {
 
-    public Boolean j;
-    private View k;
-    private ImageView l;
-    private atg m;
-    private final gmo n;
+    public atx j;
+    public Boolean k;
+    private View l;
+    private ImageView m;
+    private final gqu n;
 
     public PreviewImageActivity()
     {
-        n = (new gng(this, q)).a(p);
+        n = (new grn(this, r)).a(q);
     }
 
-    public static atg a(PreviewImageActivity previewimageactivity, atg atg1)
-    {
-        previewimageactivity.m = atg1;
-        return atg1;
-    }
-
-    public static hgx a(PreviewImageActivity previewimageactivity)
-    {
-        return previewimageactivity.p;
-    }
-
-    public static atg b(PreviewImageActivity previewimageactivity)
-    {
-        return previewimageactivity.m;
-    }
-
-    public void a(ebh ebh1, eab eab, boolean flag, apw apw, boolean flag1)
+    public void a(eef eef1, edf edf, boolean flag, aqn aqn, boolean flag1)
     {
         if (flag)
         {
-            l.setVisibility(0);
-            if (eab != null)
+            m.setVisibility(0);
+            if (edf != null)
             {
-                m.d = "image/gif";
-                eab = new eei(eab);
-                l.setImageDrawable(eab);
-                eab.a();
+                j.d = "image/gif";
+                edf = new ehk(edf);
+                m.setImageDrawable(edf);
+                edf.a();
             } else
             {
-                l.setImageBitmap(ebh1.e());
+                m.setImageBitmap(eef1.e());
             }
-            if (ebh1 != null)
+            if (eef1 != null)
             {
-                ebh1.b();
+                eef1.b();
             }
-            k.setVisibility(0);
+            l.setVisibility(0);
             return;
         } else
         {
-            Toast.makeText(this, getString(g.kE), 1).show();
+            Toast.makeText(this, getString(g.kx), 0).show();
             setResult(0, getIntent());
             finish();
             return;
@@ -93,24 +76,16 @@ public class PreviewImageActivity extends hhj
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.kC);
-        bundle = (Toolbar)findViewById(g.kw);
+        setContentView(g.kv);
+        bundle = (Toolbar)findViewById(g.kp);
         a(bundle);
-        Object obj;
-        try
-        {
-            g().a(true);
-        }
-        catch (NullPointerException nullpointerexception)
-        {
-            ebw.d("PreviewImage", "Experienced NPE while setting up action bar. ", nullpointerexception);
-        }
+        g().a(true);
         g().a();
         setTitle("");
         bundle.bringToFront();
         bundle = getIntent();
-        obj = bundle.getStringExtra("photo_url");
-        j = Boolean.valueOf(bundle.getBooleanExtra("is_video", false));
+        Object obj = bundle.getStringExtra("photo_url");
+        k = Boolean.valueOf(bundle.getBooleanExtra("is_video", false));
         obj = Uri.parse(((String) (obj)));
         bundle = String.valueOf(((Uri) (obj)).toString());
         if (bundle.length() != 0)
@@ -120,14 +95,14 @@ public class PreviewImageActivity extends hhj
         {
             bundle = new String("Starting preview for: ");
         }
-        ebw.e("PreviewImage", bundle);
-        k = findViewById(g.kz);
-        k.bringToFront();
-        k.setVisibility(8);
-        (new azp(this, this, n.a(), ((Uri) (obj)))).execute(new Void[0]);
-        l = (ImageView)findViewById(g.kx);
+        eev.e("PreviewImage", bundle);
+        l = findViewById(g.ks);
+        l.bringToFront();
         l.setVisibility(8);
-        ((FloatingActionButton)findViewById(g.ky)).setOnClickListener(new azo(this));
+        (new bae(this, this, n.a(), ((Uri) (obj)))).execute(new Void[0]);
+        m = (ImageView)findViewById(g.kq);
+        m.setVisibility(8);
+        ((FloatingActionButton)findViewById(g.kr)).setOnClickListener(new bad(this));
     }
 
     public boolean onOptionsItemSelected(MenuItem menuitem)

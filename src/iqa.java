@@ -3,42 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iqa extends koj
+public final class iqa extends kwm
 {
 
-    private static volatile iqa e[];
-    public String a;
-    public String b;
-    public Long c;
-    public String d;
+    public Integer a;
+    public Integer b;
 
     public iqa()
     {
         a = null;
         b = null;
-        c = null;
-        d = null;
         unknownFieldData = null;
         cachedSize = -1;
-    }
-
-    public static iqa[] a()
-    {
-        if (e == null)
-        {
-            synchronized (kon.a)
-            {
-                if (e == null)
-                {
-                    e = new iqa[0];
-                }
-            }
-        }
-        return e;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -47,35 +23,25 @@ public final class iqa extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.e(1, a.intValue());
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.b(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.longValue());
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.b(4, d);
+            j = i + kwk.e(2, b.intValue());
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -84,43 +50,27 @@ public final class iqa extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                a = kog1.j();
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
                 break;
 
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-
-            case 24: // '\030'
-                c = Long.valueOf(kog1.e());
-                break;
-
-            case 34: // '"'
-                d = kog1.j();
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(1, a.intValue());
         }
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.a(2, b.intValue());
         }
-        if (c != null)
-        {
-            koh1.b(3, c.longValue());
-        }
-        if (d != null)
-        {
-            koh1.a(4, d);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

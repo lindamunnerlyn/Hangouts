@@ -2,83 +2,57 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.Executors;
+import java.util.concurrent.RunnableFuture;
 
-public final class kav extends koj
+final class kav extends jzu
+    implements RunnableFuture
 {
 
-    public kau a;
-    public jzm b;
+    private kaw a;
 
-    public kav()
+    private kav(Callable callable)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = new kaw(this, callable);
     }
 
-    protected int computeSerializedSize()
+    static kav a(Runnable runnable, Object obj)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        return j;
+        return new kav(Executors.callable(runnable, obj));
     }
 
-    public kop mergeFrom(kog kog1)
+    static kav a(Callable callable)
     {
-        do
+        return new kav(callable);
+    }
+
+    protected final void a()
+    {
+        kaw kaw1 = a;
+        if (kaw1 != null)
         {
-            int i = kog1.a();
-            switch (i)
+            Thread thread = ((kaj) (kaw1)).a;
+            if (thread != null)
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new kau();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new jzm();
-                }
-                kog1.a(b);
-                break;
+                thread.interrupt();
             }
-        } while (true);
+            kaw1.b = true;
+        }
     }
 
-    public void writeTo(koh koh1)
+    final void c()
     {
-        if (a != null)
+        super.c();
+        a = null;
+    }
+
+    public void run()
+    {
+        kaw kaw1 = a;
+        if (kaw1 != null)
         {
-            koh1.b(1, a);
+            kaw1.run();
         }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        super.writeTo(koh1);
     }
 }

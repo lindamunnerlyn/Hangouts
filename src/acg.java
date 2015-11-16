@@ -3,19 +3,53 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class acg extends acd
+public class acg extends acf
 {
 
-    acg(acn acn1)
+    private acj b;
+
+    public acg()
     {
-        super(acn1);
     }
 
-    public acg(byte abyte0[], int i)
+    public acg(acp acp1, acj acj)
     {
-        a(131);
-        b(18);
-        a.a(abyte0, 152);
-        a.a(i, 149);
+        super(acp1);
+        b = acj;
+    }
+
+    public void a(long l)
+    {
+        a.a(l, 133);
+    }
+
+    public void a(acj acj)
+    {
+        b = acj;
+    }
+
+    public void b(ace ace)
+    {
+        a.a(ace, 150);
+    }
+
+    public void c(int i)
+    {
+        a.a(129, 143);
+    }
+
+    public acj d()
+    {
+        return b;
+    }
+
+    public ace[] e()
+    {
+        return a.d(151);
+    }
+
+    public long f()
+    {
+        return a.e(142);
     }
 }

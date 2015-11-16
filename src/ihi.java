@@ -3,34 +3,68 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ihi extends koj
+public final class ihi extends kwm
 {
 
-    public String a;
-    public String b;
+    public ijl a;
+    public ihj b;
+    public ijl c[];
 
     public ihi()
     {
         a = null;
         b = null;
+        c = ijl.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        return super.computeSerializedSize() + koh.b(1, a) + koh.b(2, b);
+        int i = super.computeSerializedSize();
+        int j = i;
+        if (a != null)
+        {
+            j = i + kwk.d(1, a);
+        }
+        i = j;
+        if (b != null)
+        {
+            i = j + kwk.d(2, b);
+        }
+        j = i;
+        if (c != null)
+        {
+            j = i;
+            if (c.length > 0)
+            {
+                for (j = 0; j < c.length;)
+                {
+                    ijl ijl1 = c[j];
+                    int k = i;
+                    if (ijl1 != null)
+                    {
+                        k = i + kwk.d(3, ijl1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -40,20 +74,76 @@ public final class ihi extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                if (a == null)
+                {
+                    a = new ijl();
+                }
+                kwj1.a(a);
                 break;
 
             case 18: // '\022'
-                b = kog1.j();
+                if (b == null)
+                {
+                    b = new ihj();
+                }
+                kwj1.a(b);
+                break;
+
+            case 26: // '\032'
+                int k = kwx.a(kwj1, 26);
+                ijl aijl[];
+                int j;
+                if (c == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = c.length;
+                }
+                aijl = new ijl[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(c, 0, aijl, 0, j);
+                    k = j;
+                }
+                for (; k < aijl.length - 1; k++)
+                {
+                    aijl[k] = new ijl();
+                    kwj1.a(aijl[k]);
+                    kwj1.a();
+                }
+
+                aijl[k] = new ijl();
+                kwj1.a(aijl[k]);
+                c = aijl;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.a(1, a);
-        koh1.a(2, b);
-        super.writeTo(koh1);
+        if (a != null)
+        {
+            kwk1.b(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        if (c != null && c.length > 0)
+        {
+            for (int i = 0; i < c.length; i++)
+            {
+                ijl ijl1 = c[i];
+                if (ijl1 != null)
+                {
+                    kwk1.b(3, ijl1);
+                }
+            }
+
+        }
+        super.writeTo(kwk1);
     }
 }

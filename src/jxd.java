@@ -2,92 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.ListIterator;
 
-public final class jxd extends koj
+class jxd extends jry
 {
 
-    public String a;
-    public Boolean b;
-    public Boolean c;
+    private final jsd a;
+    private final jsh b;
 
-    public jxd()
+    jxd(jsd jsd, jsh jsh1)
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = jsd;
+        b = jsh1;
     }
 
-    protected int computeSerializedSize()
+    jxd(jsd jsd, Object aobj[])
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            b.booleanValue();
-            j = i + (koh.f(2) + 1);
-        }
-        i = j;
-        if (c != null)
-        {
-            c.booleanValue();
-            i = j + (koh.f(3) + 1);
-        }
-        return i;
+        this(jsd, jsh.b(aobj, aobj.length));
     }
 
-    public kop mergeFrom(kog kog1)
+    int a(Object aobj[], int i)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 16: // '\020'
-                b = Boolean.valueOf(kog1.i());
-                break;
-
-            case 24: // '\030'
-                c = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
+        return b.a(aobj, i);
     }
 
-    public void writeTo(koh koh1)
+    public jyi a(int i)
     {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b.booleanValue());
-        }
-        if (c != null)
-        {
-            koh1.a(3, c.booleanValue());
-        }
-        super.writeTo(koh1);
+        return b.a(i);
+    }
+
+    jsd b()
+    {
+        return a;
+    }
+
+    public Object get(int i)
+    {
+        return b.get(i);
+    }
+
+    public ListIterator listIterator(int i)
+    {
+        return a(i);
     }
 }

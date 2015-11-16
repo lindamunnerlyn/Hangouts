@@ -2,9 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public interface byg
+public final class byg
+    implements joj
 {
 
-    public abstract void a(boolean flag);
+    private final joj a;
+
+    public byg(joj joj1)
+    {
+        a = joj1;
+    }
+
+    public Object a()
+    {
+        byf byf1 = (byf)hlp.a((Context)a.a(), byf);
+        if (byf1 == null)
+        {
+            throw new NullPointerException("Cannot return null from a non-@Nullable @Provides method");
+        } else
+        {
+            return byf1;
+        }
+    }
 }

@@ -2,25 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.SystemClock;
+import android.accounts.AccountManager;
+import android.content.Context;
+import android.os.Bundle;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-public class gsm
+final class gsm
+    implements grk
 {
 
-    private volatile qb a;
+    private final AccountManager a;
+    private final List b;
 
-    public gsm()
+    gsm(Context context)
     {
+        a = AccountManager.get(context);
+        b = hlp.c(context, grj);
     }
 
-    public String a()
+    public grh a(String s)
     {
-        qb qb1;
-        for (qb1 = a; qb1 == null || SystemClock.elapsedRealtime() >= qb1.A;)
+        grh agrh[] = a();
+        int j = agrh.length;
+        for (int i = 0; i < j; i++)
         {
-            return null;
+            grh grh1 = agrh[i];
+            if (grh1.a().equals(s))
+            {
+                return grh1;
+            }
         }
 
-        return qb1.z;
+        return null;
+    }
+
+    public void a(ad ad)
+    {
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("allowSkip", false);
+        a.addAccount("com.google", "webupdates", null, bundle, null, new gsn(this, ad), null);
+    }
+
+    public grh[] a()
+    {
+        ArrayList arraylist = new ArrayList();
+        for (Iterator iterator = b.iterator(); iterator.hasNext(); arraylist.addAll(((grj)iterator.next()).a())) { }
+        return (grh[])arraylist.toArray(new grh[arraylist.size()]);
     }
 }

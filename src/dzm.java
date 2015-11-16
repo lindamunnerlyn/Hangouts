@@ -2,120 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.DataSetObserver;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Set;
 
-public final class dzm
-    implements ListAdapter
+final class dzm
+    implements dxc
 {
 
-    private dzl a;
-    private LayoutInflater b;
+    private dzh a;
 
-    public dzm(LayoutInflater layoutinflater)
+    dzm(dzh dzh1)
     {
-        a = ean.a();
-        b = layoutinflater;
+        a = dzh1;
     }
 
-    public boolean areAllItemsEnabled()
+    void a()
     {
-        return true;
+        a = null;
     }
 
-    public int getCount()
+    public void a(dxd dxd)
     {
-        return a.a().size();
-    }
-
-    public Object getItem(int i)
-    {
-        Iterator iterator = a.a().entrySet().iterator();
-        for (int j = 0; iterator.hasNext(); j++)
+        if (a != null)
         {
-            java.util.Map.Entry entry = (java.util.Map.Entry)iterator.next();
-            if (i == j)
-            {
-                return entry;
-            }
+            a.j = dxd;
+            dxd = a;
+            eev.e("Babel_telephony", "TeleSetupController.performNetworkQualityPrediction, trying to get network quality prediction...");
+            fep.c.a(((dzh) (dxd)).h).a(new dzk(dxd));
         }
-
-        return null;
-    }
-
-    public long getItemId(int i)
-    {
-        return (long)i;
-    }
-
-    public int getItemViewType(int i)
-    {
-        return 0;
-    }
-
-    public View getView(int i, View view, ViewGroup viewgroup)
-    {
-        View view1 = view;
-        if (view == null)
-        {
-            view1 = b.inflate(g.fG, viewgroup, false);
-        }
-        Object obj = (java.util.Map.Entry)getItem(i);
-        if (obj != null)
-        {
-            TextView textview = (TextView)view1.findViewById(h.gq);
-            TextView textview1 = (TextView)view1.findViewById(h.gr);
-            view = (TextView)view1.findViewById(h.gs);
-            viewgroup = (TextView)view1.findViewById(h.gt);
-            ImageView imageview = (ImageView)view1.findViewById(h.P);
-            textview.setText((CharSequence)((java.util.Map.Entry) (obj)).getKey());
-            i = ((ebh)((java.util.Map.Entry) (obj)).getValue()).i();
-            textview1.setText((new StringBuilder(21)).append("refcount: ").append(i).toString());
-            obj = ((ebh)((java.util.Map.Entry) (obj)).getValue()).f();
-            i = ((Bitmap) (obj)).getWidth();
-            int j = ((Bitmap) (obj)).getHeight();
-            view.setText((new StringBuilder(23)).append(i).append("x").append(j).toString());
-            viewgroup.setText(obj.toString());
-            imageview.setImageDrawable(new BitmapDrawable(((Bitmap) (obj))));
-        }
-        return view1;
-    }
-
-    public int getViewTypeCount()
-    {
-        return 1;
-    }
-
-    public boolean hasStableIds()
-    {
-        return false;
-    }
-
-    public boolean isEmpty()
-    {
-        return getCount() != 0;
-    }
-
-    public boolean isEnabled(int i)
-    {
-        return true;
-    }
-
-    public void registerDataSetObserver(DataSetObserver datasetobserver)
-    {
-    }
-
-    public void unregisterDataSetObserver(DataSetObserver datasetobserver)
-    {
     }
 }

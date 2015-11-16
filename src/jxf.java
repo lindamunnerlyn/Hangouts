@@ -3,63 +3,53 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jxf extends koj
+final class jxf extends jsa
 {
 
-    public kff a;
+    final jxe b;
 
-    public jxf()
+    jxf(jxe jxe1)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        b = jxe1;
+        super();
     }
 
-    protected int computeSerializedSize()
+    public jsa a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        return i;
+        return b;
     }
 
-    public kop mergeFrom(kog kog1)
+    jth e()
     {
-        do
+        return new jxg(this);
+    }
+
+    public Object get(Object obj)
+    {
+        if (obj != null && jxe.a(b) != null)
         {
-            int i = kog1.a();
-            switch (i)
+            int i = jrx.a(obj.hashCode());
+            int j = jxe.b(b);
+            jss jss1 = jxe.a(b)[i & j];
+            while (jss1 != null) 
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
+                if (obj.equals(jss1.getValue()))
                 {
-                    continue;
+                    return jss1.getKey();
                 }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new kff();
-                }
-                kog1.a(a);
-                break;
+                jss1 = jss1.b();
             }
-        } while (true);
+        }
+        return null;
     }
 
-    public void writeTo(koh koh1)
+    public int size()
     {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        super.writeTo(koh1);
+        return a().size();
+    }
+
+    Object writeReplace()
+    {
+        return new jxi(b);
     }
 }

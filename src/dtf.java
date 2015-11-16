@@ -2,23 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import com.google.android.apps.hangouts.statusmessage.impl.StatusMessageSettingsFragment;
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 
-public final class dtf
-    implements android.view.View.OnClickListener
+final class dtf
+    implements dti
 {
 
-    final StatusMessageSettingsFragment a;
+    final ContentValues a;
+    final SQLiteDatabase b;
 
-    public dtf(StatusMessageSettingsFragment statusmessagesettingsfragment)
+    dtf(ContentValues contentvalues, SQLiteDatabase sqlitedatabase)
     {
-        a = statusmessagesettingsfragment;
+        a = contentvalues;
+        b = sqlitedatabase;
         super();
     }
 
-    public void onClick(View view)
+    public void a(String s, String s1, String s2, String s3)
     {
-        StatusMessageSettingsFragment.c(a);
+        a.clear();
+        a.put("numeric", s);
+        a.put("key", s1);
+        a.put("value", s2);
+        a.put("type", s3);
+        b.insert("mmsconfig", null, a);
     }
 }

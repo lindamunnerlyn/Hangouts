@@ -2,83 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.lang.reflect.Array;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-public final class hte extends koj
+final class hte
+    implements Iterator
 {
 
-    public ilc a;
-    public hsu apiHeader;
+    final int a;
+    int b;
+    final htd c;
 
-    public hte()
+    hte(htd htd1)
     {
-        apiHeader = null;
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        c = htd1;
+        super();
+        a = Array.getLength(c.a);
+        b = 0;
     }
 
-    protected int computeSerializedSize()
+    public boolean hasNext()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (apiHeader != null)
-        {
-            i = j + koh.d(1, apiHeader);
-        }
-        j = i;
-        if (a != null)
-        {
-            j = i + koh.d(2, a);
-        }
-        return j;
+        return b < a;
     }
 
-    public kop mergeFrom(kog kog1)
+    public Object next()
     {
-        do
+        if (!hasNext())
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (apiHeader == null)
-                {
-                    apiHeader = new hsu();
-                }
-                kog1.a(apiHeader);
-                break;
-
-            case 18: // '\022'
-                if (a == null)
-                {
-                    a = new ilc();
-                }
-                kog1.a(a);
-                break;
-            }
-        } while (true);
+            throw new NoSuchElementException();
+        } else
+        {
+            Object obj = c.a;
+            int i = b;
+            b = i + 1;
+            return Array.get(obj, i);
+        }
     }
 
-    public void writeTo(koh koh1)
+    public void remove()
     {
-        if (apiHeader != null)
-        {
-            koh1.b(1, apiHeader);
-        }
-        if (a != null)
-        {
-            koh1.b(2, a);
-        }
-        super.writeTo(koh1);
+        throw new UnsupportedOperationException();
     }
 }

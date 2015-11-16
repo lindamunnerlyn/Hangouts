@@ -2,8 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public interface cfd
-    extends bee
+final class cfd
 {
+
+    cfd()
+    {
+    }
+
+    static void a(Context context, int i, boolean flag, boolean flag1, boolean flag2)
+    {
+        cez.a(context, i, ced.a(i, flag1, flag2, false), flag, flag1, flag2);
+    }
 }

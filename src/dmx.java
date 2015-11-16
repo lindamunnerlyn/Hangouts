@@ -3,22 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class dmx
-    implements Runnable
+public final class dmx extends dmy
 {
 
-    final dnc a;
-    final dmt b;
+    private static final long serialVersionUID = 1L;
+    public final int a;
 
-    dmx(dmt dmt, dnc dnc1)
+    public dmx(int i)
     {
-        b = dmt;
-        a = dnc1;
-        super();
-    }
-
-    public void run()
-    {
-        a.h();
+        super(null, null, -1L);
+        a = i;
     }
 }

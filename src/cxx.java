@@ -3,35 +3,31 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cxx extends cvn
+public class cxx extends cxr
 {
 
     private static final long serialVersionUID = 1L;
-    public final boolean g;
 
-    private cxx(ixs ixs1)
+    private cxx(ixz ixz1)
     {
-        super(ixs1.responseHeader, -1L);
-        if (ixs1.a != null && g.a(ixs1.a, 0) == 1)
-        {
-            g = true;
-            return;
-        } else
-        {
-            g = false;
-            return;
-        }
+        super(ixz1.responseHeader, -1L);
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public static cxr parseFrom(byte abyte0[])
     {
-        abyte0 = (ixs)kop.mergeFrom(new ixs(), abyte0);
-        if (a(((ixs) (abyte0)).responseHeader))
+        abyte0 = (ixz)kws.mergeFrom(new ixz(), abyte0);
+        if (a(((ixz) (abyte0)).responseHeader))
         {
-            return new cvz(((ixs) (abyte0)).responseHeader);
+            return new cyd(((ixz) (abyte0)).responseHeader);
         } else
         {
             return new cxx(abyte0);
         }
+    }
+
+    public void a(aow aow, dgk dgk)
+    {
+        super.a(aow, dgk);
+        aoq.d(aow);
     }
 }

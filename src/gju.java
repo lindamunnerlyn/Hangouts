@@ -2,70 +2,56 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.Surface;
 
-public final class gju
+final class gju
+    implements gjr
 {
 
-    private final Surface a;
-    private final int b;
-    private final int c;
-    private final boolean d;
-
-    public gju(Surface surface, int i, int j, boolean flag)
+    gju()
     {
-        a = surface;
-        b = i;
-        c = j;
-        d = flag;
     }
 
-    public Surface a()
+    private static jko a(jif jif, jgc jgc1)
     {
-        return a;
+        jju jju1 = new jju();
+        jju1.a = jif;
+        jju1.b = (new jgc[] {
+            jgc1
+        });
+        return a(jju1);
     }
 
-    public int b()
+    private static jko a(jju jju1)
     {
-        return b;
+        jko jko1 = new jko();
+        jko1.g = jju1;
+        return jko1;
     }
 
-    public int c()
+    public jko a(kws kws)
     {
-        return c;
+        kws = (jgn)kws;
+        return a(((jgn) (kws)).b, ((jgn) (kws)).a);
     }
 
-    public boolean d()
+    public jko a(kws kws, kws kws1)
     {
-        return d;
+        kws = (jgs)kws;
+        Object obj = (jgt)kws1;
+        kws1 = new jju();
+        kws1.a = ((jgt) (obj)).a;
+        obj = new jic();
+        obj.a = ((jgs) (kws)).a;
+        obj.b = ((jgs) (kws)).b;
+        kws1.c = (new jic[] {
+            obj
+        });
+        return a(((jju) (kws1)));
     }
 
-    public boolean equals(Object obj)
+    public jko b(kws kws)
     {
-        boolean flag1 = false;
-        boolean flag = flag1;
-        if (obj instanceof gju)
-        {
-            flag = flag1;
-            if (((gju)obj).a == a)
-            {
-                flag = true;
-            }
-        }
-        return flag;
-    }
-
-    public int hashCode()
-    {
-        return a.hashCode();
-    }
-
-    public String toString()
-    {
-        String s = String.valueOf(a);
-        int i = b;
-        int j = c;
-        boolean flag = d;
-        return (new StringBuilder(String.valueOf(s).length() + 69)).append("SurfaceInfo(surface=").append(s).append(",width=").append(i).append(",height=").append(j).append(",clip=").append(flag).append(")").toString();
+        kws = (jgp)kws;
+        return a(((jgp) (kws)).b, ((jgp) (kws)).a);
     }
 }

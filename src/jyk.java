@@ -2,64 +2,124 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.math.RoundingMode;
+import java.util.Arrays;
 
-public final class jyk extends koj
+final class jyk extends jmr
 {
 
-    public jyj a;
+    final int o;
+    final int p;
+    final int q;
+    final int r;
+    private final String s;
+    private final char t[];
+    private final byte u[];
+    private final boolean v[];
 
-    public jyk()
+    jyk(String s1, char ac[])
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        boolean flag = false;
+        super();
+        s = (String)n.b(s1);
+        t = (char[])n.b(ac);
+        int i;
+        try
         {
-            i = j + koh.d(1, a);
+            p = jzk.a(ac.length, RoundingMode.UNNECESSARY);
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        // Misplaced declaration of an exception variable
+        catch (String s1)
         {
-            int i = kog1.a();
-            switch (i)
+            int j = ac.length;
+            throw new IllegalArgumentException((new StringBuilder(35)).append("Illegal alphabet length ").append(j).toString(), s1);
+        }
+        i = Math.min(8, Integer.lowestOneBit(p));
+        q = 8 / i;
+        r = p / i;
+        o = ac.length - 1;
+        s1 = new byte[128];
+        Arrays.fill(s1, (byte)-1);
+        i = 0;
+        while (i < ac.length) 
+        {
+            char c1 = ac[i];
+            n.a(jmr.c.b(c1), "Non-ASCII character: %s", new Object[] {
+                Character.valueOf(c1)
+            });
+            boolean flag1;
+            if (s1[c1] == -1)
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new jyj();
-                }
-                kog1.a(a);
-                break;
+                flag1 = true;
+            } else
+            {
+                flag1 = false;
             }
-        } while (true);
+            n.a(flag1, "Duplicate character: %s", new Object[] {
+                Character.valueOf(c1)
+            });
+            s1[c1] = (byte)i;
+            i++;
+        }
+        u = s1;
+        s1 = new boolean[q];
+        for (int k = ((flag) ? 1 : 0); k < r; k++)
+        {
+            s1[jzk.a(k << 3, p, RoundingMode.CEILING)] = 1;
+        }
+
+        v = s1;
     }
 
-    public void writeTo(koh koh1)
+    static char[] a(jyk jyk1)
     {
-        if (a != null)
+        return jyk1.t;
+    }
+
+    char a(int i)
+    {
+        return t[i];
+    }
+
+    public boolean b(char c1)
+    {
+        return jmr.c.b(c1) && u[c1] != -1;
+    }
+
+    boolean b(int i)
+    {
+        return v[i % q];
+    }
+
+    int c(char c1)
+    {
+        if (c1 > '\177' || u[c1] == -1)
         {
-            koh1.b(1, a);
+            Object obj;
+            if (jmr.k.b(c1))
+            {
+                obj = String.valueOf(Integer.toHexString(c1));
+                if (((String) (obj)).length() != 0)
+                {
+                    obj = "0x".concat(((String) (obj)));
+                } else
+                {
+                    obj = new String("0x");
+                }
+            } else
+            {
+                obj = Character.valueOf(c1);
+            }
+            obj = String.valueOf(obj);
+            throw new jyn((new StringBuilder(String.valueOf(obj).length() + 24)).append("Unrecognized character: ").append(((String) (obj))).toString());
+        } else
+        {
+            return u[c1];
         }
-        super.writeTo(koh1);
+    }
+
+    public String toString()
+    {
+        return s;
     }
 }

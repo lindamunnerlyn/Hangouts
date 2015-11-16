@@ -5,18 +5,19 @@
 package com.google.android.libraries.hangouts.video;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import gbh;
-import gds;
-import gfq;
-import gjl;
-import gkc;
-import gke;
-import gki;
-import gkj;
+import gdv;
+import gfi;
+import ggg;
+import giq;
+import gmn;
+import gne;
+import gng;
+import gnk;
 import java.lang.ref.WeakReference;
 import java.util.Locale;
 
@@ -29,14 +30,14 @@ public class Libjingle
     private final Context a;
     private final Handler b;
     private boolean c;
-    private gds d;
+    private ggg d;
     private long mNativeContext;
 
-    public Libjingle(Context context, Handler handler, gds gds1)
+    public Libjingle(Context context, Handler handler, ggg ggg1)
     {
         a = context;
         b = handler;
-        d = gds1;
+        d = ggg1;
     }
 
     private static int a(int i)
@@ -56,10 +57,28 @@ public class Libjingle
     {
     }
 
+    private static int d(String s)
+    {
+        byte byte0 = 2;
+        if (Log.isLoggable(s, 2))
+        {
+            byte0 = 1;
+        } else
+        if (!Log.isLoggable(s, 3))
+        {
+            return !Log.isLoggable(s, 4) ? 4 : 3;
+        }
+        return byte0;
+    }
+
     private static void dispatchNativeEvent(Object obj, int i, int j, int k, Object obj1, Object obj2, Object obj3, Object obj4, 
             Object obj5, Object obj6)
     {
-        gbh.d();
+        if (gdv.b && !Thread.currentThread().getName().equals("LibjingleSignalingThread") && !Thread.currentThread().getName().contains("test"))
+        {
+            obj = String.valueOf(Thread.currentThread());
+            throw new AssertionError((new StringBuilder(String.valueOf(obj).length() + 47)).append("Expected Libjingle signaling thread instead of ").append(((String) (obj))).toString());
+        }
         obj = (Libjingle)((WeakReference)obj).get();
         if (obj != null && ((Libjingle) (obj)).mNativeContext != 0L)
         {
@@ -75,20 +94,6 @@ public class Libjingle
         }
     }
 
-    private static int e(String s)
-    {
-        byte byte0 = 2;
-        if (Log.isLoggable(s, 2))
-        {
-            byte0 = 1;
-        } else
-        if (!Log.isLoggable(s, 3))
-        {
-            return !Log.isLoggable(s, 4) ? 4 : 3;
-        }
-        return byte0;
-    }
-
     private static final native void nativeAddLogComment(String s);
 
     private final native void nativeBlockMedia(String s);
@@ -97,9 +102,9 @@ public class Libjingle
 
     private final native void nativeCheckConnectivity();
 
-    private final native void nativeEndCall(String s, boolean flag);
+    private final native void nativeEndCall();
 
-    private final native void nativeEndCallAndSignOut(String s);
+    private final native void nativeEndCallAndSignOut();
 
     private final native void nativeFinalize();
 
@@ -127,11 +132,10 @@ public class Libjingle
 
     private final native void nativeSetVideoCallOptions(byte abyte0[]);
 
-    private final native void nativeSetup(Object obj, Object obj1, String s, String s1, String s2, String s3, int i, 
-            int j);
+    private final native void nativeSetup(Object obj, Object obj1, String s, String s1, String s2, int i, int j, 
+            boolean flag);
 
-    private final native void nativeSignIn(String s, String s1, String s2, String s3, String s4, String s5, int i, 
-            int j);
+    private final native void nativeSignIn(String s, String s1, String s2, String s3, String s4, String s5, long l, long l1);
 
     public void a(char c1, int i, String s)
     {
@@ -141,57 +145,49 @@ public class Libjingle
             return;
         } else
         {
-            gkc.d("vclib", "sendDtmf: not initialized");
+            gne.a(5, "vclib", "sendDtmf: not initialized");
             return;
         }
     }
 
-    public void a(gjl gjl1, int i, int j)
+    public void a(gmn gmn1, long l, long l1)
     {
         if (c)
         {
-            nativeSignIn(gjl1.a(), gjl1.q(), gjl1.f(), gjl1.p(), gjl1.o(), gjl1.b(), i, j);
+            nativeSignIn(gmn1.a(), gmn1.q(), gmn1.f(), gmn1.p(), gmn1.o(), gmn1.b(), l, l1);
             return;
         } else
         {
-            gkc.d("vclib", "signIn: not initialized");
+            gne.a(5, "vclib", "signIn: not initialized");
             return;
         }
     }
 
-    public void a(gjl gjl1, String s)
+    public void a(gmn gmn1, String s)
     {
-        byte byte2 = 0;
+        byte byte1 = 0;
         boolean flag;
         byte byte0;
-        byte byte1;
-        if (gjl1.t())
+        if (gmn1.t())
         {
             flag = true;
         } else
         {
             flag = false;
         }
-        if (gjl1.v())
+        if (gmn1.v())
         {
             byte0 = 2;
         } else
         {
             byte0 = 0;
         }
-        if (gjl1.w())
+        if (gmn1.w())
         {
             byte1 = 4;
-        } else
-        {
-            byte1 = 0;
         }
-        if (gjl1.x())
-        {
-            byte2 = 8;
-        }
-        gbh.a(c);
-        nativeCallHangout(s, byte1 | (flag | false | byte0) | byte2, gjl1.r(), gjl1.y());
+        gdv.a("Expected condition to be true", c);
+        nativeCallHangout(s, byte0 | (flag | false) | byte1, gmn1.r(), gmn1.x());
     }
 
     public void a(String s)
@@ -202,7 +198,7 @@ public class Libjingle
             return;
         } else
         {
-            gkc.d("vclib", "remoteMute: not initialized");
+            gne.a(5, "vclib", "remoteMute: not initialized");
             return;
         }
     }
@@ -215,16 +211,17 @@ public class Libjingle
             return;
         } else
         {
-            gkc.d("vclib", "invitePstn: not initialized");
+            gne.a(5, "vclib", "invitePstn: not initialized");
             return;
         }
     }
 
-    public void a(String s, String s1, String as[][], String s2)
+    public void a(String s, String as[][], String s1)
     {
+        boolean flag = false;
         if (c)
         {
-            gkc.b("vclib", "init: already initialized");
+            gne.a(3, "vclib", "init: already initialized");
             return;
         }
         c = true;
@@ -233,58 +230,61 @@ public class Libjingle
         while (i < j) 
         {
             String as1[] = as[i];
-            String s3 = as1[0];
-            String s5 = as1[1];
-            if ("USE_DEFAULT_NETWORKS_ONLY".equals(s5))
+            String s2 = as1[0];
+            String s3 = as1[1];
+            if ("USE_DEFAULT_NETWORKS_ONLY".equals(s3))
             {
-                int k = d.a(s3, 1);
-                if (k == 1 && !gke.a() || k == 2)
+                int k = d.a(s2, 1);
+                if (k == 1 && !gng.a() || k == 2)
                 {
                     nativeSetGServicesOverride("USE_DEFAULT_NETWORKS_ONLY", "true");
                 }
             } else
             {
-                s3 = d.a(s3);
-                if (s3 != null)
+                s2 = d.a(s2);
+                if (s2 != null)
                 {
-                    nativeSetGServicesOverride(s5, s3);
+                    nativeSetGServicesOverride(s3, s2);
                 }
             }
             i++;
         }
-        as = gfq.a();
+        as = giq.a();
         nativeSetGServicesOverride("VIDEO_ENCODE_MAX_WIDTH", Integer.toString(as.c().a));
         nativeSetGServicesOverride("VIDEO_ENCODE_MAX_HEIGHT", Integer.toString(as.c().b));
         nativeSetGServicesOverride("VIDEO_ENCODE_MAX_FRAMERATE", Integer.toString(as.e()));
-        nativeSetGServicesOverride("VIDEO_ENCODE_CORES", Integer.toString(gkj.a()));
-        as = gfq.a(0);
+        nativeSetGServicesOverride("VIDEO_ENCODE_CORES", Integer.toString(gfi.a()));
+        as = giq.a(0);
         nativeSetGServicesOverride("VIDEO_DECODE_MAX_WIDTH", Integer.toString(as.c().a));
         nativeSetGServicesOverride("VIDEO_DECODE_MAX_HEIGHT", Integer.toString(as.c().b));
         nativeSetGServicesOverride("VIDEO_DECODE_MAX_FRAMERATE", Integer.toString(as.e()));
-        gkc.b("vclib", "init: call nativeSetup");
-        i = a(e("vclib:videoLogging"));
-        j = a(e("vclib:audioLogging"));
-        String s4 = Locale.getDefault().getLanguage();
-        as = s4;
-        if (s4 == null)
+        gne.a(3, "vclib", "init: call nativeSetup");
+        i = a(d("vclib:videoLogging"));
+        j = a(d("vclib:audioLogging"));
+        Object obj = Locale.getDefault().getLanguage();
+        as = ((String [][]) (obj));
+        if (obj == null)
         {
             as = "en";
         }
-        nativeSetup(a, new WeakReference(this), s, s1, as, s2, i, j);
-        gkc.b("vclib", "init: nativeSetup returned");
-    }
-
-    public void a(String s, boolean flag)
-    {
-        if (c)
+        obj = String.valueOf(Build.PRODUCT);
+        WeakReference weakreference;
+        if (((String) (obj)).length() != 0)
         {
-            nativeEndCall(s, flag);
-            return;
+            obj = "Product: ".concat(((String) (obj)));
         } else
         {
-            gkc.d("vclib", "terminateCall: not initialized");
-            return;
+            obj = new String("Product: ");
         }
+        gne.a(3, "vclib", ((String) (obj)));
+        obj = a;
+        weakreference = new WeakReference(this);
+        if (Build.PRODUCT.contains("sdk_") || Build.PRODUCT.contains("_sdk"))
+        {
+            flag = true;
+        }
+        nativeSetup(obj, weakreference, s, as, s1, i, j, flag);
+        gne.a(3, "vclib", "init: nativeSetup returned");
     }
 
     public void a(boolean flag)
@@ -314,14 +314,14 @@ public class Libjingle
                 flag3 = false;
             }
         }
-        gbh.a(flag3);
+        gdv.a("Expected condition to be true", flag3);
         if (c)
         {
             nativeInviteUsers(flag, as, as1, i, flag1, flag2, s);
             return;
         } else
         {
-            gkc.d("vclib", "inviteUsers: not initialized");
+            gne.a(5, "vclib", "inviteUsers: not initialized");
             return;
         }
     }
@@ -339,7 +339,7 @@ public class Libjingle
             return;
         } else
         {
-            gkc.d("vclib", "requestVideoViews: not initialized");
+            gne.a(5, "vclib", "requestVideoViews: not initialized");
             return;
         }
     }
@@ -348,12 +348,12 @@ public class Libjingle
     {
         if (!c)
         {
-            gkc.d("vclib", "release: not initialized");
+            gne.a(5, "vclib", "release: not initialized");
             return;
         } else
         {
             c = false;
-            gkc.b("vclib", "Release: call nativeRelease");
+            gne.a(3, "vclib", "Release: call nativeRelease");
             nativeRelease();
             return;
         }
@@ -367,7 +367,7 @@ public class Libjingle
             return;
         } else
         {
-            gkc.d("vclib", "blockMedia: not initialized");
+            gne.a(5, "vclib", "blockMedia: not initialized");
             return;
         }
     }
@@ -387,15 +387,7 @@ public class Libjingle
 
     public void c(String s)
     {
-        if (c)
-        {
-            nativeEndCallAndSignOut(s);
-            return;
-        } else
-        {
-            gkc.d("vclib", "endCallAndSignOut: not initialized");
-            return;
-        }
+        nativeAddLogComment(s);
     }
 
     public void c(boolean flag)
@@ -421,11 +413,6 @@ public class Libjingle
         nativeSetGServicesOverride("AUDIO_RECORDING_DEVICE", Integer.toString(7));
     }
 
-    public void d(String s)
-    {
-        nativeAddLogComment(s);
-    }
-
     public void d(boolean flag)
     {
         if (c)
@@ -434,7 +421,7 @@ public class Libjingle
             return;
         } else
         {
-            gkc.d("vclib", "publishAudioMuteState: not initialized");
+            gne.a(5, "vclib", "publishAudioMuteState: not initialized");
             return;
         }
     }
@@ -443,11 +430,11 @@ public class Libjingle
     {
         if (c)
         {
-            nativeCheckConnectivity();
+            nativeEndCallAndSignOut();
             return;
         } else
         {
-            gkc.d("vclib", "initiateCheckConnectivity: not initialized");
+            gne.a(5, "vclib", "endCallAndSignOut: not initialized");
             return;
         }
     }
@@ -460,7 +447,20 @@ public class Libjingle
             return;
         } else
         {
-            gkc.d("vclib", "publishVideoMuteState: not initialized");
+            gne.a(5, "vclib", "publishVideoMuteState: not initialized");
+            return;
+        }
+    }
+
+    public void f()
+    {
+        if (c)
+        {
+            nativeEndCall();
+            return;
+        } else
+        {
+            gne.a(5, "vclib", "terminateCall: not initialized");
             return;
         }
     }
@@ -470,13 +470,26 @@ public class Libjingle
         nativeFinalize();
     }
 
+    public void g()
+    {
+        if (c)
+        {
+            nativeCheckConnectivity();
+            return;
+        } else
+        {
+            gne.a(5, "vclib", "initiateCheckConnectivity: not initialized");
+            return;
+        }
+    }
+
     public final native void handleApiaryResponse(long l, byte abyte0[]);
 
     public final native void handlePushNotification(byte abyte0[]);
 
     static 
     {
-        int i;
+        int i = 5;
         int j;
         try
         {
@@ -484,15 +497,14 @@ public class Libjingle
         }
         catch (UnsatisfiedLinkError unsatisfiedlinkerror)
         {
-            gkc.a("vclib", "Unable to load videochat_jni.so with error", unsatisfiedlinkerror);
+            gne.a(5, "vclib", "Unable to load videochat_jni.so with error", unsatisfiedlinkerror);
             System.loadLibrary("videochat_jni_symbolized");
         }
         nativeInit();
-        j = gkc.a();
-        i = j;
-        if (j == 4)
+        j = gne.b;
+        if (j != 4)
         {
-            i = 5;
+            i = j;
         }
         nativeSetLoggingLevel(i);
     }

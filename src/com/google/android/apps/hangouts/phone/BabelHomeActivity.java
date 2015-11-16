@@ -5,9 +5,9 @@
 package com.google.android.apps.hangouts.phone;
 
 import ad;
-import aih;
-import aiv;
-import alw;
+import aia;
+import ais;
+import amo;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
@@ -35,46 +35,46 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.Toast;
-import ang;
-import ani;
-import ank;
-import aob;
+import any;
+import aoa;
+import aoc;
+import aot;
 import ap;
-import atd;
-import bea;
-import bef;
-import beh;
-import bgx;
-import biv;
-import bka;
-import bnd;
-import bvu;
-import byy;
-import bzc;
-import bzd;
-import cbd;
-import cej;
-import cey;
-import cjf;
-import cjg;
-import cjh;
-import cji;
-import cjj;
-import cjk;
-import cjl;
-import cjm;
-import cjn;
-import cjo;
-import cjp;
-import cjq;
-import cjr;
-import cjt;
-import cju;
-import cjv;
-import cjw;
-import cjx;
-import cls;
-import cnd;
+import atu;
+import beq;
+import bev;
+import bex;
+import bhj;
+import bjh;
+import bkm;
+import bnk;
+import bwn;
+import bye;
+import byf;
+import caf;
+import cag;
+import cci;
+import cfo;
+import cgd;
+import ckk;
+import ckl;
+import ckm;
+import ckn;
+import cko;
+import ckp;
+import ckq;
+import ckr;
+import cks;
+import ckt;
+import cku;
+import ckv;
+import ckw;
+import cky;
+import ckz;
+import cla;
+import clb;
+import clc;
+import cna;
 import com.google.android.apps.hangouts.fragments.CallContactPickerFragment;
 import com.google.android.apps.hangouts.fragments.ConversationListFragment;
 import com.google.android.apps.hangouts.navigation.NavigationDrawerFragment;
@@ -85,44 +85,46 @@ import com.google.android.apps.hangouts.views.BalanceView;
 import com.google.android.apps.hangouts.views.HangoutsToolbar;
 import com.google.android.apps.hangouts.views.MainViewPager;
 import com.google.android.gms.common.ConnectionResult;
-import cop;
-import cpk;
-import crc;
-import csz;
-import dan;
-import dbf;
-import dbx;
-import dbz;
-import dce;
-import dhi;
-import dih;
-import djk;
-import drk;
-import dry;
-import dsn;
-import dso;
-import dsp;
-import dsv;
-import dzj;
-import dzx;
-import ebd;
-import ebr;
-import ebw;
-import ecd;
-import ees;
-import eka;
-import ekc;
+import cov;
+import cqf;
+import cra;
+import crb;
+import csw;
+import ctm;
+import cvc;
+import dbt;
+import dcn;
+import ddg;
+import ddi;
+import ddm;
+import dir;
+import djs;
+import dlb;
+import due;
+import dur;
+import dvg;
+import dvh;
+import dvi;
+import dvo;
+import ecn;
+import eep;
+import eev;
+import efh;
+import ehu;
+import enb;
+import end;
 import g;
-import gmp;
-import gmq;
-import gms;
-import gmu;
-import gwt;
-import gxe;
-import gxj;
-import gxk;
+import gqv;
+import gqw;
+import gqz;
+import grb;
+import gxn;
 import h;
-import hgx;
+import hbd;
+import hbo;
+import hbu;
+import hbv;
+import hlp;
 import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.util.HashSet;
@@ -136,100 +138,93 @@ import lg;
 // Referenced classes of package com.google.android.apps.hangouts.phone:
 //            GmsInstallActivity
 
-public class BabelHomeActivity extends bka
-    implements bgx, biv, cbd, dbz, dih, eka, ekc, gmq
+public class BabelHomeActivity extends bkm
+    implements bhj, bjh, cci, ddi, djs, enb, end, gqw
 {
 
-    public static LinkedList m = new LinkedList();
-    private static final boolean n = false;
+    public static LinkedList n = new LinkedList();
+    private static final boolean o = false;
+    private static final efh p = efh.a("HomeActivity");
     private boolean A;
     private boolean B;
-    private BalanceView C;
-    private DrawerLayout D;
-    private NavigationDrawerFragment E;
-    private cop F;
-    private MainViewPager G;
-    private TabHostEx H;
-    private String I;
-    private String J;
+    private boolean C;
+    private boolean D;
+    private BalanceView E;
+    private DrawerLayout F;
+    private NavigationDrawerFragment G;
+    private cqf H;
+    private MainViewPager I;
+    private TabHostEx J;
     private String K;
-    private bef L;
-    private lg M;
-    private Menu N;
-    private Runnable O;
-    private dan P;
-    private ebd Q;
-    private dsn R;
-    private long S;
-    private long T;
-    private alw U;
+    private String L;
+    private String M;
+    private bev N;
+    private lg O;
+    private Menu P;
+    private Runnable Q;
+    private dbt R;
+    private csw S;
+    private dvg T;
+    private long U;
     private long V;
-    private long W;
-    private final gwt X;
-    private final dsp Y;
-    private final dsv Z = new cjf(this);
-    private ani o;
-    private ConversationListFragment r;
-    private CallContactPickerFragment s;
-    private boolean t;
-    private boolean u;
-    private final Handler v = new Handler();
+    private amo W;
+    private bye X;
+    private long Y;
+    private boolean Z;
+    private gxn aa;
+    private final hbd ab;
+    private final dvi ac;
+    private final dvo ad = new ckk(this);
+    private aoa s;
+    private ConversationListFragment t;
+    private CallContactPickerFragment u;
+    private boolean v;
     private boolean w;
-    private boolean x;
+    private final Handler x = new Handler();
     private boolean y;
     private boolean z;
 
     public BabelHomeActivity()
     {
-        S = -1L;
-        V = 0L;
-        W = 0L;
-        X = (new gwt(this, q)).a("active-hangouts-account").a(p).b(this);
-        Y = (new dsp(this, q)).b(p);
-        new aiv(this, q);
-        new crc(this, q);
+        U = -1L;
+        Y = -1L;
+        ab = (new hbd(this, r)).a("active-hangouts-account").a(q).b(this);
+        ac = (new dvi(this, r)).b(q);
+        new ais(this, r);
+        new ctm(this, r);
     }
 
-    private void a(long l1)
+    private void a(aia aia1, Intent intent, int i1)
     {
-        if (V != 0L && l1 > V)
+        if (o)
         {
-            W = l1 - V;
-            V = 0L;
-        }
-    }
-
-    private void a(aih aih1, Intent intent, int i1)
-    {
-        if (n)
-        {
-            String s1 = aih1.a;
-            int j1 = aih1.b;
+            String s1 = aia1.a;
+            int j1 = aia1.b;
             d((new StringBuilder(String.valueOf(s1).length() + 51)).append("openConversation conversationId: ").append(s1).append(" type: ").append(j1).toString());
         }
-        Intent intent1 = g.a(i1, aih1.a, aih1.b);
-        intent1.putExtra("conversation_parameters", aih1);
-        intent1.putExtra("opened_from_impression", aih1.k);
+        Intent intent1 = g.a(i1, aia1.a, aia1.b);
+        intent1.putExtra("conversation_parameters", aia1);
+        intent1.putExtra("opened_from_impression", aia1.k);
         if (intent != null)
         {
-            ebw.c("Babel", "Injecting share intent.");
+            eev.c("Babel", "Injecting share intent.");
             intent1.putExtra("share_intent", intent);
         }
         startActivity(intent1);
-        aih1 = String.valueOf(aih1.a);
-        if (aih1.length() != 0)
+        aia1 = String.valueOf(aia1.a);
+        if (aia1.length() != 0)
         {
-            aih1 = "openConversation ".concat(aih1);
+            aia1 = "openConversation ".concat(aia1);
         } else
         {
-            aih1 = new String("openConversation ");
+            aia1 = new String("openConversation ");
         }
-        c(aih1);
+        c(aia1);
     }
 
-    public static void a(BabelHomeActivity babelhomeactivity, aih aih1, Intent intent, int i1)
+    public static void a(BabelHomeActivity babelhomeactivity, aia aia1, Intent intent, int i1)
     {
-        babelhomeactivity.a(aih1, intent, i1);
+        babelhomeactivity.a(aia1, intent, i1);
     }
 
     public static void a(BabelHomeActivity babelhomeactivity, String s1)
@@ -239,92 +234,77 @@ public class BabelHomeActivity extends bka
 
     public static void a(BabelHomeActivity babelhomeactivity, boolean flag)
     {
-        babelhomeactivity.f(flag);
+        babelhomeactivity.e(flag);
     }
 
     public static void a(PrintWriter printwriter)
     {
-        Iterator iterator = m.iterator();
+        Iterator iterator = n.iterator();
         int i1 = 0;
         long l1 = 0L;
         while (iterator.hasNext()) 
         {
-            cjx cjx1 = (cjx)iterator.next();
-            cjx1.a(i1, printwriter, l1);
-            l1 = cjx1.a;
+            clc clc1 = (clc)iterator.next();
+            clc1.a(i1, printwriter, l1);
+            l1 = clc1.a;
             i1++;
         }
     }
 
     public static boolean a(BabelHomeActivity babelhomeactivity)
     {
-        return babelhomeactivity.y;
+        return babelhomeactivity.A;
     }
 
-    public static bef b(BabelHomeActivity babelhomeactivity)
+    public static bev b(BabelHomeActivity babelhomeactivity)
     {
-        return babelhomeactivity.L;
+        return babelhomeactivity.N;
     }
 
     private void b(String s1)
     {
         String s2;
-        dso dso1;
+        dvh dvh1;
         boolean flag;
         int i1;
-        if (R != null)
+        if (T != null)
         {
             flag = true;
         } else
         {
             flag = false;
         }
-        dso1 = new dso(this);
-        i1 = l.kP;
-        if (o.F())
+        dvh1 = new dvh(this);
+        i1 = l.ki;
+        if (s.D())
         {
-            s2 = o.c();
+            s2 = s.c();
         } else
         {
-            s2 = o.a();
+            s2 = s.a();
         }
-        dso1.a(getString(i1, new Object[] {
+        dvh1.a(getString(i1, new Object[] {
             s2
         }));
-        dso1.b(s1);
-        dso1.a(TimeUnit.SECONDS.toMillis(5L));
-        dso1.a(new cji(this));
-        s1 = dso1.a();
+        dvh1.b(s1);
+        dvh1.a(TimeUnit.SECONDS.toMillis(5L));
+        dvh1.a(new ckn(this));
+        s1 = dvh1.a();
         if (flag)
         {
-            Y.a(R, s1);
+            ac.a(T, s1);
         } else
         {
-            Y.a(s1);
+            ac.a(s1);
         }
-        R = s1;
+        T = s1;
     }
 
-    public static void c(BabelHomeActivity babelhomeactivity)
+    private void b(boolean flag)
     {
-        babelhomeactivity.v();
-    }
-
-    private static void c(String s1)
-    {
-        ebw.a("Babel", s1);
-        if (ebw.b())
+        if (s != null && !s.o())
         {
-            m.add(new cjx(s1));
-            for (; m.size() > 40; m.remove(0)) { }
-        }
-    }
-
-    private void c(boolean flag)
-    {
-        if (o != null && !o.q())
-        {
-            f(flag);
+            e(flag);
             NetworkInfo networkinfo = ((ConnectivityManager)getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
             boolean flag1;
             if (networkinfo != null && networkinfo.isConnected())
@@ -338,13 +318,76 @@ public class BabelHomeActivity extends bka
             {
                 long l1 = g.a(this, "babel_request_voice_account_data_delay_ms", 30000L);
                 long l2 = System.currentTimeMillis();
-                if (l1 + T <= l2)
+                if (l1 + V <= l2)
                 {
-                    T = l2;
-                    g.a(o.h(), this, false, new cjt(this, flag));
+                    V = l2;
+                    g.a(s.h(), this, false, new cky(this, flag));
                     return;
                 }
             }
+        }
+    }
+
+    public static void c(BabelHomeActivity babelhomeactivity)
+    {
+        babelhomeactivity.v();
+    }
+
+    private static void c(String s1)
+    {
+        eev.a("Babel", s1);
+        if (eev.b())
+        {
+            n.add(new clc(s1));
+            for (; n.size() > 40; n.remove(0)) { }
+        }
+    }
+
+    private void c(boolean flag)
+    {
+        boolean flag2 = true;
+        if (!y && A)
+        {
+            MainViewPager mainviewpager;
+            ap ap1;
+            boolean flag1;
+            int i1;
+            if (q.b(beq) != null)
+            {
+                flag1 = true;
+            } else
+            {
+                flag1 = false;
+            }
+            mainviewpager = I;
+            i1 = ab.a();
+            ap1 = u_();
+            if (flag && !flag1)
+            {
+                flag = flag2;
+            } else
+            {
+                flag = false;
+            }
+            if (mainviewpager.a(i1, ap1, flag))
+            {
+                if (I.a(K))
+                {
+                    K = null;
+                } else
+                {
+                    String s1 = PreferenceManager.getDefaultSharedPreferences(this).getString("last_selected_tab", null);
+                    I.a(s1);
+                }
+                J.a(getLayoutInflater());
+                v();
+            }
+            z = false;
+            return;
+        } else
+        {
+            z = true;
+            return;
         }
     }
 
@@ -371,7 +414,7 @@ public class BabelHomeActivity extends bka
 
     public static MainViewPager d(BabelHomeActivity babelhomeactivity)
     {
-        return babelhomeactivity.G;
+        return babelhomeactivity.I;
     }
 
     private void d(int i1)
@@ -390,54 +433,45 @@ public class BabelHomeActivity extends bka
         {
             s1 = new String(s2);
         }
-        ebw.b("Babel", s1);
+        eev.b("Babel", s1);
     }
 
     private void d(boolean flag)
     {
         boolean flag2 = true;
-        if (!w)
+        if (!C)
         {
-            MainViewPager mainviewpager;
-            ap ap1;
+            long l1 = ((amo)q.a(amo)).a("babel_account_snackbar_reshow", dlb.n);
             boolean flag1;
-            int i1;
-            if (p.b(bea) != null)
+            if (flag || U == -1L || SystemClock.elapsedRealtime() - U > l1)
             {
                 flag1 = true;
             } else
             {
                 flag1 = false;
             }
-            mainviewpager = G;
-            i1 = X.a();
-            ap1 = t_();
-            if (flag && !flag1)
+            if (((gqz)hlp.a(this, gqz)).a(new String[] {
+    "logged_in"
+}).size() <= 1)
             {
-                flag = flag2;
-            } else
-            {
-                flag = false;
+                flag2 = false;
             }
-            if (mainviewpager.a(i1, ap1, flag))
+            if (flag1 & flag2)
             {
-                if (G.a(I))
+                U = SystemClock.elapsedRealtime();
+                if (ab.c().d("sms_only"))
                 {
-                    I = null;
-                } else
-                {
-                    String s1 = PreferenceManager.getDefaultSharedPreferences(this).getString("last_selected_tab", null);
-                    G.a(s1);
+                    b(((String) (null)));
+                    return;
                 }
-                H.a(getLayoutInflater());
-                v();
+                if (S != null)
+                {
+                    S.a(null);
+                }
+                S = new ckm(this, this, r, s.h(), cvc.c.j);
+                S.a(s.b().a);
+                return;
             }
-            x = false;
-            return;
-        } else
-        {
-            x = true;
-            return;
         }
     }
 
@@ -448,90 +482,54 @@ public class BabelHomeActivity extends bka
 
     public static Runnable e(BabelHomeActivity babelhomeactivity)
     {
-        return babelhomeactivity.O;
+        return babelhomeactivity.Q;
     }
 
     private void e(boolean flag)
     {
-        boolean flag2 = true;
-        long l1 = ((alw)p.a(alw)).a("babel_account_snackbar_reshow", djk.n);
-        boolean flag1;
-        if (flag || S == -1L || SystemClock.elapsedRealtime() - S > l1)
+        if (R.b(s) && !s.Y())
         {
-            flag1 = true;
-        } else
-        {
-            flag1 = false;
-        }
-        if (((gms)hgx.a(this, gms)).a(new String[] {
-    "logged_in"
-}).size() <= 1)
-        {
-            flag2 = false;
-        }
-        if (!(flag1 & flag2))
-        {
-            return;
-        }
-        S = SystemClock.elapsedRealtime();
-        if (X.c().d("sms_only"))
-        {
-            b(((String) (null)));
-            return;
-        }
-        if (Q != null)
-        {
-            Q.a(null);
-        }
-        Q = new cjh(this, q, o.h(), csz.c.j);
-        Q.a(o.b().a);
-    }
-
-    public static gwt f(BabelHomeActivity babelhomeactivity)
-    {
-        return babelhomeactivity.X;
-    }
-
-    private void f(boolean flag)
-    {
-        if (P.b(o) && !o.ab())
-        {
-            if (C == null)
+            if (E == null)
             {
-                C = (BalanceView)getLayoutInflater().inflate(g.hh, null);
-                ((HangoutsToolbar)l).a(C);
+                E = (BalanceView)getLayoutInflater().inflate(g.gZ, null);
+                ((HangoutsToolbar)m).a(E);
             }
             if (flag)
             {
-                C.a(true);
+                E.a(true);
             }
         } else
-        if (C != null)
+        if (E != null)
         {
-            C.a(false);
+            E.a(false);
             return;
         }
     }
 
-    public static alw g(BabelHomeActivity babelhomeactivity)
+    public static hbd f(BabelHomeActivity babelhomeactivity)
     {
-        return babelhomeactivity.U;
+        return babelhomeactivity.ab;
+    }
+
+    public static amo g(BabelHomeActivity babelhomeactivity)
+    {
+        return babelhomeactivity.W;
     }
 
     public static Handler h(BabelHomeActivity babelhomeactivity)
     {
-        return babelhomeactivity.v;
+        return babelhomeactivity.x;
     }
 
     public static boolean i(BabelHomeActivity babelhomeactivity)
     {
-        babelhomeactivity.A = true;
+        babelhomeactivity.C = true;
         return true;
     }
 
     public static boolean j(BabelHomeActivity babelhomeactivity)
     {
-        babelhomeactivity.B = false;
+        babelhomeactivity.D = false;
         return false;
     }
 
@@ -545,208 +543,219 @@ public class BabelHomeActivity extends bka
         babelhomeactivity.t();
     }
 
-    public static ebd m(BabelHomeActivity babelhomeactivity)
+    public static csw m(BabelHomeActivity babelhomeactivity)
     {
-        return babelhomeactivity.Q;
+        return babelhomeactivity.S;
     }
 
-    public static ebd n(BabelHomeActivity babelhomeactivity)
+    public static csw n(BabelHomeActivity babelhomeactivity)
     {
-        babelhomeactivity.Q = null;
+        babelhomeactivity.S = null;
         return null;
     }
 
-    public static dsn o(BabelHomeActivity babelhomeactivity)
+    public static dvg o(BabelHomeActivity babelhomeactivity)
     {
-        babelhomeactivity.R = null;
+        babelhomeactivity.T = null;
         return null;
     }
 
-    public static ani p(BabelHomeActivity babelhomeactivity)
+    public static aoa p(BabelHomeActivity babelhomeactivity)
     {
-        return babelhomeactivity.o;
+        return babelhomeactivity.s;
     }
 
     private void p()
     {
-        if (A)
+        if (C)
         {
-            B = true;
+            D = true;
             return;
         }
-        A = true;
-        B = false;
+        C = true;
+        D = false;
         Intent intent = getIntent();
         if (c(intent) && !intent.hasExtra("account_id"))
         {
-            if (dbf.j())
+            if (dcn.j())
             {
-                int i1 = dbf.l().h();
-                X.a((new gxe()).a(i1).b());
+                int i1 = dcn.l().h();
+                ab.a((new hbo()).a(i1).b());
                 return;
             } else
             {
-                Toast.makeText(this, l.ki, 1).show();
+                Toast.makeText(this, l.jB, 0).show();
                 finish();
                 return;
             }
         } else
         {
-            X.a((new gxe()).a().c().a(gxj, (new gxk()).b().c()));
+            ab.a((new hbo()).a().c().a(hbu, (new hbv()).b().c()));
             return;
         }
     }
 
     private void q()
     {
-        if (!z) goto _L2; else goto _L1
-_L1:
-        return;
-_L2:
-        Object obj;
-        Intent intent;
-        Object obj3;
-        z = true;
-        intent = getIntent();
-        if (c(intent))
+        if (!B)
         {
-            ang ang1 = new ang(intent.getStringExtra("sms_body"), intent.getStringExtra("subject"), null, 0, null, null);
-            Object obj2 = drk.b(intent.getData());
-            if (TextUtils.isEmpty(((CharSequence) (obj2))))
+            B = true;
+            Intent intent = getIntent();
+            if (c(intent))
             {
-                intent = g.a(o, null, null, cnd.a, atd.b);
-                obj2 = new Intent();
-                ((Intent) (obj2)).putExtra("android.intent.extra.TEXT", ang1.b);
-                ((Intent) (obj2)).putExtra("draft_subject", ang1.c);
-                intent.putExtra("share_intent", ((android.os.Parcelable) (obj2)));
-                startActivityForResult(intent, 1001);
-                overridePendingTransition(g.cs, g.ct);
+                any any1 = new any(intent.getStringExtra("sms_body"), intent.getStringExtra("subject"), null, 0, null, null);
+                Object obj1 = due.b(intent.getData());
+                if (TextUtils.isEmpty(((CharSequence) (obj1))))
+                {
+                    intent = g.a(s, null, null, cov.a, atu.b);
+                    obj1 = new Intent();
+                    ((Intent) (obj1)).putExtra("android.intent.extra.TEXT", any1.b);
+                    ((Intent) (obj1)).putExtra("draft_subject", any1.c);
+                    intent.putExtra("share_intent", ((android.os.Parcelable) (obj1)));
+                    startActivityForResult(intent, 1001);
+                    overridePendingTransition(g.cr, g.cs);
+                    return;
+                }
+                HashSet hashset = new HashSet();
+                String as[] = ((String) (obj1)).split(";");
+                int l1 = as.length;
+                for (int i1 = 0; i1 < l1; i1++)
+                {
+                    String s2 = as[i1];
+                    hashset.add(g.a(getApplicationContext(), s2, null, null));
+                }
+
+                int j1 = intent.getIntExtra("transport_type", 3);
+                dir dir1 = dir.b();
+                RealTimeChatService.a(dir1, (new ddm(getApplicationContext())).a(s.h()).a(g.a(hashset)).a(aot.c).b(j1).a());
+                RealTimeChatService.a(new ckz(this, dir1, ((String) (obj1)), any1, intent.getIntExtra("opened_from_impression", 0)));
                 return;
             }
-            HashSet hashset = new HashSet();
-            String as[] = ((String) (obj2)).split(";");
-            int l1 = as.length;
-            for (int i1 = 0; i1 < l1; i1++)
+            Object obj2 = intent.getStringExtra("conversation_id_set");
+            Object obj = intent.getStringExtra("conversation_id");
+            if (obj2 != null)
             {
-                String s1 = as[i1];
-                hashset.add(g.a(getApplicationContext(), s1, null, null));
+                if (obj != null)
+                {
+                    String s1 = String.valueOf("|");
+                    obj = (new StringBuilder(String.valueOf(obj2).length() + 0 + String.valueOf(s1).length() + String.valueOf(obj).length())).append(((String) (obj2))).append(s1).append(((String) (obj))).toString();
+                } else
+                {
+                    obj = null;
+                }
             }
-
-            int j1 = intent.getIntExtra("transport_type", 3);
-            dhi dhi1 = dhi.b();
-            RealTimeChatService.a(dhi1, (new dce(getApplicationContext())).a(o.h()).a(g.a(hashset)).a(aob.c).b(j1).a());
-            RealTimeChatService.a(new cju(this, dhi1, ((String) (obj2)), ang1, intent.getIntExtra("opened_from_impression", 0)));
-            return;
-        }
-        obj = dzx.a(intent.getStringExtra("conversation_id_set"), intent.getStringExtra("conversation_id"));
-        if (intent.getBooleanExtra("reset_chat_notifications", false))
-        {
-            cej.a(getApplicationContext(), o.h(), ((String) (obj)));
-        }
-        if (intent.getBooleanExtra("reset_hangout_notifications", false))
-        {
-            cej.b(getApplicationContext(), o.h(), ((String) (obj)));
-        }
-        if (intent.getBooleanExtra("reset_failed_notifications", false))
-        {
-            cej.c(getApplicationContext(), o.h(), ((String) (obj)));
-        }
-        obj = intent.getAction();
-        u = TextUtils.equals(((CharSequence) (obj)), "android.intent.action.MAIN");
-        obj3 = intent.getStringExtra("conversation_id");
-        K = null;
-        J = null;
-        if (!TextUtils.isEmpty(((CharSequence) (obj3))))
-        {
-            break MISSING_BLOCK_LABEL_619;
-        }
-        if (TextUtils.equals(((CharSequence) (obj)), "android.intent.action.INSERT"))
-        {
-            a(intent);
-            return;
-        }
-        if (!d(intent))
-        {
-            continue; /* Loop/switch isn't completed */
-        }
-        if (intent.getBooleanExtra("use_dialer_activity", true))
-        {
-            startActivity(g.d(intent));
-            finish();
-            return;
-        }
-        J = intent.getAction();
-        if (TextUtils.equals(J, "com.google.android.apps.hangouts.phone.dialpad"))
-        {
-            K = intent.getStringExtra("number_to_call");
-        }
-        if (!dbf.y())
-        {
-            ebw.f("Babel", "[BabelHomeActivity.onNewIntent] Adding account from dialer intent.");
-            n();
-        }
-        obj = (bea)p.b(bea);
-        if (obj != null)
-        {
-            o.h();
-            obj = ((bea) (obj)).a();
-            if (K != null)
+            if (intent.getBooleanExtra("reset_chat_notifications", false))
             {
-                ((Intent) (obj)).putExtra("number_to_call", K);
+                cfo.a(getApplicationContext(), s.h(), ((String) (obj)));
             }
-            startActivity(((Intent) (obj)));
-            return;
+            if (intent.getBooleanExtra("reset_hangout_notifications", false))
+            {
+                cfo.b(getApplicationContext(), s.h(), ((String) (obj)));
+            }
+            if (intent.getBooleanExtra("reset_failed_notifications", false))
+            {
+                cfo.c(getApplicationContext(), s.h(), ((String) (obj)));
+            }
+            obj = intent.getAction();
+            w = TextUtils.equals(((CharSequence) (obj)), "android.intent.action.MAIN");
+            obj2 = intent.getStringExtra("conversation_id");
+            M = null;
+            L = null;
+            if (TextUtils.isEmpty(((CharSequence) (obj2))))
+            {
+                if (TextUtils.equals(((CharSequence) (obj)), "android.intent.action.INSERT"))
+                {
+                    a(intent);
+                    return;
+                }
+                if (d(intent))
+                {
+                    if (intent.getBooleanExtra("use_dialer_activity", true))
+                    {
+                        startActivity(g.d(intent));
+                        finish();
+                        return;
+                    }
+                    L = intent.getAction();
+                    if (TextUtils.equals(L, "com.google.android.apps.hangouts.phone.dialpad"))
+                    {
+                        M = intent.getStringExtra("number_to_call");
+                    }
+                    if (!dcn.y())
+                    {
+                        eev.f("Babel", "[BabelHomeActivity.onNewIntent] Adding account from dialer intent.");
+                        n();
+                    }
+                    obj = (beq)q.b(beq);
+                    if (obj != null)
+                    {
+                        s.h();
+                        obj = ((beq) (obj)).a();
+                        if (M != null)
+                        {
+                            ((Intent) (obj)).putExtra("number_to_call", M);
+                        }
+                        startActivity(((Intent) (obj)));
+                        return;
+                    }
+                    o();
+                    if (u != null)
+                    {
+                        u.b();
+                        return;
+                    }
+                }
+            } else
+            {
+                int k1 = intent.getIntExtra("client_conversation_type", 0);
+                obj = g.a(intent.getExtras());
+                if (obj != null)
+                {
+                    a(((cgd) (obj)), ((String) (obj2)), k1, intent.getLongExtra("invite_timestamp", 0L));
+                    return;
+                }
+                if (t != null)
+                {
+                    obj = t.c(((String) (obj2)));
+                } else
+                {
+                    obj = null;
+                }
+                obj2 = new aia(((String) (obj2)), k1);
+                obj2.d = true;
+                obj2.f = ((any) (obj));
+                obj2.k = intent.getIntExtra("opened_from_impression", 0);
+                a(((aia) (obj2)), null, intent.getIntExtra("account_id", ab.a()));
+                return;
+            }
         }
-        o();
-        if (s == null) goto _L1; else goto _L3
-_L3:
-        s.b();
-        return;
-        if (!TextUtils.equals(((CharSequence) (obj)), "com.google.android.apps.hangouts.phone.addgoogleaccount")) goto _L1; else goto _L4
-_L4:
-        n();
-        return;
-        int k1 = intent.getIntExtra("client_conversation_type", 0);
-        Object obj1 = g.a(intent.getExtras());
-        if (obj1 != null)
-        {
-            a(((cey) (obj1)), ((String) (obj3)), k1, intent.getLongExtra("invite_timestamp", 0L));
-            return;
-        }
-        if (r != null)
-        {
-            obj1 = r.c(((String) (obj3)));
-        } else
-        {
-            obj1 = null;
-        }
-        obj3 = new aih(((String) (obj3)), k1);
-        obj3.d = true;
-        obj3.f = ((ang) (obj1));
-        obj3.k = intent.getIntExtra("opened_from_impression", 0);
-        a(((aih) (obj3)), null, intent.getIntExtra("account_id", X.a()));
-        return;
     }
 
     private void r()
     {
-        if (o != null && W > 0L)
+        if (Z && s != null && Y > 0L)
         {
-            h.a(o.h(), SystemClock.elapsedRealtime(), 17, (new byy()).a(1001).b(W));
-            W = 0L;
+            String s1 = p.b("reportStartup");
+            Z = false;
+            if (X != null)
+            {
+                X.a(s.h(), "hangout_launch_icon", Y, 1001);
+            }
+            g.a(new crb(getApplicationContext()), 1000L);
+            p.c(s1);
         }
     }
 
     private void s()
     {
-        if (G != null && N != null)
+        if (I != null && P != null)
         {
-            ees ees1 = G.j();
-            MenuItem menuitem = N.findItem(h.fk);
+            ehu ehu1 = I.j();
+            MenuItem menuitem = P.findItem(h.eS);
             if (menuitem != null)
             {
                 boolean flag;
-                if (ees1 == MainViewPager.a)
+                if (ehu1 == MainViewPager.a)
                 {
                     flag = true;
                 } else
@@ -761,31 +770,31 @@ _L4:
 
     private void t()
     {
-        d(P.a(this, o));
+        c(R.a(this, s));
     }
 
     private void u()
     {
-        if ((r == null || !r.c()) && L != null)
+        if ((t == null || !t.c()) && N != null)
         {
-            ViewGroup viewgroup = (ViewGroup)findViewById(h.dy);
+            ViewGroup viewgroup = (ViewGroup)findViewById(h.dm);
             if (viewgroup != null)
             {
-                L.a(this);
-                L.a(this, viewgroup, N);
-                if (M == null)
+                N.a();
+                N.a(this, viewgroup, P);
+                if (O == null)
                 {
-                    M = L.a();
-                    if (M != null)
+                    O = N.b();
+                    if (O != null)
                     {
-                        G.b(M);
+                        I.b(O);
                     }
                 }
-                if (M != null)
+                if (O != null)
                 {
-                    int i1 = G.c();
-                    M.a(i1);
-                    M.a(i1, 0.0F, 0);
+                    int i1 = I.c();
+                    O.a(i1);
+                    O.a(i1, 0.0F, 0);
                     return;
                 }
             }
@@ -794,54 +803,54 @@ _L4:
 
     private void v()
     {
-        ees ees1 = G.j();
+        ehu ehu1 = I.j();
         int i1;
-        if (ees1 != null)
+        if (ehu1 != null)
         {
-            i1 = ees1.a;
+            i1 = ehu1.a;
         } else
         {
-            i1 = l.fb;
+            i1 = l.eK;
         }
         setTitle(i1);
     }
 
     private void w()
     {
-        r.a(false);
-        H.a(true);
-        G.b(false);
+        t.a(false);
+        J.a(true);
+        I.b(false);
         if (android.os.Build.VERSION.SDK_INT >= 21)
         {
-            d(g.dt);
+            d(g.ds);
         }
     }
 
     private void x()
     {
         boolean flag = true;
-        r.a(true);
-        H.a(false);
-        MainViewPager mainviewpager = G;
-        if (p.b(bea) != null)
+        t.a(true);
+        J.a(false);
+        MainViewPager mainviewpager = I;
+        if (q.b(beq) != null)
         {
             flag = false;
         }
         mainviewpager.b(flag);
         if (android.os.Build.VERSION.SDK_INT >= 21)
         {
-            d(g.dg);
+            d(g.de);
         }
     }
 
     private boolean y()
     {
-        if (D == null || E == null || E.getView() == null)
+        if (F == null || G == null || G.getView() == null)
         {
             return false;
         } else
         {
-            return D.j(E.getView());
+            return F.j(G.getView());
         }
     }
 
@@ -854,9 +863,9 @@ _L4:
     {
     }
 
-    public void a(ad ad)
+    public void a(ad ad1)
     {
-        String s1 = String.valueOf(ad.getClass().getSimpleName());
+        String s1 = String.valueOf(ad1.getClass().getSimpleName());
         if (s1.length() != 0)
         {
             s1 = "onAttachFragment ".concat(s1);
@@ -865,65 +874,71 @@ _L4:
             s1 = new String("onAttachFragment ");
         }
         c(s1);
-        super.a(ad);
-        if (ad instanceof ConversationListFragment)
+        super.a(ad1);
+        if (ad1 instanceof ConversationListFragment)
         {
-            r = (ConversationListFragment)ad;
-            r.a(this);
-            r.a(0);
+            t = (ConversationListFragment)ad1;
+            t.a(this);
+            t.a(0);
         } else
-        if (ad instanceof CallContactPickerFragment)
+        if (ad1 instanceof CallContactPickerFragment)
         {
-            s = (CallContactPickerFragment)ad;
-            s.a(this);
+            u = (CallContactPickerFragment)ad1;
+            u.a(this);
         }
-        ad = String.valueOf(ad.getClass().getSimpleName());
-        if (ad.length() != 0)
+        ad1 = String.valueOf(ad1.getClass().getSimpleName());
+        if (ad1.length() != 0)
         {
-            ad = "/onAttachFragment ".concat(ad);
+            ad1 = "/onAttachFragment ".concat(ad1);
         } else
         {
-            ad = new String("/onAttachFragment ");
+            ad1 = new String("/onAttachFragment ");
         }
-        c(ad);
+        c(ad1);
     }
 
-    public void a(aih aih1)
+    public void a(aia aia1)
     {
-        a(aih1, null, X.a());
+        a(aia1, null, ab.a());
     }
 
     public void a(Intent intent)
     {
         g.b(intent);
-        G.a(MainViewPager.a);
-        if (L != null)
+        I.a(MainViewPager.a);
+        if (N != null)
         {
-            L.e();
+            N.f();
         }
-        if (r != null)
+        if (t != null)
         {
-            r.b();
+            t.b();
         }
     }
 
     protected void a(Bundle bundle)
     {
         super.a(bundle);
-        ((bvu)p.a(bvu)).a(q);
-        U = (alw)p.a(alw);
-        bundle = (beh)p.b(beh);
+        ((bwn)q.a(bwn)).a(r);
+        W = (amo)q.a(amo);
+        bundle = (bex)q.b(bex);
         if (bundle != null)
         {
-            L = bundle.a(this);
-            p.a(bef, L);
+            N = bundle.a(this);
+            q.a(bev, N);
         }
-        P = (dan)p.a(dan);
+        R = (dbt)q.a(dbt);
+        bundle = (byf)q.b(byf);
+        if (bundle != null)
+        {
+            X = bundle.a(17);
+        }
+        aa = (gxn)q.a(gxn);
     }
 
-    public void a(cey cey1, String s1, int i1, long l1)
+    public void a(cgd cgd1, String s1, int i1, long l1)
     {
-        if (n)
+        if (o)
         {
             String s2 = String.valueOf(s1);
             if (s2.length() != 0)
@@ -935,44 +950,44 @@ _L4:
             }
             d(s2);
         }
-        startActivity(g.a(o.h(), s1, cey1, i1, l1));
+        startActivity(g.a(s.h(), s1, cgd1, i1, l1));
     }
 
     public void a(ConnectionResult connectionresult)
     {
     }
 
-    public void a(dbx dbx1)
+    public void a(ddg ddg1)
     {
-        g.a(dbx1, o, this, this);
+        g.a(ddg1, s, this, this);
     }
 
-    public void a(dsn dsn)
+    public void a(dvg dvg)
     {
-        Y.a(dsn);
+        ac.a(dvg);
     }
 
-    public void a(dsn dsn, dsn dsn1)
+    public void a(dvg dvg, dvg dvg1)
     {
-        Y.a(dsn, dsn1);
+        ac.a(dvg, dvg1);
     }
 
     public void a(String s1, String s2)
     {
-        int i1 = ((gms)p.a(gms)).b(s1, s2);
-        if (X.a() == i1)
+        int i1 = ((gqz)q.a(gqz)).b(s1, s2);
+        if (ab.a() == i1)
         {
             return;
         }
-        A = true;
+        C = true;
         if (s2 != null && i1 == -1)
         {
-            X.a((new gxe()).a(bzc, (new bzd()).a(s1).b(s2).a()).b());
+            ab.a((new hbo()).a(caf, (new cag()).a(s1).b(s2).a()).b());
             return;
         } else
         {
-            g.a(o, 1561);
-            X.a((new gxe()).a(s1, s2).b());
+            g.a(s, 1561);
+            ab.a((new hbo()).a(s1, s2).b());
             return;
         }
     }
@@ -980,77 +995,78 @@ _L4:
     public void a(String s1, boolean flag, int i1, int j1)
     {
         c("openHangout");
-        (new cpk(this, o, s1, flag, i1, j1)).a(new Void[0]);
+        (new cra(this, s, s1, flag, i1, j1)).a(new Void[0]);
     }
 
-    public void a(boolean flag, gmp gmp1, gmp gmp2, int i1, int j1)
+    public void a(boolean flag, gqv gqv1, gqv gqv2, int i1, int j1)
     {
-        String s1 = String.valueOf(gmp1);
-        String s2 = String.valueOf(gmp2);
-        ebw.e("Babel", (new StringBuilder(String.valueOf(s1).length() + 41 + String.valueOf(s2).length())).append("oAHST ").append(flag).append(", ").append(s1).append(", ").append(s2).append(", ").append(i1).append(", ").append(j1).toString());
-        cjo.a[gmp2.ordinal()];
+        String s1 = String.valueOf(gqv1);
+        String s2 = String.valueOf(gqv2);
+        eev.e("Babel", (new StringBuilder(String.valueOf(s1).length() + 41 + String.valueOf(s2).length())).append("oAHST ").append(flag).append(", ").append(s1).append(", ").append(s2).append(", ").append(i1).append(", ").append(j1).toString());
+        ckt.a[gqv2.ordinal()];
         JVM INSTR tableswitch 1 3: default 136
     //                   1 155
     //                   2 163
     //                   3 168;
            goto _L1 _L2 _L3 _L4
 _L1:
-        if (B)
+        if (D)
         {
-            g.a(new cjw(this));
+            g.a(new clb(this));
             return;
         }
         break; /* Loop/switch isn't completed */
 _L2:
-        A = false;
+        C = false;
         if (true) goto _L1; else goto _L5
 _L3:
         finish();
         return;
 _L4:
-        o = null;
+        s = null;
         t();
-        g.a(new cjv(this));
+        g.a(new cla(this));
         return;
 _L5:
-        if (gmp1 == gmp.c)
+        if (gqv1 == gqv.c)
         {
             i1 = 1;
         } else
         {
             i1 = 0;
         }
-        o = dbf.e(j1);
+        s = dcn.e(j1);
         q();
-        g.a(new cjg(this));
-        if (i1 != 0 && !o.q())
+        aa.a(new ckl(this));
+        if (i1 != 0 && !s.o())
         {
-            RealTimeChatService.e(o);
+            RealTimeChatService.e(s);
         }
         u();
-        if (L != null)
+        if (N != null)
         {
-            L.a(G.c());
+            N.a(I.c());
         }
-        cej.d(getApplicationContext(), j1);
+        cfo.d(getApplicationContext(), j1);
         if (i1 == 0) goto _L7; else goto _L6
 _L6:
-        c(false);
+        b(false);
 _L9:
-        e(true);
+        d(true);
+        r();
         return;
 _L7:
         if (d(getIntent()))
         {
-            if (!dbf.y())
+            if (!dcn.y())
             {
                 n();
-                ebw.f("Babel", "[BabelHomeActivity.onCreate] Adding account from dialer intent.");
+                eev.f("Babel", "[BabelHomeActivity.onCreate] Adding account from dialer intent.");
                 return;
             }
-            if (!P.a(o))
+            if (!R.a(s))
             {
-                (new android.app.AlertDialog.Builder(this)).setMessage(l.ct).setCancelable(true).setPositiveButton(l.hJ, new cjn(this)).create().show();
+                (new android.app.AlertDialog.Builder(this)).setMessage(l.ch).setCancelable(true).setPositiveButton(l.hd, new cks(this)).create().show();
             }
         }
         if (true) goto _L9; else goto _L8
@@ -1059,33 +1075,38 @@ _L8:
 
     protected boolean a(MenuItem menuitem)
     {
-        if (menuitem.getItemId() == h.aK)
+        if (menuitem.getItemId() == h.aF)
         {
-            g.a(o, 1615);
-            (new cls(this)).a(F).a(t_()).a().show();
+            g.a(s, 1615);
+            (new cna(this)).a(H).a(u_()).a().show();
         }
         return super.a(menuitem);
     }
 
     public boolean a(String s1)
     {
-        return bnd.a(o, s1);
+        return bnk.a(s, s1);
     }
 
     public void a_(Bundle bundle)
     {
         if (isFinishing())
         {
-            ebw.c("Babel", "People client connected but home activity is finishing.");
+            eev.c("Babel", "People client connected but home activity is finishing.");
         }
     }
 
-    public void b(dbx dbx1)
+    public String b()
     {
-        switch (dbx1.b())
+        return L;
+    }
+
+    public void b(ddg ddg1)
+    {
+        switch (ddg1.b())
         {
         default:
-            ebw.g("Babel", "Unsupported call action type for BabelHomeActivity!");
+            eev.g("Babel", "Unsupported call action type for BabelHomeActivity!");
             return;
 
         case 1: // '\001'
@@ -1093,29 +1114,29 @@ _L8:
             return;
 
         case 2: // '\002'
-            g.a(this, dbx1, o.h(), o.a());
+            g.a(this, ddg1, s.h(), s.a());
             break;
         }
     }
 
     public void c()
     {
-        J = null;
+        L = null;
     }
 
     public String d()
     {
-        return K;
+        return M;
     }
 
     public void e()
     {
-        K = null;
+        M = null;
     }
 
     public boolean h()
     {
-        return G.j() == MainViewPager.b;
+        return I.j() == MainViewPager.b;
     }
 
     public void j()
@@ -1124,53 +1145,43 @@ _L8:
         u();
     }
 
-    public void l_()
-    {
-        w();
-        if (L != null && (ViewGroup)findViewById(h.dy) != null)
-        {
-            L.a(this);
-        }
-    }
-
     public void m()
     {
         boolean flag;
-        if (o != null && G.l())
+        if (s != null && I.l())
         {
-            if ((flag = P.a(this, o)) != G.k())
+            if ((flag = R.a(this, s)) != I.k())
             {
-                d(flag);
+                c(flag);
                 return;
             }
         }
     }
 
-    public String m_()
+    public void m_()
     {
-        return J;
+        w();
+        if (N != null && (ViewGroup)findViewById(h.dm) != null)
+        {
+            N.a();
+        }
     }
 
     public void n()
     {
-        g.a(o, 1628);
-        ebw.e("Babel", "Adding a new account");
-        g.a(new cjm(this));
-    }
-
-    public void n_()
-    {
-        w();
+        g.a(s, 1628);
+        eev.e("Babel", "Adding a new account");
+        g.a(new ckr(this));
     }
 
     public void o()
     {
-        G.a(MainViewPager.b);
+        I.a(MainViewPager.b);
     }
 
     public void o_()
     {
-        x();
+        w();
     }
 
     public void onActivityResult(int i1, int j1, Intent intent)
@@ -1184,7 +1195,7 @@ _L8:
 
     public void onBackPressed()
     {
-        if (L == null || !L.f()) goto _L2; else goto _L1
+        if (N == null || !N.g()) goto _L2; else goto _L1
 _L1:
         return;
 _L2:
@@ -1192,15 +1203,15 @@ _L2:
         {
             break; /* Loop/switch isn't completed */
         }
-        if (D != null)
+        if (F != null)
         {
-            D.b();
+            F.b();
             return;
         }
         if (true) goto _L1; else goto _L3
 _L3:
         c("onBackPressed");
-        if ((s == null || !s.isVisible() || !s.d()) && (r == null || !r.e()))
+        if ((u == null || !u.isVisible() || !u.d()) && (t == null || !t.e()))
         {
             super.onBackPressed();
             return;
@@ -1212,18 +1223,17 @@ _L4:
     public void onConfigurationChanged(Configuration configuration)
     {
         super.onConfigurationChanged(configuration);
-        p_();
+        q_();
         u();
     }
 
     protected void onCreate(Bundle bundle)
     {
         Intent intent;
-        setTheme(g.im);
-        V = SystemClock.elapsedRealtime();
-        ecd.a("BabelHomeActivity.onCreate");
+        setTheme(g.ie);
+        p.b("onCreate");
         c("onCreate");
-        if (n)
+        if (o)
         {
             String s1 = String.valueOf("onCreate  savedInstanceState: ");
             String s2 = String.valueOf(bundle);
@@ -1231,76 +1241,68 @@ _L4:
         }
         super.onCreate(bundle);
         intent = getIntent();
-        u = TextUtils.equals(intent.getAction(), "android.intent.action.MAIN");
-        dzj.a("BabelHomeActivity.onCreate", intent);
+        w = TextUtils.equals(intent.getAction(), "android.intent.action.MAIN");
+        ecn.a("BabelHomeActivity.onCreate", intent);
         if (isTaskRoot())
         {
-            break MISSING_BLOCK_LABEL_167;
+            break MISSING_BLOCK_LABEL_170;
         }
-        ebw.f("Babel", "BabelHomeActivity was not the root task in onCreate");
-        if (!intent.hasCategory("android.intent.category.LAUNCHER") || !u)
+        eev.f("Babel", "BabelHomeActivity was not the root task in onCreate");
+        if (!intent.hasCategory("android.intent.category.LAUNCHER") || !w)
         {
-            break MISSING_BLOCK_LABEL_167;
+            break MISSING_BLOCK_LABEL_170;
         }
-        ebw.f("Babel", "Finishing instead of re-launching from the launcher");
+        eev.f("Babel", "Finishing instead of re-launching from the launcher");
         finish();
         c("/onCreate");
-        ecd.a();
+        p.c("onCreate");
         return;
         if (g.a(false, false, true) == 0)
         {
-            break MISSING_BLOCK_LABEL_234;
+            break MISSING_BLOCK_LABEL_243;
         }
-        boolean flag = u;
-        bundle = new Intent(g.nS, com/google/android/apps/hangouts/phone/GmsInstallActivity);
+        boolean flag = w;
+        bundle = new Intent(g.nU, com/google/android/apps/hangouts/phone/GmsInstallActivity);
         bundle.putExtra("from_main_launcher", flag);
         bundle.setAction(intent.getAction());
         startActivity(bundle);
         finish();
         c("/onCreate");
-        ecd.a();
-        return;
-        if (!TextUtils.equals(intent.getAction(), "com.google.android.apps.hangouts.phone.addgoogleaccount"))
-        {
-            break MISSING_BLOCK_LABEL_261;
-        }
-        n();
-        c("/onCreate");
-        ecd.a();
+        p.c("onCreate");
         return;
         if (bundle != null)
         {
-            break MISSING_BLOCK_LABEL_318;
+            break MISSING_BLOCK_LABEL_306;
         }
         if (TextUtils.equals(intent.getAction(), "com.google.android.apps.hangouts.phone.conversationlist") || !d(intent) || !intent.getBooleanExtra("use_dialer_activity", true))
         {
-            break MISSING_BLOCK_LABEL_318;
+            break MISSING_BLOCK_LABEL_306;
         }
         startActivity(g.d(intent));
         finish();
         c("/onCreate");
-        ecd.a();
+        p.c("onCreate");
         return;
-        t = dzj.c();
-        if (!t && p.b(bea) == null)
+        v = ecn.c();
+        if (!v && q.b(beq) == null)
         {
             setRequestedOrientation(1);
         }
         BootReceiver.a(this);
-        (new cjp(this)).execute(new Void[0]);
+        (new cku(this)).execute(new Void[0]);
         if (bundle != null) goto _L2; else goto _L1
 _L1:
         p();
 _L7:
         MainViewPager mainviewpager;
-        setContentView(c(g.fg));
-        G = (MainViewPager)findViewById(h.gX);
-        G.b(new cjq(this));
-        H = (TabHostEx)findViewById(0x1020012);
-        H.a(G);
-        mainviewpager = G;
+        setContentView(c(g.fe));
+        I = (MainViewPager)findViewById(h.gD);
+        I.b(new ckv(this));
+        J = (TabHostEx)findViewById(0x1020012);
+        J.a(I);
+        mainviewpager = I;
         boolean flag1;
-        if (p.b(bea) == null)
+        if (q.b(beq) == null)
         {
             flag1 = true;
         } else
@@ -1308,39 +1310,47 @@ _L7:
             flag1 = false;
         }
         mainviewpager.b(flag1);
-        H.setup();
+        J.setup();
         if (bundle != null) goto _L4; else goto _L3
 _L3:
         if (!TextUtils.equals(intent.getAction(), "com.google.android.apps.hangouts.phone.conversationlist")) goto _L6; else goto _L5
 _L5:
-        I = MainViewPager.a.d;
+        K = MainViewPager.a.d;
         g.b(intent);
 _L4:
-        ebw.e("Babel", "[BabelHomeActivity.onCreate] setContentView called");
-        D = (DrawerLayout)findViewById(h.bb);
-        E = (NavigationDrawerFragment)t_().a(h.dS);
-        D.c(getResources().getColor(g.dt));
-        F = new cop(this, q);
+        eev.e("Babel", "[BabelHomeActivity.onCreate] setContentView called");
+        F = (DrawerLayout)findViewById(h.aV);
+        G = (NavigationDrawerFragment)u_().a(h.dJ);
+        F.c(getResources().getColor(g.ds));
+        H = new cqf(this, r);
+        if (bundle != null)
+        {
+            break MISSING_BLOCK_LABEL_595;
+        }
+        if (intent.hasCategory("android.intent.category.LAUNCHER") && w)
+        {
+            Z = true;
+        }
         c("/onCreate");
-        ecd.a();
+        p.c("onCreate");
         return;
 _L2:
-        z = bundle.getBoolean("handled_intent_for_action");
-        A = bundle.getBoolean("is_logging_in");
-        B = bundle.getBoolean("pending_login_from_intent");
-        if (X.b())
+        B = bundle.getBoolean("handled_intent_for_action");
+        C = bundle.getBoolean("is_logging_in");
+        D = bundle.getBoolean("pending_login_from_intent");
+        if (ab.b())
         {
-            o = dbf.e(X.a());
+            s = dcn.e(ab.a());
         }
           goto _L7
         bundle;
         c("/onCreate");
-        ecd.a();
+        p.c("onCreate");
         throw bundle;
 _L6:
         if (!d(intent)) goto _L4; else goto _L8
 _L8:
-        I = MainViewPager.b.d;
+        K = MainViewPager.b.d;
           goto _L4
     }
 
@@ -1350,11 +1360,11 @@ _L8:
         if (i1 == 1)
         {
             bundle = new android.app.AlertDialog.Builder(this);
-            View view = getLayoutInflater().inflate(g.fD, null);
-            EditText edittext = (EditText)view.findViewById(h.aD);
-            bundle.setTitle(l.iN).setView(view).setPositiveButton(getString(l.iO), new cjk(this, edittext)).setNegativeButton(getString(l.iM), new cjj(this));
+            View view = getLayoutInflater().inflate(g.fB, null);
+            EditText edittext = (EditText)view.findViewById(h.ay);
+            bundle.setTitle(l.ih).setView(view).setPositiveButton(getString(l.ii), new ckp(this, edittext)).setNegativeButton(getString(l.ig), new cko(this));
             bundle = bundle.create();
-            edittext.addTextChangedListener(new cjl(this, bundle));
+            edittext.addTextChangedListener(new ckq(this, bundle));
             bundle.getWindow().setSoftInputMode(5);
         }
         return bundle;
@@ -1362,9 +1372,9 @@ _L8:
 
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(g.hx, menu);
-        N = menu;
-        if (X.d())
+        getMenuInflater().inflate(g.hp, menu);
+        P = menu;
+        if (ab.d())
         {
             u();
         }
@@ -1375,9 +1385,9 @@ _L8:
     {
         c("onDestroy");
         super.onDestroy();
-        if (L != null && (ViewGroup)findViewById(h.dy) != null)
+        if (N != null && (ViewGroup)findViewById(h.dm) != null)
         {
-            L.a(this);
+            N.a();
         }
         c("/onDestroy");
     }
@@ -1387,9 +1397,9 @@ _L8:
         c("onNewIntent");
         super.onNewIntent(intent);
         String s1 = String.valueOf(intent);
-        ebw.e("Babel", (new StringBuilder(String.valueOf(s1).length() + 12)).append("onNewIntet: ").append(s1).toString());
-        dzj.a("BabelHomeActivity.onNewIntent", intent);
-        z = false;
+        eev.e("Babel", (new StringBuilder(String.valueOf(s1).length() + 12)).append("onNewIntet: ").append(s1).toString());
+        ecn.a("BabelHomeActivity.onNewIntent", intent);
+        B = false;
         p();
         c("/onNewIntent");
         return;
@@ -1401,12 +1411,12 @@ _L8:
     public void onPause()
     {
         c("onPause");
-        if (O != null)
+        if (Q != null)
         {
-            v.removeCallbacks(O);
-            O = null;
+            x.removeCallbacks(Q);
+            Q = null;
         }
-        y = false;
+        A = false;
         super.onPause();
         c("/onPause");
     }
@@ -1415,7 +1425,7 @@ _L8:
     {
         if (i1 == 1)
         {
-            dialog = (EditText)dialog.findViewById(h.aD);
+            dialog = (EditText)dialog.findViewById(h.ay);
             dialog.setText(bundle.getString("conversation_name"));
             dialog.setSelection(0, dialog.getText().toString().length());
             dialog.requestFocus();
@@ -1431,21 +1441,21 @@ _L8:
             return false;
         }
         s();
-        if (G.j() != MainViewPager.b) goto _L2; else goto _L1
+        if (I.j() != MainViewPager.b) goto _L2; else goto _L1
 _L1:
-        c(true);
+        b(true);
 _L4:
-        MenuItem menuitem = menu.findItem(h.aK);
+        MenuItem menuitem = menu.findItem(h.aF);
         if (menuitem != null)
         {
-            boolean flag = ebr.a();
+            boolean flag = eep.a();
             menuitem.setVisible(flag).setEnabled(flag);
         }
         return super.onPrepareOptionsMenu(menu);
 _L2:
-        if (C != null)
+        if (E != null)
         {
-            C.a(false);
+            E.a(false);
         }
         if (true) goto _L4; else goto _L3
 _L3:
@@ -1453,89 +1463,88 @@ _L3:
 
     public void onResume()
     {
-        ecd.a("BabelHomeActivity.onResume");
+        p.b("onResume");
         c("onResume");
         super.onResume();
-        y = true;
-        if (n)
+        A = true;
+        if (o)
         {
-            String s1 = String.valueOf(o);
+            String s1 = String.valueOf(s);
             d((new StringBuilder(String.valueOf(s1).length() + 19)).append("onResume mAccount: ").append(s1).toString());
         }
-        if (o != null)
+        if (s != null)
         {
-            if (dbf.j())
+            if (dcn.j())
             {
-                dry.b(dbf.l());
+                dur.b(dcn.l());
             }
-            c(false);
-            cej.d(this, o.h());
-            e(false);
+            b(false);
+            cfo.d(this, s.h());
+            d(false);
         }
-        w = false;
-        if (!x)
-        {
-            break MISSING_BLOCK_LABEL_173;
-        }
+        y = false;
         t();
-_L1:
         s();
-        O = new cjr(this);
-        v.post(O);
+        Q = new ckw(this);
+        x.post(Q);
         c("/onResume");
-        a(SystemClock.elapsedRealtime());
+        if (Y < 0L)
+        {
+            Y = SystemClock.elapsedRealtime();
+        }
         r();
-        ecd.a();
+        p.c("onResume");
         return;
-        m();
-          goto _L1
         Exception exception;
         exception;
         c("/onResume");
-        a(SystemClock.elapsedRealtime());
+        if (Y < 0L)
+        {
+            Y = SystemClock.elapsedRealtime();
+        }
         r();
-        ecd.a();
+        p.c("onResume");
         throw exception;
     }
 
     protected void onSaveInstanceState(Bundle bundle)
     {
         super.onSaveInstanceState(bundle);
-        bundle.putBoolean("handled_intent_for_action", z);
-        bundle.putBoolean("is_logging_in", A);
-        bundle.putBoolean("pending_login_from_intent", B);
-        w = true;
+        bundle.putBoolean("handled_intent_for_action", B);
+        bundle.putBoolean("is_logging_in", C);
+        bundle.putBoolean("pending_login_from_intent", D);
+        y = true;
     }
 
     protected void onStart()
     {
-        ecd.a("BabelHomeActivity.onStart");
+        p.b("onStart");
         c("onStart");
         super.onStart();
-        if (n)
+        if (o)
         {
             d("onStart");
         }
-        if (X.d())
+        if (ab.d())
         {
-            if (!G.l())
+            if (!I.l())
             {
                 t();
             }
             u();
-            if (L != null)
+            if (N != null)
             {
-                L.a(G.c());
+                N.a(I.c());
             }
         }
-        String s1 = ank.e(this);
+        String s1 = aoc.e(this);
         if (!TextUtils.isEmpty(s1))
         {
-            ank.a(this, "");
+            aoc.a(this, "");
             try
             {
                 startActivity(Intent.parseUri(s1, 1));
-                g.a(o, 1869);
+                g.a(s, 1869);
             }
             catch (URISyntaxException urisyntaxexception)
             {
@@ -1547,7 +1556,7 @@ _L1:
                 {
                     s1 = new String("Failed to parse refererr url: ");
                 }
-                ebw.f("Babel", s1);
+                eev.f("Babel", s1);
             }
             catch (ActivityNotFoundException activitynotfoundexception)
             {
@@ -1559,30 +1568,35 @@ _L1:
                 {
                     s1 = new String("Failed to find activity for refererr url: ");
                 }
-                ebw.f("Babel", s1);
+                eev.f("Babel", s1);
             }
         }
-        Y.a(Z);
+        ac.a(ad);
         c("/onStart");
-        ecd.a();
+        p.c("onStart");
     }
 
     protected void onStop()
     {
         c("onStop");
         super.onStop();
-        Y.b(Z);
+        ac.b(ad);
         c("/onStop");
+    }
+
+    public void p_()
+    {
+        x();
     }
 
     public void setTitle(CharSequence charsequence)
     {
         super.setTitle(charsequence);
-        l.b(charsequence);
+        m.b(charsequence);
     }
 
     static 
     {
-        hik hik = ebw.j;
+        hnc hnc = eev.j;
     }
 }

@@ -3,63 +3,33 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ita extends koj
+final class ita
+    implements itc
 {
 
-    public isv a;
+    static final itc a = new ita();
 
-    public ita()
+    private ita()
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public itc a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        return i;
+        return this;
     }
 
-    public kop mergeFrom(kog kog1)
+    public void a(String s)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new isv();
-                }
-                kog1.a(a);
-                break;
-            }
-        } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public String b()
     {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        super.writeTo(koh1);
+        return "Noop";
     }
+
+    public boolean c()
+    {
+        return true;
+    }
+
 }

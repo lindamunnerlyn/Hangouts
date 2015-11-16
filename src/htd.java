@@ -2,83 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
 
-public final class htd extends koj
+public final class htd
+    implements Iterable
 {
 
-    public hxq a;
-    public hsv apiHeader;
+    final Object a;
 
-    public htd()
+    public htd(Object obj)
     {
-        apiHeader = null;
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = obj;
+        super();
     }
 
-    protected int computeSerializedSize()
+    public Iterator iterator()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (apiHeader != null)
-        {
-            i = j + koh.d(1, apiHeader);
-        }
-        j = i;
-        if (a != null)
-        {
-            j = i + koh.d(2, a);
-        }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (apiHeader == null)
-                {
-                    apiHeader = new hsv();
-                }
-                kog1.a(apiHeader);
-                break;
-
-            case 18: // '\022'
-                if (a == null)
-                {
-                    a = new hxq();
-                }
-                kog1.a(a);
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (apiHeader != null)
-        {
-            koh1.b(1, apiHeader);
-        }
-        if (a != null)
-        {
-            koh1.b(2, a);
-        }
-        super.writeTo(koh1);
+        return new hte(this);
     }
 }

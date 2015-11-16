@@ -3,274 +3,214 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iwk extends koj
+public final class iwk extends kwm
 {
 
-    public Boolean a;
-    public Boolean b;
-    public isf c[];
-    public ivr d;
-    public iuj e;
-    public isg f;
-    public ise g;
-    public iqn h;
-    public iyv i;
-    public iuz j;
+    public jaw a[];
+    public iza b;
+    public ixg c;
+    public Integer d;
+    public Long e;
+    public String f;
+    public jdl responseHeader;
 
     public iwk()
     {
-        a = null;
+        responseHeader = null;
+        a = jaw.a();
         b = null;
-        c = isf.a();
+        c = null;
         d = null;
         e = null;
         f = null;
-        g = null;
-        h = null;
-        i = null;
-        j = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int k = super.computeSerializedSize();
-        int l = k;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (responseHeader != null)
+        {
+            i = j + kwk.d(1, responseHeader);
+        }
+        j = i;
         if (a != null)
         {
-            a.booleanValue();
-            l = k + (koh.f(1) + 1);
+            j = i;
+            if (a.length > 0)
+            {
+                for (j = 0; j < a.length;)
+                {
+                    jaw jaw1 = a[j];
+                    int k = i;
+                    if (jaw1 != null)
+                    {
+                        k = i + kwk.d(2, jaw1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
         }
-        k = l;
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.d(3, e.longValue());
+        }
+        j = i;
+        if (f != null)
+        {
+            j = i + kwk.b(4, f);
+        }
+        i = j;
         if (b != null)
         {
-            b.booleanValue();
-            k = l + (koh.f(2) + 1);
+            i = j + kwk.d(5, b);
         }
-        l = k;
+        j = i;
         if (c != null)
         {
-            l = k;
-            if (c.length > 0)
-            {
-                for (l = 0; l < c.length;)
-                {
-                    isf isf1 = c[l];
-                    int i1 = k;
-                    if (isf1 != null)
-                    {
-                        i1 = k + koh.d(3, isf1);
-                    }
-                    l++;
-                    k = i1;
-                }
-
-                l = k;
-            }
+            j = i + kwk.d(6, c);
         }
-        k = l;
+        i = j;
         if (d != null)
         {
-            k = l + koh.d(4, d);
+            i = j + kwk.e(8, d.intValue());
         }
-        l = k;
+        return i;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+_L10:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 8: default 80
+    //                   0: 89
+    //                   10: 91
+    //                   18: 120
+    //                   24: 244
+    //                   34: 258
+    //                   42: 269
+    //                   50: 298
+    //                   64: 327;
+           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L10; else goto _L2
+_L2:
+        return this;
+_L3:
+        if (responseHeader == null)
+        {
+            responseHeader = new jdl();
+        }
+        kwj1.a(responseHeader);
+          goto _L10
+_L4:
+        int l = kwx.a(kwj1, 18);
+        jaw ajaw[];
+        int j;
+        if (a == null)
+        {
+            j = 0;
+        } else
+        {
+            j = a.length;
+        }
+        ajaw = new jaw[l + j];
+        l = j;
+        if (j != 0)
+        {
+            System.arraycopy(a, 0, ajaw, 0, j);
+            l = j;
+        }
+        for (; l < ajaw.length - 1; l++)
+        {
+            ajaw[l] = new jaw();
+            kwj1.a(ajaw[l]);
+            kwj1.a();
+        }
+
+        ajaw[l] = new jaw();
+        kwj1.a(ajaw[l]);
+        a = ajaw;
+          goto _L10
+_L5:
+        e = Long.valueOf(kwj1.d());
+          goto _L10
+_L6:
+        f = kwj1.j();
+          goto _L10
+_L7:
+        if (b == null)
+        {
+            b = new iza();
+        }
+        kwj1.a(b);
+          goto _L10
+_L8:
+        if (c == null)
+        {
+            c = new ixg();
+        }
+        kwj1.a(c);
+          goto _L10
+_L9:
+        int k = kwj1.f();
+        switch (k)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+            d = Integer.valueOf(k);
+            break;
+        }
+        if (true) goto _L10; else goto _L11
+_L11:
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (responseHeader != null)
+        {
+            kwk1.b(1, responseHeader);
+        }
+        if (a != null && a.length > 0)
+        {
+            for (int i = 0; i < a.length; i++)
+            {
+                jaw jaw1 = a[i];
+                if (jaw1 != null)
+                {
+                    kwk1.b(2, jaw1);
+                }
+            }
+
+        }
         if (e != null)
         {
-            l = k + koh.d(5, e);
+            kwk1.a(3, e.longValue());
         }
-        k = l;
         if (f != null)
         {
-            k = l + koh.d(6, f);
-        }
-        l = k;
-        if (g != null)
-        {
-            l = k + koh.d(7, g);
-        }
-        k = l;
-        if (h != null)
-        {
-            k = l + koh.d(8, h);
-        }
-        l = k;
-        if (i != null)
-        {
-            l = k + koh.d(9, i);
-        }
-        k = l;
-        if (j != null)
-        {
-            k = l + koh.d(10, j);
-        }
-        return k;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int k = kog1.a();
-            switch (k)
-            {
-            default:
-                if (super.storeUnknownField(kog1, k))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-
-            case 16: // '\020'
-                b = Boolean.valueOf(kog1.i());
-                break;
-
-            case 26: // '\032'
-                int i1 = kou.b(kog1, 26);
-                isf aisf[];
-                int l;
-                if (c == null)
-                {
-                    l = 0;
-                } else
-                {
-                    l = c.length;
-                }
-                aisf = new isf[i1 + l];
-                i1 = l;
-                if (l != 0)
-                {
-                    System.arraycopy(c, 0, aisf, 0, l);
-                    i1 = l;
-                }
-                for (; i1 < aisf.length - 1; i1++)
-                {
-                    aisf[i1] = new isf();
-                    kog1.a(aisf[i1]);
-                    kog1.a();
-                }
-
-                aisf[i1] = new isf();
-                kog1.a(aisf[i1]);
-                c = aisf;
-                break;
-
-            case 34: // '"'
-                if (d == null)
-                {
-                    d = new ivr();
-                }
-                kog1.a(d);
-                break;
-
-            case 42: // '*'
-                if (e == null)
-                {
-                    e = new iuj();
-                }
-                kog1.a(e);
-                break;
-
-            case 50: // '2'
-                if (f == null)
-                {
-                    f = new isg();
-                }
-                kog1.a(f);
-                break;
-
-            case 58: // ':'
-                if (g == null)
-                {
-                    g = new ise();
-                }
-                kog1.a(g);
-                break;
-
-            case 66: // 'B'
-                if (h == null)
-                {
-                    h = new iqn();
-                }
-                kog1.a(h);
-                break;
-
-            case 74: // 'J'
-                if (i == null)
-                {
-                    i = new iyv();
-                }
-                kog1.a(i);
-                break;
-
-            case 82: // 'R'
-                if (j == null)
-                {
-                    j = new iuz();
-                }
-                kog1.a(j);
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
+            kwk1.a(4, f);
         }
         if (b != null)
         {
-            koh1.a(2, b.booleanValue());
+            kwk1.b(5, b);
         }
-        if (c != null && c.length > 0)
+        if (c != null)
         {
-            for (int k = 0; k < c.length; k++)
-            {
-                isf isf1 = c[k];
-                if (isf1 != null)
-                {
-                    koh1.b(3, isf1);
-                }
-            }
-
+            kwk1.b(6, c);
         }
         if (d != null)
         {
-            koh1.b(4, d);
+            kwk1.a(8, d.intValue());
         }
-        if (e != null)
-        {
-            koh1.b(5, e);
-        }
-        if (f != null)
-        {
-            koh1.b(6, f);
-        }
-        if (g != null)
-        {
-            koh1.b(7, g);
-        }
-        if (h != null)
-        {
-            koh1.b(8, h);
-        }
-        if (i != null)
-        {
-            koh1.b(9, i);
-        }
-        if (j != null)
-        {
-            koh1.b(10, j);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

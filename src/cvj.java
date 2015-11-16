@@ -2,70 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public class cvj extends cui
+public class cvj extends cvf
 {
 
     private static final long serialVersionUID = 1L;
-    private byte a[];
-    private Map b;
-    private boolean c;
+    public final String a;
 
-    public cvj(byte abyte0[], Map map, boolean flag)
+    public cvj(String s)
     {
-        a = abyte0;
-        b = map;
-        c = flag;
+        a = s;
     }
 
-    public String a()
+    public kws a(String s, int i, int j)
     {
-        return "ui_queue";
+        jhb jhb1 = new jhb();
+        jhb1.a = "conversation";
+        jhb1.b = a;
+        jhw jhw1 = new jhw();
+        jhw1.requestHeader = cvu.a(s, i, j, h);
+        jhw1.a = jhb1;
+        return jhw1;
     }
 
-    public kop a(String s1, int i, int j)
+    public void a(aoa aoa, dcx dcx)
     {
-        if (ctr.e)
-        {
-            ebw.b("Babel_RequestWriter", "UpdateFavoriteContactRequest()");
-        }
-        izm izm1 = new izm();
-        izm1.requestHeader = ctq.a(null, true, s1, i, j, h);
-        izm1.b = a;
-        izm1.a = new itl[b.size()];
-        s1 = b.entrySet().iterator();
-        for (i = 0; s1.hasNext(); i++)
-        {
-            java.util.Map.Entry entry = (java.util.Map.Entry)s1.next();
-            itl itl1 = new itl();
-            itl1.b = Boolean.valueOf(c);
-            itk itk1 = new itk();
-            itk1.a = new ivz();
-            itk1.a.b = (String)entry.getKey();
-            itk1.c = (Integer)entry.getValue();
-            itl1.a = itk1;
-            izm1.a[i] = itl1;
-        }
-
-        return izm1;
+        RealTimeChatService.j(aoa, a);
     }
 
-    public String g()
+    public long b()
     {
-        return "contacts/updatefavoritecontact";
+        return 10000L;
     }
 
-    boolean r()
+    public String f()
     {
-        return c;
-    }
-
-    Collection s()
-    {
-        return b.keySet();
+        return "hangouts/resolve";
     }
 }

@@ -2,36 +2,56 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.net.Uri;
+import android.os.Handler;
+import android.util.Log;
+import com.google.android.apps.hangouts.phone.ViewVCardActivity;
 
-final class crf
+public final class crf
+    implements Runnable
 {
 
-    private final beb a = (new bec()).a("promoframework").b("Module that hosts the promo/OOB framework.").a(true).a();
-    private crj b;
+    final Uri a;
+    final ViewVCardActivity b;
 
-    public crf()
+    public crf(ViewVCardActivity viewvcardactivity, Uri uri)
     {
+        b = viewvcardactivity;
+        a = uri;
+        super();
     }
 
-    public crd a(Context context)
+    public void run()
     {
-        return (crd)a.a(context, new crh());
-    }
-
-    public beb[] a()
-    {
-        return (new beb[] {
-            a
-        });
-    }
-
-    public crj b()
-    {
-        if (b == null)
+        aeo aeo1 = new aeo();
+        aey aey1 = new aey();
+        boolean flag;
+        try
         {
-            b = new crj();
+            flag = ViewVCardActivity.a(b, a, 0, aey1, true);
         }
-        return b;
+        catch (afg afg2)
+        {
+            try
+            {
+                int i = aey1.c();
+                flag = ViewVCardActivity.a(b, a, i, aeo1, false);
+            }
+            catch (afg afg1)
+            {
+                String s = String.valueOf(afg1);
+                Log.e("Babel", (new StringBuilder(String.valueOf(s).length() + 21)).append("Must not reach here. ").append(s).toString());
+                flag = false;
+            }
+        }
+        if (!flag)
+        {
+            ViewVCardActivity.e(b).post(new crg(this));
+            return;
+        } else
+        {
+            ViewVCardActivity.a(b, a, aey1);
+            return;
+        }
     }
 }

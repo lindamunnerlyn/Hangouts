@@ -6,7 +6,8 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fll;
+import foh;
+import g;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public final class PolylineOptions
     implements SafeParcelable
 {
 
-    public static final fll CREATOR = new fll();
+    public static final foh CREATOR = new foh();
     private final int a;
     private final List b;
     private float c;
@@ -50,24 +51,39 @@ public final class PolylineOptions
         g = flag1;
     }
 
-    public int a()
+    private int a()
     {
         return a;
     }
 
-    public List b()
+    private List b()
     {
         return b;
     }
 
-    public float c()
+    private float c()
     {
         return c;
     }
 
-    public int d()
+    private int d()
     {
         return d;
+    }
+
+    private float e()
+    {
+        return e;
+    }
+
+    private boolean f()
+    {
+        return f;
+    }
+
+    private boolean g()
+    {
+        return g;
     }
 
     public int describeContents()
@@ -75,24 +91,17 @@ public final class PolylineOptions
         return 0;
     }
 
-    public float e()
-    {
-        return e;
-    }
-
-    public boolean f()
-    {
-        return f;
-    }
-
-    public boolean g()
-    {
-        return g;
-    }
-
     public void writeToParcel(Parcel parcel, int i)
     {
-        fll.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a());
+        g.c(parcel, 2, b());
+        g.a(parcel, 3, c());
+        g.b(parcel, 4, d());
+        g.a(parcel, 5, e());
+        g.a(parcel, 6, f());
+        g.a(parcel, 7, g());
+        g.q(parcel, i);
     }
 
 }

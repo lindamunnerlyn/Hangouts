@@ -6,38 +6,7 @@
 final class aqg
 {
 
-    static final int a[];
-
-    static 
+    aqg()
     {
-        a = new int[dqc.values().length];
-        try
-        {
-            a[dqc.m.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror4) { }
-        try
-        {
-            a[dqc.l.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror3) { }
-        try
-        {
-            a[dqc.o.ordinal()] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[dqc.d.ordinal()] = 4;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[dqc.n.ordinal()] = 5;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
     }
 }

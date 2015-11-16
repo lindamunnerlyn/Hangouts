@@ -2,23 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import java.util.List;
 
-final class ayt
+public interface ayt
 {
 
-    boolean a;
-    boolean b;
-    int c;
-    Integer d;
-    final aym e;
+    public abstract asa a();
 
-    ayt(aym aym, boolean flag, boolean flag1, int i, Integer integer)
-    {
-        e = aym;
-        super();
-        a = flag;
-        b = flag1;
-        c = i;
-        d = integer;
-    }
+    public abstract void a(int i);
+
+    public abstract void a(aia aia);
+
+    public abstract void a(Context context, List list, ayv ayv);
+
+    public abstract void a(anr anr);
+
+    public abstract void a(asa asa);
+
+    public abstract void a(String s, String s1);
+
+    public abstract aia b();
+
+    public abstract String c();
+
+    public abstract int d();
+
+    public abstract String e();
+
+    public abstract anr f();
+
+    public abstract jsh g();
+
+    public abstract void h();
 }

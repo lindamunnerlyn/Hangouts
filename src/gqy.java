@@ -2,23 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
 
-final class gqy
-    implements android.os.Parcelable.Creator
+public final class gqy extends Enum
 {
 
-    gqy()
+    public static final gqy a;
+    private static final gqy b[];
+
+    private gqy(String s)
     {
+        super(s, 0);
     }
 
-    public Object createFromParcel(Parcel parcel)
+    public static gqy valueOf(String s)
     {
-        return new gqx(parcel);
+        return (gqy)Enum.valueOf(gqy, s);
     }
 
-    public Object[] newArray(int i)
+    public static gqy[] values()
     {
-        return new gqx[i];
+        return (gqy[])b.clone();
+    }
+
+    static 
+    {
+        a = new gqy("ALLOWED");
+        b = (new gqy[] {
+            a
+        });
     }
 }

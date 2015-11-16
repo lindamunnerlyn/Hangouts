@@ -3,70 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class eji
+public class eji
+    implements ejf
 {
 
-    private int a;
-
-    eji()
+    public eji()
     {
-        a = 0;
     }
 
     public void a()
     {
-        this;
-        JVM INSTR monitorenter ;
-        a = a + 1;
-        this;
-        JVM INSTR monitorexit ;
-        return;
-        Exception exception;
-        exception;
-        throw exception;
     }
 
-    public void b()
+    public void a(boolean flag)
     {
-        this;
-        JVM INSTR monitorenter ;
-        if (a == 0)
-        {
-            throw new RuntimeException("too many decrements");
-        }
-        break MISSING_BLOCK_LABEL_24;
-        Exception exception;
-        exception;
-        this;
-        JVM INSTR monitorexit ;
-        throw exception;
-        a = a - 1;
-        if (a == 0)
-        {
-            notifyAll();
-        }
-        this;
-        JVM INSTR monitorexit ;
-    }
-
-    public boolean c()
-    {
-        this;
-        JVM INSTR monitorenter ;
-        int i = a;
-        boolean flag;
-        if (i == 0)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        this;
-        JVM INSTR monitorexit ;
-        return flag;
-        Exception exception;
-        exception;
-        throw exception;
     }
 }

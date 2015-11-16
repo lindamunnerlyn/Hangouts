@@ -2,45 +2,81 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.TimeUnit;
 
-public class cxd extends cvn
+public class cxd extends cvy
 {
 
     private static final long serialVersionUID = 1L;
+    public final boolean a;
+    public final int b;
+    public final String j = null;
+    public final boolean k = false;
 
-    private cxd(ixz ixz1)
+    public cxd(String s, boolean flag, int i)
     {
-        super(ixz1.responseHeader, g.a(ixz1.a, 0L));
-        if (cvn.a)
+        super(s);
+        a = flag;
+        if (i <= 0)
         {
-            ixz1 = String.valueOf(ixz1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(ixz1).length() + 31)).append("NotificationLevelResponse from:").append(ixz1).toString());
+            i = 300;
         }
+        b = i;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public String a()
     {
-        abyte0 = (ixz)kop.mergeFrom(new ixz(), abyte0);
-        if (a(((ixz) (abyte0)).responseHeader))
+        return "background_queue";
+    }
+
+    public kws a(String s, int i, int l)
+    {
+        if (cvv.e)
         {
-            return new cvz(((ixz) (abyte0)).responseHeader);
+            String s1 = c;
+            boolean flag = a;
+            eev.b("Babel_RequestWriter", (new StringBuilder(String.valueOf(s1).length() + 41)).append("setFocus build protobuf ").append(s1).append(" isFocused: ").append(flag).toString());
+        }
+        jeh jeh1 = new jeh();
+        jeh1.requestHeader = cvu.a(s, i, l, h);
+        jeh1.a = cvu.a(c);
+        if (a)
+        {
+            i = 1;
         } else
         {
-            return new cxd(abyte0);
+            i = 2;
+        }
+        jeh1.b = Integer.valueOf(i);
+        jeh1.d = Boolean.valueOf(true);
+        jeh1.c = Integer.valueOf(b);
+        return jeh1;
+    }
+
+    public boolean a(cdl cdl)
+    {
+        gdv.a(getClass(), cdl.getClass());
+        return true;
+    }
+
+    public boolean a(cdn cdn1, dcx dcx)
+    {
+        if (dcz.b(cdn1.c))
+        {
+            return false;
+        } else
+        {
+            return super.a(cdn1, dcx);
         }
     }
 
-    public void a(aoe aoe, dfb dfb)
+    public long b()
     {
-        super.a(aoe, dfb);
-        if (any.a || cvn.a)
-        {
-            ebw.b("Babel", "processNotificationLevelResponse");
-        }
-        if (c.b != 1)
-        {
-            int i = c.b;
-            ebw.f("Babel", (new StringBuilder(59)).append("Failed to set conversation preference with code ").append(i).toString());
-        }
+        return TimeUnit.SECONDS.toMillis(30L);
+    }
+
+    public String f()
+    {
+        return "conversations/setfocus";
     }
 }

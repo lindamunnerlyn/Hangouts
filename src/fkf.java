@@ -2,24 +2,52 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Bitmap;
-import android.os.IInterface;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.Parcel;
 
-public interface fkf
-    extends IInterface
+public abstract class fkf extends Binder
+    implements fke
 {
 
-    public abstract ezy a();
+    public static fke a(IBinder ibinder)
+    {
+        if (ibinder == null)
+        {
+            return null;
+        }
+        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.maps.internal.ICancelableCallback");
+        if (iinterface != null && (iinterface instanceof fke))
+        {
+            return (fke)iinterface;
+        } else
+        {
+            return new fkg(ibinder);
+        }
+    }
 
-    public abstract ezy a(float f);
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    {
+        switch (i)
+        {
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
 
-    public abstract ezy a(int i);
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.maps.internal.ICancelableCallback");
+            return true;
 
-    public abstract ezy a(Bitmap bitmap);
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.ICancelableCallback");
+            a();
+            parcel1.writeNoException();
+            return true;
 
-    public abstract ezy a(String s);
-
-    public abstract ezy b(String s);
-
-    public abstract ezy c(String s);
+        case 2: // '\002'
+            parcel.enforceInterface("com.google.android.gms.maps.internal.ICancelableCallback");
+            b();
+            parcel1.writeNoException();
+            return true;
+        }
+    }
 }

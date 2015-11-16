@@ -2,43 +2,13 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.List;
 
-final class gdk
-    implements Runnable
+public interface gdk
+    extends gdo
 {
 
-    final gfo a;
-    final gdg b;
+    public static final gdt a = new gdl();
 
-    gdk(gdg gdg1, gfo gfo1)
-    {
-        b = gdg1;
-        a = gfo1;
-        super();
-    }
+    public abstract jhh a();
 
-    public void run()
-    {
-        if (!b.b.remove(a))
-        {
-            String s = a.f();
-            gkc.d("vclib", (new StringBuilder(String.valueOf(s).length() + 25)).append("VideoSource ").append(s).append(" not in list.").toString());
-        }
-        Iterator iterator = b.a.iterator();
-        do
-        {
-            if (!iterator.hasNext())
-            {
-                break;
-            }
-            gdo gdo1 = (gdo)iterator.next();
-            if (gdo1.b == a)
-            {
-                gdo1.a();
-                iterator.remove();
-            }
-        } while (true);
-    }
 }

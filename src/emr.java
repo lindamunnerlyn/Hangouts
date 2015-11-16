@@ -2,62 +2,55 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.accounts.Account;
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.Parcel;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
 
-public abstract class emr extends Binder
-    implements emq
+public final class emr extends ac
 {
 
-    public static emq a(IBinder ibinder)
+    private Dialog aj;
+    private android.content.DialogInterface.OnCancelListener ak;
+
+    public emr()
     {
-        if (ibinder == null)
-        {
-            return null;
-        }
-        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.common.internal.IAccountAccessor");
-        if (iinterface != null && (iinterface instanceof emq))
-        {
-            return (emq)iinterface;
-        } else
-        {
-            return new ems(ibinder);
-        }
+        aj = null;
+        ak = null;
     }
 
-    public IBinder asBinder()
+    public static emr a(Dialog dialog, android.content.DialogInterface.OnCancelListener oncancellistener)
     {
-        return this;
+        emr emr1 = new emr();
+        dialog = (Dialog)g.b(dialog, "Cannot display null dialog");
+        dialog.setOnCancelListener(null);
+        dialog.setOnDismissListener(null);
+        emr1.aj = dialog;
+        if (oncancellistener != null)
+        {
+            emr1.ak = oncancellistener;
+        }
+        return emr1;
     }
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    public Dialog a(Bundle bundle)
     {
-        switch (i)
+        if (aj == null)
         {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
-
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.common.internal.IAccountAccessor");
-            return true;
-
-        case 2: // '\002'
-            parcel.enforceInterface("com.google.android.gms.common.internal.IAccountAccessor");
-            parcel = a();
-            parcel1.writeNoException();
-            break;
+            f();
         }
-        if (parcel != null)
+        return aj;
+    }
+
+    public void a(ap ap, String s)
+    {
+        super.a(ap, s);
+    }
+
+    public void onCancel(DialogInterface dialoginterface)
+    {
+        if (ak != null)
         {
-            parcel1.writeInt(1);
-            parcel.writeToParcel(parcel1, 1);
-            return true;
-        } else
-        {
-            parcel1.writeInt(0);
-            return true;
+            ak.onCancel(dialoginterface);
         }
     }
 }

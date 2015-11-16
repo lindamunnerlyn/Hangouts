@@ -3,47 +3,56 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hzd extends koj
+public final class hzd extends kwm
 {
 
-    private static volatile hzd c[];
-    public String a;
-    public hze b[];
+    public hza a[];
+    public hza b[];
+    public String c;
+    public String d;
+    public hze e[];
+    public hzc f;
+    public hzb g;
+    public Boolean h;
 
     public hzd()
     {
-        a = null;
-        b = hze.a();
+        a = hza.a();
+        b = hza.a();
+        c = null;
+        d = null;
+        e = hze.a();
+        f = null;
+        g = null;
+        h = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    public static hzd[] a()
-    {
-        if (c == null)
-        {
-            synchronized (kon.a)
-            {
-                if (c == null)
-                {
-                    c = new hzd[0];
-                }
-            }
-        }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
     protected int computeSerializedSize()
     {
+        boolean flag = false;
         int j = super.computeSerializedSize();
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j;
+            if (a.length > 0)
+            {
+                i = j;
+                for (j = 0; j < a.length;)
+                {
+                    hza hza1 = a[j];
+                    int k = i;
+                    if (hza1 != null)
+                    {
+                        k = i + kwk.d(1, hza1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+            }
         }
         j = i;
         if (b != null)
@@ -53,31 +62,82 @@ public final class hzd extends koj
             {
                 for (j = 0; j < b.length;)
                 {
-                    hze hze1 = b[j];
-                    int k = i;
-                    if (hze1 != null)
+                    hza hza2 = b[j];
+                    int l = i;
+                    if (hza2 != null)
                     {
-                        k = i + koh.d(2, hze1);
+                        l = i + kwk.d(2, hza2);
                     }
                     j++;
-                    i = k;
+                    i = l;
                 }
 
                 j = i;
             }
         }
-        return j;
+        int i1 = j;
+        if (c != null)
+        {
+            i1 = j + kwk.b(3, c);
+        }
+        i = i1;
+        if (d != null)
+        {
+            i = i1 + kwk.b(4, d);
+        }
+        j = i;
+        if (e != null)
+        {
+            j = i;
+            if (e.length > 0)
+            {
+                int j1 = ((flag) ? 1 : 0);
+                do
+                {
+                    j = i;
+                    if (j1 >= e.length)
+                    {
+                        break;
+                    }
+                    hze hze1 = e[j1];
+                    j = i;
+                    if (hze1 != null)
+                    {
+                        j = i + kwk.d(5, hze1);
+                    }
+                    j1++;
+                    i = j;
+                } while (true);
+            }
+        }
+        i = j;
+        if (f != null)
+        {
+            i = j + kwk.d(6, f);
+        }
+        j = i;
+        if (g != null)
+        {
+            j = i + kwk.d(7, g);
+        }
+        i = j;
+        if (h != null)
+        {
+            h.booleanValue();
+            i = j + (kwk.f(8) + 1);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -87,60 +147,185 @@ public final class hzd extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                hze ahze[];
+                int i1 = kwx.a(kwj1, 10);
+                hza ahza[];
                 int j;
-                if (b == null)
+                if (a == null)
                 {
                     j = 0;
                 } else
                 {
-                    j = b.length;
+                    j = a.length;
                 }
-                ahze = new hze[k + j];
-                k = j;
+                ahza = new hza[i1 + j];
+                i1 = j;
                 if (j != 0)
                 {
-                    System.arraycopy(b, 0, ahze, 0, j);
-                    k = j;
+                    System.arraycopy(a, 0, ahza, 0, j);
+                    i1 = j;
                 }
-                for (; k < ahze.length - 1; k++)
+                for (; i1 < ahza.length - 1; i1++)
                 {
-                    ahze[k] = new hze();
-                    kog1.a(ahze[k]);
-                    kog1.a();
+                    ahza[i1] = new hza();
+                    kwj1.a(ahza[i1]);
+                    kwj1.a();
                 }
 
-                ahze[k] = new hze();
-                kog1.a(ahze[k]);
-                b = ahze;
+                ahza[i1] = new hza();
+                kwj1.a(ahza[i1]);
+                a = ahza;
+                break;
+
+            case 18: // '\022'
+                int j1 = kwx.a(kwj1, 18);
+                hza ahza1[];
+                int k;
+                if (b == null)
+                {
+                    k = 0;
+                } else
+                {
+                    k = b.length;
+                }
+                ahza1 = new hza[j1 + k];
+                j1 = k;
+                if (k != 0)
+                {
+                    System.arraycopy(b, 0, ahza1, 0, k);
+                    j1 = k;
+                }
+                for (; j1 < ahza1.length - 1; j1++)
+                {
+                    ahza1[j1] = new hza();
+                    kwj1.a(ahza1[j1]);
+                    kwj1.a();
+                }
+
+                ahza1[j1] = new hza();
+                kwj1.a(ahza1[j1]);
+                b = ahza1;
+                break;
+
+            case 26: // '\032'
+                c = kwj1.j();
+                break;
+
+            case 34: // '"'
+                d = kwj1.j();
+                break;
+
+            case 42: // '*'
+                int k1 = kwx.a(kwj1, 42);
+                hze ahze[];
+                int l;
+                if (e == null)
+                {
+                    l = 0;
+                } else
+                {
+                    l = e.length;
+                }
+                ahze = new hze[k1 + l];
+                k1 = l;
+                if (l != 0)
+                {
+                    System.arraycopy(e, 0, ahze, 0, l);
+                    k1 = l;
+                }
+                for (; k1 < ahze.length - 1; k1++)
+                {
+                    ahze[k1] = new hze();
+                    kwj1.a(ahze[k1]);
+                    kwj1.a();
+                }
+
+                ahze[k1] = new hze();
+                kwj1.a(ahze[k1]);
+                e = ahze;
+                break;
+
+            case 50: // '2'
+                if (f == null)
+                {
+                    f = new hzc();
+                }
+                kwj1.a(f);
+                break;
+
+            case 58: // ':'
+                if (g == null)
+                {
+                    g = new hzb();
+                }
+                kwj1.a(g);
+                break;
+
+            case 64: // '@'
+                h = Boolean.valueOf(kwj1.i());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
+        boolean flag = false;
+        if (a != null && a.length > 0)
         {
-            koh1.a(1, a);
-        }
-        if (b != null && b.length > 0)
-        {
-            for (int i = 0; i < b.length; i++)
+            for (int i = 0; i < a.length; i++)
             {
-                hze hze1 = b[i];
-                if (hze1 != null)
+                hza hza1 = a[i];
+                if (hza1 != null)
                 {
-                    koh1.b(2, hze1);
+                    kwk1.b(1, hza1);
                 }
             }
 
         }
-        super.writeTo(koh1);
+        if (b != null && b.length > 0)
+        {
+            for (int j = 0; j < b.length; j++)
+            {
+                hza hza2 = b[j];
+                if (hza2 != null)
+                {
+                    kwk1.b(2, hza2);
+                }
+            }
+
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d);
+        }
+        if (e != null && e.length > 0)
+        {
+            for (int k = ((flag) ? 1 : 0); k < e.length; k++)
+            {
+                hze hze1 = e[k];
+                if (hze1 != null)
+                {
+                    kwk1.b(5, hze1);
+                }
+            }
+
+        }
+        if (f != null)
+        {
+            kwk1.b(6, f);
+        }
+        if (g != null)
+        {
+            kwk1.b(7, g);
+        }
+        if (h != null)
+        {
+            kwk1.a(8, h.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

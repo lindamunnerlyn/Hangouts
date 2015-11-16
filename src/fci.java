@@ -2,148 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.net.Network;
-import android.net.SSLCertificateSocketFactory;
-import android.net.SSLSessionCache;
-import android.os.Bundle;
-import android.util.Log;
-import android.webkit.URLUtil;
-import java.io.Closeable;
-import java.lang.reflect.Method;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLSocketFactory;
 
-public final class fci
-    implements Closeable
+final class fci extends exv
 {
 
-    public int a;
-    public int b;
-    public SSLSocketFactory c;
-    private Context d;
-    private HostnameVerifier e;
-    private fck f;
-
-    public fci(Context context, boolean flag)
+    fci(byte abyte0[])
     {
-        Object obj1 = null;
-        super();
-        a = 60000;
-        b = 60000;
-        d = context;
-        f = new fck(d);
-        Object obj;
-        if (flag)
-        {
-            obj = a();
-        } else
-        {
-            obj = null;
-        }
-        c = ((SSLSocketFactory) (obj));
-        if (c == null)
-        {
-            obj = obj1;
-            if (context != null)
-            {
-                obj = obj1;
-                if (android.os.Build.VERSION.SDK_INT > 18)
-                {
-                    obj = new SSLSessionCache(context);
-                }
-            }
-            c = SSLCertificateSocketFactory.getDefault(60000, ((SSLSessionCache) (obj)));
-        }
-        e = new fcj(this);
+        super(abyte0);
     }
 
-    private SSLSocketFactory a()
+    protected byte[] b()
     {
-        Object obj;
-        try
-        {
-            obj = ejn.d(d);
-        }
-        catch (Exception exception)
-        {
-            return null;
-        }
-        if (obj == null)
-        {
-            return null;
-        }
-        obj = (SSLSocketFactory)((Context) (obj)).getClassLoader().loadClass("com.google.android.gms.common.net.SSLCertificateSocketFactory").getMethod("getDefaultWithSessionCache", new Class[] {
-            Integer.TYPE, android/content/Context
-        }).invoke(null, new Object[] {
-            Integer.valueOf(60000), d
-        });
-        return ((SSLSocketFactory) (obj));
-    }
-
-    public HttpURLConnection a(URL url, Network network)
-    {
-label0:
-        {
-            h.a(url);
-            Object obj = f.a(url.toString());
-            network = url;
-            if (obj == null)
-            {
-                break label0;
-            }
-            if (((Bundle) (obj)).getString("block") != null)
-            {
-                (new StringBuilder("Blocked by ")).append(((Bundle) (obj)).getString("name")).append(": ").append(url);
-                throw new cby(((Bundle) (obj)));
-            }
-            obj = ((Bundle) (obj)).getString("rewrite");
-            network = url;
-            if (obj == null)
-            {
-                break label0;
-            }
-            if (!URLUtil.isHttpUrl(((String) (obj))))
-            {
-                network = url;
-                if (!URLUtil.isHttpsUrl(((String) (obj))))
-                {
-                    break label0;
-                }
-            }
-            if (Log.isLoggable("GoogleURLConnFactory", 3))
-            {
-                (new StringBuilder("Rewrote ")).append(url.toString()).append(" to ").append(((String) (obj)));
-            }
-            network = new URL(((String) (obj)));
-        }
-        url = network.openConnection();
-        url.setConnectTimeout(b);
-        url.setReadTimeout(a);
-        if (url instanceof HttpsURLConnection)
-        {
-            if (c != null)
-            {
-                ((HttpsURLConnection)url).setSSLSocketFactory(c);
-            }
-            if (e != null)
-            {
-                ((HttpsURLConnection)url).setHostnameVerifier(e);
-            }
-        }
-        return (HttpURLConnection)url;
-    }
-
-    void a(String s, int i)
-    {
-        f.a(s, i);
-    }
-
-    public void close()
-    {
+        return erv.a("0\202\003\3170\202\002\267\240\003\002\001\002\002\t\000\212g\017\024\350\240\316\2300\r\006\t*\206H\206\367\r\001\001\005\005\0000~1\0130\t\006\003U\004\006\023\002US1\0230\021\006\003U\004\b\f\nCalifornia1\0260\024\006\003U\004\007\f\rMountain View1\0240\022\006\003U\004\n\f\013Google Inc.1\0200\016\006\003U\004\013\f\007Android1\0320\030\006\003U\004\003\f\021dragonfly_android0\036\027\r141210153623Z\027\r420427153623Z0~1\0130\t\006\003U\004\006\023\002US1\0230\021\006\003U\004\b\f\nCalifornia1\0260\024\006\003U\004\007\f\rMountain View1\0240\022\006\003U\004\n\f\013Google Inc.1\0200\016\006\003U\004\013\f\007Android1\0320\030\006\003U\004\003\f\021dragonfly_android0\202\001\"0\r\006\t*\206H\206\367\r\001\001\001\005\000\003\202\001\017\0000\202\001\n\002\202\001\001\000\305\362\370H\331R\200\021\006@\000/;'\316x\305\355B\031z\267\350\242\032\363F\330[\352\222\366N\332Uf:\013\255\272\324p\000\355\272\202<I\302\020oyy\206aI\301U\334\372\030W?\266oZ\336\004(\\\313W@v\0369L\036\341\3326YU\354\207}<*\265mC\253\2705\262\301t\b\372\261E\216\317&6\307pj\273\241P\270\276\326\271b\2252\3121n\376\311\037\316\240_=v\377\345\242\320NT\227\254\363\204rlY\345\327\205\327\334\331\300\322\r\226\232\223z=4$j1\376n\"\033\307\227\rp~\201\370\254\222eH\201\311#\235R\n\3016\336Ubg\0350S[m\211U\032:\377\023\036,hQ%6\214\340: \t2\322\303\232u\b\352\337W\222g\261\324G\353\345\244N\027\\kd!\274\377\234\336:\003\266\027\226\342Z\n\324\353]\032\177\004\375\300XU\272\217\002\003\001\000\001\243P0N0\035\006\003U\035\016\004\026\004\024#g\025\303\020\337)\357\314\262)\251l}\232\237z'\rO0\037\006\003U\035#\004\0300\026\200\024#g\025\303\020\337)\357\314\262)\251l}\232\237z'\rO0\f\006\003U\035\023\004\0050\003\001\001\3770\r\006\t*\206H\206\367\r\001\001\005\005\000\003\202\001\001\000\275F \340\347\2321\256!\207j\257\366\324\333O9\246\372 \227\327;\007\316s\276%\255OU\021T\230\3168\271\304\027\264^\275\276\260\252\342\311)\371\275\237Fj\361M\323\024\177\257\241\002(\203TC\032 \345\304\335\201\245\033\025x\230\264\243\212\226\261\036a\037\260V\305\035,\207\2575\263\345Y\252\377\251O\222\343`\205\3746Xs\027?\252},\000@\r\353\270\030\001\032\224\337\301M\364\324\tL\243\373\b\027l\317\177\364  \270\227B\354`\361\r.-\371\327\325\323\212\315\017@\326\3369V\343\214\216=\342\252\032q%\205\003\212$\023\361y>\013\352\320\347\031\232J\354p>t\370\2503\322;\217\243\264\322\312$\237\267\320-\313\202*Y\205\220X\001\333\271\235\233\276\332\301m\027~[\336ozZ\tf\310\375o\"\rTH\021\027\034\030\203\257\243\2177\306z\222\221\273%\\L\360\216`\n\340");
     }
 }

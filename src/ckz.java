@@ -2,75 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
-import com.google.android.apps.hangouts.phone.DebugActivity;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
+import android.content.Intent;
+import com.google.android.apps.hangouts.phone.BabelHomeActivity;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class ckz
-    implements android.widget.AdapterView.OnItemClickListener
+public final class ckz extends dhy
 {
 
-    final DebugActivity a;
+    final dir a;
+    final String b;
+    final any c;
+    final int d;
+    final BabelHomeActivity e;
 
-    public ckz(DebugActivity debugactivity)
+    public ckz(BabelHomeActivity babelhomeactivity, dir dir1, String s, any any1, int i)
     {
-        a = debugactivity;
+        e = babelhomeactivity;
+        a = dir1;
+        b = s;
+        c = any1;
+        d = i;
         super();
     }
 
-    public void onItemClick(AdapterView adapterview, View view, int i, long l)
+    public void a(int i, aoa aoa1, ddo ddo1, did did)
     {
-        Object obj = ((clm)adapterview.getItemAtPosition(i)).b;
-        if (obj == null || obj.getClass().isPrimitive() || (obj instanceof CharSequence))
+        if (i != a.a())
         {
-            if (obj != null)
-            {
-                Toast.makeText(a, obj.toString(), 1).show();
-            }
             return;
         }
-        adapterview = a.getLayoutInflater().inflate(g.fM, null);
-        view = (ListView)adapterview.findViewById(0x102000a);
-        ArrayList arraylist = new ArrayList();
-        ArrayList arraylist1 = new ArrayList();
-        if (obj instanceof List)
+        RealTimeChatService.b(this);
+        if (ddo1 == null)
         {
-            obj = (List)obj;
-            for (i = 0; i < ((List) (obj)).size(); i++)
-            {
-                arraylist.add(String.valueOf(i));
-                arraylist1.add(((List) (obj)).get(i));
-            }
-
+            aoa1 = b;
+            eev.g("Babel", (new StringBuilder(String.valueOf(aoa1).length() + 64)).append("creating conversation with ").append(aoa1).append(" resulting in null ConversationResult").toString());
+            return;
         } else
         {
-            Field afield[] = obj.getClass().getFields();
-            int j = afield.length;
-            i = 0;
-            while (i < j) 
-            {
-                Field field = afield[i];
-                arraylist.add(field.getName());
-                try
-                {
-                    arraylist1.add(field.get(obj));
-                }
-                catch (Exception exception)
-                {
-                    arraylist1.add("???");
-                }
-                i++;
-            }
+            ddo1 = new aia(ddo1.a, 0);
+            ddo1.d = true;
+            ddo1.f = c;
+            ddo1.k = d;
+            did = new Intent();
+            did.putExtra("conversation_id", ((aia) (ddo1)).a);
+            did.putExtra("android.intent.extra.TEXT", c.b);
+            did.putExtra("draft_subject", c.c);
+            BabelHomeActivity.a(e, ddo1, did, aoa1.h());
+            return;
         }
-        view.setAdapter(DebugActivity.a(a, arraylist, arraylist1));
-        view.setOnItemClickListener(DebugActivity.k(a));
-        view.setOnItemLongClickListener(DebugActivity.l(a));
-        DebugActivity.a(a, adapterview, null, null);
     }
 }

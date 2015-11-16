@@ -2,9 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.libraries.social.jni.crashreporter.NativeCrashReporterActivity;
 
-public interface hau
+public final class hau
+    implements Runnable
 {
 
-    public abstract hba a();
+    final String a;
+    final NativeCrashReporterActivity b;
+
+    public hau(NativeCrashReporterActivity nativecrashreporteractivity, String s)
+    {
+        b = nativecrashreporteractivity;
+        a = s;
+        super();
+    }
+
+    public void run()
+    {
+        throw new hat(a);
+    }
 }

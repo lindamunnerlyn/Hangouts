@@ -2,13 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
 
-public final class kvp extends kmc
-    implements kna
+final class kvp
+    implements Iterable
 {
 
     kvp()
     {
-        super(kvo.k());
+    }
+
+    public Iterator iterator()
+    {
+        return kvn.b();
     }
 }

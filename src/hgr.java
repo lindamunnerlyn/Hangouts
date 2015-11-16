@@ -3,35 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.app.Activity;
-import android.content.Intent;
 
 final class hgr
-    implements fsn, hiu
+    implements hmd
 {
 
-    private final Activity a;
-
-    public hgr(Activity activity, hjm hjm1)
+    hgr()
     {
-        a = activity;
-        hjm1.a(this);
     }
 
-    static boolean a(Activity activity)
+    public Class a()
     {
-        boolean flag = false;
-        if (activity.getCallingActivity() != null || activity.getIntent().getBooleanExtra("task_launched_for_result", false))
-        {
-            flag = true;
-        }
-        return flag;
+        return hgn;
     }
 
-    public void a(Intent intent)
+    public void a(Activity activity, hof hof, hlp hlp1)
     {
-        if (a(a))
-        {
-            intent.putExtra("task_launched_for_result", true);
-        }
+        hlp1.a(hgn, new hgo(hof));
     }
 }

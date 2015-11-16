@@ -13,19 +13,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import g;
-import gbh;
+import gdv;
 import h;
 
 public class HangoutsToolbar extends Toolbar
 {
 
-    private ViewGroup b;
-    private View c;
-    private TextView d;
-    private TextView e;
-    private int f;
-    private float g;
-    private CharSequence h;
+    private ViewGroup e;
+    private View f;
+    private TextView g;
+    private TextView h;
+    private int i;
+    private float j;
+    private CharSequence k;
 
     public HangoutsToolbar(Context context)
     {
@@ -37,36 +37,36 @@ public class HangoutsToolbar extends Toolbar
         this(context, attributeset, 0);
     }
 
-    public HangoutsToolbar(Context context, AttributeSet attributeset, int i)
+    public HangoutsToolbar(Context context, AttributeSet attributeset, int l)
     {
-        super(context, attributeset, i);
-        f = 0;
+        super(context, attributeset, l);
+        i = 0;
     }
 
     private void A()
     {
         StringBuilder stringbuilder = new StringBuilder();
-        stringbuilder.append(d.getText());
-        if (!TextUtils.isEmpty(h))
+        stringbuilder.append(g.getText());
+        if (!TextUtils.isEmpty(k))
         {
             stringbuilder.append(", ");
-            stringbuilder.append(h);
+            stringbuilder.append(k);
         }
-        c.setContentDescription(stringbuilder.toString());
+        f.setContentDescription(stringbuilder.toString());
     }
 
     private void z()
     {
-        if (TextUtils.isEmpty(e.getText()))
+        if (TextUtils.isEmpty(h.getText()))
         {
-            d.setTextSize(0, getResources().getDimension(g.eK));
-            e.setVisibility(8);
+            g.setTextSize(0, getResources().getDimension(g.eI));
+            h.setVisibility(8);
             return;
         } else
         {
-            d.setTextSize(0, getResources().getDimension(g.eu));
-            e.setTextSize(0, getResources().getDimension(g.eL));
-            e.setVisibility(0);
+            g.setTextSize(0, getResources().getDimension(g.es));
+            h.setTextSize(0, getResources().getDimension(g.eJ));
+            h.setVisibility(0);
             return;
         }
     }
@@ -78,92 +78,92 @@ public class HangoutsToolbar extends Toolbar
 
     public void a(View view)
     {
-        b.addView(view);
+        e.addView(view);
     }
 
     public void b(CharSequence charsequence)
     {
-        d.setText(charsequence);
+        g.setText(charsequence);
         A();
         z();
     }
 
     public void c(CharSequence charsequence)
     {
-        e.setText(charsequence);
+        h.setText(charsequence);
         e(charsequence);
         z();
     }
 
     public void e(CharSequence charsequence)
     {
-        h = charsequence;
+        k = charsequence;
         A();
     }
 
     public int getVisibility()
     {
-        return f;
+        return i;
     }
 
     protected void onFinishInflate()
     {
         super.onFinishInflate();
-        b = (ViewGroup)findViewById(h.an);
-        c = findViewById(h.gB);
-        d = (TextView)findViewById(h.gz);
-        e = (TextView)findViewById(h.gm);
+        e = (ViewGroup)findViewById(h.aj);
+        f = findViewById(h.gj);
+        g = (TextView)findViewById(h.gh);
+        h = (TextView)findViewById(h.fU);
         if (android.os.Build.VERSION.SDK_INT >= 21)
         {
-            g = y();
+            j = y();
         }
     }
 
-    public void setVisibility(int i)
+    public void setVisibility(int l)
     {
-        if (i == getVisibility())
+        if (l == getVisibility())
         {
             return;
         }
-        if (i == 8)
+        if (l == 8)
         {
             setScaleY(0.0F);
             if (android.os.Build.VERSION.SDK_INT >= 21)
             {
                 a(0.0F);
             }
-            f = i;
+            i = l;
             return;
         }
-        if (i == 0)
+        if (l == 0)
         {
             setScaleY(1.0F);
             if (android.os.Build.VERSION.SDK_INT >= 21)
             {
-                a(g);
+                a(j);
             }
-            f = i;
+            i = l;
             return;
         } else
         {
-            gbh.a((new StringBuilder(44)).append("Does not support visibility type ").append(i).toString());
+            gdv.a((new StringBuilder(44)).append("Does not support visibility type ").append(l).toString());
             return;
         }
     }
 
     public View v()
     {
-        return c;
+        return f;
     }
 
     public TextView w()
     {
-        return d;
+        return g;
     }
 
     public TextView x()
     {
-        return e;
+        return h;
     }
 
     public float y()

@@ -7,21 +7,24 @@ package com.google.android.apps.hangouts.hangout;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.HorizontalScrollView;
-import brj;
+import brs;
 
-class  extends HorizontalScrollView
+public class  extends HorizontalScrollView
 {
 
-    brj a;
+    brs a;
 
-    void a(brj brj1)
+    void a(brs brs1)
     {
-        a = brj1;
+        a = brs1;
     }
 
     public void onScrollChanged(int i, int j, int k, int l)
     {
-        a.a();
+        if (a != null)
+        {
+            a.a();
+        }
     }
 
     public (Context context, AttributeSet attributeset)

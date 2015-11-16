@@ -2,23 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
-import com.google.android.apps.hangouts.phone.ShortlinkUrlHandlerActivity;
 
-public final class cpf
-    implements android.content.DialogInterface.OnCancelListener
+final class cpf extends cpj
 {
 
-    final ShortlinkUrlHandlerActivity a;
+    final cpe a;
 
-    public cpf(ShortlinkUrlHandlerActivity shortlinkurlhandleractivity)
+    cpf(cpe cpe1, cpd cpd, CharSequence charsequence)
     {
-        a = shortlinkurlhandleractivity;
-        super();
+        a = cpe1;
+        super(cpd, charsequence);
     }
 
-    public void onCancel(DialogInterface dialoginterface)
+    public int a(int i)
     {
-        a.finish();
+        int k;
+label0:
+        {
+            int l = a.a.length();
+label1:
+            for (int i1 = d.length(); i <= i1 - l; i++)
+            {
+                int j = 0;
+                do
+                {
+                    k = i;
+                    if (j >= l)
+                    {
+                        break label0;
+                    }
+                    if (d.charAt(j + i) != a.a.charAt(j))
+                    {
+                        continue label1;
+                    }
+                    j++;
+                } while (true);
+            }
+
+            k = -1;
+        }
+        return k;
+    }
+
+    public int b(int i)
+    {
+        return a.a.length() + i;
     }
 }

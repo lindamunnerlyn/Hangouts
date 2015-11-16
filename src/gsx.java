@@ -6,7 +6,18 @@
 public final class gsx
 {
 
-    public gsx()
+    public static final String a = hmd.getName();
+    private static gsw b;
+
+    public static void a(hlp hlp1)
     {
+        if (b == null)
+        {
+            b = new gsw();
+        }
+        hlp1.a(hmd, new hmd[] {
+            new gta()
+        });
     }
+
 }

@@ -2,26 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
 
-public final class bzp extends hhu
-    implements gws
+final class bzp
+    implements fit
 {
 
-    private gwy a;
+    final double a;
+    final double b;
+    final String c;
+    final ad d;
+    final bzn e;
 
-    public bzp()
+    bzp(bzn bzn, double d1, double d2, String s, ad ad1)
     {
+        e = bzn;
+        a = d1;
+        b = d2;
+        c = s;
+        d = ad1;
+        super();
     }
 
-    public void a(gxe gxe)
+    public void a()
     {
-        a.b();
-    }
-
-    protected void onAttachBinder(Bundle bundle)
-    {
-        super.onAttachBinder(bundle);
-        a = (gwy)binder.a(gwy);
+        double d1 = a;
+        double d2 = b;
+        Object obj = (new StringBuilder(53)).append("geo:").append(d1).append(",").append(d2).toString();
+        Object obj1 = new StringBuilder();
+        ((StringBuilder) (obj1)).append(a);
+        ((StringBuilder) (obj1)).append(",");
+        ((StringBuilder) (obj1)).append(b);
+        if (!TextUtils.isEmpty(c))
+        {
+            ((StringBuilder) (obj1)).append("(");
+            ((StringBuilder) (obj1)).append(c);
+            ((StringBuilder) (obj1)).append(")");
+        }
+        obj1 = Uri.encode(((StringBuilder) (obj1)).toString());
+        obj = new Intent("android.intent.action.VIEW", Uri.parse((new StringBuilder(String.valueOf(obj).length() + 8 + String.valueOf(obj1).length())).append(((String) (obj))).append("?q=").append(((String) (obj1))).append("&z=16").toString()));
+        d.startActivity(((Intent) (obj)));
     }
 }

@@ -4,36 +4,36 @@
 
 package com.google.android.apps.hangouts.phone;
 
-import aih;
+import aia;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import ani;
+import aoa;
 import ap;
-import bhr;
-import bka;
-import bkw;
-import cbj;
+import bid;
+import bkm;
+import blf;
+import cco;
 import com.google.android.apps.hangouts.fragments.InvitationFragment;
-import dbf;
-import eew;
+import dcn;
+import ehy;
 import g;
-import gmo;
-import gng;
+import gqu;
+import grn;
 import h;
 
-public class InvitationActivity extends bka
-    implements bhr, bkw
+public class InvitationActivity extends bkm
+    implements bid, blf
 {
 
-    private ani m;
-    private InvitationFragment n;
-    private final gmo o;
+    private aoa n;
+    private InvitationFragment o;
+    private final gqu p;
 
     public InvitationActivity()
     {
-        o = (new gng(this, q)).a(p);
-        new cbj(this, q);
+        p = (new grn(this, r)).a(q);
+        new cco(this, r);
     }
 
     public void a()
@@ -41,14 +41,14 @@ public class InvitationActivity extends bka
         a(((Runnable) (null)));
     }
 
-    public void a(aih aih1)
+    public void a(aia aia1)
     {
-        n.restartFragment(aih1);
+        o.restartFragment(aia1);
     }
 
-    public void a(eew eew, String s, String s1)
+    public void a(ehy ehy, String s, String s1)
     {
-        g.a(this, m, eew, s, s1);
+        g.a(this, n, ehy, s, s1);
     }
 
     public void a(Runnable runnable)
@@ -68,12 +68,17 @@ public class InvitationActivity extends bka
     {
     }
 
+    public void b()
+    {
+        finish();
+    }
+
     public void b(String s)
     {
-        aih aih1 = new aih(s, 0);
-        aih1.d = true;
-        s = g.a(m.h(), s, aih1.b);
-        s.putExtra("conversation_parameters", aih1);
+        aia aia1 = new aia(s, 0);
+        aia1.d = true;
+        s = g.a(n.h(), s, aia1.b);
+        s.putExtra("conversation_parameters", aia1);
         s.putExtra("opened_from_impression", 1636);
         startActivity(s);
         finish();
@@ -89,18 +94,18 @@ public class InvitationActivity extends bka
         {
             i = 8;
         }
-        l.setVisibility(i);
+        m.setVisibility(i);
     }
 
     public void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(c(g.gu));
+        setContentView(c(g.gq));
         Intent intent = getIntent();
-        m = dbf.e(o.a());
-        n = (InvitationFragment)t_().a(h.cY);
-        n.setHostInterface(this, this);
-        n.initialize(intent.getExtras());
+        n = dcn.e(p.a());
+        o = (InvitationFragment)u_().a(h.cN);
+        o.setHostInterface(this, this);
+        o.initialize(intent.getExtras());
         if (bundle == null)
         {
             g.b(intent);
@@ -110,11 +115,6 @@ public class InvitationActivity extends bka
     protected void onNewIntent(Intent intent)
     {
         super.onNewIntent(intent);
-        n.initialize(intent.getExtras());
-    }
-
-    public void u_()
-    {
-        finish();
+        o.initialize(intent.getExtras());
     }
 }

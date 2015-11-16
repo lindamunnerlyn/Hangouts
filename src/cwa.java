@@ -3,68 +3,53 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cwa extends cvn
+public class cwa extends cwm
 {
 
     private static final long serialVersionUID = 1L;
-    private final cta g;
+    public final int a;
 
-    private cwa(kww kww1)
+    public cwa(int i)
     {
-        boolean flag1 = false;
-        super();
-        String s;
-        String s1;
-        long l;
-        long l1;
-        boolean flag;
-        if (kww1.a != null && kww1.a.a != null && kww1.a.a.a != null)
+        a = i;
+        if (eev.a("Babel_RequestWriter", 3))
         {
-            s = kww1.a.a.a.a;
-        } else
-        {
-            s = null;
+            eev.d("Babel_RequestWriter", "declineAllInvitesRequest constructor");
         }
-        if (kww1.b != null)
-        {
-            s1 = kww1.b.a;
-        } else
-        {
-            s1 = null;
-        }
-        l1 = g.a(kww1.c, 0L);
-        l = l1;
-        if (l1 != 0L)
-        {
-            l = l1 + System.currentTimeMillis();
-        }
-        flag = flag1;
-        if (l != 0L)
-        {
-            flag = flag1;
-            if (g.a(kww1.d, false))
-            {
-                flag = true;
-            }
-        }
-        g = new cta(s, s1, l, flag);
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public String a()
     {
-        if (abyte0 != null)
-        {
-            abyte0 = (kww)kop.mergeFrom(new kww(), abyte0);
-            if (abyte0 != null)
-            {
-                return new cwa(abyte0);
-            }
-        }
-        return null;
+        return "event_queue";
     }
 
-    public cta k()
+    public kws a(String s, int i, int j)
     {
-        return g;
+        if (eev.a("Babel_RequestWriter", 3))
+        {
+            eev.d("Babel_RequestWriter", "declineAllInvitesRequest build protobuf");
+        }
+        ixx ixx1 = new ixx();
+        ixx1.requestHeader = cvu.a(null, true, s, i, j, h);
+        s = new ixy();
+        s.b = Integer.valueOf(a);
+        ixx1.a = new ixy[1];
+        ixx1.a[0] = s;
+        return ixx1;
+    }
+
+    public void a(aoa aoa, dcx dcx)
+    {
+        super.a(aoa, dcx);
+    }
+
+    public String f()
+    {
+        return "conversations/declineallinvites";
+    }
+
+    public int n()
+    {
+        return 4;
     }
 }

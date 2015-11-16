@@ -3,16 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jdw extends koj
+public final class jdw extends kwm
 {
 
-    public jbw a;
-    public jci b[];
+    public Boolean a;
+    public String b;
+    public Integer c;
+    public Boolean d;
+    public jdk requestHeader;
 
     public jdw()
     {
+        requestHeader = null;
         a = null;
-        b = jci.a();
+        b = null;
+        c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,43 +27,44 @@ public final class jdw extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (a != null)
+        if (requestHeader != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.d(1, requestHeader);
         }
         j = i;
+        if (a != null)
+        {
+            a.booleanValue();
+            j = i + (kwk.f(2) + 1);
+        }
+        i = j;
         if (b != null)
         {
-            j = i;
-            if (b.length > 0)
-            {
-                for (j = 0; j < b.length;)
-                {
-                    jci jci1 = b[j];
-                    int k = i;
-                    if (jci1 != null)
-                    {
-                        k = i + koh.d(2, jci1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            i = j + kwk.b(3, b);
         }
-        return j;
+        j = i;
+        if (c != null)
+        {
+            j = i + kwk.f(4, c.intValue());
+        }
+        i = j;
+        if (d != null)
+        {
+            d.booleanValue();
+            i = j + (kwk.f(5) + 1);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -67,64 +74,54 @@ public final class jdw extends koj
                 return this;
 
             case 10: // '\n'
-                if (a == null)
+                if (requestHeader == null)
                 {
-                    a = new jbw();
+                    requestHeader = new jdk();
                 }
-                kog1.a(a);
+                kwj1.a(requestHeader);
                 break;
 
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                jci ajci[];
-                int j;
-                if (b == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
-                }
-                ajci = new jci[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, ajci, 0, j);
-                    k = j;
-                }
-                for (; k < ajci.length - 1; k++)
-                {
-                    ajci[k] = new jci();
-                    kog1.a(ajci[k]);
-                    kog1.a();
-                }
+            case 16: // '\020'
+                a = Boolean.valueOf(kwj1.i());
+                break;
 
-                ajci[k] = new jci();
-                kog1.a(ajci[k]);
-                b = ajci;
+            case 26: // '\032'
+                b = kwj1.j();
+                break;
+
+            case 32: // ' '
+                c = Integer.valueOf(kwj1.l());
+                break;
+
+            case 40: // '('
+                d = Boolean.valueOf(kwj1.i());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
+        if (requestHeader != null)
+        {
+            kwk1.b(1, requestHeader);
+        }
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.a(2, a.booleanValue());
         }
-        if (b != null && b.length > 0)
+        if (b != null)
         {
-            for (int i = 0; i < b.length; i++)
-            {
-                jci jci1 = b[i];
-                if (jci1 != null)
-                {
-                    koh1.b(2, jci1);
-                }
-            }
-
+            kwk1.a(3, b);
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.c(4, c.intValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(5, d.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

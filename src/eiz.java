@@ -3,24 +3,36 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class eiz
-    implements Runnable
+public final class eiz
 {
 
-    final ejx a;
-    final ejf b;
-    final eix c;
+    public static final int a[];
 
-    eiz(eix eix, ejx ejx1, ejf ejf)
+    static 
     {
-        c = eix;
-        a = ejx1;
-        b = ejf;
-        super();
-    }
-
-    public void run()
-    {
-        a.a(b);
+        a = new int[dsu.values().length];
+        try
+        {
+            a[dsu.b.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[dsu.c.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[dsu.e.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[dsu.d.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

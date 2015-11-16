@@ -2,75 +2,90 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
-public final class ino
+public final class ino extends kwm
 {
 
-    private static final AtomicLong a = new AtomicLong(1L);
-    private static final ThreadLocal b = new ThreadLocal();
-    private static final List c = new ArrayList();
-    private static final Runnable d = new inp();
-    private static imy e;
+    public String a;
+    public String b;
+    public String c;
 
-    static long a()
+    public ino()
     {
-        return a.getAndIncrement();
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    static void a(imy imy1)
+    protected int computeSerializedSize()
     {
-        boolean flag;
-        if (imy1 == null || imy1.c())
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            flag = true;
-        } else
-        {
-            flag = false;
+            i = j + kwk.b(1, a);
         }
-        a(imy1, flag);
-    }
-
-    private static void a(imy imy1, boolean flag)
-    {
-        b.set(imy1);
-        if (flag && g.v())
+        j = i;
+        if (b != null)
         {
-            c.add(imy1);
-            g.a(d);
+            j = i + kwk.b(2, b);
         }
-    }
-
-    public static void a(String s)
-    {
-        imy imy1 = b();
-        if (imy1 == null)
+        i = j;
+        if (c != null)
         {
-            throw new IllegalStateException("Was supposed to have a trace - did you neglect to propagate or create one? See http://go/tiktok-tracing for more details.");
-        } else
-        {
-            imy1.a(s);
-            a(imy1.a(), imy1.c());
-            return;
+            i = j + kwk.b(3, c);
         }
+        return i;
     }
 
-    static imy b()
+    public kws mergeFrom(kwj kwj1)
     {
-        return (imy)b.get();
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+
+            case 26: // '\032'
+                c = kwj1.j();
+                break;
+            }
+        } while (true);
     }
 
-    static imy b(imy imy1)
+    public void writeTo(kwk kwk1)
     {
-        e = imy1;
-        return imy1;
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        super.writeTo(kwk1);
     }
-
-    static List c()
-    {
-        return c;
-    }
-
 }

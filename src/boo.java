@@ -2,25 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import com.google.android.apps.hangouts.hangout.HangoutFragment;
+import android.content.Intent;
+import android.os.Handler;
+import java.util.LinkedList;
 import java.util.List;
 
 public final class boo
-    implements cib
 {
 
-    final HangoutFragment a;
+    private static boo a = new boo();
+    private final LinkedList b = new LinkedList();
 
-    public boo(HangoutFragment hangoutfragment)
+    public boo()
     {
-        a = hangoutfragment;
-        super();
     }
 
-    public void a(List list, Bundle bundle)
+    public static boo a()
     {
-        HangoutFragment.t(a);
-        HangoutFragment.u(a);
+        gdv.b("Expected non-null", a);
+        return a;
     }
+
+    public void a(Intent intent)
+    {
+        bpm bpm1 = bnk.a().s();
+        if (bpm1 == null)
+        {
+            eev.a("Babel_calls", "Got Mesi push notification with no joined call");
+            return;
+        } else
+        {
+            bpm1.W().post(new bop(this, intent));
+            return;
+        }
+    }
+
+    public void a(boq boq)
+    {
+        b.add(boq);
+    }
+
+    List b()
+    {
+        return (LinkedList)b.clone();
+    }
+
+    public void b(boq boq)
+    {
+        gdv.a("Expected condition to be true", b.remove(boq));
+    }
+
 }

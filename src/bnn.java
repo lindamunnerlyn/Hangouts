@@ -2,21 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
+import java.util.List;
 
 final class bnn
     implements Runnable
 {
 
-    final bnm a;
+    final bnk a;
 
-    bnn(bnm bnm1)
+    bnn(bnk bnk1)
     {
-        a = bnm1;
+        a = bnk1;
         super();
     }
 
     public void run()
     {
-        bnm.a(a);
+        a.g = true;
+        for (Iterator iterator = a.a.iterator(); iterator.hasNext(); ((bns)iterator.next()).a()) { }
+        gic.a().a(new bnt(a));
     }
 }

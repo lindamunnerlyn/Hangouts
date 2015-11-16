@@ -5,16 +5,24 @@
 import android.content.Context;
 import android.view.Window;
 
-final class qy extends qw
+class qy extends qx
 {
 
-    qy(Context context, Window window, qq qq)
+    private boolean v;
+
+    qy(Context context, Window window, qs qs)
     {
-        super(context, window, qq);
+        super(context, window, qs);
+        v = true;
     }
 
     android.view.Window.Callback a(android.view.Window.Callback callback)
     {
         return new qz(this, callback);
+    }
+
+    public boolean l()
+    {
+        return v;
     }
 }

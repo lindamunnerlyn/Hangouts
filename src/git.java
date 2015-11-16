@@ -2,24 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.api.client.http.HttpHeaders;
+import com.google.api.client.http.HttpRequest;
+import com.google.api.client.http.HttpRequestInitializer;
 
 final class git
-    implements Runnable
+    implements HttpRequestInitializer
 {
 
-    final gir a;
+    final String a;
+    final String b;
+    final hqh c;
+    final int d;
 
-    git(gir gir1)
+    git(String s, String s1, hqh hqh1, int i)
     {
-        a = gir1;
+        a = s;
+        b = s1;
+        c = hqh1;
+        d = i;
         super();
     }
 
-    public void run()
+    public void initialize(HttpRequest httprequest)
     {
-        if (a.j != null)
+        if (httprequest != null)
         {
-            a.j.a(a.h, a.i);
+            HttpHeaders httpheaders = httprequest.getHeaders();
+            String s;
+            if (a != null)
+            {
+                s = a;
+            } else
+            {
+                s = "none";
+            }
+            httpheaders.put("X-Auth-Time", s);
+            if (b != null)
+            {
+                c.initialize(httprequest);
+            }
+            httprequest.setConnectTimeout(d);
+            httprequest.setReadTimeout(d);
         }
     }
 }

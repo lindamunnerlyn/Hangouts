@@ -2,31 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.phone.BabelHomeActivity;
-import com.google.android.libraries.quantum.snackbar.Snackbar;
+import java.util.List;
 
-public final class cjf
-    implements dsv
+public interface cjf
 {
 
-    final BabelHomeActivity a;
+    public abstract boolean a(String s);
 
-    public cjf(BabelHomeActivity babelhomeactivity)
-    {
-        a = babelhomeactivity;
-        super();
-    }
-
-    public void a()
-    {
-        if (BabelHomeActivity.b(a) != null)
-        {
-            BabelHomeActivity.b(a).a(0.0F, BabelHomeActivity.a(a));
-        }
-    }
-
-    public void a(Snackbar snackbar)
-    {
-        BabelHomeActivity.b(a).a(snackbar.getMeasuredHeight(), BabelHomeActivity.a(a));
-    }
+    public abstract boolean a(List list);
 }

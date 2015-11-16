@@ -2,40 +2,81 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
+import java.util.Iterator;
+import java.util.List;
 
-final class gfs
-    implements gfx
+public abstract class gfs
+    implements gew
 {
 
-    final gfr a;
-
-    gfs(gfr gfr1)
+    public gfs()
     {
-        a = gfr1;
-        super();
     }
 
-    public void a(long l)
+    public abstract List a();
+
+    public void a(int i)
     {
-        if (a.b != null)
-        {
-            a.b.a(l);
-        }
+        for (Iterator iterator = a().iterator(); iterator.hasNext(); ((gew)iterator.next()).a(i)) { }
     }
 
-    public void a(long l, String s)
+    public void a(Intent intent)
     {
-        if (a.b != null)
-        {
-            a.b.a(l, s);
-        }
+        for (Iterator iterator = a().iterator(); iterator.hasNext(); ((gew)iterator.next()).a(intent)) { }
     }
 
-    public void a(long l, byte abyte0[])
+    public void a(geu geu)
     {
-        if (a.b != null)
-        {
-            a.b.a(l, abyte0);
-        }
+        for (Iterator iterator = a().iterator(); iterator.hasNext(); ((gew)iterator.next()).a(geu)) { }
+    }
+
+    public void a(gkq gkq, gap gap)
+    {
+        for (Iterator iterator = a().iterator(); iterator.hasNext(); ((gew)iterator.next()).a(gkq, gap)) { }
+    }
+
+    public void a(gmu gmu)
+    {
+        for (Iterator iterator = a().iterator(); iterator.hasNext(); ((gew)iterator.next()).a(gmu)) { }
+    }
+
+    public void a(String s)
+    {
+        for (Iterator iterator = a().iterator(); iterator.hasNext(); ((gew)iterator.next()).a(s)) { }
+    }
+
+    public void a(String s, int i)
+    {
+        for (Iterator iterator = a().iterator(); iterator.hasNext(); ((gew)iterator.next()).a(s, i)) { }
+    }
+
+    public void a(String s, int i, String s1, String s2)
+    {
+        for (Iterator iterator = a().iterator(); iterator.hasNext(); ((gew)iterator.next()).a(s, i, s1, s2)) { }
+    }
+
+    public void a(String s, boolean flag, String s1, boolean flag1)
+    {
+        for (Iterator iterator = a().iterator(); iterator.hasNext(); ((gew)iterator.next()).a(s, flag, s1, flag1)) { }
+    }
+
+    public void a(jjr jjr)
+    {
+    }
+
+    public void b(geu geu)
+    {
+        for (Iterator iterator = a().iterator(); iterator.hasNext(); ((gew)iterator.next()).b(geu)) { }
+    }
+
+    public void b(String s)
+    {
+        for (Iterator iterator = a().iterator(); iterator.hasNext(); ((gew)iterator.next()).b(s)) { }
+    }
+
+    public void c(String s)
+    {
+        for (Iterator iterator = a().iterator(); iterator.hasNext(); ((gew)iterator.next()).c(s)) { }
     }
 }

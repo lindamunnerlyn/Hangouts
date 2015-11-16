@@ -6,15 +6,13 @@
 public interface bge
 {
 
-    public abstract String a();
+    public abstract aoa a();
 
-    public abstract void a(bgf bgf);
+    public abstract void a(int i);
 
-    public abstract void c();
+    public abstract int f();
 
-    public abstract void d();
+    public abstract cfz q();
 
-    public abstract void g();
-
-    public abstract void h();
+    public abstract void r();
 }

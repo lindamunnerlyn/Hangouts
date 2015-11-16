@@ -3,27 +3,7 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class bck extends hhu
-    implements aur
+public interface bck
+    extends bac
 {
-
-    public bck()
-    {
-    }
-
-    public boolean a()
-    {
-        ((ayf)binder.a(ayf)).h();
-        ((ac)hhs.instantiate(context, bci.getName())).a(getChildFragmentManager(), "StickerDialog");
-        return false;
-    }
-
-    public void b()
-    {
-    }
-
-    public boolean c()
-    {
-        return false;
-    }
 }

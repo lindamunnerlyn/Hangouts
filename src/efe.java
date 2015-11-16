@@ -2,22 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.views.MessageListItemView;
 
-public final class efe
-    implements Runnable
+abstract class efe
 {
 
-    final MessageListItemView a;
-
-    public efe(MessageListItemView messagelistitemview)
+    private efe()
     {
-        a = messagelistitemview;
-        super();
     }
 
-    public void run()
+    efe(byte byte0)
     {
-        MessageListItemView.a(a);
+        this();
     }
+
+    abstract void a(String s, int i);
+
+    abstract void b(String s, int i);
 }

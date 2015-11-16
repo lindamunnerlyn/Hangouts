@@ -2,105 +2,130 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Locale;
 
-final class lek extends lew
+public final class lek extends kwm
 {
 
-    private final ldz a;
+    public lel a[];
+    public Boolean b;
 
-    lek(ldz ldz1)
+    public lek()
     {
-        super(lcz.w());
-        a = ldz1;
+        a = lel.a();
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public int a(long l)
+    protected int computeSerializedSize()
     {
-        return a.a(l) > 0 ? 1 : 0;
-    }
-
-    public int a(Locale locale)
-    {
-        return lel.a(locale).a();
-    }
-
-    public long a(long l, String s, Locale locale)
-    {
-        return b(l, lel.a(locale).a(s));
-    }
-
-    public String a(int i, Locale locale)
-    {
-        return lel.a(locale).a(i);
-    }
-
-    public long b(long l, int i)
-    {
-        h.a(this, i, 0, 1);
-        long l1 = l;
-        if (a(l) != i)
+        int i = super.computeSerializedSize();
+        int j = i;
+        if (a != null)
         {
-            i = a.a(l);
-            l1 = a.f(l, -i);
+            j = i;
+            if (a.length > 0)
+            {
+                int k = 0;
+                do
+                {
+                    j = i;
+                    if (k >= a.length)
+                    {
+                        break;
+                    }
+                    lel lel1 = a[k];
+                    j = i;
+                    if (lel1 != null)
+                    {
+                        j = i + kwk.d(1, lel1);
+                    }
+                    k++;
+                    i = j;
+                } while (true);
+            }
         }
-        return l1;
-    }
-
-    public long d(long l)
-    {
-        if (a(l) == 1)
+        i = j;
+        if (b != null)
         {
-            return a.f(0L, 1);
-        } else
-        {
-            return 0x8000000000000000L;
+            b.booleanValue();
+            i = j + (kwk.f(2) + 1);
         }
+        return i;
     }
 
-    public ldh d()
+    public kws mergeFrom(kwj kwj1)
     {
-        return lfl.a(ldi.l());
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                int k = kwx.a(kwj1, 10);
+                lel alel[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                alel = new lel[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, alel, 0, j);
+                    k = j;
+                }
+                for (; k < alel.length - 1; k++)
+                {
+                    alel[k] = new lel();
+                    kwj1.a(alel[k]);
+                    kwj1.a();
+                }
+
+                alel[k] = new lel();
+                kwj1.a(alel[k]);
+                a = alel;
+                break;
+
+            case 16: // '\020'
+                b = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
     }
 
-    public long e(long l)
+    public void writeTo(kwk kwk1)
     {
-        if (a(l) == 0)
+        if (a != null && a.length > 0)
         {
-            return a.f(0L, 1);
-        } else
-        {
-            return 0x7fffffffffffffffL;
+            for (int i = 0; i < a.length; i++)
+            {
+                lel lel1 = a[i];
+                if (lel1 != null)
+                {
+                    kwk1.b(1, lel1);
+                }
+            }
+
         }
-    }
-
-    public ldh e()
-    {
-        return null;
-    }
-
-    public long f(long l)
-    {
-        return d(l);
-    }
-
-    public int g()
-    {
-        return 0;
-    }
-
-    public long g(long l)
-    {
-        return d(l);
-    }
-
-    public int h()
-    {
-        return 1;
-    }
-
-    public long h(long l)
-    {
-        return d(l);
+        if (b != null)
+        {
+            kwk1.a(2, b.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

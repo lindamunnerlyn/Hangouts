@@ -2,40 +2,83 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Set;
+import android.database.Cursor;
+import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.List;
 
-public class cef
-    implements aqb
+public final class cef
 {
 
-    final ced a;
+    public final String a;
+    public final String b;
+    public final boolean c;
+    public final int d;
+    public final int e;
+    public final String f;
+    public final long g;
+    public final List h = new ArrayList();
+    public int i;
+    public final boolean j;
+    public final String k;
+    public final int l;
+    public final long m;
 
-    public cef(ced ced1)
+    public cef(String s, String s1, int i1, String s2, long l1, boolean flag, 
+            int j1, String s3, int k1, long l2)
     {
-        a = ced1;
-        super();
-        synchronized (ced1.w)
+        a = s;
+        b = s1;
+        e = i1;
+        boolean flag1;
+        if (e == 2)
         {
-            ced1.w.add(this);
+            flag1 = true;
+        } else
+        {
+            flag1 = false;
         }
-        return;
-        ced1;
-        set;
-        JVM INSTR monitorexit ;
-        throw ced1;
+        c = flag1;
+        d = j1;
+        f = s2;
+        g = l1;
+        i = 0;
+        j = flag;
+        k = s3;
+        l = k1;
+        m = l2;
+        if (cez.b)
+        {
+            s = a;
+            s1 = f;
+            eev.b("Babel", (new StringBuilder(String.valueOf(s).length() + 20 + String.valueOf(s1).length())).append("Conversation Line: ").append(s).append(" ").append(s1).toString());
+        }
     }
 
-    public void a(ebh ebh, eab eab, boolean flag, apw apw, boolean flag1)
+    static String a(Cursor cursor, int i1, int j1)
     {
-        synchronized (a.w)
+        String s1 = cursor.getString(i1);
+        String s = s1;
+        if (TextUtils.isEmpty(s1))
         {
-            a.w.remove(this);
+            s = cursor.getString(j1);
         }
-        ced.a(a);
-        return;
-        eab;
-        ebh;
-        JVM INSTR monitorexit ;
-        throw eab;
+        return s;
+    }
+
+    cfq a()
+    {
+        if (h.size() > 0)
+        {
+            return ((cfg)h.get(0)).p;
+        } else
+        {
+            return cfq.b;
+        }
+    }
+
+    boolean b()
+    {
+        return l == 1;
     }
 }

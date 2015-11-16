@@ -2,142 +2,114 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.cache.LocalCache;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.concurrent.atomic.AtomicReferenceArray;
 
-public abstract class jih
-    implements Iterator
+public final class jih extends kwm
 {
 
-    int b;
-    int c;
-    jin d;
-    AtomicReferenceArray e;
-    com.google.common.cache.LocalCache.ReferenceEntry f;
-    jjk g;
-    jjk h;
-    final LocalCache i;
+    public jii a[];
 
-    jih(LocalCache localcache)
+    public jih()
     {
-        i = localcache;
-        super();
-        b = localcache.d.length - 1;
-        c = -1;
-        d();
+        a = jii.a();
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private void d()
+    protected int computeSerializedSize()
     {
-        g = null;
-        break MISSING_BLOCK_LABEL_5;
-        if (!a() && !b())
+        int i = super.computeSerializedSize();
+        int k = i;
+        if (a != null)
         {
-            while (b >= 0) 
+            k = i;
+            if (a.length > 0)
             {
-                jin ajin[] = i.d;
-                int j = b;
-                b = j - 1;
-                d = ajin[j];
-                if (d.b != 0)
+                int j = 0;
+                do
                 {
-                    e = d.f;
-                    c = e.length() - 1;
-                    if (b())
+                    k = i;
+                    if (j >= a.length)
                     {
-                        return;
+                        break;
                     }
-                }
+                    jii jii1 = a[j];
+                    k = i;
+                    if (jii1 != null)
+                    {
+                        k = i + kwk.d(1, jii1);
+                    }
+                    j++;
+                    i = k;
+                } while (true);
             }
         }
-        return;
+        return k;
     }
 
-    boolean a()
+    public kws mergeFrom(kwj kwj1)
     {
-        if (f != null)
+        do
         {
-            for (f = f.getNext(); f != null; f = f.getNext())
+            int i = kwj1.a();
+            switch (i)
             {
-                if (a(f))
+            default:
+                if (super.storeUnknownField(kwj1, i))
                 {
-                    return true;
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                int k = kwx.a(kwj1, 10);
+                jii ajii[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                ajii = new jii[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, ajii, 0, j);
+                    k = j;
+                }
+                for (; k < ajii.length - 1; k++)
+                {
+                    ajii[k] = new jii();
+                    kwj1.a(ajii[k]);
+                    kwj1.a();
+                }
+
+                ajii[k] = new jii();
+                kwj1.a(ajii[k]);
+                a = ajii;
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null && a.length > 0)
+        {
+            for (int i = 0; i < a.length; i++)
+            {
+                jii jii1 = a[i];
+                if (jii1 != null)
+                {
+                    kwk1.b(1, jii1);
                 }
             }
 
         }
-        return false;
-    }
-
-    boolean a(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
-    {
-        Object obj;
-        long l = i.o.a();
-        obj = referenceentry.getKey();
-        referenceentry = ((com.google.common.cache.LocalCache.ReferenceEntry) (i.a(referenceentry, l)));
-        if (referenceentry == null)
-        {
-            break MISSING_BLOCK_LABEL_58;
-        }
-        g = new jjk(i, obj, referenceentry);
-        d.b();
-        return true;
-        d.b();
-        return false;
-        referenceentry;
-        d.b();
-        throw referenceentry;
-    }
-
-    boolean b()
-    {
-        while (c >= 0) 
-        {
-            Object obj = e;
-            int j = c;
-            c = j - 1;
-            obj = (com.google.common.cache.LocalCache.ReferenceEntry)((AtomicReferenceArray) (obj)).get(j);
-            f = ((com.google.common.cache.LocalCache.ReferenceEntry) (obj));
-            if (obj != null && (a(f) || a()))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    jjk c()
-    {
-        if (g == null)
-        {
-            throw new NoSuchElementException();
-        } else
-        {
-            h = g;
-            d();
-            return h;
-        }
-    }
-
-    public boolean hasNext()
-    {
-        return g != null;
-    }
-
-    public void remove()
-    {
-        boolean flag;
-        if (h != null)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        n.b(flag);
-        i.remove(h.getKey());
-        h = null;
+        super.writeTo(kwk1);
     }
 }

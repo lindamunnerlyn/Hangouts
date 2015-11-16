@@ -2,23 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import com.google.android.apps.hangouts.conversation.v2.FloatingButtonWithCounter;
+import java.util.Collection;
 
-public final class azb
-    implements android.view.View.OnClickListener
+final class azb
+    implements Runnable
 {
 
-    final FloatingButtonWithCounter a;
+    final Collection a;
+    final String b;
+    final int c;
+    final aza d;
 
-    public azb(FloatingButtonWithCounter floatingbuttonwithcounter)
+    azb(aza aza1, Collection collection, String s, int i)
     {
-        a = floatingbuttonwithcounter;
+        d = aza1;
+        a = collection;
+        b = s;
+        c = i;
         super();
     }
 
-    public void onClick(View view)
+    public void run()
     {
-        FloatingButtonWithCounter.a(a).a();
+        if (aza.a(d) != null)
+        {
+            aza.a(d).a("bg started");
+        }
+        aza.a(d, a, b, c);
     }
 }

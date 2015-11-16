@@ -7,13 +7,13 @@ package com.google.android.gms.common.internal;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
-import emn;
+import epn;
 
 public final class BinderWrapper
     implements Parcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new emn();
+    public static final android.os.Parcelable.Creator CREATOR = new epn();
     private IBinder a;
 
     public BinderWrapper()

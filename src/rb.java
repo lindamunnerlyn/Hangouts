@@ -2,30 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.ActionMode;
 
-final class rb
-    implements Runnable
+final class rb extends qz
 {
 
-    final ra a;
+    final ra c;
 
-    rb(ra ra1)
+    rb(ra ra1, android.view.Window.Callback callback)
     {
-        a = ra1;
-        super();
+        c = ra1;
+        super(ra1, callback);
     }
 
-    public void run()
+    public ActionMode onWindowStartingActionMode(android.view.ActionMode.Callback callback)
     {
-        if ((a.u & 1) != 0)
-        {
-            ra.a(a, 0);
-        }
-        if ((a.u & 0x1000) != 0)
-        {
-            ra.a(a, 108);
-        }
-        a.t = false;
-        a.u = 0;
+        return null;
+    }
+
+    public ActionMode onWindowStartingActionMode(android.view.ActionMode.Callback callback, int i)
+    {
+        if (!c.l()) goto _L2; else goto _L1
+_L1:
+        i;
+        JVM INSTR tableswitch 0 0: default 28
+    //                   0 35;
+           goto _L2 _L3
+_L2:
+        return super.onWindowStartingActionMode(callback, i);
+_L3:
+        return a(callback);
     }
 }

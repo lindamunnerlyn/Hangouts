@@ -2,49 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.api.client.http.AbstractHttpContent;
+import java.io.OutputStream;
 
-final class giu
+final class giu extends AbstractHttpContent
 {
 
-    static final int a[];
-    static final int b[];
+    private final byte a[];
 
-    static 
+    protected giu(byte abyte0[])
     {
-        b = new int[giw.values().length];
-        try
-        {
-            b[giw.e.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror5) { }
-        try
-        {
-            b[giw.f.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror4) { }
-        a = new int[giv.values().length];
-        try
-        {
-            a[giv.c.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror3) { }
-        try
-        {
-            a[giv.a.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[giv.d.ordinal()] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[giv.b.ordinal()] = 4;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
+        super("application/x-protobuf");
+        a = abyte0;
+    }
+
+    public void writeTo(OutputStream outputstream)
+    {
+        outputstream.write(a);
+        outputstream.flush();
     }
 }

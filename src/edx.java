@@ -2,22 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.drawable.AnimationDrawable;
+import android.net.Uri;
 
 final class edx
-    implements Runnable
 {
 
-    final AnimationDrawable a;
+    int a;
+    Uri b;
+    boolean c;
+    int d;
+    float e;
+    long f;
+    boolean g;
 
-    edx(AnimationDrawable animationdrawable)
+    edx()
     {
-        a = animationdrawable;
-        super();
     }
 
-    public void run()
+    public String toString()
     {
-        a.stop();
+        int i = a;
+        boolean flag = c;
+        int j = d;
+        String s = String.valueOf(b);
+        return (new StringBuilder(String.valueOf(s).length() + 58)).append("{ code=").append(i).append(" looping=").append(flag).append(" stream=").append(j).append(" uri=").append(s).append(" }").toString();
     }
 }

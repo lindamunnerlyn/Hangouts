@@ -2,129 +2,111 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 
-public abstract class jme extends jkj
-    implements Serializable
+public final class jme extends kwm
 {
 
-    private static final long serialVersionUID = 0L;
-    final transient jlr b;
-    final transient int c;
+    public Integer a;
+    public String b;
+    public Long c;
 
-    jme(jlr jlr1, int j)
+    public jme()
     {
-        b = jlr1;
-        c = j;
+        a = null;
+        b = null;
+        c = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public static jme a(jpl jpl1)
+    protected int computeSerializedSize()
     {
-        if (jpl1 instanceof jme)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            return (jme)jpl1;
+            i = j + kwk.e(1, a.intValue());
         }
-        if (jpl1.g())
+        j = i;
+        if (b != null)
         {
-            return jkq.a;
+            j = i + kwk.b(2, b);
         }
-        if (jpl1 instanceof jlq)
+        i = j;
+        if (c != null)
         {
-            return (jlq)jpl1;
+            i = j + kwk.d(3, c.longValue());
         }
-        jls jls1 = jlr.i();
-        jpl1 = jpl1.i().entrySet().iterator();
-        int j = 0;
-        do
+        return i;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+_L6:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 4: default 48
+    //                   0: 57
+    //                   8: 59
+    //                   18: 178
+    //                   24: 189;
+           goto _L1 _L2 _L3 _L4 _L5
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L6; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
         {
-            if (!jpl1.hasNext())
-            {
-                break;
-            }
-            java.util.Map.Entry entry = (java.util.Map.Entry)jpl1.next();
-            jlk jlk1 = jlk.a((Collection)entry.getValue());
-            if (!jlk1.isEmpty())
-            {
-                jls1.a(entry.getKey(), jlk1);
-                j = jlk1.size() + j;
-            }
-        } while (true);
-        return new jlq(jls1.a(), j);
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+        case 5: // '\005'
+        case 6: // '\006'
+        case 7: // '\007'
+        case 8: // '\b'
+        case 9: // '\t'
+        case 10: // '\n'
+        case 11: // '\013'
+        case 12: // '\f'
+        case 13: // '\r'
+        case 14: // '\016'
+        case 15: // '\017'
+        case 16: // '\020'
+        case 17: // '\021'
+        case 18: // '\022'
+        case 19: // '\023'
+        case 20: // '\024'
+            a = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        b = kwj1.j();
+        continue; /* Loop/switch isn't completed */
+_L5:
+        c = Long.valueOf(kwj1.d());
+        if (true) goto _L6; else goto _L7
+_L7:
     }
 
-    public static jmf a()
+    public void writeTo(kwk kwk1)
     {
-        return new jmf();
-    }
-
-    public Collection a(Object obj)
-    {
-        return c(obj);
-    }
-
-    public boolean a(Object obj, Iterable iterable)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public boolean a(Object obj, Object obj1)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public jmi b()
-    {
-        return b.d();
-    }
-
-    public int c()
-    {
-        return c;
-    }
-
-    public abstract jle c(Object obj);
-
-    public jlr d()
-    {
-        return b;
-    }
-
-    public volatile boolean equals(Object obj)
-    {
-        return super.equals(obj);
-    }
-
-    Map f()
-    {
-        throw new AssertionError("should never be called");
-    }
-
-    public volatile boolean g()
-    {
-        return super.g();
-    }
-
-    public Set h()
-    {
-        return b();
-    }
-
-    public volatile int hashCode()
-    {
-        return super.hashCode();
-    }
-
-    public Map i()
-    {
-        return d();
-    }
-
-    public volatile String toString()
-    {
-        return super.toString();
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

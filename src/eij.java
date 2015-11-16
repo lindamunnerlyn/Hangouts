@@ -2,63 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.gms.auth.AccountChangeEvent;
-import com.google.android.gms.auth.AccountChangeEventsResponse;
+import android.view.View;
+import com.google.android.apps.hangouts.views.MessageListItemView;
 
 public final class eij
-    implements android.os.Parcelable.Creator
+    implements android.view.View.OnLongClickListener
 {
 
-    public eij()
+    final MessageListItemView a;
+
+    public eij(MessageListItemView messagelistitemview)
     {
+        a = messagelistitemview;
+        super();
     }
 
-    public static void a(AccountChangeEventsResponse accountchangeeventsresponse, Parcel parcel)
+    public boolean onLongClick(View view)
     {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, accountchangeeventsresponse.a);
-        g.c(parcel, 2, accountchangeeventsresponse.b);
-        g.q(parcel, i);
-    }
-
-    public Object createFromParcel(Parcel parcel)
-    {
-        int j = g.a(parcel);
-        int i = 0;
-        java.util.ArrayList arraylist = null;
-        do
-        {
-            if (parcel.dataPosition() < j)
-            {
-                int k = parcel.readInt();
-                switch (0xffff & k)
-                {
-                default:
-                    g.b(parcel, k);
-                    break;
-
-                case 1: // '\001'
-                    i = g.e(parcel, k);
-                    break;
-
-                case 2: // '\002'
-                    arraylist = g.c(parcel, k, AccountChangeEvent.CREATOR);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != j)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
-            } else
-            {
-                return new AccountChangeEventsResponse(i, arraylist);
-            }
-        } while (true);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new AccountChangeEventsResponse[i];
+        MessageListItemView.g(a);
+        return false;
     }
 }

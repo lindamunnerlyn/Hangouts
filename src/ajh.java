@@ -4,29 +4,8 @@
 
 import android.content.Context;
 
-public final class ajh
+public interface ajh
 {
 
-    public static final String a = cqv.getName();
-    public static final String b = beb.getName();
-    private static ajg c;
-
-    public static void a(Context context, hgx hgx1)
-    {
-        if (c == null)
-        {
-            c = new ajg();
-        }
-        hgx1.a(cqv, c.a(context));
-    }
-
-    public static void a(hgx hgx1)
-    {
-        if (c == null)
-        {
-            c = new ajg();
-        }
-        hgx1.a(beb, c.a());
-    }
-
+    public abstract boolean a(Context context, int i);
 }

@@ -2,113 +2,66 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.telephony.CellIdentityCdma;
-import android.telephony.CellInfo;
-import android.telephony.CellInfoCdma;
-import android.telephony.TelephonyManager;
-import java.util.Iterator;
-import java.util.List;
+import android.net.Uri;
 
-public final class dtt
+final class dtt
 {
 
-    private static int a = -1;
+    final Uri a;
+    boolean b;
+    int c;
+    private int d;
 
-    static int a()
+    public dtt(Uri uri)
     {
-        return a;
+        b = false;
+        a = uri;
     }
 
-    static int a(int i)
+    public int a()
     {
-        switch (i)
+        c;
+        JVM INSTR tableswitch -1 8: default 60
+    //                   -1 62
+    //                   0 60
+    //                   1 60
+    //                   2 60
+    //                   3 64
+    //                   4 66
+    //                   5 60
+    //                   6 60
+    //                   7 60
+    //                   8 60;
+           goto _L1 _L2 _L1 _L1 _L1 _L3 _L4 _L1 _L1 _L1 _L1
+_L1:
+        return 2;
+_L2:
+        return 0;
+_L3:
+        return 1;
+_L4:
+        if (d != 404)
         {
-        default:
-            return -1;
-
-        case 0: // '\0'
-            return 0;
-
-        case 1: // '\001'
-            return 25;
-
-        case 2: // '\002'
-            return 50;
-
-        case 3: // '\003'
-            return 75;
-
-        case 4: // '\004'
-            return 100;
+            return 1;
         }
+        if (true) goto _L1; else goto _L5
+_L5:
     }
 
-    public static CellInfo a(Context context)
+    public void a(int i, int j)
     {
-label0:
-        {
-            if (!g.q(context))
-            {
-                ebw.e("Babel_telephony", "TeleAccessNetworkInfoUtil.getRegisteredCellInfo, no coarse location permission.");
-                return null;
-            }
-            context = ((TelephonyManager)context.getSystemService("phone")).getAllCellInfo();
-            if (context == null)
-            {
-                break label0;
-            }
-            context = context.iterator();
-            CellInfo cellinfo;
-            do
-            {
-                if (!context.hasNext())
-                {
-                    break label0;
-                }
-                cellinfo = (CellInfo)context.next();
-            } while (!cellinfo.isRegistered());
-            return cellinfo;
-        }
-        return null;
+        c = i;
+        d = j;
+        b = true;
     }
 
-    static dtv a(Context context, int i, int j)
+    public String toString()
     {
-        TelephonyManager telephonymanager = (TelephonyManager)context.getSystemService("phone");
-        byte byte0 = -1;
-        context = a(context);
-        int k = byte0;
-        if (context != null)
-        {
-            k = byte0;
-            if (context instanceof CellInfoCdma)
-            {
-                context = ((CellInfoCdma)context).getCellIdentity();
-                k = byte0;
-                if (context != null)
-                {
-                    k = context.getSystemId();
-                }
-            }
-        }
-        return new dtv(i, j, telephonymanager.getPhoneType(), telephonymanager.getNetworkOperator(), telephonymanager.getNetworkType(), k);
+        StringBuilder stringbuilder = new StringBuilder();
+        stringbuilder.append("DownloadResult:");
+        stringbuilder.append(" destinationUri=").append(a);
+        stringbuilder.append(" resultCode=").append(c);
+        stringbuilder.append(" httpStatusCode=").append(d);
+        return stringbuilder.toString();
     }
-
-    public static void a(Context context, dtu dtu1)
-    {
-        TelephonyManager telephonymanager = (TelephonyManager)context.getSystemService("phone");
-        if (telephonymanager.getSimState() == 5)
-        {
-            context = new dtw(context, dtu1);
-            telephonymanager.listen(context, 257);
-            telephonymanager.listen(context, 0);
-            return;
-        } else
-        {
-            dtu1.a(a(context, 2, -1));
-            return;
-        }
-    }
-
 }

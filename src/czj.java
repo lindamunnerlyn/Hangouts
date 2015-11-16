@@ -2,33 +2,66 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
-public final class czj extends cyq
+public class czj extends cxr
 {
 
-    private static final long serialVersionUID = 2L;
-    public final long a;
-    public final boolean b;
+    private static final long serialVersionUID = 1L;
+    private final Map g = new HashMap();
 
-    public czj(ixm ixm1)
+    private czj(hyj hyj1)
     {
-        boolean flag;
-        if (ixm1.c != null)
+        super(hyj1.apiHeader);
+        hyj1 = hyj1.a.a;
+        int j = hyj1.length;
+        for (int i = 0; i < j; i++)
         {
-            flag = true;
+            String s = hyj1[i];
+            Object obj = ((ipk) (s)).c;
+            s = ((ipk) (s)).a.c;
+            obj = new anp(s, ((iph) (obj)).a, ((iph) (obj)).e);
+            g.put(s, obj);
+        }
+
+    }
+
+    public static cxr parseFrom(byte abyte0[])
+    {
+        abyte0 = (hyj)kws.mergeFrom(new hyj(), abyte0);
+        if (a(((hyj) (abyte0)).apiHeader))
+        {
+            return new cyd(((hyj) (abyte0)).apiHeader);
         } else
         {
-            flag = false;
+            return new czj(abyte0);
         }
-        b = g.a(Boolean.valueOf(flag), false);
-        if (b)
+    }
+
+    public void a(aow aow1, dgk dgk)
+    {
+        super.a(aow1, dgk);
+        if (!g.isEmpty())
         {
-            a = g.a(ixm1.c.b, 0L);
-            return;
-        } else
-        {
-            a = 0L;
-            return;
+            aow1.a(g);
         }
+        aow1.a();
+        aow1.n();
+        anp anp1;
+        for (dgk = g.values().iterator(); dgk.hasNext(); aow1.c(anp1.a, anp1.b, anp1.c, anp1.d))
+        {
+            anp1 = (anp)dgk.next();
+        }
+
+        break MISSING_BLOCK_LABEL_98;
+        dgk;
+        aow1.c();
+        throw dgk;
+        aow1.b();
+        aow1.c();
+        return;
     }
 }

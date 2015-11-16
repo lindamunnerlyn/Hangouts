@@ -4,10 +4,10 @@
 
 package com.android.ex.photo.views;
 
-import abr;
-import abs;
 import abt;
 import abu;
+import abv;
+import abw;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -31,21 +31,21 @@ public class PhotoView extends View
     implements android.view.GestureDetector.OnDoubleTapListener, android.view.GestureDetector.OnGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
 {
 
-    private static int a;
-    private static boolean b;
-    private static int c;
-    private static Bitmap d;
-    private static Bitmap e;
-    private static Paint f;
-    private static Paint g;
+    private static int d;
+    private static boolean e;
+    private static int f;
+    private static Bitmap g;
+    private static Bitmap h;
+    private static Paint i;
+    private static Paint j;
     private boolean A;
-    private abs B;
-    private float C;
-    private float D;
-    private abu E;
-    private abt F;
-    private abr G;
-    private float H;
+    private boolean B;
+    private boolean C;
+    private abu D;
+    private float E;
+    private float F;
+    private abw G;
+    private abv H;
     private RectF I;
     private RectF J;
     private RectF K;
@@ -54,34 +54,34 @@ public class PhotoView extends View
     private float N;
     private float O;
     private boolean P;
-    private Drawable h;
-    private Matrix i;
-    private Matrix j;
-    private Matrix k;
-    private int l;
-    private boolean m;
-    private boolean n;
-    private byte o[];
+    public Matrix a;
+    abt b;
+    public float c;
+    private Drawable k;
+    private Matrix l;
+    private Matrix m;
+    private int n;
+    private boolean o;
     private boolean p;
-    private boolean q;
-    private Rect r;
-    private int s;
-    private float t;
-    private ic u;
-    private ScaleGestureDetector v;
-    private android.view.View.OnClickListener w;
-    private boolean x;
-    private boolean y;
+    private byte q[];
+    private boolean r;
+    private boolean s;
+    private Rect t;
+    private int u;
+    private float v;
+    private ic w;
+    private ScaleGestureDetector x;
+    private android.view.View.OnClickListener y;
     private boolean z;
 
     public PhotoView(Context context)
     {
         super(context);
-        j = new Matrix();
-        k = new Matrix();
-        l = -1;
-        r = new Rect();
-        y = true;
+        a = new Matrix();
+        m = new Matrix();
+        n = -1;
+        t = new Rect();
+        A = true;
         I = new RectF();
         J = new RectF();
         K = new RectF();
@@ -92,11 +92,11 @@ public class PhotoView extends View
     public PhotoView(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
-        j = new Matrix();
-        k = new Matrix();
-        l = -1;
-        r = new Rect();
-        y = true;
+        a = new Matrix();
+        m = new Matrix();
+        n = -1;
+        t = new Rect();
+        A = true;
         I = new RectF();
         J = new RectF();
         K = new RectF();
@@ -107,11 +107,11 @@ public class PhotoView extends View
     public PhotoView(Context context, AttributeSet attributeset, int i1)
     {
         super(context, attributeset, i1);
-        j = new Matrix();
-        k = new Matrix();
-        l = -1;
-        r = new Rect();
-        y = true;
+        a = new Matrix();
+        m = new Matrix();
+        n = -1;
+        t = new Rect();
+        A = true;
         I = new RectF();
         J = new RectF();
         K = new RectF();
@@ -119,34 +119,266 @@ public class PhotoView extends View
         k();
     }
 
-    private int a(float f1, float f2)
+    private boolean a(MotionEvent motionevent)
+    {
+        boolean flag;
+        if (A && z && M)
+        {
+            if (!B)
+            {
+                float f6 = j();
+                float f1;
+                float f2;
+                float f3;
+                if (f6 > E)
+                {
+                    f3 = E;
+                    f1 = f3 / f6;
+                    f2 = ((float)(getWidth() / 2) - K.centerX() * f1) / (1.0F - f1);
+                    f1 = ((float)(getHeight() / 2) - K.centerY() * f1) / (1.0F - f1);
+                } else
+                {
+                    f1 = Math.max(E, f6 * 2.0F);
+                    f3 = Math.min(F, f1);
+                    f2 = f3 / f6;
+                    f1 = ((float)getWidth() - K.width()) / f2;
+                    f2 = ((float)getHeight() - K.height()) / f2;
+                    if (K.width() <= f1 * 2.0F)
+                    {
+                        f1 = K.centerX();
+                    } else
+                    {
+                        f1 = Math.min(Math.max(K.left + f1, motionevent.getX()), K.right - f1);
+                    }
+                    if (K.height() <= f2 * 2.0F)
+                    {
+                        float f4 = K.centerY();
+                        f2 = f1;
+                        f1 = f4;
+                    } else
+                    {
+                        float f5 = Math.min(Math.max(K.top + f2, motionevent.getY()), K.bottom - f2);
+                        f2 = f1;
+                        f1 = f5;
+                    }
+                }
+                D.a(f6, f3, f2, f1);
+                flag = true;
+            } else
+            {
+                flag = false;
+            }
+            B = false;
+        } else
+        {
+            flag = false;
+        }
+        M = false;
+        return flag;
+    }
+
+    private void c(boolean flag)
+    {
+label0:
+        {
+            int j1;
+            int k1;
+            int j2;
+            int k2;
+label1:
+            {
+                int i2 = 0;
+                if (k == null || !o)
+                {
+                    return;
+                }
+                j1 = k.getIntrinsicWidth();
+                k1 = k.getIntrinsicHeight();
+                int i1 = getWidth();
+                int l1 = getHeight();
+                boolean flag1;
+                if ((j1 < 0 || i1 == j1) && (k1 < 0 || l1 == k1))
+                {
+                    flag1 = true;
+                } else
+                {
+                    flag1 = false;
+                }
+                k.setBounds(0, 0, j1, k1);
+                if (!flag && (E != 0.0F || k == null || !o))
+                {
+                    break label0;
+                }
+                j2 = k.getIntrinsicWidth();
+                k2 = k.getIntrinsicHeight();
+                if (s)
+                {
+                    j1 = f;
+                } else
+                {
+                    j1 = getWidth();
+                }
+                if (s)
+                {
+                    k1 = f;
+                } else
+                {
+                    k1 = getHeight();
+                }
+                if (j2 >= 0)
+                {
+                    l1 = i2;
+                    if (j1 != j2)
+                    {
+                        break label1;
+                    }
+                }
+                if (k2 >= 0)
+                {
+                    l1 = i2;
+                    if (k1 != k2)
+                    {
+                        break label1;
+                    }
+                }
+                l1 = 1;
+            }
+            if (l1 && !s)
+            {
+                a.reset();
+            } else
+            {
+                I.set(0.0F, 0.0F, j2, k2);
+                RectF rectf;
+                if (s)
+                {
+                    J.set(t);
+                } else
+                {
+                    J.set(0.0F, 0.0F, j1, k1);
+                }
+                rectf = new RectF((float)(j1 / 2) - ((float)j2 * v) / 2.0F, (float)(k1 / 2) - ((float)k2 * v) / 2.0F, (float)(j1 / 2) + ((float)j2 * v) / 2.0F, (float)(k1 / 2) + ((float)k2 * v) / 2.0F);
+                if (J.contains(rectf))
+                {
+                    a.setRectToRect(I, rectf, android.graphics.Matrix.ScaleToFit.CENTER);
+                } else
+                {
+                    a.setRectToRect(I, J, android.graphics.Matrix.ScaleToFit.CENTER);
+                }
+            }
+            m.set(a);
+            l1 = k.getIntrinsicWidth();
+            i2 = k.getIntrinsicHeight();
+            if (s)
+            {
+                j1 = i();
+            } else
+            {
+                j1 = getWidth();
+            }
+            if (s)
+            {
+                k1 = i();
+            } else
+            {
+                k1 = getHeight();
+            }
+            if (l1 < j1 && i2 < k1 && !s)
+            {
+                E = 1.0F;
+            } else
+            {
+                E = j();
+            }
+            F = Math.max(E * 4F, 4F);
+        }
+        if (flag1 || a.isIdentity())
+        {
+            l = null;
+            return;
+        } else
+        {
+            l = a;
+            return;
+        }
+    }
+
+    private int i()
+    {
+        if (u > 0)
+        {
+            return u;
+        } else
+        {
+            return f;
+        }
+    }
+
+    private float j()
+    {
+        a.getValues(L);
+        return L[0];
+    }
+
+    private void k()
+    {
+        Context context = getContext();
+        if (!e)
+        {
+            e = true;
+            Resources resources = context.getApplicationContext().getResources();
+            f = resources.getDimensionPixelSize(g.bQ);
+            Paint paint = new Paint();
+            i = paint;
+            paint.setAntiAlias(true);
+            i.setColor(resources.getColor(g.bN));
+            i.setStyle(android.graphics.Paint.Style.FILL);
+            paint = new Paint();
+            j = paint;
+            paint.setAntiAlias(true);
+            j.setColor(resources.getColor(g.bO));
+            j.setStyle(android.graphics.Paint.Style.STROKE);
+            j.setStrokeWidth(resources.getDimension(g.bP));
+            int i1 = ViewConfiguration.get(context).getScaledTouchSlop();
+            d = i1 * i1;
+        }
+        w = new ic(context, this);
+        x = new ScaleGestureDetector(context, this);
+        P = jr.a(x);
+        D = new abu(this);
+        G = new abw(this);
+        H = new abv(this);
+        b = new abt(this);
+    }
+
+    public int a(float f1, float f2)
     {
         float f5 = 0.0F;
         K.set(I);
-        j.mapRect(K);
+        a.mapRect(K);
         float f3;
         float f4;
         float f6;
         float f7;
         boolean flag;
         boolean flag1;
-        if (q)
+        if (s)
         {
-            f3 = r.left;
+            f3 = t.left;
         } else
         {
             f3 = 0.0F;
         }
-        if (q)
+        if (s)
         {
-            f4 = r.right;
+            f4 = t.right;
         } else
         {
             f4 = getWidth();
         }
         f6 = K.left;
         f7 = K.right;
-        if (q)
+        if (s)
         {
             f3 = Math.max(f3 - K.right, Math.min(f4 - K.left, f1));
         } else
@@ -158,20 +390,20 @@ public class PhotoView extends View
             f3 = Math.max(f4 - f7, Math.min(f3 - f6, f1));
         }
         f4 = f5;
-        if (q)
+        if (s)
         {
-            f4 = r.top;
+            f4 = t.top;
         }
-        if (q)
+        if (s)
         {
-            f5 = r.bottom;
+            f5 = t.bottom;
         } else
         {
             f5 = getHeight();
         }
         f6 = K.top;
         f7 = K.bottom;
-        if (q)
+        if (s)
         {
             f4 = Math.max(f4 - K.bottom, Math.min(f5 - K.top, f2));
         } else
@@ -182,7 +414,7 @@ public class PhotoView extends View
         {
             f4 = Math.max(f5 - f7, Math.min(f4 - f6, f2));
         }
-        j.postTranslate(f3, f4);
+        a.postTranslate(f3, f4);
         invalidate();
         if (f3 == f1)
         {
@@ -209,258 +441,198 @@ public class PhotoView extends View
         return !flag1 ? 0 : 2;
     }
 
-    public static int a(PhotoView photoview, float f1, float f2)
+    public void a(float f1)
     {
-        return photoview.a(f1, f2);
+        v = f1;
     }
 
-    private void a(float f1, float f2, float f3)
+    public void a(float f1, float f2, float f3)
     {
-        j.postRotate(-H, getWidth() / 2, getHeight() / 2);
-        f1 = Math.min(Math.max(f1, C), D * 1.5F) / i();
-        j.postScale(f1, f1, f2, f3);
-        j.postRotate(H, getWidth() / 2, getHeight() / 2);
+        a.postRotate(-c, getWidth() / 2, getHeight() / 2);
+        f1 = Math.min(Math.max(f1, E), F * 1.5F) / j();
+        a.postScale(f1, f1, f2, f3);
+        a.postRotate(c, getWidth() / 2, getHeight() / 2);
         invalidate();
     }
 
-    public static void a(PhotoView photoview)
+    public void a(Drawable drawable)
     {
-        photoview.j();
-    }
-
-    public static void a(PhotoView photoview, float f1)
-    {
-        photoview.H = photoview.H + f1;
-        photoview.j.postRotate(f1, photoview.getWidth() / 2, photoview.getHeight() / 2);
-        photoview.invalidate();
-    }
-
-    public static void a(PhotoView photoview, float f1, float f2, float f3)
-    {
-        photoview.a(f1, f2, f3);
-    }
-
-    private boolean a(MotionEvent motionevent)
-    {
-        boolean flag;
-        if (y && x && M)
+        boolean flag1 = false;
+        boolean flag = flag1;
+        if (drawable != null)
         {
-            if (!z)
+            flag = flag1;
+            if (drawable != k)
             {
-                float f6 = i();
-                float f1;
-                float f2;
-                float f3;
-                if (f6 > C)
+                if (k != null)
                 {
-                    f3 = C;
-                    f1 = f3 / f6;
-                    f2 = ((float)(getWidth() / 2) - K.centerX() * f1) / (1.0F - f1);
-                    f1 = ((float)(getHeight() / 2) - K.centerY() * f1) / (1.0F - f1);
-                } else
-                {
-                    f1 = Math.max(C, f6 * 2.0F);
-                    f3 = Math.min(D, f1);
-                    f2 = f3 / f6;
-                    f1 = ((float)getWidth() - K.width()) / f2;
-                    f2 = ((float)getHeight() - K.height()) / f2;
-                    if (K.width() <= f1 * 2.0F)
-                    {
-                        f1 = K.centerX();
-                    } else
-                    {
-                        f1 = Math.min(Math.max(K.left + f1, motionevent.getX()), K.right - f1);
-                    }
-                    if (K.height() <= f2 * 2.0F)
-                    {
-                        float f4 = K.centerY();
-                        f2 = f1;
-                        f1 = f4;
-                    } else
-                    {
-                        float f5 = Math.min(Math.max(K.top + f2, motionevent.getY()), K.bottom - f2);
-                        f2 = f1;
-                        f1 = f5;
-                    }
+                    k.setCallback(null);
                 }
-                B.a(f6, f3, f2, f1);
+                k = drawable;
+                E = 0.0F;
+                k.setCallback(this);
                 flag = true;
-            } else
-            {
-                flag = false;
             }
-            z = false;
+        }
+        c(flag);
+        invalidate();
+    }
+
+    public void a(boolean flag)
+    {
+        if (flag != p)
+        {
+            p = flag;
+            requestLayout();
+            invalidate();
+        }
+    }
+
+    public boolean a()
+    {
+        if (z)
+        {
+            if (G.a)
+            {
+                return true;
+            }
+            a.getValues(L);
+            K.set(I);
+            a.mapRect(K);
+            float f1 = getWidth();
+            float f2 = L[2];
+            float f3 = K.right - K.left;
+            if (z && f3 > f1 && f2 != 0.0F)
+            {
+                return f1 < f3 + f2 ? true : true;
+            }
+        }
+        return false;
+    }
+
+    public void b(boolean flag)
+    {
+        z = flag;
+        if (!z)
+        {
+            g();
+        }
+    }
+
+    public boolean b()
+    {
+        if (z)
+        {
+            if (G.a)
+            {
+                return true;
+            }
+            a.getValues(L);
+            K.set(I);
+            a.mapRect(K);
+            float f1 = getWidth();
+            float f2 = L[2];
+            float f3 = K.right - K.left;
+            if (z && f3 > f1)
+            {
+                if (f2 == 0.0F)
+                {
+                    return true;
+                }
+                if (f1 < f2 + f3)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void c()
+    {
+        w = null;
+        x = null;
+        k = null;
+        D.a();
+        D = null;
+        G.a();
+        G = null;
+        H.a();
+        H = null;
+        b.a();
+        b = null;
+        setOnClickListener(null);
+        y = null;
+        M = false;
+    }
+
+    public void d()
+    {
+        boolean flag2 = k instanceof BitmapDrawable;
+        boolean flag;
+        boolean flag1;
+        if (!flag2)
+        {
+            flag = true;
         } else
         {
             flag = false;
         }
-        M = false;
-        return flag;
-    }
-
-    private void c(boolean flag)
-    {
-label0:
+        flag1 = flag;
+        if (k != null)
         {
-            int j1;
-            int k1;
-            int j2;
-            int k2;
-label1:
+            flag1 = flag;
+            if (flag2)
             {
-                int i2 = 0;
-                if (h == null || !m)
+                if (((BitmapDrawable)k).getBitmap() == null)
                 {
                     return;
                 }
-                j1 = h.getIntrinsicWidth();
-                k1 = h.getIntrinsicHeight();
-                int i1 = getWidth();
-                int l1 = getHeight();
-                boolean flag1;
-                if ((j1 < 0 || i1 == j1) && (k1 < 0 || l1 == k1))
-                {
-                    flag1 = true;
-                } else
-                {
-                    flag1 = false;
-                }
-                h.setBounds(0, 0, j1, k1);
-                if (!flag && (C != 0.0F || h == null || !m))
-                {
-                    break label0;
-                }
-                j2 = h.getIntrinsicWidth();
-                k2 = h.getIntrinsicHeight();
-                if (q)
-                {
-                    j1 = c;
-                } else
-                {
-                    j1 = getWidth();
-                }
-                if (q)
-                {
-                    k1 = c;
-                } else
-                {
-                    k1 = getHeight();
-                }
-                if (j2 >= 0)
-                {
-                    l1 = i2;
-                    if (j1 != j2)
-                    {
-                        break label1;
-                    }
-                }
-                if (k2 >= 0)
-                {
-                    l1 = i2;
-                    if (k1 != k2)
-                    {
-                        break label1;
-                    }
-                }
-                l1 = 1;
+                E = 0.0F;
+                k = null;
+                flag1 = false;
             }
-            if (l1 && !q)
-            {
-                j.reset();
-            } else
-            {
-                I.set(0.0F, 0.0F, j2, k2);
-                RectF rectf;
-                if (q)
-                {
-                    J.set(r);
-                } else
-                {
-                    J.set(0.0F, 0.0F, j1, k1);
-                }
-                rectf = new RectF((float)(j1 / 2) - ((float)j2 * t) / 2.0F, (float)(k1 / 2) - ((float)k2 * t) / 2.0F, (float)(j1 / 2) + ((float)j2 * t) / 2.0F, (float)(k1 / 2) + ((float)k2 * t) / 2.0F);
-                if (J.contains(rectf))
-                {
-                    j.setRectToRect(I, rectf, android.graphics.Matrix.ScaleToFit.CENTER);
-                } else
-                {
-                    j.setRectToRect(I, J, android.graphics.Matrix.ScaleToFit.CENTER);
-                }
-            }
-            k.set(j);
-            l1 = h.getIntrinsicWidth();
-            i2 = h.getIntrinsicHeight();
-            if (q)
-            {
-                j1 = h();
-            } else
-            {
-                j1 = getWidth();
-            }
-            if (q)
-            {
-                k1 = h();
-            } else
-            {
-                k1 = getHeight();
-            }
-            if (l1 < j1 && i2 < k1 && !q)
-            {
-                C = 1.0F;
-            } else
-            {
-                C = i();
-            }
-            D = Math.max(C * 4F, 4F);
         }
-        if (flag1 || j.isIdentity())
-        {
-            i = null;
-            return;
-        } else
-        {
-            i = j;
-            return;
-        }
+        c(flag1);
+        invalidate();
     }
 
-    private int h()
+    public Drawable e()
     {
-        if (s > 0)
-        {
-            return s;
-        } else
-        {
-            return c;
-        }
+        return k;
     }
 
-    private float i()
+    public boolean f()
     {
-        j.getValues(L);
-        return L[0];
+        return k != null;
     }
 
-    private void j()
+    public void g()
+    {
+        a.set(m);
+        invalidate();
+    }
+
+    public void h()
     {
         float f4 = 0.0F;
         K.set(I);
-        j.mapRect(K);
+        a.mapRect(K);
         float f1;
         float f2;
         float f3;
         float f5;
         float f6;
-        if (q)
+        if (s)
         {
-            f1 = r.left;
+            f1 = t.left;
         } else
         {
             f1 = 0.0F;
         }
-        if (q)
+        if (s)
         {
-            f2 = r.right;
+            f2 = t.right;
         } else
         {
             f2 = getWidth();
@@ -482,16 +654,16 @@ label1:
         {
             f1 = 0.0F;
         }
-        if (q)
+        if (s)
         {
-            f2 = r.top;
+            f2 = t.top;
         } else
         {
             f2 = 0.0F;
         }
-        if (q)
+        if (s)
         {
-            f3 = r.bottom;
+            f3 = t.bottom;
         } else
         {
             f3 = getHeight();
@@ -515,213 +687,19 @@ label1:
         }
         if (Math.abs(f1) > 20F || Math.abs(f2) > 20F)
         {
-            F.a(f1, f2);
+            H.a(f1, f2);
             return;
         } else
         {
-            j.postTranslate(f1, f2);
+            a.postTranslate(f1, f2);
             invalidate();
             return;
         }
-    }
-
-    private void k()
-    {
-        Context context = getContext();
-        if (!b)
-        {
-            b = true;
-            Resources resources = context.getApplicationContext().getResources();
-            c = resources.getDimensionPixelSize(g.bQ);
-            Paint paint = new Paint();
-            f = paint;
-            paint.setAntiAlias(true);
-            f.setColor(resources.getColor(g.bN));
-            f.setStyle(android.graphics.Paint.Style.FILL);
-            paint = new Paint();
-            g = paint;
-            paint.setAntiAlias(true);
-            g.setColor(resources.getColor(g.bO));
-            g.setStyle(android.graphics.Paint.Style.STROKE);
-            g.setStrokeWidth(resources.getDimension(g.bP));
-            int i1 = ViewConfiguration.get(context).getScaledTouchSlop();
-            a = i1 * i1;
-        }
-        u = new ic(context, this);
-        v = new ScaleGestureDetector(context, this);
-        P = jr.a(v);
-        B = new abs(this);
-        E = new abu(this);
-        F = new abt(this);
-        G = new abr(this);
-    }
-
-    public void a(float f1)
-    {
-        t = f1;
-    }
-
-    public void a(Drawable drawable)
-    {
-        boolean flag1 = false;
-        boolean flag = flag1;
-        if (drawable != null)
-        {
-            flag = flag1;
-            if (drawable != h)
-            {
-                if (h != null)
-                {
-                    h.setCallback(null);
-                }
-                h = drawable;
-                C = 0.0F;
-                h.setCallback(this);
-                flag = true;
-            }
-        }
-        c(flag);
-        invalidate();
-    }
-
-    public void a(boolean flag)
-    {
-        if (flag != n)
-        {
-            n = flag;
-            requestLayout();
-            invalidate();
-        }
-    }
-
-    public boolean a()
-    {
-        if (x)
-        {
-            if (abu.a(E))
-            {
-                return true;
-            }
-            j.getValues(L);
-            K.set(I);
-            j.mapRect(K);
-            float f1 = getWidth();
-            float f2 = L[2];
-            float f3 = K.right - K.left;
-            if (x && f3 > f1 && f2 != 0.0F)
-            {
-                return f1 < f3 + f2 ? true : true;
-            }
-        }
-        return false;
-    }
-
-    public void b(boolean flag)
-    {
-        x = flag;
-        if (!x)
-        {
-            g();
-        }
-    }
-
-    public boolean b()
-    {
-        if (x)
-        {
-            if (abu.a(E))
-            {
-                return true;
-            }
-            j.getValues(L);
-            K.set(I);
-            j.mapRect(K);
-            float f1 = getWidth();
-            float f2 = L[2];
-            float f3 = K.right - K.left;
-            if (x && f3 > f1)
-            {
-                if (f2 == 0.0F)
-                {
-                    return true;
-                }
-                if (f1 < f2 + f3)
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public void c()
-    {
-        u = null;
-        v = null;
-        h = null;
-        B.a();
-        B = null;
-        E.a();
-        E = null;
-        F.a();
-        F = null;
-        G.a();
-        G = null;
-        setOnClickListener(null);
-        w = null;
-        M = false;
-    }
-
-    public void d()
-    {
-        boolean flag2 = h instanceof BitmapDrawable;
-        boolean flag;
-        boolean flag1;
-        if (!flag2)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        flag1 = flag;
-        if (h != null)
-        {
-            flag1 = flag;
-            if (flag2)
-            {
-                if (((BitmapDrawable)h).getBitmap() == null)
-                {
-                    return;
-                }
-                C = 0.0F;
-                h = null;
-                flag1 = false;
-            }
-        }
-        c(flag1);
-        invalidate();
-    }
-
-    public Drawable e()
-    {
-        return h;
-    }
-
-    public boolean f()
-    {
-        return h != null;
-    }
-
-    public void g()
-    {
-        j.set(k);
-        invalidate();
     }
 
     public void invalidateDrawable(Drawable drawable)
     {
-        if (h == drawable)
+        if (k == drawable)
         {
             invalidate();
             return;
@@ -773,7 +751,7 @@ _L4:
         {
             int i1 = (int)(motionevent.getX() - N);
             int j1 = (int)(motionevent.getY() - O);
-            if (i1 * i1 + j1 * j1 > a)
+            if (i1 * i1 + j1 * j1 > d)
             {
                 M = false;
                 return false;
@@ -785,10 +763,10 @@ _L5:
 
     public boolean onDown(MotionEvent motionevent)
     {
-        if (x)
+        if (z)
         {
-            E.a();
-            F.a();
+            G.a();
+            H.a();
         }
         return true;
     }
@@ -796,59 +774,59 @@ _L5:
     protected void onDraw(Canvas canvas)
     {
         super.onDraw(canvas);
-        if (h != null)
+        if (k != null)
         {
             int i1 = canvas.getSaveCount();
             canvas.save();
-            if (i != null)
+            if (l != null)
             {
-                canvas.concat(i);
+                canvas.concat(l);
             }
-            h.draw(canvas);
+            k.draw(canvas);
             canvas.restoreToCount(i1);
-            if (o != null)
+            if (q != null)
             {
                 Bitmap bitmap;
                 int j1;
                 int k1;
-                if (p)
+                if (r)
                 {
-                    bitmap = d;
+                    bitmap = g;
                 } else
                 {
-                    bitmap = e;
+                    bitmap = h;
                 }
                 j1 = (getWidth() - bitmap.getWidth()) / 2;
                 k1 = (getHeight() - bitmap.getHeight()) / 2;
                 canvas.drawBitmap(bitmap, j1, k1, null);
             }
-            K.set(h.getBounds());
-            if (i != null)
+            K.set(k.getBounds());
+            if (l != null)
             {
-                i.mapRect(K);
+                l.mapRect(K);
             }
-            if (q)
+            if (s)
             {
                 j1 = canvas.getSaveCount();
-                canvas.drawRect(0.0F, 0.0F, getWidth(), getHeight(), f);
+                canvas.drawRect(0.0F, 0.0F, getWidth(), getHeight(), i);
                 canvas.save();
-                canvas.clipRect(r);
-                if (i != null)
+                canvas.clipRect(t);
+                if (l != null)
                 {
-                    canvas.concat(i);
+                    canvas.concat(l);
                 }
-                h.draw(canvas);
+                k.draw(canvas);
                 canvas.restoreToCount(j1);
-                canvas.drawRect(r, g);
+                canvas.drawRect(t, j);
             }
         }
     }
 
     public boolean onFling(MotionEvent motionevent, MotionEvent motionevent1, float f1, float f2)
     {
-        if (x && !abs.a(B))
+        if (z && !D.a)
         {
-            E.a(f1, f2);
+            G.a(f1, f2);
         }
         return true;
     }
@@ -856,17 +834,17 @@ _L5:
     protected void onLayout(boolean flag, int i1, int j1, int k1, int l1)
     {
         super.onLayout(flag, i1, j1, k1, l1);
-        m = true;
+        o = true;
         i1 = getWidth();
         j1 = getHeight();
-        if (q)
+        if (s)
         {
-            s = Math.min(c, Math.min(i1, j1));
-            i1 = (i1 - s) / 2;
-            j1 = (j1 - s) / 2;
-            k1 = s;
-            l1 = s;
-            r.set(i1, j1, k1 + i1, l1 + j1);
+            u = Math.min(f, Math.min(i1, j1));
+            i1 = (i1 - u) / 2;
+            j1 = (j1 - u) / 2;
+            k1 = u;
+            l1 = u;
+            t.set(i1, j1, k1 + i1, l1 + j1);
         }
         c(flag);
     }
@@ -877,10 +855,10 @@ _L5:
 
     protected void onMeasure(int i1, int j1)
     {
-        if (l != -1)
+        if (n != -1)
         {
-            super.onMeasure(i1, android.view.View.MeasureSpec.makeMeasureSpec(l, 0x80000000));
-            setMeasuredDimension(getMeasuredWidth(), l);
+            super.onMeasure(i1, android.view.View.MeasureSpec.makeMeasureSpec(n, 0x80000000));
+            setMeasuredDimension(getMeasuredWidth(), n);
             return;
         } else
         {
@@ -891,30 +869,30 @@ _L5:
 
     public boolean onScale(ScaleGestureDetector scalegesturedetector)
     {
-        if (x)
+        if (z)
         {
-            A = false;
-            a(i() * scalegesturedetector.getScaleFactor(), scalegesturedetector.getFocusX(), scalegesturedetector.getFocusY());
+            C = false;
+            a(j() * scalegesturedetector.getScaleFactor(), scalegesturedetector.getFocusX(), scalegesturedetector.getFocusY());
         }
         return true;
     }
 
     public boolean onScaleBegin(ScaleGestureDetector scalegesturedetector)
     {
-        if (x)
+        if (z)
         {
-            B.a();
-            A = true;
+            D.a();
+            C = true;
         }
         return true;
     }
 
     public void onScaleEnd(ScaleGestureDetector scalegesturedetector)
     {
-        float f3 = i();
-        if (f3 > D)
+        float f3 = j();
+        if (f3 > F)
         {
-            float f5 = 1.0F / (1.0F - D / f3);
+            float f5 = 1.0F / (1.0F - F / f3);
             float f8 = 1.0F - f5;
             float f1 = getWidth() / 2;
             float f2 = getHeight() / 2;
@@ -936,18 +914,18 @@ _L5:
             {
                 f2 = Math.min(Math.max(f5, f2), f4);
             }
-            B.a(f3, D, f1, f2);
+            D.a(f3, F, f1, f2);
         }
-        if (x && A)
+        if (z && C)
         {
-            z = true;
+            B = true;
             g();
         }
     }
 
     public boolean onScroll(MotionEvent motionevent, MotionEvent motionevent1, float f1, float f2)
     {
-        if (x && !abs.a(B))
+        if (z && !D.a)
         {
             a(-f1, -f2);
         }
@@ -960,11 +938,11 @@ _L5:
 
     public boolean onSingleTapConfirmed(MotionEvent motionevent)
     {
-        if (w != null && !A)
+        if (y != null && !C)
         {
-            w.onClick(this);
+            y.onClick(this);
         }
-        A = false;
+        C = false;
         return true;
     }
 
@@ -975,10 +953,10 @@ _L5:
 
     public boolean onTouchEvent(MotionEvent motionevent)
     {
-        if (v != null && u != null)
+        if (x != null && w != null)
         {
-            v.onTouchEvent(motionevent);
-            u.a(motionevent);
+            x.onTouchEvent(motionevent);
+            w.a(motionevent);
             switch (motionevent.getAction())
             {
             case 2: // '\002'
@@ -989,9 +967,9 @@ _L5:
             case 3: // '\003'
                 break;
             }
-            if (!abu.a(E))
+            if (!G.a)
             {
-                j();
+                h();
                 return true;
             }
         }
@@ -1000,11 +978,11 @@ _L5:
 
     public void setOnClickListener(android.view.View.OnClickListener onclicklistener)
     {
-        w = onclicklistener;
+        y = onclicklistener;
     }
 
     public boolean verifyDrawable(Drawable drawable)
     {
-        return h == drawable || super.verifyDrawable(drawable);
+        return k == drawable || super.verifyDrawable(drawable);
     }
 }

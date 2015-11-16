@@ -2,24 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextPaint;
-import android.text.style.URLSpan;
-import com.google.android.apps.hangouts.phone.GoogleVoiceTermsOfServiceActivity;
 
-public final class cnz extends URLSpan
+final class cnz extends coj
 {
 
-    final GoogleVoiceTermsOfServiceActivity a;
+    final cna a;
 
-    public cnz(GoogleVoiceTermsOfServiceActivity googlevoicetermsofserviceactivity, String s)
+    cnz(cna cna, String s)
     {
-        a = googlevoicetermsofserviceactivity;
+        a = cna;
         super(s);
     }
 
-    public void updateDrawState(TextPaint textpaint)
+    public void a()
     {
-        super.updateDrawState(textpaint);
-        textpaint.setUnderlineText(false);
+        (new coa(this)).execute(new Void[0]);
     }
 }

@@ -2,37 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.util.AttributeSet;
+import android.widget.LinearLayout;
 
-public final class efx
+public class efx extends LinearLayout
 {
 
-    public static final int a[];
+    private bjc a;
+    private String b;
+    private long c;
 
-    static 
+    public efx(Context context, AttributeSet attributeset)
     {
-        a = new int[dqb.values().length];
-        try
+        super(context, attributeset);
+    }
+
+    public void a()
+    {
+        if (a != null)
         {
-            a[dqb.b.ordinal()] = 1;
+            a.a(b, c);
         }
-        catch (NoSuchFieldError nosuchfielderror3) { }
-        try
-        {
-            a[dqb.c.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[dqb.e.ordinal()] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[dqb.d.ordinal()] = 4;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
+    }
+
+    public void a(long l)
+    {
+        c = l;
+    }
+
+    public void a(bjc bjc1)
+    {
+        a = bjc1;
+    }
+
+    public void a(String s)
+    {
+        b = s;
     }
 }

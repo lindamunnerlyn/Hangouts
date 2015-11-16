@@ -4,15 +4,21 @@
 
 
 final class avx
-    implements Runnable
+    implements bah
 {
 
-    avx()
+    final avv a;
+
+    avx(avv avv1)
     {
+        a = avv1;
+        super();
     }
 
-    public void run()
+    public void a(dcc dcc)
     {
-        ave.V();
+        avv.a(a, dcc);
+        avv.s(a);
+        avv.t(a);
     }
 }

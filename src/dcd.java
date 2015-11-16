@@ -2,9 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.DialogInterface;
 
-public interface dcd
+final class dcd
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    public abstract void a(int i, iqq aiqq[]);
+    dcd()
+    {
+    }
+
+    public void onClick(DialogInterface dialoginterface, int i)
+    {
+        dialoginterface.cancel();
+    }
 }

@@ -6,14 +6,15 @@ package com.google.android.gms.herrevad;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fcd;
+import ffb;
+import g;
 
 public class PredictedNetworkQuality
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fcd();
-    public final int a;
+    public static final android.os.Parcelable.Creator CREATOR = new ffb();
+    final int a;
     public int b;
     public int c;
     public long d;
@@ -55,7 +56,13 @@ public class PredictedNetworkQuality
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fcd.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, b);
+        g.b(parcel, 3, c);
+        g.a(parcel, 4, d);
+        g.a(parcel, 5, e);
+        g.q(parcel, i);
     }
 
 }

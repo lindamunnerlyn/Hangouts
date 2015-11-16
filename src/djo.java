@@ -2,19 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.widget.ListView;
-import com.google.android.apps.hangouts.realtimechat.wakelock.impl.DebugWakelocksActivity;
 
-public final class djo extends ListView
+public final class djo extends dgj
 {
 
-    final DebugWakelocksActivity a;
+    private final String a;
+    private final int e;
 
-    public djo(DebugWakelocksActivity debugwakelocksactivity, Context context)
+    public djo(aoa aoa, String s, int i)
     {
-        a = debugwakelocksactivity;
-        super(context);
-        setOnItemClickListener(DebugWakelocksActivity.d(a));
+        super(aoa);
+        a = s;
+        e = i;
+    }
+
+    public void a()
+    {
+        aoq.a(a, e, super.c);
     }
 }

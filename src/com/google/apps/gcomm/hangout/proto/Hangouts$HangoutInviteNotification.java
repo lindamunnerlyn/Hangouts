@@ -4,13 +4,13 @@
 
 package com.google.apps.gcomm.hangout.proto;
 
-import kog;
-import koh;
-import koj;
-import kon;
-import kop;
+import kwj;
+import kwk;
+import kwm;
+import kwq;
+import kws;
 
-public final class clear extends koj
+public final class clear extends kwm
 {
 
     private static volatile invitationId _emptyArray[];
@@ -27,7 +27,7 @@ public final class clear extends koj
     {
         if (_emptyArray == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
                 if (_emptyArray == null)
                 {
@@ -42,14 +42,14 @@ public final class clear extends koj
         throw exception;
     }
 
-    public static _emptyArray parseFrom(kog kog1)
+    public static _emptyArray parseFrom(kwj kwj1)
     {
-        return (new <init>()).mergeFrom(kog1);
+        return (new <init>()).mergeFrom(kwj1);
     }
 
     public static mergeFrom parseFrom(byte abyte0[])
     {
-        return (mergeFrom)kop.mergeFrom(new <init>(), abyte0);
+        return (mergeFrom)kws.mergeFrom(new <init>(), abyte0);
     }
 
     public <init> clear()
@@ -73,50 +73,50 @@ public final class clear extends koj
         int i = j;
         if (context != null)
         {
-            i = j + koh.d(1, context);
+            i = j + kwk.d(1, context);
         }
         j = i;
         if (status != null)
         {
-            j = i + koh.e(2, status.intValue());
+            j = i + kwk.e(2, status.intValue());
         }
         i = j;
         if (command != null)
         {
-            i = j + koh.e(3, command.intValue());
+            i = j + kwk.e(3, command.intValue());
         }
         j = i;
         if (notificationType != null)
         {
-            j = i + koh.e(5, notificationType.intValue());
+            j = i + kwk.e(5, notificationType.intValue());
         }
         i = j;
         if (hangoutType != null)
         {
-            i = j + koh.e(6, hangoutType.intValue());
+            i = j + kwk.e(6, hangoutType.intValue());
         }
         j = i;
         if (dismissReason != null)
         {
-            j = i + koh.e(7, dismissReason.intValue());
+            j = i + kwk.e(7, dismissReason.intValue());
         }
         i = j;
         if (userProvidedMessage != null)
         {
-            i = j + koh.b(8, userProvidedMessage);
+            i = j + kwk.b(8, userProvidedMessage);
         }
         j = i;
         if (invitationId != null)
         {
-            j = i + koh.e(9, invitationId.longValue());
+            j = i + kwk.e(9, invitationId.longValue());
         }
         return j;
     }
 
-    public invitationId mergeFrom(kog kog1)
+    public invitationId mergeFrom(kwj kwj1)
     {
 _L11:
-        int i = kog1.a();
+        int i = kwj1.a();
         i;
         JVM INSTR lookupswitch 9: default 88
     //                   0: 97
@@ -130,7 +130,7 @@ _L11:
     //                   72: 385;
            goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10
 _L1:
-        if (super.storeUnknownField(kog1, i)) goto _L11; else goto _L2
+        if (super.storeUnknownField(kwj1, i)) goto _L11; else goto _L2
 _L2:
         return this;
 _L3:
@@ -138,10 +138,10 @@ _L3:
         {
             context = new ();
         }
-        kog1.a(context);
+        kwj1.a(context);
           goto _L11
 _L4:
-        int j = kog1.f();
+        int j = kwj1.f();
         switch (j)
         {
         case 0: // '\0'
@@ -153,7 +153,7 @@ _L4:
         }
         continue; /* Loop/switch isn't completed */
 _L5:
-        int k = kog1.f();
+        int k = kwj1.f();
         switch (k)
         {
         case 0: // '\0'
@@ -163,7 +163,7 @@ _L5:
         }
         continue; /* Loop/switch isn't completed */
 _L6:
-        int l = kog1.f();
+        int l = kwj1.f();
         switch (l)
         {
         case 0: // '\0'
@@ -175,7 +175,7 @@ _L6:
         }
         continue; /* Loop/switch isn't completed */
 _L7:
-        int i1 = kog1.f();
+        int i1 = kwj1.f();
         switch (i1)
         {
         case 0: // '\0'
@@ -185,7 +185,7 @@ _L7:
         }
         continue; /* Loop/switch isn't completed */
 _L8:
-        int j1 = kog1.f();
+        int j1 = kwj1.f();
         switch (j1)
         {
         case 0: // '\0'
@@ -198,54 +198,54 @@ _L8:
         }
         continue; /* Loop/switch isn't completed */
 _L9:
-        userProvidedMessage = kog1.j();
+        userProvidedMessage = kwj1.j();
         continue; /* Loop/switch isn't completed */
 _L10:
-        invitationId = Long.valueOf(kog1.e());
+        invitationId = Long.valueOf(kwj1.e());
         if (true) goto _L11; else goto _L12
 _L12:
     }
 
-    public volatile kop mergeFrom(kog kog1)
+    public volatile kws mergeFrom(kwj kwj1)
     {
-        return mergeFrom(kog1);
+        return mergeFrom(kwj1);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (context != null)
         {
-            koh1.b(1, context);
+            kwk1.b(1, context);
         }
         if (status != null)
         {
-            koh1.a(2, status.intValue());
+            kwk1.a(2, status.intValue());
         }
         if (command != null)
         {
-            koh1.a(3, command.intValue());
+            kwk1.a(3, command.intValue());
         }
         if (notificationType != null)
         {
-            koh1.a(5, notificationType.intValue());
+            kwk1.a(5, notificationType.intValue());
         }
         if (hangoutType != null)
         {
-            koh1.a(6, hangoutType.intValue());
+            kwk1.a(6, hangoutType.intValue());
         }
         if (dismissReason != null)
         {
-            koh1.a(7, dismissReason.intValue());
+            kwk1.a(7, dismissReason.intValue());
         }
         if (userProvidedMessage != null)
         {
-            koh1.a(8, userProvidedMessage);
+            kwk1.a(8, userProvidedMessage);
         }
         if (invitationId != null)
         {
-            koh1.b(9, invitationId.longValue());
+            kwk1.b(9, invitationId.longValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 
     public ()

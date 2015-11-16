@@ -2,74 +2,213 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 
-public abstract class qr
+public class qr extends ai
+    implements dw, px, qs
 {
 
-    qr()
+    private qt j;
+
+    public qr()
     {
     }
 
-    static qr a(Context context, Window window, qq qq)
+    public void a(Toolbar toolbar)
     {
-        int j = android.os.Build.VERSION.SDK_INT;
-        if (j >= 23)
+        i().a(toolbar);
+    }
+
+    public void a(dv dv1)
+    {
+        dv1.a(this);
+    }
+
+    public void a(vt vt)
+    {
+    }
+
+    public boolean a_(Intent intent)
+    {
+        return bu.a(this, intent);
+    }
+
+    public void addContentView(View view, android.view.ViewGroup.LayoutParams layoutparams)
+    {
+        i().b(view, layoutparams);
+    }
+
+    public void b(Intent intent)
+    {
+        bu.b(this, intent);
+    }
+
+    public void b(vt vt)
+    {
+    }
+
+    public pq g()
+    {
+        return i().a();
+    }
+
+    public MenuInflater getMenuInflater()
+    {
+        return i().b();
+    }
+
+    public qt i()
+    {
+        if (j == null)
         {
-            return new qy(context, window, qq);
+            j = qt.a(this, getWindow(), this);
         }
-        if (j >= 14)
+        return j;
+    }
+
+    public void invalidateOptionsMenu()
+    {
+        i().f();
+    }
+
+    public pw n_()
+    {
+        return i().h();
+    }
+
+    public void onConfigurationChanged(Configuration configuration)
+    {
+        super.onConfigurationChanged(configuration);
+        i().a(configuration);
+    }
+
+    public void onContentChanged()
+    {
+    }
+
+    public void onCreate(Bundle bundle)
+    {
+        i().i();
+        i().a(bundle);
+        super.onCreate(bundle);
+    }
+
+    public void onDestroy()
+    {
+        super.onDestroy();
+        i().g();
+    }
+
+    public final boolean onMenuItemSelected(int k, MenuItem menuitem)
+    {
+        if (super.onMenuItemSelected(k, menuitem))
         {
-            return new qw(context, window, qq);
+            return true;
         }
-        if (j >= 11)
+        pq pq1 = g();
+        if (menuitem.getItemId() == 0x102002c && pq1 != null && (pq1.d() & 4) != 0)
         {
-            return new qv(context, window, qq);
+            return r_();
         } else
         {
-            return new ra(context, window, qq);
+            return false;
         }
     }
 
-    public abstract po a();
+    public boolean onMenuOpened(int k, Menu menu)
+    {
+        return super.onMenuOpened(k, menu);
+    }
 
-    public abstract void a(int j);
+    public void onPanelClosed(int k, Menu menu)
+    {
+        super.onPanelClosed(k, menu);
+    }
 
-    public abstract void a(Configuration configuration);
+    public void onPostCreate(Bundle bundle)
+    {
+        super.onPostCreate(bundle);
+        i().c();
+    }
 
-    public abstract void a(Bundle bundle);
+    public void onPostResume()
+    {
+        super.onPostResume();
+        i().e();
+    }
 
-    public abstract void a(Toolbar toolbar);
+    public void onStop()
+    {
+        super.onStop();
+        i().d();
+    }
 
-    public abstract void a(View view);
+    protected void onTitleChanged(CharSequence charsequence, int k)
+    {
+        super.onTitleChanged(charsequence, k);
+        i().a(charsequence);
+    }
 
-    public abstract void a(View view, android.view.ViewGroup.LayoutParams layoutparams);
+    public void q_()
+    {
+        i().f();
+    }
 
-    public abstract void a(CharSequence charsequence);
+    public boolean r_()
+    {
+        Object obj = s_();
+        if (obj != null)
+        {
+            if (a_(((Intent) (obj))))
+            {
+                obj = dv.a(this);
+                a(((dv) (obj)));
+                ((dv) (obj)).b();
+                try
+                {
+                    p.a(this);
+                }
+                // Misplaced declaration of an exception variable
+                catch (Object obj)
+                {
+                    finish();
+                }
+            } else
+            {
+                b(((Intent) (obj)));
+            }
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
 
-    public abstract MenuInflater b();
+    public Intent s_()
+    {
+        return bu.b(this);
+    }
 
-    public abstract void b(View view, android.view.ViewGroup.LayoutParams layoutparams);
+    public void setContentView(int k)
+    {
+        i().a(k);
+    }
 
-    public abstract boolean b(int j);
+    public void setContentView(View view)
+    {
+        i().a(view);
+    }
 
-    public abstract void c();
-
-    public abstract void d();
-
-    public abstract void e();
-
-    public abstract void f();
-
-    public abstract void g();
-
-    public abstract pu h();
-
-    public abstract void i();
+    public void setContentView(View view, android.view.ViewGroup.LayoutParams layoutparams)
+    {
+        i().a(view, layoutparams);
+    }
 }

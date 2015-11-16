@@ -3,79 +3,23 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.ContextThemeWrapper;
-import android.view.View;
-import android.widget.ListAdapter;
+import android.widget.ArrayAdapter;
 
-public final class qo
+final class qo extends ArrayAdapter
 {
 
-    private final qg a;
-    private int b;
-
-    public qo(Context context)
+    public qo(Context context, int i, CharSequence acharsequence[])
     {
-        this(context, qn.a(context, 0));
+        super(context, i, 0x1020014, acharsequence);
     }
 
-    private qo(Context context, int i)
+    public long getItemId(int i)
     {
-        a = new qg(new ContextThemeWrapper(context, qn.a(context, i)));
-        b = i;
+        return (long)i;
     }
 
-    public Context a()
+    public boolean hasStableIds()
     {
-        return a.a;
-    }
-
-    public qo a(android.content.DialogInterface.OnKeyListener onkeylistener)
-    {
-        a.r = onkeylistener;
-        return this;
-    }
-
-    public qo a(Drawable drawable)
-    {
-        a.d = drawable;
-        return this;
-    }
-
-    public qo a(View view)
-    {
-        a.g = view;
-        return this;
-    }
-
-    public qo a(ListAdapter listadapter, android.content.DialogInterface.OnClickListener onclicklistener)
-    {
-        a.t = listadapter;
-        a.u = onclicklistener;
-        return this;
-    }
-
-    public qo a(CharSequence charsequence)
-    {
-        a.f = charsequence;
-        return this;
-    }
-
-    public qn b()
-    {
-        qn qn1 = new qn(a.a, b);
-        a.a(qn.a(qn1));
-        qn1.setCancelable(a.o);
-        if (a.o)
-        {
-            qn1.setCanceledOnTouchOutside(true);
-        }
-        qn1.setOnCancelListener(a.p);
-        qn1.setOnDismissListener(a.q);
-        if (a.r != null)
-        {
-            qn1.setOnKeyListener(a.r);
-        }
-        return qn1;
+        return true;
     }
 }

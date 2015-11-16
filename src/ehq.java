@@ -2,106 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.wearable.Asset;
-import java.util.ArrayList;
 
-public final class ehq
+public final class ehq extends Enum
 {
 
-    private ftc a;
+    public static final int a;
+    public static final int b;
+    public static final int c;
+    public static final int d;
+    public static final int e;
+    public static final int f;
+    public static final int g;
+    private static final int h[];
 
-    public ehq()
+    public static int[] a()
     {
-        this(new ftc());
+        return (int[])h.clone();
     }
 
-    public ehq(ftc ftc1)
+    static 
     {
-        a = ftc1;
-    }
-
-    public String a()
-    {
-        return a.b("18", "");
-    }
-
-    public void a(int i)
-    {
-        a.a("22", i - 1);
-    }
-
-    public void a(long l)
-    {
-        a.a("26", l);
-    }
-
-    public void a(Asset asset)
-    {
-        a.a("5", asset);
-    }
-
-    public void a(String s)
-    {
-        a.a("7", s);
-    }
-
-    public void a(ArrayList arraylist)
-    {
-        a.a("16", arraylist);
-    }
-
-    public void a(boolean flag)
-    {
-        a.a("11", flag);
-    }
-
-    public Asset b()
-    {
-        return a.g("5");
-    }
-
-    public void b(int i)
-    {
-        a.a("34", i);
-    }
-
-    public void b(String s)
-    {
-        a.a("18", s);
-    }
-
-    public void b(ArrayList arraylist)
-    {
-        a.c("30", arraylist);
-    }
-
-    public void b(boolean flag)
-    {
-        a.a("14", flag);
-    }
-
-    public long c()
-    {
-        return a.e("26");
-    }
-
-    public void c(String s)
-    {
-        a.a("23", s);
-    }
-
-    public void c(boolean flag)
-    {
-        a.a("33", flag);
-    }
-
-    public void d(String s)
-    {
-        a.a("27", s);
-    }
-
-    public void e(String s)
-    {
-        a.a("31", s);
+        a = 1;
+        b = 2;
+        c = 3;
+        d = 4;
+        e = 5;
+        f = 6;
+        g = 7;
+        h = (new int[] {
+            a, b, c, d, e, f, g
+        });
     }
 }

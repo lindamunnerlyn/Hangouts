@@ -3,43 +3,46 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 
-final class akv extends cqv
+public final class akv extends ea
 {
 
-    akv()
+    private final Context f;
+    private final int g;
+    private final boolean h = false;
+
+    public akv(Context context)
     {
+        super(context);
+        f = context.getApplicationContext();
+        g = ((gqu)hlp.a(context, gqu)).a();
     }
 
-    public cqw a()
+    public Object d()
     {
-        return akq.a(true, ebz.g());
-    }
-
-    public boolean a(Context context)
-    {
-        int i = ((gmo)hgx.a(context, gmo)).a();
-        if (i == -1)
+label0:
         {
-            return false;
+label1:
+            {
+                if (!g.a(f, g))
+                {
+                    break label0;
+                }
+                ajl ajl1 = ajn.a(f, g);
+                if (h && ajl1 != null)
+                {
+                    long l = System.currentTimeMillis();
+                    long l1 = ((amo)hlp.a(f, amo)).a("babel_dialer_callerid_dialer_redisplay_interval_ms", ajs.b);
+                    if (Long.valueOf(g.a(Long.valueOf(ajl1.b()), 0L)) != null && l - ajl1.b() < l1)
+                    {
+                        break label1;
+                    }
+                    ajl1.a(l);
+                }
+                return ajl1;
+            }
+            return null;
         }
-        if (((gms)hgx.a(context, gms)).a(i).a("callerid_promo_shown", false) || !g.a(i, ebz.g()))
-        {
-            return false;
-        }
-        NetworkInfo networkinfo = ((ConnectivityManager)context.getSystemService("connectivity")).getActiveNetworkInfo();
-        return networkinfo != null && networkinfo.isConnected() && !g.a(context, "babel_dialer_disable_promos_for_callerid", false) && g.a(context, i);
-    }
-
-    public int b()
-    {
-        return crb.k;
-    }
-
-    public int c()
-    {
-        return g.iG;
+        return null;
     }
 }

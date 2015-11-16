@@ -2,53 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.database.Cursor;
 
-public abstract class chy extends aqz
+class chy extends cje
 {
 
-    final chx d;
+    private int b;
+    final chn c;
 
-    public chy(chx chx, int i, int j, boolean flag, boolean flag1)
+    public chy(chn chn1, int i, boolean flag, boolean flag1)
     {
-        d = chx;
-        super(chx, i, j, flag, flag1);
+        this(chn1, i, flag, true, ehq.a);
     }
 
-    public int b(int i)
+    public chy(chn chn1, int i, boolean flag, boolean flag1, int j)
     {
-        if ((amj)e() == null)
-        {
-            return 0;
-        }
-        if (i > 0 && a())
-        {
-            i = 1;
-        } else
-        {
-            i = 0;
-        }
-        return i;
+        c = chn1;
+        super(chn1, i - 1, cib.f - 1, flag, flag1);
+        b = j;
     }
 
-    public int c(int i)
+    protected void a(zs zs1)
     {
-        while ((amj)e() == null || i <= 0) 
-        {
-            return 0;
-        }
-        a();
-        return 0;
     }
 
-    public int f()
+    protected void a(zs zs1, anb anb1)
     {
-        amj amj1 = (amj)e();
-        if (amj1 != null)
-        {
-            return amj1.b();
-        } else
-        {
-            return 0;
-        }
+        zs1 = (ehl)zs1.a;
+        zs1.j();
+        zs1.k();
+        anb1 = anb1.a();
+        anb1.a = c.i;
+        boolean flag = c.f.c(anb1);
+        boolean flag1 = c.f.b(anb1);
+        zs1.a(anb1, c.i, flag1, b);
+        zs1.a(flag, false);
+    }
+
+    protected volatile void a(zs zs1, Cursor cursor)
+    {
+        a(zs1, (anb)cursor);
     }
 }

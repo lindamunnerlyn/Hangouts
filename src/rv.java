@@ -4,42 +4,19 @@
 
 
 final class rv
-    implements to
+    implements Runnable
 {
 
-    final rs a;
-    private boolean b;
+    final ru a;
 
-    rv(rs rs1)
+    rv(ru ru1)
     {
-        a = rs1;
+        a = ru1;
         super();
     }
 
-    public void a(sy sy, boolean flag)
+    public void run()
     {
-        if (b)
-        {
-            return;
-        }
-        b = true;
-        a.a.k();
-        if (a.c != null)
-        {
-            a.c.onPanelClosed(108, sy);
-        }
-        b = false;
-    }
-
-    public boolean a(sy sy)
-    {
-        if (a.c != null)
-        {
-            a.c.onMenuOpened(108, sy);
-            return true;
-        } else
-        {
-            return false;
-        }
+        a.l();
     }
 }

@@ -2,96 +2,80 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 
-abstract class jkj
-    implements jpl
+public final class jkj extends kwm
 {
 
-    private transient Set a;
-    private transient Map b;
+    private static volatile jkj b[];
+    public String a;
 
-    jkj()
+    public jkj()
     {
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public boolean a(Object obj, Iterable iterable)
+    public static jkj[] a()
     {
-        n.b(iterable);
-        if (!(iterable instanceof Collection)) goto _L2; else goto _L1
-_L1:
-        iterable = (Collection)iterable;
-        if (iterable.isEmpty() || !a(obj).addAll(iterable)) goto _L4; else goto _L3
-_L3:
-        return true;
-_L4:
-        return false;
-_L2:
-        iterable = iterable.iterator();
-        if (!iterable.hasNext() || !jmr.a(a(obj), iterable))
+        if (b == null)
         {
-            return false;
+            synchronized (kwq.a)
+            {
+                if (b == null)
+                {
+                    b = new jkj[0];
+                }
+            }
         }
-        if (true) goto _L3; else goto _L5
-_L5:
+        return b;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public boolean a(Object obj, Object obj1)
+    protected int computeSerializedSize()
     {
-        return a(obj).add(obj1);
-    }
-
-    Set e()
-    {
-        return new jpj(i());
-    }
-
-    public boolean equals(Object obj)
-    {
-        return g.a(this, obj);
-    }
-
-    abstract Map f();
-
-    public boolean g()
-    {
-        return c() == 0;
-    }
-
-    public Set h()
-    {
-        Set set1 = a;
-        Set set = set1;
-        if (set1 == null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            set = e();
-            a = set;
+            i = j + kwk.b(1, a);
         }
-        return set;
+        return i;
     }
 
-    public int hashCode()
+    public kws mergeFrom(kwj kwj1)
     {
-        return i().hashCode();
-    }
-
-    public Map i()
-    {
-        Map map1 = b;
-        Map map = map1;
-        if (map1 == null)
+        do
         {
-            map = f();
-            b = map;
-        }
-        return map;
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+            }
+        } while (true);
     }
 
-    public String toString()
+    public void writeTo(kwk kwk1)
     {
-        return i().toString();
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        super.writeTo(kwk1);
     }
 }

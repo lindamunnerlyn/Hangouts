@@ -2,16 +2,13 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.InputStream;
 
-public abstract class aep
+public interface aep
 {
 
-    public aep()
-    {
-    }
+    public abstract void a();
 
-    public abstract void a(aeo aeo);
+    public abstract void a(adu adu);
 
-    public abstract void a(InputStream inputstream);
+    public abstract void b();
 }

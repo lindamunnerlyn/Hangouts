@@ -2,58 +2,116 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.ArrayList;
 
-final class zc
-    implements zb
+public abstract class zc
 {
 
-    final yr a;
+    private zd a;
+    private ArrayList b;
+    private long c;
+    private long d;
+    private long e;
+    private long f;
+    private boolean g;
 
-    zc(yr yr1)
+    public zc()
     {
-        a = yr1;
-        super();
+        a = null;
+        b = new ArrayList();
+        c = 120L;
+        d = 120L;
+        e = 250L;
+        f = 250L;
+        g = true;
     }
 
-    public void a(zq zq1)
+    public abstract void a();
+
+    void a(zd zd1)
     {
-        zq1.a(true);
-        if (!yr.c(a, zq1.a) && zq1.p())
+        a = zd1;
+    }
+
+    public abstract boolean a(zs zs);
+
+    public abstract boolean a(zs zs, int k, int l, int i1, int j1);
+
+    public abstract boolean a(zs zs, zs zs1, int k, int l, int i1, int j1);
+
+    public abstract boolean b();
+
+    public abstract boolean b(zs zs);
+
+    public abstract void c(zs zs);
+
+    public abstract void d();
+
+    public final void d(zs zs)
+    {
+        if (a != null)
         {
-            a.removeDetachedView(zq1.a, false);
+            a.a(zs);
         }
     }
 
-    public void b(zq zq1)
+    public long e()
     {
-        zq1.a(true);
-        if (!zq.e(zq1))
+        return e;
+    }
+
+    public final void e(zs zs)
+    {
+        if (a != null)
         {
-            yr.c(a, zq1.a);
+            a.c(zs);
         }
     }
 
-    public void c(zq zq1)
+    public long f()
     {
-        zq1.a(true);
-        if (!zq.e(zq1))
+        return c;
+    }
+
+    public final void f(zs zs)
+    {
+        if (a != null)
         {
-            yr.c(a, zq1.a);
+            a.b(zs);
         }
     }
 
-    public void d(zq zq1)
+    public long g()
     {
-        zq1.a(true);
-        if (zq1.g != null && zq1.h == null)
+        return d;
+    }
+
+    public final void g(zs zs)
+    {
+        if (a != null)
         {
-            zq1.g = null;
-            zq1.a(-65, zq.f(zq1));
+            a.d(zs);
         }
-        zq1.h = null;
-        if (!zq.e(zq1))
+    }
+
+    public long h()
+    {
+        return f;
+    }
+
+    public boolean i()
+    {
+        return g;
+    }
+
+    public final void j()
+    {
+        int l = b.size();
+        for (int k = 0; k < l; k++)
         {
-            yr.c(a, zq1.a);
+            b.get(k);
         }
+
+        b.clear();
     }
 }

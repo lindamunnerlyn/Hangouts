@@ -2,28 +2,136 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
+import android.util.AttributeSet;
 
-final class vm
-    implements android.view.View.OnClickListener
+public final class vm
 {
 
-    final sq a;
-    final vl b;
+    private final Context a;
+    private final TypedArray b;
+    private vk c;
 
-    vm(vl vl1)
+    private vm(Context context, TypedArray typedarray)
     {
-        b = vl1;
-        super();
-        a = new sq(b.a.getContext(), b.b);
+        a = context;
+        b = typedarray;
     }
 
-    public void onClick(View view)
+    public static vm a(Context context, AttributeSet attributeset, int ai[])
     {
-        if (b.c != null && b.d)
+        return new vm(context, context.obtainStyledAttributes(attributeset, ai));
+    }
+
+    public static vm a(Context context, AttributeSet attributeset, int ai[], int i)
+    {
+        return new vm(context, context.obtainStyledAttributes(attributeset, ai, i, 0));
+    }
+
+    public int a()
+    {
+        return b.length();
+    }
+
+    public int a(int i, int j)
+    {
+        return b.getInt(i, j);
+    }
+
+    public Drawable a(int i)
+    {
+        if (b.hasValue(i))
         {
-            b.c.onMenuItemSelected(0, a);
+            int j = b.getResourceId(i, 0);
+            if (j != 0)
+            {
+                return c().a(j);
+            }
         }
+        return b.getDrawable(i);
+    }
+
+    public boolean a(int i, boolean flag)
+    {
+        return b.getBoolean(i, flag);
+    }
+
+    public int b(int i, int j)
+    {
+        return b.getInteger(i, j);
+    }
+
+    public Drawable b(int i)
+    {
+        if (b.hasValue(i))
+        {
+            i = b.getResourceId(i, 0);
+            if (i != 0)
+            {
+                return c().a(i, true);
+            }
+        }
+        return null;
+    }
+
+    public void b()
+    {
+        b.recycle();
+    }
+
+    public int c(int i, int j)
+    {
+        return b.getDimensionPixelOffset(i, j);
+    }
+
+    public CharSequence c(int i)
+    {
+        return b.getText(i);
+    }
+
+    public vk c()
+    {
+        if (c == null)
+        {
+            c = vk.a(a);
+        }
+        return c;
+    }
+
+    public int d(int i, int j)
+    {
+        return b.getDimensionPixelSize(i, j);
+    }
+
+    public String d(int i)
+    {
+        return b.getString(i);
+    }
+
+    public float e(int i)
+    {
+        return b.getFloat(i, -1F);
+    }
+
+    public int e(int i, int j)
+    {
+        return b.getLayoutDimension(i, j);
+    }
+
+    public int f(int i)
+    {
+        return b.getColor(i, -1);
+    }
+
+    public int f(int i, int j)
+    {
+        return b.getResourceId(i, j);
+    }
+
+    public boolean g(int i)
+    {
+        return b.hasValue(i);
     }
 }

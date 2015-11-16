@@ -2,27 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.preference.Preference;
-import android.preference.SwitchPreference;
+import android.os.Handler;
 
-final class dyi
-    implements android.preference.Preference.OnPreferenceClickListener
+final class dyi extends bns
 {
 
-    final SwitchPreference a;
-    final dyf b;
+    final dyh a;
 
-    dyi(dyf dyf1, SwitchPreference switchpreference)
+    dyi(dyh dyh1)
     {
-        b = dyf1;
-        a = switchpreference;
+        a = dyh1;
         super();
     }
 
-    public boolean onPreferenceClick(Preference preference)
+    public void a(int i)
     {
-        dwz.a(b.getActivity()).b(a.isChecked());
-        dyf.a(b);
-        return true;
+        a.a.post(new dyj(this));
     }
 }

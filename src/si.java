@@ -3,105 +3,85 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.view.ActionMode;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.View;
+import android.content.ContextWrapper;
+import android.content.res.Resources;
+import android.view.LayoutInflater;
 
-public final class si extends ActionMode
+public final class si extends ContextWrapper
 {
 
-    final Context a;
-    final vr b;
+    private int a;
+    private android.content.res.Resources.Theme b;
+    private LayoutInflater c;
 
-    public si(Context context, vr vr1)
+    public si(Context context, int i)
     {
-        a = context;
-        b = vr1;
+        super(context);
+        a = i;
     }
 
-    public void finish()
+    private void b()
     {
-        b.c();
+        boolean flag;
+        if (b == null)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        if (flag)
+        {
+            b = getResources().newTheme();
+            android.content.res.Resources.Theme theme = getBaseContext().getTheme();
+            if (theme != null)
+            {
+                b.setTo(theme);
+            }
+        }
+        b.applyStyle(a, true);
     }
 
-    public View getCustomView()
+    public int a()
     {
-        return b.i();
+        return a;
     }
 
-    public Menu getMenu()
+    public Object getSystemService(String s)
     {
-        return g.a(a, (fr)b.b());
+        if ("layout_inflater".equals(s))
+        {
+            if (c == null)
+            {
+                c = LayoutInflater.from(getBaseContext()).cloneInContext(this);
+            }
+            return c;
+        } else
+        {
+            return getBaseContext().getSystemService(s);
+        }
     }
 
-    public MenuInflater getMenuInflater()
+    public android.content.res.Resources.Theme getTheme()
     {
-        return b.a();
+        if (b != null)
+        {
+            return b;
+        }
+        if (a == 0)
+        {
+            a = g.bL;
+        }
+        b();
+        return b;
     }
 
-    public CharSequence getSubtitle()
+    public void setTheme(int i)
     {
-        return b.g();
-    }
-
-    public Object getTag()
-    {
-        return b.j();
-    }
-
-    public CharSequence getTitle()
-    {
-        return b.f();
-    }
-
-    public boolean getTitleOptionalHint()
-    {
-        return b.k();
-    }
-
-    public void invalidate()
-    {
-        b.d();
-    }
-
-    public boolean isTitleOptional()
-    {
-        return b.h();
-    }
-
-    public void setCustomView(View view)
-    {
-        b.a(view);
-    }
-
-    public void setSubtitle(int i)
-    {
-        b.b(i);
-    }
-
-    public void setSubtitle(CharSequence charsequence)
-    {
-        b.a(charsequence);
-    }
-
-    public void setTag(Object obj)
-    {
-        b.a(obj);
-    }
-
-    public void setTitle(int i)
-    {
-        b.a(i);
-    }
-
-    public void setTitle(CharSequence charsequence)
-    {
-        b.b(charsequence);
-    }
-
-    public void setTitleOptionalHint(boolean flag)
-    {
-        b.a(flag);
+        if (a != i)
+        {
+            a = i;
+            b();
+        }
     }
 }

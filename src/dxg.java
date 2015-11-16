@@ -2,45 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
+import android.media.MediaPlayer;
+import java.io.IOException;
 
-public final class dxg
+final class dxg
+    implements Runnable
 {
 
-    public dvy a;
-    public final Intent b;
-    public final Context c;
+    final dxf a;
 
-    public dxg(Context context, dvy dvy1, Intent intent)
+    dxg(dxf dxf1)
     {
-        c = context;
-        a = dvy1;
-        b = intent;
+        a = dxf1;
+        super();
     }
 
-    public void a()
+    public void run()
     {
-        ebw.e("Babel_telephony", "TeleSetupController.ShowDialogCallback.onError");
-        if (a != null)
+        dxf dxf1 = a;
+        eev.e("Babel_telephony", "TeleConnectingSoundPlayer.startAfterDelay");
+        dxf1.b = new MediaPlayer();
+        dxf1.b.setLooping(true);
+        dxf1.b.setOnPreparedListener(dxf1);
+        dxf1.b.setOnErrorListener(dxf1);
+        dxf1.b.setAudioStreamType(0);
+        try
         {
-            String s = g.a(c, "babel_outgoing_wifi_call_show_dialog_error_action", "cellular");
-            a.a(s, b);
+            dxf1.b.setDataSource(dxf1.a, eep.c(g.ph));
         }
-    }
-
-    public void b()
-    {
-        ebw.e("Babel_telephony", "TeleSetupController.ShowDialogCallback.onTimeout");
-        if (a != null)
+        catch (IOException ioexception)
         {
-            String s = g.a(c, "babel_outgoing_wifi_call_show_dialog_timeout_action", "cellular");
-            a.a(s, b);
+            eev.e("Babel_telephony", "TeleConnectingSoundPlayer.startAfterDelay, failed to set data source", ioexception);
+            dxf1.b();
+            return;
         }
-    }
-
-    public void c()
-    {
-        a = null;
+        try
+        {
+            dxf1.b.prepareAsync();
+            dxf1.c = true;
+            return;
+        }
+        catch (Exception exception)
+        {
+            eev.e("Babel_telephony", "TeleConnectingSoundPlayer.startAfterDelay, failed to prepare", exception);
+        }
+        dxf1.b();
     }
 }

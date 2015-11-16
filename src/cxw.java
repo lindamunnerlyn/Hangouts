@@ -2,50 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.net.Uri;
-import android.text.TextUtils;
 
-public final class cxw extends cvn
+public class cxw extends cxr
 {
 
     private static final long serialVersionUID = 1L;
     private final String g;
-    private final long h;
 
-    public cxw(Uri uri, long l)
+    private cxw(jhe jhe1)
     {
-        if (uri != null)
+        if (jhe1.a != null)
         {
-            uri = uri.toString();
+            g = jhe1.a.a;
         } else
         {
-            uri = null;
+            g = null;
         }
-        g = uri;
-        h = l;
+        if (cxr.a)
+        {
+            jhe1 = String.valueOf(jhe1);
+            eev.b("Babel_protos", (new StringBuilder(String.valueOf(jhe1).length() + 29)).append("CreateHangoutIdResponse from:").append(jhe1).toString());
+        }
     }
 
-    public void a(aoe aoe1, dfb dfb)
+    public static cxr parseFrom(byte abyte0[])
     {
-        super.a(aoe1, dfb);
-        dia dia1 = (dia)b;
-        String s = dia1.c();
-        String s1 = dia1.b();
-        if (g != null)
+        abyte0 = (jhe)kws.mergeFrom(new jhe(), abyte0);
+        if (a(((jhe) (abyte0)).responseHeader))
         {
-            dfb = Uri.parse(g);
+            return new cyd(((jhe) (abyte0)).responseHeader);
         } else
         {
-            dfb = null;
+            return new cxw(abyte0);
         }
-        any.a(aoe1, s, s1, dfb, 0L, h, false, -1L, dia1.f());
-        ank.a(g.nS, aoe1.f().h(), "sent_sms_count_since_last_upload");
-        dfb = dia1.d();
-        if (!TextUtils.isEmpty(dfb))
-        {
-            bzu bzu1 = (bzu)hgx.a(g.nS, bzu);
-            aoe1.f().h();
-            bzu1.a(dfb);
-        }
+    }
+
+    public String k()
+    {
+        return g;
     }
 }

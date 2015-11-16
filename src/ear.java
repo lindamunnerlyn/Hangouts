@@ -2,26 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.media.AudioManager;
 
-final class ear
+abstract class ear
     implements Runnable
 {
 
-    final eaq a;
-
-    ear(eaq eaq1)
+    ear()
     {
-        a = eaq1;
-        super();
     }
 
-    public void run()
+    abstract void a();
+
+    abstract void b();
+
+    abstract void c();
+
+    public final void run()
     {
-        if (eaq.c(a) != null)
-        {
-            eaq.c(a).abandonAudioFocus(null);
-            eaq.a(a, null);
-        }
+        c();
     }
 }

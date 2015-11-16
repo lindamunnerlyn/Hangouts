@@ -2,21 +2,15 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.net.Uri;
 
-final class bqi
-    implements pq
+public final class bqi
 {
 
-    final bqf a;
+    Uri a;
+    boolean b;
 
-    bqi(bqf bqf1)
+    bqi()
     {
-        a = bqf1;
-        super();
-    }
-
-    public void a(boolean flag)
-    {
-        a.a(flag);
     }
 }

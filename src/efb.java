@@ -2,34 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.Animator;
 
-public final class efb
-    implements android.animation.Animator.AnimatorListener
+public final class efb extends Enum
 {
 
-    final com.google.android.apps.hangouts.views.MessageListAnimationManager.AnimateInNewMessageRunnable a;
+    public static final int a;
+    public static final int b;
+    public static final int c;
+    private static final int d[];
 
-    public efb(com.google.android.apps.hangouts.views.MessageListAnimationManager.AnimateInNewMessageRunnable animateinnewmessagerunnable)
+    public static int[] a()
     {
-        a = animateinnewmessagerunnable;
-        super();
+        return (int[])d.clone();
     }
 
-    public void onAnimationCancel(Animator animator)
+    static 
     {
-    }
-
-    public void onAnimationEnd(Animator animator)
-    {
-        com.google.android.apps.hangouts.views.MessageListAnimationManager.AnimateInNewMessageRunnable.b(a);
-    }
-
-    public void onAnimationRepeat(Animator animator)
-    {
-    }
-
-    public void onAnimationStart(Animator animator)
-    {
+        a = 1;
+        b = 2;
+        c = 3;
+        d = (new int[] {
+            a, b, c
+        });
     }
 }

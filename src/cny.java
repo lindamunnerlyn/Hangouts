@@ -2,23 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import com.google.android.apps.hangouts.phone.GoogleVoiceTermsOfServiceActivity;
+import android.os.AsyncTask;
 
-public final class cny
-    implements android.view.View.OnClickListener
+final class cny extends AsyncTask
 {
 
-    final GoogleVoiceTermsOfServiceActivity a;
+    final cnx a;
 
-    public cny(GoogleVoiceTermsOfServiceActivity googlevoicetermsofserviceactivity)
+    cny(cnx cnx1)
     {
-        a = googlevoicetermsofserviceactivity;
+        a = cnx1;
         super();
     }
 
-    public void onClick(View view)
+    protected Object doInBackground(Object aobj[])
     {
-        GoogleVoiceTermsOfServiceActivity.a(a, 0);
+        aobj = dkg.a(a.a.b);
+        if (aobj != null)
+        {
+            ((dkg) (aobj)).a();
+        }
+        return null;
     }
 }

@@ -8,17 +8,18 @@ import android.accounts.Account;
 import android.os.Parcel;
 import android.text.TextUtils;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import eii;
+import elj;
+import g;
 
 public class AccountChangeEventsRequest
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new eii();
-    public final int a;
-    public int b;
-    public String c;
-    public Account d;
+    public static final android.os.Parcelable.Creator CREATOR = new elj();
+    final int a;
+    int b;
+    String c;
+    Account d;
 
     public AccountChangeEventsRequest()
     {
@@ -48,7 +49,12 @@ public class AccountChangeEventsRequest
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        eii.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, b);
+        g.a(parcel, 3, c);
+        g.a(parcel, 4, d, i);
+        g.q(parcel, j);
     }
 
 }

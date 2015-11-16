@@ -2,26 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.view.animation.AccelerateDecelerateInterpolator;
 
-public final class ahw
-    implements aht
+final class ahw extends AccelerateDecelerateInterpolator
 {
 
-    private final Class a;
-    private final Object b;
+    final ahv a;
+    private ahs b;
 
-    ahw(Context context)
+    ahw(ahv ahv)
     {
-        try
-        {
-            a = Class.forName("android.location.CountryDetector");
-        }
-        // Misplaced declaration of an exception variable
-        catch (Context context)
-        {
-            throw new RuntimeException("Couldn't load android.location.CountryDetector", context);
-        }
-        b = context.getSystemService("country_detector");
+        a = ahv;
+        super();
+        b = new ahs(0.8F);
+    }
+
+    public float getInterpolation(float f)
+    {
+        return super.getInterpolation(b.getInterpolation(f));
     }
 }

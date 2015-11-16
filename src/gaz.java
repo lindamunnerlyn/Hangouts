@@ -2,26 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-final class gaz
-    implements gbf
+public abstract class gaz
+    implements gar
 {
 
-    gaz()
+    emz a;
+    gbn b;
+
+    public gaz(Context context)
     {
+        a = new emz(context);
+        b = new gbn();
     }
 
-    public String a(kop kop)
+    public gar a(gap gap)
     {
-        Object obj = (jcp)kop;
-        kop = String.valueOf(((jcp) (obj)).b);
-        obj = String.valueOf(((jcp) (obj)).c);
-        if (((String) (obj)).length() != 0)
-        {
-            return kop.concat(((String) (obj)));
-        } else
-        {
-            return new String(kop);
-        }
+        a.a(b.a(gap));
+        return this;
+    }
+
+    public gar a(gat gat)
+    {
+        a.a(b.a(gat));
+        return this;
+    }
+
+    public gar a(gau gau)
+    {
+        a.a(b.a(gau));
+        return this;
     }
 }

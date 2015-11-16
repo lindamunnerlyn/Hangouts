@@ -2,62 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.gms.wearable.internal.AddLocalCapabilityResponse;
+import com.google.android.gms.wearable.internal.AmsEntityUpdateParcelable;
 
-public final class fwe
-    implements android.os.Parcelable.Creator
+final class fwe
+    implements Runnable
 {
 
-    public fwe()
+    final fwg a;
+    final AmsEntityUpdateParcelable b;
+    final fvw c;
+
+    fwe(fvw fvw, fwg fwg, AmsEntityUpdateParcelable amsentityupdateparcelable)
     {
+        c = fvw;
+        a = fwg;
+        b = amsentityupdateparcelable;
+        super();
     }
 
-    public static void a(AddLocalCapabilityResponse addlocalcapabilityresponse, Parcel parcel)
+    public void run()
     {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, addlocalcapabilityresponse.a);
-        g.b(parcel, 2, addlocalcapabilityresponse.b);
-        g.q(parcel, i);
-    }
-
-    public Object createFromParcel(Parcel parcel)
-    {
-        int j = 0;
-        int k = g.a(parcel);
-        int i = 0;
-        do
-        {
-            if (parcel.dataPosition() < k)
-            {
-                int l = parcel.readInt();
-                switch (0xffff & l)
-                {
-                default:
-                    g.b(parcel, l);
-                    break;
-
-                case 1: // '\001'
-                    i = g.e(parcel, l);
-                    break;
-
-                case 2: // '\002'
-                    j = g.e(parcel, l);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != k)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
-            } else
-            {
-                return new AddLocalCapabilityResponse(i, j);
-            }
-        } while (true);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new AddLocalCapabilityResponse[i];
     }
 }

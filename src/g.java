@@ -8,6 +8,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.KeyguardManager;
 import android.app.NotificationManager;
@@ -110,5 +111,4 @@ import android.widget.EdgeEffect;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.google.android.apps.hangouts.content.EsProvider;
-import com.google.android.apps.hangouts.hangout.HangoutSupportInitializationActivity;
-import com
+import com.google.android.apps.hangouts.hangout.HangoutSupportI

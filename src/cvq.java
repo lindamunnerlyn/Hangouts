@@ -2,45 +2,62 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Bundle;
+import com.google.api.client.http.HttpContent;
+import com.google.api.client.http.HttpMediaType;
+import com.google.api.client.http.MultipartContent;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.Arrays;
 
-public class cvq extends cvn
+public final class cvq extends cvs
 {
 
-    private static final long serialVersionUID = 1L;
+    private static final boolean a = false;
+    private final MultipartContent b;
 
-    private cvq()
+    public cvq(aoa aoa, int i, cwx cwx1, String s)
     {
+        super(aoa, i, cwx1, dmi.b, s);
+        b = (new MultipartContent()).setContentParts(Arrays.asList(new HttpContent[] {
+            new cum(q), cwx1.o()
+        }));
     }
 
-    private cvq(ivo ivo1)
+    public String a()
     {
-        super(ivo1.responseHeader, 0L);
-        if (cvn.a)
+        return b.getMediaType().build();
+    }
+
+    public byte[] b()
+    {
+        if (a)
         {
-            ivo1 = String.valueOf(ivo1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(ivo1).length() + 33)).append("ArchiveConversationResponse from:").append(ivo1).toString());
+            String s = String.valueOf(j());
+            String s1 = String.valueOf(q);
+            eev.b("Babel_SendChatMessageMediaOperation", (new StringBuilder(String.valueOf(s).length() + 33 + String.valueOf(s1).length())).append("sending request to url ").append(s).append(" request: ").append(s1).toString());
         }
-    }
-
-    public static cvq k()
-    {
-        return new cvq();
-    }
-
-    public static cvn parseFrom(byte abyte0[])
-    {
-        abyte0 = (ivo)kop.mergeFrom(new ivo(), abyte0);
-        if (a(((ivo) (abyte0)).responseHeader))
+        ByteArrayOutputStream bytearrayoutputstream = new ByteArrayOutputStream(1024);
+        try
         {
-            return new cvz(((ivo) (abyte0)).responseHeader);
-        } else
-        {
-            return new cvq(abyte0);
+            b.writeTo(bytearrayoutputstream);
         }
+        catch (IOException ioexception)
+        {
+            throw new IllegalStateException("Cannot create a byte array stream", ioexception);
+        }
+        return bytearrayoutputstream.toByteArray();
     }
 
-    public void a(aoe aoe, dfb dfb)
+    public Bundle c()
     {
-        super.a(aoe, dfb);
+        Bundle bundle = super.c();
+        bundle.putString("uploadType", "multipart");
+        return bundle;
+    }
+
+    static 
+    {
+        hnc hnc = eev.k;
     }
 }

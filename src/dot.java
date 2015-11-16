@@ -2,21 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.settings.NotificationSettingsActivity;
 
-public final class dot extends hfz
+final class dot
 {
 
-    final NotificationSettingsActivity a;
+    int a;
+    int b;
 
-    public dot(NotificationSettingsActivity notificationsettingsactivity, ps ps, hjm hjm)
+    public dot(int i, int j)
     {
-        a = notificationsettingsactivity;
-        super(ps, hjm);
-    }
-
-    protected hfh a()
-    {
-        return new dov();
+        a = i;
+        b = j;
     }
 }

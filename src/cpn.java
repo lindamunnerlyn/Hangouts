@@ -2,48 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.AsyncTask;
-import com.google.android.apps.hangouts.phone.ViewVCardActivity;
-import java.util.Locale;
+import android.view.View;
+import com.google.android.apps.hangouts.phone.GoogleVoiceTermsOfServiceActivity;
 
-public final class cpn extends AsyncTask
+public final class cpn
+    implements android.view.View.OnClickListener
 {
 
-    int a;
-    final ViewVCardActivity b;
+    final GoogleVoiceTermsOfServiceActivity a;
 
-    public cpn(ViewVCardActivity viewvcardactivity)
+    public cpn(GoogleVoiceTermsOfServiceActivity googlevoicetermsofserviceactivity)
     {
-        b = viewvcardactivity;
+        a = googlevoicetermsofserviceactivity;
         super();
-        a = ViewVCardActivity.b(b).a();
     }
 
-    protected Object doInBackground(Object aobj[])
+    public void onClick(View view)
     {
-        aobj = ((Uri[])aobj)[0];
-        if (aobj != null)
-        {
-            return ((Object) (aobj));
-        } else
-        {
-            return ViewVCardActivity.a(b, a);
-        }
-    }
-
-    protected void onPostExecute(Object obj)
-    {
-        obj = (Uri)obj;
-        if (obj != null)
-        {
-            ViewVCardActivity.a(b, ((Uri) (obj)));
-            obj = new Intent();
-            ((Intent) (obj)).setAction("android.intent.action.VIEW");
-            ((Intent) (obj)).setDataAndType(ViewVCardActivity.c(b), "text/x-vCard".toLowerCase(Locale.US));
-            ((Intent) (obj)).addFlags(1);
-            b.startActivity(((Intent) (obj)));
-        }
+        int i = GoogleVoiceTermsOfServiceActivity.a(a).h();
+        view = a;
+        bgk.a(new dfd(view, i, new cpo(this)), new bgn(view.u_())).a();
     }
 }

@@ -2,64 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Map;
 
-public final class jwn extends koj
+public final class jwn extends jws
 {
 
-    public jwt a;
+    final int a = 8;
 
-    public jwn()
+    public jwn(int i)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super();
     }
 
-    protected int computeSerializedSize()
+    Map a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new jwt();
-                }
-                kog1.a(a);
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        super.writeTo(koh1);
+        return jwd.a(a);
     }
 }

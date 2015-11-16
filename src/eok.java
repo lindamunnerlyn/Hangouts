@@ -2,73 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.gms.common.server.FavaDiagnosticsEntity;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import java.util.concurrent.locks.Lock;
 
-public final class eok
-    implements android.os.Parcelable.Creator
+final class eok extends Handler
 {
 
-    public eok()
+    final eof a;
+
+    eok(eof eof1, Looper looper)
     {
+        a = eof1;
+        super(looper);
     }
 
-    public static FavaDiagnosticsEntity a(Parcel parcel)
+    public void handleMessage(Message message)
     {
-        int j = 0;
-        int k = g.a(parcel);
-        String s = null;
-        int i = 0;
-        do
+        message.what;
+        JVM INSTR tableswitch 1 4: default 36
+    //                   1 54
+    //                   2 101
+    //                   3 109
+    //                   4 124;
+           goto _L1 _L2 _L3 _L4 _L5
+_L1:
+        (new StringBuilder("Unknown message id: ")).append(message.what);
+        return;
+_L2:
+        message = a;
+        ((eof) (message)).a.lock();
+        if (message.m())
         {
-            if (parcel.dataPosition() < k)
-            {
-                int l = parcel.readInt();
-                switch (0xffff & l)
-                {
-                default:
-                    g.b(parcel, l);
-                    break;
-
-                case 1: // '\001'
-                    i = g.e(parcel, l);
-                    break;
-
-                case 2: // '\002'
-                    s = g.i(parcel, l);
-                    break;
-
-                case 3: // '\003'
-                    j = g.e(parcel, l);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != k)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
-            } else
-            {
-                return new FavaDiagnosticsEntity(i, s, j);
-            }
-        } while (true);
-    }
-
-    public static void a(FavaDiagnosticsEntity favadiagnosticsentity, Parcel parcel)
-    {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, favadiagnosticsentity.a);
-        g.a(parcel, 2, favadiagnosticsentity.b);
-        g.b(parcel, 3, favadiagnosticsentity.c);
-        g.q(parcel, i);
-    }
-
-    public Object createFromParcel(Parcel parcel)
-    {
-        return a(parcel);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new FavaDiagnosticsEntity[i];
+            message.b();
+        }
+        ((eof) (message)).a.unlock();
+        return;
+        Exception exception;
+        exception;
+        ((eof) (message)).a.unlock();
+        throw exception;
+_L3:
+        eof.a(a);
+        return;
+_L4:
+        ((eol)message.obj).a(a);
+        return;
+_L5:
+        throw (RuntimeException)message.obj;
     }
 }

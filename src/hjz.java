@@ -2,9 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Handler;
+import android.os.Message;
 
-public interface hjz
+final class hjz extends Handler
 {
 
-    public abstract void a(int i, String as[], int ai[]);
+    final hjy a;
+
+    hjz(hjy hjy1)
+    {
+        a = hjy1;
+        super();
+    }
+
+    public void handleMessage(Message message)
+    {
+        switch (message.what)
+        {
+        default:
+            return;
+
+        case 1: // '\001'
+            hjy.a(a);
+            break;
+        }
+    }
 }

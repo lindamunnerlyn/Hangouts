@@ -3,23 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class aan
-    implements android.view.View.OnSystemUiVisibilityChangeListener
+public interface aan
 {
 
-    final aam a;
+    public abstract void a();
 
-    aan(aam aam1)
-    {
-        a = aam1;
-        super();
-    }
+    public abstract void b();
 
-    public void onSystemUiVisibilityChange(int i)
-    {
-        if (android.os.Build.VERSION.SDK_INT >= 19 && i == 0 && a.d == 3846)
-        {
-            a.a(false, true);
-        }
-    }
+    public abstract void c();
+
+    public abstract boolean d();
+
+    public abstract boolean e();
 }

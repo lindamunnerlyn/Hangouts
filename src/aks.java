@@ -2,46 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
-final class aks extends BroadcastReceiver
+final class aks extends ctf
 {
 
-    final akq a;
-
-    aks(akq akq1)
+    aks()
     {
-        a = akq1;
-        super();
     }
 
-    public void onReceive(Context context, Intent intent)
+    public ctg a()
     {
-        akq.b(a).setVisibility(8);
-        if (intent.getIntExtra("set_callerid_result", -1) == 0)
+        return akn.a(true, eey.g());
+    }
+
+    public boolean a(Context context)
+    {
+        int i = ((gqu)hlp.a(context, gqu)).a();
+        if (i == -1)
         {
-            akq.c(a).a(2256);
-            akq.d(a).setText(context.getString(g.jk));
-            akq.f(a).setText(context.getString(g.ji, new Object[] {
-                ebz.o(akq.e(a))
-            }));
-            akq.g(a).setVisibility(8);
-            akq.h(a).setText(context.getString(g.jf));
-            akq.h(a).setOnClickListener(new akt(this));
-            akq.d(a).sendAccessibilityEvent(32);
-            return;
-        } else
-        {
-            Toast.makeText(context, context.getString(g.je), 1).show();
-            akq.g(a).setText(context.getString(g.jg));
-            akq.h(a).setText(context.getString(g.jc));
-            return;
+            return false;
         }
+        if (((gqz)hlp.a(context, gqz)).a(i).a("callerid_promo_shown", false) || !g.a(i, eey.g()))
+        {
+            return false;
+        }
+        NetworkInfo networkinfo = ((ConnectivityManager)context.getSystemService("connectivity")).getActiveNetworkInfo();
+        return networkinfo != null && networkinfo.isConnected() && !g.a(context, "babel_dialer_disable_promos_for_callerid", false) && g.a(context, i);
+    }
+
+    public int b()
+    {
+        return ctl.k;
+    }
+
+    public int c()
+    {
+        return g.iy;
     }
 }

@@ -2,66 +2,83 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.cache.LocalCache;
 
-public final class jjk
-    implements java.util.Map.Entry
+public final class jjk extends kwm
 {
 
-    final Object a;
-    Object b;
-    final LocalCache c;
+    public jif a;
+    public jdl responseHeader;
 
-    jjk(LocalCache localcache, Object obj, Object obj1)
+    public jjk()
     {
-        c = localcache;
-        super();
-        a = obj;
-        b = obj1;
+        responseHeader = null;
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public boolean equals(Object obj)
+    protected int computeSerializedSize()
     {
-        boolean flag1 = false;
-        boolean flag = flag1;
-        if (obj instanceof java.util.Map.Entry)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (responseHeader != null)
         {
-            obj = (java.util.Map.Entry)obj;
-            flag = flag1;
-            if (a.equals(((java.util.Map.Entry) (obj)).getKey()))
-            {
-                flag = flag1;
-                if (b.equals(((java.util.Map.Entry) (obj)).getValue()))
-                {
-                    flag = true;
-                }
-            }
+            i = j + kwk.d(1, responseHeader);
         }
-        return flag;
+        j = i;
+        if (a != null)
+        {
+            j = i + kwk.d(2, a);
+        }
+        return j;
     }
 
-    public Object getKey()
+    public kws mergeFrom(kwj kwj1)
     {
-        return a;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (responseHeader == null)
+                {
+                    responseHeader = new jdl();
+                }
+                kwj1.a(responseHeader);
+                break;
+
+            case 18: // '\022'
+                if (a == null)
+                {
+                    a = new jif();
+                }
+                kwj1.a(a);
+                break;
+            }
+        } while (true);
     }
 
-    public Object getValue()
+    public void writeTo(kwk kwk1)
     {
-        return b;
-    }
-
-    public int hashCode()
-    {
-        return a.hashCode() ^ b.hashCode();
-    }
-
-    public Object setValue(Object obj)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public String toString()
-    {
-        return (new StringBuilder()).append(getKey()).append("=").append(getValue()).toString();
+        if (responseHeader != null)
+        {
+            kwk1.b(1, responseHeader);
+        }
+        if (a != null)
+        {
+            kwk1.b(2, a);
+        }
+        super.writeTo(kwk1);
     }
 }

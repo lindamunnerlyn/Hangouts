@@ -2,41 +2,105 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.lang.reflect.Method;
 
-public abstract class jok extends Enum
+public final class jok
 {
 
-    public static final jok a;
-    public static final jok b;
-    public static final jok c;
-    private static final jok d[];
+    private static final Object a;
+    private static final Method b;
+    private static final Method c;
 
-    jok(String s, int i)
+    private static Object a()
     {
-        super(s, i);
+        Object obj;
+        try
+        {
+            obj = Class.forName("sun.misc.SharedSecrets", false, null).getMethod("getJavaLangAccess", new Class[0]).invoke(null, new Object[0]);
+        }
+        catch (ThreadDeath threaddeath)
+        {
+            throw threaddeath;
+        }
+        catch (Throwable throwable)
+        {
+            return null;
+        }
+        return obj;
     }
 
-    public static jok valueOf(String s)
+    public static RuntimeException a(Throwable throwable)
     {
-        return (jok)Enum.valueOf(jok, s);
+        b((Throwable)n.b(throwable));
+        throw new RuntimeException(throwable);
     }
 
-    public static jok[] values()
+    private static transient Method a(String s, Class aclass[])
     {
-        return (jok[])d.clone();
+        try
+        {
+            s = Class.forName("sun.misc.JavaLangAccess", false, null).getMethod(s, aclass);
+        }
+        // Misplaced declaration of an exception variable
+        catch (String s)
+        {
+            throw s;
+        }
+        // Misplaced declaration of an exception variable
+        catch (String s)
+        {
+            return null;
+        }
+        return s;
     }
 
-    public abstract jgq a();
+    public static void a(Throwable throwable, Class class1)
+    {
+        b(throwable, class1);
+        b(throwable);
+    }
 
-    abstract jou a(joh joh, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry, Object obj);
+    private static void b(Throwable throwable)
+    {
+        b(throwable, java/lang/Error);
+        b(throwable, java/lang/RuntimeException);
+    }
+
+    private static void b(Throwable throwable, Class class1)
+    {
+        if (throwable != null && class1.isInstance(throwable))
+        {
+            throw (Throwable)class1.cast(throwable);
+        } else
+        {
+            return;
+        }
+    }
 
     static 
     {
-        a = new jol("STRONG");
-        b = new jom("SOFT");
-        c = new jon("WEAK");
-        d = (new jok[] {
-            a, b, c
-        });
+        Object obj1 = null;
+        Object obj = a();
+        a = obj;
+        if (obj == null)
+        {
+            obj = null;
+        } else
+        {
+            obj = a("getStackTraceElement", new Class[] {
+                java/lang/Throwable, Integer.TYPE
+            });
+        }
+        b = ((Method) (obj));
+        if (a == null)
+        {
+            obj = obj1;
+        } else
+        {
+            obj = a("getStackTraceDepth", new Class[] {
+                java/lang/Throwable
+            });
+        }
+        c = ((Method) (obj));
     }
 }

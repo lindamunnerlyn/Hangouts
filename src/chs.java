@@ -2,27 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 
-final class chs
-    implements android.view.View.OnFocusChangeListener
+final class chs extends chy
 {
 
-    final chr a;
+    final chn b;
 
-    chs(chr chr1)
+    chs(chn chn1, int i, int j)
     {
-        a = chr1;
-        super();
+        b = chn1;
+        super(chn1, i, false, true, j);
     }
 
-    public void onFocusChange(View view, boolean flag)
+    protected void a(zs zs)
     {
-        if (!flag)
-        {
-            ((InputMethodManager)a.getContext().getSystemService("input_method")).hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
+        b.h = (chx)zs;
+        b.h.v();
     }
 }

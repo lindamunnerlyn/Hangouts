@@ -2,110 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.FilterOutputStream;
+import java.io.OutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public final class hss extends koj
+public final class hss extends FilterOutputStream
 {
 
-    public Boolean a;
-    public lgw b;
-    public String c;
-    public String d;
+    final hsq a;
 
-    public hss()
+    public hss(OutputStream outputstream, Logger logger, Level level, int i)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(outputstream);
+        a = new hsq(logger, level, i);
     }
 
-    protected int computeSerializedSize()
+    public void close()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(2) + 1);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(3, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.b(4, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.b(5, d);
-        }
-        return j;
+        a.close();
+        super.close();
     }
 
-    public kop mergeFrom(kog kog1)
+    public void write(int i)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 16: // '\020'
-                a = Boolean.valueOf(kog1.i());
-                break;
-
-            case 26: // '\032'
-                if (b == null)
-                {
-                    b = new lgw();
-                }
-                kog1.a(b);
-                break;
-
-            case 34: // '"'
-                c = kog1.j();
-                break;
-
-            case 42: // '*'
-                d = kog1.j();
-                break;
-            }
-        } while (true);
+        out.write(i);
+        a.write(i);
     }
 
-    public void writeTo(koh koh1)
+    public void write(byte abyte0[], int i, int j)
     {
-        if (a != null)
-        {
-            koh1.a(2, a.booleanValue());
-        }
-        if (b != null)
-        {
-            koh1.b(3, b);
-        }
-        if (c != null)
-        {
-            koh1.a(4, c);
-        }
-        if (d != null)
-        {
-            koh1.a(5, d);
-        }
-        super.writeTo(koh1);
+        out.write(abyte0, i, j);
+        a.write(abyte0, i, j);
     }
 }

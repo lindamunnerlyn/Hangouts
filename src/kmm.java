@@ -2,57 +2,113 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
-final class kmm
-    implements Serializable
+public final class kmm extends kwm
 {
 
-    private static final long serialVersionUID = 0L;
-    private final String a;
-    private final byte b[];
+    public kjr a;
+    public lsa b;
+    public String c;
+    public String d;
 
-    kmm(knb knb1)
+    public kmm()
     {
-        a = knb1.getClass().getName();
-        b = knb1.a();
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    protected Object readResolve()
+    protected int computeSerializedSize()
     {
-        Object obj;
-        try
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            obj = (knb)Class.forName(a).getMethod("newMessage", new Class[0]).invoke(null, new Object[0]);
-            byte abyte0[] = b;
-            klr.a(abyte0, 0, abyte0.length);
-            if (!((knb) (obj)).e())
+            i = j + kwk.d(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(4, b);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.b(5, c);
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.b(6, d);
+        }
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
             {
-                throw new RuntimeException("Unable to understand proto buffer");
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new kjr();
+                }
+                kwj1.a(a);
+                break;
+
+            case 34: // '"'
+                if (b == null)
+                {
+                    b = new lsa();
+                }
+                kwj1.a(b);
+                break;
+
+            case 42: // '*'
+                c = kwj1.j();
+                break;
+
+            case 50: // '2'
+                d = kwj1.j();
+                break;
             }
-        }
-        // Misplaced declaration of an exception variable
-        catch (Object obj)
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
         {
-            throw new RuntimeException("Unable to find proto buffer class", ((Throwable) (obj)));
+            kwk1.b(1, a);
         }
-        // Misplaced declaration of an exception variable
-        catch (Object obj)
+        if (b != null)
         {
-            throw new RuntimeException("Unable to find newMessage method", ((Throwable) (obj)));
+            kwk1.b(4, b);
         }
-        // Misplaced declaration of an exception variable
-        catch (Object obj)
+        if (c != null)
         {
-            throw new RuntimeException("Unable to call newMessage method", ((Throwable) (obj)));
+            kwk1.a(5, c);
         }
-        // Misplaced declaration of an exception variable
-        catch (Object obj)
+        if (d != null)
         {
-            throw new RuntimeException("Error calling newMessage", ((InvocationTargetException) (obj)).getCause());
+            kwk1.a(6, d);
         }
-        return obj;
+        super.writeTo(kwk1);
     }
 }

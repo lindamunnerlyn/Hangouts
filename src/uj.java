@@ -3,143 +3,52 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.ComponentName;
-import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
-import android.util.Xml;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ResolveInfo;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
-import org.xmlpull.v1.XmlSerializer;
+import java.util.Map;
 
-final class uj extends AsyncTask
+final class uj
+    implements ui
 {
 
-    final ue a;
+    final ug a;
+    private final Map b = new HashMap();
 
-    uj(ue ue1)
+    uj(ug ug)
     {
-        a = ue1;
+        a = ug;
         super();
     }
 
-    private transient Void a(Object aobj[])
+    public void a(List list, List list1)
     {
-        List list;
-        Object obj1;
-        int i;
-        i = 0;
-        list = (List)aobj[0];
-        obj1 = (String)aobj[1];
-        aobj = ue.a(a).openFileOutput(((String) (obj1)), 0);
-        obj1 = Xml.newSerializer();
-        int j;
-        ((XmlSerializer) (obj1)).setOutput(((java.io.OutputStream) (aobj)), null);
-        ((XmlSerializer) (obj1)).startDocument("UTF-8", Boolean.valueOf(true));
-        ((XmlSerializer) (obj1)).startTag(null, "historical-records");
-        j = list.size();
-_L2:
-        if (i >= j)
+        Map map = b;
+        map.clear();
+        int k = list.size();
+        for (int i = 0; i < k; i++)
         {
-            break; /* Loop/switch isn't completed */
+            uh uh1 = (uh)list.get(i);
+            uh1.b = 0.0F;
+            map.put(new ComponentName(uh1.a.activityInfo.packageName, uh1.a.activityInfo.name), uh1);
         }
-        ui ui1 = (ui)list.remove(0);
-        ((XmlSerializer) (obj1)).startTag(null, "historical-record");
-        ((XmlSerializer) (obj1)).attribute(null, "activity", ui1.a.flattenToString());
-        ((XmlSerializer) (obj1)).attribute(null, "time", String.valueOf(ui1.b));
-        ((XmlSerializer) (obj1)).attribute(null, "weight", String.valueOf(ui1.c));
-        ((XmlSerializer) (obj1)).endTag(null, "historical-record");
-        i++;
-        if (true) goto _L2; else goto _L1
-        aobj;
-        Log.e(ue.d(), (new StringBuilder("Error writing historical recrod file: ")).append(((String) (obj1))).toString(), ((Throwable) (aobj)));
-_L3:
-        return null;
-_L1:
-        ((XmlSerializer) (obj1)).endTag(null, "historical-records");
-        ((XmlSerializer) (obj1)).endDocument();
-        ue.c(a);
-        if (aobj != null)
-        {
-            try
-            {
-                ((FileOutputStream) (aobj)).close();
-            }
-            // Misplaced declaration of an exception variable
-            catch (Object aobj[])
-            {
-                return null;
-            }
-            return null;
-        }
-          goto _L3
-        Object obj;
-        obj;
-        Log.e(ue.d(), (new StringBuilder("Error writing historical recrod file: ")).append(ue.b(a)).toString(), ((Throwable) (obj)));
-        ue.c(a);
-        if (aobj != null)
-        {
-            try
-            {
-                ((FileOutputStream) (aobj)).close();
-            }
-            // Misplaced declaration of an exception variable
-            catch (Object aobj[])
-            {
-                return null;
-            }
-            return null;
-        }
-          goto _L3
-        obj;
-        Log.e(ue.d(), (new StringBuilder("Error writing historical recrod file: ")).append(ue.b(a)).toString(), ((Throwable) (obj)));
-        ue.c(a);
-        if (aobj != null)
-        {
-            try
-            {
-                ((FileOutputStream) (aobj)).close();
-            }
-            // Misplaced declaration of an exception variable
-            catch (Object aobj[])
-            {
-                return null;
-            }
-            return null;
-        }
-          goto _L3
-        obj;
-        Log.e(ue.d(), (new StringBuilder("Error writing historical recrod file: ")).append(ue.b(a)).toString(), ((Throwable) (obj)));
-        ue.c(a);
-        if (aobj == null) goto _L3; else goto _L4
-_L4:
-        try
-        {
-            ((FileOutputStream) (aobj)).close();
-        }
-        // Misplaced declaration of an exception variable
-        catch (Object aobj[])
-        {
-            return null;
-        }
-        return null;
-        obj;
-        ue.c(a);
-        if (aobj != null)
-        {
-            try
-            {
-                ((FileOutputStream) (aobj)).close();
-            }
-            // Misplaced declaration of an exception variable
-            catch (Object aobj[]) { }
-        }
-        throw obj;
-    }
 
-    public Object doInBackground(Object aobj[])
-    {
-        return a(aobj);
+        int j = list1.size();
+        float f = 1.0F;
+        for (j--; j >= 0; j--)
+        {
+            uk uk1 = (uk)list1.get(j);
+            uh uh2 = (uh)map.get(uk1.a);
+            if (uh2 != null)
+            {
+                float f1 = uh2.b;
+                uh2.b = uk1.c * f + f1;
+                f = 0.95F * f;
+            }
+        }
+
+        Collections.sort(list);
     }
 }

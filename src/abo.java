@@ -2,27 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.ContentResolver;
+import android.net.Uri;
+import java.io.InputStream;
 
-public final class abo extends Enum
+class abo
+    implements abr
 {
 
-    public static final int a;
-    public static final int b;
-    public static final int c;
-    private static final int d[];
+    public final ContentResolver a;
+    public final Uri b;
 
-    public static int[] a()
+    public abo(ContentResolver contentresolver, Uri uri)
     {
-        return (int[])d.clone();
+        a = contentresolver;
+        b = uri;
     }
 
-    static 
+    public InputStream a()
     {
-        a = 1;
-        b = 2;
-        c = 3;
-        d = (new int[] {
-            a, b, c
-        });
+        return a.openInputStream(b);
     }
 }

@@ -2,38 +2,101 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
+import android.os.ParcelFileDescriptor;
+import android.widget.ImageView;
+import java.io.IOException;
+import java.util.concurrent.ConcurrentHashMap;
 
-final class fpz extends fpa
+final class fpz extends AsyncTask
 {
 
-    private final elq a;
+    final fpy a;
+    final ParcelFileDescriptor b;
+    final int c;
+    final int d;
+    final int e;
+    final fpx f;
 
-    public fpz(elq elq1)
+    fpz(fpx fpx1, fpy fpy1, ParcelFileDescriptor parcelfiledescriptor, int i, int j, int k)
     {
-        a = elq1;
+        f = fpx1;
+        super();
+        a = fpy1;
+        b = parcelfiledescriptor;
+        c = i;
+        d = j;
+        e = k;
     }
 
-    public void a()
+    private transient Bitmap a()
     {
-        a.a();
-    }
-
-    public void a(int i, Bundle bundle, Bundle bundle1)
-    {
-        if (g.m(3))
+        if (!fpx.a(f)) goto _L2; else goto _L1
+_L1:
+        Bitmap bitmap = g.a(b);
+        if (bitmap != null) goto _L4; else goto _L3
+_L3:
+        bitmap = null;
+_L6:
+        if (bitmap == null)
         {
-            (new StringBuilder("Bundle callback: status=")).append(i).append("\nresolution=").append(bundle).append("\nbundle=").append(bundle1);
-            g.m(3);
+            break MISSING_BLOCK_LABEL_47;
         }
-        if (i != 0)
+        fpx.d(f).put(a.g, bitmap);
+        if (b != null)
         {
-            g.m(5);
-            return;
-        } else
+            try
+            {
+                b.close();
+            }
+            catch (IOException ioexception)
+            {
+                ioexception.getMessage();
+                return bitmap;
+            }
+        }
+        return bitmap;
+_L4:
+        bitmap = g.b(bitmap);
+        continue; /* Loop/switch isn't completed */
+_L2:
+        bitmap = fpx.a(b, c, d, e, (int)(((float)c * fpx.b(f)) / fpx.c(f)));
+        if (bitmap == null)
         {
-            a.a(new els(bundle1.getString("account"), bundle1.getString("pagegaiaid"), bundle1.getInt("scope")));
-            return;
+            bitmap = null;
+            continue; /* Loop/switch isn't completed */
+        }
+        bitmap = fpx.a(bitmap, c, fpx.b(f) / fpx.c(f));
+        if (true) goto _L6; else goto _L5
+_L5:
+        Exception exception;
+        exception;
+        if (b != null)
+        {
+            try
+            {
+                b.close();
+            }
+            catch (IOException ioexception1)
+            {
+                ioexception1.getMessage();
+            }
+        }
+        throw exception;
+    }
+
+    protected Object doInBackground(Object aobj[])
+    {
+        return a();
+    }
+
+    protected void onPostExecute(Object obj)
+    {
+        obj = (Bitmap)obj;
+        if (a.f.getTag() == a)
+        {
+            f.a(a, ((Bitmap) (obj)));
         }
     }
 }

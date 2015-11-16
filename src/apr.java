@@ -3,16 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class apr extends apn
+public interface apr
 {
 
-    public apr()
-    {
-        super(apk.a);
-    }
+    public static final String a[] = {
+        "_id", "timestamp", "expiration_timestamp", "type", "author_chat_id", "status", "new_conversation_name"
+    };
 
-    public boolean a(ani ani)
-    {
-        return !g.a(g.nS, "babel_location_sharing_enabled", true);
-    }
 }

@@ -2,26 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.AsyncTask;
+import android.view.View;
+import android.view.ViewParent;
+import android.widget.ListView;
+import android.widget.TextView;
+import com.google.android.apps.hangouts.phone.DebugActivity;
 
-final class cmo extends AsyncTask
+public final class cmo
+    implements android.view.View.OnClickListener
 {
 
-    final cmn a;
+    final TextView a;
+    final TextView b;
+    final DebugActivity c;
 
-    cmo(cmn cmn1)
+    public cmo(DebugActivity debugactivity, TextView textview, TextView textview1)
     {
-        a = cmn1;
+        c = debugactivity;
+        a = textview;
+        b = textview1;
         super();
     }
 
-    protected Object doInBackground(Object aobj[])
+    public void onClick(View view)
     {
-        aobj = dit.a(a.a.b);
-        if (aobj != null)
+        if (view != a) goto _L2; else goto _L1
+_L1:
+        ((android.widget.LinearLayout.LayoutParams)DebugActivity.c(c).getLayoutParams()).weight = 5F;
+        ((android.widget.LinearLayout.LayoutParams)DebugActivity.d(c).getLayoutParams()).weight = 1.0F;
+_L4:
+        a.getParent().requestLayout();
+        return;
+_L2:
+        if (view == b)
         {
-            ((dit) (aobj)).a();
+            ((android.widget.LinearLayout.LayoutParams)DebugActivity.c(c).getLayoutParams()).weight = 1.0F;
+            ((android.widget.LinearLayout.LayoutParams)DebugActivity.d(c).getLayoutParams()).weight = 5F;
         }
-        return null;
+        if (true) goto _L4; else goto _L3
+_L3:
     }
 }

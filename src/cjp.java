@@ -2,26 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.AsyncTask;
-import com.google.android.apps.hangouts.phone.BabelHomeActivity;
+import android.app.Activity;
 
-public final class cjp extends AsyncTask
+final class cjp
+    implements hmd, hmq
 {
 
-    final BabelHomeActivity a;
-
-    public cjp(BabelHomeActivity babelhomeactivity)
+    cjp()
     {
-        a = babelhomeactivity;
-        super();
     }
 
-    protected Object doInBackground(Object aobj[])
+    public Class a()
     {
-        if (dcx.c() != null)
-        {
-            dcx.c().g();
-        }
-        return null;
+        return cjg;
+    }
+
+    public void a(ad ad, hof hof, hlp hlp1)
+    {
+        hlp1.a(cjg, new cjk(hof));
+    }
+
+    public void a(Activity activity, hof hof, hlp hlp1)
+    {
+        hlp1.a(cjg, new cjk(activity, hof));
     }
 }

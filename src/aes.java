@@ -2,293 +2,765 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
-final class aes extends aeq
+class aes
 {
 
-    private String g;
+    public final String a;
+    public String b;
+    public String c;
+    public aet d;
+    public final Set e;
+    public final Set f;
+    private final List g;
     private boolean h;
 
     public aes()
     {
-        h = false;
+        int i1 = adt.b;
+        this((byte)0);
     }
 
     public aes(byte byte0)
     {
-        super((byte)0);
-        h = false;
+        g = new ArrayList();
+        e = new HashSet();
+        f = new HashSet();
+        a = "ISO-8859-1";
     }
 
-    private void b(aev aev1, String s, String s1)
+    private static boolean a(char c1)
     {
-        int j = s1.length();
-        int i = 0;
-        boolean flag = false;
-        StringBuilder stringbuilder = null;
-        while (i < j) 
-        {
-            char c1 = s1.charAt(i);
-            if (c1 == '"')
-            {
-                if (flag)
-                {
-                    aev1.a(s, e(stringbuilder.toString()));
-                    flag = false;
-                    stringbuilder = null;
-                } else
-                {
-                    if (stringbuilder != null && stringbuilder.length() <= 0)
-                    {
-                        aev1.a(s, e(stringbuilder.toString()));
-                    }
-                    flag = true;
-                }
-            } else
-            if (c1 == ',' && !flag)
-            {
-                if (stringbuilder == null)
-                {
-                    (new StringBuilder(String.valueOf(s1).length() + 44)).append("Comma is used before actual string comes. (").append(s1).append(")");
-                } else
-                {
-                    aev1.a(s, e(stringbuilder.toString()));
-                    stringbuilder = null;
-                }
-            } else
-            {
-                StringBuilder stringbuilder1 = stringbuilder;
-                if (stringbuilder == null)
-                {
-                    stringbuilder1 = new StringBuilder();
-                }
-                stringbuilder1.append(c1);
-                stringbuilder = stringbuilder1;
-            }
-            i++;
-        }
-        if (stringbuilder != null && stringbuilder.length() != 0)
-        {
-            aev1.a(s, e(stringbuilder.toString()));
-        }
+        return c1 >= 'a' && c1 <= 'z' || c1 >= 'A' && c1 <= 'Z';
     }
 
-    private static String e(String s)
+    private String e(String s)
     {
-        return aex.b(s, "ISO-8859-1", "UTF-8");
-    }
-
-    protected String a()
-    {
-        if (g != null)
+        Object obj = s;
+        if (s.trim().endsWith("="))
         {
-            String s = g;
-            g = null;
-            return s;
-        } else
-        {
-            return d.readLine();
-        }
-    }
-
-    protected void a(aev aev1, String s)
-    {
-        String as[];
-        try
-        {
-            super.a(aev1, s);
-            return;
-        }
-        catch (afb afb1)
-        {
-            as = s.split("=", 2);
-        }
-        if (as.length == 2)
-        {
-            a(aev1, as[0], as[1]);
-            return;
-        }
-        aev1 = String.valueOf(s);
-        if (aev1.length() != 0)
-        {
-            aev1 = "Unknown params value: ".concat(aev1);
-        } else
-        {
-            aev1 = new String("Unknown params value: ");
-        }
-        throw new afb(aev1);
-    }
-
-    protected void a(aev aev1, String s, String s1)
-    {
-        b(aev1, s, s1);
-    }
-
-    protected boolean a(boolean flag)
-    {
-        return super.a(flag);
-    }
-
-    protected void b(aev aev1)
-    {
-        if (!h)
-        {
-            h = true;
-        }
-    }
-
-    protected void b(aev aev1, String s)
-    {
-        c(aev1, s);
-    }
-
-    protected String c()
-    {
-        Object obj = null;
-        do
-        {
-            String s1;
+            int i1;
+            for (i1 = s.length() - 1; s.charAt(i1) != '=';) { }
+            obj = new StringBuilder();
+            ((StringBuilder) (obj)).append(s.substring(0, i1 + 1));
+            ((StringBuilder) (obj)).append("\r\n");
             do
             {
-                s1 = d.readLine();
-                if (s1 == null)
+                s = a();
+                if (s == null)
                 {
-                    if (obj != null)
-                    {
-                        return ((StringBuilder) (obj)).toString();
-                    }
-                    if (g != null)
-                    {
-                        obj = g;
-                        g = null;
-                        return ((String) (obj));
-                    } else
-                    {
-                        throw new afb("Reached end of buffer.");
-                    }
+                    throw new afd("File ended during parsing a Quoted-Printable String");
                 }
-                if (s1.length() == 0)
-                {
-                    if (obj != null)
-                    {
-                        return ((StringBuilder) (obj)).toString();
-                    }
-                    if (g != null)
-                    {
-                        obj = g;
-                        g = null;
-                        return ((String) (obj));
-                    }
-                    continue;
-                }
-                if (s1.charAt(0) != ' ' && s1.charAt(0) != '\t')
+                if (!s.trim().endsWith("="))
                 {
                     break;
                 }
-                if (obj != null)
-                {
-                    ((StringBuilder) (obj)).append(s1.substring(1));
-                } else
-                if (g != null)
-                {
-                    obj = new StringBuilder();
-                    ((StringBuilder) (obj)).append(g);
-                    g = null;
-                    ((StringBuilder) (obj)).append(s1.substring(1));
-                } else
-                {
-                    throw new afb("Space exists at the beginning of the line");
-                }
+                int j1;
+                for (j1 = s.length() - 1; s.charAt(j1) != '=';) { }
+                ((StringBuilder) (obj)).append(s.substring(0, j1 + 1));
+                ((StringBuilder) (obj)).append("\r\n");
             } while (true);
-            if (g == null)
-            {
-                g = s1;
-                if (obj != null)
-                {
-                    return ((StringBuilder) (obj)).toString();
-                }
-            } else
-            {
-                String s = g;
-                g = s1;
-                return s;
-            }
-        } while (true);
+            ((StringBuilder) (obj)).append(s);
+            obj = ((StringBuilder) (obj)).toString();
+        }
+        return ((String) (obj));
     }
 
-    protected String c(String s)
+    private String f(String s)
     {
         StringBuilder stringbuilder = new StringBuilder();
         stringbuilder.append(s);
         do
         {
-label0:
+            s = b();
+            if (s != null && s.length() != 0 && g(s) == null)
+            {
+                a();
+                stringbuilder.append(" ").append(s);
+            } else
+            {
+                return stringbuilder.toString();
+            }
+        } while (true);
+    }
+
+    private static String g(String s)
+    {
+        int i1 = s.indexOf(":");
+        if (i1 < 0) goto _L2; else goto _L1
+_L1:
+        int j1 = s.indexOf(";");
+        if (i1 != -1) goto _L4; else goto _L3
+_L3:
+        i1 = j1;
+_L5:
+        return s.substring(0, i1).toUpperCase();
+_L4:
+        if (j1 != -1)
+        {
+            i1 = Math.min(i1, j1);
+        }
+        if (true) goto _L5; else goto _L2
+_L2:
+        return null;
+    }
+
+    private boolean l()
+    {
+        b = "8BIT";
+        c = "UTF-8";
+        if (!a(false))
+        {
+            return false;
+        }
+        for (Iterator iterator = g.iterator(); iterator.hasNext(); ((aeq)iterator.next()).d()) { }
+        d();
+        for (Iterator iterator1 = g.iterator(); iterator1.hasNext(); ((aeq)iterator1.next()).e()) { }
+        return true;
+    }
+
+    protected String a()
+    {
+        return d.readLine();
+    }
+
+    public void a(aeq aeq1)
+    {
+        g.add(aeq1);
+    }
+
+    protected void a(aex aex1)
+    {
+        Object obj;
+        Object obj1;
+        String s;
+        obj1 = aex1.a().toUpperCase();
+        s = aex1.c();
+        obj = aex1.d("CHARSET");
+        Object obj2;
+        if (obj != null)
+        {
+            obj = (String)((Collection) (obj)).iterator().next();
+        } else
+        {
+            obj = null;
+        }
+        if (TextUtils.isEmpty(((CharSequence) (obj))))
+        {
+            obj = "UTF-8";
+        }
+        if (!((String) (obj1)).equals("ADR") && !((String) (obj1)).equals("ORG") && !((String) (obj1)).equals("N")) goto _L2; else goto _L1
+_L1:
+        obj1 = new ArrayList();
+        if (b.equals("QUOTED-PRINTABLE"))
+        {
+            obj2 = e(s);
+            aex1.c(((String) (obj2)));
+            for (obj2 = aez.a(((String) (obj2)), f()).iterator(); ((Iterator) (obj2)).hasNext(); ((List) (obj1)).add(aez.a((String)((Iterator) (obj2)).next(), "ISO-8859-1", ((String) (obj))))) { }
+        } else
+        {
+            for (Iterator iterator1 = aez.a(f(s), f()).iterator(); iterator1.hasNext(); ((List) (obj1)).add(aez.b((String)iterator1.next(), "ISO-8859-1", ((String) (obj))))) { }
+        }
+        aex1.a(((List) (obj1)));
+        for (obj = g.iterator(); ((Iterator) (obj)).hasNext(); ((aeq)((Iterator) (obj)).next()).a(aex1)) { }
+          goto _L3
+_L2:
+        if (!b.equals("QUOTED-PRINTABLE") && (!((String) (obj1)).equals("FN") || aex1.d("ENCODING") != null || !aez.a(s))) goto _L5; else goto _L4
+_L4:
+        obj1 = e(s);
+        obj = aez.a(((String) (obj1)), "ISO-8859-1", ((String) (obj)));
+        aex1.c(((String) (obj1)));
+        aex1.a(new String[] {
+            obj
+        });
+        for (obj = g.iterator(); ((Iterator) (obj)).hasNext(); ((aeq)((Iterator) (obj)).next()).a(aex1)) { }
+          goto _L3
+_L5:
+        if (!b.equals("BASE64") && !b.equals("B")) goto _L7; else goto _L6
+_L6:
+        obj = c(s);
+        aex1.a(Base64.decode(((String) (obj)), 0));
+        for (obj = g.iterator(); ((Iterator) (obj)).hasNext(); ((aeq)((Iterator) (obj)).next()).a(aex1)) { }
+          goto _L3
+        obj;
+        try
+        {
+            obj = String.valueOf(s);
+            if (((String) (obj)).length() != 0)
+            {
+                obj = "Decode error on base64 photo: ".concat(((String) (obj)));
+            } else
+            {
+                obj = new String("Decode error on base64 photo: ");
+            }
+            throw new afd(((String) (obj)));
+        }
+        // Misplaced declaration of an exception variable
+        catch (Object obj)
+        {
+            Log.e("vCard", "OutOfMemoryError happened during parsing BASE64 data!");
+            for (obj = g.iterator(); ((Iterator) (obj)).hasNext(); ((aeq)((Iterator) (obj)).next()).a(aex1)) { }
+        }
+          goto _L3
+_L7:
+        if (!b.equals("7BIT") && !b.equals("8BIT") && !b.startsWith("X-"))
+        {
+            String.format("The encoding \"%s\" is unsupported by vCard %s", new Object[] {
+                b, g()
+            });
+        }
+        if (f() != 0) goto _L9; else goto _L8
+_L8:
+        obj1 = null;
+        do
+        {
+            String s1 = b();
+            if (TextUtils.isEmpty(s1) || s1.charAt(0) != ' ' || "END:VCARD".contains(s1.toUpperCase()))
+            {
+                break;
+            }
+            a();
+            StringBuilder stringbuilder = ((StringBuilder) (obj1));
+            if (obj1 == null)
+            {
+                stringbuilder = new StringBuilder();
+                stringbuilder.append(s);
+            }
+            stringbuilder.append(s1.substring(1));
+            obj1 = stringbuilder;
+        } while (true);
+        if (obj1 == null) goto _L9; else goto _L10
+_L10:
+        obj1 = ((StringBuilder) (obj1)).toString();
+_L12:
+        ArrayList arraylist = new ArrayList();
+        arraylist.add(aez.b(d(((String) (obj1))), "ISO-8859-1", ((String) (obj))));
+        aex1.a(arraylist);
+        for (Iterator iterator = g.iterator(); iterator.hasNext(); ((aeq)iterator.next()).a(aex1)) { }
+_L3:
+        return;
+_L9:
+        obj1 = s;
+        if (true) goto _L12; else goto _L11
+_L11:
+    }
+
+    protected void a(aex aex1, String s)
+    {
+        Object obj = s.split("=", 2);
+        if (obj.length == 2)
+        {
+            s = obj[0].trim().toUpperCase();
+            obj = obj[1].trim();
+            if (s.equals("TYPE"))
+            {
+                c(aex1, ((String) (obj)));
+                return;
+            }
+            if (s.equals("VALUE"))
+            {
+                d(aex1, ((String) (obj)));
+                return;
+            }
+            if (s.equals("ENCODING"))
+            {
+                e(aex1, ((String) (obj)));
+                return;
+            }
+            if (s.equals("CHARSET"))
+            {
+                f(aex1, ((String) (obj)));
+                return;
+            }
+            if (s.equals("LANGUAGE"))
+            {
+                g(aex1, ((String) (obj)));
+                return;
+            }
+            if (s.startsWith("X-"))
+            {
+                a(aex1, s, ((String) (obj)));
+                return;
+            } else
+            {
+                throw new afd((new StringBuilder(String.valueOf(s).length() + 15)).append("Unknown type \"").append(s).append("\"").toString());
+            }
+        } else
+        {
+            b(aex1, obj[0]);
+            return;
+        }
+    }
+
+    protected void a(aex aex1, String s, String s1)
+    {
+        aex1.a(s, s1);
+    }
+
+    public void a(InputStream inputstream)
+    {
+        if (inputstream == null)
+        {
+            throw new NullPointerException("InputStream must not be null.");
+        }
+        d = new aet(new InputStreamReader(inputstream, a));
+        System.currentTimeMillis();
+        for (inputstream = g.iterator(); inputstream.hasNext(); ((aeq)inputstream.next()).a()) { }
+_L4:
+        this;
+        JVM INSTR monitorenter ;
+        if (!h) goto _L2; else goto _L1
+_L1:
+        this;
+        JVM INSTR monitorexit ;
+_L3:
+        for (inputstream = g.iterator(); inputstream.hasNext(); ((aeq)inputstream.next()).b()) { }
+        break MISSING_BLOCK_LABEL_142;
+_L2:
+        this;
+        JVM INSTR monitorexit ;
+        if (l()) goto _L4; else goto _L3
+        inputstream;
+        this;
+        JVM INSTR monitorexit ;
+        throw inputstream;
+    }
+
+    protected boolean a(String s)
+    {
+        if (!h().contains(s.toUpperCase()) && !s.startsWith("X-") && !e.contains(s))
+        {
+            e.add(s);
+            s = String.valueOf(s);
+            if (s.length() != 0)
+            {
+                "Property name unsupported by vCard 2.1: ".concat(s);
+            } else
+            {
+                new String("Property name unsupported by vCard 2.1: ");
+            }
+        }
+        return true;
+    }
+
+    protected boolean a(boolean flag)
+    {
+        do
+        {
+            String s;
+            do
             {
                 s = a();
                 if (s == null)
                 {
-                    throw new afb("File ended during parsing BASE64 binary");
+                    return false;
                 }
-                if (s.length() != 0)
-                {
-                    if (s.startsWith(" ") || s.startsWith("\t"))
-                    {
-                        break label0;
-                    }
-                    g = s;
-                }
-                return stringbuilder.toString();
+            } while (s.trim().length() <= 0);
+            String as[] = s.split(":", 2);
+            if (as.length == 2 && as[0].trim().equalsIgnoreCase("BEGIN") && as[1].trim().equalsIgnoreCase("VCARD"))
+            {
+                return true;
             }
-            stringbuilder.append(s);
-        } while (true);
+            if (!flag)
+            {
+                String s1 = String.valueOf("Expected String \"BEGIN:VCARD\" did not come (Instead, \"");
+                throw new afd((new StringBuilder(String.valueOf(s1).length() + 7 + String.valueOf(s).length())).append(s1).append(s).append("\" came)").toString());
+            }
+        } while (flag);
+        throw new afd("Reached where must not be reached.");
     }
 
-    protected void c(aev aev1, String s)
+    protected aex b(String s)
     {
-        b(aev1, "TYPE", s);
+        aex aex1;
+        int j1;
+        int k1;
+        int l1;
+        int i2;
+        l1 = 0;
+        aex1 = new aex();
+        i2 = s.length();
+        if (i2 > 0 && s.charAt(0) == '#')
+        {
+            throw new afe();
+        }
+        k1 = 0;
+        j1 = 0;
+_L6:
+        char c1;
+        if (k1 >= i2)
+        {
+            break MISSING_BLOCK_LABEL_373;
+        }
+        c1 = s.charAt(k1);
+        j1;
+        JVM INSTR tableswitch 0 2: default 88
+    //                   0 105
+    //                   1 228
+    //                   2 341;
+           goto _L1 _L2 _L3 _L4
+_L2:
+        break; /* Loop/switch isn't completed */
+_L4:
+        break MISSING_BLOCK_LABEL_341;
+_L1:
+        int i1 = l1;
+_L7:
+        k1++;
+        l1 = i1;
+        if (true) goto _L6; else goto _L5
+_L5:
+        if (c1 == ':')
+        {
+            aex1.a(s.substring(l1, k1));
+            if (k1 < i2 - 1)
+            {
+                s = s.substring(k1 + 1);
+            } else
+            {
+                s = "";
+            }
+            aex1.c(s);
+            return aex1;
+        }
+        if (c1 == '.')
+        {
+            String s1 = s.substring(l1, k1);
+            if (s1.length() != 0)
+            {
+                aex1.b(s1);
+            }
+            i1 = k1 + 1;
+        } else
+        {
+            i1 = l1;
+            if (c1 == ';')
+            {
+                aex1.a(s.substring(l1, k1));
+                i1 = k1 + 1;
+                j1 = 1;
+            }
+        }
+          goto _L7
+_L3:
+        if (c1 == '"')
+        {
+            "2.1".equalsIgnoreCase(g());
+            j1 = 2;
+            i1 = l1;
+        } else
+        {
+label0:
+            {
+                if (c1 != ';')
+                {
+                    break label0;
+                }
+                a(aex1, s.substring(l1, k1));
+                i1 = k1 + 1;
+            }
+        }
+          goto _L7
+        i1 = l1;
+        if (c1 != ':') goto _L7; else goto _L8
+_L8:
+        a(aex1, s.substring(l1, k1));
+        if (k1 < i2 - 1)
+        {
+            s = s.substring(k1 + 1);
+        } else
+        {
+            s = "";
+        }
+        aex1.c(s);
+        return aex1;
+        i1 = l1;
+        if (c1 == '"')
+        {
+            "2.1".equalsIgnoreCase(g());
+            j1 = 1;
+            i1 = l1;
+        }
+          goto _L7
+        throw new aff((new StringBuilder(String.valueOf(s).length() + 16)).append("Invalid line: \"").append(s).append("\"").toString());
+    }
+
+    protected String b()
+    {
+        return d.a();
+    }
+
+    protected void b(aex aex1)
+    {
+        if (!aex1.c().toUpperCase().contains("BEGIN:VCARD"))
+        {
+            for (Iterator iterator = g.iterator(); iterator.hasNext(); ((aeq)iterator.next()).a(aex1)) { }
+        } else
+        {
+            throw new afc("AGENT Property is not supported now.");
+        }
+    }
+
+    protected void b(aex aex1, String s)
+    {
+        c(aex1, s);
+    }
+
+    protected String c()
+    {
+        String s;
+        do
+        {
+            s = a();
+            if (s == null)
+            {
+                throw new afd("Reached end of buffer.");
+            }
+        } while (s.trim().length() <= 0);
+        return s;
+    }
+
+    protected String c(String s)
+    {
+        StringBuilder stringbuilder;
+        stringbuilder = new StringBuilder();
+        stringbuilder.append(s);
+_L6:
+        String s1;
+        s = b();
+        if (s == null)
+        {
+            throw new afd("File ended during parsing BASE64 binary");
+        }
+        s1 = g(s);
+        if (!h().contains(s1)) goto _L2; else goto _L1
+_L1:
+        s = String.valueOf(s.trim());
+        if (s.length() != 0)
+        {
+            "Problematic line: ".concat(s);
+        } else
+        {
+            new String("Problematic line: ");
+        }
+_L4:
+        return stringbuilder.toString();
+_L2:
+        a();
+        if (s.length() == 0) goto _L4; else goto _L3
+_L3:
+        stringbuilder.append(s);
+        if (true) goto _L6; else goto _L5
+_L5:
+    }
+
+    protected void c(aex aex1, String s)
+    {
+        if (!i().contains(s.toUpperCase()) && !s.startsWith("X-") && !e.contains(s))
+        {
+            e.add(s);
+            String.format("TYPE unsupported by %s: ", new Object[] {
+                Integer.valueOf(f()), s
+            });
+        }
+        aex1.a("TYPE", s);
     }
 
     protected String d(String s)
     {
-        StringBuilder stringbuilder = new StringBuilder();
-        int j = s.length();
-        int i = 0;
-        while (i < j) 
+        return s;
+    }
+
+    protected void d()
+    {
+        boolean flag = false;
+        boolean flag1;
+        try
         {
-            char c1 = s.charAt(i);
-            if (c1 == '\\' && i < j - 1)
+            flag1 = e();
+        }
+        catch (afe afe1)
+        {
+            Log.e("vCard", "Invalid line which looks like some comment was found. Ignored.");
+            continue; /* Loop/switch isn't completed */
+        }
+        flag = flag1;
+_L2:
+        if (flag)
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        flag1 = e();
+        flag = flag1;
+        continue; /* Loop/switch isn't completed */
+        afe afe2;
+        afe2;
+        Log.e("vCard", "Invalid line which looks like some comment was found. Ignored.");
+        if (true) goto _L2; else goto _L1
+_L1:
+    }
+
+    protected void d(aex aex1, String s)
+    {
+        if (!j().contains(s.toUpperCase()) && !s.startsWith("X-") && !f.contains(s))
+        {
+            f.add(s);
+            String.format("The value unsupported by TYPE of %s: ", new Object[] {
+                Integer.valueOf(f()), s
+            });
+        }
+        aex1.a("VALUE", s);
+    }
+
+    protected void e(aex aex1, String s)
+    {
+        if (k().contains(s) || s.startsWith("X-"))
+        {
+            aex1.a("ENCODING", s);
+            b = s.toUpperCase();
+            return;
+        } else
+        {
+            throw new afd((new StringBuilder(String.valueOf(s).length() + 19)).append("Unknown encoding \"").append(s).append("\"").toString());
+        }
+    }
+
+    protected boolean e()
+    {
+        b = "8BIT";
+        Object obj = b(c());
+        String s = ((aex) (obj)).a().toUpperCase();
+        String s1 = ((aex) (obj)).c();
+        if (s.equals("BEGIN"))
+        {
+            if (s1.equalsIgnoreCase("VCARD"))
             {
-                i++;
-                c1 = s.charAt(i);
-                if (c1 == 'n' || c1 == 'N')
-                {
-                    stringbuilder.append("\n");
-                } else
-                {
-                    stringbuilder.append(c1);
-                }
+                for (obj = g.iterator(); ((Iterator) (obj)).hasNext(); ((aeq)((Iterator) (obj)).next()).d()) { }
+                d();
+                for (obj = g.iterator(); ((Iterator) (obj)).hasNext(); ((aeq)((Iterator) (obj)).next()).e()) { }
             } else
             {
-                stringbuilder.append(c1);
+                obj = String.valueOf(s1);
+                if (((String) (obj)).length() != 0)
+                {
+                    obj = "Unknown BEGIN type: ".concat(((String) (obj)));
+                } else
+                {
+                    obj = new String("Unknown BEGIN type: ");
+                }
+                throw new afd(((String) (obj)));
             }
-            i++;
+        } else
+        {
+            if (s.equals("END"))
+            {
+                if (s1.equalsIgnoreCase("VCARD"))
+                {
+                    return true;
+                }
+                obj = String.valueOf(s1);
+                if (((String) (obj)).length() != 0)
+                {
+                    obj = "Unknown END type: ".concat(((String) (obj)));
+                } else
+                {
+                    obj = new String("Unknown END type: ");
+                }
+                throw new afd(((String) (obj)));
+            }
+            s1 = ((aex) (obj)).c();
+            if (s.equals("AGENT"))
+            {
+                b(((aex) (obj)));
+            } else
+            {
+                a(s);
+                if (s.equals("VERSION") && !s1.equals(g()))
+                {
+                    obj = String.valueOf(g());
+                    throw new afi((new StringBuilder(String.valueOf(s1).length() + 26 + String.valueOf(obj).length())).append("Incompatible version: ").append(s1).append(" != ").append(((String) (obj))).toString());
+                }
+                a(((aex) (obj)));
+            }
         }
-        return stringbuilder.toString();
+        return false;
     }
 
     protected int f()
     {
-        return 1;
+        return 0;
+    }
+
+    protected void f(aex aex1, String s)
+    {
+        c = s;
+        aex1.a("CHARSET", s);
     }
 
     protected String g()
     {
-        return "3.0";
+        return "2.1";
+    }
+
+    protected void g(aex aex1, String s)
+    {
+        boolean flag = false;
+        String as[] = s.split("-");
+        if (as.length != 2)
+        {
+            throw new afd((new StringBuilder(String.valueOf(s).length() + 20)).append("Invalid Language: \"").append(s).append("\"").toString());
+        }
+        String s2 = as[0];
+        int k1 = s2.length();
+        for (int i1 = 0; i1 < k1; i1++)
+        {
+            if (!a(s2.charAt(i1)))
+            {
+                throw new afd((new StringBuilder(String.valueOf(s).length() + 20)).append("Invalid Language: \"").append(s).append("\"").toString());
+            }
+        }
+
+        String s1 = as[1];
+        k1 = s1.length();
+        for (int j1 = ((flag) ? 1 : 0); j1 < k1; j1++)
+        {
+            if (!a(s1.charAt(j1)))
+            {
+                throw new afd((new StringBuilder(String.valueOf(s).length() + 20)).append("Invalid Language: \"").append(s).append("\"").toString());
+            }
+        }
+
+        aex1.a("LANGUAGE", s);
     }
 
     protected Set h()
     {
-        return aeu.a;
+        return aev.a;
+    }
+
+    protected Set i()
+    {
+        return aev.b;
+    }
+
+    protected Set j()
+    {
+        return aev.c;
+    }
+
+    protected Set k()
+    {
+        return aev.d;
     }
 }

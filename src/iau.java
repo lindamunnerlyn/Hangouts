@@ -3,16 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iau extends koj
+public final class iau extends kwm
 {
 
-    public Integer a;
-    public Integer b;
+    public ibg a;
+    public iat b[];
 
     public iau()
     {
         a = null;
-        b = null;
+        b = iat.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -23,25 +23,41 @@ public final class iau extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.e(1, a.intValue());
+            i = j + kwk.d(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.e(2, b.intValue());
+            j = i;
+            if (b.length > 0)
+            {
+                for (j = 0; j < b.length;)
+                {
+                    iat iat1 = b[j];
+                    int k = i;
+                    if (iat1 != null)
+                    {
+                        k = i + kwk.d(2, iat1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -50,27 +66,65 @@ public final class iau extends koj
             case 0: // '\0'
                 return this;
 
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new ibg();
+                }
+                kwj1.a(a);
                 break;
 
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
+            case 18: // '\022'
+                int k = kwx.a(kwj1, 18);
+                iat aiat[];
+                int j;
+                if (b == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = b.length;
+                }
+                aiat = new iat[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(b, 0, aiat, 0, j);
+                    k = j;
+                }
+                for (; k < aiat.length - 1; k++)
+                {
+                    aiat[k] = new iat();
+                    kwj1.a(aiat[k]);
+                    kwj1.a();
+                }
+
+                aiat[k] = new iat();
+                kwj1.a(aiat[k]);
+                b = aiat;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.intValue());
+            kwk1.b(1, a);
         }
-        if (b != null)
+        if (b != null && b.length > 0)
         {
-            koh1.a(2, b.intValue());
+            for (int i = 0; i < b.length; i++)
+            {
+                iat iat1 = b[i];
+                if (iat1 != null)
+                {
+                    kwk1.b(2, iat1);
+                }
+            }
+
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

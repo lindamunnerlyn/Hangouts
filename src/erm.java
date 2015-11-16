@@ -3,11 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class erm
+public final class erm
 {
 
-    static final eox a[] = {
-        new ern(eox.a("0\202\003\3050\202\002\255\240\003\002\001\002\002\t\000\331\220\245\247\2033\204\3100")), new ero(eox.a("0\202\003\3050\202\002\255\240\003\002\001\002\002\t\000\245\256\261\236\260\304\344\2660"))
-    };
+    public static fgx a;
+    public static fgx b = fgx.a("gms:common:stats:connections:ignored_calling_processes", "");
+    public static fgx c = fgx.a("gms:common:stats:connections:ignored_calling_services", "");
+    public static fgx d = fgx.a("gms:common:stats:connections:ignored_target_processes", "");
+    public static fgx e = fgx.a("gms:common:stats:connections:ignored_target_services", "com.google.android.gms.auth.GetToken");
+    public static fgx f = fgx.a("gms:common:stats:connections:time_out_duration", Long.valueOf(0x927c0L));
 
+    static 
+    {
+        a = fgx.a("gms:common:stats:connections:level", Integer.valueOf(ern.a));
+    }
 }

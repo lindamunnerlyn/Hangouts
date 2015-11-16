@@ -3,8 +3,38 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface hbn
+public final class hbn
 {
 
-    public abstract void a();
+    boolean a;
+    long b;
+    boolean c;
+
+    public hbn()
+    {
+        c = true;
+    }
+
+    public hbn a()
+    {
+        b = 0L;
+        return this;
+    }
+
+    public hbn a(boolean flag)
+    {
+        a = flag;
+        return this;
+    }
+
+    public hbn b()
+    {
+        c = false;
+        return this;
+    }
+
+    public hbm c()
+    {
+        return new hbm(this);
+    }
 }

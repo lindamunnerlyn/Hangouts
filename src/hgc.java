@@ -3,238 +3,80 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.content.res.TypedArray;
-import android.os.Parcelable;
-import android.text.TextUtils;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.accessibility.AccessibilityEvent;
-import android.view.accessibility.AccessibilityManager;
-import android.widget.TextView;
+import java.nio.channels.WritableByteChannel;
+import java.util.Map;
+import org.chromium.net.HttpUrlConnectionUrlRequestFactory;
+import org.chromium.net.HttpUrlRequest;
+import org.chromium.net.HttpUrlRequestFactory;
+import org.chromium.net.HttpUrlRequestListener;
+import org.chromium.net.UrlRequestContextConfig;
 
-public class hgc extends hfa
+public final class hgc
 {
 
-    public boolean b;
-    private CharSequence c;
-    private CharSequence d;
-    private boolean e;
-    private boolean f;
-    private boolean g;
+    private static volatile HttpUrlRequestFactory a;
 
-    public hgc(Context context, AttributeSet attributeset, int i)
+    public hgc()
     {
-        super(context, attributeset, i);
     }
 
-    public boolean D()
+    public static HttpUrlRequest a(Context context, String s, int i, Map map, WritableByteChannel writablebytechannel, HttpUrlRequestListener httpurlrequestlistener)
     {
-label0:
+        return a(context).b(s, i, map, writablebytechannel, httpurlrequestlistener);
+    }
+
+    public static HttpUrlRequest a(Context context, String s, int i, Map map, HttpUrlRequestListener httpurlrequestlistener)
+    {
+        return a(context).b(s, i, map, httpurlrequestlistener);
+    }
+
+    private static HttpUrlRequestFactory a(Context context)
+    {
+        hgc;
+        JVM INSTR monitorenter ;
+        if (a != null) goto _L2; else goto _L1
+_L1:
+        hgc;
+        JVM INSTR monitorenter ;
+        if (a != null) goto _L4; else goto _L3
+_L3:
+        Object obj1 = (HttpUrlRequestFactory)hlp.b(context, org/chromium/net/HttpUrlRequestFactory);
+        Object obj = obj1;
+        if (obj1 != null) goto _L6; else goto _L5
+_L5:
+        obj1 = (UrlRequestContextConfig)hlp.a(context, org/chromium/net/UrlRequestContextConfig);
+        obj = null;
+        if (!((UrlRequestContextConfig) (obj1)).d())
         {
-            boolean flag1 = false;
-            boolean flag;
-            if (g)
-            {
-                flag = b;
-            } else
-            if (!b)
-            {
-                flag = true;
-            } else
-            {
-                flag = false;
-            }
-            if (!flag)
-            {
-                flag = flag1;
-                if (!super.D())
-                {
-                    break label0;
-                }
-            }
-            flag = true;
+            obj = HttpUrlRequestFactory.a(context, ((UrlRequestContextConfig) (obj1)));
         }
-        return flag;
-    }
-
-    protected Object a(TypedArray typedarray, int i)
-    {
-        return Boolean.valueOf(typedarray.getBoolean(i, false));
-    }
-
-    protected void a(Parcelable parcelable)
-    {
-        if (parcelable == null || !parcelable.getClass().equals(hgd))
+        if (obj != null)
         {
-            super.a(parcelable);
-            return;
-        } else
-        {
-            parcelable = (hgd)parcelable;
-            super.a(parcelable.getSuperState());
-            a(((hgd) (parcelable)).a);
-            return;
+            break MISSING_BLOCK_LABEL_120;
         }
-    }
-
-    public void a(CharSequence charsequence)
-    {
-        c = charsequence;
-        if (c())
-        {
-            z();
-        }
-    }
-
-    public void a(boolean flag)
-    {
-        boolean flag1;
-        if (b != flag)
-        {
-            flag1 = true;
-        } else
-        {
-            flag1 = false;
-        }
-        if (flag1 || !e)
-        {
-            b = flag;
-            e = true;
-            b(flag);
-            if (flag1)
-            {
-                e(D());
-                z();
-            }
-        }
-    }
-
-    protected void a(boolean flag, Object obj)
-    {
-        if (flag)
-        {
-            flag = c(b);
-        } else
-        {
-            flag = ((Boolean)obj).booleanValue();
-        }
-        a(flag);
-    }
-
-    protected void b()
-    {
-        super.b();
-        boolean flag;
-        if (!c())
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        f = true;
-        if (!a(Boolean.valueOf(flag)))
-        {
-            return;
-        } else
-        {
-            a(flag);
-            return;
-        }
-    }
-
-    public void b(View view)
-    {
-        AccessibilityManager accessibilitymanager = (AccessibilityManager)x().getSystemService("accessibility");
-        if (f && accessibilitymanager.isEnabled())
-        {
-            AccessibilityEvent accessibilityevent = AccessibilityEvent.obtain();
-            accessibilityevent.setEventType(1);
-            view.onInitializeAccessibilityEvent(accessibilityevent);
-            view.dispatchPopulateAccessibilityEvent(accessibilityevent);
-            accessibilitymanager.sendAccessibilityEvent(accessibilityevent);
-        }
-        f = false;
-    }
-
-    public void c(View view)
-    {
-        boolean flag = false;
-        view = (TextView)view.findViewById(o.I);
-        if (view != null)
-        {
-            boolean flag1 = true;
-            int i;
-            if (b && !TextUtils.isEmpty(c))
-            {
-                view.setText(c);
-                i = 0;
-            } else
-            {
-                i = ((flag1) ? 1 : 0);
-                if (!b)
-                {
-                    i = ((flag1) ? 1 : 0);
-                    if (!TextUtils.isEmpty(d))
-                    {
-                        view.setText(d);
-                        i = 0;
-                    }
-                }
-            }
-            if (i != 0)
-            {
-                CharSequence charsequence = g();
-                if (!TextUtils.isEmpty(charsequence))
-                {
-                    view.setText(charsequence);
-                    i = 0;
-                }
-            }
-            if (i == 0)
-            {
-                i = ((flag) ? 1 : 0);
-            } else
-            {
-                i = 8;
-            }
-            if (i != view.getVisibility())
-            {
-                view.setVisibility(i);
-            }
-        }
-    }
-
-    public boolean c()
-    {
-        return b;
-    }
-
-    public void d(CharSequence charsequence)
-    {
-        d = charsequence;
-        if (!c())
-        {
-            z();
-        }
-    }
-
-    protected Parcelable e()
-    {
-        Object obj = super.e();
-        if (u())
-        {
-            return ((Parcelable) (obj));
-        } else
-        {
-            obj = new hgd(((Parcelable) (obj)));
-            obj.a = c();
-            return ((Parcelable) (obj));
-        }
-    }
-
-    public void h(boolean flag)
-    {
-        g = flag;
+        context = new HttpUrlConnectionUrlRequestFactory(context, ((UrlRequestContextConfig) (obj1)));
+_L7:
+        (new StringBuilder("Using network stack: ")).append(context.b());
+        obj = context;
+_L6:
+        a = ((HttpUrlRequestFactory) (obj));
+_L4:
+        hgc;
+        JVM INSTR monitorexit ;
+_L2:
+        context = a;
+        hgc;
+        JVM INSTR monitorexit ;
+        return context;
+        context;
+        hgc;
+        JVM INSTR monitorexit ;
+        throw context;
+        context;
+        hgc;
+        JVM INSTR monitorexit ;
+        throw context;
+        context = ((Context) (obj));
+          goto _L7
     }
 }

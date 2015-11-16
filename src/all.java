@@ -2,23 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.content.Intent;
 
-final class all
-    implements Runnable
+public interface all
 {
 
-    final int a;
-    final ali b;
-
-    all(ali ali, int i)
-    {
-        b = ali;
-        a = i;
-        super();
-    }
-
-    public void run()
-    {
-        dbf.f(a);
-    }
+    public abstract Intent a(Context context);
 }

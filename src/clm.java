@@ -2,20 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.phone.DebugActivity;
+import android.app.AlertDialog;
+import android.os.Handler;
+import android.os.Message;
+import com.google.android.apps.hangouts.phone.ClassZeroActivity;
 
-public final class clm
+public final class clm extends Handler
 {
 
-    public final String a;
-    public final Object b;
-    final DebugActivity c;
+    private ClassZeroActivity a;
 
-    public clm(DebugActivity debugactivity, String s, Object obj)
+    public clm(ClassZeroActivity classzeroactivity)
     {
-        c = debugactivity;
-        super();
-        a = s;
-        b = obj;
+        a = classzeroactivity;
+    }
+
+    public void handleMessage(Message message)
+    {
+        if (message.what == 1)
+        {
+            ClassZeroActivity.a(a, false);
+            ClassZeroActivity.a(a).dismiss();
+            ClassZeroActivity.b(a);
+            ClassZeroActivity.c(a);
+        }
     }
 }

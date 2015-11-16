@@ -2,53 +2,72 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.database.Cursor;
+import android.database.CursorWrapper;
 
-public final class bai extends dif
+final class bai extends CursorWrapper
 {
 
-    private long e;
+    final int a;
 
-    public bai(Context context, ani ani1, String s)
+    public bai(Cursor cursor)
     {
-        super(context, a(s), ani1, s);
-        e = 0L;
+        super(cursor);
+        a = cursor.getCount();
     }
 
-    public static String a(String s)
+    public int getPosition()
     {
-        String s1 = String.valueOf("UpdateWatermarkTask");
-        s = String.valueOf(s);
-        if (s.length() != 0)
-        {
-            return s1.concat(s);
-        } else
-        {
-            return new String(s1);
-        }
+        return a - super.getPosition() - 1;
     }
 
-    protected ctp b()
+    public boolean isAfterLast()
     {
-        if (e == -1L)
-        {
-            return null;
-        } else
-        {
-            return new czt(a, b, e);
-        }
+        return super.isBeforeFirst();
     }
 
-    protected void c()
+    public boolean isBeforeFirst()
     {
-        dfb dfb1 = new dfb();
-        e = any.a(new aoe(g.nS, a.h()), b, dfb1, e, false);
-        cej.a(d(), a.h(), dfb1.g());
+        return super.isAfterLast();
     }
 
-    public String toString()
+    public boolean isFirst()
     {
-        long l = e;
-        return a("UpdateWatermarkTask", (new StringBuilder(40)).append("latestReadTimestamp=").append(l).toString());
+        return super.isLast();
+    }
+
+    public boolean isLast()
+    {
+        return super.isFirst();
+    }
+
+    public boolean move(int i)
+    {
+        return super.move(-i);
+    }
+
+    public boolean moveToFirst()
+    {
+        return super.moveToLast();
+    }
+
+    public boolean moveToLast()
+    {
+        return super.moveToFirst();
+    }
+
+    public boolean moveToNext()
+    {
+        return super.moveToPrevious();
+    }
+
+    public boolean moveToPosition(int i)
+    {
+        return super.moveToPosition(a - i - 1);
+    }
+
+    public boolean moveToPrevious()
+    {
+        return super.moveToNext();
     }
 }

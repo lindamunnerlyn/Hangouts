@@ -2,23 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
+import com.google.android.apps.hangouts.phone.DebugActivity;
 
-final class cmb extends cmu
+public final class cmb
+    implements android.view.View.OnClickListener
 {
 
-    final cls a;
+    final String a;
+    final DebugActivity b;
 
-    cmb(cls cls1, String s)
+    public cmb(DebugActivity debugactivity, String s)
     {
-        a = cls1;
-        super(s);
+        b = debugactivity;
+        a = s;
+        super();
     }
 
-    public void a()
+    public void onClick(View view)
     {
-        if (cls.a(a))
-        {
-            (new cmw(a, "load")).execute(new Void[0]);
-        }
+        DebugActivity.a(b, a, "conversations_view");
     }
 }

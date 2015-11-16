@@ -6,15 +6,16 @@ package com.google.android.gms.wearable.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fvm;
-import fyb;
+import fxs;
+import g;
+import gap;
 
 public class NodeParcelable
-    implements SafeParcelable, fyb
+    implements SafeParcelable, gap
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fvm();
-    public final int a;
+    public static final android.os.Parcelable.Creator CREATOR = new fxs();
+    final int a;
     private final String b;
     private final String c;
     private final int d;
@@ -77,7 +78,13 @@ public class NodeParcelable
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fvm.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b());
+        g.a(parcel, 3, c());
+        g.b(parcel, 4, d());
+        g.a(parcel, 5, e());
+        g.q(parcel, i);
     }
 
 }

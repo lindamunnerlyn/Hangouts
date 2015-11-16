@@ -2,95 +2,268 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
+import android.os.Parcel;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
-public final class djh extends dep
+public final class djh
+    implements dmf
 {
 
-    private static final ConcurrentHashMap a = new ConcurrentHashMap();
-    private long d;
-    private final cvm e[] = new cvm[14];
+    private static final long serialVersionUID = 1L;
+    private String a;
+    private String b;
+    private String c;
+    private jsh d;
+    private jsh e;
+    private jsh f;
+    private long g;
+    private boolean h;
+    private boolean i;
+    private int j;
+    private String k;
+    private int l;
+    private int m;
+    private String n;
+    private String o;
 
-    private djh(int j, long l, long l1)
+    djh(dji dji1)
     {
-        super(dbf.e(j), l, l1);
-        d = -1L;
-        e[0] = new cvm(1, 10, 1, "sent_sms_count_since_last_upload");
-        e[1] = new cvm(1, 9, 1, "received_sms_count_since_last_upload");
-        e[2] = new cvm(1, 10, 2, "sent_mms_count_since_last_upload");
-        e[3] = new cvm(1, 9, 2, "received_mms_count_since_last_upload");
-        e[4] = new cvm(3, 6, 0, "shown_sms_promo_screen_launch_count_since_last_upload");
-        e[5] = new cvm(3, 7, 0, "accepted_sms_promo_screen_launch_count_since_last_upload");
-        e[6] = new cvm(3, 8, 0, "declined_sms_promo_screen_launch_count_since_last_upload");
-        e[7] = new cvm(4, 6, 0, "shown_sms_promo_screen_notify_count_since_last_upload");
-        e[8] = new cvm(4, 7, 0, "accepted_sms_promo_screen_notify_count_since_last_upload");
-        e[9] = new cvm(4, 8, 0, "declined_sms_promo_screen_notify_count_since_last_upload");
-        e[10] = new cvm(5, 6, 0, "shown_sms_promo_banner_count_since_last_upload");
-        e[11] = new cvm(5, 7, 0, "accepted_sms_promo_banner_count_since_last_upload");
-        e[12] = new cvm(5, 8, 0, "declined_sms_promo_banner_count_since_last_upload");
-        e[13] = new cvm(6, 6, 0, "shown_sms_promo_notify_count_since_last_upload");
+        a = dji1.a;
+        b = dji1.b;
+        c = dji1.c;
+        d = jsh.a(dji1.d);
+        e = jsh.a(dji1.e);
+        f = jsh.a(dji1.f);
+        g = dji1.g;
+        h = dji1.h;
+        i = dji1.i;
+        j = dji1.j;
+        k = dji1.k;
+        l = dji1.l;
+        n = eev.a(new Throwable());
     }
 
-    public static djh b(int j)
+    private void readObject(ObjectInputStream objectinputstream)
     {
-        djh djh2 = (djh)a.get(Integer.valueOf(j));
-        djh djh1 = djh2;
-        if (djh2 == null)
+        jsj jsj1;
+        int i1;
+        int j1;
+        a = (String)objectinputstream.readObject();
+        b = (String)objectinputstream.readObject();
+        c = (String)objectinputstream.readObject();
+        d = (jsh)objectinputstream.readObject();
+        f = (jsh)objectinputstream.readObject();
+        g = objectinputstream.readLong();
+        h = objectinputstream.readBoolean();
+        i = objectinputstream.readBoolean();
+        j = objectinputstream.readInt();
+        k = (String)objectinputstream.readObject();
+        l = objectinputstream.readInt();
+        m = objectinputstream.readInt();
+        n = (String)objectinputstream.readObject();
+        o = (String)objectinputstream.readObject();
+        jsj1 = new jsj();
+        if (objectinputstream.available() <= 0)
         {
-            djh1 = new djh(j, g.a(g.nS, "babel_upload_analytics_lomark_seconds", 28800) * 1000, g.a(g.nS, "babel_upload_analytics_highmark_seconds", 43200) * 1000);
-            a.putIfAbsent(Integer.valueOf(j), djh1);
-            djh1 = (djh)a.get(Integer.valueOf(j));
+            break MISSING_BLOCK_LABEL_398;
         }
-        return djh1;
+        j1 = objectinputstream.readInt();
+        i1 = 0;
+_L2:
+        Object obj;
+        byte abyte0[];
+        if (i1 >= j1)
+        {
+            break MISSING_BLOCK_LABEL_398;
+        }
+        int k1 = objectinputstream.readInt();
+        obj = atp.values()[k1];
+        k1 = objectinputstream.readInt();
+        abyte0 = new byte[k1];
+        if (objectinputstream.read(abyte0, 0, k1) != k1)
+        {
+            throw new IOException("Unmarshall Attachment: The actual bytes read doesn't match the expected bytes.");
+        }
+        switch (ats.a[((atp) (obj)).ordinal()])
+        {
+        default:
+            objectinputstream = String.valueOf(obj);
+            eev.f("AttachmentUtils", (new StringBuilder(String.valueOf(objectinputstream).length() + 25)).append("invalid attachment type: ").append(objectinputstream).toString());
+            objectinputstream = String.valueOf(obj);
+            throw new IllegalArgumentException((new StringBuilder(String.valueOf(objectinputstream).length() + 25)).append("invalid attachment type: ").append(objectinputstream).toString());
+
+        case 3: // '\003'
+            break; /* Loop/switch isn't completed */
+
+        case 4: // '\004'
+            break MISSING_BLOCK_LABEL_383;
+
+        case 1: // '\001'
+        case 2: // '\002'
+            obj = (ato)g.a(abyte0, atx.CREATOR);
+            break;
+        }
+_L3:
+        if (obj != null)
+        {
+            jsj1.c(obj);
+        }
+        i1++;
+        if (true) goto _L2; else goto _L1
+_L1:
+        obj = (ato)g.a(abyte0, atv.CREATOR);
+          goto _L3
+        obj = (ato)g.a(abyte0, aua.CREATOR);
+          goto _L3
+        e = jsj1.a();
+        objectinputstream.close();
+        return;
     }
 
-    public void a()
+    private void writeObject(ObjectOutputStream objectoutputstream)
     {
-        c.c().clear();
-        int j = 0;
-        int k;
-        int l;
-        for (k = 0; j < e.length; k = l)
+        objectoutputstream.writeObject(a);
+        objectoutputstream.writeObject(b);
+        objectoutputstream.writeObject(c);
+        objectoutputstream.writeObject(d);
+        objectoutputstream.writeObject(f);
+        objectoutputstream.writeLong(g);
+        objectoutputstream.writeBoolean(h);
+        objectoutputstream.writeBoolean(i);
+        objectoutputstream.writeInt(j);
+        objectoutputstream.writeObject(k);
+        objectoutputstream.writeInt(l);
+        objectoutputstream.writeInt(m);
+        objectoutputstream.writeObject(n);
+        objectoutputstream.writeObject(o);
+        if (e != null)
         {
-            String s = e[j].a();
-            long l1 = ((gms)hgx.a(g.nS, gms)).a(b.h()).a(s, 0L);
-            e[j].a(l1);
-            l = k;
-            if (l1 > 0L)
+            objectoutputstream.writeInt(e.size());
+            for (int i1 = 0; i1 < e.size(); i1++)
             {
-                ((gms)hgx.a(g.nS, gms)).b(b.h()).c(s, 0L).d();
-                l = k + 1;
+                objectoutputstream.writeInt(((ato)e.get(i1)).c.ordinal());
+                ato ato1 = (ato)e.get(i1);
+                Parcel parcel = Parcel.obtain();
+                ato1.writeToParcel(parcel, 0);
+                byte abyte0[] = parcel.marshall();
+                parcel.recycle();
+                objectoutputstream.writeInt(abyte0.length);
+                objectoutputstream.write(abyte0);
             }
-            j++;
-        }
 
-        if (k > 0)
-        {
-            cvl cvl1 = new cvl(e, k);
-            c.a(cvl1);
-            return;
         }
-        if (ebw.a("Babel", 3))
-        {
-            ebw.c("Babel", "Skip UploadAnalyticsOperation since there is nothing to upload");
-        }
-        a(3);
+        objectoutputstream.close();
     }
 
-    protected void a(long l)
+    public String a()
     {
-        d = l;
-        ((gms)hgx.a(g.nS, gms)).b(b.h()).c("last_upload_analytics_time", l).d();
+        return a;
     }
 
-    protected long i()
+    public void a(int i1)
     {
-        if (d == -1L)
-        {
-            d = ((gms)hgx.a(g.nS, gms)).a(b.h()).a("last_upload_analytics_time", -1L);
-        }
+        m = i1;
+    }
+
+    public String b()
+    {
+        return b;
+    }
+
+    public void b(String s)
+    {
+        o = s;
+    }
+
+    public String c()
+    {
+        return c;
+    }
+
+    public jsh d()
+    {
         return d;
     }
 
+    public jsh e()
+    {
+        return e;
+    }
+
+    public jsh f()
+    {
+        return f;
+    }
+
+    public long g()
+    {
+        return g;
+    }
+
+    public boolean h()
+    {
+        return h;
+    }
+
+    public boolean i()
+    {
+        return i;
+    }
+
+    public int j()
+    {
+        return j;
+    }
+
+    public int k()
+    {
+        return m;
+    }
+
+    public String l()
+    {
+        return k;
+    }
+
+    public cdl m()
+    {
+        return new djg(this);
+    }
+
+    public int n()
+    {
+        return l;
+    }
+
+    public String o()
+    {
+        if (d.size() == 1)
+        {
+            String s = ((dmt)d.get(0)).b;
+            if (g.w(s))
+            {
+                return s;
+            }
+        }
+        return null;
+    }
+
+    public String toString()
+    {
+        String s = a;
+        String s1 = b;
+        String s2 = String.valueOf(d.toString());
+        String s3 = String.valueOf(e.toString());
+        boolean flag = h;
+        boolean flag1 = i;
+        int i1 = j;
+        String s4 = k;
+        long l1 = g;
+        int j1 = m;
+        String s5 = n;
+        String s6 = o;
+        return (new StringBuilder(String.valueOf(s).length() + 259 + String.valueOf(s1).length() + String.valueOf(s2).length() + String.valueOf(s3).length() + String.valueOf(s4).length() + String.valueOf(s5).length() + String.valueOf(s6).length())).append("SendMultiAttachmentRequest [clientGeneratedId=").append(s).append(", conversationId=").append(s1).append(", text=").append(s2).append(", attachments=").append(s3).append(", isOffRecord=").append(flag).append(", inContingency=").append(flag1).append(", transportType=").append(i1).append(", transportPhone=").append(s4).append(", sequenceNumber=").append(l1).append(", requestId=").append(j1).append(", creationStack=").append(s5).append(", originStack=").append(s6).append("]").toString();
+    }
 }

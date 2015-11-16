@@ -3,151 +3,102 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hvw extends koj
+public final class hvw extends kwm
 {
 
-    public hvv a[];
-    public hwc b;
-    public hwc c;
+    private static volatile hvw c[];
+    public Integer a;
+    public hvx b;
 
     public hvw()
     {
-        a = hvv.a();
+        a = null;
         b = null;
-        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public static hvw[] a()
     {
-        int i = super.computeSerializedSize();
-        int j = i;
-        if (a != null)
+        if (c == null)
         {
-            j = i;
-            if (a.length > 0)
+            synchronized (kwq.a)
             {
-                int k = 0;
-                do
+                if (c == null)
                 {
-                    j = i;
-                    if (k >= a.length)
-                    {
-                        break;
-                    }
-                    hvv hvv1 = a[k];
-                    j = i;
-                    if (hvv1 != null)
-                    {
-                        j = i + koh.d(1, hvv1);
-                    }
-                    k++;
-                    i = j;
-                } while (true);
+                    c = new hvw[0];
+                }
             }
         }
-        i = j;
-        if (b != null)
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            i = j + koh.d(2, b);
+            i = j + kwk.e(1, a.intValue());
         }
         j = i;
-        if (c != null)
+        if (b != null)
         {
-            j = i + koh.d(3, c);
+            j = i + kwk.d(2, b);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L5:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   8: 51
+    //                   18: 102;
+           goto _L1 _L2 _L3 _L4
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                hvv ahvv[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                ahvv = new hvv[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, ahvv, 0, j);
-                    k = j;
-                }
-                for (; k < ahvv.length - 1; k++)
-                {
-                    ahvv[k] = new hvv();
-                    kog1.a(ahvv[k]);
-                    kog1.a();
-                }
-
-                ahvv[k] = new hvv();
-                kog1.a(ahvv[k]);
-                a = ahvv;
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new hwc();
-                }
-                kog1.a(b);
-                break;
-
-            case 26: // '\032'
-                if (c == null)
-                {
-                    c = new hwc();
-                }
-                kog1.a(c);
-                break;
-            }
-        } while (true);
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+            a = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        if (b == null)
+        {
+            b = new hvx();
+        }
+        kwj1.a(b);
+        if (true) goto _L5; else goto _L6
+_L6:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null && a.length > 0)
+        if (a != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                hvv hvv1 = a[i];
-                if (hvv1 != null)
-                {
-                    koh1.b(1, hvv1);
-                }
-            }
-
+            kwk1.a(1, a.intValue());
         }
         if (b != null)
         {
-            koh1.b(2, b);
+            kwk1.b(2, b);
         }
-        if (c != null)
-        {
-            koh1.b(3, c);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

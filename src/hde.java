@@ -2,28 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.Callable;
 
 final class hde
-    implements hcy
+    implements Callable
 {
 
-    final hda a;
+    final hig a;
+    final hdd b;
 
-    hde(hda hda1)
+    hde(hdd hdd1, hig hig)
     {
-        a = hda1;
+        b = hdd1;
+        a = hig;
         super();
     }
 
-    public void a(hcv hcv1)
+    public Object call()
     {
-        if (hcv1.w() == 2)
+        hda.b(b.a).a(a);
+        java.io.IOException ioexception = hda.a(a);
+        if (ioexception != null)
         {
-            return;
-        } else
-        {
-            hda.a(a, hcv1);
-            return;
+            b.a(ioexception);
         }
+        return null;
     }
 }

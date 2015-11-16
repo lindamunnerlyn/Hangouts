@@ -3,8 +3,24 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface aqp
+final class aqp
+    implements agb
 {
 
-    public abstract void A_();
+    final dpw a;
+    final aqn b;
+
+    aqp(aqn aqn, dpw dpw)
+    {
+        b = aqn;
+        a = dpw;
+        super();
+    }
+
+    public void a(agh agh)
+    {
+        agh = String.valueOf(agh);
+        eev.f("Babel_medialoader", (new StringBuilder(String.valueOf(agh).length() + 29)).append("downloadUseVolley: got error ").append(agh).toString());
+        ((dpn)hlp.a(g.nU, dpn)).b(a);
+    }
 }

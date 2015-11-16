@@ -6,26 +6,29 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.widget.RadioButton;
+import android.widget.EditText;
 
-public final class ws extends RadioButton
-    implements pj
+public final class ws extends EditText
+    implements jw
 {
 
-    private vi a;
-    private wp b;
+    private vk a;
+    private wn b;
+    private xd c;
 
     public ws(Context context, AttributeSet attributeset)
     {
-        this(context, attributeset, g.L);
+        this(context, attributeset, g.G);
     }
 
     private ws(Context context, AttributeSet attributeset, int i)
     {
-        super(context, attributeset, i);
-        a = vi.a(context);
-        b = new wp(this, a);
+        super(vh.a(context), attributeset, i);
+        a = vk.a(getContext());
+        b = new wn(this, a);
         b.a(attributeset, i);
+        c = new xd(this);
+        c.a(attributeset, i);
     }
 
     public void a(ColorStateList colorstatelist)
@@ -44,36 +47,39 @@ public final class ws extends RadioButton
         }
     }
 
-    public int getCompoundPaddingLeft()
+    protected void drawableStateChanged()
     {
-        int j = super.getCompoundPaddingLeft();
-        int i = j;
+        super.drawableStateChanged();
         if (b != null)
         {
-            i = b.a(j);
+            b.b();
         }
-        return i;
     }
 
-    public void setButtonDrawable(int i)
+    public void setBackgroundDrawable(Drawable drawable)
     {
-        Drawable drawable;
-        if (a != null)
-        {
-            drawable = a.a(i);
-        } else
-        {
-            drawable = ef.a(getContext(), i);
-        }
-        setButtonDrawable(drawable);
-    }
-
-    public void setButtonDrawable(Drawable drawable)
-    {
-        super.setButtonDrawable(drawable);
+        super.setBackgroundDrawable(drawable);
         if (b != null)
         {
             b.a();
+        }
+    }
+
+    public void setBackgroundResource(int i)
+    {
+        super.setBackgroundResource(i);
+        if (b != null)
+        {
+            b.a(i);
+        }
+    }
+
+    public void setTextAppearance(Context context, int i)
+    {
+        super.setTextAppearance(context, i);
+        if (c != null)
+        {
+            c.a(context, i);
         }
     }
 }

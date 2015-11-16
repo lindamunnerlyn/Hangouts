@@ -6,94 +6,108 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.view.accessibility.AccessibilityEvent;
-import android.view.accessibility.AccessibilityNodeInfo;
-import android.widget.Button;
+import android.widget.AutoCompleteTextView;
 
-public final class wm extends Button
+public class wm extends AutoCompleteTextView
     implements jw
 {
 
-    private final vi a;
-    private final wl b;
-    private final xb c;
+    private static final int a[] = {
+        0x1010176
+    };
+    private vk b;
+    private wn c;
+    private xd d;
+
+    public wm(Context context)
+    {
+        this(context, null);
+    }
 
     public wm(Context context, AttributeSet attributeset)
     {
-        this(context, attributeset, g.v);
+        this(context, attributeset, g.u);
     }
 
-    private wm(Context context, AttributeSet attributeset, int i)
+    public wm(Context context, AttributeSet attributeset, int i)
     {
-        super(context, attributeset, i);
-        a = vi.a(getContext());
-        b = new wl(this, a);
-        b.a(attributeset, i);
-        c = new xb(this);
+        super(vh.a(context), attributeset, i);
+        context = vm.a(getContext(), attributeset, a, i);
+        b = context.c();
+        if (context.g(0))
+        {
+            setDropDownBackgroundDrawable(context.a(0));
+        }
+        context.b();
+        c = new wn(this, b);
         c.a(attributeset, i);
+        d = new xd(this);
+        d.a(attributeset, i);
     }
 
     public void a(ColorStateList colorstatelist)
     {
-        if (b != null)
+        if (c != null)
         {
-            b.a(colorstatelist);
+            c.a(colorstatelist);
         }
     }
 
     public void a(android.graphics.PorterDuff.Mode mode)
     {
-        if (b != null)
+        if (c != null)
         {
-            b.a(mode);
+            c.a(mode);
         }
     }
 
     protected void drawableStateChanged()
     {
         super.drawableStateChanged();
-        if (b != null)
+        if (c != null)
         {
-            b.b();
+            c.b();
         }
-    }
-
-    public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityevent)
-    {
-        super.onInitializeAccessibilityEvent(accessibilityevent);
-        accessibilityevent.setClassName(android/widget/Button.getName());
-    }
-
-    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilitynodeinfo)
-    {
-        super.onInitializeAccessibilityNodeInfo(accessibilitynodeinfo);
-        accessibilitynodeinfo.setClassName(android/widget/Button.getName());
     }
 
     public void setBackgroundDrawable(Drawable drawable)
     {
         super.setBackgroundDrawable(drawable);
-        if (b != null)
+        if (c != null)
         {
-            b.a();
+            c.a();
         }
     }
 
     public void setBackgroundResource(int i)
     {
         super.setBackgroundResource(i);
+        if (c != null)
+        {
+            c.a(i);
+        }
+    }
+
+    public void setDropDownBackgroundResource(int i)
+    {
         if (b != null)
         {
-            b.a(i);
+            setDropDownBackgroundDrawable(b.a(i));
+            return;
+        } else
+        {
+            super.setDropDownBackgroundResource(i);
+            return;
         }
     }
 
     public void setTextAppearance(Context context, int i)
     {
         super.setTextAppearance(context, i);
-        if (c != null)
+        if (d != null)
         {
-            c.a(context, i);
+            d.a(context, i);
         }
     }
+
 }

@@ -2,32 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import android.content.Context;
+import java.util.List;
 
-final class alf
-    implements br
+public final class alf
+    implements deu, gre
 {
 
-    final ale a;
+    final gqz a;
 
-    alf(ale ale1)
+    alf(Context context)
     {
-        a = ale1;
-        super();
+        a = (gqz)hlp.a(context, gqz);
     }
 
-    public em onCreateLoader(int i, Bundle bundle)
+    public void a(Context context, grd grd1)
     {
-        return new aky(ale.a(a));
     }
 
-    public void onLoadFinished(em em, Object obj)
+    public void a(grd grd1, cyw cyw1)
     {
-        em = (ajo)obj;
-        ale.a(a, ale.b(a), jhb.c(em));
+        if (grd1.b("effective_gaia_id") != null && cyw1.n().m && !grd1.a("logged_out", false))
+        {
+            grd1.b("logged_in", true).b("logged_out", false);
+            if (grd1.b("full_jid") == null)
+            {
+                g.a(new ali(this, a.b(grd1.b("account_name"), grd1.b("effective_gaia_id"))));
+            }
+        }
     }
 
-    public void onLoaderReset(em em)
+    public void a(List list)
     {
+        list.add(new alg(this));
+        list.add(new alh(this));
     }
 }

@@ -2,49 +2,63 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentMap;
 
-final class inf
-    implements Runnable
+public final class inf extends kwm
 {
 
-    final UUID a;
-    final ArrayList b;
-    final jsj c;
-    final ine d;
+    public Integer a;
 
-    inf(ine ine1, UUID uuid, ArrayList arraylist, jsj jsj1)
+    public inf()
     {
-        d = ine1;
-        a = uuid;
-        b = arraylist;
-        c = jsj1;
-        super();
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public void run()
+    protected int computeSerializedSize()
     {
-        java.util.List list;
-        ine.a(d).remove(a);
-        list = Collections.unmodifiableList(b);
-        ino.a(imw.a);
-        inc inc1;
-        for (Iterator iterator = ((Set)ine.b(d).a()).iterator(); iterator.hasNext(); c.a(inl.a(new ing(this, inc1, list)), ine.c(d)))
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            inc1 = (inc)iterator.next();
+            i = j + kwk.e(1, a.intValue());
         }
+        return i;
+    }
 
-        break MISSING_BLOCK_LABEL_110;
-        Exception exception;
-        exception;
-        ino.a(null);
-        throw exception;
-        ino.a(null);
-        return;
+    public kws mergeFrom(kwj kwj1)
+    {
+_L4:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 2: default 32
+    //                   0: 41
+    //                   8: 43;
+           goto _L1 _L2 _L3
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L4; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+            a = Integer.valueOf(j);
+            break;
+        }
+        if (true) goto _L4; else goto _L5
+_L5:
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

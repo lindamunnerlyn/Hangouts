@@ -2,22 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
+import com.google.android.apps.hangouts.conversation.v2.gallerypicker.impl.GalleryItemView;
 
-final class bbw
-    implements gov
+public final class bbw
+    implements Runnable
 {
 
-    final bbv a;
+    final String a;
+    final GalleryItemView b;
 
-    bbw(bbv bbv1)
+    public bbw(GalleryItemView galleryitemview, String s)
     {
-        a = bbv1;
+        b = galleryitemview;
+        a = s;
         super();
     }
 
-    public void a(int i, Intent intent)
+    public void run()
     {
-        g.a(bbv.a(a), i, intent);
+        b.a.a(a, b, b.c());
     }
 }

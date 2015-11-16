@@ -2,48 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.BufferedReader;
-import java.io.Reader;
+import java.io.InputStream;
 
-public final class aer extends BufferedReader
+public abstract class aer
 {
 
-    private long a;
-    private boolean b;
-    private String c;
-
-    public aer(Reader reader)
+    public aer()
     {
-        super(reader);
     }
 
-    public String a()
-    {
-        if (!b)
-        {
-            long l = System.currentTimeMillis();
-            String s = super.readLine();
-            a = (System.currentTimeMillis() - l) + a;
-            c = s;
-            b = true;
-        }
-        return c;
-    }
+    public abstract void a(aeq aeq);
 
-    public String readLine()
-    {
-        if (b)
-        {
-            String s = c;
-            c = null;
-            b = false;
-            return s;
-        } else
-        {
-            long l = System.currentTimeMillis();
-            String s1 = super.readLine();
-            a = (System.currentTimeMillis() - l) + a;
-            return s1;
-        }
-    }
+    public abstract void a(InputStream inputstream);
 }

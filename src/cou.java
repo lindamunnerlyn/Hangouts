@@ -2,27 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.content.Context;
+import android.widget.Toast;
 
-final class cou
-    implements dsu
+public final class cou
+    implements bei
 {
 
-    final cot a;
-
-    cou(cot cot1)
-    {
-        a = cot1;
-        super();
-    }
-
-    public void a()
+    public cou()
     {
     }
 
-    public void onClick(View view)
+    public void a(Context context)
     {
-        RealTimeChatService.a(cop.a(a.a), -1L);
+        Toast.makeText(context, "Dumping database, please wait", 0).show();
+        java.io.File file = g.c(context, ((gqu)hlp.a(context, gqu)).a());
+        if (file == null)
+        {
+            Toast.makeText(context, "Could not dump database", 0).show();
+            return;
+        } else
+        {
+            Toast.makeText(context, "Database dumped", 0).show();
+            g.a(context, file);
+            return;
+        }
+    }
+
+    public boolean a(String s)
+    {
+        return "dumpdb".equals(s);
     }
 }

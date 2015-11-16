@@ -14,6 +14,6 @@ public class Version
 
     public static String a()
     {
-        return (new StringBuilder("45.0.2454.79@")).append("9da1ffe37fa8b52d7d310b2b15e52412d5544f4d-refs/branch-heads/2454@{#426}".substring(0, 8)).toString();
+        return (new StringBuilder("47.0.2526.6@")).append("05014d012f3914e152ede5328075db2181ddcff9-refs/branch-heads/2526@{#12}".substring(0, 8)).toString();
     }
 }

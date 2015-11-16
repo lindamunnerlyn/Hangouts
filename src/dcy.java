@@ -3,19 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class dcy extends dfa
+public interface dcy
 {
 
-    private final String a;
+    public abstract boolean a();
 
-    public dcy(ani ani, String s)
-    {
-        super(ani);
-        a = s;
-    }
+    public abstract boolean b();
 
-    public void a()
-    {
-        c.a(new csn(a));
-    }
+    public abstract long c();
+
+    public abstract float d();
 }

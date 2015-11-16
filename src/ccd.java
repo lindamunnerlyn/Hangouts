@@ -2,20 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.google.android.apps.hangouts.navigation.NavigationDrawerFragment;
 
-final class ccd extends Thread
+public final class ccd
+    implements fqe
 {
 
-    final ccc a;
+    final NavigationDrawerFragment a;
 
-    ccd(ccc ccc1)
+    public ccd(NavigationDrawerFragment navigationdrawerfragment)
     {
-        a = ccc1;
+        a = navigationdrawerfragment;
         super();
     }
 
-    public void run()
+    public fqd a(View view)
     {
-        a.d();
+        ccg ccg1 = new ccg();
+        ccg1.a = view;
+        ccg1.e = (ImageView)view.findViewById(h.D);
+        ccg1.d = (TextView)view.findViewById(h.n);
+        ccg1.b = (ImageView)view.findViewById(h.fD);
+        ccg1.c = (ImageView)view.findViewById(h.I);
+        return ccg1;
     }
 }

@@ -2,117 +2,65 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Parcel;
+import android.os.ParcelFileDescriptor;
+import com.google.android.gms.feedback.FileTeleporter;
 
-public abstract class fdj extends fdo
+public final class fdj
+    implements android.os.Parcelable.Creator
 {
-
-    public fdk o;
 
     public fdj()
     {
     }
 
-    protected int a()
+    public Object createFromParcel(Parcel parcel)
     {
-        int j = 0;
-        int k;
-        if (o != null)
+        int j = g.a(parcel);
+        String s = null;
+        ParcelFileDescriptor parcelfiledescriptor = null;
+        int i = 0;
+        String s1 = null;
+        do
         {
-            int i = 0;
-            do
+            if (parcel.dataPosition() < j)
             {
-                k = i;
-                if (j >= o.a())
+                int k = parcel.readInt();
+                switch (0xffff & k)
                 {
+                default:
+                    g.b(parcel, k);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, k);
+                    break;
+
+                case 2: // '\002'
+                    parcelfiledescriptor = (ParcelFileDescriptor)g.a(parcel, k, ParcelFileDescriptor.CREATOR);
+                    break;
+
+                case 3: // '\003'
+                    s = g.i(parcel, k);
+                    break;
+
+                case 4: // '\004'
+                    s1 = g.i(parcel, k);
                     break;
                 }
-                i += o.b(j).a();
-                j++;
-            } while (true);
-        } else
-        {
-            k = 0;
-        }
-        return k;
-    }
-
-    public void a(fdi fdi)
-    {
-        if (o != null)
-        {
-            int i = 0;
-            while (i < o.a()) 
+            } else
+            if (parcel.dataPosition() != j)
             {
-                o.b(i).a(fdi);
-                i++;
+                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
+            } else
+            {
+                return new FileTeleporter(i, parcelfiledescriptor, s, s1);
             }
-        }
+        } while (true);
     }
 
-    protected final boolean a(fdh fdh1, int i)
+    public Object[] newArray(int i)
     {
-        int j = fdh1.m();
-        if (!fdh1.b(i))
-        {
-            return false;
-        }
-        int k = fdq.b(i);
-        fdp fdp1 = new fdp(i, fdh1.a(j, fdh1.m() - j));
-        fdh1 = null;
-        Object obj;
-        if (o == null)
-        {
-            o = new fdk();
-        } else
-        {
-            fdh1 = o.a(k);
-        }
-        obj = fdh1;
-        if (fdh1 == null)
-        {
-            obj = new fdl();
-            o.a(k, ((fdl) (obj)));
-        }
-        ((fdl) (obj)).a(fdp1);
-        return true;
-    }
-
-    protected final boolean a(fdj fdj1)
-    {
-        if (o == null || o.b())
-        {
-            return fdj1.o == null || fdj1.o.b();
-        } else
-        {
-            return o.equals(fdj1.o);
-        }
-    }
-
-    protected final int c()
-    {
-        if (o == null || o.b())
-        {
-            return 0;
-        } else
-        {
-            return o.hashCode();
-        }
-    }
-
-    public Object clone()
-    {
-        return d();
-    }
-
-    public fdj d()
-    {
-        fdj fdj1 = (fdj)super.e();
-        fdm.a(this, fdj1);
-        return fdj1;
-    }
-
-    public fdo e()
-    {
-        return d();
+        return new FileTeleporter[i];
     }
 }

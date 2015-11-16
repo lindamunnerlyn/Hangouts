@@ -2,45 +2,59 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Cursor;
 
-class cgs extends chy
+final class cgs
 {
 
-    private int b;
-    final cgh c;
+    static final int a[];
+    static final int b[];
 
-    public cgs(cgh cgh1, int i, boolean flag, boolean flag1)
+    static 
     {
-        this(cgh1, i, flag, true, eeo.a);
-    }
-
-    public cgs(cgh cgh1, int i, boolean flag, boolean flag1, int j)
-    {
-        c = cgh1;
-        super(cgh1, i - 1, cgv.f - 1, flag, flag1);
-        b = j;
-    }
-
-    protected void a(zq zq1)
-    {
-    }
-
-    protected void a(zq zq1, amj amj1)
-    {
-        zq1 = (eej)zq1.a;
-        zq1.j();
-        zq1.k();
-        amj1 = amj1.a();
-        amj1.a = cgh.d(c);
-        boolean flag = cgh.e(c).c(amj1);
-        boolean flag1 = cgh.e(c).b(amj1);
-        zq1.a(amj1, cgh.d(c), flag1, b);
-        zq1.a(flag, false);
-    }
-
-    protected volatile void a(zq zq1, Cursor cursor)
-    {
-        a(zq1, (amj)cursor);
+        b = new int[cgt.a().length];
+        try
+        {
+            b[cgt.a - 1] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror7) { }
+        try
+        {
+            b[cgt.b - 1] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror6) { }
+        try
+        {
+            b[cgt.c - 1] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror5) { }
+        try
+        {
+            b[cgt.d - 1] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror4) { }
+        a = new int[atu.values().length];
+        try
+        {
+            a[atu.a.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[atu.b.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[atu.c.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[atu.d.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

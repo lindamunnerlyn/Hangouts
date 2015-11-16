@@ -2,51 +2,98 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.util.Log;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import android.content.Context;
 
-public final class ahh
+final class ahh
+    implements ahd
 {
 
-    static boolean a = false;
+    private final gqz a;
+    private final Context b;
 
-    public static String a()
+    ahh(Context context)
     {
-        return System.getProperty("http.agent");
+        b = context;
+        a = (gqz)hlp.a(context, gqz);
     }
 
-    public static String a(String s, Map map)
+    private grb j(int k)
     {
-        StringBuilder stringbuilder = new StringBuilder();
-        stringbuilder.append(s).append("?");
-        String s1;
-        String s2;
-        for (s = map.keySet().iterator(); s.hasNext(); stringbuilder.append(s1).append("=").append(s2).append("&"))
+        return a.a(k);
+    }
+
+    public boolean a(int k)
+    {
+        return b(k) || c(k);
+    }
+
+    public boolean b(int k)
+    {
+        grb grb1 = j(k);
+        return dcn.j() && (grb1.d("is_sms_account") || grb1.d("sms_only"));
+    }
+
+    public boolean c(int k)
+    {
+        return j(k).d("is_gv_sms_integration_enabled");
+    }
+
+    public boolean d(int k)
+    {
+        grb grb1 = j(k);
+        return grb1.a("is_gv_calling_available") && grb1.d("gv_use_tycho_branding");
+    }
+
+    public boolean e(int k)
+    {
+        return !j(k).a("allowed_for_domain", true);
+    }
+
+    public boolean f(int k)
+    {
+        return j(k).a("is_photo_service_enabled", true);
+    }
+
+    public boolean g(int k)
+    {
+        boolean flag = false;
+        if (j(k).a("account_age_group", 0) == 3)
         {
-            s1 = (String)s.next();
-            s2 = (String)map.get(s1);
+            flag = true;
         }
-
-        if (stringbuilder.charAt(stringbuilder.length() - 1) == '&')
-        {
-            stringbuilder.deleteCharAt(stringbuilder.length() - 1);
-        }
-        return stringbuilder.toString();
+        return flag;
     }
 
-    static void a(String s, String s1)
+    public boolean h(int k)
     {
-        if (!a && Log.isLoggable(s, 6))
+        boolean flag = false;
+        k = j(k).a("account_age_group", 0);
+        if (k == 3 || k == 2)
         {
-            Log.e(s, s1);
+            flag = true;
         }
+        return flag;
     }
 
-    public static boolean a(String s)
+    public boolean i(int k)
     {
-        return s == null || s.length() == 0;
+        grb grb1 = j(k);
+        if (c(k) && d(k))
+        {
+            String s = grb1.b("account_name");
+            ahe ahe1 = (ahe)hlp.b(b, ahe);
+            if (ahe1 != null && ahe1.a(s))
+            {
+                k = 1;
+            } else
+            {
+                k = 0;
+            }
+            if (k != 0 && grb1.b("effective_gaia_id") == null)
+            {
+                return true;
+            }
+        }
+        return false;
     }
-
 }

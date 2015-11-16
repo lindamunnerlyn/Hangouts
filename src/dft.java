@@ -2,24 +2,55 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
 
-public final class dft
-    implements Runnable
+public final class dft extends dgj
 {
 
-    final czn a;
+    private final int a;
+    private final String e;
 
-    public dft(czn czn)
+    public dft(aoa aoa1, String s, int i)
     {
-        a = czn;
-        super();
+        super(aoa1);
+        e = s;
+        a = i;
     }
 
-    public void run()
+    public void a()
     {
-        for (Iterator iterator = RealTimeChatService.o().iterator(); iterator.hasNext(); ((dgp)iterator.next()).c()) { }
+        Object obj;
+        if (eev.a("Babel", 3))
+        {
+            obj = String.valueOf(e);
+            String s;
+            int i;
+            long l;
+            if (((String) (obj)).length() != 0)
+            {
+                obj = "executeModifyOtrStatusOperation conversationId: ".concat(((String) (obj)));
+            } else
+            {
+                obj = new String("executeModifyOtrStatusOperation conversationId: ");
+            }
+            eev.c("Babel", ((String) (obj)));
+        }
+        s = aow.g();
+        obj = new aow(g.nU, super.b.a);
+        ((aow) (obj)).a();
+        i = ((aow) (obj)).A(e);
+        l = ((aow) (obj)).O(e);
+        (new dkt(e, super.b.b.b(), l, -1L, s, null, a, dsu.b)).c(((aow) (obj)));
+        ((aow) (obj)).b();
+        ((aow) (obj)).c();
+        if (!aow.a(e))
+        {
+            a(((dmf) (new cwo(s, e, a, i))));
+        }
+        aoq.d(((aow) (obj)), e);
+        return;
+        Exception exception;
+        exception;
+        ((aow) (obj)).c();
+        throw exception;
     }
 }

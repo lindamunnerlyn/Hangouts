@@ -2,10 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
 
 public interface hhy
-    extends hho
 {
 
-    public abstract void a(ad ad, hjm hjm, hgx hgx);
+    public abstract Intent a();
 }

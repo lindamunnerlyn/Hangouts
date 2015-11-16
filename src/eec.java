@@ -2,111 +2,82 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
 
-class eec extends ImageSpan
+public final class eec extends HashMap
 {
 
-    final edz a;
-    private Bitmap b;
-    private boolean c;
-    private final int d;
-    private final int e;
+    private static final long serialVersionUID = 1L;
 
-    public eec(edz edz1, Drawable drawable, String s, int i, int j)
+    public eec()
     {
-        a = edz1;
-        super(drawable, s, 1);
-        c = false;
-        d = i;
-        e = j;
     }
 
-    static int a(eec eec1)
+    public boolean containsKey(Object obj)
     {
-        return eec1.d;
-    }
-
-    static int b(eec eec1)
-    {
-        return eec1.e;
-    }
-
-    void a()
-    {
-        this;
-        JVM INSTR monitorenter ;
-        c = true;
-        if (b != null)
+        if (obj == null || !(obj instanceof cgd))
         {
-            edz.a(a).a(b);
-            b = null;
+            return false;
         }
-        this;
-        JVM INSTR monitorexit ;
-        return;
-        Exception exception;
-        exception;
-        this;
-        JVM INSTR monitorexit ;
-        throw exception;
+        obj = (cgd)obj;
+        for (Iterator iterator = keySet().iterator(); iterator.hasNext();)
+        {
+            if (((cgd) (obj)).a((cgd)iterator.next()))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
-    void a(Bitmap bitmap)
+    public Object get(Object obj)
     {
-        this;
-        JVM INSTR monitorenter ;
-        if (!c)
+        if (obj == null || !(obj instanceof cgd))
         {
-            break MISSING_BLOCK_LABEL_23;
+            return null;
         }
-        edz.a(a).a(bitmap);
-_L2:
-        this;
-        JVM INSTR monitorexit ;
-        return;
-        b = bitmap;
-        if (true) goto _L2; else goto _L1
+        obj = (cgd)obj;
+        for (Iterator iterator = entrySet().iterator(); iterator.hasNext();)
+        {
+            java.util.Map.Entry entry = (java.util.Map.Entry)iterator.next();
+            if (((cgd) (obj)).a((cgd)entry.getKey()))
+            {
+                return entry.getValue();
+            }
+        }
+
+        return null;
+    }
+
+    public Object remove(Object obj)
+    {
+        cgd cgd1;
+        Iterator iterator;
+        if (obj == null || !(obj instanceof cgd))
+        {
+            return null;
+        }
+        cgd1 = (cgd)obj;
+        iterator = entrySet().iterator();
+_L4:
+        if (!iterator.hasNext()) goto _L2; else goto _L1
 _L1:
-        bitmap;
-        this;
-        JVM INSTR monitorexit ;
-        throw bitmap;
-    }
-
-    public void draw(Canvas canvas, CharSequence charsequence, int i, int j, float f, int k, int l, 
-            int i1, Paint paint)
-    {
-        if (b != null)
+        obj = (cgd)((java.util.Map.Entry)iterator.next()).getKey();
+        if (!cgd1.a(((cgd) (obj)))) goto _L4; else goto _L3
+_L3:
+        if (obj != null)
         {
-            i = g.nS.getResources().getDimensionPixelOffset(g.el);
-            edz.a().set(0, 0, b.getWidth(), b.getHeight());
-            charsequence = edz.b();
-            j = (int)f;
-            float f1 = d;
-            charsequence.set(j + i, k, (int)((float)i + (f1 + f)), e + k);
-            canvas.drawBitmap(b, edz.a(), edz.b(), null);
-        }
-    }
-
-    public int getSize(Paint paint, CharSequence charsequence, int i, int j, android.graphics.Paint.FontMetricsInt fontmetricsint)
-    {
-        i = super.getSize(paint, charsequence, i, j, fontmetricsint);
-        if (fontmetricsint != null)
+            return super.remove(obj);
+        } else
         {
-            paint.getFontMetrics(edz.b(a));
-            fontmetricsint.ascent = (int)((double)edz.b(a).ascent + 0.5D);
-            fontmetricsint.descent = (int)((double)edz.b(a).descent + 0.5D);
-            fontmetricsint.top = (int)((double)edz.b(a).top + 0.5D);
-            fontmetricsint.bottom = (int)((double)edz.b(a).bottom + 0.5D);
+            return null;
         }
-        return i;
+_L2:
+        obj = null;
+        if (true) goto _L3; else goto _L5
+_L5:
     }
 }

@@ -2,29 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import android.content.Context;
 
-final class cfy
-    implements android.view.View.OnClickListener
+public final class cfy
 {
 
-    final cfs a;
+    public static final String a = ctf.getName();
+    public static final String b = ber.getName();
+    private static cfx c;
 
-    cfy(cfs cfs1)
+    public static void a(Context context, hlp hlp1)
     {
-        a = cfs1;
-        super();
-    }
-
-    public void onClick(View view)
-    {
-        if (!cfs.j(a))
+        if (c == null)
         {
-            return;
-        } else
-        {
-            cfs.c(a);
-            return;
+            c = new cfx();
         }
+        hlp1.a(ctf, c.a(context));
     }
+
+    public static void a(hlp hlp1)
+    {
+        if (c == null)
+        {
+            c = new cfx();
+        }
+        hlp1.a(ber, c.a());
+    }
+
 }

@@ -2,22 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.IOException;
+import android.content.Intent;
+import android.os.Bundle;
 
-public final class hdm extends IOException
+public final class hdm extends hjf
+    implements hkm
 {
 
-    private final int a;
-    private final String b = null;
+    private final hkl e;
 
-    public hdm(int i, String s)
+    public hdm()
     {
-        super((new StringBuilder(String.valueOf(null).length() + 13)).append(i).append(": ").append(null).toString());
-        a = i;
+        e = new hkl(this, c);
     }
 
-    public int a()
+    public static Bundle a(Intent intent)
     {
-        return a;
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("LoginSettingsFragment.account_view_intent", intent.getParcelableExtra("LoginSettingsFragment.account_view_intent"));
+        return bundle;
+    }
+
+    public void a()
+    {
+        Intent intent = null;
+        Bundle bundle = getArguments();
+        if (bundle != null)
+        {
+            intent = (Intent)bundle.getParcelable("LoginSettingsFragment.account_view_intent");
+        }
+        e.a((new hdq()).a(intent).b());
+    }
+
+    protected void a(Bundle bundle)
+    {
+        super.a(bundle);
+        b.a(hkp, e);
     }
 }

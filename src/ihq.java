@@ -3,20 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ihq extends koj
+public final class ihq extends kwm
 {
 
-    public ihm a;
-    public String b;
-    public String c;
-    public igw d[];
+    public Boolean a;
+    public ijl b;
+    public ijl c;
+    public ijl d;
+    public ihj e;
 
     public ihq()
     {
         a = null;
         b = null;
         c = null;
-        d = igw.a();
+        d = null;
+        e = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -27,51 +29,41 @@ public final class ihq extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            a.booleanValue();
+            i = j + (kwk.f(5) + 1);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.b(2, b);
+            j = i + kwk.d(6, b);
         }
         i = j;
         if (c != null)
         {
-            i = j + koh.b(3, c);
+            i = j + kwk.d(7, c);
         }
         j = i;
         if (d != null)
         {
-            j = i;
-            if (d.length > 0)
-            {
-                for (j = 0; j < d.length;)
-                {
-                    igw igw1 = d[j];
-                    int k = i;
-                    if (igw1 != null)
-                    {
-                        k = i + koh.d(4, igw1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            j = i + kwk.d(8, d);
         }
-        return j;
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.d(9, e);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -80,81 +72,67 @@ public final class ihq extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (a == null)
+            case 40: // '('
+                a = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 50: // '2'
+                if (b == null)
                 {
-                    a = new ihm();
+                    b = new ijl();
                 }
-                kog1.a(a);
+                kwj1.a(b);
                 break;
 
-            case 18: // '\022'
-                b = kog1.j();
+            case 58: // ':'
+                if (c == null)
+                {
+                    c = new ijl();
+                }
+                kwj1.a(c);
                 break;
 
-            case 26: // '\032'
-                c = kog1.j();
-                break;
-
-            case 34: // '"'
-                int k = kou.b(kog1, 34);
-                igw aigw[];
-                int j;
+            case 66: // 'B'
                 if (d == null)
                 {
-                    j = 0;
-                } else
-                {
-                    j = d.length;
+                    d = new ijl();
                 }
-                aigw = new igw[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(d, 0, aigw, 0, j);
-                    k = j;
-                }
-                for (; k < aigw.length - 1; k++)
-                {
-                    aigw[k] = new igw();
-                    kog1.a(aigw[k]);
-                    kog1.a();
-                }
+                kwj1.a(d);
+                break;
 
-                aigw[k] = new igw();
-                kog1.a(aigw[k]);
-                d = aigw;
+            case 74: // 'J'
+                if (e == null)
+                {
+                    e = new ihj();
+                }
+                kwj1.a(e);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.a(5, a.booleanValue());
         }
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.b(6, b);
         }
         if (c != null)
         {
-            koh1.a(3, c);
+            kwk1.b(7, c);
         }
-        if (d != null && d.length > 0)
+        if (d != null)
         {
-            for (int i = 0; i < d.length; i++)
-            {
-                igw igw1 = d[i];
-                if (igw1 != null)
-                {
-                    koh1.b(4, igw1);
-                }
-            }
-
+            kwk1.b(8, d);
         }
-        super.writeTo(koh1);
+        if (e != null)
+        {
+            kwk1.b(9, e);
+        }
+        super.writeTo(kwk1);
     }
 }

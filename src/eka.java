@@ -2,12 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import android.graphics.Bitmap;
+import android.net.Uri;
 
 public interface eka
 {
 
-    public abstract void a(int i);
-
-    public abstract void a_(Bundle bundle);
+    public abstract void a(Uri uri, Bitmap bitmap);
 }

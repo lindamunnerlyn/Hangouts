@@ -3,7 +3,7 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class aff extends afb
+public class aff extends afd
 {
 
     public aff()

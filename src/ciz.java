@@ -2,30 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.sqlite.SQLiteDatabase;
-import android.os.AsyncTask;
-import com.google.android.apps.hangouts.phone.ApnSettingsActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 
-public final class ciz extends AsyncTask
+final class ciz
+    implements TextWatcher
 {
 
-    final String a;
-    final ApnSettingsActivity b;
+    final cix a;
 
-    public ciz(ApnSettingsActivity apnsettingsactivity, String s)
+    ciz(cix cix1)
     {
-        b = apnsettingsactivity;
-        a = s;
+        a = cix1;
         super();
     }
 
-    protected Object doInBackground(Object aobj[])
+    public void afterTextChanged(Editable editable)
     {
-        ApnSettingsActivity.a(b).update("apn", ApnSettingsActivity.b(), "current =?", ApnSettingsActivity.c());
-        aobj = a;
-        ApnSettingsActivity.a(b).update("apn", ApnSettingsActivity.d(), "_id =?", new String[] {
-            aobj
-        });
-        return null;
+    }
+
+    public void beforeTextChanged(CharSequence charsequence, int i, int j, int k)
+    {
+    }
+
+    public void onTextChanged(CharSequence charsequence, int i, int j, int k)
+    {
+        if (bej.a(cix.a(a), charsequence))
+        {
+            cix.b(a).setText("");
+            cix.c(a).a("");
+            return;
+        } else
+        {
+            cix.c(a).a(charsequence.toString());
+            return;
+        }
     }
 }

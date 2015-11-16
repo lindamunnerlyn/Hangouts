@@ -4,20 +4,20 @@
 
 package com.google.android.libraries.hangouts.video;
 
-import gbh;
-import gda;
-import gki;
+import gdv;
+import gfo;
+import gnk;
 
 // Referenced classes of package com.google.android.libraries.hangouts.video:
 //            RendererManager
 
 public final class LibjingleSoftwareEncoder
-    implements gda
+    implements gfo
 {
 
     private final RendererManager a;
     private int b;
-    private gki c;
+    private gnk c;
     private boolean d;
     private int e;
     private boolean f;
@@ -39,36 +39,36 @@ public final class LibjingleSoftwareEncoder
     {
         if (b == -1)
         {
-            gbh.a("Asked to setResolution without first calling initializeGLContext.");
+            gdv.a("Asked to setResolution without first calling initializeGLContext.");
         } else
         {
-            gki gki1 = new gki(i, j);
+            gnk gnk1 = new gnk(i, j);
             Object obj;
             if (flag)
             {
-                obj = new gki(i & -8, j & -2);
+                obj = new gnk(i & -8, j & -2);
             } else
             if (i * j >= 0x7e900)
             {
-                obj = new gki(i & 0xffffffc0, j & -8);
+                obj = new gnk(i & 0xffffffc0, j & -8);
             } else
             if (i * j >= 0x1fa40)
             {
-                obj = new gki(i & 0xffffffe0, j & -4);
+                obj = new gnk(i & 0xffffffe0, j & -4);
             } else
             {
-                obj = new gki(i & -8, j & -2);
+                obj = new gnk(i & -8, j & -2);
             }
-            if (c == null || !c.equals(gki1))
+            if (c == null || !c.equals(gnk1))
             {
-                c = gki1;
-                a.setIntParam(b, "sub_indims", gki1.a());
-                a.setIntParam(b, "sub_outdims", ((gki) (obj)).a());
+                c = gnk1;
+                a.setIntParam(b, "sub_indims", gnk1.a());
+                a.setIntParam(b, "sub_outdims", ((gnk) (obj)).a());
                 RendererManager renderermanager = a;
                 i = b;
-                j = gki1.a;
-                int k = ((gki) (obj)).a;
-                renderermanager.setIntParam(i, "sub_inclip", gki1.b - ((gki) (obj)).b | j - k << 16);
+                j = gnk1.a;
+                int k = ((gnk) (obj)).a;
+                renderermanager.setIntParam(i, "sub_inclip", gnk1.b - ((gnk) (obj)).b | j - k << 16);
             }
             if (d != flag)
             {
@@ -99,7 +99,7 @@ public final class LibjingleSoftwareEncoder
     {
         if (b == -1)
         {
-            gbh.a("Asked to encode a frame without first calling initializeGLContext.");
+            gdv.a("Asked to encode a frame without first calling initializeGLContext.");
             return false;
         }
         if (f != flag)

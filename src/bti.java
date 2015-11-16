@@ -2,31 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
 
 final class bti
-    implements bow
+    implements android.view.View.OnClickListener
 {
 
-    final bov a;
-    final btc b;
+    final gmt a;
+    final btf b;
 
-    bti(btc btc1, bov bov1)
+    bti(btf btf1, gmt gmt1)
     {
-        b = btc1;
-        a = bov1;
+        b = btf1;
+        a = gmt1;
         super();
     }
 
-    public void a(bpd bpd)
+    public void onClick(View view)
     {
-        a.b(btc.a(b, bpd));
-    }
-
-    public void a(gjr gjr1)
-    {
-        if (gjr1.g())
-        {
-            btc.b(b, a);
-        }
+        g.b(264);
+        b.a.c(a.a());
     }
 }

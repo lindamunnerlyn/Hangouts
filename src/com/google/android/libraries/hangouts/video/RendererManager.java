@@ -5,9 +5,9 @@
 package com.google.android.libraries.hangouts.video;
 
 import android.content.Context;
-import gbh;
-import gdp;
-import gey;
+import gdv;
+import ggd;
+import ghu;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -20,7 +20,7 @@ public final class RendererManager
 
     private static List b;
     private static final Object c = new Object();
-    private DecoderManager a;
+    private final DecoderManager a;
     private long mNativeContext;
 
     public RendererManager(Context context)
@@ -70,7 +70,7 @@ public final class RendererManager
         throw renderer;
     }
 
-    public static void c()
+    public static void d()
     {
         Object obj = c;
         obj;
@@ -95,13 +95,13 @@ public final class RendererManager
 
     int a(int i)
     {
-        gbh.a(i, 0, 3);
+        gdv.a(i, 0, 3);
         return nativeInstantiateRenderer(i);
     }
 
-    public RemoteRenderer a(gdp gdp, gey gey)
+    public RemoteRenderer a(ggd ggd, ghu ghu)
     {
-        return new RemoteRenderer(this, a, gdp, gey);
+        return new RemoteRenderer(this, a, ggd, ghu);
     }
 
     public void a()
@@ -119,7 +119,12 @@ public final class RendererManager
         throw exception;
     }
 
-    public long b()
+    public DecoderManager b()
+    {
+        return a;
+    }
+
+    public long c()
     {
         return mNativeContext;
     }

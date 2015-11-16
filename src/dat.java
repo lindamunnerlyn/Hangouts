@@ -2,54 +2,52 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Dialog;
-import android.content.Context;
-import android.widget.TextView;
 
-final class dat
+public class dat extends cxr
 {
 
-    boolean a;
-    boolean b;
-    String c;
-    private final Context d;
-    private final int e;
+    private static final long serialVersionUID = 2L;
 
-    dat(Context context, int i)
+    private dat(jcy jcy1)
     {
-        d = context;
-        e = i;
-    }
-
-    void a(Context context, android.content.DialogInterface.OnCancelListener oncancellistener)
-    {
-        if (b)
+        super(jcy1.responseHeader, -1L);
+        if (eev.a("Babel", 3))
         {
-            context = new Dialog(context);
-            context.requestWindowFeature(1);
-            context.setContentView(g.oH);
-            ((TextView)context.findViewById(g.oD)).setOnClickListener(new dau(context));
-            context.show();
-        } else
-        if (a)
-        {
-            oncancellistener = c;
-            String s = context.getString(g.oK, new Object[] {
-                "11"
-            });
-            context = new Dialog(context);
-            context.requestWindowFeature(1);
-            context.setContentView(g.oG);
-            ((TextView)context.findViewById(g.oF)).setText((new StringBuilder(String.valueOf(oncancellistener).length() + 2)).append("\"").append(oncancellistener).append("\"").toString());
-            ((TextView)context.findViewById(g.oE)).setText(s);
-            ((TextView)context.findViewById(g.oD)).setOnClickListener(new dav(context));
-            context.show();
-            return;
+            String s = String.valueOf("UploadAnalyticsResponse debugUrl: ");
+            jcy1 = String.valueOf(jcy1.responseHeader.c);
+            if (jcy1.length() != 0)
+            {
+                jcy1 = s.concat(jcy1);
+            } else
+            {
+                jcy1 = new String(s);
+            }
+            eev.d("Babel", jcy1);
         }
     }
 
-    boolean a()
+    public static cxr parseFrom(byte abyte0[])
     {
-        return !((ahl)hgx.a(d, ahl)).b(e) && (a || b);
+        abyte0 = (jcy)kws.mergeFrom(new jcy(), abyte0);
+        if (a(((jcy) (abyte0)).responseHeader))
+        {
+            return new cyd(((jcy) (abyte0)).responseHeader);
+        } else
+        {
+            return new dat(abyte0);
+        }
+    }
+
+    public void a(aow aow1, dgk dgk)
+    {
+        super.a(aow1, dgk);
+        if (eev.a("Babel", 3))
+        {
+            dgk = String.valueOf("processEventResponse response status: ");
+            int i = c.b;
+            String s = c.a;
+            eev.d("Babel", (new StringBuilder(String.valueOf(dgk).length() + 29 + String.valueOf(s).length())).append(dgk).append(i).append(" error description").append(s).toString());
+        }
+        dku.b(aow1.f().h()).a(3);
     }
 }

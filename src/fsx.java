@@ -3,11 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface fsx
-    extends emi
+final class fsx extends ThreadLocal
 {
 
-    public abstract fsz a();
+    fsx()
+    {
+    }
 
-    public abstract int b();
+    protected Object initialValue()
+    {
+        return new String[2];
+    }
 }

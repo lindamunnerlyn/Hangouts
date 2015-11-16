@@ -2,30 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 final class cih
-    implements Runnable
+    implements aik
 {
 
-    final List a;
-    final int b;
-    final cie c;
+    final cic a;
 
-    cih(cie cie1, List list, int i)
+    cih(cic cic1)
     {
-        c = cie1;
-        a = list;
-        b = i;
+        a = cic1;
         super();
     }
 
-    public void run()
+    public void a()
     {
-        ArrayList arraylist = new ArrayList();
-        for (Iterator iterator = a.iterator(); iterator.hasNext(); arraylist.add(new cic((String)iterator.next(), true))) { }
-        cie.a(c, b, arraylist);
+        if (cic.s(a))
+        {
+            cic.m(a).a("");
+        }
+    }
+
+    public void a(String s)
+    {
+        cic.t(a);
+        cic.e(a).a(s);
+        cic.a(a);
+        cic.u(a).a(s);
+        if (cic.e(a).d())
+        {
+            cic.v(a).a(s);
+        }
     }
 }

@@ -2,22 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
 
-final class akt
-    implements android.view.View.OnClickListener
+public interface akt
 {
 
-    final aks a;
+    public static final String a[] = {
+        "phone_number_e164", "is_default", "refreshed_at", "client_callerid_setting"
+    };
 
-    akt(aks aks1)
-    {
-        a = aks1;
-        super();
-    }
-
-    public void onClick(View view)
-    {
-        a.a.a(h.ho);
-    }
 }

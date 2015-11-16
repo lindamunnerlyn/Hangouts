@@ -2,64 +2,56 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.AbstractExecutorService;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
+import java.util.concurrent.RunnableFuture;
 
-public final class jzy extends koj
+public abstract class jzy extends AbstractExecutorService
+    implements kal
 {
-
-    public jzz a;
 
     public jzy()
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public kak a(Runnable runnable)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(2, a);
-        }
-        return i;
+        return (kak)super.submit(runnable);
     }
 
-    public kop mergeFrom(kog kog1)
+    public kak a(Runnable runnable, Object obj)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 18: // '\022'
-                if (a == null)
-                {
-                    a = new jzz();
-                }
-                kog1.a(a);
-                break;
-            }
-        } while (true);
+        return (kak)super.submit(runnable, obj);
     }
 
-    public void writeTo(koh koh1)
+    public kak a(Callable callable)
     {
-        if (a != null)
-        {
-            koh1.b(2, a);
-        }
-        super.writeTo(koh1);
+        return (kak)super.submit(callable);
+    }
+
+    protected final RunnableFuture newTaskFor(Runnable runnable, Object obj)
+    {
+        return kav.a(runnable, obj);
+    }
+
+    protected final RunnableFuture newTaskFor(Callable callable)
+    {
+        return kav.a(callable);
+    }
+
+    public Future submit(Runnable runnable)
+    {
+        return a(runnable);
+    }
+
+    public Future submit(Runnable runnable, Object obj)
+    {
+        return a(runnable, obj);
+    }
+
+    public Future submit(Callable callable)
+    {
+        return a(callable);
     }
 }

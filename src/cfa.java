@@ -3,38 +3,36 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class cfa extends Enum
+final class cfa
 {
 
-    public static final cfa a;
-    public static final cfa b;
-    public static final cfa c;
-    public static final cfa d;
-    private static final cfa e[];
-
-    private cfa(String s, int i)
-    {
-        super(s, i);
-    }
-
-    public static cfa valueOf(String s)
-    {
-        return (cfa)Enum.valueOf(cfa, s);
-    }
-
-    public static cfa[] values()
-    {
-        return (cfa[])e.clone();
-    }
+    static final int a[];
 
     static 
     {
-        a = new cfa("UNKNOWN", 0);
-        b = new cfa("PERSON", 1);
-        c = new cfa("CIRCLE", 2);
-        d = new cfa("PHONE", 3);
-        e = (new cfa[] {
-            a, b, c, d
-        });
+        a = new int[cfq.values().length];
+        try
+        {
+            a[cfq.a.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[cfq.c.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[cfq.d.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[cfq.b.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

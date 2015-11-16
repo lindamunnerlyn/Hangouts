@@ -2,23 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Trace;
 
-final class ecf extends ece
+public final class ecf
+    implements aqd
 {
 
-    ecf()
+    private static final jth a;
+    private final ahd b;
+
+    ecf(ahd ahd1)
     {
-        super((byte)0);
+        b = ahd1;
     }
 
-    void a()
+    public boolean a(int i, aqc aqc1)
     {
-        Trace.endSection();
+        boolean flag;
+        if (b.g(i) && a.contains(aqc1))
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        if (flag)
+        {
+            aqc1 = String.valueOf(aqc1);
+            eev.e("Babel", (new StringBuilder(String.valueOf(aqc1).length() + 25)).append("Unicorn blocked feature: ").append(aqc1).toString());
+        }
+        return flag;
     }
 
-    void a(String s)
+    static 
     {
-        Trace.beginSection(s);
+        a = jth.a(5, new Object[] {
+            aqc.a, aqc.b, aqc.c, aqc.d, aqc.e
+        });
     }
 }

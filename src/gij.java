@@ -7,19 +7,28 @@ final class gij
     implements Runnable
 {
 
-    final gih a;
+    final boolean a;
+    final int b;
+    final int c;
+    final int d;
+    final int e;
+    final gie f;
 
-    gij(gih gih1)
+    gij(gie gie1, boolean flag, int i, int j, int k, int l)
     {
-        a = gih1;
+        f = gie1;
+        a = flag;
+        b = i;
+        c = j;
+        d = k;
+        e = l;
         super();
     }
 
     public void run()
     {
-        if (a.l == null)
-        {
-            gkc.e("vclib", "A camera error occurred while no callback was registered");
-        }
+        f.m = a;
+        f.i = new gnk(b, c);
+        f.a(new gnk(d, e));
     }
 }

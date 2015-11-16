@@ -3,11 +3,24 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class jng extends jnb
+final class jng extends jnf
 {
 
-    jng(String s)
+    static final jng o = new jng();
+
+    private jng()
     {
-        super(s, 4);
+        super("CharMatcher.none()");
     }
+
+    public String a(CharSequence charsequence)
+    {
+        return charsequence.toString();
+    }
+
+    public boolean b(char c)
+    {
+        return false;
+    }
+
 }

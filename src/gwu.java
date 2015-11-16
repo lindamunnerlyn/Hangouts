@@ -3,20 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gwu
-    implements Runnable
+public interface gwu
 {
 
-    final gwt a;
-
-    gwu(gwt gwt1)
-    {
-        a = gwt1;
-        super();
-    }
-
-    public void run()
-    {
-        gwt.d(a);
-    }
+    public abstract long a();
 }

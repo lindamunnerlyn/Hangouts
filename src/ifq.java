@@ -3,12 +3,12 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ifq extends koj
+public final class ifq extends kwm
 {
 
-    public String a;
-    public ifr b;
-    public Integer c;
+    public Float a;
+    public Float b;
+    public Float c;
 
     public ifq()
     {
@@ -25,30 +25,33 @@ public final class ifq extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            a.floatValue();
+            i = j + (kwk.f(1) + 4);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.d(2, b);
+            b.floatValue();
+            j = i + (kwk.f(2) + 4);
         }
         i = j;
         if (c != null)
         {
-            i = j + koh.e(3, c.intValue());
+            c.floatValue();
+            i = j + (kwk.f(3) + 4);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -57,39 +60,35 @@ public final class ifq extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                a = kog1.j();
+            case 13: // '\r'
+                a = Float.valueOf(kwj1.c());
                 break;
 
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new ifr();
-                }
-                kog1.a(b);
+            case 21: // '\025'
+                b = Float.valueOf(kwj1.c());
                 break;
 
-            case 24: // '\030'
-                c = Integer.valueOf(kog1.f());
+            case 29: // '\035'
+                c = Float.valueOf(kwj1.c());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(1, a.floatValue());
         }
         if (b != null)
         {
-            koh1.b(2, b);
+            kwk1.a(2, b.floatValue());
         }
         if (c != null)
         {
-            koh1.a(3, c.intValue());
+            kwk1.a(3, c.floatValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

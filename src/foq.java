@@ -2,87 +2,112 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Parcel;
+import com.google.android.gms.maps.StreetViewPanoramaOptions;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.StreetViewPanoramaCamera;
 
 public final class foq
-    implements fqt
+    implements android.os.Parcelable.Creator
 {
 
-    private final String b;
-    private final String c;
-    private final double d;
-    private final double e;
-    private final double f;
-    private final double g;
-    private final double h;
-    private final String i;
-    private final String j;
-    private final String k;
-    private final String l;
-    private final String m;
-
-    public foq(String s, String s1)
+    public foq()
     {
-        this(s, s1, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D, null, null, null, null, null);
     }
 
-    public foq(String s, String s1, double d1, double d2, double d3, double d4, double d5, String s2, String s3, 
-            String s4, String s5, String s6)
+    public static StreetViewPanoramaOptions a(Parcel parcel)
     {
-        b = s;
-        c = s1;
-        d = d1;
-        e = d2;
-        f = d3;
-        g = d4;
-        h = d5;
-        i = s2;
-        j = s3;
-        k = s4;
-        l = s5;
-        m = s6;
+        byte byte0 = 0;
+        int j = g.a(parcel);
+        byte byte1 = 0;
+        byte byte2 = 0;
+        byte byte3 = 0;
+        byte byte4 = 0;
+        Integer integer = null;
+        LatLng latlng = null;
+        String s = null;
+        StreetViewPanoramaCamera streetviewpanoramacamera = null;
+        int i = 0;
+        do
+        {
+            if (parcel.dataPosition() < j)
+            {
+                int k = parcel.readInt();
+                switch (0xffff & k)
+                {
+                default:
+                    g.b(parcel, k);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, k);
+                    break;
+
+                case 2: // '\002'
+                    streetviewpanoramacamera = (StreetViewPanoramaCamera)g.a(parcel, k, StreetViewPanoramaCamera.CREATOR);
+                    break;
+
+                case 3: // '\003'
+                    s = g.i(parcel, k);
+                    break;
+
+                case 4: // '\004'
+                    latlng = (LatLng)g.a(parcel, k, LatLng.CREATOR);
+                    break;
+
+                case 5: // '\005'
+                    k = g.a(parcel, k);
+                    if (k == 0)
+                    {
+                        integer = null;
+                    } else
+                    {
+                        if (k != 4)
+                        {
+                            throw new af((new StringBuilder("Expected size 4")).append(" got ").append(k).append(" (0x").append(Integer.toHexString(k)).append(")").toString(), parcel);
+                        }
+                        integer = Integer.valueOf(parcel.readInt());
+                    }
+                    break;
+
+                case 6: // '\006'
+                    byte4 = g.d(parcel, k);
+                    break;
+
+                case 7: // '\007'
+                    byte3 = g.d(parcel, k);
+                    break;
+
+                case 8: // '\b'
+                    byte2 = g.d(parcel, k);
+                    break;
+
+                case 9: // '\t'
+                    byte1 = g.d(parcel, k);
+                    break;
+
+                case 10: // '\n'
+                    byte0 = g.d(parcel, k);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != j)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
+            } else
+            {
+                return new StreetViewPanoramaOptions(i, streetviewpanoramacamera, s, latlng, integer, byte4, byte3, byte2, byte1, byte0);
+            }
+        } while (true);
     }
 
-    public String a()
+    public Object createFromParcel(Parcel parcel)
     {
-        return b;
+        return a(parcel);
     }
 
-    public String b()
+    public Object[] newArray(int i)
     {
-        return c;
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (obj instanceof foq)
-        {
-            obj = (foq)obj;
-            return g.a(c, ((foq) (obj)).c);
-        } else
-        {
-            return false;
-        }
-    }
-
-    public String toString()
-    {
-        StringBuilder stringbuilder = new StringBuilder("EmailAddress:[Value=");
-        String s;
-        if (c != null)
-        {
-            s = c;
-        } else
-        {
-            s = "null";
-        }
-        stringbuilder = stringbuilder.append(s).append(" Type=");
-        if (b != null)
-        {
-            s = b;
-        } else
-        {
-            s = "null";
-        }
-        return stringbuilder.append(s).append(" a1=").append(d).append(",").append(i).append(" a2=").append(e).append(",").append(j).append(" a3=").append(f).append(",").append(k).append(" a4=").append(g).append(",").append(l).append(" a5=").append(h).append(",").append(m).append("]").toString();
+        return new StreetViewPanoramaOptions[i];
     }
 }

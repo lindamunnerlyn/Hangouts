@@ -7,7 +7,7 @@ import java.util.List;
 public interface hbw
 {
 
-    public abstract hbw a(int i, hcf hcf);
+    public abstract void a(List list);
 
-    public abstract void a(hce hce, int i, List list);
+    public abstract boolean a(String s);
 }

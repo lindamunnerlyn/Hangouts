@@ -2,17 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.graphics.Bitmap;
+import android.os.IInterface;
+import com.google.android.gms.googlehelp.GoogleHelp;
 
-final class fec extends fdz
+public interface fec
+    extends IInterface
 {
 
-    fec(String s, String s1)
-    {
-        super(s, s1);
-    }
+    public abstract void a(Bitmap bitmap, fdz fdz);
 
-    protected Object c()
-    {
-        return fdz.a.n();
-    }
+    public abstract void a(GoogleHelp googlehelp, Bitmap bitmap, fdz fdz);
+
+    public abstract void a(GoogleHelp googlehelp, fdz fdz);
+
+    public abstract void a(fdz fdz);
+
+    public abstract void b(fdz fdz);
+
+    public abstract void c(fdz fdz);
 }

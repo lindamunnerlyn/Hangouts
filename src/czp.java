@@ -3,47 +3,35 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class czp extends ctp
+public class czp extends cyc
 {
 
-    private final int a;
-    private final String b;
-    private final boolean r;
-    private final int s;
+    private static final long serialVersionUID = 1L;
 
-    public czp(ani ani1, String s1, boolean flag, int i)
+    private czp(jde jde1)
     {
-        super(hdx.newBuilder().a(ani1.a()).b(ani1.ae()).a().b(), null, "conversations/setfocus", "hangouts", new iyc(), new iyd());
-        b = s1;
-        r = flag;
-        if (i <= 0)
+        super(jde1.responseHeader, g.a(jde1.a.c, 0L), g.a(jde1.a.n, 0L), jde1.a.d);
+        if (cxr.a)
         {
-            i = 300;
+            jde1 = String.valueOf(jde1);
+            eev.b("Babel_protos", (new StringBuilder(String.valueOf(jde1).length() + 32)).append("RenameConversationResponse from:").append(jde1).toString());
         }
-        s = i;
-        a = ani1.h();
     }
 
-    protected cvn a(kop kop)
+    public static cxr parseFrom(byte abyte0[])
     {
-        return cyc.parseFrom((iyd)kop);
-    }
-
-    protected void b(kop kop)
-    {
-        kop = (iyc)kop;
-        kop.requestHeader = a((new cru()).a(a).b());
-        kop.a = ctq.a(b);
-        int i;
-        if (r)
+        abyte0 = (jde)kws.mergeFrom(new jde(), abyte0);
+        if (a(((jde) (abyte0)).responseHeader))
         {
-            i = 1;
+            return new cyd(((jde) (abyte0)).responseHeader);
         } else
         {
-            i = 2;
+            return new czp(abyte0);
         }
-        kop.b = Integer.valueOf(i);
-        kop.d = Boolean.valueOf(true);
-        kop.c = Integer.valueOf(s);
+    }
+
+    public void a(aow aow, dgk dgk)
+    {
+        super.a(aow, dgk);
     }
 }

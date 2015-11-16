@@ -3,25 +3,28 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gww
-    implements Runnable
+public final class gww
+    implements joj
 {
 
-    final gwt a;
-    final gxe b;
-    final gwv c;
+    private final gwv a;
+    private final joj b;
 
-    gww(gwv gwv1, gwt gwt1, gxe gxe)
+    public gww(gwv gwv, joj joj1)
     {
-        c = gwv1;
-        a = gwt1;
-        b = gxe;
-        super();
+        a = gwv;
+        b = joj1;
     }
 
-    public void run()
+    public Object a()
     {
-        gwt.b(c.c).a(gwt.a(c.c).t_(), b, c.c.a);
-        gwt.c(c.c);
+        gwq gwq1 = (gwq)b.a();
+        if (gwq1 == null)
+        {
+            throw new NullPointerException("Cannot return null from a non-@Nullable @Provides method");
+        } else
+        {
+            return gwq1;
+        }
     }
 }

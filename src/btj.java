@@ -4,29 +4,36 @@
 
 
 final class btj
-    implements bow
+    implements bpf
 {
 
-    final bov a;
-    final btc b;
+    final bpe a;
+    final btf b;
 
-    btj(btc btc1, bov bov1)
+    btj(btf btf, bpe bpe1)
     {
-        b = btc1;
-        a = bov1;
+        b = btf;
+        a = bpe1;
         super();
     }
 
-    public void a(bpd bpd)
+    public void a(bpm bpm)
     {
-        a.b(btc.b(b, bpd));
-        if (a.b())
-        {
-            btc.a(b, a, bpd);
-        }
     }
 
-    public void a(gjr gjr)
+    public void a(gmt gmt1)
     {
+        boolean flag;
+        if (!gmt1.d())
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        if (a.a() != flag)
+        {
+            a.a(flag);
+        }
     }
 }

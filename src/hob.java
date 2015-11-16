@@ -2,14 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.InputStream;
-import java.lang.reflect.Type;
-import java.nio.charset.Charset;
 
-public interface hob
+final class hob
+    implements hok
 {
 
-    public abstract Object parseAndClose(InputStream inputstream, Charset charset, Class class1);
+    final boolean a;
+    final hny b;
 
-    public abstract Object parseAndClose(InputStream inputstream, Charset charset, Type type);
+    hob(hny hny1, boolean flag)
+    {
+        b = hny1;
+        a = flag;
+        super();
+    }
+
+    public void a(hoy hoy)
+    {
+        hny.a(hoy, a);
+    }
 }

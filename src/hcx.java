@@ -2,11 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public class hcx
+final class hcx extends guy
 {
 
-    public hcx()
+    private final int a;
+    private final hda b;
+
+    hcx(String s, int i, hda hda1)
     {
+        super(s);
+        a = i;
+        b = hda1;
+    }
+
+    protected gvv a(Context context)
+    {
+        b.a(a);
+        return new gvv(true);
     }
 }

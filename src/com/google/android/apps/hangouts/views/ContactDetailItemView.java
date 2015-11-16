@@ -13,11 +13,11 @@ import android.text.style.StyleSpan;
 import android.util.AttributeSet;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.TextView;
-import bhk;
-import bhl;
-import bhm;
-import bho;
-import ebw;
+import bhw;
+import bhx;
+import bhy;
+import bia;
+import eev;
 import g;
 import gf;
 import gq;
@@ -48,13 +48,13 @@ public class ContactDetailItemView extends TextView
         if (!a)
         {
             context = context.getApplicationContext().getResources();
-            b = context.getString(l.s);
-            c = context.getString(l.u);
-            d = context.getString(l.v);
-            e = context.getString(l.t);
-            f = context.getString(l.w);
+            b = context.getString(l.p);
+            c = context.getString(l.r);
+            d = context.getString(l.s);
+            e = context.getString(l.q);
+            f = context.getString(l.t);
             g = new StyleSpan(1);
-            h = new ForegroundColorSpan(context.getColor(g.dn));
+            h = new ForegroundColorSpan(context.getColor(g.dm));
             i = (AccessibilityManager)getContext().getSystemService("accessibility");
             a = true;
         }
@@ -83,26 +83,26 @@ public class ContactDetailItemView extends TextView
         }
     }
 
-    public void a(bhl bhl, String s)
+    public void a(bhx bhx, String s)
     {
-        if (bhl instanceof bhm)
+        if (bhx instanceof bhy)
         {
-            a(((bhm)bhl).a, s);
+            a(((bhy)bhx).a, s);
             return;
         }
-        if (bhl instanceof bho)
+        if (bhx instanceof bia)
         {
-            bhl = (bho)bhl;
-            a(gf.a().a(bhl.a(), gq.a), s);
+            bhx = (bia)bhx;
+            a(gf.a().a(bhx.a(), gq.a), s);
             return;
         }
-        if (bhl instanceof bhk)
+        if (bhx instanceof bhw)
         {
-            a(((bhk)bhl).a(), null);
+            a(((bhw)bhx).a(), null);
             return;
         } else
         {
-            ebw.g("Babel", "Invalid contact detail item");
+            eev.g("Babel", "Invalid contact detail item");
             return;
         }
     }

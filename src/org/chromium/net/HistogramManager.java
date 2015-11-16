@@ -8,7 +8,7 @@ package org.chromium.net;
 public class HistogramManager
 {
 
-    public HistogramManager()
+    HistogramManager()
     {
     }
 }

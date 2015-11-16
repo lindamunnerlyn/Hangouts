@@ -2,20 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.wearable.WearableService;
 
-final class eko extends elk
+public final class eko
 {
 
-    final ekn a;
+    final WearableService a;
 
-    eko(ekn ekn1, elo elo)
+    public eko(WearableService wearableservice)
     {
-        a = ekn1;
-        super(elo);
+        a = wearableservice;
+        super();
     }
 
-    public void a()
+    public void a(aoa aoa1, String s, String s1, aqs aqs)
     {
-        a.a(1);
+        aoa1 = new aqn((new edq(eep.a(s1), aoa1.a())).a(aon.a()).b(true).d(true), aqs, false, s);
+        ((dpn)hlp.a(a.getApplicationContext(), dpn)).a(aoa1);
     }
 }

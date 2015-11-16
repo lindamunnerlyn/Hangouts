@@ -2,11 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcelable;
+import android.app.Activity;
 
-public interface gwl
-    extends Parcelable
+final class gwl
+    implements hmd
 {
 
-    public abstract boolean a(int i, gmu gmu);
+    gwl()
+    {
+    }
+
+    public Class a()
+    {
+        return gwk;
+    }
+
+    public void a(Activity activity, hof hof, hlp hlp1)
+    {
+        hlp1.a(gwk, new gwk(hof));
+    }
 }

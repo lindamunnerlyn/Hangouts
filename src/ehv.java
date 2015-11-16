@@ -2,122 +2,81 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentResolver;
-import android.util.Log;
-import java.util.ArrayList;
-import java.util.Arrays;
+import android.content.Context;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.List;
 
-public final class ehv
+public final class ehv extends ay
 {
 
-    private static final Pattern a = Pattern.compile(" +");
-    private static final Pattern b = Pattern.compile("\\W");
-    private static ehv c = new ehv(new ehw[0]);
-    private static Object d;
-    private final ehw e[];
-    private final Pattern f;
+    private final int a;
+    private final int b = 2;
+    private final Context c;
+    private final List d;
 
-    private ehv(ehw aehw[])
+    public ehv(ap ap, Context context, int i, List list)
     {
-        Arrays.sort(aehw);
-        StringBuilder stringbuilder = new StringBuilder("(");
-        for (int i = 0; i < aehw.length; i++)
+        super(ap);
+        c = context;
+        d = list;
+        a = i;
+    }
+
+    public int a(ehu ehu1)
+    {
+        return d.indexOf(ehu1);
+    }
+
+    public int a(String s)
+    {
+        for (int i = d.size() - 1; i >= 0; i--)
         {
-            if (i > 0)
+            if (((ehu)d.get(i)).d.equals(s))
             {
-                stringbuilder.append(")|(");
+                return i;
             }
-            stringbuilder.append(b.matcher(aehw[i].b).replaceAll("\\\\$0"));
         }
 
-        f = Pattern.compile(stringbuilder.append(")").toString());
-        e = aehw;
+        return -1;
     }
 
-    public static ehv a(ContentResolver contentresolver)
+    public ad a(int i)
     {
-        ehv;
-        JVM INSTR monitorenter ;
-        Object obj = fwz.a(contentresolver);
-        if (obj != d) goto _L2; else goto _L1
-_L1:
-        if (Log.isLoggable("UrlRules", 2))
-        {
-            (new StringBuilder("Using cached rules, versionToken: ")).append(obj);
-        }
-        contentresolver = c;
-_L6:
-        ehv;
-        JVM INSTR monitorexit ;
-        return contentresolver;
-_L2:
-        Object obj1;
-        obj1 = fwz.a(contentresolver, new String[] {
-            "url:"
-        });
-        contentresolver = new ArrayList();
-        obj1 = ((Map) (obj1)).entrySet().iterator();
-_L4:
-        Object obj2;
-        if (!((Iterator) (obj1)).hasNext())
-        {
-            break MISSING_BLOCK_LABEL_211;
-        }
-        obj2 = (java.util.Map.Entry)((Iterator) (obj1)).next();
-        String s;
-        s = ((String)((java.util.Map.Entry) (obj2)).getKey()).substring(4);
-        obj2 = (String)((java.util.Map.Entry) (obj2)).getValue();
-        if (obj2 == null) goto _L4; else goto _L3
-_L3:
-        if (((String) (obj2)).length() == 0) goto _L4; else goto _L5
-_L5:
-        if (Log.isLoggable("UrlRules", 2))
-        {
-            (new StringBuilder("  Rule ")).append(s).append(": ").append(((String) (obj2)));
-        }
-        contentresolver.add(new ehw(s, ((String) (obj2))));
-          goto _L4
-        ehx ehx1;
-        ehx1;
-        Log.e("UrlRules", "Invalid rule from Gservices", ehx1);
-          goto _L4
-        contentresolver;
-        throw contentresolver;
-        c = new ehv((ehw[])contentresolver.toArray(new ehw[contentresolver.size()]));
-        d = obj;
-        if (Log.isLoggable("UrlRules", 2))
-        {
-            (new StringBuilder("New rules stored, versionToken: ")).append(obj);
-        }
-        contentresolver = c;
-          goto _L6
+        ehu ehu1 = d(i);
+        return ad.instantiate(c, ehu1.e.getName());
     }
 
-    static Pattern a()
+    public boolean a(Class class1)
     {
-        return a;
-    }
-
-    public ehw a(String s)
-    {
-        s = f.matcher(s);
-        if (s.lookingAt())
+        for (Iterator iterator = d.iterator(); iterator.hasNext();)
         {
-            for (int i = 0; i < e.length; i++)
+            if (class1.equals(((ehu)iterator.next()).e))
             {
-                if (s.group(i + 1) != null)
-                {
-                    return e[i];
-                }
+                return true;
             }
-
         }
-        return ehw.e;
+
+        return false;
     }
 
+    public int b()
+    {
+        return d.size();
+    }
+
+    public long b(int i)
+    {
+        return (long)(a * b + i);
+    }
+
+    public CharSequence c(int i)
+    {
+        ehu ehu1 = d(i);
+        return c.getString(ehu1.a);
+    }
+
+    public ehu d(int i)
+    {
+        return (ehu)d.get(i);
+    }
 }

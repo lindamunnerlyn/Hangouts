@@ -3,8 +3,24 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gsb
+final class gsb
+    implements gsc
 {
 
-    public abstract boolean a();
+    boolean a;
+
+    gsb(boolean flag)
+    {
+        a = flag;
+    }
+
+    public Object a(Object obj)
+    {
+        return Boolean.valueOf(a);
+    }
+
+    public void a(android.content.SharedPreferences.Editor editor, String s)
+    {
+        editor.putBoolean(s, a);
+    }
 }

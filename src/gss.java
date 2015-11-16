@@ -3,15 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gss extends ThreadLocal
+public interface gss
 {
 
-    gss()
-    {
-    }
-
-    protected Object initialValue()
-    {
-        return new String[3];
-    }
+    public abstract void a();
 }

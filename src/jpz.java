@@ -2,109 +2,87 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ListIterator;
+import com.google.common.cache.LocalCache;
+import java.lang.ref.ReferenceQueue;
 
-final class jpz extends jlk
+public final class jpz extends jqa
 {
 
-    private final transient int b;
-    private final transient int c;
-    private final transient Object d[];
+    volatile long a;
+    com.google.common.cache.LocalCache.ReferenceEntry b;
+    com.google.common.cache.LocalCache.ReferenceEntry c;
+    volatile long d;
+    com.google.common.cache.LocalCache.ReferenceEntry e;
+    com.google.common.cache.LocalCache.ReferenceEntry f;
 
-    jpz(Object aobj[])
+    jpz(ReferenceQueue referencequeue, Object obj, int i, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        this(aobj, 0, aobj.length);
+        super(referencequeue, obj, i, referenceentry);
+        a = 0x7fffffffffffffffL;
+        b = LocalCache.j();
+        c = LocalCache.j();
+        d = 0x7fffffffffffffffL;
+        e = LocalCache.j();
+        f = LocalCache.j();
     }
 
-    private jpz(Object aobj[], int i, int j)
+    public long getAccessTime()
     {
-        b = i;
-        c = j;
-        d = aobj;
+        return a;
     }
 
-    int a(Object aobj[], int i)
+    public com.google.common.cache.LocalCache.ReferenceEntry getNextInAccessQueue()
     {
-        System.arraycopy(((Object) (d)), b, ((Object) (aobj)), i, c);
-        return c + i;
+        return b;
     }
 
-    public jqz a(int i)
+    public com.google.common.cache.LocalCache.ReferenceEntry getNextInWriteQueue()
     {
-        return jmr.a(d, b, c, i);
+        return e;
     }
 
-    jlk b(int i, int j)
-    {
-        return new jpz(d, b + i, j - i);
-    }
-
-    boolean e()
-    {
-        return c != d.length;
-    }
-
-    public Object get(int i)
-    {
-        n.a(i, c);
-        return d[b + i];
-    }
-
-    public int indexOf(Object obj)
-    {
-        if (obj != null) goto _L2; else goto _L1
-_L1:
-        int j = -1;
-_L4:
-        return j;
-_L2:
-        int i = 0;
-label0:
-        do
-        {
-label1:
-            {
-                if (i >= c)
-                {
-                    break label1;
-                }
-                j = i;
-                if (d[b + i].equals(obj))
-                {
-                    break label0;
-                }
-                i++;
-            }
-        } while (true);
-        if (true) goto _L4; else goto _L3
-_L3:
-        return -1;
-    }
-
-    public int lastIndexOf(Object obj)
-    {
-        if (obj != null)
-        {
-            int i = c - 1;
-            while (i >= 0) 
-            {
-                if (d[b + i].equals(obj))
-                {
-                    return i;
-                }
-                i--;
-            }
-        }
-        return -1;
-    }
-
-    public ListIterator listIterator(int i)
-    {
-        return a(i);
-    }
-
-    public int size()
+    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInAccessQueue()
     {
         return c;
+    }
+
+    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInWriteQueue()
+    {
+        return f;
+    }
+
+    public long getWriteTime()
+    {
+        return d;
+    }
+
+    public void setAccessTime(long l)
+    {
+        a = l;
+    }
+
+    public void setNextInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        b = referenceentry;
+    }
+
+    public void setNextInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        e = referenceentry;
+    }
+
+    public void setPreviousInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        c = referenceentry;
+    }
+
+    public void setPreviousInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        f = referenceentry;
+    }
+
+    public void setWriteTime(long l)
+    {
+        d = l;
     }
 }

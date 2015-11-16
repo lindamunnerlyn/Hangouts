@@ -2,66 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.MotionEvent;
+import android.view.View;
 
 final class axn
-    implements efc
+    implements android.view.View.OnTouchListener
 {
 
-    final ave a;
-    private boolean b;
-    private int c;
+    final axm a;
 
-    axn(ave ave1)
+    axn(axm axm1)
     {
-        a = ave1;
+        a = axm1;
         super();
-        b = false;
-        c = 0;
     }
 
-    public void a()
+    public boolean onTouch(View view, MotionEvent motionevent)
     {
-        b = true;
-        c = c + 1;
-        em em1;
-        if (a.getActivity() != null)
-        {
-            if ((em1 = a.getLoaderManager().b(2)) != null)
-            {
-                if (ave.W())
-                {
-                    ebw.b("Conv", "[ConversationFragment] startBlocking: stop loading");
-                }
-                em1.v();
-                return;
-            }
-        }
-    }
-
-    public void b()
-    {
-        c = c - 1;
-        if (c <= 0)
-        {
-            b = false;
-            if (a.getActivity() != null)
-            {
-                em em1 = a.getLoaderManager().b(2);
-                if (em1 != null)
-                {
-                    if (ave.W())
-                    {
-                        ebw.b("Conv", "[ConversationFragment] endBlocking: restart loading");
-                    }
-                    em1.s();
-                    return;
-                }
-            }
-        }
-    }
-
-    public boolean c()
-    {
-        return b;
+        a.a.Q();
+        return false;
     }
 }

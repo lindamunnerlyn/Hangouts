@@ -2,22 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Set;
+import android.content.Intent;
 
-final class elf
-    implements elm
+public class elf extends elc
 {
 
-    final ele a;
+    private final Intent a;
 
-    elf(ele ele1)
+    public elf(String s, Intent intent)
     {
-        a = ele1;
-        super();
+        super(s);
+        a = intent;
     }
 
-    public void a(eln eln)
+    public Intent b()
     {
-        a.l.remove(eln);
+        if (a == null)
+        {
+            return null;
+        } else
+        {
+            return new Intent(a);
+        }
     }
 }

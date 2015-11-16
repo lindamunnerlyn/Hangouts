@@ -3,11 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface eme
-    extends ekf, Iterable
+final class eme
+    implements enf
 {
 
-    public abstract int a();
+    final ely a;
 
-    public abstract Object a(int i);
+    eme(ely ely1)
+    {
+        a = ely1;
+        super();
+    }
+
+    public void a()
+    {
+        ely.a().b();
+    }
 }

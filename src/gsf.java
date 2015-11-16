@@ -3,10 +3,24 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gsf
+final class gsf
+    implements gsc
 {
 
-    public gsf()
+    long a;
+
+    gsf(long l)
     {
+        a = l;
+    }
+
+    public Object a(Object obj)
+    {
+        return Long.valueOf(a);
+    }
+
+    public void a(android.content.SharedPreferences.Editor editor, String s)
+    {
+        editor.putLong(s, a);
     }
 }

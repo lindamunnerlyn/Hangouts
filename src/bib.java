@@ -2,16 +2,69 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Handler;
+import java.util.Random;
 
-public interface bib
+public abstract class bib extends bkj
+    implements ara, eic
 {
 
-    public static final String a[] = {
-        "_id", "conversation_id", "notification_level", "conversation_type", "sort_timestamp", "latest_message_expiration_timestamp", "name", "generated_name", "snippet_type", "snippet_text", 
-        "snippet_author_gaia_id", "snippet_author_chat_id", "snippet_image_url", "latest_message_author_first_name", "status", "view", "inviter_gaia_id", "inviter_chat_id", "inviter_full_name", "invite_time_aggregate", 
-        "inviter_profile_photo_url", "packed_avatar_urls", "row_count", "call_media_type", "inviter_aggregate", "draft", "has_unread", "inviter_affinity", "failed_message_count", "self_watermark", 
-        "snippet_status", "draft_subject", "draft_attachment_url", "draft_photo_rotation", "draft_picasa_id", "draft_content_type", "transport_type", "latest_message_author_full_name", "blocked", "previous_latest_timestamp", 
-        "snippet_new_conversation_name", "snippet_participant_keys", "snippet_selector", "snippet_sms_type", "chat_ringtone_uri", "hangout_ringtone_uri", "snippet_voicemail_duration", "otr_status"
-    };
+    public static final Random e = new Random();
+
+    public bib()
+    {
+    }
+
+    public static boolean a(dsu dsu1)
+    {
+        switch (bic.a[dsu1.ordinal()])
+        {
+        default:
+            return false;
+
+        case 1: // '\001'
+            return true;
+        }
+    }
+
+    public abstract void D();
+
+    public abstract void E();
+
+    public abstract void H();
+
+    public abstract boolean I();
+
+    public abstract cfz M();
+
+    public abstract String O();
+
+    public abstract int R();
+
+    public abstract Handler T();
+
+    public abstract aoa a();
+
+    public abstract void a(bid bid);
+
+    public abstract void a(CharSequence charsequence);
+
+    public abstract boolean a(long l);
+
+    public abstract void c(int i);
+
+    public abstract void c(long l);
+
+    public abstract String d(cgd cgd);
+
+    public abstract void d(String s);
+
+    public abstract String e(cgd cgd);
+
+    public abstract String f(cgd cgd);
+
+    public abstract String g(cgd cgd);
+
+    public abstract boolean v();
 
 }

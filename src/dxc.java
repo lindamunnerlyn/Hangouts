@@ -3,11 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class dxc extends Exception
+interface dxc
 {
 
-    dxc()
-    {
-        super("Request timed out");
-    }
+    public abstract void a(dxd dxd);
 }

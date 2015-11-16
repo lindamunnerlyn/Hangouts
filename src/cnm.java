@@ -2,22 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
+import android.os.Environment;
+import java.io.File;
 
 final class cnm
-    implements cns
+    implements Runnable
 {
 
-    final String a;
+    final cnl a;
 
-    cnm(String s)
+    cnm(cnl cnl)
     {
-        a = s;
+        a = cnl;
         super();
     }
 
-    public Iterator a(cnl cnl, CharSequence charsequence)
+    public void run()
     {
-        return new cnn(this, cnl, charsequence);
+        String s = String.valueOf(Environment.getExternalStorageDirectory());
+        dtb.a(new File((new StringBuilder(String.valueOf(s).length() + 16)).append(s).append("/testapns.xml.gz").toString()));
     }
 }

@@ -2,27 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.ContentObserver;
-import android.os.Handler;
+import android.support.v4.widget.ContentLoadingProgressBar;
 
-final class nz extends ContentObserver
+public final class nz
+    implements Runnable
 {
 
-    final ny a;
+    final ContentLoadingProgressBar a;
 
-    public nz(ny ny1)
+    public nz(ContentLoadingProgressBar contentloadingprogressbar)
     {
-        a = ny1;
-        super(new Handler());
+        a = contentloadingprogressbar;
+        super();
     }
 
-    public boolean deliverSelfNotifications()
+    public void run()
     {
-        return true;
-    }
-
-    public void onChange(boolean flag)
-    {
-        a.b();
+        a.c = false;
+        if (!a.d)
+        {
+            a.a = System.currentTimeMillis();
+            a.setVisibility(0);
+        }
     }
 }

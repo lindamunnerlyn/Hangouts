@@ -2,13 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import java.util.List;
 
 public interface gmx
 {
 
-    public abstract void a(Context context, gmw gmw);
+    public abstract void a(gmm gmm, gmy gmy);
 
-    public abstract void a(List list);
+    public abstract void g();
 }

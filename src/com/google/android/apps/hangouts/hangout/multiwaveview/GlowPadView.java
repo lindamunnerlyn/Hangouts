@@ -4,7 +4,7 @@
 
 package com.google.android.apps.hangouts.hangout.multiwaveview;
 
-import ahj;
+import ahb;
 import android.animation.ObjectAnimator;
 import android.content.ComponentName;
 import android.content.Context;
@@ -21,7 +21,7 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.accessibility.AccessibilityManager;
-import ebr;
+import eep;
 import g;
 import java.util.ArrayList;
 
@@ -121,13 +121,13 @@ public class GlowPadView extends View
         mGravity = 48;
         mInitialLayout = true;
         Object obj = context.getResources();
-        TypedArray typedarray = context.obtainStyledAttributes(attributeset, ahj.A);
-        mInnerRadius = typedarray.getDimension(ahj.G, mInnerRadius);
-        mOuterRadius = typedarray.getDimension(ahj.H, mOuterRadius);
-        mSnapMargin = typedarray.getDimension(ahj.K, mSnapMargin);
-        mVibrationDuration = typedarray.getInt(ahj.N, mVibrationDuration);
-        mFeedbackCount = typedarray.getInt(ahj.D, mFeedbackCount);
-        TypedValue typedvalue = typedarray.peekValue(ahj.F);
+        TypedArray typedarray = context.obtainStyledAttributes(attributeset, ahb.A);
+        mInnerRadius = typedarray.getDimension(ahb.G, mInnerRadius);
+        mOuterRadius = typedarray.getDimension(ahb.H, mOuterRadius);
+        mSnapMargin = typedarray.getDimension(ahb.K, mSnapMargin);
+        mVibrationDuration = typedarray.getInt(ahb.N, mVibrationDuration);
+        mFeedbackCount = typedarray.getInt(ahb.D, mFeedbackCount);
+        TypedValue typedvalue = typedarray.peekValue(ahb.F);
         int i;
         if (typedvalue != null)
         {
@@ -138,9 +138,9 @@ public class GlowPadView extends View
         }
         mHandleDrawable = new TargetDrawable(((Resources) (obj)), i);
         mHandleDrawable.setState(TargetDrawable.STATE_INACTIVE);
-        mOuterRing = new TargetDrawable(((Resources) (obj)), getResourceId(typedarray, ahj.I));
-        mAlwaysTrackFinger = typedarray.getBoolean(ahj.B, false);
-        i = getResourceId(typedarray, ahj.J);
+        mOuterRing = new TargetDrawable(((Resources) (obj)), getResourceId(typedarray, ahb.I));
+        mAlwaysTrackFinger = typedarray.getBoolean(ahb.B, false);
+        i = getResourceId(typedarray, ahb.J);
         if (i != 0)
         {
             obj = ((Resources) (obj)).getDrawable(i);
@@ -148,9 +148,9 @@ public class GlowPadView extends View
         {
             obj = null;
         }
-        mGlowRadius = typedarray.getDimension(ahj.E, 0.0F);
+        mGlowRadius = typedarray.getDimension(ahb.E, 0.0F);
         typedvalue = new TypedValue();
-        if (typedarray.getValue(ahj.M, typedvalue))
+        if (typedarray.getValue(ahb.M, typedvalue))
         {
             internalSetTargetResources(typedvalue.resourceId);
         }
@@ -158,7 +158,7 @@ public class GlowPadView extends View
         {
             throw new IllegalStateException("Must specify at least one target drawable");
         }
-        if (typedarray.getValue(ahj.L, typedvalue))
+        if (typedarray.getValue(ahb.L, typedvalue))
         {
             int j = typedvalue.resourceId;
             if (j == 0)
@@ -167,7 +167,7 @@ public class GlowPadView extends View
             }
             setTargetDescriptionsResourceId(j);
         }
-        if (typedarray.getValue(ahj.C, typedvalue))
+        if (typedarray.getValue(ahb.C, typedvalue))
         {
             int k = typedvalue.resourceId;
             if (k == 0)
@@ -211,7 +211,7 @@ public class GlowPadView extends View
 
         if (stringbuilder.length() > 0)
         {
-            ebr.a(this, null, stringbuilder.toString());
+            eep.a(this, null, stringbuilder.toString());
         }
     }
 
@@ -543,7 +543,7 @@ _L2:
                         motionevent = (AccessibilityManager)getContext().getSystemService("accessibility");
                         if (motionevent.isEnabled())
                         {
-                            ebr.a(this, motionevent, getTargetDescription(i));
+                            eep.a(this, motionevent, getTargetDescription(i));
                         }
                     }
                 }
@@ -652,8 +652,8 @@ _L2:
         mTargetDrawables = arraylist;
         mTargetResourceId = i;
         Resources resources = getContext().getResources();
-        int j = resources.getDimensionPixelOffset(g.eT);
-        i = resources.getDimensionPixelOffset(g.eD);
+        int j = resources.getDimensionPixelOffset(g.eR);
+        i = resources.getDimensionPixelOffset(g.eB);
         int l = arraylist.size();
         int k = 0;
         while (k < l) 

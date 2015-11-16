@@ -2,26 +2,79 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
 
-public final class des
-    implements deu
+public final class des extends djp
 {
 
-    final ArrayList a;
-
-    public des(ArrayList arraylist)
+    public des(det det1)
     {
-        a = arraylist;
-        super();
+        super(det1);
     }
 
-    public void a(daf daf, aim aim)
+    protected cvt a(aoa aoa, int i, String s)
     {
-        a.add(aim);
+        return new cuc(aoa, i, (det)a);
     }
 
-    public void a(daf daf, ais ais)
+    public String a()
     {
+        return "background_queue";
+    }
+
+    public boolean a(cdl cdl)
+    {
+        gdv.a(getClass(), cdl.getClass());
+        cdl = (det)((des)cdl).a;
+        boolean flag;
+        if (((det)a).a() != cdl.a())
+        {
+            flag = ((det)a).a();
+        } else
+        {
+            flag = true;
+        }
+        if (flag)
+        {
+            boolean flag1 = cdl.a();
+            boolean flag2 = ((det)a).a();
+            eev.b("Babel_GetSelfInfo", (new StringBuilder(76)).append("Replacing a GetSelfInfoRequest. Old shouldRetry=").append(flag1).append(". New shouldRetry=").append(flag2).toString());
+        }
+        return flag;
+    }
+
+    public boolean a(cdn cdn, dcx dcx)
+    {
+        return ((det)a).a() && super.a(cdn, dcx);
+    }
+
+    public boolean a(String s)
+    {
+        return false;
+    }
+
+    public long b()
+    {
+        if (((det)a).a())
+        {
+            return dcn.b();
+        } else
+        {
+            return 0L;
+        }
+    }
+
+    protected void b(int i, dcx dcx)
+    {
+        dcn.b(dcn.e(i), dcx);
+    }
+
+    public boolean c()
+    {
+        return false;
+    }
+
+    public boolean d()
+    {
+        return true;
     }
 }

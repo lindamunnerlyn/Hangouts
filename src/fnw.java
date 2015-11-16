@@ -2,10 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import android.os.IInterface;
+import com.google.android.gms.maps.model.Tile;
 
 public interface fnw
+    extends IInterface
 {
 
-    public abstract fnv a(View view);
+    public abstract Tile a(int i, int j, int k);
 }

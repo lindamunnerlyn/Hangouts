@@ -3,113 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kus extends koj
+public class kus
 {
-
-    public kur a[];
 
     public kus()
     {
-        a = kur.a();
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public kur a(int i)
     {
-        int i = super.computeSerializedSize();
-        int k = i;
-        if (a != null)
-        {
-            k = i;
-            if (a.length > 0)
-            {
-                int j = 0;
-                do
-                {
-                    k = i;
-                    if (j >= a.length)
-                    {
-                        break;
-                    }
-                    kur kur1 = a[j];
-                    k = i;
-                    if (kur1 != null)
-                    {
-                        k = i + koh.d(1, kur1);
-                    }
-                    j++;
-                    i = k;
-                } while (true);
-            }
-        }
-        return k;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                kur akur[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                akur = new kur[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, akur, 0, j);
-                    k = j;
-                }
-                for (; k < akur.length - 1; k++)
-                {
-                    akur[k] = new kur();
-                    kog1.a(akur[k]);
-                    kog1.a();
-                }
-
-                akur[k] = new kur();
-                kog1.a(akur[k]);
-                a = akur;
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null && a.length > 0)
-        {
-            for (int i = 0; i < a.length; i++)
-            {
-                kur kur1 = a[i];
-                if (kur1 != null)
-                {
-                    koh1.b(1, kur1);
-                }
-            }
-
-        }
-        super.writeTo(koh1);
+        return ldx.a(i);
     }
 }

@@ -2,133 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.util.Base64;
-import android.util.Log;
-import java.util.Set;
+import android.content.Context;
+import android.content.res.Resources;
+import android.util.AttributeSet;
+import android.widget.ImageView;
 
-public final class ejp
+public final class ejp extends ImageView
+    implements cbs
 {
 
-    private static final ejp a = new ejp();
+    String a;
 
-    private ejp()
+    public ejp(Context context)
+    {
+        this(context, (byte)0);
+    }
+
+    private ejp(Context context, byte byte0)
+    {
+        this(context, ((AttributeSet) (null)));
+    }
+
+    private ejp(Context context, AttributeSet attributeset)
+    {
+        super(context, null, 0);
+    }
+
+    public void a(aoa aoa, String s, ad ad)
+    {
+        a(s);
+        setImageResource(com.google.android.apps.hangouts.R.drawable.bF);
+        setPadding(0, 5, 0, 6);
+        setLongClickable(true);
+        setOnClickListener(new ejq(this, aoa, ad));
+        setContentDescription(getResources().getString(l.sD));
+    }
+
+    public void a(String s)
+    {
+        a = s;
+    }
+
+    public void b()
     {
     }
 
-    public static ejp a()
+    public void c()
     {
-        return a;
     }
 
-    static transient eox a(PackageInfo packageinfo, eox aeox[])
+    public void d()
     {
-        if (packageinfo.signatures.length != 1)
-        {
-            return null;
-        }
-        packageinfo = new ery(packageinfo.signatures[0].toByteArray());
-        for (int i = 0; i < aeox.length; i++)
-        {
-            if (aeox[i].equals(packageinfo))
-            {
-                return aeox[i];
-            }
-        }
-
-        if (Log.isLoggable("GoogleSignatureVerifier", 2))
-        {
-            (new StringBuilder("Signature not valid.  Found: \n")).append(Base64.encodeToString(packageinfo.a(), 0));
-        }
-        return null;
     }
 
-    private static boolean a(PackageInfo packageinfo, boolean flag)
+    public void h_()
     {
-        if (packageinfo.signatures.length != 1)
-        {
-            return false;
-        }
-        ery ery1 = new ery(packageinfo.signatures[0].toByteArray());
-        if (flag)
-        {
-            packageinfo = eow.a();
-        } else
-        {
-            packageinfo = eow.b();
-        }
-        if (packageinfo.contains(ery1))
-        {
-            return true;
-        }
-        if (Log.isLoggable("GoogleSignatureVerifier", 2))
-        {
-            (new StringBuilder("Signature not valid.  Found: \n")).append(Base64.encodeToString(ery1.a(), 0));
-        }
-        return false;
     }
-
-    public void a(PackageManager packagemanager, int i)
-    {
-        boolean flag1 = false;
-        if (packagemanager == null)
-        {
-            throw new SecurityException("Unknown error: invalid Package Manager");
-        }
-        String as[] = packagemanager.getPackagesForUid(i);
-        boolean flag = flag1;
-        if (as != null)
-        {
-            if (as.length == 0)
-            {
-                flag = flag1;
-            } else
-            {
-                flag = a(packagemanager, as[0]);
-            }
-        }
-        if (!flag)
-        {
-            throw new SecurityException("Uid is not Google Signed");
-        } else
-        {
-            return;
-        }
-    }
-
-    public boolean a(PackageManager packagemanager, String s)
-    {
-        boolean flag = false;
-        PackageInfo packageinfo = packagemanager.getPackageInfo(s, 64);
-        if (packageinfo != null) goto _L2; else goto _L1
-_L1:
-        return flag;
-        packagemanager;
-        if (Log.isLoggable("GoogleSignatureVerifier", 3))
-        {
-            (new StringBuilder("Package manager can't find package ")).append(s).append(", defaulting to false");
-            return false;
-        }
-        if (true)
-        {
-            continue; /* Loop/switch isn't completed */
-        }
-_L2:
-        if (ejn.a(packagemanager))
-        {
-            return a(packageinfo, true);
-        }
-        boolean flag1 = a(packageinfo, false);
-        flag = flag1;
-        if (!flag1)
-        {
-            a(packageinfo, true);
-            return flag1;
-        }
-        if (true) goto _L1; else goto _L3
-_L3:
-    }
-
 }

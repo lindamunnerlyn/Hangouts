@@ -3,145 +3,60 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.text.TextUtils;
-import java.security.MessageDigest;
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.List;
 
-public final class dnj
-    implements fqo
+public final class dnj extends dmw
 {
 
-    private final String a;
-    private final String b;
-    private final Iterable c;
-    private final Iterable d;
-    private final Iterable e;
-    private final String f;
-    private final boolean g;
-    private final String h;
-    private final String i;
-    private final String j[];
+    public final List a = new ArrayList();
+    public List b;
+    private String c;
 
-    public dnj(fqo fqo1)
+    public dnj(jbh jbh1)
     {
-        String s;
-        a = fqo1.a();
-        b = fqo1.j();
-        c = fqo1.b();
-        d = fqo1.c();
-        e = fqo1.d();
-        f = fqo1.e();
-        g = fqo1.f();
-        h = fqo1.g();
-        s = null;
-        String s1 = fqo1.h();
-        s = s1;
-_L2:
-        i = s;
-        j = fqo1.i();
-        return;
-        NullPointerException nullpointerexception;
-        nullpointerexception;
-        ebw.d("Babel", "Caught NPE in getAvatarUrl", nullpointerexception);
-        if (true) goto _L2; else goto _L1
-_L1:
-    }
-
-    private static void a(MessageDigest messagedigest, String s)
-    {
-        if (!TextUtils.isEmpty(s))
+        b = new ArrayList();
+        StringBuilder stringbuilder = new StringBuilder();
+        jbh1 = jbh1.a;
+        int k = jbh1.length;
+        int i = 0;
+        while (i < k) 
         {
-            messagedigest.update(s.getBytes());
+            jcb ajcb[] = jbh1[i];
+            if (((jca) (ajcb)).a == null)
+            {
+                eev.f("Babel", "Empty conversationId in ClientMarkEventObservedNotification from the server.");
+            } else
+            {
+                String s = ((jca) (ajcb)).a.a;
+                stringbuilder.append("conid: ").append(s).append(" ");
+                ajcb = ((jca) (ajcb)).b;
+                int l = ajcb.length;
+                int j = 0;
+                while (j < l) 
+                {
+                    jcb jcb1 = ajcb[j];
+                    if (TextUtils.isEmpty(jcb1.a))
+                    {
+                        eev.f("Babel", "Empty eventId in ClientMarkEventObservedNotification from the server.");
+                    } else
+                    {
+                        String s1 = jcb1.a;
+                        int i1 = g.a(jcb1.c, 0);
+                        a.add(new dni(s, s1, i1));
+                        b.add(s);
+                        stringbuilder.append("msgid: ").append(s1).append(" ");
+                    }
+                    j++;
+                }
+            }
+            i++;
         }
+        c = stringbuilder.toString();
     }
 
     public String a()
     {
-        return a;
-    }
-
-    public void a(MessageDigest messagedigest)
-    {
-        int k = 0;
-        a(messagedigest, a());
-        a(messagedigest, j());
-        for (Iterator iterator = c.iterator(); iterator.hasNext(); messagedigest.update(dni.a(g.a((Long)iterator.next(), 0L)))) { }
-        fqt fqt1;
-        for (Iterator iterator1 = c().iterator(); iterator1.hasNext(); a(messagedigest, fqt1.b()))
-        {
-            fqt1 = (fqt)iterator1.next();
-            a(messagedigest, fqt1.a());
-        }
-
-        fqz fqz1;
-        for (Iterator iterator2 = d().iterator(); iterator2.hasNext(); a(messagedigest, fqz1.b()))
-        {
-            fqz1 = (fqz)iterator2.next();
-            a(messagedigest, fqz1.a());
-        }
-
-        a(messagedigest, f);
-        byte byte0;
-        String as[];
-        if (g)
-        {
-            byte0 = 1;
-        } else
-        {
-            byte0 = 0;
-        }
-        messagedigest.update(byte0);
-        a(messagedigest, h);
-        a(messagedigest, i);
-        as = j;
-        for (int l = as.length; k < l; k++)
-        {
-            a(messagedigest, as[k]);
-        }
-
-    }
-
-    public Iterable b()
-    {
         return c;
-    }
-
-    public Iterable c()
-    {
-        return d;
-    }
-
-    public Iterable d()
-    {
-        return e;
-    }
-
-    public String e()
-    {
-        return f;
-    }
-
-    public boolean f()
-    {
-        return g;
-    }
-
-    public String g()
-    {
-        return h;
-    }
-
-    public String h()
-    {
-        return i;
-    }
-
-    public String[] i()
-    {
-        return j;
-    }
-
-    public String j()
-    {
-        return b;
     }
 }

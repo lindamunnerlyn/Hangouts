@@ -2,27 +2,55 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.regex.Pattern;
+import org.webrtc.voiceengine.WebRtcAudioRecord;
 
 public final class gls
+    implements gmk
 {
 
-    private glt a;
+    private geb a;
+    private boolean b;
 
-    public gls(int i)
+    public gls()
     {
-        a = new glt(i);
     }
 
-    public Pattern a(String s)
+    public void a()
     {
-        Pattern pattern1 = (Pattern)a.a(s);
-        Pattern pattern = pattern1;
-        if (pattern1 == null)
+    }
+
+    public void a(gmm gmm)
+    {
+        gdv.a("Must use CallClient", gmm instanceof geb);
+        a = (geb)gmm;
+        a(b);
+    }
+
+    public void a(boolean flag)
+    {
+        boolean flag2 = true;
+        b = flag;
+        if (a != null)
         {
-            pattern = Pattern.compile(s);
-            a.a(s, pattern);
+            geb geb1;
+            boolean flag1;
+            if (!flag)
+            {
+                flag1 = true;
+            } else
+            {
+                flag1 = false;
+            }
+            WebRtcAudioRecord.setMicrophoneMute(flag1);
+            geb1 = a;
+            if (!flag)
+            {
+                flag = flag2;
+            } else
+            {
+                flag = false;
+            }
+            geb1.a(flag);
         }
-        return pattern;
     }
 }

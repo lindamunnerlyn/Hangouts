@@ -2,26 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
+import android.content.Context;
 
-public interface gac
+public final class gac
 {
 
-    public abstract gac a();
+    public static final String a = fzs.getName();
+    public static final String b = fzu.getName();
+    private static gab c;
 
-    public abstract gac a(int i);
+    public static void a(Context context, hlp hlp1)
+    {
+        if (c == null)
+        {
+            c = new gab();
+        }
+        hlp1.a(fzu, new gaa(context));
+    }
 
-    public abstract gac a(String s);
+    public static void a(hlp hlp1)
+    {
+        if (c == null)
+        {
+            c = new gab();
+        }
+        hlp1.a(fzs, new fzz());
+    }
 
-    public abstract gac b();
-
-    public abstract gac b(int i);
-
-    public abstract gac b(String s);
-
-    public abstract Intent c();
-
-    public abstract gac c(String s);
-
-    public abstract gac d(String s);
 }

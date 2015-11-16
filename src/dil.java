@@ -3,59 +3,36 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class dil extends dfa
+public final class dil extends dgj
 {
 
-    private final byte a[];
+    String a;
+    private final String e;
 
-    public dil(ani ani1, byte abyte0[])
+    public dil(aoa aoa, String s, String s1)
     {
-        super(ani1);
-        a = abyte0;
+        super(aoa);
+        a = s;
+        e = s1;
     }
 
     public void a()
     {
-        boolean flag;
-label0:
+        aow aow1;
+        aow1 = new aow(g.nU, super.b.a);
+        aow1.a();
+        Long long1 = aow1.g(a, e);
+        if (long1 == null)
         {
-            boolean flag1 = false;
-            int i = g.a(g.nS, "babel_hangout_invite_responds_to_mesi", 1);
-            if (i != 1)
-            {
-                flag = flag1;
-                if (i != 2)
-                {
-                    break label0;
-                }
-                flag = flag1;
-                if (!b.a().endsWith("@google.com"))
-                {
-                    break label0;
-                }
-            }
-            flag = true;
+            break MISSING_BLOCK_LABEL_48;
         }
-        Object obj;
-        if (flag)
-        {
-            obj = new ctj(a);
-        } else
-        {
-            try
-            {
-                obj = (jed)kop.mergeFrom(new jed(), a);
-                obj = new cva(((jed) (obj)).b, g.a(((jed) (obj)).g, 0));
-            }
-            catch (koo koo1)
-            {
-                ebw.e("Babel", "Parse failed", koo1);
-                koo1 = null;
-            }
-        }
-        if (obj != null)
-        {
-            c.a(((dko) (obj)));
-        }
+        aoq.a(aow1, g.a(long1, 0L));
+        aow1.b();
+        aow1.c();
+        return;
+        Exception exception;
+        exception;
+        aow1.c();
+        throw exception;
     }
 }

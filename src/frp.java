@@ -3,20 +3,30 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class frp
+final class frp extends Thread
 {
 
-    private boolean a;
-    private boolean b;
-    private String c;
-    private a d;
+    final frn a;
 
-    public frp()
+    public frp(frn frn1)
     {
+        a = frn1;
+        super("PeopleAggregator-contacts");
     }
 
-    public fro a()
+    public final void run()
     {
-        return new fro(a, b, c, d);
+        a.h.a("contacts query start");
+        try
+        {
+            a.a(a.c(), null);
+            return;
+        }
+        catch (Exception exception)
+        {
+            g.a("PeopleAggregator", "Error while quering contacts", exception);
+            a.a(null, exception);
+            return;
+        }
     }
 }

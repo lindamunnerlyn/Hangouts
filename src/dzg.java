@@ -2,157 +2,73 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.SystemClock;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import android.content.Context;
+import android.telephony.CellIdentityCdma;
+import android.telephony.CellInfoCdma;
+import android.telephony.TelephonyManager;
 
-final class dzg
-    implements crk
+public final class dzg
 {
 
-    private static final Handler c = new Handler(Looper.getMainLooper());
-    public final String a;
-    public csw b;
-    private int d;
-    private final List e = new ArrayList();
+    static final int a[] = {
+        4103, 4106, 4107, 4120, 4121, 4124, 4126, 4132, 4135, 4139, 
+        4144, 4145, 4148, 4151, 4153, 4155, 4157, 4159, 4162, 4164, 
+        4166, 4168, 4170, 4171, 4174, 4180, 4181, 4183, 4186, 4188, 
+        4190, 4195, 4198, 4274, 4376, 4384, 4390, 4396, 4418, 4622, 
+        4654, 4694, 4812, 4982, 5116, 5142, 22404, 22405, 22406, 22407, 
+        22408, 22409, 22410, 22411, 22412, 22413, 22414, 22415, 22416, 22417, 
+        22418, 22419, 22420, 22421, 22422, 22423, 22424, 22425, 22426, 22427, 
+        22428, 22430, 22431, 22432, 22434, 22435, 22436, 22437, 22438, 22439, 
+        22440, 22441, 22442, 22443, 22444, 22445, 22446, 22447, 22448
+    };
 
-    public dzg(String s)
+    public static int a(Context context)
     {
-        a = s;
-    }
-
-    static List a(dzg dzg1)
-    {
-        return dzg1.e;
-    }
-
-    private void a(int i)
-    {
-        c.post(new dzh(this, i));
-    }
-
-    int a(long l)
-    {
-        boolean flag;
-        if (l <= 0L)
+        TelephonyManager telephonymanager;
+        telephonymanager = (TelephonyManager)context.getSystemService("phone");
+        if (telephonymanager.isNetworkRoaming())
         {
-            flag = true;
-        } else
-        {
-            flag = false;
+            eev.e("Babel_telephony", "TeleRoamingDetector.getRoamingStatus, is roaming");
+            return 1;
         }
-        if (flag || d == 0)
+        context = dxb.a(context);
+        if (context == null)
         {
-            Iterator iterator = e.iterator();
-            int i;
-            for (i = 0; iterator.hasNext(); i = ((dzi)iterator.next()).a | i) { }
-            if (flag || b == null || !b.a(i, l))
-            {
-                return i;
-            }
+            eev.e("Babel_telephony", "TeleRoamingDetector.getRoamingStatus, unable to get cell info, roaming status is unknown");
+            return 3;
         }
-        return 0;
-    }
-
-    public int a(Cursor cursor)
-    {
-        int i = b.a(cursor);
-        if (i != 0)
+        if (telephonymanager.getPhoneType() != 2 || !(context instanceof CellInfoCdma)) goto _L2; else goto _L1
+_L1:
+        int i;
+        int j;
+        int k;
+        j = ((CellInfoCdma)context).getCellIdentity().getSystemId();
+        context = a;
+        k = context.length;
+        i = 0;
+_L9:
+        if (i >= k) goto _L4; else goto _L3
+_L3:
+        if (j != context[i]) goto _L6; else goto _L5
+_L5:
+        i = 1;
+_L7:
+        if (i == 0)
         {
-            a(i);
+            eev.e("Babel_telephony", "TeleRoamingDetector.getRoamingStatus, not on Sprint Cdma, is roaming");
+            return 1;
         }
-        return i;
-    }
-
-    public int a(czu czu, int i)
-    {
-        i = b.a(czu, i);
-        if (i != 0)
-        {
-            a(i);
-        }
-        return i;
-    }
-
-    public void a(int i, ContentValues contentvalues)
-    {
-        if (b != null)
-        {
-            b.a(i, contentvalues);
-        }
-    }
-
-    void a(int i, boolean flag)
-    {
-        if (flag)
-        {
-            d = i;
-        } else
-        if (d == i)
-        {
-            d = 0;
-            return;
-        }
-    }
-
-    public boolean a(csz csz1, Object obj, long l)
-    {
-        boolean flag = b.a(csz1, obj, l);
-        if (flag)
-        {
-            a(csz1.j);
-        }
-        return flag;
-    }
-
-    boolean a(ebc ebc1)
-    {
-        for (int i = e.size() - 1; i >= 0; i--)
-        {
-            if (((dzi)e.get(i)).b == ebc1)
-            {
-                e.remove(i);
-            }
-        }
-
-        return !e.isEmpty();
-    }
-
-    boolean a(ebc ebc1, int i)
-    {
-        boolean flag = true;
-        dzi dzi1 = new dzi(ebc1, i);
-        e.add(dzi1);
-        long l = SystemClock.elapsedRealtime();
-        if (b != null)
-        {
-            int j = b.b(i, l);
-            if (!b.a(i, l))
-            {
-                i = j;
-            } else
-            {
-                flag = false;
-                i = j;
-            }
-        } else
-        {
-            i = 0;
-        }
-        if (i != 0)
-        {
-            ebc1.a(b);
-        }
-        if (flag && d != 0)
-        {
-            d = 0;
-        }
-        return flag;
+        break; /* Loop/switch isn't completed */
+_L6:
+        i++;
+        continue; /* Loop/switch isn't completed */
+_L4:
+        i = 0;
+        if (true) goto _L7; else goto _L2
+_L2:
+        return 2;
+        if (true) goto _L9; else goto _L8
+_L8:
     }
 
 }

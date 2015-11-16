@@ -2,412 +2,470 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import android.os.Bundle;
-import android.util.Log;
-import com.google.android.libraries.hangouts.video.EncoderManager;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.util.concurrent.atomic.AtomicInteger;
+import android.content.Context;
+import android.text.TextUtils;
+import com.google.android.libraries.hangouts.video.RendererManager;
+import java.util.Iterator;
+import java.util.List;
+import org.webrtc.voiceengine.WebRtcAudioTrack;
 
-public abstract class geb
+public final class geb
+    implements gmm
 {
 
-    private gcx a;
-    private MediaCodec b;
-    private gcz c;
-    private final long d;
-    private final int e;
-    private final AtomicInteger f = new AtomicInteger(0);
-    private int g;
-    private int h;
-    private final int i;
-    private final int j;
-    private ByteBuffer k;
-    private int l;
-    private final Object m = new Object();
-    private int n;
-    private volatile boolean o;
-    private final gfc p = new gfc("MediaCodecEncoder");
+    final geg a;
+    final gfr b = new gfr();
+    final ghn c;
+    final gnb d;
+    boolean e;
+    int f;
+    String g;
+    boolean h;
+    gms i;
+    private final Context j;
+    private final gfu k = new gfu();
+    private final gef l = new gef(this);
+    private final RendererManager m;
+    private final ggl n;
+    private final ghy o;
+    private gmx p;
+    private gmk q;
+    private gml r;
+    private gmn s;
+    private boolean t;
 
-    public geb(gcx gcx, long l1, int i1, int j1, int k1, int i2, 
-            int j2)
+    geb(Context context, gmn gmn1)
     {
-        a = gcx;
-        d = l1;
-        e = i1;
-        i = j1;
-        j = k1;
-        g = i2;
-        h = j2;
-        l = 0;
-        o = false;
-    }
-
-    private static ByteBuffer a(ByteBuffer bytebuffer, int i1, int j1)
-    {
-        bytebuffer = bytebuffer.duplicate();
-        bytebuffer.position(i1);
-        bytebuffer.limit(i1 + j1);
-        return bytebuffer.slice();
-    }
-
-    protected int a(long l1, long l2, ByteBuffer bytebuffer, int i1, int j1, 
-            int k1, int i2, int j2, boolean flag)
-    {
-        return EncoderManager.sendEncodedFrame(l1, l2, bytebuffer, i1, j1, k1, i2, j2, flag);
-    }
-
-    protected MediaCodec a(String s)
-    {
-        return MediaCodec.createEncoderByType(s);
-    }
-
-    protected abstract ByteBuffer a(int i1);
-
-    protected abstract void a();
-
-    public void a(int i1, android.media.MediaCodec.BufferInfo bufferinfo)
-    {
-        gbh.g();
-        ByteBuffer bytebuffer = a(i1);
-        if ((bufferinfo.flags & 2) != 0)
+        e = false;
+        f = 0;
+        g = null;
+        h = true;
+        i = null;
+        j = context;
+        s = gmn1;
+        d = new gnb(context, this);
+        a = new geg(context, this);
+        c = new ghn(a, b);
+        m = new RendererManager(context);
+        n = new ggl(context, a, k, m, c);
+        o = new ghy(a, k, m, c);
+        WebRtcAudioTrack.setAudioMute(false);
+        a.a(l);
+        gic.a().a(a);
+        if (s != null)
         {
-            boolean flag;
-            if (e == 1)
+            a(context, s);
+            a.b(s);
+        }
+    }
+
+    private static void a(Context context, gmn gmn1)
+    {
+        gdv.b("accountName not specified in CallInfo!", TextUtils.isEmpty(gmn1.n()));
+        new gnj();
+        if (TextUtils.isEmpty(gmn1.a()))
+        {
+            gmn1.a(gnj.a());
+        }
+        if (TextUtils.isEmpty(gmn1.b()))
+        {
+            gmn1.b(gnj.a());
+        }
+        if (gmn1.o() == null)
+        {
+            gmn1.k(context.getPackageName());
+        }
+        if (gmn1.p() == null)
+        {
+            gmn1.l(gnj.a());
+        }
+        lch lch2 = gmn1.d();
+        lch lch1 = lch2;
+        if (lch2 == null)
+        {
+            gne.a(6, "vclib", "No RtcClient was provided; this will be mandatory in the future.");
+            lch1 = new lch();
+            lch1.b = Integer.valueOf(600);
+        }
+        if (lch1.a == null)
+        {
+            byte byte0;
+            if (g.L(context))
             {
-                flag = true;
+                byte0 = 3;
             } else
             {
-                flag = false;
+                byte0 = 2;
             }
-            gbh.a(flag);
-            k = ByteBuffer.allocateDirect(bufferinfo.size);
-            k.put(a(bytebuffer, bufferinfo.offset, bufferinfo.size));
-            b.releaseOutputBuffer(i1, false);
-        } else
+            lch1.a = Integer.valueOf(byte0);
+        }
+        lch1.c = Integer.valueOf(2);
+        gmn1.a(lch1);
+    }
+
+    static void a(geb geb1)
+    {
+        if (!geb1.t)
         {
-            boolean flag1;
-            if ((bufferinfo.flags & 1) != 0)
+            geb1.a(((gmx) (null)));
+            geb1.a(((gmk) (null)));
+            geb1.a(((gml) (null)));
+            geb1.n.a();
+            geb1.o.a();
+            geb1.c.a();
+            geb1.m.a();
+            geb1.k.a();
+            geb1.d.b();
+            geb1.t = true;
+        }
+    }
+
+    static void a(geb geb1, geu geu1)
+    {
+        if (geb1.f != 0 && geu1 != null && geb1.s != null)
+        {
+            Object obj = geu1.a(geb1.j, geb1.s.c(), geb1.s.e(), geb1.a.b(), geb1.s.r());
+            geu1 = new ggn(geb1.j);
+            obj = ((List) (obj)).iterator();
+            while (((Iterator) (obj)).hasNext()) 
             {
-                flag1 = true;
-            } else
-            {
-                flag1 = false;
-            }
-            if (flag1)
-            {
-                l = 0;
-                int j1;
-                long l1;
-                if (k != null)
+                jjt jjt1 = (jjt)((Iterator) (obj)).next();
+                geb1.b.a(jjt1);
+                if (geb1.s.y())
                 {
-                    k.rewind();
-                    ByteBuffer bytebuffer1 = ByteBuffer.allocateDirect(k.capacity() + bufferinfo.size);
-                    bytebuffer1.put(k);
-                    bytebuffer1.put(a(bytebuffer, bufferinfo.offset, bufferinfo.size));
-                    bytebuffer1.rewind();
-                    bufferinfo.offset = 0;
-                    bufferinfo.size = bytebuffer1.capacity();
-                    bytebuffer = bytebuffer1;
+                    geu1.a(geb1.s.n(), jjt1);
                 }
-            }
-            l1 = bufferinfo.presentationTimeUs / 1000L;
-            j1 = b();
-            l = l + 1;
-            if (a(d, l1, bytebuffer, bufferinfo.offset, bufferinfo.size, g, h, j1, flag1) > 0)
-            {
-                o = true;
-            }
-            b.releaseOutputBuffer(i1, false);
-            i1 = f.decrementAndGet();
-            if (i1 < 0)
-            {
-                gkc.e("vclib", "The encoder for resolution: (%dx%d) produced extra frames, recovering.", new Object[] {
-                    Integer.valueOf(i), Integer.valueOf(j)
-                });
-                f.compareAndSet(i1, 0);
-                return;
             }
         }
     }
 
-    protected abstract void a(MediaCodec mediacodec, MediaFormat mediaformat);
-
-    protected void a(MediaFormat mediaformat)
+    private static void a(String s1, String s2, boolean flag, String s3)
     {
-        if (g != mediaformat.getInteger("width") || h != mediaformat.getInteger("height"))
+        if (s1 == null)
         {
-            String s = String.valueOf("Encoder is unable to handle the exact requested camera size. Original size requested: ");
-            int i1 = g;
-            int j1 = h;
-            String s1 = String.valueOf(mediaformat);
-            gkc.e("vclib", (new StringBuilder(String.valueOf(s).length() + 37 + String.valueOf(s1).length())).append(s).append(i1).append("x").append(j1).append(", new format: ").append(s1).toString());
-            synchronized (m)
+            if (!flag)
             {
-                g = mediaformat.getInteger("width");
-                h = mediaformat.getInteger("height");
+                s1 = String.valueOf(s3);
+                if (s1.length() != 0)
+                {
+                    s1 = "Field cannot be set after initCall: ".concat(s1);
+                } else
+                {
+                    s1 = new String("Field cannot be set after initCall: ");
+                }
+                gdv.a(s1, s2);
             }
+            return;
+        }
+        s3 = String.valueOf(s3);
+        if (s3.length() != 0)
+        {
+            s3 = "Field cannot be changed after initCall: ".concat(s3);
+        } else
+        {
+            s3 = new String("Field cannot be changed after initCall: ");
+        }
+        gdv.a(s3, s1, s2);
+    }
+
+    public RendererManager a()
+    {
+        return m;
+    }
+
+    public void a(int i1)
+    {
+        if (f == 4 || f == 3)
+        {
             return;
         } else
         {
+            f = 3;
+            g.a(new ged(this, i1));
             return;
         }
-        mediaformat;
-        obj;
-        JVM INSTR monitorexit ;
-        throw mediaformat;
     }
 
-    public boolean a(int i1, int j1, int k1, long l1, boolean flag)
+    public void a(gmk gmk1)
     {
-label0:
+        if (q != null)
         {
-            synchronized (m)
-            {
-                if (c != null)
-                {
-                    break label0;
-                }
-            }
-            return false;
+            q.a();
         }
-        int i2;
-        boolean flag1;
-        flag1 = o;
-        o = false;
-        i2 = f.intValue();
-        if (i2 <= 1)
+        q = gmk1;
+        if (q == null)
         {
-            break MISSING_BLOCK_LABEL_89;
-        }
-        gkc.a("vclib", "Dropping frame due to too many outstanding frames for encoder: (%dx%d). Currently processing %d frames", new Object[] {
-            Integer.valueOf(i), Integer.valueOf(j), Integer.valueOf(i2)
-        });
-        flag1 = true;
-        if (!flag1)
+            a(true);
+            return;
+        } else
         {
-            break MISSING_BLOCK_LABEL_107;
+            q.a(this);
+            return;
         }
-        obj;
-        JVM INSTR monitorexit ;
-        return false;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-        c.a();
-        if (c.a(l1))
-        {
-            break MISSING_BLOCK_LABEL_182;
-        }
-        i1 = i;
-        j1 = j;
-        gkc.e("vclib", (new StringBuilder(85)).append("Unable to start frame operation for encoder: (").append(i1).append("x").append(j1).append(". Encode failed.").toString());
-        obj;
-        JVM INSTR monitorexit ;
-        return false;
-        p.a(i1, j1, k1, false, flag);
-        p.a(g, h, true);
-        p.e();
-        c.c();
-        f.incrementAndGet();
-        obj;
-        JVM INSTR monitorexit ;
-        return true;
     }
 
-    protected abstract int b();
-
-    public boolean b(int i1)
+    public void a(gml gml1)
     {
-        n = i1 * 950;
-        try
+        if (r != null)
         {
-            b = a(i());
+            r.a();
         }
-        // Misplaced declaration of an exception variable
-        catch (Object obj)
+        r = gml1;
+        if (r != null)
         {
-            obj = String.valueOf(obj);
-            gbh.a((new StringBuilder(String.valueOf(obj).length() + 46)).append("Unable to create hardware encoder. Exception: ").append(((String) (obj))).toString());
-            return false;
+            r.a(this);
         }
-        if (b == null)
-        {
-            gbh.a("Unexpected: MediaCodec.createEncoderByType returned null.");
-            Object obj = String.valueOf(i());
-            if (((String) (obj)).length() != 0)
-            {
-                obj = "Unable to create a hardware encoder for ".concat(((String) (obj)));
-            } else
-            {
-                obj = new String("Unable to create a hardware encoder for ");
-            }
-            gkc.e("vclib", ((String) (obj)));
-            return false;
-        }
-        if (gkc.b())
-        {
-            gkc.a("vclib", "Creating hardware encoder with original size: %dx%d, encoder size: %dx%d", new Object[] {
-                Integer.valueOf(i), Integer.valueOf(j), Integer.valueOf(g), Integer.valueOf(h)
-            });
-            gkc.a("vclib", "Requested bitrate: %d", new Object[] {
-                Integer.valueOf(n)
-            });
-            gkc.a("vclib", "Encoder name: %s", new Object[] {
-                b.getName()
-            });
-            gkc.a("vclib", "Native encoder ID: %d", new Object[] {
-                Long.valueOf(d)
-            });
-        }
-        MediaFormat mediaformat = MediaFormat.createVideoFormat(i(), g, h);
-        mediaformat.setInteger("color-format", 0x7f000789);
-        mediaformat.setInteger("bitrate", n);
-        mediaformat.setInteger("frame-rate", 30);
-        mediaformat.setInteger("i-frame-interval", 120);
-        a(b, mediaformat);
-        gkc.a("vclib", "Configuring encoder with format: %s", new Object[] {
-            mediaformat
-        });
-        gcz gcz1;
-        try
-        {
-            b.configure(mediaformat, null, null, 1);
-            gcz1 = new gcz(a, b.createInputSurface());
-            b.start();
-        }
-        // Misplaced declaration of an exception variable
-        catch (Object obj1)
-        {
-            String s = String.valueOf(obj1);
-            gkc.e("vclib", (new StringBuilder(String.valueOf(s).length() + 38)).append("Initialization failed with exception: ").append(s).toString());
-            gkc.e("vclib", Log.getStackTraceString(((Throwable) (obj1))));
-            obj1 = String.valueOf(obj1);
-            gbh.a((new StringBuilder(String.valueOf(obj1).length() + 49)).append("MediaCodec initialization failed with exception: ").append(((String) (obj1))).toString());
-            return false;
-        }
-        synchronized (m)
-        {
-            if (c != null)
-            {
-                gbh.a("Existing input surface on the encoder instance.");
-                c.b();
-            }
-            c = gcz1;
-        }
-        a();
-        return true;
-        exception;
-        obj1;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
-    protected MediaCodec c()
+    public void a(gmn gmn1)
+    {
+        if (f != 0)
+        {
+            gne.a(5, "vclib", "Attempted to join a call that has already been joined.");
+            return;
+        }
+        if (s != null) goto _L2; else goto _L1
+_L1:
+        a(j, gmn1);
+_L4:
+        s = gmn1;
+        gne.a(4, "vclib", gmn1.toString());
+        d.a(2689);
+        f = 1;
+        g.a(new gec(this, gmn1));
+        return;
+_L2:
+        gmn gmn2 = s;
+        a(gmn2.n(), gmn1.n(), false, "accountName");
+        a(gmn2.a(), gmn1.a(), false, "sessionId");
+        a(gmn2.b(), gmn1.b(), false, "participantLogId");
+        a(gmn2.o(), gmn1.o(), false, "clientId");
+        a(gmn2.p(), gmn1.p(), false, "gcmRegistration");
+        a(gmn2.q(), gmn1.q(), false, "compressedLogFile");
+        a(gmn2.f(), gmn1.f(), true, "resolvedHangoutId");
+        if (gmn2.z() != null)
+        {
+            gdv.a("VideoCallOptions can not be modified after initCall.", kws.messageNanoEquals(gmn2.z(), gmn1.z()));
+        }
+        if (true) goto _L4; else goto _L3
+_L3:
+    }
+
+    public void a(gmo gmo1)
+    {
+        b.a(gmo1);
+        if (f == 2)
+        {
+            gmo1.a(i);
+            ghm ghm1 = c.b();
+            if (ghm1 != null)
+            {
+                gmo1.d(ghm1.b());
+            }
+        }
+    }
+
+    public void a(gmw gmw)
+    {
+        k.a(gmw);
+    }
+
+    public void a(gmx gmx1)
+    {
+        if (p != null)
+        {
+            p.g();
+        }
+        p = gmx1;
+        if (p == null)
+        {
+            n.c().b(true);
+            return;
+        } else
+        {
+            gmx1 = n.c();
+            gmx1.b(0);
+            gmx1.a(60);
+            gmx1.c(false);
+            gmx1.a(null);
+            p.a(this, gmx1);
+            return;
+        }
+    }
+
+    public void a(String s1)
+    {
+        if (f != 2)
+        {
+            gne.a(5, "vclib", "Attempted to mute participant while not in a call.");
+            return;
+        } else
+        {
+            a.a(s1);
+            return;
+        }
+    }
+
+    public void a(String s1, gmw gmw)
+    {
+        gdv.b("bindVideoToSurface requires a valid participantId", s1);
+        gio gio = null;
+        if ("localParticipant".equals(s1))
+        {
+            gio = c.c().c();
+        } else
+        {
+            ghm ghm1 = c.a(s1);
+            if (ghm1 != null)
+            {
+                gio = ghm1.c();
+            }
+        }
+        if (gio == null)
+        {
+            gne.a(5, "vclib", (new StringBuilder(String.valueOf(s1).length() + 90)).append("Attempted to bind video for participant: ").append(s1).append(" but there is no VideoSource for this participant").toString());
+            return;
+        } else
+        {
+            String s2 = String.valueOf(gmw);
+            gne.a(2, "vclib", (new StringBuilder(String.valueOf(s1).length() + 28 + String.valueOf(s2).length())).append("Binding video for ").append(s1).append(" surface: ").append(s2).toString());
+            k.a(gmw, gio);
+            return;
+        }
+    }
+
+    public void a(boolean flag)
+    {
+        h = flag;
+        k();
+        ghm ghm1 = c.c();
+        gkq gkq1 = ghm1.d();
+        if (gkq1 != null)
+        {
+            gkq1.a(flag);
+        }
+        ghm1.f();
+    }
+
+    public ggl b()
+    {
+        return n;
+    }
+
+    public void b(gmo gmo1)
+    {
+        b.b(gmo1);
+    }
+
+    public void b(String s1)
+    {
+        if (f != 2)
+        {
+            gne.a(5, "vclib", "Attempted to kick participant while not in a call.");
+            return;
+        } else
+        {
+            a.b(s1);
+            return;
+        }
+    }
+
+    public void c(String s1)
+    {
+        c.b(s1);
+    }
+
+    public boolean c()
+    {
+        return f == 2;
+    }
+
+    public gmq d()
+    {
+        Object obj1 = null;
+        geu geu1 = a.a();
+        gmq gmq1 = (new gmq()).a(s).a(i);
+        Object obj;
+        int i1;
+        if (s == null)
+        {
+            obj = null;
+        } else
+        {
+            obj = s.b();
+        }
+        gmq1 = gmq1.c(((String) (obj)));
+        if (geu1 == null)
+        {
+            obj = null;
+        } else
+        {
+            obj = geu1.g();
+        }
+        gmq1 = gmq1.a(((String) (obj)));
+        if (geu1 == null)
+        {
+            obj = obj1;
+        } else
+        {
+            obj = geu1.h();
+        }
+        obj = gmq1.b(((String) (obj)));
+        if (geu1 == null)
+        {
+            i1 = 0;
+        } else
+        {
+            i1 = geu1.o();
+        }
+        return ((gmq) (obj)).a(i1);
+    }
+
+    public gmx e()
+    {
+        return p;
+    }
+
+    public gmk f()
+    {
+        return q;
+    }
+
+    public gml g()
+    {
+        return r;
+    }
+
+    public gdr h()
+    {
+        return a.c();
+    }
+
+    gmo i()
     {
         return b;
     }
 
-    public void c(int i1)
-    {
-        i1 *= 950;
-        if (i1 == n)
-        {
-            return;
-        } else
-        {
-            int j1 = i;
-            int k1 = j;
-            gkc.c("vclib", (new StringBuilder(81)).append("Encoder bitrate changing to ").append(i1).append(" for resolution: (").append(j1).append("x").append(k1).append(")").toString());
-            n = i1;
-            Bundle bundle = new Bundle();
-            bundle.putInt("video-bitrate", n);
-            b.setParameters(bundle);
-            return;
-        }
-    }
-
-    protected int d()
-    {
-        return l;
-    }
-
-    public long e()
+    public gnb j()
     {
         return d;
     }
 
-    public int f()
+    void k()
     {
-        return e;
-    }
-
-    public int g()
-    {
-        return i;
-    }
-
-    public int h()
-    {
-        return j;
-    }
-
-    public String i()
-    {
-        if (e == 0)
+        if (!e)
         {
-            return "video/x-vnd.on2.vp8";
+            return;
         }
-        if (e == 1)
+        ghm ghm1 = c.c();
+        if (ghm1.d() != null)
         {
-            return "video/avc";
+            a.b(h);
+            return;
         } else
         {
-            int i1 = e;
-            gbh.a((new StringBuilder(31)).append("Unknown codec type: ").append(i1).toString());
-            return null;
+            c.a(new gee(this, ghm1));
+            return;
         }
-    }
-
-    public void j()
-    {
-        int i1 = i;
-        int j1 = j;
-        gkc.c("vclib", (new StringBuilder(66)).append("Encoder keyframe request for resolution: (").append(i1).append(",").append(j1).append(")").toString());
-        Bundle bundle = new Bundle();
-        bundle.putInt("request-sync", 0);
-        b.setParameters(bundle);
-    }
-
-    public gcz k()
-    {
-        gcz gcz1;
-        synchronized (m)
-        {
-            gcz1 = c;
-            c = null;
-        }
-        if (b != null)
-        {
-            obj = String.valueOf(b.getName());
-            int i1 = i;
-            int j1 = j;
-            gkc.a("vclib", (new StringBuilder(String.valueOf(obj).length() + 50)).append("Releasing encoder: ").append(((String) (obj))).append(", size: ").append(i1).append("x").append(j1).toString());
-            try
-            {
-                b.stop();
-            }
-            catch (IllegalStateException illegalstateexception) { }
-            b.release();
-            b = null;
-        }
-        return gcz1;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 }

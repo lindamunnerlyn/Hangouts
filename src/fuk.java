@@ -2,69 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.gms.wearable.internal.CapabilityInfoParcelable;
-import com.google.android.gms.wearable.internal.GetCapabilityResponse;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
 
-public final class fuk
-    implements android.os.Parcelable.Creator
+final class fuk extends fub
 {
 
-    public fuk()
+    final ftv a;
+    private final ExecutorService b;
+
+    public fuk(ftv ftv, ExecutorService executorservice)
     {
+        a = ftv;
+        b = executorservice;
     }
 
-    public static void a(GetCapabilityResponse getcapabilityresponse, Parcel parcel, int i)
+    public void a(String s, String s1, fuf fuf)
     {
-        int j = g.p(parcel, 20293);
-        g.b(parcel, 1, getcapabilityresponse.a);
-        g.b(parcel, 2, getcapabilityresponse.b);
-        g.a(parcel, 3, getcapabilityresponse.c, i);
-        g.q(parcel, j);
+        b.submit(new fum(this, s, s1, fuf));
     }
 
-    public Object createFromParcel(Parcel parcel)
+    public void a(String s, List list, fuf fuf)
     {
-        int j = 0;
-        int k = g.a(parcel);
-        CapabilityInfoParcelable capabilityinfoparcelable = null;
-        int i = 0;
-        do
-        {
-            if (parcel.dataPosition() < k)
-            {
-                int l = parcel.readInt();
-                switch (0xffff & l)
-                {
-                default:
-                    g.b(parcel, l);
-                    break;
-
-                case 1: // '\001'
-                    i = g.e(parcel, l);
-                    break;
-
-                case 2: // '\002'
-                    j = g.e(parcel, l);
-                    break;
-
-                case 3: // '\003'
-                    capabilityinfoparcelable = (CapabilityInfoParcelable)g.a(parcel, l, CapabilityInfoParcelable.CREATOR);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != k)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
-            } else
-            {
-                return new GetCapabilityResponse(i, j, capabilityinfoparcelable);
-            }
-        } while (true);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new GetCapabilityResponse[i];
+        b.submit(new ful(this, list, s, fuf));
     }
 }

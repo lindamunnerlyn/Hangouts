@@ -4,9 +4,20 @@
 
 
 public final class hcm
+    implements joj
 {
 
-    public hcm()
+    private final joj a;
+
+    public hcm(joj joj1)
     {
+        a = joj1;
+    }
+
+    public Object a()
+    {
+        return (new gqx[] {
+            (hda)a.a()
+        });
     }
 }

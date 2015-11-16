@@ -3,36 +3,76 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kmj extends Enum
+public final class kmj extends kwm
 {
 
-    public static final int a;
-    public static final int b;
-    public static final int c;
-    public static final int d;
-    public static final int e;
-    public static final int f;
-    public static final int g;
-    public static final int h;
-    private static final int i[];
+    public Integer a;
+    public Integer b;
 
-    public static int[] a()
+    public kmj()
     {
-        return (int[])i.clone();
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    static 
+    protected int computeSerializedSize()
     {
-        a = 1;
-        b = 2;
-        c = 3;
-        d = 4;
-        e = 5;
-        f = 6;
-        g = 7;
-        h = 8;
-        i = (new int[] {
-            a, b, c, d, e, f, g, h
-        });
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            a.intValue();
+            i = j + (kwk.f(1) + 4);
+        }
+        j = i;
+        if (b != null)
+        {
+            b.intValue();
+            j = i + (kwk.f(2) + 4);
+        }
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 13: // '\r'
+                a = Integer.valueOf(kwj1.h());
+                break;
+
+            case 21: // '\025'
+                b = Integer.valueOf(kwj1.h());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.b(1, a.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.b(2, b.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

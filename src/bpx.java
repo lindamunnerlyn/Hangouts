@@ -2,12 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.File;
+import java.util.Comparator;
 
-public interface bpx
+public final class bpx
+    implements Comparator
 {
 
-    public static final String a[] = {
-        "hangout_ringtone_uri"
-    };
+    public bpx()
+    {
+    }
 
+    public int compare(Object obj, Object obj1)
+    {
+        obj = (File)obj;
+        obj1 = (File)obj1;
+        long l = ((File) (obj)).lastModified();
+        long l1 = ((File) (obj1)).lastModified();
+        if (l1 > l)
+        {
+            return 1;
+        }
+        return l1 >= l ? 0 : -1;
+    }
 }

@@ -2,62 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Binder;
+import android.os.IBinder;
 import android.os.Parcel;
-import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.common.api.Status;
 
-public final class elt
-    implements android.os.Parcelable.Creator
+public abstract class elt extends Binder
+    implements els
 {
 
     public elt()
     {
+        attachInterface(this, "com.google.android.gms.clearcut.internal.IClearcutLoggerCallbacks");
     }
 
-    public static void a(Scope scope, Parcel parcel)
+    public IBinder asBinder()
     {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, scope.a);
-        g.a(parcel, 2, scope.a());
-        g.q(parcel, i);
+        return this;
     }
 
-    public Object createFromParcel(Parcel parcel)
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
     {
-        int j = g.a(parcel);
-        int i = 0;
-        String s = null;
-        do
+        switch (i)
         {
-            if (parcel.dataPosition() < j)
-            {
-                int k = parcel.readInt();
-                switch (0xffff & k)
-                {
-                default:
-                    g.b(parcel, k);
-                    break;
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
 
-                case 1: // '\001'
-                    i = g.e(parcel, k);
-                    break;
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.clearcut.internal.IClearcutLoggerCallbacks");
+            return true;
 
-                case 2: // '\002'
-                    s = g.i(parcel, k);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != j)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
-            } else
-            {
-                return new Scope(i, s);
-            }
-        } while (true);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new Scope[i];
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.gms.clearcut.internal.IClearcutLoggerCallbacks");
+            break;
+        }
+        if (parcel.readInt() != 0)
+        {
+            parcel = (Status)Status.CREATOR.createFromParcel(parcel);
+        } else
+        {
+            parcel = null;
+        }
+        a(parcel);
+        return true;
     }
 }

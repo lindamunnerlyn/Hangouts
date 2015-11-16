@@ -2,38 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.text.TextUtils;
 
-public class cxm extends cvn
+public class cxm extends cwm
 {
 
     private static final long serialVersionUID = 1L;
+    public final String a;
 
-    private cxm(ixc ixc1)
+    public cxm(String s)
     {
-        super(ixc1.responseHeader, -1L);
+        a = s;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public String a()
     {
-        abyte0 = (ixc)kop.mergeFrom(new ixc(), abyte0);
-        if (a(((ixc) (abyte0)).responseHeader))
-        {
-            return new cvz(((ixc) (abyte0)).responseHeader);
-        } else
-        {
-            return new cxm(abyte0);
-        }
+        return "ui_queue";
     }
 
-    public void a(aoe aoe1, dfb dfb)
+    public kws a(String s, int i, int j)
     {
-        super.a(aoe1, dfb);
-        String s = ((cuq)b).c;
-        if (((cuq)b).b == 1)
+        if (cvv.e)
         {
-            aoe1.V(s);
-            any.a(dfb, aoe1, s);
+            eev.b("Babel_RequestWriter", "UndismissSuggestedContactsRequest()");
         }
-        any.d(aoe1);
+        jfo jfo1 = new jfo();
+        jfo1.requestHeader = cvu.a(null, true, s, i, j, h);
+        if (!TextUtils.isEmpty(a))
+        {
+            s = new jce();
+            s.b = a;
+            jfo1.a = new jce[1];
+            jfo1.a[0] = s;
+        }
+        return jfo1;
+    }
+
+    public String f()
+    {
+        return "contacts/undismisssuggestedcontacts";
     }
 }

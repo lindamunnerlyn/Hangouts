@@ -3,14 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ipw extends koj
+public final class ipw extends kwm
 {
 
-    private static volatile ipw e[];
-    public String a;
+    private static volatile ipw g[];
+    public Integer a;
     public String b;
-    public Long c;
-    public String d;
+    public String c;
+    public Boolean d;
+    public String e;
+    public String f;
 
     public ipw()
     {
@@ -18,23 +20,25 @@ public final class ipw extends koj
         b = null;
         c = null;
         d = null;
+        e = null;
+        f = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     public static ipw[] a()
     {
-        if (e == null)
+        if (g == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
-                if (e == null)
+                if (g == null)
                 {
-                    e = new ipw[0];
+                    g = new ipw[0];
                 }
             }
         }
-        return e;
+        return g;
         exception;
         obj;
         JVM INSTR monitorexit ;
@@ -47,35 +51,42 @@ public final class ipw extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.e(1, a.intValue());
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.b(2, b);
+            j = i + kwk.b(2, b);
         }
+        j += kwk.b(3, c);
         i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.longValue());
-        }
-        j = i;
         if (d != null)
         {
-            j = i + koh.b(4, d);
+            d.booleanValue();
+            i = j + (kwk.f(4) + 1);
         }
-        return j;
+        j = i;
+        if (e != null)
+        {
+            j = i + kwk.b(5, e);
+        }
+        i = j;
+        if (f != null)
+        {
+            i = j + kwk.b(6, f);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -84,43 +95,56 @@ public final class ipw extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                a = kog1.j();
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
                 break;
 
             case 18: // '\022'
-                b = kog1.j();
+                b = kwj1.j();
                 break;
 
-            case 24: // '\030'
-                c = Long.valueOf(kog1.e());
+            case 26: // '\032'
+                c = kwj1.j();
                 break;
 
-            case 34: // '"'
-                d = kog1.j();
+            case 32: // ' '
+                d = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 42: // '*'
+                e = kwj1.j();
+                break;
+
+            case 50: // '2'
+                f = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(1, a.intValue());
         }
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.a(2, b);
         }
-        if (c != null)
-        {
-            koh1.b(3, c.longValue());
-        }
+        kwk1.a(3, c);
         if (d != null)
         {
-            koh1.a(4, d);
+            kwk1.a(4, d.booleanValue());
         }
-        super.writeTo(koh1);
+        if (e != null)
+        {
+            kwk1.a(5, e);
+        }
+        if (f != null)
+        {
+            kwk1.a(6, f);
+        }
+        super.writeTo(kwk1);
     }
 }

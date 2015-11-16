@@ -2,25 +2,74 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.PowerManager;
+import java.util.Map;
 
-final class bne
-    implements Runnable
+public final class bne
 {
 
-    final bnd a;
+    public static final Map a;
+    private final Context b;
+    private final bng c = new bng(this);
+    private bnh d;
 
-    bne(bnd bnd1)
+    public bne(Context context)
     {
-        a = bnd1;
-        super();
+        b = context;
     }
 
-    public void run()
+    static bnh a(bne bne1)
     {
-        if (bnd.a(a))
+        return bne1.d;
+    }
+
+    public void a()
+    {
+        if (d != null)
         {
-            ebw.f("Babel_calls", "Leaving empty hangout on timeout.");
-            a.q.c(1012);
+            Object obj = new IntentFilter("android.intent.action.BATTERY_CHANGED");
+            obj = b.registerReceiver(null, ((IntentFilter) (obj)));
+            if (((Intent) (obj)).getIntExtra("plugged", -1) != 2)
+            {
+                int i = ((Intent) (obj)).getIntExtra("level", -1);
+                int j = ((Intent) (obj)).getIntExtra("scale", -1);
+                if ((int)((100D * (double)i) / (double)j) <= 15)
+                {
+                    d.a(bnf.a);
+                }
+            }
+            if (android.os.Build.VERSION.SDK_INT >= 21 && ((PowerManager)b.getSystemService("power")).isPowerSaveMode())
+            {
+                d.a(bnf.c);
+            }
         }
+        Context context = b;
+        bng bng1 = c;
+        IntentFilter intentfilter = new IntentFilter();
+        intentfilter.addAction("android.intent.action.BATTERY_LOW");
+        intentfilter.addAction("android.intent.action.BATTERY_OKAY");
+        if (android.os.Build.VERSION.SDK_INT >= 21)
+        {
+            intentfilter.addAction("android.os.action.POWER_SAVE_MODE_CHANGED");
+        }
+        context.registerReceiver(bng1, intentfilter);
+    }
+
+    public void a(bnh bnh1)
+    {
+        d = bnh1;
+    }
+
+    public void b()
+    {
+        b.unregisterReceiver(c);
+    }
+
+    static 
+    {
+        a = jso.a(bnf.a, Integer.valueOf(2805), bnf.b, Integer.valueOf(2806), bnf.c, Integer.valueOf(2803), bnf.d, Integer.valueOf(2804));
     }
 }

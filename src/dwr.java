@@ -2,35 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 
-final class dwr extends BroadcastReceiver
+public final class dwr extends Enum
 {
 
-    final dwn a;
+    public static final dwr a;
+    public static final dwr b;
+    public static final dwr c;
+    public static final dwr d;
+    public static final dwr e;
+    private static final dwr f[];
 
-    dwr(dwn dwn1)
+    private dwr(String s, int i)
     {
-        a = dwn1;
-        super();
+        super(s, i);
     }
 
-    public void onReceive(Context context, Intent intent)
+    public static dwr valueOf(String s)
     {
-        if (dwn.b())
-        {
-            context = String.valueOf(intent.getAction());
-            if (context.length() != 0)
-            {
-                context = "TeleWifiMonitor.Receiver.onReceive, action: ".concat(context);
-            } else
-            {
-                context = new String("TeleWifiMonitor.Receiver.onReceive, action: ");
-            }
-            ebw.b("Babel_telephony", context);
-        }
-        dwn.a(a);
+        return (dwr)Enum.valueOf(dwr, s);
+    }
+
+    public static dwr[] values()
+    {
+        return (dwr[])f.clone();
+    }
+
+    static 
+    {
+        a = new dwr("CONTAIN", 0);
+        b = new dwr("COVER", 1);
+        c = new dwr("DEVICE", 2);
+        d = new dwr("HEIGHT", 3);
+        e = new dwr("WIDTH", 4);
+        f = (new dwr[] {
+            a, b, c, d, e
+        });
     }
 }

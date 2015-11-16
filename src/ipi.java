@@ -3,89 +3,121 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ipi extends koj
+public final class ipi extends kwm
 {
 
-    public String a[];
-    public String b[];
+    private static volatile ipi k[];
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public Integer i;
+    public String j;
 
     public ipi()
     {
-        a = kou.f;
-        b = kou.f;
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        e = null;
+        f = null;
+        g = null;
+        h = null;
+        i = null;
+        j = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public static ipi[] a()
     {
-        boolean flag = false;
-        int k2 = super.computeSerializedSize();
-        int i;
-        int k;
-        if (a != null && a.length > 0)
+        if (k == null)
         {
-            i = 0;
-            int j = 0;
-            int l;
-            int j1;
-            for (l = 0; i < a.length; l = j1)
+            synchronized (kwq.a)
             {
-                String s = a[i];
-                int l1 = j;
-                j1 = l;
-                if (s != null)
+                if (k == null)
                 {
-                    j1 = l + 1;
-                    l1 = j + koh.a(s);
+                    k = new ipi[0];
                 }
-                i++;
-                j = l1;
-            }
-
-            i = k2 + j + l * 1;
-        } else
-        {
-            i = k2;
-        }
-        k = i;
-        if (b != null)
-        {
-            k = i;
-            if (b.length > 0)
-            {
-                int i1 = 0;
-                int k1 = 0;
-                for (k = ((flag) ? 1 : 0); k < b.length;)
-                {
-                    String s1 = b[k];
-                    int j2 = i1;
-                    int i2 = k1;
-                    if (s1 != null)
-                    {
-                        i2 = k1 + 1;
-                        j2 = i1 + koh.a(s1);
-                    }
-                    k++;
-                    i1 = j2;
-                    k1 = i2;
-                }
-
-                k = i + i1 + k1 * 1;
             }
         }
         return k;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public kop mergeFrom(kog kog1)
+    protected int computeSerializedSize()
+    {
+        int i1 = super.computeSerializedSize();
+        int l = i1;
+        if (a != null)
+        {
+            l = i1 + kwk.b(1, a);
+        }
+        i1 = l;
+        if (b != null)
+        {
+            i1 = l + kwk.b(2, b);
+        }
+        l = i1;
+        if (c != null)
+        {
+            l = i1 + kwk.b(3, c);
+        }
+        i1 = l;
+        if (d != null)
+        {
+            i1 = l + kwk.b(4, d);
+        }
+        l = i1;
+        if (e != null)
+        {
+            l = i1 + kwk.b(5, e);
+        }
+        i1 = l;
+        if (f != null)
+        {
+            i1 = l + kwk.b(6, f);
+        }
+        l = i1;
+        if (g != null)
+        {
+            l = i1 + kwk.b(7, g);
+        }
+        i1 = l;
+        if (h != null)
+        {
+            i1 = l + kwk.b(8, h);
+        }
+        l = i1;
+        if (i != null)
+        {
+            l = i1 + kwk.e(9, i.intValue());
+        }
+        i1 = l;
+        if (j != null)
+        {
+            i1 = l + kwk.b(10, j);
+        }
+        return i1;
+    }
+
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
-            switch (i)
+            int l = kwj1.a();
+            switch (l)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, l))
                 {
                     continue;
                 }
@@ -95,91 +127,90 @@ public final class ipi extends koj
                 return this;
 
             case 10: // '\n'
-                int l = kou.b(kog1, 10);
-                String as[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                as = new String[l + j];
-                l = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, as, 0, j);
-                    l = j;
-                }
-                for (; l < as.length - 1; l++)
-                {
-                    as[l] = kog1.j();
-                    kog1.a();
-                }
-
-                as[l] = kog1.j();
-                a = as;
+                a = kwj1.j();
                 break;
 
             case 18: // '\022'
-                int i1 = kou.b(kog1, 18);
-                String as1[];
-                int k;
-                if (b == null)
-                {
-                    k = 0;
-                } else
-                {
-                    k = b.length;
-                }
-                as1 = new String[i1 + k];
-                i1 = k;
-                if (k != 0)
-                {
-                    System.arraycopy(b, 0, as1, 0, k);
-                    i1 = k;
-                }
-                for (; i1 < as1.length - 1; i1++)
-                {
-                    as1[i1] = kog1.j();
-                    kog1.a();
-                }
+                b = kwj1.j();
+                break;
 
-                as1[i1] = kog1.j();
-                b = as1;
+            case 26: // '\032'
+                c = kwj1.j();
+                break;
+
+            case 34: // '"'
+                d = kwj1.j();
+                break;
+
+            case 42: // '*'
+                e = kwj1.j();
+                break;
+
+            case 50: // '2'
+                f = kwj1.j();
+                break;
+
+            case 58: // ':'
+                g = kwj1.j();
+                break;
+
+            case 66: // 'B'
+                h = kwj1.j();
+                break;
+
+            case 72: // 'H'
+                i = Integer.valueOf(kwj1.f());
+                break;
+
+            case 82: // 'R'
+                j = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        boolean flag = false;
-        if (a != null && a.length > 0)
+        if (a != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                String s = a[i];
-                if (s != null)
-                {
-                    koh1.a(1, s);
-                }
-            }
-
+            kwk1.a(1, a);
         }
-        if (b != null && b.length > 0)
+        if (b != null)
         {
-            for (int j = ((flag) ? 1 : 0); j < b.length; j++)
-            {
-                String s1 = b[j];
-                if (s1 != null)
-                {
-                    koh1.a(2, s1);
-                }
-            }
-
+            kwk1.a(2, b);
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d);
+        }
+        if (e != null)
+        {
+            kwk1.a(5, e);
+        }
+        if (f != null)
+        {
+            kwk1.a(6, f);
+        }
+        if (g != null)
+        {
+            kwk1.a(7, g);
+        }
+        if (h != null)
+        {
+            kwk1.a(8, h);
+        }
+        if (i != null)
+        {
+            kwk1.a(9, i.intValue());
+        }
+        if (j != null)
+        {
+            kwk1.a(10, j);
+        }
+        super.writeTo(kwk1);
     }
 }

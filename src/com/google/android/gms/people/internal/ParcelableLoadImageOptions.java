@@ -6,15 +6,15 @@ package com.google.android.gms.people.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import eof;
-import fpm;
+import erf;
+import fsh;
 import g;
 
 public class ParcelableLoadImageOptions
     implements SafeParcelable
 {
 
-    public static final fpm CREATOR = new fpm();
+    public static final fsh CREATOR = new fsh();
     private final int a;
     private final int b;
     private final int c;
@@ -60,7 +60,12 @@ public class ParcelableLoadImageOptions
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fpm.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, b());
+        g.b(parcel, 1000, a());
+        g.b(parcel, 2, c());
+        g.a(parcel, 3, d());
+        g.q(parcel, i);
     }
 
 }

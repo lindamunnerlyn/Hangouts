@@ -8,7 +8,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
-import gbh;
+import gdv;
 
 public class  extends BroadcastReceiver
     implements Runnable
@@ -16,7 +16,7 @@ public class  extends BroadcastReceiver
 
     public void onReceive(Context context, Intent intent)
     {
-        gbh.a(intent.getAction(), "com.google.android.libraries.hangouts.video.ACTION_NATIVE_CRASH");
+        gdv.a(intent.getAction(), "com.google.android.libraries.hangouts.video.ACTION_NATIVE_CRASH");
         (new Handler()).postDelayed(this, 1000L);
     }
 

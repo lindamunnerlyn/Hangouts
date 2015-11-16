@@ -48,6 +48,8 @@ interface km
 
     public abstract void c(View view, int i1);
 
+    public abstract void c(View view, boolean flag);
+
     public abstract boolean c(View view);
 
     public abstract void d(View view);

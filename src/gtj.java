@@ -3,31 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gtj
+public final class gtj
 {
 
-    static final int a[];
-
-    static 
+    public gtj()
     {
-        a = new int[gtl.values().length];
-        try
-        {
-            a[gtl.a.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[gtl.c.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[gtl.b.ordinal()] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
     }
 }

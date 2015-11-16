@@ -3,12 +3,69 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gnd
+public final class gnd
 {
 
-    public abstract gna a(String s);
+    Object a[];
+    private int b;
+    private boolean c;
+    private int d;
 
-    public abstract void a(ad ad);
+    public gnd(int i)
+    {
+        d = i;
+        b = 0;
+        c = false;
+        a = new Object[d];
+    }
 
-    public abstract gna[] a();
+    public int a()
+    {
+        if (c)
+        {
+            return d;
+        } else
+        {
+            return b;
+        }
+    }
+
+    public Object a(int i)
+    {
+        if (c)
+        {
+            int j = b + i;
+            i = j;
+            if (j >= d)
+            {
+                i = j - d;
+            }
+            return a[i];
+        } else
+        {
+            return a[i];
+        }
+    }
+
+    public void a(Object obj)
+    {
+        a[b] = obj;
+        b = b + 1;
+        if (b == d)
+        {
+            b = 0;
+            c = true;
+        }
+    }
+
+    public Object b()
+    {
+        if (!c)
+        {
+            return null;
+        } else
+        {
+            return a[b];
+        }
+    }
 }

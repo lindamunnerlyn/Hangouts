@@ -6,7 +6,8 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import flk;
+import fog;
+import g;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public final class PolygonOptions
     implements SafeParcelable
 {
 
-    public static final flk CREATOR = new flk();
+    public static final fog CREATOR = new fog();
     private final int a;
     private final List b;
     private final List c;
@@ -58,24 +59,49 @@ public final class PolygonOptions
         i = flag1;
     }
 
-    public int a()
+    private int a()
     {
         return a;
     }
 
-    public List b()
+    private List b()
     {
         return c;
     }
 
-    public List c()
+    private List c()
     {
         return b;
     }
 
-    public float d()
+    private float d()
     {
         return d;
+    }
+
+    private int e()
+    {
+        return e;
+    }
+
+    private int f()
+    {
+        return f;
+    }
+
+    private float g()
+    {
+        return g;
+    }
+
+    private boolean h()
+    {
+        return h;
+    }
+
+    private boolean i()
+    {
+        return i;
     }
 
     public int describeContents()
@@ -83,34 +109,25 @@ public final class PolygonOptions
         return 0;
     }
 
-    public int e()
-    {
-        return e;
-    }
-
-    public int f()
-    {
-        return f;
-    }
-
-    public float g()
-    {
-        return g;
-    }
-
-    public boolean h()
-    {
-        return h;
-    }
-
-    public boolean i()
-    {
-        return i;
-    }
-
     public void writeToParcel(Parcel parcel, int j)
     {
-        flk.a(this, parcel);
+        j = g.p(parcel, 20293);
+        g.b(parcel, 1, a());
+        g.c(parcel, 2, c());
+        List list = b();
+        if (list != null)
+        {
+            int k = g.p(parcel, 3);
+            parcel.writeList(list);
+            g.q(parcel, k);
+        }
+        g.a(parcel, 4, d());
+        g.b(parcel, 5, e());
+        g.b(parcel, 6, f());
+        g.a(parcel, 7, g());
+        g.a(parcel, 8, h());
+        g.a(parcel, 9, i());
+        g.q(parcel, j);
     }
 
 }

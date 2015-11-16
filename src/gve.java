@@ -2,52 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.util.Log;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 
-final class gve extends he
+final class gve extends gvs
 {
 
-    final gvc a;
-
-    gve(gvc gvc, int i)
+    public gve()
     {
-        a = gvc;
-        super(i);
+        super(null, null);
     }
 
-    protected void a(boolean flag, Object obj, Object obj1, Object obj2)
+    public void a(String s)
     {
-        obj2 = (hcx)obj;
-        obj = (guu)obj1;
-        if (flag)
-        {
-            if (((guu) (obj)).z())
-            {
-                obj1 = String.valueOf(obj2);
-                (new StringBuilder(String.valueOf(obj1).length() + 26)).append("Evicted image from cache: ").append(((String) (obj1)));
-                if (Log.isLoggable("ImageResourceManager", 2))
-                {
-                    obj1 = g();
-                    String s;
-                    int i;
-                    for (obj2 = ((Map) (obj1)).keySet().iterator(); ((Iterator) (obj2)).hasNext(); (new StringBuilder(String.valueOf(s).length() + 26)).append("   id: ").append(s).append("; size: ").append(i))
-                    {
-                        hcx hcx1 = (hcx)((Iterator) (obj2)).next();
-                        s = String.valueOf(hcx1);
-                        i = ((guu)((Map) (obj1)).get(hcx1)).q();
-                    }
-
-                }
-            }
-            ((guu) (obj)).n();
-        }
     }
 
-    protected int c(Object obj)
+    public void a(String s, String s1, String s2, boolean flag)
     {
-        return ((guu)obj).q();
+    }
+
+    public boolean a(gvv gvv)
+    {
+        return false;
     }
 }

@@ -2,7 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public interface ahp
+public final class ahp
+    implements ahm
 {
+
+    private final Class a;
+    private final Object b;
+
+    ahp(Context context)
+    {
+        try
+        {
+            a = Class.forName("android.location.CountryDetector");
+        }
+        // Misplaced declaration of an exception variable
+        catch (Context context)
+        {
+            throw new RuntimeException("Couldn't load android.location.CountryDetector", context);
+        }
+        b = context.getSystemService("country_detector");
+    }
 }

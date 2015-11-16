@@ -8,14 +8,15 @@ import android.accounts.Account;
 import android.os.Parcel;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fsb;
+import fui;
+import g;
 
 public class RecordConsentRequest
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fsb();
-    public final int a;
+    public static final android.os.Parcelable.Creator CREATOR = new fui();
+    final int a;
     private final Account b;
     private final Scope c[];
     private final String d;
@@ -50,7 +51,12 @@ public class RecordConsentRequest
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fsb.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, a(), i);
+        g.a(parcel, 3, b(), i);
+        g.a(parcel, 4, c());
+        g.q(parcel, j);
     }
 
 }

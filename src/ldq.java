@@ -3,11 +3,52 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface ldq
-    extends Comparable
+public final class ldq extends kuf
+    implements kvd
 {
 
-    public abstract long b();
+    ldq()
+    {
+        super(ldp.q());
+    }
 
-    public abstract lcw c();
+    public ldq a(double d)
+    {
+        b();
+        ldp.a((ldp)a, d);
+        return this;
+    }
+
+    public ldq a(long l)
+    {
+        b();
+        ldp.a((ldp)a, l);
+        return this;
+    }
+
+    public ldq a(String s)
+    {
+        b();
+        ldp.a((ldp)a, s);
+        return this;
+    }
+
+    public ldq b(long l)
+    {
+        b();
+        ldp.b((ldp)a, l);
+        return this;
+    }
+
+    public ldq j()
+    {
+        b();
+        ldp.c((ldp)a, 0L);
+        return this;
+    }
+
+    public String k()
+    {
+        return ((ldp)a).m();
+    }
 }

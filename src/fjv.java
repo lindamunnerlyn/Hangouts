@@ -2,77 +2,35 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Bitmap;
-import android.os.IBinder;
-import android.os.Parcel;
+import android.os.Bundle;
+import android.os.IInterface;
+import com.google.android.gms.maps.StreetViewPanoramaOptions;
 
-final class fjv
-    implements fjt
+public interface fjv
+    extends IInterface
 {
 
-    private IBinder a;
+    public abstract fcw a(fcw fcw, fcw fcw1, Bundle bundle);
 
-    fjv(IBinder ibinder)
-    {
-        a = ibinder;
-    }
+    public abstract fjs a();
 
-    public void a(Bitmap bitmap)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.ISnapshotReadyCallback");
-        if (bitmap == null)
-        {
-            break MISSING_BLOCK_LABEL_56;
-        }
-        parcel.writeInt(1);
-        bitmap.writeToParcel(parcel, 0);
-_L1:
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        bitmap;
-        parcel1.recycle();
-        parcel.recycle();
-        throw bitmap;
-    }
+    public abstract void a(Bundle bundle);
 
-    public void a(ezy ezy1)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.ISnapshotReadyCallback");
-        if (ezy1 == null)
-        {
-            break MISSING_BLOCK_LABEL_57;
-        }
-        ezy1 = ezy1.asBinder();
-_L1:
-        parcel.writeStrongBinder(ezy1);
-        a.transact(2, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        ezy1 = null;
-          goto _L1
-        ezy1;
-        parcel1.recycle();
-        parcel.recycle();
-        throw ezy1;
-    }
+    public abstract void a(fcw fcw, StreetViewPanoramaOptions streetviewpanoramaoptions, Bundle bundle);
 
-    public IBinder asBinder()
-    {
-        return a;
-    }
+    public abstract void a(fmm fmm);
+
+    public abstract void b();
+
+    public abstract void b(Bundle bundle);
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract boolean g();
 }

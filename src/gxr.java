@@ -3,8 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gxr
+final class gxr
+    implements Runnable
 {
 
-    public abstract int a();
+    final gxq a;
+
+    gxr(gxq gxq1)
+    {
+        a = gxq1;
+        super();
+    }
+
+    public void run()
+    {
+        a.a.run();
+        a.b.a(a);
+    }
 }

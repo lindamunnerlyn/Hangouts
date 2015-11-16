@@ -2,211 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.common.data.DataHolder;
-import com.google.android.gms.wearable.internal.AmsEntityUpdateParcelable;
-import com.google.android.gms.wearable.internal.AncsNotificationParcelable;
-import com.google.android.gms.wearable.internal.CapabilityInfoParcelable;
-import com.google.android.gms.wearable.internal.ChannelEventParcelable;
-import com.google.android.gms.wearable.internal.MessageEventParcelable;
-import com.google.android.gms.wearable.internal.NodeParcelable;
-import java.util.List;
 
-final class fve
-    implements fvc
+public final class fve extends epm
+    implements enh
 {
 
-    private IBinder a;
+    private final Status b;
 
-    fve(IBinder ibinder)
+    public fve(DataHolder dataholder)
     {
-        a = ibinder;
+        super(dataholder);
+        b = new Status(dataholder.b());
     }
 
-    public void a(DataHolder dataholder)
+    public Status D_()
     {
-        Parcel parcel = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableListener");
-        if (dataholder == null)
-        {
-            break MISSING_BLOCK_LABEL_44;
-        }
-        parcel.writeInt(1);
-        dataholder.writeToParcel(parcel, 0);
-_L1:
-        a.transact(1, parcel, null, 1);
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        dataholder;
-        parcel.recycle();
-        throw dataholder;
+        return b;
     }
 
-    public void a(AmsEntityUpdateParcelable amsentityupdateparcelable)
+    protected Object a(int i, int j)
     {
-        Parcel parcel = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableListener");
-        if (amsentityupdateparcelable == null)
-        {
-            break MISSING_BLOCK_LABEL_45;
-        }
-        parcel.writeInt(1);
-        amsentityupdateparcelable.writeToParcel(parcel, 0);
-_L1:
-        a.transact(9, parcel, null, 1);
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        amsentityupdateparcelable;
-        parcel.recycle();
-        throw amsentityupdateparcelable;
+        return new fyy(a, i, j);
     }
 
-    public void a(AncsNotificationParcelable ancsnotificationparcelable)
+    protected String e()
     {
-        Parcel parcel = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableListener");
-        if (ancsnotificationparcelable == null)
-        {
-            break MISSING_BLOCK_LABEL_45;
-        }
-        parcel.writeInt(1);
-        ancsnotificationparcelable.writeToParcel(parcel, 0);
-_L1:
-        a.transact(6, parcel, null, 1);
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        ancsnotificationparcelable;
-        parcel.recycle();
-        throw ancsnotificationparcelable;
-    }
-
-    public void a(CapabilityInfoParcelable capabilityinfoparcelable)
-    {
-        Parcel parcel = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableListener");
-        if (capabilityinfoparcelable == null)
-        {
-            break MISSING_BLOCK_LABEL_45;
-        }
-        parcel.writeInt(1);
-        capabilityinfoparcelable.writeToParcel(parcel, 0);
-_L1:
-        a.transact(8, parcel, null, 1);
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        capabilityinfoparcelable;
-        parcel.recycle();
-        throw capabilityinfoparcelable;
-    }
-
-    public void a(ChannelEventParcelable channeleventparcelable)
-    {
-        Parcel parcel = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableListener");
-        if (channeleventparcelable == null)
-        {
-            break MISSING_BLOCK_LABEL_45;
-        }
-        parcel.writeInt(1);
-        channeleventparcelable.writeToParcel(parcel, 0);
-_L1:
-        a.transact(7, parcel, null, 1);
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        channeleventparcelable;
-        parcel.recycle();
-        throw channeleventparcelable;
-    }
-
-    public void a(MessageEventParcelable messageeventparcelable)
-    {
-        Parcel parcel = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableListener");
-        if (messageeventparcelable == null)
-        {
-            break MISSING_BLOCK_LABEL_44;
-        }
-        parcel.writeInt(1);
-        messageeventparcelable.writeToParcel(parcel, 0);
-_L1:
-        a.transact(2, parcel, null, 1);
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        messageeventparcelable;
-        parcel.recycle();
-        throw messageeventparcelable;
-    }
-
-    public void a(NodeParcelable nodeparcelable)
-    {
-        Parcel parcel = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableListener");
-        if (nodeparcelable == null)
-        {
-            break MISSING_BLOCK_LABEL_44;
-        }
-        parcel.writeInt(1);
-        nodeparcelable.writeToParcel(parcel, 0);
-_L1:
-        a.transact(3, parcel, null, 1);
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        nodeparcelable;
-        parcel.recycle();
-        throw nodeparcelable;
-    }
-
-    public void a(List list)
-    {
-        Parcel parcel = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableListener");
-        parcel.writeTypedList(list);
-        a.transact(5, parcel, null, 1);
-        parcel.recycle();
-        return;
-        list;
-        parcel.recycle();
-        throw list;
-    }
-
-    public IBinder asBinder()
-    {
-        return a;
-    }
-
-    public void b(NodeParcelable nodeparcelable)
-    {
-        Parcel parcel = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.wearable.internal.IWearableListener");
-        if (nodeparcelable == null)
-        {
-            break MISSING_BLOCK_LABEL_44;
-        }
-        parcel.writeInt(1);
-        nodeparcelable.writeToParcel(parcel, 0);
-_L1:
-        a.transact(4, parcel, null, 1);
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        nodeparcelable;
-        parcel.recycle();
-        throw nodeparcelable;
+        return "path";
     }
 }

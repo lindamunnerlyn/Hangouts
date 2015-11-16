@@ -3,46 +3,132 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cyi extends cvn
+public class cyi extends cxr
 {
 
     private static final long serialVersionUID = 1L;
-    private final boolean g;
+    private final int g;
+    private final int h;
+    private final String i;
+    private final boolean j;
+    private final int k;
 
-    private cyi(iyr iyr1)
+    private cyi(lfb lfb1)
     {
-        super(iyr1.responseHeader, -1L);
-        g = g.a(iyr1.b, false);
-        if (cvn.a)
+        int i1;
+        int j1;
+        j1 = 1;
+        super();
+        k = g.a(lfb1.d, 0);
+        Object obj;
+        if (g.a(lfb1.b, 0) == 1 && lfb1.c != null && lfb1.c.c != null)
         {
-            iyr1 = String.valueOf(iyr1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(iyr1).length() + 36)).append("StartPhoneVerificationResponse from:").append(iyr1).toString());
-        }
-    }
-
-    public static cvn parseFrom(byte abyte0[])
-    {
-        abyte0 = (iyr)kop.mergeFrom(new iyr(), abyte0);
-        if (a(((iyr) (abyte0)).responseHeader))
-        {
-            return new cvz(((iyr) (abyte0)).responseHeader);
+            obj = lfb1.c.c;
         } else
         {
-            return new cyi(abyte0);
+            obj = lfb1.a;
         }
+        if (obj != null)
+        {
+            i = ((leq) (obj)).c;
+            lev lev1;
+            int k1;
+            if (g.a(((leq) (obj)).a, 0L) == 0L)
+            {
+                j = true;
+            } else
+            {
+                j = false;
+            }
+        } else
+        {
+            i = null;
+            j = false;
+        }
+        if (j || lfb1.e == null)
+        {
+            break MISSING_BLOCK_LABEL_257;
+        }
+        obj = lfb1.e;
+        k1 = obj.length;
+        i1 = 0;
+_L3:
+        if (i1 >= k1)
+        {
+            break MISSING_BLOCK_LABEL_257;
+        }
+        lev1 = obj[i1];
+        if (g.a(lev1.a, 0) != 1) goto _L2; else goto _L1
+_L1:
+        if (g.a(lev1.b, false))
+        {
+            i1 = j1;
+        } else
+        {
+            i1 = 2;
+        }
+        if (lfb1.c != null && lfb1.c.b != null)
+        {
+            k1 = g.a(lfb1.c.b, 0);
+            j1 = i1;
+            i1 = k1;
+        } else
+        {
+            j1 = i1;
+            i1 = 60000;
+        }
+_L4:
+        g = j1;
+        h = i1;
+        return;
+_L2:
+        i1++;
+          goto _L3
+        i1 = 60000;
+        j1 = 0;
+          goto _L4
     }
 
-    public void a(aoe aoe, dfb dfb)
+    public static cxr parseFrom(byte abyte0[])
     {
-        super.a(aoe, dfb);
-        if (g)
+        if (abyte0 != null)
         {
-            ebw.c("Babel", "Rate limit exceeded for phone verification");
-            aoe = (cpt)hgx.b(g.nS, cpt);
-            if (aoe != null)
+            abyte0 = (lfb)kws.mergeFrom(new lfb(), abyte0);
+            if (abyte0 != null)
             {
-                aoe.a(105, true);
+                return new cyi(abyte0);
             }
         }
+        return null;
+    }
+
+    public int k()
+    {
+        return g;
+    }
+
+    public int l()
+    {
+        return h;
+    }
+
+    public String m()
+    {
+        return i;
+    }
+
+    public boolean n()
+    {
+        return j;
+    }
+
+    public int o()
+    {
+        return k;
+    }
+
+    public boolean p()
+    {
+        return k == 0;
     }
 }

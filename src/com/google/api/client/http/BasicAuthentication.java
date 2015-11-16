@@ -18,8 +18,8 @@ public final class BasicAuthentication
 
     public BasicAuthentication(String s, String s1)
     {
-        username = (String)h.b(s);
-        password = (String)h.b(s1);
+        username = (String)h.a(s);
+        password = (String)h.a(s1);
     }
 
     public String getPassword()

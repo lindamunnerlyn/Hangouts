@@ -2,68 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.gms.feedback.ThemeSettings;
 
-public final class fan
-    implements android.os.Parcelable.Creator
+final class fan
 {
 
-    public fan()
-    {
-    }
+    static final erv a[] = {
+        new fao(erv.a("0\202\003\3150\202\002\265\240\003\002\001\002\002\t\000\227\2506\372Q\307\026\2520")), new fap(erv.a("0\202\003\3150\202\002\265\240\003\002\001\002\002\t\000\242Z\234\224)N\373\3340"))
+    };
 
-    public static void a(ThemeSettings themesettings, Parcel parcel)
-    {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, themesettings.a);
-        g.b(parcel, 2, themesettings.b);
-        g.b(parcel, 3, themesettings.c);
-        g.q(parcel, i);
-    }
-
-    public Object createFromParcel(Parcel parcel)
-    {
-        int k = 0;
-        int l = g.a(parcel);
-        int j = 0;
-        int i = 0;
-        do
-        {
-            if (parcel.dataPosition() < l)
-            {
-                int i1 = parcel.readInt();
-                switch (0xffff & i1)
-                {
-                default:
-                    g.b(parcel, i1);
-                    break;
-
-                case 1: // '\001'
-                    i = g.e(parcel, i1);
-                    break;
-
-                case 2: // '\002'
-                    j = g.e(parcel, i1);
-                    break;
-
-                case 3: // '\003'
-                    k = g.e(parcel, i1);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != l)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(l).toString(), parcel);
-            } else
-            {
-                return new ThemeSettings(i, j, k);
-            }
-        } while (true);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new ThemeSettings[i];
-    }
 }

@@ -2,28 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
-import android.os.Bundle;
-import com.google.android.libraries.social.login.settings.LoginSettingsActivity;
+import android.os.StatFs;
 
-public final class gys extends hfz
+final class gys
+    implements gyt
 {
 
-    final LoginSettingsActivity a;
-
-    public gys(LoginSettingsActivity loginsettingsactivity, ps ps, hjm hjm)
+    gys()
     {
-        a = loginsettingsactivity;
-        super(ps, hjm);
     }
 
-    protected Bundle a(Intent intent)
+    public long a()
     {
-        return gyt.a(intent);
+        return gyr.d().getTotalBytes();
     }
 
-    protected hfh a()
+    public long b()
     {
-        return new gyt();
+        return gyr.d().getFreeBytes();
     }
 }

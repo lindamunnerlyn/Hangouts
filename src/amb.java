@@ -2,26 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 
-final class amb extends BroadcastReceiver
+public class amb
 {
 
-    final alz a;
+    public final Class a;
+    public final String b;
 
-    amb(alz alz)
+    public amb(Class class1)
     {
-        a = alz;
-        super();
-    }
-
-    public void onReceive(Context context, Intent intent)
-    {
-        if (intent.getAction().equals("com.google.gservices.intent.action.GSERVICES_CHANGED"))
-        {
-            (new amc(this)).execute(new Void[0]);
-        }
+        a = class1;
+        b = class1.getName();
     }
 }

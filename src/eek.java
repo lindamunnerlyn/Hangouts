@@ -2,24 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import com.google.android.apps.hangouts.util.TabHostEx;
 
-final class eek
-    implements android.view.View.OnClickListener
+public final class eek extends lk
 {
 
-    final eem a;
-    final eej b;
+    final TabHostEx a;
 
-    eek(eej eej, eem eem1)
+    public eek(TabHostEx tabhostex)
     {
-        b = eej;
-        a = eem1;
+        a = tabhostex;
         super();
     }
 
-    public void onClick(View view)
+    public void a(int i)
     {
-        a.a(b);
+        a.setOnTabChangedListener(null);
+        a.setCurrentTab(i);
+        a.a(i);
+        a.setOnTabChangedListener(a.c);
     }
 }

@@ -2,32 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.animation.Animation;
 
 final class aau
+    implements android.view.animation.Animation.AnimationListener
 {
 
-    static final int a[];
+    final aao a;
 
-    static 
+    aau(aao aao1)
     {
-        a = new int[abo.a().length];
-        try
-        {
-            a[abo.a - 1] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[abo.b - 1] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[abo.c - 1] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
+        a = aao1;
+        super();
+    }
+
+    public void onAnimationEnd(Animation animation)
+    {
+        aao.a(a);
+    }
+
+    public void onAnimationRepeat(Animation animation)
+    {
+    }
+
+    public void onAnimationStart(Animation animation)
+    {
     }
 }

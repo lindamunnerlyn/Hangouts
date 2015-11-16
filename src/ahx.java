@@ -2,14 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.AnimatorListenerAdapter;
-import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 
-public final class ahx extends AnimatorListenerAdapter
+final class ahx extends AccelerateDecelerateInterpolator
 {
 
-    public static android.animation.Animator.AnimatorListener a(View view)
+    final ahv a;
+    private ahs b;
+
+    ahx(ahv ahv)
     {
-        return new ahy(view);
+        a = ahv;
+        super();
+        b = new ahs(0.2F);
+    }
+
+    public float getInterpolation(float f)
+    {
+        return super.getInterpolation(b.getInterpolation(f));
     }
 }

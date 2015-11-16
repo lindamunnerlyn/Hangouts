@@ -2,28 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.view.View;
 
-public final class gqs
-    implements hhl, hhy
+public final class gqs extends AnimatorListenerAdapter
 {
 
-    public gqs()
+    final View a;
+
+    public gqs(View view)
     {
+        a = view;
+        super();
     }
 
-    public Class a()
+    public void onAnimationEnd(Animator animator)
     {
-        return gqr;
-    }
-
-    public void a(ad ad, hjm hjm, hgx hgx1)
-    {
-        hgx1.a(gqr, new gqr(ad, hjm));
-    }
-
-    public void a(Activity activity, hjm hjm, hgx hgx1)
-    {
-        hgx1.a(gqr, new gqr(activity, hjm));
+        a.setVisibility(8);
     }
 }

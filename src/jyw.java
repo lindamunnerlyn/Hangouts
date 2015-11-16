@@ -2,114 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.Closeable;
+import java.lang.reflect.Method;
 
-public final class jyw extends koj
+final class jyw
+    implements jyx
 {
 
-    public jyv a[];
+    static final jyw a = new jyw();
+    static final Method b = b();
 
-    public jyw()
+    jyw()
     {
-        a = jyv.a();
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    static boolean a()
     {
-        int i = super.computeSerializedSize();
-        int k = i;
-        if (a != null)
+        return b != null;
+    }
+
+    private static Method b()
+    {
+        Method method;
+        try
         {
-            k = i;
-            if (a.length > 0)
-            {
-                int j = 0;
-                do
-                {
-                    k = i;
-                    if (j >= a.length)
-                    {
-                        break;
-                    }
-                    jyv jyv1 = a[j];
-                    k = i;
-                    if (jyv1 != null)
-                    {
-                        k = i + koh.d(1, jyv1);
-                    }
-                    j++;
-                    i = k;
-                } while (true);
-            }
+            method = java/lang/Throwable.getMethod("addSuppressed", new Class[] {
+                java/lang/Throwable
+            });
         }
-        return k;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        catch (Throwable throwable)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                jyv ajyv[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                ajyv = new jyv[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, ajyv, 0, j);
-                    k = j;
-                }
-                for (; k < ajyv.length - 1; k++)
-                {
-                    ajyv[k] = new jyv();
-                    kog1.a(ajyv[k]);
-                    kog1.a();
-                }
-
-                ajyv[k] = new jyv();
-                kog1.a(ajyv[k]);
-                a = ajyv;
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null && a.length > 0)
-        {
-            for (int i = 0; i < a.length; i++)
-            {
-                jyv jyv1 = a[i];
-                if (jyv1 != null)
-                {
-                    koh1.b(1, jyv1);
-                }
-            }
-
+            return null;
         }
-        super.writeTo(koh1);
+        return method;
     }
+
+    public void a(Closeable closeable, Throwable throwable, Throwable throwable1)
+    {
+        if (throwable == throwable1)
+        {
+            return;
+        }
+        try
+        {
+            b.invoke(throwable, new Object[] {
+                throwable1
+            });
+            return;
+        }
+        catch (Throwable throwable2)
+        {
+            jyv.a.a(closeable, throwable, throwable1);
+        }
+    }
+
 }

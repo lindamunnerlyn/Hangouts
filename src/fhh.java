@@ -2,525 +2,145 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 final class fhh
-    implements fhf
+    implements Set
 {
 
-    private IBinder a;
+    final fhe a;
 
-    fhh(IBinder ibinder)
+    fhh(fhe fhe1)
     {
-        a = ibinder;
+        a = fhe1;
+        super();
     }
 
-    public void a(boolean flag)
+    public boolean add(Object obj)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        int k;
-        k = 1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        if (!flag)
+        throw new UnsupportedOperationException();
+    }
+
+    public boolean addAll(Collection collection)
+    {
+        throw new UnsupportedOperationException();
+    }
+
+    public void clear()
+    {
+        a.c();
+    }
+
+    public boolean contains(Object obj)
+    {
+        return a.a(obj) >= 0;
+    }
+
+    public boolean containsAll(Collection collection)
+    {
+        Map map = a.b();
+        for (collection = collection.iterator(); collection.hasNext();)
         {
-            k = 0;
+            if (!map.containsKey(collection.next()))
+            {
+                return false;
+            }
         }
-        parcel.writeInt(k);
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
+
+        return true;
     }
 
-    public boolean a()
+    public boolean equals(Object obj)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        boolean flag;
-        flag = false;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        int k;
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        a.transact(9, parcel, parcel1, 0);
-        parcel1.readException();
-        k = parcel1.readInt();
-        if (k != 0)
+        return fhe.a(this, obj);
+    }
+
+    public int hashCode()
+    {
+        int i = a.a() - 1;
+        int j = 0;
+        while (i >= 0) 
         {
-            flag = true;
+            Object obj = a.a(i, 0);
+            int k;
+            if (obj == null)
+            {
+                k = 0;
+            } else
+            {
+                k = obj.hashCode();
+            }
+            j += k;
+            i--;
         }
-        parcel1.recycle();
-        parcel.recycle();
-        return flag;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
+        return j;
     }
 
-    public IBinder asBinder()
+    public boolean isEmpty()
     {
-        return a;
+        return a.a() == 0;
     }
 
-    public void b(boolean flag)
+    public Iterator iterator()
     {
-        Parcel parcel;
-        Parcel parcel1;
-        int k;
-        k = 0;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        if (flag)
+        return new fhf(a, 0);
+    }
+
+    public boolean remove(Object obj)
+    {
+        int i = a.a(obj);
+        if (i >= 0)
         {
-            k = 1;
+            a.a(i);
+            return true;
+        } else
+        {
+            return false;
         }
-        parcel.writeInt(k);
-        a.transact(2, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
     }
 
-    public boolean b()
+    public boolean removeAll(Collection collection)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        boolean flag;
-        flag = false;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        int k;
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        a.transact(10, parcel, parcel1, 0);
-        parcel1.readException();
-        k = parcel1.readInt();
-        if (k != 0)
-        {
-            flag = true;
-        }
-        parcel1.recycle();
-        parcel.recycle();
-        return flag;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
+        Map map = a.b();
+        int i = map.size();
+        for (collection = collection.iterator(); collection.hasNext(); map.remove(collection.next())) { }
+        return i != map.size();
     }
 
-    public void c(boolean flag)
+    public boolean retainAll(Collection collection)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        int k;
-        k = 0;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        if (flag)
+        Map map = a.b();
+        int i = map.size();
+        Iterator iterator1 = map.keySet().iterator();
+        do
         {
-            k = 1;
-        }
-        parcel.writeInt(k);
-        a.transact(3, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
+            if (!iterator1.hasNext())
+            {
+                break;
+            }
+            if (!collection.contains(iterator1.next()))
+            {
+                iterator1.remove();
+            }
+        } while (true);
+        return i != map.size();
     }
 
-    public boolean c()
+    public int size()
     {
-        Parcel parcel;
-        Parcel parcel1;
-        boolean flag;
-        flag = false;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        int k;
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        a.transact(11, parcel, parcel1, 0);
-        parcel1.readException();
-        k = parcel1.readInt();
-        if (k != 0)
-        {
-            flag = true;
-        }
-        parcel1.recycle();
-        parcel.recycle();
-        return flag;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
+        return a.a();
     }
 
-    public void d(boolean flag)
+    public Object[] toArray()
     {
-        Parcel parcel;
-        Parcel parcel1;
-        int k;
-        k = 0;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        if (flag)
-        {
-            k = 1;
-        }
-        parcel.writeInt(k);
-        a.transact(4, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
+        return a.b(0);
     }
 
-    public boolean d()
+    public Object[] toArray(Object aobj[])
     {
-        Parcel parcel;
-        Parcel parcel1;
-        boolean flag;
-        flag = false;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        int k;
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        a.transact(12, parcel, parcel1, 0);
-        parcel1.readException();
-        k = parcel1.readInt();
-        if (k != 0)
-        {
-            flag = true;
-        }
-        parcel1.recycle();
-        parcel.recycle();
-        return flag;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public void e(boolean flag)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        int k;
-        k = 0;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        if (flag)
-        {
-            k = 1;
-        }
-        parcel.writeInt(k);
-        a.transact(5, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public boolean e()
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        boolean flag;
-        flag = false;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        int k;
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        a.transact(13, parcel, parcel1, 0);
-        parcel1.readException();
-        k = parcel1.readInt();
-        if (k != 0)
-        {
-            flag = true;
-        }
-        parcel1.recycle();
-        parcel.recycle();
-        return flag;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public void f(boolean flag)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        int k;
-        k = 0;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        if (flag)
-        {
-            k = 1;
-        }
-        parcel.writeInt(k);
-        a.transact(6, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public boolean f()
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        boolean flag;
-        flag = false;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        int k;
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        a.transact(14, parcel, parcel1, 0);
-        parcel1.readException();
-        k = parcel1.readInt();
-        if (k != 0)
-        {
-            flag = true;
-        }
-        parcel1.recycle();
-        parcel.recycle();
-        return flag;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public void g(boolean flag)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        int k;
-        k = 0;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        if (flag)
-        {
-            k = 1;
-        }
-        parcel.writeInt(k);
-        a.transact(7, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public boolean g()
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        boolean flag;
-        flag = false;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        int k;
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        a.transact(15, parcel, parcel1, 0);
-        parcel1.readException();
-        k = parcel1.readInt();
-        if (k != 0)
-        {
-            flag = true;
-        }
-        parcel1.recycle();
-        parcel.recycle();
-        return flag;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public void h(boolean flag)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        int k;
-        k = 0;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        if (flag)
-        {
-            k = 1;
-        }
-        parcel.writeInt(k);
-        a.transact(8, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public boolean h()
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        boolean flag;
-        flag = false;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        int k;
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        a.transact(17, parcel, parcel1, 0);
-        parcel1.readException();
-        k = parcel1.readInt();
-        if (k != 0)
-        {
-            flag = true;
-        }
-        parcel1.recycle();
-        parcel.recycle();
-        return flag;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public void i(boolean flag)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        int k;
-        k = 0;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        if (flag)
-        {
-            k = 1;
-        }
-        parcel.writeInt(k);
-        a.transact(16, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public boolean i()
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        boolean flag;
-        flag = false;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        int k;
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        a.transact(19, parcel, parcel1, 0);
-        parcel1.readException();
-        k = parcel1.readInt();
-        if (k != 0)
-        {
-            flag = true;
-        }
-        parcel1.recycle();
-        parcel.recycle();
-        return flag;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public void j(boolean flag)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        int k;
-        k = 0;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IUiSettingsDelegate");
-        if (flag)
-        {
-            k = 1;
-        }
-        parcel.writeInt(k);
-        a.transact(18, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
+        return a.a(aobj, 0);
     }
 }

@@ -3,20 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iab extends koj
+public final class iab extends kwm
 {
 
-    private static volatile iab k[];
-    public String a;
+    public ibg a;
     public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public Integer i;
-    public iac j;
+    public Boolean c;
+    public Integer d;
+    public Integer e;
+    public Integer f;
 
     public iab()
     {
@@ -26,93 +21,56 @@ public final class iab extends koj
         d = null;
         e = null;
         f = null;
-        g = null;
-        h = null;
-        i = null;
-        j = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    public static iab[] a()
-    {
-        if (k == null)
-        {
-            synchronized (kon.a)
-            {
-                if (k == null)
-                {
-                    k = new iab[0];
-                }
-            }
-        }
-        return k;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
     protected int computeSerializedSize()
     {
-        int i1 = super.computeSerializedSize() + koh.b(1, b);
-        int l = i1;
-        if (c != null)
-        {
-            l = i1 + koh.b(2, c);
-        }
-        i1 = l;
-        if (d != null)
-        {
-            i1 = l + koh.b(3, d);
-        }
-        l = i1;
-        if (e != null)
-        {
-            l = i1 + koh.b(4, e);
-        }
-        i1 = l;
-        if (f != null)
-        {
-            i1 = l + koh.b(5, f);
-        }
-        l = i1;
-        if (h != null)
-        {
-            l = i1 + koh.b(6, h);
-        }
-        i1 = l;
-        if (i != null)
-        {
-            i1 = l + koh.e(7, i.intValue());
-        }
-        l = i1;
-        if (g != null)
-        {
-            l = i1 + koh.b(8, g);
-        }
-        i1 = l;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            i1 = l + koh.b(9, a);
+            i = j + kwk.d(1, a);
         }
-        l = i1;
-        if (j != null)
+        j = i;
+        if (b != null)
         {
-            l = i1 + koh.d(10, j);
+            j = i + kwk.b(2, b);
         }
-        return l;
+        i = j;
+        if (c != null)
+        {
+            c.booleanValue();
+            i = j + (kwk.f(3) + 1);
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.e(4, d.intValue());
+        }
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.e(5, e.intValue());
+        }
+        j = i;
+        if (f != null)
+        {
+            j = i + kwk.e(6, f.intValue());
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int l = kog1.a();
-            switch (l)
+            int i = kwj1.a();
+            switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, l))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -122,91 +80,62 @@ public final class iab extends koj
                 return this;
 
             case 10: // '\n'
-                b = kog1.j();
+                if (a == null)
+                {
+                    a = new ibg();
+                }
+                kwj1.a(a);
                 break;
 
             case 18: // '\022'
-                c = kog1.j();
+                b = kwj1.j();
                 break;
 
-            case 26: // '\032'
-                d = kog1.j();
+            case 24: // '\030'
+                c = Boolean.valueOf(kwj1.i());
                 break;
 
-            case 34: // '"'
-                e = kog1.j();
+            case 32: // ' '
+                d = Integer.valueOf(kwj1.f());
                 break;
 
-            case 42: // '*'
-                f = kog1.j();
+            case 40: // '('
+                e = Integer.valueOf(kwj1.f());
                 break;
 
-            case 50: // '2'
-                h = kog1.j();
-                break;
-
-            case 56: // '8'
-                i = Integer.valueOf(kog1.f());
-                break;
-
-            case 66: // 'B'
-                g = kog1.j();
-                break;
-
-            case 74: // 'J'
-                a = kog1.j();
-                break;
-
-            case 82: // 'R'
-                if (j == null)
-                {
-                    j = new iac();
-                }
-                kog1.a(j);
+            case 48: // '0'
+                f = Integer.valueOf(kwj1.f());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.a(1, b);
+        if (a != null)
+        {
+            kwk1.b(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
         if (c != null)
         {
-            koh1.a(2, c);
+            kwk1.a(3, c.booleanValue());
         }
         if (d != null)
         {
-            koh1.a(3, d);
+            kwk1.a(4, d.intValue());
         }
         if (e != null)
         {
-            koh1.a(4, e);
+            kwk1.a(5, e.intValue());
         }
         if (f != null)
         {
-            koh1.a(5, f);
+            kwk1.a(6, f.intValue());
         }
-        if (h != null)
-        {
-            koh1.a(6, h);
-        }
-        if (i != null)
-        {
-            koh1.a(7, i.intValue());
-        }
-        if (g != null)
-        {
-            koh1.a(8, g);
-        }
-        if (a != null)
-        {
-            koh1.a(9, a);
-        }
-        if (j != null)
-        {
-            koh1.b(10, j);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

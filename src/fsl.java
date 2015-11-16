@@ -2,19 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Set;
+import android.os.Bundle;
+import com.google.android.gms.common.data.DataHolder;
 
-public interface fsl
-    extends ejv
+final class fsl extends frw
 {
 
-    public abstract void a(emq emq, Set set, frv frv);
+    private final enn a;
 
-    public abstract void a(emq emq, boolean flag);
+    public fsl(enn enn1)
+    {
+        a = enn1;
+    }
 
-    public abstract void a(eob eob);
-
-    public abstract void o();
-
-    public abstract void p();
+    public void a(int i, Bundle bundle, DataHolder dataholder)
+    {
+        if (g.m(3))
+        {
+            (new StringBuilder("Owner callback: status=")).append(i).append("\nresolution=").append(bundle).append("\nholder=").append(dataholder);
+            g.m(3);
+        }
+        com.google.android.gms.common.api.Status status = fsj.a(i, bundle);
+        if (dataholder == null)
+        {
+            bundle = null;
+        } else
+        {
+            bundle = new ftm(dataholder);
+        }
+        a.a(new fso(status, bundle));
+    }
 }

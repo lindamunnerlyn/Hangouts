@@ -2,87 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.DeadObjectException;
-import android.os.RemoteException;
-import com.google.android.gms.common.api.Status;
-import java.util.concurrent.atomic.AtomicReference;
+import com.google.android.apps.hangouts.wearable.WearableService;
 
-public abstract class ekl extends eki
-    implements ekm, eln
+public final class ekl
+    implements Runnable
 {
 
-    private AtomicReference a;
-    final ejw h;
+    final WearableService a;
 
-    public ekl(ejw ejw1, ejx ejx1)
+    public ekl(WearableService wearableservice)
     {
-        super(((ejx)h.a(ejx1, "GoogleApiClient must not be null")).a());
-        a = new AtomicReference();
-        h = (ejw)h.a(ejw1);
+        a = wearableservice;
+        super();
     }
 
-    private void a(RemoteException remoteexception)
+    public void run()
     {
-        c(new Status(8, remoteexception.getLocalizedMessage(), null));
-    }
-
-    public abstract void a(ejv ejv);
-
-    public void a(elm elm1)
-    {
-        a.set(elm1);
-    }
-
-    public void a(Object obj)
-    {
-        super.a((ekg)obj);
-    }
-
-    public final void b(ejv ejv)
-    {
-        try
-        {
-            a(ejv);
-            return;
-        }
-        // Misplaced declaration of an exception variable
-        catch (ejv ejv)
-        {
-            a(ejv);
-            throw ejv;
-        }
-        // Misplaced declaration of an exception variable
-        catch (ejv ejv)
-        {
-            a(ejv);
-        }
-    }
-
-    public final void c(Status status)
-    {
-        boolean flag;
-        if (!status.e())
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        h.b(flag, "Failed result must not be success");
-        a(a(status));
-    }
-
-    protected void d()
-    {
-        elm elm1 = (elm)a.getAndSet(null);
-        if (elm1 != null)
-        {
-            elm1.a(this);
-        }
-    }
-
-    public final ejw e()
-    {
-        return h;
+        WearableService.a(a);
     }
 }

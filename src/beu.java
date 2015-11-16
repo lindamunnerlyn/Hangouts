@@ -2,24 +2,14 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-final class beu
-    implements gmq
+public interface beu
 {
 
-    final ben a;
+    public abstract int a();
 
-    beu(ben ben1)
-    {
-        a = ben1;
-        super();
-    }
+    public abstract void a(Context context);
 
-    public void a(boolean flag, gmp gmp1, gmp gmp2, int i, int j)
-    {
-        if (flag && gmp2 == gmp.c)
-        {
-            ben.E(a);
-        }
-    }
+    public abstract int b();
 }

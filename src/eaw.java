@@ -2,23 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 
-final class eaw
-    implements android.os.Parcelable.Creator
+public final class eaw
+    implements ServiceConnection
 {
 
-    eaw()
+    private final Context a;
+
+    public eaw(Context context)
     {
+        a = context;
     }
 
-    public Object createFromParcel(Parcel parcel)
+    public void onServiceConnected(ComponentName componentname, IBinder ibinder)
     {
-        return new eav(parcel);
+        eev.e("Babel_telephony", "TeleTychoController.SimCallManagerChangedConnection.onServiceConnected");
+        componentname = eku.a(ibinder);
+        componentname.c();
+        a.unbindService(this);
+        return;
+        componentname;
+        eev.e("Babel_telephony", "TeleTychoController.SimCallManagerChangedConnection.onServiceConnected, calling onSimCallManagerChanged failed", componentname);
+        a.unbindService(this);
+        return;
+        componentname;
+        a.unbindService(this);
+        throw componentname;
     }
 
-    public Object[] newArray(int i)
+    public void onServiceDisconnected(ComponentName componentname)
     {
-        return new eav[i];
+        eev.e("Babel_telephony", "TeleTychoController.SimCallManagerChangedConnection.onServiceDisconnected");
     }
 }

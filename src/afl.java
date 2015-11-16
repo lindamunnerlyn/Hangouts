@@ -2,32 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.BlockingQueue;
+import java.util.Collections;
+import java.util.Map;
 
-final class afl
-    implements Runnable
+public final class afl
 {
 
-    final afu a;
-    final afk b;
+    public byte a[];
+    public String b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public Map g;
 
-    afl(afk afk1, afu afu)
+    public afl()
     {
-        b = afk1;
-        a = afu;
-        super();
+        g = Collections.emptyMap();
     }
 
-    public void run()
+    public boolean a()
     {
-        try
-        {
-            afk.a(b).put(a);
-            return;
-        }
-        catch (InterruptedException interruptedexception)
-        {
-            return;
-        }
+        return e < System.currentTimeMillis();
+    }
+
+    public boolean b()
+    {
+        return f < System.currentTimeMillis();
     }
 }

@@ -2,21 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.hangout.FocusedParticipantView;
+import android.os.Handler;
+import com.google.android.apps.hangouts.hangout.DebugOverlayTextView;
 
-public final class boe extends boh
+public final class boe
+    implements Runnable
 {
 
-    final FocusedParticipantView a;
+    final DebugOverlayTextView a;
 
-    public boe(FocusedParticipantView focusedparticipantview)
+    public boe(DebugOverlayTextView debugoverlaytextview)
     {
-        a = focusedparticipantview;
+        a = debugoverlaytextview;
         super();
     }
 
-    public void g()
+    public void run()
     {
-        FocusedParticipantView.a(a);
+        g.x().postDelayed(DebugOverlayTextView.b(a), DebugOverlayTextView.c());
+        if (!eev.a("hangout_overlay"))
+        {
+            a.setText(null);
+            a.setVisibility(8);
+            return;
+        } else
+        {
+            a.setVisibility(0);
+            a.setText(DebugOverlayTextView.c(a));
+            return;
+        }
     }
 }

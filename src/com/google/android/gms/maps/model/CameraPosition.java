@@ -6,10 +6,9 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import eof;
-import fld;
+import erf;
+import fnz;
 import g;
-import h;
 import java.util.Arrays;
 
 // Referenced classes of package com.google.android.gms.maps.model:
@@ -19,7 +18,7 @@ public final class CameraPosition
     implements SafeParcelable
 {
 
-    public static final fld CREATOR = new fld();
+    public static final fnz CREATOR = new fnz();
     public final LatLng a;
     public final float b;
     public final float c;
@@ -28,7 +27,7 @@ public final class CameraPosition
 
     public CameraPosition(int i, LatLng latlng, float f, float f1, float f2)
     {
-        h.a(latlng, "null camera target");
+        g.b(latlng, "null camera target");
         boolean flag;
         if (0.0F <= f1 && f1 <= 90F)
         {
@@ -37,7 +36,7 @@ public final class CameraPosition
         {
             flag = false;
         }
-        h.a(flag, "Tilt needs to be between 0 and 90 inclusive: %s", new Object[] {
+        g.a(flag, "Tilt needs to be between 0 and 90 inclusive: %s", new Object[] {
             Float.valueOf(f1)
         });
         e = i;
@@ -52,7 +51,7 @@ public final class CameraPosition
         d = f % 360F;
     }
 
-    public int a()
+    private int a()
     {
         return e;
     }
@@ -93,7 +92,13 @@ public final class CameraPosition
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fld.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a());
+        g.a(parcel, 2, a, i);
+        g.a(parcel, 3, b);
+        g.a(parcel, 4, c);
+        g.a(parcel, 5, d);
+        g.q(parcel, j);
     }
 
 }

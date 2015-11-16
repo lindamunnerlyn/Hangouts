@@ -3,64 +3,76 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kmh
-    implements klz
+public final class kmh extends kwm
 {
 
-    final kmp a = null;
-    final int b = 0x5cb87e;
-    public final knw c;
-    public final boolean d = false;
-    final boolean e = false;
+    public Long a;
+    public Long b;
 
-    public kmh(kmp kmp, int i, knw knw1)
+    public kmh()
     {
-        c = knw1;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public int a()
+    protected int computeSerializedSize()
     {
-        return b;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            a.longValue();
+            i = j + (kwk.f(1) + 8);
+        }
+        j = i;
+        if (b != null)
+        {
+            b.longValue();
+            j = i + (kwk.f(2) + 8);
+        }
+        return j;
     }
 
-    public kmz a(kmz kmz, kmy kmy)
+    public kws mergeFrom(kwj kwj1)
     {
-        return ((kmc)kmz).a((kma)kmy);
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 9: // '\t'
+                a = Long.valueOf(kwj1.g());
+                break;
+
+            case 17: // '\021'
+                b = Long.valueOf(kwj1.g());
+                break;
+            }
+        } while (true);
     }
 
-    public knb a(knb knb)
+    public void writeTo(kwk kwk1)
     {
-        return ((kml)knb).d();
-    }
-
-    public knw b()
-    {
-        return c;
-    }
-
-    public kob c()
-    {
-        return c.a();
-    }
-
-    public int compareTo(Object obj)
-    {
-        obj = (kmh)obj;
-        return b - ((kmh) (obj)).b;
-    }
-
-    public boolean d()
-    {
-        return d;
-    }
-
-    public boolean e()
-    {
-        return e;
-    }
-
-    public kmp f()
-    {
-        return a;
+        if (a != null)
+        {
+            kwk1.c(1, a.longValue());
+        }
+        if (b != null)
+        {
+            kwk1.c(2, b.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

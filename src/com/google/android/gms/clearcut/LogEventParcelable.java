@@ -8,9 +8,9 @@ import a;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.google.android.gms.playlog.internal.PlayLoggerContext;
-import eip;
-import eoe;
-import fdu;
+import elq;
+import ere;
+import fgs;
 import g;
 import java.util.Arrays;
 
@@ -18,12 +18,12 @@ public class LogEventParcelable
     implements SafeParcelable
 {
 
-    public static final eip CREATOR = new eip();
+    public static final elq CREATOR = new elq();
     public final int a;
     public PlayLoggerContext b;
     public byte c[];
     public int d[];
-    public final fdu e;
+    public final fgs e;
     public final a f;
     public final a g;
 
@@ -38,11 +38,11 @@ public class LogEventParcelable
         g = null;
     }
 
-    public LogEventParcelable(PlayLoggerContext playloggercontext, fdu fdu, a a1, a a2, int ai[])
+    public LogEventParcelable(PlayLoggerContext playloggercontext, fgs fgs, a a1, a a2, int ai[])
     {
         a = 1;
         b = playloggercontext;
-        e = fdu;
+        e = fgs;
         f = a1;
         g = a2;
         d = ai;
@@ -101,11 +101,11 @@ public class LogEventParcelable
             obj = obj1;
         } else
         {
-            obj = new eoe(", ");
+            obj = new ere(", ");
             java.util.List list = Arrays.asList(new int[][] {
                 d
             });
-            obj = ((eoe) (obj)).a(new StringBuilder(), list).toString();
+            obj = ((ere) (obj)).a(new StringBuilder(), list).toString();
         }
         stringbuilder.append(((String) (obj)));
         stringbuilder.append(", ");
@@ -120,7 +120,18 @@ public class LogEventParcelable
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        eip.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b, i);
+        g.a(parcel, 3, c);
+        int ai[] = d;
+        if (ai != null)
+        {
+            i = g.p(parcel, 4);
+            parcel.writeIntArray(ai);
+            g.q(parcel, i);
+        }
+        g.q(parcel, j);
     }
 
 }

@@ -3,71 +3,47 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.os.AsyncTask;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-final class azv extends AsyncTask
+public final class azv extends guy
 {
 
-    private final azz a;
-    private final Context b;
-    private final int c;
-    private final List d;
+    private final String a;
+    private final int b;
+    private final Context c;
 
-    azv(Context context, List list, azz azz1)
+    public azv(Context context, String s, int i)
     {
-        b = context;
-        c = ((gmo)hgx.a(context, gmo)).a();
-        d = list;
-        a = azz1;
-    }
-
-    static Context a(azv azv1)
-    {
-        return azv1.b;
-    }
-
-    protected Object doInBackground(Object aobj[])
-    {
-        aobj = new ArrayList();
-        Iterator iterator = d.iterator();
-        do
+        String s1 = String.valueOf("MarkEventObservedTask");
+        String s2 = String.valueOf(s);
+        if (s2.length() != 0)
         {
-            if (!iterator.hasNext())
-            {
-                break;
-            }
-            asy asy1 = (asy)iterator.next();
-            if (!l.b(asy1.a))
-            {
-                ((ArrayList) (aobj)).add(asy1);
-            } else
-            if (asy1.c == asz.b || asy1.c == asz.c)
-            {
-                atg atg1 = auj.a(b, c, asy1.c, asy1.b, asy1.d);
-                if (atg1 != null)
-                {
-                    if (atg1.c == asz.c)
-                    {
-                        ((arl)hgx.a(b, arl)).a(new azw(this, atg1));
-                    }
-                    atg1.b = asy1.b;
-                    ((ArrayList) (aobj)).add(atg1);
-                }
-            }
-        } while (true);
-        return ((Object) (aobj));
+            s1 = s1.concat(s2);
+        } else
+        {
+            s1 = new String(s1);
+        }
+        super(context, s1);
+        a = s;
+        b = i;
+        c = context;
     }
 
-    protected void onPostExecute(Object obj)
+    protected gvv a()
     {
-        obj = (ArrayList)obj;
-        if (!isCancelled())
+        cun cun1 = (new aow(c, b)).z(a);
+        if (cun1.b().size() > 0)
         {
-            g.d(obj);
-            a.a(jlk.a(((java.util.Collection) (obj))));
+            ArrayList arraylist = new ArrayList();
+            arraylist.add(cun1);
+            dcn.g(dcn.e(b)).a(h.a(new dmf[] {
+                new dfl(arraylist)
+            }), 0);
+            return new gvv(true);
+        } else
+        {
+            return new gvv(false);
         }
     }
 }

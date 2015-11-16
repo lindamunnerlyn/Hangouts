@@ -2,26 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.lang.ref.ReferenceQueue;
 
-final class jpw extends jkz
+public interface jpw
 {
 
-    final jpv b;
+    public abstract int a();
 
-    jpw(jpv jpv1)
-    {
-        b = jpv1;
-        super();
-    }
+    public abstract jpw a(ReferenceQueue referencequeue, Object obj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry);
 
-    jle c()
-    {
-        return b;
-    }
+    public abstract void a(Object obj);
 
-    public Object get(int i)
-    {
-        jlu jlu = jps.a(b.a.a)[i];
-        return jpc.a(jlu.getValue(), jlu.getKey());
-    }
+    public abstract com.google.common.cache.LocalCache.ReferenceEntry b();
+
+    public abstract boolean c();
+
+    public abstract boolean d();
+
+    public abstract Object get();
 }

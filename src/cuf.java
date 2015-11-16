@@ -3,44 +3,27 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cuf extends cui
+public class cuf extends cud
 {
 
     private static final long serialVersionUID = 1L;
-    public final String a[];
 
-    public cuf(String as[])
+    public cuf()
     {
-        a = as;
     }
 
-    public String a()
+    public kws a(String s, int i, int j)
     {
-        return "ui_queue";
+        return new cue();
     }
 
-    public kop a(String s, int i, int j)
+    public String f()
     {
-        ebw.c("Babel_RequestWriter", "GetFifeUrlRequest build protobuf");
-        izt izt1 = new izt();
-        izt1.requestHeader = ctq.a(s, i, j, h);
-        j = a.length;
-        s = new izs[j];
-        for (i = 0; i < j; i++)
-        {
-            String s1 = a[i];
-            izs izs1 = new izs();
-            izs1.b = s1;
-            izs1.a = Integer.valueOf(1);
-            s[i] = izs1;
-        }
-
-        izt1.a = s;
-        return izt1;
+        return "users/enableCalling/@me";
     }
 
-    public String g()
+    public boolean h()
     {
-        return "urls/urlredirectwrapper";
+        return true;
     }
 }

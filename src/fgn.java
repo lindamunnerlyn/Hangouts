@@ -2,35 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.os.IInterface;
-import com.google.android.gms.maps.GoogleMapOptions;
+import java.util.Arrays;
 
-public interface fgn
-    extends IInterface
+final class fgn
 {
 
-    public abstract ezy a(ezy ezy, ezy ezy1, Bundle bundle);
+    final int a;
+    final byte b[];
 
-    public abstract fgh a();
+    fgn(int i, byte abyte0[])
+    {
+        a = i;
+        b = abyte0;
+    }
 
-    public abstract void a(Bundle bundle);
+    int a()
+    {
+        return fgg.e(a) + 0 + b.length;
+    }
 
-    public abstract void a(ezy ezy, GoogleMapOptions googlemapoptions, Bundle bundle);
+    void a(fgg fgg1)
+    {
+        fgg1.d(a);
+        fgg1.b(b);
+    }
 
-    public abstract void a(fim fim);
+    public boolean equals(Object obj)
+    {
+        if (obj != this)
+        {
+            if (!(obj instanceof fgn))
+            {
+                return false;
+            }
+            obj = (fgn)obj;
+            if (a != ((fgn) (obj)).a || !Arrays.equals(b, ((fgn) (obj)).b))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 
-    public abstract void b();
-
-    public abstract void b(Bundle bundle);
-
-    public abstract void c();
-
-    public abstract void d();
-
-    public abstract void e();
-
-    public abstract void f();
-
-    public abstract boolean g();
+    public int hashCode()
+    {
+        return (a + 527) * 31 + Arrays.hashCode(b);
+    }
 }

@@ -3,63 +3,32 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hsn extends koj
+public final class hsn extends Enum
 {
 
-    public hso a;
+    public static final hsn a;
+    private static final hsn b[];
 
-    public hsn()
+    private hsn(String s)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s, 0);
     }
 
-    protected int computeSerializedSize()
+    public static hsn valueOf(String s)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        return i;
+        return (hsn)Enum.valueOf(hsn, s);
     }
 
-    public kop mergeFrom(kog kog1)
+    public static hsn[] values()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new hso();
-                }
-                kog1.a(a);
-                break;
-            }
-        } while (true);
+        return (hsn[])b.clone();
     }
 
-    public void writeTo(koh koh1)
+    static 
     {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        super.writeTo(koh1);
+        a = new hsn("IGNORE_CASE");
+        b = (new hsn[] {
+            a
+        });
     }
 }

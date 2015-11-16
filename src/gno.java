@@ -2,48 +2,59 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Message;
 
-final class gno
-    implements gmz
+abstract class gno
+    implements android.os.Handler.Callback, gnz
 {
 
-    final gnj a;
+    private HandlerThread a;
+    private Handler b;
+    private gom c;
 
-    gno(gnj gnj)
+    gno()
     {
-        a = gnj;
-        super();
     }
 
-    public String a()
+    public void a(gnq gnq1)
     {
-        return "upgrade:account_status";
+        Message message = Message.obtain(b, 1);
+        message.obj = gnq1;
+        b.sendMessage(message);
     }
 
-    public void a(Context context, gmw gmw1)
+    protected void a(gny gny1)
     {
-        if (gmw1.d("non_google_plus"))
+        c = new gom(gny1.b());
+        a = new HandlerThread("MetricRecorderImpl", 10);
+        a.start();
+        b = new Handler(a.getLooper(), this);
+    }
+
+    protected abstract void a(String s, gnq gnq1);
+
+    public boolean a()
+    {
+        return !c.a();
+    }
+
+    public boolean handleMessage(Message message)
+    {
+        switch (message.what)
         {
-            gmw1.f("non_google_plus");
-            gmw1.b("account_status", 2);
-            return;
+        default:
+            int i = message.what;
+            (new StringBuilder(28)).append("Unknown message: ").append(i);
+            return false;
+
+        case 1: // '\001'
+            a(message.getData().getString("custom_event_name"), (gnq)message.obj);
+            break;
         }
-        if (gmw1.d("notifications_only"))
-        {
-            gmw1.f("notifications_only");
-            gmw1.b("account_status", 3);
-            return;
-        }
-        if (gmw1.d("logged_in"))
-        {
-            gmw1.f("logged_in");
-            gmw1.b("account_status", 4);
-            return;
-        } else
-        {
-            gmw1.b("account_status", 5);
-            return;
-        }
+        c.b();
+        return true;
     }
 }

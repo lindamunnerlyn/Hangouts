@@ -2,26 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.Serializable;
+import java.util.Iterator;
 
-public final class jsr extends jrr
+class jsr
+    implements Serializable
 {
 
-    private jsr()
+    private static final long serialVersionUID = 0L;
+    private final Object a[];
+    private final Object b[];
+
+    jsr(jso jso1)
     {
+        a = new Object[jso1.size()];
+        b = new Object[jso1.size()];
+        jso1 = jso1.d().a();
+        for (int i = 0; jso1.hasNext(); i++)
+        {
+            java.util.Map.Entry entry = (java.util.Map.Entry)jso1.next();
+            a[i] = entry.getKey();
+            b[i] = entry.getValue();
+        }
+
     }
 
-    public static jsr a()
+    Object a(jsq jsq1)
     {
-        return new jsr();
+        for (int i = 0; i < a.length; i++)
+        {
+            jsq1.a(a[i], b[i]);
+        }
+
+        return jsq1.a();
     }
 
-    public boolean a(Object obj)
+    Object readResolve()
     {
-        return super.a(obj);
-    }
-
-    public boolean a(Throwable throwable)
-    {
-        return super.a(throwable);
+        return a(new jsq(a.length));
     }
 }

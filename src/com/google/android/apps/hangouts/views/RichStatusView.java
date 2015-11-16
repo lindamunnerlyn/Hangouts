@@ -11,17 +11,17 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import bka;
-import cey;
-import csw;
-import ebr;
-import ebw;
-import edv;
-import egj;
+import bkm;
+import cgd;
+import cuz;
+import eep;
+import eev;
+import egx;
+import ejl;
 import g;
-import gbh;
+import gdv;
 import h;
-import hhb;
+import hlt;
 import l;
 
 public class RichStatusView extends LinearLayout
@@ -30,36 +30,36 @@ public class RichStatusView extends LinearLayout
     private static final boolean a = false;
     private static int b = -1;
     private static int c = -1;
-    private final egj d[];
+    private final ejl d[];
     private AnimationDrawable e;
-    private cey f;
-    private csw g;
+    private cgd f;
+    private cuz g;
 
     public RichStatusView(Context context)
     {
         super(context);
-        d = new egj[3];
+        d = new ejl[3];
         if (b < 0)
         {
-            b = getResources().getDimensionPixelSize(g.eI);
+            b = getResources().getDimensionPixelSize(g.eG);
         }
         if (c < 0)
         {
-            c = getResources().getDimensionPixelSize(g.eH);
+            c = getResources().getDimensionPixelSize(g.eF);
         }
     }
 
     public RichStatusView(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
-        d = new egj[3];
+        d = new ejl[3];
         if (b < 0)
         {
-            b = getResources().getDimensionPixelSize(g.eI);
+            b = getResources().getDimensionPixelSize(g.eG);
         }
         if (c < 0)
         {
-            c = getResources().getDimensionPixelSize(g.eH);
+            c = getResources().getDimensionPixelSize(g.eF);
         }
     }
 
@@ -119,24 +119,24 @@ _L2:
     {
         if (i == 1)
         {
-            i = getResources().getColor(g.dp);
+            i = getResources().getColor(g._flddo);
         } else
         {
-            i = getResources().getColor(g._flddo);
+            i = getResources().getColor(g.dn);
         }
         d[0].b(i);
         d[1].b(i);
         d[2].b(i);
     }
 
-    public void a(cey cey)
+    public void a(cgd cgd)
     {
-        f = cey;
+        f = cgd;
     }
 
-    public void a(csw csw1)
+    public void a(cuz cuz1)
     {
-        g = csw1;
+        g = cuz1;
     }
 
     public void a(StringBuilder stringbuilder)
@@ -152,7 +152,7 @@ _L2:
             String s = a(((Context) (obj)));
             if (s != null)
             {
-                ebr.a(stringbuilder, s);
+                eep.a(stringbuilder, s);
             }
         }
         if (!d[1].a)
@@ -174,7 +174,7 @@ _L2:
 _L4:
         if (obj != null)
         {
-            ebr.a(stringbuilder, ((CharSequence) (obj)));
+            eep.a(stringbuilder, ((CharSequence) (obj)));
             return;
         }
         if (true) goto _L1; else goto _L3
@@ -189,10 +189,10 @@ _L3:
     {
 label0:
         {
-            egj egj1 = d[0];
-            if (egj1.a != flag)
+            ejl ejl1 = d[0];
+            if (ejl1.a != flag)
             {
-                egj1.a(flag);
+                ejl1.a(flag);
                 if (!flag)
                 {
                     break label0;
@@ -234,7 +234,7 @@ _L1:
         {
             String s = String.valueOf(f);
             String s1 = String.valueOf(g);
-            ebw.b("Babel", (new StringBuilder(String.valueOf(s).length() + 44 + String.valueOf(s1).length())).append("Showing presence: mParticipantId=").append(s).append(", presence=").append(s1).toString());
+            eev.b("Babel", (new StringBuilder(String.valueOf(s).length() + 44 + String.valueOf(s1).length())).append("Showing presence: mParticipantId=").append(s).append(", presence=").append(s1).toString());
         }
         g.c();
         JVM INSTR lookupswitch 2: default 120
@@ -244,7 +244,7 @@ _L1:
 _L3:
         int i = 0;
 _L10:
-        flag1 = d[1].a(i, getResources().getColor(g.dO));
+        flag1 = d[1].a(i, getResources().getColor(g.dN));
         g.b();
         JVM INSTR tableswitch 1 3: default 176
     //                   1 223
@@ -256,52 +256,52 @@ _L9:
 _L6:
         i = ((flag) ? 1 : 0);
 _L11:
-        flag1 = d[2].a(i, getResources().getColor(g.dO)) | (flag1 | false);
+        flag1 = d[2].a(i, getResources().getColor(g.dN)) | (flag1 | false);
 _L2:
         return flag1;
 _L4:
-        i = com.google.android.apps.hangouts.R.drawable.bH;
+        i = com.google.android.apps.hangouts.R.drawable.bD;
           goto _L10
 _L5:
-        i = com.google.android.apps.hangouts.R.drawable.bL;
+        i = com.google.android.apps.hangouts.R.drawable.bG;
           goto _L10
 _L7:
-        i = com.google.android.apps.hangouts.R.drawable.bG;
+        i = com.google.android.apps.hangouts.R.drawable.bC;
           goto _L11
 _L8:
-        i = com.google.android.apps.hangouts.R.drawable.bJ;
+        i = com.google.android.apps.hangouts.R.drawable.bE;
           goto _L11
-        i = com.google.android.apps.hangouts.R.drawable.bx;
+        i = com.google.android.apps.hangouts.R.drawable.bt;
           goto _L11
     }
 
     public void onFinishInflate()
     {
         super.onFinishInflate();
-        d[0] = new egj(this, h.fz, h.bg, c);
-        d[1] = new egj(this, h.fx, h.fw, b);
-        d[2] = new egj(this, h.fv, h.fu, b);
+        d[0] = new ejl(this, h.fh, h.ba, c);
+        d[1] = new ejl(this, h.ff, h.fe, b);
+        d[2] = new ejl(this, h.fd, h.fc, b);
         ImageView imageview = d[0].c;
-        gbh.b(imageview);
+        gdv.b("Expected non-null", imageview);
         Object obj = getContext();
-        if (obj instanceof bka)
+        if (obj instanceof bkm)
         {
-            obj = (bka)obj;
+            obj = (bkm)obj;
         } else
-        if (obj instanceof hhb)
+        if (obj instanceof hlt)
         {
-            obj = (bka)((hhb)obj).getBaseContext();
+            obj = (bkm)((hlt)obj).getBaseContext();
         } else
         {
-            gbh.a("Unknown type of context");
+            gdv.a("Unknown type of context");
             obj = null;
         }
-        e = edv.b(((bka) (obj)));
+        e = egx.b(((bkm) (obj)));
         imageview.setBackgroundDrawable(e);
     }
 
     static 
     {
-        hik hik = ebw.w;
+        hnc hnc = eev.w;
     }
 }

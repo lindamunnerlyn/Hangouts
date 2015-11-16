@@ -3,8 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface gkt
+public final class gkt
+    implements gap
 {
 
-    public abstract boolean a(gkv gkv, glq glq, StringBuilder stringbuilder, String as[]);
+    private final Integer a;
+
+    public gkt(Integer integer)
+    {
+        a = integer;
+    }
+
+    public Integer b()
+    {
+        return a;
+    }
 }

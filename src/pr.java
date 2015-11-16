@@ -2,21 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.util.AttributeSet;
 
-public abstract class pr
+public class pr extends android.view.ViewGroup.MarginLayoutParams
 {
 
-    public pr()
+    public int a;
+
+    public pr(int i, int j)
     {
+        super(-2, -2);
+        a = 0;
+        a = 0x800013;
     }
 
-    public abstract Drawable a();
+    public pr(Context context, AttributeSet attributeset)
+    {
+        super(context, attributeset);
+        a = 0;
+        context = context.obtainStyledAttributes(attributeset, rq.t);
+        a = context.getInt(rq.u, 0);
+        context.recycle();
+    }
 
-    public abstract CharSequence b();
+    public pr(android.view.ViewGroup.LayoutParams layoutparams)
+    {
+        super(layoutparams);
+        a = 0;
+    }
 
-    public abstract View c();
-
-    public abstract CharSequence d();
+    public pr(pr pr1)
+    {
+        super(pr1);
+        a = 0;
+        a = pr1.a;
+    }
 }

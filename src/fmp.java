@@ -2,15 +2,14 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.graphics.Bitmap;
+import android.os.IInterface;
 
-public final class fmp
-    implements eju
+public interface fmp
+    extends IInterface
 {
 
-    final int a;
+    public abstract void a(Bitmap bitmap);
 
-    fmp(fmq fmq1)
-    {
-        a = fmq1.a;
-    }
+    public abstract void a(fcw fcw);
 }

@@ -2,12 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.graphics.SurfaceTexture;
 
 public interface gmz
 {
 
-    public abstract String a();
+    public abstract void a(SurfaceTexture surfacetexture);
 
-    public abstract void a(Context context, gmw gmw);
+    public abstract void a(gna gna);
 }

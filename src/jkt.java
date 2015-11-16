@@ -2,46 +2,64 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentMap;
 
-public abstract class jkt extends jku
-    implements ConcurrentMap
+public final class jkt extends kwm
 {
 
-    protected jkt()
+    public jdl responseHeader;
+
+    public jkt()
     {
+        responseHeader = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    protected abstract ConcurrentMap a();
-
-    protected Map b()
+    protected int computeSerializedSize()
     {
-        return a();
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (responseHeader != null)
+        {
+            i = j + kwk.d(1, responseHeader);
+        }
+        return i;
     }
 
-    protected Object c()
+    public kws mergeFrom(kwj kwj1)
     {
-        return a();
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                if (responseHeader == null)
+                {
+                    responseHeader = new jdl();
+                }
+                kwj1.a(responseHeader);
+                break;
+            }
+        } while (true);
     }
 
-    public Object putIfAbsent(Object obj, Object obj1)
+    public void writeTo(kwk kwk1)
     {
-        return a().putIfAbsent(obj, obj1);
-    }
-
-    public boolean remove(Object obj, Object obj1)
-    {
-        return a().remove(obj, obj1);
-    }
-
-    public Object replace(Object obj, Object obj1)
-    {
-        return a().replace(obj, obj1);
-    }
-
-    public boolean replace(Object obj, Object obj1, Object obj2)
-    {
-        return a().replace(obj, obj1, obj2);
+        if (responseHeader != null)
+        {
+            kwk1.b(1, responseHeader);
+        }
+        super.writeTo(kwk1);
     }
 }

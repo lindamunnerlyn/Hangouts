@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout android:orientation="horizontal" android:paddingBottom="@dimen/header_item_padding" android:layout_width="fill_parent" android:layout_height="wrap_content">
         <FrameLayout android:layout_gravity="top|center" android:id="@id/avatar_container" android:layout_width="wrap_content" android:layout_height="fill_parent" style="@style/avatar_container">
-            <com.google.android.apps.hangouts.views.AvatarView android:layout_gravity="top|left|center" android:id="@id/avatar" android:layout_width="@dimen/header_item_avatar_diameter" android:layout_height="@dimen/header_item_avatar_diameter" android:layout_marginTop="@dimen/header_item_avatar_top_margin" android:importantForAccessibility="2" style="@style/avatar" />
+            <com.google.android.apps.hangouts.views.AvatarView android:layout_gravity="top|left|center" android:id="@id/avatar" android:layout_width="@dimen/header_item_avatar_diameter" android:layout_height="@dimen/header_item_avatar_diameter" android:layout_marginTop="@dimen/header_item_avatar_top_margin" style="@style/avatar" />
             <ImageView android:layout_gravity="top|right|center" android:id="@id/hangouts_logo" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
         </FrameLayout>
         <LinearLayout android:gravity="left|center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">

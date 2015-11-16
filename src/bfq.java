@@ -2,44 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.res.Resources;
-import android.view.View;
-import android.view.ViewGroup;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import com.google.android.apps.hangouts.floatingactionbutton.impl.QuickButtonContainer;
 
-public final class bfq extends aug
+public final class bfq extends AnimatorListenerAdapter
 {
 
-    dsu d;
+    final QuickButtonContainer a;
 
-    public bfq(View view, bfs bfs1, dsp dsp)
+    public bfq(QuickButtonContainer quickbuttoncontainer)
     {
-        super(view, bfs1, dsp);
-        d = new bfr(this);
+        a = quickbuttoncontainer;
+        super();
     }
 
-    protected boolean a()
+    public void onAnimationEnd(Animator animator)
     {
-        return ((bfs)c).f() > 0;
-    }
-
-    protected dsn b()
-    {
-        g.a(dbf.e(((gmo)hgx.a(b.getContext(), gmo)).a()), 1814);
-        dso dso1 = e();
-        Resources resources = b.getResources();
-        if (((bfs)c).f() == 1)
+        if (a.c != animator)
         {
-            dso1.a(resources.getString(l.J, new Object[] {
-                ((bfs)c).q().e
-            }));
-            dso1.c(resources.getString(l.jw));
-            dso1.a(d);
+            return;
         } else
         {
-            dso1.a(resources.getString(l.H, new Object[] {
-                Integer.valueOf(((bfs)c).f())
-            }));
+            a.b = false;
+            a.setVisibility(a.d);
+            a.a = false;
+            a.c = null;
+            return;
         }
-        return dso1.a();
     }
 }

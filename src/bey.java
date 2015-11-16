@@ -2,25 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import com.google.android.apps.hangouts.floatingactionbutton.impl.QuickContactView;
+import android.animation.ValueAnimator;
+import com.google.android.apps.hangouts.floatingactionbutton.impl.FloatingActionButton;
 
-final class bey
-    implements android.view.View.OnClickListener
+public final class bey
+    implements android.animation.ValueAnimator.AnimatorUpdateListener
 {
 
-    final ben a;
+    final FloatingActionButton a;
 
-    bey(ben ben1)
+    public bey(FloatingActionButton floatingactionbutton)
     {
-        a = ben1;
+        a = floatingactionbutton;
         super();
     }
 
-    public void onClick(View view)
+    public void onAnimationUpdate(ValueAnimator valueanimator)
     {
-        view = (QuickContactView)view;
-        g.a(ben.g(a), 2293);
-        ben.a(a, view.c(), view.a(), view.b());
+        valueanimator = (Float)valueanimator.getAnimatedValue();
+        a.f = g.a(valueanimator);
+        a.invalidate();
     }
 }

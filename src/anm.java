@@ -2,31 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.text.TextUtils;
+import java.util.Iterator;
+import java.util.List;
 
-final class anm
-    implements gmz
+final class anm extends edq
 {
 
-    final ank a;
+    final List a;
+    private final String e;
 
-    anm(ank ank)
+    public anm(List list, String s, String s1, int i)
     {
-        a = ank;
-        super();
+        super(null, s);
+        a(i);
+        a(false);
+        c(false);
+        b();
+        d(true);
+        a = list;
+        e = s1;
     }
 
-    public String a()
+    public void a()
     {
-        return "name_to_account_name";
-    }
-
-    public void a(Context context, gmw gmw1)
-    {
-        if (gmw1.a("name"))
+        StringBuilder stringbuilder = a(d(), e(), f(), true, false);
+        b = null;
+        StringBuilder stringbuilder1 = new StringBuilder();
+        if (!TextUtils.isEmpty(e))
         {
-            gmw1.b("account_name", gmw1.b("name"));
-            gmw1.f("name");
+            stringbuilder1.append(e).append("|");
         }
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); stringbuilder1.append("|"))
+        {
+            stringbuilder1.append((String)iterator.next());
+        }
+
+        c = stringbuilder1.append(stringbuilder).toString();
     }
 }

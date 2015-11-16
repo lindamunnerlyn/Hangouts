@@ -2,32 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.fragments.ConversationListFragment;
+import android.content.DialogInterface;
+import android.widget.CheckBox;
 
-public final class big
-    implements byb
+final class big
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final ConversationListFragment a;
+    final aoa a;
+    final bif b;
 
-    public big(ConversationListFragment conversationlistfragment)
+    big(bif bif1, aoa aoa)
     {
-        a = conversationlistfragment;
+        b = bif1;
+        a = aoa;
         super();
     }
 
-    public void a(bya bya)
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        ConversationListFragment.a(a, bya);
-        ConversationListFragment.a(a).v();
-    }
-
-    public void b(bya bya)
-    {
-        if (ConversationListFragment.b(a) == bya)
+        if (bif.a(b) != null)
         {
-            ConversationListFragment.a(a, null);
-            ConversationListFragment.a(a).s();
+            if (bif.b(b).isChecked())
+            {
+                i = 1552;
+            } else
+            if (bif.c(b).isChecked())
+            {
+                i = 1553;
+            } else
+            {
+                i = 1554;
+            }
+            g.a(a, i);
+            bif.a(b).a(bif.b(b).isChecked(), bif.c(b).isChecked());
         }
     }
 }

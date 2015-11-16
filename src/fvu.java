@@ -2,18 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.wearable.internal.AddLocalCapabilityResponse;
 
-final class fvu extends fvv
+public final class fvu
 {
 
-    public fvu(ekm ekm)
+    public fvu()
     {
-        super(ekm);
-    }
-
-    public void a(AddLocalCapabilityResponse addlocalcapabilityresponse)
-    {
-        a(new fsq(g.n(addlocalcapabilityresponse.b)));
     }
 }

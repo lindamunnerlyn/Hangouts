@@ -3,76 +3,66 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jdb extends koj
+public final class jdb extends kwm
 {
 
-    private static volatile jdb c[];
-    public String a;
-    public int b[];
+    public izg a;
+    public jce b;
+    public byte c[];
+    public Long d;
+    public jdk requestHeader;
 
     public jdb()
     {
+        requestHeader = null;
         a = null;
-        b = kou.a;
+        b = null;
+        c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    public static jdb[] a()
-    {
-        if (c == null)
-        {
-            synchronized (kon.a)
-            {
-                if (c == null)
-                {
-                    c = new jdb[0];
-                }
-            }
-        }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
     protected int computeSerializedSize()
     {
-        boolean flag = false;
         int j = super.computeSerializedSize();
         int i = j;
-        if (a != null)
+        if (requestHeader != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.d(1, requestHeader);
         }
         j = i;
+        if (c != null)
+        {
+            j = i + kwk.b(2, c);
+        }
+        i = j;
         if (b != null)
         {
-            j = i;
-            if (b.length > 0)
-            {
-                int k = 0;
-                for (j = ((flag) ? 1 : 0); j < b.length; j++)
-                {
-                    k += koh.h(b[j]);
-                }
-
-                j = i + k + b.length * 1;
-            }
+            i = j + kwk.d(3, b);
         }
-        return j;
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.d(4, d.longValue());
+        }
+        i = j;
+        if (a != null)
+        {
+            i = j + kwk.d(5, a);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -82,88 +72,62 @@ public final class jdb extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 16: // '\020'
-                int l = kou.b(kog1, 16);
-                int ai[];
-                int j;
-                if (b == null)
+                if (requestHeader == null)
                 {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
+                    requestHeader = new jdk();
                 }
-                ai = new int[l + j];
-                l = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, ai, 0, j);
-                    l = j;
-                }
-                for (; l < ai.length - 1; l++)
-                {
-                    ai[l] = kog1.l();
-                    kog1.a();
-                }
-
-                ai[l] = kog1.l();
-                b = ai;
+                kwj1.a(requestHeader);
                 break;
 
             case 18: // '\022'
-                int j1 = kog1.c(kog1.p());
-                int k = kog1.r();
-                int i1;
-                for (i1 = 0; kog1.q() > 0; i1++)
-                {
-                    kog1.l();
-                }
+                c = kwj1.k();
+                break;
 
-                kog1.e(k);
-                int ai1[];
+            case 26: // '\032'
                 if (b == null)
                 {
-                    k = 0;
-                } else
-                {
-                    k = b.length;
+                    b = new jce();
                 }
-                ai1 = new int[i1 + k];
-                i1 = k;
-                if (k != 0)
-                {
-                    System.arraycopy(b, 0, ai1, 0, k);
-                    i1 = k;
-                }
-                for (; i1 < ai1.length; i1++)
-                {
-                    ai1[i1] = kog1.l();
-                }
+                kwj1.a(b);
+                break;
 
-                b = ai1;
-                kog1.d(j1);
+            case 32: // ' '
+                d = Long.valueOf(kwj1.d());
+                break;
+
+            case 42: // '*'
+                if (a == null)
+                {
+                    a = new izg();
+                }
+                kwj1.a(a);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
+        if (requestHeader != null)
+        {
+            kwk1.b(1, requestHeader);
+        }
+        if (c != null)
+        {
+            kwk1.a(2, c);
+        }
+        if (b != null)
+        {
+            kwk1.b(3, b);
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.longValue());
+        }
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.b(5, a);
         }
-        if (b != null && b.length > 0)
-        {
-            for (int i = 0; i < b.length; i++)
-            {
-                koh1.c(2, b[i]);
-            }
-
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

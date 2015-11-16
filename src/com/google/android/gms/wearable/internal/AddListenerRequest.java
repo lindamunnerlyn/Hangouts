@@ -8,18 +8,19 @@ import android.content.IntentFilter;
 import android.os.IBinder;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fvc;
-import fvd;
-import fvl;
-import fwd;
+import fxi;
+import fxj;
+import fxr;
+import fyi;
+import g;
 
 public class AddListenerRequest
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fvl();
-    public final int a;
-    public final fvc b;
+    public static final android.os.Parcelable.Creator CREATOR = new fxr();
+    final int a;
+    public final fxi b;
     public final IntentFilter c[];
     public final String d;
     public final String e;
@@ -29,7 +30,7 @@ public class AddListenerRequest
         a = i;
         if (ibinder != null)
         {
-            b = fvd.a(ibinder);
+            b = fxj.a(ibinder);
         } else
         {
             b = null;
@@ -39,16 +40,16 @@ public class AddListenerRequest
         e = s1;
     }
 
-    public AddListenerRequest(fwd fwd1)
+    public AddListenerRequest(fyi fyi1)
     {
         a = 1;
-        b = fwd1;
-        c = fwd1.b();
-        d = fwd1.c();
-        e = fwd1.d();
+        b = fyi1;
+        c = fyi1.b();
+        d = fyi1.c();
+        e = fyi1.d();
     }
 
-    public IBinder a()
+    IBinder a()
     {
         if (b == null)
         {
@@ -66,7 +67,13 @@ public class AddListenerRequest
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fvl.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, a());
+        g.a(parcel, 3, c, i);
+        g.a(parcel, 4, d);
+        g.a(parcel, 5, e);
+        g.q(parcel, j);
     }
 
 }

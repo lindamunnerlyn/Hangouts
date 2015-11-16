@@ -2,23 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
-import com.google.android.apps.hangouts.phone.HangoutUrlHandlerActivity;
+import android.widget.Toast;
 
-public final class cob
-    implements android.content.DialogInterface.OnCancelListener
+final class cob extends coj
 {
 
-    final HangoutUrlHandlerActivity a;
+    final cna a;
 
-    public cob(HangoutUrlHandlerActivity hangouturlhandleractivity)
+    cob(cna cna1, String s)
     {
-        a = hangouturlhandleractivity;
-        super();
+        a = cna1;
+        super(s);
     }
 
-    public void onCancel(DialogInterface dialoginterface)
+    public void a()
     {
-        a.finish();
+        doy.a(true);
+        Toast.makeText(a.a, "refreshed", 0).show();
     }
 }

@@ -97,7 +97,7 @@ _L8:
         d = j1;
         e = map;
         f = writablebytechannel;
-        a = nativeCreateRequestAdapter(b.b(), c, d);
+        a = nativeCreateRequestAdapter(b.a(), c, d);
         s = httpurlrequestlistener;
         return;
 _L3:
@@ -208,12 +208,6 @@ label0:
         return;
     }
 
-    private void n()
-    {
-        x = true;
-        i();
-    }
-
     private native void nativeAddHeader(long l1, String s1, String s2);
 
     private native void nativeAppendChunk(long l1, ByteBuffer bytebuffer, int i1, boolean flag);
@@ -258,13 +252,8 @@ label0:
 
     private void o()
     {
-        if (a == 0L)
-        {
-            throw new IllegalStateException("Adapter has been destroyed");
-        } else
-        {
-            return;
-        }
+        x = true;
+        i();
     }
 
     private void onAppendResponseHeader(ResponseHeadersMap responseheadersmap, String s1, String s2)
@@ -334,7 +323,7 @@ label0:
         {
             break MISSING_BLOCK_LABEL_156;
         }
-        n();
+        o();
     }
 
     private void onResponseStarted()
@@ -348,7 +337,7 @@ label0:
             q = true;
             if (v > 0L && E > v && w)
             {
-                n();
+                o();
                 return;
             }
         }
@@ -382,6 +371,17 @@ _L1:
 
     private void p()
     {
+        if (a == 0L)
+        {
+            throw new IllegalStateException("Adapter has been destroyed");
+        } else
+        {
+            return;
+        }
+    }
+
+    private void q()
+    {
         if (n)
         {
             throw new IllegalStateException("Request already started");
@@ -391,7 +391,7 @@ _L1:
         }
     }
 
-    private void q()
+    private void r()
     {
         if (!q)
         {
@@ -453,7 +453,7 @@ _L1:
 
     public void a(String s1)
     {
-        p();
+        q();
         i = s1;
     }
 
@@ -461,7 +461,7 @@ _L1:
     {
         synchronized (H)
         {
-            p();
+            q();
             if (g == null)
             {
                 g = new HashMap();
@@ -479,7 +479,7 @@ _L1:
     {
         synchronized (H)
         {
-            p();
+            q();
             c(s1);
             h = s1;
             k = readablebytechannel;
@@ -498,7 +498,7 @@ _L1:
     {
         synchronized (H)
         {
-            p();
+            q();
             c(s1);
             h = s1;
             j = abyte0;
@@ -527,8 +527,8 @@ _L1:
     {
         synchronized (H)
         {
-            o();
-            q();
+            p();
+            r();
             s1 = nativeGetHeader(a, s1);
         }
         return s1;
@@ -617,8 +617,8 @@ label0:
             }
             return;
         }
+        q();
         p();
-        o();
         n = true;
         if (e != null && !e.isEmpty())
         {
@@ -713,8 +713,8 @@ label0:
         String s1;
         synchronized (H)
         {
-            o();
-            q();
+            p();
+            r();
             s1 = nativeGetNegotiatedProtocol(a);
         }
         return s1;
@@ -734,8 +734,8 @@ label0:
         ResponseHeadersMap responseheadersmap;
         synchronized (H)
         {
-            o();
-            q();
+            p();
+            r();
             responseheadersmap = new ResponseHeadersMap();
             nativeGetAllHeaders(a, responseheadersmap);
         }
@@ -744,6 +744,11 @@ label0:
         obj;
         JVM INSTR monitorexit ;
         throw exception;
+    }
+
+    public String n()
+    {
+        return c;
     }
 
     private class ResponseHeadersMap extends HashMap

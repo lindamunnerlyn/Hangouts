@@ -2,50 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
-import com.google.android.gms.maps.model.StreetViewPanoramaOrientation;
+import android.os.IInterface;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.VisibleRegion;
 
-final class fjp
-    implements fjn
+public interface fjp
+    extends IInterface
 {
 
-    private IBinder a;
+    public abstract LatLng a(fcw fcw);
 
-    fjp(IBinder ibinder)
-    {
-        a = ibinder;
-    }
+    public abstract VisibleRegion a();
 
-    public void a(StreetViewPanoramaOrientation streetviewpanoramaorientation)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IOnStreetViewPanoramaLongClickListener");
-        if (streetviewpanoramaorientation == null)
-        {
-            break MISSING_BLOCK_LABEL_56;
-        }
-        parcel.writeInt(1);
-        streetviewpanoramaorientation.writeToParcel(parcel, 0);
-_L1:
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        parcel.writeInt(0);
-          goto _L1
-        streetviewpanoramaorientation;
-        parcel1.recycle();
-        parcel.recycle();
-        throw streetviewpanoramaorientation;
-    }
-
-    public IBinder asBinder()
-    {
-        return a;
-    }
+    public abstract fcw a(LatLng latlng);
 }

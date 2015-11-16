@@ -3,8 +3,7 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.os.Parcel;
-import com.google.android.gms.wearable.internal.CapabilityInfoParcelable;
-import com.google.android.gms.wearable.internal.NodeParcelable;
+import com.google.android.gms.wearable.internal.DataItemAssetParcelable;
 
 public final class fwj
     implements android.os.Parcelable.Creator
@@ -14,18 +13,9 @@ public final class fwj
     {
     }
 
-    public static void a(CapabilityInfoParcelable capabilityinfoparcelable, Parcel parcel)
-    {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, capabilityinfoparcelable.a);
-        g.a(parcel, 2, capabilityinfoparcelable.b());
-        g.c(parcel, 3, capabilityinfoparcelable.c());
-        g.q(parcel, i);
-    }
-
     public Object createFromParcel(Parcel parcel)
     {
-        java.util.ArrayList arraylist = null;
+        String s1 = null;
         int j = g.a(parcel);
         int i = 0;
         String s = null;
@@ -49,7 +39,7 @@ public final class fwj
                     break;
 
                 case 3: // '\003'
-                    arraylist = g.c(parcel, k, NodeParcelable.CREATOR);
+                    s1 = g.i(parcel, k);
                     break;
                 }
             } else
@@ -58,13 +48,13 @@ public final class fwj
                 throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
             } else
             {
-                return new CapabilityInfoParcelable(i, s, arraylist);
+                return new DataItemAssetParcelable(i, s, s1);
             }
         } while (true);
     }
 
     public Object[] newArray(int i)
     {
-        return new CapabilityInfoParcelable[i];
+        return new DataItemAssetParcelable[i];
     }
 }

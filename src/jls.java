@@ -3,50 +3,59 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class jls
+public final class jls extends kwm
 {
 
-    jlv a[];
-    int b;
+    public Long a;
 
     public jls()
     {
-        this((byte)0);
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private jls(byte byte0)
+    protected int computeSerializedSize()
     {
-        a = new jlv[4];
-        b = 0;
-    }
-
-    public jlr a()
-    {
-        switch (b)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-        default:
-            return new jqa(b, a);
-
-        case 0: // '\0'
-            return jlr.h();
-
-        case 1: // '\001'
-            return jlr.b(a[0].getKey(), a[0].getValue());
+            i = j + kwk.e(1, a.longValue());
         }
+        return i;
     }
 
-    public jls a(Object obj, Object obj1)
+    public kws mergeFrom(kwj kwj1)
     {
-        int i = b + 1;
-        if (i > a.length)
+        do
         {
-            a = (jlv[])jpo.b(a, jlg.a(a.length, i));
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Long.valueOf(kwj1.e());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.b(1, a.longValue());
         }
-        obj = jlr.c(obj, obj1);
-        obj1 = a;
-        i = b;
-        b = i + 1;
-        obj1[i] = obj;
-        return this;
+        super.writeTo(kwk1);
     }
 }

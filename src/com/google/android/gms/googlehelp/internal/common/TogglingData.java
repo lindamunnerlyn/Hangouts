@@ -6,17 +6,18 @@ package com.google.android.gms.googlehelp.internal.common;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fbi;
+import feg;
+import g;
 
 public class TogglingData
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fbi();
-    public final int a;
-    public String b;
-    public String c;
-    public String d;
+    public static final android.os.Parcelable.Creator CREATOR = new feg();
+    final int a;
+    String b;
+    String c;
+    String d;
 
     private TogglingData()
     {
@@ -44,7 +45,12 @@ public class TogglingData
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fbi.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b);
+        g.a(parcel, 3, c);
+        g.a(parcel, 4, d);
+        g.q(parcel, i);
     }
 
 }

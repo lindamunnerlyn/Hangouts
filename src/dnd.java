@@ -2,33 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.ArrayList;
+import java.util.List;
 
-final class dnd
+public final class dnd extends dng
 {
 
-    public long a;
-    public long b;
-    public long c;
-    public long d;
-    public long e;
-    public long f;
-    public String g;
-    public String h;
+    private static final long serialVersionUID = 1L;
+    public final String a;
 
-    dnd()
+    dnd(iza iza, int i, long l, ixo ixo1)
     {
+        super(iza, i, l);
+        a = ixo1.a;
     }
 
-    public String toString()
+    public List a()
     {
-        long l = a;
-        long l1 = b;
-        long l2 = c;
-        long l3 = d;
-        long l4 = e;
-        long l5 = f;
-        String s = g;
-        String s1 = h;
-        return (new StringBuilder(String.valueOf(s).length() + 224 + String.valueOf(s1).length())).append("loadTimeMs=").append(l).append(" loadTimeNs=").append(l1).append(" waitStartTimeNs=").append(l2).append(" activeStartTimeNs=").append(l3).append(" decodeStartTimeNs=").append(l4).append(" deliverTimeNs=").append(l5).append(" key").append(s).append(" extra=").append(s1).toString();
+        ArrayList arraylist = new ArrayList();
+        arraylist.add(d);
+        return arraylist;
     }
 }

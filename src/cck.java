@@ -2,11 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
+import android.view.WindowInsets;
+import com.google.android.apps.hangouts.navigation.NavigationDrawerFragment;
+import com.google.android.gms.people.accountswitcherview.SelectedAccountNavigationView;
 
-public interface cck
+public final class cck
+    implements android.view.View.OnApplyWindowInsetsListener
 {
 
-    public abstract void a(long l);
+    final NavigationDrawerFragment a;
 
-    public abstract void a(ccf ccf);
+    public cck(NavigationDrawerFragment navigationdrawerfragment)
+    {
+        a = navigationdrawerfragment;
+        super();
+    }
+
+    public WindowInsets onApplyWindowInsets(View view, WindowInsets windowinsets)
+    {
+        int i = windowinsets.getSystemWindowInsetTop();
+        NavigationDrawerFragment.q(a).a(i);
+        NavigationDrawerFragment.f(a).a(i);
+        return windowinsets;
+    }
 }

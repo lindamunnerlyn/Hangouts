@@ -2,36 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.common.cache.LocalCache;
 
-abstract class jpe extends Enum
-    implements jgt
+public final class jpe extends jpd
 {
 
-    public static final jpe a;
-    public static final jpe b;
-    private static final jpe c[];
+    final LocalCache a;
 
-    jpe(String s, int i)
+    jpe(LocalCache localcache)
     {
-        super(s, i);
+        a = localcache;
+        super(localcache);
     }
 
-    public static jpe valueOf(String s)
+    public Object next()
     {
-        return (jpe)Enum.valueOf(jpe, s);
-    }
-
-    public static jpe[] values()
-    {
-        return (jpe[])c.clone();
-    }
-
-    static 
-    {
-        a = new jpf("KEY");
-        b = new jpg("VALUE");
-        c = (new jpe[] {
-            a, b
-        });
+        return c().getKey();
     }
 }

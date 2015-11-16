@@ -2,51 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.Parcel;
+import java.io.IOException;
 
-public abstract class fgl extends Binder
-    implements fgk
+public final class fgl extends IOException
 {
 
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
+    public fgl(String s)
     {
-        switch (i)
-        {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
+        super(s);
+    }
 
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.maps.internal.ILocationSourceDelegate");
-            return true;
+    static fgl a()
+    {
+        return new fgl("While parsing a protocol message, the input ended unexpectedly in the middle of a field.  This could mean either than the input has been truncated or that an embedded message misreported its own length.");
+    }
 
-        case 1: // '\001'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.ILocationSourceDelegate");
-            parcel = parcel.readStrongBinder();
-            if (parcel == null)
-            {
-                parcel = null;
-            } else
-            {
-                android.os.IInterface iinterface = parcel.queryLocalInterface("com.google.android.gms.maps.internal.IOnLocationChangeListener");
-                if (iinterface != null && (iinterface instanceof fia))
-                {
-                    parcel = (fia)iinterface;
-                } else
-                {
-                    parcel = new fic(parcel);
-                }
-            }
-            a(parcel);
-            parcel1.writeNoException();
-            return true;
+    static fgl b()
+    {
+        return new fgl("CodedInputStream encountered an embedded string or message which claimed to have negative size.");
+    }
 
-        case 2: // '\002'
-            parcel.enforceInterface("com.google.android.gms.maps.internal.ILocationSourceDelegate");
-            a();
-            parcel1.writeNoException();
-            return true;
-        }
+    static fgl c()
+    {
+        return new fgl("CodedInputStream encountered a malformed varint.");
     }
 }

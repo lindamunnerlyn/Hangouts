@@ -2,40 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.util.Property;
-import android.util.SparseArray;
-import java.util.Map;
-import org.json.JSONObject;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-final class gqc
+public class gqc
 {
 
-    float a;
-    float b;
-    JSONObject c;
-    Map d;
-    final gqb e;
+    final gpy a = new gpy(100);
 
-    public gqc(gqb gqb1, Context context, int i, Map map, float f, float f1)
+    public gqc()
     {
-        e = gqb1;
-        super();
-        a = -1F;
-        b = -1F;
-        JSONObject jsonobject1 = (JSONObject)gqb1.b.get(i);
-        JSONObject jsonobject = jsonobject1;
-        if (jsonobject1 == null)
-        {
-            jsonobject = new JSONObject(gqb.a(context, i));
-            gqb1.b.put(i, jsonobject);
-        }
-        c = jsonobject;
-        d = map;
     }
 
-    public boolean a(Property property)
+    public boolean a(String s, gpu gpu1)
     {
-        return (a != -1F || property != gqh.e) && (b != -1F || property != gqh.f);
+        return a.a(gpu1.b()).matcher(s).matches();
+    }
+
+    public boolean a(String s, gpu gpu1, boolean flag)
+    {
+        s = a.a(gpu1.a()).matcher(s);
+        return s.matches() || flag && s.lookingAt();
     }
 }

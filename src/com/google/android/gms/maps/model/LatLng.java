@@ -6,13 +6,14 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import flh;
+import fod;
+import g;
 
 public final class LatLng
     implements SafeParcelable
 {
 
-    public static final flh CREATOR = new flh();
+    public static final fod CREATOR = new fod();
     public final double a;
     public final double b;
     private final int c;
@@ -35,7 +36,7 @@ public final class LatLng
         a = Math.max(-90D, Math.min(90D, d));
     }
 
-    public int a()
+    private int a()
     {
         return c;
     }
@@ -77,7 +78,11 @@ public final class LatLng
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        flh.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a());
+        g.a(parcel, 2, a);
+        g.a(parcel, 3, b);
+        g.q(parcel, i);
     }
 
 }

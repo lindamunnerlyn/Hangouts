@@ -2,84 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
 
-public final class kuj extends koj
+public final class kuj
 {
 
-    private static volatile kuj b[];
-    public koz a;
+    final kui a;
+    private final Iterator b;
+    private java.util.Map.Entry c;
+    private final boolean d = true;
 
-    public kuj()
+    kuj(kui kui1, boolean flag)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = kui1;
+        super();
+        b = a.d.e();
+        if (b.hasNext())
+        {
+            c = (java.util.Map.Entry)b.next();
+        }
     }
 
-    public static kuj[] a()
+    public void a(ktv ktv1)
     {
-        if (b == null)
+        while (c != null && ((kuk)c.getKey()).a() < 0x7fffffff) 
         {
-            synchronized (kon.a)
+            kuk kuk1 = (kuk)c.getKey();
+            if (d && kuk1.c() == kwe.i && !kuk1.d())
             {
-                if (b == null)
-                {
-                    b = new kuj[0];
-                }
+                ktv1.c(kuk1.a(), (kvb)c.getValue());
+            } else
+            {
+                kua.a(kuk1, c.getValue(), ktv1);
+            }
+            if (b.hasNext())
+            {
+                c = (java.util.Map.Entry)b.next();
+            } else
+            {
+                c = null;
             }
         }
-        return b;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new koz();
-                }
-                kog1.a(a);
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        super.writeTo(koh1);
     }
 }

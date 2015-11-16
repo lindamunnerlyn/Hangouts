@@ -2,9 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.ProgressDialog;
+import android.content.Context;
 
-public interface bgm
+public final class bgm
+    implements bgp
 {
 
-    public abstract void a(dmn dmn, bgl bgl);
+    private ProgressDialog a;
+
+    public bgm(Context context)
+    {
+        a = new ProgressDialog(context);
+        a.setProgressStyle(0);
+    }
+
+    public void a()
+    {
+        if (a != null)
+        {
+            if (a.isShowing())
+            {
+                a.dismiss();
+            }
+            a = null;
+        }
+    }
+
+    public void a(android.content.DialogInterface.OnCancelListener oncancellistener)
+    {
+        a.setOnCancelListener(oncancellistener);
+    }
+
+    public void a(String s)
+    {
+        a.setMessage(s);
+        a.show();
+    }
+
+    public void b(String s)
+    {
+        a.setMessage(s);
+    }
 }

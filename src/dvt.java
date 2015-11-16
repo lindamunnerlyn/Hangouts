@@ -2,11 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-final class dvt
+final class dvt extends csw
 {
 
-    dvt()
+    final dvr a;
+
+    public dvt(dvr dvr1, Context context, hof hof, int i)
     {
+        a = dvr1;
+        super(context, hof, i, dvr.c());
+    }
+
+    public void a(cuz cuz1)
+    {
+        dvr.a(a, cuz1.a());
+    }
+
+    protected void c()
+    {
+        dvr.a(a, null);
     }
 }

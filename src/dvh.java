@@ -3,235 +3,49 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import java.util.Locale;
-import java.util.Objects;
 
 public final class dvh
-    implements Parcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new dvi();
-    private final int a;
-    private final String b;
-    private final String c;
+    private dvg a;
 
-    dvh(int i, String s, String s1)
+    public dvh(Context context)
     {
-        a = i;
-        b = s;
-        c = s1;
+        a = new dvg(context);
     }
 
-    public dvh(Context context, int i)
+    public dvg a()
     {
-        dwz dwz1;
-        a = i;
-        b = ((TelephonyManager)context.getSystemService("phone")).getSimOperator();
-        dwz1 = dwz.a(context);
-        context = ((TelephonyManager)context.getSystemService("phone")).getNetworkCountryIso();
-        if (context == null) goto _L2; else goto _L1
-_L1:
-        String s = context.toUpperCase(Locale.US);
-        if (TextUtils.isEmpty(s)) goto _L2; else goto _L3
-_L3:
-        context = s;
-        if (!s.equals(dwz1.i()))
-        {
-            dwz1.b(s);
-            context = s;
-        }
-_L5:
-        c = context;
-        return;
-_L2:
-        String s1 = dwz1.i();
-        context = s1;
-        if (TextUtils.isEmpty(s1))
-        {
-            ebw.e("Babel_telephony", "TeleNetworkStatus.getCurrentNetworkCountryIso, network country is unknown.");
-            context = null;
-        }
-        if (true) goto _L5; else goto _L4
-_L4:
+        return a;
     }
 
-    public static dvh a(dww dww1)
+    public dvh a(long l)
     {
-        String s1 = null;
-        String s;
-        if (TextUtils.isEmpty(dww1.b))
-        {
-            s = null;
-        } else
-        {
-            s = dww1.b;
-        }
-        if (!TextUtils.isEmpty(dww1.c))
-        {
-            s1 = dww1.c;
-        }
-        return new dvh(dww1.a, s, s1);
+        a.a = l;
+        return this;
     }
 
-    public int a()
+    public dvh a(dvn dvn)
     {
-        int i = c();
-        if (i != 2 && i != 1 || a == 1)
-        {
-            return 2;
-        }
-        return a != 2 ? 3 : 1;
+        a.e = dvn;
+        return this;
     }
 
-    public String b()
+    public dvh a(String s)
     {
-        return b;
+        a.b = s;
+        return this;
     }
 
-    public int c()
+    public dvh b(String s)
     {
-        String s = b;
-        if (s != null)
-        {
-            if (s.startsWith("310260"))
-            {
-                return 2;
-            }
-            if (s.startsWith("310120"))
-            {
-                return 1;
-            }
-            if (s.startsWith("311580"))
-            {
-                return 3;
-            }
-            if (s.startsWith("23420"))
-            {
-                return 4;
-            }
-            if (s.startsWith("45403"))
-            {
-                return 5;
-            }
-        }
-        return 0;
+        a.c = s;
+        return this;
     }
 
-    public String d()
+    public dvh c(String s)
     {
-        return c;
+        a.d = s;
+        return this;
     }
-
-    public int describeContents()
-    {
-        return 0;
-    }
-
-    public int e()
-    {
-        if (c == null)
-        {
-            return 3;
-        }
-        return !c.equals(Locale.US.getCountry()) ? 2 : 1;
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (this != obj)
-        {
-            if (obj == null || getClass() != obj.getClass())
-            {
-                return false;
-            }
-            obj = (dvh)obj;
-            if (a != ((dvh) (obj)).a || !Objects.equals(b, ((dvh) (obj)).b) || !Objects.equals(c, ((dvh) (obj)).c))
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    dww f()
-    {
-        dww dww1 = new dww();
-        dww1.a = a;
-        if (b != null)
-        {
-            dww1.b = b;
-        }
-        if (c != null)
-        {
-            dww1.c = c;
-        }
-        return dww1;
-    }
-
-    public int hashCode()
-    {
-        int j = a + 31;
-        int i = j;
-        if (b != null)
-        {
-            i = j * 31 + b.hashCode();
-        }
-        j = i;
-        if (c != null)
-        {
-            j = i * 31 + c.hashCode();
-        }
-        return j;
-    }
-
-    public String toString()
-    {
-        int i = c();
-        String s;
-        String s1;
-        String s2;
-        if (i == 2)
-        {
-            s = "T-Mobile";
-        } else
-        if (i == 1)
-        {
-            s = "Sprint";
-        } else
-        {
-            s = String.valueOf(b);
-            if (s.length() != 0)
-            {
-                s = "Uknown carrier: ".concat(s);
-            } else
-            {
-                s = new String("Uknown carrier: ");
-            }
-        }
-        if (a == 1)
-        {
-            s1 = "roaming";
-        } else
-        if (a == 2)
-        {
-            s1 = "not roaming";
-        } else
-        {
-            s1 = "roaming status unknown";
-        }
-        s2 = c;
-        return (new StringBuilder(String.valueOf(s).length() + 4 + String.valueOf(s1).length() + String.valueOf(s2).length())).append(s).append(", ").append(s1).append(", ").append(s2).toString();
-    }
-
-    public void writeToParcel(Parcel parcel, int i)
-    {
-        parcel.writeInt(a);
-        parcel.writeString(b);
-        parcel.writeString(c);
-    }
-
 }

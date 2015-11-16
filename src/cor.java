@@ -3,50 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class cor
-    implements Runnable
+public final class cor
 {
 
-    final cop a;
+    public static final String a = bei.getName();
+    private static coq b;
 
-    cor(cop cop1)
+    public static void a(hlp hlp1)
     {
-        a = cop1;
-        super();
+        if (b == null)
+        {
+            b = new coq();
+        }
+        hlp1.a(bei, new bei[] {
+            new cos(), new cou()
+        });
     }
 
-    public void run()
-    {
-        if (cop.e())
-        {
-            ebw.b("Babel", "updateAnnouncementsRunnable run");
-        }
-        if (cop.a(a) != -1)
-        {
-            cox acox[] = cop.b(a);
-            int j = acox.length;
-            int i = 0;
-            while (i < j) 
-            {
-                cox cox1 = acox[i];
-                boolean flag;
-                if (cox1.a() || cop.c(a))
-                {
-                    flag = true;
-                } else
-                {
-                    flag = false;
-                }
-                if (!cox1.b && flag)
-                {
-                    cox1.c();
-                } else
-                if (cox1.b && !flag)
-                {
-                    cox1.d();
-                }
-                i++;
-            }
-        }
-    }
 }

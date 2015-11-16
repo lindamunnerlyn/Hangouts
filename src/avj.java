@@ -2,27 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.List;
 
-final class avj
-    implements ase
+public interface avj
 {
 
-    final ave a;
+    public abstract void a(List list);
 
-    avj(ave ave1)
-    {
-        a = ave1;
-        super();
-    }
-
-    public void a()
-    {
-        a.getActivity().finish();
-    }
-
-    public void a(int i)
-    {
-        g.a(g.e(i), "Transport Type must be a SMS medium.");
-        ave.y(a).a(i);
-    }
+    public abstract boolean e();
 }

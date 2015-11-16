@@ -2,24 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.navigation.NavigationDrawerFragment;
 
-public final class cap
+final class cap
     implements Runnable
 {
 
-    final fqu a;
-    final NavigationDrawerFragment b;
+    final int a;
+    final cao b;
 
-    public cap(NavigationDrawerFragment navigationdrawerfragment, fqu fqu1)
+    cap(cao cao, int i)
     {
-        b = navigationdrawerfragment;
-        a = fqu1;
+        b = cao;
+        a = i;
         super();
     }
 
     public void run()
     {
-        NavigationDrawerFragment.a(b).a(a.a(), a.e());
+        def.c().b(this);
+        dcn.f(a);
     }
 }

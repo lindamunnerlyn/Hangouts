@@ -85,7 +85,7 @@ _L7:
     {
         if (a != null) goto _L2; else goto _L1
 _L1:
-        if (!CommandLine.a().a("enable-low-end-device-mode")) goto _L4; else goto _L3
+        if (!CommandLine.c().a()) goto _L4; else goto _L3
 _L3:
         boolean flag = true;
 _L6:
@@ -93,10 +93,10 @@ _L6:
 _L2:
         return a.booleanValue();
 _L4:
-        if (!CommandLine.a().a("disable-low-end-device-mode") && android.os.Build.VERSION.SDK_INT >= 19)
+        if (!CommandLine.c().a())
         {
             Context context = ApplicationStatus.b();
-            if (context != null)
+            if (android.os.Build.VERSION.SDK_INT >= 19 && context != null)
             {
                 if (((ActivityManager)context.getSystemService("activity")).isLowRamDevice())
                 {
@@ -108,7 +108,7 @@ _L4:
                 Log.e("SysUtils", "ApplicationContext is null in ApplicationStatus");
             }
             int i = a();
-            if (i > 0 && i < 512)
+            if (i > 0 && i <= 512)
             {
                 flag = true;
                 continue; /* Loop/switch isn't completed */

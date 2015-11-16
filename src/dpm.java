@@ -2,21 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.settings.SmsSettingsActivity;
 
-public final class dpm extends hfz
+public final class dpm
 {
 
-    final SmsSettingsActivity a;
+    private final byte a[];
+    private final String b;
+    private final boolean c;
 
-    public dpm(SmsSettingsActivity smssettingsactivity, ps ps, hjm hjm)
+    public dpm(byte abyte0[], String s, boolean flag)
     {
-        a = smssettingsactivity;
-        super(ps, hjm);
+        a = abyte0;
+        b = s;
+        c = flag;
     }
 
-    protected hfh a()
+    public byte[] a()
     {
-        return new dpn();
+        return a;
+    }
+
+    public String b()
+    {
+        return b;
+    }
+
+    public boolean c()
+    {
+        return c;
     }
 }

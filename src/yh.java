@@ -2,21 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
+import android.view.ViewParent;
 
 final class yh
     implements Runnable
 {
 
-    final ya a;
+    final yg a;
 
-    yh(ya ya1)
+    yh(yg yg1)
     {
-        a = ya1;
+        a = yg1;
         super();
     }
 
     public void run()
     {
-        a.m();
+        a.c.getParent().requestDisallowInterceptTouchEvent(true);
     }
 }

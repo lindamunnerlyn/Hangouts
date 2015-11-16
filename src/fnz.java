@@ -3,7 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.os.Parcel;
-import com.google.android.gms.people.identity.internal.AccountToken;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
 
 public final class fnz
     implements android.os.Parcelable.Creator
@@ -13,12 +14,14 @@ public final class fnz
     {
     }
 
-    public static AccountToken a(Parcel parcel)
+    public static CameraPosition a(Parcel parcel)
     {
-        String s1 = null;
+        float f = 0.0F;
         int j = g.a(parcel);
         int i = 0;
-        String s = null;
+        LatLng latlng = null;
+        float f1 = 0.0F;
+        float f2 = 0.0F;
         do
         {
             if (parcel.dataPosition() < j)
@@ -31,15 +34,23 @@ public final class fnz
                     break;
 
                 case 1: // '\001'
-                    s = g.i(parcel, k);
-                    break;
-
-                case 1000: 
                     i = g.e(parcel, k);
                     break;
 
                 case 2: // '\002'
-                    s1 = g.i(parcel, k);
+                    latlng = (LatLng)g.a(parcel, k, LatLng.CREATOR);
+                    break;
+
+                case 3: // '\003'
+                    f2 = g.g(parcel, k);
+                    break;
+
+                case 4: // '\004'
+                    f1 = g.g(parcel, k);
+                    break;
+
+                case 5: // '\005'
+                    f = g.g(parcel, k);
                     break;
                 }
             } else
@@ -48,18 +59,9 @@ public final class fnz
                 throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
             } else
             {
-                return new AccountToken(i, s, s1);
+                return new CameraPosition(i, latlng, f2, f1, f);
             }
         } while (true);
-    }
-
-    public static void a(AccountToken accounttoken, Parcel parcel)
-    {
-        int i = g.p(parcel, 20293);
-        g.a(parcel, 1, accounttoken.b());
-        g.b(parcel, 1000, accounttoken.a());
-        g.a(parcel, 2, accounttoken.c());
-        g.q(parcel, i);
     }
 
     public Object createFromParcel(Parcel parcel)
@@ -69,6 +71,6 @@ public final class fnz
 
     public Object[] newArray(int i)
     {
-        return new AccountToken[i];
+        return new CameraPosition[i];
     }
 }

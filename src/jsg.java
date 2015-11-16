@@ -2,20 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.ExecutionException;
+import java.io.Serializable;
 
-final class jsg extends jsh
+class jsg extends jrf
+    implements Serializable
 {
 
-    private final Throwable a;
+    private static final long serialVersionUID = 0L;
+    final Object a;
+    final Object b;
 
-    jsg(Throwable throwable)
+    jsg(Object obj, Object obj1)
     {
-        a = throwable;
+        a = obj;
+        b = obj1;
     }
 
-    public Object get()
+    public final Object getKey()
     {
-        throw new ExecutionException(a);
+        return a;
+    }
+
+    public final Object getValue()
+    {
+        return b;
+    }
+
+    public final Object setValue(Object obj)
+    {
+        throw new UnsupportedOperationException();
     }
 }

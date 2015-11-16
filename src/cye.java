@@ -3,34 +3,68 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cye extends cvn
+public class cye extends cxr
 {
 
     private static final long serialVersionUID = 1L;
+    private final cvd g;
 
-    private cye(iyh iyh1)
+    private cye(lez lez1)
     {
-        super(iyh1.responseHeader, 0L);
-        if (cvn.a)
+        boolean flag1 = false;
+        super();
+        String s;
+        String s1;
+        long l;
+        long l1;
+        boolean flag;
+        if (lez1.a != null && lez1.a.a != null && lez1.a.a.a != null)
         {
-            iyh1 = String.valueOf(iyh1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(iyh1).length() + 31)).append("SetInCallPresenceResponse from:").append(iyh1).toString());
-        }
-    }
-
-    public static cvn parseFrom(iyh iyh1)
-    {
-        if (a(iyh1.responseHeader))
-        {
-            return new cvz(iyh1.responseHeader);
+            s = lez1.a.a.a.a;
         } else
         {
-            return new cye(iyh1);
+            s = null;
         }
+        if (lez1.b != null)
+        {
+            s1 = lez1.b.a;
+        } else
+        {
+            s1 = null;
+        }
+        l1 = g.a(lez1.c, 0L);
+        l = l1;
+        if (l1 != 0L)
+        {
+            l = l1 + System.currentTimeMillis();
+        }
+        flag = flag1;
+        if (l != 0L)
+        {
+            flag = flag1;
+            if (g.a(lez1.d, false))
+            {
+                flag = true;
+            }
+        }
+        g = new cvd(s, s1, l, flag);
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public static cxr parseFrom(byte abyte0[])
     {
-        return parseFrom((iyh)kop.mergeFrom(new iyh(), abyte0));
+        if (abyte0 != null)
+        {
+            abyte0 = (lez)kws.mergeFrom(new lez(), abyte0);
+            if (abyte0 != null)
+            {
+                return new cye(abyte0);
+            }
+        }
+        return null;
+    }
+
+    public cvd k()
+    {
+        return g;
     }
 }

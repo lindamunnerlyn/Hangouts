@@ -5,7 +5,9 @@
 package com.google.common.cache;
 
 import a;
+import g;
 import java.util.AbstractMap;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
@@ -14,49 +16,56 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 import java.util.logging.Logger;
-import jgq;
-import jhp;
-import jhs;
-import jht;
-import jhw;
-import jig;
-import jij;
-import jim;
-import jin;
-import jiq;
-import jja;
-import jjb;
-import jjr;
-import jrq;
+import jnk;
+import jol;
+import joo;
+import jop;
+import jos;
+import jpc;
+import jpf;
+import jpi;
+import jpj;
+import jpm;
+import jpw;
+import jpx;
+import jqn;
+import jts;
 import n;
-import zn;
+import zp;
 
 public class LocalCache extends AbstractMap
     implements ConcurrentMap
 {
 
     public static final Logger a = Logger.getLogger(com/google/common/cache/LocalCache.getName());
-    public static final jja r = new jhs();
-    public static final Queue s = new jht();
+    public static final jpw r = new joo();
+    public static final Queue s = new jop();
     final int b;
     final int c;
-    public final jin d[];
-    public final jgq e;
-    public final jgq f;
-    final jiq g;
-    public final jiq h;
+    public final jpj d[];
+    public final jnk e;
+    public final jnk f;
+    final jpm g;
+    public final jpm h;
     final long i;
     public final a j;
     final long k;
     final long l;
     public final long m;
     public final Queue n;
-    public final jhp o;
-    public final jhw p;
-    public final zn q;
+    public final jol o;
+    public final jos p;
+    public final zp q;
     Set t;
     Collection u;
     Set v;
+
+    public static ArrayList a(Collection collection)
+    {
+        ArrayList arraylist = new ArrayList(collection.size());
+        jts.a(arraylist, collection.iterator());
+        return arraylist;
+    }
 
     public static void a(ReferenceEntry referenceentry, ReferenceEntry referenceentry1)
     {
@@ -66,9 +75,9 @@ public class LocalCache extends AbstractMap
 
     public static void b(ReferenceEntry referenceentry)
     {
-        jim jim1 = jim.a;
-        referenceentry.setNextInAccessQueue(jim1);
-        referenceentry.setPreviousInAccessQueue(jim1);
+        jpi jpi1 = jpi.a;
+        referenceentry.setNextInAccessQueue(jpi1);
+        referenceentry.setPreviousInAccessQueue(jpi1);
     }
 
     public static void b(ReferenceEntry referenceentry, ReferenceEntry referenceentry1)
@@ -79,19 +88,19 @@ public class LocalCache extends AbstractMap
 
     public static void c(ReferenceEntry referenceentry)
     {
-        jim jim1 = jim.a;
-        referenceentry.setNextInWriteQueue(jim1);
-        referenceentry.setPreviousInWriteQueue(jim1);
+        jpi jpi1 = jpi.a;
+        referenceentry.setNextInWriteQueue(jpi1);
+        referenceentry.setPreviousInWriteQueue(jpi1);
     }
 
-    public static jja i()
+    public static jpw i()
     {
         return r;
     }
 
     public static ReferenceEntry j()
     {
-        return jim.a;
+        return jpi.a;
     }
 
     int a(Object obj)
@@ -118,7 +127,7 @@ public class LocalCache extends AbstractMap
         return null;
     }
 
-    jin a(int i1)
+    jpj a(int i1)
     {
         return d[i1 >>> c & b];
     }
@@ -129,11 +138,11 @@ public class LocalCache extends AbstractMap
         a(i1).a(referenceentry, i1);
     }
 
-    public void a(jja jja1)
+    public void a(jpw jpw1)
     {
-        ReferenceEntry referenceentry = jja1.b();
+        ReferenceEntry referenceentry = jpw1.b();
         int i1 = referenceentry.getHash();
-        a(i1).a(referenceentry.getKey(), i1, jja1);
+        a(i1).a(referenceentry.getKey(), i1, jpw1);
     }
 
     public boolean a()
@@ -163,11 +172,11 @@ public class LocalCache extends AbstractMap
 
     public void clear()
     {
-        jin ajin[] = d;
-        int j1 = ajin.length;
+        jpj ajpj[] = d;
+        int j1 = ajpj.length;
         for (int i1 = 0; i1 < j1; i1++)
         {
-            ajin[i1].a();
+            ajpj[i1].a();
         }
 
     }
@@ -191,7 +200,7 @@ public class LocalCache extends AbstractMap
             return false;
         }
         long l4 = o.a();
-        jin ajin[] = d;
+        jpj ajpj[] = d;
         int i1 = 0;
         long l3 = -1L;
         do
@@ -200,18 +209,18 @@ public class LocalCache extends AbstractMap
             {
                 break;
             }
-            int i2 = ajin.length;
+            int i2 = ajpj.length;
             long l2 = 0L;
             for (int j1 = 0; j1 < i2; j1++)
             {
-                jin jin1 = ajin[j1];
-                int k1 = jin1.b;
-                AtomicReferenceArray atomicreferencearray = jin1.f;
+                jpj jpj1 = ajpj[j1];
+                int k1 = jpj1.b;
+                AtomicReferenceArray atomicreferencearray = jpj1.f;
                 for (int l1 = 0; l1 < atomicreferencearray.length(); l1++)
                 {
                     for (ReferenceEntry referenceentry = (ReferenceEntry)atomicreferencearray.get(l1); referenceentry != null; referenceentry = referenceentry.getNext())
                     {
-                        Object obj1 = jin1.a(referenceentry, l4);
+                        Object obj1 = jpj1.a(referenceentry, l4);
                         if (obj1 != null && f.a(obj, obj1))
                         {
                             return true;
@@ -220,7 +229,7 @@ public class LocalCache extends AbstractMap
 
                 }
 
-                l2 += jin1.d;
+                l2 += jpj1.d;
             }
 
             if (l2 == l3)
@@ -251,9 +260,9 @@ public class LocalCache extends AbstractMap
             return set;
         } else
         {
-            jig jig1 = new jig(this, this);
-            v = jig1;
-            return jig1;
+            jpc jpc1 = new jpc(this, this);
+            v = jpc1;
+            return jpc1;
         }
     }
 
@@ -264,7 +273,7 @@ public class LocalCache extends AbstractMap
 
     public boolean g()
     {
-        return g != jiq.a;
+        return g != jpm.a;
     }
 
     public Object get(Object obj)
@@ -281,25 +290,25 @@ public class LocalCache extends AbstractMap
 
     public boolean h()
     {
-        return h != jiq.a;
+        return h != jpm.a;
     }
 
     public boolean isEmpty()
     {
-        jin ajin[];
+        jpj ajpj[];
         int i1;
         long l1;
-        ajin = d;
+        ajpj = d;
         i1 = 0;
         l1 = 0L;
 _L9:
-        if (i1 >= ajin.length) goto _L2; else goto _L1
+        if (i1 >= ajpj.length) goto _L2; else goto _L1
 _L1:
-        if (ajin[i1].b == 0) goto _L4; else goto _L3
+        if (ajpj[i1].b == 0) goto _L4; else goto _L3
 _L3:
         return false;
 _L4:
-        l1 += ajin[i1].d;
+        l1 += ajpj[i1].d;
         i1++;
         continue; /* Loop/switch isn't completed */
 _L2:
@@ -309,13 +318,13 @@ _L2:
         }
         i1 = 0;
 _L6:
-        if (i1 >= ajin.length)
+        if (i1 >= ajpj.length)
         {
             continue; /* Loop/switch isn't completed */
         }
-        if (ajin[i1].b != 0) goto _L3; else goto _L5
+        if (ajpj[i1].b != 0) goto _L3; else goto _L5
 _L5:
-        l1 -= ajin[i1].d;
+        l1 -= ajpj[i1].d;
         i1++;
           goto _L6
         if (l1 != 0L) goto _L3; else goto _L7
@@ -327,7 +336,7 @@ _L8:
 
     public void k()
     {
-        while ((jjr)n.poll() != null) ;
+        while ((jqn)n.poll() != null) ;
     }
 
     public Set keySet()
@@ -338,19 +347,19 @@ _L8:
             return set;
         } else
         {
-            jij jij1 = new jij(this, this);
-            t = jij1;
-            return jij1;
+            jpf jpf1 = new jpf(this, this);
+            t = jpf1;
+            return jpf1;
         }
     }
 
     long l()
     {
-        jin ajin[] = d;
+        jpj ajpj[] = d;
         long l1 = 0L;
-        for (int i1 = 0; i1 < ajin.length; i1++)
+        for (int i1 = 0; i1 < ajpj.length; i1++)
         {
-            l1 += ajin[i1].b;
+            l1 += Math.max(0, ajpj[i1].b);
         }
 
         return l1;
@@ -430,7 +439,7 @@ _L8:
 
     public int size()
     {
-        return jrq.a(l());
+        return g.e(l());
     }
 
     public Collection values()
@@ -441,9 +450,9 @@ _L8:
             return collection;
         } else
         {
-            jjb jjb1 = new jjb(this, this);
-            u = jjb1;
-            return jjb1;
+            jpx jpx1 = new jpx(this, this);
+            u = jpx1;
+            return jpx1;
         }
     }
 
@@ -467,7 +476,7 @@ _L8:
 
         public abstract ReferenceEntry getPreviousInWriteQueue();
 
-        public abstract jja getValueReference();
+        public abstract jpw getValueReference();
 
         public abstract long getWriteTime();
 
@@ -481,7 +490,7 @@ _L8:
 
         public abstract void setPreviousInWriteQueue(ReferenceEntry referenceentry);
 
-        public abstract void setValueReference(jja jja1);
+        public abstract void setValueReference(jpw jpw1);
 
         public abstract void setWriteTime(long l1);
     }

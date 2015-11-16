@@ -2,33 +2,13 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.SurfaceTexture;
-import com.google.android.libraries.hangouts.video.sdk.ScreenVideoCapturer;
 
-public final class gjc
-    implements gjx
+public class gjc
 {
 
-    final ScreenVideoCapturer a;
+    public byte a[];
 
-    public gjc(ScreenVideoCapturer screenvideocapturer)
+    public gjc()
     {
-        a = screenvideocapturer;
-        super();
-    }
-
-    public void a(SurfaceTexture surfacetexture)
-    {
-        ScreenVideoCapturer.a(a, surfacetexture);
-        if (ScreenVideoCapturer.a(a) == null)
-        {
-            ScreenVideoCapturer.b(a);
-            ScreenVideoCapturer.c(a);
-        }
-    }
-
-    public void a(gjy gjy)
-    {
-        ScreenVideoCapturer.b(a);
     }
 }

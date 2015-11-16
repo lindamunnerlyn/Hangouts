@@ -6,7 +6,8 @@ package com.google.android.gms.wearable.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fwk;
+import fyo;
+import g;
 
 // Referenced classes of package com.google.android.gms.wearable.internal:
 //            ChannelImpl
@@ -15,12 +16,12 @@ public final class ChannelEventParcelable
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fwk();
-    public final int a;
-    public final ChannelImpl b;
-    public final int c;
-    public final int d;
-    public final int e;
+    public static final android.os.Parcelable.Creator CREATOR = new fyo();
+    final int a;
+    final ChannelImpl b;
+    final int c;
+    final int d;
+    final int e;
 
     public ChannelEventParcelable(int i, ChannelImpl channelimpl, int j, int k, int l)
     {
@@ -110,7 +111,13 @@ _L10:
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fwk.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b, i);
+        g.b(parcel, 3, c);
+        g.b(parcel, 4, d);
+        g.b(parcel, 5, e);
+        g.q(parcel, j);
     }
 
 }

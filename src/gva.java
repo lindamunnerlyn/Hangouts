@@ -3,11 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gva
-    implements gsz
+public interface gva
 {
 
-    public gva()
-    {
-    }
+    public abstract void a();
 }

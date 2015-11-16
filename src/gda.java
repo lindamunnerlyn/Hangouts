@@ -2,17 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.TimeUnit;
 
 public interface gda
 {
 
-    public abstract void a();
+    public abstract gda a();
 
-    public abstract void a(int i, int j, boolean flag);
+    public abstract gda a(int i);
 
-    public abstract boolean a(int i, long l, boolean flag);
+    public abstract gda a(Integer integer);
 
-    public abstract int b();
+    public abstract gda a(String s);
 
-    public abstract void c();
+    public abstract gda a(jlf jlf);
+
+    public abstract gda a(jlg jlg);
+
+    public abstract gda a(jlh jlh);
+
+    public abstract gda a(jli jli);
+
+    public abstract gda a(jlq jlq);
+
+    public abstract void a(TimeUnit timeunit);
+
+    public abstract gda b();
+
+    public abstract gda b(String s);
+
+    public abstract gda c();
+
+    public abstract gda c(String s);
+
+    public abstract gda d(String s);
+
+    public abstract void d();
 }

@@ -2,34 +2,75 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
 
-final class ldf
-    implements Serializable
+public final class ldf extends kwm
 {
 
-    private static final long serialVersionUID = 0xa62f019a7c321ae3L;
-    private transient String a;
+    public Integer a;
+    public Integer b;
 
-    ldf(String s)
+    public ldf()
     {
-        a = s;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private void readObject(ObjectInputStream objectinputstream)
+    protected int computeSerializedSize()
     {
-        a = objectinputstream.readUTF();
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.e(1, a.intValue());
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.intValue());
+        }
+        return j;
     }
 
-    private Object readResolve()
+    public kws mergeFrom(kwj kwj1)
     {
-        return ldd.a(a);
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
+                break;
+            }
+        } while (true);
     }
 
-    private void writeObject(ObjectOutputStream objectoutputstream)
+    public void writeTo(kwk kwk1)
     {
-        objectoutputstream.writeUTF(a);
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

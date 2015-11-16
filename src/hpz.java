@@ -2,77 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.api.client.json.GenericJson;
+import com.google.api.client.util.GenericData;
 
-public final class hpz extends koj
+public class hpz extends GenericJson
 {
-
-    public String a;
-    public int b;
 
     public hpz()
     {
-        a = null;
-        b = 0x80000000;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public hpz a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != 0x80000000)
-        {
-            j = i + koh.e(2, b);
-        }
-        return j;
+        return (hpz)super.clone();
     }
 
-    public kop mergeFrom(kog kog1)
+    public hpz a(String s, Object obj)
     {
-_L5:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 3: default 40
-    //                   0: 49
-    //                   10: 51
-    //                   16: 62;
-           goto _L1 _L2 _L3 _L4
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L5; else goto _L2
-_L2:
-        return this;
-_L3:
-        a = kog1.j();
-          goto _L5
-_L4:
-        int j = kog1.f();
-        switch (j)
-        {
-        case 0: // '\0'
-        case 1: // '\001'
-            b = j;
-            break;
-        }
-        if (true) goto _L5; else goto _L6
-_L6:
+        return (hpz)super.set(s, obj);
     }
 
-    public void writeTo(koh koh1)
+    public GenericJson clone()
     {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        if (b != 0x80000000)
-        {
-            koh1.a(2, b);
-        }
-        super.writeTo(koh1);
+        return a();
+    }
+
+    public GenericData clone()
+    {
+        return a();
+    }
+
+    public Object clone()
+    {
+        return a();
+    }
+
+    public GenericJson set(String s, Object obj)
+    {
+        return a(s, obj);
+    }
+
+    public GenericData set(String s, Object obj)
+    {
+        return a(s, obj);
     }
 }

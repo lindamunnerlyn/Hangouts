@@ -3,59 +3,47 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hpk extends koj
+public class hpk extends Enum
 {
 
-    public String a;
+    public static final hpk a;
+    public static final hpk b;
+    public static final hpk c;
+    public static final hpk d;
+    public static final hpk e;
+    private static final hpk g[];
+    long f;
 
-    public hpk()
+    hpk(String s, int i, long l)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s, i);
+        f = l;
     }
 
-    protected int computeSerializedSize()
+    public static hpk valueOf(String s)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        return i;
+        return (hpk)Enum.valueOf(hpk, s);
     }
 
-    public kop mergeFrom(kog kog1)
+    public static hpk[] values()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-            }
-        } while (true);
+        return (hpk[])g.clone();
     }
 
-    public void writeTo(koh koh1)
+    public long a(long l)
     {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        super.writeTo(koh1);
+        return f * l;
+    }
+
+    static 
+    {
+        a = new hpl("TERABYTES");
+        b = new hpm("GIGABYTES");
+        c = new hpn("MEGABYTES");
+        d = new hpo("KILOBYTES");
+        e = new hpp("BYTES");
+        g = (new hpk[] {
+            a, b, c, d, e
+        });
     }
 }

@@ -2,71 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.res.Resources;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.animation.ValueAnimator;
+import com.google.android.apps.hangouts.floatingactionbutton.impl.QuickButtonContainer;
 
-public final class bfp extends bgg
+public final class bfp
+    implements android.animation.ValueAnimator.AnimatorUpdateListener
 {
 
-    private final ai d;
-    private final ani e;
-    private final String f;
-    private final String g;
-    private final String h;
-    private final boolean i = true;
+    final QuickButtonContainer a;
 
-    public bfp(ai ai1, ani ani, String s, String s1, String s2)
+    public bfp(QuickButtonContainer quickbuttoncontainer)
     {
-        d = ai1;
-        e = ani;
-        f = s;
-        g = s1;
-        h = s2;
+        a = quickbuttoncontainer;
+        super();
     }
 
-    public String a()
+    public void onAnimationUpdate(ValueAnimator valueanimator)
     {
-        return d.getResources().getString(l.G, new Object[] {
-            ebr.d(f)
-        });
-    }
-
-    public int b()
-    {
-        return RealTimeChatService.a(e, g, h, f, true, true);
-    }
-
-    public void c()
-    {
-        int j;
-        if (bgg.j())
+        if (a.a)
         {
-            j = l.E;
-        } else
-        {
-            j = l.F;
+            a.setAlpha(valueanimator.getAnimatedFraction());
         }
-        ebr.a(d, d.getResources().getString(j, new Object[] {
-            f
-        }));
-    }
-
-    public void d()
-    {
-        if (i)
-        {
-            d.setResult(1);
-            d.finish();
-        }
-    }
-
-    public Class e()
-    {
-        return css;
-    }
-
-    public Class f()
-    {
-        return cxe;
     }
 }

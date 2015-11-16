@@ -3,11 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hws extends koj
+public final class hws extends kwm
 {
 
     public Integer a;
-    public Integer b;
+    public String b;
 
     public hws()
     {
@@ -23,25 +23,25 @@ public final class hws extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.e(1, a.intValue());
+            i = j + kwk.f(1, a.intValue());
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.e(2, b.intValue());
+            j = i + kwk.b(2, b);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -51,26 +51,26 @@ public final class hws extends koj
                 return this;
 
             case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
+                a = Integer.valueOf(kwj1.l());
                 break;
 
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
+            case 18: // '\022'
+                b = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.intValue());
+            kwk1.c(1, a.intValue());
         }
         if (b != null)
         {
-            koh1.a(2, b.intValue());
+            kwk1.a(2, b);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

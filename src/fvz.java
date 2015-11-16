@@ -2,28 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.wearable.internal.PutDataResponse;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.FutureTask;
+import com.google.android.gms.wearable.internal.NodeParcelable;
 
-final class fvz extends fvv
+final class fvz
+    implements Runnable
 {
 
-    private final List a;
+    final NodeParcelable a;
+    final fvw b;
 
-    fvz(ekm ekm, List list)
+    fvz(fvw fvw, NodeParcelable nodeparcelable)
     {
-        super(ekm);
-        a = list;
+        b = fvw;
+        a = nodeparcelable;
+        super();
     }
 
-    public void a(PutDataResponse putdataresponse)
+    public void run()
     {
-        a(new fsu(g.n(putdataresponse.b), putdataresponse.c));
-        if (putdataresponse.b != 0)
-        {
-            for (putdataresponse = a.iterator(); putdataresponse.hasNext(); ((FutureTask)putdataresponse.next()).cancel(true)) { }
-        }
     }
 }

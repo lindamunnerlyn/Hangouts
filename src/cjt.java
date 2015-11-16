@@ -2,32 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.phone.BabelHomeActivity;
+import android.content.Context;
 
 public final class cjt
-    implements ddy
 {
 
-    final boolean a;
-    final BabelHomeActivity b;
+    public static final String a = hmd.getName();
+    public static final String b = cjf.getName();
+    public static final String c = hmq.getName();
+    private static cjs d;
 
-    public cjt(BabelHomeActivity babelhomeactivity, boolean flag)
+    public static void a(Context context, hlp hlp1)
     {
-        b = babelhomeactivity;
-        a = flag;
-        super();
-    }
-
-    public void a()
-    {
-        if (BabelHomeActivity.a(b))
+        if (d == null)
         {
-            b.m();
-            BabelHomeActivity.a(b, a);
+            d = new cjs();
         }
+        hlp1.a(cjf, new cjj(context));
     }
 
-    public void b()
+    public static void a(hlp hlp1)
     {
+        if (d == null)
+        {
+            d = new cjs();
+        }
+        hlp1.a(hmd, new hmd[] {
+            new cjp()
+        });
     }
+
+    public static void b(hlp hlp1)
+    {
+        if (d == null)
+        {
+            d = new cjs();
+        }
+        hlp1.a(hmq, new hmq[] {
+            new cjp()
+        });
+    }
+
 }

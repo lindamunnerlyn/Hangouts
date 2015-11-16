@@ -2,18 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
+import android.accounts.AuthenticatorException;
+import android.content.Context;
 
-final class fzx
-    implements fzu
+class fzx
+    implements fzs
 {
 
     fzx()
     {
     }
 
-    public fzt a(Activity activity)
+    public String a(Context context, String s, String s1)
     {
-        return new fzt(activity);
+        try
+        {
+            context = eld.c(context, s, s1);
+        }
+        // Misplaced declaration of an exception variable
+        catch (Context context)
+        {
+            throw new AuthenticatorException("Cannot get Oauth2 token from GMS", context);
+        }
+        return context;
+    }
+
+    public void a(Context context, String s)
+    {
+        try
+        {
+            eld.b(context, s);
+            return;
+        }
+        // Misplaced declaration of an exception variable
+        catch (Context context)
+        {
+            throw new AuthenticatorException("Cannot invalidate token", context);
+        }
+        // Misplaced declaration of an exception variable
+        catch (Context context)
+        {
+            throw new AuthenticatorException("Cannot invalidate token", context);
+        }
     }
 }

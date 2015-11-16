@@ -2,46 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public final class gwb
+public interface gwb
 {
 
-    String a;
-    long b;
-    long c;
-    float d;
-    float e;
-
-    public gwb()
-    {
-    }
-
-    public gwa a()
-    {
-        return new gwa(this);
-    }
-
-    public gwb a(float f)
-    {
-        d = f;
-        return this;
-    }
-
-    public gwb a(long l)
-    {
-        b = l;
-        return this;
-    }
-
-    public gwb a(String s)
-    {
-        a = s;
-        return this;
-    }
-
-    public gwb b(long l)
-    {
-        c = l;
-        return this;
-    }
+    public abstract hhm a(Context context, String s, int i, int j, hhp hhp);
 }

@@ -4,9 +4,19 @@
 
 
 final class bvy
+    implements bsq
 {
 
-    bvy()
+    final bvw a;
+
+    bvy(bvw bvw)
     {
+        a = bvw;
+        super();
+    }
+
+    public void a(pu pu, hof hof)
+    {
+        new bvu(pu, hof);
     }
 }

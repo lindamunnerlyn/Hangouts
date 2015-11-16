@@ -2,12 +2,7 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
 
 public interface gxl
 {
-
-    public abstract void a(List list);
-
-    public abstract boolean a(String s);
 }

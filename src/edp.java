@@ -2,30 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.views.ConversationListItemWrapper;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.style.URLSpan;
+import android.view.View;
+import android.view.accessibility.AccessibilityManager;
 
 public final class edp
-    implements Runnable
+    implements android.view.View.OnClickListener
 {
 
-    final ConversationListItemWrapper a;
+    final Context a;
+    final URLSpan b;
 
-    public edp(ConversationListItemWrapper conversationlistitemwrapper)
+    public edp(Context context, URLSpan urlspan)
     {
-        a = conversationlistitemwrapper;
+        a = context;
+        b = urlspan;
         super();
     }
 
-    public void run()
+    public void onClick(View view)
     {
-        if (ConversationListItemWrapper.a(a) instanceof ecv)
+        if (((AccessibilityManager)a.getSystemService("accessibility")).isEnabled())
         {
-            ((ecv)ConversationListItemWrapper.a(a)).a();
-        } else
-        if (ConversationListItemWrapper.a(a) instanceof com.google.android.apps.hangouts.fragments.ConversationListFragment.InviteListItem)
-        {
-            ((com.google.android.apps.hangouts.fragments.ConversationListFragment.InviteListItem)ConversationListItemWrapper.a(a)).a();
-            return;
+            view = new Intent("android.intent.action.VIEW");
+            view.setData(Uri.parse(b.getURL()));
+            a.startActivity(view);
         }
     }
 }

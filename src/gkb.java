@@ -3,69 +3,73 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gkb
+final class gkb
+    implements gjr
 {
 
-    Object a[];
-    private int b;
-    private boolean c;
-    private int d;
-
-    public gkb(int i)
+    gkb()
     {
-        d = i;
-        b = 0;
-        c = false;
-        a = new Object[d];
     }
 
-    public int a()
+    private static jko a(jif jif, jhc ajhc[])
     {
-        if (c)
+        jkf jkf1 = new jkf();
+        jkf1.a = jif;
+        jkf1.b = ajhc;
+        return a(jkf1);
+    }
+
+    private static jko a(jkf jkf1)
+    {
+        jko jko1 = new jko();
+        jko1.h = jkf1;
+        return jko1;
+    }
+
+    public jko a(kws kws)
+    {
+        jhe jhe1 = (jhe)kws;
+        jif jif = jhe1.c;
+        if (jhe1.a == null)
         {
-            return d;
+            kws = jhe1.d;
         } else
         {
-            return b;
+            kws = new jhc[1];
+            kws[0] = jhe1.a;
         }
+        return a(jif, ((jhc []) (kws)));
     }
 
-    public Object a(int i)
+    public jko a(kws kws, kws kws1)
     {
-        if (c)
+        kws = (jhu)kws;
+        jhv jhv1 = (jhv)kws1;
+        kws1 = new jkf();
+        kws1.a = jhv1.a;
+        jkc ajkc[] = new jkc[((jhu) (kws)).c.length];
+        for (int i = 0; i < ((jhu) (kws)).c.length; i++)
         {
-            int j = b + i;
-            i = j;
-            if (j >= d)
-            {
-                i = j - d;
-            }
-            return a[i];
+            ajkc[i] = new jkc();
+            ajkc[i].a = ((jhu) (kws)).a;
+        }
+
+        kws1.c = ajkc;
+        return a(((jkf) (kws1)));
+    }
+
+    public jko b(kws kws)
+    {
+        jhg jhg1 = (jhg)kws;
+        jif jif = jhg1.b;
+        if (jhg1.a == null)
+        {
+            kws = jhg1.c;
         } else
         {
-            return a[i];
+            kws = new jhc[1];
+            kws[0] = jhg1.a;
         }
-    }
-
-    public void a(Object obj)
-    {
-        a[b] = obj;
-        b = b + 1;
-        if (b == d)
-        {
-            b = 0;
-            c = true;
-        }
-    }
-
-    public Object b()
-    {
-        if (!c)
-        {
-            return null;
-        } else
-        {
-            return a[b];
-        }
+        return a(jif, kws);
     }
 }

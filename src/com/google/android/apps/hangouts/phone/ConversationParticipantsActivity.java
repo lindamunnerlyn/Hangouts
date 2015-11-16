@@ -6,18 +6,18 @@ package com.google.android.apps.hangouts.phone;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import bka;
+import bkm;
 import g;
-import gng;
+import grn;
 import l;
-import po;
+import pq;
 
-public class ConversationParticipantsActivity extends bka
+public class ConversationParticipantsActivity extends bkm
 {
 
     public ConversationParticipantsActivity()
     {
-        (new gng(this, q)).a(p);
+        (new grn(this, r)).a(q);
     }
 
     public boolean a(MenuItem menuitem)
@@ -37,9 +37,9 @@ public class ConversationParticipantsActivity extends bka
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.fB);
+        setContentView(g.fz);
         bundle = g();
         bundle.a(true);
-        bundle.a(l.aC);
+        bundle.a(l.ax);
     }
 }

@@ -3,82 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class irz extends koj
+public final class irz
 {
 
-    public irw a;
-    public ixg responseHeader;
+    private final ad a;
 
-    public irz()
+    public irz(ad ad)
     {
-        responseHeader = null;
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = ad;
     }
 
-    protected int computeSerializedSize()
+    ad a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (responseHeader != null)
-        {
-            i = j + koh.d(1, responseHeader);
-        }
-        j = i;
-        if (a != null)
-        {
-            j = i + koh.d(2, a);
-        }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (responseHeader == null)
-                {
-                    responseHeader = new ixg();
-                }
-                kog1.a(responseHeader);
-                break;
-
-            case 18: // '\022'
-                if (a == null)
-                {
-                    a = new irw();
-                }
-                kog1.a(a);
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (responseHeader != null)
-        {
-            koh1.b(1, responseHeader);
-        }
-        if (a != null)
-        {
-            koh1.b(2, a);
-        }
-        super.writeTo(koh1);
+        return a;
     }
 }

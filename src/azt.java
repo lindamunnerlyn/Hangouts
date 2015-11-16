@@ -2,72 +2,84 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Cursor;
-import android.database.CursorWrapper;
+import android.content.ClipData;
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.net.Uri;
+import android.os.Environment;
+import android.support.v4.content.FileProvider;
+import com.google.android.apps.hangouts.conversation.v2.PreviewImageActivity;
+import java.io.File;
 
-final class azt extends CursorWrapper
+public final class azt
 {
 
-    final int a;
+    private static final String a;
 
-    public azt(Cursor cursor)
+    public static Intent a()
     {
-        super(cursor);
-        a = cursor.getCount();
+        Intent intent = new Intent("android.intent.action.GET_CONTENT");
+        intent.addCategory("android.intent.category.OPENABLE");
+        intent.setType("image/*");
+        return intent;
     }
 
-    public int getPosition()
+    public static Intent a(Context context)
     {
-        return a - super.getPosition() - 1;
+        Object obj = ava.a(1);
+        if ("".equals(obj))
+        {
+            return null;
+        }
+        Object obj1 = new File(Environment.getExternalStorageDirectory(), ((String) (obj)));
+        obj = Uri.fromFile(((File) (obj1)));
+        obj1 = FileProvider.a(context, a, ((File) (obj1)));
+        amo amo1 = (amo)hlp.a(context, amo);
+        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+        boolean flag = amo1.a("babel_use_content_uri_for_camera", true);
+        if (android.os.Build.VERSION.SDK_INT >= 16 && flag)
+        {
+            intent.putExtra("output", ((android.os.Parcelable) (obj1)));
+            intent.setFlags(3);
+            obj = context.getResources().getString(g.kw);
+            intent.setClipData(ClipData.newUri(context.getContentResolver(), ((CharSequence) (obj)), ((Uri) (obj1))));
+            intent.setFlags(3);
+        } else
+        {
+            intent.putExtra("output", ((android.os.Parcelable) (obj)));
+        }
+        return intent;
     }
 
-    public boolean isAfterLast()
+    public static Intent a(Context context, String s)
     {
-        return super.isBeforeFirst();
+        Intent intent = new Intent(context, com/google/android/apps/hangouts/conversation/v2/PreviewImageActivity);
+        intent.putExtra("photo_url", s);
+        intent.putExtra("account_id", ((gqu)hlp.a(context, gqu)).a());
+        return intent;
     }
 
-    public boolean isBeforeFirst()
+    public static Intent b(Context context, String s)
     {
-        return super.isAfterLast();
+        Intent intent = new Intent(context, com/google/android/apps/hangouts/conversation/v2/PreviewImageActivity);
+        intent.putExtra("photo_url", s);
+        intent.putExtra("is_video", true);
+        intent.putExtra("account_id", ((gqu)hlp.a(context, gqu)).a());
+        return intent;
     }
 
-    public boolean isFirst()
+    static 
     {
-        return super.isLast();
-    }
-
-    public boolean isLast()
-    {
-        return super.isFirst();
-    }
-
-    public boolean move(int i)
-    {
-        return super.move(-i);
-    }
-
-    public boolean moveToFirst()
-    {
-        return super.moveToLast();
-    }
-
-    public boolean moveToLast()
-    {
-        return super.moveToFirst();
-    }
-
-    public boolean moveToNext()
-    {
-        return super.moveToPrevious();
-    }
-
-    public boolean moveToPosition(int i)
-    {
-        return super.moveToPosition(a - i - 1);
-    }
-
-    public boolean moveToPrevious()
-    {
-        return super.moveToNext();
+        Class.forName("com.google.android.apps.hangouts.defaultbuild.EsProvider");
+        String s = "com.google.android.apps.hangouts.conversation.v2";
+_L2:
+        a = s;
+        return;
+        ClassNotFoundException classnotfoundexception;
+        classnotfoundexception;
+        classnotfoundexception = "com.google.android.apps.hangouts.conversation.v2altbuild";
+        if (true) goto _L2; else goto _L1
+_L1:
     }
 }

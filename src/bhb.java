@@ -2,54 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.text.Editable;
+import android.text.TextWatcher;
+import com.google.android.apps.hangouts.fragments.CallContactPickerFragment;
 
 public final class bhb
+    implements TextWatcher
 {
 
-    private final String a;
-    private final String b;
-    private final long c;
-    private final int d;
-    private final String e;
-    private final boolean f;
+    final CallContactPickerFragment a;
 
-    public bhb(String s, String s1, long l, int i, String s2, boolean flag)
+    public bhb(CallContactPickerFragment callcontactpickerfragment)
     {
-        a = s;
-        b = s1;
-        c = l;
-        d = i;
-        e = s2;
-        f = flag;
+        a = callcontactpickerfragment;
+        super();
     }
 
-    public String a()
+    public void afterTextChanged(Editable editable)
     {
-        return a;
+        g.a(editable);
     }
 
-    public String b()
+    public void beforeTextChanged(CharSequence charsequence, int i, int j, int k)
     {
-        return b;
     }
 
-    public long c()
+    public void onTextChanged(CharSequence charsequence, int i, int j, int k)
     {
-        return c;
-    }
-
-    public int d()
-    {
-        return d;
-    }
-
-    public String e()
-    {
-        return e;
-    }
-
-    public boolean f()
-    {
-        return f;
+label0:
+        {
+            CallContactPickerFragment.b(a).a(charsequence);
+            if (charsequence.length() == 0)
+            {
+                if (CallContactPickerFragment.c(a) != 0)
+                {
+                    break label0;
+                }
+                CallContactPickerFragment.a(a, 0);
+            }
+            return;
+        }
+        CallContactPickerFragment.a(a, 2);
     }
 }

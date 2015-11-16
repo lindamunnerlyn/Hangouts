@@ -2,74 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.text.TextUtils;
+import android.view.View;
 
-public final class ejs
+final class ejs
+    implements android.view.View.OnClickListener
 {
 
-    private final ejt a;
-    private final a b = null;
-    private final ejw c;
-    private final g d = null;
-    private final String e;
+    final ad a;
+    final ejr b;
 
-    public ejs(String s, ejt ejt, ejw ejw)
+    ejs(ejr ejr1, ad ad1)
     {
-        h.a(ejt, "Cannot construct an Api with a null ClientBuilder");
-        h.a(ejw, "Cannot construct an Api with a null ClientKey");
-        e = s;
-        a = ejt;
-        c = ejw;
+        b = ejr1;
+        a = ad1;
+        super();
     }
 
-    public ejt a()
+    public void onClick(View view)
     {
-        boolean flag;
-        if (a != null)
+        if (TextUtils.isEmpty(ejr.a(b)))
         {
-            flag = true;
-        } else
-        {
-            flag = false;
+            if (eev.a("Babel", 3))
+            {
+                eev.d("Babel", "VideoAttachmentHandler could not load video");
+            }
+            ejr.b(b);
         }
-        h.a(flag, "This API was constructed with a SimpleClientBuilder. Use getSimpleClientBuilder");
-        return a;
-    }
-
-    public a b()
-    {
-        boolean flag;
-        if (b != null)
+        if (!TextUtils.isEmpty(ejr.a(b)))
         {
-            flag = true;
-        } else
-        {
-            flag = false;
+            if (eev.a("Babel", 3))
+            {
+                view = String.valueOf(ejr.a(b));
+                if (view.length() != 0)
+                {
+                    view = "VideoAttachmentHandler loaded urlString: ".concat(view);
+                } else
+                {
+                    view = new String("VideoAttachmentHandler loaded urlString: ");
+                }
+                eev.d("Babel", view);
+            }
+            a.startActivity(g.c(ejr.a(b), "video/mp4"));
         }
-        h.a(flag, "This API was constructed with a ClientBuilder. Use getClientBuilder");
-        return b;
-    }
-
-    public ejw c()
-    {
-        boolean flag;
-        if (c != null)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        h.a(flag, "This API was constructed with a SimpleClientKey. Use getSimpleClientKey");
-        return c;
-    }
-
-    public boolean d()
-    {
-        return d != null;
-    }
-
-    public String e()
-    {
-        return e;
     }
 }

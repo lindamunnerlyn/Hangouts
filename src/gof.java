@@ -2,40 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.accounts.AccountManagerCallback;
-import android.accounts.AccountManagerFuture;
-import android.content.Intent;
-import android.os.Bundle;
 
-final class gof
-    implements AccountManagerCallback
+public final class gof
 {
 
-    final ad a;
-    final goe b;
+    private gog a;
+    private goh b;
 
-    gof(goe goe1, ad ad1)
+    gof()
     {
-        b = goe1;
-        a = ad1;
-        super();
     }
 
-    public void run(AccountManagerFuture accountmanagerfuture)
+    public goe a()
     {
-        try
-        {
-            if (a.isAdded())
-            {
-                accountmanagerfuture = (Intent)((Bundle)accountmanagerfuture.getResult()).getParcelable("intent");
-                goe.a(b, a, accountmanagerfuture);
-            }
-            return;
-        }
-        // Misplaced declaration of an exception variable
-        catch (AccountManagerFuture accountmanagerfuture)
-        {
-            throw new IllegalStateException(accountmanagerfuture);
-        }
+        return new goe(a, b);
+    }
+
+    public gof a(gog gog)
+    {
+        a = gog;
+        return this;
+    }
+
+    public gof a(goh goh)
+    {
+        b = goh;
+        return this;
     }
 }

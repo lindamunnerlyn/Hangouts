@@ -2,23 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
 
 final class hes
-    implements android.os.Parcelable.Creator
 {
 
-    hes()
-    {
-    }
+    static final int a[];
 
-    public Object createFromParcel(Parcel parcel)
+    static 
     {
-        return new her(parcel);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new her[i];
+        a = new int[hfr.values().length];
+        try
+        {
+            a[hfr.a.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[hfr.b.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[hfr.c.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

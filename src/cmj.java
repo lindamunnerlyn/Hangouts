@@ -2,20 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
+import android.widget.Toast;
+import com.google.android.apps.hangouts.phone.DebugActivity;
+import java.util.Arrays;
 
-final class cmj extends cmu
+public final class cmj
+    implements android.view.View.OnClickListener
 {
 
-    final cls a;
+    final String a[];
+    final DebugActivity b;
 
-    cmj(cls cls, String s)
+    public cmj(DebugActivity debugactivity, String as[])
     {
-        a = cls;
-        super(s);
+        b = debugactivity;
+        a = as;
+        super();
     }
 
-    public void a()
+    public void onClick(View view)
     {
-        throw new AssertionError("Crash for debug");
+        Toast.makeText(b, Arrays.toString(a), 0).show();
     }
 }

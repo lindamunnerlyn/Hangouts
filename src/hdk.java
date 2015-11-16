@@ -2,91 +2,56 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.util.Log;
-import java.util.List;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
 
-public final class hdk
-    implements hdn
+public final class hdk extends hmk
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    private final Context a;
-    private hds b[];
+    private hbi aj;
 
-    public hdk(Context context)
+    public hdk()
     {
-        a = context;
     }
 
-    private void a()
+    public static void a(ap ap)
     {
-        this;
-        JVM INSTR monitorenter ;
-        List list = hgx.c(a, hds);
-        b = (hds[])list.toArray(new hds[list.size()]);
-        this;
-        JVM INSTR monitorexit ;
-        return;
-        Exception exception;
-        exception;
-        throw exception;
+        (new hdk()).a(ap, "connection_error");
     }
 
-    public void a(hdp hdp1)
+    public Dialog a(Bundle bundle)
     {
-        if (b == null)
-        {
-            a();
-        }
-        hds ahds[] = b;
-        int k = ahds.length;
-        for (int i = 0; i < k; i++)
-        {
-            hds hds1 = ahds[i];
-            hdp1 = hdp1.g;
-            hdp1 = hds1.a();
-        }
+        bundle = new android.app.AlertDialog.Builder(getActivity());
+        bundle.setTitle(g.ty);
+        bundle.setMessage(g.tu);
+        bundle.setPositiveButton(g.tw, this);
+        bundle.setNegativeButton(0x1040000, this);
+        return bundle.create();
+    }
 
-        hdp1.j = hdp1.h.f();
-        if (Log.isLoggable("HttpOperation", 3))
+    protected void e(Bundle bundle)
+    {
+        super.e(bundle);
+        aj = (hbi)al.a(hbi);
+    }
+
+    public void onCancel(DialogInterface dialoginterface)
+    {
+        aj.c();
+    }
+
+    public void onClick(DialogInterface dialoginterface, int i)
+    {
+        if (i == -1)
         {
-            String s = String.valueOf(hdp1.j());
-            int j;
-            if (s.length() != 0)
-            {
-                "Starting op: ".concat(s);
-            } else
-            {
-                new String("Starting op: ");
-            }
-        }
-        if (hdp1.h.e())
+            aj.d();
+            return;
+        } else
         {
-            hdp1.n = 2;
-        }
-        if (hdp1.j != null)
-        {
-            hdp1.j.a(hdp1.i(), hdp1.k());
-        }
-        hdp1.n();
-        hdp1.o();
-        if (hdp1.j != null)
-        {
-            hdp1.j.a(hdp1.o);
-            hdp1.o.h();
-            hdp1.j.d();
-            hdp1.r();
-            if (hdp1.h.f() == null)
-            {
-                hdp1.j.a("");
-            }
-        }
-        if (hdp1.m() && Log.isLoggable("HttpOperation", 4))
-        {
-            s = hdp1.i();
-            j = hdp1.k;
-            hdp1 = String.valueOf(hdp1.m);
-            (new StringBuilder(String.valueOf(s).length() + 36 + String.valueOf(hdp1).length())).append("[").append(s).append("] failed due to error: ").append(j).append(" ").append(hdp1);
+            aj.c();
+            return;
         }
     }
 }

@@ -2,23 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.AbstractSet;
-import java.util.Collection;
 
-abstract class jqi extends AbstractSet
+final class jqi extends jqh
 {
 
-    jqi()
+    jqi(String s)
     {
+        super(s, 0);
     }
 
-    public boolean removeAll(Collection collection)
+    boolean a()
     {
-        return h.a(this, collection);
-    }
-
-    public boolean retainAll(Collection collection)
-    {
-        return super.retainAll((Collection)n.b(collection));
+        return false;
     }
 }

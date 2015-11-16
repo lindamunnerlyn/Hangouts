@@ -2,12 +2,60 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.accounts.Account;
+import android.os.Parcel;
+import com.google.android.gms.common.internal.ResolveAccountRequest;
 
-final class erg
+public final class erg
+    implements android.os.Parcelable.Creator
 {
 
-    static final eox a[] = {
-        new erh(eox.a("0\202\003\3110\202\002\261\240\003\002\001\002\002\t\000\346\242\r\311\274\267B\3420")), new eri(eox.a("0\202\003\3110\202\002\261\240\003\002\001\002\002\t\000\375>.??\240\264\0040"))
-    };
+    public erg()
+    {
+    }
 
+    public Object createFromParcel(Parcel parcel)
+    {
+        int k = g.a(parcel);
+        Account account = null;
+        int i = 0;
+        int j = 0;
+        do
+        {
+            if (parcel.dataPosition() < k)
+            {
+                int l = parcel.readInt();
+                switch (0xffff & l)
+                {
+                default:
+                    g.b(parcel, l);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, l);
+                    break;
+
+                case 2: // '\002'
+                    account = (Account)g.a(parcel, l, Account.CREATOR);
+                    break;
+
+                case 3: // '\003'
+                    j = g.e(parcel, l);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != k)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
+            } else
+            {
+                return new ResolveAccountRequest(i, account, j);
+            }
+        } while (true);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new ResolveAccountRequest[i];
+    }
 }

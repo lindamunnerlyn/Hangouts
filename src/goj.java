@@ -2,32 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.content.Context;
-import java.util.ArrayList;
-import java.util.List;
+import android.app.ActivityManager;
 
-final class goj
-    implements gnc
+public final class goj
 {
 
-    private final AccountManager a;
+    private static ActivityManager a = null;
 
-    goj(Context context)
+    public static boolean a()
     {
-        a = AccountManager.get(context);
+        android.app.ActivityManager.RunningAppProcessInfo runningappprocessinfo = new android.app.ActivityManager.RunningAppProcessInfo();
+        ActivityManager.getMyMemoryState(runningappprocessinfo);
+        return runningappprocessinfo.importance == 100;
     }
 
-    public List a()
-    {
-        Account aaccount[] = a.getAccountsByType("com.google");
-        ArrayList arraylist = new ArrayList(aaccount.length);
-        for (int i = 0; i < aaccount.length; i++)
-        {
-            arraylist.add((new gnb(aaccount[i].name, i)).b());
-        }
-
-        return arraylist;
-    }
 }

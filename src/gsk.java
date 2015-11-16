@@ -2,29 +2,57 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
 public final class gsk
-    implements kxx
 {
 
-    private final gsj a;
-    private final kxx b;
+    private static final hnb a = new hnb(".login.accountsource");
 
-    public gsk(gsj gsj, kxx kxx1)
+    public gsk()
     {
-        a = gsj;
-        b = kxx1;
     }
 
-    public Object a()
+    public static gqz a(Context context)
     {
-        gse gse1 = (gse)b.a();
-        if (gse1 == null)
+        return new grq(context);
+    }
+
+    static gro a(gqz gqz)
+    {
+        return new gro(gqz);
+    }
+
+    public static grj[] a(Context context, fzu fzu)
+    {
+        if (android.os.Build.VERSION.SDK_INT >= 23)
         {
-            throw new NullPointerException("Cannot return null from a non-@Nullable @Provides method");
+            return (new grj[] {
+                new gsq(fzu)
+            });
         } else
         {
-            return gse1;
+            return (new grj[] {
+                new gsr(context)
+            });
         }
     }
+
+    public static hmy[] a()
+    {
+        hnb hnb1 = hmy.a;
+        return new hmy[0];
+    }
+
+    public static grk b(Context context)
+    {
+        return new gsm(context);
+    }
+
+    public static gxm[] b()
+    {
+        hnb hnb1 = gxm.a;
+        return new gxm[0];
+    }
+
 }

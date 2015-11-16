@@ -3,22 +3,42 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hvm extends koj
+public final class hvm extends kwm
 {
 
-    public hwc a;
-    public hwc b;
-    public hvl c[];
-    public Boolean d;
+    private static volatile hvm e[];
+    public hwx a;
+    public String b;
+    public String c;
+    public String d;
 
     public hvm()
     {
         a = null;
         b = null;
-        c = hvl.a();
+        c = null;
         d = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static hvm[] a()
+    {
+        if (e == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (e == null)
+                {
+                    e = new hvm[0];
+                }
+            }
+        }
+        return e;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -27,52 +47,35 @@ public final class hvm extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.d(1, a);
         }
         j = i;
-        if (c != null)
-        {
-            j = i;
-            if (c.length > 0)
-            {
-                for (j = 0; j < c.length;)
-                {
-                    hvl hvl1 = c[j];
-                    int k = i;
-                    if (hvl1 != null)
-                    {
-                        k = i + koh.d(2, hvl1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
-        }
-        i = j;
         if (b != null)
         {
-            i = j + koh.d(3, b);
+            j = i + kwk.b(2, b);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.b(3, c);
         }
         j = i;
         if (d != null)
         {
-            d.booleanValue();
-            j = i + (koh.f(4) + 1);
+            j = i + kwk.b(4, d);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -84,82 +87,44 @@ public final class hvm extends koj
             case 10: // '\n'
                 if (a == null)
                 {
-                    a = new hwc();
+                    a = new hwx();
                 }
-                kog1.a(a);
+                kwj1.a(a);
                 break;
 
             case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                hvl ahvl[];
-                int j;
-                if (c == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = c.length;
-                }
-                ahvl = new hvl[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(c, 0, ahvl, 0, j);
-                    k = j;
-                }
-                for (; k < ahvl.length - 1; k++)
-                {
-                    ahvl[k] = new hvl();
-                    kog1.a(ahvl[k]);
-                    kog1.a();
-                }
-
-                ahvl[k] = new hvl();
-                kog1.a(ahvl[k]);
-                c = ahvl;
+                b = kwj1.j();
                 break;
 
             case 26: // '\032'
-                if (b == null)
-                {
-                    b = new hwc();
-                }
-                kog1.a(b);
+                c = kwj1.j();
                 break;
 
-            case 32: // ' '
-                d = Boolean.valueOf(kog1.i());
+            case 34: // '"'
+                d = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
-        }
-        if (c != null && c.length > 0)
-        {
-            for (int i = 0; i < c.length; i++)
-            {
-                hvl hvl1 = c[i];
-                if (hvl1 != null)
-                {
-                    koh1.b(2, hvl1);
-                }
-            }
-
+            kwk1.b(1, a);
         }
         if (b != null)
         {
-            koh1.b(3, b);
+            kwk1.a(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c);
         }
         if (d != null)
         {
-            koh1.a(4, d.booleanValue());
+            kwk1.a(4, d);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

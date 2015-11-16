@@ -2,192 +2,266 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentValues;
-import android.text.TextUtils;
-import android.util.SparseArray;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.net.Uri;
+import android.telecom.Connection;
+import android.telecom.DisconnectCause;
+import android.telecom.RemoteConference;
+import android.telecom.RemoteConnection;
+import android.telecom.StatusHints;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
-final class dza
+final class dza extends android.telecom.RemoteConnection.Callback
 {
 
-    final Set a = new HashSet();
-    final ebb b;
-    final SparseArray c = new SparseArray();
-    final Map d = new gz();
-    private final gms e;
-    private final int f;
-    private final dgp g = new dzb(this);
+    final dyz a;
 
-    public dza(gms gms1, int i, ebb ebb1)
+    dza(dyz dyz1)
     {
-        e = gms1;
-        f = i;
-        b = ebb1;
+        a = dyz1;
+        super();
     }
 
-    crk a(String s, boolean flag)
+    public void onAddressChanged(RemoteConnection remoteconnection, Uri uri, int i)
     {
-        dzg dzg1 = (dzg)d.get(s);
-        Object obj;
-        if (dzg1 == null)
+        Object obj = null;
+        String s;
+        if (uri == null)
         {
-            obj = b.a(f, s, flag);
+            remoteconnection = null;
+        } else
+        if (uri.getScheme().equals("tel"))
+        {
+            remoteconnection = String.valueOf("tel:");
+            String s1 = String.valueOf(g.u(uri.getSchemeSpecificPart()));
+            if (s1.length() != 0)
+            {
+                remoteconnection = remoteconnection.concat(s1);
+            } else
+            {
+                remoteconnection = new String(remoteconnection);
+            }
         } else
         {
-            obj = dzg1;
-            if (dzg1.b == null)
+            remoteconnection = eev.b(uri.toString());
+        }
+        remoteconnection = String.valueOf(remoteconnection);
+        s = String.valueOf(a.d);
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(remoteconnection).length() + 35 + String.valueOf(s).length())).append("TeleRemoteCall.onAddressChanged, ").append(remoteconnection).append(", ").append(s).toString());
+        if (uri == null && i == 0 && a.d != null && (a.d.getState() == 1 || a.d.getState() == 0))
+        {
+            eev.e("Babel_telephony", "TeleRemoteCall.onAddressChanged, ignoring null address");
+            return;
+        }
+        if (a.d != null && !a.o() && !a.d.f().a(uri))
+        {
+            if (a.d.f().q())
             {
-                if (!flag)
+                dxh dxh1 = a.d;
+                if (uri == null)
                 {
-                    return null;
+                    remoteconnection = obj;
                 } else
                 {
-                    dzg1.b = b.a(f, s);
-                    return dzg1;
+                    remoteconnection = uri.getSchemeSpecificPart();
+                    if (uri.getScheme().equals("tel") && eey.c(remoteconnection))
+                    {
+                        remoteconnection = g.t(eey.a(remoteconnection, eey.j()));
+                    } else
+                    {
+                        remoteconnection = uri;
+                    }
                 }
+                dxh1.setAddress(remoteconnection, i);
+            } else
+            if (a.d.f().o())
+            {
+                remoteconnection = String.valueOf(g.u(a.d.f().c()));
+                if (remoteconnection.length() != 0)
+                {
+                    remoteconnection = "TeleRemoteCall.onAddressChanged, showing un-remapped number: ".concat(remoteconnection);
+                } else
+                {
+                    remoteconnection = new String("TeleRemoteCall.onAddressChanged, showing un-remapped number: ");
+                }
+                eev.e("Babel_telephony", remoteconnection);
+                a.d.setAddress(g.t(a.d.f().c()), i);
+            } else
+            {
+                a.d.setAddress(uri, i);
             }
         }
-        return ((crk) (obj));
+        a.c.a(uri);
     }
 
-    void a(long l)
+    public void onCallerDisplayNameChanged(RemoteConnection remoteconnection, String s, int i)
     {
-        if (e.d(f) && !dbf.e(f).q())
+        remoteconnection = String.valueOf(a.d);
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(remoteconnection).length() + 43)).append("TeleRemoteCall.onCallerDisplayNameChanged, ").append(remoteconnection).toString());
+        if (a.d != null)
         {
-            SparseArray sparsearray = new SparseArray();
-            Iterator iterator = d.values().iterator();
+            a.d.setCallerDisplayName(s, i);
+        }
+    }
+
+    public void onConferenceChanged(RemoteConnection remoteconnection, RemoteConference remoteconference)
+    {
+        remoteconnection = String.valueOf(remoteconnection);
+        remoteconference = String.valueOf(remoteconference);
+        String s = String.valueOf(a.d);
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(remoteconnection).length() + 71 + String.valueOf(remoteconference).length() + String.valueOf(s).length())).append("TeleRemoteCall.onConferenceChanged, remote connection: ").append(remoteconnection).append(", conference: ").append(remoteconference).append(", ").append(s).toString());
+    }
+
+    public void onConferenceableConnectionsChanged(RemoteConnection remoteconnection, List list)
+    {
+        remoteconnection = String.valueOf(a.d);
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(remoteconnection).length() + 51)).append("TeleRemoteCall.onConferenceableConnectionsChanged, ").append(remoteconnection).toString());
+        if (a.d != null)
+        {
+            remoteconnection = new ArrayList();
+            list = list.iterator();
             do
             {
-                if (!iterator.hasNext())
+                if (!list.hasNext())
                 {
                     break;
                 }
-                dzg dzg1 = (dzg)iterator.next();
-                int i = dzg1.a(l);
-                if (i != 0)
+                dxh dxh1 = dyz.a((RemoteConnection)list.next(), a.d.d());
+                if (dxh1 != null)
                 {
-                    List list = (List)sparsearray.get(i);
-                    Object obj = list;
-                    if (list == null)
-                    {
-                        obj = new ArrayList();
-                        sparsearray.put(i, obj);
-                    }
-                    ((List) (obj)).add(dzg1.a);
+                    remoteconnection.add(dxh1);
                 }
             } while (true);
-            int k = sparsearray.size();
-            int j = 0;
-            while (j < k) 
-            {
-                int i1 = sparsearray.keyAt(j);
-                Object obj1 = (ArrayList)sparsearray.valueAt(j);
-                int j1 = dhi.b().a();
-                if (ebw.a("Babel", 3))
-                {
-                    int k1 = f;
-                    int l1 = ((ArrayList) (obj1)).size();
-                    String s = String.valueOf(TextUtils.join(",", ((Iterable) (obj1))));
-                    ebw.d("Babel", (new StringBuilder(String.valueOf(s).length() + 117)).append("Presence request: requestId=").append(j1).append(", account=").append(k1).append(", fieldMask=").append(i1).append(", gaiaCount=").append(l1).append(", gaiaList=").append(s).toString());
-                }
-                c.put(j1, obj1);
-                RealTimeChatService.a(j1, f, ((ArrayList) (obj1)), i1);
-                String s1;
-                for (obj1 = ((ArrayList) (obj1)).iterator(); ((Iterator) (obj1)).hasNext(); ((dzg)d.get(s1)).a(j1, true))
-                {
-                    s1 = (String)((Iterator) (obj1)).next();
-                }
+            a.d.setConferenceableConnections(remoteconnection);
+        }
+    }
 
-                j++;
+    public void onConnectionCapabilitiesChanged(RemoteConnection remoteconnection, int i)
+    {
+        remoteconnection = String.valueOf(a.d);
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(remoteconnection).length() + 75)).append("TeleRemoteCall.onConnectionCapabilitiesChanged, capabilities: ").append(i).append(", ").append(remoteconnection).toString());
+        if (a.d != null)
+        {
+            a.d.setConnectionCapabilities(i);
+        }
+    }
+
+    public void onDestroyed(RemoteConnection remoteconnection)
+    {
+        String s = String.valueOf(a.d);
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(s).length() + 28)).append("TeleRemoteCall.onDestroyed, ").append(s).toString());
+        if (remoteconnection != null)
+        {
+            remoteconnection.unregisterCallback(a.e);
+        }
+        for (remoteconnection = a.b.iterator(); remoteconnection.hasNext(); ((dxa)remoteconnection.next()).a(a, new DisconnectCause(2))) { }
+        if (a.d != null && a.d.k() == null)
+        {
+            a.d.destroy();
+            a.d = null;
+        }
+    }
+
+    public void onDisconnected(RemoteConnection remoteconnection, DisconnectCause disconnectcause)
+    {
+        remoteconnection = String.valueOf(disconnectcause);
+        String s = String.valueOf(a.d);
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(remoteconnection).length() + 40 + String.valueOf(s).length())).append("TeleRemoteCall.onDisconnected, cause: ").append(remoteconnection).append(", ").append(s).toString());
+        if (a.d != null)
+        {
+            a.d.a(a.d(), a.c.b());
+        }
+        if (a.d != null && a.d.k() == null)
+        {
+            if (disconnectcause.getCode() == 1 && a.o())
+            {
+                remoteconnection = String.valueOf("TeleRemoteCall.onDisconnected, handing off to wifi., ");
+                String s1 = String.valueOf(a.d);
+                eev.e("Babel_telephony", (new StringBuilder(String.valueOf(remoteconnection).length() + 0 + String.valueOf(s1).length())).append(remoteconnection).append(s1).toString());
+                a.c.a(3);
+                dxv.b(a.a, a.d, 3);
+            } else
+            {
+                a.d.setDisconnected(disconnectcause);
+                g.a(a.d, disconnectcause);
             }
         }
+        for (remoteconnection = a.b.iterator(); remoteconnection.hasNext(); ((dxa)remoteconnection.next()).a(a, disconnectcause)) { }
     }
 
-    void a(crk crk1, String s, int i)
+    public void onPostDialWait(RemoteConnection remoteconnection, String s)
     {
-        if (!e.d(f))
+        remoteconnection = String.valueOf(eev.b(s));
+        String s1 = String.valueOf(a.d);
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(remoteconnection).length() + 50 + String.valueOf(s1).length())).append("TeleRemoteCall.onPostDialWait, remainingDigits: ").append(remoteconnection).append(", ").append(s1).toString());
+        if (a.d != null)
         {
-            return;
-        } else
-        {
-            ContentValues contentvalues = new ContentValues();
-            crk1.a(i, contentvalues);
-            RealTimeChatService.a(f, s, contentvalues);
-            return;
-        }
-    }
-
-    void a(crk crk1, String s, csz csz1, Object obj)
-    {
-        if (crk1.a(csz1, obj, System.currentTimeMillis()))
-        {
-            a(crk1, s, csz1.j);
+            a.d.setPostDialWait(s);
         }
     }
 
-    void a(String s, csz csz1, Object obj)
+    public void onRingbackRequested(RemoteConnection remoteconnection, boolean flag)
     {
-        crk crk1 = a(s, false);
-        if (crk1 != null)
+        remoteconnection = String.valueOf(a.d);
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(remoteconnection).length() + 53)).append("TeleRemoteCall.onRingbackRequested, ringback: ").append(flag).append(", ").append(remoteconnection).toString());
+        if (a.d != null)
         {
-            a(crk1, s, csz1, obj);
-            return;
-        } else
-        {
-            (new dzc(this, e, f, s, csz1, obj)).execute(new Void[0]);
-            return;
+            a.d.setRingbackRequested(flag);
         }
     }
 
-    boolean a(ebc ebc)
+    public void onStateChanged(RemoteConnection remoteconnection, int i)
     {
-        Iterator iterator = d.values().iterator();
-        do
-        {
-            if (!iterator.hasNext())
-            {
-                break;
-            }
-            if (!((dzg)iterator.next()).a(ebc))
-            {
-                iterator.remove();
-            }
-        } while (true);
-        boolean flag = d.isEmpty();
-        if (flag)
-        {
-            RealTimeChatService.b(g);
-        }
-        return !flag;
+        if (a.d == null) goto _L2; else goto _L1
+_L1:
+        remoteconnection = String.valueOf(Connection.stateToString(a.d.getState()));
+        String s = String.valueOf(Connection.stateToString(i));
+        String s1 = String.valueOf(a.d);
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(remoteconnection).length() + 37 + String.valueOf(s).length() + String.valueOf(s1).length())).append("TeleRemoteCall.onStateChanged, ").append(remoteconnection).append(" -> ").append(s).append(", ").append(s1).toString());
+        i;
+        JVM INSTR tableswitch 1 5: default 156
+    //                   1 156
+    //                   2 200
+    //                   3 213
+    //                   4 226
+    //                   5 239;
+           goto _L2 _L2 _L3 _L4 _L5 _L6
+_L2:
+        for (remoteconnection = a.b.iterator(); remoteconnection.hasNext(); ((dxa)remoteconnection.next()).a(a, i)) { }
+        break; /* Loop/switch isn't completed */
+_L3:
+        a.d.setRinging();
+        continue; /* Loop/switch isn't completed */
+_L4:
+        a.d.setDialing();
+        continue; /* Loop/switch isn't completed */
+_L5:
+        a.d.setActive();
+        continue; /* Loop/switch isn't completed */
+_L6:
+        a.d.setOnHold();
+        if (true) goto _L2; else goto _L7
+_L7:
     }
 
-    boolean a(String s, ebc ebc, int i)
+    public void onStatusHintsChanged(RemoteConnection remoteconnection, StatusHints statushints)
     {
-        if (d.isEmpty())
+        remoteconnection = String.valueOf(a.d);
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(remoteconnection).length() + 37)).append("TeleRemoteCall.onStatusHintsChanged, ").append(remoteconnection).toString());
+        if (a.d != null)
         {
-            RealTimeChatService.a(g);
+            a.d.setStatusHints(statushints);
         }
-        dzg dzg2 = (dzg)d.get(s);
-        dzg dzg1 = dzg2;
-        if (dzg2 == null)
+    }
+
+    public void onVoipAudioChanged(RemoteConnection remoteconnection, boolean flag)
+    {
+        remoteconnection = String.valueOf(a.d);
+        eev.e("Babel_telephony", (new StringBuilder(String.valueOf(remoteconnection).length() + 50)).append("TeleRemoteCall.onVoipAudioChanged, isVoip: ").append(flag).append(", ").append(remoteconnection).toString());
+        if (a.d != null)
         {
-            dzg dzg3 = new dzg(s);
-            dzg3.b = b.a(f, s, false);
-            d.put(s, dzg3);
-            dzg1 = dzg3;
-            if (dzg3.b == null)
-            {
-                (new dzd(this, e, f, s)).execute(new Void[0]);
-                dzg1 = dzg3;
-            }
+            a.d.setAudioModeIsVoip(flag);
         }
-        return dzg1.a(ebc, i);
     }
 }

@@ -2,27 +2,77 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Looper;
-import org.apache.http.HttpRequest;
-import org.apache.http.HttpRequestInterceptor;
-import org.apache.http.protocol.HttpContext;
 
-final class adj
-    implements HttpRequestInterceptor
+public abstract class adj
 {
 
-    adj()
+    public static adj a = null;
+
+    public adj()
     {
     }
 
-    public void process(HttpRequest httprequest, HttpContext httpcontext)
+    public static adj a()
     {
-        if (Looper.myLooper() != null && Looper.myLooper() == Looper.getMainLooper())
+        if (a == null)
         {
-            throw new RuntimeException("This thread forbids HTTP requests");
+            throw new IllegalStateException("MmsConfig is not initialized");
         } else
         {
-            return;
+            return a;
         }
     }
+
+    public abstract boolean a(String s1);
+
+    public abstract boolean a(String s1, String s2);
+
+    public abstract int b();
+
+    public abstract String b(String s1);
+
+    public abstract int c();
+
+    public abstract boolean d();
+
+    public abstract int e();
+
+    public abstract boolean f();
+
+    public abstract String g();
+
+    public abstract String h();
+
+    public abstract String i();
+
+    public abstract String j();
+
+    public abstract String k();
+
+    public abstract int l();
+
+    public abstract int m();
+
+    public abstract int n();
+
+    public abstract int o();
+
+    public abstract boolean p();
+
+    public abstract boolean q();
+
+    public abstract boolean r();
+
+    public abstract boolean s();
+
+    public abstract int t();
+
+    public abstract boolean u();
+
+    public abstract boolean v();
+
+    public abstract boolean w();
+
+    public abstract String x();
+
 }

@@ -2,47 +2,57 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.AsyncTask;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import java.util.Arrays;
 
-final class ddt
-    implements Runnable
+final class ddt extends AsyncTask
 {
 
-    final ani a;
-    final dbz b;
-    final dbx c;
-    final ai d;
-    final dds e;
+    final int a;
+    final dds b;
 
-    ddt(dds dds, ani ani1, dbz dbz1, dbx dbx, ai ai1)
+    ddt(dds dds1, int i)
     {
-        e = dds;
-        a = ani1;
-        b = dbz1;
-        c = dbx;
-        d = ai1;
+        b = dds1;
+        a = i;
         super();
     }
 
-    public void run()
+    protected Object doInBackground(Object aobj[])
     {
-        switch (a.X())
+        java.util.List list;
+        byte byte0;
+        if (b.b.getCheckedRadioButtonId() == h.ej)
         {
-        default:
-            ebw.f("Babel", "GetVoiceAccountData didn't return valid account info");
-            return;
+            byte0 = 3;
+        } else
+        {
+            byte0 = 2;
+        }
+        list = Arrays.asList(new String[] {
+            b.c.getText().toString()
+        });
+        if (b.d.isChecked())
+        {
+            aobj = Integer.valueOf(2);
+        } else
+        {
+            aobj = null;
+        }
+        return cuo.a(a, byte0, ((Integer) (aobj)), list);
+    }
 
-        case 1: // '\001'
-            b.b(c);
-            return;
-
-        case 2: // '\002'
-            android.content.Intent intent = g.a(a, c);
-            d.startActivityForResult(intent, 5100);
-            return;
-
-        case 3: // '\003'
-            ebr.a(d, l.ty);
-            break;
+    protected void onPostExecute(Object obj)
+    {
+        obj = (cuo)obj;
+        if (!((cuo) (obj)).m())
+        {
+            obj = (dfw)((cuo) (obj)).e();
+            b.a.setText(((dfw) (obj)).h.toString());
         }
     }
 }

@@ -4,8 +4,8 @@
 
 package com.google.android.apps.hangouts.fragments;
 
-import abe;
-import abi;
+import abg;
+import abk;
 import ai;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -14,29 +14,29 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
-import ani;
-import apw;
-import aqb;
-import chz;
-import dbf;
-import dmt;
-import eab;
-import eam;
-import ebh;
-import eei;
+import aoa;
+import aqn;
+import aqs;
+import cjf;
+import dcn;
+import dpn;
+import edf;
+import edq;
+import eef;
+import ehk;
 import em;
 import g;
-import gbh;
+import gdv;
 import h;
-import hgx;
+import hlp;
 import l;
 
-public final class BabelPhotoViewFragment extends abe
-    implements aqb
+public final class BabelPhotoViewFragment extends abg
+    implements aqs
 {
 
     private Drawable au;
-    private ani av;
+    private aoa av;
 
     public BabelPhotoViewFragment()
     {
@@ -55,47 +55,47 @@ public final class BabelPhotoViewFragment extends abe
 
     private void v()
     {
-        Object obj = new eam(a, av.a());
-        ((eam) (obj)).c();
-        obj = new apw(((eam) (obj)), this, c.getStringExtra("content_type"), true, null);
-        ((dmt)hgx.a(getActivity().getApplicationContext(), dmt)).c(((dlt) (obj)));
+        Object obj = new edq(a, av.a());
+        ((edq) (obj)).c();
+        obj = new aqn(((edq) (obj)), this, c.getStringExtra("content_type"), true, null);
+        ((dpn)hlp.a(getActivity().getApplicationContext(), dpn)).c(((dor) (obj)));
     }
 
-    public void a(ebh ebh, eab eab, boolean flag, apw apw1, boolean flag1)
+    public void a(eef eef, edf edf, boolean flag, aqn aqn1, boolean flag1)
     {
-        gbh.a(eab);
-        gbh.a(ebh);
-        ebh = getActivity();
-        if (ebh != null)
+        gdv.a("Expected null", edf);
+        gdv.a("Expected null", eef);
+        eef = getActivity();
+        if (eef != null)
         {
             int i;
             if (flag)
             {
-                i = l.sw;
+                i = l.rP;
             } else
             {
-                i = l.sv;
+                i = l.rO;
             }
-            Toast.makeText(ebh, i, 0).show();
+            Toast.makeText(eef, i, 0).show();
         }
     }
 
-    public void a(em em1, abi abi1)
+    public void a(em em1, abk abk1)
     {
-        if (abi1.c == 0)
+        if (abk1.c == 0)
         {
-            super.a(em1, abi1);
+            super.a(em1, abk1);
             if (em1.o() == 3)
             {
-                au = abi1.a(getResources());
-                if (au instanceof eei)
+                au = abk1.a(getResources());
+                if (au instanceof ehk)
                 {
-                    ((eei)au).a();
+                    ((ehk)au).a();
                 }
                 em1 = getActivity();
                 if (em1 != null)
                 {
-                    em1.p_();
+                    em1.q_();
                 }
             }
         }
@@ -115,7 +115,7 @@ label0:
             }
             return;
         }
-        Toast.makeText(getActivity(), l.sv, 0).show();
+        Toast.makeText(getActivity(), l.rO, 0).show();
     }
 
     public void onCreate(Bundle bundle)
@@ -123,7 +123,7 @@ label0:
         super.onCreate(bundle);
         setHasOptionsMenu(true);
         bundle = getActivity();
-        av = dbf.e(bundle.getIntent().getIntExtra("account_id", -1));
+        av = dcn.e(bundle.getIntent().getIntExtra("account_id", -1));
         if (av == null)
         {
             bundle.finish();
@@ -132,19 +132,19 @@ label0:
 
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuinflater)
     {
-        menuinflater.inflate(g.hz, menu);
+        menuinflater.inflate(g.hr, menu);
     }
 
     public void onLoadFinished(em em1, Object obj)
     {
-        a(em1, (abi)obj);
+        a(em1, (abk)obj);
     }
 
     public boolean onOptionsItemSelected(MenuItem menuitem)
     {
-        if (menuitem.getItemId() == h.fD && au != null)
+        if (menuitem.getItemId() == h.fl && au != null)
         {
-            if (((chz)hgx.a(getActivity().getApplicationContext(), chz)).a("android.permission.WRITE_EXTERNAL_STORAGE"))
+            if (((cjf)hlp.a(getActivity().getApplicationContext(), cjf)).a("android.permission.WRITE_EXTERNAL_STORAGE"))
             {
                 v();
             } else
@@ -163,15 +163,15 @@ label0:
     public void onPause()
     {
         super.onPause();
-        if (au != null && (au instanceof eei))
+        if (au != null && (au instanceof ehk))
         {
-            ((eei)au).b();
+            ((ehk)au).b();
         }
     }
 
     public void onPrepareOptionsMenu(Menu menu)
     {
-        menu = menu.findItem(h.fD);
+        menu = menu.findItem(h.fl);
         boolean flag;
         if (au != null)
         {
@@ -186,9 +186,9 @@ label0:
     public void onResume()
     {
         super.onResume();
-        if (au != null && (au instanceof eei))
+        if (au != null && (au instanceof ehk))
         {
-            ((eei)au).a();
+            ((ehk)au).a();
         }
     }
 }

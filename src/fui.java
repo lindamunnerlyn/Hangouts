@@ -2,8 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.accounts.Account;
 import android.os.Parcel;
-import com.google.android.gms.wearable.internal.DeleteDataItemsResponse;
+import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.signin.internal.RecordConsentRequest;
 
 public final class fui
     implements android.os.Parcelable.Creator
@@ -13,57 +15,53 @@ public final class fui
     {
     }
 
-    public static void a(DeleteDataItemsResponse deletedataitemsresponse, Parcel parcel)
-    {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, deletedataitemsresponse.a);
-        g.b(parcel, 2, deletedataitemsresponse.b);
-        g.b(parcel, 3, deletedataitemsresponse.c);
-        g.q(parcel, i);
-    }
-
     public Object createFromParcel(Parcel parcel)
     {
-        int k = 0;
-        int l = g.a(parcel);
-        int j = 0;
+        int j = g.a(parcel);
+        Scope ascope[] = null;
+        Account account = null;
         int i = 0;
+        String s = null;
         do
         {
-            if (parcel.dataPosition() < l)
+            if (parcel.dataPosition() < j)
             {
-                int i1 = parcel.readInt();
-                switch (0xffff & i1)
+                int k = parcel.readInt();
+                switch (0xffff & k)
                 {
                 default:
-                    g.b(parcel, i1);
+                    g.b(parcel, k);
                     break;
 
                 case 1: // '\001'
-                    i = g.e(parcel, i1);
+                    i = g.e(parcel, k);
                     break;
 
                 case 2: // '\002'
-                    j = g.e(parcel, i1);
+                    account = (Account)g.a(parcel, k, Account.CREATOR);
                     break;
 
                 case 3: // '\003'
-                    k = g.e(parcel, i1);
+                    ascope = (Scope[])g.b(parcel, k, Scope.CREATOR);
+                    break;
+
+                case 4: // '\004'
+                    s = g.i(parcel, k);
                     break;
                 }
             } else
-            if (parcel.dataPosition() != l)
+            if (parcel.dataPosition() != j)
             {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(l).toString(), parcel);
+                throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
             } else
             {
-                return new DeleteDataItemsResponse(i, j, k);
+                return new RecordConsentRequest(i, account, ascope, s);
             }
         } while (true);
     }
 
     public Object[] newArray(int i)
     {
-        return new DeleteDataItemsResponse[i];
+        return new RecordConsentRequest[i];
     }
 }

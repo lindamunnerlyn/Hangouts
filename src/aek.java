@@ -5,51 +5,75 @@
 import android.text.TextUtils;
 
 public final class aek
-    implements adx
+    implements adz
 {
 
     private final String a;
+    private final int b;
+    private final String c;
+    private final boolean d;
 
-    public aek(String s)
+    public aek(String s, int i, String s1, boolean flag)
     {
-        a = s;
+        if (s.startsWith("sip:"))
+        {
+            a = s.substring(4);
+        } else
+        {
+            a = s;
+        }
+        b = i;
+        c = s1;
+        d = flag;
     }
 
-    public adz a()
+    public aeb a()
     {
-        return adz.h;
-    }
-
-    public String b()
-    {
-        return a;
+        return aeb.i;
     }
 
     public boolean equals(Object obj)
     {
-        if (this == obj)
+        if (this != obj)
         {
-            return true;
-        }
-        if (!(obj instanceof aek))
-        {
-            return false;
-        } else
-        {
+            if (!(obj instanceof aek))
+            {
+                return false;
+            }
             obj = (aek)obj;
-            return TextUtils.equals(a, ((aek) (obj)).a);
+            if (b != ((aek) (obj)).b || !TextUtils.equals(c, ((aek) (obj)).c) || !TextUtils.equals(a, ((aek) (obj)).a) || d != ((aek) (obj)).d)
+            {
+                return false;
+            }
         }
+        return true;
     }
 
     public int hashCode()
     {
-        if (a != null)
+        int j = 0;
+        int k = b;
+        int i;
+        char c1;
+        if (c != null)
         {
-            return a.hashCode();
+            i = c.hashCode();
         } else
         {
-            return 0;
+            i = 0;
         }
+        if (a != null)
+        {
+            j = a.hashCode();
+        }
+        if (d)
+        {
+            c1 = '\u04CF';
+        } else
+        {
+            c1 = '\u04D5';
+        }
+        return c1 + ((i + k * 31) * 31 + j) * 31;
     }
 
     public String toString()
@@ -57,10 +81,10 @@ public final class aek
         String s = String.valueOf(a);
         if (s.length() != 0)
         {
-            return "website: ".concat(s);
+            return "sip: ".concat(s);
         } else
         {
-            return new String("website: ");
+            return new String("sip: ");
         }
     }
 }

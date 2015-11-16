@@ -6,35 +6,35 @@ package com.google.android.apps.hangouts.phone;
 
 import android.content.Intent;
 import android.os.Bundle;
-import cis;
-import gmp;
-import gmq;
-import gwn;
-import gwt;
-import gxe;
-import gxj;
-import gxk;
-import hhj;
+import cjx;
+import gqv;
+import gqw;
+import hax;
+import hbd;
+import hbo;
+import hbu;
+import hbv;
+import hmb;
 import l;
 
-public class AccountSelectionActivity extends hhj
-    implements gmq
+public class AccountSelectionActivity extends hmb
+    implements gqw
 {
 
-    private gwt j;
+    private hbd j;
 
     public AccountSelectionActivity()
     {
-        j = (new gwt(this, q)).a(p).b(this);
+        j = (new hbd(this, r)).a(q).b(this);
     }
 
-    public void a(boolean flag, gmp gmp1, gmp gmp2, int i, int k)
+    public void a(boolean flag, gqv gqv1, gqv gqv2, int i, int k)
     {
-        if (gmp2 == gmp.c)
+        if (gqv2 == gqv.c)
         {
-            gmp1 = (Intent)getIntent().getParcelableExtra("intent");
-            gmp1.putExtra("account_id", k);
-            startActivity(gmp1);
+            gqv1 = (Intent)getIntent().getParcelableExtra("intent");
+            gqv1.putExtra("account_id", k);
+            startActivity(gqv1);
         }
         finish();
     }
@@ -43,13 +43,13 @@ public class AccountSelectionActivity extends hhj
     {
         super.onCreate(bundle);
         boolean flag = getIntent().getBooleanExtra("sms_accts_only", false);
-        bundle = new gxe();
+        bundle = new hbo();
         if (flag)
         {
-            bundle.a(gxj, (new gxk()).a(getString(l.ck)).a().a(new cis()).c());
+            bundle.a(hbu, (new hbv()).a(getString(l.cb)).a().a(new cjx()).c());
         } else
         {
-            bundle.a(gxj, (new gxk()).a(getString(l.ck)).a().a((new gwn()).b("sms_only")).c());
+            bundle.a(hbu, (new hbv()).a(getString(l.cb)).a().a((new hax()).b("sms_only")).c());
         }
         j.a(bundle);
     }

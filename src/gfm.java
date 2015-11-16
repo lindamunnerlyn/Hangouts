@@ -2,27 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.opengl.EGLContext;
+import android.opengl.EGLSurface;
 
 final class gfm
-    implements Runnable
 {
 
-    final int a;
-    final gff b;
+    public EGLContext a;
+    public EGLSurface b;
+    public EGLSurface c;
 
-    gfm(gff gff1, int i)
+    gfm()
     {
-        b = gff1;
-        a = i;
-        super();
-    }
-
-    public void run()
-    {
-        b.l = a;
-        if (b.c != null)
-        {
-            b.c.a(a);
-        }
     }
 }

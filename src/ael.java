@@ -2,87 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.accounts.Account;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
-public final class ael
-    implements aeo
+final class ael
+    implements aea
 {
 
-    private static String a = "vCard";
-    private final List b;
-    private ads c;
-    private final int d;
-    private final Account e;
-    private final List f;
+    final adu a;
+    private StringBuilder b;
+    private boolean c;
 
-    public ael()
+    ael(adu adu)
     {
-        this(0xc0000000, null);
-    }
-
-    public ael(int i)
-    {
-        this(i, null);
-    }
-
-    private ael(int i, Account account)
-    {
-        b = new ArrayList();
-        f = new ArrayList();
-        d = i;
-        e = null;
+        a = adu;
+        super();
     }
 
     public void a()
     {
-        for (Iterator iterator = f.iterator(); iterator.hasNext(); ((aen)iterator.next()).a()) { }
+        b = new StringBuilder();
+        StringBuilder stringbuilder = b;
+        int i = a.hashCode();
+        stringbuilder.append((new StringBuilder(20)).append("[[hash: ").append(i).append("\n").toString());
     }
 
-    public void a(aen aen1)
+    public void a(aeb aeb1)
     {
-        f.add(aen1);
+        b.append(String.valueOf(aeb1.toString()).concat(": "));
+        c = true;
     }
 
-    public void a(aev aev)
+    public boolean a(adz adz)
     {
-        c.a(aev);
+        if (!c)
+        {
+            b.append(", ");
+            c = false;
+        }
+        b.append("[").append(adz.toString()).append("]");
+        return true;
     }
 
     public void b()
     {
-        for (Iterator iterator = f.iterator(); iterator.hasNext(); ((aen)iterator.next()).b()) { }
+        b.append("]]\n");
     }
 
     public void c()
     {
-        c = null;
-        b.clear();
+        b.append("\n");
     }
 
-    public void d()
+    public String toString()
     {
-        c = new ads(d, e);
-        b.add(c);
+        return b.toString();
     }
-
-    public void e()
-    {
-        c.a();
-        for (Iterator iterator = f.iterator(); iterator.hasNext(); ((aen)iterator.next()).a(c)) { }
-        int i = b.size();
-        if (i > 1)
-        {
-            ads ads1 = (ads)b.get(i - 2);
-            ads1.a(c);
-            c = ads1;
-        } else
-        {
-            c = null;
-        }
-        b.remove(i - 1);
-    }
-
 }

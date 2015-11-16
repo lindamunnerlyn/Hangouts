@@ -2,16 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.content.Context;
+import java.util.ArrayList;
+import java.util.List;
 
-final class gsr extends ThreadLocal
+final class gsr
+    implements grj
 {
 
-    gsr()
+    private final AccountManager a;
+
+    gsr(Context context)
     {
+        a = AccountManager.get(context);
     }
 
-    protected Object initialValue()
+    public List a()
     {
-        return new String[2];
+        Account aaccount[] = a.getAccountsByType("com.google");
+        ArrayList arraylist = new ArrayList(aaccount.length);
+        for (int i = 0; i < aaccount.length; i++)
+        {
+            arraylist.add((new gri(aaccount[i].name, i)).b());
+        }
+
+        return arraylist;
     }
 }

@@ -2,46 +2,15 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import com.google.android.apps.hangouts.fragments.CallContactPickerFragment;
 
-public final class bgp
-    implements TextWatcher
+public interface bgp
 {
 
-    final CallContactPickerFragment a;
+    public abstract void a();
 
-    public bgp(CallContactPickerFragment callcontactpickerfragment)
-    {
-        a = callcontactpickerfragment;
-        super();
-    }
+    public abstract void a(android.content.DialogInterface.OnCancelListener oncancellistener);
 
-    public void afterTextChanged(Editable editable)
-    {
-        g.a(editable);
-    }
+    public abstract void a(String s);
 
-    public void beforeTextChanged(CharSequence charsequence, int i, int j, int k)
-    {
-    }
-
-    public void onTextChanged(CharSequence charsequence, int i, int j, int k)
-    {
-label0:
-        {
-            CallContactPickerFragment.b(a).a(charsequence);
-            if (charsequence.length() == 0)
-            {
-                if (CallContactPickerFragment.c(a) != 0)
-                {
-                    break label0;
-                }
-                CallContactPickerFragment.a(a, 0);
-            }
-            return;
-        }
-        CallContactPickerFragment.a(a, 2);
-    }
+    public abstract void b(String s);
 }

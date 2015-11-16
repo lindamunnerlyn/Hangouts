@@ -3,15 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gtw
+public final class gtw
 {
 
-    gua a;
-    boolean b;
-
-    gtw(gua gua, boolean flag)
+    public gtw()
     {
-        a = gua;
-        b = flag;
     }
 }

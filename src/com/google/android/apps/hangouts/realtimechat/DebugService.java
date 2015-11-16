@@ -8,14 +8,14 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
-import ard;
+import aru;
 import com.google.android.apps.hangouts.phone.BabelHomeActivity;
-import dbf;
-import dcx;
-import dmt;
-import ebw;
+import dcn;
+import def;
+import dpn;
+import eev;
 import g;
-import hgx;
+import hlp;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 
@@ -75,7 +75,7 @@ public class DebugService extends Service
         {
             s = new String(s1);
         }
-        ebw.b("Babel", s);
+        eev.b("Babel", s);
     }
 
     protected void dump(FileDescriptor filedescriptor, PrintWriter printwriter, String as[])
@@ -227,21 +227,21 @@ _L1:
 _L4:
         if (flag4)
         {
-            dbf.a(printwriter);
-            dcx.a(printwriter);
+            dcn.a(printwriter);
+            def.a(printwriter);
         }
         if (flag6)
         {
             printwriter.println("");
             printwriter.println("----WatermarkTracker-----");
-            ((ard)hgx.a(this, ard)).a();
+            ((aru)hlp.a(this, aru)).a();
         }
         if (flag7)
         {
             printwriter.println("");
             printwriter.println("------------------------");
             printwriter.println("### Log History ###");
-            ebw.a(printwriter);
+            eev.a(printwriter);
         }
         if (flag5)
         {
@@ -262,7 +262,7 @@ _L4:
             printwriter.println("");
             printwriter.println("------------------------");
             printwriter.println("### MediaLoader Requests ###");
-            dmt.a(printwriter);
+            dpn.a(printwriter);
         }
         return;
 _L2:
@@ -304,6 +304,6 @@ _L3:
 
     static 
     {
-        hik hik = ebw.n;
+        hnc hnc = eev.n;
     }
 }

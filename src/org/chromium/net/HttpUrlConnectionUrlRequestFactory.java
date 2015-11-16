@@ -7,12 +7,13 @@ package org.chromium.net;
 import android.content.Context;
 import java.nio.channels.WritableByteChannel;
 import java.util.Map;
+import lmq;
 
 // Referenced classes of package org.chromium.net:
 //            HttpUrlRequestFactory, UrlRequestContextConfig, UserAgent, Version, 
-//            HttpUrlConnectionUrlRequest, HttpUrlRequestListener, HttpUrlRequest
+//            HttpUrlRequestListener, HttpUrlRequest
 
-class HttpUrlConnectionUrlRequestFactory extends HttpUrlRequestFactory
+public final class HttpUrlConnectionUrlRequestFactory extends HttpUrlRequestFactory
 {
 
     private final Context a;
@@ -42,11 +43,11 @@ class HttpUrlConnectionUrlRequestFactory extends HttpUrlRequestFactory
 
     public HttpUrlRequest b(String s, int i, Map map, WritableByteChannel writablebytechannel, HttpUrlRequestListener httpurlrequestlistener)
     {
-        return new HttpUrlConnectionUrlRequest(a, b, s, map, writablebytechannel, httpurlrequestlistener);
+        return new lmq(a, b, s, map, writablebytechannel, httpurlrequestlistener);
     }
 
     public HttpUrlRequest b(String s, int i, Map map, HttpUrlRequestListener httpurlrequestlistener)
     {
-        return new HttpUrlConnectionUrlRequest(a, b, s, map, httpurlrequestlistener);
+        return new lmq(a, b, s, map, httpurlrequestlistener);
     }
 }

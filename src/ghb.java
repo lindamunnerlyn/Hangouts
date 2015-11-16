@@ -2,27 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.media.MediaCodec;
+import android.media.MediaFormat;
+import android.os.Handler;
+import com.google.android.libraries.hangouts.video.EncoderManager;
+import java.nio.ByteBuffer;
 
-final class ghb
-    implements ggr
+public final class ghb extends gha
 {
 
-    private final ggl a;
+    final Runnable a = new ghc(this);
+    final Handler b;
+    ByteBuffer c[];
 
-    ghb(ggl ggl1)
+    public ghb(EncoderManager encodermanager, gfl gfl, long l, int i, int j, int k, 
+            int i1, int j1, Handler handler)
     {
-        a = ggl1;
+        super(encodermanager, gfl, l, i, j, k, i1, j1);
+        b = handler;
     }
 
-    public void a(kop kop, gbe gbe)
+    protected ByteBuffer a(int i)
     {
-        kop = (jaw)kop;
-        a.a("hangouts/add", kop, jax, gbe);
+        return c[i];
     }
 
-    public void b(kop kop, gbe gbe)
+    protected void a()
     {
-        kop = (jay)kop;
-        a.a("hangouts/modify", kop, jaz, gbe);
+        c = c().getOutputBuffers();
+        b.post(a);
+    }
+
+    protected void a(MediaCodec mediacodec, MediaFormat mediaformat)
+    {
+    }
+
+    protected int b()
+    {
+        return -1;
     }
 }

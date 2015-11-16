@@ -4,61 +4,70 @@
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.widget.EdgeEffect;
 
-class ot
-    implements ou
+public final class ot
 {
 
-    ot()
+    private static final ow b;
+    private Object a;
+
+    public ot(Context context)
     {
+        a = b.a(context);
     }
 
-    public Object a(Context context)
+    public void a(int i, int j)
     {
-        return new EdgeEffect(context);
+        b.a(a, i, j);
     }
 
-    public void a(Object obj, int i, int j)
+    public boolean a()
     {
-        ((EdgeEffect)obj).setSize(i, j);
+        return b.a(a);
     }
 
-    public boolean a(Object obj)
+    public boolean a(float f)
     {
-        return ((EdgeEffect)obj).isFinished();
+        return b.a(a, f);
     }
 
-    public boolean a(Object obj, float f)
+    public boolean a(float f, float f1)
     {
-        return g.a(obj, f);
+        return b.a(a, f, f1);
     }
 
-    public boolean a(Object obj, float f, float f1)
+    public boolean a(int i)
     {
-        return g.a(obj, f);
+        return b.a(a, i);
     }
 
-    public boolean a(Object obj, int i)
+    public boolean a(Canvas canvas)
     {
-        ((EdgeEffect)obj).onAbsorb(i);
-        return true;
+        return b.a(a, canvas);
     }
 
-    public boolean a(Object obj, Canvas canvas)
+    public void b()
     {
-        return ((EdgeEffect)obj).draw(canvas);
+        b.b(a);
     }
 
-    public void b(Object obj)
+    public boolean c()
     {
-        ((EdgeEffect)obj).finish();
+        return b.c(a);
     }
 
-    public boolean c(Object obj)
+    static 
     {
-        obj = (EdgeEffect)obj;
-        ((EdgeEffect) (obj)).onRelease();
-        return ((EdgeEffect) (obj)).isFinished();
+        if (android.os.Build.VERSION.SDK_INT >= 21)
+        {
+            b = new ox();
+        } else
+        if (android.os.Build.VERSION.SDK_INT >= 14)
+        {
+            b = new ov();
+        } else
+        {
+            b = new ou();
+        }
     }
 }

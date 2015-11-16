@@ -4,7 +4,7 @@
 
 package com.google.common.collect;
 
-import jou;
+import jvv;
 
 public interface 
 {
@@ -25,7 +25,7 @@ public interface
 
     public abstract  getPreviousExpirable();
 
-    public abstract jou getValueReference();
+    public abstract jvv getValueReference();
 
     public abstract void setExpirationTime(long l);
 
@@ -37,5 +37,5 @@ public interface
 
     public abstract void setPreviousExpirable( );
 
-    public abstract void setValueReference(jou jou);
+    public abstract void setValueReference(jvv jvv);
 }

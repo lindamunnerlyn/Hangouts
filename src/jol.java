@@ -3,21 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class jol extends jok
+public abstract class jol
 {
 
-    jol(String s)
+    private static final jol a = new jom();
+
+    protected jol()
     {
-        super(s, 0);
     }
 
-    jgq a()
+    public static jol b()
     {
-        return jgr.a;
+        return a;
     }
 
-    jou a(joh joh, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry, Object obj)
-    {
-        return new jos(obj);
-    }
+    public abstract long a();
+
 }

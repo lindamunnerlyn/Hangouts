@@ -2,29 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.api.client.http.HttpTransport;
-import com.google.api.client.http.LowLevelHttpRequest;
-import java.io.InputStream;
-import java.util.List;
+import android.content.Context;
 
-final class hlw extends HttpTransport
+public interface hlw
 {
 
-    private int a;
-    private InputStream b;
-    private List c;
-    private List d;
-
-    hlw(int i, InputStream inputstream, List list, List list1)
-    {
-        a = i;
-        b = inputstream;
-        c = list;
-        d = list1;
-    }
-
-    protected LowLevelHttpRequest buildRequest(String s, String s1)
-    {
-        return new hlu(b, a, c, d);
-    }
+    public abstract void a(Context context, Class class1, hlp hlp);
 }

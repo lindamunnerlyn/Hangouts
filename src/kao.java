@@ -2,61 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.TimeUnit;
 
-public final class kao extends koj
+public class kao extends jzy
 {
 
-    public Boolean a;
+    private final ExecutorService a;
 
-    public kao()
+    public kao(ExecutorService executorservice)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = (ExecutorService)n.b(executorservice);
     }
 
-    protected int computeSerializedSize()
+    public final boolean awaitTermination(long l, TimeUnit timeunit)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        return i;
+        return a.awaitTermination(l, timeunit);
     }
 
-    public kop mergeFrom(kog kog1)
+    public final void execute(Runnable runnable)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
+        a.execute(runnable);
     }
 
-    public void writeTo(koh koh1)
+    public final boolean isShutdown()
     {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
-        }
-        super.writeTo(koh1);
+        return a.isShutdown();
+    }
+
+    public final boolean isTerminated()
+    {
+        return a.isTerminated();
+    }
+
+    public final void shutdown()
+    {
+        a.shutdown();
+    }
+
+    public final List shutdownNow()
+    {
+        return a.shutdownNow();
     }
 }

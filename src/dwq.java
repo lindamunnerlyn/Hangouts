@@ -3,20 +3,41 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class dwq
-    implements Runnable
+public final class dwq
 {
 
-    final dwp a;
+    public static final int a[];
 
-    dwq(dwp dwp1)
+    static 
     {
-        a = dwp1;
-        super();
-    }
-
-    public void run()
-    {
-        dwn.a(a.a);
+        a = new int[dwr.values().length];
+        try
+        {
+            a[dwr.a.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror4) { }
+        try
+        {
+            a[dwr.b.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[dwr.c.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[dwr.d.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[dwr.e.ordinal()] = 5;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

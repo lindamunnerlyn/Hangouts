@@ -2,114 +2,59 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import java.util.Map;
 
-public final class iqk extends koj
+public final class iqk
+    implements joj
 {
 
-    public iql a[];
+    private final joj a;
+    private final joj b;
+    private final joj c;
+    private final joj d;
+    private final joj e;
 
-    public iqk()
+    public iqk(joj joj1, joj joj2, joj joj3, joj joj4, joj joj5)
     {
-        a = iql.a();
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = joj1;
+        b = joj2;
+        c = joj3;
+        d = joj4;
+        e = joj5;
     }
 
-    protected int computeSerializedSize()
+    public Object a()
     {
-        int i = super.computeSerializedSize();
-        int k = i;
-        if (a != null)
+        Activity activity = (Activity)a.a();
+        hof hof1 = (hof)b.a();
+        Object obj = (Map)c.a();
+        joj joj1 = d;
+        joj joj2 = e;
+        obj = (joj)((Map) (obj)).get(activity.getClass().getName());
+        boolean flag;
+        if (obj != null)
         {
-            k = i;
-            if (a.length > 0)
-            {
-                int j = 0;
-                do
-                {
-                    k = i;
-                    if (j >= a.length)
-                    {
-                        break;
-                    }
-                    iql iql1 = a[j];
-                    k = i;
-                    if (iql1 != null)
-                    {
-                        k = i + koh.d(1, iql1);
-                    }
-                    j++;
-                    i = k;
-                } while (true);
-            }
+            flag = true;
+        } else
+        {
+            flag = false;
         }
-        return k;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        g.b(flag, "Activity %s has not been configured for accounts", new Object[] {
+            activity
+        });
+        obj = (Class)((joj) (obj)).a();
+        if (obj == hbd)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                iql aiql[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                aiql = new iql[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aiql, 0, j);
-                    k = j;
-                }
-                for (; k < aiql.length - 1; k++)
-                {
-                    aiql[k] = new iql();
-                    kog1.a(aiql[k]);
-                    kog1.a();
-                }
-
-                aiql[k] = new iql();
-                kog1.a(aiql[k]);
-                a = aiql;
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null && a.length > 0)
-        {
-            for (int i = 0; i < a.length; i++)
-            {
-                iql iql1 = a[i];
-                if (iql1 != null)
-                {
-                    koh1.b(1, iql1);
-                }
-            }
-
+            return new hbd((ai)activity, hof1, (gqz)joj1.a(), (hbk)joj2.a(), hbs.a);
         }
-        super.writeTo(koh1);
+        if (obj == grn)
+        {
+            return new grn(activity, hof1, (gqz)joj1.a(), gqy.a);
+        } else
+        {
+            String s = String.valueOf(obj);
+            throw new IllegalStateException((new StringBuilder(String.valueOf(s).length() + 34)).append("Unexpected account handler class: ").append(s).toString());
+        }
     }
 }

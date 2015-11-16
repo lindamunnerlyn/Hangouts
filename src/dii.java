@@ -2,104 +2,93 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.text.TextUtils;
+import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 
-public final class dii extends dep
+public final class dii extends dgj
 {
 
-    private static final ConcurrentHashMap a = new ConcurrentHashMap();
-    private long d;
-    private volatile boolean e;
+    private static final boolean e = false;
+    private final boolean a;
 
-    private dii(ani ani1, long l, long l1)
+    public dii(aoa aoa1, boolean flag)
     {
-        super(ani1, l, l1);
-        e = false;
-        d = -1L;
-    }
-
-    public static dii a(ani ani1)
-    {
-        int j = ani1.h();
-        dii dii2 = (dii)a.get(Integer.valueOf(j));
-        dii dii1 = dii2;
-        if (dii2 == null)
-        {
-            dii1 = dii2;
-            if (!ani1.q())
-            {
-                ani1 = new dii(ani1, g.a(g.nS, "babel_ac_renew_lowmark_seconds", 120) * 1000, g.a(g.nS, "babel_ac_renew_highmark_seconds", 270) * 1000);
-                a.putIfAbsent(Integer.valueOf(j), ani1);
-                dii1 = (dii)a.get(Integer.valueOf(j));
-            }
-        }
-        return dii1;
-    }
-
-    public static void a(ani ani1, boolean flag)
-    {
-        ani1 = (dii)a.get(Integer.valueOf(ani1.h()));
-        if (ani1 != null)
-        {
-            ani1.e = flag;
-        }
-    }
-
-    public static dii b(int j)
-    {
-        return (dii)a.remove(Integer.valueOf(j));
-    }
-
-    public static boolean b(ani ani1)
-    {
-        ani1 = (dii)a.get(Integer.valueOf(ani1.h()));
-        if (ani1 != null)
-        {
-            return ((dii) (ani1)).e;
-        } else
-        {
-            return false;
-        }
+        super(aoa1);
+        a = flag;
     }
 
     public void a()
     {
-        if (b.q())
+        Configuration configuration;
+        int i;
+        long l;
+        boolean flag;
+label0:
         {
-            return;
-        }
-        String s = dbf.e(b);
-        if (TextUtils.isEmpty(s))
-        {
-            s = String.valueOf(b.U());
-            if (s.length() != 0)
+            l = eco.a();
+            Context context = g.nU;
+            configuration = context.getResources().getConfiguration();
+            i = configuration.smallestScreenWidthDp;
+            boolean flag1 = ((dbt)hlp.a(context, dbt)).b(context, super.b.b);
+            if (e)
             {
-                s = "Full jid not valid during setting active client account: ".concat(s);
-            } else
-            {
-                s = new String("Full jid not valid during setting active client account: ");
+                eev.b("Babel", (new StringBuilder(60)).append("RegisterAccountOperation, userWantsIncomingPhoneCalls: ").append(flag1).toString());
             }
-            ebw.g("Babel", s);
-            return;
-        } else
+            flag = flag1;
+            if (flag1)
+            {
+                break label0;
+            }
+            Iterator iterator = hlp.c(context, bqd).iterator();
+            bqd bqd1;
+            do
+            {
+                flag = flag1;
+                if (!iterator.hasNext())
+                {
+                    break label0;
+                }
+                bqd1 = (bqd)iterator.next();
+            } while (!bqd1.a(context, super.b.b));
+            flag1 = true;
+            flag = flag1;
+            if (e)
+            {
+                String s = String.valueOf(bqd1);
+                eev.b("Babel", (new StringBuilder(String.valueOf(s).length() + 55)).append("RegisterAccountOperation, enabling because of handler: ").append(s).toString());
+                flag = flag1;
+            }
+        }
+        boolean flag2 = ((dse)hlp.a(g.nU, dse)).a(super.b.a);
+        String s2 = def.c().f();
+        if (TextUtils.isEmpty(s2))
         {
-            c.c().clear();
-            int j = g.a(g.nS, "babel_ac_renew_cycle_seconds", 300);
-            c.a(new cuv(s, j));
+            eev.f("Babel", "Register account with invalid gcm registration id");
+            dcn.a(super.b.b, null);
             return;
         }
+        String s1 = eey.b(eey.g(), eey.k());
+        bnk.a();
+        boolean flag3 = bnk.c();
+        String s3 = g.nU.getPackageName();
+        boolean flag4 = a;
+        boolean flag5 = dcn.j();
+        boolean flag6 = super.b.b.q();
+        int j = configuration.mcc;
+        int k = configuration.mnc;
+        if (!super.b.b.a(s1))
+        {
+            s1 = null;
+        }
+        a(((dmf) (cwr.a(s2, l, flag3, s3, flag4, i, flag5, flag6, flag, j, k, flag2, s1))));
     }
 
-    protected void a(long l)
+    static 
     {
-        d = l;
+        hnc hnc = eev.n;
     }
-
-    protected long i()
-    {
-        return d;
-    }
-
 }

@@ -2,25 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-final class grg
-    implements Runnable
+public interface grg
 {
 
-    final gqn a;
-    final grk b;
-    final grf c;
+    public abstract String a();
 
-    grg(grf grf1, gqn gqn, grk grk)
-    {
-        c = grf1;
-        a = gqn;
-        b = grk;
-        super();
-    }
-
-    public void run()
-    {
-        grf.a(c, a, b);
-    }
+    public abstract void a(Context context, grd grd);
 }

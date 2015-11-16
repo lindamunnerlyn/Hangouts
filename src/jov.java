@@ -2,43 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.collect.MapMakerInternalMap;
-import java.util.AbstractCollection;
-import java.util.Iterator;
 
-public final class jov extends AbstractCollection
+final class jov extends jos
 {
 
-    final MapMakerInternalMap a;
-
-    public jov(MapMakerInternalMap mapmakerinternalmap)
+    jov(String s)
     {
-        a = mapmakerinternalmap;
-        super();
+        super(s, 2);
     }
 
-    public void clear()
+    com.google.common.cache.LocalCache.ReferenceEntry a(jpj jpj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry, com.google.common.cache.LocalCache.ReferenceEntry referenceentry1)
     {
-        a.clear();
+        jpj = super.a(jpj, referenceentry, referenceentry1);
+        b(referenceentry, jpj);
+        return jpj;
     }
 
-    public boolean contains(Object obj)
+    com.google.common.cache.LocalCache.ReferenceEntry a(jpj jpj, Object obj, int i, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        return a.containsValue(obj);
-    }
-
-    public boolean isEmpty()
-    {
-        return a.isEmpty();
-    }
-
-    public Iterator iterator()
-    {
-        return new jot(a);
-    }
-
-    public int size()
-    {
-        return a.size();
+        return new jpu(obj, i, referenceentry);
     }
 }

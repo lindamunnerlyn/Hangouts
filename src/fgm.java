@@ -2,68 +2,96 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
+import java.io.IOException;
 
-final class fgm
-    implements fgk
+public abstract class fgm
 {
 
-    private IBinder a;
+    public volatile int p;
 
-    fgm(IBinder ibinder)
+    public fgm()
     {
-        a = ibinder;
+        p = -1;
     }
 
-    public void a()
+    public static final fgm a(fgm fgm1, byte abyte0[], int i)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.ILocationSourceDelegate");
-        a.transact(2, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public void a(fia fia1)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.ILocationSourceDelegate");
-        if (fia1 == null)
+        try
         {
-            break MISSING_BLOCK_LABEL_57;
+            abyte0 = new fgf(abyte0, 0, i);
+            fgm1.a(((fgf) (abyte0)));
+            abyte0.a(0);
         }
-        fia1 = fia1.asBinder();
-_L1:
-        parcel.writeStrongBinder(fia1);
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        fia1 = null;
-          goto _L1
-        fia1;
-        parcel1.recycle();
-        parcel.recycle();
-        throw fia1;
+        // Misplaced declaration of an exception variable
+        catch (fgm fgm1)
+        {
+            throw fgm1;
+        }
+        // Misplaced declaration of an exception variable
+        catch (fgm fgm1)
+        {
+            throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).");
+        }
+        return fgm1;
     }
 
-    public IBinder asBinder()
+    public static final byte[] a(fgm fgm1)
     {
-        return a;
+        byte abyte0[] = new byte[fgm1.g()];
+        int i = abyte0.length;
+        try
+        {
+            fgg fgg1 = fgg.a(abyte0, 0, i);
+            fgm1.a(fgg1);
+            fgg1.a();
+        }
+        // Misplaced declaration of an exception variable
+        catch (fgm fgm1)
+        {
+            throw new RuntimeException("Serializing to a byte array threw an IOException (should never happen).", fgm1);
+        }
+        return abyte0;
+    }
+
+    protected int a()
+    {
+        return 0;
+    }
+
+    public abstract fgm a(fgf fgf1);
+
+    public void a(fgg fgg1)
+    {
+    }
+
+    public Object clone()
+    {
+        return e();
+    }
+
+    public fgm e()
+    {
+        return (fgm)super.clone();
+    }
+
+    public int f()
+    {
+        if (p < 0)
+        {
+            g();
+        }
+        return p;
+    }
+
+    public int g()
+    {
+        int i = a();
+        p = i;
+        return i;
+    }
+
+    public String toString()
+    {
+        return g.a(this);
     }
 }

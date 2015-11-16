@@ -16,36 +16,36 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import bka;
-import bnd;
-import bpd;
-import cnu;
-import coo;
-import dbq;
-import ecs;
-import fyc;
-import fyd;
-import fyh;
-import fzc;
-import fzd;
-import fze;
-import fzf;
-import fzg;
+import bkm;
+import bnk;
+import bpm;
+import cpm;
+import cqe;
+import dcz;
+import efu;
 import g;
-import gmo;
+import gaq;
+import gar;
+import gav;
+import gbq;
+import gbr;
+import gbs;
+import gbt;
+import gbu;
+import gqu;
 import h;
-import hgx;
+import hlp;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 import l;
-import po;
+import pq;
 
-public class HelpAndFeedbackActivity extends bka
+public class HelpAndFeedbackActivity extends bkm
 {
 
-    private static final Set m;
-    private WebView n;
+    private static final Set n;
+    private WebView o;
 
     public HelpAndFeedbackActivity()
     {
@@ -53,7 +53,7 @@ public class HelpAndFeedbackActivity extends bka
 
     public static Set m()
     {
-        return m;
+        return n;
     }
 
     protected boolean a(MenuItem menuitem)
@@ -63,59 +63,59 @@ public class HelpAndFeedbackActivity extends bka
             onBackPressed();
             return true;
         }
-        if (menuitem.getItemId() == h.bw)
+        if (menuitem.getItemId() == h.bq)
         {
             g.a(null, 1608);
             menuitem = getApplicationContext();
-            fyc fyc1 = ((fyd)hgx.a(menuitem, fyd)).a(((fze)hgx.a(menuitem, fze)).a()).a();
-            fyc1.a();
-            if (g.nR == null)
+            gaq gaq1 = ((gar)hlp.a(menuitem, gar)).a(((gbs)hlp.a(menuitem, gbs)).a()).a();
+            gaq1.a();
+            if (g.nT == null)
             {
-                g.nR = (fzg)hgx.a(menuitem, fzg);
+                g.nT = (gbu)hlp.a(menuitem, gbu);
             }
-            Object obj = bnd.a().t();
+            Object obj = bnk.a().s();
             if (obj != null)
             {
-                g.nR.a("session_id", ((bpd) (obj)).m());
+                g.nT.a("session_id", ((bpm) (obj)).l());
             }
-            obj = dbq.L(((gmo)hgx.a(menuitem, gmo)).a());
+            obj = dcz.R(((gqu)hlp.a(menuitem, gqu)).a());
             if (!TextUtils.isEmpty(((CharSequence) (obj))))
             {
-                g.nR.a("exp", ((String) (obj)));
+                g.nT.a("exp", ((String) (obj)));
             }
-            obj = g.nR.a().a();
+            obj = g.nT.a().a();
             if (obj != null && ((Bitmap) (obj)).isRecycled())
             {
-                g.nR.a(null);
+                g.nT.a(null);
             }
-            ((fzd)hgx.a(menuitem, fzd)).a(fyc1).a(g.nR.a()).a(new cnu(fyc1));
+            ((gbr)hlp.a(menuitem, gbr)).a(gaq1).a(g.nT.a()).a(new cpm(gaq1));
             return true;
         }
-        if (menuitem.getItemId() == h.gW)
+        if (menuitem.getItemId() == h.gC)
         {
-            g.b(this, g.nS.getPackageName());
+            g.b(this, g.nU.getPackageName());
             g.a(null, 1609);
             return true;
         }
-        if (menuitem.getItemId() == h.dD)
+        if (menuitem.getItemId() == h.dr)
         {
             startActivity(g.q(g.a(this, "babel_privacy_policy_url", "https://www.google.com/policies/privacy/")));
             g.a(null, 1610);
             return true;
         }
-        if (menuitem.getItemId() == h.dC)
+        if (menuitem.getItemId() == h.dq)
         {
             showDialog(1);
             g.a(null, 1611);
             return true;
         }
-        if (menuitem.getItemId() == h.dG)
+        if (menuitem.getItemId() == h.du)
         {
             startActivity(g.q(g.a(this, "babel_tos_url", "https://www.google.com/accounts/tos")));
             g.a(null, 1612);
             return true;
         }
-        if (menuitem.getItemId() == h.dA)
+        if (menuitem.getItemId() == h._flddo)
         {
             String s = g.a(this, "babel_maps_tos_url", "https://www.google.com/intl/en/help/terms_maps.html");
             menuitem = s;
@@ -128,7 +128,7 @@ public class HelpAndFeedbackActivity extends bka
             g.a(null, 1669);
             return true;
         }
-        if (menuitem.getItemId() == h.dx)
+        if (menuitem.getItemId() == h.dl)
         {
             startActivity(g.q(g.a(this, "babel_location_tos_url", "https://www.google.co.kr/intl/ko/policies/terms/location/")));
             g.a(null, 1613);
@@ -147,18 +147,18 @@ public class HelpAndFeedbackActivity extends bka
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.go);
-        android.view.View view = findViewById(h.dq);
-        n = (WebView)findViewById(h.cJ);
-        n.getSettings().setJavaScriptEnabled(true);
+        setContentView(g.gk);
+        android.view.View view = findViewById(h.de);
+        o = (WebView)findViewById(h.cz);
+        o.getSettings().setJavaScriptEnabled(true);
         if (bundle == null)
         {
-            n.setWebViewClient(new coo(this, view));
-            n.loadUrl(j());
+            o.setWebViewClient(new cqe(this, view));
+            o.loadUrl(j());
         }
         bundle = g();
-        bundle.b(getResources().getString(l.eW, new Object[] {
-            ((ecs)p.a(ecs)).c()
+        bundle.b(getResources().getString(l.eF, new Object[] {
+            ((efu)q.a(efu)).c()
         }));
         bundle.a(true);
     }
@@ -175,19 +175,19 @@ public class HelpAndFeedbackActivity extends bka
             dialog = new Dialog(this);
             break;
         }
-        dialog.setContentView(g.gP);
-        dialog.setTitle(l.fO);
-        ((WebView)dialog.findViewById(h.eq)).loadUrl("file:///android_asset/licenses.html");
+        dialog.setContentView(g.gH);
+        dialog.setTitle(l.fx);
+        ((WebView)dialog.findViewById(h.dY)).loadUrl("file:///android_asset/licenses.html");
         return dialog;
     }
 
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(g.hw, menu);
+        getMenuInflater().inflate(g.ho, menu);
         boolean flag = super.onCreateOptionsMenu(menu);
         if ("KR".equals(g.v(getApplicationContext())))
         {
-            menu.findItem(h.dx).setVisible(true);
+            menu.findItem(h.dl).setVisible(true);
         }
         return flag;
     }
@@ -195,33 +195,33 @@ public class HelpAndFeedbackActivity extends bka
     protected void onDestroy()
     {
         super.onDestroy();
-        g.nR = null;
+        g.nT = null;
     }
 
     public void onLowMemory()
     {
         super.onLowMemory();
-        g.nR = null;
+        g.nT = null;
     }
 
     protected void onRestoreInstanceState(Bundle bundle)
     {
         super.onRestoreInstanceState(bundle);
-        n.restoreState(bundle);
+        o.restoreState(bundle);
     }
 
     protected void onSaveInstanceState(Bundle bundle)
     {
         super.onSaveInstanceState(bundle);
-        n.saveState(bundle);
+        o.saveState(bundle);
     }
 
     static 
     {
         HashSet hashset = new HashSet();
-        m = hashset;
+        n = hashset;
         hashset.add("support.google.com");
-        m.add("www.google.co.kr");
-        m.add("www.google.com");
+        n.add("www.google.co.kr");
+        n.add("www.google.com");
     }
 }

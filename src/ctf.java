@@ -3,35 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class ctf extends ctc
+public abstract class ctf
+    implements ctk
 {
 
-    private static final long serialVersionUID = 1L;
-    private final String a;
-    private final String b;
-
-    public ctf(String s, String s1)
+    public ctf()
     {
-        a = s1;
-        b = s;
     }
 
-    public kop a(String s, int i, int j)
+    public int a(ctf ctf1)
     {
-        jal jal1 = new jal();
-        jal1.requestHeader = ctq.a(s, i, j, h);
-        jal1.b = b;
-        jal1.a = a;
-        return jal1;
+        return b() - 1 - (ctf1.b() - 1);
     }
 
-    public long b()
+    public int compareTo(Object obj)
     {
-        return bpd.G();
-    }
-
-    public String g()
-    {
-        return "broadcasts/query";
+        return a((ctf)obj);
     }
 }

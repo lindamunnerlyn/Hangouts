@@ -2,11 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
 
 public interface gtd
 {
 
-    public abstract void a();
-
-    public abstract void b();
+    public abstract void a(int i, Intent intent);
 }

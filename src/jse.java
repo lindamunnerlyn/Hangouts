@@ -2,94 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.lang.reflect.UndeclaredThrowableException;
-import java.util.concurrent.CancellationException;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 
-final class jse extends jrr
-    implements Runnable
+class jse extends jsf
 {
 
-    private jru b;
-    private jsj c;
-    private volatile jsj d;
+    Object a[];
+    int b;
 
-    jse(jru jru1, jsj jsj1)
+    jse(int i)
     {
-        b = (jru)n.b(jru1);
-        c = (jsj)n.b(jsj1);
+        g.c(4, "initialCapacity");
+        a = new Object[4];
+        b = 0;
     }
 
-    static jsj a(jse jse1)
+    private void a(int i)
     {
-        jse1.d = null;
-        return null;
-    }
-
-    private static void a(Future future, boolean flag)
-    {
-        if (future != null)
+        if (a.length < i)
         {
-            future.cancel(flag);
+            a = jxa.a(a, a(a.length, i));
         }
     }
 
-    public boolean cancel(boolean flag)
+    public jse a(Object obj)
     {
-        if (super.cancel(flag))
-        {
-            a(c, flag);
-            a(d, flag);
-            return true;
-        } else
-        {
-            return false;
-        }
+        n.b(obj);
+        a(b + 1);
+        Object aobj[] = a;
+        int i = b;
+        b = i + 1;
+        aobj[i] = obj;
+        return this;
     }
 
-    public void run()
+    public transient jsf a(Object aobj[])
     {
-        Object obj = g.a(c);
-        obj = (jsj)n.b(b.a(obj), "AsyncFunction may not return null.");
-        d = ((jsj) (obj));
-        if (!isCancelled())
-        {
-            break MISSING_BLOCK_LABEL_108;
-        }
-        ((jsj) (obj)).cancel(super.a.d());
-        d = null;
-        b = null;
-        c = null;
-        return;
-        obj;
-        cancel(false);
-        b = null;
-        c = null;
-        return;
-        obj;
-        a(((ExecutionException) (obj)).getCause());
-        b = null;
-        c = null;
-        return;
-        ((jsj) (obj)).a(new jsf(this, ((jsj) (obj))), g.A());
-        b = null;
-        c = null;
-        return;
-        Object obj1;
-        obj1;
-        a(((UndeclaredThrowableException) (obj1)).getCause());
-        b = null;
-        c = null;
-        return;
-        obj1;
-        a(((Throwable) (obj1)));
-        b = null;
-        c = null;
-        return;
-        obj1;
-        b = null;
-        c = null;
-        throw obj1;
+        jxa.b(aobj, aobj.length);
+        a(b + aobj.length);
+        System.arraycopy(((Object) (aobj)), 0, ((Object) (a)), b, aobj.length);
+        b = b + aobj.length;
+        return this;
+    }
+
+    public jsf b(Object obj)
+    {
+        return a(obj);
     }
 }

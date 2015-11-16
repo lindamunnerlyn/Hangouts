@@ -2,26 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.hangout.HangoutSelfMenu;
+import java.util.Iterator;
+import java.util.List;
 
-public class bpk
+public final class bpk extends bns
 {
 
-    private final String a;
-    private final String b;
+    final HangoutSelfMenu a;
 
-    bpk(String s, String s1)
+    public bpk(HangoutSelfMenu hangoutselfmenu)
     {
-        a = s;
-        b = s1;
+        a = hangoutselfmenu;
+        super();
     }
 
-    public String a()
+    public void c(gmt gmt)
     {
-        return a;
-    }
-
-    public String b()
-    {
-        return b;
+        for (Iterator iterator = a.b.iterator(); iterator.hasNext(); ((bpe)iterator.next()).a(gmt)) { }
     }
 }

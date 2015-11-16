@@ -2,10 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
+import android.accounts.Account;
 
 public interface fzu
 {
 
-    public abstract fzt a(Activity activity);
+    public abstract String a(String s, String s1);
+
+    public abstract Account[] a(String s);
 }

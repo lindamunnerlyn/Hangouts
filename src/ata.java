@@ -3,12 +3,50 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface ata
+final class ata
+    implements asr
 {
 
-    public abstract void a();
+    final asz a;
 
-    public abstract void a(int i);
+    ata(asz asz1)
+    {
+        a = asz1;
+        super();
+    }
 
-    public abstract void b();
+    public void a(boolean flag, amx amx1)
+    {
+        String s;
+        if (flag)
+        {
+            s = "successfully";
+        } else
+        {
+            s = "unsuccessfully";
+        }
+        s = String.valueOf(s);
+        if (s.length() != 0)
+        {
+            s = "Gaia resolution completed ".concat(s);
+        } else
+        {
+            s = new String("Gaia resolution completed ");
+        }
+        eev.c("Babel_ConvCreator", s);
+        if (flag)
+        {
+            s = String.valueOf(amx1.toString());
+            if (s.length() != 0)
+            {
+                s = "Resolved ".concat(s);
+            } else
+            {
+                s = new String("Resolved ");
+            }
+            eev.c("Babel_ConvCreator", s);
+            a.g = amx1;
+        }
+        asz.a(a);
+    }
 }

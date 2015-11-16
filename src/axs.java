@@ -2,31 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.text.Editable;
+import android.text.TextWatcher;
 
 final class axs
-    implements Runnable
+    implements TextWatcher
 {
 
-    final axr a;
+    final avv a;
 
-    axs(axr axr1)
+    axs(avv avv1)
     {
-        a = axr1;
+        a = avv1;
         super();
     }
 
-    public void run()
+    public void afterTextChanged(Editable editable)
     {
-        ark ark1 = ave.o(a.a).a();
-        if (ark1.a != null)
-        {
-            RealTimeChatService.m(ave.h(a.a), ark1.a);
-        }
-        if (ave.h(a.a) != null && dbq.f(ave.h(a.a).h()))
-        {
-            ave.H(a.a).postDelayed(this, ave.X());
-        }
+    }
+
+    public void beforeTextChanged(CharSequence charsequence, int i, int j, int k)
+    {
+    }
+
+    public void onTextChanged(CharSequence charsequence, int i, int j, int k)
+    {
+        avv.bD(a).a(charsequence.toString());
+        avv.aP(a);
+        avv.bv(a).a();
     }
 }

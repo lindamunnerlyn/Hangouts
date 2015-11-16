@@ -3,16 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class aou
+final class aou
 {
 
-    public String a;
-    public String b;
-    public long c;
-    public int d;
-    public int e;
+    public static final String a[] = {
+        "content_location", "transaction_id", "from_address", "message_size", "expiry"
+    };
 
-    public aou()
-    {
-    }
 }

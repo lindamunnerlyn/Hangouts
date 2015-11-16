@@ -3,7 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.os.Parcel;
-import com.google.android.gms.people.identity.internal.ParcelableListOptions;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.PointOfInterest;
 
 public final class fof
     implements android.os.Parcelable.Creator
@@ -13,15 +14,13 @@ public final class fof
     {
     }
 
-    public static ParcelableListOptions a(Parcel parcel)
+    public static PointOfInterest a(Parcel parcel)
     {
-        android.os.Bundle bundle = null;
-        boolean flag = false;
         int j = g.a(parcel);
         String s = null;
-        boolean flag1 = false;
-        boolean flag2 = false;
+        LatLng latlng = null;
         int i = 0;
+        String s1 = null;
         do
         {
             if (parcel.dataPosition() < j)
@@ -34,15 +33,11 @@ public final class fof
                     break;
 
                 case 1: // '\001'
-                    flag2 = g.c(parcel, k);
-                    break;
-
-                case 1000: 
                     i = g.e(parcel, k);
                     break;
 
                 case 2: // '\002'
-                    flag1 = g.c(parcel, k);
+                    latlng = (LatLng)g.a(parcel, k, LatLng.CREATOR);
                     break;
 
                 case 3: // '\003'
@@ -50,11 +45,7 @@ public final class fof
                     break;
 
                 case 4: // '\004'
-                    flag = g.c(parcel, k);
-                    break;
-
-                case 5: // '\005'
-                    bundle = g.k(parcel, k);
+                    s1 = g.i(parcel, k);
                     break;
                 }
             } else
@@ -63,21 +54,9 @@ public final class fof
                 throw new af((new StringBuilder("Overread allowed size end=")).append(j).toString(), parcel);
             } else
             {
-                return new ParcelableListOptions(i, flag2, flag1, flag, s, bundle);
+                return new PointOfInterest(i, latlng, s, s1);
             }
         } while (true);
-    }
-
-    public static void a(ParcelableListOptions parcelablelistoptions, Parcel parcel)
-    {
-        int i = g.p(parcel, 20293);
-        g.a(parcel, 1, parcelablelistoptions.a);
-        g.b(parcel, 1000, parcelablelistoptions.a());
-        g.a(parcel, 2, parcelablelistoptions.b);
-        g.a(parcel, 3, parcelablelistoptions.c);
-        g.a(parcel, 4, parcelablelistoptions.d);
-        g.a(parcel, 5, parcelablelistoptions.e);
-        g.q(parcel, i);
     }
 
     public Object createFromParcel(Parcel parcel)
@@ -87,6 +66,6 @@ public final class fof
 
     public Object[] newArray(int i)
     {
-        return new ParcelableListOptions[i];
+        return new PointOfInterest[i];
     }
 }

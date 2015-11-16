@@ -3,18 +3,38 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kyi extends koj
+public final class kyi extends kwm
 {
 
-    public kye a;
-    public kyq b[];
+    private static volatile kyi c[];
+    public String a;
+    public Integer b;
 
     public kyi()
     {
         a = null;
-        b = kyq.a();
+        b = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static kyi[] a()
+    {
+        if (c == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (c == null)
+                {
+                    c = new kyi[0];
+                }
+            }
+        }
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -23,41 +43,25 @@ public final class kyi extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.b(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i;
-            if (b.length > 0)
-            {
-                for (j = 0; j < b.length;)
-                {
-                    kyq kyq1 = b[j];
-                    int k = i;
-                    if (kyq1 != null)
-                    {
-                        k = i + koh.d(2, kyq1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            j = i + kwk.e(2, b.intValue());
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -67,64 +71,26 @@ public final class kyi extends koj
                 return this;
 
             case 10: // '\n'
-                if (a == null)
-                {
-                    a = new kye();
-                }
-                kog1.a(a);
+                a = kwj1.j();
                 break;
 
-            case 18: // '\022'
-                int k = kou.b(kog1, 18);
-                kyq akyq[];
-                int j;
-                if (b == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
-                }
-                akyq = new kyq[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, akyq, 0, j);
-                    k = j;
-                }
-                for (; k < akyq.length - 1; k++)
-                {
-                    akyq[k] = new kyq();
-                    kog1.a(akyq[k]);
-                    kog1.a();
-                }
-
-                akyq[k] = new kyq();
-                kog1.a(akyq[k]);
-                b = akyq;
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.a(1, a);
         }
-        if (b != null && b.length > 0)
+        if (b != null)
         {
-            for (int i = 0; i < b.length; i++)
-            {
-                kyq kyq1 = b[i];
-                if (kyq1 != null)
-                {
-                    koh1.b(2, kyq1);
-                }
-            }
-
+            kwk1.a(2, b.intValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

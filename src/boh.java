@@ -3,87 +3,27 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class boh extends gcj
+final class boh extends bns
 {
 
-    public boh()
+    final bog a;
+
+    boh(bog bog1)
     {
+        a = bog1;
+        super();
     }
 
-    public void a()
+    public void a(int i)
     {
+        a.a();
     }
 
-    public void a(bpd bpd)
+    public void b(gmt gmt1)
     {
-    }
-
-    public void a(bpl bpl)
-    {
-    }
-
-    public void a(gho gho)
-    {
-    }
-
-    public void a(ghs ghs)
-    {
-    }
-
-    public void a(boolean flag)
-    {
-    }
-
-    public void b()
-    {
-    }
-
-    public void b(int l)
-    {
-    }
-
-    public void c()
-    {
-    }
-
-    public boolean c(int l)
-    {
-        return false;
-    }
-
-    public void d()
-    {
-    }
-
-    public void d(String s)
-    {
-    }
-
-    public void e()
-    {
-    }
-
-    public void f()
-    {
-    }
-
-    public void g()
-    {
-    }
-
-    public void h()
-    {
-    }
-
-    public void i()
-    {
-    }
-
-    public void j()
-    {
-    }
-
-    public void k()
-    {
+        if (gmt1.a().equals(bog.a(a).a()))
+        {
+            a.a();
+        }
     }
 }

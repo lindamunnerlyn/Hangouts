@@ -12,11 +12,6 @@ public class LibraryLoader
     private static volatile LibraryLoader b;
     private final int c;
 
-    static boolean a()
-    {
-        return nativeForkAndPrefetchNativeLibrary();
-    }
-
     public static int getLibraryProcessType()
     {
         if (b == null)

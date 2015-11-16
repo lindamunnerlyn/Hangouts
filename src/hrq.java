@@ -2,99 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.lang.reflect.Field;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
-public final class hrq extends koj
+public final class hrq
 {
 
-    private static volatile hrq c[];
-    public hru a;
-    public String b;
+    private final Map a = new hrm();
+    private final Map b = new hrm();
+    private final Object c;
 
-    public hrq()
+    public hrq(Object obj)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        c = obj;
     }
 
-    public static hrq[] a()
+    public void a()
     {
-        if (c == null)
+        java.util.Map.Entry entry;
+        for (Iterator iterator = a.entrySet().iterator(); iterator.hasNext(); ((Map)c).put(entry.getKey(), ((hrr)entry.getValue()).a()))
         {
-            synchronized (kon.a)
-            {
-                if (c == null)
-                {
-                    c = new hrq[0];
-                }
-            }
+            entry = (java.util.Map.Entry)iterator.next();
         }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+
+        java.util.Map.Entry entry1;
+        for (Iterator iterator1 = b.entrySet().iterator(); iterator1.hasNext(); hsk.a((Field)entry1.getKey(), c, ((hrr)entry1.getValue()).a()))
+        {
+            entry1 = (java.util.Map.Entry)iterator1.next();
+        }
+
     }
 
-    protected int computeSerializedSize()
+    public void a(Field field, Class class1, Object obj)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        hrr hrr2 = (hrr)b.get(field);
+        hrr hrr1 = hrr2;
+        if (hrr2 == null)
         {
-            i = j + koh.d(1, a);
+            hrr1 = new hrr(class1);
+            b.put(field, hrr1);
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.b(2, b);
-        }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new hru();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                b = kog1.j();
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
-        super.writeTo(koh1);
+        hrr1.a(class1, obj);
     }
 }

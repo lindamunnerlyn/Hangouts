@@ -3,13 +3,13 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kgb extends koj
+public final class kgb extends kwm
 {
 
-    public Boolean a;
-    public kig b;
+    public Integer a;
+    public Integer b;
     public kgc c;
-    public khj d;
+    public String d;
 
     public kgb()
     {
@@ -27,93 +27,97 @@ public final class kgb extends koj
         int i = j;
         if (a != null)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            i = j + kwk.e(1, a.intValue());
+        }
+        j = i;
+        if (c != null)
+        {
+            j = i + kwk.d(2, c);
+        }
+        i = j;
+        if (d != null)
+        {
+            i = j + kwk.b(3, d);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.d(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.d(3, c);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.d(4, d);
+            j = i + kwk.e(4, b.intValue());
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L7:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 5: default 56
+    //                   0: 65
+    //                   8: 67
+    //                   18: 130
+    //                   26: 159
+    //                   32: 170;
+           goto _L1 _L2 _L3 _L4 _L5 _L6
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L7; else goto _L2
+_L2:
+        return this;
+_L3:
+        int j = kwj1.f();
+        switch (j)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new kig();
-                }
-                kog1.a(b);
-                break;
-
-            case 26: // '\032'
-                if (c == null)
-                {
-                    c = new kgc();
-                }
-                kog1.a(c);
-                break;
-
-            case 34: // '"'
-                if (d == null)
-                {
-                    d = new khj();
-                }
-                kog1.a(d);
-                break;
-            }
-        } while (true);
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 6: // '\006'
+            a = Integer.valueOf(j);
+            break;
+        }
+        continue; /* Loop/switch isn't completed */
+_L4:
+        if (c == null)
+        {
+            c = new kgc();
+        }
+        kwj1.a(c);
+        continue; /* Loop/switch isn't completed */
+_L5:
+        d = kwj1.j();
+        continue; /* Loop/switch isn't completed */
+_L6:
+        int k = kwj1.f();
+        switch (k)
+        {
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+            b = Integer.valueOf(k);
+            break;
+        }
+        if (true) goto _L7; else goto _L8
+_L8:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.booleanValue());
-        }
-        if (b != null)
-        {
-            koh1.b(2, b);
+            kwk1.a(1, a.intValue());
         }
         if (c != null)
         {
-            koh1.b(3, c);
+            kwk1.b(2, c);
         }
         if (d != null)
         {
-            koh1.b(4, d);
+            kwk1.a(3, d);
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.a(4, b.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

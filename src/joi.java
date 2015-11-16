@@ -2,35 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.TimeUnit;
 
-public final class joi extends jnl
+final class joi
 {
 
-    private static final long serialVersionUID = 3L;
+    static final int a[];
 
-    public joi(jok jok, jok jok1, jgq jgq, jgq jgq1, long l, long l1, int i, int j, fsn fsn, ConcurrentMap concurrentmap)
+    static 
     {
-        super(jok, jok1, jgq, jgq1, l, l1, i, j, fsn, concurrentmap);
-    }
-
-    private void readObject(ObjectInputStream objectinputstream)
-    {
-        objectinputstream.defaultReadObject();
-        j = a(objectinputstream).j();
-        b(objectinputstream);
-    }
-
-    private Object readResolve()
-    {
-        return j;
-    }
-
-    private void writeObject(ObjectOutputStream objectoutputstream)
-    {
-        objectoutputstream.defaultWriteObject();
-        a(objectoutputstream);
+        a = new int[TimeUnit.values().length];
+        try
+        {
+            a[TimeUnit.NANOSECONDS.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror6) { }
+        try
+        {
+            a[TimeUnit.MICROSECONDS.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror5) { }
+        try
+        {
+            a[TimeUnit.MILLISECONDS.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror4) { }
+        try
+        {
+            a[TimeUnit.SECONDS.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[TimeUnit.MINUTES.ordinal()] = 5;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[TimeUnit.HOURS.ordinal()] = 6;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[TimeUnit.DAYS.ordinal()] = 7;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

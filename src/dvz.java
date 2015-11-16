@@ -2,24 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
 
-final class dvz
-    implements Runnable
+public final class dvz
 {
 
-    final dvy a;
-
-    dvz(dvy dvy1)
+    public dvz()
     {
-        a = dvy1;
-        super();
-    }
-
-    public void run()
-    {
-        ebw.f("Babel_telephony", "TeleSetupController, setup account timed out");
-        dvy.b(a).removeCallbacks(dvy.a(a));
-        dvy.c(a);
     }
 }

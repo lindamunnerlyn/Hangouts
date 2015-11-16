@@ -3,20 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class dcr extends dfa
+public final class dcr
 {
 
-    private final String a;
-
-    public dcr(ani ani, String s)
+    public dcr()
     {
-        super(ani);
-        a = s;
-    }
-
-    public void a()
-    {
-        cty cty1 = new cty(a);
-        c.a(cty1);
     }
 }

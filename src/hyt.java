@@ -3,79 +3,29 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hyt extends koj
+public final class hyt extends kwm
 {
 
-    private static volatile hyt f[];
-    public String a;
-    public String b;
-    public Boolean c;
-    public Boolean d;
-    public Boolean e;
+    public hzm a;
+    public hxx apiHeader;
 
     public hyt()
     {
+        apiHeader = null;
         a = null;
-        b = null;
-        c = null;
-        d = null;
-        e = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    public static hyt[] a()
-    {
-        if (f == null)
-        {
-            synchronized (kon.a)
-            {
-                if (f == null)
-                {
-                    f = new hyt[0];
-                }
-            }
-        }
-        return f;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize() + koh.b(1, a) + koh.b(2, b);
-        int i = j;
-        if (c != null)
-        {
-            c.booleanValue();
-            i = j + (koh.f(3) + 1);
-        }
-        j = i;
-        if (d != null)
-        {
-            d.booleanValue();
-            j = i + (koh.f(4) + 1);
-        }
-        i = j;
-        if (e != null)
-        {
-            e.booleanValue();
-            i = j + (koh.f(5) + 1);
-        }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
+    public hyt a(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -85,44 +35,55 @@ public final class hyt extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                if (apiHeader == null)
+                {
+                    apiHeader = new hxx();
+                }
+                kwj1.a(apiHeader);
                 break;
 
             case 18: // '\022'
-                b = kog1.j();
-                break;
-
-            case 24: // '\030'
-                c = Boolean.valueOf(kog1.i());
-                break;
-
-            case 32: // ' '
-                d = Boolean.valueOf(kog1.i());
-                break;
-
-            case 40: // '('
-                e = Boolean.valueOf(kog1.i());
+                if (a == null)
+                {
+                    a = new hzm();
+                }
+                kwj1.a(a);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    protected int computeSerializedSize()
     {
-        koh1.a(1, a);
-        koh1.a(2, b);
-        if (c != null)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (apiHeader != null)
         {
-            koh1.a(3, c.booleanValue());
+            i = j + kwk.d(1, apiHeader);
         }
-        if (d != null)
+        j = i;
+        if (a != null)
         {
-            koh1.a(4, d.booleanValue());
+            j = i + kwk.d(2, a);
         }
-        if (e != null)
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        return a(kwj1);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (apiHeader != null)
         {
-            koh1.a(5, e.booleanValue());
+            kwk1.b(1, apiHeader);
         }
-        super.writeTo(koh1);
+        if (a != null)
+        {
+            kwk1.b(2, a);
+        }
+        super.writeTo(kwk1);
     }
 }

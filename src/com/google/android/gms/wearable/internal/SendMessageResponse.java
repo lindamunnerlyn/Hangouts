@@ -6,13 +6,14 @@ package com.google.android.gms.wearable.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fvs;
+import fxy;
+import g;
 
 public class SendMessageResponse
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fvs();
+    public static final android.os.Parcelable.Creator CREATOR = new fxy();
     public final int a;
     public final int b;
     public final int c;
@@ -31,7 +32,11 @@ public class SendMessageResponse
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fvs.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, b);
+        g.b(parcel, 3, c);
+        g.q(parcel, i);
     }
 
 }

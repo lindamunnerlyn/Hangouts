@@ -3,100 +3,175 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.graphics.Bitmap;
-import android.os.AsyncTask;
-import android.os.ParcelFileDescriptor;
-import android.widget.ImageView;
-import java.io.IOException;
-import java.util.concurrent.ConcurrentHashMap;
+import android.os.IBinder;
+import android.os.Parcel;
 
-final class fnd extends AsyncTask
+public final class fnd
+    implements fnb
 {
 
-    final fnc a;
-    final ParcelFileDescriptor b;
-    final int c;
-    final int d;
-    final int e;
-    final fnb f;
+    private IBinder a;
 
-    fnd(fnb fnb1, fnc fnc1, ParcelFileDescriptor parcelfiledescriptor, int i, int j, int k)
+    public fnd(IBinder ibinder)
     {
-        f = fnb1;
-        super();
-        a = fnc1;
-        b = parcelfiledescriptor;
-        c = i;
-        d = j;
-        e = k;
+        a = ibinder;
     }
 
-    private transient Bitmap a()
+    public fcw a()
     {
-        if (!fnb.a(f)) goto _L2; else goto _L1
-_L1:
-        Bitmap bitmap = g.a(b);
-        if (bitmap != null) goto _L4; else goto _L3
-_L3:
-        bitmap = null;
-_L6:
-        if (bitmap == null)
-        {
-            break MISSING_BLOCK_LABEL_47;
-        }
-        fnb.d(f).put(a.g, bitmap);
-        if (b != null)
-        {
-            try
-            {
-                b.close();
-            }
-            catch (IOException ioexception)
-            {
-                ioexception.getMessage();
-                return bitmap;
-            }
-        }
-        return bitmap;
-_L4:
-        bitmap = g.b(bitmap);
-        continue; /* Loop/switch isn't completed */
-_L2:
-        bitmap = fnb.a(b, c, d, e, (int)(((float)c * fnb.b(f)) / fnb.c(f)));
-        if (bitmap == null)
-        {
-            bitmap = null;
-            continue; /* Loop/switch isn't completed */
-        }
-        bitmap = fnb.a(bitmap, c, fnb.b(f) / fnb.c(f));
-        if (true) goto _L6; else goto _L5
-_L5:
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        fcw fcw;
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
+        a.transact(4, parcel, parcel1, 0);
+        parcel1.readException();
+        fcw = fcx.a(parcel1.readStrongBinder());
+        parcel1.recycle();
+        parcel.recycle();
+        return fcw;
         Exception exception;
         exception;
-        if (b != null)
-        {
-            try
-            {
-                b.close();
-            }
-            catch (IOException ioexception1)
-            {
-                ioexception1.getMessage();
-            }
-        }
+        parcel1.recycle();
+        parcel.recycle();
         throw exception;
     }
 
-    protected Object doInBackground(Object aobj[])
+    public fcw a(float f)
     {
-        return a();
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        fcw fcw;
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
+        parcel.writeFloat(f);
+        a.transact(5, parcel, parcel1, 0);
+        parcel1.readException();
+        fcw = fcx.a(parcel1.readStrongBinder());
+        parcel1.recycle();
+        parcel.recycle();
+        return fcw;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
     }
 
-    protected void onPostExecute(Object obj)
+    public fcw a(int i)
     {
-        obj = (Bitmap)obj;
-        if (a.f.getTag() == a)
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        fcw fcw;
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
+        parcel.writeInt(i);
+        a.transact(1, parcel, parcel1, 0);
+        parcel1.readException();
+        fcw = fcx.a(parcel1.readStrongBinder());
+        parcel1.recycle();
+        parcel.recycle();
+        return fcw;
+        Exception exception;
+        exception;
+        parcel1.recycle();
+        parcel.recycle();
+        throw exception;
+    }
+
+    public fcw a(Bitmap bitmap)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
+        if (bitmap == null)
         {
-            f.a(a, ((Bitmap) (obj)));
+            break MISSING_BLOCK_LABEL_66;
         }
+        parcel.writeInt(1);
+        bitmap.writeToParcel(parcel, 0);
+_L1:
+        a.transact(6, parcel, parcel1, 0);
+        parcel1.readException();
+        bitmap = fcx.a(parcel1.readStrongBinder());
+        parcel1.recycle();
+        parcel.recycle();
+        return bitmap;
+        parcel.writeInt(0);
+          goto _L1
+        bitmap;
+        parcel1.recycle();
+        parcel.recycle();
+        throw bitmap;
+    }
+
+    public fcw a(String s)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
+        parcel.writeString(s);
+        a.transact(2, parcel, parcel1, 0);
+        parcel1.readException();
+        s = fcx.a(parcel1.readStrongBinder());
+        parcel1.recycle();
+        parcel.recycle();
+        return s;
+        s;
+        parcel1.recycle();
+        parcel.recycle();
+        throw s;
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
+    }
+
+    public fcw b(String s)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
+        parcel.writeString(s);
+        a.transact(3, parcel, parcel1, 0);
+        parcel1.readException();
+        s = fcx.a(parcel1.readStrongBinder());
+        parcel1.recycle();
+        parcel.recycle();
+        return s;
+        s;
+        parcel1.recycle();
+        parcel.recycle();
+        throw s;
+    }
+
+    public fcw c(String s)
+    {
+        Parcel parcel;
+        Parcel parcel1;
+        parcel = Parcel.obtain();
+        parcel1 = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.maps.model.internal.IBitmapDescriptorFactoryDelegate");
+        parcel.writeString(s);
+        a.transact(7, parcel, parcel1, 0);
+        parcel1.readException();
+        s = fcx.a(parcel1.readStrongBinder());
+        parcel1.recycle();
+        parcel.recycle();
+        return s;
+        s;
+        parcel1.recycle();
+        parcel.recycle();
+        throw s;
     }
 }

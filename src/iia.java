@@ -3,38 +3,24 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iia extends koj
+public final class iia extends kwm
 {
 
-    private static volatile iia c[];
-    public String a;
-    public String b;
+    public Boolean a;
+    public igw b;
+    public igw c;
+    public igw d;
+    public ihu e;
 
     public iia()
     {
         a = null;
         b = null;
+        c = null;
+        d = null;
+        e = null;
         unknownFieldData = null;
         cachedSize = -1;
-    }
-
-    public static iia[] a()
-    {
-        if (c == null)
-        {
-            synchronized (kon.a)
-            {
-                if (c == null)
-                {
-                    c = new iia[0];
-                }
-            }
-        }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -43,25 +29,41 @@ public final class iia extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            a.booleanValue();
+            i = j + (kwk.f(5) + 1);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.b(2, b);
+            j = i + kwk.d(6, b);
         }
-        return j;
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.d(7, c);
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.d(8, d);
+        }
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.d(9, e);
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -70,27 +72,67 @@ public final class iia extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                a = kog1.j();
+            case 40: // '('
+                a = Boolean.valueOf(kwj1.i());
                 break;
 
-            case 18: // '\022'
-                b = kog1.j();
+            case 50: // '2'
+                if (b == null)
+                {
+                    b = new igw();
+                }
+                kwj1.a(b);
+                break;
+
+            case 58: // ':'
+                if (c == null)
+                {
+                    c = new igw();
+                }
+                kwj1.a(c);
+                break;
+
+            case 66: // 'B'
+                if (d == null)
+                {
+                    d = new igw();
+                }
+                kwj1.a(d);
+                break;
+
+            case 74: // 'J'
+                if (e == null)
+                {
+                    e = new ihu();
+                }
+                kwj1.a(e);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(5, a.booleanValue());
         }
         if (b != null)
         {
-            koh1.a(2, b);
+            kwk1.b(6, b);
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.b(7, c);
+        }
+        if (d != null)
+        {
+            kwk1.b(8, d);
+        }
+        if (e != null)
+        {
+            kwk1.b(9, e);
+        }
+        super.writeTo(kwk1);
     }
 }

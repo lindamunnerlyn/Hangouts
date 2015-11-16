@@ -2,35 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.view.View;
-import com.google.android.apps.hangouts.fragments.ConversationListFragment;
+import android.os.Handler;
+import com.google.android.apps.hangouts.fragments.ConversationInviteListFragment;
+import java.util.concurrent.TimeUnit;
 
 public final class bij
-    implements android.view.View.OnClickListener
+    implements Runnable
 {
 
-    final View a;
-    final Uri b;
-    final Context c;
-    final ConversationListFragment d;
+    final ConversationInviteListFragment a;
 
-    public bij(ConversationListFragment conversationlistfragment, View view, Uri uri, Context context)
+    public bij(ConversationInviteListFragment conversationinvitelistfragment)
     {
-        d = conversationlistfragment;
-        a = view;
-        b = uri;
-        c = context;
+        a = conversationinvitelistfragment;
         super();
     }
 
-    public void onClick(View view)
+    public void run()
     {
-        a.setVisibility(8);
-        view = new Intent("android.intent.action.VIEW");
-        view.setData(b);
-        c.startActivity(view);
+        ((bim)a.f).notifyDataSetChanged();
+        ConversationInviteListFragment.e(a).postDelayed(ConversationInviteListFragment.d(a), TimeUnit.SECONDS.toMillis(60L));
     }
 }

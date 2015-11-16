@@ -2,32 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import android.widget.AbsListView;
-import android.widget.PopupWindow;
 
 final class yj
-    implements android.widget.AbsListView.OnScrollListener
+    implements Runnable
 {
 
-    final ya a;
+    final yc a;
 
-    yj(ya ya1)
+    yj(yc yc1)
     {
-        a = ya1;
+        a = yc1;
         super();
     }
 
-    public void onScroll(AbsListView abslistview, int i, int j, int k)
+    public void run()
     {
-    }
-
-    public void onScrollStateChanged(AbsListView abslistview, int i)
-    {
-        if (i == 1 && !a.o() && ya.b(a).getContentView() != null)
-        {
-            ya.d(a).removeCallbacks(ya.c(a));
-            ya.c(a).run();
-        }
+        a.m();
     }
 }

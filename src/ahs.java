@@ -2,20 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.animation.TimeInterpolator;
+import android.view.animation.DecelerateInterpolator;
 
 public final class ahs
+    implements TimeInterpolator
 {
 
-    public static final String a = ahp.getName();
-    private static ahq b;
+    private DecelerateInterpolator a;
 
-    public static void a(hgx hgx1)
+    public ahs(float f)
     {
-        if (b == null)
-        {
-            b = new ahq();
-        }
-        hgx1.a(ahp, b.a());
+        a = new DecelerateInterpolator(f);
     }
 
+    public float getInterpolation(float f)
+    {
+        return a.getInterpolation(f);
+    }
 }

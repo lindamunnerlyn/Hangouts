@@ -2,26 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.LinkedList;
 
 final class ezt
-    implements fac
 {
 
-    final ezs a;
+    static final erv a[] = {
+        new ezu(erv.a("0\202\003\3030\202\002\253\240\003\002\001\002\002\t\000\255\371\005\250f\223A!0")), new ezv(erv.a("0\202\003\3030\202\002\253\240\003\002\001\002\002\t\000\237\274f\r0a\370\2040"))
+    };
 
-    ezt(ezs ezs1)
-    {
-        a = ezs1;
-        super();
-    }
-
-    public void a(ezr ezr)
-    {
-        a.a = ezr;
-        for (ezr = a.c.iterator(); ezr.hasNext(); ((ezx)ezr.next()).b()) { }
-        a.c.clear();
-        a.b = null;
-    }
 }

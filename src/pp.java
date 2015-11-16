@@ -2,41 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.util.AttributeSet;
+import android.view.View;
 
-public class pp extends android.view.ViewGroup.MarginLayoutParams
+public abstract class pp
 {
 
-    public int a;
-
-    public pp(int i, int j)
+    public pp()
     {
-        super(-2, -2);
-        a = 0;
-        a = 0x800013;
     }
 
-    public pp(Context context, AttributeSet attributeset)
+    public void a(int i)
     {
-        super(context, attributeset);
-        a = 0;
-        context = context.obtainStyledAttributes(attributeset, ro.t);
-        a = context.getInt(ro.u, 0);
-        context.recycle();
     }
 
-    public pp(android.view.ViewGroup.LayoutParams layoutparams)
+    public void a(int i, int j)
     {
-        super(layoutparams);
-        a = 0;
     }
 
-    public pp(pp pp1)
+    public void a(View view, float f)
     {
-        super(pp1);
-        a = 0;
-        a = pp1.a;
+    }
+
+    public void a(View view, int i)
+    {
+    }
+
+    public abstract boolean a(View view);
+
+    public int b(int i)
+    {
+        return i;
+    }
+
+    public int b(View view, int i)
+    {
+        return 0;
+    }
+
+    public void b(View view)
+    {
+    }
+
+    public int c(View view)
+    {
+        return 0;
+    }
+
+    public void c()
+    {
+    }
+
+    public int d(View view)
+    {
+        return 0;
     }
 }

@@ -2,31 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import java.util.ArrayList;
-import java.util.List;
 
 final class cgz
-    implements android.view.View.OnClickListener
+    implements asn
 {
 
-    final View a;
-    final cgw b;
+    final cgy a;
 
-    cgz(cgw cgw1, View view)
+    cgz(cgy cgy1)
     {
-        b = cgw1;
-        a = view;
+        a = cgy1;
         super();
     }
 
-    public void onClick(View view)
+    public void a()
     {
-        a.setVisibility(8);
-        view = (cia)cgw.d(b).a(cia);
-        ArrayList arraylist = new ArrayList();
-        arraylist.add("android.permission.READ_CONTACTS");
-        arraylist.add("android.permission.WRITE_CONTACTS");
-        view.a(l.uH, arraylist, 2653, null);
+    }
+
+    public void a(String s)
+    {
+        boolean flag = true;
+        bjp bjp1;
+        byte byte0;
+        if (cgy.b(a).b() > 1)
+        {
+            byte0 = 2;
+        } else
+        {
+            byte0 = 1;
+        }
+        bjp1 = cgy.e(a);
+        if (cgy.d(a) != atu.d)
+        {
+            flag = false;
+        }
+        bjp1.a(s, byte0, flag, cgy.b(a).a());
+    }
+
+    public void a(boolean flag)
+    {
+        if (flag && !cgy.a(a) && cgy.b(a).b() == 1)
+        {
+            cgy.c(a);
+        }
     }
 }

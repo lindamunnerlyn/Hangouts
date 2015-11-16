@@ -2,65 +2,200 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.Resources;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.util.AttributeSet;
-import android.widget.ImageView;
+import android.view.View;
+import android.view.accessibility.AccessibilityManager;
+import android.widget.Checkable;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import java.util.Locale;
 
-public final class egn extends ImageView
-    implements can
+public class egn extends FrameLayout
+    implements Checkable
 {
 
-    private String a;
+    private static final StyleSpan b = new StyleSpan(1);
+    private static ForegroundColorSpan c;
+    private static AccessibilityManager d;
+    public final ObjectAnimator a;
+    private boolean e;
+    private a f;
 
     public egn(Context context)
     {
-        this(context, (byte)0);
+        this(context, null);
     }
 
-    private egn(Context context, byte byte0)
+    public egn(Context context, AttributeSet attributeset)
     {
-        this(context, ((AttributeSet) (null)));
+        super(context, null);
+        if (c == null)
+        {
+            c = new ForegroundColorSpan(context.getApplicationContext().getResources().getColor(g.dm));
+        }
+        if (d == null)
+        {
+            d = (AccessibilityManager)getContext().getSystemService("accessibility");
+        }
+        a = ObjectAnimator.ofFloat(null, "alpha", new float[] {
+            0.0F, 1.0F
+        });
+        a.setInterpolator(new ahv(ahz.a));
     }
 
-    private egn(Context context, AttributeSet attributeset)
+    protected void a(View view, boolean flag)
     {
-        super(context, null, 0);
+        float f1 = 1.0F;
+        a.cancel();
+        if (flag)
+        {
+            a.setTarget(view);
+            ObjectAnimator objectanimator = a;
+            float f3 = view.getAlpha();
+            float f2;
+            if (e)
+            {
+                f2 = 1.0F;
+            } else
+            {
+                f2 = 0.0F;
+            }
+            objectanimator.setFloatValues(new float[] {
+                f3, f2
+            });
+            f2 = view.getAlpha();
+            if (!e)
+            {
+                f1 = 0.0F;
+            }
+            f1 = Math.abs(f2 - f1);
+            a.setDuration((int)(f1 * 200F));
+            a.start();
+            return;
+        }
+        if (!e)
+        {
+            f1 = 0.0F;
+        }
+        view.setAlpha(f1);
     }
 
-    static String a(egn egn1)
+    protected void a(TextView textview, String s, SpannableStringBuilder spannablestringbuilder, String s1)
     {
-        return egn1.a;
+        if (TextUtils.isEmpty(s) || TextUtils.isEmpty(s1) || d.isEnabled())
+        {
+            textview.setText(s);
+            return;
+        }
+        int i = s.toUpperCase(Locale.getDefault()).indexOf(s1);
+        if (i == -1)
+        {
+            textview.setText(s);
+            return;
+        } else
+        {
+            spannablestringbuilder.clear();
+            spannablestringbuilder.append(s);
+            int l = s1.length() + i;
+            spannablestringbuilder.setSpan(b, i, l, 0);
+            spannablestringbuilder.setSpan(c, i, l, 0);
+            textview.setText(spannablestringbuilder);
+            return;
+        }
     }
 
-    public void a(ani ani, String s, ad ad)
+    protected void a(boolean flag)
     {
-        a(s);
-        setImageResource(com.google.android.apps.hangouts.R.drawable.bK);
-        setPadding(0, 5, 0, 6);
-        setLongClickable(true);
-        setOnClickListener(new ego(this, ani, ad));
-        setContentDescription(getResources().getString(l.tl));
+        boolean flag1 = false;
+        Object obj = findViewById(h.aa);
+        if (obj instanceof Checkable)
+        {
+            ((Checkable)obj).setChecked(e);
+        }
+        a(((View) (obj)), flag);
+        obj = (TextView)findViewById(h.dH);
+        int i;
+        if (e)
+        {
+            i = 1;
+        } else
+        {
+            i = 0;
+        }
+        ((TextView) (obj)).setTypeface(null, i);
+        if (e)
+        {
+            i = 0xcc000000;
+        } else
+        {
+            i = 0x9a000000;
+        }
+        ((TextView) (obj)).setTextColor(i);
+        i = ((flag1) ? 1 : 0);
+        if (e)
+        {
+            i = -1;
+        }
+        setBackgroundColor(i);
     }
 
-    public void a(String s)
+    public void a(boolean flag, boolean flag1)
     {
-        a = s;
+        if (e == flag)
+        {
+            return;
+        } else
+        {
+            e = flag;
+            a(flag1);
+            return;
+        }
     }
 
-    public void b()
+    public boolean isChecked()
     {
+        return e;
     }
 
-    public void c()
+    public void j()
     {
+        f = null;
     }
 
-    public void d()
+    public void k()
     {
+        a(false, false);
     }
 
-    public void f_()
+    protected void onAttachedToWindow()
     {
+        super.onAttachedToWindow();
+        a(false);
     }
+
+    public final void setChecked(boolean flag)
+    {
+        a(flag, true);
+    }
+
+    public void toggle()
+    {
+        boolean flag;
+        if (!e)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        a(flag, true);
+    }
+
 }

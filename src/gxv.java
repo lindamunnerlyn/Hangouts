@@ -2,18 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
 
 final class gxv
-    implements gwq
 {
 
-    gxv()
-    {
-    }
+    static final int a[];
 
-    public ad a(Bundle bundle)
+    static 
     {
-        return new gxw();
+        a = new int[gxx.values().length];
+        try
+        {
+            a[gxx.a.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[gxx.c.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[gxx.b.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

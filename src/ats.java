@@ -2,25 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
-import android.widget.ArrayAdapter;
 
-final class ats
-    implements android.content.DialogInterface.OnClickListener
+public final class ats
 {
 
-    final ArrayAdapter a;
-    final atr b;
+    public static final int a[];
 
-    ats(atr atr, ArrayAdapter arrayadapter)
+    static 
     {
-        b = atr;
-        a = arrayadapter;
-        super();
-    }
-
-    public void onClick(DialogInterface dialoginterface, int i)
-    {
-        ((cmu)a.getItem(i)).a();
+        a = new int[atp.values().length];
+        try
+        {
+            a[atp.b.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[atp.c.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[atp.e.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[atp.d.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

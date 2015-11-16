@@ -2,116 +2,163 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.accounts.Account;
+import android.os.Binder;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcel;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.VisibleRegion;
+import com.google.android.gms.auth.AccountChangeEventsRequest;
+import com.google.android.gms.auth.AccountChangeEventsResponse;
 
-final class fgv
-    implements fgt
+public abstract class fgv extends Binder
+    implements fgu
 {
 
-    private IBinder a;
-
-    fgv(IBinder ibinder)
+    public static fgu a(IBinder ibinder)
     {
-        a = ibinder;
-    }
-
-    public LatLng a(ezy ezy1)
-    {
-        Object obj;
-        Parcel parcel;
-        Parcel parcel1;
-        obj = null;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IProjectionDelegate");
-        if (ezy1 == null)
+        if (ibinder == null)
         {
-            break MISSING_BLOCK_LABEL_84;
+            return null;
         }
-        ezy1 = ezy1.asBinder();
-_L1:
-        parcel.writeStrongBinder(ezy1);
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        ezy1 = obj;
-        if (parcel1.readInt() != 0)
+        android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.auth.IAuthManagerService");
+        if (iinterface != null && (iinterface instanceof fgu))
         {
-            ezy1 = LatLng.CREATOR;
-            ezy1 = flh.a(parcel1);
-        }
-        parcel1.recycle();
-        parcel.recycle();
-        return ezy1;
-        ezy1 = null;
-          goto _L1
-        ezy1;
-        parcel1.recycle();
-        parcel.recycle();
-        throw ezy1;
-    }
-
-    public VisibleRegion a()
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IProjectionDelegate");
-        a.transact(3, parcel, parcel1, 0);
-        parcel1.readException();
-        if (parcel1.readInt() == 0) goto _L2; else goto _L1
-_L1:
-        Object obj;
-        obj = VisibleRegion.CREATOR;
-        obj = fls.a(parcel1);
-_L4:
-        parcel1.recycle();
-        parcel.recycle();
-        return ((VisibleRegion) (obj));
-_L2:
-        obj = null;
-        if (true) goto _L4; else goto _L3
-_L3:
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public ezy a(LatLng latlng)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.maps.internal.IProjectionDelegate");
-        if (latlng == null)
+            return (fgu)iinterface;
+        } else
         {
-            break MISSING_BLOCK_LABEL_65;
+            return new fgw(ibinder);
         }
-        parcel.writeInt(1);
-        latlng.writeToParcel(parcel, 0);
-_L1:
-        a.transact(2, parcel, parcel1, 0);
-        parcel1.readException();
-        latlng = ezz.a(parcel1.readStrongBinder());
-        parcel1.recycle();
-        parcel.recycle();
-        return latlng;
-        parcel.writeInt(0);
-          goto _L1
-        latlng;
-        parcel1.recycle();
-        parcel.recycle();
-        throw latlng;
     }
 
-    public IBinder asBinder()
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
     {
-        return a;
+        switch (i)
+        {
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
+
+        case 1598968902: 
+            parcel1.writeString("com.google.android.auth.IAuthManagerService");
+            return true;
+
+        case 1: // '\001'
+            parcel.enforceInterface("com.google.android.auth.IAuthManagerService");
+            String s = parcel.readString();
+            String s2 = parcel.readString();
+            if (parcel.readInt() != 0)
+            {
+                parcel = (Bundle)Bundle.CREATOR.createFromParcel(parcel);
+            } else
+            {
+                parcel = null;
+            }
+            parcel = a(s, s2, parcel);
+            parcel1.writeNoException();
+            if (parcel != null)
+            {
+                parcel1.writeInt(1);
+                parcel.writeToParcel(parcel1, 1);
+            } else
+            {
+                parcel1.writeInt(0);
+            }
+            return true;
+
+        case 2: // '\002'
+            parcel.enforceInterface("com.google.android.auth.IAuthManagerService");
+            String s1 = parcel.readString();
+            if (parcel.readInt() != 0)
+            {
+                parcel = (Bundle)Bundle.CREATOR.createFromParcel(parcel);
+            } else
+            {
+                parcel = null;
+            }
+            parcel = a(s1, parcel);
+            parcel1.writeNoException();
+            if (parcel != null)
+            {
+                parcel1.writeInt(1);
+                parcel.writeToParcel(parcel1, 1);
+            } else
+            {
+                parcel1.writeInt(0);
+            }
+            return true;
+
+        case 3: // '\003'
+            parcel.enforceInterface("com.google.android.auth.IAuthManagerService");
+            if (parcel.readInt() != 0)
+            {
+                parcel = (AccountChangeEventsRequest)AccountChangeEventsRequest.CREATOR.createFromParcel(parcel);
+            } else
+            {
+                parcel = null;
+            }
+            parcel = a(parcel);
+            parcel1.writeNoException();
+            if (parcel != null)
+            {
+                parcel1.writeInt(1);
+                parcel.writeToParcel(parcel1, 1);
+            } else
+            {
+                parcel1.writeInt(0);
+            }
+            return true;
+
+        case 5: // '\005'
+            parcel.enforceInterface("com.google.android.auth.IAuthManagerService");
+            Account account;
+            String s3;
+            if (parcel.readInt() != 0)
+            {
+                account = (Account)Account.CREATOR.createFromParcel(parcel);
+            } else
+            {
+                account = null;
+            }
+            s3 = parcel.readString();
+            if (parcel.readInt() != 0)
+            {
+                parcel = (Bundle)Bundle.CREATOR.createFromParcel(parcel);
+            } else
+            {
+                parcel = null;
+            }
+            parcel = a(account, s3, parcel);
+            parcel1.writeNoException();
+            if (parcel != null)
+            {
+                parcel1.writeInt(1);
+                parcel.writeToParcel(parcel1, 1);
+            } else
+            {
+                parcel1.writeInt(0);
+            }
+            return true;
+
+        case 6: // '\006'
+            parcel.enforceInterface("com.google.android.auth.IAuthManagerService");
+            break;
+        }
+        if (parcel.readInt() != 0)
+        {
+            parcel = (Bundle)Bundle.CREATOR.createFromParcel(parcel);
+        } else
+        {
+            parcel = null;
+        }
+        parcel = a(parcel);
+        parcel1.writeNoException();
+        if (parcel != null)
+        {
+            parcel1.writeInt(1);
+            parcel.writeToParcel(parcel1, 1);
+        } else
+        {
+            parcel1.writeInt(0);
+        }
+        return true;
     }
 }

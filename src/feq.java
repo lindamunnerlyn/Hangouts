@@ -2,114 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IBinder;
-import android.os.Parcel;
-import com.google.android.gms.feedback.ErrorReport;
+import android.content.Context;
+import android.os.Looper;
 
-final class feq
-    implements feo
+final class feq extends emu
 {
 
-    private IBinder a;
-
-    feq(IBinder ibinder)
+    feq()
     {
-        a = ibinder;
     }
 
-    public void a(int i, int j)
+    public emw a(Context context, Looper looper, epo epo, Object obj, enb enb, end end)
     {
-        Parcel parcel;
-        Parcel parcel1;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.feedback.internal.IFeedbackService");
-        parcel.writeInt(i);
-        parcel.writeInt(j);
-        a.transact(2, parcel, parcel1, 0);
-        parcel1.readException();
-        parcel1.recycle();
-        parcel.recycle();
-        return;
-        Exception exception;
-        exception;
-        parcel1.recycle();
-        parcel.recycle();
-        throw exception;
-    }
-
-    public boolean a(ErrorReport errorreport)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        boolean flag;
-        flag = true;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.feedback.internal.IFeedbackService");
-        if (errorreport == null)
-        {
-            break MISSING_BLOCK_LABEL_72;
-        }
-        parcel.writeInt(1);
-        errorreport.writeToParcel(parcel, 0);
-_L1:
-        int i;
-        a.transact(1, parcel, parcel1, 0);
-        parcel1.readException();
-        i = parcel1.readInt();
-        if (i == 0)
-        {
-            flag = false;
-        }
-        parcel1.recycle();
-        parcel.recycle();
-        return flag;
-        parcel.writeInt(0);
-          goto _L1
-        errorreport;
-        parcel1.recycle();
-        parcel.recycle();
-        throw errorreport;
-    }
-
-    public IBinder asBinder()
-    {
-        return a;
-    }
-
-    public boolean b(ErrorReport errorreport)
-    {
-        Parcel parcel;
-        Parcel parcel1;
-        boolean flag;
-        flag = true;
-        parcel = Parcel.obtain();
-        parcel1 = Parcel.obtain();
-        parcel.writeInterfaceToken("com.google.android.gms.feedback.internal.IFeedbackService");
-        if (errorreport == null)
-        {
-            break MISSING_BLOCK_LABEL_72;
-        }
-        parcel.writeInt(1);
-        errorreport.writeToParcel(parcel, 0);
-_L1:
-        int i;
-        a.transact(3, parcel, parcel1, 0);
-        parcel1.readException();
-        i = parcel1.readInt();
-        if (i == 0)
-        {
-            flag = false;
-        }
-        parcel1.recycle();
-        parcel.recycle();
-        return flag;
-        parcel.writeInt(0);
-          goto _L1
-        errorreport;
-        parcel1.recycle();
-        parcel.recycle();
-        throw errorreport;
+        return new ffa(context, looper, epo, enb, end);
     }
 }

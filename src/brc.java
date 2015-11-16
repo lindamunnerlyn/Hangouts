@@ -2,14 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import java.util.List;
 
-public interface brc
-    extends Comparable
+final class brc
+    implements Runnable
 {
 
-    public abstract int a();
+    final brb a;
 
-    public abstract List a(Context context, bot bot, gjr gjr, bpd bpd);
+    brc(brb brb1)
+    {
+        a = brb1;
+        super();
+    }
+
+    public void run()
+    {
+        brb.a(a);
+    }
 }

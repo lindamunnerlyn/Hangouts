@@ -2,22 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import java.util.concurrent.Executors;
 
-public final class aly
+public final class aly extends Enum
 {
 
-    public static final String a = alw.getName();
-    private static alx b;
+    public static final int a;
+    public static final int b;
+    public static final int c;
+    public static final int d;
+    public static final int e;
+    public static final int f;
+    private static final int g[];
 
-    public static void a(Context context, hgx hgx1)
+    public static int[] a()
     {
-        if (b == null)
-        {
-            b = new alx();
-        }
-        hgx1.a(alw, new alz("babel_", context, Executors.newSingleThreadExecutor()));
+        return (int[])g.clone();
     }
 
+    static 
+    {
+        a = 1;
+        b = 2;
+        c = 3;
+        d = 4;
+        e = 5;
+        f = 6;
+        g = (new int[] {
+            a, b, c, d, e, f
+        });
+    }
 }

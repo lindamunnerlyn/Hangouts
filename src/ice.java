@@ -3,147 +3,142 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ice extends koj
+public final class ice extends kwm
 {
 
-    public ieh a;
-    public icf b;
-    public ieh c[];
+    private static volatile ice e[];
+    public ibg a;
+    public ial b;
+    public String c;
+    public Integer d;
 
     public ice()
     {
         a = null;
         b = null;
-        c = ieh.a();
+        c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
+    public static ice[] a()
+    {
+        if (e == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (e == null)
+                {
+                    e = new ice[0];
+                }
+            }
+        }
+        return e;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        int j = i;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            j = i + koh.d(1, a);
-        }
-        i = j;
-        if (b != null)
-        {
-            i = j + koh.d(2, b);
+            i = j + kwk.d(1, a);
         }
         j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(2, b);
+        }
+        i = j;
         if (c != null)
         {
-            j = i;
-            if (c.length > 0)
-            {
-                for (j = 0; j < c.length;)
-                {
-                    ieh ieh1 = c[j];
-                    int k = i;
-                    if (ieh1 != null)
-                    {
-                        k = i + koh.d(3, ieh1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
+            i = j + kwk.b(3, c);
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.e(4, d.intValue());
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-        do
+_L7:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 5: default 56
+    //                   0: 65
+    //                   10: 67
+    //                   18: 96
+    //                   26: 125
+    //                   32: 136;
+           goto _L1 _L2 _L3 _L4 _L5 _L6
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L7; else goto _L2
+_L2:
+        return this;
+_L3:
+        if (a == null)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new ieh();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new icf();
-                }
-                kog1.a(b);
-                break;
-
-            case 26: // '\032'
-                int k = kou.b(kog1, 26);
-                ieh aieh[];
-                int j;
-                if (c == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = c.length;
-                }
-                aieh = new ieh[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(c, 0, aieh, 0, j);
-                    k = j;
-                }
-                for (; k < aieh.length - 1; k++)
-                {
-                    aieh[k] = new ieh();
-                    kog1.a(aieh[k]);
-                    kog1.a();
-                }
-
-                aieh[k] = new ieh();
-                kog1.a(aieh[k]);
-                c = aieh;
-                break;
-            }
-        } while (true);
+            a = new ibg();
+        }
+        kwj1.a(a);
+          goto _L7
+_L4:
+        if (b == null)
+        {
+            b = new ial();
+        }
+        kwj1.a(b);
+          goto _L7
+_L5:
+        c = kwj1.j();
+          goto _L7
+_L6:
+        int j = kwj1.f();
+        switch (j)
+        {
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+        case 5: // '\005'
+        case 6: // '\006'
+        case 7: // '\007'
+        case 8: // '\b'
+        case 9: // '\t'
+        case 10: // '\n'
+            d = Integer.valueOf(j);
+            break;
+        }
+        if (true) goto _L7; else goto _L8
+_L8:
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.b(1, a);
         }
         if (b != null)
         {
-            koh1.b(2, b);
+            kwk1.b(2, b);
         }
-        if (c != null && c.length > 0)
+        if (c != null)
         {
-            for (int i = 0; i < c.length; i++)
-            {
-                ieh ieh1 = c[i];
-                if (ieh1 != null)
-                {
-                    koh1.b(3, ieh1);
-                }
-            }
-
+            kwk1.a(3, c);
         }
-        super.writeTo(koh1);
+        if (d != null)
+        {
+            kwk1.a(4, d.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

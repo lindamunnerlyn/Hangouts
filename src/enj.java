@@ -2,29 +2,14 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import com.google.android.gms.common.ConnectionResult;
+import android.os.Looper;
 
-public final class enj extends enb
+public abstract class enj extends enk
+    implements ene
 {
 
-    final ena e;
-
-    public enj(ena ena1, int i, Bundle bundle)
+    protected enj(Looper looper)
     {
-        e = ena1;
-        super(ena1, i, bundle);
-    }
-
-    protected void a(ConnectionResult connectionresult)
-    {
-        ena.a(e).b(connectionresult);
-        e.g();
-    }
-
-    protected boolean a()
-    {
-        ena.a(e).b(ConnectionResult.a);
-        return true;
+        super(looper);
     }
 }

@@ -2,11 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
+import com.google.android.gms.common.api.Status;
 
-public interface fhx
-    extends IInterface
+final class fhx
+    implements fox
 {
 
-    public abstract void a(fkr fkr);
+    final Status a;
+    final fhw b;
+
+    fhx(fhw fhw, Status status)
+    {
+        b = fhw;
+        a = status;
+        super();
+    }
+
+    public Status D_()
+    {
+        return a;
+    }
+
+    public void b()
+    {
+    }
+
+    public ftm c()
+    {
+        return null;
+    }
 }

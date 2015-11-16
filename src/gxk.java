@@ -2,53 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
 
 public final class gxk
 {
 
-    String a;
-    gwl b;
-    private boolean c;
-    private boolean d;
+    public static final String a = gxl.getName();
+    private static gxj b;
 
-    public gxk()
+    public static void a(hlp hlp1)
     {
-        c = true;
-        d = true;
+        if (b == null)
+        {
+            b = new gxj();
+        }
+        hlp1.a(gxl, new gxl[] {
+            new gxg()
+        });
     }
 
-    public gxk a()
-    {
-        c = false;
-        return this;
-    }
-
-    public gxk a(gwl gwl)
-    {
-        b = gwl;
-        return this;
-    }
-
-    public gxk a(String s)
-    {
-        a = s;
-        return this;
-    }
-
-    public gxk b()
-    {
-        d = false;
-        return this;
-    }
-
-    public Bundle c()
-    {
-        Bundle bundle = new Bundle();
-        bundle.putString("dialog_title", a);
-        bundle.putBoolean("add_account", c);
-        bundle.putBoolean("auto_select_single_logged_out_account", d);
-        bundle.putParcelable("account_filter", b);
-        return bundle;
-    }
 }

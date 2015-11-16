@@ -2,24 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentValues;
-import android.database.Cursor;
 
-final class czz extends czw
+public class czz extends cxr
 {
 
-    czz(String s)
+    private static final long serialVersionUID = 1L;
+
+    private czz(jdv jdv1)
     {
-        super(s, 2);
+        super(jdv1.responseHeader, -1L);
+        if (cxr.a)
+        {
+            jdv1 = String.valueOf(jdv1);
+            eev.b("Babel_protos", (new StringBuilder(String.valueOf(jdv1).length() + 38)).append("SendOffnetworkInvitationResponse from:").append(jdv1).toString());
+        }
     }
 
-    public Object a(Cursor cursor, int i)
+    public static cxr parseFrom(byte abyte0[])
     {
-        return Long.valueOf(cursor.getLong(i));
-    }
-
-    public void a(String s, Object obj, ContentValues contentvalues)
-    {
-        contentvalues.put(s, (Long)obj);
+        abyte0 = (jdv)kws.mergeFrom(new jdv(), abyte0);
+        if (a(((jdv) (abyte0)).responseHeader))
+        {
+            return new cyd(((jdv) (abyte0)).responseHeader);
+        } else
+        {
+            return new czz(abyte0);
+        }
     }
 }

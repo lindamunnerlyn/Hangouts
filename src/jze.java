@@ -3,12 +3,12 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jze extends koj
+public final class jze extends kwm
 {
 
-    public kcc a;
-    public kbm b;
-    public kby c;
+    public Long a;
+    public Long b;
+    public Long c;
 
     public jze()
     {
@@ -25,30 +25,30 @@ public final class jze extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.e(1, a.longValue());
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.d(2, b);
+            j = i + kwk.e(2, b.longValue());
         }
         i = j;
         if (c != null)
         {
-            i = j + koh.d(3, c);
+            i = j + kwk.e(3, c.longValue());
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -57,47 +57,35 @@ public final class jze extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new kcc();
-                }
-                kog1.a(a);
+            case 8: // '\b'
+                a = Long.valueOf(kwj1.e());
                 break;
 
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new kbm();
-                }
-                kog1.a(b);
+            case 16: // '\020'
+                b = Long.valueOf(kwj1.e());
                 break;
 
-            case 26: // '\032'
-                if (c == null)
-                {
-                    c = new kby();
-                }
-                kog1.a(c);
+            case 24: // '\030'
+                c = Long.valueOf(kwj1.e());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.b(1, a.longValue());
         }
         if (b != null)
         {
-            koh1.b(2, b);
+            kwk1.b(2, b.longValue());
         }
         if (c != null)
         {
-            koh1.b(3, c);
+            kwk1.b(3, c.longValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

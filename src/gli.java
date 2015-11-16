@@ -2,151 +2,111 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Externalizable;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import java.util.ArrayList;
-import java.util.List;
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraCaptureSession;
+import android.hardware.camera2.CameraCharacteristics;
+import android.hardware.camera2.CameraDevice;
+import android.hardware.camera2.CameraManager;
+import android.hardware.camera2.CaptureRequest;
+import android.util.Range;
 
-public class gli
-    implements Externalizable
+final class gli extends android.hardware.camera2.CameraCaptureSession.StateCallback
 {
 
-    private static final long serialVersionUID = 1L;
-    private boolean a;
-    private String b;
-    private boolean c;
-    private String d;
-    private List e;
-    private boolean f;
-    private String g;
-    private boolean h;
-    private boolean i;
-    private boolean j;
-    private String k;
+    final glg a;
 
-    public gli()
+    gli(glg glg1)
     {
-        b = "";
-        d = "";
-        e = new ArrayList();
-        g = "";
-        i = false;
-        k = "";
+        a = glg1;
+        super();
     }
 
-    public static glj newBuilder()
+    public void onClosed(CameraCaptureSession cameracapturesession)
     {
-        return new glj();
+        gdv.d();
+        gne.a(3, "vclib", "Camera capture session closed");
+        a.k();
     }
 
-    public gli a(String s)
+    public void onConfigureFailed(CameraCaptureSession cameracapturesession)
     {
-        a = true;
-        b = s;
-        return this;
+        gdv.d();
+        gne.a(6, "vclib", "Unable to start camera capture session");
+        a.k();
+        g.a(((glj) (a)).j);
     }
 
-    public gli a(boolean flag)
+    public void onConfigured(CameraCaptureSession cameracapturesession)
     {
-        h = true;
-        i = flag;
-        return this;
-    }
-
-    public String a()
-    {
-        return b;
-    }
-
-    public String a(int l)
-    {
-        return (String)e.get(l);
-    }
-
-    public gli b(String s)
-    {
-        c = true;
-        d = s;
-        return this;
-    }
-
-    public String b()
-    {
-        return d;
-    }
-
-    public int c()
-    {
-        return e.size();
-    }
-
-    public gli c(String s)
-    {
-        f = true;
-        g = s;
-        return this;
-    }
-
-    public gli d(String s)
-    {
-        j = true;
-        k = s;
-        return this;
-    }
-
-    public String d()
-    {
-        return g;
-    }
-
-    public boolean e()
-    {
-        return i;
-    }
-
-    public void readExternal(ObjectInput objectinput)
-    {
-        a(objectinput.readUTF());
-        b(objectinput.readUTF());
-        int i1 = objectinput.readInt();
-        for (int l = 0; l < i1; l++)
+label0:
         {
-            e.add(objectinput.readUTF());
+            gdv.d();
+            gne.a(3, "vclib", "Camera capture session configured");
+            synchronized (a.p)
+            {
+                if (a.e != null)
+                {
+                    break label0;
+                }
+                gne.a(5, "vclib", "Session configured without an open device");
+            }
+            return;
         }
-
-        if (objectinput.readBoolean())
+        a.f = cameracapturesession;
+        android.hardware.camera2.CaptureRequest.Builder builder = a.e.createCaptureRequest(3);
+        if (a.u != 1) goto _L2; else goto _L1
+_L1:
+        cameracapturesession = a.c;
+_L7:
+        Range arange[];
+        int i;
+        arange = (Range[])a.a.getCameraCharacteristics(cameracapturesession).get(CameraCharacteristics.CONTROL_AE_AVAILABLE_TARGET_FPS_RANGES);
+        cameracapturesession = arange[arange.length - 1];
+        i = a.q.c;
+        if (((Integer)cameracapturesession.getUpper()).intValue() <= 1000) goto _L4; else goto _L3
+_L3:
+        gne.a(3, "vclib", "Appears to be a LEGACY camera; multiplying fps by 1000");
+        i *= 1000;
+_L4:
+        int k = arange.length;
+        int j = 0;
+_L9:
+        if (j >= k) goto _L6; else goto _L5
+_L5:
+        Range range = arange[j];
+        gne.a(3, "vclib", "Camera FPS range: %s", new Object[] {
+            range
+        });
+        if (((Integer)range.getUpper()).intValue() <= ((Integer)cameracapturesession.getUpper()).intValue() && ((Integer)range.getUpper()).intValue() >= i && (((Integer)range.getUpper()).intValue() < ((Integer)cameracapturesession.getUpper()).intValue() || ((Integer)range.getLower()).intValue() <= ((Integer)cameracapturesession.getLower()).intValue()))
         {
-            c(objectinput.readUTF());
+            cameracapturesession = range;
         }
-        if (objectinput.readBoolean())
-        {
-            d(objectinput.readUTF());
-        }
-        a(objectinput.readBoolean());
-    }
-
-    public void writeExternal(ObjectOutput objectoutput)
-    {
-        objectoutput.writeUTF(b);
-        objectoutput.writeUTF(d);
-        int i1 = c();
-        objectoutput.writeInt(i1);
-        for (int l = 0; l < i1; l++)
-        {
-            objectoutput.writeUTF((String)e.get(l));
-        }
-
-        objectoutput.writeBoolean(f);
-        if (f)
-        {
-            objectoutput.writeUTF(g);
-        }
-        objectoutput.writeBoolean(j);
-        if (j)
-        {
-            objectoutput.writeUTF(k);
-        }
-        objectoutput.writeBoolean(i);
+        break MISSING_BLOCK_LABEL_414;
+_L2:
+        cameracapturesession = a.d;
+          goto _L7
+_L6:
+        gne.a("vclib", "Using camera FPS range: %s", new Object[] {
+            cameracapturesession
+        });
+        builder.set(CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE, cameracapturesession);
+        builder.set(CaptureRequest.CONTROL_AE_MODE, Integer.valueOf(1));
+        builder.set(CaptureRequest.CONTROL_AE_LOCK, Boolean.valueOf(false));
+        builder.addTarget(a.g);
+        a.f.setRepeatingRequest(builder.build(), null, a.l);
+_L8:
+        obj;
+        JVM INSTR monitorexit ;
+        return;
+        cameracapturesession;
+        obj;
+        JVM INSTR monitorexit ;
+        throw cameracapturesession;
+        cameracapturesession;
+        gne.a("vclib", "Failed to start capture request", cameracapturesession);
+        g.a(((glj) (a)).j);
+          goto _L8
+        j++;
+          goto _L9
     }
 }

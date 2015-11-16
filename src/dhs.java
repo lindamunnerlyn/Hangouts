@@ -2,36 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.os.AsyncTask;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class dhs extends dhr
+public final class dhs extends AsyncTask
 {
 
-    private dbn a;
-    private int d;
-    private dkb e;
-    private boolean f;
+    final RealTimeChatService a;
 
-    public dhs(Context context, ani ani, String s, String s1, String s2, int i, String s3, 
-            int j, int k, String s4, String s5, boolean flag, ffo ffo, long l, int i1, dbn dbn, int j1, dkb dkb)
+    public dhs(RealTimeChatService realtimechatservice)
     {
-        super(context, ani, s, s1, s2, i, s3, j, k, s4, s5, flag, ffo, l, i1);
-        a = dbn;
-        d = j1;
-        e = dkb;
-        f = false;
+        a = realtimechatservice;
+        super();
     }
 
-    public boolean a(dbn dbn, int i, dkb dkb)
+    protected Object doInBackground(Object aobj[])
     {
-        return f;
-    }
-
-    protected Long b(aoe aoe, long l, String s, boolean flag, int i, String s1, 
-            aoh aoh)
-    {
-        a(aoe, l, s, flag, i, s1, aoh);
-        f = super.a(a, d, e);
-        return Long.valueOf(a(aoe, l, s, flag, i, s1));
+        long l = g.a(g.nU, "babel_rtcs_watchdog_warning", 0L);
+        long l1 = g.a(g.nU, "babel_rtcs_watchdog_error", 0L);
+        if (l > 0L || l1 > 0L)
+        {
+            RealTimeChatService.a(a, new dht(this, "RTCS-watchdog", l, l1));
+        }
+        return null;
     }
 }

@@ -2,16 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 
-public interface oi
+public final class oi
+    implements oh
 {
 
-    public abstract void a(int i);
+    public oi()
+    {
+    }
 
-    public abstract void a(View view);
+    public int a(Object obj)
+    {
+        return oq.a(obj);
+    }
 
-    public abstract void a(View view, float f);
+    public Drawable a(Context context)
+    {
+        return oq.a(context);
+    }
 
-    public abstract void b(View view);
+    public void a(View view)
+    {
+        oq.a(view);
+    }
+
+    public void a(View view, Object obj, int i)
+    {
+        oq.a(view, obj, i);
+    }
+
+    public void a(android.view.ViewGroup.MarginLayoutParams marginlayoutparams, Object obj, int i)
+    {
+        oq.a(marginlayoutparams, obj, i);
+    }
 }

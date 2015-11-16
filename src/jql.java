@@ -2,100 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.Set;
 
-final class jql extends jmi
+final class jql extends jqh
 {
 
-    final transient Object a;
-    private transient int b;
-
-    jql(Object obj)
+    jql(String s)
     {
-        a = n.b(obj);
+        super(s, 3);
     }
 
-    jql(Object obj, int i)
+    boolean a()
     {
-        a = obj;
-        b = i;
-    }
-
-    boolean H_()
-    {
-        return b != 0;
-    }
-
-    int a(Object aobj[], int i)
-    {
-        aobj[i] = a;
-        return i + 1;
-    }
-
-    public jqy a()
-    {
-        return jmr.a(a);
-    }
-
-    public boolean contains(Object obj)
-    {
-        return a.equals(obj);
-    }
-
-    boolean e()
-    {
-        return false;
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (obj != this)
-        {
-            if (obj instanceof Set)
-            {
-                if (((Set) (obj = (Set)obj)).size() != 1 || !a.equals(((Set) (obj)).iterator().next()))
-                {
-                    return false;
-                }
-            } else
-            {
-                return false;
-            }
-        }
         return true;
-    }
-
-    public final int hashCode()
-    {
-        int j = b;
-        int i = j;
-        if (j == 0)
-        {
-            i = a.hashCode();
-            b = i;
-        }
-        return i;
-    }
-
-    public boolean isEmpty()
-    {
-        return false;
-    }
-
-    public Iterator iterator()
-    {
-        return a();
-    }
-
-    public int size()
-    {
-        return 1;
-    }
-
-    public String toString()
-    {
-        String s = a.toString();
-        return (new StringBuilder(s.length() + 2)).append('[').append(s).append(']').toString();
     }
 }

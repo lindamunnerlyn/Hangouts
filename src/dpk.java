@@ -2,33 +2,52 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import com.google.android.gms.common.api.Status;
 
 final class dpk
-    implements hfe
+    implements eni
 {
 
-    final drw a;
-    final dpj b;
+    final dph a;
 
-    dpk(dpj dpj, drw drw1)
+    dpk(dph dph1)
     {
-        b = dpj;
-        a = drw1;
+        a = dph1;
         super();
     }
 
-    public boolean a(hfa hfa, Object obj)
+    public void a(enh enh)
     {
-        boolean flag = g.a((Boolean)obj, false);
-        if (flag)
+label0:
         {
-            RealTimeChatService.e();
-        } else
-        {
-            RealTimeChatService.f();
+            Object obj = (foz)enh;
+            enh = ((foz) (obj)).c();
+            obj = ((foz) (obj)).D_();
+            if (eev.a("Babel", 3))
+            {
+                String s = String.valueOf(obj);
+                String s1 = String.valueOf(enh);
+                eev.c("Babel", (new StringBuilder(String.valueOf(s).length() + 45 + String.valueOf(s1).length())).append("Non aggregated people loaded: status=").append(s).append(" people=").append(s1).toString());
+            }
+            if (dph.a(a))
+            {
+                break label0;
+            }
+            if (((Status) (obj)).b())
+            {
+                gdv.b(dph.d(a), enh);
+            }
+            dph.a(a, enh);
+            if (((Status) (obj)).b())
+            {
+                if (dph.c(a) == null)
+                {
+                    break label0;
+                }
+                dph.c(a).a(a, null, enh);
+            }
+            return;
         }
-        a.a(flag);
-        return true;
+        enh.b();
     }
 }

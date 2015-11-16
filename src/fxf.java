@@ -2,104 +2,86 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.lang.reflect.Array;
-import java.util.Map;
-import java.util.Set;
+import android.os.IInterface;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.common.data.DataHolder;
+import com.google.android.gms.wearable.internal.AddLocalCapabilityResponse;
+import com.google.android.gms.wearable.internal.ChannelReceiveFileResponse;
+import com.google.android.gms.wearable.internal.ChannelSendFileResponse;
+import com.google.android.gms.wearable.internal.CloseChannelResponse;
+import com.google.android.gms.wearable.internal.DeleteDataItemsResponse;
+import com.google.android.gms.wearable.internal.GetAllCapabilitiesResponse;
+import com.google.android.gms.wearable.internal.GetCapabilityResponse;
+import com.google.android.gms.wearable.internal.GetChannelInputStreamResponse;
+import com.google.android.gms.wearable.internal.GetChannelOutputStreamResponse;
+import com.google.android.gms.wearable.internal.GetCloudSyncOptInOutDoneResponse;
+import com.google.android.gms.wearable.internal.GetCloudSyncOptInStatusResponse;
+import com.google.android.gms.wearable.internal.GetCloudSyncSettingResponse;
+import com.google.android.gms.wearable.internal.GetConfigResponse;
+import com.google.android.gms.wearable.internal.GetConfigsResponse;
+import com.google.android.gms.wearable.internal.GetConnectedNodesResponse;
+import com.google.android.gms.wearable.internal.GetDataItemResponse;
+import com.google.android.gms.wearable.internal.GetFdForAssetResponse;
+import com.google.android.gms.wearable.internal.GetLocalNodeResponse;
+import com.google.android.gms.wearable.internal.OpenChannelResponse;
+import com.google.android.gms.wearable.internal.PutDataResponse;
+import com.google.android.gms.wearable.internal.RemoveLocalCapabilityResponse;
+import com.google.android.gms.wearable.internal.SendMessageResponse;
+import com.google.android.gms.wearable.internal.StorageInfoResponse;
 
-abstract class fxf
+public interface fxf
+    extends IInterface
 {
 
-    fxh b;
+    public abstract void a(Status status);
 
-    fxf()
-    {
-    }
+    public abstract void a(DataHolder dataholder);
 
-    public static boolean a(Set set, Object obj)
-    {
-        if (set != obj) goto _L2; else goto _L1
-_L1:
-        return true;
-_L2:
-        if (!(obj instanceof Set))
-        {
-            break MISSING_BLOCK_LABEL_54;
-        }
-        obj = (Set)obj;
-        boolean flag;
-        try
-        {
-            if (set.size() != ((Set) (obj)).size())
-            {
-                break; /* Loop/switch isn't completed */
-            }
-            flag = set.containsAll(((java.util.Collection) (obj)));
-        }
-        // Misplaced declaration of an exception variable
-        catch (Set set)
-        {
-            return false;
-        }
-        // Misplaced declaration of an exception variable
-        catch (Set set)
-        {
-            return false;
-        }
-        if (flag) goto _L1; else goto _L3
-_L3:
-        return false;
-        return false;
-    }
+    public abstract void a(AddLocalCapabilityResponse addlocalcapabilityresponse);
 
-    protected abstract int a();
+    public abstract void a(ChannelReceiveFileResponse channelreceivefileresponse);
 
-    protected abstract int a(Object obj);
+    public abstract void a(ChannelSendFileResponse channelsendfileresponse);
 
-    protected abstract Object a(int i);
+    public abstract void a(CloseChannelResponse closechannelresponse);
 
-    public Object[] a(Object aobj[])
-    {
-        int j = a();
-        if (aobj.length < j)
-        {
-            aobj = (Object[])Array.newInstance(((Object) (aobj)).getClass().getComponentType(), j);
-        }
-        for (int i = 0; i < j; i++)
-        {
-            aobj[i] = a(i);
-        }
+    public abstract void a(DeleteDataItemsResponse deletedataitemsresponse);
 
-        if (aobj.length > j)
-        {
-            aobj[j] = null;
-        }
-        return aobj;
-    }
+    public abstract void a(GetAllCapabilitiesResponse getallcapabilitiesresponse);
 
-    protected abstract Map b();
+    public abstract void a(GetCapabilityResponse getcapabilityresponse);
 
-    protected abstract void b(int i);
+    public abstract void a(GetChannelInputStreamResponse getchannelinputstreamresponse);
 
-    protected abstract void c();
+    public abstract void a(GetChannelOutputStreamResponse getchanneloutputstreamresponse);
 
-    public Object[] d()
-    {
-        int j = a();
-        Object aobj[] = new Object[j];
-        for (int i = 0; i < j; i++)
-        {
-            aobj[i] = a(i);
-        }
+    public abstract void a(GetCloudSyncOptInOutDoneResponse getcloudsyncoptinoutdoneresponse);
 
-        return aobj;
-    }
+    public abstract void a(GetCloudSyncOptInStatusResponse getcloudsyncoptinstatusresponse);
 
-    public Set e()
-    {
-        if (b == null)
-        {
-            b = new fxh(this);
-        }
-        return b;
-    }
+    public abstract void a(GetCloudSyncSettingResponse getcloudsyncsettingresponse);
+
+    public abstract void a(GetConfigResponse getconfigresponse);
+
+    public abstract void a(GetConfigsResponse getconfigsresponse);
+
+    public abstract void a(GetConnectedNodesResponse getconnectednodesresponse);
+
+    public abstract void a(GetDataItemResponse getdataitemresponse);
+
+    public abstract void a(GetFdForAssetResponse getfdforassetresponse);
+
+    public abstract void a(GetLocalNodeResponse getlocalnoderesponse);
+
+    public abstract void a(OpenChannelResponse openchannelresponse);
+
+    public abstract void a(PutDataResponse putdataresponse);
+
+    public abstract void a(RemoveLocalCapabilityResponse removelocalcapabilityresponse);
+
+    public abstract void a(SendMessageResponse sendmessageresponse);
+
+    public abstract void a(StorageInfoResponse storageinforesponse);
+
+    public abstract void b(CloseChannelResponse closechannelresponse);
 }

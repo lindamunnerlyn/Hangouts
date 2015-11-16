@@ -3,9 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class eon
+interface eon
 {
 
-    public static fdz a = fdz.a("gms:common:stats:max_num_of_events", Integer.valueOf(100));
-
+    public abstract void a(eoo eoo);
 }

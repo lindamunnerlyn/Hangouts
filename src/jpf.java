@@ -2,17 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.common.cache.LocalCache;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentMap;
 
-final class jpf extends jpe
+public final class jpf extends joq
 {
 
-    jpf(String s)
+    final LocalCache c;
+
+    public jpf(LocalCache localcache, ConcurrentMap concurrentmap)
     {
-        super(s, 0);
+        c = localcache;
+        super(localcache, concurrentmap);
     }
 
-    public Object a(Object obj)
+    public boolean contains(Object obj)
     {
-        return ((java.util.Map.Entry)obj).getKey();
+        return a.containsKey(obj);
+    }
+
+    public Iterator iterator()
+    {
+        return new jpe(c);
+    }
+
+    public boolean remove(Object obj)
+    {
+        return a.remove(obj) != null;
     }
 }

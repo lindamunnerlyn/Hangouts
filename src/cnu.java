@@ -2,21 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.DialogInterface;
+import android.widget.ArrayAdapter;
 
-public final class cnu
-    implements fyi
+final class cnu
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final fyc a;
+    final ArrayAdapter a;
+    final cna b;
 
-    public cnu(fyc fyc1)
+    cnu(cna cna, ArrayAdapter arrayadapter)
     {
-        a = fyc1;
+        b = cna;
+        a = arrayadapter;
         super();
     }
 
-    public void a(fsn fsn)
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        a.b();
+        ((coj)a.getItem(i)).a();
     }
 }

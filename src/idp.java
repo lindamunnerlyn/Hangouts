@@ -3,32 +3,38 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class idp extends koj
+public final class idp extends kwm
 {
 
-    private static volatile idp b[];
-    public Integer a;
+    private static volatile idp e[];
+    public String a;
+    public Integer b;
+    public Integer c;
+    public Integer d;
 
     public idp()
     {
         a = null;
+        b = null;
+        c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     public static idp[] a()
     {
-        if (b == null)
+        if (e == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
-                if (b == null)
+                if (e == null)
                 {
-                    b = new idp[0];
+                    e = new idp[0];
                 }
             }
         }
-        return b;
+        return e;
         exception;
         obj;
         JVM INSTR monitorexit ;
@@ -37,24 +43,34 @@ public final class idp extends koj
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
+        int j = super.computeSerializedSize() + kwk.b(1, a);
         int i = j;
-        if (a != null)
+        if (b != null)
         {
-            i = j + koh.e(1, a.intValue());
+            i = j + kwk.e(2, b.intValue());
+        }
+        j = i;
+        if (c != null)
+        {
+            j = i + kwk.e(3, c.intValue());
+        }
+        i = j;
+        if (d != null)
+        {
+            i = j + kwk.e(4, d.intValue());
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -63,19 +79,40 @@ public final class idp extends koj
             case 0: // '\0'
                 return this;
 
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
+                break;
+
+            case 24: // '\030'
+                c = Integer.valueOf(kwj1.f());
+                break;
+
+            case 32: // ' '
+                d = Integer.valueOf(kwj1.f());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
+        kwk1.a(1, a);
+        if (b != null)
         {
-            koh1.a(1, a.intValue());
+            kwk1.a(2, b.intValue());
         }
-        super.writeTo(koh1);
+        if (c != null)
+        {
+            kwk1.a(3, c.intValue());
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

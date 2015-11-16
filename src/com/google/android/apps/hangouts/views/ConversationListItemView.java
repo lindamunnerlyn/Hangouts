@@ -13,18 +13,18 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import aqb;
-import ebr;
-import edm;
-import edn;
+import aqs;
+import eep;
+import ego;
+import egp;
 import h;
 import l;
 
 // Referenced classes of package com.google.android.apps.hangouts.views:
 //            ConversationNameView, FadeImageView
 
-public final class ConversationListItemView extends edn
-    implements aqb
+public final class ConversationListItemView extends egp
+    implements aqs
 {
 
     private FadeImageView j;
@@ -111,29 +111,29 @@ _L3:
         int k1;
         if (j1 != 0)
         {
-            k1 = l.ay;
+            k1 = l.at;
         } else
         {
-            k1 = l.ax;
+            k1 = l.as;
         }
         imageview.setContentDescription(resources.getString(k1));
         imageview = p;
         if (j1 != 0)
         {
-            j1 = com.google.android.apps.hangouts.R.drawable.bq;
+            j1 = com.google.android.apps.hangouts.R.drawable.bm;
         } else
         {
-            j1 = com.google.android.apps.hangouts.R.drawable.br;
+            j1 = com.google.android.apps.hangouts.R.drawable.bn;
         }
         imageview.setImageResource(j1);
         continue; /* Loop/switch isn't completed */
 _L4:
-        p.setContentDescription(getResources().getString(l.av));
-        p.setImageResource(com.google.android.apps.hangouts.R.drawable.br);
+        p.setContentDescription(getResources().getString(l.aq));
+        p.setImageResource(com.google.android.apps.hangouts.R.drawable.bn);
         continue; /* Loop/switch isn't completed */
 _L5:
-        p.setContentDescription(getResources().getString(l.aw));
-        p.setImageResource(com.google.android.apps.hangouts.R.drawable.bq);
+        p.setContentDescription(getResources().getString(l.ar));
+        p.setImageResource(com.google.android.apps.hangouts.R.drawable.bm);
         if (true) goto _L2; else goto _L6
 _L6:
     }
@@ -145,7 +145,7 @@ _L6:
 
     public void a(Drawable drawable)
     {
-        if (ebr.d())
+        if (eep.d())
         {
             l.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null);
             return;
@@ -178,7 +178,7 @@ _L6:
 
     public void b(int i1)
     {
-        if (ebr.d())
+        if (eep.d())
         {
             l.setCompoundDrawablesWithIntrinsicBounds(0, 0, i1, 0);
             return;
@@ -358,19 +358,19 @@ _L6:
 
     public void onFinishInflate()
     {
-        j = (FadeImageView)findViewById(h.G);
-        k = (ConversationNameView)findViewById(h.av);
-        l = (TextView)findViewById(h.dO);
-        m = (ImageView)findViewById(h.cS);
-        n = (TextView)findViewById(h.gx);
-        o = findViewById(h.ba);
-        u = (TextView)findViewById(h.gY);
-        p = (ImageView)findViewById(h.bP);
-        p.setOnClickListener(new edm(this));
-        q = findViewById(h.aB);
-        r = findViewById(h.gS);
-        s = findViewById(h.bv);
-        t = (ImageView)findViewById(h.bO);
+        j = (FadeImageView)findViewById(h.F);
+        k = (ConversationNameView)findViewById(h.aq);
+        l = (TextView)findViewById(h.dE);
+        m = (ImageView)findViewById(h.cH);
+        n = (TextView)findViewById(h.gf);
+        o = findViewById(h.aU);
+        u = (TextView)findViewById(h.gE);
+        p = (ImageView)findViewById(h.bI);
+        p.setOnClickListener(new ego(this));
+        q = findViewById(h.aw);
+        r = findViewById(h.gy);
+        s = findViewById(h.bp);
+        t = (ImageView)findViewById(h.bH);
         super.onFinishInflate();
     }
 }

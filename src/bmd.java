@@ -2,36 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
-import java.util.List;
+import android.content.DialogInterface;
+import android.widget.EditText;
+import com.google.android.apps.hangouts.fragments.ConversationParticipantsFragment;
 
-final class bmd extends ArrayAdapter
+final class bmd
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final bmc a;
+    final EditText a;
+    final bmb b;
 
-    public bmd(bmc bmc, Context context, List list)
+    bmd(bmb bmb1, EditText edittext)
     {
-        a = bmc;
-        super(context, g.hb, list);
+        b = bmb1;
+        a = edittext;
+        super();
     }
 
-    public View getView(int i, View view, ViewGroup viewgroup)
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        if (view == null || !(view instanceof TextView))
-        {
-            view = (TextView)LayoutInflater.from(getContext()).inflate(g.hb, viewgroup, false);
-        } else
-        {
-            view = (TextView)view;
-        }
-        view.setText((String)getItem(i));
-        view.setOnClickListener(new bme(this, i));
-        return view;
+        ((ConversationParticipantsFragment)b.getTargetFragment()).a(a.getText().toString().trim());
     }
 }

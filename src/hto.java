@@ -3,16 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hto extends koj
+public final class hto extends kwm
 {
 
-    public huh a;
-    public hss apiHeader;
+    public Long a;
+    public String b;
+    public Long c;
 
     public hto()
     {
-        apiHeader = null;
         a = null;
+        b = null;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,27 +23,32 @@ public final class hto extends koj
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (apiHeader != null)
-        {
-            i = j + koh.d(1, apiHeader);
-        }
-        j = i;
         if (a != null)
         {
-            j = i + koh.d(2, a);
+            i = j + kwk.e(1, a.longValue());
         }
-        return j;
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.b(2, b);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.e(3, c.longValue());
+        }
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -50,35 +57,35 @@ public final class hto extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (apiHeader == null)
-                {
-                    apiHeader = new hss();
-                }
-                kog1.a(apiHeader);
+            case 8: // '\b'
+                a = Long.valueOf(kwj1.e());
                 break;
 
             case 18: // '\022'
-                if (a == null)
-                {
-                    a = new huh();
-                }
-                kog1.a(a);
+                b = kwj1.j();
+                break;
+
+            case 24: // '\030'
+                c = Long.valueOf(kwj1.e());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (apiHeader != null)
-        {
-            koh1.b(1, apiHeader);
-        }
         if (a != null)
         {
-            koh1.b(2, a);
+            kwk1.b(1, a.longValue());
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.b(3, c.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

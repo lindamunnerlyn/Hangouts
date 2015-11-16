@@ -2,36 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.AsyncTask;
-import com.google.android.apps.hangouts.fragments.ConversationInviteListFragment;
+import java.io.Serializable;
 
-public final class bhz extends AsyncTask
+public final class bhz extends bhx
+    implements Serializable
 {
 
-    final int a;
-    final ConversationInviteListFragment b;
+    public final String a;
 
-    public bhz(ConversationInviteListFragment conversationinvitelistfragment, int i)
+    public bhz(String s)
     {
-        b = conversationinvitelistfragment;
-        a = i;
-        super();
+        a = s;
     }
 
-    protected Object doInBackground(Object aobj[])
+    public String toString()
     {
-        (new aoe(ConversationInviteListFragment.i(b), ConversationInviteListFragment.j(b).h())).w();
-        return null;
-    }
-
-    protected void onPostExecute(Object obj)
-    {
-        if (ConversationInviteListFragment.d() == a && b.getActivity() != null)
-        {
-            ConversationInviteListFragment.k(b);
-            b.getLoaderManager().b(1, null, b);
-            ((bia)b.g).notifyDataSetChanged();
-            ConversationInviteListFragment.h(b);
-        }
+        return a;
     }
 }

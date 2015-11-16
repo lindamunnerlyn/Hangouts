@@ -7,7 +7,8 @@ package com.google.android.gms.feedback;
 import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fal;
+import fdj;
+import g;
 import java.io.Closeable;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -19,11 +20,11 @@ public class FileTeleporter
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fal();
-    public final int a;
-    public ParcelFileDescriptor b;
-    public final String c;
-    public final String d;
+    public static final android.os.Parcelable.Creator CREATOR = new fdj();
+    final int a;
+    ParcelFileDescriptor b;
+    final String c;
+    final String d;
     private byte e[];
     private File f;
 
@@ -33,6 +34,12 @@ public class FileTeleporter
         b = parcelfiledescriptor;
         c = s;
         d = s1;
+    }
+
+    public FileTeleporter(byte abyte0[], String s, String s1)
+    {
+        this(1, null, s, s1);
+        e = abyte0;
     }
 
     private FileOutputStream a()
@@ -108,7 +115,12 @@ public class FileTeleporter
         dataoutputstream.writeUTF(d);
         dataoutputstream.write(e);
         a(dataoutputstream);
-        fal.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b, i);
+        g.a(parcel, 3, c);
+        g.a(parcel, 4, d);
+        g.q(parcel, j);
         return;
         parcel;
         throw new IllegalStateException("Could not write into unlinked file", parcel);

@@ -2,31 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-final class ann
-    implements gmz
+public final class ann extends Enum
 {
 
-    final ank a;
+    public static final ann a;
+    public static final ann b;
+    public static final ann c;
+    private static final ann d[];
 
-    ann(ank ank)
+    private ann(String s, int i)
     {
-        a = ank;
-        super();
+        super(s, i);
     }
 
-    public String a()
+    public static ann valueOf(String s)
     {
-        return "is_gplus_user_to_is_google_plus";
+        return (ann)Enum.valueOf(ann, s);
     }
 
-    public void a(Context context, gmw gmw1)
+    public static ann[] values()
     {
-        if (gmw1.a("is_gplus_user"))
-        {
-            gmw1.b("is_google_plus", gmw1.d("is_gplus_user"));
-            gmw1.f("is_gplus_user");
-        }
+        return (ann[])d.clone();
+    }
+
+    static 
+    {
+        a = new ann("NONE", 0);
+        b = new ann("CARRIER", 1);
+        c = new ann("GV", 2);
+        d = (new ann[] {
+            a, b, c
+        });
     }
 }

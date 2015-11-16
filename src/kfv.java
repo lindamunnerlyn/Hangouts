@@ -3,53 +3,65 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kfv extends koj
+public final class kfv extends kwm
 {
 
-    public String a;
-    public Long b;
-    public Long c;
+    private static volatile kfv c[];
+    public Integer a;
+    public String b;
 
     public kfv()
     {
         a = null;
         b = null;
-        c = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static kfv[] a()
+    {
+        if (c == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (c == null)
+                {
+                    c = new kfv[0];
+                }
+            }
+        }
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
     {
         int j = super.computeSerializedSize();
         int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        j = i;
         if (b != null)
         {
-            b.longValue();
-            j = i + (koh.f(2) + 8);
+            i = j + kwk.b(2, b);
         }
-        i = j;
-        if (c != null)
+        j = i;
+        if (a != null)
         {
-            i = j + koh.e(3, c.longValue());
+            j = i + kwk.e(3, a.intValue());
         }
-        return i;
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -58,35 +70,27 @@ public final class kfv extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 17: // '\021'
-                b = Long.valueOf(kog1.g());
+            case 18: // '\022'
+                b = kwj1.j();
                 break;
 
             case 24: // '\030'
-                c = Long.valueOf(kog1.e());
+                a = Integer.valueOf(kwj1.f());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
         if (b != null)
         {
-            koh1.c(2, b.longValue());
+            kwk1.a(2, b);
         }
-        if (c != null)
+        if (a != null)
         {
-            koh1.b(3, c.longValue());
+            kwk1.a(3, a.intValue());
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

@@ -2,26 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentResolver;
 
-public final class gdt
-    implements gds
+public interface gdt
 {
 
-    ContentResolver a;
-
-    public gdt(ContentResolver contentresolver)
-    {
-        a = contentresolver;
-    }
-
-    public int a(String s, int i)
-    {
-        return fwz.a(a, s, i);
-    }
-
-    public String a(String s)
-    {
-        return fwz.a(a, s);
-    }
+    public abstract String a(kws kws);
 }

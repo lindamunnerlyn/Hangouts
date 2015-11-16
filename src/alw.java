@@ -6,13 +6,5 @@
 public interface alw
 {
 
-    public abstract int a(String s, int i);
-
-    public abstract long a(String s, long l);
-
-    public abstract String a(String s, String s1);
-
-    public abstract void a(Runnable runnable);
-
-    public abstract boolean a(String s, boolean flag);
+    public abstract alt a(alx alx);
 }

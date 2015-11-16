@@ -4,10 +4,8 @@
 
 package com.google.android.apps.hangouts.fragments;
 
-import ahk;
+import ahc;
 import ai;
-import amz;
-import anb;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -24,83 +22,85 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
-import ani;
+import anr;
+import ant;
+import aoa;
 import ap;
-import atd;
-import bff;
-import biw;
-import bix;
-import biy;
-import bjy;
-import bli;
-import blj;
-import blk;
-import bll;
+import atu;
+import bfr;
+import bji;
+import bjj;
+import bjk;
+import bkk;
+import blr;
 import bls;
+import blt;
+import blu;
+import bmb;
 import bq;
 import br;
-import cej;
-import ceu;
-import cey;
-import cnd;
+import cfo;
+import cfz;
+import cgd;
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import dbf;
-import dns;
-import drk;
-import ebi;
-import ebr;
-import ebw;
+import cov;
+import dcn;
+import dql;
+import due;
+import eeg;
+import eep;
+import eev;
 import em;
 import g;
-import gbh;
+import gdv;
 import gf;
-import gmo;
 import gq;
+import gqu;
 import h;
-import hgx;
-import hhb;
+import hlp;
+import hlt;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import l;
 
-public class ConversationParticipantsFragment extends bjy
+public class ConversationParticipantsFragment extends bkk
     implements br
 {
 
-    private gmo a;
-    private ceu aA;
+    private gqu a;
+    private cfz aA;
     private String aB;
     private String aC;
     private boolean aD;
-    private final biw aE = new biw(this);
-    private final biy aF = new biy(this);
+    private final bji aE = new bji(this);
+    private final bjk aF = new bjk(this);
     private List aG;
     private int aj;
     private String ak;
     private int al;
-    private final amz am = new amz();
+    private final anr am = new anr();
     private long an;
     private boolean ao;
-    private blk ap;
-    private blk aq;
-    private blk ar;
-    private blk as;
-    private blk at;
-    private ceu au;
+    private blt ap;
+    private blt aq;
+    private blt ar;
+    private blt as;
+    private blt at;
+    private cfz au;
     private boolean av;
     private boolean aw;
     private boolean ax;
     private String ay;
     private String az;
     private String b;
-    private ahk c;
+    private ahc c;
     private String d[];
-    private ani e;
+    private aoa e;
     private ListView f;
-    private bli g;
-    private bll h;
+    private blr g;
+    private blu h;
     private int i;
 
     public ConversationParticipantsFragment()
@@ -112,14 +112,14 @@ public class ConversationParticipantsFragment extends bjy
     {
         if (aB != null)
         {
-            return ebr.c(aB);
+            return eep.c(aB);
         } else
         {
             return b();
         }
     }
 
-    public static hgx a(ConversationParticipantsFragment conversationparticipantsfragment)
+    public static hlp a(ConversationParticipantsFragment conversationparticipantsfragment)
     {
         return conversationparticipantsfragment.binder;
     }
@@ -152,46 +152,80 @@ public class ConversationParticipantsFragment extends bjy
         return uri;
     }
 
-    private static void a(blk blk1, String s1)
+    private static void a(blt blt1, String s1)
     {
-        if (blk1.g != null)
+        if (blt1.g != null)
         {
-            blk1.b = s1;
-            ((TextView)blk1.g.findViewById(h.gm)).setText(s1);
+            blt1.b = s1;
+            ((TextView)blt1.g.findViewById(h.fU)).setText(s1);
         }
     }
 
     public static void a(ConversationParticipantsFragment conversationparticipantsfragment, String s1, Uri uri, Uri uri1, int i1, int j1)
     {
-        conversationparticipantsfragment.startActivityForResult((new Intent("android.intent.action.RINGTONE_PICKER")).putExtra("android.intent.extra.ringtone.TYPE", j1).putExtra("android.intent.extra.ringtone.TITLE", s1).putExtra("android.intent.extra.ringtone.EXISTING_URI", dns.b(uri)).putExtra("android.intent.extra.ringtone.DEFAULT_URI", uri1), i1);
+        Intent intent = (new Intent("android.intent.action.RINGTONE_PICKER")).putExtra("android.intent.extra.ringtone.TYPE", j1).putExtra("android.intent.extra.ringtone.TITLE", s1);
+        if (!eeg.a.equals(uri)) goto _L2; else goto _L1
+_L1:
+        s1 = dql.a(g.hZ);
+_L4:
+        conversationparticipantsfragment.startActivityForResult(intent.putExtra("android.intent.extra.ringtone.EXISTING_URI", s1).putExtra("android.intent.extra.ringtone.DEFAULT_URI", uri1), i1);
+        return;
+_L2:
+        s1 = uri;
+        if (eeg.b.equals(uri))
+        {
+            s1 = dql.a(g.hY);
+        }
+        if (true) goto _L4; else goto _L3
+_L3:
     }
 
     private void a(boolean flag)
     {
-        at = new blk(context.getString(l.eS), ebi.a(context, d()), false, false, 5);
+        at = new blt(context.getString(l.eB), eeg.a(context, d()), false, false, 5);
         at.a(flag);
     }
 
     private Uri b()
     {
-        cel cel = cej.a(aj);
-        return cej.a(context, e.h(), cel);
+        cfq cfq = cfo.a(aj);
+        return cfo.a(context, e.h(), cfq);
     }
 
-    public static void b(ConversationParticipantsFragment conversationparticipantsfragment)
+    public static aoa b(ConversationParticipantsFragment conversationparticipantsfragment)
     {
-        bg bg = conversationparticipantsfragment.getFragmentManager().a();
-        bls bls1 = bls.a(conversationparticipantsfragment.ak);
-        bls1.setTargetFragment(conversationparticipantsfragment, 0);
-        bls1.a(bg, null);
+        return conversationparticipantsfragment.e;
     }
 
     private Uri c()
     {
-        return ebr.c(g.c(e));
+        return eep.c(g.b(e));
     }
 
     public static void c(ConversationParticipantsFragment conversationparticipantsfragment)
+    {
+        bg bg = conversationparticipantsfragment.getFragmentManager().a();
+        String s1 = conversationparticipantsfragment.ak;
+        bmb bmb1 = new bmb();
+        Bundle bundle = new Bundle();
+        bundle.putString("name", s1);
+        bmb1.setArguments(bundle);
+        bmb1.setTargetFragment(conversationparticipantsfragment, 0);
+        bmb1.a(bg, null);
+    }
+
+    private Uri d()
+    {
+        if (aC != null)
+        {
+            return eep.c(aC);
+        } else
+        {
+            return c();
+        }
+    }
+
+    public static void d(ConversationParticipantsFragment conversationparticipantsfragment)
     {
         int i1 = 0;
         String as1[];
@@ -213,7 +247,7 @@ public class ConversationParticipantsFragment extends bjy
 
         if (conversationparticipantsfragment.aq.g != null)
         {
-            ((CheckBox)conversationparticipantsfragment.aq.g.findViewById(h.aa)).setChecked(conversationparticipantsfragment.aq.d);
+            ((CheckBox)conversationparticipantsfragment.aq.g.findViewById(h.Z)).setChecked(conversationparticipantsfragment.aq.d);
             if (conversationparticipantsfragment.as != null)
             {
                 conversationparticipantsfragment.as.a(conversationparticipantsfragment.aq.d);
@@ -225,30 +259,14 @@ public class ConversationParticipantsFragment extends bjy
         }
     }
 
-    private Uri d()
-    {
-        if (aC != null)
-        {
-            return ebr.c(aC);
-        } else
-        {
-            return c();
-        }
-    }
-
-    public static boolean d(ConversationParticipantsFragment conversationparticipantsfragment)
+    public static boolean e(ConversationParticipantsFragment conversationparticipantsfragment)
     {
         return conversationparticipantsfragment.av;
     }
 
-    public static ceu e(ConversationParticipantsFragment conversationparticipantsfragment)
+    public static cfz f(ConversationParticipantsFragment conversationparticipantsfragment)
     {
         return conversationparticipantsfragment.au;
-    }
-
-    public static ani f(ConversationParticipantsFragment conversationparticipantsfragment)
-    {
-        return conversationparticipantsfragment.e;
     }
 
     public static boolean g(ConversationParticipantsFragment conversationparticipantsfragment)
@@ -257,7 +275,7 @@ public class ConversationParticipantsFragment extends bjy
         return false;
     }
 
-    public static blk h(ConversationParticipantsFragment conversationparticipantsfragment)
+    public static blt h(ConversationParticipantsFragment conversationparticipantsfragment)
     {
         return conversationparticipantsfragment.ar;
     }
@@ -268,7 +286,7 @@ public class ConversationParticipantsFragment extends bjy
         String s1;
         if (conversationparticipantsfragment.au != null)
         {
-            s1 = ebr.d(conversationparticipantsfragment.au.e);
+            s1 = eep.d(conversationparticipantsfragment.au.e);
         } else
         {
             s1 = null;
@@ -277,22 +295,22 @@ public class ConversationParticipantsFragment extends bjy
         {
             if (conversationparticipantsfragment.aw)
             {
-                obj = conversationparticipantsfragment.getString(l.iu);
+                obj = conversationparticipantsfragment.getString(l.hO);
             } else
             if (conversationparticipantsfragment.ax)
             {
-                obj = conversationparticipantsfragment.getString(l.iv);
+                obj = conversationparticipantsfragment.getString(l.hP);
             } else
             {
-                obj = conversationparticipantsfragment.getString(l.ix);
+                obj = conversationparticipantsfragment.getString(l.hR);
             }
         }
-        obj = bff.a(conversationparticipantsfragment.getString(l.iy, new Object[] {
+        obj = bfr.a(conversationparticipantsfragment.getString(l.hS, new Object[] {
             s1
-        }), ((String) (obj)), conversationparticipantsfragment.getString(l.iw), conversationparticipantsfragment.getString(l.T));
-        ((bff) (obj)).setTargetFragment(conversationparticipantsfragment, 0);
-        ((bff) (obj)).a(new bix(conversationparticipantsfragment));
-        ((bff) (obj)).a(conversationparticipantsfragment.getFragmentManager(), "block_user");
+        }), ((String) (obj)), conversationparticipantsfragment.getString(l.hQ), conversationparticipantsfragment.getString(l.Q));
+        ((bfr) (obj)).setTargetFragment(conversationparticipantsfragment, 0);
+        ((bfr) (obj)).a(new bjj(conversationparticipantsfragment));
+        ((bfr) (obj)).a(conversationparticipantsfragment.getFragmentManager(), "block_user");
         g.a(conversationparticipantsfragment.e, 1818);
     }
 
@@ -321,7 +339,7 @@ public class ConversationParticipantsFragment extends bjy
         return conversationparticipantsfragment.b;
     }
 
-    public static ahk o(ConversationParticipantsFragment conversationparticipantsfragment)
+    public static ahc o(ConversationParticipantsFragment conversationparticipantsfragment)
     {
         return conversationparticipantsfragment.c;
     }
@@ -341,7 +359,7 @@ public class ConversationParticipantsFragment extends bjy
         return conversationparticipantsfragment.an;
     }
 
-    public static amz s(ConversationParticipantsFragment conversationparticipantsfragment)
+    public static anr s(ConversationParticipantsFragment conversationparticipantsfragment)
     {
         return conversationparticipantsfragment.am;
     }
@@ -368,14 +386,14 @@ _L2:
                 {
                     break;
                 }
-                ceu ceu1 = (ceu)em1.next();
-                if (Boolean.TRUE.equals(ceu1.i))
+                cfz cfz1 = (cfz)em1.next();
+                if (Boolean.TRUE.equals(cfz1.i))
                 {
                     av = true;
                 }
-                if (au == null || TextUtils.isEmpty(ceu1.c))
+                if (au == null || TextUtils.isEmpty(cfz1.c))
                 {
-                    au = ceu1;
+                    au = cfz1;
                     if (au.e == null)
                     {
                         au.e = "";
@@ -388,7 +406,7 @@ _L2:
                     continue;
                 }
                 boolean flag = g.e(aj);
-                if (!flag || !TextUtils.equals(ceu1.b.b, ay))
+                if (!flag || !TextUtils.equals(cfz1.b.b, ay))
                 {
                     i1 = j1;
                     if (flag)
@@ -396,12 +414,12 @@ _L2:
                         continue;
                     }
                     i1 = j1;
-                    if (!TextUtils.equals(ceu1.b.a, az))
+                    if (!TextUtils.equals(cfz1.b.a, az))
                     {
                         continue;
                     }
                 }
-                aA = ceu1;
+                aA = cfz1;
                 i1 = j1;
             } while (true);
             if (i1 > 1)
@@ -429,18 +447,18 @@ _L2:
             em1 = gf.a();
             if (av)
             {
-                ar.a = getActivity().getString(l.aF, new Object[] {
+                ar.a = getActivity().getString(l.aA, new Object[] {
                     em1.a(au.e, gq.e)
                 });
             } else
             {
-                ar.a = getActivity().getString(l.as, new Object[] {
+                ar.a = getActivity().getString(l.an, new Object[] {
                     em1.a(au.e, gq.e)
                 });
             }
             if (ar.g != null)
             {
-                ((TextView)ar.g.findViewById(h.gz)).setText(ar.a);
+                ((TextView)ar.g.findViewById(h.gh)).setText(ar.a);
             }
         }
         h.a(cursor);
@@ -482,18 +500,18 @@ _L3:
             {
                 s1 = new String(s1);
             }
-            ebw.g("Babel", s1);
+            eev.g("Babel", s1);
         } else
         if (!TextUtils.equals(ak, s1))
         {
             ak = s1;
-            RealTimeChatService.e(e, b, ak);
+            RealTimeChatService.c(e, b, ak);
             if (ap.g != null)
             {
-                ap.a = getResources().getString(l.aA);
+                ap.a = getResources().getString(l.av);
                 ap.b = s1;
-                ((TextView)ap.g.findViewById(h.gm)).setText(ap.a);
-                ((TextView)ap.g.findViewById(h.gm)).setText(s1);
+                ((TextView)ap.g.findViewById(h.fU)).setText(ap.a);
+                ((TextView)ap.g.findViewById(h.fU)).setText(s1);
                 return;
             }
         }
@@ -514,7 +532,7 @@ _L1:
     //                   103 152;
            goto _L3 _L4 _L5
 _L3:
-        gbh.a((new StringBuilder(28)).append("Bad request code ").append(i1).toString());
+        gdv.a((new StringBuilder(28)).append("Bad request code ").append(i1).toString());
 _L7:
         if (h != null)
         {
@@ -531,16 +549,16 @@ _L4:
         intent = d[0];
         aC = s1;
         s1 = a(s1, c());
-        RealTimeChatService.g(e, intent, s1);
-        a(at, ebi.a(context, d()));
+        RealTimeChatService.e(e, intent, s1);
+        a(at, eeg.a(context, d()));
         continue; /* Loop/switch isn't completed */
 _L5:
         String s2 = a(intent);
         intent = d[0];
         aB = s2;
         s2 = a(s2, b());
-        RealTimeChatService.f(e, intent, s2);
-        a(as, ebi.a(context, a()));
+        RealTimeChatService.d(e, intent, s2);
+        a(as, eeg.a(context, a()));
         if (true) goto _L7; else goto _L6
 _L6:
     }
@@ -563,7 +581,7 @@ _L6:
         aA = null;
         if (d.length == 0)
         {
-            ebw.g("Babel", "should not have mergedConversationIds.length == 0");
+            eev.g("Babel", "should not have mergedConversationIds.length == 0");
         }
         activity.setTitle(ak);
     }
@@ -571,19 +589,19 @@ _L6:
     protected void onAttachBinder(Bundle bundle)
     {
         super.onAttachBinder(bundle);
-        a = (gmo)binder.a(gmo);
+        a = (gqu)binder.a(gqu);
     }
 
     public void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
         bundle = getActivity().getIntent();
-        e = dbf.e(a.a());
-        aj = bundle.getIntExtra("transport_type", e.M());
+        e = dcn.e(a.a());
+        aj = bundle.getIntExtra("transport_type", e.J());
         getActivity().setResult(0);
         setHasOptionsMenu(true);
         am.d(null, null);
-        c = (ahk)binder.b(ahk);
+        c = (ahc)binder.b(ahc);
     }
 
     public em onCreateLoader(int i1, Bundle bundle)
@@ -597,22 +615,22 @@ _L6:
             am.d(e, b);
             break;
         }
-        return am.a(anb.a);
+        return am.a(ant.a);
     }
 
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuinflater)
     {
-        menuinflater.inflate(g.hu, menu);
+        menuinflater.inflate(g.hm, menu);
     }
 
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
-        viewgroup = layoutinflater.inflate(g.fC, viewgroup, false);
+        viewgroup = layoutinflater.inflate(g.fA, viewgroup, false);
         boolean flag1 = g.e(aj);
         bundle = new ArrayList();
         if (!flag1 && i == 2)
         {
-            ap = new blk(context.getString(l.aA), ak, false, false, 1);
+            ap = new blt(context.getString(l.av), ak, false, false, 1);
             bundle.add(ap);
         }
         boolean flag;
@@ -623,9 +641,9 @@ _L6:
         {
             flag = false;
         }
-        aq = new blk(context.getString(l.aB), null, true, flag, 2);
+        aq = new blt(context.getString(l.aw), null, true, flag, 2);
         bundle.add(aq);
-        as = new blk(context.getString(l.eV), ebi.a(context, a()), false, false, 4);
+        as = new blt(context.getString(l.eE), eeg.a(context, a()), false, false, 4);
         as.a(flag);
         bundle.add(as);
         if (g.f(aj))
@@ -635,7 +653,7 @@ _L6:
         }
         if (i == 1 && !ao)
         {
-            ar = new blk(null, null, false, false, 3);
+            ar = new blt(null, null, false, false, 3);
             bundle.add(ar);
         }
         if (c != null)
@@ -643,15 +661,15 @@ _L6:
             String s1 = c.a();
             if (s1 != null)
             {
-                bundle.add(new blk(s1, null, false, false, 6));
+                bundle.add(new blt(s1, null, false, false, 6));
             }
         }
         aG = bundle;
-        bundle = new blj(context, aG, aF);
-        h = new bll(context, e, au, flag1, aE);
-        g = new bli(context, bundle, h);
-        f = (ListView)viewgroup.findViewById(h.dv);
-        layoutinflater = layoutinflater.inflate(g.gF, f, false);
+        bundle = new bls(context, aG, aF);
+        h = new blu(context, e, au, flag1, aE);
+        g = new blr(context, bundle, h);
+        f = (ListView)viewgroup.findViewById(h.dj);
+        layoutinflater = layoutinflater.inflate(g.gA, f, false);
         f.addHeaderView(layoutinflater);
         f.setAdapter(g);
         getLoaderManager().a(1025, new Bundle(), this).s();
@@ -690,7 +708,7 @@ _L6:
 
     public boolean onOptionsItemSelected(MenuItem menuitem)
     {
-        if (menuitem.getItemId() == h.fb || menuitem.getItemId() == h.fe)
+        if (menuitem.getItemId() == h.eJ || menuitem.getItemId() == h.eM)
         {
             if (aD)
             {
@@ -701,11 +719,11 @@ _L6:
                 return false;
             }
             Object obj;
-            atd atd1;
+            atu atu1;
             ai ai1;
             if (i == 2)
             {
-                obj = cnd.d;
+                obj = cov.d;
                 menuitem = am.e();
             } else
             {
@@ -713,19 +731,19 @@ _L6:
                 {
                     return false;
                 }
-                obj = cnd.c;
+                obj = cov.c;
                 menuitem = new ArrayList();
                 menuitem.add(aA);
             }
             ai1 = getActivity();
             if (g.e(aj))
             {
-                atd1 = atd.b;
+                atu1 = atu.b;
             } else
             {
-                atd1 = atd.a;
+                atu1 = atu.a;
             }
-            menuitem = g.a(e, b, menuitem, ((cnd) (obj)), atd1);
+            menuitem = g.a(e, b, menuitem, ((cov) (obj)), atu1);
             obj = (Intent)ai1.getIntent().getParcelableExtra("share_intent");
             if (obj != null)
             {
@@ -736,7 +754,7 @@ _L6:
             aD = true;
             return true;
         }
-        if (menuitem.getItemId() == h.fa)
+        if (menuitem.getItemId() == h.eI)
         {
             if (am.d())
             {
@@ -761,18 +779,18 @@ _L6:
                 {
                     menuitem = new String(menuitem);
                 }
-                ebw.g("Babel", menuitem);
+                eev.g("Babel", menuitem);
                 return false;
             }
             getActivity();
             if (g.e(aj))
             {
-                menuitem = atd.b;
+                menuitem = atu.b;
             } else
             {
-                menuitem = atd.a;
+                menuitem = atu.a;
             }
-            startActivity(g.a(e, b, am.e(), cnd.b, menuitem));
+            startActivity(g.a(e, b, am.e(), cov.b, menuitem));
             getActivity().finish();
             return true;
         } else
@@ -785,9 +803,9 @@ _L6:
     {
         boolean flag = true;
         boolean flag1 = true;
-        MenuItem menuitem = menu.findItem(h.fb);
-        MenuItem menuitem1 = menu.findItem(h.fe);
-        menu = menu.findItem(h.fa);
+        MenuItem menuitem = menu.findItem(h.eJ);
+        MenuItem menuitem1 = menu.findItem(h.eM);
+        menu = menu.findItem(h.eI);
         boolean flag2 = g.e(aj);
         if (i == 2)
         {
@@ -811,7 +829,7 @@ _L6:
             return;
         }
         menuitem.setVisible(false);
-        if (e.n() || flag2 && !drk.a(e.h(), aj) || ao)
+        if (e.l() || flag2 && !due.a(e.h(), aj) || ao)
         {
             flag = false;
         }

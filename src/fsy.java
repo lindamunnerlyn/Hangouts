@@ -2,33 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.common.data.DataHolder;
 
-public final class fsy extends emm
-    implements ekg
+final class fsy extends ThreadLocal
 {
 
-    private final Status b;
-
-    public fsy(DataHolder dataholder)
+    fsy()
     {
-        super(dataholder);
-        b = new Status(dataholder.e());
     }
 
-    public Status B_()
+    protected Object initialValue()
     {
-        return b;
-    }
-
-    protected Object a(int i, int j)
-    {
-        return new fwu(a, i, j);
-    }
-
-    protected String e()
-    {
-        return "path";
+        return new String[3];
     }
 }

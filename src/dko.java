@@ -2,17 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
 
-public interface dko
-    extends Serializable
+public class dko
 {
 
-    public abstract void a(int i);
-
-    public abstract void b(String s);
-
-    public abstract int l();
-
-    public abstract ccg n();
+    public dko()
+    {
+    }
 }

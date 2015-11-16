@@ -2,51 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Locale;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
-final class lfq
-    implements lge, lgi
+public final class lfq
+    implements joj
 {
 
-    private final char a;
+    private final Map a;
 
-    lfq(char c)
+    lfq(LinkedHashMap linkedhashmap)
     {
-        a = c;
+        a = Collections.unmodifiableMap(linkedhashmap);
     }
 
-    public int a()
+    public static lfr b()
     {
-        return 1;
+        return new lfr(1);
     }
 
-    public int a(lgf lgf, String s, int i)
+    public Object a()
     {
-        if (i >= s.length())
-        {
-            return ~i;
-        }
-        char c1 = s.charAt(i);
-        char c = a;
-        if (c1 != c)
-        {
-            c1 = Character.toUpperCase(c1);
-            c = Character.toUpperCase(c);
-            if (c1 != c && Character.toLowerCase(c1) != Character.toLowerCase(c))
-            {
-                return ~i;
-            }
-        }
-        return i + 1;
-    }
-
-    public void a(StringBuffer stringbuffer, long l, lcw lcw, int i, ldd ldd, Locale locale)
-    {
-        stringbuffer.append(a);
-    }
-
-    public int b()
-    {
-        return 1;
+        return a;
     }
 }

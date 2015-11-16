@@ -2,23 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import com.google.android.apps.hangouts.views.AvatarView;
 
-final class dqk
-    implements dqn
+public final class dqk extends hjr
 {
 
-    final SQLiteDatabase a;
+    private String a;
+    private aoa c;
 
-    dqk(SQLiteDatabase sqlitedatabase)
+    public dqk(Context context)
     {
-        a = sqlitedatabase;
-        super();
+        super(context, null);
+        e(g.gO);
     }
 
-    public void a(ContentValues contentvalues)
+    public void a(View view)
     {
-        a.insert("apn", null, contentvalues);
+        super.a(view);
+        view = (AvatarView)view.findViewById(h.D);
+        if (a != null)
+        {
+            view.a(a, c.c(), c);
+            return;
+        } else
+        {
+            view.a(null, null, null);
+            return;
+        }
+    }
+
+    public void a(String s, aoa aoa1)
+    {
+        if (!TextUtils.equals(s, a))
+        {
+            a = s;
+            c = aoa1;
+            z();
+        }
     }
 }

@@ -6,7 +6,7 @@
 public interface gds
 {
 
-    public abstract int a(String s, int i);
+    public abstract void a(kws kws);
 
-    public abstract String a(String s);
+    public abstract void b(kws kws);
 }

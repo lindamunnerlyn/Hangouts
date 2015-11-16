@@ -2,16 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.ContentValues;
+import android.database.Cursor;
 
-public final class dbd
+final class dbd extends dbc
 {
 
-    public final String a;
-    public final long b;
-
-    public dbd(String s, long l)
+    dbd(String s)
     {
-        a = s;
-        b = l;
+        super(s, 0);
+    }
+
+    public Object a(Cursor cursor, int i)
+    {
+        if (cursor.getInt(i) > 0)
+        {
+            return Boolean.TRUE;
+        } else
+        {
+            return Boolean.FALSE;
+        }
+    }
+
+    public void a(String s, Object obj, ContentValues contentvalues)
+    {
+        contentvalues.put(s, (Boolean)obj);
     }
 }

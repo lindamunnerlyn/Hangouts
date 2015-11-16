@@ -2,39 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Collection;
 
-final class jny extends jnk
+public final class jny
 {
 
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry a;
-    com.google.common.collect.MapMakerInternalMap.ReferenceEntry b;
-    final jnx c;
+    private static final jno a = new jno(",");
 
-    jny(jnx jnx)
+    public static jnx a(Object obj)
     {
-        c = jnx;
-        super();
-        a = this;
-        b = this;
+        if (obj == null)
+        {
+            return job.c.a();
+        } else
+        {
+            return new joa(obj);
+        }
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getNextEvictable()
+    public static jnx a(Collection collection)
     {
-        return a;
+        return new jnz(collection);
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry getPreviousEvictable()
-    {
-        return b;
-    }
-
-    public void setNextEvictable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
-    {
-        a = referenceentry;
-    }
-
-    public void setPreviousEvictable(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
-    {
-        b = referenceentry;
-    }
 }

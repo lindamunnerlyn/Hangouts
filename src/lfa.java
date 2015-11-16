@@ -3,107 +3,82 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class lfa extends ley
+public final class lfa extends kwm
 {
 
-    final int a = 100;
-    final ldh c;
-    private final int d;
-    private final int e;
+    public ley a;
+    public leu b;
 
-    public lfa(lcy lcy1, lcz lcz1)
+    public lfa()
     {
-        super(lcy1, lcz1);
-        ldh ldh = lcy1.d();
-        int j;
-        int k;
-        if (ldh == null)
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
+    }
+
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            c = null;
-        } else
-        {
-            c = new lfj(ldh, lcz1.y(), 100);
+            i = j + kwk.d(2, a);
         }
-        j = lcy1.g();
-        if (j >= 0)
+        j = i;
+        if (b != null)
         {
-            j /= 100;
-        } else
-        {
-            j = (j + 1) / 100 - 1;
+            j = i + kwk.d(3, b);
         }
-        k = lcy1.h();
-        if (k >= 0)
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
         {
-            k /= 100;
-        } else
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 18: // '\022'
+                if (a == null)
+                {
+                    a = new ley();
+                }
+                kwj1.a(a);
+                break;
+
+            case 26: // '\032'
+                if (b == null)
+                {
+                    b = new leu();
+                }
+                kwj1.a(b);
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
         {
-            k = (k + 1) / 100 - 1;
+            kwk1.b(2, a);
         }
-        d = j;
-        e = k;
-    }
-
-    public int a(long l)
-    {
-        int j = super.b.a(l);
-        if (j >= 0)
+        if (b != null)
         {
-            return j / a;
-        } else
-        {
-            return (j + 1) / a - 1;
+            kwk1.b(3, b);
         }
-    }
-
-    public long a(long l, int j)
-    {
-        return super.b.a(l, a * j);
-    }
-
-    public long a(long l, long l1)
-    {
-        return super.b.a(l, (long)a * l1);
-    }
-
-    public long b(long l, int j)
-    {
-        h.a(this, j, d, e);
-        int k = super.b.a(l);
-        if (k >= 0)
-        {
-            k %= a;
-        } else
-        {
-            int i1 = a;
-            k = (k + 1) % a + (i1 - 1);
-        }
-        return super.b.b(l, k + a * j);
-    }
-
-    public long d(long l)
-    {
-        lcy lcy1 = super.b;
-        return lcy1.d(lcy1.b(l, a(l) * a));
-    }
-
-    public ldh d()
-    {
-        return c;
-    }
-
-    public int g()
-    {
-        return d;
-    }
-
-    public int h()
-    {
-        return e;
-    }
-
-    public long i(long l)
-    {
-        return b(l, a(super.b.i(l)));
+        super.writeTo(kwk1);
     }
 }

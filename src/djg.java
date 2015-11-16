@@ -2,69 +2,109 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.SystemClock;
+import java.util.List;
 
-public final class djg extends dje
+public final class djg extends djp
 {
 
-    private final int l;
-    private final int m;
-    private final int n;
-    private final long o;
+    private long b;
 
-    public djg(czg czg1)
+    public djg(djh djh1)
     {
-        super(czg1.c, czg1.d, czg1.e, czg1.n, czg1.m, czg1.l, czg1.f, czg1.h, czg1.i, dqb.e, czg1.u);
-        l = czg1.a;
-        m = czg1.b;
-        n = czg1.w;
-        o = g.a(Long.valueOf(czg1.n), 0L);
+        super(djh1);
+        b = 0L;
     }
 
-    public djg(String s, cey cey, long l1, long l2, String s1, 
-            String s2, int i, dqb dqb1)
+    protected cvt a(aoa aoa1, int i, String s)
     {
-        super(s, cey, l1, l2, s1, s2, -1, 1, 0L, dqb1, null);
-        l = -1;
-        m = i;
-        n = -1;
-        o = g.a(Long.valueOf(l2), 0L);
-    }
-
-    private void e(aoe aoe1)
-    {
-        dqc dqc1;
-        if (m == 1)
+        jsh jsh = ((djh)a).e();
+        if (jsh == null || jsh.size() == 0 || !atp.b.equals(((ato)jsh.get(0)).c))
         {
-            dqc1 = dqc.j;
+            return new cvr(g.nU, aoa1, dmi.a, i, (djh)a, s);
         } else
         {
-            dqc1 = dqc.k;
+            return new cvr(g.nU, aoa1, dmi.b, i, (djh)a, s);
         }
-        aoe1.a(f, a, k, g, dqc1, h, o, c, null, null);
     }
 
-    public void c(aoe aoe1)
+    public String a()
     {
-        aoe1.a();
-        e(aoe1);
-        a(aoe1);
-        if (o > 0L)
+        return "event_queue";
+    }
+
+    public boolean a(cdl cdl)
+    {
+        return false;
+    }
+
+    public boolean a(cdn cdn, dcx dcx1)
+    {
+        if (dcx1.c() != 101)
         {
-            aoe1.a(m, n, h, f);
+            return super.a(cdn, dcx1);
         }
-        aoe1.b();
-        aoe1.c();
-        any.d(aoe1, f);
-        return;
-        Exception exception;
-        exception;
-        aoe1.c();
-        throw exception;
+        return g.a(Long.valueOf(((amo)hlp.a(g.nU, amo)).a("babel_pending_chat_message_failure_duration", 0L)), 0L) > 0L;
     }
 
-    public void d(aoe aoe1)
+    public boolean a(String s)
     {
-        e(aoe1);
-        b(aoe1);
+        return s.startsWith(((djh)a).a());
+    }
+
+    public long b()
+    {
+        long l;
+        if (b != 0L)
+        {
+            l = b;
+        } else
+        {
+            long l1 = g.a(g.nU, "babel_pending_chat_message_failure_duration", 0L);
+            l = l1;
+            if (l1 == 0L)
+            {
+                return g.a(g.nU, "babel_pending_message_failure_duration", 0x124f80L);
+            }
+        }
+        return l;
+    }
+
+    public void b(int i, dcx dcx1)
+    {
+        aoa aoa1 = dcn.e(i);
+        if (dcx1 != null && dcx1.c() != 0)
+        {
+            g.a(aoa1, 1523);
+            h.a(aoa1.h(), SystemClock.elapsedRealtime(), 5, (new cab()).a(dcx1.c()).b(((djh)a).a()).a(((djh)a).b()));
+        }
+    }
+
+    public boolean c()
+    {
+        return true;
+    }
+
+    public boolean d()
+    {
+        return true;
+    }
+
+    public String e()
+    {
+        Object obj = ((djh)a).d();
+        if (((List) (obj)).size() != 1)
+        {
+            obj = null;
+        } else
+        {
+            String s = ((dmt)((List) (obj)).get(0)).b;
+            obj = s;
+            if (!g.w(s))
+            {
+                return null;
+            }
+        }
+        return ((String) (obj));
     }
 }

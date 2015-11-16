@@ -2,16 +2,15 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.lang.reflect.Method;
 
-final class dlv
+public final class dlv
 {
 
-    int a;
-    int b;
+    public Class a;
+    public Method b;
 
-    public dlv(int i, int j)
+    public dlv()
     {
-        a = i;
-        b = j;
     }
 }

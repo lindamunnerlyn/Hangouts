@@ -3,63 +3,25 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kas extends koj
+public final class kas extends jzu
 {
 
-    public kar a;
-
-    public kas()
+    private kas()
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public static kas j()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        return i;
+        return new kas();
     }
 
-    public kop mergeFrom(kog kog1)
+    public boolean a(Object obj)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new kar();
-                }
-                kog1.a(a);
-                break;
-            }
-        } while (true);
+        return super.a(obj);
     }
 
-    public void writeTo(koh koh1)
+    public boolean a(Throwable throwable)
     {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        super.writeTo(koh1);
+        return super.a(throwable);
     }
 }

@@ -2,90 +2,57 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.io.Serializable;
+import java.util.Arrays;
 
-public final class jrj extends koj
+final class jrj extends jxb
+    implements Serializable
 {
 
-    public String a;
-    public Integer b;
-    public String c;
+    private static final long serialVersionUID = 0L;
+    final jnn a;
+    final jxb b;
 
-    public jrj()
+    jrj(jnn jnn1, jxb jxb1)
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = (jnn)n.b(jnn1);
+        b = (jxb)n.b(jxb1);
     }
 
-    protected int computeSerializedSize()
+    public int compare(Object obj, Object obj1)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.intValue());
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.b(3, c);
-        }
-        return i;
+        return b.compare(a.a(obj), a.a(obj1));
     }
 
-    public kop mergeFrom(kog kog1)
+    public boolean equals(Object obj)
     {
-        do
+        if (obj != this)
         {
-            int i = kog1.a();
-            switch (i)
+            if (obj instanceof jrj)
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
+                if (!a.equals(((jrj) (obj = (jrj)obj)).a) || !b.equals(((jrj) (obj)).b))
                 {
-                    continue;
+                    return false;
                 }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
-                break;
-
-            case 26: // '\032'
-                c = kog1.j();
-                break;
+            } else
+            {
+                return false;
             }
-        } while (true);
+        }
+        return true;
     }
 
-    public void writeTo(koh koh1)
+    public int hashCode()
     {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b.intValue());
-        }
-        if (c != null)
-        {
-            koh1.a(3, c);
-        }
-        super.writeTo(koh1);
+        return Arrays.hashCode(new Object[] {
+            a, b
+        });
+    }
+
+    public String toString()
+    {
+        String s = String.valueOf(b);
+        String s1 = String.valueOf(a);
+        return (new StringBuilder(String.valueOf(s).length() + 13 + String.valueOf(s1).length())).append(s).append(".onResultOf(").append(s1).append(")").toString();
     }
 }

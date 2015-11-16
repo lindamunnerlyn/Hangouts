@@ -6,17 +6,18 @@ package com.google.android.gms.wearable.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fuj;
+import fwp;
+import g;
 import java.util.List;
 
 public class GetAllCapabilitiesResponse
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fuj();
+    public static final android.os.Parcelable.Creator CREATOR = new fwp();
     public final int a;
     public final int b;
-    public final List c;
+    final List c;
 
     public GetAllCapabilitiesResponse(int i, int j, List list)
     {
@@ -32,7 +33,11 @@ public class GetAllCapabilitiesResponse
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fuj.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, b);
+        g.c(parcel, 3, c);
+        g.q(parcel, i);
     }
 
 }

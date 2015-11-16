@@ -3,60 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jzt extends koj
+final class jzt
+    implements Runnable
 {
 
-    public Boolean a;
+    final kak a;
+    final jzm b;
 
-    public jzt()
+    public void run()
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        if (jzm.a(b) != this)
         {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
+            return;
+        } else
+        {
+            jzm.a(b, a, this);
+            return;
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
-        }
-        super.writeTo(koh1);
     }
 }

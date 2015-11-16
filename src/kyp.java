@@ -3,40 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kyp extends koj
+public final class kyp extends kwm
 {
 
-    private static volatile kyp d[];
-    public String a;
-    public kyo b;
-    public String c;
+    public kxu a;
+    public kxw b[];
+    public kxw c;
+    public int d;
 
     public kyp()
     {
         a = null;
-        b = null;
+        b = kxw.a();
         c = null;
+        d = 0x80000000;
         unknownFieldData = null;
         cachedSize = -1;
-    }
-
-    public static kyp[] a()
-    {
-        if (d == null)
-        {
-            synchronized (kon.a)
-            {
-                if (d == null)
-                {
-                    d = new kyp[0];
-                }
-            }
-        }
-        return d;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -45,71 +27,143 @@ public final class kyp extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.d(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.d(2, b);
+            j = i;
+            if (b.length > 0)
+            {
+                for (j = 0; j < b.length;)
+                {
+                    kxw kxw1 = b[j];
+                    int k = i;
+                    if (kxw1 != null)
+                    {
+                        k = i + kwk.d(2, kxw1);
+                    }
+                    j++;
+                    i = k;
+                }
+
+                j = i;
+            }
         }
         i = j;
         if (c != null)
         {
-            i = j + koh.b(3, c);
+            i = j + kwk.d(3, c);
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
+        j = i;
+        if (d != 0x80000000)
         {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new kyo();
-                }
-                kog1.a(b);
-                break;
-
-            case 26: // '\032'
-                c = kog1.j();
-                break;
-            }
-        } while (true);
+            j = i + kwk.e(4, d);
+        }
+        return j;
     }
 
-    public void writeTo(koh koh1)
+    public kws mergeFrom(kwj kwj1)
+    {
+_L7:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 5: default 56
+    //                   0: 65
+    //                   10: 67
+    //                   18: 96
+    //                   26: 220
+    //                   32: 249;
+           goto _L1 _L2 _L3 _L4 _L5 _L6
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L7; else goto _L2
+_L2:
+        return this;
+_L3:
+        if (a == null)
+        {
+            a = new kxu();
+        }
+        kwj1.a(a);
+          goto _L7
+_L4:
+        int l = kwx.a(kwj1, 18);
+        kxw akxw[];
+        int j;
+        if (b == null)
+        {
+            j = 0;
+        } else
+        {
+            j = b.length;
+        }
+        akxw = new kxw[l + j];
+        l = j;
+        if (j != 0)
+        {
+            System.arraycopy(b, 0, akxw, 0, j);
+            l = j;
+        }
+        for (; l < akxw.length - 1; l++)
+        {
+            akxw[l] = new kxw();
+            kwj1.a(akxw[l]);
+            kwj1.a();
+        }
+
+        akxw[l] = new kxw();
+        kwj1.a(akxw[l]);
+        b = akxw;
+          goto _L7
+_L5:
+        if (c == null)
+        {
+            c = new kxw();
+        }
+        kwj1.a(c);
+          goto _L7
+_L6:
+        int k = kwj1.f();
+        switch (k)
+        {
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+        case 5: // '\005'
+            d = k;
+            break;
+        }
+        if (true) goto _L7; else goto _L8
+_L8:
+    }
+
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.b(1, a);
         }
-        if (b != null)
+        if (b != null && b.length > 0)
         {
-            koh1.b(2, b);
+            for (int i = 0; i < b.length; i++)
+            {
+                kxw kxw1 = b[i];
+                if (kxw1 != null)
+                {
+                    kwk1.b(2, kxw1);
+                }
+            }
+
         }
         if (c != null)
         {
-            koh1.a(3, c);
+            kwk1.b(3, c);
         }
-        super.writeTo(koh1);
+        if (d != 0x80000000)
+        {
+            kwk1.a(4, d);
+        }
+        super.writeTo(kwk1);
     }
 }

@@ -4,33 +4,38 @@
 
 import android.view.ActionMode;
 
-final class qz extends qx
+class qz extends qw
 {
 
-    final qy c;
+    final qy b;
 
     qz(qy qy1, android.view.Window.Callback callback)
     {
-        c = qy1;
+        b = qy1;
         super(qy1, callback);
+    }
+
+    final ActionMode a(android.view.ActionMode.Callback callback)
+    {
+        callback = new sl(b.a, callback);
+        vt vt = b.b(callback);
+        if (vt != null)
+        {
+            return callback.b(vt);
+        } else
+        {
+            return null;
+        }
     }
 
     public ActionMode onWindowStartingActionMode(android.view.ActionMode.Callback callback)
     {
-        return null;
-    }
-
-    public ActionMode onWindowStartingActionMode(android.view.ActionMode.Callback callback, int i)
-    {
-        if (!c.l()) goto _L2; else goto _L1
-_L1:
-        i;
-        JVM INSTR tableswitch 0 0: default 28
-    //                   0 35;
-           goto _L2 _L3
-_L2:
-        return super.onWindowStartingActionMode(callback, i);
-_L3:
-        return a(callback);
+        if (b.l())
+        {
+            return a(callback);
+        } else
+        {
+            return super.onWindowStartingActionMode(callback);
+        }
     }
 }

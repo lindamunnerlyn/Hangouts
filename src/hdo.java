@@ -2,17 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
 
-public interface hdo
+final class hdo
+    implements gtd
 {
 
-    public abstract void a(String s, hdq hdq, int i, String s1);
+    final hdn a;
 
-    public abstract boolean a(String s);
+    hdo(hdn hdn1)
+    {
+        a = hdn1;
+        super();
+    }
 
-    public abstract boolean b(String s);
-
-    public abstract void c(String s);
-
-    public abstract void d(String s);
+    public void a(int i, Intent intent)
+    {
+        if (intent != null)
+        {
+            i = intent.getIntExtra("account_id", -1);
+        } else
+        {
+            i = -1;
+        }
+        if (i != -1 && hdn.a(a) != null)
+        {
+            hdn.a(a).k();
+        }
+    }
 }

@@ -2,34 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.net.HttpURLConnection;
-import java.net.Proxy;
-import java.net.URL;
+import android.os.Bundle;
+import java.util.Iterator;
+import java.util.List;
 
-public final class hmb
+public class hmb extends hpb
+    implements hls
 {
 
-    final Proxy a;
+    private hok j;
+    public final hlp q = new hlp();
 
     public hmb()
     {
-        this((byte)0);
     }
 
-    private hmb(byte byte0)
+    public void a(Bundle bundle)
     {
-        a = null;
+        q.a(new hmf(this, r));
     }
 
-    public HttpURLConnection a(URL url)
+    public hlp getBinder()
     {
-        if (a == null)
-        {
-            url = url.openConnection();
-        } else
-        {
-            url = url.openConnection(a);
-        }
-        return (HttpURLConnection)url;
+        return q;
+    }
+
+    public void onCreate(Bundle bundle)
+    {
+        hlp hlp1 = hlp.b(getApplicationContext());
+        q.a(this);
+        q.a(hlp1);
+        a(bundle);
+        for (Iterator iterator = q.c(hmj).iterator(); iterator.hasNext(); ((hmj)iterator.next()).a(this, r)) { }
+        q.a();
+        j = r.a(new hmc(this, bundle));
+        super.onCreate(bundle);
+    }
+
+    public void onDestroy()
+    {
+        r.b(j);
+        super.onDestroy();
     }
 }

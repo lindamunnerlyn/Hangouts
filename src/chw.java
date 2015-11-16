@@ -3,25 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.view.View;
-import com.google.android.apps.hangouts.peoplelistv2.impl.ScrollViewCustom;
 
-public final class chw
-    implements Runnable
+final class chw extends zs
 {
 
-    final ScrollViewCustom a;
+    final chn l;
 
-    public chw(ScrollViewCustom scrollviewcustom)
+    chw(chn chn, View view)
     {
-        a = scrollviewcustom;
-        super();
-    }
-
-    public void run()
-    {
-        int i = a.getChildAt(0).getMeasuredHeight();
-        int j = ScrollViewCustom.b(a);
-        a.smoothScrollTo(0, Math.max(0, i - j));
-        a.getChildAt(a.getChildCount() - 1).requestFocus();
+        l = chn;
+        super(view);
     }
 }

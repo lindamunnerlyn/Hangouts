@@ -2,25 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.libraries.quantum.snackbar.Snackbar;
 
-final class dvo
-    implements Runnable
+public interface dvo
 {
 
-    final dvn a;
+    public abstract void a();
 
-    dvo(dvn dvn1)
-    {
-        a = dvn1;
-        super();
-    }
-
-    public void run()
-    {
-        a.a.a(new int[] {
-            204
-        });
-        ebw.e("Babel_telephony", "TeleProxyNumberHelper, request timed out.");
-        a.a(true);
-    }
+    public abstract void a(Snackbar snackbar);
 }

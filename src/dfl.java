@@ -2,21 +2,55 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.List;
 
 public final class dfl
-    implements Runnable
+    implements dmf
 {
 
-    final ani a;
+    private static final long serialVersionUID = 1L;
+    private final jsh a;
+    private int b;
+    private final String c = eev.a(new Throwable());
+    private String d;
 
-    public dfl(ani ani1)
+    public dfl(List list)
     {
-        a = ani1;
-        super();
+        b = 0;
+        a = jsh.a(list);
     }
 
-    public void run()
+    public jsh a()
     {
-        cbq.a(ctr.f).b(a.a());
+        return a;
+    }
+
+    public void a(int i)
+    {
+        b = i;
+    }
+
+    public void b(String s)
+    {
+        d = s;
+    }
+
+    public int k()
+    {
+        return b;
+    }
+
+    public cdl m()
+    {
+        return new dfk(this);
+    }
+
+    public String toString()
+    {
+        String s = String.valueOf("mark event observed request: len(observed events): ");
+        int i = a.size();
+        String s1 = c;
+        String s2 = d;
+        return (new StringBuilder(String.valueOf(s).length() + 43 + String.valueOf(s1).length() + String.valueOf(s2).length())).append(s).append(i).append("\nCreation stack:\n").append(s1).append("\nOrigin stack:\n").append(s2).toString();
     }
 }

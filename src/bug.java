@@ -3,20 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class bug
-    implements bsh
+public interface bug
 {
 
-    final buf a;
-
-    bug(buf buf)
-    {
-        a = buf;
-        super();
-    }
-
-    public void a(ps ps, hjm hjm)
-    {
-        new buu(ps, hjm);
-    }
+    public abstract void a(bui bui, boolean flag);
 }

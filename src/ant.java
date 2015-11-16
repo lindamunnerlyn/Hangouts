@@ -3,10 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class ant
+public final class ant extends Enum
 {
 
-    ant()
+    public static final int a;
+    public static final int b;
+    private static final int c[];
+
+    static 
     {
+        a = 1;
+        b = 2;
+        c = (new int[] {
+            a, b
+        });
     }
 }

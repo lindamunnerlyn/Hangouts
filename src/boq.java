@@ -3,58 +3,79 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class boq
+public class boq extends gex
 {
 
-    static final int a[];
-    public static final int b[];
-
-    static 
+    public boq()
     {
-        b = new int[giw.values().length];
-        try
-        {
-            b[giw.f.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror7) { }
-        try
-        {
-            b[giw.e.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror6) { }
-        try
-        {
-            b[giw.d.ordinal()] = 3;
-        }
-        catch (NoSuchFieldError nosuchfielderror5) { }
-        try
-        {
-            b[giw.a.ordinal()] = 4;
-        }
-        catch (NoSuchFieldError nosuchfielderror4) { }
-        try
-        {
-            b[giw.b.ordinal()] = 5;
-        }
-        catch (NoSuchFieldError nosuchfielderror3) { }
-        try
-        {
-            b[giw.c.ordinal()] = 6;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        a = new int[gjt.values().length];
-        try
-        {
-            a[gjt.b.ordinal()] = 1;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[gjt.c.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
-        {
-            return;
-        }
+    }
+
+    public void a()
+    {
+    }
+
+    public void a(bpm bpm)
+    {
+    }
+
+    public void a(bpu bpu)
+    {
+    }
+
+    public void a(gkq gkq)
+    {
+    }
+
+    public void a(gku gku)
+    {
+    }
+
+    public void a(boolean flag)
+    {
+    }
+
+    public void b()
+    {
+    }
+
+    public void b(int j)
+    {
+    }
+
+    public void c()
+    {
+    }
+
+    public boolean c(int j)
+    {
+        return false;
+    }
+
+    public void d()
+    {
+    }
+
+    public void d(String s)
+    {
+    }
+
+    public void e()
+    {
+    }
+
+    public void f()
+    {
+    }
+
+    public void g()
+    {
+    }
+
+    public void h()
+    {
+    }
+
+    public void i()
+    {
     }
 }

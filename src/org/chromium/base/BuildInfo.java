@@ -8,9 +8,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
-
-// Referenced classes of package org.chromium.base:
-//            PackageUtils
+import g;
 
 public class BuildInfo
 {
@@ -143,7 +141,7 @@ public class BuildInfo
 _L1:
         return false;
 _L2:
-        if (((PackageInfo) (context = PackageUtils.a(context))).splitNames != null)
+        if (((PackageInfo) (context = g.O(context))).splitNames != null)
         {
             int i = 0;
             while (i < ((PackageInfo) (context)).splitNames.length) 

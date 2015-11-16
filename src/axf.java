@@ -2,33 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.Editable;
-import android.text.TextWatcher;
 
 final class axf
-    implements TextWatcher
+    implements Runnable
 {
 
-    final ave a;
+    final ayv a;
+    final avv b;
 
-    axf(ave ave1)
+    axf(avv avv1, ayv ayv1)
     {
-        a = ave1;
+        b = avv1;
+        a = ayv1;
         super();
     }
 
-    public void afterTextChanged(Editable editable)
+    public void run()
     {
-    }
-
-    public void beforeTextChanged(CharSequence charsequence, int i, int j, int k)
-    {
-    }
-
-    public void onTextChanged(CharSequence charsequence, int i, int j, int k)
-    {
-        ave.ba(a).a(charsequence.toString());
-        ave.aR(a);
-        ave.bz(a).a();
+        a.a(avv.aY(b));
     }
 }

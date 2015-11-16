@@ -2,54 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.telephony.SmsManager;
+import com.google.android.apps.hangouts.settings.RichStatusSettingsActivity;
 
-public final class drr
+public final class drr extends hkq
 {
 
-    public static final String a = bvs.getName();
-    public static final String b = dqy.getName();
-    public static final String c = drf.getName();
-    public static final String d = drw.getName();
-    private static drq e;
+    final RichStatusSettingsActivity a;
 
-    public static void a(Context context, hgx hgx1)
+    public drr(RichStatusSettingsActivity richstatussettingsactivity, pu pu, hof hof)
     {
-        if (e == null)
-        {
-            e = new drq();
-        }
-        hgx1.a(bvs, new bvs[] {
-            (bvs)hgx.a(context, drw)
-        });
+        a = richstatussettingsactivity;
+        super(pu, hof);
     }
 
-    public static void a(hgx hgx1)
+    protected hjy a()
     {
-        if (e == null)
-        {
-            e = new drq();
-        }
-        hgx1.a(dqy, new dqy(SmsManager.getDefault()));
+        return new drs();
     }
-
-    public static void b(Context context, hgx hgx1)
-    {
-        if (e == null)
-        {
-            e = new drq();
-        }
-        hgx1.a(drw, new drw(context));
-    }
-
-    public static void b(hgx hgx1)
-    {
-        if (e == null)
-        {
-            e = new drq();
-        }
-        hgx1.a(drf, new drf(SmsManager.getDefault()));
-    }
-
 }

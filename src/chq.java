@@ -2,72 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.widget.TextView;
 
-public final class chq
+final class chq extends chy
 {
 
-    public static final String a = blh.getName();
-    public static final String b = cfc.getName();
-    public static final String c = cfd.getName();
-    public static final String d = cbh.getName();
-    public static final String e = cff.getName();
-    public static final String f = cfe.getName();
-    private static chk g;
+    final chn b;
 
-    public static void a(hgx hgx1)
+    chq(chn chn1, int i, int j)
     {
-        if (g == null)
-        {
-            g = new chk();
-        }
-        hgx1.a(blh, g.e());
+        b = chn1;
+        super(chn1, i, true, false, j);
     }
 
-    public static void b(hgx hgx1)
+    protected void a(zs zs)
     {
-        if (g == null)
-        {
-            g = new chk();
-        }
-        hgx1.a(cfc, g.c());
+        zs = (chz)zs;
+        chz.a(zs).setText(b.b().getString(l.hr, new Object[] {
+            b.e.j()
+        }));
+        chz.a(zs).setFocusableInTouchMode(true);
     }
-
-    public static void c(hgx hgx1)
-    {
-        if (g == null)
-        {
-            g = new chk();
-        }
-        hgx1.a(cfd, g.d());
-    }
-
-    public static void d(hgx hgx1)
-    {
-        if (g == null)
-        {
-            g = new chk();
-        }
-        hgx1.a(cbh, new cfp[] {
-            new cfp()
-        });
-    }
-
-    public static void e(hgx hgx1)
-    {
-        if (g == null)
-        {
-            g = new chk();
-        }
-        hgx1.a(cff, g.a());
-    }
-
-    public static void f(hgx hgx1)
-    {
-        if (g == null)
-        {
-            g = new chk();
-        }
-        hgx1.a(cfe, g.b());
-    }
-
 }

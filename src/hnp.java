@@ -2,52 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.api.client.util.GenericData;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import android.os.Bundle;
 
-public final class hnp
-    implements Iterator
+final class hnp
+    implements hok
 {
 
-    final GenericData a;
-    private boolean b;
-    private final Iterator c;
-    private final Iterator d;
+    final Bundle a;
+    final hnn b;
 
-    hnp(GenericData genericdata, hnk hnk1)
+    hnp(hnn hnn1, Bundle bundle)
     {
-        a = genericdata;
+        b = hnn1;
+        a = bundle;
         super();
-        c = hnk1.a();
-        d = genericdata.unknownFields.entrySet().iterator();
     }
 
-    public boolean hasNext()
+    public void a(hoy hoy)
     {
-        return c.hasNext() || d.hasNext();
-    }
-
-    public Object next()
-    {
-        if (!b)
+        if (hoy instanceof hnl)
         {
-            if (c.hasNext())
-            {
-                return (java.util.Map.Entry)c.next();
-            }
-            b = true;
+            g.e(b.a(hoy, a));
         }
-        return (java.util.Map.Entry)d.next();
-    }
-
-    public void remove()
-    {
-        if (b)
-        {
-            d.remove();
-        }
-        c.remove();
     }
 }

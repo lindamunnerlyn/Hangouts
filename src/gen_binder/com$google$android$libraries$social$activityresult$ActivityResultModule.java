@@ -5,25 +5,25 @@
 package gen_binder;
 
 import android.content.Context;
-import gpc;
-import hgx;
-import hhe;
+import gtk;
+import hlp;
+import hlw;
 import java.util.HashMap;
 
 public final class 
-    implements hhe
+    implements hlw
 {
 
     private HashMap a;
 
-    public void a(Context context, Class class1, hgx hgx)
+    public void a(Context context, Class class1, hlp hlp)
     {
         if (a == null)
         {
             a = new HashMap(3);
-            a.put(gpc.a, Integer.valueOf(0));
-            a.put(gpc.b, Integer.valueOf(1));
-            a.put(gpc.c, Integer.valueOf(2));
+            a.put(gtk.a, Integer.valueOf(0));
+            a.put(gtk.b, Integer.valueOf(1));
+            a.put(gtk.c, Integer.valueOf(2));
         }
         class1 = (Integer)a.get(class1.getName());
         if (class1 == null)
@@ -36,15 +36,15 @@ public final class
             return;
 
         case 0: // '\0'
-            gpc.a(hgx);
+            gtk.a(hlp);
             return;
 
         case 1: // '\001'
-            gpc.a(context, hgx);
+            gtk.a(context, hlp);
             return;
 
         case 2: // '\002'
-            gpc.b(hgx);
+            gtk.b(hlp);
             break;
         }
     }

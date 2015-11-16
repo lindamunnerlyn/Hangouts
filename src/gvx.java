@@ -3,22 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gvx
-    implements gvp
+public final class gvx
 {
 
-    gvx()
+    public gvx()
     {
-    }
-
-    public int a(gvo gvo1)
-    {
-        long l = gvo1.c;
-        return (int)(l ^ l >>> 32) + 527;
-    }
-
-    public boolean a(gvo gvo1, gvo gvo2)
-    {
-        return gvo1.c == gvo2.c;
     }
 }

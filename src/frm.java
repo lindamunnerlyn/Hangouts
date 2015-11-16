@@ -2,51 +2,87 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.os.AsyncTask;
 
-final class frm extends AsyncTask
+public final class frm
+    implements ftk
 {
 
-    final Context a;
-    final frn b;
+    private final String b;
+    private final String c;
+    private final double d;
+    private final double e;
+    private final double f;
+    private final double g;
+    private final double h;
+    private final String i;
+    private final String j;
+    private final String k;
+    private final String l;
+    private final String m;
 
-    frm(Context context, frn frn1)
+    public frm(String s, String s1)
     {
-        a = context;
-        b = frn1;
-        super();
+        this(s, s1, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D, null, null, null, null, null);
     }
 
-    private transient Integer a()
+    public frm(String s, String s1, double d1, double d2, double d3, double d4, double d5, String s2, String s3, 
+            String s4, String s5, String s6)
     {
-        try
-        {
-            frl.a(a);
-        }
-        catch (ejm ejm1)
-        {
-            return Integer.valueOf(ejm1.a());
-        }
-        catch (ejl ejl1)
-        {
-            return Integer.valueOf(ejl1.a);
-        }
-        return Integer.valueOf(0);
+        b = s;
+        c = s1;
+        d = d1;
+        e = d2;
+        f = d3;
+        g = d4;
+        h = d5;
+        i = s2;
+        j = s3;
+        k = s4;
+        l = s5;
+        m = s6;
     }
 
-    protected Object doInBackground(Object aobj[])
+    public String a()
     {
-        return a();
+        return b;
     }
 
-    protected void onPostExecute(Object obj)
+    public String b()
     {
-        obj = (Integer)obj;
-        if (((Integer) (obj)).intValue() != 0)
+        return c;
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (obj instanceof frm)
         {
-            ejn.a(((Integer) (obj)).intValue());
-            b.b(((Integer) (obj)).intValue());
+            obj = (frm)obj;
+            return g.a(c, ((frm) (obj)).c);
+        } else
+        {
+            return false;
         }
+    }
+
+    public String toString()
+    {
+        StringBuilder stringbuilder = new StringBuilder("EmailAddress:[Value=");
+        String s;
+        if (c != null)
+        {
+            s = c;
+        } else
+        {
+            s = "null";
+        }
+        stringbuilder = stringbuilder.append(s).append(" Type=");
+        if (b != null)
+        {
+            s = b;
+        } else
+        {
+            s = "null";
+        }
+        return stringbuilder.append(s).append(" a1=").append(d).append(",").append(i).append(" a2=").append(e).append(",").append(j).append(" a3=").append(f).append(",").append(k).append(" a4=").append(g).append(",").append(l).append(" a5=").append(h).append(",").append(m).append("]").toString();
     }
 }

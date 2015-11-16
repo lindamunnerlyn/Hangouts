@@ -3,55 +3,26 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class acy
+public final class acy extends acf
 {
 
-    private final hm a = new hm();
-
-    protected acy()
+    public acy()
     {
+        a(129);
     }
 
-    public Object a(Object obj)
+    acy(acp acp1)
     {
-        if (obj != null)
-        {
-            obj = (acz)a.get(obj);
-            if (obj != null)
-            {
-                obj.a = ((acz) (obj)).a + 1;
-                return ((acz) (obj)).b;
-            }
-        }
-        return null;
+        super(acp1);
     }
 
-    public void a()
+    public byte[] d()
     {
-        a.clear();
+        return a.b(139);
     }
 
-    public boolean a(Object obj, Object obj1)
+    public int e()
     {
-        while (a.size() >= 500 || obj == null) 
-        {
-            return false;
-        }
-        acz acz1 = new acz();
-        acz1.b = obj1;
-        a.put(obj, acz1);
-        return true;
-    }
-
-    public Object b(Object obj)
-    {
-        obj = (acz)a.remove(obj);
-        if (obj != null)
-        {
-            return ((acz) (obj)).b;
-        } else
-        {
-            return null;
-        }
+        return a.a(146);
     }
 }

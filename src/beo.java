@@ -2,55 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.MenuItem;
-import com.google.android.apps.hangouts.floatingactionbutton.impl.QuickContactView;
+import android.content.Context;
 
-final class beo
-    implements android.view.MenuItem.OnMenuItemClickListener
+public final class beo
 {
 
-    final ben a;
+    public static final String a = ctf.getName();
+    public static final String b = ber.getName();
+    private static ben c;
 
-    beo(ben ben1)
+    public static void a(Context context, hlp hlp1)
     {
-        a = ben1;
-        super();
+        if (c == null)
+        {
+            c = new ben();
+        }
+        hlp1.a(ctf, c.a(context));
     }
 
-    public boolean onMenuItemClick(MenuItem menuitem)
+    public static void a(hlp hlp1)
     {
-        boolean flag1 = true;
-        menuitem = ben.b(a);
-        boolean flag;
-        if (ben.a(a).getVisibility() == 0)
+        if (c == null)
         {
-            flag = true;
-        } else
-        {
-            flag = false;
+            c = new ben();
         }
-        menuitem.setVisible(flag);
-        ben.b(a).setTitle(ben.a(a).a());
-        menuitem = ben.d(a);
-        if (ben.c(a).getVisibility() == 0)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        menuitem.setVisible(flag);
-        ben.d(a).setTitle(ben.c(a).a());
-        menuitem = ben.f(a);
-        if (ben.e(a).getVisibility() == 0)
-        {
-            flag = flag1;
-        } else
-        {
-            flag = false;
-        }
-        menuitem.setVisible(flag);
-        ben.f(a).setTitle(ben.e(a).a());
-        return false;
+        hlp1.a(ber, c.a());
     }
+
 }

@@ -2,31 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-public final class gjq
+final class gjq extends gea
 {
 
-    private final String a;
-    private String b;
+    private static final int a[] = {
+        4
+    };
+    private final String b;
 
-    public gjq(String s)
+    gjq(Context context, String s)
     {
-        a = s;
-    }
-
-    public gjq a(String s)
-    {
+        super(context, a);
         b = s;
-        return this;
     }
 
-    public String a()
+    protected void a(jll jll1)
     {
-        return a;
+        super.a(jll1);
+        jll1.a = new jlk();
+        jll1.a.k = b;
     }
 
-    public String b()
-    {
-        return b;
-    }
 }

@@ -13,25 +13,9 @@ import java.util.ArrayList;
 public class c
 {
 
-    private final ArrayList a = new ArrayList();
-    private final ArrayList b = new ArrayList();
-    private boolean c;
-
-    static ArrayList a(c c1)
-    {
-        return c1.a;
-    }
-
-    static boolean a(a a1, boolean flag)
-    {
-        a1.c = flag;
-        return flag;
-    }
-
-    static ArrayList b(c c1)
-    {
-        return c1.b;
-    }
+    final ArrayList a = new ArrayList();
+    final ArrayList b = new ArrayList();
+    boolean c;
 
     public void a(PrintWriter printwriter)
     {

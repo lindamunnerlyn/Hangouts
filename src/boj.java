@@ -3,33 +3,6 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class boj extends boh
+public interface boj
 {
-
-    final boi a;
-
-    boj(boi boi1)
-    {
-        a = boi1;
-        super();
-    }
-
-    public void b(int i)
-    {
-        a.c();
-    }
-
-    public void b(String s)
-    {
-        if (s != null)
-        {
-            a.a = s;
-            a.b();
-        }
-    }
-
-    public void f()
-    {
-        a.c();
-    }
 }

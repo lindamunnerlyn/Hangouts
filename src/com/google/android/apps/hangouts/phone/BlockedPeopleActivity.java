@@ -6,17 +6,17 @@ package com.google.android.apps.hangouts.phone;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import bka;
+import bkm;
 import g;
-import gng;
-import po;
+import grn;
+import pq;
 
-public class BlockedPeopleActivity extends bka
+public class BlockedPeopleActivity extends bkm
 {
 
     public BlockedPeopleActivity()
     {
-        (new gng(this, q)).a(p);
+        (new grn(this, r)).a(q);
     }
 
     public boolean a(MenuItem menuitem)
@@ -36,7 +36,7 @@ public class BlockedPeopleActivity extends bka
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.fh);
+        setContentView(g.ff);
         g().a(true);
     }
 }

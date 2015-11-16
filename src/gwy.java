@@ -2,17 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.SystemClock;
 
-public interface gwy
+public class gwy
 {
 
-    public abstract void a(String s);
+    private volatile qd a;
 
-    public abstract void a(String s, String s1);
+    public gwy()
+    {
+    }
 
-    public abstract void b();
+    public String a()
+    {
+        qd qd1;
+        for (qd1 = a; qd1 == null || SystemClock.elapsedRealtime() >= qd1.A;)
+        {
+            return null;
+        }
 
-    public abstract void c();
-
-    public abstract void d();
+        return qd1.z;
+    }
 }

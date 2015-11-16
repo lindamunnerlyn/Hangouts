@@ -2,9 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Intent;
 
-public interface gct
+public class gct
+    implements gcq
 {
 
-    public abstract void a();
+    public gct()
+    {
+    }
+
+    public gcq a()
+    {
+        return this;
+    }
+
+    public gcq a(int i)
+    {
+        return this;
+    }
+
+    public gcq a(String s)
+    {
+        return this;
+    }
+
+    public gcq b()
+    {
+        return this;
+    }
+
+    public gcq b(int i)
+    {
+        return this;
+    }
+
+    public gcq b(String s)
+    {
+        return this;
+    }
+
+    public Intent c()
+    {
+        return null;
+    }
+
+    public gcq c(String s)
+    {
+        return this;
+    }
+
+    public gcq d(String s)
+    {
+        return this;
+    }
 }

@@ -3,10 +3,30 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface gkn
+final class gkn
+    implements gds
 {
 
-    public abstract glk a(int i);
+    final kws a;
+    final gds b;
+    final gkj c;
 
-    public abstract glk a(String s);
+    gkn(gkj gkj1, kws kws, gds gds1)
+    {
+        c = gkj1;
+        a = kws;
+        b = gds1;
+        super();
+    }
+
+    public void a(kws kws)
+    {
+        c.a_.a(gkj.a(c.b.a(a, kws)));
+        b.a(kws);
+    }
+
+    public void b(kws kws)
+    {
+        b.b(kws);
+    }
 }

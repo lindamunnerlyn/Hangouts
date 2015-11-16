@@ -2,87 +2,52 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.text.TextUtils;
+import android.util.Log;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
-public final class gzp
-    implements Parcelable
+final class gzp extends he
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new gzq();
-    private final long a;
-    private final String b;
+    final gzn a;
 
-    gzp(Parcel parcel)
+    gzp(gzn gzn, int i)
     {
-        b = parcel.readString();
-        a = parcel.readLong();
+        a = gzn;
+        super(i);
     }
 
-    public gzp(String s, long l)
+    protected void a(boolean flag, Object obj, Object obj1, Object obj2)
     {
-        b = s;
-        a = l;
-    }
-
-    public long a()
-    {
-        return a;
-    }
-
-    public boolean b()
-    {
-        return a != 0L;
-    }
-
-    public int describeContents()
-    {
-        return 0;
-    }
-
-    public boolean equals(Object obj)
-    {
-        boolean flag1 = false;
-        boolean flag = flag1;
-        if (obj instanceof gzp)
+        obj2 = (hho)obj;
+        obj = (gzf)obj1;
+        if (flag)
         {
-            obj = (gzp)obj;
-            flag = flag1;
-            if (a == ((gzp) (obj)).a)
+            if (((gzf) (obj)).A())
             {
-                flag = flag1;
-                if (TextUtils.equals(b, ((gzp) (obj)).b))
+                obj1 = String.valueOf(obj2);
+                (new StringBuilder(String.valueOf(obj1).length() + 26)).append("Evicted image from cache: ").append(((String) (obj1)));
+                if (Log.isLoggable("ImageResourceManager", 2))
                 {
-                    flag = true;
+                    obj1 = g();
+                    String s;
+                    int i;
+                    for (obj2 = ((Map) (obj1)).keySet().iterator(); ((Iterator) (obj2)).hasNext(); (new StringBuilder(String.valueOf(s).length() + 26)).append("   id: ").append(s).append("; size: ").append(i))
+                    {
+                        hho hho1 = (hho)((Iterator) (obj2)).next();
+                        s = String.valueOf(hho1);
+                        i = ((gzf)((Map) (obj1)).get(hho1)).r();
+                    }
+
                 }
             }
+            ((gzf) (obj)).n();
         }
-        return flag;
     }
 
-    public int hashCode()
+    protected int c(Object obj)
     {
-        int j = (int)(a ^ a >>> 32);
-        int i = j;
-        if (b != null)
-        {
-            i = j ^ b.hashCode();
-        }
-        return i;
+        return ((gzf)obj).r();
     }
-
-    public String toString()
-    {
-        String s = b;
-        long l = a;
-        return (new StringBuilder(String.valueOf(s).length() + 26)).append("g-").append(s).append(", p-").append(l).toString();
-    }
-
-    public void writeToParcel(Parcel parcel, int i)
-    {
-        parcel.writeString(b);
-        parcel.writeLong(a);
-    }
-
 }

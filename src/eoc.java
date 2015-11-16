@@ -2,49 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.Parcel;
-import com.google.android.gms.common.internal.ResolveAccountResponse;
+import java.util.ArrayList;
+import java.util.Iterator;
 
-public abstract class eoc extends Binder
-    implements eob
+final class eoc extends eod
 {
 
-    public eoc()
+    final enq a;
+    private final ArrayList c;
+
+    public eoc(enq enq1, ArrayList arraylist)
     {
-        attachInterface(this, "com.google.android.gms.common.internal.IResolveAccountCallbacks");
+        a = enq1;
+        super(enq1, (byte)0);
+        c = arraylist;
     }
 
-    public IBinder asBinder()
+    public void a()
     {
-        return this;
-    }
-
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
-    {
-        switch (i)
-        {
-        default:
-            return super.onTransact(i, parcel, parcel1, j);
-
-        case 1598968902: 
-            parcel1.writeString("com.google.android.gms.common.internal.IResolveAccountCallbacks");
-            return true;
-
-        case 2: // '\002'
-            parcel.enforceInterface("com.google.android.gms.common.internal.IResolveAccountCallbacks");
-            break;
-        }
-        if (parcel.readInt() != 0)
-        {
-            parcel = (ResolveAccountResponse)ResolveAccountResponse.CREATOR.createFromParcel(parcel);
-        } else
-        {
-            parcel = null;
-        }
-        a(parcel);
-        parcel1.writeNoException();
-        return true;
+        for (Iterator iterator = c.iterator(); iterator.hasNext(); ((emw)iterator.next()).a(a.g)) { }
     }
 }

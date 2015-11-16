@@ -2,64 +2,52 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.ParcelFileDescriptor;
-import com.google.android.gms.common.api.Status;
-import java.io.IOException;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.widget.ImageView;
 
-final class fpu
-    implements fmi
+public final class fpu extends fpx
 {
 
-    private final Status a;
-    private final ParcelFileDescriptor b;
-    private final boolean c;
-    private final int d;
-    private final int e;
+    private Bitmap d;
 
-    public fpu(Status status, ParcelFileDescriptor parcelfiledescriptor, boolean flag, int i, int j)
+    public fpu(Context context, emy emy)
     {
-        a = status;
-        b = parcelfiledescriptor;
-        c = flag;
-        d = i;
-        e = j;
+        super(context, emy, false);
     }
 
-    public Status B_()
+    public Bitmap a(Context context)
     {
-        return a;
-    }
-
-    public void b()
-    {
-        ParcelFileDescriptor parcelfiledescriptor;
-        if (b == null)
+        if (d == null)
         {
-            break MISSING_BLOCK_LABEL_20;
+            d = BitmapFactory.decodeResource(context.getResources(), g.rA);
         }
-        parcelfiledescriptor = b;
-        if (parcelfiledescriptor == null)
-        {
-            break MISSING_BLOCK_LABEL_20;
-        }
-        parcelfiledescriptor.close();
-        return;
-        IOException ioexception;
-        ioexception;
-    }
-
-    public ParcelFileDescriptor c()
-    {
-        return b;
-    }
-
-    public int d()
-    {
         return d;
     }
 
-    public int e()
+    public void a(ImageView imageview, ftl ftl1, int i)
     {
-        return e;
+        if (!g.a(ftl1))
+        {
+            return;
+        } else
+        {
+            a(((fpy) (new fpv(this, imageview, ftl1.a(), ftl1.d(), i))));
+            return;
+        }
+    }
+
+    protected void a(fpy fpy1, Bitmap bitmap)
+    {
+        if (bitmap == null)
+        {
+            fpy1.f.setImageBitmap(a(b));
+            return;
+        } else
+        {
+            super.a(fpy1, bitmap);
+            return;
+        }
     }
 }

@@ -2,51 +2,68 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.cache.LocalCache;
-import java.lang.ref.ReferenceQueue;
 
-public final class jjc extends jje
+public final class jjc extends kwm
 {
 
-    volatile long a;
-    com.google.common.cache.LocalCache.ReferenceEntry b;
-    com.google.common.cache.LocalCache.ReferenceEntry c;
+    public String a;
+    public Float b;
 
-    jjc(ReferenceQueue referencequeue, Object obj, int i, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    public jjc()
     {
-        super(referencequeue, obj, i, referenceentry);
-        a = 0x7fffffffffffffffL;
-        b = LocalCache.j();
-        c = LocalCache.j();
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public long getAccessTime()
+    protected int computeSerializedSize()
     {
-        return a;
+        int j = super.computeSerializedSize() + kwk.b(1, a);
+        int i = j;
+        if (b != null)
+        {
+            b.floatValue();
+            i = j + (kwk.f(2) + 4);
+        }
+        return i;
     }
 
-    public com.google.common.cache.LocalCache.ReferenceEntry getNextInAccessQueue()
+    public kws mergeFrom(kwj kwj1)
     {
-        return b;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 21: // '\025'
+                b = Float.valueOf(kwj1.c());
+                break;
+            }
+        } while (true);
     }
 
-    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInAccessQueue()
+    public void writeTo(kwk kwk1)
     {
-        return c;
-    }
-
-    public void setAccessTime(long l)
-    {
-        a = l;
-    }
-
-    public void setNextInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
-    {
-        b = referenceentry;
-    }
-
-    public void setPreviousInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
-    {
-        c = referenceentry;
+        kwk1.a(1, a);
+        if (b != null)
+        {
+            kwk1.a(2, b.floatValue());
+        }
+        super.writeTo(kwk1);
     }
 }

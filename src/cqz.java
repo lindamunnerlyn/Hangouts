@@ -2,19 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Parcel;
+import com.google.android.apps.hangouts.phone.SmsAccountPickerActivity;
 
-public class cqz extends hhw
+final class cqz
+    implements android.os.Parcelable.Creator
 {
 
-    private final gmo j;
-
-    public cqz()
+    cqz()
     {
-        j = (new gng(this, l)).a(k);
     }
 
-    public void g()
+    public Object createFromParcel(Parcel parcel)
     {
-        finish();
+        return new SmsAccountPickerActivity();
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new SmsAccountPickerActivity[i];
     }
 }

@@ -17,24 +17,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.TextView;
-import bcb;
-import bcc;
-import bcd;
-import bce;
+import bcr;
+import bcs;
+import bct;
+import bcu;
 import jq;
 import lg;
 
 public class SlidingTabLayout extends HorizontalScrollView
 {
 
-    private int a;
-    private int b;
-    private int c;
-    private boolean d;
-    private ViewPager e;
-    private SparseArray f;
-    private lg g;
-    private final bce h;
+    public ViewPager a;
+    public lg b;
+    public final bcu c;
+    private int d;
+    private int e;
+    private int f;
+    private boolean g;
+    private SparseArray h;
 
     public SlidingTabLayout(Context context)
     {
@@ -49,76 +49,29 @@ public class SlidingTabLayout extends HorizontalScrollView
     public SlidingTabLayout(Context context, AttributeSet attributeset, int i)
     {
         super(context, attributeset, i);
-        f = new SparseArray();
+        h = new SparseArray();
         setHorizontalScrollBarEnabled(false);
         setFillViewport(true);
-        a = (int)(24F * getResources().getDisplayMetrics().density);
-        attributeset = context.getTheme().obtainStyledAttributes(attributeset, bcb.J, 0, 0);
-        i = attributeset.getInteger(bcb.K, 0);
+        d = (int)(24F * getResources().getDisplayMetrics().density);
+        attributeset = context.getTheme().obtainStyledAttributes(attributeset, bcr.J, 0, 0);
+        i = attributeset.getInteger(bcr.K, 0);
         attributeset.recycle();
-        h = new bce(context, i);
-        addView(h, -1, -2);
+        c = new bcu(context, i);
+        addView(c, -1, -2);
         return;
         context;
         attributeset.recycle();
         throw context;
     }
 
-    public static bce a(SlidingTabLayout slidingtablayout)
-    {
-        return slidingtablayout.h;
-    }
-
-    public static void a(SlidingTabLayout slidingtablayout, int i, int j)
-    {
-        slidingtablayout.b(i, j);
-    }
-
-    public static lg b(SlidingTabLayout slidingtablayout)
-    {
-        return slidingtablayout.g;
-    }
-
-    private void b(int i, int j)
-    {
-        int k = h.getChildCount();
-        View view;
-        if (k != 0 && i >= 0 && i < k)
-        {
-            if ((view = h.getChildAt(i)) != null)
-            {
-label0:
-                {
-                    int l = view.getLeft() + j;
-                    if (i <= 0)
-                    {
-                        i = l;
-                        if (j <= 0)
-                        {
-                            break label0;
-                        }
-                    }
-                    i = l - a;
-                }
-                scrollTo(i, 0);
-                return;
-            }
-        }
-    }
-
-    public static ViewPager c(SlidingTabLayout slidingtablayout)
-    {
-        return slidingtablayout.e;
-    }
-
     public View a(int i)
     {
-        if (h == null || i >= h.getChildCount())
+        if (c == null || i >= c.getChildCount())
         {
             return null;
         } else
         {
-            return h.getChildAt(i);
+            return c.getChildAt(i);
         }
     }
 
@@ -140,24 +93,24 @@ label0:
 
     public void a()
     {
-        d = true;
+        g = true;
     }
 
     public void a(int i, int j)
     {
-        b = i;
-        c = j;
+        e = i;
+        f = j;
     }
 
     public void a(ViewPager viewpager)
     {
-        h.removeAllViews();
-        e = viewpager;
+        c.removeAllViews();
+        a = viewpager;
         if (viewpager != null)
         {
-            viewpager.a(new bcc(this));
-            jq jq1 = e.b();
-            bcd bcd1 = new bcd(this);
+            viewpager.a(new bcs(this));
+            jq jq1 = a.b();
+            bct bct1 = new bct(this);
             if (jq1 != null)
             {
                 int i = 0;
@@ -165,10 +118,10 @@ label0:
                 {
                     Object obj;
                     Object obj1;
-                    if (b != 0)
+                    if (e != 0)
                     {
-                        obj = LayoutInflater.from(getContext()).inflate(b, h, false);
-                        viewpager = (TextView)((View) (obj)).findViewById(c);
+                        obj = LayoutInflater.from(getContext()).inflate(e, c, false);
+                        viewpager = (TextView)((View) (obj)).findViewById(f);
                     } else
                     {
                         viewpager = null;
@@ -183,21 +136,21 @@ label0:
                     {
                         viewpager = (TextView)obj1;
                     }
-                    if (d)
+                    if (g)
                     {
                         obj = (android.widget.LinearLayout.LayoutParams)((View) (obj1)).getLayoutParams();
                         obj.width = 0;
                         obj.weight = 1.0F;
                     }
                     viewpager.setText(jq1.c(i));
-                    ((View) (obj1)).setOnClickListener(bcd1);
-                    viewpager = (String)f.get(i, null);
+                    ((View) (obj1)).setOnClickListener(bct1);
+                    viewpager = (String)h.get(i, null);
                     if (viewpager != null)
                     {
                         ((View) (obj1)).setContentDescription(viewpager);
                     }
-                    h.addView(((View) (obj1)));
-                    if (i == e.c())
+                    c.addView(((View) (obj1)));
+                    if (i == a.c())
                     {
                         ((View) (obj1)).setSelected(true);
                     }
@@ -209,12 +162,39 @@ label0:
 
     public void b(int i)
     {
-        if (a != i)
+        if (d != i)
         {
-            a = i;
-            if (e != null)
+            d = i;
+            if (a != null)
             {
-                b(e.c(), 0);
+                b(a.c(), 0);
+            }
+        }
+    }
+
+    public void b(int i, int j)
+    {
+        int k = c.getChildCount();
+        View view;
+        if (k != 0 && i >= 0 && i < k)
+        {
+            if ((view = c.getChildAt(i)) != null)
+            {
+label0:
+                {
+                    int l = view.getLeft() + j;
+                    if (i <= 0)
+                    {
+                        i = l;
+                        if (j <= 0)
+                        {
+                            break label0;
+                        }
+                    }
+                    i = l - d;
+                }
+                scrollTo(i, 0);
+                return;
             }
         }
     }
@@ -222,9 +202,9 @@ label0:
     protected void onAttachedToWindow()
     {
         super.onAttachedToWindow();
-        if (e != null)
+        if (a != null)
         {
-            b(e.c(), 0);
+            b(a.c(), 0);
         }
     }
 }

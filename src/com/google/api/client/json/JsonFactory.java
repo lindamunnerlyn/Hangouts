@@ -4,7 +4,7 @@
 
 package com.google.api.client.json;
 
-import hnb;
+import hrx;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -25,7 +25,7 @@ public abstract class JsonFactory
     private ByteArrayOutputStream toByteStream(Object obj, boolean flag)
     {
         ByteArrayOutputStream bytearrayoutputstream = new ByteArrayOutputStream();
-        JsonGenerator jsongenerator = createJsonGenerator(bytearrayoutputstream, hnb.a);
+        JsonGenerator jsongenerator = createJsonGenerator(bytearrayoutputstream, hrx.a);
         if (flag)
         {
             jsongenerator.enablePrettyPrint();

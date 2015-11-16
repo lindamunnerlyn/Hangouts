@@ -2,45 +2,98 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.Executor;
-import java.util.concurrent.FutureTask;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
-public final class jsk extends FutureTask
-    implements jsj
+final class jsk extends jsh
 {
 
-    private final jrv a;
+    private final transient jsh a;
 
-    private jsk(Runnable runnable, Object obj)
+    jsk(jsh jsh1)
     {
-        super(runnable, obj);
-        a = new jrv();
+        a = jsh1;
     }
 
-    private jsk(Callable callable)
+    private int b(int i)
     {
-        super(callable);
-        a = new jrv();
+        return size() - 1 - i;
     }
 
-    public static jsk a(Runnable runnable, Object obj)
+    public jsh a(int i, int j)
     {
-        return new jsk(runnable, obj);
+        n.a(i, j, size());
+        return a.a(size() - j, size() - i).d();
     }
 
-    public static jsk a(Callable callable)
+    public boolean contains(Object obj)
     {
-        return new jsk(callable);
+        return a.contains(obj);
     }
 
-    public void a(Runnable runnable, Executor executor)
+    public jsh d()
     {
-        a.a(runnable, executor);
+        return a;
     }
 
-    protected void done()
+    boolean e()
     {
-        a.a();
+        return a.e();
+    }
+
+    public Object get(int i)
+    {
+        n.a(i, size());
+        return a.get(b(i));
+    }
+
+    public int indexOf(Object obj)
+    {
+        int i = a.lastIndexOf(obj);
+        if (i >= 0)
+        {
+            return b(i);
+        } else
+        {
+            return -1;
+        }
+    }
+
+    public Iterator iterator()
+    {
+        return super.a();
+    }
+
+    public int lastIndexOf(Object obj)
+    {
+        int i = a.indexOf(obj);
+        if (i >= 0)
+        {
+            return b(i);
+        } else
+        {
+            return -1;
+        }
+    }
+
+    public ListIterator listIterator()
+    {
+        return super.c();
+    }
+
+    public ListIterator listIterator(int i)
+    {
+        return super.a(i);
+    }
+
+    public int size()
+    {
+        return a.size();
+    }
+
+    public List subList(int i, int j)
+    {
+        return a(i, j);
     }
 }

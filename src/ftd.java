@@ -2,85 +2,74 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.net.Uri;
-import android.util.Base64;
-import com.google.android.gms.wearable.Asset;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
-public final class ftd
+public class ftd
 {
 
-    private final Uri a;
-    private final ftc b;
+    private final String a;
+    private final ArrayList b = new ArrayList();
+    private final ArrayList c = new ArrayList();
 
-    private ftd(fsz fsz1)
+    public ftd(String s)
     {
-        a = fsz1.a();
-        b = b((fsz)fsz1.e());
+        a = s;
+        a("");
     }
 
-    public static ftd a(fsz fsz1)
+    public void a(String s)
     {
-        if (fsz1 == null)
-        {
-            throw new IllegalStateException("provided dataItem is null");
-        } else
-        {
-            return new ftd(fsz1);
-        }
+        this;
+        JVM INSTR monitorenter ;
+        b.add(Long.valueOf(System.currentTimeMillis()));
+        c.add(s);
+        this;
+        JVM INSTR monitorexit ;
+        return;
+        s;
+        throw s;
     }
 
-    private static ftc b(fsz fsz1)
+    public void b(String s)
     {
-        if (fsz1.b() == null && fsz1.c().size() > 0)
-        {
-            throw new IllegalArgumentException("Cannot create DataMapItem from a DataItem  that wasn't made with DataMapItem.");
-        }
-        if (fsz1.b() == null)
-        {
-            return new ftc();
-        }
-        Object obj;
-        int j;
-        obj = new ArrayList();
-        j = fsz1.c().size();
-        int i = 0;
+        this;
+        JVM INSTR monitorenter ;
+        long l;
+        long l1;
+        a("");
+        l = ((Long)b.get(0)).longValue();
+        l1 = ((Long)b.get(b.size() - 1)).longValue();
+        l1 -= l;
+        if (l1 >= 0L) goto _L2; else goto _L1
+_L1:
+        this;
+        JVM INSTR monitorexit ;
+        return;
 _L2:
-        if (i >= j)
+        s = fst.a();
+        s.append(a);
+        s.append(",");
+        s.append(l1);
+        s.append("ms: ");
+        int i = 1;
+_L4:
+        if (i >= b.size())
         {
             break; /* Loop/switch isn't completed */
         }
-        fta fta1 = (fta)fsz1.c().get(Integer.toString(i));
-        if (fta1 == null)
-        {
-            try
-            {
-                throw new IllegalStateException((new StringBuilder("Cannot find DataItemAsset referenced in data at ")).append(i).append(" for ").append(fsz1).toString());
-            }
-            // Misplaced declaration of an exception variable
-            catch (Object obj) { }
-            // Misplaced declaration of an exception variable
-            catch (Object obj) { }
-            (new StringBuilder("Unable to parse datamap from dataItem. uri=")).append(fsz1.a()).append(", data=").append(Base64.encodeToString(fsz1.b(), 0));
-            throw new IllegalStateException((new StringBuilder("Unable to parse datamap from dataItem.  uri=")).append(fsz1.a()).toString(), ((Throwable) (obj)));
-        }
-        ((List) (obj)).add(Asset.a(fta1.a()));
+        l1 = ((Long)b.get(i)).longValue();
+        s.append((String)c.get(i));
+        s.append(",");
+        s.append(l1 - l);
+        s.append("ms ");
         i++;
-        if (true) goto _L2; else goto _L1
-_L1:
-        obj = g.a(new fdc(fdd.a(fsz1.b()), ((List) (obj))));
-        return ((ftc) (obj));
-    }
-
-    public Uri a()
-    {
-        return a;
-    }
-
-    public ftc b()
-    {
-        return b;
+        l = l1;
+        if (true) goto _L4; else goto _L3
+_L3:
+        g.m(2);
+        if (true) goto _L1; else goto _L5
+_L5:
+        s;
+        throw s;
     }
 }

@@ -4,38 +4,19 @@
 
 
 public final class dgu
+    implements Runnable
 {
 
-    private final int a;
-    private final int b;
-    private final cvn c;
-    private final Exception d;
+    final aoa a;
 
-    public dgu(int i, int j, cvn cvn)
+    public dgu(aoa aoa1)
     {
-        this(i, j, cvn, (byte)0);
+        a = aoa1;
+        super();
     }
 
-    private dgu(int i, int j, cvn cvn, byte byte0)
+    public void run()
     {
-        a = i;
-        b = j;
-        c = cvn;
-        d = null;
-    }
-
-    public int a()
-    {
-        return a;
-    }
-
-    public int b()
-    {
-        return b;
-    }
-
-    public cvn c()
-    {
-        return c;
+        ccv.a(cvv.f).b(a.a());
     }
 }

@@ -2,49 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.TimeUnit;
 
-public class cuw extends cui
+public class cuw extends cup
 {
 
     private static final long serialVersionUID = 1L;
-    public final boolean a;
-    public final String b;
 
-    cuw(boolean flag, String s)
+    public cuw()
     {
-        a = flag;
-        b = s;
     }
 
-    public kop a(String s, int i, int j)
+    public kws a(String s, int i, int j)
     {
-        boolean flag = true;
-        if (ctr.e)
-        {
-            boolean flag1 = a;
-            String s1 = b;
-            ebw.b("Babel_RequestWriter", (new StringBuilder(String.valueOf(s1).length() + 48)).append("SetCallerIdRequest: enable=").append(flag1).append("e164PhoneNumber=").append(s1).toString());
-        }
-        ixt ixt1 = new ixt();
-        ixt1.requestHeader = ctq.a(null, true, s, i, j, h);
-        ixt1.a = new iqo[1];
-        ixt1.a[0] = new iqo();
-        ixt1.a[0].a = new jtj();
-        ixt1.a[0].a.a = b;
-        s = ixt1.a[0];
-        if (a)
-        {
-            i = ((flag) ? 1 : 0);
-        } else
-        {
-            i = 2;
-        }
-        s.b = Integer.valueOf(i);
-        return ixt1;
+        s = new iqg();
+        s.a = Boolean.valueOf(true);
+        hyi hyi1 = new hyi();
+        hyi1.a = s;
+        return hyi1;
     }
 
-    public String g()
+    public long b()
     {
-        return "contacts/setcalleridconfig";
+        return TimeUnit.SECONDS.toMillis(5L);
+    }
+
+    public String f()
+    {
+        return "loadblockedpeople";
     }
 }

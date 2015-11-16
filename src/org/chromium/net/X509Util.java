@@ -27,6 +27,10 @@ import java.util.Set;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 import javax.security.auth.x500.X500Principal;
+import lnc;
+import lnd;
+import lne;
+import lnf;
 
 // Referenced classes of package org.chromium.net:
 //            AndroidCertVerifyResult
@@ -35,9 +39,9 @@ public class X509Util
 {
 
     private static CertificateFactory a;
-    private static X509TrustManagerImplementation b;
-    private static TrustStorageListener c;
-    private static X509TrustManagerImplementation d;
+    private static lne b;
+    private static lnc c;
+    private static lne d;
     private static KeyStore e;
     private static KeyStore f;
     private static File g;
@@ -67,10 +71,40 @@ public class X509Util
         return new String(ac);
     }
 
-    private static X509Certificate a(byte abyte0[])
+    private static lne a(KeyStore keystore)
     {
-        b();
-        return (X509Certificate)a.generateCertificate(new ByteArrayInputStream(abyte0));
+        int i1;
+        int j1;
+        TrustManagerFactory trustmanagerfactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+        trustmanagerfactory.init(keystore);
+        keystore = trustmanagerfactory.getTrustManagers();
+        j1 = keystore.length;
+        i1 = 0;
+_L3:
+        if (i1 >= j1) goto _L2; else goto _L1
+_L1:
+        String s;
+        s = keystore[i1];
+        if (!(s instanceof X509TrustManager))
+        {
+            continue; /* Loop/switch isn't completed */
+        }
+        lnd lnd1;
+        if (android.os.Build.VERSION.SDK_INT >= 17)
+        {
+            return new lnf((X509TrustManager)s);
+        }
+        lnd1 = new lnd((X509TrustManager)s);
+        return lnd1;
+        IllegalArgumentException illegalargumentexception;
+        illegalargumentexception;
+        s = s.getClass().getName();
+        Log.e("X509Util", (new StringBuilder("Error creating trust manager (")).append(s).append("): ").append(illegalargumentexception).toString());
+        i1++;
+          goto _L3
+_L2:
+        Log.e("X509Util", "Could not find suitable trust manager");
+        return null;
     }
 
     public static AndroidCertVerifyResult a(byte abyte0[][], String s, String s1)
@@ -87,7 +121,7 @@ label0:
             int i1;
             try
             {
-                b();
+                c();
             }
             // Misplaced declaration of an exception variable
             catch (byte abyte0[][])
@@ -104,7 +138,7 @@ label0:
                     {
                         break;
                     }
-                    ax509certificate[i1] = a(abyte0[i1]);
+                    ax509certificate[i1] = b(abyte0[i1]);
                 }
                 // Misplaced declaration of an exception variable
                 catch (byte abyte0[][])
@@ -174,54 +208,39 @@ _L1:
         return abyte0;
     }
 
-    private static X509TrustManagerImplementation a(KeyStore keystore)
+    public static void a()
     {
-        int i1;
-        int j1;
-        TrustManagerFactory trustmanagerfactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-        trustmanagerfactory.init(keystore);
-        keystore = trustmanagerfactory.getTrustManagers();
-        j1 = keystore.length;
-        i1 = 0;
-_L3:
-        if (i1 >= j1) goto _L2; else goto _L1
-_L1:
-        String s;
-        s = keystore[i1];
-        if (!(s instanceof X509TrustManager))
-        {
-            continue; /* Loop/switch isn't completed */
-        }
-        X509TrustManagerIceCreamSandwich x509trustmanagericecreamsandwich;
-        if (android.os.Build.VERSION.SDK_INT >= 17)
-        {
-            return new X509TrustManagerJellyBean((X509TrustManager)s);
-        }
-        x509trustmanagericecreamsandwich = new X509TrustManagerIceCreamSandwich((X509TrustManager)s);
-        return x509trustmanagericecreamsandwich;
-        IllegalArgumentException illegalargumentexception;
-        illegalargumentexception;
-        s = s.getClass().getName();
-        Log.e("X509Util", (new StringBuilder("Error creating trust manager (")).append(s).append("): ").append(illegalargumentexception).toString());
-        i1++;
-          goto _L3
-_L2:
-        Log.e("X509Util", "Could not find suitable trust manager");
-        return null;
-    }
-
-    static void a()
-    {
+        c();
         synchronized (j)
         {
-            b = null;
-            h = null;
-            c();
+            try
+            {
+                e.load(null);
+                e();
+            }
+            // Misplaced declaration of an exception variable
+            catch (IOException ioexception) { }
         }
-        nativeNotifyKeyChainChanged();
         return;
         exception;
         obj;
+        JVM INSTR monitorexit ;
+        IOException ioexception;
+        throw exception;
+    }
+
+    public static void a(byte abyte0[])
+    {
+        c();
+        X509Certificate x509certificate = b(abyte0);
+        synchronized (j)
+        {
+            e.setCertificateEntry((new StringBuilder("root_cert_")).append(Integer.toString(e.size())).toString(), x509certificate);
+            e();
+        }
+        return;
+        exception;
+        abyte0;
         JVM INSTR monitorexit ;
         throw exception;
     }
@@ -269,12 +288,21 @@ _L2:
 _L3:
     }
 
-    private static void b()
+    private static X509Certificate b(byte abyte0[])
+    {
+        c();
+        return (X509Certificate)a.generateCertificate(new ByteArrayInputStream(abyte0));
+    }
+
+    public static void b()
     {
         synchronized (j)
         {
-            c();
+            b = null;
+            h = null;
+            d();
         }
+        nativeNotifyKeyChainChanged();
         return;
         exception;
         obj;
@@ -310,6 +338,19 @@ _L3:
     }
 
     private static void c()
+    {
+        synchronized (j)
+        {
+            d();
+        }
+        return;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
+    private static void d()
     {
         if (a == null)
         {
@@ -363,7 +404,7 @@ _L2:
         }
         if (!k && c == null)
         {
-            c = new TrustStorageListener();
+            c = new lnc();
             nativeGetApplicationContext().registerReceiver(c, new IntentFilter("android.security.STORAGE_CHANGED"));
         }
         return;
@@ -372,82 +413,15 @@ _L2:
 _L3:
     }
 
+    private static void e()
+    {
+        d = a(e);
+    }
+
     private static native Context nativeGetApplicationContext();
 
     private static native void nativeNotifyKeyChainChanged();
 
     private static native void nativeRecordCertVerifyCapabilitiesHistogram(boolean flag);
-
-
-    private class X509TrustManagerImplementation
-    {
-
-        public abstract List a(X509Certificate ax509certificate[], String s, String s1);
-    }
-
-
-    private class X509TrustManagerJellyBean
-        implements X509TrustManagerImplementation
-    {
-
-        private final X509TrustManagerExtensions a;
-
-        public List a(X509Certificate ax509certificate[], String s, String s1)
-        {
-            return a.checkServerTrusted(ax509certificate, s, s1);
-        }
-
-        public X509TrustManagerJellyBean(X509TrustManager x509trustmanager)
-        {
-            a = new X509TrustManagerExtensions(x509trustmanager);
-        }
-    }
-
-
-    private class X509TrustManagerIceCreamSandwich
-        implements X509TrustManagerImplementation
-    {
-
-        private final X509TrustManager a;
-
-        public List a(X509Certificate ax509certificate[], String s, String s1)
-        {
-            a.checkServerTrusted(ax509certificate, s);
-            return Collections.emptyList();
-        }
-
-        public X509TrustManagerIceCreamSandwich(X509TrustManager x509trustmanager)
-        {
-            a = x509trustmanager;
-        }
-    }
-
-
-    private class TrustStorageListener extends BroadcastReceiver
-    {
-
-        public void onReceive(Context context, Intent intent)
-        {
-            if (!intent.getAction().equals("android.security.STORAGE_CHANGED"))
-            {
-                break MISSING_BLOCK_LABEL_15;
-            }
-            X509Util.a();
-            return;
-            context;
-            Log.e("X509Util", "Unable to reload the default TrustManager", context);
-            return;
-            context;
-            Log.e("X509Util", "Unable to reload the default TrustManager", context);
-            return;
-            context;
-            Log.e("X509Util", "Unable to reload the default TrustManager", context);
-            return;
-        }
-
-        TrustStorageListener()
-        {
-        }
-    }
 
 }

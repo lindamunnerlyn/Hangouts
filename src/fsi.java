@@ -2,29 +2,83 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.os.Looper;
-import com.google.android.gms.common.api.Scope;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.Executors;
+import android.os.Bundle;
+import android.text.TextUtils;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-final class fsi extends ejt
+public final class fsi
 {
 
-    fsi()
+    public static final fsi a = new fsi();
+    private Pattern b[];
+    private String c[];
+
+    private fsi()
     {
+        b = new Pattern[0];
+        c = new String[0];
     }
 
-    public ejv a(Context context, Looper looper, emo emo, Object obj, eka eka, ekc ekc)
+    private void a(String as[], String as1[])
     {
-        return new fsc(context, looper, true, emo, eka, ekc, Executors.newSingleThreadExecutor());
+        int i = 0;
+        this;
+        JVM INSTR monitorenter ;
+        boolean flag;
+        if (as.length == as1.length)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        g.b(flag);
+        b = new Pattern[as.length];
+        c = as1;
+_L1:
+        if (i >= as.length)
+        {
+            break MISSING_BLOCK_LABEL_64;
+        }
+        b[i] = Pattern.compile(as[i]);
+        i++;
+          goto _L1
+        this;
+        JVM INSTR monitorexit ;
+        return;
+        as;
+        throw as;
     }
 
-    public List a()
+    public String a(String s)
     {
-        return Arrays.asList(new Scope[] {
-            fsh.e, fsh.f
-        });
+        this;
+        JVM INSTR monitorenter ;
+        boolean flag = TextUtils.isEmpty(s);
+        if (!flag) goto _L2; else goto _L1
+_L1:
+        String s1 = null;
+_L4:
+        this;
+        JVM INSTR monitorexit ;
+        return s1;
+_L2:
+        int i = 0;
+_L5:
+        s1 = s;
+        if (i >= b.length) goto _L4; else goto _L3
+_L3:
+        s = b[i].matcher(s).replaceAll(c[i]);
+        i++;
+          goto _L5
+        s;
+        throw s;
     }
+
+    public void a(Bundle bundle)
+    {
+        a(bundle.getStringArray("config.url_uncompress.patterns"), bundle.getStringArray("config.url_uncompress.replacements"));
+    }
+
 }

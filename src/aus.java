@@ -2,12 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
+import android.os.AsyncTask;
 
-public interface aus
+final class aus extends AsyncTask
 {
 
-    public abstract void a(List list);
+    final Runnable a;
 
-    public abstract boolean e();
+    aus(Runnable runnable)
+    {
+        a = runnable;
+        super();
+    }
+
+    protected Object doInBackground(Object aobj[])
+    {
+        a.run();
+        return null;
+    }
 }

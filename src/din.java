@@ -2,22 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
 
-public final class din extends dfa
+public final class din extends dgj
 {
 
-    private final List a;
+    public int a;
+    public String e;
 
-    public din(ani ani, List list)
+    public din(aoa aoa, String s, int i)
     {
-        super(ani);
-        a = list;
+        super(aoa);
+        a = i;
+        e = s;
     }
 
     public void a()
     {
-        cvc cvc1 = new cvc(a);
-        c.a(cvc1);
+        aoa aoa = super.b.b;
+        a(((dmf) (new cwv(e, a))));
     }
 }

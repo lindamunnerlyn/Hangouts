@@ -2,21 +2,27 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.phone.DebugActivity;
 
-final class clw extends cmu
+public final class clw extends gdy
 {
 
-    final cls a;
+    final DebugActivity a;
 
-    clw(cls cls1, String s)
+    public clw(DebugActivity debugactivity)
     {
-        a = cls1;
-        super(s);
+        a = debugactivity;
+        super();
     }
 
-    public void a()
+    protected Object a()
     {
-        ebw.e("Babel", "Register account for current active account.");
-        dbf.c(a.b);
+        DebugActivity.a(a, new aow(a, DebugActivity.b(a).h()));
+        return null;
+    }
+
+    protected void onPostExecute(Object obj)
+    {
+        DebugActivity.a(a);
     }
 }

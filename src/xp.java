@@ -2,34 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
+import java.util.ArrayList;
 
-final class xp
+final class xp extends xt
 {
 
-    public zq a;
-    public zq b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
+    final xr a;
+    final lr b;
+    final xi c;
 
-    private xp(zq zq, zq zq1)
+    xp(xi xi1, xr xr1, lr lr1)
     {
-        a = zq;
-        b = zq1;
+        c = xi1;
+        a = xr1;
+        b = lr1;
+        super();
     }
 
-    xp(zq zq, zq zq1, int i, int j, int k, int l)
+    public void a(View view)
     {
-        this(zq, zq1);
-        c = i;
-        d = j;
-        e = k;
-        f = l;
     }
 
-    public String toString()
+    public void b(View view)
     {
-        return (new StringBuilder("ChangeInfo{oldHolder=")).append(a).append(", newHolder=").append(b).append(", fromX=").append(c).append(", fromY=").append(d).append(", toX=").append(e).append(", toY=").append(f).append('}').toString();
+        b.a(null);
+        kb.c(view, 1.0F);
+        kb.a(view, 0.0F);
+        kb.b(view, 0.0F);
+        c.g(a.a);
+        c.g.remove(a.a);
+        c.c();
     }
 }

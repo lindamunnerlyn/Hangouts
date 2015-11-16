@@ -5,6 +5,4 @@
 
 public interface hjc
 {
-
-    public abstract void a();
 }

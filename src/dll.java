@@ -2,22 +2,55 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Comparator;
-import java.util.Locale;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.google.android.apps.hangouts.realtimechat.wakelock.impl.DebugWakelocksActivity;
+import java.util.List;
 
-public final class dll
+public final class dll extends BaseAdapter
 {
 
-    public static final Comparator a = new dlm();
-    public final String b;
-    public final String c;
-    public final String d;
+    final List a;
+    final List b;
+    final DebugWakelocksActivity c;
 
-    public dll(String s, String s1)
+    dll(DebugWakelocksActivity debugwakelocksactivity, List list, List list1)
     {
-        b = s;
-        c = s1;
-        d = (new Locale("", s)).getDisplayCountry();
+        c = debugwakelocksactivity;
+        a = list;
+        b = list1;
+        super();
     }
 
+    public int getCount()
+    {
+        return a.size();
+    }
+
+    public Object getItem(int i)
+    {
+        return jnw.a(a.get(i), b.get(i));
+    }
+
+    public long getItemId(int i)
+    {
+        return (long)i;
+    }
+
+    public View getView(int i, View view, ViewGroup viewgroup)
+    {
+        View view1 = view;
+        if (view == null)
+        {
+            view1 = c.getLayoutInflater().inflate(h.jb, viewgroup, false);
+        }
+        view = (TextView)view1.findViewById(g.oQ);
+        viewgroup = (TextView)view1.findViewById(g.oR);
+        view.setText((CharSequence)a.get(i));
+        viewgroup.setText((CharSequence)b.get(i));
+        return view1;
+    }
 }

@@ -3,22 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class gbl
+public final class gbl
+    implements gax
 {
+
+    String a;
 
     public gbl()
     {
-    }
-
-    public void a(int i, long l)
-    {
-    }
-
-    public transient void a(int ai[])
-    {
-    }
-
-    public void b()
-    {
+        a = null;
     }
 }

@@ -2,26 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
+import java.io.Serializable;
 
-final class eeh
-    implements android.view.View.OnClickListener
+public final class eeh
+    implements Serializable
 {
 
-    final ad a;
-    final String b;
-    final eeg c;
+    private static final long serialVersionUID = 1L;
+    public final Serializable a;
+    public final Serializable b;
 
-    eeh(eeg eeg, ad ad1, String s)
+    public eeh(Serializable serializable, Serializable serializable1)
     {
-        c = eeg;
-        a = ad1;
-        b = s;
-        super();
-    }
-
-    public void onClick(View view)
-    {
-        a.startActivity(g.s(b));
+        a = serializable;
+        b = serializable1;
     }
 }

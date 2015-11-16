@@ -5,4 +5,12 @@
 
 public interface hbt
 {
+
+    public abstract void a(ap ap);
+
+    public abstract void a(ap ap, String s, boolean flag);
+
+    public abstract void b(ap ap);
+
+    public abstract void c(ap ap);
 }

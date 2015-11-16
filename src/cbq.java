@@ -2,34 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Map;
+import android.content.Context;
+import android.content.Intent;
+import com.google.android.apps.hangouts.mergedcontacts.impl.MergeContactsService;
 
-public final class cbq
+final class cbq
+    implements caw
 {
 
-    private static final Map a = new gz();
+    final Context a;
+    final cbp b;
 
-    public static cbr a(String s)
+    cbq(cbp cbp, Context context)
     {
-        Map map = a;
-        map;
-        JVM INSTR monitorenter ;
-        cbr cbr2 = (cbr)a.get(s);
-        cbr cbr1;
-        cbr1 = cbr2;
-        if (cbr2 != null)
-        {
-            break MISSING_BLOCK_LABEL_45;
-        }
-        cbr1 = new cbr(s);
-        a.put(s, cbr1);
-        map;
-        JVM INSTR monitorexit ;
-        return cbr1;
-        s;
-        map;
-        JVM INSTR monitorexit ;
-        throw s;
+        b = cbp;
+        a = context;
+        super();
     }
 
+    public void a(int i)
+    {
+        Intent intent = new Intent(a, com/google/android/apps/hangouts/mergedcontacts/impl/MergeContactsService);
+        intent.putExtra("account_id", i);
+        intent.putExtra("force_merge", true);
+        a.startService(intent);
+    }
 }

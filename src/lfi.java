@@ -2,108 +2,65 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.graphics.Matrix;
+import java.util.ArrayList;
 
-public final class lfi extends ley
+final class lfi
 {
 
-    final int a;
-    final ldh c;
+    String a;
+    String b;
+    boolean c;
+    float d;
+    float e;
+    float f;
+    float g;
+    float h;
+    float i;
+    float j;
+    ArrayList k;
+    ArrayList l;
+    Matrix m;
 
-    public lfi(lcy lcy1, lcz lcz1)
+    lfi()
     {
-        super(lcy1, lcz1);
-        lcy1 = lcy1.d();
-        if (lcy1 == null)
+        k = new ArrayList();
+        l = new ArrayList();
+        m = null;
+    }
+
+    public lfi a(lfi lfi1)
+    {
+        lfi lfi2;
+label0:
         {
-            c = null;
-        } else
-        {
-            c = new lfj(lcy1, lcz1.z(), 100);
+            lfi2 = new lfi();
+            lfi2.a = lfi1.a;
+            lfi2.b = a;
+            lfi2.c = lfi1.c;
+            lfi2.d = lfi1.d;
+            lfi2.f = lfi1.f;
+            lfi2.e = lfi1.e;
+            lfi2.g = lfi1.g;
+            lfi2.h = lfi1.h;
+            lfi2.i = lfi1.i;
+            lfi2.j = lfi1.j;
+            lfi2.k = k;
+            lfi2.l = l;
+            lfi2.m = m;
+            if (lfi1.m != null)
+            {
+                if (m != null)
+                {
+                    break label0;
+                }
+                lfi2.m = lfi1.m;
+            }
+            return lfi2;
         }
-        a = 100;
-    }
-
-    public lfi(lfa lfa1)
-    {
-        this(lfa1, ((lew) (lfa1)).g);
-    }
-
-    public lfi(lfa lfa1, lcz lcz1)
-    {
-        super(((ley) (lfa1)).b, lcz1);
-        a = lfa1.a;
-        c = lfa1.c;
-    }
-
-    public int a(long l)
-    {
-        int j = super.b.a(l);
-        if (j >= 0)
-        {
-            return j % a;
-        } else
-        {
-            int k = a;
-            return (j + 1) % a + (k - 1);
-        }
-    }
-
-    public long b(long l, int j)
-    {
-        h.a(this, j, 0, a - 1);
-        int k = super.b.a(l);
-        if (k >= 0)
-        {
-            k /= a;
-        } else
-        {
-            k = (k + 1) / a - 1;
-        }
-        return super.b.b(l, k * a + j);
-    }
-
-    public long d(long l)
-    {
-        return super.b.d(l);
-    }
-
-    public long e(long l)
-    {
-        return super.b.e(l);
-    }
-
-    public ldh e()
-    {
-        return c;
-    }
-
-    public long f(long l)
-    {
-        return super.b.f(l);
-    }
-
-    public int g()
-    {
-        return 0;
-    }
-
-    public long g(long l)
-    {
-        return super.b.g(l);
-    }
-
-    public int h()
-    {
-        return a - 1;
-    }
-
-    public long h(long l)
-    {
-        return super.b.h(l);
-    }
-
-    public long i(long l)
-    {
-        return super.b.i(l);
+        Matrix matrix = new Matrix(m);
+        matrix.preConcat(lfi1.m);
+        lfi2.m = matrix;
+        return lfi2;
     }
 }

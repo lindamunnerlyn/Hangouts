@@ -2,36 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Binder;
-import com.google.android.libraries.hangouts.video.CallService;
 
-public final class gce extends Binder
-    implements gjn
+public final class gce
 {
 
-    final CallService a;
+    public static final String a = gbu.getName();
+    public static final String b = gbr.getName();
+    public static final String c = gbv.getName();
+    public static final String d = gbs.getName();
+    private static gcd e;
 
-    public gce(CallService callservice)
+    public static void a(hlp hlp1)
     {
-        a = callservice;
-        super();
+        if (e == null)
+        {
+            e = new gcd();
+        }
+        hlp1.a(gbu, new gcb());
     }
 
-    public gjk a(gjl gjl)
+    public static void b(hlp hlp1)
     {
-        gbh.a(CallService.b(a));
-        CallService.a(a, new gbn(CallService.c(a), gjl));
-        CallService.b(a).a(new gcf(this));
-        return CallService.b(a);
+        if (e == null)
+        {
+            e = new gcd();
+        }
+        hlp1.a(gbr, new gca());
     }
 
-    public gjp a()
+    public static void c(hlp hlp1)
     {
-        return new gjp(CallService.a(a).a());
+        if (e == null)
+        {
+            e = new gcd();
+        }
+        hlp1.a(gbv, new gcc());
     }
 
-    public gjk b()
+    public static void d(hlp hlp1)
     {
-        return CallService.b(a);
+        if (e == null)
+        {
+            e = new gcd();
+        }
+        hlp1.a(gbs, new gby());
     }
+
 }

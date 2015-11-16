@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:clipChildren="false" style="@style/quick_button_container"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:id="@id/name" style="@style/quick_button_text" />
-    <FrameLayout android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="wrap_content">
-        <ImageView android:layout_gravity="center" android:layout_marginTop="14.0dip" android:layout_marginRight="16.0dip" android:src="@drawable/bt_fab_4dpshadow" android:scaleType="centerInside" android:layout_marginEnd="16.0dip" style="@style/quick_button_avatar" />
-        <com.google.android.apps.hangouts.views.AvatarView android:id="@id/avatar" style="@style/quick_button_avatar" />
-    </FrameLayout>
-</LinearLayout>

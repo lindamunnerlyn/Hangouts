@@ -4,7 +4,7 @@
 
 
 final class aul
-    implements gsb
+    implements Runnable
 {
 
     final auk a;
@@ -15,15 +15,19 @@ final class aul
         super();
     }
 
-    public boolean a()
+    public void run()
     {
-        if (auk.a(a) == -1)
-        {
-            return false;
-        } else
-        {
-            a.b(-1);
-            return true;
-        }
+        aow aow1;
+        aow1 = new aow(a.b.a, a.a);
+        aow1.a();
+        aow1.C(a.b.c.a);
+        aow1.b();
+        aow1.c();
+        aoq.a(a.a);
+        return;
+        Exception exception;
+        exception;
+        aow1.c();
+        throw exception;
     }
 }

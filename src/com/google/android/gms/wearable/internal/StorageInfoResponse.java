@@ -6,14 +6,15 @@ package com.google.android.gms.wearable.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fvt;
+import fxz;
+import g;
 import java.util.List;
 
 public class StorageInfoResponse
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fvt();
+    public static final android.os.Parcelable.Creator CREATOR = new fxz();
     public final int a;
     public final int b;
     public final long c;
@@ -34,7 +35,12 @@ public class StorageInfoResponse
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fvt.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, b);
+        g.a(parcel, 3, c);
+        g.c(parcel, 4, d);
+        g.q(parcel, i);
     }
 
 }

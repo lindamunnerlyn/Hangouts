@@ -3,36 +3,43 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cur extends cui
+public class cur extends cup
 {
 
     private static final long serialVersionUID = 1L;
-    public final String a;
-    public final int b;
 
-    public cur(String s, int i)
+    public cur()
     {
-        a = s;
-        b = i;
     }
 
-    public kop a(String s, int i, int j)
+    public String a()
     {
-        if (ctr.e)
+        return "ui_queue";
+    }
+
+    public kws a(String s, int i, int j)
+    {
+        s = new hyw();
+        hyc hyc1 = new hyc();
+        hyc1.a = s;
+        return hyc1;
+    }
+
+    public void a(aoa aoa1, dcx dcx)
+    {
+        aoa1 = String.valueOf(eev.b(aoa1.c()));
+        if (aoa1.length() != 0)
         {
-            ebw.b("Babel_RequestWriter", "ReportAbuseConversationRequest");
+            aoa1 = "GetChatAclSettingsOperation failed for ".concat(aoa1);
+        } else
+        {
+            aoa1 = new String("GetChatAclSettingsOperation failed for ");
         }
-        ixd ixd1 = new ixd();
-        ixd1.requestHeader = ctq.a(s, i, j, h);
-        ixd1.a = ctq.a(a);
-        ixd1.b = (new int[] {
-            b
-        });
-        return ixd1;
+        eev.e("Babel", aoa1, dcx);
     }
 
-    public String g()
+    public String f()
     {
-        return "conversations/reportabuseconversation";
+        return "getchatacls";
     }
 }

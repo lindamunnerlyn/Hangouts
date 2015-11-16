@@ -3,16 +3,12 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class aov
+public final class aov
 {
 
     public String a;
-    public String b;
-    final aoe c;
 
-    aov(aoe aoe)
+    public aov()
     {
-        c = aoe;
-        super();
     }
 }

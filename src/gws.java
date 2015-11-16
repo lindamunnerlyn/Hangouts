@@ -3,8 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gws
+public final class gws
 {
 
-    public abstract void a(gxe gxe);
+    public static final String a = gwu.getName();
+    private static gwr b;
+
+    public static void a(hlp hlp1)
+    {
+        if (b == null)
+        {
+            b = new gwr();
+        }
+        hlp1.a(gwu, new gwq());
+    }
+
 }

@@ -3,33 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.os.IBinder;
-import android.os.IInterface;
 import android.os.Looper;
+import java.util.Collections;
+import java.util.List;
 
-public final class emu extends ena
+public abstract class emu
 {
 
-    private final a e;
-
-    public emu(Context context, Looper looper, int i, eka eka, ekc ekc, emo emo, a a1)
+    public emu()
     {
-        super(context, looper, i, emo, eka, ekc);
-        e = a1;
     }
 
-    protected IInterface a(IBinder ibinder)
-    {
-        return e.g();
-    }
+    public abstract emw a(Context context, Looper looper, epo epo, Object obj, enb enb, end end);
 
-    protected String a()
+    public List a()
     {
-        return e.e();
-    }
-
-    protected String b()
-    {
-        return e.f();
+        return Collections.emptyList();
     }
 }

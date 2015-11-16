@@ -2,9 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.ArrayList;
+import java.util.List;
 
-public interface hcf
+final class hcf
 {
 
-    public abstract void a(hch hch);
+    boolean a;
+    boolean b;
+    boolean c;
+    int d;
+    List e;
+    List f;
+
+    hcf()
+    {
+        e = new ArrayList();
+        f = new ArrayList();
+    }
 }

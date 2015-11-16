@@ -4,23 +4,21 @@
 
 
 final class dpr
-    implements hfe
+    implements Runnable
 {
 
-    final int a;
-    final dpo b;
+    final dpw a;
+    final dpn b;
 
-    dpr(dpo dpo1, int i)
+    dpr(dpn dpn, dpw dpw1)
     {
-        b = dpo1;
-        a = i;
+        b = dpn;
+        a = dpw1;
         super();
     }
 
-    public boolean a(hfa hfa, Object obj)
+    public void run()
     {
-        ((dns)hfa).a((String)obj);
-        dpo.c(b).b(a).c("sms_notification_sound_key", (String)obj).d();
-        return true;
+        a.h();
     }
 }

@@ -2,57 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.support.v4.widget.DrawerLayout;
-import android.view.View;
+import android.os.Parcel;
 
 final class on
-    implements Runnable
+    implements android.os.Parcelable.Creator
 {
 
-    final om a;
-
-    on(om om1)
+    on()
     {
-        a = om1;
-        super();
     }
 
-    public void run()
+    public Object createFromParcel(Parcel parcel)
     {
-        int i = 0;
-        om om1 = a;
-        int j = om1.b.b();
-        View view;
-        boolean flag;
-        if (om1.a == 3)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        if (flag)
-        {
-            view = om1.c.b(3);
-            if (view != null)
-            {
-                i = -view.getWidth();
-            }
-            i += j;
-        } else
-        {
-            view = om1.c.b(5);
-            i = om1.c.getWidth();
-            i -= j;
-        }
-        if (view != null && (flag && view.getLeft() < i || !flag && view.getLeft() > i) && om1.c.a(view) == 0)
-        {
-            oj oj1 = (oj)view.getLayoutParams();
-            om1.b.a(view, i, view.getTop());
-            oj1.c = true;
-            om1.c.invalidate();
-            om1.b();
-            om1.c.g();
-        }
+        return new om(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new om[i];
     }
 }

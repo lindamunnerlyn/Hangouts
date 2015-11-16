@@ -6,79 +6,55 @@ package org.chromium.base.library_loader;
 
 import android.os.Bundle;
 import java.util.HashMap;
+import llz;
 import org.chromium.base.ThreadUtils;
 
 // Referenced classes of package org.chromium.base.library_loader:
 //            Linker
 
-class LegacyLinker extends Linker
+public class LegacyLinker extends Linker
 {
 
-    public HashMap a;
+    private boolean c;
+    private boolean d;
     private boolean e;
     private boolean f;
-    private boolean g;
-    private boolean h;
-    private boolean i;
-    private Bundle j;
-    private long k;
-    private long l;
-    private boolean m;
+    private Bundle g;
+    private long h;
+    private long i;
+    private boolean j;
+    private HashMap k;
 
-    LegacyLinker()
+    private LegacyLinker()
     {
+        c = false;
+        d = true;
         e = false;
         f = false;
-        g = true;
-        h = false;
-        i = false;
-        j = null;
-        k = 0L;
-        l = 0L;
-        m = false;
-        a = null;
+        g = null;
+        h = -1L;
+        i = -1L;
+        j = false;
+        k = null;
     }
 
-    static void a(long l1)
+    public static void a(long l)
     {
-        nativeRunCallbackOnUiThread(l1);
+        nativeRunCallbackOnUiThread(l);
     }
 
-    private static native boolean nativeCanUseSharedRelro();
+    private static native boolean nativeCreateSharedRelro(String s, long l, Linker.LibInfo libinfo);
 
-    private static native boolean nativeCreateSharedRelro(String s, long l1, Linker.LibInfo libinfo);
+    private static native boolean nativeLoadLibrary(String s, long l, Linker.LibInfo libinfo);
 
-    private static native long nativeGetRandomBaseLoadAddress(long l1);
+    private static native boolean nativeLoadLibraryInZipFile(String s, String s1, long l, Linker.LibInfo libinfo);
 
-    private static native boolean nativeLoadLibrary(String s, long l1, Linker.LibInfo libinfo);
-
-    private static native boolean nativeLoadLibraryInZipFile(String s, String s1, long l1, Linker.LibInfo libinfo);
-
-    private static native void nativeRunCallbackOnUiThread(long l1);
+    private static native void nativeRunCallbackOnUiThread(long l);
 
     private static native boolean nativeUseSharedRelro(String s, Linker.LibInfo libinfo);
 
-    public static void postCallbackOnMainThread(long l1)
+    public static void postCallbackOnMainThread(long l)
     {
-        ThreadUtils.b(new _cls1(l1));
+        ThreadUtils.b(new llz(l));
     }
-
-    private class _cls1
-        implements Runnable
-    {
-
-        final long a;
-
-        public void run()
-        {
-            LegacyLinker.a(a);
-        }
-
-        _cls1(long l1)
-        {
-            a = l1;
-            super();
-        }
-    }
-
 }

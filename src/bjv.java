@@ -2,9 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
 
-public interface bjv
+final class bjv
+    implements android.view.View.OnClickListener
 {
 
-    public abstract void g_();
+    final bjq a;
+
+    bjv(bjq bjq1)
+    {
+        a = bjq1;
+        super();
+    }
+
+    public void onClick(View view)
+    {
+        if (bjq.a(a) != null)
+        {
+            bjq.a(a).b();
+        }
+    }
 }

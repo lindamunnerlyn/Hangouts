@@ -2,23 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
 
-final class edb extends BroadcastReceiver
+public final class edb extends HashSet
 {
 
-    final ecz a;
+    private static final long serialVersionUID = 1L;
 
-    edb(ecz ecz1)
+    public edb()
     {
-        a = ecz1;
-        super();
     }
 
-    public void onReceive(Context context, Intent intent)
+    private edb(Collection collection)
     {
-        a.a(intent);
+        super(collection);
+    }
+
+    public static edb a(String s)
+    {
+        edb edb1 = null;
+        if (s != null)
+        {
+            edb1 = new edb(Arrays.asList(s.split("\\|")));
+        }
+        return edb1;
+    }
+
+    public String a()
+    {
+        if (size() > 0)
+        {
+            return (String)iterator().next();
+        } else
+        {
+            return null;
+        }
+    }
+
+    public String b()
+    {
+        return gng.a(this, "|");
     }
 }

@@ -2,15 +2,56 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.IInterface;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.internal.ResolveAccountResponse;
 
-public interface env
-    extends IInterface
+final class env extends eol
 {
 
-    public abstract void a(int i, Bundle bundle);
+    final enq a;
+    final ResolveAccountResponse b;
+    final enu c;
 
-    public abstract void a(int i, IBinder ibinder, Bundle bundle);
+    env(enu enu, eop eop, enq enq1, ResolveAccountResponse resolveaccountresponse)
+    {
+        c = enu;
+        a = enq1;
+        b = resolveaccountresponse;
+        super(eop);
+    }
+
+    public void a()
+    {
+        enq enq1;
+        ConnectionResult connectionresult;
+label0:
+        {
+            enq1 = a;
+            ResolveAccountResponse resolveaccountresponse = b;
+            if (enq1.b(0))
+            {
+                connectionresult = resolveaccountresponse.b();
+                if (!connectionresult.b())
+                {
+                    break label0;
+                }
+                enq1.g = resolveaccountresponse.a();
+                enq1.f = true;
+                enq1.h = resolveaccountresponse.c();
+                enq1.i = resolveaccountresponse.d();
+                enq1.f();
+            }
+            return;
+        }
+        if (enq1.a(connectionresult))
+        {
+            enq1.i();
+            enq1.f();
+            return;
+        } else
+        {
+            enq1.b(connectionresult);
+            return;
+        }
+    }
 }

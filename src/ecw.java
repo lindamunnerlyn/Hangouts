@@ -2,47 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import com.google.android.apps.hangouts.views.AudioAttachmentView;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.IntentFilter;
 
 public final class ecw
-    implements android.view.View.OnClickListener
 {
 
-    final AudioAttachmentView a;
+    final String a;
+    final BroadcastReceiver b = new ecx(this);
+    private final Context c;
+    private final String d;
 
-    public ecw(AudioAttachmentView audioattachmentview)
+    public ecw(Context context, String s, String s1)
     {
-        a = audioattachmentview;
-        super();
+        c = context;
+        d = s;
+        a = s1;
     }
 
-    public void onClick(View view)
+    public void a()
     {
-        if (AudioAttachmentView.d(a) != null)
-        {
-            switch (AudioAttachmentView.d(a).b())
-            {
-            default:
-                return;
+        eq.a(c).a(b, new IntentFilter(d));
+    }
 
-            case 0: // '\0'
-            case 1: // '\001'
-            case 5: // '\005'
-                AudioAttachmentView.d(a).k();
-                return;
-
-            case 2: // '\002'
-            case 3: // '\003'
-            case 4: // '\004'
-                AudioAttachmentView.d(a).l();
-                break;
-            }
-            return;
-        } else
-        {
-            ebw.f("Babel", "playPauseButtonClicked: audioPlaybackController is null");
-            return;
-        }
+    public void b()
+    {
+        eq.a(c).a(b);
     }
 }

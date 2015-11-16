@@ -8,7 +8,7 @@ package org.chromium.net;
 // Referenced classes of package org.chromium.net:
 //            HistogramManager
 
-public final class CronetHistogramManager extends HistogramManager
+final class CronetHistogramManager extends HistogramManager
 {
 
     public CronetHistogramManager()

@@ -2,38 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Dialog;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-public class bci extends hhs
+final class bci
+    implements bcf
 {
 
-    public bci()
+    final bch a;
+
+    bci(bch bch)
     {
+        a = bch;
+        super();
     }
 
-    public Dialog a(Bundle bundle)
+    public int a()
     {
-        bundle = super.a(bundle);
-        bundle.requestWindowFeature(1);
-        return bundle;
+        return g.lf;
     }
 
-    protected void e(Bundle bundle)
+    public boolean a(aoa aoa)
     {
-        super.e(bundle);
-        al.a(bch, new bcj(this));
+        return true;
     }
 
-    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
+    public bab b()
     {
-        super.onCreateView(layoutinflater, viewgroup, bundle);
-        layoutinflater = layoutinflater.inflate(g.lB, viewgroup, false);
-        viewgroup = hhu.instantiate(ak, bdc.getName());
-        getChildFragmentManager().a().b(h.hF, viewgroup).b();
-        return layoutinflater;
+        if (android.os.Build.VERSION.SDK_INT >= 16)
+        {
+            return new bab(2658, new String[] {
+                "android.permission.CAMERA", "android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"
+            });
+        } else
+        {
+            return new bab(2658, new String[] {
+                "android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE"
+            });
+        }
+    }
+
+    public Class c()
+    {
+        return bcg;
     }
 }

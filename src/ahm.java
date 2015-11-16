@@ -3,10 +3,6 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class ahm
+public interface ahm
 {
-
-    ahm()
-    {
-    }
 }

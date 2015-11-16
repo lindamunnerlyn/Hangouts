@@ -2,37 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.List;
 
-public final class aob extends Enum
+public final class aob
 {
 
-    public static final aob a;
-    public static final aob b;
-    public static final aob c;
-    private static final aob d[];
+    public int a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
+    public boolean k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public boolean q;
+    public boolean r;
+    public boolean s;
+    public boolean t;
+    public String u;
+    public Integer v;
+    public boolean w;
+    public List x;
 
-    private aob(String s, int i)
+    public aob()
     {
-        super(s, i);
-    }
-
-    public static aob valueOf(String s)
-    {
-        return (aob)Enum.valueOf(aob, s);
-    }
-
-    public static aob[] values()
-    {
-        return (aob[])d.clone();
-    }
-
-    static 
-    {
-        a = new aob("NONE", 0);
-        b = new aob("LOCAL_ONLY", 1);
-        c = new aob("LOCAL_AND_SERVER", 2);
-        d = (new aob[] {
-            a, b, c
-        });
     }
 }

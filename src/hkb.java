@@ -2,10 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ListView;
 
-public interface hkb
+final class hkb
+    implements android.view.View.OnKeyListener
 {
 
-    public abstract void b(Bundle bundle);
+    final hjy a;
+
+    hkb(hjy hjy1)
+    {
+        a = hjy1;
+        super();
+    }
+
+    public boolean onKey(View view, int i, KeyEvent keyevent)
+    {
+        if (hjy.b(a).getSelectedItem() instanceof hjr)
+        {
+            hjy.b(a).getSelectedView();
+        }
+        return false;
+    }
 }

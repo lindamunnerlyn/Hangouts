@@ -2,21 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.settings.CustomizeInvitesActivity;
 
-public final class doa extends hfz
+final class doa
+    implements Runnable
 {
 
-    final CustomizeInvitesActivity a;
+    final dbi a;
+    final dny b;
 
-    public doa(CustomizeInvitesActivity customizeinvitesactivity, ps ps, hjm hjm)
+    doa(dny dny1, dbi dbi)
     {
-        a = customizeinvitesactivity;
-        super(ps, hjm);
+        b = dny1;
+        a = dbi;
+        super();
     }
 
-    protected hfh a()
+    public void run()
     {
-        return new dob();
+        dny.a(b, a);
     }
 }

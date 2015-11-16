@@ -2,495 +2,108 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.ActivityManager;
-import android.content.ContentResolver;
 import android.content.Context;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.BitmapShader;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.media.MediaMetadataRetriever;
-import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 
-public final class ean
+public final class ean extends dwx
 {
 
-    public static dzl a;
-    private static final boolean b = false;
-    private static final gbi c;
-    private static MediaMetadataRetriever d;
-    private static Boolean e;
-    private static final Object f = new Object();
+    private final int a;
+    private final Context b;
 
-    public static int a(ContentResolver contentresolver, Uri uri)
+    public ean(Context context, int i)
     {
-        if (!b(uri)) goto _L2; else goto _L1
-_L1:
-        contentresolver = contentresolver.query(uri, new String[] {
-            "orientation"
-        }, null, null, null);
-        if (contentresolver == null) goto _L4; else goto _L3
-_L3:
-        if (!contentresolver.moveToFirst()) goto _L4; else goto _L5
-_L5:
-        int i = contentresolver.getInt(0);
-_L7:
-        if (contentresolver != null)
-        {
-            contentresolver.close();
-        }
-        return i;
-        uri;
-        contentresolver = null;
-_L6:
-        if (contentresolver != null)
-        {
-            contentresolver.close();
-        }
-        throw uri;
-        uri;
-        if (true) goto _L6; else goto _L4
-_L4:
-        i = 0;
-        if (true) goto _L7; else goto _L2
-_L2:
-        return 0;
+        b = context;
+        a = i;
     }
 
-    public static Bitmap a(int i)
+    private cyi b(String s)
     {
-        Bitmap bitmap1 = BitmapFactory.decodeResource(g.nS.getResources(), i);
-        Bitmap bitmap = a(bitmap1);
-        b(bitmap1);
-        bitmap1 = bitmap.copy(bitmap.getConfig(), false);
-        b(bitmap);
-        return bitmap1;
-    }
-
-    public static Bitmap a(Bitmap bitmap)
-    {
-        Bitmap bitmap1 = null;
-        Object obj = bitmap;
-        if (bitmap.getWidth() != bitmap.getHeight())
+        Semaphore semaphore;
+        cyi acyi[];
+        gdv.b();
+        semaphore = new Semaphore(0);
+        acyi = new cyi[1];
+        s = new eao(this, RealTimeChatService.c(a, s), acyi, semaphore);
+        RealTimeChatService.a(s);
+        if (semaphore.tryAcquire(g.a(b, "babel_telephony_call_rate_lookup_timeout_ms", 10000L), TimeUnit.MILLISECONDS))
         {
-            int i = Math.min(bitmap.getWidth(), bitmap.getHeight());
-            bitmap1 = a().b(i, i);
-            (new Canvas(bitmap1)).drawBitmap(bitmap, new Rect((bitmap.getWidth() - i) / 2, (bitmap.getHeight() - i) / 2, (bitmap.getWidth() + i) / 2, (bitmap.getHeight() + i) / 2), new Rect(0, 0, i, i), new Paint());
-            obj = bitmap1;
+            cyi cyi1 = acyi[0];
+            RealTimeChatService.b(s);
+            return cyi1;
         }
-        int j = ((Bitmap) (obj)).getWidth();
-        bitmap = a().b(j, j);
-        Canvas canvas = new Canvas(bitmap);
-        obj = new BitmapShader(((Bitmap) (obj)), android.graphics.Shader.TileMode.CLAMP, android.graphics.Shader.TileMode.CLAMP);
-        Paint paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setShader(((android.graphics.Shader) (obj)));
-        canvas.drawRoundRect(new RectF(0.0F, 0.0F, j, j), j, j, paint);
-        if (bitmap1 != null)
-        {
-            a().a(bitmap1);
-        }
-        return bitmap;
-    }
-
-    public static Bitmap a(Uri uri)
-    {
-        if (d == null)
-        {
-            d = new MediaMetadataRetriever();
-        }
-        try
-        {
-            d.setDataSource(g.nS, uri);
-            uri = d.getFrameAtTime(-1L);
-        }
-        // Misplaced declaration of an exception variable
-        catch (Uri uri)
-        {
-            return null;
-        }
-        return uri;
-    }
-
-    public static dzl a()
-    {
-        if (a == null)
-        {
-            synchronized (f)
-            {
-                if (a == null)
-                {
-                    ebw.a("Babel", "Initialize BitmapCache");
-                    g.nS.getResources();
-                    a = new dzl(g.nS, anv.b());
-                    c.a(a);
-                }
-            }
-        }
-        return a;
+        eev.g("Babel_telephony", "TeleHangoutsService.getCallRateResponseBlocking, timeout reached");
+        throw new eam();
+        Exception exception;
         exception;
-        obj;
-        JVM INSTR monitorexit ;
+        RealTimeChatService.b(s);
         throw exception;
     }
 
-    public static String a(File file, String s, String s1)
+    public int a()
     {
-        s = MimeTypeMap.getSingleton().getExtensionFromMimeType(s);
-        if (TextUtils.isEmpty(s1))
-        {
-            s1 = new Date(System.currentTimeMillis());
-            int i = l.bE;
-            return b(file, (new SimpleDateFormat(g.nS.getString(i), Locale.US)).format(s1), s);
-        } else
-        {
-            return (new StringBuilder(String.valueOf(s1).length() + 1 + String.valueOf(s).length())).append(s1).append(".").append(s).toString();
-        }
+        g.s(b);
+        return 1;
     }
 
-    public static void a(eam eam1)
+    public Bundle a(String s)
     {
+        Bundle bundle;
         String s1;
-        ebh ebh1;
-        boolean flag;
-        s1 = eam1.s();
-        ebh1 = a().a(s1);
-        String s = String.valueOf(s1);
-        int i;
-        int j;
-        int k;
-        int i1;
-        if (s.length() != 0)
-        {
-            s = "trying to remove bitmap cache for ".concat(s);
-        } else
-        {
-            s = new String("trying to remove bitmap cache for ");
-        }
-        ebw.e("Babel", s);
-        if (ebh1 == null)
-        {
-            break MISSING_BLOCK_LABEL_230;
-        }
-        if (ebh1 == null) goto _L2; else goto _L1
+        g.s(b);
+        bundle = new Bundle();
+        s1 = eey.g(s);
+        if (s1 != null) goto _L2; else goto _L1
 _L1:
-        i = eam1.d();
-        j = eam1.e();
-        k = ebh1.e().getWidth();
-        i1 = ebh1.e().getHeight();
-        if (b)
-        {
-            s = eam1.s();
-            ebw.b("Babel", (new StringBuilder(String.valueOf(s).length() + 122)).append("check bitmap cache for ").append(s).append(", check cached entry, cached size: ").append(k).append("x").append(i1).append(", requested size: ").append(i).append("x").append(j).toString());
-        }
-        if (k < i && i1 < j) goto _L2; else goto _L3
-_L3:
-        flag = true;
-_L5:
-        if (flag)
-        {
-            ebw.e("Babel", "cached image size is ok, keep bitmap cache.");
-            return;
-        }
-        break; /* Loop/switch isn't completed */
-_L2:
-        flag = false;
-        if (true) goto _L5; else goto _L4
+        eev.g("Babel_telephony", "TeleHangoutsService.getCallRate, invalid number");
+        bundle.putBoolean("invalid_number", true);
 _L4:
-        ebw.e("Babel", "cached bitmap size is smaller than expected, invalidate cache now");
-        ebh1.b();
-        if (!a().b(s1))
-        {
-            ebw.e("Babel", (new StringBuilder(String.valueOf(s1).length() + 35)).append("failed to remove ").append(s1).append(" from bitmap cache").toString());
-        }
-        ccb.a(eam1.t());
-        return;
-    }
-
-    public static boolean a(Context context)
-    {
-        if (e != null)
-        {
-            return g.a(e, false);
-        }
-        context = (ActivityManager)context.getSystemService("activity");
-        int i = context.getMemoryClass();
-        boolean flag;
-        if (android.os.Build.VERSION.SDK_INT >= 19)
-        {
-            flag = context.isLowRamDevice();
-        } else
-        {
-            flag = false;
-        }
-        if (i >= 24 && !flag)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        context = Boolean.valueOf(flag);
-        e = context;
-        return g.a(context, false);
-    }
-
-    public static byte[] a(Bitmap bitmap, int i)
-    {
-        byte abyte0[];
-        boolean flag;
-        int j;
-        j = 0;
-        abyte0 = null;
-        flag = false;
+        return bundle;
 _L2:
-        if (flag)
+        try
         {
-            break; /* Loop/switch isn't completed */
+            s = b(s1);
         }
-        byte abyte1[];
-        ByteArrayOutputStream bytearrayoutputstream = new ByteArrayOutputStream();
-        bitmap.compress(android.graphics.Bitmap.CompressFormat.JPEG, i, bytearrayoutputstream);
-        abyte1 = bytearrayoutputstream.toByteArray();
-        abyte0 = abyte1;
-        flag = true;
-        continue; /* Loop/switch isn't completed */
-        OutOfMemoryError outofmemoryerror;
-        outofmemoryerror;
-        ebw.f("Babel", "OutOfMemory converting bitmap to bytes.");
-        j++;
-        if (j <= 1)
+        // Misplaced declaration of an exception variable
+        catch (String s)
         {
-            c.a();
-        } else
-        {
-            ebw.f("Babel", "Failed to convert bitmap to bytes. Out of Memory.");
-            flag = true;
+            eev.e("Babel_telephony", "TeleHangoutsService.getCallRate, timed out while making request", s);
+            bundle.putBoolean("request_timeout", true);
+            return bundle;
         }
-        if (true) goto _L2; else goto _L1
-_L1:
-        return abyte0;
-    }
-
-    public static byte[] a(InputStream inputstream)
-    {
-        Object obj;
-        byte abyte0[];
-        int i;
-        obj = null;
-        abyte0 = null;
-        i = 0;
-        if (inputstream != null) goto _L2; else goto _L1
-_L1:
-        return abyte0;
-_L2:
-        byte abyte1[];
-        boolean flag;
-        abyte1 = new byte[128];
-        flag = false;
-_L10:
-        abyte0 = ((byte []) (obj));
-        if (flag) goto _L1; else goto _L3
+        // Misplaced declaration of an exception variable
+        catch (String s)
+        {
+            eev.e("Babel_telephony", "TeleHangoutsService.getCallRate, interrupted while making request", s);
+            bundle.putBoolean("request_timeout", true);
+            return bundle;
+        }
+        if (s != null)
+        {
+            break MISSING_BLOCK_LABEL_84;
+        }
+        eev.g("Babel_telephony", "TeleHangoutsService.getCallRate, no call rate response");
+        bundle.putBoolean("no_response", true);
+        return bundle;
+        bundle.putBoolean("is_free", s.n());
+        bundle.putBoolean("does_rate_expire", s.p());
+        bundle.putInt("initial_free_display_duration_ms", s.l());
+        bundle.putInt("rate_ttl_ms", s.o());
+        bundle.putInt("fmf_promo", s.k());
+        bundle.putString("country_display", eey.q(s1));
+        s1 = s.m();
+        if (s.n() || TextUtils.isEmpty(s1)) goto _L4; else goto _L3
 _L3:
-        Object obj1 = new ByteArrayOutputStream();
-_L6:
-        int j = inputstream.read(abyte1, 0, 128);
-        if (j == -1) goto _L5; else goto _L4
-_L4:
-        ((ByteArrayOutputStream) (obj1)).write(abyte1, 0, j);
-          goto _L6
-        obj1;
-        ebw.f("Babel", "OutOfMemory trying to create inputStream to bytes in ImageUtils.");
-        int k = i + 1;
-        if (k > 1) goto _L8; else goto _L7
-_L7:
-        c.a();
-        j = ((flag) ? 1 : 0);
-_L11:
-        i = k;
-        flag = j;
-        if (inputstream == null) goto _L10; else goto _L9
-_L9:
-        inputstream.close();
-        i = k;
-        flag = j;
-          goto _L10
-        obj1;
-        ebw.e("Babel", "Error trying to close input stream", ((Throwable) (obj1)));
-        i = k;
-        flag = j;
-          goto _L10
-_L5:
-        obj1 = ((ByteArrayOutputStream) (obj1)).toByteArray();
-        if (inputstream == null)
-        {
-            break MISSING_BLOCK_LABEL_267;
-        }
-        inputstream.close();
-        obj = obj1;
-        flag = true;
-          goto _L10
-        obj;
-        ebw.e("Babel", "Error trying to close input stream", ((Throwable) (obj)));
-        obj = obj1;
-        flag = true;
-          goto _L10
-_L8:
-        ebw.f("Babel", "Getting bitmap from uri failed in ImageUtils. Out of Memory.");
-        j = 1;
-          goto _L11
-        obj1;
-        ebw.e("Babel", "Error trying to convert input stream into bytes in ImageUtils: ", ((Throwable) (obj1)));
-        if (inputstream == null)
-        {
-            break MISSING_BLOCK_LABEL_261;
-        }
-        inputstream.close();
-        flag = true;
-          goto _L10
-        obj1;
-        ebw.e("Babel", "Error trying to close input stream", ((Throwable) (obj1)));
-        flag = true;
-          goto _L10
-        obj;
-        if (inputstream != null)
-        {
-            try
-            {
-                inputstream.close();
-            }
-            // Misplaced declaration of an exception variable
-            catch (InputStream inputstream)
-            {
-                ebw.e("Babel", "Error trying to close input stream", inputstream);
-            }
-        }
-        throw obj;
-        flag = true;
-          goto _L10
-        obj = obj1;
-        flag = true;
-          goto _L10
-    }
-
-    public static String b(ContentResolver contentresolver, Uri uri)
-    {
-        if (!b(uri)) goto _L2; else goto _L1
-_L1:
-        Cursor cursor = contentresolver.query(uri, new String[] {
-            "mime_type"
-        }, null, null, null);
-        if (cursor == null) goto _L4; else goto _L3
-_L3:
-        if (!cursor.moveToFirst()) goto _L4; else goto _L5
-_L5:
-        Object obj = cursor.getString(0);
-_L9:
-        contentresolver = ((ContentResolver) (obj));
-        if (cursor != null)
-        {
-            cursor.close();
-            contentresolver = ((ContentResolver) (obj));
-        }
-_L6:
-        obj = contentresolver;
-        if (contentresolver == null)
-        {
-            obj = g.a(uri.toString(), "image/*");
-        }
-        return ((String) (obj));
-        contentresolver;
-        cursor = null;
-_L7:
-        if (cursor != null)
-        {
-            cursor.close();
-        }
-        throw contentresolver;
-_L2:
-        if (uri.toString().endsWith(".gif"))
-        {
-            contentresolver = "image/gif";
-        } else
-        {
-            contentresolver = null;
-        }
-          goto _L6
-        contentresolver;
-          goto _L7
-_L4:
-        obj = null;
-        if (true) goto _L9; else goto _L8
-_L8:
-    }
-
-    private static String b(File file, String s, String s1)
-    {
-        String s2 = (new StringBuilder(String.valueOf(s).length() + 1 + String.valueOf(s1).length())).append(s).append(".").append(s1).toString();
-        if ((new File(file, s2)).exists()) goto _L2; else goto _L1
-_L1:
-        s = s2;
-_L4:
-        return s;
-_L2:
-        String s3 = (new StringBuilder(String.valueOf(s).length() + 6 + String.valueOf(s1).length())).append(s).append(" (%d).").append(s1).toString();
-        int i = 1;
-label0:
-        do
-        {
-label1:
-            {
-                if (i > 99)
-                {
-                    break label1;
-                }
-                s1 = String.format(Locale.US, s3, new Object[] {
-                    Integer.valueOf(i)
-                });
-                s = s1;
-                if (!(new File(file, s1)).exists())
-                {
-                    break label0;
-                }
-                i++;
-            }
-        } while (true);
-        if (true) goto _L4; else goto _L3
-_L3:
-        ebw.g("Babel", "Too many duplicate final names. Aborted trying to create new file name");
-        return null;
-    }
-
-    private static void b(Bitmap bitmap)
-    {
-        if (bitmap != null)
-        {
-            a().a(bitmap);
-        }
-    }
-
-    private static boolean b(Uri uri)
-    {
-        String s = uri.getAuthority();
-        return TextUtils.equals("content", uri.getScheme()) && (TextUtils.equals("media", s) || TextUtils.equals("com.android.providers.media.documents", s));
-    }
-
-    static 
-    {
-        hik hik = ebw.d;
-        c = gbi.a;
+        bundle.putString("rate_display", b.getString(g.pR, new Object[] {
+            s1
+        }));
+        bundle.putString("rate_display_description", b.getString(g.pS, new Object[] {
+            s1
+        }));
+        return bundle;
     }
 }

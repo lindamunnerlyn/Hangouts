@@ -3,53 +3,79 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class idx extends koj
+public final class idx extends kwm
 {
 
+    private static volatile idx f[];
     public String a;
-    public Boolean b;
-    public String c;
+    public String b;
+    public Boolean c;
+    public Boolean d;
+    public Boolean e;
 
     public idx()
     {
         a = null;
         b = null;
         c = null;
+        d = null;
+        e = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
+    public static idx[] a()
+    {
+        if (f == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (f == null)
+                {
+                    f = new idx[0];
+                }
+            }
+        }
+        return f;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
+        int j = super.computeSerializedSize() + kwk.b(1, a) + kwk.b(2, b);
         int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            b.booleanValue();
-            j = i + (koh.f(2) + 1);
-        }
-        i = j;
         if (c != null)
         {
-            i = j + koh.b(3, c);
+            c.booleanValue();
+            i = j + (kwk.f(3) + 1);
+        }
+        j = i;
+        if (d != null)
+        {
+            d.booleanValue();
+            j = i + (kwk.f(4) + 1);
+        }
+        i = j;
+        if (e != null)
+        {
+            e.booleanValue();
+            i = j + (kwk.f(5) + 1);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -59,34 +85,44 @@ public final class idx extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                a = kwj1.j();
                 break;
 
-            case 16: // '\020'
-                b = Boolean.valueOf(kog1.i());
+            case 18: // '\022'
+                b = kwj1.j();
                 break;
 
-            case 26: // '\032'
-                c = kog1.j();
+            case 24: // '\030'
+                c = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 32: // ' '
+                d = Boolean.valueOf(kwj1.i());
+                break;
+
+            case 40: // '('
+                e = Boolean.valueOf(kwj1.i());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b.booleanValue());
-        }
+        kwk1.a(1, a);
+        kwk1.a(2, b);
         if (c != null)
         {
-            koh1.a(3, c);
+            kwk1.a(3, c.booleanValue());
         }
-        super.writeTo(koh1);
+        if (d != null)
+        {
+            kwk1.a(4, d.booleanValue());
+        }
+        if (e != null)
+        {
+            kwk1.a(5, e.booleanValue());
+        }
+        super.writeTo(kwk1);
     }
 }

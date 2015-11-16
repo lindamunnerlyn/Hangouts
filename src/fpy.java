@@ -2,34 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import com.google.android.gms.common.data.DataHolder;
+import android.widget.ImageView;
 
-final class fpy extends fpa
+public abstract class fpy
 {
 
-    private final ekm a;
+    public boolean e;
+    public ImageView f;
+    public String g;
+    final fpx h;
 
-    public fpy(ekm ekm1)
+    protected fpy(fpx fpx)
     {
-        a = ekm1;
+        h = fpx;
+        super();
     }
 
-    public void a(int i, Bundle bundle, DataHolder dataholder)
-    {
-        if (g.m(3))
-        {
-            (new StringBuilder("Circles callback: status=")).append(i).append("\nresolution=").append(bundle).append("\nholder=").append(dataholder);
-            g.m(3);
-        }
-        com.google.android.gms.common.api.Status status = fpo.a(i, bundle);
-        if (dataholder == null)
-        {
-            bundle = null;
-        } else
-        {
-            bundle = new fqr(dataholder);
-        }
-        a.a(new fpw(status, bundle));
-    }
+    public abstract void a();
 }

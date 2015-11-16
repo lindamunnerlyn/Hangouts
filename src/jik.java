@@ -2,129 +2,64 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.common.cache.LocalCache;
-import java.lang.ref.ReferenceQueue;
-import java.util.concurrent.TimeUnit;
 
-public final class jik
-    implements jja
+public final class jik extends kwm
 {
 
-    volatile jja a;
-    final jsr b;
-    final jhn c;
+    public Integer a;
 
     public jik()
     {
-        this(LocalCache.i());
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public jik(jja jja1)
+    protected int computeSerializedSize()
     {
-        b = jsr.a();
-        c = new jhn();
-        a = jja1;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.e(1, a.intValue());
+        }
+        return i;
     }
 
-    public int a()
+    public kws mergeFrom(kwj kwj1)
     {
-        return a.a();
-    }
-
-    public jja a(ReferenceQueue referencequeue, Object obj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
-    {
+_L4:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 2: default 32
+    //                   0: 41
+    //                   8: 43;
+           goto _L1 _L2 _L3
+_L1:
+        if (super.storeUnknownField(kwj1, i)) goto _L4; else goto _L2
+_L2:
         return this;
-    }
-
-    public jsj a(Object obj, zn zn1)
-    {
-        Object obj1;
-        c.a();
-        obj1 = a.get();
-        if (obj1 != null)
+_L3:
+        int j = kwj1.f();
+        switch (j)
         {
-            break MISSING_BLOCK_LABEL_45;
+        case 0: // '\0'
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+            a = Integer.valueOf(j);
+            break;
         }
-        obj = zn1.f();
-        if (b(obj))
+        if (true) goto _L4; else goto _L5
+_L5:
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
         {
-            return b;
-        } else
-        {
-            return jsa.a(obj);
+            kwk1.a(1, a.intValue());
         }
-        obj = zn1.a(obj, obj1);
-        if (obj != null)
-        {
-            break MISSING_BLOCK_LABEL_61;
-        }
-        return jsa.a(null);
-        obj = jsa.a(((jsj) (obj)), new jil(this));
-        return ((jsj) (obj));
-        obj;
-        if (obj instanceof InterruptedException)
-        {
-            Thread.currentThread().interrupt();
-        }
-        if (a(((Throwable) (obj))))
-        {
-            return b;
-        } else
-        {
-            return jsa.a(((Throwable) (obj)));
-        }
-    }
-
-    public void a(Object obj)
-    {
-        if (obj != null)
-        {
-            b(obj);
-            return;
-        } else
-        {
-            a = LocalCache.i();
-            return;
-        }
-    }
-
-    public boolean a(Throwable throwable)
-    {
-        return b.a(throwable);
-    }
-
-    public com.google.common.cache.LocalCache.ReferenceEntry b()
-    {
-        return null;
-    }
-
-    public boolean b(Object obj)
-    {
-        return b.a(obj);
-    }
-
-    public boolean c()
-    {
-        return true;
-    }
-
-    public boolean d()
-    {
-        return a.d();
-    }
-
-    public long e()
-    {
-        return c.a(TimeUnit.NANOSECONDS);
-    }
-
-    public jja f()
-    {
-        return a;
-    }
-
-    public Object get()
-    {
-        return a.get();
+        super.writeTo(kwk1);
     }
 }

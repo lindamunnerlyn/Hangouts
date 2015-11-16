@@ -2,126 +2,141 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.common.collect.MapMakerInternalMap;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.concurrent.atomic.AtomicReferenceArray;
 
-public final class jvd extends koj
+public abstract class jvd
+    implements Iterator
 {
 
-    private static volatile jvd e[];
-    public String a;
-    public Long b;
-    public String c;
-    public Long d;
+    int b;
+    int c;
+    jvi d;
+    AtomicReferenceArray e;
+    com.google.common.collect.MapMakerInternalMap.ReferenceEntry f;
+    jwc g;
+    jwc h;
+    final MapMakerInternalMap i;
 
-    public jvd()
+    jvd(MapMakerInternalMap mapmakerinternalmap)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        i = mapmakerinternalmap;
+        super();
+        b = mapmakerinternalmap.c.length - 1;
+        c = -1;
+        d();
     }
 
-    public static jvd[] a()
+    private void d()
     {
-        if (e == null)
+        g = null;
+        break MISSING_BLOCK_LABEL_5;
+        if (!a() && !b())
         {
-            synchronized (kon.a)
+            while (b >= 0) 
             {
-                if (e == null)
+                jvi ajvi[] = i.c;
+                int j = b;
+                b = j - 1;
+                d = ajvi[j];
+                if (d.b != 0)
                 {
-                    e = new jvd[0];
+                    e = d.e;
+                    c = e.length() - 1;
+                    if (b())
+                    {
+                        return;
+                    }
                 }
             }
         }
-        return e;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        return;
     }
 
-    protected int computeSerializedSize()
+    boolean a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        if (f != null)
         {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            b.longValue();
-            j = i + (koh.f(2) + 8);
-        }
-        i = j;
-        if (d != null)
-        {
-            i = j + koh.e(3, d.longValue());
-        }
-        j = i;
-        if (c != null)
-        {
-            j = i + koh.b(4, c);
-        }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
+            for (f = f.getNext(); f != null; f = f.getNext())
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
+                if (a(f))
                 {
-                    continue;
+                    return true;
                 }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 17: // '\021'
-                b = Long.valueOf(kog1.g());
-                break;
-
-            case 24: // '\030'
-                d = Long.valueOf(kog1.e());
-                break;
-
-            case 34: // '"'
-                c = kog1.j();
-                break;
             }
-        } while (true);
+
+        }
+        return false;
     }
 
-    public void writeTo(koh koh1)
+    boolean a(com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
     {
-        if (a != null)
+        Object obj;
+        obj = referenceentry.getKey();
+        referenceentry = ((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (i.b(referenceentry)));
+        if (referenceentry == null)
         {
-            koh1.a(1, a);
+            break MISSING_BLOCK_LABEL_46;
         }
-        if (b != null)
+        g = new jwc(i, obj, referenceentry);
+        d.b();
+        return true;
+        d.b();
+        return false;
+        referenceentry;
+        d.b();
+        throw referenceentry;
+    }
+
+    boolean b()
+    {
+        while (c >= 0) 
         {
-            koh1.c(2, b.longValue());
+            Object obj = e;
+            int j = c;
+            c = j - 1;
+            obj = (com.google.common.collect.MapMakerInternalMap.ReferenceEntry)((AtomicReferenceArray) (obj)).get(j);
+            f = ((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (obj));
+            if (obj != null && (a(f) || a()))
+            {
+                return true;
+            }
         }
-        if (d != null)
+        return false;
+    }
+
+    jwc c()
+    {
+        if (g == null)
         {
-            koh1.b(3, d.longValue());
-        }
-        if (c != null)
+            throw new NoSuchElementException();
+        } else
         {
-            koh1.a(4, c);
+            h = g;
+            d();
+            return h;
         }
-        super.writeTo(koh1);
+    }
+
+    public boolean hasNext()
+    {
+        return g != null;
+    }
+
+    public void remove()
+    {
+        boolean flag;
+        if (h != null)
+        {
+            flag = true;
+        } else
+        {
+            flag = false;
+        }
+        n.b(flag, "no calls to next() since the last call to remove()");
+        i.remove(h.getKey());
+        h = null;
     }
 }

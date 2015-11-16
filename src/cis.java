@@ -2,51 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
+import android.content.Context;
 
-public final class cis
-    implements gwl
+final class cis
+    implements cgj
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new cit();
+    final ciq a;
 
-    public cis()
+    cis(ciq ciq1)
     {
+        a = ciq1;
+        super();
     }
 
-    public boolean a(int i, gmu gmu1)
+    public int a()
     {
-        boolean flag1 = false;
-        boolean flag2 = dbf.j();
-        boolean flag;
-        if (flag2 && gmu1.d("sms_only"))
-        {
-            i = 1;
-        } else
-        {
-            i = 0;
-        }
-        if (flag2 && gmu1.d("is_sms_account"))
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        if (gmu1.d("is_gv_sms_integration_enabled") || i != 0 || flag)
-        {
-            flag1 = true;
-        }
-        return flag1;
+        return h.iM;
     }
 
-    public int describeContents()
+    public void a(Context context)
     {
-        return 0;
+        g.a(ciq.a(context), 2501);
+        ciq.a(context, cov.a, atu.b);
     }
 
-    public void writeToParcel(Parcel parcel, int i)
+    public int b()
     {
+        return n.l;
     }
-
 }

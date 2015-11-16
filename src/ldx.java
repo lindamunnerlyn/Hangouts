@@ -3,247 +3,68 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ldx
+public final class ldx extends Enum
+    implements kur
 {
 
-    public lcy A;
-    public lcy B;
-    public lcy C;
-    public lcy D;
-    public lcy E;
-    public lcy F;
-    public lcy G;
-    public lcy H;
-    public lcy I;
-    public ldh a;
-    public ldh b;
-    public ldh c;
-    public ldh d;
-    public ldh e;
-    public ldh f;
-    public ldh g;
-    public ldh h;
-    public ldh i;
-    public ldh j;
-    public ldh k;
-    public ldh l;
-    public lcy m;
-    public lcy n;
-    public lcy o;
-    public lcy p;
-    public lcy q;
-    public lcy r;
-    public lcy s;
-    public lcy t;
-    public lcy u;
-    public lcy v;
-    public lcy w;
-    public lcy x;
-    public lcy y;
-    public lcy z;
+    public static final ldx a;
+    public static final ldx b;
+    public static final ldx c;
+    public static final ldx d;
+    private static final kus f = new kus();
+    private static final ldx g[];
+    final int e;
 
-    ldx()
+    private ldx(String s, int i, int j)
     {
+        super(s, i);
+        e = j;
     }
 
-    private static boolean a(lcy lcy1)
+    public static ldx a(int i)
     {
-        if (lcy1 == null)
+        switch (i)
         {
-            return false;
-        } else
-        {
-            return lcy1.c();
+        default:
+            return null;
+
+        case 0: // '\0'
+            return a;
+
+        case 1: // '\001'
+            return b;
+
+        case 2: // '\002'
+            return c;
+
+        case 3: // '\003'
+            return d;
         }
     }
 
-    private static boolean a(ldh ldh1)
+    public static ldx valueOf(String s)
     {
-        if (ldh1 == null)
-        {
-            return false;
-        } else
-        {
-            return ldh1.b();
-        }
+        return (ldx)Enum.valueOf(ldx, s);
     }
 
-    public void a(lcw lcw1)
+    public static ldx[] values()
     {
-        Object obj = lcw1.c();
-        if (a(((ldh) (obj))))
-        {
-            a = ((ldh) (obj));
-        }
-        obj = lcw1.f();
-        if (a(((ldh) (obj))))
-        {
-            b = ((ldh) (obj));
-        }
-        obj = lcw1.i();
-        if (a(((ldh) (obj))))
-        {
-            c = ((ldh) (obj));
-        }
-        obj = lcw1.l();
-        if (a(((ldh) (obj))))
-        {
-            d = ((ldh) (obj));
-        }
-        obj = lcw1.o();
-        if (a(((ldh) (obj))))
-        {
-            e = ((ldh) (obj));
-        }
-        obj = lcw1.s();
-        if (a(((ldh) (obj))))
-        {
-            f = ((ldh) (obj));
-        }
-        obj = lcw1.w();
-        if (a(((ldh) (obj))))
-        {
-            g = ((ldh) (obj));
-        }
-        obj = lcw1.y();
-        if (a(((ldh) (obj))))
-        {
-            h = ((ldh) (obj));
-        }
-        obj = lcw1.B();
-        if (a(((ldh) (obj))))
-        {
-            i = ((ldh) (obj));
-        }
-        obj = lcw1.D();
-        if (a(((ldh) (obj))))
-        {
-            j = ((ldh) (obj));
-        }
-        obj = lcw1.H();
-        if (a(((ldh) (obj))))
-        {
-            k = ((ldh) (obj));
-        }
-        obj = lcw1.J();
-        if (a(((ldh) (obj))))
-        {
-            l = ((ldh) (obj));
-        }
-        obj = lcw1.d();
-        if (a(((lcy) (obj))))
-        {
-            m = ((lcy) (obj));
-        }
-        obj = lcw1.e();
-        if (a(((lcy) (obj))))
-        {
-            n = ((lcy) (obj));
-        }
-        obj = lcw1.g();
-        if (a(((lcy) (obj))))
-        {
-            o = ((lcy) (obj));
-        }
-        obj = lcw1.h();
-        if (a(((lcy) (obj))))
-        {
-            p = ((lcy) (obj));
-        }
-        obj = lcw1.j();
-        if (a(((lcy) (obj))))
-        {
-            q = ((lcy) (obj));
-        }
-        obj = lcw1.k();
-        if (a(((lcy) (obj))))
-        {
-            r = ((lcy) (obj));
-        }
-        obj = lcw1.m();
-        if (a(((lcy) (obj))))
-        {
-            s = ((lcy) (obj));
-        }
-        obj = lcw1.n();
-        if (a(((lcy) (obj))))
-        {
-            t = ((lcy) (obj));
-        }
-        obj = lcw1.p();
-        if (a(((lcy) (obj))))
-        {
-            u = ((lcy) (obj));
-        }
-        obj = lcw1.q();
-        if (a(((lcy) (obj))))
-        {
-            v = ((lcy) (obj));
-        }
-        obj = lcw1.r();
-        if (a(((lcy) (obj))))
-        {
-            w = ((lcy) (obj));
-        }
-        obj = lcw1.t();
-        if (a(((lcy) (obj))))
-        {
-            x = ((lcy) (obj));
-        }
-        obj = lcw1.u();
-        if (a(((lcy) (obj))))
-        {
-            y = ((lcy) (obj));
-        }
-        obj = lcw1.v();
-        if (a(((lcy) (obj))))
-        {
-            z = ((lcy) (obj));
-        }
-        obj = lcw1.x();
-        if (a(((lcy) (obj))))
-        {
-            A = ((lcy) (obj));
-        }
-        obj = lcw1.z();
-        if (a(((lcy) (obj))))
-        {
-            B = ((lcy) (obj));
-        }
-        obj = lcw1.A();
-        if (a(((lcy) (obj))))
-        {
-            C = ((lcy) (obj));
-        }
-        obj = lcw1.C();
-        if (a(((lcy) (obj))))
-        {
-            D = ((lcy) (obj));
-        }
-        obj = lcw1.E();
-        if (a(((lcy) (obj))))
-        {
-            E = ((lcy) (obj));
-        }
-        obj = lcw1.F();
-        if (a(((lcy) (obj))))
-        {
-            F = ((lcy) (obj));
-        }
-        obj = lcw1.G();
-        if (a(((lcy) (obj))))
-        {
-            G = ((lcy) (obj));
-        }
-        obj = lcw1.I();
-        if (a(((lcy) (obj))))
-        {
-            H = ((lcy) (obj));
-        }
-        lcw1 = lcw1.K();
-        if (a(((lcy) (lcw1))))
-        {
-            I = lcw1;
-        }
+        return (ldx[])g.clone();
+    }
+
+    public final int a()
+    {
+        return e;
+    }
+
+    static 
+    {
+        a = new ldx("SPAN_UNKNOWN", 0, 0);
+        b = new ldx("SPAN_LOCAL", 1, 1);
+        c = new ldx("SPAN_CLIENT_HALF", 2, 2);
+        d = new ldx("SPAN_SERVER_HALF", 3, 3);
+        g = (new ldx[] {
+            a, b, c, d
+        });
     }
 }

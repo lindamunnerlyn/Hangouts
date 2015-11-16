@@ -2,21 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
+import android.animation.Animator;
 
-public final class eid extends eie
+public final class eid
+    implements android.animation.Animator.AnimatorListener
 {
 
-    private final int a;
+    final com.google.android.apps.hangouts.views.MessageListAnimationManager.AnimateInNewMessageRunnable a;
 
-    eid(int i, String s, Intent intent)
+    public eid(com.google.android.apps.hangouts.views.MessageListAnimationManager.AnimateInNewMessageRunnable animateinnewmessagerunnable)
     {
-        super(s, intent);
-        a = i;
+        a = animateinnewmessagerunnable;
+        super();
     }
 
-    public int a()
+    public void onAnimationCancel(Animator animator)
     {
-        return a;
+    }
+
+    public void onAnimationEnd(Animator animator)
+    {
+        a.a();
+    }
+
+    public void onAnimationRepeat(Animator animator)
+    {
+    }
+
+    public void onAnimationStart(Animator animator)
+    {
     }
 }

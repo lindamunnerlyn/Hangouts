@@ -2,66 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import android.os.Handler;
-import android.os.Looper;
 
-public final class dev extends aiu
+public final class dev extends dgj
 {
 
-    private static final boolean a = false;
-    private static dev b = null;
-    private Handler c;
+    private final String a;
 
-    private dev()
+    public dev(aoa aoa, String s)
     {
+        super(aoa);
+        gdv.a("Expected condition to be true", g.a(g.nU, "babel_stickers_account_id", "108618507921641169817").equals(s));
+        a = s;
     }
 
-    static Handler a(dev dev1)
+    public void a()
     {
-        return dev1.c;
-    }
-
-    public static dev c()
-    {
-        if (b == null)
-        {
-            b = new dev();
-        }
-        return b;
-    }
-
-    protected void a(Activity activity)
-    {
-        if (g.a(g.nS, "babel_poll_parasite_operations_periodically", false))
-        {
-            if (a)
-            {
-                ebw.b("Babel", "Start polling parasite operations when the first activity of Hangout starts.");
-            }
-            if (c == null)
-            {
-                c = new Handler(Looper.getMainLooper());
-            }
-            long l = g.a(g.nS, "babel_poll_parasite_operations_interval_ms", djk.l);
-            c.postDelayed(new dew(this, l), l);
-        }
-    }
-
-    protected void b()
-    {
-        if (a)
-        {
-            ebw.b("Babel", "Stop polling parasite operations when the last activity of Hangout got stops.");
-        }
-        if (c != null)
-        {
-            c.removeCallbacksAndMessages(null);
-        }
-    }
-
-    static 
-    {
-        hik hik = ebw.n;
+        a(((dmf) (new cut(a))));
     }
 }

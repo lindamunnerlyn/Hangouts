@@ -2,32 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.api.client.http.HttpExecuteInterceptor;
-import com.google.api.client.http.HttpRequest;
+import android.text.TextPaint;
+import android.text.style.UnderlineSpan;
 
-final class hlh
-    implements HttpExecuteInterceptor
+public final class hlh extends UnderlineSpan
 {
 
-    final HttpExecuteInterceptor a;
-    final hlg b;
-
-    hlh(hlg hlg1, HttpExecuteInterceptor httpexecuteinterceptor)
+    public hlh()
     {
-        b = hlg1;
-        a = httpexecuteinterceptor;
-        super();
     }
 
-    public void intercept(HttpRequest httprequest)
+    public void updateDrawState(TextPaint textpaint)
     {
-        if (a != null)
-        {
-            a.intercept(httprequest);
-        }
-        if (b.a.b != null)
-        {
-            b.a.b.intercept(httprequest);
-        }
+        super.updateDrawState(textpaint);
+        textpaint.setUnderlineText(false);
     }
 }

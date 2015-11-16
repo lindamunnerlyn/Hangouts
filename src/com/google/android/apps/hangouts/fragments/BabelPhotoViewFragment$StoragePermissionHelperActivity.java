@@ -5,24 +5,24 @@
 package com.google.android.apps.hangouts.fragments;
 
 import android.os.Bundle;
-import bfj;
-import cia;
-import gmo;
-import gng;
+import bfv;
+import cjg;
+import gqu;
+import grn;
 import h;
-import hgx;
-import hhg;
+import hlp;
+import hly;
 import java.util.Collections;
 
-public class a extends hhg
+public class a extends hly
 {
 
-    private final gmo c;
+    private final gqu c;
 
     protected void a(Bundle bundle)
     {
         super.a(bundle);
-        ((cia)a.a(cia)).a(h.eB, new bfj(this));
+        ((cjg)a.a(cjg)).a(h.ek, new bfv(this));
     }
 
     protected void onCreate(Bundle bundle)
@@ -30,12 +30,12 @@ public class a extends hhg
         super.onCreate(bundle);
         if (bundle == null)
         {
-            ((cia)a.a(cia)).a(h.eB, Collections.singletonList("android.permission.WRITE_EXTERNAL_STORAGE"), 2667, null);
+            ((cjg)a.a(cjg)).a(h.ek, Collections.singletonList("android.permission.WRITE_EXTERNAL_STORAGE"), 2667, null);
         }
     }
 
     public ()
     {
-        c = (new gng(this, b)).a(a);
+        c = (new grn(this, b)).a(a);
     }
 }

@@ -3,20 +3,57 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.Window;
+import android.graphics.drawable.Drawable;
 
-class qv extends ra
+final class qv
+    implements pw
 {
 
-    qv(Context context, Window window, qq qq)
+    final qu a;
+
+    qv(qu qu1)
     {
-        super(context, window, qq);
+        a = qu1;
+        super();
     }
 
-    View a(String s, Context context, AttributeSet attributeset)
+    public Drawable a()
     {
-        return null;
+        vm vm1 = vm.a(b(), null, new int[] {
+            g.H
+        });
+        Drawable drawable = vm1.a(0);
+        vm1.b();
+        return drawable;
+    }
+
+    public void a(int i)
+    {
+        pq pq1 = a.a();
+        if (pq1 != null)
+        {
+            pq1.c(i);
+        }
+    }
+
+    public void a(Drawable drawable, int i)
+    {
+        pq pq1 = a.a();
+        if (pq1 != null)
+        {
+            pq1.a(drawable);
+            pq1.c(i);
+        }
+    }
+
+    public Context b()
+    {
+        return a.k();
+    }
+
+    public boolean c()
+    {
+        pq pq1 = a.a();
+        return pq1 != null && (pq1.d() & 4) != 0;
     }
 }

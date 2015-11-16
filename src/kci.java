@@ -3,45 +3,58 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kci extends koj
+public final class kci extends kwm
 {
 
-    public String a;
-    public kcj b;
+    public kcj a[];
 
     public kci()
     {
-        a = null;
-        b = null;
+        a = kcj.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
+        int i = super.computeSerializedSize();
+        int k = i;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            k = i;
+            if (a.length > 0)
+            {
+                int j = 0;
+                do
+                {
+                    k = i;
+                    if (j >= a.length)
+                    {
+                        break;
+                    }
+                    kcj kcj1 = a[j];
+                    k = i;
+                    if (kcj1 != null)
+                    {
+                        k = i + kwk.d(1, kcj1);
+                    }
+                    j++;
+                    i = k;
+                } while (true);
+            }
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        return j;
+        return k;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -51,30 +64,52 @@ public final class kci extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 18: // '\022'
-                if (b == null)
+                int k = kwx.a(kwj1, 10);
+                kcj akcj[];
+                int j;
+                if (a == null)
                 {
-                    b = new kcj();
+                    j = 0;
+                } else
+                {
+                    j = a.length;
                 }
-                kog1.a(b);
+                akcj = new kcj[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, akcj, 0, j);
+                    k = j;
+                }
+                for (; k < akcj.length - 1; k++)
+                {
+                    akcj[k] = new kcj();
+                    kwj1.a(akcj[k]);
+                    kwj1.a();
+                }
+
+                akcj[k] = new kcj();
+                kwj1.a(akcj[k]);
+                a = akcj;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
+        if (a != null && a.length > 0)
         {
-            koh1.a(1, a);
+            for (int i = 0; i < a.length; i++)
+            {
+                kcj kcj1 = a[i];
+                if (kcj1 != null)
+                {
+                    kwk1.b(1, kcj1);
+                }
+            }
+
         }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

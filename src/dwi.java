@@ -2,48 +2,76 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.content.Intent;
+import android.widget.Toast;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import com.google.android.apps.hangouts.requestwriter.RequestWriter;
+import java.util.concurrent.TimeUnit;
 
-final class dwi extends bnk
+final class dwi extends bgs
 {
 
-    final dwh a;
+    final dwe d;
+    private final Context e;
+    private final String f;
 
-    dwi(dwh dwh1)
+    public dwi(dwe dwe1, Context context, String s)
     {
-        a = dwh1;
+        d = dwe1;
         super();
+        e = context;
+        f = s;
     }
 
-    public void a(gjq gjq)
+    private void k()
     {
-        if (a.g == null && a.d != null && a.d.r() != null)
-        {
-            a.g = a.d.r().h();
-            a.d.r().l().a(a.c.h().c());
-            if (a.b != null)
-            {
-                a.d.r().l().a(2, a.b);
-            }
-        }
+        Intent intent = new Intent(e, com/google/android/apps/hangouts/requestwriter/RequestWriter);
+        intent.putExtra("cancel_class", e().getName());
+        intent.putExtra("cancel_request", f);
+        e.startService(intent);
     }
 
-    public void a(gjr gjr1)
+    public String a()
     {
-        boolean flag = gjr1.g();
-        ebw.e("Babel_telephony", (new StringBuilder(51)).append("TeleWifiCall.onParticipantAdded, isLocalUser: ").append(flag).toString());
-        if (!gjr1.g() && a.c != null)
-        {
-            a.c.w();
-        }
+        return e.getString(l.sA);
     }
 
-    public void a(jdh jdh1)
+    public int b()
     {
-        if (a.h != null)
-        {
-            jdh1.n = (new String[] {
-                a.h.a()
-            });
-        }
+        return RealTimeChatService.e(d.c, f);
+    }
+
+    public void c()
+    {
+        k();
+        Toast.makeText(e, l.kl, 0).show();
+    }
+
+    public void d()
+    {
+        d.d.a(d.c.h(), d.c.b().a, cvc.c, f);
+        dwe.a(d);
+    }
+
+    public Class e()
+    {
+        return cxh;
+    }
+
+    public Class f()
+    {
+        return dak;
+    }
+
+    public void h()
+    {
+        k();
+        super.h();
+    }
+
+    protected int i()
+    {
+        return (int)TimeUnit.SECONDS.toMillis(3L);
     }
 }

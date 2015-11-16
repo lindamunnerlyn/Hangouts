@@ -2,26 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.os.Bundle;
 
-final class dqe
+public final class dqe extends hjf
+    implements hkm
 {
 
-    private final beb a = (new bec()).a("smartprofile").b("Use SmartProfiles in Hangouts.").a(true).a();
+    private final hkl e;
 
     public dqe()
     {
+        e = new hkl(this, c);
     }
 
-    public dqd a(Context context)
+    public void a()
     {
-        return (dqd)a.a(context, new dqg());
+        e.a(new dqn());
+        e.a(new drh());
+        e.a(new drd());
+        dbo dbo1 = (dbo)b.b(dbo);
+        if (dbo1 != null)
+        {
+            e.a(dbo1.a());
+        }
+        e.a(new dri());
+        e.a(new dqf());
+        e.a(new drb());
     }
 
-    public beb[] a()
+    protected void a(Bundle bundle)
     {
-        return (new beb[] {
-            a
-        });
+        super.a(bundle);
+        b.a(hkp, e);
     }
 }

@@ -3,14 +3,24 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iju extends koj
+public final class iju extends kwm
 {
 
-    public String a;
+    public lcy a;
+    public String b;
+    public String c;
+    public String d;
+    public Integer e;
+    public String f;
 
     public iju()
     {
         a = null;
+        b = null;
+        c = null;
+        d = null;
+        e = null;
+        f = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -21,20 +31,45 @@ public final class iju extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.d(1, a);
         }
-        return i;
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.b(2, b);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.b(3, c);
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.b(4, d);
+        }
+        i = j;
+        if (e != null)
+        {
+            i = j + kwk.e(5, e.intValue());
+        }
+        j = i;
+        if (f != null)
+        {
+            j = i + kwk.b(6, f);
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -44,18 +79,62 @@ public final class iju extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                if (a == null)
+                {
+                    a = new lcy();
+                }
+                kwj1.a(a);
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+
+            case 26: // '\032'
+                c = kwj1.j();
+                break;
+
+            case 34: // '"'
+                d = kwj1.j();
+                break;
+
+            case 40: // '('
+                e = Integer.valueOf(kwj1.f());
+                break;
+
+            case 50: // '2'
+                f = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.b(1, a);
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d);
+        }
+        if (e != null)
+        {
+            kwk1.a(5, e.intValue());
+        }
+        if (f != null)
+        {
+            kwk1.a(6, f);
+        }
+        super.writeTo(kwk1);
     }
 }

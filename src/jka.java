@@ -2,73 +2,114 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Comparator;
-import java.util.Set;
-import java.util.SortedMap;
-import java.util.SortedSet;
 
-final class jka extends jju
-    implements SortedMap
+public final class jka extends kwm
 {
 
-    SortedSet c;
-    final jjt d;
+    public jkb a[];
 
-    jka(jjt jjt, SortedMap sortedmap)
+    public jka()
     {
-        d = jjt;
-        super(jjt, sortedmap);
+        a = jkb.a();
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private SortedSet d()
+    protected int computeSerializedSize()
     {
-        return new jkb(d, (SortedMap)a);
-    }
-
-    Set b()
-    {
-        return d();
-    }
-
-    public Comparator comparator()
-    {
-        return ((SortedMap)a).comparator();
-    }
-
-    public Object firstKey()
-    {
-        return ((SortedMap)a).firstKey();
-    }
-
-    public SortedMap headMap(Object obj)
-    {
-        return new jka(d, ((SortedMap)a).headMap(obj));
-    }
-
-    public Set keySet()
-    {
-        SortedSet sortedset1 = c;
-        SortedSet sortedset = sortedset1;
-        if (sortedset1 == null)
+        int i = super.computeSerializedSize();
+        int k = i;
+        if (a != null)
         {
-            sortedset = d();
-            c = sortedset;
+            k = i;
+            if (a.length > 0)
+            {
+                int j = 0;
+                do
+                {
+                    k = i;
+                    if (j >= a.length)
+                    {
+                        break;
+                    }
+                    jkb jkb1 = a[j];
+                    k = i;
+                    if (jkb1 != null)
+                    {
+                        k = i + kwk.d(1, jkb1);
+                    }
+                    j++;
+                    i = k;
+                } while (true);
+            }
         }
-        return sortedset;
+        return k;
     }
 
-    public Object lastKey()
+    public kws mergeFrom(kwj kwj1)
     {
-        return ((SortedMap)a).lastKey();
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                int k = kwx.a(kwj1, 10);
+                jkb ajkb[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                ajkb = new jkb[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, ajkb, 0, j);
+                    k = j;
+                }
+                for (; k < ajkb.length - 1; k++)
+                {
+                    ajkb[k] = new jkb();
+                    kwj1.a(ajkb[k]);
+                    kwj1.a();
+                }
+
+                ajkb[k] = new jkb();
+                kwj1.a(ajkb[k]);
+                a = ajkb;
+                break;
+            }
+        } while (true);
     }
 
-    public SortedMap subMap(Object obj, Object obj1)
+    public void writeTo(kwk kwk1)
     {
-        return new jka(d, ((SortedMap)a).subMap(obj, obj1));
-    }
+        if (a != null && a.length > 0)
+        {
+            for (int i = 0; i < a.length; i++)
+            {
+                jkb jkb1 = a[i];
+                if (jkb1 != null)
+                {
+                    kwk1.b(1, jkb1);
+                }
+            }
 
-    public SortedMap tailMap(Object obj)
-    {
-        return new jka(d, ((SortedMap)a).tailMap(obj));
+        }
+        super.writeTo(kwk1);
     }
 }

@@ -3,33 +3,24 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.style.URLSpan;
-import android.view.View;
-import android.view.accessibility.AccessibilityManager;
 
 public final class eal
-    implements android.view.View.OnClickListener
 {
 
-    final Context a;
-    final URLSpan b;
+    public final Context a;
 
-    public eal(Context context, URLSpan urlspan)
+    public eal(Context context)
     {
-        a = context;
-        b = urlspan;
-        super();
+        a = context.getApplicationContext();
     }
 
-    public void onClick(View view)
+    public void a(String s)
     {
-        if (((AccessibilityManager)a.getSystemService("accessibility")).isEnabled())
+        gdv.a();
+        if ("account_name_v2".equals(s) || "wifi_calling_enabled".equals(s) || "tycho_account_name".equals(s))
         {
-            view = new Intent("android.intent.action.VIEW");
-            view.setData(Uri.parse(b.getURL()));
-            a.startActivity(view);
+            dyl.f(a);
+            dyl.g(a);
         }
     }
 }

@@ -2,75 +2,86 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.accounts.Account;
-import android.os.Parcel;
-import com.google.android.gms.auth.AccountChangeEventsRequest;
+import android.widget.Toast;
+import com.google.android.apps.hangouts.views.AvatarView;
+import com.google.android.apps.hangouts.views.MessageListItemView;
 
-public final class eii
-    implements android.os.Parcelable.Creator
+public final class eii extends gdy
 {
 
-    public eii()
+    final String a;
+    final String b;
+    final MessageListItemView c;
+    private String e;
+
+    public eii(MessageListItemView messagelistitemview, String s, String s1)
     {
+        c = messagelistitemview;
+        a = s;
+        b = s1;
+        super();
+        e = MessageListItemView.c(c).O();
     }
 
-    public static void a(AccountChangeEventsRequest accountchangeeventsrequest, Parcel parcel, int i)
+    protected Object a()
     {
-        int j = g.p(parcel, 20293);
-        g.b(parcel, 1, accountchangeeventsrequest.a);
-        g.b(parcel, 2, accountchangeeventsrequest.b);
-        g.a(parcel, 3, accountchangeeventsrequest.c);
-        g.a(parcel, 4, accountchangeeventsrequest.d, i);
-        g.q(parcel, j);
-    }
-
-    public Object createFromParcel(Parcel parcel)
-    {
-        Account account = null;
-        int k = g.a(parcel);
-        int j = 0;
-        int i = 0;
-        String s = null;
-        do
+        if (a != null)
         {
-            if (parcel.dataPosition() < k)
+            String s = String.valueOf(a);
+            if (s.length() != 0)
             {
-                int l = parcel.readInt();
-                switch (0xffff & l)
-                {
-                default:
-                    g.b(parcel, l);
-                    break;
-
-                case 1: // '\001'
-                    i = g.e(parcel, l);
-                    break;
-
-                case 2: // '\002'
-                    j = g.e(parcel, l);
-                    break;
-
-                case 3: // '\003'
-                    s = g.i(parcel, l);
-                    break;
-
-                case 4: // '\004'
-                    account = (Account)g.a(parcel, l, Account.CREATOR);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != k)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
+                return "g:".concat(s);
             } else
             {
-                return new AccountChangeEventsRequest(i, j, s, account);
+                return new String("g:");
             }
-        } while (true);
+        }
+        if (b != null)
+        {
+            String s1 = String.valueOf(b);
+            if (s1.length() != 0)
+            {
+                return "p:".concat(s1);
+            } else
+            {
+                return new String("p:");
+            }
+        } else
+        {
+            return null;
+        }
     }
 
-    public Object[] newArray(int i)
+    protected void onPostExecute(Object obj)
     {
-        return new AccountChangeEventsRequest[i];
+        dsx dsx1;
+label0:
+        {
+            obj = (String)obj;
+            dsx1 = (dsx)hlp.b(c.getContext(), dsx);
+            if (dsx1 != null)
+            {
+                if (MessageListItemView.c(c).v() && g.c(MessageListItemView.c(c).O(), e))
+                {
+                    break label0;
+                }
+                eev.e("Babel", "Don't show SmartProfile; user switched conversations/fragments.");
+            }
+            return;
+        }
+        if (obj != null)
+        {
+            eev.e("Babel", String.format("Maybe starting SmartProfile from conversation with personId %s", new Object[] {
+                obj
+            }));
+            dsx1.a(MessageListItemView.c(c).getActivity(), MessageListItemView.c(c), ((String) (obj)), MessageListItemView.d(c), MessageListItemView.e(c).c());
+            g.a(MessageListItemView.f(c), 2141);
+            return;
+        } else
+        {
+            eev.f("Babel", "Couldn't show SmartProfile from conversation; personId was null");
+            Toast.makeText(c.getContext(), l.gD, 0).show();
+            return;
+        }
     }
 }

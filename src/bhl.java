@@ -2,13 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
+import android.database.Cursor;
 
-public class bhl
-    implements Serializable
+public interface bhl
+    extends Cursor
 {
 
-    public bhl()
-    {
-    }
+    public abstract fth a();
+
+    public abstract void a(bgx bgx);
+
+    public abstract bhv b();
+
+    public abstract bhn c();
+
+    public abstract int d();
+
+    public abstract int e();
+
+    public abstract boolean f();
 }

@@ -2,35 +2,75 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.lang.ref.ReferenceQueue;
+import com.google.common.cache.LocalCache;
 
-public final class jos
-    implements jou
+public abstract class jos extends Enum
 {
 
-    final Object a;
+    public static final jos a;
+    public static final jos b;
+    public static final jos c;
+    public static final jos d;
+    public static final jos e;
+    public static final jos f;
+    public static final jos g;
+    public static final jos h;
+    static final jos i[];
+    private static final jos j[];
 
-    jos(Object obj)
+    jos(String s, int k)
     {
-        a = obj;
+        super(s, k);
     }
 
-    public com.google.common.collect.MapMakerInternalMap.ReferenceEntry a()
+    public static jos valueOf(String s)
     {
-        return null;
+        return (jos)Enum.valueOf(jos, s);
     }
 
-    public jou a(ReferenceQueue referencequeue, Object obj, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
+    public static jos[] values()
     {
-        return this;
+        return (jos[])j.clone();
     }
 
-    public void b()
+    com.google.common.cache.LocalCache.ReferenceEntry a(jpj jpj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry, com.google.common.cache.LocalCache.ReferenceEntry referenceentry1)
     {
+        return a(jpj, referenceentry.getKey(), referenceentry.getHash(), referenceentry1);
     }
 
-    public Object get()
+    abstract com.google.common.cache.LocalCache.ReferenceEntry a(jpj jpj, Object obj, int k, com.google.common.cache.LocalCache.ReferenceEntry referenceentry);
+
+    void a(com.google.common.cache.LocalCache.ReferenceEntry referenceentry, com.google.common.cache.LocalCache.ReferenceEntry referenceentry1)
     {
-        return a;
+        referenceentry1.setAccessTime(referenceentry.getAccessTime());
+        LocalCache.a(referenceentry.getPreviousInAccessQueue(), referenceentry1);
+        LocalCache.a(referenceentry1, referenceentry.getNextInAccessQueue());
+        LocalCache.b(referenceentry);
+    }
+
+    void b(com.google.common.cache.LocalCache.ReferenceEntry referenceentry, com.google.common.cache.LocalCache.ReferenceEntry referenceentry1)
+    {
+        referenceentry1.setWriteTime(referenceentry.getWriteTime());
+        LocalCache.b(referenceentry.getPreviousInWriteQueue(), referenceentry1);
+        LocalCache.b(referenceentry1, referenceentry.getNextInWriteQueue());
+        LocalCache.c(referenceentry);
+    }
+
+    static 
+    {
+        a = new jot("STRONG");
+        b = new jou("STRONG_ACCESS");
+        c = new jov("STRONG_WRITE");
+        d = new jow("STRONG_ACCESS_WRITE");
+        e = new jox("WEAK");
+        f = new joy("WEAK_ACCESS");
+        g = new joz("WEAK_WRITE");
+        h = new jpa("WEAK_ACCESS_WRITE");
+        j = (new jos[] {
+            a, b, c, d, e, f, g, h
+        });
+        i = (new jos[] {
+            a, b, c, d, e, f, g, h
+        });
     }
 }

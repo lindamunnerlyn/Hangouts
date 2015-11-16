@@ -11,36 +11,36 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
-import chu;
-import chv;
-import chw;
+import cja;
+import cjb;
+import cjc;
 
 public class ScrollViewCustom extends ScrollView
 {
 
-    public Runnable a;
-    private int b;
-    private int c;
-    private Handler d;
-    private boolean e;
+    public int a;
+    public Handler b;
+    public boolean c;
+    public Runnable d;
+    private int e;
     private ObjectAnimator f;
 
     public ScrollViewCustom(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
-        b = 0x7fffffff;
-        d = new Handler();
-        a = new chw(this);
-        context = context.obtainStyledAttributes(attributeset, chu.H);
-        b = context.getDimensionPixelSize(chu.I, b);
-        c = context.getDimensionPixelSize(chu.J, c);
+        a = 0x7fffffff;
+        b = new Handler();
+        d = new cjc(this);
+        context = context.obtainStyledAttributes(attributeset, cja.H);
+        a = context.getDimensionPixelSize(cja.I, a);
+        e = context.getDimensionPixelSize(cja.J, e);
         context.recycle();
         if (f == null)
         {
             f = ObjectAnimator.ofInt(this, "height", new int[] {
                 0, 0
             });
-            f.addListener(new chv(this));
+            f.addListener(new cjb(this));
             f.setDuration(200L);
             f.setTarget(this);
         }
@@ -50,30 +50,20 @@ public class ScrollViewCustom extends ScrollView
         throw attributeset;
     }
 
-    public static Handler a(ScrollViewCustom scrollviewcustom)
+    public void a(int i)
     {
-        return scrollviewcustom.d;
-    }
-
-    public static boolean a(ScrollViewCustom scrollviewcustom, boolean flag)
-    {
-        scrollviewcustom.e = flag;
-        return flag;
-    }
-
-    public static int b(ScrollViewCustom scrollviewcustom)
-    {
-        return scrollviewcustom.b;
+        a = i;
+        requestLayout();
     }
 
     protected void onMeasure(int i, int j)
     {
         int k = getChildAt(0).getMeasuredHeight();
-        k = Math.min(b, Math.max(c, k));
-        super.onMeasure(i, android.view.View.MeasureSpec.makeMeasureSpec(Math.min(b, android.view.View.MeasureSpec.getSize(j)), android.view.View.MeasureSpec.getMode(j)));
-        if (k != getMeasuredHeight() && !e)
+        k = Math.min(a, Math.max(e, k));
+        super.onMeasure(i, android.view.View.MeasureSpec.makeMeasureSpec(Math.min(a, android.view.View.MeasureSpec.getSize(j)), android.view.View.MeasureSpec.getMode(j)));
+        if (k != getMeasuredHeight() && !c)
         {
-            e = true;
+            c = true;
             f.setIntValues(new int[] {
                 getMeasuredHeight(), k
             });

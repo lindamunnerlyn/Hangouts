@@ -2,9 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
 public interface fzs
 {
 
-    public abstract fzr a(String s);
+    public abstract String a(Context context, String s, String s1);
+
+    public abstract void a(Context context, String s);
 }

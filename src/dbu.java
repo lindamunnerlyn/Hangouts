@@ -2,75 +2,66 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Activity;
-import com.google.android.apps.hangouts.realtimechat.BackgroundWarmSyncService;
+import android.content.Context;
+import android.content.Intent;
+import java.util.Collection;
 
-public final class dbu extends aiu
+final class dbu
+    implements dbq
 {
 
-    private static final boolean a = false;
-    private static dbu b = null;
+    private static final String a = dbq.getSimpleName();
+    private static final boolean b = false;
 
-    private dbu()
+    dbu()
     {
     }
 
-    public static dbu c()
+    private static void a(Context context, String s, boolean flag)
     {
-        if (b == null)
+        context.startService((new Intent()).setClassName("com.google.android.apps.hangoutsdialer", "com.google.android.apps.hangoutsdialer.app.CallInterceptor$ResponseService").putExtra("op_code", 4).putExtra("android.intent.extra.PHONE_NUMBER", s).putExtra("will_reroute_reply", flag));
+        if (b)
         {
-            b = new dbu();
-        }
-        return b;
-    }
-
-    protected void a(Activity activity)
-    {
-        if (a)
-        {
-            ebw.b("Babel", "The first activity of Hangout got started.");
-        }
-        if (BackgroundWarmSyncService.a(g.nS))
-        {
-            BackgroundWarmSyncService.a(g.nS, false);
+            eev.b(a, (new StringBuilder(24)).append("Will reroute call: ").append(flag).toString());
         }
     }
 
-    protected void b()
+    public Collection a()
     {
-        boolean flag1 = false;
-        if (a)
+        return jsh.a(Integer.valueOf(3));
+    }
+
+    public void a(Context context, Intent intent)
+    {
+        String s = intent.getStringExtra("android.intent.extra.PHONE_NUMBER");
+        dbr dbr1 = (dbr)hlp.b(context, dbr);
+        if (dbr1 == null)
         {
-            ebw.b("Babel", "The last activity of Hangout got stopped.");
+            break MISSING_BLOCK_LABEL_59;
         }
-        int ai[] = dbf.e();
-        int j = ai.length;
-        int i = 0;
-        do
+        jnv.c(intent.getStringExtra("com.android.phone.extra.GATEWAY_PROVIDER_PACKAGE"));
+        intent = dbr1.a();
+        if (intent.a())
         {
-label0:
-            {
-                boolean flag = flag1;
-                if (i < j)
-                {
-                    if (!dbq.g(ai[i]))
-                    {
-                        break label0;
-                    }
-                    flag = true;
-                }
-                if (flag && !BackgroundWarmSyncService.a(g.nS))
-                {
-                    BackgroundWarmSyncService.a(g.nS, true);
-                }
-                return;
-            }
-            i++;
-        } while (true);
+            a(context, s, true);
+            intent.b();
+            return;
+        }
+        try
+        {
+            a(context, s, false);
+            return;
+        }
+        // Misplaced declaration of an exception variable
+        catch (Intent intent)
+        {
+            a(context, s, false);
+        }
+        throw intent;
     }
 
     static 
     {
-        hik hik = ebw.n;
+        hnc hnc = eev.l;
     }
 }

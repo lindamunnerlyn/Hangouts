@@ -2,29 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Parcel;
 
-public final class dcm extends dfa
+final class dcm
+    implements android.os.Parcelable.Creator
 {
 
-    private final int a;
-
-    public dcm(ani ani1, int i)
+    dcm()
     {
-        super(ani1);
-        a = i;
     }
 
-    public void a()
+    public Object createFromParcel(Parcel parcel)
     {
-        aoe aoe1 = new aoe(g.nS, b.h());
-        if (a == 2)
-        {
-            aoe1.w();
-        }
-        if (a == 1)
-        {
-            aoe1.x();
-        }
-        c.a(new ctw(a));
+        return new dcl(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new dcl[i];
     }
 }

@@ -3,34 +3,38 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kcr extends koj
+public final class kcr extends kwm
 {
 
-    private static volatile kcr c[];
+    private static volatile kcr e[];
     public String a;
-    public kcs b;
+    public Long b;
+    public String c;
+    public Long d;
 
     public kcr()
     {
         a = null;
         b = null;
+        c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     public static kcr[] a()
     {
-        if (c == null)
+        if (e == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
-                if (c == null)
+                if (e == null)
                 {
-                    c = new kcr[0];
+                    e = new kcr[0];
                 }
             }
         }
-        return c;
+        return e;
         exception;
         obj;
         JVM INSTR monitorexit ;
@@ -43,25 +47,36 @@ public final class kcr extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
+            i = j + kwk.b(1, a);
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.d(2, b);
+            b.longValue();
+            j = i + (kwk.f(2) + 8);
+        }
+        i = j;
+        if (d != null)
+        {
+            i = j + kwk.e(3, d.longValue());
+        }
+        j = i;
+        if (c != null)
+        {
+            j = i + kwk.b(4, c);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -71,30 +86,42 @@ public final class kcr extends koj
                 return this;
 
             case 10: // '\n'
-                a = kog1.j();
+                a = kwj1.j();
                 break;
 
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new kcs();
-                }
-                kog1.a(b);
+            case 17: // '\021'
+                b = Long.valueOf(kwj1.g());
+                break;
+
+            case 24: // '\030'
+                d = Long.valueOf(kwj1.e());
+                break;
+
+            case 34: // '"'
+                c = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(1, a);
         }
         if (b != null)
         {
-            koh1.b(2, b);
+            kwk1.c(2, b.longValue());
         }
-        super.writeTo(koh1);
+        if (d != null)
+        {
+            kwk1.b(3, d.longValue());
+        }
+        if (c != null)
+        {
+            kwk1.a(4, c);
+        }
+        super.writeTo(kwk1);
     }
 }

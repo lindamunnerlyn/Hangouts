@@ -3,7 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gwq
-    extends gwr
+final class gwq
+    implements gwu
 {
+
+    gwq()
+    {
+    }
+
+    public long a()
+    {
+        return System.currentTimeMillis();
+    }
 }

@@ -3,8 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface hho
+public class hho
 {
 
-    public abstract Class a();
+    public hho()
+    {
+    }
 }

@@ -4,6 +4,7 @@
 
 import android.os.Parcel;
 import com.google.android.gms.wearable.ConnectionConfiguration;
+import com.google.android.gms.wearable.internal.GetConfigsResponse;
 
 public final class fwx
     implements android.os.Parcelable.Creator
@@ -13,99 +14,48 @@ public final class fwx
     {
     }
 
-    public static void a(ConnectionConfiguration connectionconfiguration, Parcel parcel)
-    {
-        int i = g.p(parcel, 20293);
-        g.b(parcel, 1, connectionconfiguration.a);
-        g.a(parcel, 2, connectionconfiguration.a());
-        g.a(parcel, 3, connectionconfiguration.b());
-        g.b(parcel, 4, connectionconfiguration.c());
-        g.b(parcel, 5, connectionconfiguration.d());
-        g.a(parcel, 6, connectionconfiguration.i());
-        g.a(parcel, 7, connectionconfiguration.e());
-        g.a(parcel, 8, connectionconfiguration.f());
-        g.a(parcel, 9, connectionconfiguration.g());
-        g.a(parcel, 10, connectionconfiguration.h());
-        g.q(parcel, i);
-    }
-
     public Object createFromParcel(Parcel parcel)
     {
-        String s = null;
-        boolean flag = false;
-        int l = g.a(parcel);
-        String s1 = null;
-        boolean flag1 = false;
-        boolean flag2 = false;
-        int i = 0;
         int j = 0;
-        String s2 = null;
-        String s3 = null;
-        int k = 0;
+        int k = g.a(parcel);
+        ConnectionConfiguration aconnectionconfiguration[] = null;
+        int i = 0;
         do
         {
-            if (parcel.dataPosition() < l)
+            if (parcel.dataPosition() < k)
             {
-                int i1 = parcel.readInt();
-                switch (0xffff & i1)
+                int l = parcel.readInt();
+                switch (0xffff & l)
                 {
                 default:
-                    g.b(parcel, i1);
+                    g.b(parcel, l);
                     break;
 
                 case 1: // '\001'
-                    k = g.e(parcel, i1);
+                    i = g.e(parcel, l);
                     break;
 
                 case 2: // '\002'
-                    s3 = g.i(parcel, i1);
+                    j = g.e(parcel, l);
                     break;
 
                 case 3: // '\003'
-                    s2 = g.i(parcel, i1);
-                    break;
-
-                case 4: // '\004'
-                    j = g.e(parcel, i1);
-                    break;
-
-                case 5: // '\005'
-                    i = g.e(parcel, i1);
-                    break;
-
-                case 6: // '\006'
-                    flag2 = g.c(parcel, i1);
-                    break;
-
-                case 7: // '\007'
-                    flag1 = g.c(parcel, i1);
-                    break;
-
-                case 8: // '\b'
-                    s1 = g.i(parcel, i1);
-                    break;
-
-                case 9: // '\t'
-                    flag = g.c(parcel, i1);
-                    break;
-
-                case 10: // '\n'
-                    s = g.i(parcel, i1);
+                    aconnectionconfiguration = (ConnectionConfiguration[])g.b(parcel, l, ConnectionConfiguration.CREATOR);
                     break;
                 }
             } else
-            if (parcel.dataPosition() != l)
+            if (parcel.dataPosition() != k)
             {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(l).toString(), parcel);
+                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
             } else
             {
-                return new ConnectionConfiguration(k, s3, s2, j, i, flag2, flag1, s1, flag, s);
+                return new GetConfigsResponse(i, j, aconnectionconfiguration);
             }
         } while (true);
     }
 
     public Object[] newArray(int i)
     {
-        return new ConnectionConfiguration[i];
+        return new GetConfigsResponse[i];
     }
 }

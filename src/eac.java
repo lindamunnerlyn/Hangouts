@@ -2,66 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Message;
+import java.util.Locale;
 
-final class eac extends HandlerThread
-    implements android.os.Handler.Callback
+public final class eac
 {
 
-    public eac()
+    public final boolean a;
+    public final int b;
+    public final int c;
+
+    eac(boolean flag, int i, int j)
     {
-        super("GifDecoder");
+        a = flag;
+        b = i;
+        c = j;
     }
 
-    public boolean handleMessage(Message message)
+    public boolean a(int i, int j)
     {
-        eab eab1 = (eab)message.obj;
-        if (eab1 == null || eab.a(eab1) == null || eab.b(eab1))
-        {
-            return true;
-        }
-        switch (message.what)
-        {
-        case 11: // '\013'
-        default:
-            return false;
+        return a && b > i && c > j;
+    }
 
-        case 10: // '\n'
-            do
+    public boolean equals(Object obj)
+    {
+        if (obj != null && getClass() == obj.getClass())
+        {
+            if (a == ((eac) (obj = (eac)obj)).a && b == ((eac) (obj)).b && c == ((eac) (obj)).c)
             {
-                try
-                {
-                    eab.c(eab1);
-                }
-                // Misplaced declaration of an exception variable
-                catch (Message message)
-                {
-                    eab.d(eab1);
-                }
-                if (eab.e(eab1))
-                {
-                    if (eab.f(eab1) == 0)
-                    {
-                        eab.g(eab1);
-                        ebw.f("Babel", "Could not read first frame of the gif.");
-                    } else
-                    if (eab.f(eab1) > 1 && eab.h(eab1))
-                    {
-                        eab.i(eab1);
-                    } else
-                    {
-                        eab.j(eab1);
-                    }
-                }
-            } while (eab.e(eab1) && !eab.k(eab1) && !eab.l(eab1));
-            eab.n(eab1).sendMessage(eab.n(eab1).obtainMessage(11, eab.m(eab1), 0));
-            return true;
-
-        case 12: // '\f'
-            eab.i(eab1);
-            return true;
+                return true;
+            }
         }
+        return false;
+    }
+
+    public String toString()
+    {
+        return String.format(Locale.US, "is connected: %b, signal level: %d%%, link speed: %dMbps", new Object[] {
+            Boolean.valueOf(a), Integer.valueOf(b), Integer.valueOf(c)
+        });
     }
 }

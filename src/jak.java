@@ -3,41 +3,35 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class jak extends koj
+public final class jak extends kwm
 {
 
-    public izx a;
-    public jbw b;
-    public izx c[];
-    public ixg responseHeader;
+    public Boolean a;
+    public byte b[];
+    public jaj c[];
 
     public jak()
     {
-        responseHeader = null;
         a = null;
         b = null;
-        c = izx.a();
+        c = jaj.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (responseHeader != null)
-        {
-            i = j + koh.d(1, responseHeader);
-        }
-        j = i;
+        int i = super.computeSerializedSize();
+        int j = i;
         if (a != null)
         {
-            j = i + koh.d(2, a);
+            a.booleanValue();
+            j = i + (kwk.f(1) + 1);
         }
         i = j;
         if (b != null)
         {
-            i = j + koh.d(3, b);
+            i = j + kwk.b(2, b);
         }
         j = i;
         if (c != null)
@@ -47,11 +41,11 @@ public final class jak extends koj
             {
                 for (j = 0; j < c.length;)
                 {
-                    izx izx1 = c[j];
+                    jaj jaj1 = c[j];
                     int k = i;
-                    if (izx1 != null)
+                    if (jaj1 != null)
                     {
-                        k = i + koh.d(4, izx1);
+                        k = i + kwk.d(3, jaj1);
                     }
                     j++;
                     i = k;
@@ -63,15 +57,15 @@ public final class jak extends koj
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -80,33 +74,17 @@ public final class jak extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (responseHeader == null)
-                {
-                    responseHeader = new ixg();
-                }
-                kog1.a(responseHeader);
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
                 break;
 
             case 18: // '\022'
-                if (a == null)
-                {
-                    a = new izx();
-                }
-                kog1.a(a);
+                b = kwj1.k();
                 break;
 
             case 26: // '\032'
-                if (b == null)
-                {
-                    b = new jbw();
-                }
-                kog1.a(b);
-                break;
-
-            case 34: // '"'
-                int k = kou.b(kog1, 34);
-                izx aizx[];
+                int k = kwx.a(kwj1, 26);
+                jaj ajaj[];
                 int j;
                 if (c == null)
                 {
@@ -115,54 +93,50 @@ public final class jak extends koj
                 {
                     j = c.length;
                 }
-                aizx = new izx[k + j];
+                ajaj = new jaj[k + j];
                 k = j;
                 if (j != 0)
                 {
-                    System.arraycopy(c, 0, aizx, 0, j);
+                    System.arraycopy(c, 0, ajaj, 0, j);
                     k = j;
                 }
-                for (; k < aizx.length - 1; k++)
+                for (; k < ajaj.length - 1; k++)
                 {
-                    aizx[k] = new izx();
-                    kog1.a(aizx[k]);
-                    kog1.a();
+                    ajaj[k] = new jaj();
+                    kwj1.a(ajaj[k]);
+                    kwj1.a();
                 }
 
-                aizx[k] = new izx();
-                kog1.a(aizx[k]);
-                c = aizx;
+                ajaj[k] = new jaj();
+                kwj1.a(ajaj[k]);
+                c = ajaj;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (responseHeader != null)
-        {
-            koh1.b(1, responseHeader);
-        }
         if (a != null)
         {
-            koh1.b(2, a);
+            kwk1.a(1, a.booleanValue());
         }
         if (b != null)
         {
-            koh1.b(3, b);
+            kwk1.a(2, b);
         }
         if (c != null && c.length > 0)
         {
             for (int i = 0; i < c.length; i++)
             {
-                izx izx1 = c[i];
-                if (izx1 != null)
+                jaj jaj1 = c[i];
+                if (jaj1 != null)
                 {
-                    koh1.b(4, izx1);
+                    kwk1.b(3, jaj1);
                 }
             }
 
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

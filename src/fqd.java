@@ -2,16 +2,16 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.widget.ImageView;
+import android.widget.TextView;
 
-final class fqd extends ThreadLocal
+public class fqd
 {
 
-    fqd()
-    {
-    }
+    public TextView d;
+    public ImageView e;
 
-    protected Object initialValue()
+    public fqd()
     {
-        return new String[1];
     }
 }

@@ -2,215 +2,114 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.os.Looper;
+import android.util.Log;
 
-public final class hph extends koj
+public final class hph
 {
 
-    public Integer a;
-    public hpi b[];
-    public hpc c[];
-    public hpj d;
+    private static final Paint a = new Paint(2);
+    private static final Paint b = new Paint(2);
+    private static volatile Thread c;
 
-    public hph()
+    public static Bitmap a(Bitmap bitmap, int i)
     {
-        a = null;
-        b = hpi.a();
-        c = hpc.a();
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
-    }
-
-    protected int computeSerializedSize()
-    {
-        boolean flag = false;
-        int i = super.computeSerializedSize();
-        int j = i;
-        if (a != null)
+        if (bitmap != null)
         {
-            j = i + koh.e(1, a.intValue());
-        }
-        i = j;
-        if (b != null)
-        {
-            i = j;
-            if (b.length > 0)
+            if (Log.isLoggable("BitmapUtils", 3))
             {
-                i = j;
-                for (j = 0; j < b.length;)
-                {
-                    hpi hpi1 = b[j];
-                    int k = i;
-                    if (hpi1 != null)
-                    {
-                        k = i + koh.d(2, hpi1);
-                    }
-                    j++;
-                    i = k;
-                }
-
+                int j = bitmap.getWidth();
+                int k = bitmap.getHeight();
+                (new StringBuilder(84)).append("resizeToSquareBitmap: Input: ").append(j).append("x").append(k).append(", output:").append(i).append("x").append(i);
             }
-        }
-        j = i;
-        if (c != null)
-        {
-            j = i;
-            if (c.length > 0)
+            Bitmap bitmap1 = Bitmap.createBitmap(i, i, android.graphics.Bitmap.Config.ARGB_8888);
+            if (bitmap1 != null)
             {
-                int l = ((flag) ? 1 : 0);
-                do
+                Canvas canvas = new Canvas(bitmap1);
+                if (bitmap.getWidth() != i || bitmap.getHeight() != i)
                 {
-                    j = i;
-                    if (l >= c.length)
-                    {
-                        break;
-                    }
-                    hpc hpc1 = c[l];
-                    j = i;
-                    if (hpc1 != null)
-                    {
-                        j = i + koh.d(3, hpc1);
-                    }
-                    l++;
-                    i = j;
-                } while (true);
-            }
-        }
-        i = j;
-        if (d != null)
-        {
-            i = j + koh.d(4, d);
-        }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
-                break;
-
-            case 18: // '\022'
-                int l = kou.b(kog1, 18);
-                hpi ahpi[];
-                int j;
-                if (b == null)
-                {
-                    j = 0;
+                    a(canvas, bitmap, new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight()), new Rect(0, 0, i, i));
                 } else
                 {
-                    j = b.length;
+                    canvas.drawBitmap(bitmap, 0.0F, 0.0F, null);
                 }
-                ahpi = new hpi[l + j];
-                l = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, ahpi, 0, j);
-                    l = j;
-                }
-                for (; l < ahpi.length - 1; l++)
-                {
-                    ahpi[l] = new hpi();
-                    kog1.a(ahpi[l]);
-                    kog1.a();
-                }
-
-                ahpi[l] = new hpi();
-                kog1.a(ahpi[l]);
-                b = ahpi;
-                break;
-
-            case 26: // '\032'
-                int i1 = kou.b(kog1, 26);
-                hpc ahpc[];
-                int k;
-                if (c == null)
-                {
-                    k = 0;
-                } else
-                {
-                    k = c.length;
-                }
-                ahpc = new hpc[i1 + k];
-                i1 = k;
-                if (k != 0)
-                {
-                    System.arraycopy(c, 0, ahpc, 0, k);
-                    i1 = k;
-                }
-                for (; i1 < ahpc.length - 1; i1++)
-                {
-                    ahpc[i1] = new hpc();
-                    kog1.a(ahpc[i1]);
-                    kog1.a();
-                }
-
-                ahpc[i1] = new hpc();
-                kog1.a(ahpc[i1]);
-                c = ahpc;
-                break;
-
-            case 34: // '"'
-                if (d == null)
-                {
-                    d = new hpj();
-                }
-                kog1.a(d);
-                break;
+                return bitmap1;
             }
-        } while (true);
+        }
+        return null;
     }
 
-    public void writeTo(koh koh1)
+    public static Bitmap a(Bitmap bitmap, int i, int j, Bitmap bitmap1)
     {
-        boolean flag = false;
-        if (a != null)
+        if (bitmap != null && i != 0 && j != 0) goto _L2; else goto _L1
+_L1:
+        Bitmap bitmap2 = null;
+_L4:
+        return bitmap2;
+_L2:
+        if (Log.isLoggable("BitmapUtils", 3))
         {
-            koh1.a(1, a.intValue());
+            int k = bitmap.getWidth();
+            int i1 = bitmap.getHeight();
+            (new StringBuilder(83)).append("resizeAndCropBitmap: Input: ").append(k).append("x").append(i1).append(", output:").append(i).append("x").append(j);
         }
-        if (b != null && b.length > 0)
+        if (bitmap.getWidth() != i)
         {
-            for (int i = 0; i < b.length; i++)
-            {
-                hpi hpi1 = b[i];
-                if (hpi1 != null)
-                {
-                    koh1.b(2, hpi1);
-                }
-            }
-
+            break; /* Loop/switch isn't completed */
         }
-        if (c != null && c.length > 0)
+        bitmap2 = bitmap;
+        if (bitmap.getHeight() == j) goto _L4; else goto _L3
+_L3:
+        if (bitmap1 == null)
         {
-            for (int j = ((flag) ? 1 : 0); j < c.length; j++)
-            {
-                hpc hpc1 = c[j];
-                if (hpc1 != null)
-                {
-                    koh1.b(3, hpc1);
-                }
-            }
-
+            bitmap1 = Bitmap.createBitmap(i, j, android.graphics.Bitmap.Config.ARGB_8888);
         }
-        if (d != null)
+        if (bitmap1 == null)
         {
-            koh1.b(4, d);
+            return null;
         }
-        super.writeTo(koh1);
+        Canvas canvas = new Canvas(bitmap1);
+        int j1 = bitmap.getWidth();
+        int l = bitmap.getHeight();
+        int k1;
+        int l1;
+        if (bitmap.getWidth() * j > bitmap.getHeight() * i)
+        {
+            j1 = (bitmap.getHeight() * i) / j;
+        } else
+        {
+            l = (bitmap.getWidth() * j) / i;
+        }
+        k1 = (bitmap.getWidth() - j1) / 2;
+        l1 = (bitmap.getHeight() - l) / 2;
+        a(canvas, bitmap, new Rect(k1, l1, j1 + k1, l + l1), new Rect(0, 0, i, j));
+        return bitmap1;
     }
+
+    private static void a(Canvas canvas, Bitmap bitmap, Rect rect, Rect rect1)
+    {
+        if (c == null)
+        {
+            c = Looper.getMainLooper().getThread();
+        }
+        if (Thread.currentThread() == c)
+        {
+            canvas.drawBitmap(bitmap, rect, rect1, a);
+            return;
+        }
+        synchronized (b)
+        {
+            canvas.drawBitmap(bitmap, rect, rect1, b);
+        }
+        return;
+        canvas;
+        paint;
+        JVM INSTR monitorexit ;
+        throw canvas;
+    }
+
 }

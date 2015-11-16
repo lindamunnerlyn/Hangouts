@@ -2,97 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Rect;
-import java.util.concurrent.atomic.AtomicInteger;
 
-public abstract class gfo
+public interface gfo
 {
 
-    private volatile boolean a;
-    public final AtomicInteger n = new AtomicInteger(0);
-    public final gdg o;
-    public final gem p;
-    public boolean q;
+    public abstract void a();
 
-    gfo(gdg gdg1, gem gem1)
-    {
-        q = true;
-        a = false;
-        o = gdg1;
-        p = gem1;
-        gdg1.a(this);
-    }
+    public abstract void a(int i, int j, boolean flag);
 
-    void D_()
-    {
-        o.b(this);
-    }
+    public abstract boolean a(int i, long l, boolean flag);
 
-    void c(boolean flag)
-    {
-        if (q != flag)
-        {
-            q = flag;
-            a = false;
-        }
-        if (!flag)
-        {
-            o.b();
-        }
-    }
+    public abstract int b();
 
-    abstract boolean d();
-
-    abstract boolean e();
-
-    abstract String f();
-
-    abstract int g();
-
-    boolean h()
-    {
-        return false;
-    }
-
-    boolean i()
-    {
-        return false;
-    }
-
-    abstract int j();
-
-    abstract int k();
-
-    Rect l()
-    {
-        return null;
-    }
-
-    void m()
-    {
-        int i1 = n.incrementAndGet();
-        String s = f();
-        gkc.a("vclib", (new StringBuilder(String.valueOf(s).length() + 33)).append(s).append(" rendererCount is now ").append(i1).toString());
-    }
-
-    void n()
-    {
-        int i1 = n.decrementAndGet();
-        String s = f();
-        gkc.a("vclib", (new StringBuilder(String.valueOf(s).length() + 33)).append(s).append(" rendererCount is now ").append(i1).toString());
-    }
-
-    void o()
-    {
-        if (d() && !a)
-        {
-            a = true;
-            p.f();
-        }
-    }
-
-    boolean p()
-    {
-        return a && !q;
-    }
+    public abstract void c();
 }

@@ -12,10 +12,5 @@ public class RecordUserAction
     {
     }
 
-    static void a(String s)
-    {
-        nativeRecordUserAction(s);
-    }
-
     private static native void nativeRecordUserAction(String s);
 }

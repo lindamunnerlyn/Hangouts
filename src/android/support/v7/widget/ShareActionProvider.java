@@ -5,7 +5,6 @@
 package android.support.v7.widget;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.support.v7.internal.widget.ActivityChooserView;
 import android.util.TypedValue;
@@ -14,61 +13,38 @@ import android.view.SubMenu;
 import android.view.View;
 import g;
 import hz;
-import ue;
-import vi;
-import zu;
+import ug;
+import vk;
+import zw;
 
 public class ShareActionProvider extends hz
 {
 
-    private int a;
-    private final zu b = new zu(this);
-    private final Context c;
-    private String d;
+    public final Context a;
+    public String b;
+    private int c;
+    private final zw d = new zw(this);
 
     public ShareActionProvider(Context context)
     {
         super(context);
-        a = 4;
-        d = "share_history.xml";
-        c = context;
-    }
-
-    public static Context a(ShareActionProvider shareactionprovider)
-    {
-        return shareactionprovider.c;
-    }
-
-    public static void a(Intent intent)
-    {
-        if (android.os.Build.VERSION.SDK_INT >= 21)
-        {
-            intent.addFlags(0x8080000);
-            return;
-        } else
-        {
-            intent.addFlags(0x80000);
-            return;
-        }
-    }
-
-    public static String b(ShareActionProvider shareactionprovider)
-    {
-        return shareactionprovider.d;
+        c = 4;
+        b = "share_history.xml";
+        a = context;
     }
 
     public View a()
     {
-        ActivityChooserView activitychooserview = new ActivityChooserView(c);
+        ActivityChooserView activitychooserview = new ActivityChooserView(a);
         if (!activitychooserview.isInEditMode())
         {
-            activitychooserview.a(ue.a(c, d));
+            activitychooserview.a(ug.a(a, b));
         }
         TypedValue typedvalue = new TypedValue();
-        c.getTheme().resolveAttribute(g.n, typedvalue, true);
-        activitychooserview.a(vi.a(c, typedvalue.resourceId));
+        a.getTheme().resolveAttribute(g.n, typedvalue, true);
+        activitychooserview.a(vk.a(a, typedvalue.resourceId));
         activitychooserview.a(this);
-        activitychooserview.b(g.bI);
+        activitychooserview.c(g.bI);
         activitychooserview.a(g.bH);
         return activitychooserview;
     }
@@ -76,23 +52,23 @@ public class ShareActionProvider extends hz
     public void a(SubMenu submenu)
     {
         submenu.clear();
-        ue ue1 = ue.a(c, d);
-        android.content.pm.PackageManager packagemanager = c.getPackageManager();
-        int k = ue1.a();
-        int l = Math.min(k, a);
+        ug ug1 = ug.a(a, b);
+        android.content.pm.PackageManager packagemanager = a.getPackageManager();
+        int k = ug1.a();
+        int l = Math.min(k, c);
         for (int i = 0; i < l; i++)
         {
-            ResolveInfo resolveinfo = ue1.a(i);
-            submenu.add(0, i, i, resolveinfo.loadLabel(packagemanager)).setIcon(resolveinfo.loadIcon(packagemanager)).setOnMenuItemClickListener(b);
+            ResolveInfo resolveinfo = ug1.a(i);
+            submenu.add(0, i, i, resolveinfo.loadLabel(packagemanager)).setIcon(resolveinfo.loadIcon(packagemanager)).setOnMenuItemClickListener(d);
         }
 
         if (l < k)
         {
-            submenu = submenu.addSubMenu(0, l, l, c.getString(g.bF));
+            submenu = submenu.addSubMenu(0, l, l, a.getString(g.bF));
             for (int j = 0; j < k; j++)
             {
-                ResolveInfo resolveinfo1 = ue1.a(j);
-                submenu.add(0, j, j, resolveinfo1.loadLabel(packagemanager)).setIcon(resolveinfo1.loadIcon(packagemanager)).setOnMenuItemClickListener(b);
+                ResolveInfo resolveinfo1 = ug1.a(j);
+                submenu.add(0, j, j, resolveinfo1.loadLabel(packagemanager)).setIcon(resolveinfo1.loadIcon(packagemanager)).setOnMenuItemClickListener(d);
             }
 
         }

@@ -2,150 +2,150 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import android.text.TextUtils;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
 
-final class buq
-    implements btu
+final class buq extends gdp
 {
 
-    private static final boolean a = false;
-    private final bnd b = bnd.a();
-    private final bus c = new bus(this);
-    private final but d = new but(this);
-    private final List e = new CopyOnWriteArrayList();
-    private btv f;
-    private gau g;
-    private jav h;
+    final bum a;
 
-    buq()
+    buq(bum bum1)
     {
-        f = btv.e;
-        g = null;
-        b.a(c);
+        a = bum1;
+        super();
     }
 
-    static btv a(buq buq1, btv btv1)
+    public void a()
     {
-        buq1.f = btv1;
-        return btv1;
-    }
-
-    static gau a(buq buq1)
-    {
-        return buq1.g;
-    }
-
-    static gau a(buq buq1, gau gau1)
-    {
-        buq1.g = gau1;
-        return gau1;
-    }
-
-    static jav a(buq buq1, jav jav1)
-    {
-        buq1.h = jav1;
-        return jav1;
-    }
-
-    static jav b(buq buq1)
-    {
-        return buq1.h;
-    }
-
-    static btv c(buq buq1)
-    {
-        return buq1.f;
-    }
-
-    static List d(buq buq1)
-    {
-        return buq1.e;
-    }
-
-    static boolean d()
-    {
-        return a;
-    }
-
-    static bnd e(buq buq1)
-    {
-        return buq1.b;
-    }
-
-    static but f(buq buq1)
-    {
-        return buq1.d;
-    }
-
-    public btv a()
-    {
-        return f;
-    }
-
-    public void a(btt btt)
-    {
-        e.add(btt);
-    }
-
-    public void a(boolean flag)
-    {
-        if (g == null || h == null)
+        bum.a(a, true);
+        Iterator iterator = bum.b(a).b().values().iterator();
+        do
         {
+            if (!iterator.hasNext())
+            {
+                break;
+            }
+            jhh jhh1 = (jhh)iterator.next();
+            if (g.a(jhh1.q, 0) == 10)
+            {
+                bum.c(a).put(jhh1.b, jhh1);
+            }
+        } while (true);
+        bum.a(a, bum.b(a).a());
+        gdv.b("Expected non-null", bum.d(a));
+        bum.e(a);
+        eev.c("Babel", String.format("Found %d pending knocks on collection synced", new Object[] {
+            Integer.valueOf(bum.c(a).size())
+        }));
+        bum.f(a);
+    }
+
+    public void a(kws kws)
+    {
+        kws = (jhh)kws;
+        if (!bum.g(a)) goto _L2; else goto _L1
+_L1:
+        String s = ((jhh) (kws)).b;
+        g.a(((jhh) (kws)).q, 0);
+        JVM INSTR tableswitch 10 12: default 56
+    //                   10 57
+    //                   11 125
+    //                   12 98;
+           goto _L2 _L3 _L4 _L5
+_L2:
+        return;
+_L3:
+        eev.c("Babel", String.format("New knocker (%s)", new Object[] {
+            s
+        }));
+        bum.c(a).put(s, kws);
+        bum.f(a);
+        return;
+_L5:
+        eev.c("Babel", String.format("Knock accepted (%s)", new Object[] {
+            s
+        }));
+        bum.b(a, kws);
+        return;
+_L4:
+        eev.c("Babel", String.format("Knock rejected (%s)", new Object[] {
+            s
+        }));
+        bum.c(a, kws);
+        return;
+    }
+
+    public void a(kws kws, kws kws1)
+    {
+        String s;
+        int i;
+        int j;
+        kws = (jhh)kws;
+        kws1 = (jhh)kws1;
+        s = ((jhh) (kws1)).b;
+        i = g.a(((jhh) (kws1)).q, 0);
+        j = g.a(((jhh) (kws)).q, 0);
+        if (bum.d(a) != null && TextUtils.equals(s, bum.d(a).b))
+        {
+            bum.a(a, kws1);
+            bum.e(a);
+        }
+        i;
+        JVM INSTR tableswitch 10 12: default 108
+    //                   10 132
+    //                   11 199
+    //                   12 162;
+           goto _L1 _L2 _L3 _L4
+_L1:
+        if (bum.c(a).remove(s) != null)
+        {
+            bum.f(a);
+        }
+_L6:
+        return;
+_L2:
+        if (j != 10)
+        {
+            bum.c(a).put(s, kws1);
+            bum.f(a);
             return;
         }
-        jav jav1 = new jav();
-        jav1.a = h.a;
-        jay jay1;
-        byte byte0;
-        if (flag)
+        continue; /* Loop/switch isn't completed */
+_L4:
+        if (j == 10)
         {
-            byte0 = 2;
-        } else
-        {
-            byte0 = 1;
+            bum.c(a).remove(s);
+            bum.f(a);
+            bum.b(a, kws1);
+            return;
         }
-        jav1.u = Integer.valueOf(byte0);
-        jay1 = new jay();
-        jay1.c = (new jav[] {
-            jav1
-        });
-        g.b(jay1, new bur(this, flag));
-    }
-
-    public void b(btt btt)
-    {
-        e.remove(btt);
-    }
-
-    public boolean b()
-    {
-        boolean flag1 = false;
-        boolean flag = flag1;
-        if (h != null)
+        continue; /* Loop/switch isn't completed */
+_L3:
+        if (j == 10)
         {
-            flag = flag1;
-            if (g.a(h.b, 0) == 2)
-            {
-                flag = true;
-            }
+            bum.c(a).remove(s);
+            bum.f(a);
+            bum.c(a, kws1);
+            return;
         }
-        return flag;
+        if (true) goto _L6; else goto _L5
+_L5:
     }
 
-    public String c()
+    public void b(kws kws)
     {
-        if (h == null)
+        kws = ((jhh)kws).b;
+        if (bum.d(a) != null && TextUtils.equals(kws, bum.d(a).b))
         {
-            return null;
-        } else
-        {
-            return h.A;
+            bum.a(a, null);
+            bum.e(a);
         }
-    }
-
-    static 
-    {
-        hik hik = ebw.f;
+        if (bum.c(a).remove(kws) != null)
+        {
+            bum.f(a);
+        }
     }
 }

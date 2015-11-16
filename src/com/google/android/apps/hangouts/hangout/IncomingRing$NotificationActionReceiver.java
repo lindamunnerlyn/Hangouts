@@ -18,18 +18,18 @@ public class  extends BroadcastReceiver
     public void onReceive(Context context, Intent intent)
     {
         context = intent.getAction();
-        if (IncomingRing.q() == null)
+        if (IncomingRing.r() == null)
         {
             context = intent.getStringExtra("hangout_incoming_notification_tag");
             if (!TextUtils.isEmpty(context))
             {
                 IncomingRing.a(context);
-                IncomingRing.n();
+                IncomingRing.o();
             }
         } else
         if ("com.google.android.apps.hangouts.hangout.ignore".equals(context))
         {
-            IncomingRing.q().l();
+            IncomingRing.r().m();
             return;
         }
     }

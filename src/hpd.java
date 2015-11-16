@@ -2,141 +2,170 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
-public final class hpd extends koj
+public class hpd extends ad
+    implements hoe
 {
 
-    public Boolean a;
-    public Boolean b;
-    public Boolean c;
-    public Boolean d;
-    public Boolean e;
-    public Boolean f;
+    public final hny lifecycle = new hny();
 
     public hpd()
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        e = null;
-        f = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public hof getLifecycle()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        j = i;
-        if (b != null)
-        {
-            b.booleanValue();
-            j = i + (koh.f(2) + 1);
-        }
-        i = j;
-        if (c != null)
-        {
-            c.booleanValue();
-            i = j + (koh.f(3) + 1);
-        }
-        j = i;
-        if (d != null)
-        {
-            d.booleanValue();
-            j = i + (koh.f(4) + 1);
-        }
-        i = j;
-        if (e != null)
-        {
-            e.booleanValue();
-            i = j + (koh.f(5) + 1);
-        }
-        j = i;
-        if (f != null)
-        {
-            f.booleanValue();
-            j = i + (koh.f(6) + 1);
-        }
-        return j;
+        return lifecycle;
     }
 
-    public kop mergeFrom(kog kog1)
+    public void onActivityCreated(Bundle bundle)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-
-            case 16: // '\020'
-                b = Boolean.valueOf(kog1.i());
-                break;
-
-            case 24: // '\030'
-                c = Boolean.valueOf(kog1.i());
-                break;
-
-            case 32: // ' '
-                d = Boolean.valueOf(kog1.i());
-                break;
-
-            case 40: // '('
-                e = Boolean.valueOf(kog1.i());
-                break;
-
-            case 48: // '0'
-                f = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
+        lifecycle.a(bundle);
+        super.onActivityCreated(bundle);
     }
 
-    public void writeTo(koh koh1)
+    public void onActivityResult(int i, int j, Intent intent)
     {
-        if (a != null)
+        lifecycle.a(i, j, intent);
+        super.onActivityResult(i, j, intent);
+    }
+
+    public void onAttach(Activity activity)
+    {
+        lifecycle.a(activity);
+        super.onAttach(activity);
+    }
+
+    public boolean onContextItemSelected(MenuItem menuitem)
+    {
+        if (lifecycle.p())
         {
-            koh1.a(1, a.booleanValue());
-        }
-        if (b != null)
+            return true;
+        } else
         {
-            koh1.a(2, b.booleanValue());
+            return super.onContextItemSelected(menuitem);
         }
-        if (c != null)
+    }
+
+    public void onCreate(Bundle bundle)
+    {
+        lifecycle.c(bundle);
+        super.onCreate(bundle);
+    }
+
+    public void onCreateContextMenu(ContextMenu contextmenu, View view, android.view.ContextMenu.ContextMenuInfo contextmenuinfo)
+    {
+        lifecycle.o();
+        super.onCreateContextMenu(contextmenu, view, contextmenuinfo);
+    }
+
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuinflater)
+    {
+        if (lifecycle.a(menu))
         {
-            koh1.a(3, c.booleanValue());
+            setHasOptionsMenu(true);
         }
-        if (d != null)
+    }
+
+    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
+    {
+        lifecycle.b(bundle);
+        return super.onCreateView(layoutinflater, viewgroup, bundle);
+    }
+
+    public void onDestroy()
+    {
+        lifecycle.c();
+        super.onDestroy();
+    }
+
+    public void onDestroyView()
+    {
+        lifecycle.a();
+        super.onDestroyView();
+    }
+
+    public void onDetach()
+    {
+        lifecycle.d();
+        super.onDetach();
+    }
+
+    public void onLowMemory()
+    {
+        lifecycle.t();
+        super.onLowMemory();
+    }
+
+    public boolean onOptionsItemSelected(MenuItem menuitem)
+    {
+        return lifecycle.a(menuitem);
+    }
+
+    public void onPause()
+    {
+        lifecycle.b();
+        super.onPause();
+    }
+
+    public void onPrepareOptionsMenu(Menu menu)
+    {
+        if (lifecycle.b(menu))
         {
-            koh1.a(4, d.booleanValue());
+            setHasOptionsMenu(true);
         }
-        if (e != null)
-        {
-            koh1.a(5, e.booleanValue());
-        }
-        if (f != null)
-        {
-            koh1.a(6, f.booleanValue());
-        }
-        super.writeTo(koh1);
+    }
+
+    public void onRequestPermissionsResult(int i, String as[], int ai[])
+    {
+        lifecycle.a(i, as, ai);
+    }
+
+    public void onResume()
+    {
+        h.a(getChildFragmentManager());
+        lifecycle.r();
+        super.onResume();
+    }
+
+    public void onSaveInstanceState(Bundle bundle)
+    {
+        lifecycle.d(bundle);
+        super.onSaveInstanceState(bundle);
+    }
+
+    public void onStart()
+    {
+        h.a(getChildFragmentManager());
+        lifecycle.q();
+        super.onStart();
+    }
+
+    public void onStop()
+    {
+        lifecycle.s();
+        super.onStop();
+    }
+
+    public void onViewCreated(View view, Bundle bundle)
+    {
+        lifecycle.a(view, bundle);
+        super.onViewCreated(view, bundle);
+    }
+
+    public void setUserVisibleHint(boolean flag)
+    {
+        lifecycle.a(flag);
+        super.setUserVisibleHint(flag);
     }
 }

@@ -2,145 +2,103 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.ActionMode;
-import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.SearchEvent;
-import android.view.View;
-import android.view.accessibility.AccessibilityEvent;
+import android.view.animation.Interpolator;
+import java.util.ArrayList;
+import java.util.Iterator;
 
-public class sp
-    implements android.view.Window.Callback
+public final class sp
 {
 
-    final android.view.Window.Callback d;
+    final ArrayList a = new ArrayList();
+    me b;
+    boolean c;
+    private long d;
+    private Interpolator e;
+    private final mf f = new sq(this);
 
-    public sp(android.view.Window.Callback callback)
+    public sp()
     {
-        if (callback == null)
+        d = -1L;
+    }
+
+    public sp a(Interpolator interpolator)
+    {
+        if (!c)
         {
-            throw new IllegalArgumentException("Window callback may not be null");
-        } else
+            e = interpolator;
+        }
+        return this;
+    }
+
+    public sp a(lr lr1)
+    {
+        if (!c)
         {
-            d = callback;
+            a.add(lr1);
+        }
+        return this;
+    }
+
+    public sp a(lr lr1, lr lr2)
+    {
+        a.add(lr1);
+        lr2.b(lr1.a());
+        a.add(lr2);
+        return this;
+    }
+
+    public sp a(me me)
+    {
+        if (!c)
+        {
+            b = me;
+        }
+        return this;
+    }
+
+    public void a()
+    {
+        if (c)
+        {
             return;
         }
+        lr lr1;
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); lr1.c())
+        {
+            lr1 = (lr)iterator.next();
+            if (d >= 0L)
+            {
+                lr1.a(d);
+            }
+            if (e != null)
+            {
+                lr1.a(e);
+            }
+            if (b != null)
+            {
+                lr1.a(f);
+            }
+        }
+
+        c = true;
     }
 
-    public boolean dispatchGenericMotionEvent(MotionEvent motionevent)
+    public void b()
     {
-        return d.dispatchGenericMotionEvent(motionevent);
+        if (!c)
+        {
+            return;
+        }
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((lr)iterator.next()).b()) { }
+        c = false;
     }
 
-    public boolean dispatchKeyEvent(KeyEvent keyevent)
+    public sp c()
     {
-        return d.dispatchKeyEvent(keyevent);
-    }
-
-    public boolean dispatchKeyShortcutEvent(KeyEvent keyevent)
-    {
-        return d.dispatchKeyShortcutEvent(keyevent);
-    }
-
-    public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityevent)
-    {
-        return d.dispatchPopulateAccessibilityEvent(accessibilityevent);
-    }
-
-    public boolean dispatchTouchEvent(MotionEvent motionevent)
-    {
-        return d.dispatchTouchEvent(motionevent);
-    }
-
-    public boolean dispatchTrackballEvent(MotionEvent motionevent)
-    {
-        return d.dispatchTrackballEvent(motionevent);
-    }
-
-    public void onActionModeFinished(ActionMode actionmode)
-    {
-        d.onActionModeFinished(actionmode);
-    }
-
-    public void onActionModeStarted(ActionMode actionmode)
-    {
-        d.onActionModeStarted(actionmode);
-    }
-
-    public void onAttachedToWindow()
-    {
-        d.onAttachedToWindow();
-    }
-
-    public void onContentChanged()
-    {
-        d.onContentChanged();
-    }
-
-    public boolean onCreatePanelMenu(int i, Menu menu)
-    {
-        return d.onCreatePanelMenu(i, menu);
-    }
-
-    public View onCreatePanelView(int i)
-    {
-        return d.onCreatePanelView(i);
-    }
-
-    public void onDetachedFromWindow()
-    {
-        d.onDetachedFromWindow();
-    }
-
-    public boolean onMenuItemSelected(int i, MenuItem menuitem)
-    {
-        return d.onMenuItemSelected(i, menuitem);
-    }
-
-    public boolean onMenuOpened(int i, Menu menu)
-    {
-        return d.onMenuOpened(i, menu);
-    }
-
-    public void onPanelClosed(int i, Menu menu)
-    {
-        d.onPanelClosed(i, menu);
-    }
-
-    public boolean onPreparePanel(int i, View view, Menu menu)
-    {
-        return d.onPreparePanel(i, view, menu);
-    }
-
-    public boolean onSearchRequested()
-    {
-        return d.onSearchRequested();
-    }
-
-    public boolean onSearchRequested(SearchEvent searchevent)
-    {
-        return d.onSearchRequested(searchevent);
-    }
-
-    public void onWindowAttributesChanged(android.view.WindowManager.LayoutParams layoutparams)
-    {
-        d.onWindowAttributesChanged(layoutparams);
-    }
-
-    public void onWindowFocusChanged(boolean flag)
-    {
-        d.onWindowFocusChanged(flag);
-    }
-
-    public ActionMode onWindowStartingActionMode(android.view.ActionMode.Callback callback)
-    {
-        return d.onWindowStartingActionMode(callback);
-    }
-
-    public ActionMode onWindowStartingActionMode(android.view.ActionMode.Callback callback, int i)
-    {
-        return d.onWindowStartingActionMode(callback, i);
+        if (!c)
+        {
+            d = 250L;
+        }
+        return this;
     }
 }

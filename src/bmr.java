@@ -2,77 +2,63 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentResolver;
-import android.content.Context;
-import android.os.Vibrator;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 
-public final class bmr
+public class bmr extends hmb
 {
 
-    private long a[];
-    private Vibrator b;
-    private boolean c;
-    private ContentResolver d;
-    private boolean e;
+    private int j;
+    public Toolbar m;
 
     public bmr()
     {
+        j = com.google.android.apps.hangouts.R.drawable.bN;
+        q.a(hnn, r);
     }
 
-    public void a()
+    private void j()
     {
-        if (!c)
-        {
-            return;
-        }
-        boolean flag;
-        if (android.provider.Settings.System.getInt(d, "haptic_feedback_enabled", 0) != 0)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        try
-        {
-            e = flag;
-            return;
-        }
-        catch (android.content.res.Resources.NotFoundException notfoundexception)
-        {
-            ebw.e("Babel_dialer", "Could not retrieve system setting.", notfoundexception);
-        }
-        e = false;
-        return;
+        m = (Toolbar)findViewById(h.cx);
+        gdv.b("Toolbar needs to be in the layout with id hangouts_toolbar", m);
+        m.e(com.google.android.apps.hangouts.R.drawable.aU);
+        a(m);
+        g().b(j);
     }
 
-    public void a(Context context, boolean flag)
+    public void a(int i, int k)
     {
-        c = flag;
-        if (flag)
-        {
-            b = (Vibrator)context.getSystemService("vibrator");
-            a = (new long[] {
-                0L, 10L, 20L, 30L
-            });
-            d = context.getContentResolver();
-        }
+        super.setContentView(i);
+        j = k;
+        j();
     }
 
-    public void b()
+    public void addContentView(View view, android.view.ViewGroup.LayoutParams layoutparams)
     {
-        if (!c || !e)
-        {
-            return;
-        }
-        if (a != null && a.length == 1)
-        {
-            b.vibrate(a[0]);
-            return;
-        } else
-        {
-            b.vibrate(a, -1);
-            return;
-        }
+        super.addContentView(view, layoutparams);
+        j();
+    }
+
+    public Toolbar l()
+    {
+        return m;
+    }
+
+    public void setContentView(int i)
+    {
+        super.setContentView(i);
+        j();
+    }
+
+    public void setContentView(View view)
+    {
+        super.setContentView(view);
+        j();
+    }
+
+    public void setContentView(View view, android.view.ViewGroup.LayoutParams layoutparams)
+    {
+        super.setContentView(view, layoutparams);
+        j();
     }
 }

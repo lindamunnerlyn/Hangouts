@@ -3,11 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class fym extends fyk
+abstract class fym extends enm
 {
 
-    public fym(ejx ejx, fyz fyz)
+    public fym(emy emy)
     {
-        super(ejx, fyz);
+        super(fvr.k, emy);
     }
 }

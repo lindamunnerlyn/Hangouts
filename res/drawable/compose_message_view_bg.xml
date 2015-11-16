@@ -3,12 +3,11 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
-            <size android:height="4.0dip" />
-            <gradient android:startColor="#cc081921" android:endColor="@color/conversation_bg_color" android:angle="90.0" />
-            <stroke android:width="0.0dip" />
+            <size android:height="1.0dip" />
+            <solid android:color="@color/bg_transport_spinner_item_pressed" />
         </shape>
     </item>
-    <item android:left="0.0dip" android:top="4.0dip" android:right="0.0dip" android:bottom="0.0dip">
+    <item android:left="0.0dip" android:top="1.0dip" android:right="0.0dip" android:bottom="0.0dip">
         <shape android:shape="rectangle">
             <solid android:color="@color/compose_message_view_bg" />
             <stroke android:width="0.0dip" />

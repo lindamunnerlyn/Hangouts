@@ -9,9 +9,10 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.util.Log;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fsz;
-import fta;
-import fug;
+import fvf;
+import fvg;
+import fwm;
+import g;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -21,11 +22,11 @@ import java.util.Set;
 //            DataItemAssetParcelable
 
 public class DataItemParcelable
-    implements SafeParcelable, fsz
+    implements SafeParcelable, fvf
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fug();
-    public final int a;
+    public static final android.os.Parcelable.Creator CREATOR = new fwm();
+    final int a;
     private final Uri b;
     private final Map c;
     private byte d[];
@@ -44,6 +45,11 @@ public class DataItemParcelable
 
         c = uri;
         d = abyte0;
+    }
+
+    public boolean C_()
+    {
+        return true;
     }
 
     public Uri a()
@@ -104,17 +110,17 @@ public class DataItemParcelable
         return 0;
     }
 
-    public Object e()
+    public Object f()
     {
         return d();
     }
 
-    public Bundle f()
+    public Bundle g()
     {
         Bundle bundle = new Bundle();
         bundle.setClassLoader(com/google/android/gms/wearable/internal/DataItemAssetParcelable.getClassLoader());
         java.util.Map.Entry entry;
-        for (Iterator iterator = c.entrySet().iterator(); iterator.hasNext(); bundle.putParcelable((String)entry.getKey(), new DataItemAssetParcelable((fta)entry.getValue())))
+        for (Iterator iterator = c.entrySet().iterator(); iterator.hasNext(); bundle.putParcelable((String)entry.getKey(), new DataItemAssetParcelable((fvg)entry.getValue())))
         {
             entry = (java.util.Map.Entry)iterator.next();
         }
@@ -129,7 +135,12 @@ public class DataItemParcelable
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fug.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, a(), i);
+        g.a(parcel, 4, g());
+        g.a(parcel, 5, b());
+        g.q(parcel, j);
     }
 
 }

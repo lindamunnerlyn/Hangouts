@@ -2,142 +2,55 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.common.cache.LocalCache;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.concurrent.ConcurrentMap;
 
-public final class jpc
+public final class jpc extends joq
 {
 
-    static final jgw a;
+    final LocalCache c;
 
-    public static int a(int i)
+    public jpc(LocalCache localcache, ConcurrentMap concurrentmap)
     {
-        if (i < 3)
-        {
-            g.c(i, "expectedSize");
-            return i + 1;
-        }
-        if (i < 0x40000000)
-        {
-            return i / 3 + i;
-        } else
-        {
-            return 0x7fffffff;
-        }
+        c = localcache;
+        super(localcache, concurrentmap);
     }
 
-    static Object a(Map map, Object obj)
+    public boolean contains(Object obj)
     {
-        n.b(map);
-        try
+        if (obj instanceof java.util.Map.Entry)
         {
-            map = ((Map) (map.get(obj)));
+            obj = (java.util.Map.Entry)obj;
+            Object obj1 = ((java.util.Map.Entry) (obj)).getKey();
+            if (obj1 != null)
+            {
+                obj1 = c.get(obj1);
+                if (obj1 != null && c.f.a(((java.util.Map.Entry) (obj)).getValue(), obj1))
+                {
+                    return true;
+                }
+            }
         }
-        // Misplaced declaration of an exception variable
-        catch (Map map)
-        {
-            return null;
-        }
-        // Misplaced declaration of an exception variable
-        catch (Map map)
-        {
-            return null;
-        }
-        return map;
+        return false;
     }
 
-    static String a(Map map)
+    public Iterator iterator()
     {
-        StringBuilder stringbuilder = jkm.a(map.size()).append('{');
-        a.a(stringbuilder, map);
-        return stringbuilder.append('}').toString();
+        return new jpb(c);
     }
 
-    static Iterator a(Iterator iterator)
+    public boolean remove(Object obj)
     {
-        return jmr.a(iterator, jpe.a);
-    }
-
-    public static java.util.Map.Entry a(Object obj, Object obj1)
-    {
-        return new jlh(obj, obj1);
-    }
-
-    static jgt a()
-    {
-        return jpe.a;
-    }
-
-    static jqy a(jqy jqy)
-    {
-        return new jpd(jqy);
-    }
-
-    static Iterator b(Iterator iterator)
-    {
-        return jmr.a(iterator, jpe.b);
-    }
-
-    static boolean b(Map map, Object obj)
-    {
-        n.b(map);
-        boolean flag;
-        try
+        if (obj instanceof java.util.Map.Entry)
         {
-            flag = map.containsKey(obj);
+            obj = (java.util.Map.Entry)obj;
+            Object obj1 = ((java.util.Map.Entry) (obj)).getKey();
+            if (obj1 != null && c.remove(obj1, ((java.util.Map.Entry) (obj)).getValue()))
+            {
+                return true;
+            }
         }
-        // Misplaced declaration of an exception variable
-        catch (Map map)
-        {
-            return false;
-        }
-        // Misplaced declaration of an exception variable
-        catch (Map map)
-        {
-            return false;
-        }
-        return flag;
-    }
-
-    static Object c(Map map, Object obj)
-    {
-        n.b(map);
-        try
-        {
-            map = ((Map) (map.remove(obj)));
-        }
-        // Misplaced declaration of an exception variable
-        catch (Map map)
-        {
-            return null;
-        }
-        // Misplaced declaration of an exception variable
-        catch (Map map)
-        {
-            return null;
-        }
-        return map;
-    }
-
-    static boolean d(Map map, Object obj)
-    {
-        if (map == obj)
-        {
-            return true;
-        }
-        if (obj instanceof Map)
-        {
-            obj = (Map)obj;
-            return map.entrySet().equals(((Map) (obj)).entrySet());
-        } else
-        {
-            return false;
-        }
-    }
-
-    static 
-    {
-        a = jkm.a.c("=");
+        return false;
     }
 }

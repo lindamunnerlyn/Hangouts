@@ -2,31 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import org.apache.http.conn.scheme.SchemeRegistry;
-import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
+import org.apache.http.conn.ClientConnectionManager;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpParams;
+import org.apache.http.protocol.BasicHttpContext;
+import org.apache.http.protocol.BasicHttpProcessor;
+import org.apache.http.protocol.HttpContext;
 
-public class adm extends ThreadSafeClientConnManager
+final class adm extends DefaultHttpClient
 {
 
-    private adm(HttpParams httpparams, SchemeRegistry schemeregistry)
+    final adk a;
+
+    adm(adk adk1, ClientConnectionManager clientconnectionmanager, HttpParams httpparams)
     {
-        super(httpparams, schemeregistry);
+        a = adk1;
+        super(clientconnectionmanager, httpparams);
     }
 
-    adm(HttpParams httpparams, SchemeRegistry schemeregistry, byte byte0)
+    protected HttpContext createHttpContext()
     {
-        this(httpparams, schemeregistry);
+        BasicHttpContext basichttpcontext = new BasicHttpContext();
+        basichttpcontext.setAttribute("http.authscheme-registry", getAuthSchemes());
+        basichttpcontext.setAttribute("http.cookiespec-registry", getCookieSpecs());
+        basichttpcontext.setAttribute("http.auth.credentials-provider", getCredentialsProvider());
+        return basichttpcontext;
     }
 
-    public static adm a(HttpParams httpparams, SchemeRegistry schemeregistry, boolean flag)
+    protected BasicHttpProcessor createHttpProcessor()
     {
-        if (flag)
-        {
-            return new ado(httpparams, schemeregistry);
-        } else
-        {
-            return new adn(httpparams, schemeregistry);
-        }
+        BasicHttpProcessor basichttpprocessor = super.createHttpProcessor();
+        basichttpprocessor.addRequestInterceptor(adk.b());
+        basichttpprocessor.addRequestInterceptor(new adn(a));
+        return basichttpprocessor;
     }
 }

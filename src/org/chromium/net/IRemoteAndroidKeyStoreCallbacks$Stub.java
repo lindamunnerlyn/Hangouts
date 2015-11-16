@@ -5,7 +5,6 @@
 package org.chromium.net;
 
 import android.os.Binder;
-import android.os.IBinder;
 import android.os.Parcel;
 
 // Referenced classes of package org.chromium.net:
@@ -14,77 +13,6 @@ import android.os.Parcel;
 public abstract class attachInterface extends Binder
     implements IRemoteAndroidKeyStoreCallbacks
 {
-
-    public static IRemoteAndroidKeyStoreCallbacks a(IBinder ibinder)
-    {
-        if (ibinder == null)
-        {
-            return null;
-        }
-        android.os.IInterface iinterface = ibinder.queryLocalInterface("org.chromium.net.IRemoteAndroidKeyStoreCallbacks");
-        class Proxy
-            implements IRemoteAndroidKeyStoreCallbacks
-        {
-
-            private IBinder a;
-
-            public void a()
-            {
-                Parcel parcel;
-                Parcel parcel1;
-                parcel = Parcel.obtain();
-                parcel1 = Parcel.obtain();
-                parcel.writeInterfaceToken("org.chromium.net.IRemoteAndroidKeyStoreCallbacks");
-                a.transact(1, parcel, parcel1, 0);
-                parcel1.readException();
-                parcel1.recycle();
-                parcel.recycle();
-                return;
-                Exception exception;
-                exception;
-                parcel1.recycle();
-                parcel.recycle();
-                throw exception;
-            }
-
-            public IBinder asBinder()
-            {
-                return a;
-            }
-
-            public void b()
-            {
-                Parcel parcel;
-                Parcel parcel1;
-                parcel = Parcel.obtain();
-                parcel1 = Parcel.obtain();
-                parcel.writeInterfaceToken("org.chromium.net.IRemoteAndroidKeyStoreCallbacks");
-                a.transact(2, parcel, parcel1, 0);
-                parcel1.readException();
-                parcel1.recycle();
-                parcel.recycle();
-                return;
-                Exception exception;
-                exception;
-                parcel1.recycle();
-                parcel.recycle();
-                throw exception;
-            }
-
-            Proxy(IBinder ibinder)
-            {
-                a = ibinder;
-            }
-        }
-
-        if (iinterface != null && (iinterface instanceof IRemoteAndroidKeyStoreCallbacks))
-        {
-            return (IRemoteAndroidKeyStoreCallbacks)iinterface;
-        } else
-        {
-            return new Proxy(ibinder);
-        }
-    }
 
     public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
     {
@@ -111,7 +39,7 @@ public abstract class attachInterface extends Binder
         }
     }
 
-    public Proxy()
+    public ()
     {
         attachInterface(this, "org.chromium.net.IRemoteAndroidKeyStoreCallbacks");
     }

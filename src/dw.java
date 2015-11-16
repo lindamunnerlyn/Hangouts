@@ -7,5 +7,5 @@ import android.content.Intent;
 public interface dw
 {
 
-    public abstract Intent r_();
+    public abstract Intent s_();
 }

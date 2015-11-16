@@ -2,15 +2,13 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.database.sqlite.SQLiteException;
 
-public interface gxi
+public final class gxi extends SQLiteException
 {
 
-    public abstract void a(ap ap);
-
-    public abstract void a(ap ap, String s, boolean flag);
-
-    public abstract void b(ap ap);
-
-    public abstract void c(ap ap);
+    public gxi(String s)
+    {
+        super(s);
+    }
 }

@@ -182,6 +182,12 @@ public final class cf
         return this;
     }
 
+    public cf a(long al[])
+    {
+        B.vibrate = al;
+        return this;
+    }
+
     public cf b()
     {
         l = true;

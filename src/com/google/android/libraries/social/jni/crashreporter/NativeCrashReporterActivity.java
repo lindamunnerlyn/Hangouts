@@ -9,7 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import g;
-import gwk;
+import hau;
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import java.util.Map;
@@ -85,6 +85,6 @@ public final class NativeCrashReporterActivity extends Activity
                 Log.e("NativeCrashReporterActivity", bundle, exception);
             }
         }
-        g.a(new gwk(this, getIntent().getStringExtra("description")), 3000L);
+        g.a(new hau(this, getIntent().getStringExtra("description")), 3000L);
     }
 }

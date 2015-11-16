@@ -2,10 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.views.MessageListItemView;
+import android.content.Context;
 
-public interface aqh
+public final class aqh
 {
 
-    public abstract void a(MessageListItemView messagelistitemview);
+    public static final String a = aqd.getName();
+    private static aqg b;
+
+    public static void a(Context context, hlp hlp1)
+    {
+        if (b == null)
+        {
+            b = new aqg();
+        }
+        context = (ahd)hlp.a(context, ahd);
+        hlp1.a(aqd, new aqd[] {
+            new aqj(context), new aqi(context)
+        });
+    }
+
 }

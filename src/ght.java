@@ -4,18 +4,24 @@
 
 
 public final class ght
-    implements fyb
 {
 
-    private final gho a;
+    public final long a;
+    public final String b[][] = ghs.b();
+    public final int c;
+    public final int d;
+    public final String e;
+    public final int f;
+    public final String g;
 
-    public ght(gho gho)
+    public ght(long l, int i, int j, String s, int k, String s1)
     {
-        a = gho;
-    }
-
-    public gho b()
-    {
-        return a;
+        gdv.a(k, 0, 2);
+        a = l;
+        c = i;
+        d = j;
+        e = s;
+        f = k;
+        g = s1;
     }
 }

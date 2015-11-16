@@ -2,16 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.hangout.PresentToAllBannerView;
 
-public final class brs extends boh
+public interface brs
 {
 
-    final PresentToAllBannerView a;
-
-    public brs(PresentToAllBannerView presenttoallbannerview)
-    {
-        a = presenttoallbannerview;
-        super();
-    }
+    public abstract void a();
 }

@@ -2,25 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
 final class alb
-    implements dcd
+    implements cqp
 {
 
-    private final Context a;
+    ddg a;
+    ai b;
+    int c;
+    String d;
+    akx e;
 
-    public alb(Context context)
+    alb()
     {
-        a = context;
     }
 
-    public void a(int i, iqq aiqq[])
+    public void a(ai ai1, ddg ddg, int i, String s)
     {
-        if (g.a(a, i))
-        {
-            g.c(aiqq, "ClientCallerIdSettings cannot be null!");
-            ajq.a(a, i, System.currentTimeMillis(), aiqq);
-        }
+        e = new akx(ai1, i);
+        b = ai1;
+        a = ddg;
+        c = i;
+        d = s;
+        b.f().b(1, null, new alc(this)).u();
     }
 }

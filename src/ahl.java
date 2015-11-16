@@ -3,10 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface ahl
+public final class ahl
 {
 
-    public abstract boolean a(int i);
+    public static final String a = ahi.getName();
+    private static ahj b;
 
-    public abstract boolean b(int i);
+    public static void a(hlp hlp1)
+    {
+        if (b == null)
+        {
+            b = new ahj();
+        }
+        hlp1.a(ahi, b.a());
+    }
+
 }

@@ -4,51 +4,10 @@
 
 import android.content.Context;
 
-public final class bwk
+public interface bwk
 {
 
-    public static final String a = gxq.getName();
-    public static final String b = bwl.getName();
-    public static final String c = bwf.getName();
-    public static final String d = bwg.getName();
-    private static bwj e;
+    public abstract boolean a(Context context, int i);
 
-    public static void a(Context context, hgx hgx1)
-    {
-        if (e == null)
-        {
-            e = new bwj();
-        }
-        hgx1.a(gxq, new gxq[] {
-            (gxq)hgx.a(context, bwl)
-        });
-    }
-
-    public static void b(Context context, hgx hgx1)
-    {
-        if (e == null)
-        {
-            e = new bwj();
-        }
-        hgx1.a(bwl, new bwl(context));
-    }
-
-    public static void c(Context context, hgx hgx1)
-    {
-        if (e == null)
-        {
-            e = new bwj();
-        }
-        hgx1.a(bwf, new bwi(context));
-    }
-
-    public static void d(Context context, hgx hgx1)
-    {
-        if (e == null)
-        {
-            e = new bwj();
-        }
-        hgx1.a(bwg, (bwg)hgx.a(context, bwl));
-    }
-
+    public abstract bwj[] b(Context context, int i);
 }

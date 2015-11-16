@@ -2,36 +2,32 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
+import android.widget.ImageView;
 
-final class fpv
-    implements fmf
+final class fpv extends fpy
 {
 
-    private final Status a;
-    private final fqy b;
+    public final String a;
+    public final int b;
+    final fpu c;
 
-    public fpv(Status status, fqy fqy)
+    public fpv(fpu fpu1, ImageView imageview, String s, String s1, int i)
     {
-        a = status;
-        b = fqy;
+        c = fpu1;
+        super(fpu1);
+        f = imageview;
+        g = s;
+        a = s1;
+        b = i;
     }
 
-    public Status B_()
+    public void a()
     {
-        return a;
+        fph.g.a(c.c, g, a).a(new fpw(this));
     }
 
-    public void b()
+    public void a(fpc fpc1)
     {
-        if (b != null)
-        {
-            b.b();
-        }
-    }
-
-    public fqy c()
-    {
-        return b;
+        c.a(fpc1.D_(), fpc1.c(), fpc1.d(), fpc1.e(), b, this);
     }
 }

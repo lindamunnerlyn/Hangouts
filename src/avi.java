@@ -3,20 +3,12 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class avi
-    implements ana
+public interface avi
 {
 
-    final ave a;
+    public abstract boolean a();
 
-    avi(ave ave1)
-    {
-        a = ave1;
-        super();
-    }
+    public abstract void b();
 
-    public void a()
-    {
-        ave.v(a);
-    }
+    public abstract boolean c();
 }

@@ -2,17 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.os.Parcel;
 
-public final class gvj
+final class gvj
+    implements android.os.Parcelable.Creator
 {
 
-    public gvj()
+    gvj()
     {
     }
 
-    public static gvb a(Context context)
+    public Object createFromParcel(Parcel parcel)
     {
-        return new gvc(context, (gwc)hgx.a(context, gwc));
+        return new gvi(parcel);
+    }
+
+    public Object[] newArray(int i)
+    {
+        return new gvi[i];
     }
 }

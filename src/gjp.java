@@ -3,18 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gjp
+final class gjp
 {
 
-    private final boolean a;
-
-    public gjp(boolean flag)
+    gjp()
     {
-        a = flag;
-    }
-
-    public boolean a()
-    {
-        return a;
     }
 }

@@ -4,8 +4,8 @@
 
 package com.google.android.libraries.hangouts.video;
 
-import inu;
-import inx;
+import itz;
+import iuc;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,20 +47,20 @@ public abstract class Stats
         return parseConnectionType(s);
     }
 
-    static inx a(int i)
+    static iuc a(int i)
     {
-        inx inx1 = new inx();
-        inx1.a = Integer.valueOf(i);
-        inx1.b = Integer.valueOf(-1);
-        inx1.c = Integer.valueOf(-1);
-        inx1.d = Integer.valueOf(-1);
-        inx1.e = Integer.valueOf(-1);
-        inx1.f = Integer.valueOf(-1);
-        inx1.g = Long.valueOf(-1L);
-        inx1.h = Integer.valueOf(-1);
-        inx1.i = Long.valueOf(-1L);
-        inx1.j = Integer.valueOf(-1);
-        return inx1;
+        iuc iuc1 = new iuc();
+        iuc1.a = Integer.valueOf(i);
+        iuc1.b = Integer.valueOf(-1);
+        iuc1.c = Integer.valueOf(-1);
+        iuc1.d = Integer.valueOf(-1);
+        iuc1.e = Integer.valueOf(-1);
+        iuc1.f = Integer.valueOf(-1);
+        iuc1.g = Long.valueOf(-1L);
+        iuc1.h = Integer.valueOf(-1);
+        iuc1.i = Long.valueOf(-1L);
+        iuc1.j = Integer.valueOf(-1);
+        return iuc1;
     }
 
     static int b(String s)
@@ -94,7 +94,7 @@ public abstract class Stats
         return !s.equals("relay") ? 0 : 3;
     }
 
-    public abstract void addTo(inu inu);
+    public abstract void addTo(itz itz);
 
     public abstract void print(PrintWriter printwriter, AggregatePrintStats aggregateprintstats);
 }

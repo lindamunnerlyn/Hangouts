@@ -2,62 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
 
-public class cwp extends cvn
+public class cwp extends cvy
 {
 
     private static final long serialVersionUID = 1L;
-    private final ArrayList g = new ArrayList();
+    public final int a;
 
-    private cwp(kwq kwq1)
+    public cwp(String s, int i)
     {
-        kwo akwo[] = kwq1.a;
-        int l = akwo.length;
-        int i = 0;
-        while (i < l) 
-        {
-            kwq1 = akwo[i];
-            String s = ((kwo) (kwq1)).a;
-            boolean flag = g.a(((kwo) (kwq1)).b, false);
-            boolean flag1 = g.a(((kwo) (kwq1)).c, false);
-            boolean flag2 = g.a(((kwo) (kwq1)).d, false);
-            int j;
-            if (((kwo) (kwq1)).e != null)
-            {
-                j = g.a(((kwo) (kwq1)).e.b, 0);
-            } else
-            {
-                j = 0;
-            }
-            if (((kwo) (kwq1)).f != null)
-            {
-                kwq1 = ((kwo) (kwq1)).f.a;
-            } else
-            {
-                kwq1 = null;
-            }
-            kwq1 = new dab(s, flag, flag1, flag2, j, kwq1);
-            g.add(kwq1);
-            i++;
-        }
+        super(s);
+        a = i;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public kws a(String s, int i, int j)
     {
-        if (abyte0 != null)
+        if (cvv.e)
         {
-            abyte0 = (kwq)kop.mergeFrom(new kwq(), abyte0);
-            if (abyte0 != null)
-            {
-                return new cwp(abyte0);
-            }
+            String s1 = c;
+            int k = a;
+            eev.b("Babel_RequestWriter", (new StringBuilder(String.valueOf(s1).length() + 81)).append("setConversationNotificationLevel build protobuf conversationID=").append(s1).append(" level=").append(k).toString());
         }
-        return null;
+        jed jed1 = new jed();
+        jed1.requestHeader = cvu.a(s, i, j, h);
+        jed1.a = cvu.a(c);
+        jed1.b = Integer.valueOf(a);
+        return jed1;
     }
 
-    public ArrayList k()
+    public String f()
     {
-        return g;
+        return "conversations/setconversationnotificationlevel";
     }
 }

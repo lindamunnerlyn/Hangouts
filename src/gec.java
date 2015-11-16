@@ -2,42 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import android.os.Handler;
-import java.nio.ByteBuffer;
 
-public final class gec extends geb
+final class gec
+    implements Runnable
 {
 
-    final Runnable a = new ged(this);
-    final Handler b;
-    ByteBuffer c[];
+    final gmn a;
+    final geb b;
 
-    public gec(gcx gcx, long l, int i, int j, int k, int i1, 
-            int j1, Handler handler)
+    gec(geb geb1, gmn gmn)
     {
-        super(gcx, l, i, j, k, i1, j1);
-        b = handler;
+        b = geb1;
+        a = gmn;
+        super();
     }
 
-    protected ByteBuffer a(int i)
+    public void run()
     {
-        return c[i];
-    }
-
-    protected void a()
-    {
-        c = c().getOutputBuffers();
-        b.post(a);
-    }
-
-    protected void a(MediaCodec mediacodec, MediaFormat mediaformat)
-    {
-    }
-
-    protected int b()
-    {
-        return -1;
+        b.a.a(a);
+        b.a(b.h);
     }
 }

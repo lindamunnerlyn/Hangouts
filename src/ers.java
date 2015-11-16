@@ -2,12 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.os.Looper;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
-final class ers
+public final class ers
+    implements ServiceConnection
 {
 
-    static final eox a[] = {
-        new ert(eox.a("0\202\003\3170\202\002\267\240\003\002\001\002\002\t\000\210\036,\002\243z\225\3250")), new eru(eox.a("0\202\003\3170\202\002\267\240\003\002\001\002\002\t\000\227\b\327\r\224\3201\2540"))
-    };
+    boolean a;
+    private final BlockingQueue b = new LinkedBlockingQueue();
 
+    public ers()
+    {
+        a = false;
+    }
+
+    public IBinder a()
+    {
+        if (Looper.myLooper() == Looper.getMainLooper())
+        {
+            throw new IllegalStateException("BlockingServiceConnection.getService() called on main thread");
+        }
+        if (a)
+        {
+            throw new IllegalStateException();
+        } else
+        {
+            a = true;
+            return (IBinder)b.take();
+        }
+    }
+
+    public void onServiceConnected(ComponentName componentname, IBinder ibinder)
+    {
+        b.add(ibinder);
+    }
+
+    public void onServiceDisconnected(ComponentName componentname)
+    {
+    }
 }

@@ -6,16 +6,16 @@ package com.google.android.gms.wearable.internal;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fta;
-import fud;
-import h;
+import fvg;
+import fwj;
+import g;
 
 public class DataItemAssetParcelable
-    implements SafeParcelable, fta
+    implements SafeParcelable, fvg
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fud();
-    public final int a;
+    public static final android.os.Parcelable.Creator CREATOR = new fwj();
+    final int a;
     private final String b;
     private final String c;
 
@@ -26,11 +26,16 @@ public class DataItemAssetParcelable
         c = s1;
     }
 
-    public DataItemAssetParcelable(fta fta1)
+    public DataItemAssetParcelable(fvg fvg1)
     {
         a = 1;
-        b = (String)h.a(fta1.a());
-        c = (String)h.a(fta1.b());
+        b = (String)g.d(fvg1.a());
+        c = (String)g.d(fvg1.b());
+    }
+
+    public boolean C_()
+    {
+        return true;
     }
 
     public String a()
@@ -43,7 +48,7 @@ public class DataItemAssetParcelable
         return c;
     }
 
-    public fta c()
+    public fvg c()
     {
         return this;
     }
@@ -53,7 +58,7 @@ public class DataItemAssetParcelable
         return 0;
     }
 
-    public Object e()
+    public Object f()
     {
         return c();
     }
@@ -80,7 +85,11 @@ public class DataItemAssetParcelable
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fud.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, a());
+        g.a(parcel, 3, b());
+        g.q(parcel, i);
     }
 
 }

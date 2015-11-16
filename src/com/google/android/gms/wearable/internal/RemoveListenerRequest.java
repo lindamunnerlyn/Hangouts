@@ -7,24 +7,25 @@ package com.google.android.gms.wearable.internal;
 import android.os.IBinder;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import fvc;
-import fvd;
-import fvq;
+import fxi;
+import fxj;
+import fxw;
+import g;
 
 public class RemoveListenerRequest
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fvq();
-    public final int a;
-    public final fvc b;
+    public static final android.os.Parcelable.Creator CREATOR = new fxw();
+    final int a;
+    public final fxi b;
 
     public RemoveListenerRequest(int i, IBinder ibinder)
     {
         a = i;
         if (ibinder != null)
         {
-            b = fvd.a(ibinder);
+            b = fxj.a(ibinder);
             return;
         } else
         {
@@ -33,13 +34,13 @@ public class RemoveListenerRequest
         }
     }
 
-    public RemoveListenerRequest(fvc fvc1)
+    public RemoveListenerRequest(fxi fxi1)
     {
         a = 1;
-        b = fvc1;
+        b = fxi1;
     }
 
-    public IBinder a()
+    IBinder a()
     {
         if (b == null)
         {
@@ -57,7 +58,10 @@ public class RemoveListenerRequest
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fvq.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, a());
+        g.q(parcel, i);
     }
 
 }

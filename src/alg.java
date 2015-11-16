@@ -5,79 +5,31 @@
 import android.content.Context;
 
 final class alg
+    implements grg
 {
 
-    private final boolean a;
-    private final beb b = (new bec()).a("callmemaybe").b("Module that hosts the CallMeMaybe feature.").a(true).a();
+    final alf a;
 
-    public alg()
+    alg(alf alf1)
     {
-        a = g.a(g.nS, "babel_enable_call_me_maybe", true);
+        a = alf1;
+        super();
     }
 
-    ali a(Context context)
+    public String a()
     {
-        if (a)
-        {
-            return new ali(context);
-        } else
-        {
-            return null;
-        }
+        return "cmm-signed-out";
     }
 
-    alm a(hgx hgx1, Context context)
+    public void a(Context context, grd grd1)
     {
-        if (a)
+        if (grd1.b("effective_gaia_id") != null && grd1.d("is_business_features_enabled"))
         {
-            return (alm)b.a(context, new alm(context, hgx1));
-        } else
-        {
-            return null;
-        }
-    }
-
-    public beb[] a()
-    {
-        return (new beb[] {
-            b
-        });
-    }
-
-    gmx[] b(Context context)
-    {
-        if (a)
-        {
-            return (new gmx[] {
-                (gmx)hgx.b(context, ali)
-            });
-        } else
-        {
-            return new gmx[0];
-        }
-    }
-
-    public gxq[] b(hgx hgx1, Context context)
-    {
-        if (a)
-        {
-            return (gxq[])b.a(context, gxq, hgx1.b(alm));
-        } else
-        {
-            return new gxq[0];
-        }
-    }
-
-    ddm[] c(Context context)
-    {
-        if (a)
-        {
-            return (new ddm[] {
-                (ddm)hgx.b(context, ali)
-            });
-        } else
-        {
-            return new ddm[0];
+            grd1.b("logged_in", true).b("logged_out", false);
+            if (grd1.b("full_jid") == null)
+            {
+                dcn.f(a.a.b(grd1.b("account_name"), grd1.b("effective_gaia_id")));
+            }
         }
     }
 }

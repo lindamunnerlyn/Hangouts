@@ -8,43 +8,43 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Window;
 import ap;
-import bic;
-import bka;
-import cey;
+import bio;
+import bkm;
+import cgd;
 import com.google.android.apps.hangouts.fragments.ConversationInviteListFragment;
-import dih;
+import djs;
 import g;
-import gmo;
-import gng;
+import gqu;
+import grn;
 import h;
 
-public class InvitationListActivity extends bka
-    implements bic, dih
+public class InvitationListActivity extends bkm
+    implements bio, djs
 {
 
-    public final gmo m;
-    public ConversationInviteListFragment n;
+    public final gqu n;
+    public ConversationInviteListFragment o;
 
     public InvitationListActivity()
     {
-        m = (new gng(this, q)).a(p);
+        n = (new grn(this, r)).a(q);
     }
 
-    public void a(cey cey, String s, int i, long l)
+    public void a(cgd cgd, String s, int i, long l)
     {
-        startActivity(g.a(m.a(), s, cey, i, l));
+        startActivity(g.a(n.a(), s, cgd, i, l));
     }
 
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.fr);
-        n = (ConversationInviteListFragment)t_().a(h.ay);
-        n.a(this);
-        n.b();
+        setContentView(g.fp);
+        o = (ConversationInviteListFragment)u_().a(h.at);
+        o.a(this);
+        o.b();
         if (android.os.Build.VERSION.SDK_INT >= 21)
         {
-            int i = g.dt;
+            int i = g.ds;
             getWindow().setStatusBarColor(getResources().getColor(i));
         }
         if (bundle == null)

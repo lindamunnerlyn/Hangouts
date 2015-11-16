@@ -6,14 +6,15 @@ package com.google.android.gms.common.stats;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import eol;
+import erj;
+import g;
 
 public final class ConnectionEvent
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new eol();
-    public final int a;
+    public static final android.os.Parcelable.Creator CREATOR = new erj();
+    final int a;
     private final long b;
     private int c;
     private final String d;
@@ -49,24 +50,54 @@ public final class ConnectionEvent
         this(1, l1, i1, s, s1, s2, s3, s4, s5, l2, l3);
     }
 
-    public long a()
+    private long a()
     {
         return b;
     }
 
-    public int b()
+    private int b()
     {
         return c;
     }
 
-    public String c()
+    private String c()
     {
         return d;
     }
 
-    public String d()
+    private String d()
     {
         return e;
+    }
+
+    private String e()
+    {
+        return f;
+    }
+
+    private String f()
+    {
+        return g;
+    }
+
+    private String g()
+    {
+        return h;
+    }
+
+    private String h()
+    {
+        return i;
+    }
+
+    private long i()
+    {
+        return k;
+    }
+
+    private long j()
+    {
+        return j;
     }
 
     public int describeContents()
@@ -74,39 +105,21 @@ public final class ConnectionEvent
         return 0;
     }
 
-    public String e()
-    {
-        return f;
-    }
-
-    public String f()
-    {
-        return g;
-    }
-
-    public String g()
-    {
-        return h;
-    }
-
-    public String h()
-    {
-        return i;
-    }
-
-    public long i()
-    {
-        return k;
-    }
-
-    public long j()
-    {
-        return j;
-    }
-
     public void writeToParcel(Parcel parcel, int i1)
     {
-        eol.a(this, parcel);
+        i1 = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, a());
+        g.a(parcel, 4, c());
+        g.a(parcel, 5, d());
+        g.a(parcel, 6, e());
+        g.a(parcel, 7, f());
+        g.a(parcel, 8, g());
+        g.a(parcel, 10, j());
+        g.a(parcel, 11, i());
+        g.b(parcel, 12, b());
+        g.a(parcel, 13, h());
+        g.q(parcel, i1);
     }
 
 }

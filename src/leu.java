@@ -3,89 +3,79 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class leu extends lex
+public final class leu extends kwm
 {
 
-    private static final long serialVersionUID = 0xf943b502d87d9ea2L;
-    final ldh a;
-    final boolean b;
-    final ldd c;
+    private static volatile leu b[];
+    public String a;
 
-    leu(ldh ldh1, ldd ldd1)
+    public leu()
     {
-        super(ldh1.a());
-        if (!ldh1.b())
-        {
-            throw new IllegalArgumentException();
-        } else
-        {
-            a = ldh1;
-            b = les.a(ldh1);
-            c = ldd1;
-            return;
-        }
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    private int a(long l)
+    public static leu[] a()
     {
-        int i = c.b(l);
-        if (((long)i + l ^ l) < 0L && ((long)i ^ l) >= 0L)
+        if (b == null)
         {
-            throw new ArithmeticException("Adding time zone offset caused overflow");
-        } else
-        {
-            return i;
+            synchronized (kwq.a)
+            {
+                if (b == null)
+                {
+                    b = new leu[0];
+                }
+            }
         }
+        return b;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    private int b(long l)
+    protected int computeSerializedSize()
     {
-        int i = c.c(l);
-        if ((l - (long)i ^ l) < 0L && ((long)i ^ l) < 0L)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            throw new ArithmeticException("Subtracting time zone offset caused overflow");
-        } else
-        {
-            return i;
+            i = j + kwk.b(1, a);
         }
+        return i;
     }
 
-    public long a(long l, int i)
+    public kws mergeFrom(kwj kwj1)
     {
-        int j = a(l);
-        l = a.a((long)j + l, i);
-        if (b)
+        do
         {
-            i = j;
-        } else
-        {
-            i = b(l);
-        }
-        return l - (long)i;
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+            }
+        } while (true);
     }
 
-    public long a(long l, long l1)
+    public void writeTo(kwk kwk1)
     {
-        int i = a(l);
-        l = a.a((long)i + l, l1);
-        if (!b)
+        if (a != null)
         {
-            i = b(l);
+            kwk1.a(1, a);
         }
-        return l - (long)i;
-    }
-
-    public boolean c()
-    {
-        if (b)
-        {
-            return a.c();
-        }
-        return a.c() && c.c();
-    }
-
-    public long d()
-    {
-        return a.d();
+        super.writeTo(kwk1);
     }
 }

@@ -2,25 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
-import com.google.android.apps.hangouts.realtimechat.wakelock.impl.DebugWakelocksActivity;
 
-final class djy extends cmu
+public final class djy extends dgj
 {
 
-    final Context a;
-    final djx b;
+    private final String a;
+    private final String e;
+    private final int f;
 
-    djy(djx djx, String s, Context context)
+    public djy(aoa aoa, String s, String s1, int i)
     {
-        b = djx;
-        a = context;
-        super(s);
+        super(aoa);
+        a = s;
+        e = s1;
+        f = i;
     }
 
     public void a()
     {
-        a.startActivity((new Intent(a, com/google/android/apps/hangouts/realtimechat/wakelock/impl/DebugWakelocksActivity)).addFlags(0x10000000));
+        Object obj;
+        obj = a;
+        String s = e;
+        int i = f;
+        eev.b("Babel", (new StringBuilder(String.valueOf(obj).length() + 40 + String.valueOf(s).length())).append("SetMessageFailedOperation: ").append(((String) (obj))).append(" ").append(s).append(" ").append(i).toString());
+        obj = new aow(g.nU, super.b.a);
+        ((aow) (obj)).a();
+        aoq.a(((aow) (obj)), a, e, dsu.d, f);
+        ((aow) (obj)).a(a, e);
+        ((aow) (obj)).b();
+        ((aow) (obj)).c();
+        return;
+        Exception exception;
+        exception;
+        ((aow) (obj)).c();
+        throw exception;
     }
 }

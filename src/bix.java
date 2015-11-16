@@ -2,68 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import com.google.android.apps.hangouts.fragments.ConversationParticipantsFragment;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import java.util.Collection;
-import java.util.Iterator;
+import android.os.Handler;
+import com.google.android.apps.hangouts.fragments.ConversationListFragment;
+import java.util.concurrent.TimeUnit;
 
 public final class bix
-    implements bfg
+    implements Runnable
 {
 
-    final ConversationParticipantsFragment a;
+    final ConversationListFragment a;
 
-    public bix(ConversationParticipantsFragment conversationparticipantsfragment)
+    public bix(ConversationListFragment conversationlistfragment)
     {
-        a = conversationparticipantsfragment;
+        a = conversationlistfragment;
         super();
     }
 
-    public void a(Bundle bundle, String s)
+    public void run()
     {
-label0:
+        if (ConversationListFragment.b(a) == null)
         {
-            if (s.equals("block_user"))
-            {
-                if (ConversationParticipantsFragment.p(a) != 1 || ConversationParticipantsFragment.e(a) == null)
-                {
-                    break label0;
-                }
-                RealTimeChatService.b(ConversationParticipantsFragment.f(a), ConversationParticipantsFragment.q(a));
-                bundle = new long[ConversationParticipantsFragment.q(a).length];
-                for (int i = 0; i < ConversationParticipantsFragment.q(a).length; i++)
-                {
-                    bundle[i] = ConversationParticipantsFragment.r(a);
-                }
-
-                RealTimeChatService.a(ConversationParticipantsFragment.f(a), ConversationParticipantsFragment.q(a), bundle, true, false);
-                bundle = ConversationParticipantsFragment.s(a).b().iterator();
-                do
-                {
-                    if (!bundle.hasNext())
-                    {
-                        break;
-                    }
-                    s = (ceu)bundle.next();
-                    if (s != ConversationParticipantsFragment.e(a))
-                    {
-                        RealTimeChatService.a(ConversationParticipantsFragment.f(a), ((ceu) (s)).b.a, ((ceu) (s)).b.b, ((ceu) (s)).e, true, true);
-                    }
-                } while (true);
-                g.a(a.getActivity(), ConversationParticipantsFragment.f(a), ConversationParticipantsFragment.e(a).e, ConversationParticipantsFragment.e(a).b.a, ConversationParticipantsFragment.e(a).b.b);
-                g.a(ConversationParticipantsFragment.f(a), 1819);
-            }
-            return;
+            ((bjf)a.f).notifyDataSetChanged();
         }
-        ebw.g("Babel", "no participants found when trying to block");
-    }
-
-    public void a(String s)
-    {
-    }
-
-    public void b(String s)
-    {
+        ConversationListFragment.g(a).postDelayed(ConversationListFragment.f(a), TimeUnit.SECONDS.toMillis(60L));
     }
 }

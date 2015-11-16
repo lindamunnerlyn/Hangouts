@@ -2,25 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.net.HttpURLConnection;
-import org.apache.http.HttpVersion;
-import org.apache.http.StatusLine;
-import org.apache.http.message.BasicHttpResponse;
-import org.apache.http.message.BasicStatusLine;
 
-final class fcg extends BasicHttpResponse
+final class fcg
 {
 
-    private static final StatusLine b;
-    HttpURLConnection a;
+    static final erv a[] = {
+        new fch(erv.a("0\202\003\3170\202\002\267\240\003\002\001\002\002\t\000\331@x\001\371a\276\2430")), new fci(erv.a("0\202\003\3170\202\002\267\240\003\002\001\002\002\t\000\212g\017\024\350\240\316\2300"))
+    };
 
-    fcg()
-    {
-        super(b, null, null);
-    }
-
-    static 
-    {
-        b = new BasicStatusLine(HttpVersion.HTTP_1_1, 500, "Unknown error");
-    }
 }

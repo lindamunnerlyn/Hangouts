@@ -2,11 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
-public interface ase
+public class ase
 {
 
-    public abstract void a();
+    Map a;
 
-    public abstract void a(int i);
+    ase()
+    {
+        a = new HashMap();
+        RealTimeChatService.a(new asf(this));
+    }
+
+    public boolean a(int i, String s)
+    {
+        Set set = (Set)a.get(Integer.valueOf(i));
+        return set != null && set.contains(s);
+    }
 }

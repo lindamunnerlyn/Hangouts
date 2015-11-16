@@ -5,7 +5,7 @@
 package com.google.api.client.http;
 
 import h;
-import hof;
+import htb;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
@@ -34,7 +34,7 @@ public class MultipartContent extends AbstractHttpContent
 
     public MultipartContent addPart(Part part)
     {
-        parts.add(h.b(part));
+        parts.add(h.a(part));
         return this;
     }
 
@@ -63,7 +63,7 @@ public class MultipartContent extends AbstractHttpContent
 
     public MultipartContent setBoundary(String s)
     {
-        getMediaType().setParameter("boundary", (String)h.b(s));
+        getMediaType().setParameter("boundary", (String)h.a(s));
         return this;
     }
 
@@ -120,7 +120,7 @@ public class MultipartContent extends AbstractHttpContent
                 } else
                 {
                     httpheaders.setContentEncoding(((HttpEncoding) (obj1)).getName());
-                    obj1 = new HttpEncodingStreamingContent(((hof) (obj)), ((HttpEncoding) (obj1)));
+                    obj1 = new HttpEncodingStreamingContent(((htb) (obj)), ((HttpEncoding) (obj1)));
                     l = AbstractHttpContent.computeLength(((HttpContent) (obj)));
                     obj = obj1;
                 }
@@ -142,7 +142,7 @@ public class MultipartContent extends AbstractHttpContent
             {
                 outputstreamwriter.write("\r\n");
                 outputstreamwriter.flush();
-                ((hof) (obj1)).writeTo(outputstream);
+                ((htb) (obj1)).writeTo(outputstream);
             }
             outputstreamwriter.write("\r\n");
         }

@@ -5,17 +5,13 @@
 package com.google.android.libraries.hangouts.video;
 
 import android.content.Context;
-import fwz;
-import gcu;
-import gda;
-import gdb;
-import gdp;
-import gel;
-import java.lang.ref.WeakReference;
+import fzd;
+import gfj;
+import gfo;
+import gfp;
+import ggd;
+import ghk;
 import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 // Referenced classes of package com.google.android.libraries.hangouts.video:
 //            RendererManager
@@ -24,12 +20,15 @@ public final class EncoderManager
 {
 
     private final Context a;
-    private final List b = new ArrayList();
+    private int b;
+    private long nativeContext;
 
     public EncoderManager(Context context)
     {
+        b = -1;
         a = context;
         nativeInit();
+        setSupportedCodecs(d());
     }
 
     public static int a(Context context)
@@ -38,16 +37,16 @@ public final class EncoderManager
         int j;
         j = 0;
         i = 0;
-        if (fwz.a(context.getContentResolver(), "babel_hangout_hardware_encode", true)) goto _L2; else goto _L1
+        if (fzd.a(context.getContentResolver(), "babel_hangout_hardware_encode", true)) goto _L2; else goto _L1
 _L1:
-        return i & gel.a(true);
+        return i & ghk.a(true);
 _L2:
-        if (fwz.a(context.getContentResolver(), "babel_hangout_vp8_hardware_encode", true))
+        if (fzd.a(context.getContentResolver(), "babel_hangout_vp8_hardware_encode", true))
         {
             j = 1;
         }
         i = j;
-        if (fwz.a(context.getContentResolver(), "babel_hangout_h264_hardware_encode2", true))
+        if (fzd.a(context.getContentResolver(), "babel_hangout_h264_hardware_encode2", true))
         {
             i = j | 2;
         }
@@ -55,52 +54,56 @@ _L2:
 _L3:
     }
 
-    static native boolean getEncoderConfig(long l, Object obj);
-
-    static native boolean getNativeSimulcastEncoderIds(Object obj);
+    private int d()
+    {
+        int j = a(a);
+        int i = j;
+        if (b != -1)
+        {
+            i = j & b;
+        }
+        return i;
+    }
 
     private final native void nativeInit();
 
     private final native void nativeRelease();
 
-    public static native int sendEncodedFrame(long l, long l1, ByteBuffer bytebuffer, int i, int j, int k, 
-            int i1, int j1, boolean flag);
+    private final native boolean setSupportedCodecs(int i);
 
-    public gda a(RendererManager renderermanager, gdb gdb, gdp gdp)
+    public gfo a(RendererManager renderermanager, gfp gfp, ggd ggd)
     {
         boolean flag;
-        if (a(a) != 0)
+        if (d() != 0)
         {
             flag = true;
         } else
         {
             flag = false;
         }
-        renderermanager = new gcu(flag, renderermanager, gdb, gdp);
-        b.add(new WeakReference(renderermanager));
-        return renderermanager;
+        return new gfj(this, flag, renderermanager, gfp, ggd, fzd.a(a.getContentResolver(), "babel_hangout_encoder_quality_scaling_mode", 0));
     }
 
     public void a()
     {
-        b.clear();
+        b = -3;
+        setSupportedCodecs(d());
+    }
+
+    public void b()
+    {
         nativeRelease();
     }
 
-    public void onOutputFormatChanged(int i, int j)
+    public long c()
     {
-        Iterator iterator = b.iterator();
-        do
-        {
-            if (!iterator.hasNext())
-            {
-                break;
-            }
-            WeakReference weakreference = (WeakReference)iterator.next();
-            if (weakreference.get() != null)
-            {
-                ((gcu)weakreference.get()).a(i, j);
-            }
-        } while (true);
+        return nativeContext;
     }
+
+    native boolean getEncoderConfig(long l, Object obj);
+
+    native boolean getNativeSimulcastEncoderIds(Object obj);
+
+    public native int sendEncodedFrame(long l, long l1, ByteBuffer bytebuffer, int i, int j, 
+            int k, int i1, int j1, boolean flag);
 }

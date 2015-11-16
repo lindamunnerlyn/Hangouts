@@ -7,13 +7,14 @@ package com.google.android.gms.wearable.internal;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.google.android.gms.wearable.ConnectionConfiguration;
-import fuq;
+import fww;
+import g;
 
 public class GetConfigResponse
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fuq();
+    public static final android.os.Parcelable.Creator CREATOR = new fww();
     public final int a;
     public final int b;
     public final ConnectionConfiguration c;
@@ -32,7 +33,11 @@ public class GetConfigResponse
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        fuq.a(this, parcel, i);
+        int j = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.b(parcel, 2, b);
+        g.a(parcel, 3, c, i);
+        g.q(parcel, j);
     }
 
 }

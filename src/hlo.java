@@ -2,44 +2,156 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
-import android.util.Base64;
-import com.google.api.client.http.HttpHeaders;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.util.Log;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public final class hlo
+    implements hlw
 {
 
-    public final List a;
+    private static final int a = 7;
+    private static final int b = 7;
+    private final hlw c[];
 
-    public hlo(List list)
+    public hlo(Context context, Set set)
     {
-        a = list;
-    }
-
-    private void a(ggc ggc1, HttpHeaders httpheaders)
-    {
-        httpheaders = httpheaders.getFirstHeaderStringValue("X-Goog-Safety-Encoding");
-        if (httpheaders != null && TextUtils.equals(httpheaders, "base64"))
+        Object obj1 = context.getPackageName();
+        Object obj;
+        HashSet hashset;
+        try
         {
-            ggc1.a = Base64.decode(ggc1.a, 0);
+            obj = context.getPackageManager().getApplicationInfo(((String) (obj1)), 128);
         }
-        a.add(ggc1);
+        // Misplaced declaration of an exception variable
+        catch (Context context)
+        {
+            Log.wtf(String.format("Could not find application info for package: %s", new Object[] {
+                obj1
+            }), context);
+            obj = null;
+        }
+        if (obj == null)
+        {
+            context = null;
+        } else
+        {
+            context = ((ApplicationInfo) (obj)).metaData;
+        }
+        obj1 = new ArrayList();
+        hashset = new HashSet();
+        if (context != null)
+        {
+            Iterator iterator = ((ApplicationInfo) (obj)).metaData.keySet().iterator();
+            do
+            {
+                if (!iterator.hasNext())
+                {
+                    break;
+                }
+                obj = (String)iterator.next();
+                if (((String) (obj)).startsWith("MODULE."))
+                {
+                    ((List) (obj1)).add(a(context.getString(((String) (obj)))));
+                }
+                if (((String) (obj)).startsWith("MODULE:"))
+                {
+                    ((List) (obj1)).add(a(((String) (obj)).substring(a)));
+                } else
+                if (((String) (obj)).startsWith("module:"))
+                {
+                    String s1 = ((String) (obj)).substring(b);
+                    hashset.add(s1);
+                    if (set == null || !set.contains(s1))
+                    {
+                        String s = String.valueOf("gen_binder.");
+                        String s2 = String.valueOf(s1.replace('.', '$'));
+                        if (s2.length() != 0)
+                        {
+                            s = s.concat(s2);
+                        } else
+                        {
+                            s = new String(s);
+                        }
+                        ((List) (obj1)).add(a(s));
+                        if (set != null && Log.isLoggable("Binder", 5))
+                        {
+                            s = String.valueOf(s1);
+                            if (s.length() != 0)
+                            {
+                                "***WARNING*** Root module does not include ".concat(s);
+                            } else
+                            {
+                                new String("***WARNING*** Root module does not include ");
+                            }
+                        }
+                    }
+                }
+            } while (true);
+        }
+        c = (hlw[])((List) (obj1)).toArray(new hlw[((List) (obj1)).size()]);
     }
 
-    private void b()
+    private static hlw a(String s)
     {
-        ggc ggc1 = new ggc();
-        a.add(ggc1);
+        hlw hlw1;
+        try
+        {
+            hlw1 = (hlw)Class.forName(s).newInstance();
+        }
+        catch (IllegalAccessException illegalaccessexception)
+        {
+            s = String.valueOf(s);
+            if (s.length() != 0)
+            {
+                s = "Failed to add stitch module ".concat(s);
+            } else
+            {
+                s = new String("Failed to add stitch module ");
+            }
+            throw new RuntimeException(s, illegalaccessexception);
+        }
+        catch (InstantiationException instantiationexception)
+        {
+            s = String.valueOf(s);
+            if (s.length() != 0)
+            {
+                s = "Failed to add stitch module ".concat(s);
+            } else
+            {
+                s = new String("Failed to add stitch module ");
+            }
+            throw new RuntimeException(s, instantiationexception);
+        }
+        catch (ClassNotFoundException classnotfoundexception)
+        {
+            s = String.valueOf(s);
+            if (s.length() != 0)
+            {
+                s = "Failed to add stitch module ".concat(s);
+            } else
+            {
+                s = new String("Failed to add stitch module ");
+            }
+            throw new RuntimeException(s, classnotfoundexception);
+        }
+        return hlw1;
     }
 
-    public void a()
+    public void a(Context context, Class class1, hlp hlp)
     {
-        b();
+        for (int i = 0; i < c.length; i++)
+        {
+            c[i].a(context, class1, hlp);
+        }
+
     }
 
-    public volatile void a(Object obj, HttpHeaders httpheaders)
-    {
-        a((ggc)obj, httpheaders);
-    }
 }

@@ -3,125 +3,23 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class juo extends koj
+final class juo extends jum
 {
 
-    private static volatile juo e[];
-    public String a;
-    public Long b;
-    public String c;
-    public Long d;
-
-    public juo()
+    juo(String s)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(s, 1);
     }
 
-    public static juo[] a()
+    com.google.common.collect.MapMakerInternalMap.ReferenceEntry a(jvi jvi, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry1)
     {
-        if (e == null)
-        {
-            synchronized (kon.a)
-            {
-                if (e == null)
-                {
-                    e = new juo[0];
-                }
-            }
-        }
-        return e;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+        jvi = super.a(jvi, referenceentry, referenceentry1);
+        a(referenceentry, ((com.google.common.collect.MapMakerInternalMap.ReferenceEntry) (jvi)));
+        return jvi;
     }
 
-    protected int computeSerializedSize()
+    com.google.common.collect.MapMakerInternalMap.ReferenceEntry a(jvi jvi, Object obj, int i, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            b.longValue();
-            j = i + (koh.f(2) + 8);
-        }
-        i = j;
-        if (d != null)
-        {
-            i = j + koh.e(3, d.longValue());
-        }
-        j = i;
-        if (c != null)
-        {
-            j = i + koh.b(4, c);
-        }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 17: // '\021'
-                b = Long.valueOf(kog1.g());
-                break;
-
-            case 24: // '\030'
-                d = Long.valueOf(kog1.e());
-                break;
-
-            case 34: // '"'
-                c = kog1.j();
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        if (b != null)
-        {
-            koh1.c(2, b.longValue());
-        }
-        if (d != null)
-        {
-            koh1.b(3, d.longValue());
-        }
-        if (c != null)
-        {
-            koh1.a(4, c);
-        }
-        super.writeTo(koh1);
+        return new jvr(obj, i, referenceentry);
     }
 }

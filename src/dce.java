@@ -2,94 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class dce
+final class dce
 {
 
-    private final Context a;
-    private int b;
-    private String c;
-    private aik d;
-    private aob e;
-    private boolean f;
-    private boolean g;
-    private int h;
-    private String i;
-    private int j;
+    static final int a[];
 
-    public dce(Context context)
+    static 
     {
-        h = 0;
-        a = context;
-    }
-
-    public Intent a()
-    {
-        Intent intent = new Intent(a, com/google/android/apps/hangouts/realtimechat/RealTimeChatService);
-        intent.putExtra("op", 30);
-        intent.putExtra("account_id", b);
-        intent.putExtra("conversation_name", c);
-        intent.putExtra("audience", d);
-        intent.putExtra("conversation_lookup", e);
-        intent.putExtra("force_group", g);
-        intent.putExtra("transport_type", h);
-        if (f)
+        a = new int[atu.values().length];
+        try
         {
-            intent.putExtra("conversation_hangout", true);
+            a[atu.b.ordinal()] = 1;
         }
-        intent.putExtra("invite_token_url", i);
-        intent.putExtra("opened_from_impression", j);
-        return intent;
-    }
-
-    public dce a(int k)
-    {
-        b = k;
-        return this;
-    }
-
-    public dce a(aik aik)
-    {
-        d = aik;
-        return this;
-    }
-
-    public dce a(aob aob)
-    {
-        e = aob;
-        return this;
-    }
-
-    public dce a(String s)
-    {
-        i = s;
-        return this;
-    }
-
-    public dce a(boolean flag)
-    {
-        f = flag;
-        return this;
-    }
-
-    public dce b(int k)
-    {
-        h = k;
-        return this;
-    }
-
-    public dce b(boolean flag)
-    {
-        g = flag;
-        return this;
-    }
-
-    public dce c(int k)
-    {
-        j = k;
-        return this;
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[atu.c.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[atu.a.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[atu.d.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
+        }
     }
 }

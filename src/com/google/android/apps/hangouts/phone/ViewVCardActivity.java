@@ -4,26 +4,26 @@
 
 package com.google.android.apps.hangouts.phone;
 
-import adr;
-import ads;
-import adv;
-import adw;
-import aea;
-import aed;
-import aee;
+import adt;
+import adu;
+import adx;
+import ady;
+import aec;
 import aef;
+import aeg;
 import aeh;
-import aek;
-import ael;
-import aeo;
-import aep;
-import aet;
-import aeu;
+import aej;
+import aem;
+import aen;
+import aeq;
+import aer;
+import aev;
 import aew;
-import afb;
-import afe;
-import aff;
+import aey;
+import afd;
 import afg;
+import afh;
+import afi;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -37,19 +37,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
-import bhp;
-import bmk;
+import android.widget.Toast;
+import bib;
+import bmr;
 import com.google.android.apps.hangouts.content.EsProvider;
-import cpm;
-import cpn;
-import cpo;
-import cpq;
-import cpr;
-import ebr;
-import ebw;
+import crd;
+import cre;
+import crf;
+import crh;
+import cri;
+import eev;
 import g;
-import gmo;
-import gng;
+import gqu;
+import grn;
 import gz;
 import h;
 import java.io.IOException;
@@ -60,28 +60,28 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import l;
-import po;
+import pq;
 
-public class ViewVCardActivity extends bmk
+public class ViewVCardActivity extends bmr
 {
 
     private static final boolean j = false;
-    private final gmo k;
-    private boolean m;
+    private final gqu k;
+    private boolean l;
     private Uri n;
     private Uri o;
-    private List r;
+    private List p;
     private List s;
     private ExpandableListView t;
     private Handler u;
-    private final android.widget.ExpandableListView.OnChildClickListener v = new cpm(this);
+    private final android.widget.ExpandableListView.OnChildClickListener v = new crd(this);
 
     public ViewVCardActivity()
     {
-        k = (new gng(this, q)).a(p);
-        r = new ArrayList();
+        k = (new grn(this, r)).a(q);
+        p = new ArrayList();
         s = new ArrayList();
-        u = new cpr(this);
+        u = new cri(this);
     }
 
     public static Uri a(ViewVCardActivity viewvcardactivity, int i1)
@@ -95,17 +95,17 @@ public class ViewVCardActivity extends bmk
         return uri;
     }
 
-    public static void a(ViewVCardActivity viewvcardactivity, ads ads1, List list, List list1)
+    public static void a(ViewVCardActivity viewvcardactivity, adu adu1, List list, List list1)
     {
         Resources resources = viewvcardactivity.getResources();
         Object obj = new gz();
         list.add(obj);
-        String s1 = ads1.b();
+        String s1 = adu1.b();
         list = s1;
         if (s1 == null)
         {
-            ads1.a();
-            list = ads1.b();
+            adu1.a();
+            list = adu1.b();
         }
         ((gz) (obj)).put("data", list);
         list = String.valueOf(list);
@@ -118,7 +118,7 @@ public class ViewVCardActivity extends bmk
         }
         b(list);
         obj = new ArrayList();
-        list = ads1.a;
+        list = adu1.a;
         if (list != null)
         {
             Iterator iterator = list.iterator();
@@ -128,8 +128,8 @@ public class ViewVCardActivity extends bmk
                 {
                     break;
                 }
-                aef aef1 = (aef)iterator.next();
-                list = String.valueOf(aef1.b());
+                aeh aeh1 = (aeh)iterator.next();
+                list = String.valueOf(aeh1.b());
                 gz gz4;
                 int i1;
                 if (list.length() != 0)
@@ -140,9 +140,9 @@ public class ViewVCardActivity extends bmk
                     list = new String("phone.data is ");
                 }
                 b(list);
-                i1 = aef1.c();
+                i1 = aeh1.c();
                 b((new StringBuilder(25)).append("phone.type is ").append(i1).toString());
-                list = String.valueOf(aef1.d());
+                list = String.valueOf(aeh1.d());
                 if (list.length() != 0)
                 {
                     list = "phone.label is ".concat(list);
@@ -153,10 +153,10 @@ public class ViewVCardActivity extends bmk
                 b(list);
                 gz4 = new gz();
                 ((List) (obj)).add(gz4);
-                gz4.put("data", aef1.b());
+                gz4.put("data", aeh1.b());
                 try
                 {
-                    list = android.provider.ContactsContract.CommonDataKinds.Phone.getTypeLabel(resources, aef1.c(), aef1.d()).toString();
+                    list = android.provider.ContactsContract.CommonDataKinds.Phone.getTypeLabel(resources, aeh1.c(), aeh1.d()).toString();
                 }
                 // Misplaced declaration of an exception variable
                 catch (List list)
@@ -175,7 +175,7 @@ public class ViewVCardActivity extends bmk
                 gz4.put("type", list);
             } while (true);
         }
-        list = ads1.b;
+        list = adu1.b;
         if (list != null)
         {
             Iterator iterator1 = list.iterator();
@@ -185,8 +185,8 @@ public class ViewVCardActivity extends bmk
                 {
                     break;
                 }
-                adw adw1 = (adw)iterator1.next();
-                list = String.valueOf(adw1.d());
+                ady ady1 = (ady)iterator1.next();
+                list = String.valueOf(ady1.d());
                 gz gz6;
                 if (list.length() != 0)
                 {
@@ -196,7 +196,7 @@ public class ViewVCardActivity extends bmk
                     list = new String("email.type is ");
                 }
                 b(list);
-                list = String.valueOf(adw1.b());
+                list = String.valueOf(ady1.b());
                 if (list.length() != 0)
                 {
                     list = "email.data is ".concat(list);
@@ -205,7 +205,7 @@ public class ViewVCardActivity extends bmk
                     list = new String("email.data is ");
                 }
                 b(list);
-                list = String.valueOf(adw1.d());
+                list = String.valueOf(ady1.d());
                 if (list.length() != 0)
                 {
                     list = "email.auxdata is ".concat(list);
@@ -216,10 +216,10 @@ public class ViewVCardActivity extends bmk
                 b(list);
                 gz6 = new gz();
                 ((List) (obj)).add(gz6);
-                gz6.put("data", adw1.b());
+                gz6.put("data", ady1.b());
                 try
                 {
-                    list = android.provider.ContactsContract.CommonDataKinds.Email.getTypeLabel(resources, adw1.c(), adw1.d()).toString();
+                    list = android.provider.ContactsContract.CommonDataKinds.Email.getTypeLabel(resources, ady1.c(), ady1.d()).toString();
                 }
                 // Misplaced declaration of an exception variable
                 catch (List list)
@@ -236,7 +236,7 @@ public class ViewVCardActivity extends bmk
                 gz6.put("type", list);
             } while (true);
         }
-        list = ads1.c;
+        list = adu1.c;
         if (list != null)
         {
             Iterator iterator2 = list.iterator();
@@ -246,10 +246,10 @@ public class ViewVCardActivity extends bmk
                 {
                     break;
                 }
-                aeh aeh1 = (aeh)iterator2.next();
-                int j1 = aeh1.i();
+                aej aej1 = (aej)iterator2.next();
+                int j1 = aej1.i();
                 b((new StringBuilder(26)).append("Postal.type is ").append(j1).toString());
-                list = String.valueOf(aeh1.h());
+                list = String.valueOf(aej1.h());
                 gz gz7;
                 String s4;
                 if (list.length() != 0)
@@ -260,7 +260,7 @@ public class ViewVCardActivity extends bmk
                     list = new String("Postal.data is ");
                 }
                 b(list);
-                list = String.valueOf(aeh1.j());
+                list = String.valueOf(aej1.j());
                 if (list.length() != 0)
                 {
                     list = "Postal.auxdata is ".concat(list);
@@ -272,37 +272,37 @@ public class ViewVCardActivity extends bmk
                 gz7 = new gz();
                 ((List) (obj)).add(gz7);
                 list = new StringBuilder();
-                s4 = aeh1.b();
+                s4 = aej1.b();
                 if (!TextUtils.isEmpty(s4))
                 {
                     list.append(s4).append(" ");
                 }
-                s4 = aeh1.c();
+                s4 = aej1.c();
                 if (!TextUtils.isEmpty(s4))
                 {
                     list.append(s4).append(" ");
                 }
-                s4 = aeh1.d();
+                s4 = aej1.d();
                 if (!TextUtils.isEmpty(s4))
                 {
                     list.append(s4).append(" ");
                 }
-                s4 = aeh1.e();
+                s4 = aej1.e();
                 if (!TextUtils.isEmpty(s4))
                 {
                     list.append(s4).append(" ");
                 }
-                s4 = aeh1.f();
+                s4 = aej1.f();
                 if (!TextUtils.isEmpty(s4))
                 {
                     list.append(s4).append(" ");
                 }
-                s4 = aeh1.g();
+                s4 = aej1.g();
                 if (!TextUtils.isEmpty(s4))
                 {
                     list.append(s4).append(" ");
                 }
-                s4 = aeh1.h();
+                s4 = aej1.h();
                 if (!TextUtils.isEmpty(s4))
                 {
                     list.append(s4);
@@ -310,7 +310,7 @@ public class ViewVCardActivity extends bmk
                 gz7.put("data", list.toString());
                 try
                 {
-                    list = resources.getStringArray(0x1070004)[aeh1.i() - 1];
+                    list = resources.getStringArray(0x1070004)[aej1.i() - 1];
                 }
                 // Misplaced declaration of an exception variable
                 catch (List list)
@@ -327,7 +327,7 @@ public class ViewVCardActivity extends bmk
                 gz7.put("type", list);
             } while (true);
         }
-        list = ads1.e;
+        list = adu1.e;
         if (list != null)
         {
             Iterator iterator3 = list.iterator();
@@ -337,10 +337,10 @@ public class ViewVCardActivity extends bmk
                 {
                     break;
                 }
-                aea aea1 = (aea)iterator3.next();
-                int k1 = aea1.c();
+                aec aec1 = (aec)iterator3.next();
+                int k1 = aec1.c();
                 b((new StringBuilder(22)).append("im.type is ").append(k1).toString());
-                list = String.valueOf(aea1.b());
+                list = String.valueOf(aec1.b());
                 gz gz5;
                 if (list.length() != 0)
                 {
@@ -352,27 +352,27 @@ public class ViewVCardActivity extends bmk
                 b(list);
                 gz5 = new gz();
                 ((List) (obj)).add(gz5);
-                gz5.put("data", aea1.b());
+                gz5.put("data", aec1.b());
                 try
                 {
-                    list = resources.getString(android.provider.ContactsContract.CommonDataKinds.Im.getProtocolLabelResource(aea1.c()));
+                    list = resources.getString(android.provider.ContactsContract.CommonDataKinds.Im.getProtocolLabelResource(aec1.c()));
                 }
                 // Misplaced declaration of an exception variable
                 catch (List list)
                 {
-                    list = viewvcardactivity.getString(l.hU);
+                    list = viewvcardactivity.getString(l.ho);
                 }
                 // Misplaced declaration of an exception variable
                 catch (List list)
                 {
                     list = String.valueOf(list);
                     b((new StringBuilder(String.valueOf(list).length() + 31)).append("createContactItem IM Exception:").append(list).toString());
-                    list = viewvcardactivity.getString(l.hU);
+                    list = viewvcardactivity.getString(l.ho);
                 }
                 gz5.put("type", list);
             } while (true);
         }
-        list = ads1.d;
+        list = adu1.d;
         if (list != null)
         {
             Iterator iterator4 = list.iterator();
@@ -382,8 +382,8 @@ public class ViewVCardActivity extends bmk
                 {
                     break;
                 }
-                aee aee1 = (aee)iterator4.next();
-                list = String.valueOf(aee1.c());
+                aeg aeg1 = (aeg)iterator4.next();
+                list = String.valueOf(aeg1.c());
                 String s2;
                 gz gz8;
                 String s5;
@@ -396,13 +396,13 @@ public class ViewVCardActivity extends bmk
                     list = new String("Organization.Organization is ");
                 }
                 b(list);
-                l1 = aee1.e();
+                l1 = aeg1.e();
                 b((new StringBuilder(32)).append("Organization.type is ").append(l1).toString());
                 gz8 = new gz();
                 ((List) (obj)).add(gz8);
-                s2 = aee1.d();
-                l1 = l.tm;
-                s5 = aee1.c();
+                s2 = aeg1.d();
+                l1 = l.sE;
+                s5 = aeg1.c();
                 list = s2;
                 if (s2 == null)
                 {
@@ -413,7 +413,7 @@ public class ViewVCardActivity extends bmk
                 }));
                 try
                 {
-                    list = resources.getString(android.provider.ContactsContract.CommonDataKinds.Organization.getTypeLabelResource(aee1.e()));
+                    list = resources.getString(android.provider.ContactsContract.CommonDataKinds.Organization.getTypeLabelResource(aeg1.e()));
                 }
                 // Misplaced declaration of an exception variable
                 catch (List list)
@@ -430,7 +430,7 @@ public class ViewVCardActivity extends bmk
                 gz8.put("type", list);
             } while (true);
         }
-        list = ads1.f;
+        list = adu1.f;
         if (list != null)
         {
             list = list.iterator();
@@ -440,21 +440,21 @@ public class ViewVCardActivity extends bmk
                 {
                     break;
                 }
-                aek aek1 = (aek)list.next();
-                String s3 = String.valueOf(aek1);
+                aem aem1 = (aem)list.next();
+                String s3 = String.valueOf(aem1);
                 b((new StringBuilder(String.valueOf(s3).length() + 11)).append("website is ").append(s3).toString());
-                if (aek1 != null && TextUtils.isGraphic(aek1.b()))
+                if (aem1 != null && TextUtils.isGraphic(aem1.b()))
                 {
                     gz gz3 = new gz();
                     ((List) (obj)).add(gz3);
-                    gz3.put("data", aek1.b());
-                    gz3.put("type", viewvcardactivity.getString(l.tV));
+                    gz3.put("data", aem1.b());
+                    gz3.put("type", viewvcardactivity.getString(l.tm));
                 }
             } while (true);
         }
-        if (ads1.h != null)
+        if (adu1.h != null)
         {
-            list = ads1.h.a;
+            list = adu1.h.a;
         } else
         {
             list = null;
@@ -466,45 +466,45 @@ public class ViewVCardActivity extends bmk
             {
                 ((List) (obj)).add(gz1);
                 gz1.put("data", list);
-                gz1.put("type", viewvcardactivity.getString(l.cd));
+                gz1.put("type", viewvcardactivity.getString(l.bY));
             }
         }
-        ads1 = ads1.g;
-        if (ads1 != null)
+        adu1 = adu1.g;
+        if (adu1 != null)
         {
-            ads1 = ads1.iterator();
+            adu1 = adu1.iterator();
             do
             {
-                if (!ads1.hasNext())
+                if (!adu1.hasNext())
                 {
                     break;
                 }
-                list = (aed)ads1.next();
+                list = (aef)adu1.next();
                 if (TextUtils.isGraphic(list.b()))
                 {
                     gz gz2 = new gz();
                     ((List) (obj)).add(gz2);
                     gz2.put("data", list.b());
-                    gz2.put("type", viewvcardactivity.getString(l.ft));
+                    gz2.put("type", viewvcardactivity.getString(l.fc));
                 }
             } while (true);
         }
         list1.add(obj);
     }
 
-    public static void a(ViewVCardActivity viewvcardactivity, Uri uri, aew aew1)
+    public static void a(ViewVCardActivity viewvcardactivity, Uri uri, aey aey1)
     {
-        int j1 = aew1.c();
+        int j1 = aey1.c();
         int i1 = j1;
         if (j1 == 0)
         {
-            i1 = adr.a(viewvcardactivity.getString(l.am));
+            i1 = adt.a(viewvcardactivity.getString(l.ai));
         }
-        aew1 = new ael(i1);
-        aew1.a(new cpq(viewvcardactivity, viewvcardactivity.u));
+        aey1 = new aen(i1);
+        aey1.a(new crh(viewvcardactivity, viewvcardactivity.u));
         try
         {
-            viewvcardactivity.a(uri, i1, ((aeo) (aew1)), false, ((List) (null)));
+            viewvcardactivity.a(uri, i1, ((aeq) (aey1)), false, ((List) (null)));
             return;
         }
         // Misplaced declaration of an exception variable
@@ -519,16 +519,16 @@ public class ViewVCardActivity extends bmk
         b(s1);
     }
 
-    private boolean a(Uri uri, int i1, aeo aeo, boolean flag, List list)
+    private boolean a(Uri uri, int i1, aeq aeq, boolean flag, List list)
     {
         ContentResolver contentresolver = getContentResolver();
         Object obj;
-        aet aet1;
+        aev aev1;
         obj = contentresolver.openInputStream(uri);
-        aet1 = new aet((byte)0);
-        aet1.a(aeo);
+        aev1 = new aev((byte)0);
+        aev1.a(aeq);
         list = ((List) (obj));
-        aet1.a(((InputStream) (obj)));
+        aev1.a(((InputStream) (obj)));
         if (obj == null)
         {
             break MISSING_BLOCK_LABEL_51;
@@ -544,20 +544,20 @@ _L5:
         ((InputStream) (obj)).close();
 _L2:
         list = ((List) (obj));
-        if (!(aeo instanceof ael))
+        if (!(aeq instanceof aen))
         {
             break MISSING_BLOCK_LABEL_135;
         }
         list = ((List) (obj));
-        ((ael)aeo).c();
+        ((aen)aeq).c();
         list = ((List) (obj));
         uri = contentresolver.openInputStream(uri);
         list = uri;
-        obj = new aeu(i1);
+        obj = new aew(i1);
         list = uri;
-        ((aep) (obj)).a(aeo);
+        ((aer) (obj)).a(aeq);
         list = uri;
-        ((aep) (obj)).a(uri);
+        ((aer) (obj)).a(uri);
         if (uri == null)
         {
             continue; /* Loop/switch isn't completed */
@@ -573,9 +573,9 @@ _L2:
         // Misplaced declaration of an exception variable
         catch (Uri uri)
         {
-            if ((uri instanceof afe) && flag)
+            if ((uri instanceof afg) && flag)
             {
-                throw (afe)uri;
+                throw (afg)uri;
             }
             break; /* Loop/switch isn't completed */
         }
@@ -615,11 +615,11 @@ _L3:
             Log.e("Babel", uri);
             return false;
         }
-        aeo;
+        aeq;
         list = uri;
-        throw new afb("vCard with unspported version.");
-        aeo;
-        Log.e("Babel", "", aeo);
+        throw new afd("vCard with unspported version.");
+        aeq;
+        Log.e("Babel", "", aeq);
           goto _L3
 _L1:
         return false;
@@ -629,19 +629,19 @@ _L4:
 
     public static boolean a(ViewVCardActivity viewvcardactivity)
     {
-        return viewvcardactivity.m;
+        return viewvcardactivity.l;
     }
 
-    public static boolean a(ViewVCardActivity viewvcardactivity, Uri uri, int i1, aeo aeo, boolean flag)
+    public static boolean a(ViewVCardActivity viewvcardactivity, Uri uri, int i1, aeq aeq, boolean flag)
     {
-        return viewvcardactivity.a(uri, i1, aeo, flag, ((List) (null)));
+        return viewvcardactivity.a(uri, i1, aeq, flag, ((List) (null)));
     }
 
     private Uri b(int i1)
     {
         Object obj1;
         Object obj4;
-        obj4 = EsProvider.a(i1, Math.abs(bhp.f.nextLong()));
+        obj4 = EsProvider.a(i1, Math.abs(bib.e.nextLong()));
         Object obj;
         Object obj2;
         Object obj3;
@@ -683,7 +683,7 @@ _L2:
 _L6:
         obj3 = obj;
         obj2 = obj1;
-        ebw.e("Babel", "IOException saving location image", ((Throwable) (obj4)));
+        eev.e("Babel", "IOException saving location image", ((Throwable) (obj4)));
         if (obj1 != null)
         {
             try
@@ -693,7 +693,7 @@ _L6:
             // Misplaced declaration of an exception variable
             catch (Object obj1)
             {
-                ebw.e("Babel", "IOException caught while closing stream", ((Throwable) (obj1)));
+                eev.e("Babel", "IOException caught while closing stream", ((Throwable) (obj1)));
             }
         }
         if (obj != null)
@@ -705,7 +705,7 @@ _L6:
             // Misplaced declaration of an exception variable
             catch (Object obj)
             {
-                ebw.e("Babel", "IOException caught while closing stream", ((Throwable) (obj)));
+                eev.e("Babel", "IOException caught while closing stream", ((Throwable) (obj)));
             }
         }
         obj1 = null;
@@ -723,7 +723,7 @@ _L1:
             // Misplaced declaration of an exception variable
             catch (Object obj1)
             {
-                ebw.e("Babel", "IOException caught while closing stream", ((Throwable) (obj1)));
+                eev.e("Babel", "IOException caught while closing stream", ((Throwable) (obj1)));
             }
         }
         obj1 = obj4;
@@ -736,7 +736,7 @@ _L1:
             // Misplaced declaration of an exception variable
             catch (Object obj)
             {
-                ebw.e("Babel", "IOException caught while closing stream", ((Throwable) (obj)));
+                eev.e("Babel", "IOException caught while closing stream", ((Throwable) (obj)));
                 return ((Uri) (obj4));
             }
             return ((Uri) (obj4));
@@ -754,7 +754,7 @@ _L4:
             // Misplaced declaration of an exception variable
             catch (Object obj2)
             {
-                ebw.e("Babel", "IOException caught while closing stream", ((Throwable) (obj2)));
+                eev.e("Babel", "IOException caught while closing stream", ((Throwable) (obj2)));
             }
         }
         if (obj != null)
@@ -766,7 +766,7 @@ _L4:
             // Misplaced declaration of an exception variable
             catch (Object obj)
             {
-                ebw.e("Babel", "IOException caught while closing stream", ((Throwable) (obj)));
+                eev.e("Babel", "IOException caught while closing stream", ((Throwable) (obj)));
             }
         }
         throw obj1;
@@ -784,7 +784,7 @@ _L3:
 _L5:
     }
 
-    public static gmo b(ViewVCardActivity viewvcardactivity)
+    public static gqu b(ViewVCardActivity viewvcardactivity)
     {
         return viewvcardactivity.k;
     }
@@ -801,7 +801,7 @@ _L5:
             {
                 s1 = new String("[ViewVCardActivity]: ");
             }
-            ebw.b("Babel", s1);
+            eev.b("Babel", s1);
         }
     }
 
@@ -822,13 +822,13 @@ _L5:
 
     public static boolean f(ViewVCardActivity viewvcardactivity)
     {
-        viewvcardactivity.m = true;
+        viewvcardactivity.l = true;
         return true;
     }
 
     public static List g(ViewVCardActivity viewvcardactivity)
     {
-        return viewvcardactivity.r;
+        return viewvcardactivity.p;
     }
 
     public static List h(ViewVCardActivity viewvcardactivity)
@@ -839,10 +839,10 @@ _L5:
     public static void i(ViewVCardActivity viewvcardactivity)
     {
         ExpandableListView expandablelistview = viewvcardactivity.t;
-        List list = viewvcardactivity.r;
-        int i1 = g.hm;
+        List list = viewvcardactivity.p;
+        int i1 = g.he;
         List list1 = viewvcardactivity.s;
-        int j1 = g.hn;
+        int j1 = g.hf;
         expandablelistview.setAdapter(new SimpleExpandableListAdapter(viewvcardactivity, list, i1, new String[] {
             "data"
         }, new int[] {
@@ -859,16 +859,16 @@ _L5:
 
     private void j()
     {
-        ebr.b(this, getString(l.tx));
+        Toast.makeText(this, l.sP, 0).show();
         finish();
     }
 
     public void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(g.hl);
-        bundle = findViewById(h.br);
-        t = (ExpandableListView)findViewById(h._flddo);
+        setContentView(g.hd);
+        bundle = findViewById(h.bl);
+        t = (ExpandableListView)findViewById(h.dc);
         t.setEmptyView(bundle);
         t.setFocusable(true);
         t.setOnChildClickListener(v);
@@ -886,7 +886,7 @@ _L1:
         bundle = "mUri is ".concat(bundle);
 _L3:
         b(bundle);
-        (new Thread(new cpo(this, n))).start();
+        (new Thread(new crf(this, n))).start();
 _L4:
         g().a(true);
         return;
@@ -908,7 +908,7 @@ _L2:
 
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        menu.add(0, 0, 0, l.fd).setShowAsAction(1);
+        menu.add(0, 0, 0, l.eM).setShowAsAction(1);
         return true;
     }
 
@@ -920,7 +920,7 @@ _L2:
             b((new StringBuilder(String.valueOf(menuitem).length() + 12)).append("save vcard: ").append(menuitem).toString());
             if (n != null && k.b())
             {
-                (new cpn(this)).execute(new Uri[] {
+                (new cre(this)).execute(new Uri[] {
                     o
                 });
             }
@@ -936,7 +936,7 @@ _L2:
     public boolean onPrepareOptionsMenu(Menu menu)
     {
         super.onPrepareOptionsMenu(menu);
-        if (m)
+        if (l)
         {
             menu.findItem(0).setVisible(true);
             return true;
@@ -949,6 +949,6 @@ _L2:
 
     static 
     {
-        hik hik = ebw.j;
+        hnc hnc = eev.j;
     }
 }

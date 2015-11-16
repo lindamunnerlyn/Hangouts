@@ -5,20 +5,31 @@
 import android.support.v7.internal.widget.ActionBarContainer;
 import android.view.View;
 
-final class sc
-    implements mg
+final class sc extends mf
 {
 
-    final rz a;
+    final sb a;
 
-    sc(rz rz1)
+    sc(sb sb1)
     {
-        a = rz1;
+        a = sb1;
         super();
     }
 
-    public void a()
+    public void b(View view)
     {
-        ((View)rz.c(a).getParent()).invalidate();
+        if (sb.a(a) && sb.b(a) != null)
+        {
+            kb.b(sb.b(a), 0.0F);
+            kb.b(sb.c(a), 0.0F);
+        }
+        sb.c(a).setVisibility(8);
+        sb.c(a).a(false);
+        sb.d(a);
+        a.k();
+        if (sb.e(a) != null)
+        {
+            kb.s(sb.e(a));
+        }
     }
 }

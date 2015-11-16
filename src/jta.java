@@ -2,80 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Iterator;
 
-public final class jta extends koj
+final class jta extends jsd
 {
 
-    public jtb a;
-    public Boolean b;
+    final jso a;
 
-    public jta()
+    jta(jso jso1)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = jso1;
     }
 
-    protected int computeSerializedSize()
+    public jyh a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            b.booleanValue();
-            j = i + (koh.f(2) + 1);
-        }
-        return j;
+        return new jtb(this);
     }
 
-    public kop mergeFrom(kog kog1)
+    public boolean contains(Object obj)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new jtb();
-                }
-                kog1.a(a);
-                break;
-
-            case 16: // '\020'
-                b = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
+        return obj != null && jts.a(a(), obj);
     }
 
-    public void writeTo(koh koh1)
+    boolean e()
     {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b.booleanValue());
-        }
-        super.writeTo(koh1);
+        return true;
+    }
+
+    jsh g()
+    {
+        return new jtc(this, a.d().f());
+    }
+
+    public Iterator iterator()
+    {
+        return a();
+    }
+
+    public int size()
+    {
+        return a.size();
+    }
+
+    Object writeReplace()
+    {
+        return new jtd(a);
     }
 }

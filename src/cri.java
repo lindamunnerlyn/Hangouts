@@ -2,40 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import com.google.android.apps.hangouts.promo.impl.PromoActivity;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import com.google.android.apps.hangouts.phone.ViewVCardActivity;
+import java.util.List;
 
-final class cri
-    implements fsn, gmq, hhi
+public final class cri extends Handler
 {
 
-    private ai a;
+    private ViewVCardActivity a;
 
-    cri(ai ai1, hjm hjm1)
+    public cri(ViewVCardActivity viewvcardactivity)
     {
-        a = ai1;
-        hjm1.a(this);
+        super(Looper.getMainLooper());
+        a = viewvcardactivity;
     }
 
-    public void a(Context context, hgx hgx1, Bundle bundle)
+    public void handleMessage(Message message)
     {
-        ((gmo)hgx1.a(gmo)).a(this);
-    }
-
-    public void a(boolean flag, gmp gmp1, gmp gmp2, int i, int j)
-    {
-        if (gmp2 == gmp.c)
+        switch (message.what)
         {
-            gmp1 = (crj)hgx.a(a, crj);
-            gmp1.a(a);
-            if (gmp1.a() > 0)
+        case 1002: 
+        default:
+            return;
+
+        case 1001: 
+            ViewVCardActivity.f(a);
+            if (ViewVCardActivity.g(a).isEmpty())
             {
-                gmp1 = new Intent(a, com/google/android/apps/hangouts/promo/impl/PromoActivity);
-                gmp1.putExtra("account_id", j);
-                a.startActivity(gmp1);
+                a.finish();
             }
+            a.q_();
+            return;
+
+        case 1003: 
+            message = (adu)message.obj;
+            ViewVCardActivity.a(a, message, ViewVCardActivity.g(a), ViewVCardActivity.h(a));
+            ViewVCardActivity.i(a);
+            return;
         }
     }
 }

@@ -2,35 +2,70 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.util.Property;
+import android.app.Dialog;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
-final class gqj extends Property
+public abstract class gqj extends ac
 {
 
-    gqj(Class class1, String s)
+    private ListAdapter aj;
+
+    public gqj()
     {
-        super(class1, s);
     }
 
-    public Object get(Object obj)
+    public void onCreate(Bundle bundle)
     {
-        return Float.valueOf(((View)obj).getHeight());
+        super.onCreate(bundle);
+        a(0);
     }
 
-    public void set(Object obj, Object obj1)
+    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
     {
-        View view = (View)obj;
-        obj1 = (Float)obj1;
-        obj = view.getLayoutParams();
-        if (obj == null)
+        aj = s();
+        layoutinflater = layoutinflater.inflate(g.sk, viewgroup, false);
+        viewgroup = (ListView)layoutinflater.findViewById(g.sf);
+        viewgroup.setAdapter(aj);
+        viewgroup.setOnItemClickListener(r());
+        viewgroup = q();
+        bundle = (TextView)layoutinflater.findViewById(g.sg);
+        if (TextUtils.isEmpty(viewgroup))
         {
-            obj = new android.view.ViewGroup.LayoutParams(-2, ((Float) (obj1)).intValue());
+            bundle.setVisibility(8);
+            return layoutinflater;
         } else
         {
-            obj.height = ((Float) (obj1)).intValue();
+            bundle.setText(viewgroup);
+            bundle.setVisibility(0);
+            return layoutinflater;
         }
-        view.setLayoutParams(((android.view.ViewGroup.LayoutParams) (obj)));
-        view.requestLayout();
+    }
+
+    public void onStart()
+    {
+        super.onStart();
+        c().getWindow().setLayout(-1, -2);
+        c().getWindow().setBackgroundDrawableResource(0x106000b);
+        c().getWindow().setGravity(81);
+        c().getWindow().setWindowAnimations(g.sn);
+    }
+
+    public abstract String q();
+
+    public abstract android.widget.AdapterView.OnItemClickListener r();
+
+    public abstract ListAdapter s();
+
+    public ListAdapter t()
+    {
+        return aj;
     }
 }

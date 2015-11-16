@@ -2,27 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import java.io.IOException;
+import android.view.View;
+import android.view.WindowInsets;
+import com.google.android.apps.hangouts.navigation.NavigationDrawerFragment;
 
-public final class cby extends IOException
+public final class cby
+    implements android.view.View.OnApplyWindowInsetsListener
 {
 
-    private static final long serialVersionUID = 0xdc7cfe543af0a539L;
+    final NavigationDrawerFragment a;
 
-    public cby(int i, int j)
+    public cby(NavigationDrawerFragment navigationdrawerfragment)
     {
-        super((new StringBuilder("CodedOutputStream was writing to a flat byte array and ran out of space (pos ")).append(i).append(" limit ").append(j).append(").").toString());
+        a = navigationdrawerfragment;
+        super();
     }
 
-    public cby(Bundle bundle)
+    public WindowInsets onApplyWindowInsets(View view, WindowInsets windowinsets)
     {
-        super((new StringBuilder("Blocked by rule: ")).append(bundle.getString("name")).toString());
-    }
-
-    public cby(String s, Throwable throwable)
-    {
-        super(s);
-        initCause(throwable);
+        return windowinsets;
     }
 }

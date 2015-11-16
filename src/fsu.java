@@ -2,23 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
+import java.util.HashMap;
 
-public final class fsu
-    implements ekg
+final class fsu extends HashMap
 {
 
-    public final Status a;
-    public final fsz b;
-
-    public fsu(Status status, fsz fsz)
+    fsu()
     {
-        a = status;
-        b = fsz;
-    }
-
-    public Status B_()
-    {
-        return a;
+        put("circle", Integer.valueOf(-1));
+        put("extendedCircles", Integer.valueOf(4));
+        put("myCircles", Integer.valueOf(3));
+        put("domain", Integer.valueOf(2));
+        put("public", Integer.valueOf(1));
+        put(null, Integer.valueOf(-2));
     }
 }

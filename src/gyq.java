@@ -4,35 +4,56 @@
 
 
 public final class gyq
-    implements gxi
 {
 
-    public gyq()
+    private final long a;
+    private final long b;
+
+    public gyq(long l, long l1)
     {
+        a = l;
+        b = l1;
     }
 
-    public void a(ap ap)
+    public long a()
     {
-        gyp.a(ap);
+        return a;
     }
 
-    public void a(ap ap, String s, boolean flag)
+    public long b()
     {
-        if (!gyp.b(ap))
+        return b;
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (obj != null)
         {
-            gyp.a(ap, s, flag);
+            if (this == obj)
+            {
+                return true;
+            }
+            if (obj instanceof gyq)
+            {
+                obj = (gyq)obj;
+                if (a == ((gyq) (obj)).a && b == ((gyq) (obj)).b)
+                {
+                    return true;
+                }
+            }
         }
+        return false;
     }
 
-    public void b(ap ap)
+    public int hashCode()
     {
-        a(ap);
-        gyr.a(ap);
+        return ((int)(a ^ a >>> 32) + 527) * 31 + (int)(b ^ b >>> 32);
     }
 
-    public void c(ap ap)
+    public String toString()
     {
-        a(ap);
-        gyo.a(ap);
+        long l = a;
+        long l1 = b;
+        return (new StringBuilder(41)).append(l).append("/").append(l1).toString();
     }
 }

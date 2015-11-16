@@ -4,9 +4,9 @@
 
 package com.google.android.apps.hangouts.views;
 
+import aht;
+import ahu;
 import ai;
-import aia;
-import aib;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
@@ -18,13 +18,13 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.text.Html;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.SpannedString;
 import android.text.TextUtils;
 import android.text.style.URLSpan;
 import android.text.util.Linkify;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -38,62 +38,63 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import ani;
-import bhp;
+import aoa;
+import bib;
 import bq;
-import bxo;
-import byc;
-import byf;
-import can;
-import cao;
-import ceu;
-import cey;
+import byl;
+import bym;
+import bzf;
+import bzi;
+import cbs;
+import cbt;
+import cfz;
+import cgd;
 import com.google.android.apps.hangouts.content.EsProvider;
-import dqb;
-import dqc;
-import drk;
-import drl;
-import ebr;
-import ebw;
-import ebz;
-import edy;
-import eeg;
-import eew;
-import efa;
-import efe;
-import eff;
-import efg;
-import efh;
-import efi;
-import efj;
-import efk;
-import efm;
-import efn;
-import efo;
-import eft;
-import egm;
-import egn;
-import egp;
-import egs;
+import dsu;
+import dsv;
+import due;
+import duf;
+import eep;
+import eev;
+import eey;
+import eha;
+import ehi;
+import ehy;
+import eic;
+import eig;
+import eih;
+import eii;
+import eij;
+import eik;
+import eil;
+import eim;
+import eio;
+import eip;
+import eiq;
+import eiv;
+import ejo;
+import ejp;
+import ejr;
+import eju;
 import em;
 import g;
-import gbh;
+import gdv;
 import h;
-import hgx;
+import hlp;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import jgu;
+import jno;
 import l;
 
 // Referenced classes of package com.google.android.apps.hangouts.views:
-//            MessageBubbleView, MessageStatusView, AudioAttachmentView, ScalingTextView, 
+//            MessageBubbleView, AudioAttachmentView, MessageStatusView, ScalingTextView, 
 //            AvatarView
 
-public class MessageListItemView extends ViewGroup
-    implements android.view.View.OnClickListener, android.view.View.OnLongClickListener, cao
+public class MessageListItemView extends LinearLayout
+    implements android.view.View.OnClickListener, android.view.View.OnLongClickListener, cbt
 {
 
     private static boolean a;
@@ -106,15 +107,15 @@ public class MessageListItemView extends ViewGroup
     private static String f;
     private boolean A;
     private boolean B;
-    private final MessageBubbleView C;
-    private final FrameLayout D;
+    private MessageBubbleView C;
+    private FrameLayout D;
     private AccessibilityManager E;
-    private SpannableString F;
+    private CharSequence F;
     private final Runnable G;
     private final Runnable H;
     private int I;
     private boolean J;
-    private dqb K;
+    private dsu K;
     private String L;
     private Spanned M;
     private CharSequence N;
@@ -137,19 +138,19 @@ public class MessageListItemView extends ViewGroup
     private String ah;
     private String ai;
     private String aj;
-    private ani ak;
+    private aoa ak;
     private Handler al;
     private ArrayList ao;
     private boolean ap;
     private TextView g;
     private MessageStatusView h;
     private AvatarView i;
-    private cey j;
+    private cgd j;
     private int k;
     private String l;
     private long m;
-    private efa n;
-    private bhp o;
+    private eic n;
+    private bib o;
     private String p;
     private CharSequence q;
     private String r;
@@ -173,72 +174,34 @@ public class MessageListItemView extends ViewGroup
         x = new HashSet();
         A = false;
         B = true;
-        G = new efe(this);
-        H = new eff(this);
+        G = new eig(this);
+        H = new eih(this);
         I = 0;
         J = false;
         T = false;
         U = 1.0F;
         ap = false;
-        attributeset = LayoutInflater.from(context);
-        C = (MessageBubbleView)attributeset.inflate(g.gJ, null, false);
-        D = (FrameLayout)attributeset.inflate(g.gI, null, false);
-        h = (MessageStatusView)attributeset.inflate(g.gM, null, false);
-        t = new LinearLayout(context);
-        attributeset = new android.view.ViewGroup.LayoutParams(-2, -2);
-        t.setLayoutParams(attributeset);
-        t.setOrientation(1);
-        t.setVisibility(8);
-        attributeset = getResources().getDisplayMetrics();
-        int i1 = (int)TypedValue.applyDimension(1, 12F, attributeset);
-        int j1 = (int)TypedValue.applyDimension(1, 8F, attributeset);
-        t.setPadding(i1, 0, i1, j1);
-        addView(D);
-        addView(C);
-        addView(h);
-        addView(t);
         E = (AccessibilityManager)context.getSystemService("accessibility");
         if (!a)
         {
             context = getContext().getApplicationContext().getResources();
-            b = context.getString(l.tn);
-            c = context.getString(l.tq);
-            d = context.getString(l.tp);
-            e = context.getString(l.to);
-            f = context.getString(l.ta);
+            b = context.getString(l.sF);
+            c = context.getString(l.sI);
+            d = context.getString(l.sH);
+            e = context.getString(l.sG);
+            f = context.getString(l.st);
             a = true;
         }
     }
 
-    private int[] A()
-    {
-        android.util.DisplayMetrics displaymetrics = getResources().getDisplayMetrics();
-        if (z)
-        {
-            return (new int[] {
-                (int)TypedValue.applyDimension(1, 12F, displaymetrics), (int)TypedValue.applyDimension(1, 76F, displaymetrics)
-            });
-        } else
-        {
-            return (new int[] {
-                (int)TypedValue.applyDimension(1, 4F, displaymetrics), (int)TypedValue.applyDimension(1, 48F, displaymetrics)
-            });
-        }
-    }
-
-    private boolean B()
-    {
-        return ebr.d() && android.os.Build.VERSION.SDK_INT >= 19;
-    }
-
-    private boolean C()
+    private boolean A()
     {
         return E != null && E.isEnabled() && E.isTouchExplorationEnabled();
     }
 
-    private void D()
+    private void B()
     {
-        if (!g.a(g.nS, "babel_force_gb_copy_paste_textview", true))
+        if (!g.a(g.nU, "babel_force_gb_copy_paste_textview", true))
         {
             g.setTextIsSelectable(true);
             C.setClickable(false);
@@ -253,21 +216,21 @@ public class MessageListItemView extends ViewGroup
         }
     }
 
-    private void E()
+    private void C()
     {
         if (!TextUtils.isEmpty(e()))
         {
             C.setVisibility(0);
         }
         Object obj = e();
-        SpannableString spannablestring = edy.a(getContext()).a(((CharSequence) (obj)), g);
+        SpannableString spannablestring = eha.a(getContext()).a(((CharSequence) (obj)), g);
         if (spannablestring != null)
         {
             obj = spannablestring;
         }
         g.setText(((CharSequence) (obj)));
-        g.setTextColor(F());
-        for (obj = hgx.c(getContext(), eft).iterator(); ((Iterator) (obj)).hasNext(); o.O())
+        g.setTextColor(D());
+        for (obj = hlp.c(getContext(), eiv).iterator(); ((Iterator) (obj)).hasNext(); o.O())
         {
             ((Iterator) (obj)).next();
         }
@@ -278,43 +241,43 @@ public class MessageListItemView extends ViewGroup
         }
     }
 
-    private int F()
+    private int D()
     {
         if (A)
         {
             if (z)
             {
-                return getResources().getColor(g.dJ);
+                return getResources().getColor(g.dI);
             } else
             {
-                return getResources().getColor(g.dH);
+                return getResources().getColor(g.dG);
             }
         }
         if (z)
         {
-            return getResources().getColor(g.dI);
+            return getResources().getColor(g.dH);
         } else
         {
-            return getResources().getColor(g.dG);
+            return getResources().getColor(g.dF);
         }
     }
 
-    private boolean G()
+    private boolean E()
     {
         return z || R == 1;
     }
 
+    private void F()
+    {
+        c(getResources().getString(l.bS));
+    }
+
+    private void G()
+    {
+        c(getResources().getString(l.bR));
+    }
+
     private void H()
-    {
-        c(getResources().getString(l.bY));
-    }
-
-    private void I()
-    {
-        c(getResources().getString(l.bX));
-    }
-
-    private void J()
     {
         w = false;
         a(u, s);
@@ -329,7 +292,7 @@ public class MessageListItemView extends ViewGroup
         }
     }
 
-    private void K()
+    private void I()
     {
         Resources resources = getResources();
         if (A)
@@ -338,10 +301,10 @@ public class MessageListItemView extends ViewGroup
             int i1;
             if (z)
             {
-                i1 = resources.getColor(g.dF);
+                i1 = resources.getColor(g.dE);
             } else
             {
-                i1 = resources.getColor(g.dD);
+                i1 = resources.getColor(g.dC);
             }
             textview.setLinkTextColor(i1);
         } else
@@ -350,10 +313,10 @@ public class MessageListItemView extends ViewGroup
             int j1;
             if (z)
             {
-                j1 = resources.getColor(g.dE);
+                j1 = resources.getColor(g.dD);
             } else
             {
-                j1 = resources.getColor(g.dC);
+                j1 = resources.getColor(g.dB);
             }
             textview1.setLinkTextColor(j1);
         }
@@ -361,12 +324,12 @@ public class MessageListItemView extends ViewGroup
         a(z, A, B);
     }
 
-    private drl L()
+    private duf J()
     {
-        drl drl1 = new drl();
-        drl1.a = p;
-        drl1.b = ai;
-        return drl1;
+        duf duf1 = new duf();
+        duf1.a = p;
+        duf1.b = ai;
+        return duf1;
     }
 
     public static String a(MessageListItemView messagelistitemview, String s1)
@@ -385,18 +348,18 @@ public class MessageListItemView extends ViewGroup
         }
         if (flag)
         {
-            return getResources().getString(l.Q, new Object[] {
+            return getResources().getString(l.N, new Object[] {
                 s2
             });
         }
         if (flag1)
         {
-            return getResources().getString(l.O, new Object[] {
+            return getResources().getString(l.L, new Object[] {
                 s1
             });
         } else
         {
-            return getResources().getString(l.P, new Object[] {
+            return getResources().getString(l.M, new Object[] {
                 s1, s2
             });
         }
@@ -408,15 +371,15 @@ public class MessageListItemView extends ViewGroup
         {
             if (flag)
             {
-                s1 = (can)u.get(i1);
+                s1 = (cbs)u.get(i1);
             } else
             {
-                s1 = (can)v.get(i1);
+                s1 = (cbs)v.get(i1);
             }
             s1.a(s2);
-            if (s1 instanceof efo)
+            if (s1 instanceof eiq)
             {
-                ((efo)s1).a(s3, l1);
+                ((eiq)s1).a(s3, l1);
             }
         }
     }
@@ -430,22 +393,22 @@ label0:
         for (int j1 = 0; j1 < k1; j1++)
         {
             String s1 = aurlspan[j1].getURL();
-            Object obj = hgx.c(getContext(), bxo).iterator();
-            bxo bxo1;
-            can can1;
+            Object obj = ((bym)hlp.a(getContext(), bym)).a(getContext()).iterator();
+            byl byl1;
+            cbs cbs1;
             do
             {
                 if (!((Iterator) (obj)).hasNext())
                 {
                     continue label0;
                 }
-                bxo1 = (bxo)((Iterator) (obj)).next();
-                can1 = bxo1.a(getContext(), i1, flag, s1);
-            } while (can1 == null);
-            x.add(can1);
-            a(can1, false);
-            obj = String.valueOf(bxo1.getClass().getName());
-            ebw.b("Babel", (new StringBuilder(String.valueOf(obj).length() + 22 + String.valueOf(s1).length())).append("LinkHandler ").append(((String) (obj))).append(" handled: ").append(s1).toString());
+                byl1 = (byl)((Iterator) (obj)).next();
+                cbs1 = byl1.a(getContext(), i1, flag, s1);
+            } while (cbs1 == null);
+            x.add(cbs1);
+            a(cbs1, false);
+            obj = String.valueOf(byl1.getClass().getName());
+            eev.b("Babel", (new StringBuilder(String.valueOf(obj).length() + 22 + String.valueOf(s1).length())).append("LinkHandler ").append(((String) (obj))).append(" handled: ").append(s1).toString());
         }
 
     }
@@ -458,7 +421,7 @@ label0:
         }
     }
 
-    private void a(can can1, boolean flag)
+    private void a(cbs cbs1, boolean flag)
     {
         if (flag)
         {
@@ -468,8 +431,8 @@ label0:
                 u = new ArrayList();
                 s.setVisibility(0);
             }
-            s.addView((View)can1);
-            u.add(can1);
+            s.addView((View)cbs1);
+            u.add(cbs1);
         } else
         {
             if (v == null)
@@ -477,24 +440,24 @@ label0:
                 v = new ArrayList();
                 t.setVisibility(0);
             }
-            t.addView((View)can1);
-            v.add(can1);
+            t.addView((View)cbs1);
+            v.add(cbs1);
         }
-        q = ((View)can1).getContentDescription();
+        q = ((View)cbs1).getContentDescription();
     }
 
     public static void a(MessageListItemView messagelistitemview)
     {
-        messagelistitemview.I();
+        messagelistitemview.G();
     }
 
     private void a(CharSequence charsequence, String s1, CharSequence charsequence1)
     {
         String s2;
+        CharSequence charsequence2;
         s2 = s1;
         if (TextUtils.isEmpty(s1))
         {
-            can can1;
             if (q == null)
             {
                 s1 = "";
@@ -506,47 +469,52 @@ label0:
         }
         N = charsequence;
         O = s2;
-        s1 = M;
+        s1 = new SpannableStringBuilder();
+        charsequence2 = g.getText();
         if (!"hangouts/gv_voicemail".equals(ai)) goto _L2; else goto _L1
 _L1:
         charsequence = u.iterator();
 _L6:
         if (!charsequence.hasNext()) goto _L4; else goto _L3
 _L3:
-        can1 = (can)charsequence.next();
-        if (!(can1 instanceof AudioAttachmentView)) goto _L6; else goto _L5
+        charsequence1 = (cbs)charsequence.next();
+        if (!(charsequence1 instanceof AudioAttachmentView)) goto _L6; else goto _L5
 _L5:
-        charsequence = ((AudioAttachmentView)can1).f();
-_L8:
-        setContentDescription(getContext().getString(l.tT, new Object[] {
-            s2, charsequence1, charsequence, s1
-        }));
-        F = null;
-        return;
-_L2:
-        if (K == dqb.d)
-        {
-            charsequence = getContext().getString(l.ce, new Object[] {
-                s2, s1, charsequence, charsequence1
-            });
-        } else
-        {
-            charsequence = getContext().getString(l.ga, new Object[] {
-                s2, s1, charsequence, charsequence1
-            });
-        }
-        F = new SpannableString(charsequence);
-        Linkify.addLinks(F, 15);
+        charsequence = ((AudioAttachmentView)charsequence1).f();
+_L9:
+        eep.a(s1, s2);
+        eep.a(s1, getContext().getText(l.tl));
+        eep.a(s1, charsequence);
+        eep.a(s1, charsequence2);
+_L7:
+        F = s1;
         setContentDescription(F);
         return;
+_L2:
+        if (K == dsu.d)
+        {
+            eep.a(s1, s2);
+            eep.a(s1, charsequence2);
+            eep.a(s1, charsequence);
+            eep.a(s1, charsequence1);
+        } else
+        {
+            eep.a(s1, s2);
+            eep.a(s1, charsequence2);
+            eep.a(s1, getContext().getString(l.fJ, new Object[] {
+                charsequence
+            }));
+            eep.a(s1, charsequence1);
+        }
+        if (true) goto _L7; else goto _L4
 _L4:
         charsequence = "";
-        if (true) goto _L8; else goto _L7
-_L7:
+        if (true) goto _L9; else goto _L8
+_L8:
     }
 
-    private void a(String s1, String s2, int i1, int j1, int k1, boolean flag, ani ani1, 
-            bhp bhp1, boolean flag1, String s3, String s4, String s5, long l1, 
+    private void a(String s1, String s2, int i1, int j1, int k1, boolean flag, aoa aoa1, 
+            bib bib1, boolean flag1, String s3, String s4, String s5, long l1, 
             String s6, double d1, double d2, String s7, String s8, 
             String s9, int i2, String s10)
     {
@@ -561,82 +529,82 @@ label1:
                     break label0;
                 }
                 s4 = null;
-                bhp1 = s4;
+                bib1 = s4;
                 if (s3 == null)
                 {
                     break label1;
                 }
-                bhp1 = s4;
+                bib1 = s4;
                 if (s10 == null)
                 {
                     break label1;
                 }
                 if (!s10.startsWith("sticker://"))
                 {
-                    bhp1 = s4;
+                    bib1 = s4;
                     if (!s10.startsWith(EsProvider.c(getContext())))
                     {
                         break label1;
                     }
                 }
-                bhp1 = (egm)hgx.b(getContext(), egm);
+                bib1 = (ejo)hlp.b(getContext(), ejo);
             }
-            if (bhp1 != null)
+            if (bib1 != null)
             {
-                s1 = bhp1.a(context, ani1, flag, s10, s1, i1, j1, s9, s3, this, n);
+                s1 = bib1.a(context, aoa1, flag, s10, s1, i1, j1, s9, s3, this, n);
                 w = true;
             } else
             {
-                bhp1 = new eew(context);
-                bhp1.a(ani1, flag, s1, i1, j1, k1, n, this, s2, s9);
-                s1 = bhp1;
+                bib1 = new ehy(context);
+                bib1.a(aoa1, flag, s1, i1, j1, k1, n, this, s2, s9);
+                s1 = bib1;
             }
-            a(((can) (s1)), false);
+            a(((cbs) (s1)), false);
             return;
         }
         if ("hangouts/location".equals(s2))
         {
-            s1 = bhp1.getActivity();
+            s1 = bib1.getActivity();
             try
             {
                 s2 = s1.getPackageManager().getActivityInfo(s1.getComponentName(), 128);
                 i1 = ((ActivityInfo) (s2)).flags;
-                ebw.c("Babel", (new StringBuilder(48)).append("Manifest activity information flags: ").append(i1).toString());
+                eev.c("Babel", (new StringBuilder(48)).append("Manifest activity information flags: ").append(i1).toString());
                 i1 = ((ActivityInfo) (s2)).flags;
-                ebw.c("Babel", (new StringBuilder(43)).append("Manifest hardware acceleration: ").append(i1 & 0x200).toString());
+                eev.c("Babel", (new StringBuilder(43)).append("Manifest hardware acceleration: ").append(i1 & 0x200).toString());
             }
             // Misplaced declaration of an exception variable
             catch (String s2)
             {
-                ebw.b("Babel", "NameNotFoundException getting package info", s2);
+                eev.b("Babel", "NameNotFoundException getting package info", s2);
             }
             i1 = s1.getWindow().getAttributes().flags;
-            ebw.c("Babel", (new StringBuilder(32)).append("Window layout flags: ").append(i1).toString());
-            ebw.c("Babel", (new StringBuilder(48)).append("Window layout hardware acceleration: ").append(i1 & 0x1000000).toString());
-            s1 = ((byf)hgx.a(context, byf)).c(context);
-            s1.a(bhp1, s6, s7, d1, d2);
-            a(((can) (s1)), false);
+            eev.c("Babel", (new StringBuilder(32)).append("Window layout flags: ").append(i1).toString());
+            eev.c("Babel", (new StringBuilder(48)).append("Window layout hardware acceleration: ").append(i1 & 0x1000000).toString());
+            s1 = ((bzi)hlp.a(context, bzi)).c(context);
+            s1.a(bib1, s6, s7, d1, d2);
+            a(((cbs) (s1)), false);
             return;
         }
         if (g.d(s2))
         {
             if (flag1)
             {
-                s3 = new egs(context);
-                s3.a(ani1, flag, s1, s2, bhp1, i1, j1, k1);
-                a(((can) (s3)), false);
+                s3 = new eju(context);
+                s3.a(aoa1, flag, s1, s2, bib1, i1, j1, k1);
+                a(((cbs) (s3)), false);
                 return;
             } else
             {
-                s2 = new egp(context);
-                s2.a(ani1, flag, s1, bhp1, s3, s4, s5, i1, j1, k1);
-                a(((can) (s2)), false);
+                s2 = new ejr(context);
+                s2.a(aoa1, flag, s1, bib1, s3, s4, s5, i1, j1, k1);
+                a(((cbs) (s2)), false);
                 return;
             }
         }
         if (g.c(s2))
         {
-            bhp1 = (AudioAttachmentView)LayoutInflater.from(context).inflate(g.ff, s, false);
+            bib1 = (AudioAttachmentView)LayoutInflater.from(context).inflate(g.fd, s, false);
             if (!TextUtils.isEmpty(s3))
             {
                 i1 = 1;
@@ -652,35 +620,35 @@ label1:
             {
                 l1 = 0L;
             }
-            i1 = F();
-            bhp1.a(ani1, s5, l1, s3, l, s2, getContext().getResources().getString(l.z), 0L, i1);
-            a(((can) (bhp1)), true);
+            i1 = D();
+            bib1.a(aoa1, s5, l1, s3, l, s2, getContext().getResources().getString(l.w), 0L, i1);
+            a(((cbs) (bib1)), true);
             return;
         }
         if ("hangouts/gv_voicemail".equals(s2))
         {
-            s1 = (AudioAttachmentView)LayoutInflater.from(context).inflate(g.ff, s, false);
-            i1 = F();
-            s1.a(ani1, s5, l1, s3, l, s2, getContext().getResources().getString(l.tU), i2, i1);
-            a(((can) (s1)), true);
+            s1 = (AudioAttachmentView)LayoutInflater.from(context).inflate(g.fd, s, false);
+            i1 = D();
+            s1.a(aoa1, s5, l1, s3, l, s2, getContext().getResources().getString(l.tl), i2, i1);
+            a(((cbs) (s1)), true);
             return;
         }
         if ("hangouts/*".equals(s2))
         {
-            s2 = new eeg(context);
-            s2.a(ani1, flag, s1, i1, j1, k1, s8, bhp1, s6);
-            a(((can) (s2)), true);
+            s2 = new ehi(context);
+            s2.a(aoa1, flag, s1, i1, j1, k1, s8, bib1, s6);
+            a(((cbs) (s2)), true);
             return;
         }
         if (g.e(s2))
         {
-            s2 = new egn(context);
-            s2.a(ani1, s1, bhp1);
-            a(((can) (s2)), false);
+            s2 = new ejp(context);
+            s2.a(aoa1, s1, bib1);
+            a(((cbs) (s2)), false);
             return;
         } else
         {
-            ebw.f("Babel", (new StringBuilder(String.valueOf(s2).length() + 87 + String.valueOf(s1).length())).append("We do not recognize the contentType ").append(s2).append(" for image url ").append(s1).append(" and are not handling the attachment").toString());
+            eev.f("Babel", (new StringBuilder(String.valueOf(s2).length() + 87 + String.valueOf(s1).length())).append("We do not recognize the contentType ").append(s2).append(" for image url ").append(s1).append(" and are not handling the attachment").toString());
             return;
         }
     }
@@ -695,7 +663,7 @@ label1:
             h.b.setVisibility(8);
         } else
         {
-            h.b.setText(ebr.d(s1));
+            h.b.setText(eep.d(s1));
             h.b.setVisibility(0);
         }
         s2 = a(s2, s4);
@@ -730,15 +698,15 @@ label1:
         {
             for (int i1 = 0; i1 < list.size();)
             {
-                can can1 = (can)list.get(i1);
-                if (x.contains(can1))
+                cbs cbs1 = (cbs)list.get(i1);
+                if (x.contains(cbs1))
                 {
                     i1++;
                 } else
                 {
                     list.remove(i1);
-                    can1.b();
-                    viewgroup.removeView((View)can1);
+                    cbs1.b();
+                    viewgroup.removeView((View)cbs1);
                 }
             }
 
@@ -754,43 +722,43 @@ label1:
         int i1;
         if (flag1 && flag)
         {
-            i1 = g.dr;
+            i1 = g.dq;
         } else
         if (flag1 && !flag)
         {
-            i1 = g.dp;
+            i1 = g._flddo;
         } else
         if (!flag1 && flag)
         {
-            i1 = g.dq;
+            i1 = g.dp;
         } else
         {
-            i1 = g._flddo;
+            i1 = g.dn;
         }
         i1 = getResources().getColor(i1);
         if (flag)
         {
             if (flag2)
             {
-                C.setBackgroundResource(com.google.android.apps.hangouts.R.drawable.bO);
+                C.setBackgroundResource(com.google.android.apps.hangouts.R.drawable.bJ);
             } else
             {
-                C.setBackgroundResource(com.google.android.apps.hangouts.R.drawable.bP);
+                C.setBackgroundResource(com.google.android.apps.hangouts.R.drawable.bK);
             }
         } else
         if (flag2)
         {
-            C.setBackgroundResource(com.google.android.apps.hangouts.R.drawable.bM);
+            C.setBackgroundResource(com.google.android.apps.hangouts.R.drawable.bH);
         } else
         {
-            C.setBackgroundResource(com.google.android.apps.hangouts.R.drawable.bN);
+            C.setBackgroundResource(com.google.android.apps.hangouts.R.drawable.bI);
         }
         C.getBackground().setColorFilter(i1, android.graphics.PorterDuff.Mode.SRC_IN);
     }
 
     public static void b(MessageListItemView messagelistitemview)
     {
-        messagelistitemview.H();
+        messagelistitemview.F();
     }
 
     private void b(String s1)
@@ -827,7 +795,7 @@ label0:
         {
             if (!TextUtils.isEmpty(ad))
             {
-                M = new SpannedString(drk.a(ad, s2));
+                M = new SpannedString(due.a(ad, s2));
                 return;
             } else
             {
@@ -841,7 +809,7 @@ label0:
         }
     }
 
-    public static bhp c(MessageListItemView messagelistitemview)
+    public static bib c(MessageListItemView messagelistitemview)
     {
         return messagelistitemview.o;
     }
@@ -871,7 +839,7 @@ label0:
         return messagelistitemview.i;
     }
 
-    public static ani f(MessageListItemView messagelistitemview)
+    public static aoa f(MessageListItemView messagelistitemview)
     {
         return messagelistitemview.ak;
     }
@@ -927,8 +895,8 @@ _L3:
         ai1 = getContext();
         Resources resources = getContext().getResources();
         StringBuilder stringbuilder1 = new StringBuilder();
-        stringbuilder1.append(resources.getString(l.gl, new Object[] {
-            resources.getString(l.ss)
+        stringbuilder1.append(resources.getString(l.fU, new Object[] {
+            resources.getString(l.rL)
         }));
         String s1;
         if (z)
@@ -936,7 +904,7 @@ _L3:
             if (af != null)
             {
                 stringbuilder1.append('\n');
-                stringbuilder1.append(resources.getString(l.su, new Object[] {
+                stringbuilder1.append(resources.getString(l.rN, new Object[] {
                     af
                 }));
             }
@@ -944,14 +912,14 @@ _L3:
         if (!TextUtils.isEmpty(ae))
         {
             stringbuilder1.append('\n');
-            stringbuilder1.append(resources.getString(l.ch, new Object[] {
-                ebz.p(ae)
+            stringbuilder1.append(resources.getString(l.ca, new Object[] {
+                eey.p(ae)
             }));
         }
         if (!z && ac != 0L)
         {
             stringbuilder1.append('\n');
-            stringbuilder1.append(resources.getString(l.jX, new Object[] {
+            stringbuilder1.append(resources.getString(l.jq, new Object[] {
                 g.a(ac).toString()
             }));
         }
@@ -959,12 +927,12 @@ _L3:
         s1 = g.a(y).toString();
         if (z)
         {
-            stringbuilder1.append(resources.getString(l.jX, new Object[] {
+            stringbuilder1.append(resources.getString(l.jq, new Object[] {
                 s1
             }));
         } else
         {
-            stringbuilder1.append(resources.getString(l.jC, new Object[] {
+            stringbuilder1.append(resources.getString(l.iV, new Object[] {
                 s1
             }));
         }
@@ -975,8 +943,8 @@ _L4:
         Context context = getContext();
         resources2 = getContext().getResources();
         StringBuilder stringbuilder2 = new StringBuilder();
-        stringbuilder2.append(resources2.getString(l.gl, new Object[] {
-            resources2.getString(l.gM)
+        stringbuilder2.append(resources2.getString(l.fU, new Object[] {
+            resources2.getString(l.gv)
         }));
         if (!TextUtils.isEmpty(ae))
         {
@@ -984,19 +952,19 @@ _L4:
             int i1;
             if (TextUtils.isEmpty(ae))
             {
-                ai1 = resources2.getString(l.eY);
+                ai1 = resources2.getString(l.eH);
             } else
             {
-                ai1 = ebz.p(ae);
+                ai1 = eey.p(ae);
             }
-            stringbuilder2.append(resources2.getString(l.ch, new Object[] {
+            stringbuilder2.append(resources2.getString(l.ca, new Object[] {
                 ai1
             }));
         }
         if (af != null)
         {
             stringbuilder2.append('\n');
-            stringbuilder2.append(resources2.getString(l.su, new Object[] {
+            stringbuilder2.append(resources2.getString(l.rN, new Object[] {
                 af
             }));
         }
@@ -1004,24 +972,24 @@ _L4:
         ai1 = g.a(y).toString();
         if (!z)
         {
-            stringbuilder2.append(resources2.getString(l.jC, new Object[] {
+            stringbuilder2.append(resources2.getString(l.iV, new Object[] {
                 ai1
             }));
         } else
         {
-            stringbuilder2.append(resources2.getString(l.jX, new Object[] {
+            stringbuilder2.append(resources2.getString(l.jq, new Object[] {
                 ai1
             }));
         }
-        if (!TextUtils.isEmpty(drk.b(getContext(), ad)))
+        if (!TextUtils.isEmpty(due.b(getContext(), ad)))
         {
             stringbuilder2.append('\n');
-            stringbuilder2.append(resources2.getString(l.rf, new Object[] {
+            stringbuilder2.append(resources2.getString(l.qy, new Object[] {
                 ad
             }));
         }
         stringbuilder2.append('\n');
-        i1 = l.ip;
+        i1 = l.hJ;
         aa;
         JVM INSTR tableswitch 128 130: default 592
     //                   128 723
@@ -1029,7 +997,7 @@ _L4:
     //                   130 712;
            goto _L5 _L6 _L5 _L7
 _L5:
-        ai1 = resources2.getString(l.ir);
+        ai1 = resources2.getString(l.hL);
 _L8:
         stringbuilder2.append(resources2.getString(i1, new Object[] {
             ai1
@@ -1037,17 +1005,17 @@ _L8:
         if (ab > 0L)
         {
             stringbuilder2.append('\n');
-            stringbuilder2.append(resources2.getString(l.gj, new Object[] {
-                Long.valueOf(drk.b(ab))
+            stringbuilder2.append(resources2.getString(l.fS, new Object[] {
+                Long.valueOf(due.b(ab))
             }));
         }
         g.c(context, stringbuilder2.toString());
         return;
 _L7:
-        ai1 = resources2.getString(l.io);
+        ai1 = resources2.getString(l.hI);
           goto _L8
 _L6:
-        ai1 = resources2.getString(l.iq);
+        ai1 = resources2.getString(l.hK);
           goto _L8
 _L2:
         if (V == 2)
@@ -1056,15 +1024,15 @@ _L2:
             {
                 StringBuilder stringbuilder = new StringBuilder();
                 Resources resources3 = getContext().getResources();
-                int l1 = l.gl;
+                int l1 = l.fU;
                 Resources resources6 = getContext().getResources();
                 int j1;
-                if (ak.ab())
+                if (ak.Y())
                 {
-                    j1 = l.sH;
+                    j1 = l.sa;
                 } else
                 {
-                    j1 = l.cw;
+                    j1 = l.ck;
                 }
                 stringbuilder.append(resources3.getString(l1, new Object[] {
                     resources6.getString(j1)
@@ -1082,21 +1050,21 @@ _L2:
                 {
                     flag1 = false;
                 }
-                gbh.a("Outbound GV SMS messages must have a Conversation ID", flag1);
-                ai1.f().b(1, null, new efn(this, getContext(), stringbuilder)).u();
+                gdv.a("Outbound GV SMS messages must have a Conversation ID", flag1);
+                ai1.f().b(1, null, new eip(this, getContext(), stringbuilder)).u();
                 return;
             }
             ai1 = new StringBuilder();
             Resources resources1 = getContext().getResources();
-            int i2 = l.gl;
+            int i2 = l.fU;
             Resources resources4 = getContext().getResources();
             int k1;
-            if (ak.ab())
+            if (ak.Y())
             {
-                k1 = l.sH;
+                k1 = l.sa;
             } else
             {
-                k1 = l.cw;
+                k1 = l.ck;
             }
             ai1.append(resources1.getString(i2, new Object[] {
                 resources4.getString(k1)
@@ -1108,8 +1076,8 @@ _L2:
         Context context1 = getContext();
         Resources resources5 = getContext().getResources();
         StringBuilder stringbuilder3 = new StringBuilder();
-        stringbuilder3.append(resources5.getString(l.gl, new Object[] {
-            resources5.getString(l.eU)
+        stringbuilder3.append(resources5.getString(l.fU, new Object[] {
+            resources5.getString(l.eD)
         }));
         boolean flag;
         if (o.R() == 1)
@@ -1126,32 +1094,32 @@ _L2:
         {
             ai1 = o.a(j);
         }
-        if (ai1 != null && !TextUtils.isEmpty(((ceu) (ai1)).e))
+        if (ai1 != null && !TextUtils.isEmpty(((cfz) (ai1)).e))
         {
             stringbuilder3.append('\n');
             if (z && flag)
             {
-                stringbuilder3.append(resources5.getString(l.su, new Object[] {
-                    ((ceu) (ai1)).e
+                stringbuilder3.append(resources5.getString(l.rN, new Object[] {
+                    ((cfz) (ai1)).e
                 }));
             } else
             {
-                stringbuilder3.append(resources5.getString(l.ch, new Object[] {
-                    ((ceu) (ai1)).e
+                stringbuilder3.append(resources5.getString(l.ca, new Object[] {
+                    ((cfz) (ai1)).e
                 }));
             }
         }
         stringbuilder3.append('\n');
-        stringbuilder3.append(resources5.getString(l.jX, new Object[] {
+        stringbuilder3.append(resources5.getString(l.jq, new Object[] {
             g.a(y).toString()
         }));
         g.c(context1, stringbuilder3.toString());
         return;
     }
 
-    public void a(Cursor cursor, int i1, ani ani1, bhp bhp1, boolean flag)
+    public void a(Cursor cursor, int i1, aoa aoa1, bib bib1, boolean flag)
     {
-        ak = ani1;
+        ak = aoa1;
         k = cursor.getPosition();
         ao = null;
         String s1;
@@ -1165,7 +1133,7 @@ _L2:
         {
             flag2 = false;
         }
-        if (cursor.getInt(8) == dqc.b.ordinal())
+        if (cursor.getInt(8) == dsv.b.ordinal())
         {
             flag3 = true;
         } else
@@ -1178,9 +1146,9 @@ _L2:
             j();
             l = s1;
         }
-        al = bhp1.T();
+        al = bib1.T();
         m = cursor.getLong(0);
-        j = new cey(cursor.getString(4), cursor.getString(3));
+        j = new cgd(cursor.getString(4), cursor.getString(3));
         ag = -1;
         ah = cursor.getString(24);
         W = cursor.getInt(33);
@@ -1218,10 +1186,10 @@ _L2:
                     k1 = obj.length;
                     for (j1 = 0; j1 < k1; j1++)
                     {
-                        ((List) (obj1)).add(ebz.p(obj[j1]));
+                        ((List) (obj1)).add(eey.p(obj[j1]));
                     }
 
-                    obj = jgu.a(", ").a(((Iterable) (obj1)));
+                    obj = jno.a(", ").a(((Iterable) (obj1)));
                 }
             }
             af = ((String) (obj));
@@ -1229,7 +1197,7 @@ _L2:
             {
                 ag = cursor.getInt(29);
             }
-            obj1 = drk.b(getContext(), cursor.getString(25));
+            obj1 = due.b(getContext(), cursor.getString(25));
             if (!TextUtils.equals(((CharSequence) (obj1)), ad))
             {
                 ad = ((String) (obj1));
@@ -1245,7 +1213,7 @@ _L2:
             long l2;
             if (!TextUtils.isEmpty(((CharSequence) (obj1))))
             {
-                obj = String.valueOf(getContext().getApplicationContext().getResources().getString(l.rf));
+                obj = String.valueOf(getContext().getApplicationContext().getResources().getString(l.qy));
                 obj1 = String.valueOf(obj1);
                 String s2;
                 if (((String) (obj1)).length() != 0)
@@ -1277,10 +1245,10 @@ _L2:
             A = flag2;
             z = flag3;
             V = j1;
-            K();
+            I();
         }
         obj1 = cursor.getString(5);
-        K = dqb.values()[cursor.getInt(7)];
+        K = dsu.values()[cursor.getInt(7)];
         if (!TextUtils.equals(((CharSequence) (obj1)), f()))
         {
             b(((String) (obj1)));
@@ -1289,19 +1257,19 @@ _L2:
                 g.setVisibility(8);
             } else
             {
-                E();
-                a(ani1.h(), flag);
+                C();
+                a(aoa1.h(), flag);
             }
         }
         obj1 = cursor.getString(9);
         obj2 = cursor.getString(10);
-        if (obj1 != null && ((String) (obj1)).contains(drk.a))
+        if (obj1 != null && ((String) (obj1)).contains(due.a))
         {
-            ao = drk.b(((String) (obj1)));
+            ao = due.b(((String) (obj1)));
         }
-        if (obj2 != null && ((String) (obj2)).contains(drk.a))
+        if (obj2 != null && ((String) (obj2)).contains(due.a))
         {
-            ao = drk.b(((String) (obj2)));
+            ao = due.b(((String) (obj2)));
         }
         obj3 = p;
         if (!TextUtils.isEmpty(((CharSequence) (obj2))))
@@ -1326,7 +1294,7 @@ _L2:
         }
         if (j1 == 0)
         {
-            J();
+            H();
         }
         obj2 = cursor.getString(20);
         if (obj2 == null)
@@ -1337,7 +1305,7 @@ _L2:
             obj1 = obj2;
         }
         ai = ((String) (obj1));
-        obj3 = bhp1.M();
+        obj3 = bib1.M();
         if (!TextUtils.isEmpty(p) || !TextUtils.isEmpty(r))
         {
             if (j1 != 0 && v == null && u == null)
@@ -1350,7 +1318,7 @@ _L2:
                 {
                     obj1 = new String("Image added with no previous attachment view:");
                 }
-                ebw.a("Babel", ((String) (obj1)));
+                eev.a("Babel", ((String) (obj1)));
                 j1 = 0;
             }
             if (ai.equals("multipart/mixed"))
@@ -1358,13 +1326,13 @@ _L2:
                 k1 = 0;
                 for (obj1 = ao.iterator(); ((Iterator) (obj1)).hasNext();)
                 {
-                    obj2 = (drl)((Iterator) (obj1)).next();
+                    obj2 = (duf)((Iterator) (obj1)).next();
                     if (j1 != 0)
                     {
-                        a(k1, ((drl) (obj2)).b, ((drl) (obj2)).a, null, 0L, false);
+                        a(k1, ((duf) (obj2)).b, ((duf) (obj2)).a, null, 0L, false);
                     } else
                     {
-                        a(((drl) (obj2)).a, ((drl) (obj2)).b, ((drl) (obj2)).c, ((drl) (obj2)).d, 0, flag, ani1, bhp1, flag4, null, null, null, 0L, null, 0.0D, 0.0D, null, null, cursor.getString(2), 0, null);
+                        a(((duf) (obj2)).a, ((duf) (obj2)).b, ((duf) (obj2)).c, ((duf) (obj2)).d, 0, flag, aoa1, bib1, flag4, null, null, null, 0L, null, 0.0D, 0.0D, null, null, cursor.getString(2), 0, null);
                         k1++;
                     }
                 }
@@ -1394,39 +1362,39 @@ _L2:
                     s3 = cursor.getString(16);
                     s4 = cursor.getString(17);
                     s5 = cursor.getString(9);
-                    a(p, ai, j1, k1, l1, flag, ani1, bhp1, flag4, r, cursor.getString(4), ((String) (obj1)), l2, ((String) (obj2)), d1, d2, s3, s4, cursor.getString(2), cursor.getInt(39), s5);
+                    a(p, ai, j1, k1, l1, flag, aoa1, bib1, flag4, r, cursor.getString(4), ((String) (obj1)), l2, ((String) (obj2)), d1, d2, s3, s4, cursor.getString(2), cursor.getInt(39), s5);
                 }
             }
         } else
         {
-            J();
+            H();
         }
         R = i1;
-        P = bhp1.f(j);
-        Q = bhp1.g(j);
-        if (bhp1.R() == 1 && !z)
+        P = bib1.f(j);
+        Q = bib1.g(j);
+        if (bib1.R() == 1 && !z)
         {
             if (obj3 != null)
             {
-                a(bhp1.d(((ceu) (obj3)).b), ((ceu) (obj3)).e, ani1);
+                a(bib1.d(((cfz) (obj3)).b), ((cfz) (obj3)).e, aoa1);
             } else
             {
-                a(((String) (null)), ((String) (null)), ani1);
+                a(((String) (null)), ((String) (null)), aoa1);
             }
         } else
         if (z)
         {
-            a(S, ak.c(), ani1);
+            a(S, ak.c(), aoa1);
         } else
         {
-            a(bhp1.d(j), bhp1.f(j), ani1);
+            a(bib1.d(j), bib1.f(j), aoa1);
         }
         k();
         y = cursor.getLong(6) / 1000L;
         l2 = System.currentTimeMillis();
         obj2 = g.b(y, l2, false).toString();
         obj1 = g.b(y, l2, true).toString();
-        if (cursor.getInt(28) == 0 && cursor.getInt(8) == dqc.b.ordinal())
+        if (cursor.getInt(28) == 0 && cursor.getInt(8) == dsv.b.ordinal())
         {
             j1 = 1;
         } else
@@ -1446,7 +1414,7 @@ _L1:
         {
             k1 = 0;
         }
-        efm.a[K.ordinal()];
+        eio.a[K.ordinal()];
         JVM INSTR tableswitch 1 4: default 1488
     //                   1 1910
     //                   2 1910
@@ -1480,10 +1448,10 @@ _L9:
             } else
             if (k1 != 0)
             {
-                I();
+                G();
             } else
             {
-                H();
+                F();
             }
         } else
         if (j1 != 0)
@@ -1522,15 +1490,15 @@ _L2:
         }
         if (h.b.getVisibility() == 0)
         {
-            ani1 = h.b.getText();
+            aoa1 = h.b.getText();
         } else
         {
-            ani1 = bhp1.f(j);
+            aoa1 = bib1.f(j);
         }
-        a(((CharSequence) (ani1)), ((String) (obj)), ((CharSequence) (cursor)));
+        a(((CharSequence) (aoa1)), ((String) (obj)), ((CharSequence) (cursor)));
         if (g())
         {
-            if (C())
+            if (A())
             {
                 setOnClickListener(this);
             } else
@@ -1543,35 +1511,35 @@ _L2:
             return;
         } else
         {
-            D();
+            B();
             return;
         }
 _L4:
         i1 = 1;
 _L5:
-        if (K == dqb.e)
+        if (K == dsu.e)
         {
             y();
         }
         if (k1 == 0) goto _L8; else goto _L7
 _L7:
-        j1 = l.gI;
+        j1 = l.gr;
 _L11:
         cursor = this;
         cursor.a(((MessageListItemView) (cursor)).h.b.getContext().getString(j1), null, null, null);
         j1 = l1;
           goto _L9
 _L8:
-        if (G())
+        if (E())
         {
-            ani1 = null;
+            aoa1 = null;
         } else
         {
-            ani1 = Q;
+            aoa1 = Q;
         }
         if (V == 2)
         {
-            if (ak != null && ak.ab())
+            if (ak != null && ak.Y())
             {
                 cursor = c;
             } else
@@ -1594,7 +1562,7 @@ _L8:
         {
             cursor = "";
         }
-        a(((String) (ani1)), ((String) (obj2)), ((String) (obj1)), ((String) (cursor)));
+        a(((String) (aoa1)), ((String) (obj2)), ((String) (obj1)), ((String) (cursor)));
         if (ag == 0)
         {
             h.e.setVisibility(0);
@@ -1615,82 +1583,82 @@ _L6:
         default:
             if (k1 != 0)
             {
-                j1 = l.hY;
+                j1 = l.hs;
                 i1 = 0;
             } else
             {
-                j1 = l.hZ;
+                j1 = l.ht;
                 i1 = 0;
             }
             break;
 
         case 123: // '{'
-            j1 = l.gC;
+            j1 = l.gl;
             i1 = 0;
             break;
 
         case 124: // '|'
-            j1 = l.gG;
+            j1 = l.gp;
             i1 = 0;
             break;
 
         case 125: // '}'
-            j1 = l.gw;
+            j1 = l.gf;
             i1 = 0;
             break;
 
         case 126: // '~'
-            j1 = l.gD;
+            j1 = l.gm;
             i1 = 0;
             break;
 
         case 127: // '\177'
-            j1 = l.gA;
+            j1 = l.gj;
             i1 = 0;
             break;
 
         case 132: 
-            j1 = l.gt;
+            j1 = l.gc;
             i1 = 0;
             break;
 
         case 134: 
-            j1 = l.gu;
+            j1 = l.gd;
             i1 = 0;
             break;
 
         case 129: 
-            j1 = l.gv;
+            j1 = l.ge;
             i1 = 0;
             break;
 
         case 133: 
-            j1 = l.gy;
+            j1 = l.gh;
             i1 = 0;
             break;
 
         case 128: 
-            j1 = l.gz;
+            j1 = l.gi;
             i1 = 0;
             break;
 
         case 130: 
-            j1 = l.gB;
+            j1 = l.gk;
             i1 = 0;
             break;
 
         case 135: 
-            j1 = l.gE;
+            j1 = l.gn;
             i1 = 0;
             break;
 
         case 131: 
-            j1 = l.gF;
+            j1 = l.go;
             i1 = 0;
             break;
 
         case 136: 
-            j1 = l.gx;
+            j1 = l.gg;
             i1 = 0;
             break;
         }
@@ -1699,14 +1667,14 @@ _L10:
           goto _L9
     }
 
-    public void a(bhp bhp1)
+    public void a(bib bib1)
     {
-        o = bhp1;
+        o = bib1;
     }
 
-    public void a(efa efa1)
+    public void a(eic eic1)
     {
-        n = efa1;
+        n = eic1;
     }
 
     public void a(String s1)
@@ -1714,11 +1682,11 @@ _L10:
         S = s1;
     }
 
-    public void a(String s1, String s2, ani ani1)
+    public void a(String s1, String s2, aoa aoa1)
     {
         if (i != null)
         {
-            i.a(s1, s2, ani1);
+            i.a(s1, s2, aoa1);
         }
     }
 
@@ -1745,19 +1713,19 @@ _L4:
         ObjectAnimator objectanimator = ObjectAnimator.ofFloat(this, "sendingStatusDelayedShrinkPercentage", new float[] {
             1.0F, 0.0F
         });
-        objectanimator.setDuration(getResources().getInteger(g.eZ));
+        objectanimator.setDuration(getResources().getInteger(g.eX));
         objectanimator.setStartDelay(350L);
-        objectanimator.setInterpolator(new aia((byte)0));
-        objectanimator.addListener(new efi(this));
+        objectanimator.setInterpolator(new aht((byte)0));
+        objectanimator.addListener(new eik(this));
         objectanimator.start();
         continue; /* Loop/switch isn't completed */
 _L5:
         ObjectAnimator objectanimator1 = ObjectAnimator.ofFloat(this, "sendingStatusShrinkPercentage", new float[] {
             1.0F, 0.0F
         });
-        objectanimator1.setDuration(getResources().getInteger(g.eZ));
-        objectanimator1.setInterpolator(new aia((byte)0));
-        objectanimator1.addListener(new efj(this));
+        objectanimator1.setDuration(getResources().getInteger(g.eX));
+        objectanimator1.setInterpolator(new aht((byte)0));
+        objectanimator1.addListener(new eil(this));
         objectanimator1.start();
         if (true) goto _L3; else goto _L6
 _L6:
@@ -1817,9 +1785,7 @@ _L6:
     public void c(boolean flag)
     {
         boolean flag2 = true;
-        FrameLayout framelayout;
         boolean flag1;
-        int i1;
         if (t.getChildCount() > 0)
         {
             flag1 = true;
@@ -1827,15 +1793,19 @@ _L6:
         {
             flag1 = false;
         }
-        framelayout = D;
-        if ((flag || flag1) && !z)
+        if (D != null)
         {
-            i1 = 0;
-        } else
-        {
-            i1 = 4;
+            FrameLayout framelayout = D;
+            int i1;
+            if ((flag || flag1) && !z)
+            {
+                i1 = 0;
+            } else
+            {
+                i1 = 4;
+            }
+            framelayout.setVisibility(i1);
         }
-        framelayout.setVisibility(i1);
         if (flag && !flag1)
         {
             flag = flag2;
@@ -1849,7 +1819,7 @@ _L6:
 
     public boolean c()
     {
-        return K == dqb.c;
+        return K == dsu.c;
     }
 
     public void d()
@@ -1874,7 +1844,7 @@ _L6:
         {
             s2 = s3;
         }
-        (new efg(this, s1, s2)).a(new Void[0]);
+        (new eii(this, s1, s2)).a(new Void[0]);
     }
 
     public CharSequence e()
@@ -1889,18 +1859,18 @@ _L6:
 
     public boolean g()
     {
-        return z && bhp.a(K) || W == 2;
+        return z && bib.a(K) || W == 2;
     }
 
     public void h()
     {
         if (u != null)
         {
-            for (Iterator iterator = u.iterator(); iterator.hasNext(); ((can)iterator.next()).f_()) { }
+            for (Iterator iterator = u.iterator(); iterator.hasNext(); ((cbs)iterator.next()).h_()) { }
         }
         if (v != null)
         {
-            for (Iterator iterator1 = v.iterator(); iterator1.hasNext(); ((can)iterator1.next()).f_()) { }
+            for (Iterator iterator1 = v.iterator(); iterator1.hasNext(); ((cbs)iterator1.next()).h_()) { }
         }
     }
 
@@ -1908,11 +1878,11 @@ _L6:
     {
         if (u != null)
         {
-            for (Iterator iterator = u.iterator(); iterator.hasNext(); ((can)iterator.next()).c()) { }
+            for (Iterator iterator = u.iterator(); iterator.hasNext(); ((cbs)iterator.next()).c()) { }
         }
         if (v != null)
         {
-            for (Iterator iterator1 = v.iterator(); iterator1.hasNext(); ((can)iterator1.next()).c()) { }
+            for (Iterator iterator1 = v.iterator(); iterator1.hasNext(); ((cbs)iterator1.next()).c()) { }
         }
     }
 
@@ -1923,7 +1893,7 @@ _L6:
             CharSequence charsequence = g.getText();
             if (charsequence != null && ((charsequence instanceof SpannableString) || (charsequence instanceof SpannedString)))
             {
-                edy.a(getContext()).a((Spanned)charsequence);
+                eha.a(getContext()).a((Spanned)charsequence);
             }
             g.setText(null);
             g.setMovementMethod(null);
@@ -1953,7 +1923,7 @@ _L6:
         j = null;
         p = null;
         q = null;
-        J();
+        H();
         z();
     }
 
@@ -1962,13 +1932,13 @@ _L6:
         U = 1.0F;
     }
 
-    public drl l()
+    public duf l()
     {
         while (ao != null || !g.b(ai) && !g.d(ai)) 
         {
             return null;
         }
-        return L();
+        return J();
     }
 
     public List m()
@@ -1979,7 +1949,7 @@ _L6:
         } else
         {
             ArrayList arraylist = new ArrayList();
-            arraylist.add(L());
+            arraylist.add(J());
             return arraylist;
         }
     }
@@ -2017,7 +1987,11 @@ _L6:
 
     public void onFinishInflate()
     {
-        i = (AvatarView)D.findViewById(h.H);
+        C = (MessageBubbleView)findViewById(h.dB);
+        D = (FrameLayout)findViewById(h.G);
+        h = (MessageStatusView)findViewById(h.dF);
+        t = (LinearLayout)findViewById(h.dZ);
+        i = (AvatarView)findViewById(h.H);
         if (i != null)
         {
             i.setClickable(true);
@@ -2025,17 +1999,17 @@ _L6:
             i.setLongClickable(true);
             i.setOnLongClickListener(this);
         }
-        g = (TextView)C.findViewById(h.dM);
-        efh efh1 = new efh(this);
-        if (C())
+        g = (TextView)C.findViewById(h.dA);
+        eij eij1 = new eij(this);
+        if (A())
         {
-            setOnLongClickListener(efh1);
+            setOnLongClickListener(eij1);
         } else
         {
-            g.setOnLongClickListener(efh1);
+            g.setOnLongClickListener(eij1);
         }
-        K();
-        D();
+        I();
+        B();
         s = (ViewGroup)C.findViewById(h.w);
     }
 
@@ -2059,111 +2033,9 @@ _L6:
         return flag;
     }
 
-    protected void onLayout(boolean flag, int i1, int j1, int k1, int l1)
-    {
-        int j2;
-        int k2;
-        int i3;
-        int ai1[] = A();
-        j2 = C.getMeasuredWidth();
-        int i2 = C.getMeasuredHeight();
-        int l2 = t.getMeasuredWidth();
-        k2 = t.getMeasuredHeight();
-        if (!z)
-        {
-            l1 = D.getMeasuredWidth();
-            j1 = D.getMeasuredHeight();
-            int j3;
-            if (B())
-            {
-                i1 = k1 - i1 - getPaddingRight() - (int)((float)l1 * U);
-            } else
-            {
-                i1 = getPaddingLeft();
-            }
-            k1 = getPaddingTop();
-            D.layout(i1, k1, i1 + l1, j1 + k1);
-            if (B())
-            {
-                j1 = i1 - j2;
-            } else
-            {
-                j1 = ai1[0] + (i1 + l1);
-            }
-            if (B())
-            {
-                i1 -= l2;
-            } else
-            {
-                i1 += l1;
-            }
-        } else
-        {
-            D.setVisibility(8);
-            if (B())
-            {
-                j1 = ai1[0] + i1;
-            } else
-            {
-                j1 = k1 - j2 - ai1[0];
-            }
-            if (!B())
-            {
-                i1 = k1 - l2;
-            }
-        }
-        l1 = getPaddingTop();
-        j3 = getPaddingTop();
-        k1 = l1;
-        if (t.getVisibility() == 0)
-        {
-            t.layout(i1, j3, i1 + l2, j3 + k2);
-            k1 = l1 + k2;
-        }
-        l1 = h.getMeasuredHeight();
-        i3 = h.getMeasuredWidth();
-        if (z ^ B())
-        {
-            i1 = (i1 + l2) - i3 - t.getPaddingLeft();
-        } else
-        {
-            i1 += t.getPaddingLeft();
-        }
-        k2 = j3 + k2;
-        if (C.getVisibility() != 0)
-        {
-            break MISSING_BLOCK_LABEL_476;
-        }
-        C.layout(j1, k1, j1 + j2, k1 + i2);
-        if (!z) goto _L2; else goto _L1
-_L1:
-        if (B()) goto _L4; else goto _L3
-_L3:
-        i1 = (j1 + j2) - C.getPaddingRight() - i3;
-_L6:
-        j1 = k2 + i2;
-_L7:
-        if (h.getVisibility() == 0)
-        {
-            h.layout(i1, j1, i1 + i3, j1 + l1);
-        }
-        return;
-_L2:
-        if (!B()) goto _L4; else goto _L5
-_L5:
-        i1 = (j1 + j2) - C.getPaddingRight() - i3;
-          goto _L6
-_L4:
-        i1 = C.getPaddingLeft() + j1;
-          goto _L6
-        j1 = t.getPaddingBottom();
-        j1 = k2 - j1;
-          goto _L7
-    }
-
     public boolean onLongClick(View view)
     {
-        if (view == i && !G() && !TextUtils.isEmpty(Q))
+        if (view == i && !E() && !TextUtils.isEmpty(Q))
         {
             n.c(Q.replaceAll("\\s+", "_"));
             return true;
@@ -2171,44 +2043,6 @@ _L4:
         {
             return false;
         }
-    }
-
-    protected void onMeasure(int i1, int j1)
-    {
-        int k1 = 0;
-        int ai1[] = A();
-        int l1 = android.view.View.MeasureSpec.getSize(i1);
-        int i2 = android.view.View.MeasureSpec.makeMeasureSpec(0, 0);
-        j1 = l1 - ai1[0] - ai1[1];
-        i1 = j1;
-        if (!z)
-        {
-            D.measure(i2, i2);
-            i1 = j1 - D.getMeasuredWidth();
-        }
-        int j2 = android.view.View.MeasureSpec.makeMeasureSpec(i1, 0x80000000);
-        if (t.getVisibility() == 0)
-        {
-            t.measure(j2, i2);
-            i1 = t.getMeasuredHeight();
-        } else
-        {
-            i1 = 0;
-        }
-        if (C.getVisibility() == 0)
-        {
-            C.measure(j2, i2);
-            j1 = C.getMeasuredHeight();
-        } else
-        {
-            j1 = 0;
-        }
-        if (h.getVisibility() == 0)
-        {
-            h.measure(j2, i2);
-            k1 = h.getMeasuredHeight();
-        }
-        setMeasuredDimension(l1, Math.max(D.getMeasuredHeight(), i1 + j1 + k1) + getPaddingBottom() + getPaddingTop());
     }
 
     public int p()
@@ -2240,11 +2074,11 @@ _L4:
     {
         if (u != null)
         {
-            for (Iterator iterator = u.iterator(); iterator.hasNext(); ((can)iterator.next()).d()) { }
+            for (Iterator iterator = u.iterator(); iterator.hasNext(); ((cbs)iterator.next()).d()) { }
         }
         if (v != null)
         {
-            for (Iterator iterator1 = v.iterator(); iterator1.hasNext(); ((can)iterator1.next()).d()) { }
+            for (Iterator iterator1 = v.iterator(); iterator1.hasNext(); ((cbs)iterator1.next()).d()) { }
         }
     }
 
@@ -2255,7 +2089,7 @@ _L4:
             return;
         }
         T = true;
-        post(new efk(this));
+        post(new eim(this));
     }
 
     public boolean v()
@@ -2293,10 +2127,10 @@ _L4:
         TranslateAnimation translateanimation = new TranslateAnimation(1, 0.0F, 1, 0.0F, 1, 0.0F, 1, 1.0F);
         am = translateanimation;
         translateanimation.setDuration(200L);
-        am.setInterpolator(new aib());
+        am.setInterpolator(new ahu());
         translateanimation = new TranslateAnimation(1, 0.0F, 1, 0.0F, 1, 1.0F, 1, 0.0F);
         an = translateanimation;
         translateanimation.setDuration(350L);
-        an.setInterpolator(new aib());
+        an.setInterpolator(new ahu());
     }
 }

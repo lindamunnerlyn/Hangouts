@@ -2,20 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.view.View;
 
-public final class byt
+final class byt
+    implements android.view.View.OnClickListener
 {
 
-    public static final String a = byf.getName();
-    private static bys b;
+    final String a;
+    final bys b;
 
-    public static void a(hgx hgx1)
+    byt(bys bys1, String s)
     {
-        if (b == null)
-        {
-            b = new bys();
-        }
-        hgx1.a(byf, new byq());
+        b = bys1;
+        a = s;
+        super();
     }
 
+    public void onClick(View view)
+    {
+        b.getContext().startActivity(g.s(a));
+    }
 }

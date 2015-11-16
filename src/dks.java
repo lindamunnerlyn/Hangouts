@@ -2,42 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import org.chromium.net.UrlRequestContextConfig;
 
-public final class dks
+public final class dks extends dkr
 {
 
-    public static final String a = org/chromium/net/UrlRequestContextConfig.getName();
-    public static final String b = hdw.getName();
-    public static final String c = beb.getName();
-    private static dkr d;
-
-    public static void a(Context context, hgx hgx1)
+    public dks(dnh dnh1)
     {
-        if (d == null)
-        {
-            d = new dkr();
-        }
-        hgx1.a(org/chromium/net/UrlRequestContextConfig, d.b(context));
+        super(dnh1.c, dnh1.d, dnh1.e, dnh1.n, dnh1.m, dnh1.l, dnh1.f, dnh1.h, dnh1.i, dsu.e, dnh1.u);
     }
 
-    public static void a(hgx hgx1)
+    public void c(aow aow)
     {
-        if (d == null)
-        {
-            d = new dkr();
-        }
-        hgx1.a(beb, d.a());
+        a(aow);
     }
-
-    public static void b(Context context, hgx hgx1)
-    {
-        if (d == null)
-        {
-            d = new dkr();
-        }
-        hgx1.a(hdw, d.a(context));
-    }
-
 }

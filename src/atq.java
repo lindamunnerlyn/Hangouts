@@ -6,9 +6,9 @@
 public interface atq
 {
 
-    public abstract int a();
+    public abstract void a();
 
-    public abstract boolean b();
+    public abstract void a(int i);
 
-    public abstract boolean c();
+    public abstract void b();
 }

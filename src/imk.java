@@ -2,112 +2,83 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collections;
-import java.util.IdentityHashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public final class imk
-    implements ilx
+public final class imk extends kwm
 {
 
-    private static final Pattern a = Pattern.compile("(ChromiumNet)|(SharedPreferencesImpl-load)|(Bound thread pool)|(RenderThread)|(SamplingProfiler)|(SamplingProfilerIntegration)|(hwuiTask[0-9])|(Lightweight Thread #[\\d]*)|(Background Thread #[\\d]*)|(Blocking Thread #[\\d]*)|(java.lang.ProcessManager)|(cr.CleanupReference)|(CleanupReference)|(SettinsObserver)|(SettingsObserver)|(JavaBridge)|NotificationManagerCompat|(PanoramaClient)|(GLThread [\\d]*)|(TileDecoder)|(BackgroundTask #[\\d])|(FrameSequence decoding thread)|(Login Manager Threadpool)|(GifDecoder)|(AsyncTask #[\\d]*)|(Resource Decoder Thread #[\\d])|(ImageLoader)|(PowerManagerThread)|(source-thread-[\\d])|(disk-cache-thread-[\\d])|(IntentService.Gns:IntentService.)|(IntentService.GcmReceiveMessageService.)|(ANDROID_TEST_UTIL_THREAD)");
-    private static final Pattern b = Pattern.compile("pool-[0-9]+-thread-1");
-    private final ScheduledExecutorService c;
-    private final Set d;
-    private ScheduledFuture e;
+    public Integer a;
+    public imi b;
 
-    imk(ScheduledExecutorService scheduledexecutorservice, Set set)
+    public imk()
     {
-        c = scheduledexecutorservice;
-        d = set;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    static ScheduledFuture a(imk imk1)
+    protected int computeSerializedSize()
     {
-        return imk1.e;
-    }
-
-    static boolean a(Set set)
-    {
-        boolean flag1;
-label0:
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            boolean flag2 = true;
-            set = set.iterator();
-            for (boolean flag = false; set.hasNext(); flag = true)
-            {
-                String s = ((Thread)set.next()).getName();
-                flag1 = flag2;
-                if (!b.matcher(s).matches())
-                {
-                    break label0;
-                }
-                flag1 = flag2;
-                if (flag)
-                {
-                    break label0;
-                }
-            }
-
-            flag1 = false;
+            i = j + kwk.e(1, a.intValue());
         }
-        return flag1;
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(2, b);
+        }
+        return j;
     }
 
-    static boolean a(StackTraceElement astacktraceelement[])
+    public kws mergeFrom(kwj kwj1)
     {
-        return b(astacktraceelement);
-    }
-
-    static Pattern b()
-    {
-        return a;
-    }
-
-    private static boolean b(StackTraceElement astacktraceelement[])
-    {
-        if (astacktraceelement.length != 0) goto _L2; else goto _L1
+_L5:
+        int i = kwj1.a();
+        i;
+        JVM INSTR lookupswitch 3: default 40
+    //                   0: 49
+    //                   8: 51
+    //                   18: 102;
+           goto _L1 _L2 _L3 _L4
 _L1:
-        return true;
+        if (super.storeUnknownField(kwj1, i)) goto _L5; else goto _L2
 _L2:
-        astacktraceelement = astacktraceelement[astacktraceelement.length - 1];
-        if (!java/lang/Thread.isAssignableFrom(Class.forName(astacktraceelement.getClassName()))) goto _L1; else goto _L3
+        return this;
 _L3:
-        boolean flag = astacktraceelement.getMethodName().equals("run");
-        if (flag)
+        int j = kwj1.f();
+        switch (j)
         {
-            return false;
+        case 1: // '\001'
+        case 2: // '\002'
+        case 3: // '\003'
+        case 4: // '\004'
+            a = Integer.valueOf(j);
+            break;
         }
-          goto _L1
-        astacktraceelement;
-        throw new RuntimeException("Class in stack trace not found", astacktraceelement);
+        continue; /* Loop/switch isn't completed */
+_L4:
+        if (b == null)
+        {
+            b = new imi();
+        }
+        kwj1.a(b);
+        if (true) goto _L5; else goto _L6
+_L6:
     }
 
-    public void a()
+    public void writeTo(kwk kwk1)
     {
-        boolean flag = true;
-        if (!d.isEmpty())
+        if (a != null)
         {
-            if (d.size() != 1)
-            {
-                flag = false;
-            }
-            g.b(flag);
-            if (((Boolean)d.iterator().next()).booleanValue())
-            {
-                return;
-            }
+            kwk1.a(1, a.intValue());
         }
-        Set set = Collections.newSetFromMap(new IdentityHashMap());
-        for (Iterator iterator = Thread.getAllStackTraces().keySet().iterator(); iterator.hasNext(); set.add((Thread)iterator.next())) { }
-        e = c.scheduleAtFixedRate(new iml(this, set), 0L, 500L, TimeUnit.MILLISECONDS);
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        super.writeTo(kwk1);
     }
-
 }

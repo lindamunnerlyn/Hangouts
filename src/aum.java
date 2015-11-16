@@ -2,28 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.ContentObserver;
-import android.net.Uri;
-import android.os.Handler;
+import android.content.Context;
 
-final class aum extends ContentObserver
+final class aum extends coj
 {
 
-    final auk a;
+    final aui a;
 
-    aum(auk auk1, Handler handler)
+    aum(aui aui1, String s)
     {
-        a = auk1;
-        super(handler);
+        a = aui1;
+        super(s);
     }
 
-    public void onChange(boolean flag)
+    public void a()
     {
-        onChange(flag, null);
-    }
-
-    public void onChange(boolean flag, Uri uri)
-    {
-        auk.b(a);
+        a.a.startActivity(g.b(a.b.h(), a.c.a));
     }
 }

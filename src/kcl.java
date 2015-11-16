@@ -3,20 +3,36 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kcl extends koj
+public final class kcl extends kwm
 {
 
-    public String a;
-    public kcm b;
-    public kcn c;
+    private static volatile kcl b[];
+    public Integer a;
 
     public kcl()
     {
         a = null;
-        b = null;
-        c = null;
         unknownFieldData = null;
         cachedSize = -1;
+    }
+
+    public static kcl[] a()
+    {
+        if (b == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (b == null)
+                {
+                    b = new kcl[0];
+                }
+            }
+        }
+        return b;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
     protected int computeSerializedSize()
@@ -25,30 +41,20 @@ public final class kcl extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.b(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.d(3, c);
+            i = j + kwk.e(1, a.intValue());
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -57,43 +63,19 @@ public final class kcl extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new kcm();
-                }
-                kog1.a(b);
-                break;
-
-            case 26: // '\032'
-                if (c == null)
-                {
-                    c = new kcn();
-                }
-                kog1.a(c);
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a);
+            kwk1.a(1, a.intValue());
         }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        if (c != null)
-        {
-            koh1.b(3, c);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

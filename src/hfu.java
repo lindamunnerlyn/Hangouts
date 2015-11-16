@@ -2,66 +2,61 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.view.View;
-import com.google.android.libraries.social.settings.PreferenceScreen;
+import android.content.Context;
+import java.io.InputStream;
+import java.nio.channels.Channels;
+import java.util.Map;
+import org.chromium.net.HttpUrlRequest;
 
-public final class hfu
-    implements fsn, hfy, hjd, hjf, hkb
+final class hfu extends hfm
 {
 
-    private final heo a;
-    private bg b;
-    private hfv c;
-    private PreferenceScreen d;
+    private final Context h;
+    private final String i;
+    private final String j;
+    private final long k = 0L;
+    private final long l;
+    private final InputStream m;
+    private final boolean n;
+    private final hfx o;
+    private HttpUrlRequest p;
 
-    private hfu(heo heo1, hfv hfv1, hjm hjm1)
+    public hfu(Context context, hik hik1, String s, String s1, long l1, long l2, InputStream inputstream, boolean flag, hfx hfx)
     {
-        a = heo1;
-        c = (hfv)g.d(hfv1);
-        hjm1.a(this);
+        super(hik1);
+        h = context;
+        i = s;
+        j = s1;
+        l = l2;
+        m = inputstream;
+        n = flag;
+        o = hfx;
     }
 
-    public hfu(heo heo1, hjm hjm1)
+    public void a()
     {
-        this(heo1, (hfv)heo1, hjm1);
+        gz gz1 = new gz();
+        gz1.putAll(j().a(i));
+        long l1 = k;
+        long l2 = l;
+        long l3 = l;
+        gz1.put("Content-Range", (new StringBuilder(68)).append("bytes ").append(l1).append("-").append(l2 - 1L).append("/").append(l3).toString());
+        p = hgc.a(h, i, 3, gz1, g);
+        p.a(j, new hgb(Channels.newChannel(m), o, l - k), l - k);
+        p.a("PUT");
     }
 
-    public PreferenceScreen a()
+    protected void a(HttpUrlRequest httpurlrequest)
     {
-        if (d == null)
-        {
-            throw new IllegalStateException("PreferenceScreen cannot be accessed before OnCreateView");
-        } else
-        {
-            return d;
-        }
     }
 
-    public void a(ad ad)
+    protected HttpUrlRequest b()
     {
-        b.a(ad, null);
+        return p;
     }
 
-    public void a(View view, Bundle bundle)
+    public void c()
     {
-        if (bundle == null)
-        {
-            b = a.getChildFragmentManager().a();
-            c.a();
-            b.b();
-            b = null;
-        }
-    }
-
-    public void b()
-    {
-        PreferenceScreen preferencescreen = a.b().a(a.a);
-        a.a(preferencescreen);
-        d = preferencescreen;
-    }
-
-    public void b(Bundle bundle)
-    {
+        p.i();
     }
 }

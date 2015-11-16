@@ -4,33 +4,31 @@
 
 import android.content.Context;
 
-final class ajg
+public final class ajg extends ctf
 {
-
-    private boolean a;
-    private final beb b = (new bec()).a("businessfeatures").b("Module that hosts the business features promo.").a(true).a();
 
     public ajg()
     {
-        a = false;
-        a = g.a(g.nS, "babel_enable_call_me_maybe", true);
     }
 
-    public beb[] a()
+    public ctg a()
     {
-        return (new beb[] {
-            b
-        });
+        return new ajf();
     }
 
-    public cqv[] a(Context context)
+    public boolean a(Context context)
     {
-        if (a)
-        {
-            return (cqv[])b.a(context, cqv, new ajj());
-        } else
-        {
-            return null;
-        }
+        context = dcn.e(((gqu)hlp.a(context, gqu)).a());
+        return context != null && context.D() && context.E() && !context.G();
+    }
+
+    public int b()
+    {
+        return ctl.h;
+    }
+
+    public int c()
+    {
+        return g.ip;
     }
 }

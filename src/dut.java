@@ -2,36 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.telecom.PhoneAccountHandle;
 
 final class dut
-    implements gbe
+    implements Runnable
 {
 
-    final PhoneAccountHandle a;
-    final dur b;
+    final aoa a;
 
-    dut(dur dur1, PhoneAccountHandle phoneaccounthandle)
+    dut(aoa aoa1)
     {
-        b = dur1;
-        a = phoneaccounthandle;
+        a = aoa1;
         super();
     }
 
-    public void a(kop kop)
+    public void run()
     {
-        if (!b.b.g())
-        {
-            dur.a(b, a);
-        }
-    }
-
-    public void b(kop kop)
-    {
-        ebw.f("Babel_telephony", "TeleHandoffWifiToCellular.prepareForHandoff, failed to prepare server. Trying handoff anyway.");
-        if (!b.b.g())
-        {
-            dur.a(b, a);
-        }
+        aoc.b(g.nU, a.h(), "sms_last_sync_time_millis");
+        aoc.b(g.nU, a.h(), "sms_last_full_sync_time_millis");
+        aoc.b(g.nU, a.h(), "sms_no_full_sync_till_millis");
+        aoq.a(new aow(g.nU, a.h()));
     }
 }

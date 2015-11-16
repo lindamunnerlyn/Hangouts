@@ -5,27 +5,27 @@
 package com.google.android.libraries.social.login.settings;
 
 import android.os.Bundle;
-import gys;
-import gyy;
 import h;
-import hgt;
-import hgx;
-import hhj;
+import hdl;
+import hdr;
+import hll;
+import hlp;
+import hmb;
 
-public final class LoginSettingsActivity extends hhj
-    implements gyy
+public final class LoginSettingsActivity extends hmb
+    implements hdr
 {
 
     public LoginSettingsActivity()
     {
-        new hgt(this, q);
-        new gys(this, this, q);
+        new hll(this, r);
+        new hdl(this, this, r);
     }
 
     protected void a(Bundle bundle)
     {
         super.a(bundle);
-        p.a(gyy, this);
+        q.a(hdr, this);
     }
 
     public void j()
@@ -41,6 +41,6 @@ public final class LoginSettingsActivity extends hhj
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
-        setContentView(h.js);
+        setContentView(h.jr);
     }
 }

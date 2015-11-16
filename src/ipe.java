@@ -3,101 +3,65 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ipe extends koj
+public final class ipe extends kwm
 {
 
-    public ioy a[];
-    public long b[];
-    public String c[];
+    private static volatile ipe c[];
+    public String a;
+    public String b;
 
     public ipe()
     {
-        a = ioy.a();
-        b = kou.b;
-        c = kou.f;
+        a = null;
+        b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
+    public static ipe[] a()
+    {
+        if (c == null)
+        {
+            synchronized (kwq.a)
+            {
+                if (c == null)
+                {
+                    c = new ipe[0];
+                }
+            }
+        }
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
+    }
+
     protected int computeSerializedSize()
     {
-        boolean flag = false;
-        int i = super.computeSerializedSize();
-        int j = i;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            j = i;
-            if (a.length > 0)
-            {
-                for (j = 0; j < a.length;)
-                {
-                    ioy ioy1 = a[j];
-                    int k = i;
-                    if (ioy1 != null)
-                    {
-                        k = i + koh.d(1, ioy1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-                j = i;
-            }
-        }
-        i = j;
-        if (b != null)
-        {
-            i = j;
-            if (b.length > 0)
-            {
-                i = 0;
-                int l = 0;
-                for (; i < b.length; i++)
-                {
-                    l += koh.b(b[i]);
-                }
-
-                i = j + l + b.length * 1;
-            }
+            i = j + kwk.b(1, a);
         }
         j = i;
-        if (c != null)
+        if (b != null)
         {
-            j = i;
-            if (c.length > 0)
-            {
-                int i1 = 0;
-                int j1 = 0;
-                for (j = ((flag) ? 1 : 0); j < c.length;)
-                {
-                    String s = c[j];
-                    int l1 = i1;
-                    int k1 = j1;
-                    if (s != null)
-                    {
-                        k1 = j1 + 1;
-                        l1 = i1 + koh.a(s);
-                    }
-                    j++;
-                    i1 = l1;
-                    j1 = k1;
-                }
-
-                j = i + i1 + j1 * 1;
-            }
+            j = i + kwk.b(2, b);
         }
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -107,163 +71,26 @@ public final class ipe extends koj
                 return this;
 
             case 10: // '\n'
-                int j1 = kou.b(kog1, 10);
-                ioy aioy[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                aioy = new ioy[j1 + j];
-                j1 = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aioy, 0, j);
-                    j1 = j;
-                }
-                for (; j1 < aioy.length - 1; j1++)
-                {
-                    aioy[j1] = new ioy();
-                    kog1.a(aioy[j1]);
-                    kog1.a();
-                }
-
-                aioy[j1] = new ioy();
-                kog1.a(aioy[j1]);
-                a = aioy;
-                break;
-
-            case 16: // '\020'
-                int k1 = kou.b(kog1, 16);
-                long al[];
-                int k;
-                if (b == null)
-                {
-                    k = 0;
-                } else
-                {
-                    k = b.length;
-                }
-                al = new long[k1 + k];
-                k1 = k;
-                if (k != 0)
-                {
-                    System.arraycopy(b, 0, al, 0, k);
-                    k1 = k;
-                }
-                for (; k1 < al.length - 1; k1++)
-                {
-                    al[k1] = kog1.e();
-                    kog1.a();
-                }
-
-                al[k1] = kog1.e();
-                b = al;
+                a = kwj1.j();
                 break;
 
             case 18: // '\022'
-                int j2 = kog1.c(kog1.p());
-                int l = kog1.r();
-                int l1;
-                for (l1 = 0; kog1.q() > 0; l1++)
-                {
-                    kog1.e();
-                }
-
-                kog1.e(l);
-                long al1[];
-                if (b == null)
-                {
-                    l = 0;
-                } else
-                {
-                    l = b.length;
-                }
-                al1 = new long[l1 + l];
-                l1 = l;
-                if (l != 0)
-                {
-                    System.arraycopy(b, 0, al1, 0, l);
-                    l1 = l;
-                }
-                for (; l1 < al1.length; l1++)
-                {
-                    al1[l1] = kog1.e();
-                }
-
-                b = al1;
-                kog1.d(j2);
-                break;
-
-            case 26: // '\032'
-                int i2 = kou.b(kog1, 26);
-                String as[];
-                int i1;
-                if (c == null)
-                {
-                    i1 = 0;
-                } else
-                {
-                    i1 = c.length;
-                }
-                as = new String[i2 + i1];
-                i2 = i1;
-                if (i1 != 0)
-                {
-                    System.arraycopy(c, 0, as, 0, i1);
-                    i2 = i1;
-                }
-                for (; i2 < as.length - 1; i2++)
-                {
-                    as[i2] = kog1.j();
-                    kog1.a();
-                }
-
-                as[i2] = kog1.j();
-                c = as;
+                b = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        boolean flag = false;
-        if (a != null && a.length > 0)
+        if (a != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                ioy ioy1 = a[i];
-                if (ioy1 != null)
-                {
-                    koh1.b(1, ioy1);
-                }
-            }
-
+            kwk1.a(1, a);
         }
-        if (b != null && b.length > 0)
+        if (b != null)
         {
-            for (int j = 0; j < b.length; j++)
-            {
-                koh1.b(2, b[j]);
-            }
-
+            kwk1.a(2, b);
         }
-        if (c != null && c.length > 0)
-        {
-            for (int k = ((flag) ? 1 : 0); k < c.length; k++)
-            {
-                String s = c[k];
-                if (s != null)
-                {
-                    koh1.a(3, s);
-                }
-            }
-
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

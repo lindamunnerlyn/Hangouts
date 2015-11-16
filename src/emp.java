@@ -2,11 +2,48 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Set;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 
-public final class emp
+final class emp extends Handler
 {
 
-    public final Set a;
-    public final boolean b;
+    private final Context a;
+
+    emp(Context context)
+    {
+        Looper looper;
+        if (Looper.myLooper() == null)
+        {
+            looper = Looper.getMainLooper();
+        } else
+        {
+            looper = Looper.myLooper();
+        }
+        super(looper);
+        a = context.getApplicationContext();
+    }
+
+    public void handleMessage(Message message)
+    {
+        message.what;
+        JVM INSTR tableswitch 1 1: default 24
+    //                   1 42;
+           goto _L1 _L2
+_L1:
+        (new StringBuilder("Don't know how to handle this message: ")).append(message.what);
+_L4:
+        return;
+_L2:
+        int i = emo.a(a);
+        if (emo.b(i))
+        {
+            emo.b(i, a);
+            return;
+        }
+        if (true) goto _L4; else goto _L3
+_L3:
+    }
 }

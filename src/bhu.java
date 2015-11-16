@@ -2,40 +2,72 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
-import android.widget.CheckBox;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 
-final class bhu
-    implements android.content.DialogInterface.OnClickListener
+public class bhu
 {
 
-    final ani a;
-    final bht b;
+    boolean a;
+    boolean b;
+    BaseAdapter c;
+    final bhs d;
 
-    bhu(bht bht1, ani ani)
+    public bhu(bhs bhs, boolean flag, BaseAdapter baseadapter)
     {
-        b = bht1;
-        a = ani;
+        d = bhs;
         super();
+        a = false;
+        b = flag;
+        c = baseadapter;
     }
 
-    public void onClick(DialogInterface dialoginterface, int i)
+    public View a(View view, ViewGroup viewgroup)
     {
-        if (bht.a(b) != null)
+        return null;
+    }
+
+    public boolean a()
+    {
+        return a;
+    }
+
+    public boolean b()
+    {
+        return b;
+    }
+
+    public int c()
+    {
+        int i;
+label0:
         {
-            if (bht.b(b).isChecked())
+            int j = c.getCount();
+            i = j;
+            if (!b)
             {
-                i = 1552;
-            } else
-            if (bht.c(b).isChecked())
-            {
-                i = 1553;
-            } else
-            {
-                i = 1554;
+                break label0;
             }
-            g.a(a, i);
-            bht.a(b).a(bht.b(b).isChecked(), bht.c(b).isChecked());
+            if (j == 0)
+            {
+                i = j;
+                if (!a)
+                {
+                    break label0;
+                }
+            }
+            i = j + 1;
         }
+        return i;
+    }
+
+    public BaseAdapter d()
+    {
+        return c;
+    }
+
+    public void e()
+    {
     }
 }

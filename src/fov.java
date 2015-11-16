@@ -3,19 +3,9 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class fov
+public interface fov
+    extends eng, enh
 {
 
-    public final ekm a;
-
-    public fov(ekm ekm1)
-    {
-        a = ekm1;
-    }
-
-    public void a(int i, fqp fqp)
-    {
-        com.google.android.gms.common.api.Status status = fpo.a(i, null);
-        a.a(new fpp(status, fqp));
-    }
+    public abstract fti c();
 }

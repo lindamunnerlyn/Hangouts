@@ -2,22 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Message;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 
 final class hdb
-    implements android.os.Handler.Callback
+    implements ThreadFactory
 {
 
-    final hda a;
-
-    hdb(hda hda1)
+    hdb()
     {
-        a = hda1;
-        super();
     }
 
-    public boolean handleMessage(Message message)
+    public Thread newThread(Runnable runnable)
     {
-        return a.a(message);
+        runnable = Executors.defaultThreadFactory().newThread(runnable);
+        runnable.setName("Login Manager Threadpool");
+        return runnable;
     }
 }

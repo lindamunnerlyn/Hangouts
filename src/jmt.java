@@ -3,21 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class jmt extends jjs
+final class jmt extends jnf
 {
 
-    final Object a[];
-    final int b;
+    static final jmt o = new jmt();
 
-    jmt(int i, int j, Object aobj[], int k)
+    jmt()
     {
-        a = aobj;
-        b = k;
-        super(i, j);
+        super("CharMatcher.ascii()");
     }
 
-    protected Object a(int i)
+    public boolean b(char c)
     {
-        return a[b + i];
+        return c <= '\177';
     }
+
 }

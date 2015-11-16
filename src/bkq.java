@@ -2,38 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.AsyncTask;
-import android.text.TextUtils;
-import com.google.android.apps.hangouts.fragments.InvitationFragment;
+import android.content.res.Resources;
+import android.view.View;
+import android.view.ViewGroup;
 
-public final class bkq extends AsyncTask
+public final class bkq extends aux
 {
 
-    final String a;
-    final InvitationFragment b;
-
-    public bkq(InvitationFragment invitationfragment)
+    public bkq(View view, bkr bkr1, dvi dvi)
     {
-        b = invitationfragment;
-        super();
-        a = InvitationFragment.f(b);
+        super(view, bkr1, dvi);
     }
 
-    protected Object doInBackground(Object aobj[])
+    protected boolean a()
     {
-        aobj = new aoe(InvitationFragment.i(b), InvitationFragment.j(b).h());
-        ((aoe) (aobj)).D(InvitationFragment.f(b));
-        ((aoe) (aobj)).i(InvitationFragment.f(b));
-        return null;
-    }
-
-    protected void onPostExecute(Object obj)
-    {
-        super.onPostExecute((Void)obj);
-        if (InvitationFragment.g(b) != null && TextUtils.equals(InvitationFragment.f(b), a))
+        boolean flag = false;
+        if (g.a(g.nU, "babel_gcm_change_notification", false))
         {
-            obj = new aih(InvitationFragment.f(b), InvitationFragment.h(b));
-            b.restartFragment(((aih) (obj)));
+            flag = ((bkr)c).x();
         }
+        return flag;
+    }
+
+    protected dvg b()
+    {
+        return e().a(b.getResources().getString(l.cc)).a();
     }
 }

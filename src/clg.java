@@ -2,44 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.view.ViewParent;
-import android.widget.ListView;
-import android.widget.TextView;
-import com.google.android.apps.hangouts.phone.DebugActivity;
+import android.widget.ImageView;
+import com.android.ex.photo.PhotoViewPager;
 
-public final class clg
-    implements android.view.View.OnClickListener
+final class clg
+    implements Runnable
 {
 
-    final TextView a;
-    final TextView b;
-    final DebugActivity c;
+    final clf a;
 
-    public clg(DebugActivity debugactivity, TextView textview, TextView textview1)
+    clg(clf clf1)
     {
-        c = debugactivity;
-        a = textview;
-        b = textview1;
+        a = clf1;
         super();
     }
 
-    public void onClick(View view)
+    public void run()
     {
-        if (view != a) goto _L2; else goto _L1
-_L1:
-        ((android.widget.LinearLayout.LayoutParams)DebugActivity.c(c).getLayoutParams()).weight = 5F;
-        ((android.widget.LinearLayout.LayoutParams)DebugActivity.d(c).getLayoutParams()).weight = 1.0F;
-_L4:
-        a.getParent().requestLayout();
-        return;
-_L2:
-        if (view == b)
-        {
-            ((android.widget.LinearLayout.LayoutParams)DebugActivity.c(c).getLayoutParams()).weight = 1.0F;
-            ((android.widget.LinearLayout.LayoutParams)DebugActivity.d(c).getLayoutParams()).weight = 5F;
-        }
-        if (true) goto _L4; else goto _L3
-_L3:
+        a.j.setVisibility(8);
+        a.i.setVisibility(0);
     }
 }

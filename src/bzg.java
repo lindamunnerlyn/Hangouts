@@ -3,10 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface bzg
+public interface bzg
+    extends cbt
 {
 
-    public abstract void a();
+    public abstract void a(long l, String s);
 
-    public abstract void b();
+    public abstract void a(bzh bzh);
 }

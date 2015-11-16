@@ -2,48 +2,47 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
-import android.view.View;
 
 final class egq
-    implements android.view.View.OnClickListener
+    implements aqs
 {
 
-    final ad a;
-    final egp b;
+    final egp a;
 
-    egq(egp egp1, ad ad1)
+    egq(egp egp1)
     {
-        b = egp1;
-        a = ad1;
+        a = egp1;
         super();
     }
 
-    public void onClick(View view)
+    public void a(eef eef1, edf edf, boolean flag, aqn aqn, boolean flag1)
     {
-        if (TextUtils.isEmpty(egp.a(b)))
+        if (egp.a(a) != aqn)
         {
-            if (ebw.a("Babel", 3))
+            if (eef1 != null)
             {
-                ebw.d("Babel", "VideoAttachmentHandler could not load video");
+                eef1.b();
             }
-            egp.b(b);
-        }
-        if (!TextUtils.isEmpty(egp.a(b)))
+        } else
         {
-            if (ebw.a("Babel", 3))
+            egp.b(a);
+            if (flag)
             {
-                view = String.valueOf(egp.a(b));
-                if (view.length() != 0)
+                if (edf != null)
                 {
-                    view = "VideoAttachmentHandler loaded urlString: ".concat(view);
+                    a.b(new ehk(edf));
+                    return;
                 } else
                 {
-                    view = new String("VideoAttachmentHandler loaded urlString: ");
+                    gdv.b("Expected non-null", eef1);
+                    gdv.b("Expected non-null", eef1.e());
+                    gdv.a("Expected null", egp.c(a));
+                    egp.a(a, eef1);
+                    a.a(egp.c(a).e());
+                    a.d(0);
+                    return;
                 }
-                ebw.d("Babel", view);
             }
-            a.startActivity(g.c(egp.a(b), "video/mp4"));
         }
     }
 }

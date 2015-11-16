@@ -2,120 +2,107 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
-public final class gyn extends hhu
-    implements gws
+final class gyn
 {
 
-    gwy a;
-    gms b;
-    gxa c;
+    private static final int d[] = {
+        0, 1, 2, 3, 4
+    };
+    private final int a;
+    private final Map b = new HashMap();
+    private int c;
 
-    public gyn()
+    gyn(int i)
     {
+        c = 0;
+        a = i;
     }
 
-    public void a(gxe gxe)
+    protected static int[] a()
     {
-        ap ap = null;
-        boolean flag = false;
-        Bundle bundle = getArguments();
-        gwl gwl1;
-        ArrayList arraylist;
-        Iterator iterator;
-        if (bundle != null)
+        return d;
+    }
+
+    protected gym a(gym gym1)
+    {
+        gym1.b(a);
+        return (gym)b.put(Short.valueOf(gym1.b()), gym1);
+    }
+
+    protected gym a(short word0)
+    {
+        return (gym)b.get(Short.valueOf(word0));
+    }
+
+    protected void a(int i)
+    {
+        c = i;
+    }
+
+    protected void b(short word0)
+    {
+        b.remove(Short.valueOf(word0));
+    }
+
+    protected gym[] b()
+    {
+        return (gym[])b.values().toArray(new gym[b.size()]);
+    }
+
+    protected int c()
+    {
+        return a;
+    }
+
+    protected int d()
+    {
+        return b.size();
+    }
+
+    protected int e()
+    {
+        return c;
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (this == obj)
         {
-            gwl1 = (gwl)bundle.getParcelable("account_filter");
-        } else
-        {
-            gwl1 = null;
+            return true;
         }
-        arraylist = new ArrayList();
-        iterator = b.a().iterator();
-        do
+        if (obj == null)
         {
-            if (!iterator.hasNext())
-            {
-                break;
-            }
-            int j = ((Integer)iterator.next()).intValue();
-            gmu gmu2 = b.a(j);
-            if (c.a(gxe, j) && (gwl1 == null || gwl1.a(j, gmu2)))
-            {
-                arraylist.add(Integer.valueOf(j));
-            }
-        } while (true);
-        if (arraylist.isEmpty())
+            return false;
+        }
+        if (obj instanceof gyn)
         {
-            gxe = b.a().iterator();
-            do
+            obj = (gyn)obj;
+            if (((gyn) (obj)).c() == a && ((gyn) (obj)).d() == d())
             {
-                if (!gxe.hasNext())
+                obj = ((gyn) (obj)).b();
+                int j = obj.length;
+                for (int i = 0; i < j; i++)
                 {
-                    break;
+                    gym gym1 = obj[i];
+                    if (!gyb.a(gym1.b()) && !gym1.equals((gym)b.get(Short.valueOf(gym1.b()))))
+                    {
+                        return false;
+                    }
                 }
-                int k = ((Integer)gxe.next()).intValue();
-                gmu gmu1 = b.a(k);
-                if ((gwl1 == null || gwl1.a(k, gmu1)) && !gmu1.d("is_managed_account"))
-                {
-                    arraylist.add(Integer.valueOf(k));
-                }
-            } while (true);
-        }
-        if (arraylist.isEmpty())
-        {
-            if (bundle == null || bundle.getBoolean("add_account"))
-            {
-                flag = true;
-            }
-            if (flag)
-            {
-                a.b();
-                return;
-            } else
-            {
-                a.c();
-                return;
-            }
-        }
-        if (arraylist.size() == 1)
-        {
-            gxe = (Integer)arraylist.get(0);
-            gxe = b.a(gxe.intValue());
-            if (!gxe.d("logged_out") || bundle == null || bundle.getBoolean("auto_select_single_logged_out_account"))
-            {
-                a.a(gxe.b("account_name"), gxe.b("effective_gaia_id"));
-                return;
-            }
-        }
-        int ai[] = new int[arraylist.size()];
-        for (int i = 0; i < arraylist.size(); i++)
-        {
-            ai[i] = ((Integer)arraylist.get(i)).intValue();
-        }
 
-        gxe = ap;
-        if (bundle != null)
-        {
-            gxe = bundle.getString("dialog_title");
+                return true;
+            }
         }
-        ap = getChildFragmentManager();
-        if (gxe == null)
-        {
-            gxe = context.getString(g.sO);
-        }
-        gxt.a(ap, gxe, ai, false);
+        return false;
     }
 
-    protected void onAttachBinder(Bundle bundle)
+    public int hashCode()
     {
-        super.onAttachBinder(bundle);
-        a = (gwy)binder.a(gwy);
-        b = (gms)binder.a(gms);
-        c = (gxa)binder.a(gxa);
+        return (a + 527) * 31 + b.hashCode();
     }
+
 }

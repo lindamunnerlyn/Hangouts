@@ -2,18 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-public final class bfc
-    implements beh
+public final class bfc extends Enum
 {
 
-    public bfc()
-    {
-    }
+    public static final int a;
+    public static final int b;
+    private static final int c[];
 
-    public bef a(Context context)
+    static 
     {
-        return new ben(context);
+        a = 1;
+        b = 2;
+        c = (new int[] {
+            a, b
+        });
     }
 }

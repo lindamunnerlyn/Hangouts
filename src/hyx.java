@@ -3,64 +3,38 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hyx extends koj
+public final class hyx extends kwm
 {
 
-    private static volatile hyx e[];
-    public Integer a;
-    public Integer b;
-    public Integer c;
-    public String d;
+    public hyu a;
 
     public hyx()
     {
         a = null;
-        b = null;
-        c = null;
-        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    public static hyx[] a()
-    {
-        if (e == null)
-        {
-            synchronized (kon.a)
-            {
-                if (e == null)
-                {
-                    e = new hyx[0];
-                }
-            }
-        }
-        return e;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize() + koh.e(1, a.intValue()) + koh.e(2, b.intValue()) + koh.e(3, c.intValue());
+        int j = super.computeSerializedSize();
         int i = j;
-        if (d != null)
+        if (a != null)
         {
-            i = j + koh.b(4, d);
+            i = j + kwk.d(1, a);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -69,34 +43,23 @@ public final class hyx extends koj
             case 0: // '\0'
                 return this;
 
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.f());
-                break;
-
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.f());
-                break;
-
-            case 24: // '\030'
-                c = Integer.valueOf(kog1.f());
-                break;
-
-            case 34: // '"'
-                d = kog1.j();
+            case 10: // '\n'
+                if (a == null)
+                {
+                    a = new hyu();
+                }
+                kwj1.a(a);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        koh1.a(1, a.intValue());
-        koh1.a(2, b.intValue());
-        koh1.a(3, c.intValue());
-        if (d != null)
+        if (a != null)
         {
-            koh1.a(4, d);
+            kwk1.b(1, a);
         }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

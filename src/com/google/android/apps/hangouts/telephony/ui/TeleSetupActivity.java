@@ -4,39 +4,29 @@
 
 package com.google.android.apps.hangouts.telephony.ui;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import dyj;
-import dyk;
-import eav;
-import ebw;
-import gbh;
-import gwt;
-import hhw;
+import ebu;
+import ebv;
+import edz;
+import eev;
+import hbd;
+import hmo;
 
-public class TeleSetupActivity extends hhw
-    implements dyk
+public class TeleSetupActivity extends hmo
+    implements ebv
 {
 
-    private final gwt j;
+    private final hbd j;
 
     public TeleSetupActivity()
     {
-        j = (new gwt(this, l)).a(k);
+        j = (new hbd(this, l)).a(k);
     }
 
-    public static Intent a(Context context, dyj dyj1)
+    private ebu h()
     {
-        gbh.b(dyj1);
-        context = new Intent(context, com/google/android/apps/hangouts/telephony/ui/TeleSetupActivity);
-        context.putExtra("controller", new eav(dyj1));
-        return context;
-    }
-
-    private dyj h()
-    {
-        return (dyj)((eav)getIntent().getParcelableExtra("controller")).a();
+        return (ebu)((edz)getIntent().getParcelableExtra("controller")).a();
     }
 
     public Object g()
@@ -46,7 +36,7 @@ public class TeleSetupActivity extends hhw
 
     protected void onCreate(Bundle bundle)
     {
-        ebw.e("Babel_telephony", "TeleSetupActivity.onCreate");
+        eev.e("Babel_telephony", "TeleSetupActivity.onCreate");
         super.onCreate(bundle);
         h().a(this, j);
     }
@@ -54,38 +44,38 @@ public class TeleSetupActivity extends hhw
     public void onDestroy()
     {
         boolean flag = isFinishing();
-        ebw.e("Babel_telephony", (new StringBuilder(45)).append("TeleSetupActivity.onDestroy, finishing: ").append(flag).toString());
+        eev.e("Babel_telephony", (new StringBuilder(45)).append("TeleSetupActivity.onDestroy, finishing: ").append(flag).toString());
         super.onDestroy();
         if (isFinishing())
         {
-            h().d();
+            h().e();
         }
     }
 
     public void onPause()
     {
         boolean flag = isFinishing();
-        ebw.e("Babel_telephony", (new StringBuilder(43)).append("TeleSetupActivity.onPause, finishing: ").append(flag).toString());
+        eev.e("Babel_telephony", (new StringBuilder(43)).append("TeleSetupActivity.onPause, finishing: ").append(flag).toString());
         super.onPause();
     }
 
     public void onResume()
     {
-        ebw.e("Babel_telephony", "TeleSetupActivity.onResume");
+        eev.e("Babel_telephony", "TeleSetupActivity.onResume");
         super.onResume();
     }
 
     public void onSaveInstanceState(Bundle bundle)
     {
         boolean flag = isFinishing();
-        ebw.e("Babel_telephony", (new StringBuilder(55)).append("TeleSetupActivity.onSaveInstanceState, finishing: ").append(flag).toString());
+        eev.e("Babel_telephony", (new StringBuilder(55)).append("TeleSetupActivity.onSaveInstanceState, finishing: ").append(flag).toString());
         super.onSaveInstanceState(bundle);
     }
 
     public void onStop()
     {
         boolean flag = isFinishing();
-        ebw.e("Babel_telephony", (new StringBuilder(42)).append("TeleSetupActivity.onStop, finishing: ").append(flag).toString());
+        eev.e("Babel_telephony", (new StringBuilder(42)).append("TeleSetupActivity.onStop, finishing: ").append(flag).toString());
         super.onStop();
     }
 }

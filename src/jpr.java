@@ -2,47 +2,86 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ListIterator;
+import com.google.common.cache.LocalCache;
 
-class jpr extends jkz
+public final class jpr extends jps
 {
 
-    private final jle b;
-    private final jlk c;
+    volatile long a;
+    com.google.common.cache.LocalCache.ReferenceEntry b;
+    com.google.common.cache.LocalCache.ReferenceEntry c;
+    volatile long d;
+    com.google.common.cache.LocalCache.ReferenceEntry e;
+    com.google.common.cache.LocalCache.ReferenceEntry f;
 
-    jpr(jle jle, jlk jlk1)
+    jpr(Object obj, int i, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        b = jle;
-        c = jlk1;
+        super(obj, i, referenceentry);
+        a = 0x7fffffffffffffffL;
+        b = LocalCache.j();
+        c = LocalCache.j();
+        d = 0x7fffffffffffffffL;
+        e = LocalCache.j();
+        f = LocalCache.j();
     }
 
-    jpr(jle jle, Object aobj[])
+    public long getAccessTime()
     {
-        this(jle, jlk.b(aobj, aobj.length));
+        return a;
     }
 
-    int a(Object aobj[], int i)
-    {
-        return c.a(aobj, i);
-    }
-
-    public jqz a(int i)
-    {
-        return c.a(i);
-    }
-
-    jle c()
+    public com.google.common.cache.LocalCache.ReferenceEntry getNextInAccessQueue()
     {
         return b;
     }
 
-    public Object get(int i)
+    public com.google.common.cache.LocalCache.ReferenceEntry getNextInWriteQueue()
     {
-        return c.get(i);
+        return e;
     }
 
-    public ListIterator listIterator(int i)
+    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInAccessQueue()
     {
-        return a(i);
+        return c;
+    }
+
+    public com.google.common.cache.LocalCache.ReferenceEntry getPreviousInWriteQueue()
+    {
+        return f;
+    }
+
+    public long getWriteTime()
+    {
+        return d;
+    }
+
+    public void setAccessTime(long l)
+    {
+        a = l;
+    }
+
+    public void setNextInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        b = referenceentry;
+    }
+
+    public void setNextInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        e = referenceentry;
+    }
+
+    public void setPreviousInAccessQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        c = referenceentry;
+    }
+
+    public void setPreviousInWriteQueue(com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
+    {
+        f = referenceentry;
+    }
+
+    public void setWriteTime(long l)
+    {
+        d = l;
     }
 }

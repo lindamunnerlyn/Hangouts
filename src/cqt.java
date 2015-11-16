@@ -2,19 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.Menu;
-import android.view.MenuItem;
+import android.os.Parcel;
 
-public interface cqt
+final class cqt
+    implements android.os.Parcelable.Creator
 {
 
-    public abstract void a(cqr cqr, int i, boolean flag);
+    cqt()
+    {
+    }
 
-    public abstract boolean a(MenuItem menuitem);
+    public Object createFromParcel(Parcel parcel)
+    {
+        return new cqs();
+    }
 
-    public abstract boolean a(cqr cqr, Menu menu);
-
-    public abstract void b();
-
-    public abstract boolean b(cqr cqr, Menu menu);
+    public Object[] newArray(int i)
+    {
+        return new cqs[i];
+    }
 }

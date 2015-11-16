@@ -2,17 +2,178 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.HashSet;
+import java.util.Set;
 
-final class eru extends eux
+final class eru
 {
 
-    eru(byte abyte0[])
+    static final erv a[];
+    static final erv b[];
+    private static Set c;
+    private static Set d;
+
+    static Set a()
     {
-        super(abyte0);
+        if (c == null)
+        {
+            c = a(b);
+        }
+        return c;
     }
 
-    protected byte[] b()
+    private static Set a(erv aerv[])
     {
-        return eox.a("0\202\003\3170\202\002\267\240\003\002\001\002\002\t\000\227\b\327\r\224\3201\2540\r\006\t*\206H\206\367\r\001\001\005\005\0000~1\0130\t\006\003U\004\006\023\002US1\0230\021\006\003U\004\b\f\nCalifornia1\0260\024\006\003U\004\007\f\rMountain View1\0240\022\006\003U\004\n\f\013Google Inc.1\0200\016\006\003U\004\013\f\007Android1\0320\030\006\003U\004\003\f\021gvc_remotepresent0\036\027\r141107151652Z\027\r420325151652Z0~1\0130\t\006\003U\004\006\023\002US1\0230\021\006\003U\004\b\f\nCalifornia1\0260\024\006\003U\004\007\f\rMountain View1\0240\022\006\003U\004\n\f\013Google Inc.1\0200\016\006\003U\004\013\f\007Android1\0320\030\006\003U\004\003\f\021gvc_remotepresent0\202\001\"0\r\006\t*\206H\206\367\r\001\001\001\005\000\003\202\001\017\0000\202\001\n\002\202\001\001\000\347\310J^I\222\374^7(\034~\221\271\260\251\211e\354|\002\207\265b\257\240\240%\341\304\241GF\350\312\027\345R\024g\336\364@>.\241\300%\013:\357>[\002\bx\t\242\235F\214\252\346ZW.\325\0220P\2000\"n\t8\177/a<\316\3223\366\241\377\333D\313sj\267\213\264\357\021\205B\344A8]\2068a\252\350=\357\243\211\177\377\231C\237\001\345Ij\360\222X\350\273\230\031mNdk\262\300\234\375\217*)\372X\334cvWTV\363\023_\374\357\242\300J2\2227Q\n\330\200S\372\\\027\256\246\2635\222F\337b\331\250b\305]\0309\234\354\314\006A\336}_\004\377\2109\312|v\031\003\274\215&\204t\262\004\300\257\2464\204\364\254\025\234\336]\243\242\376t\034\003\331\336\343\236\b5jx\255y\2476\330\370\354l!+\177\341>x\276R\307}\001\0047\177\357\363\303\210\353\002\003\001\000\001\243P0N0\035\006\003U\035\016\004\026\004\024\276\252\336k\342\025\013'F\276\227\213\215`\301\257\220\231NJ0\037\006\003U\035#\004\0300\026\200\024\276\252\336k\342\025\013'F\276\227\213\215`\301\257\220\231NJ0\f\006\003U\035\023\004\0050\003\001\001\3770\r\006\t*\206H\206\367\r\001\001\005\005\000\003\202\001\001\000\313w\237\371_\240\364\200\264j5T\000S\224\0208\327\333\236>\204\317H+\242\346\260\246\313\241\312\nQ5\030\016\265\177\253\353\r\342\240\002\320}\240\332T3?\233P\305\231\352\030\2752\030\247&\332\331\276\201m\361\373\334\322\211\274\020h\n\233\253\347\370\357\324\334W\032A6%\330\275\312\030\302\375\260)\t\365\212\320\207^\346C\236 \306\035\017us\354\243K]5\"\233\246\027\222\210\220cd\207\227\206\301\033\020&\313\240\177\346\034\241\351\356S3\212;B\262\206\223\243#e0\016\323\f\265\335\216\371Y?\215\345C\265\362\007\007?\251\230\004\276?\223\206~\034\0333\271U\367\352\004L\356y\233\201Z\313j{!\355\256\342=}\210\001E1\f\343\251\363\350\307\n\245\236?\345l\337&9\331({\243P\373\255\327\236\262\212\303\213\304\252\2453^\325b\024\235\233\330\023A>\246\377\201b\304B\031\276\267");
+        HashSet hashset = new HashSet(aerv.length);
+        int j = aerv.length;
+        for (int i = 0; i < j; i++)
+        {
+            hashset.add(aerv[i]);
+        }
+
+        return hashset;
+    }
+
+    static Set b()
+    {
+        if (d == null)
+        {
+            d = a(a);
+        }
+        return d;
+    }
+
+    static 
+    {
+        a = (new erv[] {
+            exe.a[0], exh.a[0], ewk.a[0], fby.a[0], etg.a[0], fbm.a[0], ewn.a[0], ety.a[0], fbv.a[0], fbp.a[0], 
+            ewh.a[0], evg.a[0], eww.a[0], esi.a[0], evd.a[0], ewy.a[0], ezt.a[0], etv.a[0], eyz.a[0], ezc.a[0], 
+            eyq.a[0], etd.a[0], euk.a[0], eue.a[0], euh.a[0], eyw.a[0], fak.a[0], esx.a[0], eta.a[0], evv.a[0], 
+            eut.a[0], fat.a[0], fat.a[1], esl.a[0], esf.a[0], fan.a[0], fac.a[0], ezq.a[0], euq.a[0], eyb.a[0], 
+            eyb.a[1], eub.a[0], eun.a[0], esu.a[0], fcg.a[0], ets.a[0], erw.a[0], eva.a[0], ezi.a[0], ezn.a[0], 
+            evs.a[0], exb.a[0], ezw.a[0], exs.a[0], ewt.a[0], evp.a[0], fce.a[0], etm.a[0], exp.a[0], fay.a[0], 
+            fcm.a[0], etp.a[0], ewb.a[0], exw.a[0], fbb.a[0], esr.a[0], eux.a[0], eyt.a[0], erz.a[0], fah.a[0], 
+            eyo.a[0], faq.a[0], evm.a[0], eyf.a[0], fbj.a[0], fbs.a[0], fbg.a[0], fcj.a[0], evy.a[0], fcb.a[0], 
+            exm.a[0], ewe.a[0], evj.a[0], exk.a[0], eyl.a[0], eso.a[0], ezf.a[0], ezz.a[0], esc.a[0], exy.a[0], 
+            etj.a[0], ewq.a[0], eyi.a[0], ezk.a[0], faf.a[0]
+        });
+        erv aerv[][] = new erv[94][];
+        aerv[0] = exe.a;
+        aerv[1] = exh.a;
+        aerv[2] = fbe.a;
+        aerv[3] = ewk.a;
+        aerv[4] = fby.a;
+        aerv[5] = etg.a;
+        aerv[6] = fbm.a;
+        aerv[7] = ewn.a;
+        aerv[8] = ety.a;
+        aerv[9] = fbv.a;
+        aerv[10] = fbp.a;
+        aerv[11] = ewh.a;
+        aerv[12] = evg.a;
+        aerv[13] = eww.a;
+        aerv[14] = esi.a;
+        aerv[15] = evd.a;
+        aerv[16] = ewy.a;
+        aerv[17] = ezt.a;
+        aerv[18] = etv.a;
+        aerv[19] = eyz.a;
+        aerv[20] = ezc.a;
+        aerv[21] = eyq.a;
+        aerv[22] = etd.a;
+        aerv[23] = euk.a;
+        aerv[24] = eue.a;
+        aerv[25] = euh.a;
+        aerv[26] = eyw.a;
+        aerv[27] = fak.a;
+        aerv[28] = esx.a;
+        aerv[29] = eta.a;
+        aerv[30] = evv.a;
+        aerv[31] = eut.a;
+        aerv[32] = fat.a;
+        aerv[33] = esl.a;
+        aerv[34] = esf.a;
+        aerv[35] = fan.a;
+        aerv[36] = fac.a;
+        aerv[37] = ezq.a;
+        aerv[38] = euq.a;
+        aerv[39] = eyb.a;
+        aerv[40] = eub.a;
+        aerv[41] = eun.a;
+        aerv[42] = esu.a;
+        aerv[43] = fcg.a;
+        aerv[44] = ets.a;
+        aerv[45] = erw.a;
+        aerv[46] = eva.a;
+        aerv[47] = ezi.a;
+        aerv[48] = ezn.a;
+        aerv[49] = evs.a;
+        aerv[50] = exb.a;
+        aerv[51] = ezw.a;
+        aerv[52] = exs.a;
+        aerv[53] = ewt.a;
+        aerv[54] = evp.a;
+        aerv[55] = fce.a;
+        aerv[56] = etm.a;
+        aerv[57] = exp.a;
+        aerv[58] = fay.a;
+        aerv[59] = fcm.a;
+        aerv[60] = etp.a;
+        aerv[61] = ewb.a;
+        aerv[62] = exw.a;
+        aerv[63] = fbb.a;
+        aerv[64] = esr.a;
+        aerv[65] = eux.a;
+        aerv[66] = eyt.a;
+        aerv[67] = erz.a;
+        aerv[68] = fah.a;
+        aerv[69] = eyo.a;
+        aerv[70] = faq.a;
+        aerv[71] = evm.a;
+        aerv[72] = eyf.a;
+        aerv[73] = fbj.a;
+        aerv[74] = fbs.a;
+        aerv[75] = fbg.a;
+        aerv[76] = fcj.a;
+        aerv[77] = evy.a;
+        aerv[78] = fcb.a;
+        aerv[79] = exm.a;
+        aerv[80] = ewe.a;
+        aerv[81] = evj.a;
+        aerv[82] = exk.a;
+        aerv[83] = eyl.a;
+        aerv[84] = eso.a;
+        aerv[85] = ezf.a;
+        aerv[86] = ezz.a;
+        aerv[87] = esc.a;
+        aerv[88] = exy.a;
+        aerv[89] = etj.a;
+        aerv[90] = ewq.a;
+        aerv[91] = eyi.a;
+        aerv[92] = ezk.a;
+        aerv[93] = faf.a;
+        int i = 0;
+        int j = 0;
+        for (; i < 94; i++)
+        {
+            j += aerv[i].length;
+        }
+
+        erv aerv1[] = new erv[j];
+        j = 0;
+        i = 0;
+        for (; j < 94; j++)
+        {
+            erv aerv2[] = aerv[j];
+            for (int k = 0; k < aerv2.length;)
+            {
+                aerv1[i] = aerv2[k];
+                k++;
+                i++;
+            }
+
+        }
+
+        b = aerv1;
     }
 }

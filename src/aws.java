@@ -2,23 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
 
 final class aws
-    implements Runnable
+    implements android.view.View.OnLayoutChangeListener
 {
 
-    final ayh a;
-    final ave b;
+    final avv a;
 
-    aws(ave ave1, ayh ayh1)
+    aws(avv avv1)
     {
-        b = ave1;
-        a = ayh1;
+        a = avv1;
         super();
     }
 
-    public void run()
+    public void onLayoutChange(View view, int i, int j, int k, int l, int i1, int j1, 
+            int k1, int l1)
     {
-        a.a(ave.bb(b));
+        if (avv.al(a) == -1)
+        {
+            avv.a(a, j);
+        }
+        if (avv.am(a))
+        {
+            avv.an(a).a(avv.al(a));
+        }
     }
 }

@@ -6,13 +6,23 @@
 public interface aal
 {
 
+    public abstract em a(int i, String s);
+
     public abstract void a();
 
-    public abstract void b();
+    public abstract void a(int i, aan aan);
 
-    public abstract void c();
+    public abstract void a(aam aam);
 
-    public abstract boolean d();
+    public abstract void a(abg abg, boolean flag);
 
-    public abstract boolean e();
+    public abstract boolean a(ad ad);
+
+    public abstract abf b();
+
+    public abstract void b(aam aam);
+
+    public abstract boolean b(ad ad);
+
+    public abstract void c(int i);
 }

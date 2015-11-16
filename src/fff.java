@@ -2,33 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
+import android.util.Log;
 
 final class fff
-    implements flz
 {
 
-    final Status a;
-    final ffe b;
+    final boolean a = false;
+    private final String b;
+    private final int c;
 
-    fff(ffe ffe, Status status)
+    protected fff(String s, int i, boolean flag)
     {
-        b = ffe;
-        a = status;
-        super();
+        b = s;
+        c = i;
     }
 
-    public Status B_()
+    protected void a(String s)
     {
-        return a;
+        Log.println(c, b, s);
     }
 
-    public void b()
+    protected boolean a()
     {
-    }
-
-    public fqp c()
-    {
-        return null;
+        return Log.isLoggable(b, c);
     }
 }

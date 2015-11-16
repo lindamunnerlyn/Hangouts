@@ -5,26 +5,26 @@
 package com.google.api.client.http;
 
 import h;
-import hof;
+import htb;
 import java.io.OutputStream;
 
 // Referenced classes of package com.google.api.client.http:
 //            HttpEncoding
 
 public final class HttpEncodingStreamingContent
-    implements hof
+    implements htb
 {
 
-    private final hof content;
+    private final htb content;
     private final HttpEncoding encoding;
 
-    public HttpEncodingStreamingContent(hof hof1, HttpEncoding httpencoding)
+    public HttpEncodingStreamingContent(htb htb1, HttpEncoding httpencoding)
     {
-        content = (hof)h.b(hof1);
-        encoding = (HttpEncoding)h.b(httpencoding);
+        content = (htb)h.a(htb1);
+        encoding = (HttpEncoding)h.a(httpencoding);
     }
 
-    public hof getContent()
+    public htb getContent()
     {
         return content;
     }

@@ -3,65 +3,38 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iot extends koj
+public final class iot extends kwm
 {
 
-    public ioq a[];
-    public Long b;
+    public String a;
 
     public iot()
     {
-        a = ioq.a();
-        b = null;
+        a = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        int j = i;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            j = i;
-            if (a.length > 0)
-            {
-                int k = 0;
-                do
-                {
-                    j = i;
-                    if (k >= a.length)
-                    {
-                        break;
-                    }
-                    ioq ioq1 = a[k];
-                    j = i;
-                    if (ioq1 != null)
-                    {
-                        j = i + koh.d(1, ioq1);
-                    }
-                    k++;
-                    i = j;
-                } while (true);
-            }
-        }
-        i = j;
-        if (b != null)
-        {
-            i = j + koh.e(2, b.longValue());
+            i = j + kwk.b(1, a);
         }
         return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -71,60 +44,18 @@ public final class iot extends koj
                 return this;
 
             case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                ioq aioq[];
-                int j;
-                if (a == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
-                }
-                aioq = new ioq[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, aioq, 0, j);
-                    k = j;
-                }
-                for (; k < aioq.length - 1; k++)
-                {
-                    aioq[k] = new ioq();
-                    kog1.a(aioq[k]);
-                    kog1.a();
-                }
-
-                aioq[k] = new ioq();
-                kog1.a(aioq[k]);
-                a = aioq;
-                break;
-
-            case 16: // '\020'
-                b = Long.valueOf(kog1.e());
+                a = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null && a.length > 0)
+        if (a != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                ioq ioq1 = a[i];
-                if (ioq1 != null)
-                {
-                    koh1.b(1, ioq1);
-                }
-            }
-
+            kwk1.a(1, a);
         }
-        if (b != null)
-        {
-            koh1.b(2, b.longValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

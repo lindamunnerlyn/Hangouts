@@ -5,24 +5,54 @@
 import android.content.Context;
 import android.graphics.Canvas;
 
-interface ou
+final class ou
+    implements ow
 {
 
-    public abstract Object a(Context context);
+    ou()
+    {
+    }
 
-    public abstract void a(Object obj, int i, int j);
+    public Object a(Context context)
+    {
+        return null;
+    }
 
-    public abstract boolean a(Object obj);
+    public void a(Object obj, int i, int j)
+    {
+    }
 
-    public abstract boolean a(Object obj, float f);
+    public boolean a(Object obj)
+    {
+        return true;
+    }
 
-    public abstract boolean a(Object obj, float f, float f1);
+    public boolean a(Object obj, float f)
+    {
+        return false;
+    }
 
-    public abstract boolean a(Object obj, int i);
+    public boolean a(Object obj, float f, float f1)
+    {
+        return false;
+    }
 
-    public abstract boolean a(Object obj, Canvas canvas);
+    public boolean a(Object obj, int i)
+    {
+        return false;
+    }
 
-    public abstract void b(Object obj);
+    public boolean a(Object obj, Canvas canvas)
+    {
+        return false;
+    }
 
-    public abstract boolean c(Object obj);
+    public void b(Object obj)
+    {
+    }
+
+    public boolean c(Object obj)
+    {
+        return false;
+    }
 }

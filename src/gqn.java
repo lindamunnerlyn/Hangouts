@@ -2,141 +2,82 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
 
-public class gqn
+public final class gqn
+    implements gqk
 {
 
-    private final Context a;
+    private final int a;
     private String b;
-    gqo c;
-    int d;
-    private int e;
-    private boolean f;
-    private boolean g;
-    private int h;
+    private ColorStateList c;
+    private Drawable d;
+    private Drawable e;
 
-    public gqn(Context context, String s)
+    public gqn(int i, String s)
     {
-        d = grl.c;
-        if (context != null)
-        {
-            context = context.getApplicationContext();
-        } else
-        {
-            context = null;
-        }
-        a = context;
+        a = i;
         b = s;
-        if (s == null)
-        {
-            throw new IllegalArgumentException("BackgroundTask tag cannot be null.");
-        } else
-        {
-            return;
-        }
+        c = null;
+        d = null;
+        e = null;
     }
 
-    public gqn(String s)
+    public gqn a(int i)
     {
-        this(null, s);
+        return a(ColorStateList.valueOf(i));
     }
 
-    public grk a()
+    public gqn a(ColorStateList colorstatelist)
     {
-        return null;
+        c = colorstatelist;
+        return this;
     }
 
-    public grk a(Context context)
+    public gqn a(Drawable drawable)
     {
-        return null;
+        d = drawable;
+        return this;
     }
 
-    void a(int j)
+    public boolean a()
     {
-        e = j;
+        return true;
     }
 
-    void a(gqo gqo)
+    public int b()
     {
-        c = gqo;
+        return g.sl;
     }
 
-    public String b(Context context)
+    public gqn b(Drawable drawable)
     {
-        return null;
+        e = drawable;
+        return this;
     }
 
-    void c(Context context)
-    {
-        boolean flag;
-        if (context != null || a != null)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        g.a(flag);
-        if (context == null)
-        {
-            context = a;
-        }
-        if (g && h == 0)
-        {
-            h = grj.a(context).a();
-        }
-    }
-
-    public Context d()
-    {
-        g.c(a, "Either use the Context provided in doInBackground(), or if you're using deprecated methods, pass a Context into the BackgrounTask's constructor");
-        return e();
-    }
-
-    void d(Context context)
-    {
-        boolean flag;
-        if (context != null || a != null)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        g.a(flag);
-        if (context == null)
-        {
-            context = a;
-        }
-        if (h != 0)
-        {
-            grj.a(context).a(h);
-        }
-    }
-
-    Context e()
+    public int c()
     {
         return a;
     }
 
-    public gqn f()
-    {
-        f = true;
-        return this;
-    }
-
-    public boolean g()
-    {
-        return f;
-    }
-
-    public String h()
+    public String d()
     {
         return b;
     }
 
-    int i()
+    public ColorStateList e()
+    {
+        return c;
+    }
+
+    public Drawable f()
+    {
+        return d;
+    }
+
+    public Drawable g()
     {
         return e;
     }

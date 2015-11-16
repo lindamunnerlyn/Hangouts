@@ -2,44 +2,148 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import com.google.android.libraries.social.settings.CheckBoxPreference;
+import java.io.BufferedInputStream;
+import java.io.InputStream;
+import java.security.DigestInputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 
-public final class hem extends CheckBoxPreference
+public final class hem
 {
 
-    private final hen c;
+    private static final int a;
+    private final byte b[];
+    private final long c;
 
-    public hem(Context context, int i, String s)
+    private hem(byte abyte0[], long l)
     {
-        this(context, i, s, null);
-    }
-
-    public hem(Context context, int i, String s, Boolean boolean1)
-    {
-        super(context);
-        Boolean boolean2 = boolean1;
-        if (boolean1 == null)
+        if (abyte0 == null || abyte0.length != a)
         {
-            boolean2 = Boolean.valueOf(false);
+            throw new IllegalArgumentException("Incorrect fingerprint size");
+        } else
+        {
+            b = abyte0;
+            c = l;
+            return;
         }
-        b(boolean2);
-        c = new hen(context, i, s);
     }
 
-    protected void a(boolean flag, Object obj)
+    public static hem a(InputStream inputstream)
     {
-        a(c(((Boolean)obj).booleanValue()));
+        Object obj1;
+        byte abyte0[];
+        abyte0 = new byte[8192];
+        obj1 = null;
+        Object obj;
+        obj = MessageDigest.getInstance("SHA-1");
+        obj = new DigestInputStream(new BufferedInputStream(inputstream, 8192), ((MessageDigest) (obj)));
+        long l = 0L;
+_L2:
+        inputstream = ((InputStream) (obj));
+        int i = ((DigestInputStream) (obj)).read(abyte0);
+        if (i >= 0)
+        {
+            l += i;
+        } else
+        {
+            ((DigestInputStream) (obj)).close();
+            return new hem(((DigestInputStream) (obj)).getMessageDigest().digest(), l);
+        }
+        if (true) goto _L2; else goto _L1
+_L1:
+        obj1;
+        inputstream = null;
+_L6:
+        throw new IllegalStateException(((Throwable) (obj1)));
+        obj1;
+        obj = inputstream;
+        inputstream = ((InputStream) (obj1));
+_L4:
+        if (obj != null)
+        {
+            ((DigestInputStream) (obj)).close();
+        }
+        throw inputstream;
+        inputstream;
+        obj = obj1;
+        if (true) goto _L4; else goto _L3
+_L3:
+        obj1;
+        inputstream = ((InputStream) (obj));
+        if (true) goto _L6; else goto _L5
+_L5:
     }
 
-    protected boolean b(boolean flag)
+    public static String a(String s)
     {
-        c.a(flag);
-        return true;
+        if (s == null)
+        {
+            return null;
+        }
+        s = String.valueOf(s.substring(0, 32));
+        if (s.length() != 0)
+        {
+            return "cs_01_".concat(s);
+        } else
+        {
+            return new String("cs_01_");
+        }
     }
 
-    protected boolean c(boolean flag)
+    public String a()
     {
-        return c.b(flag).booleanValue();
+        StringBuilder stringbuilder = new StringBuilder();
+        for (int i = 0; i < a; i++)
+        {
+            byte byte0 = b[i];
+            stringbuilder.append(Integer.toHexString(byte0 >> 4 & 0xf));
+            stringbuilder.append(Integer.toHexString(byte0 & 0xf));
+        }
+
+        return stringbuilder.toString();
+    }
+
+    public long b()
+    {
+        return c;
+    }
+
+    public byte[] c()
+    {
+        return b;
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (this == obj)
+        {
+            return true;
+        }
+        if (!(obj instanceof hem))
+        {
+            return false;
+        } else
+        {
+            obj = (hem)obj;
+            return Arrays.equals(b, ((hem) (obj)).b);
+        }
+    }
+
+    public int hashCode()
+    {
+        return Arrays.hashCode(b);
+    }
+
+    static 
+    {
+        try
+        {
+            a = MessageDigest.getInstance("SHA-1").getDigestLength();
+        }
+        catch (NoSuchAlgorithmException nosuchalgorithmexception)
+        {
+            throw new IllegalStateException(nosuchalgorithmexception);
+        }
     }
 }

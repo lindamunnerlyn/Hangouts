@@ -4,19 +4,19 @@
 
 
 final class awk
-    implements azf
+    implements bsc
 {
 
-    final ave a;
+    final avv a;
 
-    awk(ave ave1)
+    awk(avv avv1)
     {
-        a = ave1;
+        a = avv1;
         super();
     }
 
-    public void a()
+    public boolean a()
     {
-        ave.aH(a);
+        return avv.U();
     }
 }

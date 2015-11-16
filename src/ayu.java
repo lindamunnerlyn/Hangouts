@@ -3,15 +3,8 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class ayu
+public interface ayu
 {
 
-    public final bhj a;
-    public final bho b;
-
-    public ayu(bhj bhj, bho bho)
-    {
-        a = bhj;
-        b = bho;
-    }
+    public abstract void a(ayv ayv);
 }

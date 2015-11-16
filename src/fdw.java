@@ -2,23 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.accounts.Account;
-import android.os.Bundle;
-import android.os.IInterface;
-import com.google.android.gms.auth.AccountChangeEventsRequest;
-import com.google.android.gms.auth.AccountChangeEventsResponse;
+import com.google.android.gms.common.api.Status;
 
-public interface fdw
-    extends IInterface
+abstract class fdw extends fdv
 {
 
-    public abstract Bundle a(Account account, String s, Bundle bundle);
+    public fdw(emy emy)
+    {
+        super(emy);
+    }
 
-    public abstract Bundle a(Bundle bundle);
+    protected enh a(Status status)
+    {
+        return d(status);
+    }
 
-    public abstract Bundle a(String s, Bundle bundle);
-
-    public abstract Bundle a(String s, String s1, Bundle bundle);
-
-    public abstract AccountChangeEventsResponse a(AccountChangeEventsRequest accountchangeeventsrequest);
+    protected Status d(Status status)
+    {
+        return status;
+    }
 }

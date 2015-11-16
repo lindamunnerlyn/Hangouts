@@ -2,89 +2,77 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.IOException;
+import java.util.Collection;
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+import java.util.List;
 
-public abstract class jra
+class jra
+    implements Iterator
 {
 
-    private static final jra a = new jrd("base64()", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", Character.valueOf('='));
-    private static final jra b = new jrd("base64Url()", "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_", Character.valueOf('='));
-    private static final jra c = new jrd("base32()", "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567", Character.valueOf('='));
-    private static final jra d = new jrd("base32Hex()", "0123456789ABCDEFGHIJKLMNOPQRSTUV", Character.valueOf('='));
-    private static final jra e = new jrd("base16()", "0123456789ABCDEF", null);
+    final Iterator a;
+    final Collection b;
+    final jqz c;
 
-    jra()
+    jra(jqz jqz1)
     {
-    }
-
-    public static jra b()
-    {
-        return b;
-    }
-
-    private byte[] b(CharSequence charsequence)
-    {
-        byte abyte0[];
-        int i;
-        String s = a().a(charsequence);
-        charsequence = a(g.a(s));
-        abyte0 = new byte[a(s.length())];
-        int j;
-        try
+        c = jqz1;
+        super();
+        b = c.c;
+        jqz1 = jqz1.c;
+        if (jqz1 instanceof List)
         {
-            j = charsequence.a();
-        }
-        // Misplaced declaration of an exception variable
-        catch (CharSequence charsequence)
-        {
-            throw charsequence;
-        }
-        // Misplaced declaration of an exception variable
-        catch (CharSequence charsequence)
-        {
-            throw new AssertionError(charsequence);
-        }
-        i = 0;
-        if (j == -1)
-        {
-            break; /* Loop/switch isn't completed */
-        }
-        abyte0[i] = (byte)j;
-        j = charsequence.a();
-        i++;
-        if (true) goto _L2; else goto _L1
-_L2:
-        break MISSING_BLOCK_LABEL_41;
-_L1:
-        if (i == abyte0.length)
-        {
-            return abyte0;
+            jqz1 = ((List)jqz1).listIterator();
         } else
         {
-            charsequence = new byte[i];
-            System.arraycopy(abyte0, 0, charsequence, 0, i);
-            return charsequence;
+            jqz1 = jqz1.iterator();
         }
+        a = jqz1;
     }
 
-    abstract int a(int i);
-
-    abstract jgb a();
-
-    abstract jrg a(jrg jrg1);
-
-    public final byte[] a(CharSequence charsequence)
+    jra(jqz jqz1, Iterator iterator)
     {
-        try
-        {
-            charsequence = b(charsequence);
-        }
-        // Misplaced declaration of an exception variable
-        catch (CharSequence charsequence)
-        {
-            throw new IllegalArgumentException(charsequence);
-        }
-        return charsequence;
+        c = jqz1;
+        super();
+        b = c.c;
+        a = iterator;
     }
 
+    void a()
+    {
+        c.a();
+        if (c.c != b)
+        {
+            throw new ConcurrentModificationException();
+        } else
+        {
+            return;
+        }
+    }
+
+    Iterator b()
+    {
+        a();
+        return a;
+    }
+
+    public boolean hasNext()
+    {
+        a();
+        return a.hasNext();
+    }
+
+    public Object next()
+    {
+        a();
+        return a.next();
+    }
+
+    public void remove()
+    {
+        a.remove();
+        jqq.a(c.f);
+        c.b();
+    }
 }

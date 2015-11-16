@@ -2,23 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class azh
-    implements arn
+final class azh
 {
 
-    final ani a;
+    boolean a;
+    boolean b;
+    int c;
+    Integer d;
+    final aza e;
 
-    public azh(ani ani)
+    azh(aza aza, boolean flag, boolean flag1, int i, Integer integer)
     {
-        a = ani;
+        e = aza;
         super();
-    }
-
-    public void a(ark ark1)
-    {
-        RealTimeChatService.a(a, ark1.a, dqc.a);
-        RealTimeChatService.a(a, ark1.a, dqc.r);
+        a = flag;
+        b = flag1;
+        c = i;
+        d = integer;
     }
 }

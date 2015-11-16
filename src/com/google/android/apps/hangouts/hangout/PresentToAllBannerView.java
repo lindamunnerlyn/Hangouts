@@ -6,51 +6,33 @@ package com.google.android.apps.hangouts.hangout;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import bof;
-import bos;
-import bot;
-import brq;
-import brr;
-import brs;
+import boo;
+import bpb;
+import bpc;
+import brz;
+import bsb;
 import g;
 import h;
 
 public final class PresentToAllBannerView extends FrameLayout
-    implements bos
+    implements bpb
 {
 
     private final Button a;
-    private final bof b = bof.a();
-    private final brs c = new brs(this);
+    private final boo b = boo.a();
+    private final bsb c = new bsb(this);
 
     public PresentToAllBannerView(Context context, AttributeSet attributeset)
     {
         super(context, attributeset);
-        a = (Button)LayoutInflater.from(context).inflate(g.gh, this, true).findViewById(h.eJ);
-        a.setOnClickListener(new brq(this));
+        a = (Button)LayoutInflater.from(context).inflate(g.gd, this, true).findViewById(h.er);
+        a.setOnClickListener(new brz(this));
         a.setAllCaps(true);
-    }
-
-    public static void a(PresentToAllBannerView presenttoallbannerview)
-    {
-        if (presenttoallbannerview.getVisibility() == 0)
-        {
-            if (presenttoallbannerview.getAnimation() != null)
-            {
-                presenttoallbannerview.getAnimation().cancel();
-            }
-            int i = -presenttoallbannerview.getHeight();
-            brr brr1 = new brr(presenttoallbannerview, (android.widget.RelativeLayout.LayoutParams)presenttoallbannerview.getLayoutParams(), i);
-            brr1.setDuration(presenttoallbannerview.getContext().getResources().getInteger(g.eX));
-            presenttoallbannerview.startAnimation(brr1);
-        }
     }
 
     public void a(int i)
@@ -61,12 +43,12 @@ public final class PresentToAllBannerView extends FrameLayout
         }
     }
 
-    public void a(bot bot)
+    public void a(bpc bpc)
     {
         b.a(c);
     }
 
-    public void i_()
+    public void j_()
     {
         b.b(c);
     }

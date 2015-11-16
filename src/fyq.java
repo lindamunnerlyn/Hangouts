@@ -2,41 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
+import android.os.Parcel;
+import com.google.android.gms.wearable.internal.ChannelReceiveFileResponse;
 
 public final class fyq
+    implements android.os.Parcelable.Creator
 {
 
-    public static final String a = fyd.getName();
-    public static final String b = fye.getName();
-    public static final String c = fyj.getName();
-    private static fyp d;
-
-    public static void a(Context context, hgx hgx1)
+    public fyq()
     {
-        if (d == null)
-        {
-            d = new fyp();
-        }
-        hgx1.a(fyd, new fyn(context));
     }
 
-    public static void a(hgx hgx1)
+    public Object createFromParcel(Parcel parcel)
     {
-        if (d == null)
+        int j = 0;
+        int k = g.a(parcel);
+        int i = 0;
+        do
         {
-            d = new fyp();
-        }
-        hgx1.a(fye, new fyo());
+            if (parcel.dataPosition() < k)
+            {
+                int l = parcel.readInt();
+                switch (0xffff & l)
+                {
+                default:
+                    g.b(parcel, l);
+                    break;
+
+                case 1: // '\001'
+                    i = g.e(parcel, l);
+                    break;
+
+                case 2: // '\002'
+                    j = g.e(parcel, l);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != k)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
+            } else
+            {
+                return new ChannelReceiveFileResponse(i, j);
+            }
+        } while (true);
     }
 
-    public static void b(hgx hgx1)
+    public Object[] newArray(int i)
     {
-        if (d == null)
-        {
-            d = new fyp();
-        }
-        hgx1.a(fyj, new fyx());
+        return new ChannelReceiveFileResponse[i];
     }
-
 }

@@ -3,16 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class deb extends dfa
+public final class deb extends dgj
 {
 
-    public deb(ani ani)
+    public deb(aoa aoa)
     {
-        super(ani);
+        super(aoa);
     }
 
     public void a()
     {
-        c.a(new cst());
+        a(((dmf) (new cuf())));
     }
 }

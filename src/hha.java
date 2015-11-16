@@ -3,8 +3,22 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface hha
+final class hha
+    implements Runnable
 {
 
-    public abstract hgx getBinder();
+    final int a;
+    final hgz b;
+
+    hha(hgz hgz1, int i)
+    {
+        b = hgz1;
+        a = i;
+        super();
+    }
+
+    public void run()
+    {
+        b.a(a, new String[0], new int[0]);
+    }
 }

@@ -2,90 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
 
-public final class jri extends koj
+abstract class jri extends jqq
+    implements jwl
 {
 
-    public Long a;
-    public Long b;
-    public Long c;
+    private static final long serialVersionUID = 0x67226fd4cd0928d8L;
 
-    public jri()
+    protected jri(Map map)
     {
-        a = null;
-        b = null;
-        c = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(map);
     }
 
-    protected int computeSerializedSize()
+    abstract Set a();
+
+    public Set a(Object obj)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.e(1, a.longValue());
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.e(2, b.longValue());
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.e(3, c.longValue());
-        }
-        return i;
+        return (Set)super.b(obj);
     }
 
-    public kop mergeFrom(kog kog1)
+    public boolean a(Object obj, Object obj1)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Long.valueOf(kog1.e());
-                break;
-
-            case 16: // '\020'
-                b = Long.valueOf(kog1.e());
-                break;
-
-            case 24: // '\030'
-                c = Long.valueOf(kog1.e());
-                break;
-            }
-        } while (true);
+        return super.a(obj, obj1);
     }
 
-    public void writeTo(koh koh1)
+    public Collection b(Object obj)
     {
-        if (a != null)
-        {
-            koh1.b(1, a.longValue());
-        }
-        if (b != null)
-        {
-            koh1.b(2, b.longValue());
-        }
-        if (c != null)
-        {
-            koh1.b(3, c.longValue());
-        }
-        super.writeTo(koh1);
+        return a(obj);
+    }
+
+    public Map b()
+    {
+        return super.b();
+    }
+
+    Collection c()
+    {
+        return a();
+    }
+
+    public boolean equals(Object obj)
+    {
+        return super.equals(obj);
     }
 }

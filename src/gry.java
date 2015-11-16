@@ -4,19 +4,35 @@
 
 import android.content.Context;
 
-public final class gry
+final class gry
+    implements grg
 {
 
-    public static final String a = grq.getName();
-    private static grx b;
+    final grq a;
 
-    public static void a(Context context, hgx hgx1)
+    gry(grq grq)
     {
-        if (b == null)
-        {
-            b = new grx();
-        }
-        hgx1.a(grq, new grs(context));
+        a = grq;
+        super();
     }
 
+    public String a()
+    {
+        return "add_skinny_page_boolean";
+    }
+
+    public void a(Context context, grd grd1)
+    {
+        boolean flag1 = false;
+        boolean flag = flag1;
+        if (!grd1.d("is_google_plus"))
+        {
+            flag = flag1;
+            if (grd1.a("page_count", 0) > 0)
+            {
+                flag = true;
+            }
+        }
+        grd1.b("gplus_skinny_page", flag);
+    }
 }

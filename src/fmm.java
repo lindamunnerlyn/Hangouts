@@ -2,9 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.IInterface;
 
 public interface fmm
+    extends IInterface
 {
 
-    public abstract void a(String s, String s1, int i);
+    public abstract void a(fjs fjs);
 }

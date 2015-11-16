@@ -3,21 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class jom extends jok
+final class jom extends jol
 {
 
-    jom(String s)
+    jom()
     {
-        super(s, 1);
     }
 
-    jgq a()
+    public long a()
     {
-        return jgs.a;
-    }
-
-    jou a(joh joh1, com.google.common.collect.MapMakerInternalMap.ReferenceEntry referenceentry, Object obj)
-    {
-        return new joj(joh1.h, obj, referenceentry);
+        return System.nanoTime();
     }
 }

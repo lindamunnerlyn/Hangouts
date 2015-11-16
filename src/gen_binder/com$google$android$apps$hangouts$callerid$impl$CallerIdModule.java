@@ -4,33 +4,33 @@
 
 package gen_binder;
 
-import akh;
+import ake;
 import android.content.Context;
-import hgx;
-import hhe;
+import hlp;
+import hlw;
 import java.util.HashMap;
 
 public final class 
-    implements hhe
+    implements hlw
 {
 
     private HashMap a;
 
-    public void a(Context context, Class class1, hgx hgx)
+    public void a(Context context, Class class1, hlp hlp)
     {
         if (a == null)
         {
             a = new HashMap(10);
-            a.put(akh.a, Integer.valueOf(0));
-            a.put(akh.b, Integer.valueOf(1));
-            a.put(akh.c, Integer.valueOf(2));
-            a.put(akh.d, Integer.valueOf(3));
-            a.put(akh.e, Integer.valueOf(4));
-            a.put(akh.f, Integer.valueOf(5));
-            a.put(akh.g, Integer.valueOf(6));
-            a.put(akh.h, Integer.valueOf(7));
-            a.put(akh.i, Integer.valueOf(8));
-            a.put(akh.j, Integer.valueOf(9));
+            a.put(ake.a, Integer.valueOf(0));
+            a.put(ake.b, Integer.valueOf(1));
+            a.put(ake.c, Integer.valueOf(2));
+            a.put(ake.d, Integer.valueOf(3));
+            a.put(ake.e, Integer.valueOf(4));
+            a.put(ake.f, Integer.valueOf(5));
+            a.put(ake.g, Integer.valueOf(6));
+            a.put(ake.h, Integer.valueOf(7));
+            a.put(ake.i, Integer.valueOf(8));
+            a.put(ake.j, Integer.valueOf(9));
         }
         class1 = (Integer)a.get(class1.getName());
         if (class1 == null)
@@ -43,43 +43,43 @@ public final class
             return;
 
         case 0: // '\0'
-            akh.a(context, hgx);
+            ake.a(context, hlp);
             return;
 
         case 1: // '\001'
-            akh.b(context, hgx);
+            ake.b(context, hlp);
             return;
 
         case 2: // '\002'
-            akh.c(context, hgx);
+            ake.c(context, hlp);
             return;
 
         case 3: // '\003'
-            akh.d(context, hgx);
+            ake.d(context, hlp);
             return;
 
         case 4: // '\004'
-            akh.e(context, hgx);
+            ake.e(context, hlp);
             return;
 
         case 5: // '\005'
-            akh.f(context, hgx);
+            ake.f(context, hlp);
             return;
 
         case 6: // '\006'
-            akh.a(hgx);
+            ake.a(hlp);
             return;
 
         case 7: // '\007'
-            akh.g(context, hgx);
+            ake.g(context, hlp);
             return;
 
         case 8: // '\b'
-            akh.h(context, hgx);
+            ake.h(context, hlp);
             return;
 
         case 9: // '\t'
-            akh.i(context, hgx);
+            ake.i(context, hlp);
             break;
         }
     }

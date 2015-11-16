@@ -2,48 +2,69 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.List;
 
 public final class hmu
+    implements hnw, how, hox, hoy
 {
 
-    private final Map a = hmq.a();
-    private final Map b = hmq.a();
-    private final Object c;
+    private List a;
+    private boolean b;
+    private boolean c;
+    private boolean d;
 
-    public hmu(Object obj)
+    hmu(hof hof1)
     {
-        c = obj;
+        a = new ArrayList();
+        d = true;
+        hof1.a(this);
     }
 
-    public void a()
+    hmu(hof hof1, byte byte0)
     {
-        java.util.Map.Entry entry;
-        for (Iterator iterator = a.entrySet().iterator(); iterator.hasNext(); ((Map)c).put(entry.getKey(), ((hmv)entry.getValue()).a()))
-        {
-            entry = (java.util.Map.Entry)iterator.next();
-        }
-
-        java.util.Map.Entry entry1;
-        for (Iterator iterator1 = b.entrySet().iterator(); iterator1.hasNext(); hno.a((Field)entry1.getKey(), c, ((hmv)entry1.getValue()).a()))
-        {
-            entry1 = (java.util.Map.Entry)iterator1.next();
-        }
-
+        a = new ArrayList();
+        d = true;
+        hof1.a(this);
     }
 
-    public void a(Field field, Class class1, Object obj)
+    private void c()
     {
-        hmv hmv2 = (hmv)b.get(field);
-        hmv hmv1 = hmv2;
-        if (hmv2 == null)
+        boolean flag;
+        if (b && d)
         {
-            hmv1 = new hmv(class1);
-            b.put(field, hmv1);
+            flag = true;
+        } else
+        {
+            flag = false;
         }
-        hmv1.a(class1, obj);
+        if (flag != c)
+        {
+            c = flag;
+            Iterator iterator = a.iterator();
+            while (iterator.hasNext()) 
+            {
+                iterator.next();
+            }
+        }
+    }
+
+    public void a(boolean flag)
+    {
+        d = flag;
+        c();
+    }
+
+    public void k_()
+    {
+        b = true;
+        c();
+    }
+
+    public void l_()
+    {
+        b = false;
+        c();
     }
 }

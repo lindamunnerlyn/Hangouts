@@ -2,37 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.graphics.Rect;
-import android.text.method.TransformationMethod;
+import android.support.v7.internal.widget.ActionBarContainer;
 import android.view.View;
-import java.util.Locale;
 
-public final class se
-    implements TransformationMethod
+final class se
+    implements mg
 {
 
-    private Locale a;
+    final sb a;
 
-    public se(Context context)
+    se(sb sb1)
     {
-        a = context.getResources().getConfiguration().locale;
+        a = sb1;
+        super();
     }
 
-    public CharSequence getTransformation(CharSequence charsequence, View view)
+    public void a()
     {
-        if (charsequence != null)
-        {
-            return charsequence.toString().toUpperCase(a);
-        } else
-        {
-            return null;
-        }
-    }
-
-    public void onFocusChanged(View view, CharSequence charsequence, boolean flag, int i, Rect rect)
-    {
+        ((View)sb.c(a).getParent()).invalidate();
     }
 }

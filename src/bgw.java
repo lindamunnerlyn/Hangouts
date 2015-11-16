@@ -2,32 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.res.Resources;
-import android.view.View;
-import android.view.accessibility.AccessibilityEvent;
-import com.google.android.apps.hangouts.fragments.CallContactPickerFragment;
-import java.util.List;
 
-public final class bgw extends android.view.View.AccessibilityDelegate
+public final class bgw extends IllegalArgumentException
 {
 
-    final CallContactPickerFragment a;
+    private static final long serialVersionUID = 1L;
 
-    public bgw(CallContactPickerFragment callcontactpickerfragment)
+    public bgw()
     {
-        a = callcontactpickerfragment;
-        super();
     }
 
-    public boolean dispatchPopulateAccessibilityEvent(View view, AccessibilityEvent accessibilityevent)
+    public bgw(String s)
     {
-        if (accessibilityevent.getEventType() == 32)
-        {
-            accessibilityevent.getText().add(view.getResources().getString(l.bt));
-            return true;
-        } else
-        {
-            return super.dispatchPopulateAccessibilityEvent(view, accessibilityevent);
-        }
+        super(s);
     }
 }

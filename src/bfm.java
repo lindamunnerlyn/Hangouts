@@ -2,23 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.ConnectionResult;
+import android.content.Context;
 
 final class bfm
-    implements ekc
 {
 
-    final bfk a;
+    private final ber a = (new bes()).a("floatingactionbutton").b("Add a floating action button.").a(true).a();
 
-    bfm(bfk bfk)
+    public bfm()
     {
-        a = bfk;
-        super();
     }
 
-    public void a(ConnectionResult connectionresult)
+    public bex a(Context context)
     {
-        connectionresult = String.valueOf(connectionresult);
-        ebw.g("Babel", (new StringBuilder(String.valueOf(connectionresult).length() + 34)).append("People client connection failure: ").append(connectionresult).toString());
+        return (bex)a.a(context, new bfo());
+    }
+
+    public ber[] a()
+    {
+        return (new ber[] {
+            a
+        });
     }
 }

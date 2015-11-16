@@ -2,25 +2,44 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.widget.FrameLayout;
-import com.google.android.gms.maps.GoogleMapOptions;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Parcel;
 
-public class ffy extends FrameLayout
+public final class ffy
+    implements ffw
 {
 
-    public final fga a;
+    private IBinder a;
 
-    public ffy(Context context, GoogleMapOptions googlemapoptions)
+    public ffy(IBinder ibinder)
     {
-        super(context);
-        a = new fga(this, context, googlemapoptions);
-        setClickable(true);
+        a = ibinder;
     }
 
-    public void a(fgc fgc)
+    public void a(Message message)
     {
-        h.c("getMapAsync() must be called on the main thread");
-        a.a(fgc);
+        Parcel parcel = Parcel.obtain();
+        parcel.writeInterfaceToken("com.google.android.gms.iid.IMessengerCompat");
+        if (message == null)
+        {
+            break MISSING_BLOCK_LABEL_44;
+        }
+        parcel.writeInt(1);
+        message.writeToParcel(parcel, 0);
+_L1:
+        a.transact(1, parcel, null, 1);
+        parcel.recycle();
+        return;
+        parcel.writeInt(0);
+          goto _L1
+        message;
+        parcel.recycle();
+        throw message;
+    }
+
+    public IBinder asBinder()
+    {
+        return a;
     }
 }

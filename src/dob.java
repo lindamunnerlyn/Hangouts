@@ -2,27 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
 
-public final class dob extends heo
-    implements hfv
+public interface dob
 {
 
-    private final hfu e;
+    public abstract void a(anq anq);
 
-    public dob()
-    {
-        e = new hfu(this, c);
-    }
-
-    public void a()
-    {
-        e.a(new doc());
-    }
-
-    protected void a(Bundle bundle)
-    {
-        super.a(bundle);
-        b.a(hfy, e);
-    }
+    public abstract void a(String s, String s1, anq anq, String s2, aoa aoa);
 }

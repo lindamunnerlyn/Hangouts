@@ -2,28 +2,75 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import java.util.HashMap;
+import java.util.Map;
 
-public final class dcv extends dfa
+public final class dcv
+    implements gdd
 {
 
-    private static final boolean a = false;
+    private final Object a = new Object();
+    private final Map b = new HashMap();
+    private final Context c;
+    private final gqz d;
 
-    public dcv(ani ani1)
+    public dcv(Context context)
     {
-        super(ani1);
+        c = context;
+        d = (gqz)hlp.a(context, gqz);
     }
 
-    public void a()
+    public gcz a()
     {
-        if (a)
+        aoa aoa1 = g.g();
+        int i;
+        if (aoa1 != null)
         {
-            ebw.b("Babel", "FixupAfterRequestWriterChangeOperation.performLocalOperations");
+            i = aoa1.h();
+        } else
+        {
+            i = -1;
         }
-        (new aoe(g.nS, b.h())).p();
+        return a(i);
     }
 
-    static 
+    public gcz a(int i)
     {
-        hik hik = ebw.n;
+        Object obj1;
+        Object obj;
+        gcz gcz1;
+        Object obj2;
+        if (d.c(i))
+        {
+            obj = d.a(i).b("account_name");
+        } else
+        {
+            obj = null;
+        }
+        obj1 = (gcz)b.get(Integer.valueOf(i));
+        if (obj1 != null)
+        {
+            break MISSING_BLOCK_LABEL_132;
+        }
+        obj2 = a;
+        obj2;
+        JVM INSTR monitorenter ;
+        gcz1 = (gcz)b.get(Integer.valueOf(i));
+        obj1 = gcz1;
+        if (gcz1 != null)
+        {
+            break MISSING_BLOCK_LABEL_116;
+        }
+        obj1 = new cac(c, ((String) (obj)), i);
+        b.put(Integer.valueOf(i), obj1);
+        obj2;
+        JVM INSTR monitorexit ;
+        return ((gcz) (obj1));
+        obj;
+        obj2;
+        JVM INSTR monitorexit ;
+        throw obj;
+        return ((gcz) (obj1));
     }
 }

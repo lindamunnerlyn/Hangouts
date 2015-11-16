@@ -2,43 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Bitmap;
-import java.util.SortedSet;
 
-final class gvw
-    implements gvn
+public final class gvw extends Enum
 {
 
-    private static final gvp a = new gvx();
+    public static final int a;
+    public static final int b;
+    public static final int c;
+    private static final int d[];
 
-    gvw()
+    static 
     {
+        a = 1;
+        b = 2;
+        c = 3;
+        d = (new int[] {
+            a, b, c
+        });
     }
-
-    public gvo a(int i, int j)
-    {
-        return new gvo(i, j, a);
-    }
-
-    public gvo a(Bitmap bitmap)
-    {
-        return new gvo(bitmap.getWidth(), bitmap.getHeight(), bitmap.getAllocationByteCount(), a);
-    }
-
-    public gvo a(gvo gvo1, SortedSet sortedset, gvq gvq)
-    {
-        if (!sortedset.isEmpty())
-        {
-            return (gvo)sortedset.first();
-        } else
-        {
-            return null;
-        }
-    }
-
-    public void a(gvo gvo1, Bitmap bitmap)
-    {
-        bitmap.reconfigure(gvo1.b, gvo1.a, android.graphics.Bitmap.Config.ARGB_8888);
-    }
-
 }

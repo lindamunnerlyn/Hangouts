@@ -6,5 +6,17 @@
 public interface gmy
 {
 
-    public abstract void F_();
+    public abstract void a(int i);
+
+    public abstract void a(int i, int j, int k, int l, boolean flag);
+
+    public abstract void a(gmz gmz);
+
+    public abstract void b(int i);
+
+    public abstract void b(boolean flag);
+
+    public abstract void c(boolean flag);
+
+    public abstract gna n();
 }

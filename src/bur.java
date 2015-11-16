@@ -4,31 +4,19 @@
 
 
 final class bur
-    implements gbe
+    implements bug
 {
 
-    final boolean a;
-    final buq b;
+    final bum a;
 
-    bur(buq buq1, boolean flag)
+    bur(bum bum1)
     {
-        b = buq1;
-        a = flag;
+        a = bum1;
         super();
     }
 
-    public void a(kop kop)
+    public void a(bui bui, boolean flag)
     {
-        if (buq.d())
-        {
-            boolean flag = a;
-            ebw.a("Babel", (new StringBuilder(45)).append("Successfully changed knockable state to ").append(flag).toString());
-        }
-    }
-
-    public void b(kop kop)
-    {
-        boolean flag = a;
-        ebw.g("Babel", (new StringBuilder(41)).append("Failed to change knockable state to ").append(flag).toString());
+        bum.f(a);
     }
 }

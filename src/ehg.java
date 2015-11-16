@@ -2,27 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import com.google.android.apps.hangouts.wearable.WearableService;
+import android.view.animation.Animation;
+import com.google.android.apps.hangouts.views.FadeImageView;
 
 public final class ehg
-    implements eka
+    implements android.view.animation.Animation.AnimationListener
 {
 
-    final WearableService a;
+    final FadeImageView a;
 
-    public ehg(WearableService wearableservice)
+    public ehg(FadeImageView fadeimageview)
     {
-        a = wearableservice;
+        a = fadeimageview;
         super();
     }
 
-    public void a(int i)
+    public void onAnimationEnd(Animation animation)
+    {
+        a.b.setAnimationListener(null);
+        a.setBackgroundDrawable(a.c);
+        a.startAnimation(a.a);
+    }
+
+    public void onAnimationRepeat(Animation animation)
     {
     }
 
-    public void a_(Bundle bundle)
+    public void onAnimationStart(Animation animation)
     {
-        a.d.a(a.b, WearableService.a).a(new ehh(this));
     }
 }

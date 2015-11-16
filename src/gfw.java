@@ -2,27 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.api.client.http.HttpHeaders;
-import com.google.api.client.http.HttpResponse;
-import java.io.InputStream;
+import java.util.List;
 
-public final class gfw
+final class gfw
+    implements Runnable
 {
 
-    final HttpResponse a;
+    final gmw a;
+    final gfu b;
 
-    gfw(HttpResponse httpresponse)
+    gfw(gfu gfu1, gmw gmw1)
     {
-        a = httpresponse;
+        b = gfu1;
+        a = gmw1;
+        super();
     }
 
-    public InputStream a()
+    public void run()
     {
-        return a.getContent();
-    }
-
-    public String a(String s)
-    {
-        return a.getHeaders().getFirstHeaderStringValue(s);
+        int j = b.a.size();
+        int i = 0;
+        do
+        {
+label0:
+            {
+                if (i < j)
+                {
+                    ggc ggc1 = (ggc)b.a.get(i);
+                    if (!ggc1.a.equals(a))
+                    {
+                        break label0;
+                    }
+                    ggc1.a();
+                    b.a.remove(i);
+                }
+                return;
+            }
+            i++;
+        } while (true);
     }
 }

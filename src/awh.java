@@ -2,25 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.widget.ListView;
+import android.content.Intent;
 
 final class awh
-    implements Runnable
+    implements gtd
 {
 
-    final awg a;
+    final avv a;
 
-    awh(awg awg1)
+    awh(avv avv1)
     {
-        a = awg1;
+        a = avv1;
         super();
     }
 
-    public void run()
+    public void a(int i, Intent intent)
     {
-        if (!a.a && a.c.getActivity() != null && !a.c.getActivity().isFinishing())
+        if (i == -1 && intent != null)
         {
-            ((ListView)ave.aq(a.c)).setSelection(((aqd)ave.ap(a.c)).getCount() - 1);
+            avv.b(a).a(new awi(this, intent));
         }
     }
 }

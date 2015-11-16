@@ -2,99 +2,102 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.media.AudioManager;
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
-import java.util.Iterator;
-import java.util.List;
 
-public final class cls
+final class cls
+    implements irn
 {
 
-    final Context a;
-    ani b;
-    int c;
-    cop d;
-    ap e;
+    private joj A;
+    private joj B;
+    joj a;
+    joj b;
+    joj c;
+    joj d;
+    joj e;
+    joj f;
+    final clr g;
+    private final irs h;
+    private final gto i;
+    private final gwp j;
+    private final dvz k;
+    private final dwc l;
+    private final isc m;
+    private final ise n;
+    private final iri o;
+    private final iqj p;
+    private joj q;
+    private joj r;
+    private joj s;
+    private joj t;
+    private joj u;
+    private joj v;
+    private joj w;
+    private joj x;
+    private joj y;
+    private joj z;
 
-    public cls(Context context)
+    cls(clr clr1, irs irs)
     {
-        a = context;
-        c = ((gmo)hgx.a(context, gmo)).a();
-        b = dbf.e(c);
-    }
-
-    static boolean a(cls cls1)
-    {
-        chz chz1 = (chz)hgx.a(cls1.a, chz);
-        if (chz1.a("android.permission.WRITE_EXTERNAL_STORAGE") && chz1.a("android.permission.READ_EXTERNAL_STORAGE"))
+        g = clr1;
+        super();
+        if (irs == null)
         {
-            return true;
+            throw new NullPointerException();
         } else
         {
-            Toast.makeText(cls1.a, "You don't have storage permission, please enable it in settings and try again.", 1).show();
-            return false;
+            h = irs;
+            i = new gto();
+            j = new gwp();
+            k = new dvz();
+            l = new dwc();
+            m = new isc();
+            n = new ise();
+            o = new iri();
+            p = new iqj();
+            q = lfs.a(new irt(h));
+            a = lfs.a(isd.b());
+            r = lft.a(new joj[] {
+                a
+            });
+            s = new isk(q, r);
+            t = new dwd(q);
+            u = new dvy(t);
+            v = lfs.a(new isf(q));
+            b = isg.b();
+            w = lft.a(new joj[] {
+                b
+            });
+            x = new ish(v, w);
+            c = lfs.a(new gtq(x));
+            d = lfs.a(new gtp(q, x));
+            e = dwa.b();
+            y = lfq.b().a("com.google.android.apps.hangouts.statusmessage.impl.StatusMessageSettingsActivity", e).a();
+            f = lfs.a(new iqk(q, x, y, g.k, g.d));
+            z = lft.a(new joj[] {
+                g.a, g.b
+            });
+            A = lft.a(new joj[] {
+                g.e, g.f
+            });
+            B = lft.a(new joj[] {
+                g.g, g.h, g.i, g.j
+            });
+            return;
         }
     }
 
-    public AlertDialog a()
+    public isj a()
     {
-        n.b(e);
-        n.b(d);
-        n.b(b);
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(a);
-        ArrayAdapter arrayadapter = new ArrayAdapter(a, 0x1090003);
-        arrayadapter.add(new clt(this, "Debug Activity"));
-        arrayadapter.add(new cmg(this, "Debug Bitmaps Activity"));
-        arrayadapter.add(new cml(this, "Debug OzGetMergedPerson Activity"));
-        arrayadapter.add(new cmm(this, "Request Warm Sync"));
-        arrayadapter.add(new cmn(this, "Tickle GCM"));
-        arrayadapter.add(new cmp(this, "Rewind 10 days"));
-        arrayadapter.add(new cmr(this, "Refresh from contacts"));
-        arrayadapter.add(new cms(this, "Dump Database"));
-        arrayadapter.add(new cmt(this, "Clear impressions throttles"));
-        Object obj = (AudioManager)a.getSystemService("audio");
-        long l;
-        long l1;
-        if (((AudioManager) (obj)).isMicrophoneMute())
-        {
-            arrayadapter.add(new clu(this, "Turn hardware mic on", ((AudioManager) (obj))));
-        } else
-        {
-            arrayadapter.add(new clv(this, "Turn hardware mic off", ((AudioManager) (obj))));
-        }
-        arrayadapter.add(new clw(this, "Re-run RegisterAccountOperation"));
-        arrayadapter.add(new clx(this, "Run DB Cleaner"));
-        if (b.t())
-        {
-            arrayadapter.add(new clz(this, "Re-import SMS"));
-            arrayadapter.add(new cma(this, "Sync SMS"));
-            arrayadapter.add(new cmb(this, "Load SMS/MMS from dump file"));
-            arrayadapter.add(new cmc(this, "Email SMS/MMS dump file"));
-            arrayadapter.add(new cmd(this, "Load test APN OTA"));
-        }
-        arrayadapter.add(new cmf(this, "Activate all Butter Bars"));
-        l = g.a(a, "babel_rtcs_watchdog_warning", 0L);
-        l1 = g.a(a, "babel_rtcs_watchdog_error", 0L);
-        arrayadapter.add(new cmh(this, (new StringBuilder(49)).append("Test RTCS watchdog (warning ").append(l).append(")").toString(), l));
-        arrayadapter.add(new cmi(this, (new StringBuilder(47)).append("Test RTCS watchdog (error ").append(l1).append(")").toString(), l1));
-        arrayadapter.add(new cmj(this, "Crash!"));
-        for (obj = hgx.c(a, cmv).iterator(); ((Iterator) (obj)).hasNext(); arrayadapter.add(((cmv)((Iterator) (obj)).next()).a(a))) { }
-        builder.setAdapter(arrayadapter, new cmk(this, arrayadapter));
-        return builder.create();
+        return (isj)s.a();
     }
 
-    public cls a(ap ap)
+    public dvx b()
     {
-        e = ap;
-        return this;
+        return (dvx)u.a();
     }
 
-    public cls a(cop cop)
+    public Object c()
     {
-        d = cop;
-        return this;
+        return new clt(this);
     }
 }

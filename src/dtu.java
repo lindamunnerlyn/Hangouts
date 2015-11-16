@@ -3,8 +3,32 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface dtu
+public final class dtu extends abz
 {
 
-    public abstract void a(dtv dtv);
+    private static final long serialVersionUID = 1L;
+    public final int a;
+
+    public dtu()
+    {
+        a = 119;
+    }
+
+    public dtu(int i, String s)
+    {
+        super(s);
+        a = i;
+    }
+
+    public dtu(String s, Throwable throwable)
+    {
+        super(s, throwable);
+        a = 136;
+    }
+
+    public dtu(Throwable throwable)
+    {
+        super(throwable);
+        a = 119;
+    }
 }

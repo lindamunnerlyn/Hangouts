@@ -2,135 +2,52 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.api.client.util.GenericData;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
-public final class hsl extends koj
+public final class hsl
+    implements Iterator
 {
 
-    public Boolean a;
-    public Boolean b;
-    public Boolean c;
-    public Integer d;
-    public Integer e;
+    final GenericData a;
+    private boolean b;
+    private final Iterator c;
+    private final Iterator d;
 
-    public hsl()
+    hsl(GenericData genericdata, hsg hsg1)
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        e = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = genericdata;
+        super();
+        c = hsg1.a();
+        d = genericdata.unknownFields.entrySet().iterator();
     }
 
-    protected int computeSerializedSize()
+    public boolean hasNext()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        j = i;
-        if (b != null)
-        {
-            b.booleanValue();
-            j = i + (koh.f(2) + 1);
-        }
-        i = j;
-        if (c != null)
-        {
-            c.booleanValue();
-            i = j + (koh.f(3) + 1);
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.e(5, d.intValue());
-        }
-        i = j;
-        if (e != null)
-        {
-            i = j + koh.e(6, e.intValue());
-        }
-        return i;
+        return c.hasNext() || d.hasNext();
     }
 
-    public kop mergeFrom(kog kog1)
+    public Object next()
     {
-_L8:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 6: default 64
-    //                   0: 73
-    //                   8: 75
-    //                   16: 89
-    //                   24: 103
-    //                   40: 117
-    //                   48: 162;
-           goto _L1 _L2 _L3 _L4 _L5 _L6 _L7
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L8; else goto _L2
-_L2:
-        return this;
-_L3:
-        a = Boolean.valueOf(kog1.i());
-          goto _L8
-_L4:
-        b = Boolean.valueOf(kog1.i());
-          goto _L8
-_L5:
-        c = Boolean.valueOf(kog1.i());
-          goto _L8
-_L6:
-        int j = kog1.f();
-        switch (j)
+        if (!b)
         {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-            d = Integer.valueOf(j);
-            break;
+            if (c.hasNext())
+            {
+                return (java.util.Map.Entry)c.next();
+            }
+            b = true;
         }
-        continue; /* Loop/switch isn't completed */
-_L7:
-        int k = kog1.f();
-        switch (k)
-        {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-            e = Integer.valueOf(k);
-            break;
-        }
-        if (true) goto _L8; else goto _L9
-_L9:
+        return (java.util.Map.Entry)d.next();
     }
 
-    public void writeTo(koh koh1)
+    public void remove()
     {
-        if (a != null)
+        if (b)
         {
-            koh1.a(1, a.booleanValue());
+            d.remove();
         }
-        if (b != null)
-        {
-            koh1.a(2, b.booleanValue());
-        }
-        if (c != null)
-        {
-            koh1.a(3, c.booleanValue());
-        }
-        if (d != null)
-        {
-            koh1.a(5, d.intValue());
-        }
-        if (e != null)
-        {
-            koh1.a(6, e.intValue());
-        }
-        super.writeTo(koh1);
+        c.remove();
     }
 }

@@ -3,174 +3,134 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-abstract class lee extends ldz
+public final class lee extends kwm
 {
 
-    private static final int k[] = {
-        31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 
-        30, 31
-    };
-    private static final int l[] = {
-        31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 
-        30, 31
-    };
-    private static final long m[];
-    private static final long n[];
-    private static final long serialVersionUID = 0x7d53cd7eccL;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
-    lee(lcw lcw, Object obj, int i)
+    public lee()
     {
-        super(lcw, null, i);
+        a = null;
+        b = null;
+        c = null;
+        d = null;
+        e = null;
+        f = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    int a(long l1, int i)
+    protected int computeSerializedSize()
     {
-        int j = (int)(l1 - d(i) >> 10);
-        if (!e(i)) goto _L2; else goto _L1
-_L1:
-        if (j >= 0xea515a) goto _L4; else goto _L3
-_L3:
-        if (j >= 0x7528ad) goto _L6; else goto _L5
-_L5:
-        if (j >= 0x27e949) goto _L8; else goto _L7
-_L7:
-        return 1;
-_L8:
-        return j >= 0x4d3f64 ? 3 : 2;
-_L6:
-        if (j < 0x9bc85f)
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (b != null)
         {
-            return 4;
+            i = j + kwk.b(1, b);
         }
-        return j >= 0xc3b1a8 ? 6 : 5;
-_L4:
-        if (j < 0x160c39e)
+        j = i;
+        if (f != null)
         {
-            if (j < 0x1123aa3)
-            {
-                return 7;
-            }
-            return j >= 0x13a23ec ? 9 : 8;
+            j = i + kwk.b(2, f);
         }
-        if (j < 0x188ace7)
+        i = j;
+        if (e != null)
         {
-            return 10;
+            i = j + kwk.b(3, e);
         }
-        return j >= 0x1af4c99 ? 12 : 11;
-_L2:
-        if (j < 0xe907c3)
+        j = i;
+        if (c != null)
         {
-            if (j < 0x73df16)
-            {
-                if (j >= 0x27e949)
-                {
-                    return j >= 0x4bf5cd ? 3 : 2;
-                }
-            } else
-            {
-                if (j < 0x9a7ec8)
-                {
-                    return 4;
-                }
-                return j >= 0xc26811 ? 6 : 5;
-            }
-        } else
-        {
-            if (j < 0x15f7a07)
-            {
-                if (j < 0x110f10c)
-                {
-                    return 7;
-                }
-                return j >= 0x138da55 ? 9 : 8;
-            }
-            if (j < 0x1876350)
-            {
-                return 10;
-            }
-            return j >= 0x1ae0302 ? 12 : 11;
+            j = i + kwk.b(4, c);
         }
-        if (true) goto _L7; else goto _L9
-_L9:
-    }
-
-    int b(int i, int j)
-    {
-        if (e(i))
+        i = j;
+        if (d != null)
         {
-            return l[j - 1];
-        } else
-        {
-            return k[j - 1];
+            i = j + kwk.b(5, d);
         }
-    }
-
-    long c(int i, int j)
-    {
-        if (e(i))
+        j = i;
+        if (a != null)
         {
-            return n[j - 1];
-        } else
-        {
-            return m[j - 1];
-        }
-    }
-
-    int e(long l1, int i)
-    {
-        int j = 28;
-        if (i > 28 || i <= 0)
-        {
-            j = i(l1);
+            j = i + kwk.b(6, a);
         }
         return j;
     }
 
-    long f(long l1, int i)
+    public kws mergeFrom(kwj kwj1)
     {
-        int j;
-        int i1;
-        int j1;
-        int k1;
-        k1 = a(l1);
-        i1 = c(l1, k1);
-        j1 = h(l1);
-        j = i1;
-        if (i1 <= 59) goto _L2; else goto _L1
-_L1:
-        if (!e(k1)) goto _L4; else goto _L3
-_L3:
-        j = i1;
-        if (!e(i))
+        do
         {
-            j = i1 - 1;
-        }
-_L2:
-        return a(i, 1, j) + (long)j1;
-_L4:
-        j = i1;
-        if (e(i))
-        {
-            j = i1 + 1;
-        }
-        if (true) goto _L2; else goto _L5
-_L5:
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                b = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                f = kwj1.j();
+                break;
+
+            case 26: // '\032'
+                e = kwj1.j();
+                break;
+
+            case 34: // '"'
+                c = kwj1.j();
+                break;
+
+            case 42: // '*'
+                d = kwj1.j();
+                break;
+
+            case 50: // '2'
+                a = kwj1.j();
+                break;
+            }
+        } while (true);
     }
 
-    static 
+    public void writeTo(kwk kwk1)
     {
-        long l1 = 0L;
-        m = new long[12];
-        n = new long[12];
-        int i = 0;
-        long l2 = 0L;
-        for (; i < 11; i++)
+        if (b != null)
         {
-            l2 += (long)k[i] * 0x5265c00L;
-            m[i + 1] = l2;
-            l1 += (long)l[i] * 0x5265c00L;
-            n[i + 1] = l1;
+            kwk1.a(1, b);
         }
-
+        if (f != null)
+        {
+            kwk1.a(2, f);
+        }
+        if (e != null)
+        {
+            kwk1.a(3, e);
+        }
+        if (c != null)
+        {
+            kwk1.a(4, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(5, d);
+        }
+        if (a != null)
+        {
+            kwk1.a(6, a);
+        }
+        super.writeTo(kwk1);
     }
 }

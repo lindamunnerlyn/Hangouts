@@ -2,83 +2,77 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.lang.ref.ReferenceQueue;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.Executor;
+import java.util.concurrent.RejectedExecutionException;
 
-public final class irf extends koj
+final class irf
+    implements Runnable
 {
 
-    public irg a;
-    public isa b;
+    final ire a;
 
-    public irf()
+    irf(ire ire1)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = ire1;
+        super();
     }
 
-    protected int computeSerializedSize()
+    public void run()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(2, b);
-        }
-        return j;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new irg();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                if (b == null)
-                {
-                    b = new isa();
-                }
-                kog1.a(b);
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        if (b != null)
-        {
-            koh1.b(2, b);
-        }
-        super.writeTo(koh1);
+        irg.a((irg)a.a.remove()).a(null);
+        a.b.execute(this);
+        return;
+        Object obj;
+        obj;
+        Set set = irg.a();
+        set;
+        JVM INSTR monitorenter ;
+        for (Iterator iterator = irg.a().iterator(); iterator.hasNext(); ((kas)iterator.next()).a(((Throwable) (obj)))) { }
+        break MISSING_BLOCK_LABEL_82;
+        obj;
+        set;
+        JVM INSTR monitorexit ;
+        throw obj;
+        set;
+        JVM INSTR monitorexit ;
+        return;
+        InterruptedException interruptedexception;
+        interruptedexception;
+        a.b.execute(this);
+        return;
+        obj;
+        interruptedexception = irg.a();
+        interruptedexception;
+        JVM INSTR monitorenter ;
+        for (Iterator iterator1 = irg.a().iterator(); iterator1.hasNext(); ((kas)iterator1.next()).a(((Throwable) (obj)))) { }
+        break MISSING_BLOCK_LABEL_147;
+        obj;
+        interruptedexception;
+        JVM INSTR monitorexit ;
+        throw obj;
+        interruptedexception;
+        JVM INSTR monitorexit ;
+        return;
+        obj;
+        a.b.execute(this);
+_L1:
+        throw obj;
+        RejectedExecutionException rejectedexecutionexception;
+        rejectedexecutionexception;
+        interruptedexception = irg.a();
+        interruptedexception;
+        JVM INSTR monitorenter ;
+        for (Iterator iterator2 = irg.a().iterator(); iterator2.hasNext(); ((kas)iterator2.next()).a(rejectedexecutionexception)) { }
+        break MISSING_BLOCK_LABEL_216;
+        obj;
+        interruptedexception;
+        JVM INSTR monitorexit ;
+        throw obj;
+        interruptedexception;
+        JVM INSTR monitorexit ;
+          goto _L1
     }
 }

@@ -2,36 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public class cul extends ctu
+public final class cul extends cvt
 {
 
-    private static final long serialVersionUID = 1L;
-    public final int a;
+    private final int a;
 
-    public cul(String s, int i)
+    public cul(aoa aoa1, int i, cwo cwo1, String s)
     {
-        super(s);
-        a = i;
+        super(hio.newBuilder().a(aoa1.a()).b(aoa1.ab()).a(true).a(), cwo1, cwo1.f(), dmi.a, (jbu)cwo1.a(s, i, aoa1.h()), new jbv());
+        a = aoa1.h();
     }
 
-    public kop a(String s, int i, int j)
+    protected cxr a(kws kws)
     {
-        if (ctr.e)
+        return czg.parseFrom((jbv)kws);
+    }
+
+    public void a(int i, Exception exception)
+    {
+        exception = e();
+        if (exception != null)
         {
-            String s1 = c;
-            int k = a;
-            ebw.b("Babel_RequestWriter", (new StringBuilder(String.valueOf(s1).length() + 81)).append("setConversationNotificationLevel build protobuf conversationID=").append(s1).append(" level=").append(k).toString());
+            RealTimeChatService.a(a, exception);
         }
-        ixy ixy1 = new ixy();
-        ixy1.requestHeader = ctq.a(s, i, j, h);
-        ixy1.a = ctq.a(c);
-        ixy1.b = Integer.valueOf(a);
-        return ixy1;
-    }
-
-    public String g()
-    {
-        return "conversations/setconversationnotificationlevel";
     }
 }

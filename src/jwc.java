@@ -2,61 +2,62 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.common.collect.MapMakerInternalMap;
 
-public final class jwc extends koj
+public final class jwc extends jrf
 {
 
-    public Double a;
+    final Object a;
+    Object b;
+    final MapMakerInternalMap c;
 
-    public jwc()
+    jwc(MapMakerInternalMap mapmakerinternalmap, Object obj, Object obj1)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        c = mapmakerinternalmap;
+        super();
+        a = obj;
+        b = obj1;
     }
 
-    protected int computeSerializedSize()
+    public boolean equals(Object obj)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        boolean flag1 = false;
+        boolean flag = flag1;
+        if (obj instanceof java.util.Map.Entry)
         {
-            a.doubleValue();
-            i = j + (koh.f(1) + 8);
-        }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
+            obj = (java.util.Map.Entry)obj;
+            flag = flag1;
+            if (a.equals(((java.util.Map.Entry) (obj)).getKey()))
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
+                flag = flag1;
+                if (b.equals(((java.util.Map.Entry) (obj)).getValue()))
                 {
-                    continue;
+                    flag = true;
                 }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 9: // '\t'
-                a = Double.valueOf(kog1.b());
-                break;
             }
-        } while (true);
+        }
+        return flag;
     }
 
-    public void writeTo(koh koh1)
+    public Object getKey()
     {
-        if (a != null)
-        {
-            koh1.a(1, a.doubleValue());
-        }
-        super.writeTo(koh1);
+        return a;
+    }
+
+    public Object getValue()
+    {
+        return b;
+    }
+
+    public int hashCode()
+    {
+        return a.hashCode() ^ b.hashCode();
+    }
+
+    public Object setValue(Object obj)
+    {
+        Object obj1 = c.put(a, obj);
+        b = obj;
+        return obj1;
     }
 }

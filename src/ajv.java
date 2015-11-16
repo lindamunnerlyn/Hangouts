@@ -2,17 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.TimeUnit;
+import android.content.DialogInterface;
 
 public final class ajv
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    public static final long a;
-    public static final long b;
+    final akf a;
+    final String b;
 
-    static 
+    public ajv(akf akf1, String s)
     {
-        a = TimeUnit.SECONDS.toMillis(10L);
-        b = TimeUnit.DAYS.toMillis(1L);
+        a = akf1;
+        b = s;
+        super();
+    }
+
+    public void onClick(DialogInterface dialoginterface, int i)
+    {
+        a.a(b);
     }
 }

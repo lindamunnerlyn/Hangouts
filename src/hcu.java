@@ -3,6 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface hcu
+final class hcu
+    implements Runnable
 {
+
+    final hct a;
+
+    hcu(hct hct1)
+    {
+        a = hct1;
+        super();
+    }
+
+    public void run()
+    {
+        a.e();
+    }
 }

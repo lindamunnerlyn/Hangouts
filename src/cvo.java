@@ -3,61 +3,35 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cvo extends cvn
+public class cvo extends cvf
 {
 
     private static final long serialVersionUID = 1L;
-    private final byte g[];
-    private final byte h[];
+    private final String a;
+    private final String b;
 
-    private cvo(jai jai1)
+    public cvo(String s, String s1)
     {
-        super(jai1.responseHeader, -1L);
-        if (cvn.a)
-        {
-            String s = String.valueOf(jai1);
-            ebw.b("Babel_protos", (new StringBuilder(String.valueOf(s).length() + 26)).append("AddBroadcastResponse from:").append(s).toString());
-        }
-        g = izx.toByteArray(jai1.a);
-        h = jbw.toByteArray(jai1.b);
+        a = s;
+        b = s1;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public kws a(String s, int i, int j)
     {
-        abyte0 = (jai)kop.mergeFrom(new jai(), abyte0);
-        if (a(((jai) (abyte0)).responseHeader))
-        {
-            return new cvz(((jai) (abyte0)).responseHeader);
-        } else
-        {
-            return new cvo(abyte0);
-        }
+        jgs jgs1 = new jgs();
+        jgs1.requestHeader = cvu.a(s, i, j, h);
+        jgs1.b = a;
+        jgs1.a = b;
+        return jgs1;
     }
 
-    public String k()
+    public long b()
     {
-        izx izx1 = l();
-        if (izx1 == null)
-        {
-            return null;
-        } else
-        {
-            return izx1.b;
-        }
+        return bpm.F();
     }
 
-    public izx l()
+    public String f()
     {
-        izx izx1;
-        try
-        {
-            izx1 = (izx)kop.mergeFrom(new izx(), g);
-        }
-        catch (koo koo1)
-        {
-            ebw.e("Babel", "Parse failed", koo1);
-            return null;
-        }
-        return izx1;
+        return "broadcasts/remove";
     }
 }

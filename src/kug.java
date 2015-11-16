@@ -3,26 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kug extends koj
+public final class kug extends kto
 {
 
-    public kug()
+    private kud a;
+
+    public kug(kud kud1)
     {
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = kud1;
     }
 
-    public kop mergeFrom(kog kog1)
+    public Object a(ktu ktu, kty kty)
     {
-_L3:
-        int i = kog1.a();
-        i;
-        JVM INSTR tableswitch 0 0: default 24
-    //                   0 33;
-           goto _L1 _L2
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L3; else goto _L2
-_L2:
-        return this;
+        return kud.a(a, ktu, kty);
     }
 }

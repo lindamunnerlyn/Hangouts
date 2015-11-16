@@ -3,8 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface dmd
+final class dmd
 {
 
-    public abstract void a(fqr fqr);
+    dmd()
+    {
+    }
 }

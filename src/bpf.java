@@ -3,21 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class bpf
-    implements Runnable
+public interface bpf
 {
 
-    final bpd a;
+    public abstract void a(bpm bpm);
 
-    bpf(bpd bpd1)
-    {
-        a = bpd1;
-        super();
-    }
-
-    public void run()
-    {
-        ebw.g("Babel", "Conversation id resolve timed out");
-        a.c(4);
-    }
+    public abstract void a(gmt gmt);
 }

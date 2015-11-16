@@ -2,36 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.AsyncTask;
-import android.widget.TextView;
+import com.google.android.apps.hangouts.fragments.dialpad.DialpadKeyButton;
 
-public final class bmu extends AsyncTask
+public final class bmu
+    implements Runnable
 {
 
-    private final String a;
-    private final TextView b;
+    final int a;
+    final DialpadKeyButton b;
 
-    public bmu(String s, TextView textview)
+    public bmu(DialpadKeyButton dialpadkeybutton, int i)
     {
-        a = s;
-        b = textview;
+        b = dialpadkeybutton;
+        a = i;
+        super();
     }
 
-    protected Object doInBackground(Object aobj[])
+    public void run()
     {
-        return new ahi(a);
-    }
-
-    protected void onPostExecute(Object obj)
-    {
-        obj = (ahi)obj;
-        if (obj == null || isCancelled())
+        if (a == DialpadKeyButton.a(b))
         {
-            return;
-        } else
-        {
-            b.addTextChangedListener(((android.text.TextWatcher) (obj)));
-            return;
+            gdv.a("Expected condition to be true", b.isPressed());
+            b.setPressed(false);
+            DialpadKeyButton.b(b);
+            DialpadKeyButton.c(b);
         }
     }
 }

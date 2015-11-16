@@ -16,35 +16,35 @@ import android.widget.Chronometer;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import ani;
-import anv;
-import bnd;
+import aoa;
+import aon;
 import bnk;
-import boa;
-import bob;
-import boc;
-import bod;
-import boe;
-import bof;
-import bos;
-import bot;
-import bpd;
-import bpk;
+import bns;
+import boj;
+import bok;
+import bol;
+import bom;
+import bon;
+import boo;
+import bpb;
+import bpc;
 import bpm;
-import bqf;
-import brk;
-import bry;
-import bsb;
-import bse;
-import bsi;
-import ebw;
-import ebz;
+import bpt;
+import bpv;
+import bqo;
+import brt;
+import bsh;
+import bsk;
+import bsn;
+import bsr;
+import eev;
+import eey;
 import g;
-import gjd;
-import gjf;
-import gjr;
+import gmf;
+import gmh;
+import gmt;
 import h;
-import hgx;
+import hlp;
 import java.util.Iterator;
 import java.util.List;
 import l;
@@ -53,21 +53,21 @@ import l;
 //            ParticipantTrayView
 
 public final class FocusedParticipantView extends FrameLayout
-    implements bos, gjf
+    implements bpb, gmh
 {
 
     private static final boolean b = false;
-    private final bnk a = new bob(this);
+    private final bns a = new bok(this);
     private int c;
-    private final bof d = bof.a();
-    private final boe e = new boe(this);
-    private final bnd f = bnd.a();
+    private final boo d = boo.a();
+    private final bon e = new bon(this);
+    private final bnk f = bnk.a();
     private ParticipantTrayView g;
-    private bqf h;
+    private bqo h;
     private boolean i;
-    private gjr j;
-    private brk k;
-    private gjd l;
+    private gmt j;
+    private brt k;
+    private gmf l;
     private final TextureView m;
     private final View n;
     private final ImageView o;
@@ -85,23 +85,23 @@ public final class FocusedParticipantView extends FrameLayout
         c = 1;
         i = true;
         v = false;
-        context = LayoutInflater.from(context).inflate(g.fZ, this, true);
-        m = (TextureView)context.findViewById(h.ce);
-        o = (ImageView)context.findViewById(h.bI);
-        n = context.findViewById(h.bH);
-        p = (Chronometer)context.findViewById(h.ad);
-        q = context.findViewById(h.eO);
-        r = (TextView)context.findViewById(h.aF);
-        s = context.findViewById(h.gN);
-        t = context.findViewById(h.bF);
-        u = context.findViewById(h.bG);
+        context = LayoutInflater.from(context).inflate(g.fV, this, true);
+        m = (TextureView)context.findViewById(h.bU);
+        o = (ImageView)context.findViewById(h.bC);
+        n = context.findViewById(h.bB);
+        p = (Chronometer)context.findViewById(h.ac);
+        q = context.findViewById(h.ew);
+        r = (TextView)context.findViewById(h.aA);
+        s = context.findViewById(h.gv);
+        t = context.findViewById(h.bz);
+        u = context.findViewById(h.bA);
         n.setVisibility(0);
     }
 
-    public static gjr a(FocusedParticipantView focusedparticipantview, gjr gjr1)
+    public static gmt a(FocusedParticipantView focusedparticipantview, gmt gmt1)
     {
-        focusedparticipantview.j = gjr1;
-        return gjr1;
+        focusedparticipantview.j = gmt1;
+        return gmt1;
     }
 
     public static void a(FocusedParticipantView focusedparticipantview)
@@ -109,7 +109,7 @@ public final class FocusedParticipantView extends FrameLayout
         focusedparticipantview.h();
     }
 
-    public static gjr b(FocusedParticipantView focusedparticipantview)
+    public static gmt b(FocusedParticipantView focusedparticipantview)
     {
         return focusedparticipantview.j;
     }
@@ -119,7 +119,7 @@ public final class FocusedParticipantView extends FrameLayout
         if (c != i1)
         {
             int j1 = c;
-            ebw.c("Babel_calls", (new StringBuilder(67)).append("FocusedParticipantView: switch from mode=").append(j1).append(" to ").append(i1).toString());
+            eev.c("Babel_calls", (new StringBuilder(67)).append("FocusedParticipantView: switch from mode=").append(j1).append(" to ").append(i1).toString());
             c = i1;
             View view = n;
             if (c == 2)
@@ -160,18 +160,18 @@ public final class FocusedParticipantView extends FrameLayout
         }
         if (f.f() != null)
         {
-            l = new gjd(f.f(), m);
+            l = new gmf(f.f(), m);
             l.a(this);
-            gjd gjd1 = l;
+            gmf gmf1 = l;
             boolean flag;
-            if (!f.v())
+            if (!f.u())
             {
                 flag = true;
             } else
             {
                 flag = false;
             }
-            gjd1.c(flag);
+            gmf1.c(flag);
             l.a("focusedParticipant");
             f();
         }
@@ -183,10 +183,10 @@ public final class FocusedParticipantView extends FrameLayout
         ImageView imageview;
         if (j != null && j.l())
         {
-            bitmap = anv.j();
+            bitmap = aon.j();
         } else
         {
-            bitmap = anv.h();
+            bitmap = aon.h();
         }
         imageview = o;
         if (k != null)
@@ -199,13 +199,13 @@ public final class FocusedParticipantView extends FrameLayout
 
     private void g()
     {
-        for (Iterator iterator = hgx.c(getContext(), boa).iterator(); iterator.hasNext(); iterator.next()) { }
+        for (Iterator iterator = hlp.c(getContext(), boj).iterator(); iterator.hasNext(); iterator.next()) { }
     }
 
     private void h()
     {
         long l2 = 0L;
-        if (!f.v() && (j == null || !j.l())) goto _L2; else goto _L1
+        if (!f.u() && (j == null || !j.l())) goto _L2; else goto _L1
 _L1:
         long l1;
         b(1);
@@ -226,8 +226,8 @@ _L3:
         if (v) goto _L6; else goto _L5
 _L5:
         Object obj;
-        bpd bpd1;
-        bry bry1;
+        bpm bpm1;
+        bsh bsh1;
         Iterator iterator;
         String s1;
         if (j != null && k != null)
@@ -237,44 +237,44 @@ _L5:
             v = true;
         }
 _L7:
-        bpd1 = f.t();
-        if (!(k instanceof bsb))
+        bpm1 = f.s();
+        if (!(k instanceof bsk))
         {
             break MISSING_BLOCK_LABEL_532;
         }
-        bry1 = ((bsb)k).l();
-        if (bry1 == null || bpd1 == null)
+        bsh1 = ((bsk)k).l();
+        if (bsh1 == null || bpm1 == null)
         {
             break MISSING_BLOCK_LABEL_532;
         }
-        iterator = bpd1.W().iterator();
+        iterator = bpm1.V().iterator();
         do
         {
             if (!iterator.hasNext())
             {
                 break MISSING_BLOCK_LABEL_532;
             }
-            obj = (bpk)iterator.next();
-            s1 = ebz.g(bry1.b());
-        } while (s1 == null || !s1.equals(((bpk) (obj)).a()));
+            obj = (bpt)iterator.next();
+            s1 = eey.g(bsh1.b());
+        } while (s1 == null || !s1.equals(((bpt) (obj)).a()));
 _L8:
         i();
         int i1;
-        if (obj != null && ((bpk) (obj)).b() != null)
+        if (obj != null && ((bpt) (obj)).b() != null)
         {
-            r.setText(getResources().getString(l.bw, new Object[] {
-                ((bpk) (obj)).b()
+            r.setText(getResources().getString(l.bq, new Object[] {
+                ((bpt) (obj)).b()
             }));
-            r.setText(getResources().getString(l.bx, new Object[] {
-                ((bpk) (obj)).b()
+            r.setText(getResources().getString(l.br, new Object[] {
+                ((bpt) (obj)).b()
             }));
             r.setVisibility(0);
-            if (obj instanceof bpm)
+            if (obj instanceof bpv)
             {
-                obj = (bpm)obj;
-                if (l1 < (long)((bpm) (obj)).d())
+                obj = (bpv)obj;
+                if (l1 < (long)((bpv) (obj)).d())
                 {
-                    if (((bpm) (obj)).c())
+                    if (((bpv) (obj)).c())
                     {
                         t.setVisibility(0);
                         u.setVisibility(8);
@@ -295,7 +295,7 @@ _L8:
             r.setVisibility(8);
             i1 = 8;
         }
-        if (bpd1 != null && bpd1.l().ab())
+        if (bpm1 != null && bpm1.k().Y())
         {
             s.setVisibility(0);
             i1 = 0;
@@ -337,7 +337,7 @@ _L2:
         }
     }
 
-    public void a(bot bot)
+    public void a(bpc bpc)
     {
         d.a(e);
         f.a(a);
@@ -347,14 +347,14 @@ _L2:
         }
     }
 
-    void a(bqf bqf1, ParticipantTrayView participanttrayview)
+    void a(bqo bqo1, ParticipantTrayView participanttrayview)
     {
         g = participanttrayview;
-        h = bqf1;
-        setOnClickListener(new boc(this, bqf1));
+        h = bqo1;
+        setOnClickListener(new bol(this, bqo1));
         if (b)
         {
-            setOnLongClickListener(new bod(this));
+            setOnLongClickListener(new bom(this));
         }
         g();
     }
@@ -369,21 +369,21 @@ _L2:
 
     public void b()
     {
-        brk brk1 = k;
-        j = f.q();
+        brt brt1 = k;
+        j = f.p();
         if (j == null)
         {
-            k = g.d();
+            k = g.e();
         } else
         {
             k = g.a(j.a());
         }
-        if (f.v() && (k instanceof bse))
+        if (f.u() && (k instanceof bsn))
         {
             j = null;
             k = null;
         }
-        if (k != brk1)
+        if (k != brt1)
         {
             h();
             f();
@@ -408,14 +408,14 @@ _L2:
     public CharSequence getContentDescription()
     {
         String s1 = h.a(getContext());
-        Iterator iterator = hgx.c(getContext(), bsi).iterator();
+        Iterator iterator = hlp.c(getContext(), bsr).iterator();
         do
         {
             if (!iterator.hasNext())
             {
                 break;
             }
-            String s3 = ((bsi)iterator.next()).a();
+            String s3 = ((bsr)iterator.next()).a();
             if (s3 != null)
             {
                 String s2 = s1;
@@ -441,7 +441,7 @@ _L2:
         return s1;
     }
 
-    public void i_()
+    public void j_()
     {
         f.b(a);
         d.b(e);
@@ -460,6 +460,6 @@ _L2:
 
     static 
     {
-        hik hik = ebw.f;
+        hnc hnc = eev.f;
     }
 }

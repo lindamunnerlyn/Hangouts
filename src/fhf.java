@@ -2,47 +2,52 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.IInterface;
+import java.util.Iterator;
 
-public interface fhf
-    extends IInterface
+final class fhf
+    implements Iterator
 {
 
-    public abstract void a(boolean flag);
+    final int a;
+    int b;
+    int c;
+    boolean d;
+    final fhe e;
 
-    public abstract boolean a();
+    fhf(fhe fhe1, int i)
+    {
+        e = fhe1;
+        super();
+        d = false;
+        a = i;
+        b = fhe1.a();
+    }
 
-    public abstract void b(boolean flag);
+    public boolean hasNext()
+    {
+        return c < b;
+    }
 
-    public abstract boolean b();
+    public Object next()
+    {
+        Object obj = e.a(c, a);
+        c = c + 1;
+        d = true;
+        return obj;
+    }
 
-    public abstract void c(boolean flag);
-
-    public abstract boolean c();
-
-    public abstract void d(boolean flag);
-
-    public abstract boolean d();
-
-    public abstract void e(boolean flag);
-
-    public abstract boolean e();
-
-    public abstract void f(boolean flag);
-
-    public abstract boolean f();
-
-    public abstract void g(boolean flag);
-
-    public abstract boolean g();
-
-    public abstract void h(boolean flag);
-
-    public abstract boolean h();
-
-    public abstract void i(boolean flag);
-
-    public abstract boolean i();
-
-    public abstract void j(boolean flag);
+    public void remove()
+    {
+        if (!d)
+        {
+            throw new IllegalStateException();
+        } else
+        {
+            c = c - 1;
+            b = b - 1;
+            d = false;
+            e.a(c);
+            return;
+        }
+    }
 }

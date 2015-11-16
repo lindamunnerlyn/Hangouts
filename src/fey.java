@@ -2,28 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Binder;
+import android.os.Parcel;
 import com.google.android.gms.common.api.Status;
+import com.google.android.gms.herrevad.PredictedNetworkQuality;
 
-public final class fey extends fmr
+public abstract class fey extends Binder
+    implements fex
 {
 
-    final fmc a;
-    final flx b;
-
-    public fey(flx flx, ejx ejx, fmc fmc1)
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel1, int j)
     {
-        b = flx;
-        a = fmc1;
-        super(ejx);
-    }
+        switch (i)
+        {
+        default:
+            return super.onTransact(i, parcel, parcel1, j);
 
-    protected ekg a(Status status)
-    {
-        return new fez(this, status);
-    }
+        case 1598968902: 
+            parcel1.writeString("com.google.android.gms.herrevad.internal.IConnectedNetworksQualityCallbacks");
+            return true;
 
-    protected void a(ejv ejv)
-    {
-        ((fpo)ejv).a(this, a.a(), a.b());
+        case 2: // '\002'
+            parcel.enforceInterface("com.google.android.gms.herrevad.internal.IConnectedNetworksQualityCallbacks");
+            break;
+        }
+        if (parcel.readInt() != 0)
+        {
+            parcel1 = (Status)Status.CREATOR.createFromParcel(parcel);
+        } else
+        {
+            parcel1 = null;
+        }
+        a(parcel1, parcel.createTypedArrayList(PredictedNetworkQuality.CREATOR));
+        return true;
     }
 }

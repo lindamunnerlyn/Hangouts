@@ -3,19 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-abstract class ece
+public interface ece
 {
 
-    private ece()
-    {
-    }
+    public abstract void f();
 
-    ece(byte byte0)
-    {
-        this();
-    }
-
-    abstract void a();
-
-    abstract void a(String s);
+    public abstract void g();
 }

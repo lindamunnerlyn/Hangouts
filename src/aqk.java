@@ -2,25 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.ArrayList;
 
-public abstract class aqk
+public final class aqk
+    implements aqm
 {
 
-    public aqk()
+    final ArrayList a;
+
+    public aqk(ArrayList arraylist)
     {
+        a = arraylist;
+        super();
     }
 
-    public cao a(cao cao)
+    public boolean a(int i, StringBuilder stringbuilder)
     {
-        cao cao1 = cao;
-        if (cao == null)
-        {
-            cao1 = b();
-        }
-        return cao1;
+        a.add(stringbuilder.toString());
+        return true;
     }
-
-    public abstract boolean a();
-
-    protected abstract cao b();
 }

@@ -3,21 +3,40 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class axx extends Enum
+final class axx
+    implements blh
 {
 
-    public static final int a;
-    public static final int b;
-    public static final int c;
-    private static final int d[];
+    final avv a;
 
-    static 
+    axx(avv avv1)
     {
-        a = 1;
-        b = 2;
-        c = 3;
-        d = (new int[] {
-            a, b, c
-        });
+        a = avv1;
+        super();
+    }
+
+    public boolean a()
+    {
+        return avv.m(a).f().f();
+    }
+
+    public boolean b()
+    {
+        return avv.m(a).d() == 1;
+    }
+
+    public String c()
+    {
+        return a.M().e;
+    }
+
+    public boolean d()
+    {
+        return avv.o(a);
+    }
+
+    public boolean e()
+    {
+        return a.c();
     }
 }

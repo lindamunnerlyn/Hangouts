@@ -3,19 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ddj extends dfa
+final class ddj
 {
 
-    private final String a;
-
-    public ddj(ani ani, String s)
+    ddj()
     {
-        super(ani);
-        a = s;
-    }
-
-    public void a()
-    {
-        c.a(new csp(a));
     }
 }

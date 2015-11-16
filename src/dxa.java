@@ -2,25 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
-import java.util.concurrent.CopyOnWriteArrayList;
+import android.telecom.DisconnectCause;
 
-final class dxa
-    implements Runnable
+public interface dxa
 {
 
-    final String a;
-    final dwz b;
+    public abstract void a(dwz dwz, int i);
 
-    dxa(dwz dwz1, String s)
-    {
-        b = dwz1;
-        a = s;
-        super();
-    }
-
-    public void run()
-    {
-        for (Iterator iterator = dwz.k().iterator(); iterator.hasNext(); ((dxb)iterator.next()).a(a)) { }
-    }
+    public abstract void a(dwz dwz, DisconnectCause disconnectcause);
 }

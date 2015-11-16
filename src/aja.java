@@ -2,29 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
+import android.content.Context;
 
-final class aja
-    implements android.content.DialogInterface.OnClickListener
+public final class aja
 {
 
-    final int a;
-    final aiy b;
+    public static final String a = ait.getName();
+    public static final String b = dij.getName();
+    public static final String c = ajc.getName();
+    private static aiz d;
 
-    aja(aiy aiy1, int i)
+    public static void a(Context context, hlp hlp1)
     {
-        b = aiy1;
-        a = i;
-        super();
+        if (d == null)
+        {
+            d = new aiz();
+        }
+        hlp1.a(dij, new dij[] {
+            new ajb(context)
+        });
     }
 
-    public void onClick(DialogInterface dialoginterface, int i)
+    public static void a(hlp hlp1)
     {
-        dialoginterface = new Intent("android.intent.action.VIEW");
-        dialoginterface.setData(Uri.parse(ajf.a(b.a, a)));
-        b.a.startActivity(dialoginterface);
-        b.a.finish();
+        if (d == null)
+        {
+            d = new aiz();
+        }
+        hlp1.a(ait, new aiu());
     }
+
+    public static void b(hlp hlp1)
+    {
+        if (d == null)
+        {
+            d = new aiz();
+        }
+        hlp1.a(ajc, new ajc());
+    }
+
 }

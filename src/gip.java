@@ -3,26 +3,35 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gip
-    implements gbe
+public final class gip extends gib
 {
 
-    final gim a;
+    private gio i;
+    private gmw j;
 
-    gip(gim gim)
+    public gip()
     {
-        a = gim;
-        super();
+        super("Invalid");
     }
 
-    public void a(kop kop)
+    public void a(gmw gmw1, gio gio1)
     {
-        gkc.b("vclib", "Successfully updated media source");
+        j = gmw1;
+        i = gio1;
     }
 
-    public void b(kop kop)
+    public boolean e()
     {
-        kop = String.valueOf((jcw)kop);
-        gkc.e("vclib", (new StringBuilder(String.valueOf(kop).length() + 31)).append("Failed to update media source: ").append(kop).toString());
+        if (i.e() == 0 || i.h() == 0 || i.i() == 0)
+        {
+            return false;
+        } else
+        {
+            a(i.e(), i.h(), i.i(), i.f(), i.g());
+            a(i.j());
+            b(i.k());
+            a(j.b(), j.c(), j.d());
+            return super.e();
+        }
     }
 }

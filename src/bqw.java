@@ -2,38 +2,31 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.widget.Button;
+import com.google.android.apps.hangouts.hangout.HangoutSelfMenu;
 
 final class bqw
-    implements android.content.DialogInterface.OnShowListener
+    implements Runnable
 {
 
-    final bqv a;
+    final bqo a;
 
-    bqw(bqv bqv)
+    bqw(bqo bqo1)
     {
-        a = bqv;
+        a = bqo1;
         super();
     }
 
-    public void onShow(DialogInterface dialoginterface)
+    public void run()
     {
-        dialoginterface = (AlertDialog)dialoginterface;
-        if (dialoginterface != null)
+        if (bqo.k(a).a())
         {
-            Button button = dialoginterface.getButton(-1);
-            if (button != null)
-            {
-                button.setAllCaps(true);
-            }
-            dialoginterface = dialoginterface.getButton(-2);
-            if (dialoginterface != null)
-            {
-                dialoginterface.setAllCaps(true);
-                return;
-            }
+            bqo.k(a).b();
+            bqo.a(a, bqo.k(a));
+        }
+        if (bqo.j(a).a())
+        {
+            bqo.j(a).b();
+            bqo.a(a, bqo.j(a));
         }
     }
 }

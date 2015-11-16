@@ -2,46 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.wearable.WearableService;
-import com.google.android.gms.common.api.Status;
-import java.util.Iterator;
 
-final class ehh
-    implements ekh
+public final class ehh
 {
 
-    final ehg a;
+    public static final int a[];
 
-    ehh(ehg ehg1)
+    static 
     {
-        a = ehg1;
-        super();
-    }
-
-    public void a(ekg ekg)
-    {
-        ekg = (ftb)ekg;
-        if (ekg.B_().e())
+        a = new int[cgf.values().length];
+        try
         {
-            ekg = ekg.iterator();
-            int i = 0;
-            do
-            {
-                if (!ekg.hasNext())
-                {
-                    break;
-                }
-                fsz fsz1 = (fsz)ekg.next();
-                int j = WearableService.a(a.a, fsz1);
-                if (j > i)
-                {
-                    i = j;
-                }
-            } while (true);
-            if (i > 0)
-            {
-                WearableService.a(a.a, i);
-            }
+            a[cgf.c.ordinal()] = 1;
+        }
+        catch (NoSuchFieldError nosuchfielderror3) { }
+        try
+        {
+            a[cgf.d.ordinal()] = 2;
+        }
+        catch (NoSuchFieldError nosuchfielderror2) { }
+        try
+        {
+            a[cgf.a.ordinal()] = 3;
+        }
+        catch (NoSuchFieldError nosuchfielderror1) { }
+        try
+        {
+            a[cgf.b.ordinal()] = 4;
+        }
+        catch (NoSuchFieldError nosuchfielderror)
+        {
+            return;
         }
     }
 }

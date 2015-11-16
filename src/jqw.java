@@ -2,19 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Comparator;
 import java.util.List;
+import java.util.RandomAccess;
 
-final class jqw extends jqr
+final class jqw extends jrb
+    implements RandomAccess
 {
 
-    jqw(String s)
-    {
-        super(s, 4);
-    }
+    final jqq a;
 
-    public int a(Comparator comparator, Object obj, List list, int i)
+    jqw(jqq jqq, Object obj, List list, jqz jqz)
     {
-        return c.a(comparator, obj, list, i) - 1;
+        a = jqq;
+        super(jqq, obj, list, jqz);
     }
 }

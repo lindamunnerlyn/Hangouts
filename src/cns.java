@@ -2,10 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-interface cns
+final class cns extends coj
 {
 
-    public abstract Iterator a(cnl cnl, CharSequence charsequence);
+    final cna a;
+
+    cns(cna cna, String s)
+    {
+        a = cna;
+        super(s);
+    }
+
+    public void a()
+    {
+        RealTimeChatService.a("android.intent.action.PACKAGE_REPLACED", "com.google.android.gms");
+    }
 }

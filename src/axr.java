@@ -2,58 +2,34 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import android.content.DialogInterface;
 
 final class axr
-    implements fsn, hjx, hka
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final ave a;
+    final String a;
+    final long b;
+    final avv c;
 
-    axr(ave ave1)
+    axr(avv avv1, String s, long l)
     {
-        a = ave1;
+        c = avv1;
+        a = s;
+        b = l;
         super();
     }
 
-    public void E_()
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        ave.b(a, true);
-        ave.c(a, 3);
-        ave.bz(a).b();
-        ave.bA(a);
-        if (!a.P())
+        if (i == 0)
         {
-            ave.bB(a);
-            ave.aj(a);
-        }
-        ave.a(a, new axs(this));
-        ave.H(a).post(ave.bv(a));
-        if (ave.bC(a) != null)
+            avv.a(c, a, b);
+        } else
+        if (i == 1)
         {
-            ave.a(a, ave.bC(a), ave.h(a));
-        }
-        ave.bD(a);
-    }
-
-    public void a()
-    {
-        if (ave.o(a).a().a != null)
-        {
-            ave.H(a).removeCallbacks(ave.bv(a));
-            ave.a(a, null);
-            ave.H(a).removeCallbacks(ave.bw(a));
-            ave.b(a, false);
-            ave.bx(a);
-            ave.b(a, null);
-            RealTimeChatService.b();
-            ave.by(a);
-            if (a.F() == null)
-            {
-                ave.b(a, a.S());
-                return;
-            }
+            avv.b(c, b);
+            return;
         }
     }
 }

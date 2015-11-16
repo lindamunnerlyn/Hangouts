@@ -2,37 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import java.util.List;
+import android.os.Handler;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public interface ayf
+final class ayf
+    implements hor, hou, hoy
 {
 
-    public abstract ark a();
+    final avv a;
 
-    public abstract void a(int i);
+    ayf(avv avv1)
+    {
+        a = avv1;
+        super();
+    }
 
-    public abstract void a(aih aih);
+    public void G_()
+    {
+        avv.b(a, true);
+        avv.b(a, 3);
+        avv.bv(a).b();
+        avv.bw(a);
+        if (!a.P())
+        {
+            avv.bx(a);
+            avv.ak(a);
+        }
+        avv.a(a, new ayg(this));
+        avv.G(a).post(avv.br(a));
+        if (avv.by(a) != null)
+        {
+            avv.a(a, avv.by(a), avv.h(a));
+        }
+        avv.bz(a);
+    }
 
-    public abstract void a(amz amz);
-
-    public abstract void a(Context context, List list, ayh ayh);
-
-    public abstract void a(ark ark);
-
-    public abstract void a(String s, String s1);
-
-    public abstract aih b();
-
-    public abstract String c();
-
-    public abstract int d();
-
-    public abstract String e();
-
-    public abstract amz f();
-
-    public abstract jlk g();
-
-    public abstract void h();
+    public void a()
+    {
+        if (avv.m(a).a().a != null)
+        {
+            avv.G(a).removeCallbacks(avv.br(a));
+            avv.a(a, null);
+            avv.G(a).removeCallbacks(avv.bs(a));
+            avv.b(a, false);
+            avv.bt(a);
+            avv.b(a, null);
+            RealTimeChatService.b();
+            avv.bu(a);
+            if (a.G() == null)
+            {
+                avv.b(a, a.S());
+                return;
+            }
+        }
+    }
 }

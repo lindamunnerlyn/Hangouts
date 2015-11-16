@@ -9,17 +9,17 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.Parcel;
 import android.os.Parcelable;
-import fcv;
-import fcy;
-import fcz;
+import fft;
+import ffw;
+import ffy;
 
 public class MessengerCompat
     implements Parcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new fcv();
+    public static final android.os.Parcelable.Creator CREATOR = new fft();
     Messenger a;
-    fcy b;
+    ffw b;
 
     public MessengerCompat(IBinder ibinder)
     {
@@ -27,11 +27,22 @@ public class MessengerCompat
         {
             a = new Messenger(ibinder);
             return;
+        }
+        if (ibinder == null)
+        {
+            ibinder = null;
         } else
         {
-            b = fcz.a(ibinder);
-            return;
+            android.os.IInterface iinterface = ibinder.queryLocalInterface("com.google.android.gms.iid.IMessengerCompat");
+            if (iinterface != null && (iinterface instanceof ffw))
+            {
+                ibinder = (ffw)iinterface;
+            } else
+            {
+                ibinder = new ffy(ibinder);
+            }
         }
+        b = ibinder;
     }
 
     public IBinder a()

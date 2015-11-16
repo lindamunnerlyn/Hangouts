@@ -2,11 +2,18 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.gms.wearable.internal.SendMessageResponse;
 
-public interface fyf
+final class fyf extends fya
 {
 
-    public abstract void a();
+    public fyf(enn enn)
+    {
+        super(enn);
+    }
 
-    public abstract void a(int i);
+    public void a(SendMessageResponse sendmessageresponse)
+    {
+        a(new fvm(g.n(sendmessageresponse.b), sendmessageresponse.c));
+    }
 }

@@ -2,61 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 
-public final class jzs extends koj
+final class jzs extends jzn
 {
 
-    public Boolean a;
-
-    public jzs()
+    jzs()
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super((byte)0);
     }
 
-    protected int computeSerializedSize()
+    void a(jzx jzx, Thread thread)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        return i;
+        jzm.e().lazySet(jzx, thread);
     }
 
-    public kop mergeFrom(kog kog1)
+    void a(jzx jzx, jzx jzx1)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
+        jzm.f().lazySet(jzx, jzx1);
     }
 
-    public void writeTo(koh koh1)
+    boolean a(jzm jzm1, Object obj, Object obj1)
     {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
-        }
-        super.writeTo(koh1);
+        return jzm.i().compareAndSet(jzm1, obj, obj1);
+    }
+
+    boolean a(jzm jzm1, jzr jzr, jzr jzr1)
+    {
+        return jzm.h().compareAndSet(jzm1, jzr, jzr1);
+    }
+
+    boolean a(jzm jzm1, jzx jzx, jzx jzx1)
+    {
+        return jzm.g().compareAndSet(jzm1, jzx, jzx1);
     }
 }

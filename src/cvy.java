@@ -2,77 +2,52 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ContentValues;
+import android.text.TextUtils;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-class cvy extends cvn
+public abstract class cvy extends cwm
 {
 
     private static final long serialVersionUID = 1L;
-    public final String h;
-    public final long i;
+    public final String c;
+    public transient boolean d;
 
-    public cvy(ixg ixg, long l, long l1, String s)
+    public cvy(String s)
     {
-        super(ixg, l);
-        h = s;
-        i = l1;
+        d = false;
+        c = s;
+        if (s != null && aow.a(s))
+        {
+            s = String.valueOf(s);
+            if (s.length() != 0)
+            {
+                s = "cannot use client generated conversation id:".concat(s);
+            } else
+            {
+                s = new String("cannot use client generated conversation id:");
+            }
+            throw new IllegalArgumentException(s);
+        } else
+        {
+            return;
+        }
     }
 
-    public void a(aoe aoe1, dfb dfb)
+    public void a(aoa aoa, dcx dcx1)
     {
-        String s1;
-        super.a(aoe1, dfb);
-        if (ebw.a("Babel", 3))
+        if (!TextUtils.isEmpty(c) && dcx1.c() == 113)
         {
-            dfb = String.valueOf("processEventResponse response status: ");
-            int j = c.b;
-            String s = c.a;
-            ebw.d("Babel", (new StringBuilder(String.valueOf(dfb).length() + 29 + String.valueOf(s).length())).append(dfb).append(j).append(" error description").append(s).toString());
+            dcx1 = String.valueOf(c);
+            if (dcx1.length() != 0)
+            {
+                dcx1 = "ERROR_RESPONSE_NOT_FOUND for ".concat(dcx1);
+            } else
+            {
+                dcx1 = new String("ERROR_RESPONSE_NOT_FOUND for ");
+            }
+            eev.f("Babel", dcx1);
+            RealTimeChatService.g(aoa, c);
+            d = true;
         }
-        dfb = ((cua)b).j;
-        s1 = ((cua)b).c;
-        if (dfb == null || h == null) goto _L2; else goto _L1
-_L1:
-        aoe1.a();
-        String s2;
-        ContentValues contentvalues;
-        long l1;
-        s2 = h;
-        long l = d;
-        l1 = i;
-        if (aoe.a)
-        {
-            ebw.b("Babel_db", (new StringBuilder(String.valueOf(s1).length() + 94 + String.valueOf(dfb).length() + String.valueOf(s2).length())).append("updateMessageId, conversationId ").append(s1).append(", messageClientGeneratedId=").append(dfb).append(", eventId=").append(s2).append(", ts=").append(l).toString());
-        }
-        contentvalues = new ContentValues();
-        contentvalues.put("message_id", s2);
-        contentvalues.put("timestamp", Long.valueOf(l));
-        if (l1 <= 0L) goto _L4; else goto _L3
-_L3:
-        contentvalues.put("expiration_timestamp", Long.valueOf(l1));
-_L5:
-        contentvalues.put("status", Integer.valueOf(dqb.e.ordinal()));
-        if (s1 != null)
-        {
-            break MISSING_BLOCK_LABEL_388;
-        }
-        ebw.f("Babel_db", (new StringBuilder(String.valueOf(s2).length() + 58)).append("attempt to update a message id [").append(s2).append("] for null conversation id").toString());
-_L6:
-        aoe1.b();
-        aoe1.c();
-_L2:
-        aoe1.h(s1, d);
-        cej.c(g.nS, aoe1.f().h());
-        return;
-_L4:
-        contentvalues.putNull("expiration_timestamp");
-          goto _L5
-        dfb;
-        aoe1.c();
-        throw dfb;
-        aoe1.b.a("messages", contentvalues, "message_id=? AND conversation_id=?", new String[] {
-            dfb, s1
-        });
-          goto _L6
     }
 }

@@ -2,37 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.net.URLEncoder;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.view.View;
 
-public class csd extends csa
+final class csd extends BroadcastReceiver
 {
 
-    private static final long serialVersionUID = 1L;
-    private final String a;
-    private final String b;
+    final csc a;
 
-    public csd(String s, String s1)
+    csd(csc csc1)
     {
-        a = s;
-        b = s1;
+        a = csc1;
+        super();
     }
 
-    public kop a(String s, int j, int k)
+    public void onReceive(Context context, Intent intent)
     {
-        return new csb();
-    }
-
-    public String g()
-    {
-        String s = String.valueOf("users/@me/phones/");
-        String s1 = String.valueOf(URLEncoder.encode(b));
-        String s2 = String.valueOf("/proxyNumbers/");
-        String s3 = String.valueOf(URLEncoder.encode(a));
-        return (new StringBuilder(String.valueOf(s).length() + 0 + String.valueOf(s1).length() + String.valueOf(s2).length() + String.valueOf(s3).length())).append(s).append(s1).append(s2).append(s3).toString();
-    }
-
-    public boolean i()
-    {
-        return false;
+        csc.a(a, intent.getStringExtra("phone_verification_result"));
+        csc.a(a);
+        csc.b(a).requestFocus();
     }
 }

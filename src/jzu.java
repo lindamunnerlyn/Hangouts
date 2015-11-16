@@ -2,61 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.TimeUnit;
 
-public final class jzu extends koj
+public class jzu extends jzm
 {
 
-    public Boolean a;
-
-    public jzu()
+    jzu()
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public final void a(Runnable runnable, Executor executor)
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(1) + 1);
-        }
-        return i;
+        super.a(runnable, executor);
     }
 
-    public kop mergeFrom(kog kog1)
+    public final Object get()
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 8: // '\b'
-                a = Boolean.valueOf(kog1.i());
-                break;
-            }
-        } while (true);
+        return super.get();
     }
 
-    public void writeTo(koh koh1)
+    public final Object get(long l, TimeUnit timeunit)
     {
-        if (a != null)
-        {
-            koh1.a(1, a.booleanValue());
-        }
-        super.writeTo(koh1);
+        return super.get(l, timeunit);
+    }
+
+    public final boolean isCancelled()
+    {
+        return super.isCancelled();
+    }
+
+    public final boolean isDone()
+    {
+        return super.isDone();
     }
 }

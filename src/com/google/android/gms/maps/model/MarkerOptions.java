@@ -7,10 +7,11 @@ package com.google.android.gms.maps.model;
 import android.os.IBinder;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import ezy;
-import ezz;
-import fjx;
-import fli;
+import fcw;
+import fcx;
+import fmt;
+import foe;
+import g;
 
 // Referenced classes of package com.google.android.gms.maps.model:
 //            LatLng
@@ -19,12 +20,12 @@ public final class MarkerOptions
     implements SafeParcelable
 {
 
-    public static final fli CREATOR = new fli();
+    public static final foe CREATOR = new foe();
     private final int a;
     private LatLng b;
     private String c;
     private String d;
-    private fjx e;
+    private fmt e;
     private float f;
     private float g;
     private boolean h;
@@ -68,7 +69,7 @@ public final class MarkerOptions
             latlng = null;
         } else
         {
-            latlng = new fjx(ezz.a(ibinder));
+            latlng = new fmt(fcx.a(ibinder));
         }
         e = latlng;
         f = f1;
@@ -82,9 +83,80 @@ public final class MarkerOptions
         n = f6;
     }
 
-    public int a()
+    private int a()
     {
         return a;
+    }
+
+    private IBinder b()
+    {
+        if (e == null)
+        {
+            return null;
+        } else
+        {
+            return e.a().asBinder();
+        }
+    }
+
+    private LatLng c()
+    {
+        return b;
+    }
+
+    private String d()
+    {
+        return c;
+    }
+
+    private String e()
+    {
+        return d;
+    }
+
+    private float f()
+    {
+        return f;
+    }
+
+    private float g()
+    {
+        return g;
+    }
+
+    private boolean h()
+    {
+        return h;
+    }
+
+    private boolean i()
+    {
+        return i;
+    }
+
+    private boolean j()
+    {
+        return j;
+    }
+
+    private float k()
+    {
+        return k;
+    }
+
+    private float l()
+    {
+        return l;
+    }
+
+    private float m()
+    {
+        return m;
+    }
+
+    private float n()
+    {
+        return n;
     }
 
     public MarkerOptions a(LatLng latlng)
@@ -99,31 +171,10 @@ public final class MarkerOptions
         return this;
     }
 
-    public IBinder b()
-    {
-        if (e == null)
-        {
-            return null;
-        } else
-        {
-            return e.a().asBinder();
-        }
-    }
-
     public MarkerOptions b(String s)
     {
         d = s;
         return this;
-    }
-
-    public LatLng c()
-    {
-        return b;
-    }
-
-    public String d()
-    {
-        return c;
     }
 
     public int describeContents()
@@ -131,59 +182,24 @@ public final class MarkerOptions
         return 0;
     }
 
-    public String e()
-    {
-        return d;
-    }
-
-    public float f()
-    {
-        return f;
-    }
-
-    public float g()
-    {
-        return g;
-    }
-
-    public boolean h()
-    {
-        return h;
-    }
-
-    public boolean i()
-    {
-        return i;
-    }
-
-    public boolean j()
-    {
-        return j;
-    }
-
-    public float k()
-    {
-        return k;
-    }
-
-    public float l()
-    {
-        return l;
-    }
-
-    public float m()
-    {
-        return m;
-    }
-
-    public float n()
-    {
-        return n;
-    }
-
     public void writeToParcel(Parcel parcel, int i1)
     {
-        fli.a(this, parcel, i1);
+        int j1 = g.p(parcel, 20293);
+        g.b(parcel, 1, a());
+        g.a(parcel, 2, c(), i1);
+        g.a(parcel, 3, d());
+        g.a(parcel, 4, e());
+        g.a(parcel, 5, b());
+        g.a(parcel, 6, f());
+        g.a(parcel, 7, g());
+        g.a(parcel, 8, h());
+        g.a(parcel, 9, i());
+        g.a(parcel, 10, j());
+        g.a(parcel, 11, k());
+        g.a(parcel, 12, l());
+        g.a(parcel, 13, m());
+        g.a(parcel, 14, n());
+        g.q(parcel, j1);
     }
 
 }

@@ -2,97 +2,151 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
+import java.io.Externalizable;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.List;
 
-public final class gpo
-    implements fsn, hhi, hjt, hkb
+public class gpo
+    implements Externalizable
 {
 
-    private gpw a;
-    private gpt b;
-    private gpv c;
+    private static final long serialVersionUID = 1L;
+    private boolean a;
+    private String b;
+    private boolean c;
+    private String d;
+    private List e;
+    private boolean f;
+    private String g;
+    private boolean h;
+    private boolean i;
+    private boolean j;
+    private String k;
 
-    public gpo(hjm hjm1)
+    public gpo()
     {
-        hjm1.a(this);
+        b = "";
+        d = "";
+        e = new ArrayList();
+        g = "";
+        i = false;
+        k = "";
     }
 
-    public void a(int i)
+    public static gpp newBuilder()
     {
-        if (TextUtils.isEmpty(c.a(i)))
+        return new gpp();
+    }
+
+    public gpo a(String s)
+    {
+        a = true;
+        b = s;
+        return this;
+    }
+
+    public gpo a(boolean flag)
+    {
+        h = true;
+        i = flag;
+        return this;
+    }
+
+    public String a()
+    {
+        return b;
+    }
+
+    public String a(int l)
+    {
+        return (String)e.get(l);
+    }
+
+    public gpo b(String s)
+    {
+        c = true;
+        d = s;
+        return this;
+    }
+
+    public String b()
+    {
+        return d;
+    }
+
+    public int c()
+    {
+        return e.size();
+    }
+
+    public gpo c(String s)
+    {
+        f = true;
+        g = s;
+        return this;
+    }
+
+    public gpo d(String s)
+    {
+        j = true;
+        k = s;
+        return this;
+    }
+
+    public String d()
+    {
+        return g;
+    }
+
+    public boolean e()
+    {
+        return i;
+    }
+
+    public void readExternal(ObjectInput objectinput)
+    {
+        a(objectinput.readUTF());
+        b(objectinput.readUTF());
+        int i1 = objectinput.readInt();
+        for (int l = 0; l < i1; l++)
         {
-            throw new IllegalArgumentException("You must use a resource id as the request code to guarantee overlap does not occur");
-        } else
-        {
-            return;
+            e.add(objectinput.readUTF());
         }
-    }
 
-    public void a(Context context, hgx hgx1, Bundle bundle)
-    {
-        a = (gpw)hgx1.a(gpw);
-        c = (gpv)hgx1.a(gpv);
-    }
-
-    public void a(Bundle bundle)
-    {
-        if (bundle != null)
+        if (objectinput.readBoolean())
         {
-            b = (gpt)bundle.getParcelable("requestcodehelper_pending_requests");
-            return;
-        } else
-        {
-            b = new gpt();
-            return;
+            c(objectinput.readUTF());
         }
+        if (objectinput.readBoolean())
+        {
+            d(objectinput.readUTF());
+        }
+        a(objectinput.readBoolean());
     }
 
-    public void a(gpp gpp1)
+    public void writeExternal(ObjectOutput objectoutput)
     {
-        Integer integer;
-        Integer integer1;
-        for (Iterator iterator = (new ArrayList(b.a())).iterator(); iterator.hasNext(); gpp1.a(integer.intValue(), integer1.intValue()))
+        objectoutput.writeUTF(b);
+        objectoutput.writeUTF(d);
+        int i1 = c();
+        objectoutput.writeInt(i1);
+        for (int l = 0; l < i1; l++)
         {
-            integer = (Integer)iterator.next();
-            integer1 = b.a(integer);
+            objectoutput.writeUTF((String)e.get(l));
         }
 
-    }
-
-    public boolean a(int i, gps gps1)
-    {
-        for (Iterator iterator = b.a().iterator(); iterator.hasNext();)
+        objectoutput.writeBoolean(f);
+        if (f)
         {
-            Integer integer = (Integer)iterator.next();
-            if (b.a(integer).intValue() == i)
-            {
-                gps1.a(integer.intValue());
-                return true;
-            }
+            objectoutput.writeUTF(g);
         }
-
-        return false;
-    }
-
-    public int b(int i)
-    {
-        Integer integer1 = b.a(Integer.valueOf(i));
-        Integer integer = integer1;
-        if (integer1 == null)
+        objectoutput.writeBoolean(j);
+        if (j)
         {
-            integer = Integer.valueOf(a.a());
-            b.a(Integer.valueOf(i), integer);
+            objectoutput.writeUTF(k);
         }
-        return integer.intValue();
-    }
-
-    public void b(Bundle bundle)
-    {
-        bundle.putParcelable("requestcodehelper_pending_requests", b);
+        objectoutput.writeBoolean(i);
     }
 }

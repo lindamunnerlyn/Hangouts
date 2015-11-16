@@ -2,68 +2,160 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.text.TextUtils;
+import java.security.MessageDigest;
+import java.util.Iterator;
 
-public final class dqc extends Enum
+public final class dqc
+    implements fth
 {
 
-    public static final dqc a;
-    public static final dqc b;
-    public static final dqc c;
-    public static final dqc d;
-    public static final dqc e;
-    public static final dqc f;
-    public static final dqc g;
-    public static final dqc h;
-    public static final dqc i;
-    public static final dqc j;
-    public static final dqc k;
-    public static final dqc l;
-    public static final dqc m;
-    public static final dqc n;
-    public static final dqc o;
-    public static final dqc p;
-    public static final dqc q;
-    public static final dqc r;
-    private static final dqc s[];
+    private final String a;
+    private final String b;
+    private final Iterable c;
+    private final Iterable d;
+    private final Iterable e;
+    private final String f;
+    private final boolean g;
+    private final String h;
+    private final String i;
+    private final String j[];
 
-    private dqc(String s1, int i1)
+    public dqc(fth fth1)
     {
-        super(s1, i1);
+        String s;
+        a = fth1.a();
+        b = fth1.j();
+        c = fth1.b();
+        d = fth1.c();
+        e = fth1.d();
+        f = fth1.e();
+        g = fth1.f();
+        h = fth1.g();
+        s = null;
+        String s1 = fth1.h();
+        s = s1;
+_L2:
+        i = s;
+        j = fth1.i();
+        return;
+        NullPointerException nullpointerexception;
+        nullpointerexception;
+        eev.d("Babel", "Caught NPE in getAvatarUrl", nullpointerexception);
+        if (true) goto _L2; else goto _L1
+_L1:
     }
 
-    public static dqc valueOf(String s1)
+    private static void a(MessageDigest messagedigest, String s)
     {
-        return (dqc)Enum.valueOf(dqc, s1);
+        if (!TextUtils.isEmpty(s))
+        {
+            messagedigest.update(s.getBytes());
+        }
     }
 
-    public static dqc[] values()
+    public String a()
     {
-        return (dqc[])s.clone();
+        return a;
     }
 
-    static 
+    public void a(MessageDigest messagedigest)
     {
-        a = new dqc("LOCATION_REQUEST_RECEIVER", 0);
-        b = new dqc("OUTGOING_USER_MESSAGE", 1);
-        c = new dqc("INCOMING_USER_MESSAGE", 2);
-        d = new dqc("CONVERSATION_RENAME", 3);
-        e = new dqc("MEMBERSHIP_CHANGE_DEPRECATED", 4);
-        f = new dqc("ERROR", 5);
-        g = new dqc("UNKNOWN", 6);
-        h = new dqc("HANGOUT_START_EVENT", 7);
-        i = new dqc("HANGOUT_STOP_EVENT", 8);
-        j = new dqc("OFF_THE_RECORD", 9);
-        k = new dqc("ON_THE_RECORD", 10);
-        l = new dqc("MEMBERSHIP_CHANGE_LEAVE", 11);
-        m = new dqc("MEMBERSHIP_CHANGE_JOIN", 12);
-        n = new dqc("ERROR_FORK", 13);
-        o = new dqc("MEMBERSHIP_CHANGE_LEAVE_FORCE_OTR_CONFLICT", 14);
-        p = new dqc("ERROR_FORCE_OTR_CONFLICT", 15);
-        q = new dqc("SMART_LOCATION_SUGGESTION", 16);
-        r = new dqc("LOCATION_REQUEST_SENDER", 17);
-        s = (new dqc[] {
-            a, b, c, d, e, f, g, h, i, j, 
-            k, l, m, n, o, p, q, r
-        });
+        boolean flag = false;
+        a(messagedigest, a());
+        a(messagedigest, j());
+        byte abyte0[];
+        for (Iterator iterator = c.iterator(); iterator.hasNext(); messagedigest.update(abyte0))
+        {
+            long l1 = g.a((Long)iterator.next(), 0L);
+            abyte0 = new byte[8];
+            for (int k = 7; k >= 0; k--)
+            {
+                abyte0[k] = (byte)(int)(255L & l1);
+                l1 >>= 8;
+            }
+
+        }
+
+        ftk ftk1;
+        for (Iterator iterator1 = c().iterator(); iterator1.hasNext(); a(messagedigest, ftk1.b()))
+        {
+            ftk1 = (ftk)iterator1.next();
+            a(messagedigest, ftk1.a());
+        }
+
+        ftq ftq1;
+        for (Iterator iterator2 = d().iterator(); iterator2.hasNext(); a(messagedigest, ftq1.b()))
+        {
+            ftq1 = (ftq)iterator2.next();
+            a(messagedigest, ftq1.a());
+        }
+
+        a(messagedigest, f);
+        byte byte0;
+        String as[];
+        int i1;
+        if (g)
+        {
+            byte0 = 1;
+        } else
+        {
+            byte0 = 0;
+        }
+        messagedigest.update(byte0);
+        a(messagedigest, h);
+        a(messagedigest, i);
+        as = j;
+        i1 = as.length;
+        for (int l = ((flag) ? 1 : 0); l < i1; l++)
+        {
+            a(messagedigest, as[l]);
+        }
+
+    }
+
+    public Iterable b()
+    {
+        return c;
+    }
+
+    public Iterable c()
+    {
+        return d;
+    }
+
+    public Iterable d()
+    {
+        return e;
+    }
+
+    public String e()
+    {
+        return f;
+    }
+
+    public boolean f()
+    {
+        return g;
+    }
+
+    public String g()
+    {
+        return h;
+    }
+
+    public String h()
+    {
+        return i;
+    }
+
+    public String[] i()
+    {
+        return j;
+    }
+
+    public String j()
+    {
+        return b;
     }
 }

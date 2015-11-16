@@ -2,69 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import android.os.ParcelFileDescriptor;
-import com.google.android.gms.wearable.internal.GetChannelInputStreamResponse;
+import android.os.RemoteException;
+import android.util.Log;
+import com.google.android.gms.signin.internal.CheckServerAuthResult;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
 
-public final class ful
-    implements android.os.Parcelable.Creator
+final class ful
+    implements Runnable
 {
 
-    public ful()
+    final List a;
+    final String b;
+    final fuf c;
+    final fuk d;
+
+    ful(fuk fuk1, List list, String s, fuf fuf1)
     {
+        d = fuk1;
+        a = list;
+        b = s;
+        c = fuf1;
+        super();
     }
 
-    public static void a(GetChannelInputStreamResponse getchannelinputstreamresponse, Parcel parcel, int i)
+    public void run()
     {
-        int j = g.p(parcel, 20293);
-        g.b(parcel, 1, getchannelinputstreamresponse.a);
-        g.b(parcel, 2, getchannelinputstreamresponse.b);
-        g.a(parcel, 3, getchannelinputstreamresponse.c, i);
-        g.q(parcel, j);
-    }
-
-    public Object createFromParcel(Parcel parcel)
-    {
-        int j = 0;
-        int k = g.a(parcel);
-        ParcelFileDescriptor parcelfiledescriptor = null;
-        int i = 0;
-        do
+        try
         {
-            if (parcel.dataPosition() < k)
-            {
-                int l = parcel.readInt();
-                switch (0xffff & l)
-                {
-                default:
-                    g.b(parcel, l);
-                    break;
-
-                case 1: // '\001'
-                    i = g.e(parcel, l);
-                    break;
-
-                case 2: // '\002'
-                    j = g.e(parcel, l);
-                    break;
-
-                case 3: // '\003'
-                    parcelfiledescriptor = (ParcelFileDescriptor)g.a(parcel, l, ParcelFileDescriptor.CREATOR);
-                    break;
-                }
-            } else
-            if (parcel.dataPosition() != k)
-            {
-                throw new af((new StringBuilder("Overread allowed size end=")).append(k).toString(), parcel);
-            } else
-            {
-                return new GetChannelInputStreamResponse(i, j, parcelfiledescriptor);
-            }
-        } while (true);
-    }
-
-    public Object[] newArray(int i)
-    {
-        return new GetChannelInputStreamResponse[i];
+            Object obj = d.a.d();
+            Collections.unmodifiableSet(new HashSet(a));
+            obj = ((a) (obj)).j();
+            obj = new CheckServerAuthResult(((qd) (obj)).h(), ((qd) (obj)).i());
+            c.a(((CheckServerAuthResult) (obj)));
+            return;
+        }
+        catch (RemoteException remoteexception)
+        {
+            Log.e("SignInClientImpl", "RemoteException thrown when processing checkServerAuthorization callback", remoteexception);
+        }
     }
 }

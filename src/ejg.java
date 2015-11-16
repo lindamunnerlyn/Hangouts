@@ -2,59 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.util.Log;
-import com.google.android.gms.clearcut.LogEventParcelable;
-import com.google.android.gms.common.api.Status;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import com.google.android.apps.hangouts.views.ParticipantsGalleryView;
+import java.lang.ref.WeakReference;
+import java.util.Queue;
 
-final class ejg extends ejf
+public final class ejg extends Handler
 {
 
-    final eix a;
-    private final LogEventParcelable b;
+    private final WeakReference a;
 
-    ejg(eix eix1, LogEventParcelable logeventparcelable, ejx ejx)
+    public ejg(ParticipantsGalleryView participantsgalleryview)
     {
-        a = eix1;
-        super(ejx);
-        b = logeventparcelable;
+        super(Looper.getMainLooper());
+        a = new WeakReference(participantsgalleryview);
     }
 
-    protected ekg a(Status status)
+    public void handleMessage(Message message)
     {
-        return status;
-    }
-
-    protected void a(ejv ejv)
-    {
-        ejv = (eiq)ejv;
-        ejh ejh1 = new ejh(this);
-        try
+        if (message.what == 0) goto _L2; else goto _L1
+_L1:
+        return;
+_L2:
+        if ((message = (ParticipantsGalleryView)a.get()) != null)
         {
-            eix.a(b);
+            ParticipantsGalleryView.d(message);
+            ejd ejd1 = new ejd(message, ParticipantsGalleryView.e(message).size());
+            while (ParticipantsGalleryView.e(message).size() > 0) 
+            {
+                ParticipantsGalleryView.a(message, (ejj)ParticipantsGalleryView.e(message).poll(), ejd1);
+            }
         }
-        // Misplaced declaration of an exception variable
-        catch (ejv ejv)
-        {
-            Log.e("ClearcutLoggerApiImpl", (new StringBuilder("MessageNanoProducer ")).append(b.f.toString()).append(" threw: ").append(ejv.toString()).toString());
-            return;
-        }
-        ejv.a(ejh1, b);
-    }
-
-    public boolean equals(Object obj)
-    {
-        if (!(obj instanceof ejg))
-        {
-            return false;
-        } else
-        {
-            obj = (ejg)obj;
-            return b.equals(((ejg) (obj)).b);
-        }
-    }
-
-    public String toString()
-    {
-        return (new StringBuilder("MethodImpl(")).append(b).append(")").toString();
+        if (true) goto _L1; else goto _L3
+_L3:
     }
 }

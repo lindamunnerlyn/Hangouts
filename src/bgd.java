@@ -2,15 +2,38 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public interface bgd
+final class bgd
+    implements dvn
 {
 
-    public abstract void a();
+    final bgc a;
 
-    public abstract void a(android.content.DialogInterface.OnCancelListener oncancellistener);
+    bgd(bgc bgc1)
+    {
+        a = bgc1;
+        super();
+    }
 
-    public abstract void a(String s);
+    public void a()
+    {
+    }
 
-    public abstract void b(String s);
+    public void onClick(View view)
+    {
+        view = ((bge)a.c).q();
+        RealTimeChatService.a(((bge)a.c).a(), ((cfz) (view)).b.a, ((cfz) (view)).b.b, ((cfz) (view)).e, false, true);
+        view = a.b.getContext().getString(l.iS, new Object[] {
+            ((cfz) (view)).e
+        });
+        Toast.makeText(a.b.getContext(), view, 0).show();
+        ((bge)a.c).r();
+        ((bge)a.c).a(((bge)a.c).f() - 1);
+        g.a(dcn.e(((gqu)hlp.a(a.b.getContext(), gqu)).a()), 1816);
+    }
 }

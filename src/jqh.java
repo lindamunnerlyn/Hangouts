@@ -2,44 +2,43 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.lang.reflect.Field;
 
-public final class jqh
+public abstract class jqh extends Enum
 {
 
-    private final Field a;
+    public static final jqh a;
+    public static final jqh b;
+    public static final jqh c;
+    public static final jqh d;
+    public static final jqh e;
+    private static final jqh f[];
 
-    public jqh(Field field)
+    jqh(String s, int i)
     {
-        a = field;
-        field.setAccessible(true);
+        super(s, i);
     }
 
-    void a(Object obj, int i)
+    public static jqh valueOf(String s)
     {
-        try
-        {
-            a.set(obj, Integer.valueOf(i));
-            return;
-        }
-        // Misplaced declaration of an exception variable
-        catch (Object obj)
-        {
-            throw new AssertionError(obj);
-        }
+        return (jqh)Enum.valueOf(jqh, s);
     }
 
-    void a(Object obj, Object obj1)
+    public static jqh[] values()
     {
-        try
-        {
-            a.set(obj, obj1);
-            return;
-        }
-        // Misplaced declaration of an exception variable
-        catch (Object obj)
-        {
-            throw new AssertionError(obj);
-        }
+        return (jqh[])f.clone();
+    }
+
+    abstract boolean a();
+
+    static 
+    {
+        a = new jqi("EXPLICIT");
+        b = new jqj("REPLACED");
+        c = new jqk("COLLECTED");
+        d = new jql("EXPIRED");
+        e = new jqm("SIZE");
+        f = (new jqh[] {
+            a, b, c, d, e
+        });
     }
 }

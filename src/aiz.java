@@ -3,23 +3,10 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class aiz
-    implements gmq
+public final class aiz
 {
 
-    final aiy a;
-
-    aiz(aiy aiy1)
+    public aiz()
     {
-        a = aiy1;
-        super();
-    }
-
-    public void a(boolean flag, gmp gmp, gmp gmp1, int i, int j)
-    {
-        if (flag)
-        {
-            a.c();
-        }
     }
 }

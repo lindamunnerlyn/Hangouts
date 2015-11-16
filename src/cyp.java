@@ -3,51 +3,41 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public class cyp extends cvn
+public class cyp extends cxr
 {
 
-    private static final long serialVersionUID = 2L;
+    private static final long serialVersionUID = 1L;
+    private final String g;
 
-    private cyp(iwt iwt1)
+    private cyp(jhx jhx1)
     {
-        super(iwt1.responseHeader, -1L);
-        if (ebw.a("Babel", 3))
+        g = jhx1.a;
+        if (cxr.a)
         {
-            String s = String.valueOf("UploadAnalyticsResponse debugUrl: ");
-            iwt1 = String.valueOf(iwt1.responseHeader.c);
-            if (iwt1.length() != 0)
-            {
-                iwt1 = s.concat(iwt1);
-            } else
-            {
-                iwt1 = new String(s);
-            }
-            ebw.d("Babel", iwt1);
+            jhx1 = String.valueOf(jhx1);
+            eev.b("Babel_protos", (new StringBuilder(String.valueOf(jhx1).length() + 26)).append("GetHangoutIdResponse from:").append(jhx1).toString());
         }
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public static cxr parseFrom(byte abyte0[])
     {
-        abyte0 = (iwt)kop.mergeFrom(new iwt(), abyte0);
-        if (a(((iwt) (abyte0)).responseHeader))
+        abyte0 = (jhx)kws.mergeFrom(new jhx(), abyte0);
+        if (a(((jhx) (abyte0)).responseHeader))
         {
-            return new cvz(((iwt) (abyte0)).responseHeader);
+            return new cyd(((jhx) (abyte0)).responseHeader);
         } else
         {
             return new cyp(abyte0);
         }
     }
 
-    public void a(aoe aoe1, dfb dfb)
+    public String k()
     {
-        super.a(aoe1, dfb);
-        if (ebw.a("Babel", 3))
-        {
-            dfb = String.valueOf("processEventResponse response status: ");
-            int i = c.b;
-            String s = c.a;
-            ebw.d("Babel", (new StringBuilder(String.valueOf(dfb).length() + 29 + String.valueOf(s).length())).append(dfb).append(i).append(" error description").append(s).toString());
-        }
-        djh.b(aoe1.f().h()).a(3);
+        return g;
+    }
+
+    public String l()
+    {
+        return ((cvj)b).a;
     }
 }

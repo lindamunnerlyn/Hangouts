@@ -2,27 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
+import android.content.Context;
 
 final class bbk
-    implements arn
 {
 
-    final Intent a;
-    final bbj b;
-
-    bbk(bbj bbj1, Intent intent)
+    bbk()
     {
-        b = bbj1;
-        a = intent;
-        super();
     }
 
-    public void a(ark ark)
+    public bbh a(Context context)
     {
-        (new baa(bbh.f(b.a))).execute(new Intent[] {
-            a
-        });
-        ((bdp)bbh.g(b.a).a(bdp)).a(2329, 1, 0, null);
+        return new bbl(this, context);
     }
 }

@@ -2,11 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
+import java.util.HashMap;
 
-public interface bjd
+final class bjd
+    implements dvn
 {
 
-    public abstract void a();
+    final bjc a;
+    private boolean b;
 
-    public abstract void a(String s, int i, boolean flag, aik aik);
+    bjd(bjc bjc1)
+    {
+        a = bjc1;
+        super();
+    }
+
+    public void a()
+    {
+        if (!b)
+        {
+            a.a(a.a, true, false);
+        }
+        b = false;
+    }
+
+    public void onClick(View view)
+    {
+        view = a;
+        if (((bjc) (view)).a != null && ((bjc) (view)).a.size() > 0)
+        {
+            view.a(((bjc) (view)).a, false, false);
+            view.a = null;
+        }
+        b = true;
+    }
 }

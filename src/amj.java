@@ -2,16 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Cursor;
-import java.util.List;
+import android.os.Process;
+import android.os.StrictMode;
+import com.google.android.apps.hangouts.concurrent.impl.ConcurrentServiceImpl;
 
-public interface amj
-    extends Cursor
+final class amj
+    implements Runnable
 {
 
-    public abstract amf a();
+    final Runnable a;
+    final ami b;
 
-    public abstract void a(List list);
+    amj(ami ami, Runnable runnable)
+    {
+        b = ami;
+        a = runnable;
+        super();
+    }
 
-    public abstract int b();
+    public void run()
+    {
+        StrictMode.setThreadPolicy(ConcurrentServiceImpl.a());
+        Process.setThreadPriority(0);
+        a.run();
+    }
 }

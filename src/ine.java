@@ -2,74 +2,95 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.Executor;
 
-final class ine
-    implements ind
+public final class ine extends kwm
 {
 
-    private static final UUID a = UUID.randomUUID();
-    private final ilr b;
-    private final gsi c;
-    private final Executor d;
-    private final kxx e;
-    private final ConcurrentMap f = new ConcurrentHashMap(2, 0.75F, 1);
+    private static volatile ine c[];
+    public String a;
+    public String b;
 
-    ine(ilr ilr1, gsi gsi1, Executor executor, kxx kxx)
+    public ine()
     {
-        b = ilr1;
-        c = gsi1;
-        d = executor;
-        e = kxx;
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    static ConcurrentMap a(ine ine1)
+    public static ine[] a()
     {
-        return ine1.f;
-    }
-
-    static kxx b(ine ine1)
-    {
-        return ine1.e;
-    }
-
-    static Executor c(ine ine1)
-    {
-        return ine1.d;
-    }
-
-    public void a(String s)
-    {
-        imy imy1 = ino.b();
-        if (imy1 != null)
+        if (c == null)
         {
-            s = String.valueOf(imy1.b());
-            if (s.length() != 0)
+            synchronized (kwq.a)
             {
-                s = "Already associated with a trace: ".concat(s);
-            } else
-            {
-                s = new String("Already associated with a trace: ");
+                if (c == null)
+                {
+                    c = new ine[0];
+                }
             }
-            throw new IllegalStateException(s);
-        } else
-        {
-            UUID uuid = UUID.randomUUID();
-            Object obj = kvl.newBuilder().a(ino.a()).j().b(uuid.getLeastSignificantBits()).a(c.a()).a(s);
-            imx imx1 = new imx(uuid, this, c, ((kvm) (obj)), true);
-            s = new ArrayList();
-            s.add(((kvm) (obj)).e());
-            f.put(uuid, Collections.synchronizedList(s));
-            ino.a(imx1);
-            obj = b.a(imx1);
-            ((jsj) (obj)).a(new inf(this, uuid, s, ((jsj) (obj))), d);
-            return;
         }
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.b(1, a);
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.b(2, b);
+        }
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a);
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        super.writeTo(kwk1);
+    }
 }

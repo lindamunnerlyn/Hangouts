@@ -2,32 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.content.Context;
 
-final class bus extends bnk
+final class bus
 {
 
-    final buq a;
+    private final ber a = (new bes()).a("knocking").b("Module that enables responding to knocks").a(true).a();
 
-    bus(buq buq1)
+    public bus()
     {
-        a = buq1;
-        super();
     }
 
-    public void a(int i)
+    public buh a(Context context)
     {
-        buq.a(a, null);
-        buq.a(a, btv.e);
-        if (buq.a(a) != null)
+        if (a.a(context))
         {
-            buq.a(a).b(buq.f(a));
-            buq.a(a, null);
+            return new bvd();
+        } else
+        {
+            return null;
         }
     }
 
-    public void a(gjq gjq)
+    public ber[] a()
     {
-        buq.a(a, (gau)buq.e(a).p().a(gau));
-        buq.a(a).a(buq.f(a));
+        return (new ber[] {
+            a
+        });
+    }
+
+    public buf b(Context context)
+    {
+        if (a.a(context))
+        {
+            return new bum(context);
+        } else
+        {
+            return null;
+        }
+    }
+
+    public bsq[] c(Context context)
+    {
+        return (bsq[])a.a(context, bsq, new bsq[] {
+            new but(this), new buu(this)
+        });
     }
 }

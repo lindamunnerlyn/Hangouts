@@ -3,10 +3,28 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class gkl
+final class gkl
+    implements gds
 {
 
-    gkl()
+    final gds a;
+    final gkj b;
+
+    gkl(gkj gkj1, gds gds1)
     {
+        b = gkj1;
+        a = gds1;
+        super();
+    }
+
+    public void a(kws kws)
+    {
+        b.a_.a(gkj.a(b.b.a(kws)));
+        a.a(kws);
+    }
+
+    public void b(kws kws)
+    {
+        a.b(kws);
     }
 }

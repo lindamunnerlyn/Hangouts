@@ -2,28 +2,67 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.os.IInterface;
+import java.util.Map;
 
-public interface fhc
-    extends IInterface
+final class fhc extends fhe
 {
 
-    public abstract fgw a();
+    final fhb a;
 
-    public abstract void a(Bundle bundle);
+    fhc(fhb fhb1)
+    {
+        a = fhb1;
+        super();
+    }
 
-    public abstract void a(fjq fjq);
+    protected int a()
+    {
+        return a.h;
+    }
 
-    public abstract void b();
+    protected int a(Object obj)
+    {
+        if (obj == null)
+        {
+            return a.a();
+        } else
+        {
+            return a.a(obj, obj.hashCode());
+        }
+    }
 
-    public abstract void b(Bundle bundle);
+    protected Object a(int i, int j)
+    {
+        return a.g[(i << 1) + j];
+    }
 
-    public abstract void c();
+    protected Object a(int i, Object obj)
+    {
+        return a.a(i, obj);
+    }
 
-    public abstract void d();
+    protected void a(int i)
+    {
+        a.d(i);
+    }
 
-    public abstract void e();
+    protected void a(Object obj, Object obj1)
+    {
+        a.put(obj, obj1);
+    }
 
-    public abstract ezy f();
+    protected int b(Object obj)
+    {
+        return a.a(obj);
+    }
+
+    protected Map b()
+    {
+        return a;
+    }
+
+    protected void c()
+    {
+        a.clear();
+    }
 }

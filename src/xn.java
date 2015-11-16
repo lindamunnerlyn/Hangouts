@@ -5,17 +5,17 @@
 import android.view.View;
 import java.util.ArrayList;
 
-final class xn extends xr
+final class xn extends xt
 {
 
-    final xp a;
+    final zs a;
     final lr b;
-    final xg c;
+    final xi c;
 
-    xn(xg xg1, xp xp1, lr lr1)
+    xn(xi xi1, zs zs, lr lr1)
     {
-        c = xg1;
-        a = xp1;
+        c = xi1;
+        a = zs;
         b = lr1;
         super();
     }
@@ -27,11 +27,13 @@ final class xn extends xr
     public void b(View view)
     {
         b.a(null);
-        kb.c(view, 1.0F);
-        kb.a(view, 0.0F);
-        kb.b(view, 0.0F);
-        c.g(a.a);
-        c.g.remove(a.a);
+        c.f(a);
+        c.d.remove(a);
         c.c();
+    }
+
+    public void c(View view)
+    {
+        kb.c(view, 1.0F);
     }
 }

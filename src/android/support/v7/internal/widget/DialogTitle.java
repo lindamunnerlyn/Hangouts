@@ -9,7 +9,7 @@ import android.content.res.TypedArray;
 import android.text.Layout;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import ro;
+import rq;
 
 public class DialogTitle extends TextView
 {
@@ -40,8 +40,8 @@ public class DialogTitle extends TextView
             {
                 setSingleLine(false);
                 setMaxLines(2);
-                TypedArray typedarray = getContext().obtainStyledAttributes(null, ro.bH, 0x1010041, 0x1030044);
-                int l = typedarray.getDimensionPixelSize(ro.bI, 0);
+                TypedArray typedarray = getContext().obtainStyledAttributes(null, rq.bH, 0x1010041, 0x1030044);
+                int l = typedarray.getDimensionPixelSize(rq.bI, 0);
                 if (l != 0)
                 {
                     setTextSize(0, l);

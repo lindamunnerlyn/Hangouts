@@ -3,16 +3,6 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class gax
-    implements gbf
+public interface gax
 {
-
-    gax()
-    {
-    }
-
-    public String a(kop kop)
-    {
-        return ((jba)kop).b;
-    }
 }

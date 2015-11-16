@@ -3,32 +3,74 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class lde extends ldy
+public final class lde extends kwm
 {
 
-    private static final long serialVersionUID = 0xd4947ab9cf0bf864L;
+    public Integer a;
+    public Integer b;
 
-    lde()
+    public lde()
     {
+        a = null;
+        b = null;
+        unknownFieldData = null;
+        cachedSize = -1;
     }
 
-    public lcw a(ldd ldd)
+    protected int computeSerializedSize()
     {
-        return this;
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.e(1, a.intValue());
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.e(2, b.intValue());
+        }
+        return j;
     }
 
-    public ldd a()
+    public kws mergeFrom(kwj kwj1)
     {
-        return null;
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
+                break;
+            }
+        } while (true);
     }
 
-    public lcw b()
+    public void writeTo(kwk kwk1)
     {
-        return this;
-    }
-
-    public String toString()
-    {
-        return getClass().getName();
+        if (a != null)
+        {
+            kwk1.a(1, a.intValue());
+        }
+        if (b != null)
+        {
+            kwk1.a(2, b.intValue());
+        }
+        super.writeTo(kwk1);
     }
 }

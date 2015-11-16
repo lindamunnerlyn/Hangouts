@@ -6,9 +6,7 @@
 public interface tq
 {
 
-    public abstract tc a();
+    public abstract void a(ta ta, boolean flag);
 
-    public abstract void a(tc tc);
-
-    public abstract boolean b();
+    public abstract boolean a(ta ta);
 }

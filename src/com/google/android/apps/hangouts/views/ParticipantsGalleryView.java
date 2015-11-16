@@ -4,7 +4,7 @@
 
 package com.google.android.apps.hangouts.views;
 
-import ahj;
+import ahb;
 import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
 import android.content.Context;
@@ -18,26 +18,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import ani;
-import anv;
-import ceu;
-import cey;
-import dbf;
-import dyy;
-import eay;
-import ebr;
-import ebw;
-import ega;
-import egb;
-import egc;
-import egd;
-import ege;
-import egf;
-import egh;
+import aoa;
+import aon;
+import cfz;
+import cgd;
+import dcn;
+import ecj;
+import eec;
+import eep;
+import eev;
+import ejc;
+import ejd;
+import eje;
+import ejf;
+import ejg;
+import ejh;
+import ejj;
 import g;
-import gmo;
+import gqu;
 import h;
-import hgx;
+import hlp;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -49,27 +49,27 @@ import java.util.Queue;
 //            OverlayedAvatarView
 
 public class ParticipantsGalleryView extends FrameLayout
-    implements dyy
+    implements ecj
 {
 
     private static final boolean a = false;
     private boolean b;
     private boolean c;
-    private dyy d;
+    private ecj d;
     private LayoutTransition e;
     private LayoutTransition f;
-    private egd g;
+    private ejf g;
     private final int h;
     private final int i;
     private int j;
     private final ViewGroup k;
     private int l;
     private int m;
-    private final eay n;
-    private final eay o;
+    private final eec n;
+    private final eec o;
     private boolean p;
     private int q;
-    private ani r;
+    private aoa r;
     private final Handler s;
     private final Queue t;
     private boolean u;
@@ -83,24 +83,24 @@ public class ParticipantsGalleryView extends FrameLayout
     {
         super(context, attributeset);
         j = -1;
-        n = new eay();
-        o = new eay();
+        n = new eec();
+        o = new eec();
         p = true;
         q = 0;
         r = null;
-        s = new ege(this);
+        s = new ejg(this);
         t = new LinkedList();
         u = false;
-        r = dbf.e(((gmo)hgx.a(context, gmo)).a());
-        attributeset = context.getTheme().obtainStyledAttributes(attributeset, ahj.Y, 0, 0);
-        c = attributeset.getBoolean(ahj.Z, false);
+        r = dcn.e(((gqu)hlp.a(context, gqu)).a());
+        attributeset = context.getTheme().obtainStyledAttributes(attributeset, ahb.Y, 0, 0);
+        c = attributeset.getBoolean(ahb.Z, false);
         attributeset.recycle();
-        LayoutInflater.from(context).inflate(g.gS, this, true);
-        k = (ViewGroup)findViewById(h.ev);
-        h = getResources().getInteger(g.fb);
-        i = getResources().getInteger(g.eY);
+        LayoutInflater.from(context).inflate(g.gK, this, true);
+        k = (ViewGroup)findViewById(h.ee);
+        h = getResources().getInteger(g.eZ);
+        i = getResources().getInteger(g.eW);
         context = new LayoutTransition();
-        int i1 = anv.a();
+        int i1 = aon.a();
         context.setAnimator(3, ObjectAnimator.ofFloat(null, "translationY", new float[] {
             0.0F, (float)(i1 + 20)
         }));
@@ -136,7 +136,7 @@ public class ParticipantsGalleryView extends FrameLayout
     private static String a(List list)
     {
         StringBuilder stringbuilder = new StringBuilder();
-        for (list = list.iterator(); list.hasNext(); stringbuilder.append(((ceu)list.next()).b.b).append(" ")) { }
+        for (list = list.iterator(); list.hasNext(); stringbuilder.append(((cfz)list.next()).b.b).append(" ")) { }
         return stringbuilder.toString();
     }
 
@@ -172,14 +172,14 @@ _L1:
         return;
     }
 
-    private void a(ceu ceu1, OverlayedAvatarView overlayedavatarview, int i1, boolean flag)
+    private void a(cfz cfz1, OverlayedAvatarView overlayedavatarview, int i1, boolean flag)
     {
         boolean flag1 = true;
         int j1 = d(i1);
         overlayedavatarview.e(i1);
         synchronized (n)
         {
-            n.put(ceu1.b, overlayedavatarview);
+            n.put(cfz1.b, overlayedavatarview);
         }
         g();
         if (overlayedavatarview.a() != 1)
@@ -197,12 +197,12 @@ _L1:
         {
             k.setLayoutTransition(f);
         }
-        a(overlayedavatarview, j1, i1, ceu1.e, ceu1.h);
+        a(overlayedavatarview, j1, i1, cfz1.e, cfz1.h);
         return;
-        ceu1;
-        eay1;
+        cfz1;
+        eec1;
         JVM INSTR monitorexit ;
-        throw ceu1;
+        throw cfz1;
     }
 
     private void a(OverlayedAvatarView overlayedavatarview, int i1)
@@ -218,7 +218,7 @@ _L1:
             {
                 s1 = "watermark.";
             }
-            ebw.b("Babel", (new StringBuilder(String.valueOf(s2).length() + 39 + String.valueOf(s1).length())).append("[PartGallery] Removing from layout ").append(s2).append(" in ").append(s1).toString());
+            eev.b("Babel", (new StringBuilder(String.valueOf(s2).length() + 39 + String.valueOf(s1).length())).append("[PartGallery] Removing from layout ").append(s2).append(" in ").append(s1).toString());
         }
         if (k.indexOfChild(overlayedavatarview) < 0) goto _L2; else goto _L1
 _L1:
@@ -231,7 +231,7 @@ _L4:
         }
         return;
 _L2:
-        ebw.g("Babel", "removeAvatarViewFromLayout: removing an avatar not inserted");
+        eev.g("Babel", "removeAvatarViewFromLayout: removing an avatar not inserted");
         if (a)
         {
             a(((Throwable) (null)), ((OverlayedAvatarView) (null)), "------> ERROR <------ : Removing an avatar not inserted");
@@ -253,7 +253,7 @@ _L3:
             {
                 s3 = "watermark.";
             }
-            ebw.b("Babel", (new StringBuilder(String.valueOf(s4).length() + 30 + String.valueOf(s3).length())).append("[PartGallery] Inserting ").append(s4).append(" into ").append(s3).toString());
+            eev.b("Babel", (new StringBuilder(String.valueOf(s4).length() + 30 + String.valueOf(s3).length())).append("[PartGallery] Inserting ").append(s4).append(" into ").append(s3).toString());
         }
         k.endViewTransition(overlayedavatarview);
         if (k.indexOfChild(overlayedavatarview) >= 0 || i1 < 0 || i1 > k.getChildCount()) goto _L2; else goto _L1
@@ -269,7 +269,7 @@ _L1:
         catch (String s1)
         {
             s2 = String.valueOf(s1);
-            ebw.g("Babel", (new StringBuilder(String.valueOf(s2).length() + 51)).append("insertAvatarViewIntoLayout: this should not happen ").append(s2).toString());
+            eev.g("Babel", (new StringBuilder(String.valueOf(s2).length() + 51)).append("insertAvatarViewIntoLayout: this should not happen ").append(s2).toString());
             if (a)
             {
                 s1 = String.valueOf(s1);
@@ -303,7 +303,7 @@ _L4:
 _L2:
         int k1 = k.indexOfChild(overlayedavatarview);
         int i2 = k.getChildCount();
-        ebw.g("Babel", (new StringBuilder(127)).append("insertAvatarViewIntoLayout: inserting already inserted @").append(k1).append(", or wrong index ").append(i1).append(" with ViewGroup size ").append(i2).toString());
+        eev.g("Babel", (new StringBuilder(127)).append("insertAvatarViewIntoLayout: inserting already inserted @").append(k1).append(", or wrong index ").append(i1).append(" with ViewGroup size ").append(i2).toString());
         if (a)
         {
             int l1 = k.indexOfChild(overlayedavatarview);
@@ -334,15 +334,15 @@ _L3:
         }
     }
 
-    public static void a(ParticipantsGalleryView participantsgalleryview, ceu ceu1)
+    public static void a(ParticipantsGalleryView participantsgalleryview, cfz cfz1)
     {
         synchronized (participantsgalleryview.o)
         {
-            participantsgalleryview.o.remove(ceu1.b);
+            participantsgalleryview.o.remove(cfz1.b);
         }
         return;
         participantsgalleryview;
-        eay1;
+        eec1;
         JVM INSTR monitorexit ;
         throw participantsgalleryview;
     }
@@ -357,94 +357,94 @@ _L3:
         participantsgalleryview.a(((Throwable) (null)), overlayedavatarview, s1);
     }
 
-    public static void a(ParticipantsGalleryView participantsgalleryview, egh egh, egb egb1)
+    public static void a(ParticipantsGalleryView participantsgalleryview, ejj ejj, ejd ejd1)
     {
         participantsgalleryview.u = true;
-        if (!(egh instanceof egf)) goto _L2; else goto _L1
+        if (!(ejj instanceof ejh)) goto _L2; else goto _L1
 _L1:
         Object obj;
-        obj = (egf)egh;
+        obj = (ejh)ejj;
         if (a)
         {
             String s1;
             String s3;
             int j1;
             boolean flag3;
-            if (((egf) (obj)).c)
+            if (((ejh) (obj)).c)
             {
-                egh = "set";
+                ejj = "set";
             } else
             {
-                egh = "unset";
+                ejj = "unset";
             }
-            s1 = OverlayedAvatarView.a(((egf) (obj)).b);
-            s3 = String.valueOf(((egf) (obj)).a.b);
-            ebw.b("Babel", (new StringBuilder(String.valueOf(egh).length() + 50 + String.valueOf(s1).length() + String.valueOf(s3).length())).append("[PartGallery] change participant state  ").append(egh).append(" ").append(s1).append(" bit for ").append(s3).toString());
+            s1 = String.valueOf(OverlayedAvatarView.a(((ejh) (obj)).b));
+            s3 = String.valueOf(((ejh) (obj)).a.b);
+            eev.b("Babel", (new StringBuilder(String.valueOf(ejj).length() + 50 + String.valueOf(s1).length() + String.valueOf(s3).length())).append("[PartGallery] change participant state  ").append(ejj).append(" ").append(s1).append(" bit for ").append(s3).toString());
         }
-        if (!((egf) (obj)).c) goto _L4; else goto _L3
+        if (!((ejh) (obj)).c) goto _L4; else goto _L3
 _L3:
-        ceu ceu1 = ((egf) (obj)).a;
-        j1 = ((egf) (obj)).b;
-        boolean flag1 = ((egf) (obj)).d;
-        obj = participantsgalleryview.c(ceu1);
+        cfz cfz1 = ((ejh) (obj)).a;
+        j1 = ((ejh) (obj)).b;
+        boolean flag1 = ((ejh) (obj)).d;
+        obj = participantsgalleryview.c(cfz1);
         boolean flag = false;
-        egh = ((egh) (obj));
+        ejj = ((ejj) (obj));
         if (obj == null)
         {
             flag = true;
-            egh = participantsgalleryview.b(ceu1);
+            ejj = participantsgalleryview.b(cfz1);
         }
-        int l1 = egh.b();
-        int j2 = egh.d(j1);
+        int l1 = ejj.b();
+        int j2 = ejj.d(j1);
         int l2 = OverlayedAvatarView.b(j2);
         int j3 = OverlayedAvatarView.b(l1);
-        if (participantsgalleryview.d(ceu1))
+        if (participantsgalleryview.d(cfz1))
         {
-            egh.f(j2);
+            ejj.f(j2);
             flag3 = false;
             flag1 = flag3;
             if (a)
             {
-                participantsgalleryview.a(((Throwable) (null)), ((OverlayedAvatarView) (egh)), (new StringBuilder(47)).append("SetState (COALESCED) ").append(l1).append(" -> ").append(j2).toString());
+                participantsgalleryview.a(((Throwable) (null)), ((OverlayedAvatarView) (ejj)), (new StringBuilder(47)).append("SetState (COALESCED) ").append(l1).append(" -> ").append(j2).toString());
                 flag1 = flag3;
             }
         } else
         if (l2 == j3)
         {
-            egh.e(j2);
+            ejj.e(j2);
             if (a)
             {
-                participantsgalleryview.a(((Throwable) (null)), ((OverlayedAvatarView) (egh)), (new StringBuilder(43)).append("SetState (HI EQ) ").append(l1).append(" -> ").append(j2).toString());
+                participantsgalleryview.a(((Throwable) (null)), ((OverlayedAvatarView) (ejj)), (new StringBuilder(43)).append("SetState (HI EQ) ").append(l1).append(" -> ").append(j2).toString());
             }
             flag1 = false;
         } else
         if (l2 == 4 && j3 == 2)
         {
-            egh.e(j2);
+            ejj.e(j2);
             if (a)
             {
-                participantsgalleryview.a(((Throwable) (null)), ((OverlayedAvatarView) (egh)), (new StringBuilder(42)).append("SetState (F->T) ").append(l1).append(" -> ").append(j2).toString());
+                participantsgalleryview.a(((Throwable) (null)), ((OverlayedAvatarView) (ejj)), (new StringBuilder(42)).append("SetState (F->T) ").append(l1).append(" -> ").append(j2).toString());
             }
             flag1 = true;
         } else
         {
             if (flag)
             {
-                participantsgalleryview.a(ceu1, ((OverlayedAvatarView) (egh)), j2, flag1);
+                participantsgalleryview.a(cfz1, ((OverlayedAvatarView) (ejj)), j2, flag1);
             } else
             {
-                participantsgalleryview.a(egb1, ceu1, ((OverlayedAvatarView) (egh)), l1, j2);
+                participantsgalleryview.a(ejd1, cfz1, ((OverlayedAvatarView) (ejj)), l1, j2);
             }
             flag1 = true;
         }
 _L10:
-        egb1.a(flag1);
+        ejd1.a(flag1);
         if (j1 == 2)
         {
             if (a)
             {
-                egh = String.valueOf(ceu1.b);
-                ebw.b("Babel", (new StringBuilder(String.valueOf(egh).length() + 25)).append("Focus state set for user ").append(egh).toString());
+                ejj = String.valueOf(cfz1.b);
+                eev.b("Babel", (new StringBuilder(String.valueOf(ejj).length() + 25)).append("Focus state set for user ").append(ejj).toString());
             }
             if (participantsgalleryview.g != null)
             {
@@ -454,10 +454,10 @@ _L10:
 _L6:
         return;
 _L4:
-        egh = ((egf) (obj)).a;
-        int i1 = ((egf) (obj)).b;
-        boolean flag7 = ((egf) (obj)).d;
-        obj = participantsgalleryview.c(egh);
+        ejj = ((ejh) (obj)).a;
+        int i1 = ((ejh) (obj)).b;
+        boolean flag7 = ((ejh) (obj)).d;
+        obj = participantsgalleryview.c(ejj);
         boolean flag5 = true;
         boolean flag6 = false;
         boolean flag2 = flag6;
@@ -468,7 +468,7 @@ _L4:
             int i2 = ((OverlayedAvatarView) (obj)).c(i1);
             int k2 = OverlayedAvatarView.b(i2);
             int i3 = OverlayedAvatarView.b(k1);
-            if (participantsgalleryview.d(egh))
+            if (participantsgalleryview.d(ejj))
             {
                 ((OverlayedAvatarView) (obj)).f(i2);
                 flag2 = flag6;
@@ -503,10 +503,10 @@ _L4:
             {
                 if (i2 == 0)
                 {
-                    flag2 = participantsgalleryview.b(egh, k1, flag7);
+                    flag2 = participantsgalleryview.b(ejj, k1, flag7);
                 } else
                 {
-                    flag2 = participantsgalleryview.a(egb1, ((ceu) (egh)), ((OverlayedAvatarView) (obj)), k1, i2);
+                    flag2 = participantsgalleryview.a(ejd1, ((cfz) (ejj)), ((OverlayedAvatarView) (obj)), k1, i2);
                 }
                 flag4 = flag2;
                 flag2 = true;
@@ -514,52 +514,52 @@ _L4:
         }
         if (flag4)
         {
-            egb1.a(flag2);
+            ejd1.a(flag2);
         }
         if (obj == null || i1 != 2) goto _L6; else goto _L5
 _L5:
         if (a)
         {
-            egh = String.valueOf(((ceu) (egh)).b);
-            ebw.b("Babel", (new StringBuilder(String.valueOf(egh).length() + 27)).append("Focus state unset for user ").append(egh).toString());
+            ejj = String.valueOf(((cfz) (ejj)).b);
+            eev.b("Babel", (new StringBuilder(String.valueOf(ejj).length() + 27)).append("Focus state unset for user ").append(ejj).toString());
         }
         if (participantsgalleryview.g == null) goto _L6; else goto _L7
 _L7:
         participantsgalleryview.g.a();
         return;
 _L2:
-        if (!(egh instanceof egc)) goto _L6; else goto _L8
+        if (!(ejj instanceof eje)) goto _L6; else goto _L8
 _L8:
-        egc egc1 = (egc)egh;
+        eje eje1 = (eje)ejj;
         if (a)
         {
-            if (egc1.c)
+            if (eje1.c)
             {
-                egh = "set";
+                ejj = "set";
             } else
             {
-                egh = "unset";
+                ejj = "unset";
             }
-            ebw.b("Babel", (new StringBuilder(String.valueOf(egh).length() + 71)).append("[PartGallery] batch change participant state  ").append(egh).append(" watermark bit for users:").toString());
+            eev.b("Babel", (new StringBuilder(String.valueOf(ejj).length() + 71)).append("[PartGallery] batch change participant state  ").append(ejj).append(" watermark bit for users:").toString());
             String s2;
-            for (egh = egc1.a.iterator(); egh.hasNext(); ebw.b("Babel", (new StringBuilder(String.valueOf(s2).length() + 2)).append("  ").append(s2).toString()))
+            for (ejj = eje1.a.iterator(); ejj.hasNext(); eev.b("Babel", (new StringBuilder(String.valueOf(s2).length() + 2)).append("  ").append(s2).toString()))
             {
-                s2 = String.valueOf(((ceu)egh.next()).b);
+                s2 = String.valueOf(((cfz)ejj.next()).b);
             }
 
         }
-        if (egc1.c)
+        if (eje1.c)
         {
-            participantsgalleryview.b(egb1, egc1.a, egc1.b);
+            participantsgalleryview.b(ejd1, eje1.a, eje1.b);
             return;
         }
-        participantsgalleryview.a(egb1, egc1.a, egc1.b);
+        participantsgalleryview.a(ejd1, eje1.a, eje1.b);
         return;
         if (true) goto _L10; else goto _L9
 _L9:
     }
 
-    private void a(egb egb1, List list, boolean flag)
+    private void a(ejd ejd1, List list, boolean flag)
     {
         list = list.iterator();
         boolean flag1 = false;
@@ -569,20 +569,20 @@ _L9:
             {
                 break;
             }
-            ceu ceu1 = (ceu)list.next();
-            if (ceu1 == null)
+            cfz cfz1 = (cfz)list.next();
+            if (cfz1 == null)
             {
-                ebw.g("Babel", "ParticipantsGalleryView.internalExecuteBatchWatermarkeUnset: null participant");
+                eev.g("Babel", "ParticipantsGalleryView.internalExecuteBatchWatermarkeUnset: null participant");
             } else
             {
-                OverlayedAvatarView overlayedavatarview = c(ceu1);
+                OverlayedAvatarView overlayedavatarview = c(cfz1);
                 if (overlayedavatarview != null)
                 {
                     int i1 = overlayedavatarview.b();
                     int j1 = overlayedavatarview.c(1);
                     int k1 = OverlayedAvatarView.b(j1);
                     int l1 = OverlayedAvatarView.b(i1);
-                    if (d(ceu1))
+                    if (d(cfz1))
                     {
                         overlayedavatarview.f(j1);
                         if (a)
@@ -600,18 +600,18 @@ _L9:
                     } else
                     if (j1 == 0)
                     {
-                        b(ceu1, i1, flag);
+                        b(cfz1, i1, flag);
                         flag1 = true;
                     }
                 }
             }
         } while (true);
-        egb1.a(flag1);
+        ejd1.a(flag1);
     }
 
-    private void a(egh egh)
+    private void a(ejj ejj)
     {
-        t.offer(egh);
+        t.offer(ejj);
         if (!u && !s.hasMessages(0))
         {
             s.sendEmptyMessage(0);
@@ -674,10 +674,10 @@ _L9:
         }
         int j1 = System.identityHashCode(this);
         throwable = String.valueOf(stringbuilder.toString());
-        ebw.b("Babel", (new StringBuilder(String.valueOf(throwable).length() + 23)).append("WATERMARK[").append(j1).append("]\t").append(throwable).toString());
+        eev.b("Babel", (new StringBuilder(String.valueOf(throwable).length() + 23)).append("WATERMARK[").append(j1).append("]\t").append(throwable).toString());
     }
 
-    private boolean a(egb egb1, ceu ceu1, OverlayedAvatarView overlayedavatarview, int i1, int j1)
+    private boolean a(ejd ejd1, cfz cfz1, OverlayedAvatarView overlayedavatarview, int i1, int j1)
     {
         ViewGroup viewgroup = k;
         a(i1, 0);
@@ -692,19 +692,19 @@ _L9:
             }
             k.setLayoutTransition(e);
             a(overlayedavatarview, i1);
-            overlayedavatarview = new ega(this, overlayedavatarview, ceu1, egb1, i1, j1);
+            overlayedavatarview = new ejc(this, overlayedavatarview, cfz1, ejd1, i1, j1);
             postDelayed(overlayedavatarview, h);
             synchronized (o)
             {
-                o.put(ceu1.b, overlayedavatarview);
+                o.put(cfz1.b, overlayedavatarview);
             }
             return false;
         }
         break MISSING_BLOCK_LABEL_165;
-        ceu1;
-        egb1;
+        cfz1;
+        ejd1;
         JVM INSTR monitorexit ;
-        throw ceu1;
+        throw cfz1;
         a(i1, j1);
         overlayedavatarview.e(j1);
         if (a)
@@ -719,20 +719,20 @@ _L9:
         return participantsgalleryview.i;
     }
 
-    private OverlayedAvatarView b(ceu ceu1)
+    private OverlayedAvatarView b(cfz cfz1)
     {
         boolean flag = true;
-        OverlayedAvatarView overlayedavatarview = OverlayedAvatarView.a(LayoutInflater.from(getContext()), ceu1.e, ceu1.b, j, this);
+        OverlayedAvatarView overlayedavatarview = OverlayedAvatarView.a(LayoutInflater.from(getContext()), cfz1.e, cfz1.b, j, this);
         if (q != 1)
         {
             flag = false;
         }
         overlayedavatarview.a(flag);
-        overlayedavatarview.setTag(ceu1);
+        overlayedavatarview.setTag(cfz1);
         return overlayedavatarview;
     }
 
-    private void b(egb egb1, List list, boolean flag)
+    private void b(ejd ejd1, List list, boolean flag)
     {
         Iterator iterator = list.iterator();
         boolean flag1 = false;
@@ -742,23 +742,23 @@ _L9:
             {
                 break;
             }
-            ceu ceu1 = (ceu)iterator.next();
-            if (ceu1 == null)
+            cfz cfz1 = (cfz)iterator.next();
+            if (cfz1 == null)
             {
-                ebw.g("Babel", "ParticipantsGalleryView.internalExecuteBatchWatermarkSet: null participant");
+                eev.g("Babel", "ParticipantsGalleryView.internalExecuteBatchWatermarkSet: null participant");
             } else
             {
-                OverlayedAvatarView overlayedavatarview = c(ceu1);
+                OverlayedAvatarView overlayedavatarview = c(cfz1);
                 list = overlayedavatarview;
                 if (overlayedavatarview == null)
                 {
-                    list = b(ceu1);
+                    list = b(cfz1);
                 }
                 int i1 = list.b();
                 int j1 = list.d(1);
                 int k1 = OverlayedAvatarView.b(j1);
                 int l1 = OverlayedAvatarView.b(i1);
-                if (d(ceu1))
+                if (d(cfz1))
                 {
                     list.f(j1);
                     if (a)
@@ -776,17 +776,17 @@ _L9:
                 } else
                 if (j1 == 1)
                 {
-                    a(ceu1, list, j1, flag);
+                    a(cfz1, list, j1, flag);
                     flag1 = true;
                 }
             }
         } while (true);
-        egb1.a(flag1);
+        ejd1.a(flag1);
     }
 
-    private boolean b(ceu ceu1, int i1, boolean flag)
+    private boolean b(cfz cfz1, int i1, boolean flag)
     {
-        obj = c(ceu1);
+        obj = c(cfz1);
         boolean flag1;
         if (((OverlayedAvatarView) (obj)).a() == 1)
         {
@@ -812,14 +812,14 @@ _L9:
         }
         synchronized (n)
         {
-            n.remove(ceu1.b);
+            n.remove(cfz1.b);
         }
         g();
         return true;
-        ceu1;
+        cfz1;
         obj;
         JVM INSTR monitorexit ;
-        throw ceu1;
+        throw cfz1;
     }
 
     public static Handler c(ParticipantsGalleryView participantsgalleryview)
@@ -827,17 +827,17 @@ _L9:
         return participantsgalleryview.s;
     }
 
-    private OverlayedAvatarView c(ceu ceu1)
+    private OverlayedAvatarView c(cfz cfz1)
     {
         synchronized (n)
         {
-            ceu1 = (OverlayedAvatarView)n.get(ceu1.b);
+            cfz1 = (OverlayedAvatarView)n.get(cfz1.b);
         }
-        return ceu1;
-        ceu1;
-        eay1;
+        return cfz1;
+        cfz1;
+        eec1;
         JVM INSTR monitorexit ;
-        throw ceu1;
+        throw cfz1;
     }
 
     private int d(int i1)
@@ -857,26 +857,26 @@ _L9:
         }
     }
 
-    private boolean d(ceu ceu1)
+    private boolean d(cfz cfz1)
     {
-        eay eay1 = o;
-        eay1;
+        eec eec1 = o;
+        eec1;
         JVM INSTR monitorenter ;
         boolean flag;
-        if (o.get(ceu1.b) != null)
+        if (o.get(cfz1.b) != null)
         {
             flag = true;
         } else
         {
             flag = false;
         }
-        eay1;
+        eec1;
         JVM INSTR monitorexit ;
         return flag;
-        ceu1;
-        eay1;
+        cfz1;
+        eec1;
         JVM INSTR monitorexit ;
-        throw ceu1;
+        throw cfz1;
     }
 
     public static boolean d(ParticipantsGalleryView participantsgalleryview)
@@ -890,7 +890,7 @@ _L9:
         return participantsgalleryview.t;
     }
 
-    public static eay f(ParticipantsGalleryView participantsgalleryview)
+    public static eec f(ParticipantsGalleryView participantsgalleryview)
     {
         return participantsgalleryview.n;
     }
@@ -902,8 +902,8 @@ _L9:
 
     private void g()
     {
-        eay eay1 = n;
-        eay1;
+        eec eec1 = n;
+        eec1;
         JVM INSTR monitorenter ;
         Object obj;
         Object obj1;
@@ -921,17 +921,17 @@ _L2:
         } while (overlayedavatarview == null);
         if (TextUtils.isEmpty(overlayedavatarview.getContentDescription())) goto _L2; else goto _L1
 _L1:
-        ebr.a(((StringBuilder) (obj)), overlayedavatarview.getContentDescription());
+        eep.a(((StringBuilder) (obj)), overlayedavatarview.getContentDescription());
           goto _L2
         obj;
-        eay1;
+        eec1;
         JVM INSTR monitorexit ;
         throw obj;
         if (((StringBuilder) (obj)).length() != 0) goto _L4; else goto _L3
 _L3:
         setContentDescription(null);
 _L5:
-        eay1;
+        eec1;
         JVM INSTR monitorexit ;
         if (d != null)
         {
@@ -945,13 +945,13 @@ _L4:
         {
             break MISSING_BLOCK_LABEL_161;
         }
-        i1 = g.hF;
+        i1 = g.hx;
 _L6:
         setContentDescription(((Resources) (obj1)).getQuantityString(i1, n.size(), new Object[] {
             ((StringBuilder) (obj)).toString()
         }));
           goto _L5
-        i1 = g.hY;
+        i1 = g.hQ;
           goto _L6
     }
 
@@ -981,61 +981,61 @@ _L6:
         setVisibility(0);
     }
 
-    public void a(int i1, ani ani)
+    public void a(int i1, aoa aoa)
     {
         c(i1);
-        r = ani;
+        r = aoa;
     }
 
-    public void a(ceu ceu1)
+    public void a(cfz cfz1)
     {
-        while (ceu1 == null || ceu1.b == null || !n.containsKey(ceu1.b)) 
+        while (cfz1 == null || cfz1.b == null || !n.containsKey(cfz1.b)) 
         {
             return;
         }
-        a(ceu1, 2, false);
+        a(cfz1, 2, false);
     }
 
-    public void a(ceu ceu1, int i1)
+    public void a(cfz cfz1, int i1)
     {
-        if (ceu1 == null)
+        if (cfz1 == null)
         {
-            ebw.g("Babel", "ParticipantsGalleryView.setParticipantState: null participant");
+            eev.g("Babel", "ParticipantsGalleryView.setParticipantState: null participant");
             return;
         }
         if (a)
         {
             Throwable throwable = new Throwable();
-            String s1 = String.valueOf(ceu1.b.b);
+            String s1 = String.valueOf(cfz1.b.b);
             a(throwable, ((OverlayedAvatarView) (null)), (new StringBuilder(String.valueOf(s1).length() + 43)).append("+++ SetParticipantState ").append(s1).append(" setBit=").append(i1).toString());
         }
-        a(((egh) (new egf(ceu1, i1, true, true))));
+        a(((ejj) (new ejh(cfz1, i1, true, true))));
     }
 
-    public void a(ceu ceu1, int i1, boolean flag)
+    public void a(cfz cfz1, int i1, boolean flag)
     {
-        if (ceu1 == null)
+        if (cfz1 == null)
         {
-            ebw.g("Babel", "ParticipantsGalleryView.unsetParticipantState: null participant");
+            eev.g("Babel", "ParticipantsGalleryView.unsetParticipantState: null participant");
             return;
         }
         if (a)
         {
             Throwable throwable = new Throwable();
-            String s1 = String.valueOf(ceu1.b.b);
+            String s1 = String.valueOf(cfz1.b.b);
             a(throwable, ((OverlayedAvatarView) (null)), (new StringBuilder(String.valueOf(s1).length() + 47)).append("--- unsetParticipantState ").append(s1).append(" unsetBit=").append(i1).toString());
         }
-        a(((egh) (new egf(ceu1, i1, false, flag))));
+        a(((ejj) (new ejh(cfz1, i1, false, flag))));
     }
 
-    public void a(dyy dyy1)
+    public void a(ecj ecj1)
     {
-        d = dyy1;
+        d = ecj1;
     }
 
-    public void a(egd egd1)
+    public void a(ejf ejf1)
     {
-        g = egd1;
+        g = ejf1;
     }
 
     public void a(List list, boolean flag)
@@ -1053,37 +1053,37 @@ _L6:
             }
             a(throwable, ((OverlayedAvatarView) (null)), s1);
         }
-        a(((egh) (new egc(list, false, flag))));
+        a(((ejj) (new eje(list, false, flag))));
     }
 
-    public boolean a(cey cey1)
+    public boolean a(cgd cgd1)
     {
-        eay eay1 = n;
-        eay1;
+        eec eec1 = n;
+        eec1;
         JVM INSTR monitorenter ;
-        cey1 = (OverlayedAvatarView)n.get(cey1);
-        if (cey1 == null)
+        cgd1 = (OverlayedAvatarView)n.get(cgd1);
+        if (cgd1 == null)
         {
             break MISSING_BLOCK_LABEL_44;
         }
         boolean flag;
-        if (cey1.d() || cey1.e())
+        if (cgd1.d() || cgd1.e())
         {
             flag = true;
         } else
         {
             flag = false;
         }
-        eay1;
+        eec1;
         JVM INSTR monitorexit ;
         return flag;
-        eay1;
+        eec1;
         JVM INSTR monitorexit ;
         return false;
-        cey1;
-        eay1;
+        cgd1;
+        eec1;
         JVM INSTR monitorexit ;
-        throw cey1;
+        throw cgd1;
     }
 
     public void b()
@@ -1122,14 +1122,14 @@ _L6:
             }
             a(throwable, ((OverlayedAvatarView) (null)), s1);
         }
-        a(new egc(list, true, flag));
+        a(new eje(list, true, flag));
     }
 
     public void c(int i1)
     {
         q = i1;
-        eay eay1 = n;
-        eay1;
+        eec eec1 = n;
+        eec1;
         JVM INSTR monitorenter ;
         Iterator iterator = n.values().iterator();
 _L1:
@@ -1151,10 +1151,10 @@ _L1:
         overlayedavatarview.a(flag);
           goto _L1
         exception;
-        eay1;
+        eec1;
         JVM INSTR monitorexit ;
         throw exception;
-        eay1;
+        eec1;
         JVM INSTR monitorexit ;
         g();
         return;
@@ -1167,14 +1167,14 @@ _L1:
 
     public void d()
     {
-        eay eay1 = n;
-        eay1;
+        eec eec1 = n;
+        eec1;
         JVM INSTR monitorenter ;
         for (Iterator iterator = n.values().iterator(); iterator.hasNext(); ((OverlayedAvatarView)iterator.next()).f()) { }
         break MISSING_BLOCK_LABEL_49;
         Exception exception;
         exception;
-        eay1;
+        eec1;
         JVM INSTR monitorexit ;
         throw exception;
         int i1;
@@ -1196,13 +1196,13 @@ _L1:
         {
             obj = "watermarks.";
         }
-        ebw.b("Babel", (new StringBuilder(String.valueOf(obj).length() + 48)).append("[PartGallery] Removing ").append(i1).append(" view(s) from ").append(((String) (obj))).toString());
+        eev.b("Babel", (new StringBuilder(String.valueOf(obj).length() + 48)).append("[PartGallery] Removing ").append(i1).append(" view(s) from ").append(((String) (obj))).toString());
         k.removeAllViews();
         s.removeMessages(0);
         t.clear();
         u = false;
         p = true;
-        eay1;
+        eec1;
         JVM INSTR monitorexit ;
         g();
         obj = o;
@@ -1237,6 +1237,6 @@ _L1:
 
     static 
     {
-        hik hik = ebw.w;
+        hnc hnc = eev.w;
     }
 }

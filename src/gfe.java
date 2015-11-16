@@ -2,21 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
+import java.util.Comparator;
 
-final class gfe extends gde
+final class gfe
+    implements Comparator
 {
 
-    final gfd a;
+    final gfc a;
 
-    gfe(gfd gfd1)
+    gfe(gfc gfc)
     {
-        a = gfd1;
+        a = gfc;
         super();
     }
 
-    public List a()
+    public int compare(Object obj, Object obj1)
     {
-        return gfd.a(a);
+        obj = (gff)obj;
+        obj1 = (gff)obj1;
+        return Long.compare(((gff) (obj)).a, ((gff) (obj1)).a);
     }
 }

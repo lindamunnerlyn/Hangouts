@@ -3,38 +3,23 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 import android.content.Context;
-import android.content.Intent;
 
-abstract class cdj extends ced
+public interface cdj
 {
 
-    cdj(Context context, int i, dzx dzx)
-    {
-        super(context, i, dzx);
-    }
+    public abstract void a(long l);
 
-    protected boolean a()
-    {
-        return false;
-    }
+    public abstract void a(boolean flag);
 
-    protected Intent b()
-    {
-        return null;
-    }
+    public abstract boolean b();
 
-    protected boolean c()
-    {
-        return true;
-    }
+    public abstract cdp c();
 
-    protected int d()
-    {
-        return com.google.android.apps.hangouts.R.drawable.cj;
-    }
+    public abstract void e();
 
-    protected String l()
-    {
-        return null;
-    }
+    public abstract Context f();
+
+    public abstract boolean g();
+
+    public abstract boolean v_();
 }

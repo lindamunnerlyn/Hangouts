@@ -2,22 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.hangout.ProximityCoverView;
-import java.util.Set;
+import android.view.View;
+import com.google.android.apps.hangouts.hangout.ParticipantTrayView;
 
-public final class bru extends bnk
+final class bru
+    implements android.view.View.OnClickListener
 {
 
-    final ProximityCoverView a;
+    final brt a;
 
-    public bru(ProximityCoverView proximitycoverview)
+    bru(brt brt1)
     {
-        a = proximitycoverview;
+        a = brt1;
         super();
     }
 
-    public void a(giw giw, Set set)
+    public void onClick(View view)
     {
-        a.c();
+        a.f.a(a);
+        a.d();
+        a.e();
     }
 }

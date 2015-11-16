@@ -2,84 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
+import java.lang.ref.ReferenceQueue;
 
-final class jqd extends jmi
+public final class jqd extends jpl
 {
 
-    final transient Object a[];
-    private final Object b[];
-    private final transient int c;
-    private final transient int d;
+    final int b;
 
-    jqd(Object aobj[], int i, Object aobj1[], int j)
+    jqd(ReferenceQueue referencequeue, Object obj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry, int i)
     {
-        b = aobj;
-        a = aobj1;
-        c = j;
-        d = i;
+        super(referencequeue, obj, referenceentry);
+        b = i;
     }
 
-    boolean H_()
+    public int a()
     {
-        return true;
+        return b;
     }
 
-    int a(Object aobj[], int i)
+    public jpw a(ReferenceQueue referencequeue, Object obj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry)
     {
-        System.arraycopy(((Object) (b)), 0, ((Object) (aobj)), i, b.length);
-        return b.length + i;
-    }
-
-    public jqy a()
-    {
-        return jmr.a(b);
-    }
-
-    public boolean contains(Object obj)
-    {
-        if (obj == null)
-        {
-            return false;
-        }
-        int i = jky.a(obj.hashCode());
-        do
-        {
-            Object obj1 = a[c & i];
-            if (obj1 == null)
-            {
-                return false;
-            }
-            if (obj1.equals(obj))
-            {
-                return true;
-            }
-            i++;
-        } while (true);
-    }
-
-    boolean e()
-    {
-        return false;
-    }
-
-    jlk f()
-    {
-        return new jpr(this, b);
-    }
-
-    public int hashCode()
-    {
-        return d;
-    }
-
-    public Iterator iterator()
-    {
-        return a();
-    }
-
-    public int size()
-    {
-        return b.length;
+        return new jqd(referencequeue, obj, referenceentry, b);
     }
 }

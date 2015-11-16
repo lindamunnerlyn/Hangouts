@@ -2,26 +2,30 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.DataSetObserver;
+import android.view.View;
+import com.google.android.apps.hangouts.fragments.CallContactPickerFragment;
 
-final class bhh extends DataSetObserver
+public final class bhh
+    implements android.view.View.OnClickListener
 {
 
-    final bhg a;
+    final CallContactPickerFragment a;
 
-    bhh(bhg bhg1)
+    public bhh(CallContactPickerFragment callcontactpickerfragment)
     {
-        a = bhg1;
+        a = callcontactpickerfragment;
         super();
     }
 
-    public void onChanged()
+    public void onClick(View view)
     {
-        a.notifyDataSetChanged();
-    }
-
-    public void onInvalidated()
-    {
-        a.notifyDataSetInvalidated();
+        if (a.getActivity() == null)
+        {
+            return;
+        } else
+        {
+            CallContactPickerFragment.b(a, 1);
+            return;
+        }
     }
 }

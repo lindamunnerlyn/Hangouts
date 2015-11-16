@@ -2,143 +2,190 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Set;
+import android.accounts.Account;
+import android.app.PendingIntent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Parcel;
+import com.google.android.gms.feedback.ErrorReport;
+import com.google.android.gms.feedback.ThemeSettings;
+import com.google.android.gms.googlehelp.GoogleHelp;
+import com.google.android.gms.googlehelp.OfflineSuggestion;
+import com.google.android.gms.googlehelp.internal.common.OverflowMenuItem;
+import com.google.android.gms.googlehelp.internal.common.TogglingData;
 
-final class fei
-    implements Set
+public final class fei
+    implements android.os.Parcelable.Creator
 {
 
-    final feg a;
-
-    fei(feg feg1)
+    public fei()
     {
-        a = feg1;
-        super();
     }
 
-    public boolean add(Object obj)
+    public Object createFromParcel(Parcel parcel)
     {
-        throw new UnsupportedOperationException();
-    }
-
-    public boolean addAll(Collection collection)
-    {
-        int i = a.a();
-        java.util.Map.Entry entry;
-        for (collection = collection.iterator(); collection.hasNext(); a.a(entry.getKey(), entry.getValue()))
-        {
-            entry = (java.util.Map.Entry)collection.next();
-        }
-
-        return i != a.a();
-    }
-
-    public void clear()
-    {
-        a.c();
-    }
-
-    public boolean contains(Object obj)
-    {
-        if (obj instanceof java.util.Map.Entry)
-        {
-            obj = (java.util.Map.Entry)obj;
-            int i = a.a(((java.util.Map.Entry) (obj)).getKey());
-            if (i >= 0)
-            {
-                return fef.a(a.a(i, 1), ((java.util.Map.Entry) (obj)).getValue());
-            }
-        }
-        return false;
-    }
-
-    public boolean containsAll(Collection collection)
-    {
-        for (collection = collection.iterator(); collection.hasNext();)
-        {
-            if (!contains(collection.next()))
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    public boolean equals(Object obj)
-    {
-        return feg.a(this, obj);
-    }
-
-    public int hashCode()
-    {
-        int j = a.a() - 1;
+        int l1 = g.a(parcel);
+        int k1 = 0;
+        String s2 = null;
+        Account account = null;
+        android.os.Bundle bundle1 = null;
+        String s1 = null;
+        int j1 = 0;
+        int i1 = 0;
+        boolean flag2 = false;
+        boolean flag1 = false;
+        java.util.ArrayList arraylist2 = null;
+        android.os.Bundle bundle = null;
+        Bitmap bitmap = null;
+        byte abyte0[] = null;
+        int l = 0;
+        int k = 0;
+        String s = null;
+        Uri uri = null;
+        java.util.ArrayList arraylist1 = null;
+        int j = 0;
+        ThemeSettings themesettings = null;
+        java.util.ArrayList arraylist = null;
+        boolean flag = false;
+        ErrorReport errorreport = null;
+        TogglingData togglingdata = null;
         int i = 0;
-        while (j >= 0) 
+        PendingIntent pendingintent = null;
+        do
         {
-            Object obj = a.a(j, 0);
-            Object obj1 = a.a(j, 1);
-            int k;
-            int l;
-            if (obj == null)
+            if (parcel.dataPosition() < l1)
             {
-                k = 0;
+                int i2 = parcel.readInt();
+                switch (0xffff & i2)
+                {
+                case 8: // '\b'
+                case 9: // '\t'
+                case 12: // '\f'
+                case 13: // '\r'
+                case 24: // '\030'
+                case 26: // '\032'
+                case 27: // '\033'
+                default:
+                    g.b(parcel, i2);
+                    break;
+
+                case 1: // '\001'
+                    k1 = g.e(parcel, i2);
+                    break;
+
+                case 2: // '\002'
+                    s2 = g.i(parcel, i2);
+                    break;
+
+                case 3: // '\003'
+                    account = (Account)g.a(parcel, i2, Account.CREATOR);
+                    break;
+
+                case 4: // '\004'
+                    bundle1 = g.k(parcel, i2);
+                    break;
+
+                case 5: // '\005'
+                    flag2 = g.c(parcel, i2);
+                    break;
+
+                case 6: // '\006'
+                    flag1 = g.c(parcel, i2);
+                    break;
+
+                case 7: // '\007'
+                    arraylist2 = g.o(parcel, i2);
+                    break;
+
+                case 10: // '\n'
+                    bundle = g.k(parcel, i2);
+                    break;
+
+                case 11: // '\013'
+                    bitmap = (Bitmap)g.a(parcel, i2, Bitmap.CREATOR);
+                    break;
+
+                case 14: // '\016'
+                    s = g.i(parcel, i2);
+                    break;
+
+                case 15: // '\017'
+                    uri = (Uri)g.a(parcel, i2, Uri.CREATOR);
+                    break;
+
+                case 17: // '\021'
+                    j = g.e(parcel, i2);
+                    break;
+
+                case 16: // '\020'
+                    arraylist1 = g.c(parcel, i2, OverflowMenuItem.CREATOR);
+                    break;
+
+                case 19: // '\023'
+                    abyte0 = g.l(parcel, i2);
+                    break;
+
+                case 18: // '\022'
+                    arraylist = g.c(parcel, i2, OfflineSuggestion.CREATOR);
+                    break;
+
+                case 21: // '\025'
+                    k = g.e(parcel, i2);
+                    break;
+
+                case 20: // '\024'
+                    l = g.e(parcel, i2);
+                    break;
+
+                case 23: // '\027'
+                    errorreport = (ErrorReport)g.a(parcel, i2, ErrorReport.CREATOR);
+                    break;
+
+                case 22: // '\026'
+                    flag = g.c(parcel, i2);
+                    break;
+
+                case 25: // '\031'
+                    themesettings = (ThemeSettings)g.a(parcel, i2, ThemeSettings.CREATOR);
+                    break;
+
+                case 29: // '\035'
+                    j1 = g.e(parcel, i2);
+                    break;
+
+                case 28: // '\034'
+                    s1 = g.i(parcel, i2);
+                    break;
+
+                case 31: // '\037'
+                    togglingdata = (TogglingData)g.a(parcel, i2, TogglingData.CREATOR);
+                    break;
+
+                case 30: // '\036'
+                    i1 = g.e(parcel, i2);
+                    break;
+
+                case 32: // ' '
+                    i = g.e(parcel, i2);
+                    break;
+
+                case 33: // '!'
+                    pendingintent = (PendingIntent)g.a(parcel, i2, PendingIntent.CREATOR);
+                    break;
+                }
+            } else
+            if (parcel.dataPosition() != l1)
+            {
+                throw new af((new StringBuilder("Overread allowed size end=")).append(l1).toString(), parcel);
             } else
             {
-                k = obj.hashCode();
+                return new GoogleHelp(k1, s2, account, bundle1, s1, j1, i1, flag2, flag1, arraylist2, bundle, bitmap, abyte0, l, k, s, uri, arraylist1, j, themesettings, arraylist, flag, errorreport, togglingdata, i, pendingintent);
             }
-            if (obj1 == null)
-            {
-                l = 0;
-            } else
-            {
-                l = obj1.hashCode();
-            }
-            j--;
-            i += l ^ k;
-        }
-        return i;
+        } while (true);
     }
 
-    public boolean isEmpty()
+    public Object[] newArray(int i)
     {
-        return a.a() == 0;
-    }
-
-    public Iterator iterator()
-    {
-        return new fek(a);
-    }
-
-    public boolean remove(Object obj)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public boolean removeAll(Collection collection)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public boolean retainAll(Collection collection)
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public int size()
-    {
-        return a.a();
-    }
-
-    public Object[] toArray()
-    {
-        throw new UnsupportedOperationException();
-    }
-
-    public Object[] toArray(Object aobj[])
-    {
-        throw new UnsupportedOperationException();
+        return new GoogleHelp[i];
     }
 }

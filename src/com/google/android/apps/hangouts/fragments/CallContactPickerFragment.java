@@ -24,54 +24,54 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 import ap;
-import bef;
-import beg;
-import bfo;
+import bev;
+import bew;
 import bg;
-import bgn;
-import bgo;
-import bgp;
-import bgq;
-import bgr;
-import bgs;
-import bgt;
-import bgu;
-import bgv;
-import bgw;
-import bgx;
+import bga;
+import bgz;
+import bha;
+import bhb;
+import bhc;
+import bhd;
+import bhe;
+import bhf;
+import bhg;
+import bhh;
+import bhi;
 import bhj;
-import bho;
-import bjy;
-import blo;
-import blp;
-import blw;
-import blz;
-import bms;
-import bmt;
-import dbf;
-import dbx;
-import ebw;
-import edk;
+import bhv;
+import bia;
+import bkk;
+import blx;
+import bly;
+import bmf;
+import bmi;
+import bmz;
+import bna;
+import dcn;
+import ddg;
+import eev;
+import egm;
 import g;
-import gbh;
-import gmo;
+import gdv;
+import gqu;
 import h;
-import hgx;
+import hlp;
 import java.util.List;
 import l;
 
-public class CallContactPickerFragment extends bjy
-    implements beg, bfo, blz, bmt
+public class CallContactPickerFragment extends bkk
+    implements bew, bga, bmi, bna
 {
 
-    private gmo a;
+    private gqu a;
     private View aj;
     private View ak;
     private int al;
     private int am;
-    private bgx an;
+    private bhj an;
     private boolean ao;
-    private bef ap;
+    private bev ap;
     private boolean aq;
     private boolean ar;
     private android.view.View.OnClickListener as;
@@ -80,9 +80,9 @@ public class CallContactPickerFragment extends bjy
     private FrameLayout d;
     private FrameLayout e;
     private ImageView f;
-    private blw g;
-    private blp h;
-    private bms i;
+    private bmf g;
+    private bly h;
+    private bmz i;
 
     public CallContactPickerFragment()
     {
@@ -90,7 +90,7 @@ public class CallContactPickerFragment extends bjy
         am = -1;
     }
 
-    public static bgx a(CallContactPickerFragment callcontactpickerfragment)
+    public static bhj a(CallContactPickerFragment callcontactpickerfragment)
     {
         return callcontactpickerfragment.an;
     }
@@ -109,7 +109,7 @@ _L1:
         JVM INSTR tableswitch 0 2: default 36
     //                   0 67
     //                   1 42
-    //                   2 106;
+    //                   2 108;
            goto _L3 _L4 _L5 _L6
 _L3:
         al = j;
@@ -125,7 +125,7 @@ _L4:
         {
             flag = false;
         }
-        gbh.a(flag);
+        gdv.a("Expected condition to be true", flag);
         d.setVisibility(0);
         c.setVisibility(8);
         a(false);
@@ -162,7 +162,7 @@ _L2:
             ak.setVisibility(8);
         } else
         {
-            ap.d();
+            ap.e();
         }
         if (e.getVisibility() != 8)
         {
@@ -181,9 +181,9 @@ _L2:
         a(k, 0);
         if (flag)
         {
-            e.startAnimation(AnimationUtils.loadAnimation(getActivity(), g.cC));
+            e.startAnimation(AnimationUtils.loadAnimation(getActivity(), g.cB));
         }
-        an.o_();
+        an.p_();
         continue; /* Loop/switch isn't completed */
 _L3:
         if (ap == null)
@@ -192,7 +192,7 @@ _L3:
             ak.setVisibility(0);
         } else
         {
-            ap.b();
+            ap.c();
         }
         if (e.getVisibility() != 0)
         {
@@ -204,7 +204,7 @@ _L3:
         }
         if (flag)
         {
-            e.startAnimation(AnimationUtils.loadAnimation(getActivity(), g.cB));
+            e.startAnimation(AnimationUtils.loadAnimation(getActivity(), g.cA));
         }
         if (i.c())
         {
@@ -214,7 +214,7 @@ _L3:
             a(1);
         }
         b.setVisibility(8);
-        an.n_();
+        an.o_();
         h.a(getActivity().getCurrentFocus());
         continue; /* Loop/switch isn't completed */
 _L4:
@@ -224,7 +224,7 @@ _L4:
             ak.setVisibility(8);
         } else
         {
-            ap.d();
+            ap.e();
         }
         if (e.getVisibility() != 8)
         {
@@ -237,7 +237,7 @@ _L4:
         b.setVisibility(8);
         if (flag)
         {
-            e.startAnimation(AnimationUtils.loadAnimation(getActivity(), g.cC));
+            e.startAnimation(AnimationUtils.loadAnimation(getActivity(), g.cB));
         }
         if (true) goto _L1; else goto _L5
 _L5:
@@ -253,7 +253,7 @@ _L5:
         switch (j)
         {
         default:
-            ebw.g("Babel", "Unsupported call action type for CallContactPickerFragment!");
+            eev.g("Babel", "Unsupported call action type for CallContactPickerFragment!");
             return -1;
 
         case 1: // '\001'
@@ -264,7 +264,7 @@ _L5:
         }
     }
 
-    public static blw b(CallContactPickerFragment callcontactpickerfragment)
+    public static bmf b(CallContactPickerFragment callcontactpickerfragment)
     {
         return callcontactpickerfragment.g;
     }
@@ -279,7 +279,7 @@ _L5:
         return callcontactpickerfragment.am;
     }
 
-    public static bef d(CallContactPickerFragment callcontactpickerfragment)
+    public static bev d(CallContactPickerFragment callcontactpickerfragment)
     {
         return callcontactpickerfragment.ap;
     }
@@ -294,7 +294,7 @@ _L5:
         return callcontactpickerfragment.ak;
     }
 
-    public static bms g(CallContactPickerFragment callcontactpickerfragment)
+    public static bmz g(CallContactPickerFragment callcontactpickerfragment)
     {
         return callcontactpickerfragment.i;
     }
@@ -313,7 +313,7 @@ _L5:
                 return;
             } else
             {
-                ap.c();
+                ap.d();
                 return;
             }
         } else
@@ -353,35 +353,35 @@ _L5:
         return am != 1 ? 2 : 1;
     }
 
-    public void a(bgx bgx1)
+    public void a(bhj bhj1)
     {
-        an = bgx1;
+        an = bhj1;
     }
 
-    public void a(edk edk1)
+    public void a(egm egm1)
     {
 label0:
         {
             if (an != null)
             {
                 b.setText("");
-                Object obj = edk1.a();
-                int j = edk1.h();
-                String s1 = edk1.e();
-                String s2 = edk1.f();
-                String s3 = edk1.g();
-                edk1 = edk1.c();
-                obj = (bho)((bhj) (obj)).f().get(0);
-                edk1 = new dbx(b(an.a()), ((bho) (obj)).a, edk1, j, s1, s2, s3, 61);
-                if (!TextUtils.isEmpty(edk1.c()))
+                Object obj = egm1.a();
+                int j = egm1.h();
+                String s1 = egm1.e();
+                String s2 = egm1.f();
+                String s3 = egm1.g();
+                egm1 = egm1.c();
+                obj = (bia)((bhv) (obj)).f().get(0);
+                egm1 = new ddg(b(an.a()), ((bia) (obj)).a, egm1, j, s1, s2, s3, 61);
+                if (!TextUtils.isEmpty(egm1.c()))
                 {
                     break label0;
                 }
-                Toast.makeText(context, l.sG, 0).show();
+                Toast.makeText(context, l.rZ, 0).show();
             }
             return;
         }
-        an.a(edk1);
+        an.a(egm1);
     }
 
     public void a(String s1)
@@ -409,17 +409,17 @@ label0:
                     break label0;
                 }
                 f.setVisibility(0);
-                f.startAnimation(AnimationUtils.loadAnimation(getActivity(), g.cz));
+                f.startAnimation(AnimationUtils.loadAnimation(getActivity(), g.cy));
             }
             return;
         }
         f.setVisibility(8);
-        f.startAnimation(AnimationUtils.loadAnimation(getActivity(), g.cA));
+        f.startAnimation(AnimationUtils.loadAnimation(getActivity(), g.cz));
     }
 
     public void b()
     {
-        String s1 = an.m_();
+        String s1 = an.b();
         if (!TextUtils.equals(s1, "com.google.android.apps.hangouts.phone.dialpad")) goto _L2; else goto _L1
 _L1:
         a(1, false);
@@ -444,9 +444,9 @@ _L3:
     public void b(String s1)
     {
         a(0, true);
-        s1 = new dbx(b(an.a()), s1, null, 0, null, null, null, 61);
+        s1 = new ddg(b(an.a()), s1, null, 0, null, null, null, 61);
         an.a(s1);
-        g.a(dbf.e(a.a()), 858);
+        g.a(dcn.e(a.a()), 858);
     }
 
     public void b(boolean flag)
@@ -545,12 +545,12 @@ _L3:
     protected void onAttachBinder(Bundle bundle)
     {
         super.onAttachBinder(bundle);
-        a = (gmo)binder.a(gmo);
+        a = (gqu)binder.a(gqu);
         if (getUserVisibleHint())
         {
-            g.a(dbf.e(a.a()), 854);
+            g.a(dcn.e(a.a()), 854);
         }
-        ap = (bef)binder.b(bef);
+        ap = (bev)binder.b(bev);
     }
 
     public void onConfigurationChanged(Configuration configuration)
@@ -572,18 +572,18 @@ _L3:
         boolean flag3 = false;
         super.onCreateView(layoutinflater, viewgroup, bundle);
         setHasOptionsMenu(true);
-        layoutinflater = layoutinflater.inflate(g.fl, viewgroup, false);
-        b = (EditText)layoutinflater.findViewById(h.am);
-        b.setCustomSelectionActionModeCallback(new bgn(this));
-        b.addTextChangedListener(new bgp(this));
+        layoutinflater = layoutinflater.inflate(g.fj, viewgroup, false);
+        b = (EditText)layoutinflater.findViewById(h.ai);
+        b.setCustomSelectionActionModeCallback(new bgz(this));
+        b.addTextChangedListener(new bhb(this));
         b.setInputType(b.getInputType() | 0x80000);
-        b.setOnClickListener(new bgq(this));
-        layoutinflater.getViewTreeObserver().addOnGlobalLayoutListener(new bgr(this, layoutinflater));
-        aj = layoutinflater.findViewById(h.di);
-        viewgroup = new bgs(this);
-        ak = layoutinflater.findViewById(h.aS);
-        bundle = new bgt(this);
-        ak.setOnLongClickListener(new bgu(this));
+        b.setOnClickListener(new bhc(this));
+        layoutinflater.getViewTreeObserver().addOnGlobalLayoutListener(new bhd(this, layoutinflater));
+        aj = layoutinflater.findViewById(h.cX);
+        viewgroup = new bhe(this);
+        ak = layoutinflater.findViewById(h.aM);
+        bundle = new bhf(this);
+        ak.setOnLongClickListener(new bhg(this));
         boolean flag;
         boolean flag1;
         boolean flag2;
@@ -591,7 +591,7 @@ _L3:
         {
             aj.setVisibility(8);
             ak.setVisibility(8);
-            as = new bgv(this);
+            as = new bhh(this);
             ap.a(as);
             ap.c(bundle);
             ap.a(this);
@@ -600,13 +600,13 @@ _L3:
             aj.setOnClickListener(viewgroup);
             ak.setOnClickListener(bundle);
         }
-        c = (FrameLayout)layoutinflater.findViewById(h.dw);
-        d = (FrameLayout)layoutinflater.findViewById(h.fo);
-        e = (FrameLayout)layoutinflater.findViewById(h.ez);
-        e.setAccessibilityDelegate(new bgw(this));
-        g = (blw)getChildFragmentManager().a(blw.getName());
-        h = (blp)getChildFragmentManager().a(blp.getName());
-        i = (bms)getChildFragmentManager().a(bms.getName());
+        c = (FrameLayout)layoutinflater.findViewById(h.dk);
+        d = (FrameLayout)layoutinflater.findViewById(h.eW);
+        e = (FrameLayout)layoutinflater.findViewById(h.ei);
+        e.setAccessibilityDelegate(new bhi(this));
+        g = (bmf)getChildFragmentManager().a(bmf.getName());
+        h = (bly)getChildFragmentManager().a(bly.getName());
+        i = (bmz)getChildFragmentManager().a(bmz.getName());
         if (g == null)
         {
             flag = true;
@@ -628,7 +628,7 @@ _L3:
         {
             flag2 = false;
         }
-        gbh.a(flag2);
+        gdv.a("Expected condition to be true", flag2);
         if (g == null)
         {
             flag = true;
@@ -648,16 +648,16 @@ _L3:
         {
             flag2 = true;
         }
-        gbh.a(flag2);
+        gdv.a("Expected condition to be true", flag2);
         if (g == null)
         {
-            g = new blw();
-            h = new blp();
-            i = new bms();
-            getChildFragmentManager().a().a(h.dw, g, blw.getName()).a(h.fo, h, blp.getName()).a(h.ez, i, bms.getName()).b();
+            g = new bmf();
+            h = new bly();
+            i = new bmz();
+            getChildFragmentManager().a().a(h.dk, g, bmf.getName()).a(h.eW, h, bly.getName()).a(h.ei, i, bmz.getName()).b();
         }
-        f = (ImageView)layoutinflater.findViewById(h.aX);
-        f.setOnClickListener(new bgo(this));
+        f = (ImageView)layoutinflater.findViewById(h.aR);
+        f.setOnClickListener(new bha(this));
         aq = true;
         if (ar)
         {
@@ -666,6 +666,12 @@ _L3:
         g.a(this);
         i.a(this);
         return layoutinflater;
+    }
+
+    public void onDestroy()
+    {
+        an.p_();
+        super.onDestroy();
     }
 
     public void onDestroyView()
@@ -696,7 +702,7 @@ _L3:
     {
         if (menuitem.getItemId() == 1)
         {
-            blo.a(getResources()).a(getFragmentManager());
+            blx.a(getResources()).a(getFragmentManager());
             return true;
         } else
         {
@@ -713,7 +719,7 @@ _L3:
     public void onResume()
     {
         super.onResume();
-        ebw.c("Babel", "Resuming CallContactPickerFragment");
+        eev.c("Babel", "Resuming CallContactPickerFragment");
         b();
     }
 
@@ -724,7 +730,7 @@ _L3:
         h.a(this);
         r();
         c();
-        g.a(dbf.e(a.a()), 854);
+        g.a(dcn.e(a.a()), 854);
     }
 
     public void q()
@@ -740,7 +746,7 @@ _L3:
         super.setUserVisibleHint(flag);
         if (flag && isAdded())
         {
-            g.a(dbf.e(a.a()), 854);
+            g.a(dcn.e(a.a()), 854);
         }
     }
 }

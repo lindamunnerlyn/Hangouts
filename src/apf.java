@@ -3,13 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class apf
+public interface apf
 {
 
-    long a;
-    boolean b;
+    public static final String a[] = {
+        "conversation_id", "conversation_hash", "status", "is_temporary"
+    };
 
-    apf()
-    {
-    }
 }

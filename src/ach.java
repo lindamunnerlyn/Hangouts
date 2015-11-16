@@ -2,54 +2,52 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Vector;
 
-public final class ach
+public final class ach extends acf
 {
-
-    private Vector a;
 
     public ach()
     {
-        a = null;
-        a = new Vector();
+        a(130);
     }
 
-    public acp a(int i)
+    ach(acp acp1)
     {
-        return (acp)a.get(i);
+        super(acp1);
     }
 
-    public void a()
+    public void a(ace ace)
     {
-        a.clear();
+        a.a(ace, 137);
     }
 
-    public boolean a(acp acp1)
+    public void a(byte abyte0[])
     {
-        if (acp1 == null)
-        {
-            throw new NullPointerException();
-        } else
-        {
-            return a.add(acp1);
-        }
+        a.a(abyte0, 131);
     }
 
-    public int b()
+    public ace c()
     {
-        return a.size();
+        return a.c(137);
     }
 
-    public void b(acp acp1)
+    public byte[] d()
     {
-        if (acp1 == null)
-        {
-            throw new NullPointerException();
-        } else
-        {
-            a.add(0, acp1);
-            return;
-        }
+        return a.b(131);
+    }
+
+    public long e()
+    {
+        return a.e(136);
+    }
+
+    public long f()
+    {
+        return a.e(142);
+    }
+
+    public byte[] g()
+    {
+        return a.b(152);
     }
 }

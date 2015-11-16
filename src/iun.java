@@ -3,18 +3,20 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iun extends koj
+public final class iun extends kwm
 {
 
-    public irg a;
-    public ivz b;
-    public Integer c;
+    public Integer a;
+    public Integer b;
+    public Long c;
+    public Long d;
 
     public iun()
     {
         a = null;
         b = null;
         c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -25,79 +27,80 @@ public final class iun extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.d(1, a);
+            i = j + kwk.e(1, a.intValue());
         }
         j = i;
         if (b != null)
         {
-            j = i + koh.d(2, b);
+            j = i + kwk.e(2, b.intValue());
         }
         i = j;
         if (c != null)
         {
-            i = j + koh.e(3, c.intValue());
+            i = j + kwk.e(3, c.longValue());
         }
-        return i;
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.e(4, d.longValue());
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
-_L6:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 4: default 48
-    //                   0: 57
-    //                   10: 59
-    //                   18: 88
-    //                   24: 117;
-           goto _L1 _L2 _L3 _L4 _L5
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L6; else goto _L2
-_L2:
-        return this;
-_L3:
-        if (a == null)
+        do
         {
-            a = new irg();
-        }
-        kog1.a(a);
-          goto _L6
-_L4:
-        if (b == null)
-        {
-            b = new ivz();
-        }
-        kog1.a(b);
-          goto _L6
-_L5:
-        int j = kog1.f();
-        switch (j)
-        {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-            c = Integer.valueOf(j);
-            break;
-        }
-        if (true) goto _L6; else goto _L7
-_L7:
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
+                break;
+
+            case 16: // '\020'
+                b = Integer.valueOf(kwj1.f());
+                break;
+
+            case 24: // '\030'
+                c = Long.valueOf(kwj1.e());
+                break;
+
+            case 32: // ' '
+                d = Long.valueOf(kwj1.e());
+                break;
+            }
+        } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.b(1, a);
+            kwk1.a(1, a.intValue());
         }
         if (b != null)
         {
-            koh1.b(2, b);
+            kwk1.a(2, b.intValue());
         }
         if (c != null)
         {
-            koh1.a(3, c.intValue());
+            kwk1.b(3, c.longValue());
         }
-        super.writeTo(koh1);
+        if (d != null)
+        {
+            kwk1.b(4, d.longValue());
+        }
+        super.writeTo(kwk1);
     }
 }

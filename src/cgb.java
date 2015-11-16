@@ -2,26 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import com.google.android.apps.hangouts.peoplelistv2.impl.EditParticipantsView;
 
-public final class cgb
-    implements android.view.View.OnClickListener
+public final class cgb extends Enum
 {
 
-    final ais a;
-    final EditParticipantsView b;
+    public static final int a;
+    public static final int b;
+    public static final int c;
+    public static final int d;
+    private static final int e[];
 
-    public cgb(EditParticipantsView editparticipantsview, ais ais)
+    public static int[] a()
     {
-        b = editparticipantsview;
-        a = ais;
-        super();
+        return (int[])e.clone();
     }
 
-    public void onClick(View view)
+    static 
     {
-        EditParticipantsView.b(b).b(a);
-        EditParticipantsView.c(b);
+        a = 1;
+        b = 2;
+        c = 3;
+        d = 4;
+        e = (new int[] {
+            a, b, c, d
+        });
     }
 }

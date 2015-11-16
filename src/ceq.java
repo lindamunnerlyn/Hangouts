@@ -2,24 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import java.util.List;
+import android.content.Context;
+import android.content.Intent;
 
-final class ceq
-    implements cib
+public final class ceq extends cfh
 {
 
-    final cep a;
-
-    ceq(cep cep1)
+    public ceq()
     {
-        a = cep1;
-        super();
     }
 
-    public void a(List list, Bundle bundle)
+    Intent a(Context context, int i, String s)
     {
-        gbh.a(Integer.valueOf(list.size()), Integer.valueOf(cep.a.size()));
-        cep.a(a, cep.a(a));
+        Intent intent = new Intent();
+        intent.putExtra("account_id", i);
+        intent.putExtra("conversationIdSetString", s);
+        return b(context, intent);
+    }
+
+    public void a(Context context, Intent intent)
+    {
+        int i = intent.getIntExtra("account_id", -1);
+        intent = intent.getStringExtra("conversationIdSetString");
+        cet cet1 = cep.g;
+        intent = edb.a(intent);
+        if (aoq.b(new aow(context, i), intent) > 0 && cfo.f(context, i))
+        {
+            cet.a(context, i, true);
+        }
     }
 }

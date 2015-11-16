@@ -2,21 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
 
-public final class hbs
+public final class hbs extends Enum
 {
 
-    public static final String a = hbn.getName();
-    private static hbr b;
+    public static final hbs a;
+    private static final hbs b[];
 
-    public static void a(Context context, hgx hgx1)
+    private hbs(String s)
     {
-        if (b == null)
-        {
-            b = new hbr();
-        }
-        hgx1.a(hbn, new hbq(context));
+        super(s, 0);
     }
 
+    public static hbs valueOf(String s)
+    {
+        return (hbs)Enum.valueOf(hbs, s);
+    }
+
+    public static hbs[] values()
+    {
+        return (hbs[])b.clone();
+    }
+
+    static 
+    {
+        a = new hbs("ALLOWED");
+        b = (new hbs[] {
+            a
+        });
+    }
 }

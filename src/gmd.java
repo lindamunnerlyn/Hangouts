@@ -2,70 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.app.Dialog;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import java.util.Set;
 
-public abstract class gmd extends ac
+final class gmd extends BroadcastReceiver
 {
 
-    private ListAdapter aj;
+    final glt a;
 
-    public gmd()
+    gmd(glt glt1)
     {
+        a = glt1;
+        super();
     }
 
-    public void onCreate(Bundle bundle)
+    public void onReceive(Context context, Intent intent)
     {
-        super.onCreate(bundle);
-        a(0);
-    }
-
-    public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle)
-    {
-        aj = s();
-        layoutinflater = layoutinflater.inflate(g.rJ, viewgroup, false);
-        viewgroup = (ListView)layoutinflater.findViewById(g.rE);
-        viewgroup.setAdapter(aj);
-        viewgroup.setOnItemClickListener(r());
-        viewgroup = q();
-        bundle = (TextView)layoutinflater.findViewById(g.rF);
-        if (TextUtils.isEmpty(viewgroup))
+        if (!intent.getAction().equals("android.intent.action.HEADSET_PLUG")) goto _L2; else goto _L1
+_L1:
+        int i;
+        i = intent.getIntExtra("state", 0);
+        boolean flag = isInitialStickyBroadcast();
+        gne.a(3, "vclib", (new StringBuilder(81)).append("WiredHeadsetReceiver.onReceive: state=").append(i).append(", isInitialStickyBroadcast=").append(flag).toString());
+        i;
+        JVM INSTR tableswitch 0 1: default 88
+    //                   0 89
+    //                   1 183;
+           goto _L2 _L3 _L4
+_L2:
+        return;
+_L3:
+        a.i.remove(glx.d);
+        if (a.j())
         {
-            bundle.setVisibility(8);
-            return layoutinflater;
+            a.i.add(glx.b);
+        }
+        a.i.add(glx.a);
+        if (a.h == gly.c)
+        {
+            a.a(a.g);
+            return;
         } else
         {
-            bundle.setText(viewgroup);
-            bundle.setVisibility(0);
-            return layoutinflater;
+            a.d();
+            return;
         }
-    }
-
-    public void onStart()
-    {
-        super.onStart();
-        c().getWindow().setLayout(-1, -2);
-        c().getWindow().setBackgroundDrawableResource(0x106000b);
-        c().getWindow().setGravity(81);
-        c().getWindow().setWindowAnimations(g.rM);
-    }
-
-    public abstract String q();
-
-    public abstract android.widget.AdapterView.OnItemClickListener r();
-
-    public abstract ListAdapter s();
-
-    public ListAdapter t()
-    {
-        return aj;
+_L4:
+        a.i.add(glx.d);
+        a.i.remove(glx.b);
+        a.i.remove(glx.a);
+        a.a(glx.d);
+        return;
     }
 }

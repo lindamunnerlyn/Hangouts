@@ -2,24 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import android.os.Message;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.accessibility.AccessibilityEvent;
 
-final class bjz extends Handler
+final class bjz extends android.view.View.AccessibilityDelegate
 {
 
-    private final bjy a;
-
-    public bjz(bjy bjy1)
+    bjz()
     {
-        a = bjy1;
     }
 
-    public void handleMessage(Message message)
+    public boolean onRequestSendAccessibilityEvent(ViewGroup viewgroup, View view, AccessibilityEvent accessibilityevent)
     {
-        if (message.what == 0)
+        if (accessibilityevent.getEventType() == 4096 || accessibilityevent.getEventType() == 2048)
         {
-            a.Y();
+            Rect rect = new Rect();
+            viewgroup.getHitRect(rect);
+            if (!view.getLocalVisibleRect(rect))
+            {
+                return false;
+            }
         }
+        return super.onRequestSendAccessibilityEvent(viewgroup, view, accessibilityevent);
     }
 }

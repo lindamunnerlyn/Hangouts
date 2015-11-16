@@ -2,21 +2,54 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
 
-public final class bhn extends bhl
-    implements Serializable
+public final class bhn
 {
 
-    public final String a;
+    private final String a;
+    private final String b;
+    private final long c;
+    private final int d;
+    private final String e;
+    private final boolean f;
 
-    public bhn(String s)
+    public bhn(String s, String s1, long l, int i, String s2, boolean flag)
     {
         a = s;
+        b = s1;
+        c = l;
+        d = i;
+        e = s2;
+        f = flag;
     }
 
-    public String toString()
+    public String a()
     {
         return a;
+    }
+
+    public String b()
+    {
+        return b;
+    }
+
+    public long c()
+    {
+        return c;
+    }
+
+    public int d()
+    {
+        return d;
+    }
+
+    public String e()
+    {
+        return e;
+    }
+
+    public boolean f()
+    {
+        return f;
     }
 }

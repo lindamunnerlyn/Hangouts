@@ -3,38 +3,56 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class dim extends dfa
+public final class dim extends dgj
 {
 
     private final String a;
-    private final String d;
     private final int e;
+    private final int f[];
 
-    public dim(ani ani1, String s, String s1, int i)
+    public dim(aoa aoa, String s, boolean flag, boolean flag1, boolean flag2)
     {
-        super(ani1);
+        super(aoa);
         a = s;
-        d = s1;
+        int i;
+        int j;
+        if (flag)
+        {
+            i = 1;
+        } else
+        {
+            i = 2;
+        }
         e = i;
+        if (flag2)
+        {
+            i = 2;
+        } else
+        {
+            i = 0;
+        }
+        if (flag1)
+        {
+            j = 1;
+        } else
+        {
+            j = 0;
+        }
+        f = (new int[] {
+            i, j
+        });
     }
 
     public void a()
     {
-        Object obj;
-        obj = a;
-        String s = d;
-        int i = e;
-        ebw.b("Babel", (new StringBuilder(String.valueOf(obj).length() + 40 + String.valueOf(s).length())).append("SetMessageFailedOperation: ").append(((String) (obj))).append(" ").append(s).append(" ").append(i).toString());
-        obj = new aoe(g.nS, b.h());
-        ((aoe) (obj)).a();
-        any.a(((aoe) (obj)), a, d, dqb.d, e);
-        ((aoe) (obj)).a(a, d);
-        ((aoe) (obj)).b();
-        ((aoe) (obj)).c();
-        return;
-        Exception exception;
-        exception;
-        ((aoe) (obj)).c();
-        throw exception;
+        aow aow1 = new aow(g.nU, super.b.a);
+        if (e == 1)
+        {
+            aow1.ad(a);
+        } else
+        {
+            aoq.a(aow1, a);
+        }
+        a(((dmf) (new cwu(a, e, f))));
     }
 }

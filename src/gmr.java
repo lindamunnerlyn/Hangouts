@@ -3,10 +3,18 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface gmr
+public final class gmr
 {
 
-    public abstract void b(int i);
+    private final boolean a;
 
-    public abstract void c(int i);
+    public gmr(boolean flag)
+    {
+        a = flag;
+    }
+
+    public boolean a()
+    {
+        return a;
+    }
 }

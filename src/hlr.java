@@ -2,21 +2,12 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.api.client.http.HttpRequest;
 
-final class hlr
+final class hlr extends RuntimeException
 {
 
-    final hlo a;
-    final Class b;
-    final Class c;
-    final HttpRequest d;
-
-    hlr(hlo hlo, Class class1, Class class2, HttpRequest httprequest)
+    public hlr(String s)
     {
-        a = hlo;
-        b = class1;
-        c = class2;
-        d = httprequest;
+        super(s);
     }
 }

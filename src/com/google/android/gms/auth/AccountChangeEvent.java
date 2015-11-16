@@ -6,28 +6,27 @@ package com.google.android.gms.auth;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import eih;
+import eli;
 import g;
-import h;
 import java.util.Arrays;
 
 public class AccountChangeEvent
     implements SafeParcelable
 {
 
-    public static final android.os.Parcelable.Creator CREATOR = new eih();
-    public final int a;
-    public final long b;
-    public final String c;
-    public final int d;
-    public final int e;
-    public final String f;
+    public static final android.os.Parcelable.Creator CREATOR = new eli();
+    final int a;
+    final long b;
+    final String c;
+    final int d;
+    final int e;
+    final String f;
 
     public AccountChangeEvent(int i, long l, String s, int j, int k, String s1)
     {
         a = i;
         b = l;
-        c = (String)h.a(s);
+        c = (String)g.d(s);
         d = j;
         e = k;
         f = s1;
@@ -92,7 +91,14 @@ _L6:
 
     public void writeToParcel(Parcel parcel, int i)
     {
-        eih.a(this, parcel);
+        i = g.p(parcel, 20293);
+        g.b(parcel, 1, a);
+        g.a(parcel, 2, b);
+        g.a(parcel, 3, c);
+        g.b(parcel, 4, d);
+        g.b(parcel, 5, e);
+        g.a(parcel, 6, f);
+        g.q(parcel, i);
     }
 
 }

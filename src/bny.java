@@ -3,27 +3,38 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class bny extends bnk
+final class bny extends Enum
 {
 
-    final bnx a;
+    public static final bny a;
+    public static final bny b;
+    public static final bny c;
+    public static final bny d;
+    private static final bny e[];
 
-    bny(bnx bnx1)
+    private bny(String s, int i)
     {
-        a = bnx1;
-        super();
+        super(s, i);
     }
 
-    public void a(int i)
+    public static bny valueOf(String s)
     {
-        a.a();
+        return (bny)Enum.valueOf(bny, s);
     }
 
-    public void b(gjr gjr1)
+    public static bny[] values()
     {
-        if (gjr1.a().equals(bnx.a(a).a()))
-        {
-            a.a();
-        }
+        return (bny[])e.clone();
+    }
+
+    static 
+    {
+        a = new bny("NONE", 0);
+        b = new bny("OUTGOING_AUDIO", 1);
+        c = new bny("OUTGOING_VIDEO", 2);
+        d = new bny("STILL_JOINING", 3);
+        e = (new bny[] {
+            a, b, c, d
+        });
     }
 }

@@ -2,94 +2,76 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import com.google.api.client.http.HttpRequestInitializer;
-import com.google.api.client.http.HttpTransport;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
-public final class gfr
+final class gfr extends gmo
 {
 
-    static final String a = "1.0.0";
-    gfx b;
-    private final Context c;
-    private final String d;
-    private final boolean e;
-    private String f;
-    private long g;
-    private HttpTransport h;
+    private final List a = new CopyOnWriteArrayList();
 
-    public gfr(Context context, String s)
+    gfr()
     {
-        hmf hmf1 = new hmf();
-        boolean flag;
-        if (hgx.b(context, gbg) != null)
-        {
-            flag = true;
-        } else
-        {
-            flag = false;
-        }
-        this(context, s, ((HttpTransport) (hmf1)), flag);
     }
 
-    private gfr(Context context, String s, HttpTransport httptransport, boolean flag)
+    public void a(int i)
     {
-        c = context;
-        d = s;
-        h = httptransport;
-        e = flag;
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((gmo)iterator.next()).a(i)) { }
     }
 
-    static HttpRequestInitializer a(String s, String s1, int i)
+    public void a(int i, String s)
     {
-        hlm hlm1 = new hlm();
-        hlm1.c(s);
-        return new gft(s1, s, hlm1, i);
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((gmo)iterator.next()).a(i, s)) { }
     }
 
-    private gfx a()
+    public void a(gmo gmo1)
     {
-        return new gfs(this);
+        a.add(gmo1);
     }
 
-    private void a(long l, String s, byte abyte0[], int i, gfx gfx)
+    public void a(gms gms)
     {
-        if (e)
-        {
-            s = new ggg(l, s, abyte0, i, (gbg)hgx.b(c, gbg), f, g, d, gfx, c);
-        } else
-        {
-            s = new ggh(l, s, abyte0, i, f, g, h, d, gfx);
-        }
-        (new gfy(this, s)).a(new Void[0]);
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((gmo)iterator.next()).a(gms)) { }
     }
 
-    public void a(long l, String s, byte abyte0[], int i)
+    public void a(gmt gmt)
     {
-        gbh.b(b);
-        a(l, s, abyte0, i, a());
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((gmo)iterator.next()).a(gmt)) { }
     }
 
-    public void a(gfx gfx)
+    public void a(gmu gmu)
     {
-        b = gfx;
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((gmo)iterator.next()).a(gmu)) { }
     }
 
-    public void a(gfz gfz)
+    public void a(itz itz)
     {
-        gbh.b(b);
-        (new gfy(this, new ggd(gfz, f, h, d, a()))).a(new Void[0]);
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((gmo)iterator.next()).a(itz)) { }
     }
 
-    public void a(String s, long l)
+    public void a(jjt jjt)
     {
-        f = s;
-        g = l;
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((gmo)iterator.next()).a(jjt)) { }
     }
 
-    public void a(String s, byte abyte0[], int i, gfx gfx)
+    public void b(gmo gmo1)
     {
-        gbh.b(gfx);
-        a(0L, s, abyte0, i, gfx);
+        a.remove(gmo1);
+    }
+
+    public void b(gmt gmt)
+    {
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((gmo)iterator.next()).b(gmt)) { }
+    }
+
+    public void c(gmt gmt)
+    {
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((gmo)iterator.next()).c(gmt)) { }
+    }
+
+    public void d(gmt gmt)
+    {
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((gmo)iterator.next()).d(gmt)) { }
     }
 }

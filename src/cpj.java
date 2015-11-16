@@ -2,24 +2,50 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Parcel;
-import com.google.android.apps.hangouts.phone.SmsAccountPickerActivity;
 
-final class cpj
-    implements android.os.Parcelable.Creator
+abstract class cpj extends cph
 {
 
-    cpj()
+    final CharSequence d;
+    final boolean e;
+    int f;
+
+    protected cpj(cpd cpd1, CharSequence charsequence)
     {
+        f = 0;
+        e = cpd1.a;
+        d = charsequence;
     }
 
-    public Object createFromParcel(Parcel parcel)
+    abstract int a(int i);
+
+    protected Object a()
     {
-        return new SmsAccountPickerActivity();
+        return c();
     }
 
-    public Object[] newArray(int i)
+    abstract int b(int i);
+
+    protected String c()
     {
-        return new SmsAccountPickerActivity[i];
+        while (f != -1) 
+        {
+            int j = f;
+            int i = a(f);
+            if (i == -1)
+            {
+                i = d.length();
+                f = -1;
+            } else
+            {
+                f = b(i);
+            }
+            if (!e || j != i)
+            {
+                return d.subSequence(j, i).toString();
+            }
+        }
+        super.b = cpi.c;
+        return null;
     }
 }

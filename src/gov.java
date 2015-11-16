@@ -2,10 +2,29 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
 
-public interface gov
+public final class gov extends Exception
 {
 
-    public abstract void a(int i, Intent intent);
+    private gow a;
+    private String b;
+
+    public gov(gow gow, String s)
+    {
+        super(s);
+        b = s;
+        a = gow;
+    }
+
+    public gow a()
+    {
+        return a;
+    }
+
+    public String toString()
+    {
+        String s = String.valueOf(String.valueOf(a));
+        String s1 = String.valueOf(String.valueOf(b));
+        return (new StringBuilder(s.length() + 14 + s1.length())).append("Error type: ").append(s).append(". ").append(s1).toString();
+    }
 }

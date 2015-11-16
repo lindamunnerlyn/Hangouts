@@ -2,99 +2,71 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.AbstractSet;
+import java.util.Iterator;
+import java.util.List;
 
-public final class hsg extends koj
+final class hsg extends AbstractSet
 {
 
-    private static volatile hsg c[];
-    public hru a;
-    public String b;
+    final hsd a;
 
-    public hsg()
+    hsg(hsd hsd1)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        a = hsd1;
+        super();
     }
 
-    public static hsg[] a()
+    public hsf a()
     {
-        if (c == null)
+        return new hsf(a);
+    }
+
+    public void clear()
+    {
+        String s;
+        for (Iterator iterator1 = a.b.b.iterator(); iterator1.hasNext(); a.b.a(s).a(a.a, null))
         {
-            synchronized (kon.a)
+            s = (String)iterator1.next();
+        }
+
+    }
+
+    public boolean isEmpty()
+    {
+        for (Iterator iterator1 = a.b.b.iterator(); iterator1.hasNext();)
+        {
+            String s = (String)iterator1.next();
+            if (a.b.a(s).a(a.a) != null)
             {
-                if (c == null)
-                {
-                    c = new hsg[0];
-                }
+                return false;
             }
         }
-        return c;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
+
+        return true;
     }
 
-    protected int computeSerializedSize()
+    public Iterator iterator()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.d(1, a);
-        }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.b(2, b);
-        }
-        return j;
+        return a();
     }
 
-    public kop mergeFrom(kog kog1)
+    public int size()
     {
+        Iterator iterator1 = a.b.b.iterator();
+        int i = 0;
         do
         {
-            int i = kog1.a();
-            switch (i)
+            if (!iterator1.hasNext())
             {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                if (a == null)
-                {
-                    a = new hru();
-                }
-                kog1.a(a);
-                break;
-
-            case 18: // '\022'
-                b = kog1.j();
                 break;
             }
+            String s = (String)iterator1.next();
+            if (a.b.a(s).a(a.a) != null)
+            {
+                i++;
+            }
         } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.b(1, a);
-        }
-        if (b != null)
-        {
-            koh1.a(2, b);
-        }
-        super.writeTo(koh1);
+        return i;
     }
 }

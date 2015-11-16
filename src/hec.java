@@ -2,155 +2,335 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.accounts.AuthenticatorException;
-import android.content.Context;
-import android.text.TextUtils;
+import android.graphics.RectF;
 
-public final class hec
+public class hec extends gzi
 {
 
-    final String a;
-    final fxo b;
-    final hm c = new hm();
-    final hm d = new hm();
+    private hec a;
+    hdy d;
+    int e;
+    int f;
+    public int g;
+    int h;
+    RectF i;
+    a j;
+    private int k;
 
-    hec(String s, fxo fxo1)
+    public hec()
     {
-        a = s;
-        b = fxo1;
     }
 
-    private String a(Context context, String s, String s1, boolean flag)
+    public void a(hec hec1)
     {
-        fxq fxq1 = (fxq)hgx.a(context, fxq);
-        if (flag)
-        {
-            return b.a(context, s, s1);
-        }
-        try
-        {
-            context = fxq1.a(s, s1);
-        }
-        // Misplaced declaration of an exception variable
-        catch (Context context)
-        {
-            throw new AuthenticatorException("Recoverable error", context);
-        }
-        return context;
+        a = hec1;
     }
 
-    public String a(Context context, String s)
+    public void b(int l, hdy hdy1, int i1, int j1, int k1)
     {
-        String s1 = ((hdw)hgx.a(context, hdw)).a();
-        if (!TextUtils.isEmpty(s1))
+        a(l, hdy1.f());
+        d = hdy1;
+        e = 0;
+        f = k1;
+        g = i1;
+        h = j1;
+        i = null;
+        j = null;
+        k = 0;
+    }
+
+    public String c()
+    {
+        int i1;
+        switch (e)
         {
-            return s1;
+        default:
+            return "";
+
+        case 0: // '\0'
+            int l = g;
+            int j1 = h;
+            return (new StringBuilder(23)).append(l).append("x").append(j1).toString();
+
+        case 2: // '\002'
+            return "thumbnail";
+
+        case 3: // '\003'
+            return "large";
+
+        case 1: // '\001'
+            return "full";
+
+        case 4: // '\004'
+            return "original";
+
+        case 5: // '\005'
+            i1 = g;
+            break;
         }
-        this;
-        JVM INSTR monitorenter ;
-        String s2 = (String)d.get(s);
-        if (s2 == null)
+        int k1 = h;
+        return (new StringBuilder(29)).append("auto(").append(i1).append("x").append(k1).append(")").toString();
+    }
+
+    public int d()
+    {
+        int l = Math.max(g, h);
+        if (l == 0 || l > hea.u())
         {
-            break MISSING_BLOCK_LABEL_130;
+            return 6;
         }
-        Long long1 = (Long)c.get(s2);
+        return l <= hea.v() ? 8 : 7;
+    }
+
+    protected String e()
+    {
+        e;
+        JVM INSTR tableswitch 0 0: default 24
+    //                   0 27;
+           goto _L1 _L2
+_L1:
+        return "";
+_L2:
+        if (f == -1) goto _L1; else goto _L3
+_L3:
+        f;
+        JVM INSTR tableswitch 0 3: default 68
+    //                   0 108
+    //                   1 102
+    //                   2 96
+    //                   3 90;
+           goto _L4 _L5 _L6 _L7 _L8
+_L4:
+        String s = "";
+_L9:
+        s = String.valueOf(s);
+        if (s.length() != 0)
+        {
+            return "-".concat(s);
+        } else
+        {
+            return new String("-");
+        }
+_L8:
+        s = "H";
+          goto _L9
+_L7:
+        s = "S";
+          goto _L9
+_L6:
+        s = "L";
+          goto _L9
+_L5:
+        s = "VL";
+          goto _L9
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (obj != this) goto _L2; else goto _L1
+_L1:
+        return true;
+_L2:
+        if (!(obj instanceof hec))
+        {
+            return false;
+        }
+        obj = (hec)obj;
+        if (b != ((hec) (obj)).b || f != ((hec) (obj)).f || !d.equals(((hec) (obj)).d))
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        if (e == ((hec) (obj)).e) goto _L4; else goto _L3
+_L3:
+        boolean flag = false;
+_L9:
+        if (!flag)
+        {
+            break; /* Loop/switch isn't completed */
+        }
+        a a1 = j;
+        a a2 = ((hec) (obj)).j;
+        boolean flag1;
+        if (a1 == null && a2 == null)
+        {
+            flag1 = true;
+        } else
+        if (a1 == null && a2 != null || a1 != null && a2 == null)
+        {
+            flag1 = false;
+        } else
+        {
+            flag1 = a1.p();
+        }
+        if (flag1 && (i == null || i.equals(((hec) (obj)).i))) goto _L1; else goto _L5
+_L5:
+        return false;
+_L4:
+        e;
+        JVM INSTR lookupswitch 2: default 156
+    //                   0: 179
+    //                   5: 162;
+           goto _L6 _L7 _L8
+_L6:
+        flag = true;
+          goto _L9
+_L8:
+        if (d() == ((hec) (obj)).d()) goto _L6; else goto _L10
+_L10:
+        flag = false;
+          goto _L9
+_L7:
+        if (g == ((hec) (obj)).g && h == ((hec) (obj)).h) goto _L6; else goto _L11
+_L11:
+        flag = false;
+          goto _L9
+    }
+
+    protected String f()
+    {
+        if (i != null)
+        {
+            float f1 = i.left;
+            float f2 = i.top;
+            float f3 = i.right;
+            float f4 = i.bottom;
+            return (new StringBuilder(74)).append(", crop(").append(f1).append(", ").append(f2).append(", ").append(f3).append(", ").append(f4).append(")").toString();
+        } else
+        {
+            return "";
+        }
+    }
+
+    protected String g()
+    {
+        String s = "";
+        if ((b & 1) != 0)
+        {
+            s = String.valueOf("").concat(" no-disk-cache");
+        }
+        String s1 = s;
+        if ((b & 2) != 0)
+        {
+            s1 = String.valueOf(s).concat(" download-only");
+        }
+        s = s1;
+        if ((b & 4) != 0)
+        {
+            s1 = String.valueOf(s1).concat(" accept-animation");
+            s = s1;
+            if ((b & 0x20) != 0)
+            {
+                s = String.valueOf(s1).concat("-disable-webp");
+            }
+        }
+        s1 = s;
+        if ((b & 8) != 0)
+        {
+            s1 = String.valueOf(s).concat(" disable-decoding");
+        }
+        s = s1;
+        if ((b & 0x10) != 0)
+        {
+            s = String.valueOf(s1).concat(" disable-recycling");
+        }
+        s1 = s;
+        if ((b & 0x20) != 0)
+        {
+            s1 = String.valueOf(s).concat(" disable-webp");
+        }
+        s = s1;
+        if ((b & 0x40) != 0)
+        {
+            s = String.valueOf(s1).concat(" accept-bitmap-container");
+        }
+        s1 = s;
+        if ((b & 0x80) != 0)
+        {
+            s1 = String.valueOf(s).concat(" disable-loading");
+        }
+        s = s1;
+        if ((b & 0x100) != 0)
+        {
+            s = String.valueOf(s1).concat(" disable-smart-crop");
+        }
+        s1 = s;
+        if ((b & 0x200) != 0)
+        {
+            s1 = String.valueOf(s).concat(" disable-upscale");
+        }
+        s = s1;
+        if ((b & 0x400) != 0)
+        {
+            s = String.valueOf(s1).concat(" long-term-cache");
+        }
+        s1 = s;
+        if ((b & 0x800) != 0)
+        {
+            s1 = String.valueOf(s).concat(" keep-partial-download");
+        }
+        s = s1;
+        if ((b & 0x1000) != 0)
+        {
+            s = String.valueOf(s1).concat(" disable-automatic-high-res-download");
+        }
+        s1 = s;
+        if ((b & 0x2000) != 0)
+        {
+            s1 = String.valueOf(s).concat(" allow-large-file-download");
+        }
+        s = s1;
+        if ((b & 0x4000) != 0)
+        {
+            s = String.valueOf(s1).concat(" for-media-sync");
+        }
+        s1 = s;
+        if ((b & 0x8000) != 0)
+        {
+            s1 = String.valueOf(s).concat(" prefer-high-res-download");
+        }
+        s = s1;
+        if ((b & 0x10000) != 0)
+        {
+            s = String.valueOf(s1).concat(" convert-webp-to-jpeg");
+        }
+        s1 = s;
+        if ((b & 0x20000) != 0)
+        {
+            s1 = String.valueOf(s).concat(" include-exif");
+        }
+        return s1;
+    }
+
+    public hec h()
+    {
+        return a;
+    }
+
+    public int hashCode()
+    {
+        if (k == 0)
+        {
+            k = g.a(d, e + g.a(i, b + 527) * 31);
+        }
+        return k;
+    }
+
+    public String toString()
+    {
+        String s = c();
+        String s1 = e();
+        String s2 = f();
+        String s3 = g();
+        String s4;
         boolean flag;
-        if (long1 != null)
+        if (j != null)
         {
             flag = true;
         } else
         {
             flag = false;
         }
-        g.b(flag, "Missing auth time for auth token");
-        if (System.currentTimeMillis() - long1.longValue() > hed.a())
-        {
-            break MISSING_BLOCK_LABEL_101;
-        }
-        this;
-        JVM INSTR monitorexit ;
-        return s2;
-        context;
-        this;
-        JVM INSTR monitorexit ;
-        throw context;
-        d.remove(s);
-        c.remove(s2);
-        b.a(context, s2);
-        this;
-        JVM INSTR monitorexit ;
-        long l;
-        l = System.currentTimeMillis();
-        boolean flag1 = hgx.c(context, "token_with_notification");
-        context = a(context, s, a, flag1);
-        if (context == null)
-        {
-            break MISSING_BLOCK_LABEL_223;
-        }
-        this;
-        JVM INSTR monitorenter ;
-        s2 = (String)d.remove(s);
-        if (s2 == null)
-        {
-            break MISSING_BLOCK_LABEL_189;
-        }
-        c.remove(s2);
-        d.put(s, context);
-        c.put(context, Long.valueOf(l));
-        this;
-        JVM INSTR monitorexit ;
-        break MISSING_BLOCK_LABEL_223;
-        context;
-        this;
-        JVM INSTR monitorexit ;
-        throw context;
-        return context;
-    }
-
-    public void b(Context context, String s)
-    {
-        if (!TextUtils.isEmpty(((hdw)hgx.a(context, hdw)).a()))
-        {
-            return;
-        }
-        this;
-        JVM INSTR monitorenter ;
-        String s1 = (String)d.remove(s);
-        if (s1 == null)
-        {
-            break MISSING_BLOCK_LABEL_67;
-        }
-        c.remove(s1);
-        b.a(context, s1);
-        this;
-        JVM INSTR monitorexit ;
-        return;
-        context;
-        this;
-        JVM INSTR monitorexit ;
-        throw context;
-        this;
-        JVM INSTR monitorexit ;
-        s = b.a(context, s, a);
-        b.a(context, s);
-        return;
-    }
-
-    public Long c(Context context, String s)
-    {
-        if (!TextUtils.isEmpty(((hdw)hgx.a(context, hdw)).a()))
-        {
-            return Long.valueOf(System.currentTimeMillis());
-        }
-        this;
-        JVM INSTR monitorenter ;
-        context = (Long)c.get(s);
-        this;
-        JVM INSTR monitorexit ;
-        return context;
-        context;
-        this;
-        JVM INSTR monitorexit ;
-        throw context;
+        s4 = String.valueOf(d);
+        return (new StringBuilder(String.valueOf(s4).length() + 22 + String.valueOf(s).length() + String.valueOf(s1).length() + String.valueOf(s2).length() + String.valueOf(s3).length())).append("{").append(s4).append(" (").append(s).append(s1).append(s2).append(") hasEdits: ").append(flag).append(" ").append(s3).append("}").toString();
     }
 }

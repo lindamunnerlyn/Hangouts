@@ -2,28 +2,25 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.graphics.Bitmap;
-import android.net.Uri;
-import com.google.android.apps.hangouts.wearable.WearableService;
+import android.view.View;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 
 final class ehd
-    implements Runnable
 {
 
-    final Uri a;
-    final Bitmap b;
-    final ehc c;
+    final ArrayList a = new ArrayList();
+    final ArrayList b = new ArrayList();
+    final WeakReference c;
 
-    ehd(ehc ehc1, Uri uri, Bitmap bitmap)
+    public ehd(View view)
     {
-        c = ehc1;
-        a = uri;
-        b = bitmap;
-        super();
+        c = new WeakReference(view);
     }
 
-    public void run()
+    public void a(int i, ehe ehe)
     {
-        c.a.a(a, b);
+        a.add(Integer.valueOf(i));
+        b.add(ehe);
     }
 }

@@ -2,22 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.Iterator;
 
-public final class hoh
-    implements Iterable
+final class hoh
+    implements hok
 {
 
-    final Object a;
+    final hof a;
 
-    public hoh(Object obj)
+    hoh(hof hof)
     {
-        a = obj;
+        a = hof;
         super();
     }
 
-    public Iterator iterator()
+    public void a(hoy hoy)
     {
-        return new hoi(this);
+        if (hoy instanceof how)
+        {
+            ((how)hoy).k_();
+        }
     }
 }

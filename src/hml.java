@@ -2,51 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.IOException;
-import java.util.Iterator;
+import android.os.Bundle;
 
-public final class hml
+final class hml
+    implements hok
 {
 
-    private final String a;
+    final Bundle a;
+    final hmk b;
 
-    public hml(String s)
+    hml(hmk hmk1, Bundle bundle)
     {
-        a = (String)h.b(s);
+        b = hmk1;
+        a = bundle;
+        super();
     }
 
-    private static CharSequence a(Object obj)
+    public void a(hoy hoy)
     {
-        h.b(obj);
-        if (obj instanceof CharSequence)
+        if (hoy instanceof hma)
         {
-            return (CharSequence)obj;
-        } else
-        {
-            return obj.toString();
+            Bundle bundle = hmk.a(b).a(hoy, a);
+            ((hma)hoy).a(b.ak, b.al, bundle);
         }
-    }
-
-    public final StringBuilder a(StringBuilder stringbuilder, Iterator iterator)
-    {
-        try
-        {
-            h.b(stringbuilder);
-            if (iterator.hasNext())
-            {
-                stringbuilder.append(a(iterator.next()));
-                for (; iterator.hasNext(); stringbuilder.append(a(iterator.next())))
-                {
-                    stringbuilder.append(a);
-                }
-
-            }
-        }
-        // Misplaced declaration of an exception variable
-        catch (StringBuilder stringbuilder)
-        {
-            throw new AssertionError(stringbuilder);
-        }
-        return stringbuilder;
     }
 }

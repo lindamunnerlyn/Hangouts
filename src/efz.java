@@ -2,26 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.views.OverlayedAvatarView;
+import android.view.View;
+import com.google.android.apps.hangouts.views.AudioAttachmentView;
 
-public final class efz extends ebd
+public final class efz
+    implements android.view.View.OnClickListener
 {
 
-    final OverlayedAvatarView a;
+    final AudioAttachmentView a;
 
-    public efz(OverlayedAvatarView overlayedavatarview, hjm hjm, int i)
+    public efz(AudioAttachmentView audioattachmentview)
     {
-        a = overlayedavatarview;
-        super(hjm, i, OverlayedAvatarView.h());
+        a = audioattachmentview;
+        super();
     }
 
-    public void a(csw csw)
+    public void onClick(View view)
     {
-        a.a(csw);
-    }
-
-    protected void c()
-    {
-        a.a(null);
+        if (AudioAttachmentView.d(a) != null)
+        {
+            int i = AudioAttachmentView.d(a).b();
+            if (i == 0 || i == 1)
+            {
+                eev.f("Babel", "speakerphoneButton.onClick: button should be hidden, but isn't.");
+                return;
+            } else
+            {
+                AudioAttachmentView.d(a).d();
+                AudioAttachmentView.a(a);
+                return;
+            }
+        } else
+        {
+            eev.f("Babel", "speakerphoneButton.onClick: audioPlaybackController is null");
+            return;
+        }
     }
 }

@@ -2,19 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
 
-public final class ebj
-    implements Serializable
+final class ebj
+    implements Runnable
 {
 
-    private static final long serialVersionUID = 1L;
-    public final Serializable a;
-    public final Serializable b;
+    final ebi a;
 
-    public ebj(Serializable serializable, Serializable serializable1)
+    ebj(ebi ebi1)
     {
-        a = serializable;
-        b = serializable1;
+        a = ebi1;
+        super();
+    }
+
+    public void run()
+    {
+        a.a(false);
     }
 }

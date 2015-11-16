@@ -2,38 +2,17 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.List;
 
 final class gdh
-    implements Runnable
+    implements gdt
 {
 
-    final gju a;
-    final gfo b;
-    final gdg c;
-
-    gdh(gdg gdg1, gju gju1, gfo gfo)
+    gdh()
     {
-        c = gdg1;
-        a = gju1;
-        b = gfo;
-        super();
     }
 
-    public void run()
+    public String a(kws kws)
     {
-        int j = c.a.size();
-        for (int i = 0; i < j; i++)
-        {
-            gdo gdo1 = (gdo)c.a.get(i);
-            if (gdo1.a.equals(a))
-            {
-                gdo1.a(a, b);
-                return;
-            }
-        }
-
-        c.a.add(new gdo(c, a, b));
-        c.b();
+        return ((jgv)kws).b;
     }
 }

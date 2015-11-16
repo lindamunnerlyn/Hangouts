@@ -2,22 +2,42 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.widget.Toast;
+import android.content.Context;
+import com.google.android.apps.hangouts.phone.DebugActivity;
 
-final class cmr extends cmu
+public final class cmr
+    implements Runnable
 {
 
-    final cls a;
+    final Context a;
 
-    cmr(cls cls1, String s)
+    public cmr(Context context)
     {
-        a = cls1;
-        super(s);
+        a = context;
+        super();
     }
 
-    public void a()
+    public void run()
     {
-        dme.a(true);
-        Toast.makeText(a.a, "refreshed", 1).show();
+        gdv.b();
+        aoa aoa1 = dcn.a(a);
+        if (aoa1 == null)
+        {
+            return;
+        }
+        try
+        {
+            if (aoc.a(a, aoa1.h(), "DEBUG_RTCS", 0L) > 0L)
+            {
+                android.content.Intent intent = DebugActivity.b(a);
+                a.startService(intent);
+                return;
+            }
+        }
+        catch (grc grc1)
+        {
+            eev.c("BabelDebugActivity", "account not found starting debug activity", grc1);
+        }
+        return;
     }
 }

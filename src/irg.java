@@ -2,60 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.lang.ref.PhantomReference;
+import java.lang.ref.ReferenceQueue;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
-public final class irg extends koj
+final class irg extends PhantomReference
+    implements Runnable
 {
 
-    public String a;
+    private static final Set a = Collections.synchronizedSet(new HashSet());
+    private final kas b;
 
-    public irg()
+    irg(Object obj, ReferenceQueue referencequeue, kas kas)
     {
-        a = null;
-        unknownFieldData = null;
-        cachedSize = -1;
+        super(obj, referencequeue);
+        b = kas;
+        a.add(kas);
     }
 
-    protected int computeSerializedSize()
+    static Set a()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
-        {
-            i = j + koh.b(1, a);
-        }
-        return i;
+        return a;
     }
 
-    public kop mergeFrom(kog kog1)
+    static kas a(irg irg1)
     {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 10: // '\n'
-                a = kog1.j();
-                break;
-            }
-        } while (true);
+        return irg1.b;
     }
 
-    public void writeTo(koh koh1)
+    public void run()
     {
-        if (a != null)
-        {
-            koh1.a(1, a);
-        }
-        super.writeTo(koh1);
+        a.remove(b);
     }
+
 }

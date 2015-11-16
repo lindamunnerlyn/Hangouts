@@ -2,36 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.gms.common.api.Status;
 
 final class fpt
-    implements fmd
+    implements eni
 {
 
-    private final Status a;
-    private final fqv b;
+    final fps a;
 
-    public fpt(Status status, fqv fqv)
+    fpt(fps fps1)
     {
-        a = status;
-        b = fqv;
+        a = fps1;
+        super();
     }
 
-    public Status B_()
+    public void a(enh enh)
     {
-        return a;
-    }
-
-    public void b()
-    {
-        if (b != null)
-        {
-            b.b();
-        }
-    }
-
-    public fqv c()
-    {
-        return b;
+        enh = (fpc)enh;
+        a.a(enh);
     }
 }

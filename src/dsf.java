@@ -2,17 +2,21 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.apps.hangouts.settings.SmsSettingsActivity;
 
-final class dsf
+public final class dsf extends hkq
 {
 
-    private static final String a[] = {
-        "_id", "timestamp", "external_ids", "sms_type"
-    };
+    final SmsSettingsActivity a;
 
-    static String[] a()
+    public dsf(SmsSettingsActivity smssettingsactivity, pu pu, hof hof)
     {
-        return a;
+        a = smssettingsactivity;
+        super(pu, hof);
     }
 
+    protected hjy a()
+    {
+        return new dsg();
+    }
 }

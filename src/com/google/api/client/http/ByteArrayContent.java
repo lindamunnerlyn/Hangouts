@@ -5,7 +5,7 @@
 package com.google.api.client.http;
 
 import h;
-import hog;
+import htc;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import l;
@@ -28,7 +28,7 @@ public final class ByteArrayContent extends AbstractInputStreamContent
     public ByteArrayContent(String s, byte abyte0[], int i, int j)
     {
         super(s);
-        byteArray = (byte[])h.b(abyte0);
+        byteArray = (byte[])h.a(abyte0);
         boolean flag;
         if (i >= 0 && j >= 0 && i + j <= abyte0.length)
         {
@@ -46,7 +46,7 @@ public final class ByteArrayContent extends AbstractInputStreamContent
 
     public static ByteArrayContent fromString(String s, String s1)
     {
-        return new ByteArrayContent(s, hog.a(s1));
+        return new ByteArrayContent(s, htc.a(s1));
     }
 
     public InputStream getInputStream()

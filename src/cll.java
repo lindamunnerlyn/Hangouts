@@ -2,40 +2,26 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import com.google.android.apps.hangouts.phone.DebugActivity;
+import android.content.DialogInterface;
+import com.google.android.apps.hangouts.phone.ClassZeroActivity;
 
 public final class cll
-    implements ServiceConnection
+    implements android.content.DialogInterface.OnClickListener
 {
 
-    final DebugActivity a;
+    final ClassZeroActivity a;
 
-    public cll(DebugActivity debugactivity)
+    public cll(ClassZeroActivity classzeroactivity)
     {
-        a = debugactivity;
+        a = classzeroactivity;
         super();
     }
 
-    public void onServiceConnected(ComponentName componentname, IBinder ibinder)
+    public void onClick(DialogInterface dialoginterface, int i)
     {
-        componentname = (clp)ibinder;
-        DebugActivity.a(a, componentname.a());
-        DebugActivity.d(a).setOnItemClickListener(DebugActivity.f(a));
-        DebugActivity.d(a).setOnItemLongClickListener(DebugActivity.g(a));
-        DebugActivity.a(a, DebugActivity.h(a));
-        DebugActivity.j(a).a(DebugActivity.i(a), null);
-        DebugActivity.d(a).setAdapter(DebugActivity.i(a));
-        DebugActivity.d(a).setSelection(DebugActivity.i(a).getCount() - 1);
-    }
-
-    public void onServiceDisconnected(ComponentName componentname)
-    {
-        DebugActivity.j(a).a(null, null);
-        DebugActivity.a(a, null);
+        ClassZeroActivity.a(a, true);
+        ClassZeroActivity.b(a);
+        dialoginterface.dismiss();
+        ClassZeroActivity.c(a);
     }
 }

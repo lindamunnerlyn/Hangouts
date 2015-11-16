@@ -2,10 +2,9 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
 
 final class cqh
-    implements android.view.View.OnClickListener
+    implements Runnable
 {
 
     final cqf a;
@@ -16,8 +15,38 @@ final class cqh
         super();
     }
 
-    public void onClick(View view)
+    public void run()
     {
-        g.a(cqf.b(a), 1981);
+        if (cqf.e())
+        {
+            eev.b("Babel", "updateAnnouncementsRunnable run");
+        }
+        if (cqf.a(a) != -1)
+        {
+            cqn acqn[] = cqf.b(a);
+            int j = acqn.length;
+            int i = 0;
+            while (i < j) 
+            {
+                cqn cqn1 = acqn[i];
+                boolean flag;
+                if (cqn1.a() || cqf.c(a))
+                {
+                    flag = true;
+                } else
+                {
+                    flag = false;
+                }
+                if (!cqn1.b && flag)
+                {
+                    cqn1.c();
+                } else
+                if (cqn1.b && !flag)
+                {
+                    cqn1.d();
+                }
+                i++;
+            }
+        }
     }
 }

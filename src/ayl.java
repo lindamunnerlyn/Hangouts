@@ -3,19 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ayl
+final class ayl extends Enum
 {
 
-    public static final String a = bhs.getName();
-    private static ayj b;
+    public static final int a;
+    public static final int b;
+    public static final int c;
+    private static final int d[];
 
-    public static void a(hgx hgx1)
+    static 
     {
-        if (b == null)
-        {
-            b = new ayj();
-        }
-        hgx1.a(bhs, b.a());
+        a = 1;
+        b = 2;
+        c = 3;
+        d = (new int[] {
+            a, b, c
+        });
     }
-
 }

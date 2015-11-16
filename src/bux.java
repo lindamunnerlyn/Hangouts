@@ -2,33 +2,69 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.text.TextUtils;
 
-public final class bux
+final class bux
+    implements bue
 {
 
-    public final int a;
-    public final boolean b;
-    public final String c;
-    public final int d;
-    public final String e;
-    public final ColorStateList f;
-    public final ColorStateList g;
-    public final android.view.View.OnClickListener h;
+    final buw a;
 
-    bux(int i, boolean flag, String s, String s1, ColorStateList colorstatelist, ColorStateList colorstatelist1, android.view.View.OnClickListener onclicklistener, 
-            int j)
+    bux(buw buw1)
     {
-        gbh.b(TextUtils.isEmpty(s));
-        gbh.a(i, 0, 2);
-        a = i;
-        b = flag;
-        c = s;
-        e = s1;
-        f = colorstatelist;
-        g = colorstatelist1;
-        h = onclicklistener;
-        d = j;
+        a = buw1;
+        super();
+    }
+
+    public void a()
+    {
+    }
+
+    public void a(jhh jhh1)
+    {
+        a.c();
+        a.a(jhh1);
+    }
+
+    public void b()
+    {
+        a.c();
+        buw buw1 = a;
+        buw1.e = new buk();
+        buw1.e.a(new buy(buw1));
+        buw1.e.a(buw1.a.u_(), null);
+    }
+
+    public void b(jhh jhh1)
+    {
+        buw buw1 = a;
+        Resources resources = buw1.a.getResources();
+        if (TextUtils.isEmpty(jhh1.d))
+        {
+            jhh1 = resources.getString(h.hP);
+        } else
+        {
+            jhh1 = resources.getString(h.hO, new Object[] {
+                jhh1.d
+            });
+        }
+        buw1.b.a((new bvl()).a(1).a(jhh1).a().b());
+    }
+
+    public void c(jhh jhh1)
+    {
+        buw buw1 = a;
+        Resources resources = buw1.a.getResources();
+        if (TextUtils.isEmpty(jhh1.d))
+        {
+            jhh1 = resources.getString(h.hU);
+        } else
+        {
+            jhh1 = resources.getString(h.hT, new Object[] {
+                jhh1.d
+            });
+        }
+        buw1.b.a((new bvl()).a(1).a(jhh1).a().b());
     }
 }

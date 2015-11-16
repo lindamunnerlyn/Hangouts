@@ -2,41 +2,23 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.Serializable;
 
-final class jpn extends jpp
-    implements Serializable
+final class jpn extends jpm
 {
 
-    static final jpn a = new jpn();
-    private static final long serialVersionUID = 0L;
-
-    private jpn()
+    jpn(String s)
     {
+        super(s, 0);
     }
 
-    private Object readResolve()
+    jpw a(jpj jpj, com.google.common.cache.LocalCache.ReferenceEntry referenceentry, Object obj, int i)
     {
-        return a;
+        if (i == 1)
+        {
+            return new jpt(obj);
+        } else
+        {
+            return new jqe(obj, i);
+        }
     }
-
-    public jpp a()
-    {
-        return jqf.a;
-    }
-
-    public int compare(Object obj, Object obj1)
-    {
-        obj = (Comparable)obj;
-        obj1 = (Comparable)obj1;
-        n.b(obj);
-        n.b(obj1);
-        return ((Comparable) (obj)).compareTo(obj1);
-    }
-
-    public String toString()
-    {
-        return "Ordering.natural()";
-    }
-
 }

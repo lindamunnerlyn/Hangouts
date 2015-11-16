@@ -2,11 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.google.android.apps.hangouts.fragments.InvitationFragment;
 
-public interface bld
+public final class bld extends ClickableSpan
 {
 
-    public abstract boolean x();
+    final InvitationFragment a;
 
-    public abstract boolean y();
+    public bld(InvitationFragment invitationfragment)
+    {
+        a = invitationfragment;
+        super();
+    }
+
+    public void onClick(View view)
+    {
+        view = g.o(InvitationFragment.a(a).a);
+        a.startActivity(view);
+    }
 }

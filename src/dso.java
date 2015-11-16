@@ -4,48 +4,25 @@
 
 import android.content.Context;
 
-public final class dso
+public final class dso extends hjk
 {
 
-    private dsn a;
+    private CharSequence c[];
 
     public dso(Context context)
     {
-        a = new dsn(context);
+        super(context, null);
     }
 
-    public dsn a()
+    protected void a(android.app.AlertDialog.Builder builder)
     {
-        return a;
+        builder.setAdapter(new dsp(this, x(), g.hc, f(), c), this);
+        builder.setNegativeButton(null, null);
+        super.a(builder);
     }
 
-    public dso a(long l)
+    public void a(CharSequence acharsequence[])
     {
-        a.a = l;
-        return this;
-    }
-
-    public dso a(dsu dsu)
-    {
-        a.e = dsu;
-        return this;
-    }
-
-    public dso a(String s)
-    {
-        a.b = s;
-        return this;
-    }
-
-    public dso b(String s)
-    {
-        a.c = s;
-        return this;
-    }
-
-    public dso c(String s)
-    {
-        a.d = s;
-        return this;
+        c = acharsequence;
     }
 }

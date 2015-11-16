@@ -3,82 +3,30 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kwx extends koj
+public final class kwx
 {
 
-    public kwv a;
-    public kwr b;
+    public static final int a[] = new int[0];
+    public static final long b[] = new long[0];
+    public static final float c[] = new float[0];
+    public static final double d[] = new double[0];
+    public static final boolean e[] = new boolean[0];
+    public static final String f[] = new String[0];
+    public static final byte g[][] = new byte[0][];
+    public static final byte h[] = new byte[0];
 
-    public kwx()
+    public static final int a(kwj kwj1, int i)
     {
-        a = null;
-        b = null;
-        unknownFieldData = null;
-        cachedSize = -1;
-    }
-
-    protected int computeSerializedSize()
-    {
-        int j = super.computeSerializedSize();
-        int i = j;
-        if (a != null)
+        int j = 1;
+        int k = kwj1.r();
+        kwj1.b(i);
+        while (kwj1.a() == i) 
         {
-            i = j + koh.d(2, a);
+            kwj1.b(i);
+            j++;
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.d(3, b);
-        }
+        kwj1.e(k);
         return j;
     }
 
-    public kop mergeFrom(kog kog1)
-    {
-        do
-        {
-            int i = kog1.a();
-            switch (i)
-            {
-            default:
-                if (super.storeUnknownField(kog1, i))
-                {
-                    continue;
-                }
-                // fall through
-
-            case 0: // '\0'
-                return this;
-
-            case 18: // '\022'
-                if (a == null)
-                {
-                    a = new kwv();
-                }
-                kog1.a(a);
-                break;
-
-            case 26: // '\032'
-                if (b == null)
-                {
-                    b = new kwr();
-                }
-                kog1.a(b);
-                break;
-            }
-        } while (true);
-    }
-
-    public void writeTo(koh koh1)
-    {
-        if (a != null)
-        {
-            koh1.b(2, a);
-        }
-        if (b != null)
-        {
-            koh1.b(3, b);
-        }
-        super.writeTo(koh1);
-    }
 }

@@ -2,28 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Handler;
-import com.google.android.apps.hangouts.fragments.ConversationListFragment;
-import java.util.concurrent.TimeUnit;
+import android.os.AsyncTask;
+import com.google.android.apps.hangouts.fragments.ConversationInviteListFragment;
 
-public final class bil
-    implements Runnable
+public final class bil extends AsyncTask
 {
 
-    final ConversationListFragment a;
+    final int a;
+    final ConversationInviteListFragment b;
 
-    public bil(ConversationListFragment conversationlistfragment)
+    public bil(ConversationInviteListFragment conversationinvitelistfragment, int i)
     {
-        a = conversationlistfragment;
+        b = conversationinvitelistfragment;
+        a = i;
         super();
     }
 
-    public void run()
+    protected Object doInBackground(Object aobj[])
     {
-        if (ConversationListFragment.b(a) == null)
+        (new aow(ConversationInviteListFragment.k(b), ConversationInviteListFragment.l(b).h())).w();
+        return null;
+    }
+
+    protected void onPostExecute(Object obj)
+    {
+        if (ConversationInviteListFragment.d() == a && b.getActivity() != null)
         {
-            ((bit)a.g).notifyDataSetChanged();
+            ConversationInviteListFragment.m(b);
+            b.getLoaderManager().b(1, null, b);
+            ((bim)b.f).notifyDataSetChanged();
+            ConversationInviteListFragment.j(b);
         }
-        ConversationListFragment.e(a).postDelayed(ConversationListFragment.d(a), TimeUnit.SECONDS.toMillis(60L));
     }
 }

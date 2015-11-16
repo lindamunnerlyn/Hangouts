@@ -5,17 +5,18 @@
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.herrevad.PredictedNetworkQuality;
 
-final class fet extends feu
-    implements fbu
+public class fet extends fev
 {
 
-    public fet(Status status, PredictedNetworkQuality predictednetworkquality)
+    public enn a;
+
+    public fet(enn enn)
     {
-        super(status, predictednetworkquality);
+        a = enn;
     }
 
-    public PredictedNetworkQuality b()
+    public void a(Status status, PredictedNetworkQuality predictednetworkquality)
     {
-        return (PredictedNetworkQuality)a;
+        throw new UnsupportedOperationException();
     }
 }

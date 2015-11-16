@@ -2,18 +2,45 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import android.os.Looper;
+import android.animation.Animator;
+import android.view.View;
+import com.google.android.apps.hangouts.views.MessageListItemView;
+import com.google.android.apps.hangouts.views.MessageStatusView;
+import com.google.android.apps.hangouts.views.ScalingTextView;
 
-final class eil extends ejt
+public final class eil
+    implements android.animation.Animator.AnimatorListener
 {
 
-    eil()
+    final MessageListItemView a;
+
+    public eil(MessageListItemView messagelistitemview)
+    {
+        a = messagelistitemview;
+        super();
+    }
+
+    private void a()
+    {
+        MessageListItemView.h(a).f.setVisibility(8);
+        MessageListItemView.h(a).d.a(0.0F);
+    }
+
+    public void onAnimationCancel(Animator animator)
+    {
+        a();
+    }
+
+    public void onAnimationEnd(Animator animator)
+    {
+        a();
+    }
+
+    public void onAnimationRepeat(Animator animator)
     {
     }
 
-    public ejv a(Context context, Looper looper, emo emo, Object obj, eka eka, ekc ekc)
+    public void onAnimationStart(Animator animator)
     {
-        return new eiq(context, looper, emo, eka, ekc);
     }
 }

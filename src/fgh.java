@@ -2,124 +2,117 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.location.Location;
-import android.os.Bundle;
-import android.os.IInterface;
-import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.CircleOptions;
-import com.google.android.gms.maps.model.GroundOverlayOptions;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PolygonOptions;
-import com.google.android.gms.maps.model.PolylineOptions;
-import com.google.android.gms.maps.model.TileOverlayOptions;
 
-public interface fgh
-    extends IInterface
+public abstract class fgh extends fgm
 {
 
-    public abstract CameraPosition a();
+    public fgi o;
 
-    public abstract fkc a(PolylineOptions polylineoptions);
+    public fgh()
+    {
+    }
 
-    public abstract fki a(CircleOptions circleoptions);
+    protected int a()
+    {
+        int j = 0;
+        int k;
+        if (o != null)
+        {
+            int i = 0;
+            do
+            {
+                k = i;
+                if (j >= o.a())
+                {
+                    break;
+                }
+                i += o.b(j).a();
+                j++;
+            } while (true);
+        } else
+        {
+            k = 0;
+        }
+        return k;
+    }
 
-    public abstract fkl a(GroundOverlayOptions groundoverlayoptions);
+    public void a(fgg fgg)
+    {
+        if (o != null)
+        {
+            int i = 0;
+            while (i < o.a()) 
+            {
+                o.b(i).a(fgg);
+                i++;
+            }
+        }
+    }
 
-    public abstract fkr a(MarkerOptions markeroptions);
+    protected final boolean a(fgf fgf1, int i)
+    {
+        int j = fgf1.m();
+        if (!fgf1.b(i))
+        {
+            return false;
+        }
+        int k = i >>> 3;
+        fgn fgn1 = new fgn(i, fgf1.a(j, fgf1.m() - j));
+        fgf1 = null;
+        Object obj;
+        if (o == null)
+        {
+            o = new fgi();
+        } else
+        {
+            fgf1 = o.a(k);
+        }
+        obj = fgf1;
+        if (fgf1 == null)
+        {
+            obj = new fgj();
+            o.a(k, ((fgj) (obj)));
+        }
+        ((fgj) (obj)).a(fgn1);
+        return true;
+    }
 
-    public abstract fku a(PolygonOptions polygonoptions);
+    protected final boolean a(fgh fgh1)
+    {
+        if (o == null || o.b())
+        {
+            return fgh1.o == null || fgh1.o.b();
+        } else
+        {
+            return o.equals(fgh1.o);
+        }
+    }
 
-    public abstract fkx a(TileOverlayOptions tileoverlayoptions);
+    protected final int c()
+    {
+        if (o == null || o.b())
+        {
+            return 0;
+        } else
+        {
+            return o.hashCode();
+        }
+    }
 
-    public abstract void a(int i1);
+    public Object clone()
+    {
+        return d();
+    }
 
-    public abstract void a(int i1, int j1, int k1, int l1);
+    public fgh d()
+    {
+        fgh fgh1 = (fgh)super.e();
+        fgk.a(this, fgh1);
+        return fgh1;
+    }
 
-    public abstract void a(Bundle bundle);
-
-    public abstract void a(ezy ezy);
-
-    public abstract void a(ezy ezy, int i1, fhi fhi);
-
-    public abstract void a(ezy ezy, fhi fhi);
-
-    public abstract void a(fgk fgk);
-
-    public abstract void a(fho fho);
-
-    public abstract void a(fhr fhr);
-
-    public abstract void a(fhu fhu);
-
-    public abstract void a(fhx fhx);
-
-    public abstract void a(fid fid);
-
-    public abstract void a(fig fig);
-
-    public abstract void a(fij fij);
-
-    public abstract void a(fim fim);
-
-    public abstract void a(fip fip);
-
-    public abstract void a(fis fis);
-
-    public abstract void a(fiv fiv);
-
-    public abstract void a(fiy fiy);
-
-    public abstract void a(fjb fjb);
-
-    public abstract void a(fjt fjt, ezy ezy);
-
-    public abstract void a(String s1);
-
-    public abstract void a(boolean flag);
-
-    public abstract float b();
-
-    public abstract void b(Bundle bundle);
-
-    public abstract void b(ezy ezy);
-
-    public abstract boolean b(boolean flag);
-
-    public abstract float c();
-
-    public abstract void c(boolean flag);
-
-    public abstract void d();
-
-    public abstract void d(boolean flag);
-
-    public abstract void e();
-
-    public abstract int f();
-
-    public abstract boolean g();
-
-    public abstract boolean h();
-
-    public abstract boolean i();
-
-    public abstract Location j();
-
-    public abstract fhf k();
-
-    public abstract fgt l();
-
-    public abstract boolean m();
-
-    public abstract fko n();
-
-    public abstract void o();
-
-    public abstract void p();
-
-    public abstract void q();
-
-    public abstract void r();
-
-    public abstract boolean s();
+    public fgm e()
+    {
+        return d();
+    }
 }

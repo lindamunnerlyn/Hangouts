@@ -3,126 +3,65 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class izd extends koj
+public final class izd extends kwm
 {
 
-    public Boolean a;
-    public Long b;
-    public irm c[];
-    public Boolean d;
-    public ium e;
-    public iss f[];
-    public iqm g;
-    public ixg responseHeader;
+    private static volatile izd c[];
+    public Integer a;
+    public String b;
 
     public izd()
     {
-        responseHeader = null;
         a = null;
         b = null;
-        c = irm.a();
-        d = null;
-        e = null;
-        f = iss.a();
-        g = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    protected int computeSerializedSize()
+    public static izd[] a()
     {
-        boolean flag = false;
-        int i = super.computeSerializedSize();
-        int j = i;
-        if (responseHeader != null)
+        if (c == null)
         {
-            j = i + koh.d(1, responseHeader);
-        }
-        i = j;
-        if (b != null)
-        {
-            i = j + koh.d(2, b.longValue());
-        }
-        j = i;
-        if (c != null)
-        {
-            j = i;
-            if (c.length > 0)
+            synchronized (kwq.a)
             {
-                for (j = 0; j < c.length;)
+                if (c == null)
                 {
-                    irm irm1 = c[j];
-                    int k = i;
-                    if (irm1 != null)
-                    {
-                        k = i + koh.d(3, irm1);
-                    }
-                    j++;
-                    i = k;
+                    c = new izd[0];
                 }
-
-                j = i;
             }
         }
-        i = j;
-        if (d != null)
-        {
-            d.booleanValue();
-            i = j + (koh.f(4) + 1);
-        }
-        j = i;
-        if (e != null)
-        {
-            j = i + koh.d(5, e);
-        }
-        i = j;
-        if (a != null)
-        {
-            a.booleanValue();
-            i = j + (koh.f(6) + 1);
-        }
-        j = i;
-        if (f != null)
-        {
-            j = i;
-            if (f.length > 0)
-            {
-                int l = ((flag) ? 1 : 0);
-                do
-                {
-                    j = i;
-                    if (l >= f.length)
-                    {
-                        break;
-                    }
-                    iss iss1 = f[l];
-                    j = i;
-                    if (iss1 != null)
-                    {
-                        j = i + koh.d(7, iss1);
-                    }
-                    l++;
-                    i = j;
-                } while (true);
-            }
-        }
-        i = j;
-        if (g != null)
-        {
-            i = j + koh.d(8, g);
-        }
-        return i;
+        return c;
+        exception;
+        obj;
+        JVM INSTR monitorexit ;
+        throw exception;
     }
 
-    public kop mergeFrom(kog kog1)
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
+        {
+            i = j + kwk.e(1, a.intValue());
+        }
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.b(2, b);
+        }
+        return j;
+    }
+
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -131,156 +70,27 @@ public final class izd extends koj
             case 0: // '\0'
                 return this;
 
-            case 10: // '\n'
-                if (responseHeader == null)
-                {
-                    responseHeader = new ixg();
-                }
-                kog1.a(responseHeader);
+            case 8: // '\b'
+                a = Integer.valueOf(kwj1.f());
                 break;
 
-            case 16: // '\020'
-                b = Long.valueOf(kog1.d());
-                break;
-
-            case 26: // '\032'
-                int l = kou.b(kog1, 26);
-                irm airm[];
-                int j;
-                if (c == null)
-                {
-                    j = 0;
-                } else
-                {
-                    j = c.length;
-                }
-                airm = new irm[l + j];
-                l = j;
-                if (j != 0)
-                {
-                    System.arraycopy(c, 0, airm, 0, j);
-                    l = j;
-                }
-                for (; l < airm.length - 1; l++)
-                {
-                    airm[l] = new irm();
-                    kog1.a(airm[l]);
-                    kog1.a();
-                }
-
-                airm[l] = new irm();
-                kog1.a(airm[l]);
-                c = airm;
-                break;
-
-            case 32: // ' '
-                d = Boolean.valueOf(kog1.i());
-                break;
-
-            case 42: // '*'
-                if (e == null)
-                {
-                    e = new ium();
-                }
-                kog1.a(e);
-                break;
-
-            case 48: // '0'
-                a = Boolean.valueOf(kog1.i());
-                break;
-
-            case 58: // ':'
-                int i1 = kou.b(kog1, 58);
-                iss aiss[];
-                int k;
-                if (f == null)
-                {
-                    k = 0;
-                } else
-                {
-                    k = f.length;
-                }
-                aiss = new iss[i1 + k];
-                i1 = k;
-                if (k != 0)
-                {
-                    System.arraycopy(f, 0, aiss, 0, k);
-                    i1 = k;
-                }
-                for (; i1 < aiss.length - 1; i1++)
-                {
-                    aiss[i1] = new iss();
-                    kog1.a(aiss[i1]);
-                    kog1.a();
-                }
-
-                aiss[i1] = new iss();
-                kog1.a(aiss[i1]);
-                f = aiss;
-                break;
-
-            case 66: // 'B'
-                if (g == null)
-                {
-                    g = new iqm();
-                }
-                kog1.a(g);
+            case 18: // '\022'
+                b = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        boolean flag = false;
-        if (responseHeader != null)
+        if (a != null)
         {
-            koh1.b(1, responseHeader);
+            kwk1.a(1, a.intValue());
         }
         if (b != null)
         {
-            koh1.a(2, b.longValue());
+            kwk1.a(2, b);
         }
-        if (c != null && c.length > 0)
-        {
-            for (int i = 0; i < c.length; i++)
-            {
-                irm irm1 = c[i];
-                if (irm1 != null)
-                {
-                    koh1.b(3, irm1);
-                }
-            }
-
-        }
-        if (d != null)
-        {
-            koh1.a(4, d.booleanValue());
-        }
-        if (e != null)
-        {
-            koh1.b(5, e);
-        }
-        if (a != null)
-        {
-            koh1.a(6, a.booleanValue());
-        }
-        if (f != null && f.length > 0)
-        {
-            for (int j = ((flag) ? 1 : 0); j < f.length; j++)
-            {
-                iss iss1 = f[j];
-                if (iss1 != null)
-                {
-                    koh1.b(7, iss1);
-                }
-            }
-
-        }
-        if (g != null)
-        {
-            koh1.b(8, g);
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

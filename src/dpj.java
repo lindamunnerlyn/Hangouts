@@ -2,82 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Intent;
-import android.os.Bundle;
-import com.google.android.apps.hangouts.settings.SmsSettingsActivity;
-import com.google.android.libraries.social.settings.CheckBoxPreference;
-import com.google.android.libraries.social.settings.PreferenceCategory;
+import com.google.android.gms.common.api.Status;
 
-public final class dpj extends hhu
-    implements hey
+final class dpj
+    implements eni
 {
 
-    private gms a;
-    private hfg b;
-    private PreferenceCategory c;
+    final dph a;
 
-    public dpj()
+    dpj(dph dph1)
     {
-        new hex(this, lifecycle);
+        a = dph1;
+        super();
     }
 
-    private boolean b()
+    public void a(enh enh)
     {
-        if (((drw)binder.a(drw)).a())
+label0:
         {
-            return false;
-        }
-        return ebz.d() || dbf.k() != null;
-    }
-
-    private void c()
-    {
-        if (ebz.d() || b())
-        {
-            if (c == null)
+            Object obj = (fov)enh;
+            enh = ((fov) (obj)).c();
+            obj = ((fov) (obj)).D_();
+            if (eev.a("Babel", 3))
             {
-                c = b.a(l.cm);
+                String s = String.valueOf(obj);
+                String s1 = String.valueOf(enh);
+                eev.c("Babel", (new StringBuilder(String.valueOf(s).length() + 51 + String.valueOf(s1).length())).append("Aggregated people loaded: status=").append(s).append(" aggregatedPeople=").append(s1).toString());
             }
-            c.d();
-            if (b())
+            if (dph.a(a))
             {
-                CheckBoxPreference checkboxpreference = new CheckBoxPreference(context);
-                c.c(checkboxpreference);
-                drw drw1 = (drw)binder.a(drw);
-                checkboxpreference.g(l.bT);
-                checkboxpreference.h(l.bS);
-                checkboxpreference.a(drw1.b());
-                checkboxpreference.a(new dpk(this, drw1));
+                break label0;
             }
-            if (ebz.d())
+            if (((Status) (obj)).b())
             {
-                Intent intent = new Intent(context, com/google/android/apps/hangouts/settings/SmsSettingsActivity);
-                intent.putExtra("account_id", a.b("SMS"));
-                c.c(b.a(getString(l.kM), null, intent));
+                gdv.b(dph.b(a), enh);
             }
-        } else
-        if (c != null)
-        {
-            c.d();
+            dph.a(a, enh);
+            if (((Status) (obj)).b())
+            {
+                if (dph.c(a) == null)
+                {
+                    break label0;
+                }
+                enh = new dqb(enh);
+                dph.c(a).a(a, enh, null);
+            }
             return;
         }
-    }
-
-    public void a()
-    {
-        b = new hfg(context);
-        c();
-    }
-
-    protected void onAttachBinder(Bundle bundle)
-    {
-        super.onAttachBinder(bundle);
-        a = (gms)binder.a(gms);
-    }
-
-    public void onResume()
-    {
-        super.onResume();
-        c();
+        enh.b();
     }
 }

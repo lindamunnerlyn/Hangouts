@@ -2,34 +2,19 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.widget.ImageView;
+import com.google.android.gms.maps.model.TileOverlayOptions;
 
-final class fmw extends fnc
+public final class fmw
+    implements fmx
 {
 
-    public final int a;
-    public final String b;
-    public final fqu c;
-    final fmv d;
+    final TileOverlayOptions a;
+    private final fnw c;
 
-    public fmw(fmv fmv1, ImageView imageview, fqu fqu1, int i)
+    public fmw(TileOverlayOptions tileoverlayoptions)
     {
-        d = fmv1;
-        super(fmv1);
-        f = imageview;
-        c = fqu1;
-        g = fqu1.a();
-        b = fqu1.d();
-        a = i;
-    }
-
-    public void a()
-    {
-        fmn.g.a(d.c, g, b, a).a(new fmx(this));
-    }
-
-    public void a(fmi fmi1)
-    {
-        fmv.a(d, fmi1.B_(), fmi1.c(), this);
+        a = tileoverlayoptions;
+        super();
+        c = TileOverlayOptions.a(a);
     }
 }

@@ -3,12 +3,32 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ktz extends kme
-    implements kna
+final class ktz
 {
 
-    ktz()
+    private final Object a;
+    private final int b;
+
+    ktz(Object obj, int i)
     {
-        super(ktx.o());
+        a = obj;
+        b = i;
+    }
+
+    public boolean equals(Object obj)
+    {
+        if (obj instanceof ktz)
+        {
+            if (a == ((ktz) (obj = (ktz)obj)).a && b == ((ktz) (obj)).b)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int hashCode()
+    {
+        return System.identityHashCode(a) * 65535 + b;
     }
 }

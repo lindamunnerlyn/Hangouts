@@ -3,32 +3,34 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hze extends koj
+public final class hze extends kwm
 {
 
-    private static volatile hze b[];
-    public Integer a;
+    private static volatile hze c[];
+    public String a;
+    public String b;
 
     public hze()
     {
         a = null;
+        b = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     public static hze[] a()
     {
-        if (b == null)
+        if (c == null)
         {
-            synchronized (kon.a)
+            synchronized (kwq.a)
             {
-                if (b == null)
+                if (c == null)
                 {
-                    b = new hze[0];
+                    c = new hze[0];
                 }
             }
         }
-        return b;
+        return c;
         exception;
         obj;
         JVM INSTR monitorexit ;
@@ -41,46 +43,54 @@ public final class hze extends koj
         int i = j;
         if (a != null)
         {
-            i = j + koh.e(1, a.intValue());
+            i = j + kwk.b(1, a);
         }
-        return i;
-    }
-
-    public kop mergeFrom(kog kog1)
-    {
-_L4:
-        int i = kog1.a();
-        i;
-        JVM INSTR lookupswitch 2: default 32
-    //                   0: 41
-    //                   8: 43;
-           goto _L1 _L2 _L3
-_L1:
-        if (super.storeUnknownField(kog1, i)) goto _L4; else goto _L2
-_L2:
-        return this;
-_L3:
-        int j = kog1.f();
-        switch (j)
+        j = i;
+        if (b != null)
         {
-        case 0: // '\0'
-        case 1: // '\001'
-        case 2: // '\002'
-        case 3: // '\003'
-        case 4: // '\004'
-            a = Integer.valueOf(j);
-            break;
+            j = i + kwk.b(2, b);
         }
-        if (true) goto _L4; else goto _L5
-_L5:
+        return j;
     }
 
-    public void writeTo(koh koh1)
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
+        {
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 10: // '\n'
+                a = kwj1.j();
+                break;
+
+            case 18: // '\022'
+                b = kwj1.j();
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
     {
         if (a != null)
         {
-            koh1.a(1, a.intValue());
+            kwk1.a(1, a);
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.a(2, b);
+        }
+        super.writeTo(kwk1);
     }
 }

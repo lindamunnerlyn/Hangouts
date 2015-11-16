@@ -2,23 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
 
-final class cmd extends cmu
+final class cmd
+    implements Runnable
 {
 
-    final cls a;
+    final cmc a;
 
-    cmd(cls cls1, String s)
+    cmd(cmc cmc1)
     {
-        a = cls1;
-        super(s);
+        a = cmc1;
+        super();
     }
 
-    public void a()
+    public void run()
     {
-        if (cls.a(a))
-        {
-            (new Thread(new cme(this))).start();
-        }
+        a.b.setVisibility(0);
+        a.c.setVisibility(0);
+        a.d.setVisibility(0);
     }
 }

@@ -3,49 +3,19 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-final class cnn extends cnr
+final class cnn extends coj
 {
 
-    final cnm a;
+    final cna a;
 
-    cnn(cnm cnm1, cnl cnl, CharSequence charsequence)
+    cnn(cna cna1, String s)
     {
-        a = cnm1;
-        super(cnl, charsequence);
+        a = cna1;
+        super(s);
     }
 
-    public int a(int i)
+    public void a()
     {
-        int k;
-label0:
-        {
-            int l = a.a.length();
-label1:
-            for (int i1 = d.length(); i <= i1 - l; i++)
-            {
-                int j = 0;
-                do
-                {
-                    k = i;
-                    if (j >= l)
-                    {
-                        break label0;
-                    }
-                    if (d.charAt(j + i) != a.a.charAt(j))
-                    {
-                        continue label1;
-                    }
-                    j++;
-                } while (true);
-            }
-
-            k = -1;
-        }
-        return k;
-    }
-
-    public int b(int i)
-    {
-        return a.a.length() + i;
+        a.d.c();
     }
 }

@@ -2,36 +2,33 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.util.SparseArray;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import android.view.ContextMenu;
+import android.view.View;
 
 final class cig
-    implements hcf
+    implements android.view.View.OnCreateContextMenuListener
 {
 
-    final int a;
-    final cie b;
+    final cic a;
 
-    cig(cie cie1, int i)
+    cig(cic cic1)
     {
-        b = cie1;
-        a = i;
+        a = cic1;
         super();
     }
 
-    public void a(hch hch1)
+    public void onCreateContextMenu(ContextMenu contextmenu, View view, android.view.ContextMenu.ContextMenuInfo contextmenuinfo)
     {
-        ArrayList arraylist = new ArrayList();
-        hcg hcg1;
-        for (hch1 = hch1.a().iterator(); hch1.hasNext(); arraylist.add(new cic(hcg1.a, hcg1.b)))
+        if (view instanceof ehl)
         {
-            hcg1 = (hcg)hch1.next();
+            contextmenu.add(0, 201, 0, l.fI);
+            view = ((ehl)view).a();
+            cic.b(a, view);
+            if (view.o())
+            {
+                contextmenu.add(0, 200, 0, l.fq);
+                contextmenu.setHeaderTitle(l.fm);
+            }
         }
-
-        hch1 = (cik)cie.a(b).get(a);
-        cie.a(b, ((cik) (hch1)).a, arraylist, false, false);
-        cie.a(b, a, arraylist);
     }
 }

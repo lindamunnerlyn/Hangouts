@@ -2,36 +2,28 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.database.Cursor;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import com.google.android.apps.hangouts.phone.DebugActivity;
+import android.os.AsyncTask;
+import android.os.Handler;
+import com.google.android.apps.hangouts.phone.BabelHomeActivity;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public final class ckx
-    implements android.widget.AdapterView.OnItemClickListener
+final class ckx extends AsyncTask
 {
 
-    final Cursor a;
-    final DebugActivity b;
+    final int a;
+    final ckw b;
 
-    public ckx(DebugActivity debugactivity, Cursor cursor)
+    ckx(ckw ckw1, int i)
     {
-        b = debugactivity;
-        a = cursor;
+        b = ckw1;
+        a = i;
         super();
     }
 
-    public void onItemClick(AdapterView adapterview, View view, int i, long l)
+    protected Object doInBackground(Object aobj[])
     {
-        a.moveToPosition(i);
-        adapterview = a.getString(a.getColumnIndex("_id"));
-        adapterview = DebugActivity.e(b).e().a("conversation_participants_view", null, "_id=?", new String[] {
-            adapterview
-        }, null);
-        view = b.getLayoutInflater().inflate(g.fM, null);
-        ((ListView)view.findViewById(0x102000a)).setAdapter(DebugActivity.c(b, adapterview));
-        DebugActivity.a(b, view, adapterview, null);
+        RealTimeChatService.a(a, false, true, 0, false);
+        BabelHomeActivity.h(b.a).postDelayed(BabelHomeActivity.e(b.a), BabelHomeActivity.g(b.a).a("babel_poll_conversation_data_frequency_ms", 60000L));
+        return null;
     }
 }

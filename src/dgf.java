@@ -2,24 +2,36 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.os.Handler;
 import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import java.util.List;
 
-public final class dgf extends dfa
+final class dgf
+    implements Runnable
 {
 
-    final List a;
-    final RealTimeChatService d;
+    final long a;
+    final dge b;
 
-    public dgf(RealTimeChatService realtimechatservice, ani ani, List list)
+    dgf(dge dge1, long l)
     {
-        d = realtimechatservice;
-        a = list;
-        super(ani);
+        b = dge1;
+        a = l;
+        super();
     }
 
-    public List j()
+    public void run()
     {
-        return a;
+        int ai[] = dcn.f();
+        int j = ai.length;
+        for (int i = 0; i < j; i++)
+        {
+            aoa aoa = dcn.e(ai[i]);
+            if (aoa != null)
+            {
+                RealTimeChatService.e(aoa);
+            }
+        }
+
+        dge.a(b).postDelayed(this, a);
     }
 }

@@ -3,8 +3,11 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface fac
+final class fac
 {
 
-    public abstract void a(ezr ezr);
+    static final erv a[] = {
+        new fad(erv.a("0\202\003\3510\202\002\321\240\003\002\001\002\002\t\000\335/\007~\021\241\342:0")), new fae(erv.a("0\202\003\3510\202\002\321\240\003\002\001\002\002\t\000\344\207e\237\346U\322Z0"))
+    };
+
 }

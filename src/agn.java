@@ -2,23 +2,20 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.net.URI;
-import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
+import java.util.Comparator;
 
-public final class agn extends HttpEntityEnclosingRequestBase
+final class agn
+    implements Comparator
 {
 
-    public agn()
+    agn()
     {
     }
 
-    public agn(String s)
+    public int compare(Object obj, Object obj1)
     {
-        setURI(URI.create(s));
-    }
-
-    public String getMethod()
-    {
-        return "PATCH";
+        obj = (byte[])obj;
+        obj1 = (byte[])obj1;
+        return obj.length - obj1.length;
     }
 }

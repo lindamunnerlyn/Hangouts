@@ -2,28 +2,15 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.Keyframe;
+import java.security.Provider;
 
-final class gqf extends gqa
-    implements gqg
+class gqf extends Provider
 {
 
-    private float i;
-    private float j;
-
-    public gqf(float f, float f1, float f2, float f3)
+    public gqf()
     {
-        super(f, f1, f2, f3);
-    }
-
-    public void a(Keyframe keyframe, Keyframe keyframe1)
-    {
-        i = keyframe.getFraction();
-        j = keyframe1.getFraction() - i;
-    }
-
-    public float getInterpolation(float f)
-    {
-        return i + j * super.getInterpolation((f - i) / j);
+        super("LinuxPRNG", 1.0D, "A Linux-specific random number provider that uses /dev/urandom");
+        put("SecureRandom.SHA1PRNG", gqe.getName());
+        put("SecureRandom.SHA1PRNG ImplementedIn", "Software");
     }
 }

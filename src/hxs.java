@@ -3,58 +3,59 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hxs extends koj
+public final class hxs extends kwm
 {
 
-    public hrt a[];
+    public hxt a;
+    public hxv b;
+    public String c;
+    public String d;
 
     public hxs()
     {
-        a = hrt.a();
+        a = null;
+        b = null;
+        c = null;
+        d = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        int i = super.computeSerializedSize();
-        int k = i;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            k = i;
-            if (a.length > 0)
-            {
-                int j = 0;
-                do
-                {
-                    k = i;
-                    if (j >= a.length)
-                    {
-                        break;
-                    }
-                    hrt hrt1 = a[j];
-                    k = i;
-                    if (hrt1 != null)
-                    {
-                        k = i + koh.d(1, hrt1);
-                    }
-                    j++;
-                    i = k;
-                } while (true);
-            }
+            i = j + kwk.d(1, a);
         }
-        return k;
+        j = i;
+        if (b != null)
+        {
+            j = i + kwk.d(2, b);
+        }
+        i = j;
+        if (c != null)
+        {
+            i = j + kwk.b(3, c);
+        }
+        j = i;
+        if (d != null)
+        {
+            j = i + kwk.b(4, d);
+        }
+        return j;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -64,52 +65,50 @@ public final class hxs extends koj
                 return this;
 
             case 10: // '\n'
-                int k = kou.b(kog1, 10);
-                hrt ahrt[];
-                int j;
                 if (a == null)
                 {
-                    j = 0;
-                } else
-                {
-                    j = a.length;
+                    a = new hxt();
                 }
-                ahrt = new hrt[k + j];
-                k = j;
-                if (j != 0)
-                {
-                    System.arraycopy(a, 0, ahrt, 0, j);
-                    k = j;
-                }
-                for (; k < ahrt.length - 1; k++)
-                {
-                    ahrt[k] = new hrt();
-                    kog1.a(ahrt[k]);
-                    kog1.a();
-                }
+                kwj1.a(a);
+                break;
 
-                ahrt[k] = new hrt();
-                kog1.a(ahrt[k]);
-                a = ahrt;
+            case 18: // '\022'
+                if (b == null)
+                {
+                    b = new hxv();
+                }
+                kwj1.a(b);
+                break;
+
+            case 26: // '\032'
+                c = kwj1.j();
+                break;
+
+            case 34: // '"'
+                d = kwj1.j();
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null && a.length > 0)
+        if (a != null)
         {
-            for (int i = 0; i < a.length; i++)
-            {
-                hrt hrt1 = a[i];
-                if (hrt1 != null)
-                {
-                    koh1.b(1, hrt1);
-                }
-            }
-
+            kwk1.b(1, a);
         }
-        super.writeTo(koh1);
+        if (b != null)
+        {
+            kwk1.b(2, b);
+        }
+        if (c != null)
+        {
+            kwk1.a(3, c);
+        }
+        if (d != null)
+        {
+            kwk1.a(4, d);
+        }
+        super.writeTo(kwk1);
     }
 }

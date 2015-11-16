@@ -3,8 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-interface gpe
+final class gpe extends gpd
 {
 
-    public abstract boolean a(got got);
+    gpe(String s)
+    {
+        super(s, 0);
+    }
+
+    boolean a(gpw gpw, String s, gpb gpb1)
+    {
+        return gpb1.d(gpw);
+    }
 }

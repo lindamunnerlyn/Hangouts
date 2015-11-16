@@ -2,117 +2,53 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.text.TextUtils;
-import com.google.android.apps.hangouts.phone.BabelGatewayActivity;
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
-import java.util.ArrayList;
-import java.util.List;
 
-public final class cje extends bgg
+public abstract class cje extends arq
 {
 
-    final BabelGatewayActivity d;
+    final cjd d;
 
-    public cje(BabelGatewayActivity babelgatewayactivity)
+    public cje(cjd cjd, int i, int j, boolean flag, boolean flag1)
     {
-        d = babelgatewayactivity;
-        super();
+        d = cjd;
+        super(cjd, i, j, flag, flag1);
     }
 
-    public String a()
+    public int b(int i)
     {
-        return null;
-    }
-
-    protected void a(dgu dgu1)
-    {
-        super.a(dgu1);
-        List list = ((cwi)dgu1.c()).k();
-        int i;
-        if (list != null)
+        if ((anb)e() == null)
         {
-            i = list.size();
+            return 0;
+        }
+        if (i > 0 && a())
+        {
+            i = 1;
         } else
         {
             i = 0;
         }
-        if (i != BabelGatewayActivity.k(d).length)
+        return i;
+    }
+
+    public int c(int i)
+    {
+        while ((anb)e() == null || i <= 0) 
         {
-            ebw.g("Babel", "BabelGatewayActivity: Entity lookup returned wrong number of entities");
-            BabelGatewayActivity.a(d, l.ca);
-            return;
+            return 0;
         }
-        BabelGatewayActivity.a(d, new String[i]);
-        int j = 0;
-        while (j < i) 
+        a();
+        return 0;
+    }
+
+    public int f()
+    {
+        anb anb1 = (anb)e();
+        if (anb1 != null)
         {
-            dgu1 = (ebj)list.get(j);
-            Object obj;
-            if (dgu1 == null)
-            {
-                dgu1 = null;
-            } else
-            {
-                dgu1 = (ceu[])((ebj) (dgu1)).b;
-            }
-            if (dgu1 != null)
-            {
-                obj = dgu1[0];
-            } else
-            {
-                obj = null;
-            }
-            if (obj == null)
-            {
-                ebw.f("Babel", "BabelGatewayActivity: Could not resolve some gaiaId's");
-                BabelGatewayActivity.a(d, l.ca);
-                return;
-            }
-            gbh.a(Integer.valueOf(1), Integer.valueOf(dgu1.length));
-            String as[] = BabelGatewayActivity.l(d);
-            if (!TextUtils.isEmpty(((ceu) (obj)).e))
-            {
-                dgu1 = ((ceu) (obj)).e;
-            } else
-            if (!TextUtils.isEmpty(((ceu) (obj)).f))
-            {
-                dgu1 = ((ceu) (obj)).f;
-            } else
-            {
-                dgu1 = null;
-            }
-            as[j] = dgu1;
-            j++;
-        }
-        BabelGatewayActivity.m(d);
-    }
-
-    protected void a(Exception exception)
-    {
-        super.a(exception);
-        BabelGatewayActivity.a(d, l.ca);
-    }
-
-    public int b()
-    {
-        ArrayList arraylist = new ArrayList();
-        String as[] = BabelGatewayActivity.k(d);
-        int j = as.length;
-        for (int i = 0; i < j; i++)
+            return anb1.b();
+        } else
         {
-            arraylist.add(dac.a(as[i]));
+            return 0;
         }
-
-        return RealTimeChatService.a(BabelGatewayActivity.c(d), arraylist, null, true);
-    }
-
-    public Class e()
-    {
-        return cud;
-    }
-
-    public Class f()
-    {
-        return cwi;
     }
 }

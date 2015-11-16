@@ -2,44 +2,40 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
 
-public class cxe extends cvn
+public class cxe extends cwm
 {
 
     private static final long serialVersionUID = 1L;
+    private final String a;
+    private final int b;
 
-    public cxe(hsx hsx1)
+    public cxe(String s, int i)
     {
-        super(hsx1.apiHeader);
+        a = s;
+        b = i;
     }
 
-    public static cvn parseFrom(byte abyte0[])
+    public String a()
     {
-        abyte0 = (hsx)kop.mergeFrom(new hsx(), abyte0);
-        if (a(((hsx) (abyte0)).apiHeader))
-        {
-            return new cvz(((hsx) (abyte0)).apiHeader);
-        } else
-        {
-            return new cxe(abyte0);
-        }
+        return "background_queue";
     }
 
-    public void a(aoe aoe1, dfb dfb)
+    public kws a(String s, int i, int j)
     {
-        super.a(aoe1, dfb);
-        dfb = (css)c();
-        String s = ((css) (dfb)).a;
-        String s1 = ((css) (dfb)).b;
-        aoe1.a(s, s1, ((css) (dfb)).d);
-        if (((css) (dfb)).d)
+        if (cvv.e)
         {
-            aoe1.c(s, s1, ((css) (dfb)).c, null);
-        } else
-        {
-            aoe1.h(s, s1);
+            eev.b("Babel_RequestWriter", "setHangoutNotificationStatus build protobuf");
         }
-        RealTimeChatService.a(aoe1.f().h(), true);
+        jej jej1 = new jej();
+        jej1.a = a;
+        jej1.b = Integer.valueOf(b);
+        jej1.requestHeader = cvu.a(s, i, j, h);
+        return jej1;
+    }
+
+    public String f()
+    {
+        return "hangouts/sethangoutnotificationstatus";
     }
 }

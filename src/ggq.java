@@ -2,11 +2,22 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import com.google.android.libraries.hangouts.video.MediaCodecDecoder;
 
-interface ggq
+public final class ggq
+    implements Runnable
 {
 
-    public abstract jec a(kop kop);
+    final MediaCodecDecoder a;
 
-    public abstract jec b(kop kop);
+    public ggq(MediaCodecDecoder mediacodecdecoder)
+    {
+        a = mediacodecdecoder;
+        super();
+    }
+
+    public void run()
+    {
+        MediaCodecDecoder.b(a);
+    }
 }

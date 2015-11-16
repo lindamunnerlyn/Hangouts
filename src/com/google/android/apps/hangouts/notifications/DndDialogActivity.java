@@ -6,32 +6,31 @@ package com.google.android.apps.hangouts.notifications;
 
 import android.content.Context;
 import android.content.Intent;
-import ani;
-import cdb;
-import doq;
+import ceg;
+import drj;
 import g;
-import gal;
-import gam;
-import gap;
-import gmo;
-import gng;
-import hgx;
-import hhg;
+import gcz;
+import gda;
+import gdd;
+import gqu;
+import grn;
+import hlp;
+import hly;
 
-public class DndDialogActivity extends hhg
+public class DndDialogActivity extends hly
 {
 
-    private final gmo c;
+    private final gqu c;
 
     public DndDialogActivity()
     {
-        c = (new gng(this, b)).a(a);
+        c = (new grn(this, b)).a(a);
     }
 
-    public static Intent a(Context context, ani ani1)
+    public static Intent a(Context context, int i)
     {
         context = new Intent(context, com/google/android/apps/hangouts/notifications/DndDialogActivity);
-        context.putExtra("account_id", ani1.h());
+        context.putExtra("account_id", i);
         return context;
     }
 
@@ -42,17 +41,17 @@ public class DndDialogActivity extends hhg
         int j = getIntent().getIntExtra("opened_from_impression", -1);
         if (j != -1)
         {
-            ((gap)a.a(gap)).a(i).a(j).d();
+            ((gdd)a.a(gdd)).a(i).a(j).d();
         }
         String s = g.a(getIntent(), "dnd_duration_choice");
         if (s != null)
         {
-            ((doq)a.a(doq)).a(i, s);
+            ((drj)a.a(drj)).a(i, s);
             finish();
             return;
         } else
         {
-            ((doq)a.a(doq)).a(this, i, new cdb(this));
+            ((drj)a.a(drj)).a(this, i, new ceg(this));
             return;
         }
     }

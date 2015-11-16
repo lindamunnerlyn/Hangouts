@@ -3,21 +3,21 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class dio extends dfa
+public final class dio extends dgj
 {
 
-    private final int a;
-    private final boolean d;
+    private final String a;
+    private final jjt e;
 
-    public dio(ani ani, int i, boolean flag)
+    public dio(aoa aoa, String s, jjt jjt)
     {
-        super(ani);
-        a = i;
-        d = flag;
+        super(aoa);
+        a = s;
+        e = jjt;
     }
 
     public void a()
     {
-        c.a(new cux(a, d));
+        a(((dmf) (new cvp(a, e))));
     }
 }

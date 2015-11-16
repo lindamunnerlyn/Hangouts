@@ -3,13 +3,15 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public interface fqz
+public final class fqz
+    implements gap
 {
 
-    public static final Iterable a = new fpc();
+    private static final gap a = new fqw();
+    private static final fqu b = new fqy();
 
-    public abstract String a();
-
-    public abstract String b();
+    public fqz()
+    {
+    }
 
 }

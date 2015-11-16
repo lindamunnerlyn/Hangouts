@@ -2,87 +2,61 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.io.InvalidObjectException;
-import java.io.ObjectInputStream;
-import java.util.Iterator;
 
-final class kln extends kmw
+public final class kln extends kwm
 {
 
-    private static final long serialVersionUID = 1L;
-    private final int c;
-    private final int d;
+    public Boolean a;
 
-    kln(byte abyte0[], int i, int j)
+    public kln()
     {
-        super(abyte0);
-        if (i < 0)
+        a = null;
+        unknownFieldData = null;
+        cachedSize = -1;
+    }
+
+    protected int computeSerializedSize()
+    {
+        int j = super.computeSerializedSize();
+        int i = j;
+        if (a != null)
         {
-            throw new IllegalArgumentException((new StringBuilder(29)).append("Offset too small: ").append(i).toString());
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
-        if (j < 0)
+        return i;
+    }
+
+    public kws mergeFrom(kwj kwj1)
+    {
+        do
         {
-            throw new IllegalArgumentException((new StringBuilder(29)).append("Length too small: ").append(i).toString());
+            int i = kwj1.a();
+            switch (i)
+            {
+            default:
+                if (super.storeUnknownField(kwj1, i))
+                {
+                    continue;
+                }
+                // fall through
+
+            case 0: // '\0'
+                return this;
+
+            case 8: // '\b'
+                a = Boolean.valueOf(kwj1.i());
+                break;
+            }
+        } while (true);
+    }
+
+    public void writeTo(kwk kwk1)
+    {
+        if (a != null)
+        {
+            kwk1.a(1, a.booleanValue());
         }
-        if ((long)i + (long)j > (long)abyte0.length)
-        {
-            throw new IllegalArgumentException((new StringBuilder(48)).append("Offset+Length too large: ").append(i).append("+").append(j).toString());
-        } else
-        {
-            c = i;
-            d = j;
-            return;
-        }
-    }
-
-    private void readObject(ObjectInputStream objectinputstream)
-    {
-        throw new InvalidObjectException("BoundedByteStream instances are not to be serialized directly");
-    }
-
-    public byte a(int i)
-    {
-        if (i < 0)
-        {
-            throw new ArrayIndexOutOfBoundsException((new StringBuilder(28)).append("Index too small: ").append(i).toString());
-        }
-        if (i >= a())
-        {
-            int j = a();
-            throw new ArrayIndexOutOfBoundsException((new StringBuilder(41)).append("Index too large: ").append(i).append(", ").append(j).toString());
-        } else
-        {
-            return b[c + i];
-        }
-    }
-
-    public int a()
-    {
-        return d;
-    }
-
-    protected void a(byte abyte0[], int i, int j, int k)
-    {
-        System.arraycopy(b, b() + i, abyte0, j, k);
-    }
-
-    protected int b()
-    {
-        return c;
-    }
-
-    public klq c()
-    {
-        return new klo(this);
-    }
-
-    public Iterator iterator()
-    {
-        return c();
-    }
-
-    Object writeReplace()
-    {
-        return new kmw(e());
+        super.writeTo(kwk1);
     }
 }

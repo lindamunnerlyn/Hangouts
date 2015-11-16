@@ -3,16 +3,14 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class ixz extends koj
+public final class ixz extends kwm
 {
 
-    public Long a;
-    public ixg responseHeader;
+    public jdl responseHeader;
 
     public ixz()
     {
         responseHeader = null;
-        a = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
@@ -23,25 +21,20 @@ public final class ixz extends koj
         int i = j;
         if (responseHeader != null)
         {
-            i = j + koh.d(1, responseHeader);
+            i = j + kwk.d(1, responseHeader);
         }
-        j = i;
-        if (a != null)
-        {
-            j = i + koh.d(2, a.longValue());
-        }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -53,28 +46,20 @@ public final class ixz extends koj
             case 10: // '\n'
                 if (responseHeader == null)
                 {
-                    responseHeader = new ixg();
+                    responseHeader = new jdl();
                 }
-                kog1.a(responseHeader);
-                break;
-
-            case 16: // '\020'
-                a = Long.valueOf(kog1.d());
+                kwj1.a(responseHeader);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
         if (responseHeader != null)
         {
-            koh1.b(1, responseHeader);
+            kwk1.b(1, responseHeader);
         }
-        if (a != null)
-        {
-            koh1.a(2, a.longValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

@@ -2,23 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.view.View;
 
 final class avh
-    implements azs
+    implements android.view.View.OnClickListener
 {
 
-    final ave a;
+    final avb a;
+    private final int b;
 
-    avh(ave ave1)
+    avh(avb avb1, int i)
     {
-        a = ave1;
+        a = avb1;
         super();
+        b = i;
     }
 
-    public void a(daw daw)
+    public void onClick(View view)
     {
-        ave.a(a, daw);
-        ave.t(a);
-        ave.u(a);
+        a.b(b);
     }
 }

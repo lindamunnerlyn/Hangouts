@@ -2,26 +2,24 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.google.android.apps.hangouts.phone.DebugActivity;
+import com.google.android.apps.hangouts.phone.BabelHomeActivity;
 
 public final class cla
-    implements android.widget.AdapterView.OnItemLongClickListener
+    implements Runnable
 {
 
-    final DebugActivity a;
+    final BabelHomeActivity a;
 
-    public cla(DebugActivity debugactivity)
+    public cla(BabelHomeActivity babelhomeactivity)
     {
-        a = debugactivity;
+        a = babelhomeactivity;
         super();
     }
 
-    public boolean onItemLongClick(AdapterView adapterview, View view, int i, long l)
+    public void run()
     {
-        adapterview = (clm)adapterview.getItemAtPosition(i);
-        adapterview = DebugActivity.a(((clm) (adapterview)).a, ((clm) (adapterview)).b);
-        return DebugActivity.a(a, adapterview);
+        BabelHomeActivity.i(a);
+        BabelHomeActivity.j(a);
+        BabelHomeActivity.f(a).a((new hbo()).a().a(hbu, (new hbv()).b().c()));
     }
 }

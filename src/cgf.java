@@ -2,41 +2,39 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.ViewGroup;
-import com.google.android.apps.hangouts.peoplelistv2.impl.EditParticipantsView;
 
-public final class cgf
-    implements android.animation.Animator.AnimatorListener
+public final class cgf extends Enum
 {
 
-    final EditParticipantsView a;
+    public static final cgf a;
+    public static final cgf b;
+    public static final cgf c;
+    public static final cgf d;
+    private static final cgf e[];
 
-    public cgf(EditParticipantsView editparticipantsview)
+    private cgf(String s, int i)
     {
-        a = editparticipantsview;
-        super();
+        super(s, i);
     }
 
-    public void onAnimationCancel(Animator animator)
+    public static cgf valueOf(String s)
     {
-        animator = (View)((ObjectAnimator)animator).getTarget();
-        EditParticipantsView.a(a).removeView(animator);
+        return (cgf)Enum.valueOf(cgf, s);
     }
 
-    public void onAnimationEnd(Animator animator)
+    public static cgf[] values()
     {
-        animator = (View)((ObjectAnimator)animator).getTarget();
-        EditParticipantsView.a(a).removeView(animator);
+        return (cgf[])e.clone();
     }
 
-    public void onAnimationRepeat(Animator animator)
+    static 
     {
-    }
-
-    public void onAnimationStart(Animator animator)
-    {
+        a = new cgf("UNKNOWN", 0);
+        b = new cgf("PERSON", 1);
+        c = new cgf("CIRCLE", 2);
+        d = new cgf("PHONE", 3);
+        e = (new cgf[] {
+            a, b, c, d
+        });
     }
 }

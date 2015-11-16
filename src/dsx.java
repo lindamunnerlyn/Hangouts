@@ -2,11 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.widget.TextView;
+import android.content.Context;
 
 public interface dsx
 {
 
-    public abstract egi a(hjm hjm, int i, TextView textview, View view);
+    public abstract void a(Context context, ad ad, String s, String s1, String s2);
 }

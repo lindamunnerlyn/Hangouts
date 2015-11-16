@@ -3,10 +3,16 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class hlb
+public interface hlb
 {
 
-    hlb()
-    {
-    }
+    public abstract void a();
+
+    public abstract void b();
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public abstract void e();
 }

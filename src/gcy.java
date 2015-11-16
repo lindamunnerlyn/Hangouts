@@ -2,17 +2,41 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.opengl.EGLContext;
-import android.opengl.EGLSurface;
+import android.content.Context;
 
-final class gcy
+public final class gcy
 {
 
-    public EGLContext a;
-    public EGLSurface b;
-    public EGLSurface c;
+    public static final String a = gcp.getName();
+    public static final String b = gcr.getName();
+    public static final String c = gcq.getName();
+    private static gcx d;
 
-    gcy()
+    public static void a(Context context, hlp hlp1)
     {
+        if (d == null)
+        {
+            d = new gcx();
+        }
+        hlp1.a(gcp, new gcu(context));
     }
+
+    public static void a(hlp hlp1)
+    {
+        if (d == null)
+        {
+            d = new gcx();
+        }
+        hlp1.a(gcr, new gcw());
+    }
+
+    public static void b(hlp hlp1)
+    {
+        if (d == null)
+        {
+            d = new gcx();
+        }
+        hlp1.a(gcq, new gcv());
+    }
+
 }

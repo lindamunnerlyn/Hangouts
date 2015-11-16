@@ -3,103 +3,53 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class kin extends koj
+public final class kin extends kwm
 {
 
-    public Long a;
-    public kip b[];
-    public kio c[];
-    public Integer d;
-    public Integer e;
+    public Boolean a;
+    public kho b;
+    public kiz c;
 
     public kin()
     {
         a = null;
-        b = kip.a();
-        c = kio.a();
-        d = null;
-        e = null;
+        b = null;
+        c = null;
         unknownFieldData = null;
         cachedSize = -1;
     }
 
     protected int computeSerializedSize()
     {
-        boolean flag = false;
-        int i = super.computeSerializedSize();
-        int j = i;
+        int j = super.computeSerializedSize();
+        int i = j;
         if (a != null)
         {
-            j = i + koh.e(1, a.longValue());
+            a.booleanValue();
+            i = j + (kwk.f(1) + 1);
         }
-        i = j;
+        j = i;
         if (b != null)
         {
-            i = j;
-            if (b.length > 0)
-            {
-                i = j;
-                for (j = 0; j < b.length;)
-                {
-                    kip kip1 = b[j];
-                    int k = i;
-                    if (kip1 != null)
-                    {
-                        k = i + koh.d(2, kip1);
-                    }
-                    j++;
-                    i = k;
-                }
-
-            }
-        }
-        j = i;
-        if (c != null)
-        {
-            j = i;
-            if (c.length > 0)
-            {
-                int l = ((flag) ? 1 : 0);
-                do
-                {
-                    j = i;
-                    if (l >= c.length)
-                    {
-                        break;
-                    }
-                    kio kio1 = c[l];
-                    j = i;
-                    if (kio1 != null)
-                    {
-                        j = i + koh.d(3, kio1);
-                    }
-                    l++;
-                    i = j;
-                } while (true);
-            }
+            j = i + kwk.d(2, b);
         }
         i = j;
-        if (d != null)
+        if (c != null)
         {
-            i = j + koh.e(4, d.intValue());
+            i = j + kwk.d(6, c);
         }
-        j = i;
-        if (e != null)
-        {
-            j = i + koh.e(5, e.intValue());
-        }
-        return j;
+        return i;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -109,119 +59,42 @@ public final class kin extends koj
                 return this;
 
             case 8: // '\b'
-                a = Long.valueOf(kog1.e());
+                a = Boolean.valueOf(kwj1.i());
                 break;
 
             case 18: // '\022'
-                int l = kou.b(kog1, 18);
-                kip akip[];
-                int j;
                 if (b == null)
                 {
-                    j = 0;
-                } else
-                {
-                    j = b.length;
+                    b = new kho();
                 }
-                akip = new kip[l + j];
-                l = j;
-                if (j != 0)
-                {
-                    System.arraycopy(b, 0, akip, 0, j);
-                    l = j;
-                }
-                for (; l < akip.length - 1; l++)
-                {
-                    akip[l] = new kip();
-                    kog1.a(akip[l]);
-                    kog1.a();
-                }
-
-                akip[l] = new kip();
-                kog1.a(akip[l]);
-                b = akip;
+                kwj1.a(b);
                 break;
 
-            case 26: // '\032'
-                int i1 = kou.b(kog1, 26);
-                kio akio[];
-                int k;
+            case 50: // '2'
                 if (c == null)
                 {
-                    k = 0;
-                } else
-                {
-                    k = c.length;
+                    c = new kiz();
                 }
-                akio = new kio[i1 + k];
-                i1 = k;
-                if (k != 0)
-                {
-                    System.arraycopy(c, 0, akio, 0, k);
-                    i1 = k;
-                }
-                for (; i1 < akio.length - 1; i1++)
-                {
-                    akio[i1] = new kio();
-                    kog1.a(akio[i1]);
-                    kog1.a();
-                }
-
-                akio[i1] = new kio();
-                kog1.a(akio[i1]);
-                c = akio;
-                break;
-
-            case 32: // ' '
-                d = Integer.valueOf(kog1.f());
-                break;
-
-            case 40: // '('
-                e = Integer.valueOf(kog1.f());
+                kwj1.a(c);
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        boolean flag = false;
         if (a != null)
         {
-            koh1.b(1, a.longValue());
+            kwk1.a(1, a.booleanValue());
         }
-        if (b != null && b.length > 0)
+        if (b != null)
         {
-            for (int i = 0; i < b.length; i++)
-            {
-                kip kip1 = b[i];
-                if (kip1 != null)
-                {
-                    koh1.b(2, kip1);
-                }
-            }
-
+            kwk1.b(2, b);
         }
-        if (c != null && c.length > 0)
+        if (c != null)
         {
-            for (int j = ((flag) ? 1 : 0); j < c.length; j++)
-            {
-                kio kio1 = c[j];
-                if (kio1 != null)
-                {
-                    koh1.b(3, kio1);
-                }
-            }
-
+            kwk1.b(6, c);
         }
-        if (d != null)
-        {
-            koh1.a(4, d.intValue());
-        }
-        if (e != null)
-        {
-            koh1.a(5, e.intValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

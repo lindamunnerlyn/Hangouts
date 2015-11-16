@@ -2,82 +2,46 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import java.util.concurrent.CancellationException;
-import java.util.concurrent.Executor;
-import java.util.concurrent.TimeUnit;
+import java.util.Map;
+import java.util.concurrent.ConcurrentMap;
 
-public class jrr
-    implements jsj
+public abstract class jrr extends jrs
+    implements ConcurrentMap
 {
-
-    final jrs a = new jrs();
-    private final jrv b = new jrv();
 
     protected jrr()
     {
     }
 
-    static final CancellationException a(String s, Throwable throwable)
+    protected abstract ConcurrentMap a();
+
+    protected Map b()
     {
-        s = new CancellationException(s);
-        s.initCause(throwable);
-        return s;
+        return a();
     }
 
-    public void a(Runnable runnable, Executor executor)
+    protected Object c()
     {
-        b.a(runnable, executor);
+        return a();
     }
 
-    protected boolean a(Object obj)
+    public Object putIfAbsent(Object obj, Object obj1)
     {
-        boolean flag = a.a(obj);
-        if (flag)
-        {
-            b.a();
-        }
-        return flag;
+        return a().putIfAbsent(obj, obj1);
     }
 
-    protected boolean a(Throwable throwable)
+    public boolean remove(Object obj, Object obj1)
     {
-        boolean flag = a.a((Throwable)n.b(throwable));
-        if (flag)
-        {
-            b.a();
-        }
-        return flag;
+        return a().remove(obj, obj1);
     }
 
-    public boolean cancel(boolean flag)
+    public Object replace(Object obj, Object obj1)
     {
-        if (!a.a(flag))
-        {
-            return false;
-        } else
-        {
-            b.a();
-            return true;
-        }
+        return a().replace(obj, obj1);
     }
 
-    public Object get()
+    public boolean replace(Object obj, Object obj1, Object obj2)
     {
-        return a.a();
-    }
-
-    public Object get(long l, TimeUnit timeunit)
-    {
-        return a.a(timeunit.toNanos(l));
-    }
-
-    public boolean isCancelled()
-    {
-        return a.c();
-    }
-
-    public boolean isDone()
-    {
-        return a.b();
+        return a().replace(obj, obj1, obj2);
     }
 }

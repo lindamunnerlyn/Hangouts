@@ -2,11 +2,10 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import java.util.List;
 
 public interface fqq
 {
 
-    public abstract String a();
-
-    public abstract String b();
+    public abstract void a(fqr fqr, ftl ftl, List list);
 }

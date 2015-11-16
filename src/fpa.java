@@ -2,35 +2,11 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.os.Bundle;
-import android.os.ParcelFileDescriptor;
-import com.google.android.gms.common.data.DataHolder;
 
-public class fpa extends fpe
+public final class fpa
 {
 
     public fpa()
-    {
-    }
-
-    public void a(int i, Bundle bundle, Bundle bundle1)
-    {
-    }
-
-    public final void a(int i, Bundle bundle, ParcelFileDescriptor parcelfiledescriptor)
-    {
-        throw new RuntimeException("Shouldn't be called");
-    }
-
-    public void a(int i, Bundle bundle, ParcelFileDescriptor parcelfiledescriptor, Bundle bundle1)
-    {
-    }
-
-    public void a(int i, Bundle bundle, DataHolder dataholder)
-    {
-    }
-
-    public void a(int i, Bundle bundle, DataHolder adataholder[])
     {
     }
 }

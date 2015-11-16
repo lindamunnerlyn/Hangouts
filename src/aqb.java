@@ -6,5 +6,5 @@
 public interface aqb
 {
 
-    public abstract void a(ebh ebh, eab eab, boolean flag, apw apw, boolean flag1);
+    public abstract aps a(int i);
 }

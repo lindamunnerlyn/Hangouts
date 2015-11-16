@@ -2,29 +2,51 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
-import android.widget.TextView;
 
-final class cgu extends zq
+public final class cgu
+    implements gqk
 {
 
-    final cgh l;
-    private final TextView m;
+    private final String a;
+    private final String b;
+    private final String c;
+    private final boolean d;
 
-    public cgu(cgh cgh, View view)
+    public cgu(amx amx1)
     {
-        l = cgh;
-        super(view);
-        m = (TextView)view.findViewById(l.uv);
+        a = amx1.e();
+        b = amx1.i();
+        c = amx1.f();
+        d = amx1.n();
     }
 
-    static TextView a(cgu cgu1)
+    public boolean a()
     {
-        return cgu1.m;
+        return false;
     }
 
-    public void b(int i)
+    public int b()
     {
-        m.setText(i);
+        return g.nA;
+    }
+
+    public String c()
+    {
+        return a;
+    }
+
+    public String d()
+    {
+        return b;
+    }
+
+    public String e()
+    {
+        return c;
+    }
+
+    public boolean f()
+    {
+        return d;
     }
 }

@@ -6,54 +6,16 @@
 public final class dib
 {
 
-    public final long a;
-    final String b;
-    final String c;
-    String d;
-    String e;
-    long f;
-    String g;
-    long h;
+    public static final String a = dic.getName();
+    private static dhz b;
 
-    public dib(String s, String s1, long l)
+    public static void a(hlp hlp1)
     {
-        c = s;
-        b = s1;
-        a = l;
+        if (b == null)
+        {
+            b = new dhz();
+        }
+        hlp1.a(dic, b.a());
     }
 
-    public dia a()
-    {
-        return new dia(this);
-    }
-
-    public dib a(long l)
-    {
-        f = l;
-        return this;
-    }
-
-    public dib a(String s)
-    {
-        d = s;
-        return this;
-    }
-
-    public dib b(long l)
-    {
-        h = l;
-        return this;
-    }
-
-    public dib b(String s)
-    {
-        e = s;
-        return this;
-    }
-
-    public dib c(String s)
-    {
-        g = s;
-        return this;
-    }
 }

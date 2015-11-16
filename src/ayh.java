@@ -2,64 +2,68 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.content.Context;
-import java.io.Serializable;
-import java.util.Iterator;
-import java.util.List;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.inputmethod.InputMethodManager;
 
-public final class ayh
-    implements Serializable
+final class ayh
+    implements android.view.ViewTreeObserver.OnGlobalLayoutListener, hor, hou, hoy
 {
 
-    public final int a;
-    public final int b;
-    public final String c;
+    final avv a;
+    private final Rect b = new Rect();
+    private final View c;
+    private Boolean d;
 
-    public ayh(List list)
+    ayh(avv avv1, View view)
     {
-        int i = 0;
+        a = avv1;
         super();
-        Iterator iterator = list.iterator();
-        list = null;
-        int j = 0;
-        do
-        {
-            if (!iterator.hasNext())
-            {
-                break;
-            }
-            bay bay1 = (bay)iterator.next();
-            if (bay1.a())
-            {
-                j++;
-            } else
-            if (bay1.b == baz.b)
-            {
-                i++;
-                if (i == 1)
-                {
-                    list = bay1.a;
-                } else
-                {
-                    list = null;
-                }
-            }
-        } while (true);
-        a = j;
-        b = i;
-        c = list;
+        d = null;
+        c = view;
+        avv.bF(avv1).a(this);
     }
 
-    public void a(Context context)
+    public void G_()
     {
-        Integer integer;
-        if (c != null)
+        c.getViewTreeObserver().addOnGlobalLayoutListener(this);
+    }
+
+    public void a()
+    {
+        gng.a(c, this);
+    }
+
+    public void onGlobalLayout()
+    {
+        c.getWindowVisibleDisplayFrame(b);
+        int i = c.getRootView().getHeight() - b.height() - eco.a(avv.bG(a));
+        if (android.os.Build.VERSION.SDK_INT >= 21)
         {
-            integer = Integer.valueOf(g.j(c));
+            i -= eco.b(avv.bH(a));
+        }
+        boolean flag;
+        if (i > 250)
+        {
+            flag = true;
         } else
         {
-            integer = null;
+            flag = false;
         }
-        ((bdp)hgx.a(context, bdp)).a(2323, a, b, integer);
+        if (flag)
+        {
+            avv.an(a).a(i);
+        }
+        if (avv.m(a).b().a() == 1 && !flag && d == null)
+        {
+            View view = a.getView();
+            g.b(view.getContext()).toggleSoftInputFromWindow(view.getWindowToken(), 2, 0);
+        }
+        if ((d == null || g.a(d, false) != flag) && flag)
+        {
+            avv.an(a).b();
+        }
+        d = Boolean.valueOf(flag);
     }
 }

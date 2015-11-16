@@ -4,16 +4,29 @@
 
 import com.google.android.gms.common.data.DataHolder;
 
-final class fvx extends fvv
+final class fvx
+    implements Runnable
 {
 
-    public fvx(ekm ekm)
+    final DataHolder a;
+    final fvw b;
+
+    fvx(fvw fvw1, DataHolder dataholder)
     {
-        super(ekm);
+        b = fvw1;
+        a = dataholder;
+        super();
     }
 
-    public void a(DataHolder dataholder)
+    public void run()
     {
-        a(new ftb(dataholder));
+        fve fve1 = new fve(a);
+        b.b.a(fve1);
+        fve1.b();
+        return;
+        Exception exception;
+        exception;
+        fve1.b();
+        throw exception;
     }
 }

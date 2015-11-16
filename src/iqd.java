@@ -3,93 +3,58 @@
 // Decompiler options: braces fieldsfirst space lnc 
 
 
-public final class iqd extends koj
+public final class iqd extends kwm
 {
 
-    private static volatile iqd g[];
-    public Integer a;
-    public Integer b;
-    public Integer c;
-    public String d;
-    public byte e[];
-    public Integer f;
+    public iqc a[];
 
     public iqd()
     {
-        a = null;
-        b = null;
-        c = null;
-        d = null;
-        e = null;
-        f = null;
+        a = iqc.a();
         unknownFieldData = null;
         cachedSize = -1;
     }
 
-    public static iqd[] a()
-    {
-        if (g == null)
-        {
-            synchronized (kon.a)
-            {
-                if (g == null)
-                {
-                    g = new iqd[0];
-                }
-            }
-        }
-        return g;
-        exception;
-        obj;
-        JVM INSTR monitorexit ;
-        throw exception;
-    }
-
     protected int computeSerializedSize()
     {
-        int j = super.computeSerializedSize();
-        int i = j;
+        int i = super.computeSerializedSize();
+        int k = i;
         if (a != null)
         {
-            i = j + koh.f(1, a.intValue());
+            k = i;
+            if (a.length > 0)
+            {
+                int j = 0;
+                do
+                {
+                    k = i;
+                    if (j >= a.length)
+                    {
+                        break;
+                    }
+                    iqc iqc1 = a[j];
+                    k = i;
+                    if (iqc1 != null)
+                    {
+                        k = i + kwk.d(1, iqc1);
+                    }
+                    j++;
+                    i = k;
+                } while (true);
+            }
         }
-        j = i;
-        if (b != null)
-        {
-            j = i + koh.f(2, b.intValue());
-        }
-        i = j;
-        if (c != null)
-        {
-            i = j + koh.f(3, c.intValue());
-        }
-        j = i;
-        if (d != null)
-        {
-            j = i + koh.b(4, d);
-        }
-        i = j;
-        if (e != null)
-        {
-            i = j + koh.b(5, e);
-        }
-        j = i;
-        if (f != null)
-        {
-            j = i + koh.f(6, f.intValue());
-        }
-        return j;
+        return k;
     }
 
-    public kop mergeFrom(kog kog1)
+    public kws mergeFrom(kwj kwj1)
     {
         do
         {
-            int i = kog1.a();
+            int i = kwj1.a();
             switch (i)
             {
             default:
-                if (super.storeUnknownField(kog1, i))
+                if (super.storeUnknownField(kwj1, i))
                 {
                     continue;
                 }
@@ -98,59 +63,53 @@ public final class iqd extends koj
             case 0: // '\0'
                 return this;
 
-            case 8: // '\b'
-                a = Integer.valueOf(kog1.l());
-                break;
+            case 10: // '\n'
+                int k = kwx.a(kwj1, 10);
+                iqc aiqc[];
+                int j;
+                if (a == null)
+                {
+                    j = 0;
+                } else
+                {
+                    j = a.length;
+                }
+                aiqc = new iqc[k + j];
+                k = j;
+                if (j != 0)
+                {
+                    System.arraycopy(a, 0, aiqc, 0, j);
+                    k = j;
+                }
+                for (; k < aiqc.length - 1; k++)
+                {
+                    aiqc[k] = new iqc();
+                    kwj1.a(aiqc[k]);
+                    kwj1.a();
+                }
 
-            case 16: // '\020'
-                b = Integer.valueOf(kog1.l());
-                break;
-
-            case 24: // '\030'
-                c = Integer.valueOf(kog1.l());
-                break;
-
-            case 34: // '"'
-                d = kog1.j();
-                break;
-
-            case 42: // '*'
-                e = kog1.k();
-                break;
-
-            case 48: // '0'
-                f = Integer.valueOf(kog1.l());
+                aiqc[k] = new iqc();
+                kwj1.a(aiqc[k]);
+                a = aiqc;
                 break;
             }
         } while (true);
     }
 
-    public void writeTo(koh koh1)
+    public void writeTo(kwk kwk1)
     {
-        if (a != null)
+        if (a != null && a.length > 0)
         {
-            koh1.c(1, a.intValue());
+            for (int i = 0; i < a.length; i++)
+            {
+                iqc iqc1 = a[i];
+                if (iqc1 != null)
+                {
+                    kwk1.b(1, iqc1);
+                }
+            }
+
         }
-        if (b != null)
-        {
-            koh1.c(2, b.intValue());
-        }
-        if (c != null)
-        {
-            koh1.c(3, c.intValue());
-        }
-        if (d != null)
-        {
-            koh1.a(4, d);
-        }
-        if (e != null)
-        {
-            koh1.a(5, e);
-        }
-        if (f != null)
-        {
-            koh1.c(6, f.intValue());
-        }
-        super.writeTo(koh1);
+        super.writeTo(kwk1);
     }
 }

@@ -2,38 +2,37 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.View;
 import java.util.ArrayList;
+import java.util.Iterator;
 
-final class xl extends xr
+final class xl
+    implements Runnable
 {
 
-    final zq a;
-    final lr b;
-    final xg c;
+    final ArrayList a;
+    final xi b;
 
-    xl(xg xg1, zq zq, lr lr1)
+    xl(xi xi1, ArrayList arraylist)
     {
-        c = xg1;
-        a = zq;
-        b = lr1;
+        b = xi1;
+        a = arraylist;
         super();
     }
 
-    public void a(View view)
+    public void run()
     {
-    }
+        zs zs1;
+        xi xi1;
+        lr lr1;
+        for (Iterator iterator = a.iterator(); iterator.hasNext(); lr1.a(1.0F).a(xi1.f()).a(new xn(xi1, zs1, lr1)).c())
+        {
+            zs1 = (zs)iterator.next();
+            xi1 = b;
+            lr1 = kb.p(zs1.a);
+            xi1.d.add(zs1);
+        }
 
-    public void b(View view)
-    {
-        b.a(null);
-        c.f(a);
-        c.d.remove(a);
-        c.c();
-    }
-
-    public void c(View view)
-    {
-        kb.c(view, 1.0F);
+        a.clear();
+        b.a.remove(a);
     }
 }

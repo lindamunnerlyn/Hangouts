@@ -2,103 +2,58 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
-import android.view.animation.Interpolator;
-import java.util.ArrayList;
-import java.util.Iterator;
+import android.view.InflateException;
+import android.view.MenuItem;
+import java.lang.reflect.Method;
 
-public final class sn
+final class sn
+    implements android.view.MenuItem.OnMenuItemClickListener
 {
 
-    final ArrayList a = new ArrayList();
-    me b;
-    boolean c;
-    private long d;
-    private Interpolator e;
-    private final mf f = new so(this);
+    private static final Class a[] = {
+        android/view/MenuItem
+    };
+    private Object b;
+    private Method c;
 
-    public sn()
+    public sn(Object obj, String s)
     {
-        d = -1L;
-    }
-
-    public sn a(Interpolator interpolator)
-    {
-        if (!c)
+        b = obj;
+        Class class1 = obj.getClass();
+        try
         {
-            e = interpolator;
-        }
-        return this;
-    }
-
-    public sn a(lr lr1)
-    {
-        if (!c)
-        {
-            a.add(lr1);
-        }
-        return this;
-    }
-
-    public sn a(lr lr1, lr lr2)
-    {
-        a.add(lr1);
-        lr2.b(lr1.a());
-        a.add(lr2);
-        return this;
-    }
-
-    public sn a(me me)
-    {
-        if (!c)
-        {
-            b = me;
-        }
-        return this;
-    }
-
-    public void a()
-    {
-        if (c)
-        {
+            c = class1.getMethod(s, a);
             return;
         }
-        lr lr1;
-        for (Iterator iterator = a.iterator(); iterator.hasNext(); lr1.c())
+        // Misplaced declaration of an exception variable
+        catch (Object obj)
         {
-            lr1 = (lr)iterator.next();
-            if (d >= 0L)
-            {
-                lr1.a(d);
-            }
-            if (e != null)
-            {
-                lr1.a(e);
-            }
-            if (b != null)
-            {
-                lr1.a(f);
-            }
+            s = new InflateException((new StringBuilder("Couldn't resolve menu item onClick handler ")).append(s).append(" in class ").append(class1.getName()).toString());
         }
-
-        c = true;
+        s.initCause(((Throwable) (obj)));
+        throw s;
     }
 
-    public void b()
+    public boolean onMenuItemClick(MenuItem menuitem)
     {
-        if (!c)
+        try
         {
-            return;
+            if (c.getReturnType() == Boolean.TYPE)
+            {
+                return ((Boolean)c.invoke(b, new Object[] {
+                    menuitem
+                })).booleanValue();
+            }
+            c.invoke(b, new Object[] {
+                menuitem
+            });
         }
-        for (Iterator iterator = a.iterator(); iterator.hasNext(); ((lr)iterator.next()).b()) { }
-        c = false;
+        // Misplaced declaration of an exception variable
+        catch (MenuItem menuitem)
+        {
+            throw new RuntimeException(menuitem);
+        }
+        return true;
     }
 
-    public sn c()
-    {
-        if (!c)
-        {
-            d = 250L;
-        }
-        return this;
-    }
 }

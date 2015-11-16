@@ -8,42 +8,42 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
-import ani;
-import bpa;
-import cpe;
-import cpf;
-import dbf;
+import aoa;
+import bpj;
+import cqu;
+import cqv;
+import dcn;
 import g;
-import gmp;
-import gmq;
-import gwt;
-import gxe;
-import gxj;
-import hhw;
+import gqv;
+import gqw;
+import hbd;
+import hbo;
+import hbu;
+import hmo;
 import java.util.List;
 import l;
 
-public class ShortlinkUrlHandlerActivity extends hhw
-    implements gmq
+public class ShortlinkUrlHandlerActivity extends hmo
+    implements gqw
 {
 
-    private gwt j;
+    private hbd j;
 
     public ShortlinkUrlHandlerActivity()
     {
-        j = (new gwt(this, l)).a("active-hangouts-account").a(k).b(this);
+        j = (new hbd(this, l)).a("active-hangouts-account").a(k).b(this);
     }
 
-    private static ani a(String s)
+    private static aoa a(String s)
     {
-        int ai[] = dbf.c();
+        int ai[] = dcn.c();
         int k = ai.length;
         for (int i = 0; i < k; i++)
         {
-            ani ani1 = dbf.e(ai[i]);
-            if (ani1.l() != null && (s == null || s.equals(ani1.l())))
+            aoa aoa1 = dcn.e(ai[i]);
+            if (aoa1.j() != null && (s == null || s.equals(aoa1.j())))
             {
-                return ani1;
+                return aoa1;
             }
         }
 
@@ -52,40 +52,40 @@ public class ShortlinkUrlHandlerActivity extends hhw
 
     private void a(String s, String s1, String s2)
     {
-        startActivity(g.a((new bpa(s, 1)).d(s1).e(s2).a(), null, null, false, 48, SystemClock.elapsedRealtime()));
+        startActivity(g.a((new bpj(s, 1)).d(s1).e(s2).a(), null, null, false, 48, SystemClock.elapsedRealtime()));
         finish();
     }
 
     private void g()
     {
         android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
-        builder.setMessage(l.dS);
-        builder.setPositiveButton(l.hJ, new cpe(this));
-        builder.setOnCancelListener(new cpf(this));
+        builder.setMessage(l.dB);
+        builder.setPositiveButton(l.hd, new cqu(this));
+        builder.setOnCancelListener(new cqv(this));
         builder.show();
     }
 
-    public void a(boolean flag, gmp gmp1, gmp gmp2, int i, int k)
+    public void a(boolean flag, gqv gqv1, gqv gqv2, int i, int k)
     {
         Object obj;
-        if (gmp2 != gmp.c)
+        if (gqv2 != gqv.c)
         {
             break MISSING_BLOCK_LABEL_110;
         }
-        gmp1 = dbf.e(k);
+        gqv1 = dcn.e(k);
         obj = getIntent().getData().getPathSegments();
         if (((List) (obj)).size() != 2) goto _L2; else goto _L1
 _L1:
-        gmp2 = (String)((List) (obj)).get(1);
-        a(gmp1.a(), gmp1.l(), ((String) (gmp2)));
+        gqv2 = (String)((List) (obj)).get(1);
+        a(gqv1.a(), gqv1.j(), ((String) (gqv2)));
 _L4:
         return;
 _L2:
         if (((List) (obj)).size() != 3) goto _L4; else goto _L3
 _L3:
-        gmp2 = (String)((List) (obj)).get(1);
+        gqv2 = (String)((List) (obj)).get(1);
         obj = (String)((List) (obj)).get(2);
-        a(gmp1.a(), ((String) (gmp2)), ((String) (obj)));
+        a(gqv1.a(), ((String) (gqv2)), ((String) (obj)));
         return;
         finish();
         return;
@@ -102,7 +102,7 @@ _L1:
 _L3:
         bundle = bundle.a();
 _L6:
-        bundle = (new gxe()).b().a(bundle).a(gxj);
+        bundle = (new hbo()).b().a(bundle).a(hbu);
         j.a(bundle);
         return;
 _L4:

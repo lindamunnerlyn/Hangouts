@@ -2,87 +2,108 @@
 // Jad home page: http://www.geocities.com/kpdus/jad.html
 // Decompiler options: braces fieldsfirst space lnc 
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import com.google.android.apps.hangouts.realtimechat.RealTimeChatService;
+import com.google.android.apps.hangouts.service.NetworkConnectionCheckingService;
 
-final class cds
+class cds
+    implements android.app.Application.ActivityLifecycleCallbacks, cdr
 {
 
-    static final int a[];
+    private final Context a;
+    private volatile cdq b;
 
-    static 
+    public cds(Context context)
     {
-        a = new int[dqc.values().length];
-        try
+        b = cdq.a;
+        a = context;
+    }
+
+    public cdq a()
+    {
+        if (cdq.a == b)
         {
-            a[dqc.b.ordinal()] = 1;
+            a(a, true);
         }
-        catch (NoSuchFieldError nosuchfielderror13) { }
-        try
+        return b;
+    }
+
+    public void a(Context context, boolean flag)
+    {
+        Intent intent = new Intent(context, com/google/android/apps/hangouts/service/NetworkConnectionCheckingService);
+        if (flag)
         {
-            a[dqc.c.ordinal()] = 2;
-        }
-        catch (NoSuchFieldError nosuchfielderror12) { }
-        try
+            intent.putExtra("update_type", "initialize_connection_state");
+        } else
         {
-            a[dqc.e.ordinal()] = 3;
+            intent.putExtra("update_type", "update_connection_state");
         }
-        catch (NoSuchFieldError nosuchfielderror11) { }
-        try
+        context.startService(intent);
+    }
+
+    public void a(cdq cdq1)
+    {
+        if (cdq1 != b)
         {
-            a[dqc.d.ordinal()] = 4;
+            String s = String.valueOf(b);
+            String s1 = String.valueOf(cdq1);
+            eev.e("Babel", (new StringBuilder(String.valueOf(s).length() + 34 + String.valueOf(s1).length())).append("connection state changed from ").append(s).append(" to ").append(s1).toString());
+            b = cdq1;
+            if (((amo)hlp.a(a, amo)).a("babel_network_change_notification", false))
+            {
+                RealTimeChatService.h();
+            }
         }
-        catch (NoSuchFieldError nosuchfielderror10) { }
-        try
-        {
-            a[dqc.f.ordinal()] = 5;
-        }
-        catch (NoSuchFieldError nosuchfielderror9) { }
-        try
-        {
-            a[dqc.p.ordinal()] = 6;
-        }
-        catch (NoSuchFieldError nosuchfielderror8) { }
-        try
-        {
-            a[dqc.n.ordinal()] = 7;
-        }
-        catch (NoSuchFieldError nosuchfielderror7) { }
-        try
-        {
-            a[dqc.g.ordinal()] = 8;
-        }
-        catch (NoSuchFieldError nosuchfielderror6) { }
-        try
-        {
-            a[dqc.h.ordinal()] = 9;
-        }
-        catch (NoSuchFieldError nosuchfielderror5) { }
-        try
-        {
-            a[dqc.i.ordinal()] = 10;
-        }
-        catch (NoSuchFieldError nosuchfielderror4) { }
-        try
-        {
-            a[dqc.j.ordinal()] = 11;
-        }
-        catch (NoSuchFieldError nosuchfielderror3) { }
-        try
-        {
-            a[dqc.k.ordinal()] = 12;
-        }
-        catch (NoSuchFieldError nosuchfielderror2) { }
-        try
-        {
-            a[dqc.l.ordinal()] = 13;
-        }
-        catch (NoSuchFieldError nosuchfielderror1) { }
-        try
-        {
-            a[dqc.m.ordinal()] = 14;
-        }
-        catch (NoSuchFieldError nosuchfielderror)
+    }
+
+    public void a(boolean flag)
+    {
+        if (b.a() == flag)
         {
             return;
+        } else
+        {
+            Intent intent = new Intent(a, com/google/android/apps/hangouts/service/NetworkConnectionCheckingService);
+            intent.putExtra("update_type", "verify_connection_state");
+            intent.putExtra("expected_connectivity", flag);
+            a.startService(intent);
+            return;
         }
+    }
+
+    public void onActivityCreated(Activity activity, Bundle bundle)
+    {
+    }
+
+    public void onActivityDestroyed(Activity activity)
+    {
+    }
+
+    public void onActivityPaused(Activity activity)
+    {
+    }
+
+    public void onActivityResumed(Activity activity)
+    {
+        activity = activity.getApplicationContext();
+        if (a() == cdq.c)
+        {
+            a(activity, false);
+        }
+    }
+
+    public void onActivitySaveInstanceState(Activity activity, Bundle bundle)
+    {
+    }
+
+    public void onActivityStarted(Activity activity)
+    {
+    }
+
+    public void onActivityStopped(Activity activity)
+    {
     }
 }
